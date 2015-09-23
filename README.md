@@ -19,3 +19,8 @@ Hello Yunity!
 - charm ~/yunity
 - Set the project interpreter to ~/yunity/env-python3
 - Run yunity (Shift+F10)
+
+## Settings
+
+In development, you can add and override local settings in `wuppdays/local_settings.py`, which is present in
+`.gitignore` and hence out of version control. If the file is not present, i.e. in production, nothing happens.

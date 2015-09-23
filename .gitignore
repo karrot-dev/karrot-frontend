@@ -5,6 +5,9 @@ __pycache__/
 # C extensions
 *.so
 
+# SQLite extensions
+*.sqlite3
+
 # Distribution / packaging
 .Python
 env/
@@ -55,3 +58,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# PyCharm
+.idea
+
+# Project-specific
+local_settings.py

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+### webcam snapshot (begin) ###
+
+webcam_snapshot() {
+    local snapshot_location="${HOME}/Pictures/git"
+    local snapshot_filename="$(git config --get 'user.email')-$(date +'%Y%m%d_%H%M%S')"
+
+    mkdir -p "${snapshot_location}"
+    vlc --quiet -I dummy v4l2:///dev/video0 --video-filter scene --no-audio \
+        --scene-path "${snapshot_location}" --scene-prefix "${snapshot_filename}" \
+        --scene-format png vlc://quit --run-time=1 -V dummy -A dummy
+}
+
+webcam_snapshot &
+
+### webcam snapshot (end)  ###

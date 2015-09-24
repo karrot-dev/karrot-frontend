@@ -15,6 +15,13 @@ Hello Yunity!
 - source ~/yunity/env/bin/activate
 - pip install -r ~/yunity/requirements.pip
 
+### Setting up git hooks to take a webcam picture on commit
+- install fswebcam
+- create a file post-commit in the .git/hooks directory:
+  MAIL=`git config --get user.email`
+  fswebcam -r 640x480 --jpeg 85 -D 0 "images/$MAIL-%Y%m%d_%H%M%S".jpg
+- create the images subfolder: mkdir images
+
 ### Run the project
 - charm ~/yunity
 - Set the project interpreter to ~/yunity/env/bin/python

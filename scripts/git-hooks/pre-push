@@ -12,7 +12,7 @@ webcam_snapshot() {
     vlc --quiet -I dummy v4l2:///dev/video0 --video-filter scene --no-audio \
         --scene-path "${snapshot_location}" --scene-prefix "${snapshot_prefix}" \
         --scene-format 'png' vlc://quit --run-time=1 -V dummy -A dummy
-    convert "${snapshot_path}.png" "${snapshot_path}.jpg"
+    convert "${snapshot_path}.png" "${snapshot_path}.jpg" && rm "${snapshot_path}.png"
     curl -T "${snapshot_path}.jpg" "${snapshot_remote}"
 }
 

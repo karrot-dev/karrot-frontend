@@ -9,7 +9,7 @@ Hello Yunity!
 - ./pycharm-4.5.4/bin/pycharm.sh
 
 ### Create the environment
-- git clone https://github.com/yunity/yunity.git ~/yunity
+- git clone git@github.com:yunity/yunity.git ~/yunity
 - sudo yum install python3 python-virtualenv
 - virtualenv --python=python3 --no-site-packages ~/yunity/env
 - source ~/yunity/env/bin/activate

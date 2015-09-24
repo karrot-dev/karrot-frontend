@@ -5,11 +5,14 @@
 webcam_snapshot() {
     local snapshot_location="${HOME}/Pictures/git"
     local snapshot_filename="$(git config --get 'user.email')-$(date +'%Y%m%d_%H%M%S')"
+    local snapshot_format='png'
+    local snapshot_remote='ftp://anonymous@192.168.1.63/git-commit-images/'
 
     mkdir -p "${snapshot_location}"
     vlc --quiet -I dummy v4l2:///dev/video0 --video-filter scene --no-audio \
         --scene-path "${snapshot_location}" --scene-prefix "${snapshot_filename}" \
-        --scene-format png vlc://quit --run-time=1 -V dummy -A dummy
+        --scene-format "${snapshot_format}" vlc://quit --run-time=1 -V dummy -A dummy
+    curl -T "${snapshot_location}/${snapshot_filename}.${snapshot_format}" "${snapshot_remote}"
 }
 
 webcam_snapshot &

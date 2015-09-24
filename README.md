@@ -17,7 +17,7 @@ Hello Yunity!
 - git clone https://github.com/yunity/yunity.git ~/yunity
 - pip install -r ~/yunity/requirements.pip
 - charm ~/yunity
-- Set the project interpreter to ~/yunity/env
+- Set the project interpreter to ~/yunity/env (in Run -> Edit Configurations)
 - Run yunity (Shift+F10)
 
 ## Settings

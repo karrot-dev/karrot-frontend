@@ -31,14 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    # core Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'yunity',
+
+    # Django packages
     'django_jinja',
+    'django_extensions',
+
+    # Application
+    'yunity',
 )
 
 MIDDLEWARE_CLASSES = (

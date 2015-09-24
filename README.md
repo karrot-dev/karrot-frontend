@@ -3,21 +3,21 @@ Hello Yunity!
 
 ## Getting started
 
-### Create the environment
-- sudo yum install python3 python-virtualenv
-- virtualenv --python=python3 --no-site-packages ~/yunity/env
-- source ~/yunity/env/bin/activate
-
 ### Install Pycharm
 - wget https://download.jetbrains.com/python/pycharm-professional-4.5.4.tar.gz
 - tar xf pycharm-professional-4.5.4.tar.gz
 - ./pycharm-4.5.4/bin/pycharm.sh
 
-### Open the project
+### Create the environment
 - git clone https://github.com/yunity/yunity.git ~/yunity
+- sudo yum install python3 python-virtualenv
+- virtualenv --python=python3 --no-site-packages ~/yunity/env
+- source ~/yunity/env/bin/activate
 - pip install -r ~/yunity/requirements.pip
+
+### Run the project
 - charm ~/yunity
-- Set the project interpreter to ~/yunity/env (in Run -> Edit Configurations)
+- Set the project interpreter to ~/yunity/env/bin/python
 - Run yunity (Shift+F10)
 
 ## Settings

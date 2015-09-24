@@ -41,7 +41,7 @@ INSTALLED_APPS = (
 
     # Django packages
     'django_jinja',
-    'django_extensions',
+    #'django_extensions',
 
     # Application
     'yunity',

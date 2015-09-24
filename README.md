@@ -5,8 +5,8 @@ Hello Yunity!
 
 ### Create the environment
 - sudo yum install python3 python-virtualenv
-- virtualenv --python=python3 --no-site-packages ~/yunity/env-python3
-- source ~/yunity/env-python3/bin/activate
+- virtualenv --python=python3 --no-site-packages ~/yunity/env
+- source ~/yunity/env/bin/activate
 
 ### Install Pycharm
 - wget https://download.jetbrains.com/python/pycharm-professional-4.5.4.tar.gz

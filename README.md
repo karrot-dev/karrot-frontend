@@ -10,17 +10,11 @@ Hello Yunity!
 
 ### Create the environment
 - git clone git@github.com:yunity/yunity.git ~/yunity
-- sudo yum install python3 python-virtualenv
+- sudo yum install vlc python3 python-virtualenv
 - virtualenv --python=python3 --no-site-packages ~/yunity/env
 - source ~/yunity/env/bin/activate
 - pip install -r ~/yunity/requirements.pip
-
-### Setting up git hooks to take a webcam picture on commit
-- install fswebcam
-- create a file post-commit in the .git/hooks directory:
-  MAIL=`git config --get user.email`
-  fswebcam -r 640x480 --jpeg 85 -D 0 "images/$MAIL-%Y%m%d_%H%M%S".jpg
-- create the images subfolder: mkdir images
+- find ~/yunity/scripts/git-hooks/ -type f -exec ln -s {} .git/hooks \;
 
 ### Run the project
 - charm ~/yunity

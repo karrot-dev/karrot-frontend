@@ -42,19 +42,20 @@ class RegisterView(ApiBase, View):
     def post(self, request):
 
         form = self.RegisterForm(request.POST)
-
         if form.is_valid():
-            user, created = User.objects.get_or_create(
-                username=form.cleaned_data['email'],
-                defaults={
-                    'password': form.cleaned_data['password']
-                }
-            )
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = User.objects.filter(
+                username=email
+            ).first()
 
-            if created:
-                return self.json_response()
-            else:
+            if user:
                 return self.json_response({}, self.STATUS_ERROR)
+            else:
+                user = User.objects.create(username=email)
+                user.set_password(password)
+                user.save()
+                return self.json_response()
         else:
             return self.json_response({
                 'errors': form.errors

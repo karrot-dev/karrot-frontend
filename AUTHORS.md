@@ -8,4 +8,4 @@ Kristijan Miklobusec, kristijan80@web.de
 Neel Peters, njp@riseup.net
 Raphael Wintrich, raphael@geldfrei.net
 Tilmann Becker, tilmann.becker@gmail.com
-Valeri Koort, valerij.koort@gmail.com
+[Valeri Koort](https://github.com/valeriko/), valerij.koort@gmail.com

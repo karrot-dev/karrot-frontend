@@ -20,6 +20,6 @@ import yunity.urls
 
 
 urlpatterns = [
-    url(r'^', include(yunity.urls)),
+    url(r'^api/', include(yunity.urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]

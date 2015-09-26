@@ -1,5 +1,5 @@
 Amos Groth, hi@amosgroth.de
-Clemens Wolff, clemens.wolff+git@gmail.com
+[Clemens Wolff](https://github.com/c-w/), clemens.wolff+git@gmail.com
 Douglas Webb, dmhwebb@gmail.com
 Florian Gössele, goessek@posteo.de
 Kristijan Miklobusec, kristijan80@web.de

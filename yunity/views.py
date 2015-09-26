@@ -1,51 +1,63 @@
-from django.shortcuts import render
-
-from django.contrib.auth import authenticate
 
 from django import forms
-
-from django.views.generic import View
-
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from django.views.generic import View
+from django.shortcuts import render
 
 from yunity.utils.api import ApiBase
-
 
 
 class LoginView(ApiBase, View):
 
     def get(self, request):
+        'TODO: remove'
         return render(request, 'login.html')
 
     def post(self, request):
 
-        result = authenticate(username=request.POST['email'], password=request.POST['password'])
-
-        return self.json_response(data={
-            "result": result
-        })
-
-
-class SignupView(ApiBase, View):
-
-    def get(self, request):
-        return render(request, 'login.html')
-
-    def post(self, request):
-
-        user, created = User.objects.get_or_create(
+        user = authenticate(
             username=request.POST['email'],
-            defaults={
-                'password': request.POST['password']
-            }
+            password=request.POST['password'],
         )
 
-        if created:
-            return self.json_response({
-               "resust" : {}
-            });
-
+        if user:
+            return self.json_response()
         else:
-            return self.json_response({},self.STATUS_ERROR)
+            return self.json_response({
+                'message': 'could not authenticate'
+            }, self.STATUS_ERROR)
+
+
+class RegisterView(ApiBase, View):
+
+    class RegisterForm(forms.Form):
+        email = forms.EmailField()
+        password = forms.CharField(min_length=6, max_length=64)
+
+    def get(self, request):
+        'TODO: remove'
+        return render(request, 'login.html')
+
+    def post(self, request):
+
+        form = self.RegisterForm(request.POST)
+
+        if form.is_valid():
+            user, created = User.objects.get_or_create(
+                username=form.cleaned_data['email'],
+                defaults={
+                    'password': form.cleaned_data['password']
+                }
+            )
+
+            if created:
+                return self.json_response()
+            else:
+                return self.json_response({}, self.STATUS_ERROR)
+        else:
+            return self.json_response({
+                'errors': form.errors
+            }, self.STATUS_ERROR)
 
 

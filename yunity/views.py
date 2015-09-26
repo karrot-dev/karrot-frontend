@@ -4,12 +4,20 @@ from django.contrib.auth import authenticate
 
 from django import forms
 
-class LoginForm(forms.Form):
+from django.views.generic import View
+
+from yunity.utils.api import ApiBase
 
 
-def login(request):
-    if request.method == 'POST':
-        print("TODO")
-        # authenticate(username=)
-    elif request.method == 'GET':
+class LoginView(ApiBase, View):
+
+    def get(self, request):
         return render(request, 'login.html')
+
+    def post(self, request):
+
+        result = authenticate(username=request.POST['email'], password=request.POST['password'])
+
+        return self.json_response(data={
+            "result": result
+        })

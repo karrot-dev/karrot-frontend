@@ -7,28 +7,9 @@
 
     <form method="POST">
         {% csrf_token %}
-        <input name="username" />
+        <input name="email" />
         <input type="password" name="password" />
         <input type="submit" />
-    </form>
-
-    <form>
-        {{ form.name.to_html }}
-        {{ form.password.to_html }}
-        {{ form.date.to_html }}
-    </form>
-
-    <form>
-        {% include 'datepicker.html' field=field %}
-    </form>
-
-    <form>
-
-        {% for field in login_form %}
-            <label name="{{ field.title }}">
-                <input name="{{ field.name }}" />
-            </label>
-        {% endfor %}
     </form>
 
 {% endblock %}

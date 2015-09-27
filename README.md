@@ -8,6 +8,10 @@ Hello Yunity!
 - tar xf pycharm-professional-4.5.4.tar.gz
 - ./pycharm-4.5.4/bin/pycharm.sh
 
+### Install Redis
+- use your packet manager to install the Redis server: apt-get install redis-server or pacman -S redis
+- configure redis accordingly
+
 ### Create the environment
 - git clone git@github.com:yunity/yunity.git ~/yunity
 - sudo yum install vlc python3 python-virtualenv

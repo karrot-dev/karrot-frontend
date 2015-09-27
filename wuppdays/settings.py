@@ -127,6 +127,6 @@ STATIC_URL = '/static/'
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass

@@ -37,7 +37,7 @@ class RegisterView(ApiBase, View):
 
     def get(self, request):
         'TODO: remove'
-        return render(request, 'login.html')
+        return render(request, 'register.html')
 
     def post(self, request):
 
@@ -61,4 +61,17 @@ class RegisterView(ApiBase, View):
                 'errors': form.errors
             }, self.STATUS_ERROR)
 
+class CreateItemView(ApiBase, View):
 
+    def get(self, request):
+        'TODO: remove'
+        return render(request, 'create_item.html')
+
+    def post(self, request):
+
+        item = Item.objects.create(name=request.POST['name'], description=request.POST['description'], latitude=request.POST['latitude'], longitude=request.POST['longitude'])
+
+        if item:
+            return self.json_response({
+                'message': 'item created successfully'
+            })

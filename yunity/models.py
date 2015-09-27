@@ -6,13 +6,6 @@ from django.db.models.signals import post_save, post_delete
 from yunity.utils.elasticsearch import index_doc, delete_doc
 
 
-class CreatedModified(object):
-
-    created = models.DateTimeField(default=datetime.now)
-    modified = models.DateTimeField(auto_now=True)
-
-
-
 class BaseModel(models.Model):
 
     class Meta:
@@ -23,7 +16,18 @@ class BaseModel(models.Model):
         return cls.__name__.lower()
 
 
+class CreatedModified(BaseModel):
+    "Adds created/modified fields to a model, automatically populated"
+
+    created = models.DateTimeField(default=datetime.now)
+    modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
 class Category(BaseModel):
+
     name = models.CharField(max_length=128)
     parent = models.ForeignKey(
         'yunity.Category',
@@ -38,7 +42,7 @@ class Category(BaseModel):
         }
 
 
-class Shareable(BaseModel, CreatedModified):
+class Shareable(CreatedModified):
 
     description = models.TextField()
     category = models.ForeignKey(Category)
@@ -52,6 +56,14 @@ class Shareable(BaseModel, CreatedModified):
             "latitude": self.latitude,
             "longitude": self.longitude,
         }
+
+    def to_es(self):
+        d = self.to_dict()
+        d['location'] = {
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+        }
+        return d
 
 
 def es_index_instance(sender, instance, **kwargs):

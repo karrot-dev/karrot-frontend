@@ -28,8 +28,17 @@ def drop_index(es):
 
 def create_index(es):
 
+    from yunity.models import Shareable, Category
+
     SHAREABLE_MAPPING = {
-        "shareable": {}
+        Shareable.get_es_doc_type(): {
+            'properties': {
+                'location': {
+                    'type': 'geo_point',
+                    'doc_values': True,
+                }
+            }
+        }
     }
 
     es.indices.create(index=settings.ES_INDEX, ignore=400)

@@ -24,10 +24,10 @@ if you get "low disk watermark" errors after some time, create a config .yml fil
 
 ```yml
 cluster:
-  routing:
-    allocation:
-      disk:
-        threshold_enabled: false
+    routing:
+      allocation:
+        disk:
+          threshold_enabled: false
 ```
 
 Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``

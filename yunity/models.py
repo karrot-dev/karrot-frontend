@@ -2,20 +2,20 @@ from datetime import datetime
 
 from django.db import models
 from django.db.models.signals import post_save, post_delete
-
 from django.conf import settings
 
 from yunity.utils.elasticsearch import index_doc, delete_doc
 
 
-class BaseModel(models.Model):
-
-    class Meta:
-        abstract = True
-
+class ElasticsearchMixin(object):
     @classmethod
     def get_es_doc_type(cls):
         return cls.__name__.lower()
+
+
+class BaseModel(models.Model):
+    class Meta:
+        abstract = True
 
     def to_dict(self):
         return {}
@@ -65,7 +65,7 @@ class Category(BaseModel):
         return d
 
 
-class Mappable(CreatedModified):
+class Mappable(CreatedModified, ElasticsearchMixin):
 
     description = models.TextField()
     category = models.ForeignKey(Category)

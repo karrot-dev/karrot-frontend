@@ -5,9 +5,13 @@ from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import render
 from .models import Mappable, Category
+import logging
 
+from django.forms.models import model_to_dict
 from yunity.utils.api import ApiBase
 
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 class LoginView(ApiBase, View):
 
@@ -83,3 +87,13 @@ class CreateMappableView(ApiBase, View):
             return self.json_response({
                 'message': 'item created successfully'
             })
+
+class GetMappableView(ApiBase, View):
+
+    def get(self, request, mappable_id):
+        'TODO: remove'
+        mappable = Mappable.objects.get(id=mappable_id)
+        logger.error('Mappable ID: ' + str(mappable.id))
+        #return render(request, 'get_mappable.html', { 'mappable': mappable })
+
+        return self.json_response(model_to_dict(mappable))

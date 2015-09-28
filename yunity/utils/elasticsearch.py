@@ -1,5 +1,6 @@
 
 from django.conf import settings
+from django.db.models.signals import post_save, post_delete
 
 from elasticsearch import Elasticsearch, NotFoundError
 from elasticsearch_dsl import Search
@@ -70,3 +71,32 @@ def delete_doc(doc_type, pk):
         doc_type=doc_type,
         id=pk
     )
+
+
+def es_index_instance(sender, instance, **kwargs):
+    table_name = instance.__class__.get_es_doc_type()
+    index_doc(table_name, instance.pk, instance.to_dict())
+
+
+def es_delete_instance(sender, instance, **kwargs):
+    table_name = instance.__class__.get_es_doc_type()
+    delete_doc(table_name, instance.pk)
+
+
+def connect_signals(es_models):
+    for model in es_models:
+        post_save.connect(
+            es_index_instance,
+            sender=model,
+            dispatch_uid="update_%s" % model.get_es_doc_type()
+        )
+        post_delete.connect(
+            es_delete_instance,
+            sender=model,
+            dispatch_uid="delete_%s" % model.get_es_doc_type()
+        )
+
+ES_MODELS = (
+)
+
+connect_signals(ES_MODELS)

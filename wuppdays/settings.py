@@ -40,8 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Django packages
-    # 'django_jinja',
     'django_extensions',
+    'corsheaders',
 
     # Application
     'yunity',
@@ -49,6 +49,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -133,6 +134,8 @@ USE_TZ = True
 
 ES_HOST = os.environ.get('ES_HOST', 'localhost')
 ES_INDEX = 'yunity'
+
+CORS_ORIGIN_WHITELIST = ('localhost:8080',)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/

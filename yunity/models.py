@@ -17,6 +17,12 @@ class BaseModel(models.Model):
     def get_es_doc_type(cls):
         return cls.__name__.lower()
 
+    def to_dict(self):
+        raise NotImplementedError('abstract method')
+
+    def __repr__(self):
+        return repr(self.to_dict())
+
 
 class CreatedModified(BaseModel):
     "Adds created/modified fields to a model, automatically populated"

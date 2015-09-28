@@ -6,6 +6,12 @@ from elasticsearch import Elasticsearch, NotFoundError
 from elasticsearch_dsl import Search
 
 
+class ElasticsearchMixin(object):
+    @classmethod
+    def get_es_doc_type(cls):
+        return cls.__name__.lower()
+
+
 def es_client(timeout=120):
     return Elasticsearch([{'host': settings.ES_HOST, 'timeout': timeout}])
 

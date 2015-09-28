@@ -1,12 +1,6 @@
 from django.db.models import Model, CharField
 
 
-class ElasticsearchMixin(object):
-    @classmethod
-    def get_es_doc_type(cls):
-        return cls.__name__.lower()
-
-
 class MaxLengthCharField(CharField):
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 255

@@ -16,6 +16,22 @@ Hello Yunity!
 - use your packet manager to install the Redis server: apt-get install redis-server or pacman -S redis
 - configure redis accordingly
 
+### Install Elasticsearch
+- e.g. OS X: `brew install elasticsearch`
+- `elasticsearch` to run the server
+
+if you get "low disk watermark" errors after some time, create a config .yml file (e.g. `~/.elasticsearch.yml` with the following contents:
+
+```yml
+cluster:
+  routing:
+    allocation:
+      disk:
+        threshold_enabled: false
+```
+
+Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
+
 ### Create the environment
 - git clone git@github.com:yunity/yunity.git ~/yunity
 - sudo yum install vlc python3 python3-devel python-virtualenv

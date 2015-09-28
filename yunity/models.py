@@ -3,6 +3,8 @@ from datetime import datetime
 from django.db import models
 from django.db.models.signals import post_save, post_delete
 
+from django.conf import settings
+
 from yunity.utils.elasticsearch import index_doc, delete_doc
 
 
@@ -15,6 +17,12 @@ class BaseModel(models.Model):
     def get_es_doc_type(cls):
         return cls.__name__.lower()
 
+    def to_dict(self):
+        return {}
+
+    def __repr__(self):
+        return 'Model({})'.format(repr(self.to_dict()))
+
 
 class CreatedModified(BaseModel):
     "Adds created/modified fields to a model, automatically populated"
@@ -24,6 +32,14 @@ class CreatedModified(BaseModel):
 
     class Meta:
         abstract = True
+
+    def to_dict(self):
+        d = BaseModel.to_dict(self)
+        d.update({
+            'created': self.created,
+            'modified': self.modified,
+        })
+        return d
 
 
 class Category(BaseModel):
@@ -36,10 +52,12 @@ class Category(BaseModel):
     )
 
     def to_dict(self):
-        return {
+        d = BaseModel.to_dict(self)
+        d.update({
             "name": self.name,
             "parent_id": self.parent_id,
-        }
+        })
+        return d
 
 
 class Mappable(CreatedModified):
@@ -50,12 +68,14 @@ class Mappable(CreatedModified):
     longitude = models.FloatField(null=True)
 
     def to_dict(self):
-        return {
+        d = CreatedModified.to_dict(self)
+        d.update({
             "description": self.description,
             "category_id": self.category_id,
             "latitude": self.latitude,
             "longitude": self.longitude,
-        }
+        })
+        return d
 
     def to_es(self):
         d = self.to_dict()
@@ -64,6 +84,21 @@ class Mappable(CreatedModified):
             "longitude": self.longitude,
         }
         return d
+
+class Chat(BaseModel):
+    "Chat between two or more users"
+
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL) # store many userids
+
+
+class ChatMessage(BaseModel):
+    "Chat messages belonging to a specific chat"
+
+    timestamp = models.DateTimeField()
+    chat = models.ForeignKey(Chat)
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL)
+    type = models.CharField(max_length=100)
+    content = models.TextField()
 
 
 def es_index_instance(sender, instance, **kwargs):

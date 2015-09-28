@@ -30,7 +30,7 @@ def create_index(es):
 
     from yunity.models import Mappable, Category
 
-    SHAREABLE_MAPPING = {
+    MAPPABLE_MAPPING = {
         Mappable.get_es_doc_type(): {
             'properties': {
                 'location': {
@@ -45,8 +45,8 @@ def create_index(es):
 
     es.indices.put_mapping(
         index=settings.ES_INDEX,
-        doc_type='shareable',
-        body=SHAREABLE_MAPPING
+        doc_type=Mappable.get_es_doc_type(),
+        body=MAPPABLE_MAPPING
     )
 
 

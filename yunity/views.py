@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import render
+from .models import Mappable
 
 from yunity.utils.api import ApiBase
 
@@ -69,7 +70,11 @@ class CreateItemView(ApiBase, View):
 
     def post(self, request):
 
-        item = Item.objects.create(name=request.POST['name'], description=request.POST['description'], latitude=request.POST['latitude'], longitude=request.POST['longitude'])
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        latitude = request.POST.get('latitude')
+        longitude = request.POST.get('longitude')
+        item = Mappable.objects.create(name=name, description=description, latitude=latitude, longitude=longitude)
 
         if item:
             return self.json_response({

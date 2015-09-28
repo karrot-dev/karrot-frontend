@@ -3,12 +3,12 @@
 
 {% block content %}
 
-    <h1>create an item</h1>
+    <h1>New Mappable</h1>
 
     <form method="POST">
         {{ csrf_input }}
-        <label>name</label><input name="name" placeholder="required" />
-        <label>description</label><input type="password" name="password" placeholder="not required" />
+        <label>category</label><input name="category" placeholder="required" />
+        <label>description</label><input name="description" placeholder="not required" />
         <label>latitude</label><input name="latitude" placeholder="required" />
         <label>longitude</label><input name="longitude" placeholder="required" />
         <input type="submit" />

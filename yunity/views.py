@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import render
-from .models import Mappable
+from .models import Mappable, Category
 
 from yunity.utils.api import ApiBase
 
@@ -62,19 +62,22 @@ class RegisterView(ApiBase, View):
                 'errors': form.errors
             }, self.STATUS_ERROR)
 
-class CreateItemView(ApiBase, View):
+class CreateMappableView(ApiBase, View):
 
     def get(self, request):
         'TODO: remove'
-        return render(request, 'create_item.html')
+        return render(request, 'create_mappable.html')
 
     def post(self, request):
 
-        name = request.POST.get('name')
         description = request.POST.get('description')
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
-        item = Mappable.objects.create(name=name, description=description, latitude=latitude, longitude=longitude)
+        category_name = request.POST.get('category')
+
+        category = Category.objects.get_or_create(name=category_name)[0]
+
+        item = Mappable.objects.create(category=category, description=description, latitude=latitude, longitude=longitude)
 
         if item:
             return self.json_response({

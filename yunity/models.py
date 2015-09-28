@@ -25,7 +25,7 @@ class BaseModel(models.Model):
 
 
 class CreatedModified(BaseModel):
-    "Adds created/modified fields to a model, automatically populated"
+    """Adds created/modified fields to a model, automatically populated"""
 
     created = models.DateTimeField(default=datetime.now)
     modified = models.DateTimeField(auto_now=True)
@@ -85,14 +85,15 @@ class Mappable(CreatedModified):
         }
         return d
 
-class Chat(BaseModel):
-    "Chat between two or more users"
 
-    members = models.ManyToManyField(settings.AUTH_USER_MODEL) # store many userids
+class Chat(BaseModel):
+    """Chat between two or more users"""
+
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL)  # store many userids
 
 
 class ChatMessage(BaseModel):
-    "Chat messages belonging to a specific chat"
+    """Chat messages belonging to a specific chat"""
 
     timestamp = models.DateTimeField()
     chat = models.ForeignKey(Chat)
@@ -111,8 +112,8 @@ def es_delete_instance(sender, instance, **kwargs):
     delete_doc(table_name, instance.pk)
 
 
-def connect_signals(models):
-    for model in models:
+def connect_signals(es_models):
+    for model in es_models:
         post_save.connect(
             es_index_instance,
             sender=model,
@@ -130,4 +131,3 @@ ES_MODELS = (
 )
 
 connect_signals(ES_MODELS)
-

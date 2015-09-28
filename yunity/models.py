@@ -18,7 +18,7 @@ class BaseModel(models.Model):
         return cls.__name__.lower()
 
     def to_dict(self):
-        raise NotImplementedError('abstract method')
+        return {}
 
     def __repr__(self):
         return 'Model({})'.format(repr(self.to_dict()))
@@ -33,6 +33,14 @@ class CreatedModified(BaseModel):
     class Meta:
         abstract = True
 
+    def to_dict(self):
+        d = BaseModel.to_dict(self)
+        d.update({
+            'created': self.created,
+            'modified': self.modified,
+        })
+        return d
+
 
 class Category(BaseModel):
 
@@ -44,10 +52,12 @@ class Category(BaseModel):
     )
 
     def to_dict(self):
-        return {
+        d = BaseModel.to_dict(self)
+        d.update({
             "name": self.name,
             "parent_id": self.parent_id,
-        }
+        })
+        return d
 
 
 class Mappable(CreatedModified):
@@ -58,12 +68,14 @@ class Mappable(CreatedModified):
     longitude = models.FloatField(null=True)
 
     def to_dict(self):
-        return {
+        d = CreatedModified.to_dict(self)
+        d.update({
             "description": self.description,
             "category_id": self.category_id,
             "latitude": self.latitude,
             "longitude": self.longitude,
-        }
+        })
+        return d
 
     def to_es(self):
         d = self.to_dict()

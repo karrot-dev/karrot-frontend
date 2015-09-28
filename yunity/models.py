@@ -73,13 +73,13 @@ class Mappable(CreatedModified):
         }
         return d
 
-class Chat(models.Model):
+class Chat(BaseModel):
     "Chat between two or more users"
 
     members = models.ManyToManyField(settings.AUTH_USER_MODEL) # store many userids
 
 
-class ChatMessage(models.Model):
+class ChatMessage(BaseModel):
     "Chat messages belonging to a specific chat"
 
     timestamp = models.DateTimeField()

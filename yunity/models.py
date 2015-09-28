@@ -137,9 +137,11 @@ def connect_signals(es_models):
             dispatch_uid="delete_%s" % model.get_es_doc_type()
         )
 
+# models that will have post_save and post_delete signals attached
+# for syncing with Elasticsearch. These models must inherit from
+# ElasticsearchMixin
 ES_MODELS = (
-    Category,
-    Mappable
+    Mappable,
 )
 
 connect_signals(ES_MODELS)

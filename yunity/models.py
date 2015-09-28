@@ -3,6 +3,8 @@ from datetime import datetime
 from django.db import models
 from django.db.models.signals import post_save, post_delete
 
+from django.conf import settings
+
 from yunity.utils.elasticsearch import index_doc, delete_doc
 
 
@@ -64,6 +66,21 @@ class Mappable(CreatedModified):
             "longitude": self.longitude,
         }
         return d
+
+class Chat(models.Model):
+    "Chat between two or more users"
+
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL) # store many userids
+
+
+class ChatMessage(models.Model):
+    "Chat messages belonging to a specific chat"
+
+    timestamp = models.DateTimeField()
+    chat = models.ForeignKey(Chat)
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL)
+    type = models.CharField(max_length=100)
+    content = models.TextField()
 
 
 def es_index_instance(sender, instance, **kwargs):

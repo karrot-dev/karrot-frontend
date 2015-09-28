@@ -21,7 +21,7 @@ class BaseModel(models.Model):
         raise NotImplementedError('abstract method')
 
     def __repr__(self):
-        return repr(self.to_dict())
+        return 'Model({})'.format(repr(self.to_dict()))
 
 
 class CreatedModified(BaseModel):

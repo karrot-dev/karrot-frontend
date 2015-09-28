@@ -24,8 +24,13 @@ class BaseModel(models.Model):
         return 'Model({})'.format(repr(self.to_dict()))
 
 
-class CreatedModified(BaseModel):
-    """Adds created/modified fields to a model, automatically populated"""
+class Versionable(BaseModel):
+
+    pass
+
+
+class CreatedModified(Versionable):
+    "Adds created/modified fields to a model, automatically populated"
 
     created = models.DateTimeField(default=datetime.now)
     modified = models.DateTimeField(auto_now=True)
@@ -86,8 +91,8 @@ class Mappable(CreatedModified):
         return d
 
 
-class Chat(BaseModel):
-    """Chat between two or more users"""
+class Chat(Versionable):
+    "Chat between two or more users"
 
     members = models.ManyToManyField(settings.AUTH_USER_MODEL)  # store many userids
 
@@ -95,11 +100,18 @@ class Chat(BaseModel):
 class ChatMessage(BaseModel):
     """Chat messages belonging to a specific chat"""
 
-    timestamp = models.DateTimeField()
+    time = models.DateTimeField()
     chat = models.ForeignKey(Chat)
     sender = models.ForeignKey(settings.AUTH_USER_MODEL)
-    type = models.CharField(max_length=100)
+    type = models.CharField(max_length=200)
     content = models.TextField()
+
+class Event(BaseModel):
+
+    object = models.ForeignKey(Versionable)
+    initiator = models.ForeignKey(settings.AUTH_USER_MODEL)
+    type = models.CharField(max_length=200)
+    time = models.DateTimeField(default=datetime.now)
 
 
 def es_index_instance(sender, instance, **kwargs):

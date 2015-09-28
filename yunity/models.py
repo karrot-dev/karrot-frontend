@@ -42,7 +42,7 @@ class Category(BaseModel):
         }
 
 
-class Shareable(CreatedModified):
+class Mappable(CreatedModified):
 
     description = models.TextField()
     category = models.ForeignKey(Category)
@@ -91,7 +91,7 @@ def connect_signals(models):
 
 ES_MODELS = (
     Category,
-    Shareable
+    Mappable
 )
 
 connect_signals(ES_MODELS)

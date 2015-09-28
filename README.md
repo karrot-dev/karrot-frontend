@@ -18,7 +18,7 @@ Hello Yunity!
 
 ### Create the environment
 - git clone git@github.com:yunity/yunity.git ~/yunity
-- sudo yum install vlc python3 python-virtualenv
+- sudo yum install vlc python3 python3-devel python-virtualenv
 - virtualenv --python=python3 --no-site-packages ~/yunity/env
 - source ~/yunity/env/bin/activate
 - pip install -r ~/yunity/requirements.pip

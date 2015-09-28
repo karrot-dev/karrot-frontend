@@ -45,6 +45,12 @@ Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml
 - Set the project interpreter to ~/yunity/env/bin/python
 - Run yunity (Shift+F10)
 
+## Architecture
+
+### Data model
+
+[![ER diagram](documentation/er-diagram.png)](https://drive.google.com/file/d/0B-3d76NgOlSSdk9VYVNWUWdBUEk/view)
+
 ## Settings
 
 In development, you can add and override local settings in

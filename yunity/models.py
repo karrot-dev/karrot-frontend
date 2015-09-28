@@ -2,20 +2,20 @@ from datetime import datetime
 
 from django.db import models
 from django.db.models.signals import post_save, post_delete
-
 from django.conf import settings
 
 from yunity.utils.elasticsearch import index_doc, delete_doc
 
 
-class BaseModel(models.Model):
-
-    class Meta:
-        abstract = True
-
+class ElasticsearchMixin(object):
     @classmethod
     def get_es_doc_type(cls):
         return cls.__name__.lower()
+
+
+class BaseModel(models.Model):
+    class Meta:
+        abstract = True
 
     def to_dict(self):
         return {}
@@ -24,7 +24,12 @@ class BaseModel(models.Model):
         return 'Model({})'.format(repr(self.to_dict()))
 
 
-class CreatedModified(BaseModel):
+class Versionable(BaseModel):
+
+    pass
+
+
+class CreatedModified(Versionable):
     "Adds created/modified fields to a model, automatically populated"
 
     created = models.DateTimeField(default=datetime.now)
@@ -60,7 +65,7 @@ class Category(BaseModel):
         return d
 
 
-class Mappable(CreatedModified):
+class Mappable(CreatedModified, ElasticsearchMixin):
 
     description = models.TextField()
     category = models.ForeignKey(Category)
@@ -85,20 +90,28 @@ class Mappable(CreatedModified):
         }
         return d
 
-class Chat(BaseModel):
+
+class Chat(Versionable):
     "Chat between two or more users"
 
-    members = models.ManyToManyField(settings.AUTH_USER_MODEL) # store many userids
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL)  # store many userids
 
 
 class ChatMessage(BaseModel):
-    "Chat messages belonging to a specific chat"
+    """Chat messages belonging to a specific chat"""
 
-    timestamp = models.DateTimeField()
+    time = models.DateTimeField()
     chat = models.ForeignKey(Chat)
     sender = models.ForeignKey(settings.AUTH_USER_MODEL)
-    type = models.CharField(max_length=100)
+    type = models.CharField(max_length=200)
     content = models.TextField()
+
+class Event(BaseModel):
+
+    object = models.ForeignKey(Versionable)
+    initiator = models.ForeignKey(settings.AUTH_USER_MODEL)
+    type = models.CharField(max_length=200)
+    time = models.DateTimeField(default=datetime.now)
 
 
 def es_index_instance(sender, instance, **kwargs):
@@ -111,8 +124,8 @@ def es_delete_instance(sender, instance, **kwargs):
     delete_doc(table_name, instance.pk)
 
 
-def connect_signals(models):
-    for model in models:
+def connect_signals(es_models):
+    for model in es_models:
         post_save.connect(
             es_index_instance,
             sender=model,
@@ -130,4 +143,3 @@ ES_MODELS = (
 )
 
 connect_signals(ES_MODELS)
-

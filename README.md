@@ -24,10 +24,10 @@ if you get "low disk watermark" errors after some time, create a config .yml fil
 
 ```yml
 cluster:
-  routing:
-    allocation:
-      disk:
-        threshold_enabled: false
+    routing:
+      allocation:
+        disk:
+          threshold_enabled: false
 ```
 
 Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
@@ -44,6 +44,12 @@ Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml
 - charm ~/yunity
 - Set the project interpreter to ~/yunity/env/bin/python
 - Run yunity (Shift+F10)
+
+## Architecture
+
+### Data model
+
+[![ER diagram](documentation/er-diagram.png)](https://drive.google.com/file/d/0B-3d76NgOlSSdk9VYVNWUWdBUEk/view)
 
 ## Settings
 

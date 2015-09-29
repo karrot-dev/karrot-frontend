@@ -20,4 +20,6 @@ class BaseModel(Model):
         return {field: getattr(self, field) for field in fields}
 
     def __repr__(self):
-        return 'Model({})'.format(repr(self.to_dict()))
+        model = str(self.__class__.__name__)
+        columns = ', '.join('{}="{}"'.format(field, value) for field, value in self.to_dict().items())
+        return '{}({})'.format(model, columns)

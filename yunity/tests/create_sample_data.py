@@ -22,6 +22,11 @@ can happen at Tilmann's office in Munich (between 5pm and 6pm) or at his home be
 Neel and Matthias showed interest in picking up the food and Tilmann chose to give the food to Neel. The pick up went
 seamlessly so Tilmann left some positive feedback on Neel.
 
+Chat
+========================
+
+Neel chats lorem ipsum with Tilmann, while Flo, Matthias and Tilmann have a group chat discussion about lorem ipsum.
+
 """
 from datetime import datetime
 from django.utils.timezone import make_aware as add_timezone
@@ -84,7 +89,6 @@ message_neel_cantcome = Message.objects.create(type=Message.TYPE.TEXT, content="
 message_Tilmann_basketdescription = Message.objects.create(type=Message.TYPE.TEXT, content='please pick up my super tasty stuff', sender=user_Tilmann)
 message_Tilmann_basketpicture = Message.objects.create(type=Message.TYPE.PICTURE, content='yunity.org/pics/mybasket.png', sender=user_Tilmann)
 
-
 ##################################################
 # use-case: foodsharing store
 ##################################################
@@ -122,3 +126,27 @@ MappableResponsibility.objects.create(responsible=user_Tilmann, mappable=foodsha
 
 ItemRequest.objects.create(requester=user_neel, requested=foodsharing_basket, feedback=ItemRequest.FEEDBACK.OK)
 ItemRequest.objects.create(requester=user_matthias, requested=foodsharing_basket, feedback=ItemRequest.FEEDBACK.NOT_GRANTED)
+
+##################################################
+# use-case: chat
+##################################################
+
+chat_pair = Chat.objects.create()
+chat_pair.participants.add(user_neel, user_Tilmann)
+
+for i in range(100):
+    m = Message.objects.create(content="Hi Neel, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_Tilmann)
+    chat_pair.messages.add(m)
+    m = Message.objects.create(content="Hi Tilmann, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_neel)
+    chat_pair.messages.add(m)
+
+chat_group = Chat.objects.create()
+chat_group.participants.add(user_matthias, user_flo, user_Tilmann)
+
+for i in range(100):
+    m = Message.objects.create(content="Hi all, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_matthias)
+    chat_pair.messages.add(m)
+    m = Message.objects.create(content="Hi too, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_flo)
+    chat_pair.messages.add(m)
+    m = Message.objects.create(content="Bla, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_Tilmann)
+    chat_pair.messages.add(m)

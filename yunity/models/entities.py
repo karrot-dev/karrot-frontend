@@ -42,7 +42,7 @@ class User(BaseModel):
 class Message(BaseModel):
     @classproperty
     def TYPE(cls):
-        return cls.create_constants('type', 'TEXT')
+        return cls.create_constants('type', 'TEXT', 'PICTURE')
 
     sender = ForeignKey(User)
 

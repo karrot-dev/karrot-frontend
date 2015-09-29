@@ -4,14 +4,14 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import render
-from .models import Mappable, Category
+
 import logging
 
-from django.forms.models import model_to_dict
 from yunity.utils.api import ApiBase
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
+
 
 class LoginView(ApiBase, View):
 
@@ -65,57 +65,3 @@ class RegisterView(ApiBase, View):
             return self.json_response({
                 'errors': form.errors
             }, self.STATUS_ERROR)
-
-class CreateMappableView(ApiBase, View):
-
-
-    def get(self, request):
-        'TODO: remove'
-        return render(request, 'create_mappable.html')
-
-    def post(self, request):
-
-        description = request.POST.get('description')
-        latitude = request.POST.get('latitude')
-        longitude = request.POST.get('longitude')
-        category_name = request.POST.get('category')
-
-        category = Category.objects.get_or_create(name=category_name)[0]
-
-        item = Mappable.objects.create(category=category, description=description, latitude=latitude, longitude=longitude)
-
-        if item:
-            return self.json_response({
-                'message': 'item created successfully'
-            })
-
-class GetMappableView(ApiBase, View):
-
-    def get(self, request, mappable_id):
-        'TODO: remove'
-        mappable = Mappable.objects.get(id=mappable_id)
-        logger.error('Mappable ID: ' + str(mappable.id))
-        #return render(request, 'get_mappable.html', { 'mappable': mappable })
-
-        return self.json_response(model_to_dict(mappable))
-
-
-class GetChatView(ApiBase, View):
-
-    def get(self, request, chatid):
-        'TODO: remove'
-        return render(request, 'chat.html', {'chatid': chatid})
-
-import crossbarconnect
-from datetime import datetime
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-@csrf_exempt
-def post_chat_view(request):
-    json = {}
-    json.update(request.POST)
-    id = request.POST.get('id', '')
-    json['timestamp'] = datetime.now().isoformat()
-    client = crossbarconnect.Client("http://127.0.0.1:8080/publish")
-    client.publish("chat.%s" % id, json)
-    return HttpResponse()

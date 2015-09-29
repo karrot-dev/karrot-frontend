@@ -1,6 +1,7 @@
 from django.db.models import TextField, ForeignKey, FloatField, DateTimeField, ManyToManyField
 from yunity.models.utils import BaseModel, MaxLengthCharField
 from yunity.utils.decorators import classproperty
+from yunity.utils.elasticsearch import ElasticsearchMixin
 
 
 class Versionable(BaseModel):
@@ -51,7 +52,7 @@ class Message(BaseModel):
     createdAt = DateTimeField(auto_now=True)
 
 
-class Mappable(Versionable):
+class Mappable(Versionable, ElasticsearchMixin):
     category = ManyToManyField(Category)
     metadata = ManyToManyField(Metadata)
     wall = ManyToManyField(Message)
@@ -61,6 +62,14 @@ class Mappable(Versionable):
 
     provenance = MaxLengthCharField()
     name = TextField()
+
+    def to_es(self):
+        d = self.to_dict()
+        d['location'] = {
+            'latitude': d['latitude'],
+            'longitude': d['longitude'],
+        }
+        return d
 
 
 class Event(BaseModel):

@@ -1,3 +1,4 @@
+from collections import namedtuple
 from django.db.models import Model, CharField, Field
 
 
@@ -10,6 +11,14 @@ class MaxLengthCharField(CharField):
 class BaseModel(Model):
     class Meta:
         abstract = True
+
+    @classmethod
+    def create_constants(cls, column_name, *values):
+        class_name = cls.__class__.__name__
+        namespace = '{}_{}'.format(class_name, column_name)
+        constant_factory = namedtuple(namespace, values)
+        constant_values = ['{}.{}'.format(namespace, value) for value in values]
+        return constant_factory(*constant_values)
 
     def _get_explicit_field_names(self):
         return [field.name for field in self._meta.get_fields()

@@ -1,5 +1,6 @@
 from django.db.models import TextField, ForeignKey, FloatField, DateTimeField, ManyToManyField
 from yunity.models.utils import BaseModel, MaxLengthCharField
+from yunity.utils.decorators import classproperty
 
 
 class Versionable(BaseModel):
@@ -17,6 +18,10 @@ class Category(BaseModel):
 
 
 class Contact(BaseModel):
+    @classproperty
+    def TYPE(cls):
+        return cls.create_constants('type', 'EMAIL', 'DIRECT')
+
     value = MaxLengthCharField()
     type = MaxLengthCharField()
 
@@ -33,6 +38,10 @@ class User(BaseModel):
 
 
 class Message(BaseModel):
+    @classproperty
+    def TYPE(cls):
+        return cls.create_constants('type', 'TEXT')
+
     content = TextField()
     type = MaxLengthCharField()
     createdAt = DateTimeField(auto_now=True)

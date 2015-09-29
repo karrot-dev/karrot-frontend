@@ -1,6 +1,7 @@
 from django.db.models import ForeignKey, DateTimeField
 from yunity.models.entities import User, Location, Mappable, Contact
 from yunity.models.utils import BaseModel, MaxLengthCharField
+from yunity.utils.decorators import classproperty
 
 
 class MappableLocation(BaseModel):
@@ -11,6 +12,10 @@ class MappableLocation(BaseModel):
 
 
 class MappableResponsibility(BaseModel):
+    @classproperty
+    def TYPE(cls):
+        return cls.create_constants('type', 'OWNER')
+
     responsible = ForeignKey(User)
     mappable = ForeignKey(Mappable)
     status = MaxLengthCharField()

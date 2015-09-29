@@ -18,12 +18,6 @@ class MappableResponsibility(BaseModel):
     type = MaxLengthCharField()
 
 
-class UserContact(BaseModel):
-    user = ForeignKey(User)
-    contact = ForeignKey(Contact)
-    type = MaxLengthCharField()
-
-
 class UserLocation(BaseModel):
     user = ForeignKey(User)
     location = ForeignKey(Location)

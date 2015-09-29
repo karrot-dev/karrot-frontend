@@ -28,7 +28,7 @@ class Location(BaseModel):
 
 class User(BaseModel):
     name = TextField()
-    contact = ManyToManyField(Contact, through='yunity.UserContact')
+    contact = ManyToManyField(Contact)
     location = ManyToManyField(Location, null=True, through='yunity.UserLocation')
 
 

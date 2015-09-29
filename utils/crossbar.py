@@ -5,7 +5,8 @@ from utils.session import SharedSessionData
 
 class YunityAuthorizer(ApplicationSession):
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.s = SharedSessionData(False)
 
     @inlineCallbacks

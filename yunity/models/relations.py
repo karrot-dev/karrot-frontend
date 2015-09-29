@@ -50,4 +50,3 @@ class ItemRequest(BaseModel):
     requested = ForeignKey(Mappable)
 
     feedback = MaxLengthCharField(null=True, default=None)
-

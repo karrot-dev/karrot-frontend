@@ -29,13 +29,13 @@ class Location(BaseModel):
 class User(BaseModel):
     name = TextField()
     contact = ManyToManyField(Contact, through='yunity.UserContact')
-    location = ManyToManyField(Location, through='yunity.UserLocation')
+    location = ManyToManyField(Location, null=True, through='yunity.UserLocation')
 
 
 class Message(BaseModel):
     content = TextField()
     type = MaxLengthCharField()
-    createdAt = DateTimeField()
+    createdAt = DateTimeField(auto_now=True)
 
 
 class Mappable(Versionable):
@@ -45,7 +45,7 @@ class Mappable(Versionable):
     category = ForeignKey(Category)
     location = ManyToManyField(Location, through='yunity.MappableLocation')
     contact = ManyToManyField(Contact)
-    wall = ManyToManyField(Message)
+    wall = ManyToManyField(Message, null=True)
     responsible = ManyToManyField(User, through='yunity.MappableResponsibility')
 
 

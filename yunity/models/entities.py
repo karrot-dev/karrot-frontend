@@ -1,4 +1,4 @@
-from django.db.models import CharField, TextField, ForeignKey, FloatField, DateTimeField, ManyToManyField
+from django.db.models import TextField, ForeignKey, FloatField, DateTimeField, ManyToManyField
 from yunity.models.utils import BaseModel, MaxLengthCharField
 
 

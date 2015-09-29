@@ -7,17 +7,18 @@ Hello Yunity!
 
 ## Getting started
 
+### Install system dependencies
+- Python: python3 python3-devel python-virtualenv
+- Databases: redis [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/1.4/setup-repositories.html)
+- Real-time: gcc libffi-devel python-devel openssl-devel
+- Push-hooks: vlc
+
 ### Install Pycharm
 - wget https://download.jetbrains.com/python/pycharm-professional-4.5.4.tar.gz
 - tar xf pycharm-professional-4.5.4.tar.gz
 - ./pycharm-4.5.4/bin/pycharm.sh
 
-### Install Redis
-- use your packet manager to install the Redis server: apt-get install redis-server or pacman -S redis
-- configure redis accordingly
-
 ### Install Elasticsearch
-- e.g. OS X: `brew install elasticsearch`
 - `elasticsearch` to run the server
 
 if you get "low disk watermark" errors after some time, create a config .yml file (e.g. `~/.elasticsearch.yml` with the following contents:
@@ -34,7 +35,6 @@ Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml
 
 ### Create the environment
 - git clone git@github.com:yunity/yunity.git ~/yunity
-- sudo yum install vlc python3 python3-devel python-virtualenv
 - virtualenv --python=python3 --no-site-packages ~/yunity/env
 - source ~/yunity/env/bin/activate
 - pip install -r ~/yunity/requirements.pip

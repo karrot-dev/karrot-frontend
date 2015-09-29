@@ -1,5 +1,5 @@
 from django.db.models import ForeignKey, DateTimeField, ManyToManyField
-from yunity.models.entities import User, Location, Mappable, Contact, Message
+from yunity.models.entities import User, Location, Mappable, Message
 from yunity.models.utils import BaseModel, MaxLengthCharField
 from yunity.utils.decorators import classproperty
 

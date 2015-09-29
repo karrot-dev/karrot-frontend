@@ -26,7 +26,9 @@ class BaseModel(Model):
 
     def to_dict(self):
         fields = self._get_explicit_field_names()
-        return {field: getattr(self, field) for field in fields}
+        return {
+            field: getattr(self, field) for field in fields
+            if getattr(self, field)}
 
     def __repr__(self):
         model = str(self.__class__.__name__)

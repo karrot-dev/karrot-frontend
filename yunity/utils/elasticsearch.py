@@ -1,3 +1,4 @@
+import abc
 
 from django.conf import settings
 from django.db.models.signals import post_save, post_delete
@@ -7,9 +8,19 @@ from elasticsearch_dsl import Search
 
 
 class ElasticsearchMixin(object):
+
+    @abc.abstractmethod
+    def to_es(self):
+        "Generate Elasticsearch representation"
+        raise NotImplementedError
+
     @classmethod
     def get_es_doc_type(cls):
         return cls.__name__.lower()
+
+    @classmethod
+    def es_search(cls):
+        return es_search(cls.get_es_doc_type())
 
 
 def es_client(timeout=120):
@@ -40,8 +51,9 @@ def create_index(es):
     MAPPABLE_MAPPING = {
         Mappable.get_es_doc_type(): {
             'properties': {
-                'location': {
+                'locations': {
                     'type': 'geo_point',
+                    'index_name': 'location',
                     'doc_values': True,
                 }
             }
@@ -56,10 +68,27 @@ def create_index(es):
         body=MAPPABLE_MAPPING
     )
 
+def get_es_indexed_models():
+
+    from yunity.models import Mappable
+
+    return (
+        Mappable,
+    )
+
+
+def index_db(models):
+    for model in models:
+        for o in model.objects.all():
+            index_doc(model.get_es_doc_type(), o.pk, o.to_es())
+
 
 def rebuild_index(es):
+    "Drop, recreate, and reindex all models"
+
     drop_index(es)
     create_index(es)
+    index_db(get_es_indexed_models())
 
 
 def index_doc(doc_type, pk, body):
@@ -81,7 +110,7 @@ def delete_doc(doc_type, pk):
 
 def es_index_instance(sender, instance, **kwargs):
     table_name = instance.__class__.get_es_doc_type()
-    index_doc(table_name, instance.pk, instance.to_dict())
+    index_doc(table_name, instance.pk, instance.to_es())
 
 
 def es_delete_instance(sender, instance, **kwargs):
@@ -89,8 +118,9 @@ def es_delete_instance(sender, instance, **kwargs):
     delete_doc(table_name, instance.pk)
 
 
-def connect_signals(es_models):
-    for model in es_models:
+def connect_signals(models):
+
+    for model in models:
         post_save.connect(
             es_index_instance,
             sender=model,
@@ -102,7 +132,4 @@ def connect_signals(es_models):
             dispatch_uid="delete_%s" % model.get_es_doc_type()
         )
 
-ES_MODELS = (
-)
-
-connect_signals(ES_MODELS)
+# connect_signals()

@@ -2,8 +2,9 @@
 from django.conf.urls import include, url
 
 import yunity.views.auth
-import yunity.views.mappable
 import yunity.views.chat
+import yunity.views.mappable
+import yunity.views.search
 
 
 urlpatterns = [
@@ -12,5 +13,6 @@ urlpatterns = [
     url(r'^mappables/new', yunity.views.mappable.CreateMappableView.as_view()),
     url(r'^mappables/(?P<mappable_id>[0-9]+)', yunity.views.mappable.GetMappableView.as_view()),
     url(r'^msg/post', yunity.views.chat.post_chat_view),
-    url(r'^msg/(?P<chatid>[0-9]+)', yunity.views.chat.GetChatView.as_view())
+    url(r'^msg/(?P<chatid>[0-9]+)', yunity.views.chat.GetChatView.as_view()),
+    url(r'^search/mappables/', yunity.views.search.SearchMappableView.as_view()),
 ]

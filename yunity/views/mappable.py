@@ -13,7 +13,6 @@ logger = logging.getLogger(__name__)
 
 class CreateMappableView(ApiBase, View):
 
-
     def get(self, request):
         'TODO: remove'
         return render(request, 'create_mappable.html')

@@ -145,8 +145,8 @@ chat_group.participants.add(user_matthias, user_flo, user_Tilmann)
 
 for i in range(100):
     m = Message.objects.create(content="Hi all, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_matthias)
-    chat_pair.messages.add(m)
+    chat_group.messages.add(m)
     m = Message.objects.create(content="Hi too, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_flo)
-    chat_pair.messages.add(m)
+    chat_group.messages.add(m)
     m = Message.objects.create(content="Bla, lorem ipsum %i" %i, type=Message.TYPE.TEXT, sender=user_Tilmann)
-    chat_pair.messages.add(m)
+    chat_group.messages.add(m)

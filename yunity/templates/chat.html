@@ -41,9 +41,9 @@
                 ev.preventDefault();
                 chatid = {{ chatid }};
                 $.ajax({
-                    url: '/api/msg/post',
+                    url: '/api/msg/',
                     data: {content: $('#compose').val(),
-                            type: 'text',
+                            type: 'TEXT',
                             id: chatid,
                             },
                     type: 'POST'

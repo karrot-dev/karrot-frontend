@@ -34,7 +34,7 @@ class Location(BaseModel):
 
 class User(BaseModel):
     contact = ManyToManyField(Contact)
-    location = ManyToManyField(Location, null=True, through='yunity.UserLocation')
+    location = ManyToManyField(Location, through='yunity.UserLocation')
 
     name = TextField()
 
@@ -53,8 +53,8 @@ class Message(BaseModel):
 
 class Mappable(Versionable):
     category = ManyToManyField(Category)
-    metadata = ManyToManyField(Metadata, null=True)
-    wall = ManyToManyField(Message, null=True)
+    metadata = ManyToManyField(Metadata)
+    wall = ManyToManyField(Message)
     contact = ManyToManyField(Contact)
     location = ManyToManyField(Location, through='yunity.MappableLocation')
     responsible = ManyToManyField(User, through='yunity.MappableResponsibility')

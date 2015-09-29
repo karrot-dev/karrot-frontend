@@ -52,8 +52,8 @@ class Message(BaseModel):
 
 
 class Mappable(Versionable):
-    category = ForeignKey(Category)
-    metadata = ForeignKey(Metadata, null=True)
+    category = ManyToManyField(Category)
+    metadata = ManyToManyField(Metadata, null=True)
     wall = ManyToManyField(Message, null=True)
     contact = ManyToManyField(Contact)
     location = ManyToManyField(Location, through='yunity.MappableLocation')

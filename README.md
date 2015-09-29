@@ -43,7 +43,7 @@ Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml
 ### Start the Crossbar.io realtime communication server
 Enables real time push messages from server to client
 - cd ~/yunity
-- crossbar startyunity/models.py
+- crossbar start
 
 ### Run the project
 - charm ~/yunity

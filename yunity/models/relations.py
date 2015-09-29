@@ -30,7 +30,7 @@ class MappableResponsibility(BaseModel):
     mappable = ForeignKey(Mappable)
 
     status = MaxLengthCharField()
-    date = DateTimeField(null=True)
+    date = DateTimeField(null=True, auto_now=True)
     type = MaxLengthCharField()
 
 

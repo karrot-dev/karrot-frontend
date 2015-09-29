@@ -26,7 +26,7 @@ class MappableResponsibility(BaseModel):
     def STATUS(cls):
         return cls.create_constants('status', 'GRANTED', 'PENDING', 'REQUESTED')
 
-    responsible = ForeignKey(User)
+    responsible = ForeignKey(User, null=True)
     mappable = ForeignKey(Mappable)
 
     status = MaxLengthCharField()

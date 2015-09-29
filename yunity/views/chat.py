@@ -23,8 +23,10 @@ class ChatView(ApiBase, View):
                 "content": msg['content'],
                 "createdAt": msg['createdAt']}
 
-    def get(self, request, id):
+    def get(self, request):
         "get history for chatid"
+
+        id = request.GET['id']
         data = Chat.objects.get(id=id).messages.all()
 
         return self.json_response([self._serialize_message(x) for x in data])
@@ -50,17 +52,20 @@ class ChatView(ApiBase, View):
             if json['type'] != "TEXT":
                 raise Exception("Unknown message type")
 
-            Message.objects.create(
+            m = Message.objects.create(
                 sender=User.objects.get(id=json['sender']),
                 content=json['content'],
                 type=msg_type,
                 createdAt=json['timestamp']
             )
+            Chat.objects.get(id=json['id']).messages.add(m)
 
             client = crossbarconnect.Client("http://127.0.0.1:8081/publish")
-            client.publish("yunity.public.%s" % json['id'], json)
+            client.publish("yunity.public.chat.%s" % json['id'], json)
             return HttpResponse(status=201)
         return HttpResponse(status=404)
+
+
 
 def chat_demo(request, chatid):
     'TODO: remove template'

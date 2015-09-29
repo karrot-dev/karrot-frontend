@@ -12,6 +12,7 @@ class Chat(BaseModel):
 class MappableLocation(BaseModel):
     mappable = ForeignKey(Mappable)
     location = ForeignKey(Location)
+
     startTime = DateTimeField(null=True)
     endTime = DateTimeField(null=True)
 
@@ -23,6 +24,7 @@ class MappableResponsibility(BaseModel):
 
     responsible = ForeignKey(User)
     mappable = ForeignKey(Mappable)
+
     status = MaxLengthCharField()
     date = DateTimeField(null=True)
     type = MaxLengthCharField()
@@ -31,11 +33,13 @@ class MappableResponsibility(BaseModel):
 class UserLocation(BaseModel):
     user = ForeignKey(User)
     location = ForeignKey(Location)
+
     type = MaxLengthCharField()
 
 
 class ItemRequest(BaseModel):
     requester = ForeignKey(User)
     requested = ForeignKey(Mappable)
+
     feedback = MaxLengthCharField(null=True, default=None)
 

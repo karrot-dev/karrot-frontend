@@ -13,8 +13,9 @@ class Metadata(BaseModel):
 
 
 class Category(BaseModel):
-    name = MaxLengthCharField()
     parent = ForeignKey('yunity.Category', null=True, related_name='children')
+
+    name = MaxLengthCharField()
 
 
 class Contact(BaseModel):
@@ -32,9 +33,10 @@ class Location(BaseModel):
 
 
 class User(BaseModel):
-    name = TextField()
     contact = ManyToManyField(Contact)
     location = ManyToManyField(Location, null=True, through='yunity.UserLocation')
+
+    name = TextField()
 
 
 class Message(BaseModel):
@@ -43,24 +45,27 @@ class Message(BaseModel):
         return cls.create_constants('type', 'TEXT')
 
     sender = ForeignKey(User)
+
     content = TextField()
     type = MaxLengthCharField()
     createdAt = DateTimeField(auto_now=True)
 
 
 class Mappable(Versionable):
+    category = ForeignKey(Category)
+    metadata = ForeignKey(Metadata, null=True)
+    wall = ManyToManyField(Message, null=True)
+    contact = ManyToManyField(Contact)
+    location = ManyToManyField(Location, through='yunity.MappableLocation')
+    responsible = ManyToManyField(User, through='yunity.MappableResponsibility')
+
     provenance = MaxLengthCharField()
     name = TextField()
-    metadata = ForeignKey(Metadata, null=True)
-    category = ForeignKey(Category)
-    location = ManyToManyField(Location, through='yunity.MappableLocation')
-    contact = ManyToManyField(Contact)
-    wall = ManyToManyField(Message, null=True)
-    responsible = ManyToManyField(User, through='yunity.MappableResponsibility')
 
 
 class Event(BaseModel):
-    type = MaxLengthCharField()
-    time = DateTimeField(auto_now=True)
     initiator = ForeignKey(User)
     target = ForeignKey(Versionable)
+
+    type = MaxLengthCharField()
+    time = DateTimeField(auto_now=True)

@@ -40,6 +40,11 @@ Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml
 - pip install -r ~/yunity/requirements.pip
 - find ~/yunity/scripts/git-hooks/ -type f -exec ln -s {} .git/hooks \;
 
+### Start the Crossbar.io realtime communication server
+Enables real time push messages from server to client
+- cd ~/yunity
+- crossbar startyunity/models.py
+
 ### Run the project
 - charm ~/yunity
 - Set the project interpreter to ~/yunity/env/bin/python

@@ -1,0 +1,75 @@
+{% extends '_base.html' %}
+
+{% block script %}
+
+    <script src="https://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz"
+            type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <!-- All our client code, inlined to easy reading -->
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#send').click(function(ev){
+                ev.preventDefault();
+                chatid = {{ chatid }};
+                $.ajax({
+                    url: '/api/msg/post',
+                    data: {content: $('#compose').val(),
+                            type: 'text',
+                            id: chatid,
+                            },
+                    type: 'POST'
+                });
+
+            });
+            $('#connect').click(function(ev){
+                ev.preventDefault();
+
+                /* Connection configuration to our WAMP router */
+                var connection = new autobahn.Connection({
+                    url: 'ws://127.0.0.1:8080/ws',
+                    realm: 'realm1'
+                });
+
+                /* When the connection is opened, execute this code */
+                connection.onopen = function(session) {
+
+                    console.log("connected!");
+
+                    var clients = document.getElementById("clients");
+
+                    /* When we receive the 'clientstats' event, run this function */
+                    topic = $('#topic').val();
+                    session.subscribe(topic, function(args){
+                        var msg = args[0];
+                        if(msg != '') {
+                            //$('#messages').append('<li>('+msg.timestamp+'): '+msg.content+'</li>');
+                            $('#messages').append('<li>'+JSON.stringify(msg)+'</li>');
+                        }
+
+                    });
+
+                };
+
+                // Open the WAMP connection with the router.
+                connection.open();
+
+            });
+        });
+
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <h1> Yunity Chat </h1>
+    Topic: <textarea id="topic">chat.{{ chatid }}</textarea>
+
+    <a id="connect" href="#">Connect</a>
+
+    <ul id="messages"></ul>
+    <textarea id="compose"></textarea>
+    <a href='#' id="send">Send</a>
+
+{% endblock %}

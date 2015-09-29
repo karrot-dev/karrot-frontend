@@ -68,6 +68,7 @@ class RegisterView(ApiBase, View):
 
 class CreateMappableView(ApiBase, View):
 
+
     def get(self, request):
         'TODO: remove'
         return render(request, 'create_mappable.html')
@@ -97,3 +98,24 @@ class GetMappableView(ApiBase, View):
         #return render(request, 'get_mappable.html', { 'mappable': mappable })
 
         return self.json_response(model_to_dict(mappable))
+
+
+class GetChatView(ApiBase, View):
+
+    def get(self, request, chatid):
+        'TODO: remove'
+        return render(request, 'chat.html', {'chatid': chatid})
+
+import crossbarconnect
+from datetime import datetime
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def post_chat_view(request):
+    json = {}
+    json.update(request.POST)
+    id = request.POST.get('id', '')
+    json['timestamp'] = datetime.now().isoformat()
+    client = crossbarconnect.Client("http://127.0.0.1:8080/publish")
+    client.publish("chat.%s" % id, json)
+    return HttpResponse()

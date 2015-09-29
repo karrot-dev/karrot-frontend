@@ -42,6 +42,10 @@ class UserLocation(BaseModel):
 
 
 class ItemRequest(BaseModel):
+    @classproperty
+    def FEEDBACK(cls):
+        return cls.create_constants('feedback', 'OK', 'NO_SHOW', 'NOT_GRANTED')
+
     requester = ForeignKey(User)
     requested = ForeignKey(Mappable)
 

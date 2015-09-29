@@ -38,10 +38,13 @@ Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml
 - virtualenv --python=python3 --no-site-packages ~/yunity/env
 - source ~/yunity/env/bin/activate
 - pip install -r ~/yunity/requirements.pip
-- find ~/yunity/scripts/git-hooks/ -type f -exec ln -s {} .git/hooks \;
+- To push a git commit image, decide between VLC or fswebcam:
+    - ln -rs scripts/git-hooks/pre-push .git/hooks/pre-push
+    - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
 ### Start the Crossbar.io realtime communication server
 Enables real time push messages from server to client
+
 - cd ~/yunity
 - crossbar start
 

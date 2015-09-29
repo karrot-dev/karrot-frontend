@@ -22,6 +22,10 @@ class MappableResponsibility(BaseModel):
     def TYPE(cls):
         return cls.create_constants('type', 'OWNER')
 
+    @classproperty
+    def STATUS(cls):
+        return cls.create_constants('status', 'GRANTED', 'PENDING', 'REQUESTED')
+
     responsible = ForeignKey(User)
     mappable = ForeignKey(Mappable)
 

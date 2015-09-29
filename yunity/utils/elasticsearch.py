@@ -51,8 +51,9 @@ def create_index(es):
     MAPPABLE_MAPPING = {
         Mappable.get_es_doc_type(): {
             'properties': {
-                'location': {
+                'locations': {
                     'type': 'geo_point',
+                    'index_name': 'location',
                     'doc_values': True,
                 }
             }
@@ -67,10 +68,27 @@ def create_index(es):
         body=MAPPABLE_MAPPING
     )
 
+def get_es_indexed_models():
+
+    from yunity.models import Mappable
+
+    return (
+        Mappable,
+    )
+
+
+def index_db(models):
+    for model in models:
+        for o in model.objects.all():
+            index_doc(model.get_es_doc_type(), o.pk, o.to_es())
+
 
 def rebuild_index(es):
+    "Drop, recreate, and reindex all models"
+
     drop_index(es)
     create_index(es)
+    index_db(get_es_indexed_models())
 
 
 def index_doc(doc_type, pk, body):
@@ -100,14 +118,9 @@ def es_delete_instance(sender, instance, **kwargs):
     delete_doc(table_name, instance.pk)
 
 
-def connect_signals():
-    from yunity.models import Mappable
+def connect_signals(models):
 
-    ES_MODELS = (
-        Mappable,
-    )
-
-    for model in ES_MODELS:
+    for model in models:
         post_save.connect(
             es_index_instance,
             sender=model,

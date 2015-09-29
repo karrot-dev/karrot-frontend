@@ -64,12 +64,16 @@ class Mappable(Versionable, ElasticsearchMixin):
     name = TextField()
 
     def to_es(self):
-        d = self.to_dict()
-        d['location'] = {
-            'latitude': d['latitude'],
-            'longitude': d['longitude'],
+        return {
+            "name": self.name,
+            "locations": [
+                {
+                    "lat": loc.latitude,
+                    "lon": loc.longitude,
+                }
+                for loc in self.location.all()
+            ]
         }
-        return d
 
 
 class Event(BaseModel):

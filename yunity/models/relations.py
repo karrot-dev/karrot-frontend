@@ -1,7 +1,12 @@
-from django.db.models import ForeignKey, DateTimeField
-from yunity.models.entities import User, Location, Mappable, Contact
+from django.db.models import ForeignKey, DateTimeField, ManyToManyField
+from yunity.models.entities import User, Location, Mappable, Contact, Message
 from yunity.models.utils import BaseModel, MaxLengthCharField
 from yunity.utils.decorators import classproperty
+
+
+class Chat(BaseModel):
+    participants = ManyToManyField(User)
+    messages = ManyToManyField(Message)
 
 
 class MappableLocation(BaseModel):

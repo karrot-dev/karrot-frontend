@@ -63,5 +63,8 @@ target/
 # PyCharm
 .idea
 
+# Crossbar PID file
+.crossbar/node.pid
+
 # Project-specific
 local_settings.py

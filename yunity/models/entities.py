@@ -42,6 +42,7 @@ class Message(BaseModel):
     def TYPE(cls):
         return cls.create_constants('type', 'TEXT')
 
+    sender = ForeignKey(User)
     content = TextField()
     type = MaxLengthCharField()
     createdAt = DateTimeField(auto_now=True)

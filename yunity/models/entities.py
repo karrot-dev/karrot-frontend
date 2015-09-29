@@ -54,3 +54,7 @@ class Event(BaseModel):
     time = DateTimeField(auto_now=True)
     initiator = ForeignKey(User)
     target = ForeignKey(Versionable)
+
+
+
+

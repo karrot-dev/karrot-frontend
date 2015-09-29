@@ -11,12 +11,7 @@ from yunity.utils.elasticsearch import es_client, rebuild_index
 
 
 class Command(BaseCommand):
-    option_list = BaseCommand.option_list + (
-        make_option('-d',
-                    help='Only drops/deletes the ES index, not rebuild',
-                    action='store_true',
-                    dest='drop'),
-    )
+    option_list = BaseCommand.option_list
 
     help = (
         'drops and rebuilds the Elasticsearch index from Postgres, check cache'

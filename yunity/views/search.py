@@ -20,7 +20,7 @@ def filter_es_geo_distance(esq, lat, lon, radius_km):
     """
     geo_params = {
         'distance': "%skm" % radius_km,
-        'location': {
+        'mappable.location': {
             'lat': lat,
             'lon': lon,
         }
@@ -49,9 +49,9 @@ def sort_es_geo_distance(esq, lat, lon):
 class SearchMappableView(ApiBase, View):
 
     def get(self, request):
-        lat = request.GET.get('lat')
-        lon = request.GET.get('lon')
-        radius = request.GET.get('radius_km')
+        lat = float(request.GET.get('lat', 0))
+        lon = float(request.GET.get('lon', 0))
+        radius = float(request.GET.get('radius_km', 0))
 
         esq = Mappable.es_search()
         if lat and lon:

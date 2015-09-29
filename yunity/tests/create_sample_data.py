@@ -29,96 +29,98 @@ from django.utils.timezone import make_aware as add_timezone
 from yunity.models import *
 
 
-##################################################
-# category
-##################################################
-category_foodsharing = Category.objects.create(name='foodsharing')
-category_foodsharing_company = Category.objects.create(name='company', parent=category_foodsharing)
-category_foodsharing_food = Category.objects.create(name='food', parent=category_foodsharing)
-category_foodsharing_food_organic = Category.objects.create(name='Organic', parent=category_foodsharing_food)
-category_foodsharing_food_bread = Category.objects.create(name='bread', parent=category_foodsharing_food)
-category_foodsharing_food_banana = Category.objects.create(name='banana', parent=category_foodsharing_food)
-category_foodsharing_food_basket = Category.objects.create(name='basket', parent=category_foodsharing_food)
+def create_sample_data():
+
+    ##################################################
+    # category
+    ##################################################
+    category_foodsharing = Category.objects.create(name='foodsharing')
+    category_foodsharing_company = Category.objects.create(name='company', parent=category_foodsharing)
+    category_foodsharing_food = Category.objects.create(name='food', parent=category_foodsharing)
+    category_foodsharing_food_organic = Category.objects.create(name='Organic', parent=category_foodsharing_food)
+    category_foodsharing_food_bread = Category.objects.create(name='bread', parent=category_foodsharing_food)
+    category_foodsharing_food_banana = Category.objects.create(name='banana', parent=category_foodsharing_food)
+    category_foodsharing_food_basket = Category.objects.create(name='basket', parent=category_foodsharing_food)
 
 
-##################################################
-# location
-##################################################
-munich1 = Location.objects.create(latitude=48.13, longitude=11.57)
-munich2 = Location.objects.create(latitude=48.161552, longitude=11.644833)
-munich3 = Location.objects.create(latitude=48.161552, longitude=11.642)
+    ##################################################
+    # location
+    ##################################################
+    munich1 = Location.objects.create(latitude=48.13, longitude=11.57)
+    munich2 = Location.objects.create(latitude=48.161552, longitude=11.644833)
+    munich3 = Location.objects.create(latitude=48.161552, longitude=11.642)
 
 
-##################################################
-# user
-##################################################
-user_Tilmann = User.objects.create(name='Tilmann')
-UserLocation.objects.create(user=user_Tilmann, location=munich2, type='UserLocation_type.HOME')
-UserLocation.objects.create(user=user_Tilmann, location=munich3, type='UserLocation_type.WORK')
+    ##################################################
+    # user
+    ##################################################
+    user_Tilmann = User.objects.create(name='Tilmann')
+    UserLocation.objects.create(user=user_Tilmann, location=munich2, type='UserLocation_type.HOME')
+    UserLocation.objects.create(user=user_Tilmann, location=munich3, type='UserLocation_type.WORK')
 
-user_matthias = User.objects.create(name='Matthias')
-user_neel = User.objects.create(name='Neel')
-user_flo = User.objects.create(name='Flo')
-
-
-##################################################
-# contact
-##################################################
-contact_Tilmann_pm = Contact.objects.create(type=Contact.TYPE.DIRECT, value=user_Tilmann.id)
-contact_Tilmann_email = Contact.objects.create(type=Contact.TYPE.EMAIL, value='Tilmann@foodsharing.de')
-user_Tilmann.contact.add(contact_Tilmann_pm)
-user_Tilmann.contact.add(contact_Tilmann_email)
+    user_matthias = User.objects.create(name='Matthias')
+    user_neel = User.objects.create(name='Neel')
+    user_flo = User.objects.create(name='Flo')
 
 
-##################################################
-# metadata
-##################################################
-metadata_companycontact = Metadata.objects.create(key='companycontact', value='Jon +49 111 222 333')
-metadata_basketweight = Metadata.objects.create(key='basketweight', value='5.1kg')
+    ##################################################
+    # contact
+    ##################################################
+    contact_Tilmann_pm = Contact.objects.create(type=Contact.TYPE.DIRECT, value=user_Tilmann.id)
+    contact_Tilmann_email = Contact.objects.create(type=Contact.TYPE.EMAIL, value='Tilmann@foodsharing.de')
+    user_Tilmann.contact.add(contact_Tilmann_pm)
+    user_Tilmann.contact.add(contact_Tilmann_email)
 
 
-##################################################
-# message
-##################################################
-message_neel_cantcome = Message.objects.create(type=Message.TYPE.TEXT, content="hey guys, i can't make the pickup today :(", sender=user_neel)
-message_Tilmann_basketdescription = Message.objects.create(type=Message.TYPE.TEXT, content='please pick up my super tasty stuff', sender=user_Tilmann)
-message_Tilmann_basketpicture = Message.objects.create(type=Message.TYPE.PICTURE, content='yunity.org/pics/mybasket.png', sender=user_Tilmann)
+    ##################################################
+    # metadata
+    ##################################################
+    metadata_companycontact = Metadata.objects.create(key='companycontact', value='Jon +49 111 222 333')
+    metadata_basketweight = Metadata.objects.create(key='basketweight', value='5.1kg')
 
 
-##################################################
-# use-case: foodsharing store
-##################################################
-
-foodsharing_store = Mappable.objects.create(provenance='yunity.org', name='alnatura')
-foodsharing_store.category.add(category_foodsharing_food_organic, category_foodsharing_company, category_foodsharing)
-foodsharing_store.metadata.add(metadata_companycontact)
-foodsharing_store.wall.add(message_neel_cantcome)
-foodsharing_store.contact.add(contact_Tilmann_pm)
-MappableLocation.objects.create(mappable=foodsharing_store, location=munich1)
-
-MappableResponsibility.objects.create(responsible=user_Tilmann, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type=MappableResponsibility.TYPE.OWNER)
-MappableResponsibility.objects.create(responsible=user_matthias, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type=MappableResponsibility.TYPE.OWNER)
-MappableResponsibility.objects.create(responsible=user_neel, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type='MappableResponsibility_type.TEAM')
-MappableResponsibility.objects.create(responsible=user_flo, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type='MappableResponsibility_type.TEAM')
-MappableResponsibility.objects.create(responsible=user_flo, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-15 17:00', '%Y-%m-%d %H:%M')))
-MappableResponsibility.objects.create(responsible=user_neel, mappable=foodsharing_store, status=MappableResponsibility.STATUS.REQUESTED, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-14 17:00', '%Y-%m-%d %H:%M')))
-MappableResponsibility.objects.create(responsible=user_neel, mappable=foodsharing_store, status=MappableResponsibility.STATUS.REQUESTED, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-13 17:00', '%Y-%m-%d %H:%M')))
-MappableResponsibility.objects.create(responsible=None, mappable=foodsharing_store, status=MappableResponsibility.STATUS.PENDING, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-12 17:00', '%Y-%m-%d %H:%M')))
+    ##################################################
+    # message
+    ##################################################
+    message_neel_cantcome = Message.objects.create(type=Message.TYPE.TEXT, content="hey guys, i can't make the pickup today :(", sender=user_neel)
+    message_Tilmann_basketdescription = Message.objects.create(type=Message.TYPE.TEXT, content='please pick up my super tasty stuff', sender=user_Tilmann)
+    message_Tilmann_basketpicture = Message.objects.create(type=Message.TYPE.PICTURE, content='yunity.org/pics/mybasket.png', sender=user_Tilmann)
 
 
-##################################################
-# use-case: food basket
-##################################################
+    ##################################################
+    # use-case: foodsharing store
+    ##################################################
 
-foodsharing_basket = Mappable.objects.create(provenance='foodsharing.de', name='super tasty bananas and bread')
-foodsharing_basket.category.add(category_foodsharing_food_bread, category_foodsharing_food_banana, category_foodsharing_food_basket, category_foodsharing)
-foodsharing_basket.metadata.add(metadata_basketweight)
-foodsharing_basket.wall.add(message_Tilmann_basketdescription, message_Tilmann_basketpicture)
-foodsharing_basket.contact.add(contact_Tilmann_email)
-MappableLocation.objects.create(mappable=foodsharing_basket, location=munich2, startTime=add_timezone(datetime.strptime('2015-10-15 17:00', '%Y-%m-%d %H:%M')), endTime=add_timezone(datetime.strptime('2015-10-15 18:00', '%Y-%m-%d %H:%M')))
-MappableLocation.objects.create(mappable=foodsharing_basket, location=munich3, startTime=add_timezone(datetime.strptime('2015-10-15 19:00', '%Y-%m-%d %H:%M')), endTime=add_timezone(datetime.strptime('2015-10-15 20:00', '%Y-%m-%d %H:%M')))
+    foodsharing_store = Mappable.objects.create(provenance='yunity.org', name='alnatura')
+    foodsharing_store.category.add(category_foodsharing_food_organic, category_foodsharing_company, category_foodsharing)
+    foodsharing_store.metadata.add(metadata_companycontact)
+    foodsharing_store.wall.add(message_neel_cantcome)
+    foodsharing_store.contact.add(contact_Tilmann_pm)
+    MappableLocation.objects.create(mappable=foodsharing_store, location=munich1)
 
-MappableResponsibility.objects.create(responsible=user_Tilmann, mappable=foodsharing_basket, status=MappableResponsibility.STATUS.GRANTED, type=MappableResponsibility.TYPE.OWNER)
+    MappableResponsibility.objects.create(responsible=user_Tilmann, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type=MappableResponsibility.TYPE.OWNER)
+    MappableResponsibility.objects.create(responsible=user_matthias, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type=MappableResponsibility.TYPE.OWNER)
+    MappableResponsibility.objects.create(responsible=user_neel, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type='MappableResponsibility_type.TEAM')
+    MappableResponsibility.objects.create(responsible=user_flo, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type='MappableResponsibility_type.TEAM')
+    MappableResponsibility.objects.create(responsible=user_flo, mappable=foodsharing_store, status=MappableResponsibility.STATUS.GRANTED, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-15 17:00', '%Y-%m-%d %H:%M')))
+    MappableResponsibility.objects.create(responsible=user_neel, mappable=foodsharing_store, status=MappableResponsibility.STATUS.REQUESTED, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-14 17:00', '%Y-%m-%d %H:%M')))
+    MappableResponsibility.objects.create(responsible=user_neel, mappable=foodsharing_store, status=MappableResponsibility.STATUS.REQUESTED, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-13 17:00', '%Y-%m-%d %H:%M')))
+    MappableResponsibility.objects.create(responsible=None, mappable=foodsharing_store, status=MappableResponsibility.STATUS.PENDING, type='MappableResponsibility_type.PICKER', date=add_timezone(datetime.strptime('2015-10-12 17:00', '%Y-%m-%d %H:%M')))
 
-ItemRequest.objects.create(requester=user_neel, requested=foodsharing_basket, feedback=ItemRequest.FEEDBACK.OK)
-ItemRequest.objects.create(requester=user_matthias, requested=foodsharing_basket, feedback=ItemRequest.FEEDBACK.NOT_GRANTED)
+
+    ##################################################
+    # use-case: food basket
+    ##################################################
+
+    foodsharing_basket = Mappable.objects.create(provenance='foodsharing.de', name='super tasty bananas and bread')
+    foodsharing_basket.category.add(category_foodsharing_food_bread, category_foodsharing_food_banana, category_foodsharing_food_basket, category_foodsharing)
+    foodsharing_basket.metadata.add(metadata_basketweight)
+    foodsharing_basket.wall.add(message_Tilmann_basketdescription, message_Tilmann_basketpicture)
+    foodsharing_basket.contact.add(contact_Tilmann_email)
+    MappableLocation.objects.create(mappable=foodsharing_basket, location=munich2, startTime=add_timezone(datetime.strptime('2015-10-15 17:00', '%Y-%m-%d %H:%M')), endTime=add_timezone(datetime.strptime('2015-10-15 18:00', '%Y-%m-%d %H:%M')))
+    MappableLocation.objects.create(mappable=foodsharing_basket, location=munich3, startTime=add_timezone(datetime.strptime('2015-10-15 19:00', '%Y-%m-%d %H:%M')), endTime=add_timezone(datetime.strptime('2015-10-15 20:00', '%Y-%m-%d %H:%M')))
+
+    MappableResponsibility.objects.create(responsible=user_Tilmann, mappable=foodsharing_basket, status=MappableResponsibility.STATUS.GRANTED, type=MappableResponsibility.TYPE.OWNER)
+
+    ItemRequest.objects.create(requester=user_neel, requested=foodsharing_basket, feedback=ItemRequest.FEEDBACK.OK)
+    ItemRequest.objects.create(requester=user_matthias, requested=foodsharing_basket, feedback=ItemRequest.FEEDBACK.NOT_GRANTED)

@@ -25,7 +25,7 @@ Hello Yunity!
 - source ~/virtualenvs/yunity/bin/activate
 - pip install -r ~/yunity/requirements.pip
 - To push a git commit image, decide between VLC or fswebcam:
-  - ln -rs scripts/git-hooks/pre-push .git/hooks/pre-push
+  - ln -rs scripts/git-hooks/picture-vlc .git/hooks/pre-push
   - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
 ### Start the servers

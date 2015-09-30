@@ -45,6 +45,12 @@ cluster:
 
 Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
 
+If you need to modify the crossbar ip/port settings, you may copy the .crossbar/config.json to a local .crossbar/config_local.json and run
+
+- crossbar start --config config_server.json
+
+(the .crossbar path is automatically prepended)
+
 ### Run the project
 - charm ~/yunity-core
 - Set the project interpreter to ~/virtualenvs/yunity-core/bin/python

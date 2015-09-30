@@ -2,8 +2,7 @@
 [![Stories in "Next"](https://badge.waffle.io/yunity/yunity-core.svg?label=%5Bkanban%5D%20next&title=Next)](https://waffle.io/yunity/yunity-core)
 [![Stories in "In Progress"](https://badge.waffle.io/yunity/yunity-core.svg?label=%5Bkanban%5D%20in-progress&title=In%20Progress)](https://waffle.io/yunity/yunity-core)
 
-# yunity
-Hello Yunity!
+# yunity-core
 
 ## Getting started
 
@@ -18,10 +17,23 @@ Hello Yunity!
 - tar xf pycharm-professional-4.5.4.tar.gz
 - ./pycharm-4.5.4/bin/pycharm.sh
 
-### Install Elasticsearch
-- `elasticsearch` to run the server
+### Create the environment
+- git clone git@github.com:yunity/yunity-core.git ~/yunity-core
+- mkdir -p ~/virtualenvs/yunity-core
+- virtualenv --python=python3 --no-site-packages ~/virtualenvs/yunity-core
+- source ~/virtualenvs/yunity-core/bin/activate
+- pip install -r ~/yunity-core/requirements.pip
+- To push a git commit image, decide between VLC or fswebcam:
+  - ln -rs scripts/git-hooks/picture-vlc .git/hooks/pre-push
+  - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
-if you get "low disk watermark" errors after some time, create a config .yml file (e.g. `~/.elasticsearch.yml` with the following contents:
+### Start the servers
+- Start Elasticsearch: sudo /etc/init.d/elasticsearch start
+- Start Crossbar: cd ~/yunity-core; crossbar start
+- Start Redis: redis-server
+
+If you get "low disk watermark" errors from ElasticSearch, create a config .yml file (e.g. `~/.elasticsearch.yml`) with
+the following contents:
 
 ```yml
 cluster:
@@ -33,22 +45,16 @@ cluster:
 
 Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
 
-### Create the environment
-- git clone git@github.com:yunity/yunity.git ~/yunity
-- virtualenv --python=python3 --no-site-packages ~/yunity/env
-- source ~/yunity/env/bin/activate
-- pip install -r ~/yunity/requirements.pip
-- find ~/yunity/scripts/git-hooks/ -type f -exec ln -s {} .git/hooks \;
+If you need to modify the crossbar ip/port settings, you may copy the .crossbar/config.json to a local .crossbar/config_local.json and run
 
-### Start the Crossbar.io realtime communication server
-Enables real time push messages from server to client
-- cd ~/yunity
-- crossbar start
+- crossbar start --config config_server.json
+
+(the .crossbar path is automatically prepended)
 
 ### Run the project
-- charm ~/yunity
-- Set the project interpreter to ~/yunity/env/bin/python
-- Run yunity (Shift+F10)
+- charm ~/yunity-core
+- Set the project interpreter to ~/virtualenvs/yunity-core/bin/python
+- Run yunity-core (Shift+F10)
 
 ## Architecture
 

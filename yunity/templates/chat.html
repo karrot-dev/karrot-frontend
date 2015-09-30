@@ -41,9 +41,9 @@
                 ev.preventDefault();
                 chatid = {{ chatid }};
                 $.ajax({
-                    url: '/api/msg/post',
+                    url: '/api/msg/',
                     data: {content: $('#compose').val(),
-                            type: 'text',
+                            type: 'TEXT',
                             id: chatid,
                             },
                     type: 'POST'
@@ -92,7 +92,7 @@
 {% block content %}
 
     <h1> Yunity Chat </h1>
-    Topic: <textarea id="topic">chat.{{ chatid }}</textarea>
+    Topic: <textarea id="topic">yunity.public.chat.{{ chatid }}</textarea>
 
     <a id="connect" href="#">Connect</a>
 

@@ -68,3 +68,6 @@ target/
 
 # Project-specific
 local_settings.py
+
+# Redis
+dump.rdb

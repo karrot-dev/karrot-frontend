@@ -60,7 +60,7 @@ If you need to modify the crossbar ip/port settings, you may copy the .crossbar/
 
 ### Data model
 
-[![ER diagram](documentation/er-diagram.png)](https://drive.google.com/file/d/0B-3d76NgOlSSdk9VYVNWUWdBUEk/view)
+[![ER diagram](documentation/yunity-schema.png)](documentation/yunity-schema.xml)
 
 ## Settings
 

@@ -22,13 +22,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        lat0, lon0 = (45.666258, 11.403927)
+        lat0, lon0 = (45.666, 11.404)  # Malo, Italy
 
         # from yunity.tests.create_sample_data import create_sample_data
 
         cat1, cat2 = Category.objects.all()[:2]
 
-        disconnect_es_signals()
+        disconnect_es_signals()  # prevent automatic ES updates
 
         for i in range(1000):
             lat = random.gauss(lat0, 0.01)

@@ -37,16 +37,29 @@
 
 
         $(document).ready(function(){
+            $('#new_chat').click(function(ev) {
+                ev.preventDefault();
+                $.ajax({
+                    url: '/api/chat/',
+                    data: {
+                        participants: [1,2]
+                    },
+                    type: 'POST'
+                }).done(function(data) {
+                            console.log(data);
+                            $("#chatid").val(data.data.chatid);
+                        });
+            });
             $('#send').click(function(ev){
                 ev.preventDefault();
-                chatid = {{ chatid }};
+                chatid = $("#chatid").val();
                 $.ajax({
-                    url: '/api/msg/',
+                    url: '/api/chat/'+chatid+'/messages/',
                     data: {content: $('#compose').val(),
                             type: 'TEXT',
                             id: chatid,
                             },
-                    type: 'POST'
+                    type: 'POST',
                 });
 
             });
@@ -67,7 +80,7 @@
                     var clients = document.getElementById("clients");
 
                     /* When we receive the 'clientstats' event, run this function */
-                    topic = $('#topic').val();
+                    topic = 'yunity.public.chat.'+$('#chatid').val();
                     session.subscribe(topic, function(args){
                         var msg = args[0];
                         if(msg != '') {
@@ -92,12 +105,13 @@
 {% block content %}
 
     <h1> Yunity Chat </h1>
-    Topic: <textarea id="topic">yunity.public.chat.{{ chatid }}</textarea>
+    <a href="#" id="new_chat">Create new chat</a><br>
+    Chatid: <textarea id="chatid">{{ chatid }}</textarea><br>
 
-    <a id="connect" href="#">Connect</a>
+    <a id="connect" href="#">Connect</a><br>
 
     <ul id="messages"></ul>
-    <textarea id="compose"></textarea>
+    <textarea id="compose"></textarea><br>
     <a href='#' id="send">Send</a>
 
 {% endblock %}

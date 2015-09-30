@@ -65,6 +65,7 @@ class Mappable(Versionable, ElasticsearchMixin):
 
     def to_es(self):
         return {
+            "id": self.id,
             "name": self.name,
             "locations": [
                 {

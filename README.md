@@ -2,8 +2,7 @@
 [![Stories in "Next"](https://badge.waffle.io/yunity/yunity-core.svg?label=%5Bkanban%5D%20next&title=Next)](https://waffle.io/yunity/yunity-core)
 [![Stories in "In Progress"](https://badge.waffle.io/yunity/yunity-core.svg?label=%5Bkanban%5D%20in-progress&title=In%20Progress)](https://waffle.io/yunity/yunity-core)
 
-# yunity
-Hello Yunity!
+# yunity-core
 
 ## Getting started
 
@@ -19,18 +18,18 @@ Hello Yunity!
 - ./pycharm-4.5.4/bin/pycharm.sh
 
 ### Create the environment
-- git clone git@github.com:yunity/yunity.git ~/yunity
-- mkdir -p ~/virtualenvs/yunity
-- virtualenv --python=python3 --no-site-packages ~/virtualenvs/yunity
-- source ~/virtualenvs/yunity/bin/activate
-- pip install -r ~/yunity/requirements.pip
+- git clone git@github.com:yunity/yunity-core.git ~/yunity-core
+- mkdir -p ~/virtualenvs/yunity-core
+- virtualenv --python=python3 --no-site-packages ~/virtualenvs/yunity-core
+- source ~/virtualenvs/yunity-core/bin/activate
+- pip install -r ~/yunity-core/requirements.pip
 - To push a git commit image, decide between VLC or fswebcam:
   - ln -rs scripts/git-hooks/picture-vlc .git/hooks/pre-push
   - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
 ### Start the servers
 - Start Elasticsearch: sudo /etc/init.d/elasticsearch start
-- Start Crossbar: cd ~/yunity; crossbar start
+- Start Crossbar: cd ~/yunity-core; crossbar start
 - Start Redis: redis-server
 
 If you get "low disk watermark" errors from ElasticSearch, create a config .yml file (e.g. `~/.elasticsearch.yml`) with
@@ -47,9 +46,9 @@ cluster:
 Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
 
 ### Run the project
-- charm ~/yunity
-- Set the project interpreter to ~/virtualenvs/yunity/bin/python
-- Run yunity (Shift+F10)
+- charm ~/yunity-core
+- Set the project interpreter to ~/virtualenvs/yunity-core/bin/python
+- Run yunity-core (Shift+F10)
 
 ## Architecture
 

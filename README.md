@@ -18,10 +18,23 @@ Hello Yunity!
 - tar xf pycharm-professional-4.5.4.tar.gz
 - ./pycharm-4.5.4/bin/pycharm.sh
 
-### Install Elasticsearch
-- `elasticsearch` to run the server
+### Create the environment
+- git clone git@github.com:yunity/yunity.git ~/yunity
+- mkdir -p ~/virtualenvs/yunity
+- virtualenv --python=python3 --no-site-packages ~/virtualenvs/yunity
+- source ~/virtualenvs/yunity/bin/activate
+- pip install -r ~/yunity/requirements.pip
+- To push a git commit image, decide between VLC or fswebcam:
+  - ln -rs scripts/git-hooks/pre-push .git/hooks/pre-push
+  - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
-if you get "low disk watermark" errors after some time, create a config .yml file (e.g. `~/.elasticsearch.yml` with the following contents:
+### Start the servers
+- Start Elasticsearch: sudo /etc/init.d/elasticsearch start
+- Start Crossbar: cd ~/yunity; crossbar start
+- Start Redis: redis-server
+
+If you get "low disk watermark" errors from ElasticSearch, create a config .yml file (e.g. `~/.elasticsearch.yml`) with
+the following contents:
 
 ```yml
 cluster:
@@ -33,24 +46,9 @@ cluster:
 
 Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
 
-### Create the environment
-- git clone git@github.com:yunity/yunity.git ~/yunity
-- virtualenv --python=python3 --no-site-packages ~/yunity/env
-- source ~/yunity/env/bin/activate
-- pip install -r ~/yunity/requirements.pip
-- To push a git commit image, decide between VLC or fswebcam:
-    - ln -rs scripts/git-hooks/pre-push .git/hooks/pre-push
-    - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
-
-### Start the Crossbar.io realtime communication server
-Enables real time push messages from server to client
-
-- cd ~/yunity
-- crossbar start
-
 ### Run the project
 - charm ~/yunity
-- Set the project interpreter to ~/yunity/env/bin/python
+- Set the project interpreter to ~/virtualenvs/yunity/bin/python
 - Run yunity (Shift+F10)
 
 ## Architecture

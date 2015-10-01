@@ -2,7 +2,7 @@ import logging
 
 from django.views.generic import View
 
-from yunity.models import Mappable
+from yunity.models import MapItem
 from yunity.utils.api import ApiBase
 from yunity.utils.elasticsearch import es_search
 from yunity.utils.generic import flatten, get_keys
@@ -54,7 +54,7 @@ class SearchMappableView(ApiBase, View):
         lon = float(request.GET.get('lon', 0))
         radius = float(request.GET.get('radius_km', 0))
 
-        esq = Mappable.es_search()
+        esq = MapItem.es_search()
         if lat and lon:
             esq = sort_es_geo_distance(esq, lat, lon)
             if radius:
@@ -75,7 +75,7 @@ class SearchMappableLocationsView(ApiBase, View):
         lon = float(request.GET.get('lon', 0))
         radius = float(request.GET.get('radius_km', 0))
 
-        esq = Mappable.es_search()
+        esq = MapItem.es_search()
         if lat and lon and radius:
             esq = filter_es_geo_distance(esq, lat, lon, radius)
 

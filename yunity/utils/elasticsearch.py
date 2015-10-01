@@ -57,10 +57,10 @@ def drop_index(es):
 
 def create_index(es):
 
-    from yunity.models import Mappable, Category
+    from yunity.models import MapItem, Category
 
     MAPPABLE_MAPPING = {
-        Mappable.get_es_doc_type(): {
+        MapItem.get_es_doc_type(): {
             'properties': {
                 'locations': {
                     'type': 'geo_point',
@@ -75,17 +75,17 @@ def create_index(es):
 
     es.indices.put_mapping(
         index=settings.ES_INDEX,
-        doc_type=Mappable.get_es_doc_type(),
+        doc_type=MapItem.get_es_doc_type(),
         body=MAPPABLE_MAPPING
     )
 
 
 def get_es_indexed_models():
 
-    from yunity.models import Mappable
+    from yunity.models import MapItem
 
     return (
-        Mappable,
+        MapItem,
     )
 
 

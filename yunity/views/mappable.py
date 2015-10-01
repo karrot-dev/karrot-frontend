@@ -1,7 +1,7 @@
 
 from django.views.generic import View
 from django.shortcuts import render
-from yunity.models import Mappable, Category
+from yunity.models import MapItem, Category
 import logging
 
 from django.forms.models import model_to_dict
@@ -26,7 +26,7 @@ class CreateMappableView(ApiBase, View):
 
         category = Category.objects.get_or_create(name=category_name)[0]
 
-        item = Mappable.objects.create(category=category, description=description, latitude=latitude, longitude=longitude)
+        item = MapItem.objects.create(category=category, description=description, latitude=latitude, longitude=longitude)
 
         if item:
             return self.json_response({
@@ -37,7 +37,7 @@ class GetMappableView(ApiBase, View):
 
     def get(self, request, mappable_id):
         'TODO: remove'
-        mappable = Mappable.objects.get(id=mappable_id)
+        mappable = MapItem.objects.get(id=mappable_id)
         logger.error('Mappable ID: ' + str(mappable.id))
         #return render(request, 'get_mappable.html', { 'mappable': mappable })
 

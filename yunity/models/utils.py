@@ -1,5 +1,6 @@
-from collections import namedtuple
-from django.db.models import Model, CharField, Field
+from django.contrib.auth.models import BaseUserManager
+from django.db.models import Model, CharField, Field, AutoField
+from django.utils import timezone
 
 
 class MaxLengthCharField(CharField):
@@ -9,16 +10,7 @@ class MaxLengthCharField(CharField):
 
 
 class BaseModel(Model):
-    class Meta:
-        abstract = True
-
-    @classmethod
-    def create_constants(cls, column_name, *values):
-        class_name = cls.__class__.__name__
-        namespace = '{}_{}'.format(class_name, column_name)
-        constant_factory = namedtuple(namespace, values)
-        constant_values = ['{}.{}'.format(namespace, value) for value in values]
-        return constant_factory(*constant_values)
+    id = AutoField(primary_key=True)
 
     def _get_explicit_field_names(self):
         return [field.name for field in self._meta.get_fields()
@@ -34,3 +26,26 @@ class BaseModel(Model):
         model = str(self.__class__.__name__)
         columns = ', '.join('{}="{}"'.format(field, value) for field, value in self.to_dict().items())
         return '{}({})'.format(model, columns)
+
+
+class UserManager(BaseUserManager):
+    use_in_migrations = True
+
+    def _create_user(self, email, password, **extra_fields):
+        """ Creates and saves a User with the given username, email and password.
+
+        """
+        now = timezone.now()
+        if not email:
+            raise ValueError('The given email must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, is_active=True, date_joined=now, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email=None, password=None, **extra_fields):
+        return self._create_user(email, password, **extra_fields)
+
+    def create_superuser(self, email, password, **extra_fields):
+        return self._create_user(email, password, **extra_fields)

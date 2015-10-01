@@ -1,7 +1,7 @@
-from .relations import *
-from .entities import *
+from .abstract import *
+from .concrete import *
 
-from ..utils.elasticsearch import connect_es_signals, get_es_indexed_models
+from ..utils.elasticsearch import connect_es_signals
 
 
 connect_es_signals()

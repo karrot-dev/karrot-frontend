@@ -41,6 +41,7 @@ def _datetime(fmt):
 ##################################################
 # category
 ##################################################
+
 category_foodsharing = Category.objects.create(name='foodsharing')
 category_user = Category.objects.create(name='user')
 category_foodsharing_company = Category.objects.create(name='company', parent=category_foodsharing)
@@ -50,6 +51,7 @@ category_foodsharing_foodbasket = Category.objects.create(name='basket', parent=
 ##################################################
 # location
 ##################################################
+
 munich1 = Location.objects.create(latitude=48.13, longitude=11.57)
 munich2 = Location.objects.create(latitude=48.161552, longitude=11.644833)
 munich3 = Location.objects.create(latitude=48.161552, longitude=11.642)
@@ -58,6 +60,7 @@ munich3 = Location.objects.create(latitude=48.161552, longitude=11.642)
 ##################################################
 # user
 ##################################################
+
 user_tilmann = User.objects.create(displayName='Mr T', name='tilmann', category=category_user, provenance='yunity.org')
 user_tilmann.administratedBy.add(user_tilmann)
 MappableLocation.objects.create(mappable=user_tilmann, location=munich2)
@@ -76,6 +79,7 @@ user_flo.administratedBy.add(user_flo)
 ##################################################
 # contact
 ##################################################
+
 contact_tilmann_pm = Contact.objects.create(type='direct', value=user_tilmann.id)
 contact_tilmann_email = Contact.objects.create(type='email', value='tilmann@foodsharing.de')
 user_tilmann.contact.add(contact_tilmann_pm)
@@ -85,6 +89,7 @@ user_tilmann.contact.add(contact_tilmann_email)
 ##################################################
 # message
 ##################################################
+
 message_neel_cantcome = Message.objects.create(type='text', content="hey guys, i can't make the pickup today :(", sentBy=user_neel)
 message_tilmann_basketdescription = Message.objects.create(type='text', content='please pick up my super tasty stuff', sentBy=user_tilmann)
 message_tilmann_basketpicture = Message.objects.create(type='picture', content='yunity.org/pics/mybasket.png', sentBy=user_tilmann)

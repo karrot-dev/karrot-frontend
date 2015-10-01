@@ -1,37 +1,50 @@
 
 from django import forms
-from django.contrib.auth import authenticate
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework import serializers
 
 import logging
 
+from yunity import models
 from yunity.utils.api import ApiBase
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
 
-class LoginView(ApiBase, View):
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.User
+        fields = ('id', 'email')
+
+
+class LoginView(APIView):
 
     def get(self, request):
-        'TODO: remove'
-        return render(request, 'login.html')
+        if request.user.is_authenticated():
+            user = UserSerializer(request.user)
+            return Response(user.data)
+        else:
+            return Response({'message': 'no user'})
 
     def post(self, request):
 
         user = authenticate(
-            username=request.POST['email'],
-            password=request.POST['password'],
+            email=request.data.get('email'),
+            password=request.data.get('password')
         )
 
-        if user:
-            return self.json_response()
+        if user and user.is_active:
+            login(request, user)
+            return Response(status=status.HTTP_200_OK)
         else:
-            return self.json_response({
-                'message': 'could not authenticate'
-            }, self.STATUS_ERROR)
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
 class RegisterView(ApiBase, View):

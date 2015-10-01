@@ -41,6 +41,8 @@ INSTALLED_APPS = (
 
     # Django packages
     'django_extensions',
+    'rest_framework',
+    'rest_framework_swagger',
     'corsheaders',
 
     # Application
@@ -135,7 +137,9 @@ USE_TZ = True
 ES_HOST = os.environ.get('ES_HOST', 'localhost')
 ES_INDEX = 'yunity'
 
-CORS_ORIGIN_WHITELIST = ('localhost:8080',)
+CORS_ORIGIN_WHITELIST = []
+
+AUTH_USER_MODEL = 'yunity.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/

@@ -1,5 +1,6 @@
 
 from django.conf.urls import include, url
+from django.contrib.auth import views as auth_views
 
 import yunity.views.auth
 import yunity.views.chat
@@ -8,6 +9,9 @@ import yunity.views.search
 
 
 urlpatterns = [
+
+    url(r'^auth-builtin/', include('rest_framework.urls',
+                               namespace='rest_framework')),
     url(r'^login/$', yunity.views.auth.LoginView.as_view()),
     url(r'^register/$', yunity.views.auth.RegisterView.as_view()),
     url(r'^mappables/new/$', yunity.views.mappable.CreateMappableView.as_view()),

@@ -5,7 +5,7 @@ import random
 # Django
 from django.core.management.base import BaseCommand
 
-from yunity.models import MapItem, Category, MappableLocation, Location
+from yunity.models import MapItem, Category, Location
 
 # app
 from yunity.utils.elasticsearch import (
@@ -41,7 +41,7 @@ class Command(BaseCommand):
                 latitude=lat,
                 longitude=lon
             )
-            MappableLocation.objects.create(
+            MapItemLocation.objects.create(
                 mappable=m,
                 location=loc
             )

@@ -49,63 +49,42 @@ category_foodsharing_foodbasket = Category.objects.create(name='basket', parent=
 
 
 ##################################################
-# location
-##################################################
-
-munich1 = Location.objects.create(latitude=48.13, longitude=11.57)
-munich2 = Location.objects.create(latitude=48.161552, longitude=11.644833)
-munich3 = Location.objects.create(latitude=48.161552, longitude=11.642)
-
-
-##################################################
 # user
 ##################################################
 
-user_tilmann = User.objects.create(displayName='Mr T', name='tilmann', category=category_user, provenance='yunity.org')
-user_tilmann.administratedBy.add(user_tilmann)
-MappableLocation.objects.create(mappable=user_tilmann, location=munich2)
-MappableLocation.objects.create(mappable=user_tilmann, location=munich3)
+user_tilmann = User.objects.create(
+    email='til@man.com',
+    displayName='Mr T',
+    name='tilmann',
+    category=category_user,
+    provenance='yunity.org',
+)
+Location.objects.create(latitude=48.161552, longitude=11.644833, mapItem=user_tilmann)
+Contact.objects.create(type='email', value='tilmann@foodsharing.de', mapItem=user_tilmann)
+Contact.objects.create(type='direct', value='', mapItem=user_tilmann)
 
-user_matthias = User.objects.create(displayName='Matthias', name='matthias', category=category_user, provenance='yunity.org')
-user_matthias.administratedBy.add(user_matthias)
+user_matthias = User.objects.create(email='mat@hias.com', displayName='Matthias', name='matthias', category=category_user, provenance='yunity.org')
 
-user_neel = User.objects.create(displayName='Neel', name='neel', category=category_user, provenance='yunity.org')
-user_neel.administratedBy.add(user_neel)
+user_neel = User.objects.create(email='ne@el.com', displayName='Neel', name='neel', category=category_user, provenance='yunity.org')
 
-user_flo = User.objects.create(displayName='Flo', name='flo', category=category_user, provenance='yunity.org')
-user_flo.administratedBy.add(user_flo)
-
-
-##################################################
-# contact
-##################################################
-
-contact_tilmann_pm = Contact.objects.create(type='direct', value=user_tilmann.id)
-contact_tilmann_email = Contact.objects.create(type='email', value='tilmann@foodsharing.de')
-user_tilmann.contact.add(contact_tilmann_pm)
-user_tilmann.contact.add(contact_tilmann_email)
-
-
-##################################################
-# message
-##################################################
-
-message_neel_cantcome = Message.objects.create(type='text', content="hey guys, i can't make the pickup today :(", sentBy=user_neel)
-message_tilmann_basketdescription = Message.objects.create(type='text', content='please pick up my super tasty stuff', sentBy=user_tilmann)
-message_tilmann_basketpicture = Message.objects.create(type='picture', content='yunity.org/pics/mybasket.png', sentBy=user_tilmann)
+user_flo = User.objects.create(email='f@lo.com', displayName='Flo', name='flo', category=category_user, provenance='yunity.org')
 
 
 ##################################################
 # use-case: foodsharing store
 ##################################################
 
-foodsharing_store = Opportunity.objects.create(provenance='yunity.org', name='alnatura', category=category_foodsharing_company)
-foodsharing_store.contact.add(contact_tilmann_pm)
+foodsharing_store = Opportunity.objects.create(
+    provenance='yunity.org',
+    name='alnatura',
+    category=category_foodsharing_company,
+)
+Location.objects.create(latitude=48.13, longitude=11.57, mapItem=foodsharing_store)
+foodsharing_store.contacts.add(Contact.objects.filter(mapItem=user_tilmann, type='direct').first())
 foodsharing_store.administratedBy.add(user_tilmann, user_matthias)
-MappableLocation.objects.create(mappable=foodsharing_store, location=munich1)
 
 foodsharing_store_wall = Wall.objects.create(target=foodsharing_store)
-foodsharing_store_wall.messages.add(message_neel_cantcome)
+Message.objects.create(type='text', content="hey guys, i can't make the pickup today :(", sentBy=user_neel, conversation=foodsharing_store_wall)
 
 Participate.objects.create(user=user_neel, target=foodsharing_store, status='granted', type='team')
 Participate.objects.create(user=user_flo, target=foodsharing_store, status='granted', type='team')
@@ -120,14 +99,19 @@ Participate.objects.create(user=None, target=foodsharing_store, type='picker', t
 # use-case: food basket
 ##################################################
 
-foodsharing_basket = Valueable.objects.create(provenance='foodsharing.de', name='super tasty bananas and bread', category=category_foodsharing_foodbasket)
-foodsharing_basket.contact.add(contact_tilmann_email)
+foodsharing_basket = Valuable.objects.create(
+    provenance='foodsharing.de',
+    name='super tasty bananas and bread',
+    category=category_foodsharing_foodbasket,
+)
 foodsharing_basket.administratedBy.add(user_tilmann)
-MappableLocation.objects.create(mappable=foodsharing_basket, location=munich2, startTime=_datetime('2015-10-15 17:00'), endTime=_datetime('2015-10-15 18:00'))
-MappableLocation.objects.create(mappable=foodsharing_basket, location=munich3, startTime=_datetime('2015-10-15 19:00'), endTime=_datetime('2015-10-15 20:00'))
+foodsharing_store.contacts.add(Contact.objects.filter(mapItem=user_tilmann, type='email').first())
+Location.objects.create(latitude=48.161552, longitude=11.642, startTime=_datetime('2015-10-15 17:00'), endTime=_datetime('2015-10-15 18:00'), mapItem=foodsharing_basket)
+Location.objects.create(latitude=48.161552, longitude=11.644833, startTime=_datetime('2015-10-15 19:00'), endTime=_datetime('2015-10-15 20:00'), mapItem=foodsharing_basket)
 
 foodsharing_basket_wall = Wall.objects.create(target=foodsharing_basket)
-foodsharing_basket_wall.messages.add(message_tilmann_basketdescription, message_tilmann_basketpicture)
+Message.objects.create(type='text', content='please pick up my super tasty stuff', sentBy=user_tilmann, conversation=foodsharing_basket_wall)
+Message.objects.create(type='picture', content='yunity.org/pics/mybasket.png', sentBy=user_tilmann, conversation=foodsharing_basket_wall)
 
 Take.objects.create(user=user_neel, target=foodsharing_basket)
 Take.objects.create(user=user_matthias, target=foodsharing_basket)
@@ -142,12 +126,12 @@ num_chat_messages = 10
 chat_pair = Chat.objects.create()
 chat_pair.participants.add(user_neel, user_tilmann)
 for i in range(num_chat_messages):
-    chat_pair.messages.add(Message.objects.create(content="Hi Neel, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann))
-    chat_pair.messages.add(Message.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), type='text', sentBy=user_neel))
+    Message.objects.create(content="Hi Neel, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann, conversation=chat_pair)
+    Message.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), type='text', sentBy=user_neel, conversation=chat_pair)
 
 chat_group = Chat.objects.create()
 chat_group.participants.add(user_matthias, user_flo, user_tilmann)
 for i in range(num_chat_messages):
-    chat_group.messages.add(Message.objects.create(content="Hi all, lorem ipsum {}".format(i), type='text', sentBy=user_matthias))
-    chat_group.messages.add(Message.objects.create(content="Hi too, lorem ipsum {}".format(i), type='text', sentBy=user_flo))
-    chat_group.messages.add(Message.objects.create(content="Bla, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann))
+    Message.objects.create(content="Hi all, lorem ipsum {}".format(i), type='text', sentBy=user_matthias, conversation=chat_group)
+    Message.objects.create(content="Hi too, lorem ipsum {}".format(i), type='text', sentBy=user_flo, conversation=chat_group)
+    Message.objects.create(content="Bla, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann, conversation=chat_group)

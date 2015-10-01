@@ -21,8 +21,6 @@ class AdministrationTrait(BaseModel):
 
 class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMixin):
     category = ForeignKey('yunity.Category')
-    contact = ManyToManyField('yunity.Contact')
-    location = ManyToManyField('yunity.Location', through='yunity.MappableLocation')
 
     provenance = MaxLengthCharField()
     name = TextField()
@@ -44,4 +42,4 @@ class Request(FeedbackTrait):
 
 
 class Conversation(AdministrationTrait):
-    messages = ManyToManyField('yunity.Message')
+    pass

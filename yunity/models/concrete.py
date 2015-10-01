@@ -26,7 +26,7 @@ class User(AbstractBaseUser, MapItem):
         return self.name
 
 
-class Valueable(MapItem):
+class Valuable(MapItem):
     def to_es(self):
         return super().to_es()
 
@@ -43,18 +43,25 @@ class Category(BaseModel):
 
 
 class Contact(BaseModel):
+    mapItem = ForeignKey('yunity.MapItem', related_name='contacts')
+
     type = MaxLengthCharField()
     value = TextField()
 
 
 class Location(BaseModel):
+    mapItem = ForeignKey('yunity.MapItem', related_name='locations')
+
     latitude = FloatField()
     longitude = FloatField()
+    startTime = DateTimeField(null=True)
+    endTime = DateTimeField(null=True)
 
 
 class Message(BaseModel):
     sentBy = ForeignKey('yunity.User')
     replyTo = ForeignKey('self', null=True, related_name='replies')
+    conversation = ForeignKey('yunity.Conversation', related_name='messages')
 
     createdAt = DateTimeField(auto_now=True)
     type = MaxLengthCharField()
@@ -66,7 +73,7 @@ class Interaction(BaseModel):
     type = MaxLengthCharField()
     payload = TextField()
 
-    causedBy = OneToOneField('yunity.User', related_name='interationCaused')
+    causedBy = ForeignKey('yunity.User', related_name='interationCaused')
     changed = OneToOneField('yunity.VersionTrait')
 
 
@@ -95,12 +102,4 @@ class Participate(Request):
 
 
 class Take(Request):
-    target = ForeignKey('yunity.Valueable')
-
-
-class MappableLocation(BaseModel):
-    mappable = ForeignKey('yunity.MapItem')
-    location = ForeignKey('yunity.Location')
-
-    startTime = DateTimeField(null=True)
-    endTime = DateTimeField(null=True)
+    target = ForeignKey('yunity.Valuable')

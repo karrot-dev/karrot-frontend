@@ -59,12 +59,18 @@ munich3 = Location.objects.create(latitude=48.161552, longitude=11.642)
 # user
 ##################################################
 user_tilmann = User.objects.create(displayName='Mr T', name='tilmann', category=category_user, provenance='yunity.org')
+user_tilmann.administratedBy.add(user_tilmann)
 MappableLocation.objects.create(mappable=user_tilmann, location=munich2)
 MappableLocation.objects.create(mappable=user_tilmann, location=munich3)
 
 user_matthias = User.objects.create(displayName='Matthias', name='matthias', category=category_user, provenance='yunity.org')
+user_matthias.administratedBy.add(user_matthias)
+
 user_neel = User.objects.create(displayName='Neel', name='neel', category=category_user, provenance='yunity.org')
+user_neel.administratedBy.add(user_neel)
+
 user_flo = User.objects.create(displayName='Flo', name='flo', category=category_user, provenance='yunity.org')
+user_flo.administratedBy.add(user_flo)
 
 
 ##################################################

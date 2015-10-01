@@ -139,6 +139,8 @@ ES_INDEX = 'yunity'
 
 CORS_ORIGIN_WHITELIST = []
 
+AUTH_USER_MODEL = 'yunity.User'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 

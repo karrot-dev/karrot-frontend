@@ -1,6 +1,9 @@
-from django.contrib.auth.models import AbstractBaseUser
+
+from django.contrib.auth.models import AbstractBaseUser, \
+    BaseUserManager
 from django.db.models import TextField, ForeignKey, FloatField, DateTimeField, ManyToManyField, \
-    EmailField, CharField
+    EmailField, CharField, BooleanField
+from django.utils import timezone
 from yunity.models.utils import BaseModel, MaxLengthCharField
 from yunity.utils.decorators import classproperty
 from yunity.utils.elasticsearch import ElasticsearchMixin
@@ -35,13 +38,52 @@ class Location(BaseModel):
     longitude = FloatField()
 
 
+class UserManager(BaseUserManager):
+    use_in_migrations = True
+
+    def _create_user(self, email, password, **extra_fields):
+        """
+        Creates and saves a User with the given username, email and password.
+        """
+        now = timezone.now()
+        if not email:
+            raise ValueError('The given email must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email,
+                          is_active=True,
+                          date_joined=now, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email=None, password=None, **extra_fields):
+        return self._create_user(email, password,
+                                 **extra_fields)
+
+    def create_superuser(self, email, password, **extra_fields):
+        return self._create_user(email, password,
+                                 **extra_fields)
+
 class User(BaseModel, AbstractBaseUser):
-    email = EmailField(max_length=64)
+    email = EmailField(max_length=64, unique=True)
+    is_active = BooleanField(default=True)
+    is_staff = BooleanField(default=False)
+    date_joined = DateTimeField(default=timezone.now)
+
     contact = ManyToManyField(Contact)
     location = ManyToManyField(Location, through='yunity.UserLocation')
     name = TextField()
 
-    USERNAME_FIELD = 'yunity.User.email'
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+
+    def get_full_name(self):
+        return self.name
+
+    def get_short_name(self):
+        return self.name
+
 
 
 

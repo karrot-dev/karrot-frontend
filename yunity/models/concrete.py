@@ -56,9 +56,7 @@ class Location(BaseModel):
     longitude = FloatField()
     startTime = DateTimeField(null=True)
     endTime = DateTimeField(null=True)
-    name = MaxLengthCharField(null=True)
     description = TextField(null=True)
-
 
 
 class Message(BaseModel):

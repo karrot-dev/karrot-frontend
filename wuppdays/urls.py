@@ -23,6 +23,7 @@ import yunity.urls
 urlpatterns = [
     url(r'^api/', include(yunity.urls)),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
 ]
 
 

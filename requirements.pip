@@ -5,6 +5,8 @@ django-cors-headers==1.1.0
 django-extensions==1.5.7
 django-jinja==1.4.1
 django-redis==4.2.0
+django-rest-swagger==0.3.4
+djangorestframework==3.2.4
 elasticsearch==1.7.0
 elasticsearch-dsl==0.0.8
 hiredis==0.2.0

@@ -1,4 +1,6 @@
-from django.db.models import TextField, ForeignKey, FloatField, DateTimeField, ManyToManyField
+from django.contrib.auth.models import AbstractBaseUser
+from django.db.models import TextField, ForeignKey, FloatField, DateTimeField, ManyToManyField, \
+    EmailField, CharField
 from yunity.models.utils import BaseModel, MaxLengthCharField
 from yunity.utils.decorators import classproperty
 from yunity.utils.elasticsearch import ElasticsearchMixin
@@ -33,11 +35,14 @@ class Location(BaseModel):
     longitude = FloatField()
 
 
-class User(BaseModel):
+class User(BaseModel, AbstractBaseUser):
+    email = EmailField(max_length=64)
     contact = ManyToManyField(Contact)
     location = ManyToManyField(Location, through='yunity.UserLocation')
-
     name = TextField()
+
+    USERNAME_FIELD = 'yunity.User.email'
+
 
 
 class Message(BaseModel):

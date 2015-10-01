@@ -9,7 +9,10 @@ import yunity.views.search
 
 
 urlpatterns = [
-    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}),
+
+    url(r'^auth-builtin/', include('rest_framework.urls',
+                               namespace='rest_framework')),
+    url(r'^login/$', yunity.views.auth.LoginView.as_view()),
     url(r'^register/$', yunity.views.auth.RegisterView.as_view()),
     url(r'^mappables/new/$', yunity.views.mappable.CreateMappableView.as_view()),
     url(r'^mappables/(?P<mappable_id>[0-9]+)$', yunity.views.mappable.GetMappableView.as_view()),

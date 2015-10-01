@@ -1,5 +1,6 @@
 from django.contrib.auth.models import BaseUserManager
 from django.db.models import Model, CharField, Field, AutoField
+from django.db.models.fields.related import RelatedField
 from django.utils import timezone
 
 
@@ -14,13 +15,11 @@ class BaseModel(Model):
 
     def _get_explicit_field_names(self):
         return [field.name for field in self._meta.get_fields()
-                if isinstance(field, Field) and field.name != 'id']
+                if isinstance(field, Field) and not isinstance(field, RelatedField)]
 
     def to_dict(self):
         fields = self._get_explicit_field_names()
-        return {
-            field: getattr(self, field) for field in fields
-            if getattr(self, field)}
+        return {field: getattr(self, field) for field in fields if getattr(self, field)}
 
     def __repr__(self):
         model = str(self.__class__.__name__)

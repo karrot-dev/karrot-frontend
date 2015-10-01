@@ -83,6 +83,9 @@ class Feedback(BaseModel):
     providedBy = OneToOneField('yunity.User', related_name='feedbackProvider')
     arbitratedBy = ManyToManyField('yunity.User', related_name='feedbackArbitrators')
 
+    status = MaxLengthCharField()
+    type = MaxLengthCharField()
+
 
 class Chat(Conversation):
     participants = ManyToManyField('yunity.User')

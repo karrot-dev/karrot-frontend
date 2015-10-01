@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
 
 import yunity.urls
 
@@ -23,3 +24,21 @@ urlpatterns = [
     url(r'^api/', include(yunity.urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]
+
+
+# easy solution for serving a frontend from Django
+# TODO: remove if superceded
+if getattr(settings, 'LOCAL_WEBAPP_PATH'):
+    urlpatterns += [
+        url('^$',
+        'django.views.static.serve', {
+            'path': 'index.html',
+            'document_root': settings.LOCAL_WEBAPP_PATH,
+            'show_indexes': True,
+        }),
+        url('^(?P<path>.*)',
+        'django.views.static.serve', {
+            'document_root': settings.LOCAL_WEBAPP_PATH,
+            'show_indexes': True,
+        })
+    ]

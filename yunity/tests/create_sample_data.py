@@ -126,15 +126,17 @@ Take.objects.create(user=user_matthias, target=foodsharing_basket)
 # use-case: chat
 ##################################################
 
+num_chat_messages = 10
+
 chat_pair = Chat.objects.create()
 chat_pair.participants.add(user_neel, user_tilmann)
-for i in range(100):
+for i in range(num_chat_messages):
     chat_pair.messages.add(Message.objects.create(content="Hi Neel, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann))
     chat_pair.messages.add(Message.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), type='text', sentBy=user_neel))
 
 chat_group = Chat.objects.create()
 chat_group.participants.add(user_matthias, user_flo, user_tilmann)
-for i in range(100):
+for i in range(num_chat_messages):
     chat_group.messages.add(Message.objects.create(content="Hi all, lorem ipsum {}".format(i), type='text', sentBy=user_matthias))
     chat_group.messages.add(Message.objects.create(content="Hi too, lorem ipsum {}".format(i), type='text', sentBy=user_flo))
     chat_group.messages.add(Message.objects.create(content="Bla, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann))

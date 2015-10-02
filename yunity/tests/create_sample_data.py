@@ -54,17 +54,17 @@ category_foodsharing_foodbasket = Category.objects.create(name='basket', parent=
 
 user_tilmann = User.objects.create(
     email='til@man.com',
-    displayName='Mr T',
+    display_name='Mr T',
     name='tilmann',
     category=category_user,
     provenance='yunity.org',
 )
 
-user_matthias = User.objects.create(email='mat@hias.com', displayName='Matthias', name='matthias', category=category_user, provenance='yunity.org')
+user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', name='matthias', category=category_user, provenance='yunity.org')
 
-user_neel = User.objects.create(email='ne@el.com', displayName='Neel', name='neel', category=category_user, provenance='yunity.org')
+user_neel = User.objects.create(email='ne@el.com', display_name='Neel', name='neel', category=category_user, provenance='yunity.org')
 
-user_flo = User.objects.create(email='f@lo.com', displayName='Flo', name='flo', category=category_user, provenance='yunity.org')
+user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo', category=category_user, provenance='yunity.org')
 
 
 ##################################################
@@ -79,7 +79,7 @@ foodsharing_store = Opportunity.objects.create(
 foodsharing_store.administrated_by.add(user_tilmann, user_matthias)
 
 foodsharing_store_wall = Wall.objects.create(target=foodsharing_store)
-Message.objects.create(type='text', content="hey guys, i can't make the pickup today :(", sentBy=user_neel, conversation=foodsharing_store_wall)
+Message.objects.create(type='text', content="hey guys, i can't make the pickup today :(", sent_by=user_neel, conversation=foodsharing_store_wall)
 
 Participate.objects.create(user=user_neel, target=foodsharing_store, status='granted', type='team')
 Participate.objects.create(user=user_flo, target=foodsharing_store, status='granted', type='team')
@@ -102,8 +102,8 @@ foodsharing_basket = Valuable.objects.create(
 foodsharing_basket.administrated_by.add(user_tilmann)
 
 foodsharing_basket_wall = Wall.objects.create(target=foodsharing_basket)
-Message.objects.create(type='text', content='please pick up my super tasty stuff', sentBy=user_tilmann, conversation=foodsharing_basket_wall)
-Message.objects.create(type='picture', content='yunity.org/pics/mybasket.png', sentBy=user_tilmann, conversation=foodsharing_basket_wall)
+Message.objects.create(type='text', content='please pick up my super tasty stuff', sent_by=user_tilmann, conversation=foodsharing_basket_wall)
+Message.objects.create(type='picture', content='yunity.org/pics/mybasket.png', sent_by=user_tilmann, conversation=foodsharing_basket_wall)
 
 Take.objects.create(user=user_neel, target=foodsharing_basket)
 Take.objects.create(user=user_matthias, target=foodsharing_basket)
@@ -118,12 +118,12 @@ num_chat_messages = 10
 chat_pair = Chat.objects.create()
 chat_pair.participants.add(user_neel, user_tilmann)
 for i in range(num_chat_messages):
-    Message.objects.create(content="Hi Neel, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann, conversation=chat_pair)
-    Message.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), type='text', sentBy=user_neel, conversation=chat_pair)
+    Message.objects.create(content="Hi Neel, lorem ipsum {}".format(i), type='text', sent_by=user_tilmann, conversation=chat_pair)
+    Message.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), type='text', sent_by=user_neel, conversation=chat_pair)
 
 chat_group = Chat.objects.create()
 chat_group.participants.add(user_matthias, user_flo, user_tilmann)
 for i in range(num_chat_messages):
-    Message.objects.create(content="Hi all, lorem ipsum {}".format(i), type='text', sentBy=user_matthias, conversation=chat_group)
-    Message.objects.create(content="Hi too, lorem ipsum {}".format(i), type='text', sentBy=user_flo, conversation=chat_group)
-    Message.objects.create(content="Bla, lorem ipsum {}".format(i), type='text', sentBy=user_tilmann, conversation=chat_group)
+    Message.objects.create(content="Hi all, lorem ipsum {}".format(i), type='text', sent_by=user_matthias, conversation=chat_group)
+    Message.objects.create(content="Hi too, lorem ipsum {}".format(i), type='text', sent_by=user_flo, conversation=chat_group)
+    Message.objects.create(content="Bla, lorem ipsum {}".format(i), type='text', sent_by=user_tilmann, conversation=chat_group)

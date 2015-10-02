@@ -40,10 +40,6 @@ class RegisterView(ApiBase, View):
         email = forms.EmailField()
         password = forms.CharField(min_length=6, max_length=64)
 
-    def get(self, request):
-        'TODO: remove'
-        return render(request, 'register.html')
-
     def post(self, request):
 
         form = self.RegisterForm(request.POST)

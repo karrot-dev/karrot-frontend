@@ -58,13 +58,18 @@ user_tilmann = User.objects.create(
     name='tilmann',
     type=category_user,
     provenance='yunity.org',
+    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}]
 )
 
-user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', name='matthias', type=category_user, provenance='yunity.org')
+user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias',
+                                    name='matthias', type=category_user, provenance='yunity.org',
+                                    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
 
-user_neel = User.objects.create(email='ne@el.com', display_name='Neel', name='neel', type=category_user, provenance='yunity.org')
+user_neel = User.objects.create(email='ne@el.com', display_name='Neel', name='neel', type=category_user, provenance='yunity.org',
+    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
 
-user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo', type=category_user, provenance='yunity.org')
+user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo', type=category_user, provenance='yunity.org',
+    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
 
 
 ##################################################
@@ -75,6 +80,7 @@ foodsharing_store = Opportunity.objects.create(
     provenance='yunity.org',
     name='alnatura',
     type=category_foodsharing_company,
+    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}]
 )
 foodsharing_store.administrated_by.add(user_tilmann, user_matthias)
 
@@ -98,6 +104,7 @@ foodsharing_basket = Valuable.objects.create(
     provenance='foodsharing.de',
     name='super tasty bananas and bread',
     type=category_foodsharing_foodbasket,
+    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}]
 )
 foodsharing_basket.administrated_by.add(user_tilmann)
 

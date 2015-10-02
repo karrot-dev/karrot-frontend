@@ -31,12 +31,12 @@ class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMix
     contacts = JSONField(null=True)
     metadata = JSONField(null=True)
 
-    # def to_es(self):
-    #     return {
-    #         "id": self.id,
-    #         "name": self.name,
-    #         "locations": [{"lat": loc.latitude, "lon": loc.longitude} for loc in self.location.all()],
-    #     }
+    def to_es(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "locations": [{"lat": loc.latitude, "lon": loc.longitude} for loc in self.location.all()],
+        }
 
 
 class Request(FeedbackTrait):

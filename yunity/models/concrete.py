@@ -10,7 +10,7 @@ class User(AbstractBaseUser, MapItem):
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
     date_joined = DateTimeField(default=timezone.now)
-    displayName = TextField()
+    display_name = TextField()
 
     objects = UserManager()
 
@@ -43,45 +43,45 @@ class Category(BaseModel):
 
 
 class Contact(BaseModel):
-    mapItem = ForeignKey('yunity.MapItem', related_name='contacts')
+    map_item = ForeignKey('yunity.MapItem', related_name='contacts')
 
     type = MaxLengthCharField()
     value = TextField()
 
 
 class Location(BaseModel):
-    mapItem = ForeignKey('yunity.MapItem', related_name='locations')
+    map_item = ForeignKey('yunity.MapItem', related_name='locations')
 
     latitude = FloatField()
     longitude = FloatField()
-    startTime = DateTimeField(null=True)
-    endTime = DateTimeField(null=True)
+    start_time = DateTimeField(null=True)
+    end_time = DateTimeField(null=True)
     description = TextField(null=True)
 
 
 class Message(BaseModel):
-    sentBy = ForeignKey('yunity.User')
-    replyTo = ForeignKey('self', null=True, related_name='replies')
+    sent_by = ForeignKey('yunity.User')
+    reply_to = ForeignKey('self', null=True, related_name='replies')
     conversation = ForeignKey('yunity.Conversation', related_name='messages')
 
-    createdAt = DateTimeField(auto_now=True)
+    created_at = DateTimeField(auto_now=True)
     type = MaxLengthCharField()
     content = TextField()
 
 
 class Interaction(BaseModel):
-    createdAt = DateTimeField(auto_now=True)
+    created_at = DateTimeField(auto_now=True)
     type = MaxLengthCharField()
     payload = TextField()
 
-    causedBy = ForeignKey('yunity.User', related_name='interationCaused')
+    caused_by = ForeignKey('yunity.User', related_name='interation_caused')
     changed = OneToOneField('yunity.VersionTrait')
 
 
 class Feedback(BaseModel):
     about = OneToOneField('yunity.FeedbackTrait')
-    providedBy = OneToOneField('yunity.User', related_name='feedbackProvider')
-    arbitratedBy = ManyToManyField('yunity.User', related_name='feedbackArbitrators')
+    provided_by = OneToOneField('yunity.User', related_name='feedback_provider')
+    arbitrated_by = ManyToManyField('yunity.User', related_name='feedback_arbitrators')
 
     status = MaxLengthCharField()
     type = MaxLengthCharField()

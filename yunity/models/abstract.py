@@ -6,7 +6,7 @@ from yunity.utils.elasticsearch import ElasticsearchMixin
 class VersionTrait(BaseModel):
     _VersionTrait_to_BaseModel = OneToOneField('yunity.BaseModel', parent_link=True)
 
-    nextVersion = ForeignKey('self', null=True, related_name='previousVersion')
+    next_version = ForeignKey('self', null=True, related_name='previous_version')
 
 
 class FeedbackTrait(BaseModel):
@@ -16,7 +16,7 @@ class FeedbackTrait(BaseModel):
 class AdministrationTrait(BaseModel):
     _AdministrationTrait_to_BaseModel = OneToOneField('yunity.BaseModel', parent_link=True)
 
-    administratedBy = ManyToManyField('yunity.User')
+    administrated_by = ManyToManyField('yunity.User')
 
 
 class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMixin):

@@ -81,7 +81,7 @@ foodsharing_store = Opportunity.objects.create(
 )
 Location.objects.create(latitude=48.13, longitude=11.57, mapItem=foodsharing_store)
 foodsharing_store.contacts.add(Contact.objects.filter(mapItem=user_tilmann, type='direct').first())
-foodsharing_store.administratedBy.add(user_tilmann, user_matthias)
+foodsharing_store.administrated_by.add(user_tilmann, user_matthias)
 
 foodsharing_store_wall = Wall.objects.create(target=foodsharing_store)
 Message.objects.create(type='text', content="hey guys, i can't make the pickup today :(", sentBy=user_neel, conversation=foodsharing_store_wall)
@@ -104,7 +104,7 @@ foodsharing_basket = Valuable.objects.create(
     name='super tasty bananas and bread',
     category=category_foodsharing_foodbasket,
 )
-foodsharing_basket.administratedBy.add(user_tilmann)
+foodsharing_basket.administrated_by.add(user_tilmann)
 foodsharing_store.contacts.add(Contact.objects.filter(mapItem=user_tilmann, type='email').first())
 Location.objects.create(latitude=48.161552, longitude=11.642, startTime=_datetime('2015-10-15 17:00'), endTime=_datetime('2015-10-15 18:00'), mapItem=foodsharing_basket)
 Location.objects.create(latitude=48.161552, longitude=11.644833, startTime=_datetime('2015-10-15 19:00'), endTime=_datetime('2015-10-15 20:00'), mapItem=foodsharing_basket)

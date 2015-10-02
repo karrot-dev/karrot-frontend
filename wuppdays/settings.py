@@ -142,7 +142,11 @@ USE_L10N = True
 USE_TZ = True
 
 ES_HOST = os.environ.get('ES_HOST', 'localhost')
+
+# override in local_settings to avoid sharing an index with other devs
+# on your network
 ES_INDEX = 'yunity'
+
 
 CORS_ORIGIN_WHITELIST = []
 

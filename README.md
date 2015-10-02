@@ -8,7 +8,7 @@
 
 ### Install system dependencies
 - Python: python3 python3-devel python-virtualenv
-- Databases: postgresql redis [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/1.4/setup-repositories.html)
+- Databases: postgresql postgresql-devel redis [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/1.4/setup-repositories.html)
 - Real-time: gcc libffi-devel python-devel openssl-devel
 - Push-hooks: vlc
 

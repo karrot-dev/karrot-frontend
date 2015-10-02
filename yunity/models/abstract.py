@@ -21,7 +21,7 @@ class AdministrationTrait(BaseModel):
 
 
 class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMixin):
-    parent_category = ForeignKey('yunity.Category')
+    type = ForeignKey('yunity.Category')
 
     provenance = MaxLengthCharField()
     name = TextField()

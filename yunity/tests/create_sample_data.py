@@ -56,15 +56,15 @@ user_tilmann = User.objects.create(
     email='til@man.com',
     display_name='Mr T',
     name='tilmann',
-    category=category_user,
+    type=category_user,
     provenance='yunity.org',
 )
 
-user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', name='matthias', category=category_user, provenance='yunity.org')
+user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', name='matthias', type=category_user, provenance='yunity.org')
 
-user_neel = User.objects.create(email='ne@el.com', display_name='Neel', name='neel', category=category_user, provenance='yunity.org')
+user_neel = User.objects.create(email='ne@el.com', display_name='Neel', name='neel', type=category_user, provenance='yunity.org')
 
-user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo', category=category_user, provenance='yunity.org')
+user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo', type=category_user, provenance='yunity.org')
 
 
 ##################################################
@@ -74,7 +74,7 @@ user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo',
 foodsharing_store = Opportunity.objects.create(
     provenance='yunity.org',
     name='alnatura',
-    category=category_foodsharing_company,
+    type=category_foodsharing_company,
 )
 foodsharing_store.administrated_by.add(user_tilmann, user_matthias)
 
@@ -97,7 +97,7 @@ Participate.objects.create(user=None, target=foodsharing_store, type='picker', t
 foodsharing_basket = Valuable.objects.create(
     provenance='foodsharing.de',
     name='super tasty bananas and bread',
-    category=category_foodsharing_foodbasket,
+    type=category_foodsharing_foodbasket,
 )
 foodsharing_basket.administrated_by.add(user_tilmann)
 

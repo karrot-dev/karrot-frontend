@@ -45,7 +45,7 @@ class Category(BaseModel):
 class Message(BaseModel):
     sent_by = ForeignKey('yunity.User')
     reply_to = ForeignKey('self', null=True, related_name='replies')
-    conversation = ForeignKey('yunity.Conversation', related_name='messages')
+    in_conversation = ForeignKey('yunity.Conversation', related_name='messages')
 
     created_at = DateTimeField(auto_now=True)
     type = MaxLengthCharField()

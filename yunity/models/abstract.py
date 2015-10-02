@@ -38,7 +38,7 @@ class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMix
 
 
 class Request(FeedbackTrait):
-    user = ForeignKey('yunity.User', null=True)
+    requested_by = ForeignKey('yunity.User', null=True)
 
     time = DateTimeField(null=True)
     status = MaxLengthCharField()

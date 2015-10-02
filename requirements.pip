@@ -1,4 +1,4 @@
-Django==1.9a1
+Django>=1.9a1,<1.10
 Jinja2==2.8
 MarkupSafe==0.23
 django-cors-headers==1.1.0

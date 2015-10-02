@@ -27,11 +27,9 @@
   - ln -rs scripts/git-hooks/picture-vlc .git/hooks/pre-push
   - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
-### Start the servers
-- Start Elasticsearch: sudo /etc/init.d/elasticsearch start
-- Start Crossbar: cd ~/yunity-core; crossbar start
-- Start Redis: redis-server
+### Setup the servers
 
+#### ElasticSearch
 If you get "low disk watermark" errors from ElasticSearch, create a config .yml file (e.g. `~/.elasticsearch.yml`) with
 the following contents:
 
@@ -45,11 +43,42 @@ cluster:
 
 Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
 
+#### Crossbar
 If you need to modify the crossbar ip/port settings, you may copy the .crossbar/config.json to a local .crossbar/config_local.json and run
 
 - crossbar start --config config_server.json
 
 (the .crossbar path is automatically prepended)
+
+#### Postgres
+- sudo -iu postgres
+- initdb -D /var/lib/pgsql/data -E utf8
+- createuser -s yunity-user
+- createdb yunity-database
+
+Add the connection to your local Postgres database server to `wuppdays/local_settings.py`.
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'yunity-database',
+        'USER': 'yunity-user',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+```
+
+If you get a "virtual memory error" with any of the postgres commands, close PyCharm and re-issue your command.
+
+
+### Start the servers
+- Start Elasticsearch: sudo /etc/init.d/elasticsearch start
+- Start Crossbar: cd ~/yunity-core; crossbar start
+- Start Redis: redis-server
+- Start Postgres: postgres -D /var/lib/pgsql/data
 
 ### Run the project
 - charm ~/yunity-core
@@ -68,20 +97,3 @@ In development, you can add and override local settings in
 `wuppdays/local_settings.py`, which is present in `.gitignore` and hence out of
 version control. If the file is not present, i.e. in production, nothing
 happens.
-
-### Database Connection
-
-Add the connection to your local Postgres database server to `wuppdays/local_settings.py`.
-
-```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
-```

@@ -8,7 +8,7 @@
 
 ### Install system dependencies
 - Python: python3 python3-devel python-virtualenv
-- Databases: redis [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/1.4/setup-repositories.html)
+- Databases: postgresql redis [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/1.4/setup-repositories.html)
 - Real-time: gcc libffi-devel python-devel openssl-devel
 - Push-hooks: vlc
 
@@ -68,3 +68,20 @@ In development, you can add and override local settings in
 `wuppdays/local_settings.py`, which is present in `.gitignore` and hence out of
 version control. If the file is not present, i.e. in production, nothing
 happens.
+
+### Database Connection
+
+Add the connection to your local Postgres database server to `wuppdays/local_settings.py`.
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+```

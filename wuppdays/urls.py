@@ -29,7 +29,7 @@ urlpatterns = [
 
 # easy solution for serving a frontend from Django
 # TODO: remove if superceded
-if getattr(settings, 'LOCAL_WEBAPP_PATH'):
+if getattr(settings, 'LOCAL_WEBAPP_PATH', None):
     urlpatterns += [
         url('^$',
         'django.views.static.serve', {

@@ -1,6 +1,7 @@
 from django.db.models import OneToOneField, ManyToManyField, TextField, DateTimeField, ForeignKey
 from yunity.models.utils import MaxLengthCharField, BaseModel
 from yunity.utils.elasticsearch import ElasticsearchMixin
+from django.contrib.postgres.fields import JSONField
 
 
 class VersionTrait(BaseModel):
@@ -20,20 +21,20 @@ class AdministrationTrait(BaseModel):
 
 
 class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMixin):
-    category = ForeignKey('yunity.Category')
+    parent_category = ForeignKey('yunity.Category')
 
     provenance = MaxLengthCharField()
     name = TextField()
-    # TODO: add metadata::jsonb column metadata: [{'key': 'foo','value': 'bar'}, ...]
-    # TODO: add locations::jsonb column: [{'lattitude': 12.3, 'longitude': 7.4, 'name': 'Via Muzzano 2, Malo'}, ...]
-    # TODO: add contacts::jsonb column: [{'type': 'phone', 'value': '+49 123 456 78'}, ...]
+    locations = JSONField() # [{latitude: float, longitude: float, startTime: timestring, endTime: timestring, description: text}]
+    contacts = JSONField() # [{type: text, value: text}
+    metadata = JSONField()
 
-    def to_es(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "locations": [{"lat": loc.latitude, "lon": loc.longitude} for loc in self.location.all()],
-        }
+    # def to_es(self):
+    #     return {
+    #         "id": self.id,
+    #         "name": self.name,
+    #         "locations": [{"lat": loc.latitude, "lon": loc.longitude} for loc in self.location.all()],
+    #     }
 
 
 class Request(FeedbackTrait):

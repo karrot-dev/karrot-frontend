@@ -25,7 +25,7 @@ class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMix
 
     provenance = MaxLengthCharField()
     name = TextField()
-    # [{lat: float, long: float, startTime: timestring, endTime: timestring, description: text}]
+    # [{latitude: float, longitude: float, startTime: timestring, endTime: timestring, description: text}]
     locations = JSONField()
     # [{type: text, value: text}
     contacts = JSONField(null=True)
@@ -35,7 +35,7 @@ class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMix
         return {
             "id": self.id,
             "name": self.name,
-            "locations": [{"lat": loc.latitude, "lon": loc.longitude} for loc in self.location.all()],
+            "locations": [{"lat": loc['latitude'], "lon": loc['longitude']} for loc in self.locations],
         }
 
 

@@ -9,10 +9,11 @@ from yunity.views.rest.chat import ChatViewSet
 from yunity.views.rest.feedback import FeedbackViewSet
 from yunity.views.rest.mapitem import MapitemViewSet
 from yunity.views.rest.search import SearchViewSet
+from yunity.views.rest.user import UserViewSet
 
 router = DefaultRouter()
 router.register(r'chat', ChatViewSet)
-router.register(r'user', FeedbackViewSet)
+router.register(r'user', UserViewSet)
 router.register(r'auth', AuthViewSet)
 router.register(r'mapitem', MapitemViewSet)
 router.register(r'search', SearchViewSet)

@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from yunity.models import User
 
 
-class UserSet(viewsets.ViewSet):
+class UserViewSet(viewsets.ViewSet):
     """
     """
     queryset = User.objects.all()

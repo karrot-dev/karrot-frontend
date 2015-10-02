@@ -33,19 +33,6 @@ class LoginView(APIView):
         else:
             return Response({'message': 'no user'})
 
-    def post(self, request):
-
-        user = authenticate(
-            email=request.data.get('email'),
-            password=request.data.get('password')
-        )
-
-        if user and user.is_active:
-            login(request, user)
-            return Response(status=status.HTTP_200_OK)
-        else:
-            return Response(status=status.HTTP_401_UNAUTHORIZED)
-
 
 class RegisterView(ApiBase, View):
 

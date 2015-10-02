@@ -12,11 +12,9 @@ logger = logging.getLogger(__name__)
 
 
 class ElasticsearchMixin(object):
-
-    @abc.abstractmethod
-    def to_es(self):
-        "Generate Elasticsearch representation"
-        raise NotImplementedError
+    """
+    Mixin for facilitating Elasticsearch indexing of a Model.
+    """
 
     def sync_to_es(self):
         index_doc(
@@ -25,12 +23,24 @@ class ElasticsearchMixin(object):
             self.to_es()
         )
 
+    @abc.abstractmethod
+    def to_es(self):
+        """Generate Elasticsearch representation"""
+        raise NotImplementedError
+
     @classmethod
     def get_es_doc_type(cls):
+        """
+        Defines the doc type used in Elasticsearch for this model
+        :return: string
+        """
         return cls.__name__.lower()
 
     @classmethod
     def es_search(cls):
+        """
+        :return: ES Search instance
+        """
         return es_search(cls.get_es_doc_type())
 
 
@@ -39,6 +49,14 @@ def es_client(timeout=120):
 
 
 def es_search(doc_type, es=None):
+    """
+    Easily create a Search instance, the starting point of any self-respecting
+    Elasticsearch query
+    :param doc_type: string
+    :param es: optional Elasticsearch client object, if missing, one will be
+    provided
+    :return: ES Search instance
+    """
     if not es:
         es = es_client()
     return Search(
@@ -96,7 +114,7 @@ def index_db(models):
 
 
 def rebuild_index(es):
-    "Drop, recreate, and reindex all models"
+    """Drop, recreate, and reindex all models"""
 
     drop_index(es)
     create_index(es)

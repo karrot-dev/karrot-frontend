@@ -24,7 +24,9 @@ class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMix
 
     provenance = MaxLengthCharField()
     name = TextField()
-    # TODO: add metadata::jsonb column
+    # TODO: add metadata::jsonb column metadata: [{'key': 'foo','value': 'bar'}, ...]
+    # TODO: add locations::jsonb column: [{'lattitude': 12.3, 'longitude': 7.4, 'name': 'Via Muzzano 2, Malo'}, ...]
+    # TODO: add contacts::jsonb column: [{'type': 'phone', 'value': '+49 123 456 78'}, ...]
 
     def to_es(self):
         return {

@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractBaseUser
-from django.db.models import TextField, ForeignKey, FloatField, DateTimeField, OneToOneField, ManyToManyField, EmailField, BooleanField
+from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField, ManyToManyField, EmailField, BooleanField
 from django.utils import timezone
 from yunity.models.abstract import MapItem, Conversation, Request
 from yunity.models.utils import BaseModel, MaxLengthCharField, UserManager
@@ -40,23 +40,6 @@ class Category(BaseModel):
     parent = ForeignKey('self', null=True, related_name='children')
 
     name = MaxLengthCharField()
-
-
-class Contact(BaseModel):
-    map_item = ForeignKey('yunity.MapItem', related_name='contacts')
-
-    type = MaxLengthCharField()
-    value = TextField()
-
-
-class Location(BaseModel):
-    map_item = ForeignKey('yunity.MapItem', related_name='locations')
-
-    latitude = FloatField()
-    longitude = FloatField()
-    start_time = DateTimeField(null=True)
-    end_time = DateTimeField(null=True)
-    description = TextField(null=True)
 
 
 class Message(BaseModel):

@@ -59,9 +59,6 @@ user_tilmann = User.objects.create(
     category=category_user,
     provenance='yunity.org',
 )
-Location.objects.create(latitude=48.161552, longitude=11.644833, mapItem=user_tilmann)
-Contact.objects.create(type='email', value='tilmann@foodsharing.de', mapItem=user_tilmann)
-Contact.objects.create(type='direct', value='', mapItem=user_tilmann)
 
 user_matthias = User.objects.create(email='mat@hias.com', displayName='Matthias', name='matthias', category=category_user, provenance='yunity.org')
 
@@ -79,8 +76,6 @@ foodsharing_store = Opportunity.objects.create(
     name='alnatura',
     category=category_foodsharing_company,
 )
-Location.objects.create(latitude=48.13, longitude=11.57, mapItem=foodsharing_store)
-foodsharing_store.contacts.add(Contact.objects.filter(mapItem=user_tilmann, type='direct').first())
 foodsharing_store.administrated_by.add(user_tilmann, user_matthias)
 
 foodsharing_store_wall = Wall.objects.create(target=foodsharing_store)
@@ -105,9 +100,6 @@ foodsharing_basket = Valuable.objects.create(
     category=category_foodsharing_foodbasket,
 )
 foodsharing_basket.administrated_by.add(user_tilmann)
-foodsharing_store.contacts.add(Contact.objects.filter(mapItem=user_tilmann, type='email').first())
-Location.objects.create(latitude=48.161552, longitude=11.642, startTime=_datetime('2015-10-15 17:00'), endTime=_datetime('2015-10-15 18:00'), mapItem=foodsharing_basket)
-Location.objects.create(latitude=48.161552, longitude=11.644833, startTime=_datetime('2015-10-15 19:00'), endTime=_datetime('2015-10-15 20:00'), mapItem=foodsharing_basket)
 
 foodsharing_basket_wall = Wall.objects.create(target=foodsharing_basket)
 Message.objects.create(type='text', content='please pick up my super tasty stuff', sentBy=user_tilmann, conversation=foodsharing_basket_wall)

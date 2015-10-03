@@ -58,7 +58,10 @@ def json_request(expected_keys=None):
     def decorator(func):
         @wraps(func)
         def wrapper(cls, request, *args, **kwargs):
-            data = load_json(request.body.decode('utf8'))
+            try:
+                data = load_json(request.body.decode('utf8'))
+            except ValueError:
+                return ApiBase.error('incorrect json request')
 
             for expected_key in expected_keys:
                 value = data.get(expected_key)

@@ -8,14 +8,14 @@ class Takes(ApiBase, View):
     def get(self, request):
         """list all takes of this user
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
     def post(self, request):
         """create a new take
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
@@ -24,24 +24,24 @@ class Take(ApiBase, View):
     def get(self, request, takeid):
         """return details about this take
 
-        @type request: HttpRequest
-        @type takeid: int
+        :type request: HttpRequest
+        :type takeid: int
         """
         raise NotImplementedError
 
     def put(self, request, takeid):
         """modify the take, e.g. approve it
 
-        @type request: HttpRequest
-        @type takeid: int
+        :type request: HttpRequest
+        :type takeid: int
         """
         raise NotImplementedError
 
     def delete(self, request, takeid):
         """unrequest the take
 
-        @type request: HttpRequest
-        @type takeid: int
+        :type request: HttpRequest
+        :type takeid: int
         """
         raise NotImplementedError
 

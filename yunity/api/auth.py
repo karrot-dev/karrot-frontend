@@ -7,14 +7,14 @@ class Login(ApiBase, View):
     def get(self, request):
         """get current login status
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
     def post(self, request):
         """log in the user
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
@@ -23,7 +23,7 @@ class Logout(ApiBase, View):
     def post(self, request):
         """log out the user
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 

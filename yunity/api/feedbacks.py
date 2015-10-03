@@ -8,14 +8,14 @@ class Feedbacks(ApiBase, View):
     def get(self, request):
         """list all the feedbacks that this user can see
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
     def post(self, request):
         """create a new feedback
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
@@ -24,16 +24,16 @@ class Feedback(ApiBase, View):
     def get(self, request, feedbackid):
         """return the info about the feedback
 
-        @type request: HttpRequest
-        @type feedbackid: int
+        :type request: HttpRequest
+        :type feedbackid: int
         """
         raise NotImplementedError
 
     def put(self, request, feedbackid):
         """modify the status, modify the type or add arbitrator
 
-        @type request: HttpRequest
-        @type feedbackid: int
+        :type request: HttpRequest
+        :type feedbackid: int
         """
         raise NotImplementedError
 
@@ -42,16 +42,16 @@ class FeedbackArbitrationlog(ApiBase, View):
     def get(self, request, feedbackid):
         """show all the messages in this log
 
-        @type request: HttpRequest
-        @type feedbackid: int
+        :type request: HttpRequest
+        :type feedbackid: int
         """
         raise NotImplementedError
 
     def post(self, request, feedbackid):
         """add a message to the arbiration log
 
-        @type request: HttpRequest
-        @type feedbackid: int
+        :type request: HttpRequest
+        :type feedbackid: int
         """
         raise NotImplementedError
 

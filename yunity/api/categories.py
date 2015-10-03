@@ -8,14 +8,14 @@ class Categories(ApiBase, View):
     def get(self, request):
         """list all categories
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
     def post(self, request):
         """create a new category
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 

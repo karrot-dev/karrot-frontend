@@ -8,7 +8,7 @@ class Users(ApiBase, View):
     def post(self, request):
         """register a new user
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 
@@ -17,16 +17,16 @@ class User(ApiBase, View):
     def get(self, request, userid):
         """get details about this user
 
-        @type request: HttpRequest
-        @type userid: int
+        :type request: HttpRequest
+        :type userid: int
         """
         raise NotImplementedError
 
     def put(self, request, userid):
         """modify the user
 
-        @type request: HttpRequest
-        @type userid: int
+        :type request: HttpRequest
+        :type userid: int
         """
         raise NotImplementedError
 

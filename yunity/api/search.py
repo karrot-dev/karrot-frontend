@@ -8,7 +8,7 @@ class Search(ApiBase, View):
     def get(self, request):
         """execute the search
 
-        @type request: HttpRequest
+        :type request: HttpRequest
         """
         raise NotImplementedError
 

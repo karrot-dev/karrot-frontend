@@ -76,9 +76,12 @@ class OpportunityWallpost(ApiBase, View):
         raise NotImplementedError
 
 
+opportunityid = r'(?P<opportunityid>[0-9]+)'
+wallpostid = r'(?P<wallpostid>[0-9]+)'
+
 urlpatterns = [
     url(r'/?^$', Opportunities.as_view()),
-    url(r'^(?P<opportunityid>[0-9]+)/?$', Opportunity.as_view()),
-    url(r'^(?P<opportunityid>[0-9]+)/wallposts/?$', OpportunityWallposts.as_view()),
-    url(r'^(?P<opportunityid>[0-9]+)/wallposts/(?P<wallpostid>[0-9]+)/?$', OpportunityWallpost.as_view()),
+    url(r'^{opportunityid}/?$'.format(opportunityid=opportunityid), Opportunity.as_view()),
+    url(r'^{opportunityid}/wallposts/?$'.format(opportunityid=opportunityid), OpportunityWallposts.as_view()),
+    url(r'^{opportunityid}/wallposts/{wallpostid}/?$'.format(opportunityid=opportunityid, wallpostid=wallpostid), OpportunityWallpost.as_view()),
 ]

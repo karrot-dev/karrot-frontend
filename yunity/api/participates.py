@@ -46,7 +46,9 @@ class Participate(ApiBase, View):
         raise NotImplementedError
 
 
+participateid = r'(?P<participateid>[0-9]+)'
+
 urlpatterns = [
     url(r'^/?$', Participates.as_view()),
-    url(r'^(?P<participateid>[0-9]+)/?$', Participate.as_view()),
+    url(r'^{participateid}/?$'.format(participateid=participateid), Participate.as_view()),
 ]

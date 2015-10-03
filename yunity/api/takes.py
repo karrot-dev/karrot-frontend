@@ -46,7 +46,9 @@ class Take(ApiBase, View):
         raise NotImplementedError
 
 
+takeid = r'(?P<takeid>[0-9]+)'
+
 urlpatterns = [
     url(r'^/?$', Takes.as_view()),
-    url(r'^(?P<takeid>[0-9]+)/?$', Take.as_view()),
+    url(r'^{takeid}/?$'.format(takeid=takeid), Take.as_view()),
 ]

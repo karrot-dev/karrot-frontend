@@ -56,8 +56,10 @@ class FeedbackArbitrationlog(ApiBase, View):
         raise NotImplementedError
 
 
+feedbackid = r'(?P<feedbackid>[0-9]+)'
+
 urlpatterns = [
     url(r'^/?$', Feedbacks.as_view()),
-    url(r'^(?P<feedbackid>[0-9]+)/?$', Feedback.as_view()),
-    url(r'^(?P<feedbackid>[0-9]+)/arbitrationlog/?$', FeedbackArbitrationlog.as_view()),
+    url(r'^{feedbackid}/?$'.format(feedbackid=feedbackid), Feedback.as_view()),
+    url(r'^{feedbackid}/arbitrationlog/?$'.format(feedbackid=feedbackid), FeedbackArbitrationlog.as_view()),
 ]

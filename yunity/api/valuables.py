@@ -76,9 +76,12 @@ class ValuableWallpost(ApiBase, View):
         raise NotImplementedError
 
 
+valuableid = r'(?P<valuableid>[0-9]+)'
+wallpostid = r'(?P<wallpostid>[0-9]+)'
+
 urlpatterns = [
     url(r'^/?$', Valuables.as_view()),
-    url(r'^/(?P<valuableid>[0-9]+)/?$', Valuable.as_view()),
-    url(r'^/(?P<valuableid>[0-9]+)/wallposts/?$', ValuableWallposts.as_view()),
-    url(r'^/(?P<valuableid>[0-9]+)/wallposts/(?P<wallpostid>[0-9]+)/?$', ValuableWallpost.as_view()),
+    url(r'^/{valuableid}/?$'.format(valuableid=valuableid), Valuable.as_view()),
+    url(r'^/{valuableid}/wallposts/?$'.format(valuableid=valuableid), ValuableWallposts.as_view()),
+    url(r'^/{valuableid}/wallposts/{wallpostid}/?$'.format(valuableid=valuableid, wallpostid=wallpostid), ValuableWallpost.as_view()),
 ]

@@ -68,11 +68,13 @@ class ChatParticipant(ApiBase, View):
         """
         raise NotImplementedError
 
+chatid = r'(?P<chatid>[0-9]+)'
+userid = r'(?P<userid>[0-9]+)'
 
 urlpatterns = [
     url(r'^/?$', Chats.as_view()),
-    url(r'^/(?P<chatid>[0-9]+)/?$', Chat.as_view()),
-    url(r'^/(?P<chatid>[0-9]+)/messages/?$', ChatMessages.as_view()),
-    url(r'^/(?P<chatid>[0-9]+)/participants/?$', ChatParticipants.as_view()),
-    url(r'^/(?P<chatid>[0-9]+)/participants/(?P<userid>[0-9]+)/?$', ChatParticipant.as_view()),
+    url(r'^/{chatid}/?$'.format(chatid=chatid), Chat.as_view()),
+    url(r'^/{chatid}/messages/?$'.format(chatid=chatid), ChatMessages.as_view()),
+    url(r'^/{chatid}/participants/?$'.format(chatid=chatid), ChatParticipants.as_view()),
+    url(r'^/{chatid}/participants/{userid}/?$'.format(chatid=chatid, userid=userid), ChatParticipant.as_view()),
 ]

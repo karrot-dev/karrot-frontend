@@ -31,7 +31,9 @@ class User(ApiBase, View):
         raise NotImplementedError
 
 
+userid = r'(?P<userid>[0-9]+)'
+
 urlpatterns = [
     url(r'^/?$', Users.as_view()),
-    url(r'^(?P<userid>[0-9]+)/?$', User.as_view()),
+    url(r'^{userid}/?$'.format(userid=userid), User.as_view()),
 ]

@@ -51,25 +51,25 @@ class ApiBase(object):
 
 def json_request(expected_keys=None):
     """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object.
+    Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 
     """
     expected_keys = expected_keys or []
 
     def decorator(func):
         @wraps(func)
-        def wrapper(cls, request, *args, **kwargs):
+        def wrapper(api_base, request, *args, **kwargs):
             try:
                 data = load_json(request.body.decode('utf8'))
             except ValueError:
-                return ApiBase.error('incorrect json request')
+                return api_base.error('incorrect json request')
 
             for expected_key in expected_keys:
                 value = data.get(expected_key)
                 if not value:
-                    return ApiBase.validation_failure('missing key: {}'.format(expected_key))
+                    return api_base.validation_failure('missing key: {}'.format(expected_key))
 
-            return func(cls, data, request, *args, **kwargs)
-
+            return func(api_base, data, request, *args, **kwargs)
         return wrapper
     return decorator
 

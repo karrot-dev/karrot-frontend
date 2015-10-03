@@ -2,17 +2,22 @@ from django.http import JsonResponse
 
 
 class ApiBase(object):
+    @classmethod
+    def success(cls, data, status=200):
+        """
+        :type data: dict
+        :type status: int
+        :rtype JsonResponse
 
-    STATUS_ERROR = 0
-    STATUS_SUCCESS = 1
-    STATUS_WARNING = 2
+        """
+        return JsonResponse(data, status=status)
 
-    def json_response(self, data=None, status=STATUS_SUCCESS, message=None):
+    @classmethod
+    def error(cls, error, status=400):
+        """
+        :type error: str
+        :type status: int
+        :rtype JsonResponse
 
-        status_code = 400 if status == ApiBase.STATUS_ERROR else 200
-
-        return JsonResponse({
-            "data": data,
-            "status": status,
-            "message": message
-        }, status=status_code)
+        """
+        return JsonResponse({'error': error}, status=status)

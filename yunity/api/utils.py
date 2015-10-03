@@ -4,7 +4,7 @@ from json import loads as load_json
 from django.db.models import Model
 from django.http import JsonResponse
 
-from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK
+from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_403_FORBIDDEN
 
 
 class ApiBase(object):
@@ -29,14 +29,24 @@ class ApiBase(object):
         return JsonResponse(data, status=status)
 
     @classmethod
-    def error(cls, error, status=HTTP_400_BAD_REQUEST):
+    def forbidden(cls, message, status=HTTP_403_FORBIDDEN):
         """
-        :type error: str
+        :type message: str
         :type status: int
         :rtype JsonResponse
 
         """
-        return JsonResponse({'error': error}, status=status)
+        return JsonResponse({'message': message}, status=status)
+
+    @classmethod
+    def error(cls, message, status=HTTP_400_BAD_REQUEST):
+        """
+        :type message: str
+        :type status: int
+        :rtype JsonResponse
+
+        """
+        return JsonResponse({'message': message}, status=status)
 
 
 def json_request(expected_keys=None):

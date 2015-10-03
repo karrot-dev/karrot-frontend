@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import chatid, userid
+from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 
 from yunity.api.utils import ApiBase
 
@@ -73,8 +73,8 @@ class ChatParticipant(ApiBase, View):
 
 urlpatterns = [
     url(r'^/?$', Chats.as_view()),
-    url(r'^/{chatid}/?$'.format(chatid=chatid), Chat.as_view()),
-    url(r'^/{chatid}/messages/?$'.format(chatid=chatid), ChatMessages.as_view()),
-    url(r'^/{chatid}/participants/?$'.format(chatid=chatid), ChatParticipants.as_view()),
-    url(r'^/{chatid}/participants/{userid}/?$'.format(chatid=chatid, userid=userid), ChatParticipant.as_view()),
+    url(r'^/{chatid}/?$'.format(chatid=chat_id_uri_pattern), Chat.as_view()),
+    url(r'^/{chatid}/messages/?$'.format(chatid=chat_id_uri_pattern), ChatMessages.as_view()),
+    url(r'^/{chatid}/participants/?$'.format(chatid=chat_id_uri_pattern), ChatParticipants.as_view()),
+    url(r'^/{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern), ChatParticipant.as_view()),
 ]

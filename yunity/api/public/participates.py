@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import participateid
+from yunity.api.ids import participate_id_uri_pattern
 
 from yunity.api.utils import ApiBase
 
@@ -50,5 +50,5 @@ class Participate(ApiBase, View):
 
 urlpatterns = [
     url(r'^/?$', Participates.as_view()),
-    url(r'^{participateid}/?$'.format(participateid=participateid), Participate.as_view()),
+    url(r'^{participateid}/?$'.format(participateid=participate_id_uri_pattern), Participate.as_view()),
 ]

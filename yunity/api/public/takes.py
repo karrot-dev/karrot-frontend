@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import takeid
+from yunity.api.ids import take_id_uri_pattern
 
 from yunity.api.utils import ApiBase
 
@@ -50,5 +50,5 @@ class Take(ApiBase, View):
 
 urlpatterns = [
     url(r'^/?$', Takes.as_view()),
-    url(r'^{takeid}/?$'.format(takeid=takeid), Take.as_view()),
+    url(r'^{takeid}/?$'.format(takeid=take_id_uri_pattern), Take.as_view()),
 ]

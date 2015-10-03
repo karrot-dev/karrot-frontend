@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import feedbackid
+from yunity.api.ids import feedback_id_uri_pattern
 
 from yunity.api.utils import ApiBase
 
@@ -60,6 +60,6 @@ class FeedbackArbitrationlog(ApiBase, View):
 
 urlpatterns = [
     url(r'^/?$', Feedbacks.as_view()),
-    url(r'^{feedbackid}/?$'.format(feedbackid=feedbackid), Feedback.as_view()),
-    url(r'^{feedbackid}/arbitrationlog/?$'.format(feedbackid=feedbackid), FeedbackArbitrationlog.as_view()),
+    url(r'^{feedbackid}/?$'.format(feedbackid=feedback_id_uri_pattern), Feedback.as_view()),
+    url(r'^{feedbackid}/arbitrationlog/?$'.format(feedbackid=feedback_id_uri_pattern), FeedbackArbitrationlog.as_view()),
 ]

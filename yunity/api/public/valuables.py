@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import valuableid, wallpostid
+from yunity.api.ids import valuable_id_uri_pattern, wallpost_id_uri_pattern
 
 from yunity.api.utils import ApiBase
 
@@ -80,7 +80,7 @@ class ValuableWallpost(ApiBase, View):
 
 urlpatterns = [
     url(r'^/?$', Valuables.as_view()),
-    url(r'^/{valuableid}/?$'.format(valuableid=valuableid), Valuable.as_view()),
-    url(r'^/{valuableid}/wallposts/?$'.format(valuableid=valuableid), ValuableWallposts.as_view()),
-    url(r'^/{valuableid}/wallposts/{wallpostid}/?$'.format(valuableid=valuableid, wallpostid=wallpostid), ValuableWallpost.as_view()),
+    url(r'^/{valuableid}/?$'.format(valuableid=valuable_id_uri_pattern), Valuable.as_view()),
+    url(r'^/{valuableid}/wallposts/?$'.format(valuableid=valuable_id_uri_pattern), ValuableWallposts.as_view()),
+    url(r'^/{valuableid}/wallposts/{wallpostid}/?$'.format(valuableid=valuable_id_uri_pattern, wallpostid=wallpost_id_uri_pattern), ValuableWallpost.as_view()),
 ]

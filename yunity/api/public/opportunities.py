@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import opportunityid, wallpostid
+from yunity.api.ids import opportunity_id_uri_pattern, wallpost_id_uri_pattern
 
 from yunity.api.utils import ApiBase
 
@@ -80,7 +80,7 @@ class OpportunityWallpost(ApiBase, View):
 
 urlpatterns = [
     url(r'/?^$', Opportunities.as_view()),
-    url(r'^{opportunityid}/?$'.format(opportunityid=opportunityid), Opportunity.as_view()),
-    url(r'^{opportunityid}/wallposts/?$'.format(opportunityid=opportunityid), OpportunityWallposts.as_view()),
-    url(r'^{opportunityid}/wallposts/{wallpostid}/?$'.format(opportunityid=opportunityid, wallpostid=wallpostid), OpportunityWallpost.as_view()),
+    url(r'^{opportunityid}/?$'.format(opportunityid=opportunity_id_uri_pattern), Opportunity.as_view()),
+    url(r'^{opportunityid}/wallposts/?$'.format(opportunityid=opportunity_id_uri_pattern), OpportunityWallposts.as_view()),
+    url(r'^{opportunityid}/wallposts/{wallpostid}/?$'.format(opportunityid=opportunity_id_uri_pattern, wallpostid=wallpost_id_uri_pattern), OpportunityWallpost.as_view()),
 ]

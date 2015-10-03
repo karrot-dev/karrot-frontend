@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import userid
+from yunity.api.ids import user_id_uri_pattern
 
 from yunity.api.utils import ApiBase
 
@@ -35,5 +35,5 @@ class User(ApiBase, View):
 
 urlpatterns = [
     url(r'^/?$', Users.as_view()),
-    url(r'^{userid}/?$'.format(userid=userid), User.as_view()),
+    url(r'^{userid}/?$'.format(userid=user_id_uri_pattern), User.as_view()),
 ]

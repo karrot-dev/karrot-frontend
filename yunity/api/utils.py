@@ -19,14 +19,14 @@ class ApiBase(object):
         return JsonResponse({'validation_failure': message}, status=status)
 
     @classmethod
-    def success(cls, data, status=HTTP_200_OK):
+    def success(cls, data=None, status=HTTP_200_OK):
         """
         :type data: dict
         :type status: int
         :rtype JsonResponse
 
         """
-        return JsonResponse(data, status=status)
+        return JsonResponse(data or {}, status=status)
 
     @classmethod
     def forbidden(cls, message, status=HTTP_403_FORBIDDEN):

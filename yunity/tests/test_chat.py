@@ -5,5 +5,5 @@ from django.test import TestCase
 class ChatTestCase(TestCase):
     def test_create_chat(self):
         user = f.UserFactory.create()
-        print(user)
+
         assert(True)

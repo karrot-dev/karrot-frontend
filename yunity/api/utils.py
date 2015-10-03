@@ -1,10 +1,23 @@
 from functools import wraps
 from json import loads as load_json
 
+from django.db.models import Model
 from django.http import JsonResponse
 
 
 class ApiBase(object):
+    @classmethod
+    def model_to_json(cls, model, *fields):
+        serialized = dict()
+        for field in fields:
+            value = getattr(model, field)
+            if not value:
+                continue
+            if isinstance(value, Model):
+                value = value.id
+            serialized[field] = value
+        return serialized
+
     @classmethod
     def validation_failure(cls, message, status=400):
         """

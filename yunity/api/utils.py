@@ -9,18 +9,6 @@ from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK
 
 class ApiBase(object):
     @classmethod
-    def model_to_json(cls, model, *fields):
-        serialized = dict()
-        for field in fields:
-            value = getattr(model, field)
-            if not value:
-                continue
-            if isinstance(value, Model):
-                value = value.id
-            serialized[field] = value
-        return serialized
-
-    @classmethod
     def validation_failure(cls, message, status=HTTP_400_BAD_REQUEST):
         """
         :type message: str
@@ -71,3 +59,15 @@ def json_request(expected_keys=None):
 
         return wrapper
     return decorator
+
+
+def model_to_json(model, *fields):
+    serialized = dict()
+    for field in fields:
+        value = getattr(model, field)
+        if not value:
+            continue
+        if isinstance(value, Model):
+            value = value.id
+        serialized[field] = value
+    return serialized

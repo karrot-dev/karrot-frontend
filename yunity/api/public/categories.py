@@ -2,15 +2,15 @@ from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
 
-from yunity.api.utils import ApiBase, json_request
+from yunity.api.utils import ApiBase, json_request, model_to_json
 from yunity.models import Category as CategoryModel
 
 
-class Categories(ApiBase, View):
-    @classmethod
-    def category_to_json(cls, category):
-        return cls.model_to_json(category, 'name', 'id', 'parent')
+def category_to_json(category):
+    return model_to_json(category, 'name', 'id', 'parent')
 
+
+class Categories(ApiBase, View):
     def get(self, request):
         """List all categories.
 
@@ -22,9 +22,9 @@ class Categories(ApiBase, View):
         :type request: HttpRequest
         :rtype JsonResponse
         """
-        categories = [self.category_to_json(category) for category in CategoryModel.objects.all()]
+        categories = CategoryModel.objects.all()
 
-        return self.success({'categories': categories})
+        return self.success({'categories': [category_to_json(_) for _ in categories]})
 
     @json_request(expected_keys=['name'])
     def post(self, data, request):

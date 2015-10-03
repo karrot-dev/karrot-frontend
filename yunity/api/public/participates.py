@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 from yunity.api.ids import participateid
 
-from yunity.api.utils import ApiBase, integer_id
+from yunity.api.utils import ApiBase
 
 
 class Participates(ApiBase, View):

@@ -4,6 +4,8 @@ from json import loads as load_json
 from django.db.models import Model
 from django.http import JsonResponse
 
+from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK
+
 
 class ApiBase(object):
     @classmethod
@@ -19,7 +21,7 @@ class ApiBase(object):
         return serialized
 
     @classmethod
-    def validation_failure(cls, message, status=400):
+    def validation_failure(cls, message, status=HTTP_400_BAD_REQUEST):
         """
         :type message: str
         :type status: int
@@ -29,7 +31,7 @@ class ApiBase(object):
         return JsonResponse({'validation_failure': message}, status=status)
 
     @classmethod
-    def success(cls, data, status=200):
+    def success(cls, data, status=HTTP_200_OK):
         """
         :type data: dict
         :type status: int
@@ -39,7 +41,7 @@ class ApiBase(object):
         return JsonResponse(data, status=status)
 
     @classmethod
-    def error(cls, error, status=400):
+    def error(cls, error, status=HTTP_400_BAD_REQUEST):
         """
         :type error: str
         :type status: int

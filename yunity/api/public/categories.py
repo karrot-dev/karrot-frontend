@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.utils import ApiBase, json_request
-from yunity.models import Category
+from yunity.models import Category as CategoryModel
 
 
 class Categories(ApiBase, View):
@@ -22,7 +22,7 @@ class Categories(ApiBase, View):
         :type request: HttpRequest
         :rtype JsonResponse
         """
-        categories = [self.category_to_json(category) for category in Category.objects.all()]
+        categories = [self.category_to_json(category) for category in CategoryModel.objects.all()]
 
         return self.success({'categories': categories})
 
@@ -51,9 +51,9 @@ class Categories(ApiBase, View):
         name = data['name']
         parent = data.get('parent')
         if parent is not None:
-            parent = Category.objects.get(id=parent)
+            parent = CategoryModel.objects.get(id=parent)
 
-        category = Category.objects.create(name=name, parent=parent)
+        category = CategoryModel.objects.create(name=name, parent=parent)
         return self.success({'id': category.id})
 
 

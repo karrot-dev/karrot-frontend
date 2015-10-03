@@ -183,8 +183,7 @@ class ChatParticipant(ApiBase, View):
 
         ChatModel.objects \
             .get(id=chatid) \
-            .participants \
-            .filter(id=userid) \
+            .filter(participants=userid) \
             .delete()
 
         return self.success()

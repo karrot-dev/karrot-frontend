@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
+from yunity.api.ids import opportunityid, wallpostid
 
 from yunity.api.utils import ApiBase
 
@@ -76,9 +77,6 @@ class OpportunityWallpost(ApiBase, View):
         """
         raise NotImplementedError
 
-
-opportunityid = r'(?P<opportunityid>[0-9]+)'
-wallpostid = r'(?P<wallpostid>[0-9]+)'
 
 urlpatterns = [
     url(r'/?^$', Opportunities.as_view()),

@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
+from yunity.api.ids import userid
 
 from yunity.api.utils import ApiBase
 
@@ -31,8 +32,6 @@ class User(ApiBase, View):
         """
         raise NotImplementedError
 
-
-userid = r'(?P<userid>[0-9]+)'
 
 urlpatterns = [
     url(r'^/?$', Users.as_view()),

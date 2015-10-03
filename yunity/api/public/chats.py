@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
+from yunity.api.ids import chatid, userid
 
 from yunity.api.utils import ApiBase
 
@@ -69,8 +70,6 @@ class ChatParticipant(ApiBase, View):
         """
         raise NotImplementedError
 
-chatid = r'(?P<chatid>[0-9]+)'
-userid = r'(?P<userid>[0-9]+)'
 
 urlpatterns = [
     url(r'^/?$', Chats.as_view()),

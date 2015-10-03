@@ -1,8 +1,9 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
+from yunity.api.ids import participateid
 
-from yunity.api.utils import ApiBase
+from yunity.api.utils import ApiBase, integer_id
 
 
 class Participates(ApiBase, View):
@@ -46,8 +47,6 @@ class Participate(ApiBase, View):
         """
         raise NotImplementedError
 
-
-participateid = r'(?P<participateid>[0-9]+)'
 
 urlpatterns = [
     url(r'^/?$', Participates.as_view()),

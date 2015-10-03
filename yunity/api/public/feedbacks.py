@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
+from yunity.api.ids import feedbackid
 
 from yunity.api.utils import ApiBase
 
@@ -56,8 +57,6 @@ class FeedbackArbitrationlog(ApiBase, View):
         """
         raise NotImplementedError
 
-
-feedbackid = r'(?P<feedbackid>[0-9]+)'
 
 urlpatterns = [
     url(r'^/?$', Feedbacks.as_view()),

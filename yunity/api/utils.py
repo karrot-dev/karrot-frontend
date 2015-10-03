@@ -16,4 +16,3 @@ class ApiBase(object):
             "status": status,
             "message": message
         }, status=status_code)
-

@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
+from yunity.api.ids import valuableid, wallpostid
 
 from yunity.api.utils import ApiBase
 
@@ -76,9 +77,6 @@ class ValuableWallpost(ApiBase, View):
         """
         raise NotImplementedError
 
-
-valuableid = r'(?P<valuableid>[0-9]+)'
-wallpostid = r'(?P<wallpostid>[0-9]+)'
 
 urlpatterns = [
     url(r'^/?$', Valuables.as_view()),

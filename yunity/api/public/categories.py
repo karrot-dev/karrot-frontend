@@ -21,6 +21,7 @@ class Categories(ApiBase, View):
 
         :type request: HttpRequest
         :rtype JsonResponse
+
         """
         categories = CategoryModel.objects.all()
 
@@ -47,6 +48,7 @@ class Categories(ApiBase, View):
         :type data: dict
         :type request: HttpRequest
         :rtype JsonResponse
+
         """
         name = data['name']
         parent = data.get('parent')

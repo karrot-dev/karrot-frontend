@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.views.generic import View
-from yunity.utils.api import ApiBase
+
+from yunity.api.utils import ApiBase
 
 
 class Login(ApiBase, View):

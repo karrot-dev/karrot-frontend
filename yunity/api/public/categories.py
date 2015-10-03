@@ -1,7 +1,8 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.utils.api import ApiBase
+
+from yunity.api.utils import ApiBase
 
 
 class Categories(ApiBase, View):

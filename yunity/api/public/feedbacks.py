@@ -59,7 +59,7 @@ class FeedbackArbitrationlog(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/?$', Feedbacks.as_view()),
+    url(r'^$', Feedbacks.as_view()),
     url(r'^{feedbackid}/?$'.format(feedbackid=feedback_id_uri_pattern), Feedback.as_view()),
     url(r'^{feedbackid}/arbitrationlog/?$'.format(feedbackid=feedback_id_uri_pattern), FeedbackArbitrationlog.as_view()),
 ]

@@ -34,6 +34,6 @@ class User(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/?$', Users.as_view()),
+    url(r'^$', Users.as_view()),
     url(r'^{userid}/?$'.format(userid=user_id_uri_pattern), User.as_view()),
 ]

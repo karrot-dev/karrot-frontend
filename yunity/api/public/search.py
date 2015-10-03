@@ -15,5 +15,5 @@ class Search(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/?$', Search.as_view()),
+    url(r'^$', Search.as_view()),
 ]

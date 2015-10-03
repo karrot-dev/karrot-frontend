@@ -60,5 +60,5 @@ class Categories(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/?$', Categories.as_view()),
+    url(r'^$', Categories.as_view()),
 ]

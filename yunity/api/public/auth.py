@@ -30,6 +30,6 @@ class Logout(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/login/?$', Login.as_view()),
-    url(r'^/logout/?$', Logout.as_view()),
+    url(r'^login/?$', Login.as_view()),
+    url(r'^logout/?$', Logout.as_view()),
 ]

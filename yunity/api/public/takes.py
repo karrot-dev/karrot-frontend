@@ -49,6 +49,6 @@ class Take(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/?$', Takes.as_view()),
+    url(r'^$', Takes.as_view()),
     url(r'^{takeid}/?$'.format(takeid=take_id_uri_pattern), Take.as_view()),
 ]

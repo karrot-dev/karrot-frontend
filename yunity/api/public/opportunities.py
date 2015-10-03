@@ -79,7 +79,7 @@ class OpportunityWallpost(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'/?^$', Opportunities.as_view()),
+    url(r'^$', Opportunities.as_view()),
     url(r'^{opportunityid}/?$'.format(opportunityid=opportunity_id_uri_pattern), Opportunity.as_view()),
     url(r'^{opportunityid}/wallposts/?$'.format(opportunityid=opportunity_id_uri_pattern), OpportunityWallposts.as_view()),
     url(r'^{opportunityid}/wallposts/{wallpostid}/?$'.format(opportunityid=opportunity_id_uri_pattern, wallpostid=wallpost_id_uri_pattern), OpportunityWallpost.as_view()),

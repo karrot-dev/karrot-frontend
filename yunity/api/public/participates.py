@@ -49,6 +49,6 @@ class Participate(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/?$', Participates.as_view()),
+    url(r'^$', Participates.as_view()),
     url(r'^{participateid}/?$'.format(participateid=participate_id_uri_pattern), Participate.as_view()),
 ]

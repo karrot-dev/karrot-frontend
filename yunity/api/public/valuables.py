@@ -79,8 +79,8 @@ class ValuableWallpost(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^/?$', Valuables.as_view()),
-    url(r'^/{valuableid}/?$'.format(valuableid=valuable_id_uri_pattern), Valuable.as_view()),
-    url(r'^/{valuableid}/wallposts/?$'.format(valuableid=valuable_id_uri_pattern), ValuableWallposts.as_view()),
-    url(r'^/{valuableid}/wallposts/{wallpostid}/?$'.format(valuableid=valuable_id_uri_pattern, wallpostid=wallpost_id_uri_pattern), ValuableWallpost.as_view()),
+    url(r'^$', Valuables.as_view()),
+    url(r'^{valuableid}/?$'.format(valuableid=valuable_id_uri_pattern), Valuable.as_view()),
+    url(r'^{valuableid}/wallposts/?$'.format(valuableid=valuable_id_uri_pattern), ValuableWallposts.as_view()),
+    url(r'^{valuableid}/wallposts/{wallpostid}/?$'.format(valuableid=valuable_id_uri_pattern, wallpostid=wallpost_id_uri_pattern), ValuableWallpost.as_view()),
 ]

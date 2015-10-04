@@ -1,11 +1,11 @@
 from functools import wraps
-from json import loads as load_json
+from json import loads as load_json_string
 
 from django.db.models import Model
 from django.http import JsonResponse
 from yunity.api.ids import ids_uri_pattern_delim
 
-from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_403_FORBIDDEN
+from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_403_FORBIDDEN, HTTP_201_CREATED
 
 
 class ApiBase(object):
@@ -21,6 +21,16 @@ class ApiBase(object):
 
     @classmethod
     def success(cls, data=None, status=HTTP_200_OK):
+        """
+        :type data: dict
+        :type status: int
+        :rtype JsonResponse
+
+        """
+        return JsonResponse(data or {}, status=status)
+
+    @classmethod
+    def created(cls, data=None, status=HTTP_201_CREATED):
         """
         :type data: dict
         :type status: int
@@ -62,13 +72,15 @@ def post_with_json_body(expected_keys=None):
         @wraps(func)
         def wrapper(api_base, request, *args, **kwargs):
             try:
-                data = load_json(request.body.decode('utf8'))
-            except ValueError:
+                data = load_json_string(request.body.decode())
+            except ValueError as e:
+                print(str(e))
                 return api_base.error('incorrect json request')
 
             for expected_key in expected_keys:
                 value = data.get(expected_key)
                 if not value:
+                    print("validation_failure")
                     return api_base.validation_failure('missing key: {}'.format(expected_key))
 
             return func(api_base, request, data, *args, **kwargs)

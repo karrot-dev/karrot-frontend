@@ -32,7 +32,9 @@ class Categories(ApiBase, View):
         """
         categories = CategoryModel.objects.all()
 
-        return self.success({'categories': [{'id': _.id} for _ in categories]})
+        return self.success({'categories': [{
+            'id': _.id,
+        } for _ in categories]})
 
     @post_with_json_body(expected_keys=['categories'])
     def post(self, data, request):
@@ -56,7 +58,10 @@ class Categories(ApiBase, View):
         """
         categories = [category_from(name=category.get('name'), parent=category.get('parent'))
                       for category in data.get('categories', [])]
-        return self.success({'categories': [{'id': _.id} for _ in categories]})
+
+        return self.success({'categories': [{
+            'id': _.id,
+        } for _ in categories]})
 
 
 class Category(ApiBase, View):

@@ -26,7 +26,7 @@ def user_has_rights_to_chat(chatid, userid):
     return ChatModel.objects \
         .filter(id=chatid) \
         .filter(Q(participants=userid) | Q(administrated_by=userid)) \
-        .count() != 0
+        .exists()
 
 
 class Chats(ApiBase, View):
@@ -47,7 +47,7 @@ class Chats(ApiBase, View):
             .filter(participants=request.user.id) \
             .annotate(most_recent_message=Max('messages__created_at')) \
             .order_by('-most_recent_message') \
-            .all()
+            .values('id')
 
         return self.success({'chats': [chat_to_json(_) for _ in chats]})
 

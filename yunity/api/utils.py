@@ -77,7 +77,12 @@ def post_with_json_body(expected_keys=None):
 
 
 def get_with_list_param(param_name, item_type=str, delim=ids_uri_pattern_delim):
-    """
+    """Decorator to split a multi-resource URI into a list of multiple resources.
+    Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
+
+    :type param_name: str
+    :type item_type: function :: str -> T
+    :type delim: str
     """
     def decorator(func):
         @wraps(func)

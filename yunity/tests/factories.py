@@ -23,3 +23,21 @@ class UserFactory(Factory):
     password = factory.PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
     last_login = datetime.now()
     locations = {}
+
+class ChatFactory(Factory):
+    class Meta:
+        model = "yunity.Chat"
+        strategy = factory.CREATE_STRATEGY
+
+    administrated_by = factory.SubFactory(UserFactory)
+
+    @factory.post_generation
+    def participants(self, create, extracted, **kwargs):
+        if not create:
+            # Simple build, do nothing.
+            return
+
+        if extracted:
+            # A list of groups were passed in, use them
+            for participant in extracted:
+                self.participants.add(participant)

@@ -102,5 +102,5 @@ class Category(ApiBase, View):
 
 urlpatterns = [
     url(r'^$', Categories.as_view()),
-    url(r'^/{categoryids}/?$'.format(categoryids=category_ids_uri_pattern), Category.as_view()),
+    url(r'^{categoryids}/?$'.format(categoryids=category_ids_uri_pattern), Category.as_view()),
 ]

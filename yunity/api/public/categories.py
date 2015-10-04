@@ -1,13 +1,20 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
+from yunity.api.ids import category_ids_uri_pattern
 
-from yunity.api.utils import ApiBase, json_post, model_to_json
+from yunity.api.utils import ApiBase, json_post, list_get
 from yunity.models import Category as CategoryModel
 
 
-def category_to_json(category):
-    return model_to_json(category, 'name', 'id', 'parent')
+def category_from(name, parent=None):
+    """
+    :type name: str
+    :type parent: str
+    :rtype: CategoryModel
+    """
+    parent = CategoryModel.objects.get(id=parent) if parent is not None else None
+    return CategoryModel.objects.create(name=name, parent=parent)
 
 
 class Categories(ApiBase, View):
@@ -17,7 +24,7 @@ class Categories(ApiBase, View):
         response_json:
             categories:
                 type: list
-                description: a list of {'name', 'id', 'parent'} objects describing all the categories
+                description: a list of {'id': integer} objects describing all the categories
 
         :type request: HttpRequest
         :rtype JsonResponse
@@ -25,40 +32,60 @@ class Categories(ApiBase, View):
         """
         categories = CategoryModel.objects.all()
 
-        return self.success({'categories': [category_to_json(_) for _ in categories]})
+        return self.success({'categories': [{'id': _.id} for _ in categories]})
 
-    @json_post(expected_keys=['name'])
+    @json_post(expected_keys=['categories'])
     def post(self, data, request):
         """Creates a new category.
 
         request_json:
-            name:
-                type: string
+            categories:
+                type: list
                 required: true
-                description: the name of the category to create
-            parent:
-                type: integer
-                description: the id of the category under which to nest the new category
+                description: a list of {'name': string, 'parent': integer} objects of the categories to create
 
         response_json:
-            id:
-                type: integer
-                description: the id of the newly created category
+            categories:
+                type: list
+                description: a list of {'id': integer} objects describing the newly created categories
 
         :type data: dict
         :type request: HttpRequest
         :rtype JsonResponse
 
         """
-        name = data['name']
-        parent = data.get('parent')
-        if parent is not None:
-            parent = CategoryModel.objects.get(id=parent)
+        categories = [category_from(name=category.get('name'), parent=category.get('parent'))
+                      for category in data.get('categories', [])]
+        return self.success({'categories': [{'id': _.id} for _ in categories]})
 
-        category = CategoryModel.objects.create(name=name, parent=parent)
-        return self.success({'id': category.id})
+
+class Category(ApiBase, View):
+    @list_get('categoryids', item_type=int)
+    def get(self, categoryids, request):
+        """Describe one or more categories.
+
+        response_json:
+            categories:
+                type: list
+                description: a list of {'id': integer, 'name': string, 'parent': integer} objects describing the categories
+
+        :type request: HttpRequest
+        :type categoryids: list
+        :rtype JsonResponse
+
+        """
+        categories = CategoryModel.objects \
+            .filter(id__in=categoryids) \
+            .all()
+
+        return self.success({'categories': [{
+            'id': _.id,
+            'name': _.name,
+            'parent': _.parent_id,
+        } for _ in categories]})
 
 
 urlpatterns = [
     url(r'^$', Categories.as_view()),
+    url(r'^/{categoryids}/?$'.format(categoryids=category_ids_uri_pattern), Category.as_view()),
 ]

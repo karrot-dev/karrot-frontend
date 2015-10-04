@@ -74,6 +74,27 @@ def json_post(expected_keys=None):
     return decorator
 
 
+def list_get(param_name, item_type=str):
+    """
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(api_base, *args, **kwargs):
+            raw_params = kwargs.pop(param_name, '').split(',')
+            parsed_params = []
+            for raw_param in raw_params:
+                try:
+                    parsed_param = item_type(raw_param)
+                except ValueError:
+                    return api_base.validation_failure('invalid type: {}'.format(raw_param))
+                else:
+                    parsed_params.append(parsed_param)
+
+            return func(api_base, parsed_params, *args, **kwargs)
+        return wrapper
+    return decorator
+
+
 def model_to_json(model, *fields):
     serialized = dict()
     for field in fields:

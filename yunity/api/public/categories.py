@@ -31,11 +31,19 @@ def categories_from(categories):
 class Categories(ApiBase, View):
     def get(self, request):
         """List all categories.
+        ---
+        responses:
+            200:
+                description: A list of all existing categories.
+                schema:
+                    type: object
+                    properties:
+                        categories:
+                            type: array
+                            items:
+                                type: integer
 
-        response_json:
-            categories:
-                type: list
-                description: a list of {'id': integer} objects describing all the categories
+        ...
 
         :type request: HttpRequest
         :rtype JsonResponse

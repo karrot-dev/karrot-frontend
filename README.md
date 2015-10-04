@@ -91,6 +91,38 @@ If you get a "virtual memory error" with any of the postgres commands, close PyC
 
 [![ER diagram](documentation/yunity-schema.png)](documentation/yunity-schema.xml)
 
+## API Documentation
+
+A swagger description file is generated at /doc. You can pass it to any swagger installation.
+
+### Install swagger locally
+
+An easy swagger setup can be included into the django distribution. Add the following line to your local_settings.py
+
+```
+LOCAL_WEBAPP_PATH = 'path_to_/yunity-core/static'
+```
+
+and clone the swagger-ui repo there:
+
+```
+git clone https://github.com/swagger-api/swagger-ui.git
+```
+
+Now you can point your browser to the swagger index.html
+
+```
+localhost:8000:/swagger-ui/dist/index.html
+```
+
+just enter
+
+```
+http://localhost:8000/doc
+```
+
+and you can explore the API.
+
 ## Settings
 
 In development, you can add and override local settings in

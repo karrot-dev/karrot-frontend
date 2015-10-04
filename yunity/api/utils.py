@@ -54,6 +54,7 @@ def post_with_json_body(expected_keys=None):
     """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 
+    :type expected_keys: list
     """
     expected_keys = expected_keys or []
 

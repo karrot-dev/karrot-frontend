@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 from yunity.api.ids import category_ids_uri_pattern
 
-from yunity.api.utils import ApiBase, json_post, list_get
+from yunity.api.utils import ApiBase, json_post, get_with_list_param
 from yunity.models import Category as CategoryModel
 
 
@@ -60,7 +60,7 @@ class Categories(ApiBase, View):
 
 
 class Category(ApiBase, View):
-    @list_get('categoryids', item_type=int)
+    @get_with_list_param('categoryids', item_type=int)
     def get(self, categoryids, request):
         """Describe one or more categories.
 

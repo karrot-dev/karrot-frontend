@@ -74,7 +74,7 @@ def json_post(expected_keys=None):
     return decorator
 
 
-def list_get(param_name, item_type=str):
+def get_with_list_param(param_name, item_type=str):
     """
     """
     def decorator(func):

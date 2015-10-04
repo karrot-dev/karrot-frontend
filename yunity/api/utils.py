@@ -72,15 +72,13 @@ def post_with_json_body(expected_keys=None):
         @wraps(func)
         def wrapper(api_base, request, *args, **kwargs):
             try:
-                data = load_json_string(request.body.decode())
+                data = load_json_string(request.body.decode("utf-8"))
             except ValueError as e:
-                print(str(e))
                 return api_base.error('incorrect json request')
 
             for expected_key in expected_keys:
                 value = data.get(expected_key)
                 if not value:
-                    print("validation_failure")
                     return api_base.validation_failure('missing key: {}'.format(expected_key))
 
             return func(api_base, request, data, *args, **kwargs)

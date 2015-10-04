@@ -80,10 +80,13 @@ class Chats(ApiBase, View):
         :rtype JsonResponse
 
         """
-        participants = data['participants']
-        chat = ChatModel.objects.create(participants=participants)
+        participant_ids = data['participants']
+        participants = UserModel.objects.filter(id__in=participant_ids).all()
+        chat = ChatModel.objects.create()
+        for _ in participants:
+            chat.participants.add(_)
 
-        return self.success({'id': chat.id})
+        return self.created({'id': chat.id})
 
 
 class Chat(ApiBase, View):

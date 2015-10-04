@@ -37,6 +37,13 @@ class ChatTestCase(TestCase):
         assert(chatdb.participants.filter(id=self.users[0].id).exists())
         assert(chatdb.participants.filter(id=self.users[1].id).exists())
 
+    def test_create_chat_forbidden(self):
+        create_chat_body = {"participants": [self.users[0].id, self.users[1].id]}
+        request = self.factory.post('/api/chats', create_chat_body)
+        request.user = self.users[3]
+        response = self.ChatsView(request)
+        assert(response.status_code == status.HTTP_403_FORBIDDEN)
+
 
     def test_get_chat_messages(self):
         pass

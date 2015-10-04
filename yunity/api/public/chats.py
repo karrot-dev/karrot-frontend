@@ -81,6 +81,8 @@ class Chats(ApiBase, View):
 
         """
         participant_ids = data['participants']
+        if not request.user.id in participant_ids:
+            return self.forbidden("User can only create chat including self")
         participants = UserModel.objects.filter(id__in=participant_ids).all()
         chat = ChatModel.objects.create()
         for _ in participants:

@@ -12,9 +12,20 @@ def category_from(name, parent=None):
     :type name: str
     :type parent: str
     :rtype: CategoryModel
+
     """
     parent = CategoryModel.objects.get(id=parent) if parent is not None else None
     return CategoryModel.objects.create(name=name, parent=parent)
+
+
+def categories_from(categories):
+    """
+    :type categories: list
+    :rtype: list
+
+    """
+    # TODO: Maybe change implementation to `bulk_create` at some point...
+    return [category_from(_.get('name'), _.get('parent')) for _ in categories]
 
 
 class Categories(ApiBase, View):
@@ -56,8 +67,7 @@ class Categories(ApiBase, View):
         :rtype JsonResponse
 
         """
-        categories = [category_from(name=category.get('name'), parent=category.get('parent'))
-                      for category in data.get('categories', [])]
+        categories = categories_from(data.get('categories', []))
 
         return self.success({'categories': [{
             'id': _.id,

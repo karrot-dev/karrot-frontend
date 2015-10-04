@@ -37,7 +37,7 @@ class Categories(ApiBase, View):
         } for _ in categories]})
 
     @post_with_json_body(expected_keys=['categories'])
-    def post(self, data, request):
+    def post(self, request, data):
         """Creates a new category.
 
         request_json:
@@ -66,7 +66,7 @@ class Categories(ApiBase, View):
 
 class Category(ApiBase, View):
     @get_with_list_param('categoryids', item_type=int)
-    def get(self, categoryids, request):
+    def get(self, request, categoryids):
         """Describe one or more categories.
 
         response_json:

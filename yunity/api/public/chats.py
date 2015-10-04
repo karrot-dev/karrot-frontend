@@ -52,7 +52,7 @@ class Chats(ApiBase, View):
         return self.success({'chats': [chat_to_json(_) for _ in chats]})
 
     @post_with_json_body(expected_keys=['participants'])
-    def post(self, data, request):
+    def post(self, request, data):
         """Create a new chat involving some participants.
 
         request_json:
@@ -135,7 +135,7 @@ class ChatParticipants(ApiBase, View):
         return self.success({'participants': user_to_json(_) for _ in participants})
 
     @post_with_json_body(expected_keys=['users'])
-    def post(self, data, request, chatid):
+    def post(self, request, data, chatid):
         """Add a list of users to the chat.
 
         request_json:

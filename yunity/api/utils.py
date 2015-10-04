@@ -71,7 +71,7 @@ def post_with_json_body(expected_keys=None):
                 if not value:
                     return api_base.validation_failure('missing key: {}'.format(expected_key))
 
-            return func(api_base, data, request, *args, **kwargs)
+            return func(api_base, request, data, *args, **kwargs)
         return wrapper
     return decorator
 
@@ -86,7 +86,7 @@ def get_with_list_param(param_name, item_type=str, delim=ids_uri_pattern_delim):
     """
     def decorator(func):
         @wraps(func)
-        def wrapper(api_base, *args, **kwargs):
+        def wrapper(api_base, request, *args, **kwargs):
             raw_params = kwargs.pop(param_name, '').split(delim)
             parsed_params = []
             for raw_param in raw_params:
@@ -97,7 +97,7 @@ def get_with_list_param(param_name, item_type=str, delim=ids_uri_pattern_delim):
                 else:
                     parsed_params.append(parsed_param)
 
-            return func(api_base, parsed_params, *args, **kwargs)
+            return func(api_base, request, parsed_params, *args, **kwargs)
         return wrapper
     return decorator
 

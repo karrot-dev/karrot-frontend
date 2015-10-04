@@ -4,7 +4,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 
-from yunity.api.utils import ApiBase, model_to_json, json_post
+from yunity.api.utils import ApiBase, model_to_json, post_with_json_body
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
@@ -51,7 +51,7 @@ class Chats(ApiBase, View):
 
         return self.success({'chats': [chat_to_json(_) for _ in chats]})
 
-    @json_post(expected_keys=['participants'])
+    @post_with_json_body(expected_keys=['participants'])
     def post(self, data, request):
         """Create a new chat involving some participants.
 
@@ -134,7 +134,7 @@ class ChatParticipants(ApiBase, View):
 
         return self.success({'participants': user_to_json(_) for _ in participants})
 
-    @json_post(expected_keys=['users'])
+    @post_with_json_body(expected_keys=['users'])
     def post(self, data, request, chatid):
         """Add a list of users to the chat.
 

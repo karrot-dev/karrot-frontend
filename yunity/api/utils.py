@@ -3,6 +3,7 @@ from json import loads as load_json
 
 from django.db.models import Model
 from django.http import JsonResponse
+from yunity.api.ids import ids_uri_pattern_delim
 
 from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_403_FORBIDDEN
 
@@ -74,13 +75,13 @@ def post_with_json_body(expected_keys=None):
     return decorator
 
 
-def get_with_list_param(param_name, item_type=str):
+def get_with_list_param(param_name, item_type=str, delim=ids_uri_pattern_delim):
     """
     """
     def decorator(func):
         @wraps(func)
         def wrapper(api_base, *args, **kwargs):
-            raw_params = kwargs.pop(param_name, '').split(',')
+            raw_params = kwargs.pop(param_name, '').split(delim)
             parsed_params = []
             for raw_param in raw_params:
                 try:

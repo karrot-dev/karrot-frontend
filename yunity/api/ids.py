@@ -1,4 +1,7 @@
-def _integerid_list(name, minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=1000):
+ids_uri_pattern_delim = ','
+
+
+def _integerid_list(name, minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=1000, delim=ids_uri_pattern_delim):
     """
     :type name: str
     :type minlength: int
@@ -12,7 +15,7 @@ def _integerid_list(name, minlength=1, maxlength=10, minrepetitions=1, maxrepeti
 
     """
     integerid = '[0-9]{{{minlength},{maxlength}}}'.format(minlength=minlength, maxlength=maxlength)
-    integerid_list = '{integerid}(,{integerid}){{{minrepetitions},{maxrepetitions}}}'.format(integerid=integerid, minrepetitions=minrepetitions - 1, maxrepetitions=maxrepetitions - 1)
+    integerid_list = '{integerid}({delim}{integerid}){{{minrepetitions},{maxrepetitions}}}'.format(integerid=integerid, minrepetitions=minrepetitions - 1, maxrepetitions=maxrepetitions - 1, delim=delim)
     return '(?P<{name}>{integerid_list})'.format(name=name, integerid_list=integerid_list)
 
 

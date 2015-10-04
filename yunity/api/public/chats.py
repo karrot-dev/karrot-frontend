@@ -34,11 +34,18 @@ class Chats(ApiBase, View):
         """List all chats in which the currently logged in user is involved.
         The chats are in descending order of the most recent message time; this means that the first element of the
         chats list is the chat with the most recent activity.
+        ---
 
-        response_json:
-            chats:
-                type: list
-                description: a list of {'id'} objects describing all the chats
+        responses:
+            200:
+                description: A list of all the chats the logged in user is involved.
+                schema:
+                    type: object
+                    properties:
+                        data:
+                            type: array
+                            items:
+                                type: integer
 
         :type request: HttpRequest
 
@@ -56,10 +63,12 @@ class Chats(ApiBase, View):
         """Create a new chat involving some participants.
 
         request_json:
-            participants:
-                type: list
-                required: true
-                description: the list of user ids to enroll in the new chat
+            name: participants
+            description: the list of user ids to enroll in the new chat
+            required: true
+            type: array
+            items:
+                type: integer
 
         response_json:
             id:

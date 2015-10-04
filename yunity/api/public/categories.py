@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
 
-from yunity.api.utils import ApiBase, json_request, model_to_json
+from yunity.api.utils import ApiBase, json_post, model_to_json
 from yunity.models import Category as CategoryModel
 
 
@@ -27,7 +27,7 @@ class Categories(ApiBase, View):
 
         return self.success({'categories': [category_to_json(_) for _ in categories]})
 
-    @json_request(expected_keys=['name'])
+    @json_post(expected_keys=['name'])
     def post(self, data, request):
         """Creates a new category.
 

@@ -49,7 +49,7 @@ class ApiBase(object):
         return JsonResponse({'message': message}, status=status)
 
 
-def json_request(expected_keys=None):
+def json_post(expected_keys=None):
     """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 

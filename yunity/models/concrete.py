@@ -1,8 +1,40 @@
-from django.contrib.auth.models import AbstractBaseUser
-from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField, ManyToManyField, EmailField, BooleanField
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField, ManyToManyField, EmailField, \
+    BooleanField
 from django.utils import timezone
 from yunity.models.abstract import MapItem, Conversation, Request
-from yunity.models.utils import BaseModel, MaxLengthCharField, UserManager
+from yunity.models.utils import BaseModel, MaxLengthCharField
+
+
+class UserManager(BaseUserManager):
+    use_in_migrations = True
+
+    def _create_user(self, email, password, locations, type, display_name, **extra_fields):
+        """ Creates and saves a User with the given username, email and password.
+
+        """
+        now = timezone.now()
+        if email is None:
+            raise ValueError('The given email must be set')
+        email = self.normalize_email(email)
+        if locations is None:
+            locations = {'latitude': 0.0, 'longitude': 0.0}
+        if type is None:
+            type = Category.objects.get(name="user.default")
+        if display_name is None:
+            display_name = email
+
+        user = self.model(email=email, is_active=True, date_joined=now, locations=locations, type=type,
+                          display_name=display_name, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email=None, password=None, locations=None, type=None, display_name=None, **extra_fields):
+        return self._create_user(email, password, locations, type, display_name, **extra_fields)
+
+    def create_superuser(self, email, password, **extra_fields):
+        return self._create_user(email, password, None, None, None, **extra_fields)
 
 
 class User(AbstractBaseUser, MapItem):

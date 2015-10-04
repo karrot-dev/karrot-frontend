@@ -77,7 +77,7 @@ class Migration(migrations.Migration):
             },
             bases=('yunity.mapitem', models.Model),
             managers=[
-                ('objects', yunity.models.utils.UserManager()),
+                ('objects', yunity.models.UserManager()),
             ],
         ),
         migrations.CreateModel(

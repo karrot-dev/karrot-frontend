@@ -32,6 +32,8 @@ class Categories(ApiBase, View):
     def get(self, request):
         """List all categories.
         ---
+        tags:
+          - Categories
         responses:
             200:
                 description: A list of all existing categories.

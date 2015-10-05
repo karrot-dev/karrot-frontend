@@ -12,6 +12,7 @@ class IntegrationTest(object):
 
     def __init__(self, resource):
         self._initial_data = '{}.initial_data'.format(resource)
+        self._final_data = '{}.final_data'.format(resource)
         self._request = load_json_resource(resource, 'request.json')
         self._response = load_json_resource(resource, 'response.json')
         self.database = None
@@ -52,7 +53,13 @@ class IntegrationTest(object):
         try:
             DeepMatcher.fuzzy_match(actual_response, expected_response)
         except ValueError as e:
-            testcase.fail(str(e))
+            testcase.fail(e.args[0])
+
+    def then_database_is_updated(self, testcase):
+        try:
+            import_module(self._final_data)
+        except AssertionError as e:
+            testcase.fail(e.args[0])
 
     def as_testcase(self):
         def test(testcase):
@@ -64,6 +71,7 @@ class IntegrationTest(object):
             self.when_calling_endpoint()
             self.then_response_status_matches(testcase)
             self.then_response_body_matches(testcase)
+            self.then_database_is_updated(testcase)
 
         return test
 

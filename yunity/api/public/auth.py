@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from utils.session import RealtimeClientData
 
-from yunity.api.utils import ApiBase, post_with_json_body
+from yunity.api.utils import ApiBase, body_as_json
 
 
 class Login(ApiBase, View):
@@ -14,7 +14,7 @@ class Login(ApiBase, View):
         """
         raise NotImplementedError
 
-    @post_with_json_body(expected_keys=['email', 'password'])
+    @body_as_json(expected_keys=['email', 'password'])
     def post(self, request, data):
         """Logs in the user using the provided credentials
         ---

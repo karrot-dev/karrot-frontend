@@ -45,17 +45,34 @@ class Chats(ApiBase, View):
         The chats are in descending order of the most recent message time; this means that the first element of the
         chats list is the chat with the most recent activity.
         ---
-
+        tags:
+            - Chat
         responses:
             200:
                 description: A list of all the chats the logged in user is involved.
                 schema:
                     type: object
                     properties:
-                        data:
+                        chats:
                             type: array
                             items:
-                                type: integer
+                                type: object
+                                properties:
+                                  id:
+                                    type: number
+                                    example: 3
+                                  name:
+                                    type: string
+                                    example: Planning of next party
+                                  participant:
+                                    type: array
+                                    items:
+                                        type: integer
+                                    example: [1, 87, 633, 234]
+                                  last_message:
+                                      $ref: '#/definitions/message'
+
+        ...
 
         :type request: HttpRequest
 
@@ -118,7 +135,59 @@ class Chat(ApiBase, View):
 class ChatMessages(ApiBase, View):
     @body_as_json(expected_keys=['type', 'content'])
     def post(self, request, chatid):
-        """send new chat message
+        """ Send a new message in given chat
+        ---
+        tags:
+            - Chat
+        parameters:
+            - in: path
+              name: chatid
+              description: ID of chat
+              type: integer
+            - in: body
+              name: body
+              schema:
+                  id: send_message
+                  required:
+                    - typ
+                    - content
+                  properties:
+                      typ:
+                          type: string
+                          enum: [TEXT, IMAGE]
+                          description: Type of this message
+                      content:
+                          type: string
+                          example: Hi Peter, how are you?
+                          description: Content, e.g. utf8-formatted plain text or image id received by the upload endpoint
+        responses:
+            201:
+                description: Chat message added
+                schema:
+                    id: message
+                    type: object
+                    properties:
+                        typ:
+                            type: string
+                            enum: [TEXT, IMAGE]
+                            description: Type of this message
+                        content:
+                            type: string
+                            example: Hi Peter, how are you?
+                            description: Content, e.g. utf8-formatted plain text or image id received by the upload endpoint
+                        sender:
+                            type: integer
+                            description: Userid of sender of message
+                            example: 82
+                        created_at:
+                            type: string
+                            description: ISO 8601 formatted timestring in UTC timezone (YYYY-MM-DDTHH:MM:SS)
+                            example: 2007-12-24T18:21:00
+
+            403:
+                description: The logged in user is not part of the conversation
+        ...
+
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden({'reason': 'user does not have rights to chat'})

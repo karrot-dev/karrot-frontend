@@ -35,7 +35,7 @@ class UserFactory(Factory):
     date_joined = datetime.now()
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
     last_login = datetime.now()
-    locations = {[]}
+    locations = []
 
 
 class ChatFactory(Factory):

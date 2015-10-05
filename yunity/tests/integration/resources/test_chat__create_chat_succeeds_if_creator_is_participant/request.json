@@ -1,0 +1,8 @@
+{
+  "endpoint": "/api/chats",
+  "method": "post",
+  "user": 1000,
+  "body": {
+    "participants": [1000, 1001]
+  }
+}

@@ -19,7 +19,7 @@ class Login(ApiBase, View):
         """Logs in the user using the provided credentials
         ---
         tags:
-            - users
+            - Authentication
         parameters:
             - in: body
               name: body
@@ -57,9 +57,11 @@ class Logout(ApiBase, View):
     def post(self, request):
         """log out the user
         ---
+        tags:
+          - Authentication
         responses:
             200:
-                description: User logged in
+                description: User logged out
         ...
 
         :type request: HttpRequest

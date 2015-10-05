@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 from yunity.api.ids import category_ids_uri_pattern
 
-from yunity.api.utils import ApiBase, post_with_json_body, get_with_list_param
+from yunity.api.utils import ApiBase, body_as_json, get_with_list_param
 from yunity.models import Category as CategoryModel
 
 
@@ -64,8 +64,8 @@ class Categories(ApiBase, View):
             'parent': _.parent_id,
         } for _ in categories]})
 
-    @post_with_json_body(expected_keys=['categories'])
-    def post(self, request, data):
+    @body_as_json(expected_keys=['categories'])
+    def post(self, request):
         """Creates a new category.
 
         request_json:
@@ -79,12 +79,11 @@ class Categories(ApiBase, View):
                 type: list
                 description: a list of {'id': integer} objects describing the newly created categories
 
-        :type data: dict
         :type request: HttpRequest
         :rtype JsonResponse
 
         """
-        categories = categories_from(data.get('categories', []))
+        categories = categories_from(request.body.get('categories', []))
 
         return self.success({'categories': [{
             'id': _.id,

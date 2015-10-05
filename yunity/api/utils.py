@@ -60,8 +60,41 @@ class ApiBase(object):
         return JsonResponse({'message': message}, status=status)
 
 
-def post_with_json_body(expected_keys=None):
+class JsonRequest(object):
+    def __init__(self, http_request, json_body):
+        self._http_request = http_request
+        self._json_body = json_body
+
+    @classmethod
+    def from_http_request(cls, http_request, expected_keys):
+        """
+        :type http_request: HttpRequest
+        :type expected_keys: list
+        :rtype: JsonRequest
+        :raises ValueError: if the request body is not valid JSON or one of the expected keys is missing
+
+        """
+        try:
+            json_data = load_json_string(http_request.body.decode("utf-8"))
+        except ValueError:
+            raise ValueError('incorrect json request')
+
+        for expected_key in expected_keys:
+            value = json_data.get(expected_key)
+            if not value:
+                raise ValueError('missing key: {}'.format(expected_key))
+
+        return cls(http_request, json_data)
+
+    def __getattr__(self, item):
+        if item == 'body':
+            return self._json_body
+        return getattr(self._http_request, item)
+
+
+def body_as_json(expected_keys=None):
     """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object.
+    The decorator modifies the request object, parsing the request.body field into a dictionary.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 
     :type expected_keys: list
@@ -72,16 +105,11 @@ def post_with_json_body(expected_keys=None):
         @wraps(func)
         def wrapper(api_base, request, *args, **kwargs):
             try:
-                data = load_json_string(request.body.decode("utf-8"))
+                json_request = JsonRequest.from_http_request(request, expected_keys)
             except ValueError as e:
-                return api_base.error('incorrect json request')
+                return api_base.error(str(e))
 
-            for expected_key in expected_keys:
-                value = data.get(expected_key)
-                if not value:
-                    return api_base.validation_failure('missing key: {}'.format(expected_key))
-
-            return func(api_base, request, data, *args, **kwargs)
+            return func(api_base, json_request, *args, **kwargs)
         return wrapper
     return decorator
 

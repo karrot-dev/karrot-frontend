@@ -22,6 +22,15 @@ def chat_to_json(chat):
     return model_to_json(chat, 'id')
 
 
+def chat_from(userids):
+    participants = UserModel.objects \
+        .filter(id__in=userids) \
+        .all()
+    chat = ChatModel.objects.create()
+    chat.participants = participants
+    return chat
+
+
 def user_has_rights_to_chat(chatid, userid):
     return ChatModel.objects \
         .filter(id=chatid) \
@@ -82,11 +91,7 @@ class Chats(ApiBase, View):
         participant_ids = request.body['participants']
         if request.user.id not in participant_ids:
             return self.forbidden("User can only create chat including self")
-        participants = UserModel.objects.filter(id__in=participant_ids).all()
-        chat = ChatModel.objects.create()
-        for _ in participants:
-            chat.participants.add(_)
-
+        chat = self.chat_from(participant_ids)
         return self.created({'id': chat.id})
 
 

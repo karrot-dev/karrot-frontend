@@ -105,7 +105,7 @@ class Feedback(BaseModel):
 class Chat(Conversation):
     participants = ManyToManyField('yunity.User')
 
-    name = MaxLengthCharField()
+    name = MaxLengthCharField(null=True)
 
 
 class Wall(Conversation):

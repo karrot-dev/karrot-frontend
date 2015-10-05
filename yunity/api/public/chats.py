@@ -326,7 +326,7 @@ class ChatParticipants(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({'reason': 'user does not have rights to chat'})
+            return self.forbidden('user does not have rights to chat')
 
         users_to_add = UserModel.objects \
             .filter(id=request.body['users']) \

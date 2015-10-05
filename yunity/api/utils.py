@@ -17,7 +17,7 @@ class ApiBase(object):
         :rtype JsonResponse
 
         """
-        return JsonResponse({'validation_failure': message}, status=status)
+        return JsonResponse({'message': message}, status=status)
 
     @classmethod
     def success(cls, data=None, status=HTTP_200_OK):

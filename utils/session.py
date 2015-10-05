@@ -1,25 +1,62 @@
+from django.conf import settings
 import redis
 
 
-class SharedSessionData():
-    PREFIX = 'session-store'
+class RealtimeClientMiddleware():
+    def process_request(self, request):
+        return None
 
-    def __init__(self, use_django_redis_connection=False):
+    def process_response(self, request, response):
+        """ Updates session data in RealtimeClient Server
+        :param request:
+        :param response:
+        :return:
+        """
+        if request.user.is_authenticated():
+            if request.session.modified:
+                RealtimeClientData.set_user_session(request.session.session_key)
+        else:
+            RealtimeClientData.destroy_user_session(request.session.session_key)
+        return response
+
+
+class RealtimeClientData():
+    PREFIX = 'session-store'
+    r = None
+
+    @classmethod
+    def redis_connect(cls, use_django_redis_connection=True):
         if use_django_redis_connection:
             from django_redis import get_redis_connection
-            self.r = get_redis_connection("default")
+            cls.r = get_redis_connection("default")
         else:
-            self.r = redis.StrictRedis(host='localhost', port=6379, db=0)
+            cls.r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
-    def session_key(self, session):
-        return (self.PREFIX + '-' + str(session))
+    @classmethod
+    def connect(cls):
+        if cls.r is None:
+            cls.redis_connect(True)
+        return cls.r
 
-    def get_user_by_session(self, session):
-        user = self.r.get(self.session_key(session))
+    @classmethod
+    def session_key(cls, session):
+        return (cls.PREFIX + '-' + str(session))
+
+    @classmethod
+    def get_user_by_session(cls, session):
+        cls.connect()
+        user = cls.r.get(cls.session_key(session))
         try:
             return user.decode()
         except Exception as e:
             return None
 
-    def set_user_session(self, session, userid):
-        self.r.set(self.session_key(session), userid)
+    @classmethod
+    def set_user_session(cls, session, userid):
+        cls.connect()
+        cls.r.setex(cls.session_key(session), settings.SESSION_COOKIE_AGE, userid)
+
+    @classmethod
+    def destroy_user_session(cls, session):
+        cls.connect()
+        cls.r.delete(cls.session_key(session))

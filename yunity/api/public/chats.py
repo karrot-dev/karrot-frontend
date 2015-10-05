@@ -43,7 +43,7 @@ class Chats(ApiBase, View):
     def get(self, request):
         """List all chats in which the currently logged in user is involved.
         The chats are in descending order of the most recent message time; this means that the first element of the
-        chats list is the chat with the most recent activity.
+        chats list is the chat with the most recent activity. The most recent message is included.
         ---
         tags:
             - Chat
@@ -56,22 +56,7 @@ class Chats(ApiBase, View):
                         chats:
                             type: array
                             items:
-                                type: object
-                                properties:
-                                  id:
-                                    type: number
-                                    example: 3
-                                  name:
-                                    type: string
-                                    example: Planning of next party
-                                  participant:
-                                    type: array
-                                    items:
-                                        type: integer
-                                    example: [1, 87, 633, 234]
-                                  last_message:
-                                      $ref: '#/definitions/message'
-
+                                $ref: '#/definitions/chat'
         ...
 
         :type request: HttpRequest
@@ -87,20 +72,55 @@ class Chats(ApiBase, View):
 
     @body_as_json(expected_keys=['participants', 'message'])
     def post(self, request):
-        """Create a new chat involving some participants.
+        """Create a new chat involving participants and add the first message.
+        ---
+        tags:
+            - Chat
+        parameters:
+            - in: body
+              name: body
+              schema:
+                  id: create_chat
+                  required:
+                    - message
+                    - participants
+                  properties:
+                      message:
+                          $ref: '#/definitions/send_message'
+                      participants:
+                          type: array
+                          example: [1, 742, 23]
+                          description: List of participants that will be added to the chat
+                          items:
+                              type: integer
+        responses:
+            201:
+                description: Chat created
+                schema:
+                    id: chat
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                        description: Identifier of the chat
+                        example: 3
+                      name:
+                        type: string
+                        example: Planning of next party
+                        description: Custom name for the chat
+                      participants:
+                        type: array
+                        items:
+                            type: integer
+                        example: [1, 87, 633, 234]
+                        description: The list of userids participating in the chat
+                      message:
+                          $ref: '#/definitions/message'
 
-        request_json:
-            name: participants
-            description: the list of user ids to enroll in the new chat
-            required: true
-            type: array
-            items:
-                type: integer
+            403:
+                description: The logged in user is not part of the conversation
+        ...
 
-        response_json:
-            id:
-                type: integer
-                description: the id of the newly created chat
 
         :type request: HttpRequest
         :rtype JsonResponse
@@ -149,10 +169,10 @@ class ChatMessages(ApiBase, View):
               schema:
                   id: send_message
                   required:
-                    - typ
+                    - type
                     - content
                   properties:
-                      typ:
+                      type:
                           type: string
                           enum: [TEXT, IMAGE]
                           description: Type of this message
@@ -182,7 +202,11 @@ class ChatMessages(ApiBase, View):
                         created_at:
                             type: string
                             description: ISO 8601 formatted timestring in UTC timezone (YYYY-MM-DDTHH:MM:SS)
-                            example: 2007-12-24T18:21:00
+                            example: 2007-12-24T18:21:00.003423
+                        id:
+                            type: integer
+                            description: Unique identifier of this message
+                            example: 124624
 
             403:
                 description: The logged in user is not part of the conversation
@@ -210,12 +234,39 @@ class ChatMessages(ApiBase, View):
 
 
     def get(self, request, chatid):
-        """Retrieve all the messages in the chat.
+        """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
+        ---
+        tags:
+            - Chat
+        parameters:
+            - in: path
+              name: chatid
+              description: ID of chat
+              type: integer
+            - in: query
+              name: take
+              description: Number of messages to retrieve
+              type: integer
+            - in: query
+              name: before_id
+              description: The newest retrieved message is the first earlier one than this ID
+              type: integer
+        responses:
+            201:
+                description: Result message set
+                schema:
+                    id: result_messages
+                    type: object
+                    properties:
+                        messages:
+                            type: array
+                            items:
+                                $ref: '#/definitions/message'
 
-        response_json:
-            messages:
-                type: list
-                description: the ids of all the messages in the chat
+            403:
+                description: The logged in user is not part of the conversation
+        ...
+
 
         :type request: HttpRequest
         :type chatid: int

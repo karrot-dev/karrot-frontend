@@ -49,6 +49,14 @@ def sort_es_geo_distance(esq, lat, lon):
 
 
 class Search(ApiBase, View):
+    """
+    Used to power e.g. the global search bar
+    """
+    def get(self, request):
+        raise NotImplementedError
+
+
+class SearchMap(ApiBase, View):
 
     def get(self, request):
         """
@@ -56,7 +64,8 @@ class Search(ApiBase, View):
         TODO:
             - accept more parameters
             - scoring on multiple factors
-            - more...
+            - decide on what id to use (MapItem, or [type]:[id], etc.)
+            - and much more...
         """
         term = request.GET.get('q', '')
         lat = float(request.GET.get('lat', 0))
@@ -73,6 +82,21 @@ class Search(ApiBase, View):
         return self.success(hits)
 
 
+
+class SearchDetail(ApiBase, View):
+    """
+    Primarily used to get more information about a single item,
+    e.g. to display more information on map popover that was returned
+    by SearcMap
+    """
+
+    def get(self, request):
+        raise NotImplementedError
+
+
+
 urlpatterns = [
-    url(r'^$', Search.as_view()),
+    url(r'^/$', Search.as_view()),
+    url(r'^/map/?$', SearchMap.as_view()),
+    url(r'^/detail/{pk}?$'.format(pk="pattern (TODO)"), SearchDetail.as_view()),
 ]

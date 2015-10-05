@@ -155,6 +155,33 @@ class ChatParticipants(ApiBase, View):
     @body_as_json(expected_keys=['users'])
     def post(self, request, chatid):
         """Add a list of users to the chat.
+        ---
+        tags:
+            - Chat
+        parameters:
+            - in: path
+              name: chatid
+              description: ID of chat
+              type: integer
+            - in: body
+              name: body
+              schema:
+                  id: chatusers
+                  required:
+                      - users
+                  properties:
+                      users:
+                          type: array
+                          description: List of users to add to this specific chat
+                          example: [1, 5, 8]
+                          items:
+                              type: number
+        responses:
+            201:
+                description: All users added
+            400:
+                description: At least one user does not exist, none added
+        ...
 
         request_json:
             users:

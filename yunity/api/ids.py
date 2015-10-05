@@ -22,6 +22,8 @@ def _integerid_list(name, minlength=1, maxlength=10, minrepetitions=1, maxrepeti
 def _integerid(name, minlength=1, maxlength=10):
     return _integerid_list(name, minlength, maxlength, minrepetitions=1, maxrepetitions=1)
 
+def _multiple_integerid(name, minlength=1, maxlength=10):
+    return _integerid_list(name, minlength, maxlength, minrepetitions=1, maxrepetitions=200)
 
 category_ids_uri_pattern = _integerid_list('categoryids')
 chat_id_uri_pattern = _integerid('chatid')
@@ -30,5 +32,6 @@ opportunity_id_uri_pattern = _integerid('opportunityid')
 participate_id_uri_pattern = _integerid('participateid')
 take_id_uri_pattern = _integerid('takeid')
 user_id_uri_pattern = _integerid('userid')
+multiple_user_id_uri_pattern = _multiple_integerid('userids')
 valuable_id_uri_pattern = _integerid('valuableid')
 wallpost_id_uri_pattern = _integerid('wallpostid')

@@ -15,7 +15,7 @@ import yunity.api.public.participates
 urlpatterns = [
     url(r'^auth', include(yunity.api.public.auth)),
     url(r'^chats', include(yunity.api.public.chats)),
-    url(r'^user', include(yunity.api.public.users)),
+    url(r'^user/?', include(yunity.api.public.users)),
     url(r'^search', include(yunity.api.public.search)),
     url(r'^categories', include(yunity.api.public.categories)),
     url(r'^opportunities', include(yunity.api.public.opportunities)),

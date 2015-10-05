@@ -34,7 +34,7 @@ def _parse_docstring(obj, process_doc):
                 other_lines = process_doc(full_doc[line_feed+1:line_feed+yaml_sep])
                 separator = full_doc[line_feed+yaml_sep+3:].find('...')
                 if separator > 0:
-                    yaml_doc = full_doc[line_feed+yaml_sep:line_feed+yaml_sep+separator]
+                    yaml_doc = full_doc[line_feed+yaml_sep:line_feed+yaml_sep+separator+3]
                 else:
                     yaml_doc = full_doc[line_feed+yaml_sep:]
 

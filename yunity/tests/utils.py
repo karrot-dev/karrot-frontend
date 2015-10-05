@@ -29,8 +29,6 @@ class DeepMatcher(object):
         if expected == cls.ANY_INT:
             if not isinstance(actual, int):
                 raise ValueError('expected any integer, got {}'.format(actual))
-        elif expected.startswith('Any'):
-            raise NotImplementedError('unknown fuzzy matcher: {}'.format(expected))
         else:
             if actual != expected:
                 raise ValueError('expected {}, got {}'.format(expected, actual))

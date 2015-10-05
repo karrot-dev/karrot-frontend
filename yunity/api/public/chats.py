@@ -151,7 +151,6 @@ class Chat(ApiBase, View):
         return self.success({'name': chat.name})
 
 
-
 class ChatMessages(ApiBase, View):
     @body_as_json(expected_keys=['type', 'content'])
     def post(self, request, chatid):
@@ -232,7 +231,6 @@ class ChatMessages(ApiBase, View):
         )
 
         return self.success(message_to_json(message))
-
 
     def get(self, request, chatid):
         """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
@@ -379,10 +377,9 @@ class ChatParticipant(ApiBase, View):
 """
 
 urlpatterns = [
-    url(r'^$', Chats.as_view()), # GET, POST
-    url(r'^{chatid}/?$'.format(chatid=chat_id_uri_pattern), Chat.as_view()), # PUT
-    url(r'^{chatid}/messages/?$'.format(chatid=chat_id_uri_pattern), ChatMessages.as_view()), # GET, POST
-    url(r'^{chatid}/participants/?$'.format(chatid=chat_id_uri_pattern), ChatParticipants.as_view()), #POST
-    url(r'^{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern),
-        ChatParticipant.as_view()), # DELETE
+    url(r'^$', Chats.as_view()),  # GET, POST
+    url(r'^{chatid}/?$'.format(chatid=chat_id_uri_pattern), Chat.as_view()),  # PUT
+    url(r'^{chatid}/messages/?$'.format(chatid=chat_id_uri_pattern), ChatMessages.as_view()),  # GET, POST
+    url(r'^{chatid}/participants/?$'.format(chatid=chat_id_uri_pattern), ChatParticipants.as_view()),  # POST
+    url(r'^{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern), ChatParticipant.as_view()),  # DELETE
 ]

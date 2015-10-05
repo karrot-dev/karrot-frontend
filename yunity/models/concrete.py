@@ -43,6 +43,7 @@ class User(AbstractBaseUser, MapItem):
     is_staff = BooleanField(default=False)
     date_joined = DateTimeField(default=timezone.now)
     display_name = TextField()
+    picture_url = TextField(null=True)
 
     objects = UserManager()
 

@@ -11,7 +11,7 @@ class IntegrationTest(object):
     _request_factory = JsonRequestFactory()
 
     def __init__(self, resource):
-        self._database = '{}.data'.format(resource)
+        self._initial_data = '{}.initial_data'.format(resource)
         self._request = load_json_resource(resource, 'request.json')
         self._response = load_json_resource(resource, 'response.json')
         self.database = None
@@ -24,7 +24,7 @@ class IntegrationTest(object):
         return self._request_factory.post(endpoint, body)
 
     def given_database(self):
-        self.database = self.database or import_module(self._database)
+        self.database = self.database or import_module(self._initial_data)
 
     def given_request(self):
         http_method = self._request['method'].upper()

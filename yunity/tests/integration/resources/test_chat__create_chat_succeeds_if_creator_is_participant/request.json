@@ -3,6 +3,7 @@
   "method": "post",
   "user": 1000,
   "body": {
-    "participants": [1000, 1001]
+    "participants": [1000, 1001],
+    "message": "some message to get the conversation started"
   }
 }

@@ -114,7 +114,7 @@ def body_as_json(expected_keys=None):
     return decorator
 
 
-def get_with_list_param(param_name, item_type=str, delim=ids_uri_pattern_delim):
+def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
     """Decorator to split a multi-resource URI into a list of multiple resources.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 
@@ -124,18 +124,20 @@ def get_with_list_param(param_name, item_type=str, delim=ids_uri_pattern_delim):
     """
     def decorator(func):
         @wraps(func)
-        def wrapper(api_base, request, *args, **kwargs):
+        def wrapper(api_base, *args, **kwargs):
             raw_params = kwargs.pop(param_name, '').split(delim)
-            parsed_params = []
-            for raw_param in raw_params:
-                try:
-                    parsed_param = item_type(raw_param)
-                except ValueError:
-                    return api_base.validation_failure('invalid type: {}'.format(raw_param))
-                else:
-                    parsed_params.append(parsed_param)
+            if raw_params:
+                parsed_params = []
+                for raw_param in raw_params:
+                    try:
+                        parsed_param = item_type(raw_param)
+                    except ValueError:
+                        return api_base.validation_failure('invalid type: {}'.format(raw_param))
+                    else:
+                        parsed_params.append(parsed_param)
+            kwargs[param_name] = parsed_params
 
-            return func(api_base, request, parsed_params, *args, **kwargs)
+            return func(api_base, *args, **kwargs)
         return wrapper
     return decorator
 

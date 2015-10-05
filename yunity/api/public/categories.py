@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 from yunity.api.ids import category_ids_uri_pattern
 
-from yunity.api.utils import ApiBase, body_as_json, get_with_list_param
+from yunity.api.utils import ApiBase, body_as_json, resource_as_list
 from yunity.models import Category as CategoryModel
 
 
@@ -91,7 +91,7 @@ class Categories(ApiBase, View):
 
 
 class Category(ApiBase, View):
-    @get_with_list_param('categoryids', item_type=int)
+    @resource_as_list('categoryids', item_type=int)
     def get(self, request, categoryids):
         """Describe one or more categories.
 
@@ -117,6 +117,6 @@ class Category(ApiBase, View):
 
 
 urlpatterns = [
-    url(r'^$', Categories.as_view()),
-    url(r'^{categoryids}/?$'.format(categoryids=category_ids_uri_pattern), Category.as_view()),
+    url(r'^/$', Categories.as_view()),
+    url(r'^/{categoryids}/?$'.format(categoryids=category_ids_uri_pattern), Category.as_view()),
 ]

@@ -23,7 +23,7 @@ class IntegrationTest(object):
         body = self._request['body']
         return self._request_factory.post(endpoint, body)
 
-    def given_data(self):
+    def given_database(self):
         self.database = self.database or import_module(self._database)
 
     def given_request(self):
@@ -59,7 +59,7 @@ class IntegrationTest(object):
             """
             :type testcase: TestCase
             """
-            self.given_data()
+            self.given_database()
             self.given_request()
             self.when_calling_endpoint()
             self.then_response_status_matches(testcase)

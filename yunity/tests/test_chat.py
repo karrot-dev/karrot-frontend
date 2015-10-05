@@ -8,7 +8,7 @@ from yunity.api.public.chats import ChatParticipants as ChatParticipantsView
 from yunity.models import User as UserModel
 from yunity.models import Message as MessageModel
 from yunity.models import Chat as ChatModel
-from yunity.tests.utils import JSONRequestFactory, content_json
+from yunity.tests.utils import JsonRequestFactory, content_json
 
 import yunity.utils.status as status
 
@@ -16,7 +16,7 @@ class ChatTestCase(TestCase):
 
     def setUp(self):
         # Every test needs access to the request factory.
-        self.factory = JSONRequestFactory()
+        self.factory = JsonRequestFactory()
         self.ChatView = ChatView.as_view()
         self.ChatsView = ChatsView.as_view()
         self.ChatMessagesView = ChatMessagesView.as_view()

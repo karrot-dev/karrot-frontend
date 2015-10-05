@@ -4,7 +4,7 @@ import json
 from django.test import TestCase
 from yunity.api.public.users import Users as UsersView
 from yunity.models import User as UserModel
-from yunity.tests.utils import JSONRequestFactory
+from yunity.tests.utils import JsonRequestFactory
 
 import yunity.utils.status as status
 
@@ -13,7 +13,7 @@ class UserTestCase(TestCase):
 
     def setUp(self):
         # Every test needs access to the request factory.
-        self.factory = JSONRequestFactory()
+        self.factory = JsonRequestFactory()
         self.UsersView = UsersView.as_view()
 
     def test_create_user(self):

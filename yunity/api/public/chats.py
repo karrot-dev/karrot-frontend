@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.db.models import Max, Q
 from django.http import HttpRequest
+from django.utils.datetime_safe import datetime
 from django.views.generic import View
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 
@@ -15,7 +16,7 @@ def user_to_json(user):
 
 
 def message_to_json(message):
-    return model_to_json(message, 'sent_by', 'created_at', 'type', 'content')
+    return model_to_json(message, 'sender', 'created_at', 'type', 'content')
 
 
 def chat_to_json(chat):
@@ -67,7 +68,7 @@ class Chats(ApiBase, View):
 
         return self.success({'chats': [chat_to_json(_) for _ in chats]})
 
-    @body_as_json(expected_keys=['participants'])
+    @body_as_json(expected_keys=['participants', 'message'])
     def post(self, request):
         """Create a new chat involving some participants.
 
@@ -96,17 +97,49 @@ class Chats(ApiBase, View):
 
 
 class Chat(ApiBase, View):
-    def get(self, request, chatid):
-        """fetch all the information about the chat
+    @body_as_json(expected_keys=['name'])
+    def put(self, request, chatid):
+        """Update details about chat chatid
 
         :type request: HttpRequest
         :type chatid: int
 
         """
-        raise NotImplementedError
+        if not user_has_rights_to_chat(chatid, request.user.id):
+            return self.forbidden({"reason": 'user does not have rights to chat'})
+        chat_name = request.body['name']
+        chat = ChatModel.objects.get(id=chatid)
+        chat.name = chat_name
+
+        return self.success({'name': chat.name})
+
 
 
 class ChatMessages(ApiBase, View):
+    @body_as_json(expected_keys=['type', 'content'])
+    def post(self, request, chatid):
+        """send new chat message
+        """
+        if not user_has_rights_to_chat(chatid, request.user.id):
+            return self.forbidden({'reason': 'user does not have rights to chat'})
+        type_str = request.body['type']
+        if type_str not in ['TEXT', 'IMAGE']:
+            return self.error({'reason': 'invalid type'})
+        content = request.body['content']
+        sender = UserModel.objects.get(id=request.user.id)
+        created_at = datetime.datetime.now()
+
+        chat = ChatModel.objects.get(id=chatid)
+        message = MessageModel.objects.create(
+                sent_by=sender,
+                in_conversation=chat,
+                created_at=created_at,
+                type=type_str,
+                content=content)
+
+        return self.success(message_to_json(message))
+
+
     def get(self, request, chatid):
         """Retrieve all the messages in the chat.
 
@@ -124,34 +157,13 @@ class ChatMessages(ApiBase, View):
 
         messages = MessageModel.objects \
             .filter(in_conversation=chatid) \
+            .reverse() \
             .all()
 
         return self.success({'messages': [message_to_json(_) for _ in messages]})
 
 
 class ChatParticipants(ApiBase, View):
-    def get(self, request, chatid):
-        """List all the participants in the chat.
-
-        response_json:
-            participants:
-                type: list
-                description: the ids of all the users in the chat
-
-        :type request: HttpRequest
-        :type chatid: int
-
-        """
-        if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden('user does not have rights to chat')
-
-        participants = ChatModel.objects \
-            .get(id=chatid) \
-            .participants \
-            .all()
-
-        return self.success({'participants': user_to_json(_) for _ in participants})
-
     @body_as_json(expected_keys=['users'])
     def post(self, request, chatid):
         """Add a list of users to the chat.
@@ -194,7 +206,7 @@ class ChatParticipants(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden('user does not have rights to chat')
+            return self.forbidden({'reason': 'user does not have rights to chat'})
 
         users_to_add = UserModel.objects \
             .filter(id=request.body['users']) \
@@ -212,8 +224,8 @@ class ChatParticipant(ApiBase, View):
     def delete(self, request, chatid, userid):
         """Remove a user from the chat.
 
-        request_json:
-            user:
+        url_parameter:
+            userid:
                 type: integer
                 required: true
                 description: the id of the user to remove
@@ -233,11 +245,23 @@ class ChatParticipant(ApiBase, View):
 
         return self.success()
 
+"""
+* DELETE /chat/{chatId}/participants/{userId} -- delete a user from the chat
+* POST /chat/{chatId}/participants -- add a new user to the chat
+
+* POST /chat/{chatid}/messages -- add a new message to chat
+
+* PUT /chat/{chatid} -- change chat details
+* POST /chat/ -- create a new chat with some users
+* GET /chat/{chatId}/messages -- return list of messages in chat
+* GET /chat/
+"""
 
 urlpatterns = [
-    url(r'^$', Chats.as_view()),
-    url(r'^{chatid}/?$'.format(chatid=chat_id_uri_pattern), Chat.as_view()),
-    url(r'^{chatid}/messages/?$'.format(chatid=chat_id_uri_pattern), ChatMessages.as_view()),
-    url(r'^{chatid}/participants/?$'.format(chatid=chat_id_uri_pattern), ChatParticipants.as_view()),
-    url(r'^{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern), ChatParticipant.as_view()),
+    url(r'^$', Chats.as_view()), # GET, POST
+    url(r'^{chatid}/?$'.format(chatid=chat_id_uri_pattern), Chat.as_view()), # PUT
+    url(r'^{chatid}/messages/?$'.format(chatid=chat_id_uri_pattern), ChatMessages.as_view()), # GET, POST
+    url(r'^{chatid}/participants/?$'.format(chatid=chat_id_uri_pattern), ChatParticipants.as_view()), #POST
+    url(r'^{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern),
+        ChatParticipant.as_view()), # DELETE
 ]

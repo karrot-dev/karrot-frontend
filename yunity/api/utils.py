@@ -125,7 +125,7 @@ def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
     def decorator(func):
         @wraps(func)
         def wrapper(api_base, *args, **kwargs):
-            raw_params = kwargs.pop(param_name, '').split(delim)
+            raw_params = kwargs.get(param_name, '').split(delim)
             if raw_params:
                 parsed_params = []
                 for raw_param in raw_params:
@@ -135,7 +135,7 @@ def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
                         return api_base.validation_failure('invalid type: {}'.format(raw_param))
                     else:
                         parsed_params.append(parsed_param)
-            kwargs[param_name] = parsed_params
+                kwargs[param_name] = parsed_params
 
             return func(api_base, *args, **kwargs)
         return wrapper

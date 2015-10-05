@@ -1,37 +1,51 @@
 from django.utils.datetime_safe import datetime
-import factory
-from yunity.models import Category
+from factory import DjangoModelFactory, CREATE_STRATEGY, Sequence, LazyAttribute, PostGeneration, post_generation, SubFactory
 
 
-class Factory(factory.DjangoModelFactory):
+class Factory(DjangoModelFactory):
     class Meta:
-        strategy = factory.CREATE_STRATEGY
+        strategy = CREATE_STRATEGY
         model = None
         abstract = True
+
+    @classmethod
+    def create_batch_with_ids(cls, num_instances, id_start):
+        models = cls.create_batch(num_instances)
+        for i, model in enumerate(models):
+            model.id = id_start + i
+        return models
+
+
+class CategoryFactory(Factory):
+    class Meta:
+        model = "yunity.Category"
+        strategy = CREATE_STRATEGY
+
 
 class UserFactory(Factory):
     class Meta:
         model = "yunity.User"
-        strategy = factory.CREATE_STRATEGY
+        strategy = CREATE_STRATEGY
 
-    type = Category.objects.get(name="user.default")
-    display_name = factory.Sequence(lambda n: "user{}".format(n))
-    email = factory.LazyAttribute(lambda obj: '%s@email.com' % obj.display_name)
+    type = CategoryFactory.create()
+    display_name = Sequence(lambda n: "user{}".format(n))
+    email = LazyAttribute(lambda obj: '%s@email.com' % obj.display_name)
     is_active = True
     is_staff = False
     date_joined = datetime.now()
-    password = factory.PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
+    password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
     last_login = datetime.now()
     locations = {[]}
+
 
 class ChatFactory(Factory):
     class Meta:
         model = "yunity.Chat"
-        strategy = factory.CREATE_STRATEGY
+        strategy = CREATE_STRATEGY
 
-    administrated_by = factory.SubFactory(UserFactory)
+    administrated_by = SubFactory(UserFactory)
 
-    @factory.post_generation
+    @post_generation
     def participants(self, create, extracted, **kwargs):
         if not create:
             return
@@ -40,10 +54,11 @@ class ChatFactory(Factory):
             for participant in extracted:
                 self.participants.add(participant)
 
+
 class MessageFactory(Factory):
     class Meta:
         model = "yunity.Message"
-        strategy = factory.CREATE_STRATEGY
+        strategy = CREATE_STRATEGY
 
     sent_by = None #ForeignKey('yunity.User')
     reply_to = None #ForeignKey('self', null=True, related_name='replies')

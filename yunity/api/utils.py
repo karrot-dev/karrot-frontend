@@ -107,7 +107,7 @@ def body_as_json(expected_keys=None):
             try:
                 json_request = JsonRequest.from_http_request(request, expected_keys)
             except ValueError as e:
-                return api_base.error(str(e))
+                return api_base.validation_failure(str(e))
 
             return func(api_base, json_request, *args, **kwargs)
         return wrapper

@@ -143,7 +143,7 @@ class Chat(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({"reason": 'user does not have rights to chat'})
+            return self.forbidden('user does not have rights to chat')
         chat_name = request.body['name']
         chat = ChatModel.objects.get(id=chatid)
         chat.name = chat_name
@@ -214,10 +214,10 @@ class ChatMessages(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({'reason': 'user does not have rights to chat'})
+            return self.forbidden('user does not have rights to chat')
         type_str = request.body['type']
         if type_str not in ['TEXT', 'IMAGE']:
-            return self.error({'reason': 'invalid type'})
+            return self.error('invalid type')
         content = request.body['content']
         sender = UserModel.objects.get(id=request.user.id)
         created_at = datetime.datetime.now()

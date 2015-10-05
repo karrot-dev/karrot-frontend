@@ -91,7 +91,7 @@ class Chats(ApiBase, View):
         participant_ids = request.body['participants']
         if request.user.id not in participant_ids:
             return self.forbidden("User can only create chat including self")
-        chat = self.chat_from(participant_ids)
+        chat = chat_from(participant_ids)
         return self.created({'id': chat.id})
 
 

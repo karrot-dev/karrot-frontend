@@ -224,11 +224,12 @@ class ChatMessages(ApiBase, View):
 
         chat = ChatModel.objects.get(id=chatid)
         message = MessageModel.objects.create(
-                sent_by=sender,
-                in_conversation=chat,
-                created_at=created_at,
-                type=type_str,
-                content=content)
+            sent_by=sender,
+            in_conversation=chat,
+            created_at=created_at,
+            type=type_str,
+            content=content,
+        )
 
         return self.success(message_to_json(message))
 

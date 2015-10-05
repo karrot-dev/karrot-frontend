@@ -85,7 +85,7 @@ class Categories(ApiBase, View):
         """
         categories = categories_from(request.body.get('categories', []))
 
-        return self.success({'categories': [{
+        return self.created({'categories': [{
             'id': _.id,
         } for _ in categories]})
 

@@ -41,7 +41,14 @@ class Categories(ApiBase, View):
                         categories:
                             type: array
                             items:
-                                type: integer
+                                type: object
+                                properties:
+                                    id:
+                                        type: integer
+                                    name:
+                                        type: string
+                                    parent:
+                                        type: integer
 
         ...
 
@@ -53,6 +60,8 @@ class Categories(ApiBase, View):
 
         return self.success({'categories': [{
             'id': _.id,
+            'name': _.name,
+            'parent': _.parent_id,
         } for _ in categories]})
 
     @post_with_json_body(expected_keys=['categories'])

@@ -4,15 +4,29 @@ from django.views.generic import View
 
 from yunity.utils.session import RealtimeClientData
 from yunity.utils.api import ApiBase, body_as_json
+import yunity.utils.status
 
 
 class Login(ApiBase, View):
     def get(self, request):
         """get current login status
+        ---
+        tags:
+            - Authentication
+        responses:
+            200:
+                description: Login state
+                schema:
+                    $ref: '#/definitions/user_information_response
+            404:
+                description: User is not logged in
 
         :type request: HttpRequest
         """
-        raise NotImplementedError
+        if request.user.is_authenticated():
+            return self.success({'id': request.user.id, 'name': request.user.name})
+        else:
+            return self.error(status=yunity.utils.status.HTTP_404_NOT_FOUND)
 
     @body_as_json(expected_keys=['email', 'password'])
     def post(self, request, data):

@@ -30,7 +30,7 @@ class UserAll(ApiBase, View):
             password=request.body['password'],
             locations=locations,
             type=category,
-            display_name=request.body['name'],
+            display_name=request.body['display_name'],
         )
 
         return self.created({"id": user.id,

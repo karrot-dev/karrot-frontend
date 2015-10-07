@@ -57,7 +57,7 @@ class Chats(ApiBase, View):
                         chats:
                             type: array
                             items:
-                                $ref: '#/definitions/chat'
+                                $ref: '#/definitions/chat_information'
         ...
 
         :type request: HttpRequest

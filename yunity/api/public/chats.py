@@ -51,6 +51,8 @@ class Chats(ApiBase, View):
                 description: A list of all the chats the logged in user is involved.
                 schema:
                     type: object
+                    required:
+                      - chats
                     properties:
                         chats:
                             type: array
@@ -96,8 +98,13 @@ class Chats(ApiBase, View):
             201:
                 description: Chat created
                 schema:
-                    id: chat
+                    id: chat_information
                     type: object
+                    required:
+                      - id
+                      - name
+                      - participants
+                      - message
                     properties:
                       id:
                         type: number
@@ -188,6 +195,7 @@ class ChatMessages(ApiBase, View):
                           type: string
                           enum: [TEXT, IMAGE]
                           description: Type of this message
+                          example: TEXT
                       content:
                           type: string
                           example: Hi Peter, how are you?
@@ -198,11 +206,18 @@ class ChatMessages(ApiBase, View):
                 schema:
                     id: message
                     type: object
+                    required:
+                      - type
+                      - content
+                      - sender
+                      - created_at
+                      - id
                     properties:
-                        typ:
+                        type:
                             type: string
                             enum: [TEXT, IMAGE]
                             description: Type of this message
+                            example: TEXT
                         content:
                             type: string
                             example: Hi Peter, how are you?
@@ -268,6 +283,8 @@ class ChatMessages(ApiBase, View):
                 schema:
                     id: result_messages
                     type: object
+                    required:
+                      - messages
                     properties:
                         messages:
                             type: array

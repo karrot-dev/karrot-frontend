@@ -193,6 +193,6 @@ def swagger(app, process_doc=_sanitize, base=''):
     return output
 
 def doc(request):
-    return JsonResponse(swagger(yunity, base='/api/'))
+    return JsonResponse(swagger(yunity.api, base='/api/'))
 
 

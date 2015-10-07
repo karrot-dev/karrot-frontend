@@ -25,7 +25,11 @@ class IntegrationTest(object):
         return self._request_factory.post(endpoint, body)
 
     def given_database(self):
-        self.database = self.database or import_module(self._initial_data)
+        if self.database is None:
+            try:
+                self.database = import_module(self._initial_data)
+            except ImportError:
+                pass
 
     def given_request(self):
         http_method = self._request['method'].upper()
@@ -62,6 +66,8 @@ class IntegrationTest(object):
     def then_database_is_updated(self, testcase):
         try:
             import_module(self._final_data)
+        except ImportError:
+            pass
         except AssertionError as e:
             testcase.fail(e.args[0])
 

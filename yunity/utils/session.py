@@ -40,7 +40,7 @@ class RealtimeClientData(object):
 
     @classmethod
     def session_key(cls, session):
-        return (cls.PREFIX + '-' + str(session))
+        return '{prefix}-{session}'.format(prefix=cls.PREFIX, session=session)
 
     @classmethod
     def get_user_by_session(cls, session):

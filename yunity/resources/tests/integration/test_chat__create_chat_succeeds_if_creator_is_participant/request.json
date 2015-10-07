@@ -4,6 +4,9 @@
   "user": 1000,
   "body": {
     "participants": [1000, 1001],
-    "message": "some message to get the conversation started"
+    "message": {
+      "content": "some message to get the conversation started",
+      "type": "TEXT"
+    }
   }
 }

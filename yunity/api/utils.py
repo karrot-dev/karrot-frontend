@@ -12,7 +12,7 @@ class ApiBase(object):
     @classmethod
     def validation_failure(cls, data=None, status=HTTP_400_BAD_REQUEST):
         """
-        :type message: str
+        :type data: dict
         :type status: int
         :rtype JsonResponse
 
@@ -42,7 +42,7 @@ class ApiBase(object):
     @classmethod
     def forbidden(cls, data=None, status=HTTP_403_FORBIDDEN):
         """
-        :type message: str
+        :type data: dict
         :type status: int
         :rtype JsonResponse
 
@@ -52,7 +52,7 @@ class ApiBase(object):
     @classmethod
     def error(cls, data=None, status=HTTP_400_BAD_REQUEST):
         """
-        :type message: str
+        :type data: dict
         :type status: int
         :rtype JsonResponse
 

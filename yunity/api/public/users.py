@@ -17,11 +17,18 @@ class UserAll(ApiBase, View):
         :type request: HttpRequest
         """
         category = CategoryModel.objects.get(name='user.default')
+        try:
+            locations = [{
+                'latitude': request.body['latitude'],
+                'longitude': request.body['longitude'],
+            }]
+        except KeyError:
+            locations = []
 
         user = get_user_model().objects.create_user(
             email=request.body['email'],
             password=request.body['password'],
-            locations='{}',
+            locations=locations,
             type=category,
             display_name=request.body['name'],
         )

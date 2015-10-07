@@ -27,10 +27,19 @@ class RealtimeClientData(object):
 
     @classmethod
     def redis_connect(cls, use_django_redis_connection=True):
+        """ Connect to redis. Will be done automatically on first request.
+        :param use_django_redis_connection: Set to true if redis caching backend is used in Django so a connection
+        can be shared. False otherwise
+        :return:
+        """
+        establish_own_connection = not use_django_redis_connection
         if use_django_redis_connection:
-            from django_redis import get_redis_connection
-            cls.r = get_redis_connection("default")
-        else:
+            try :
+                from django_redis import get_redis_connection
+                cls.r = get_redis_connection("default")
+            except:
+                establish_own_connection = True
+        if establish_own_connection:
             cls.r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
     @classmethod

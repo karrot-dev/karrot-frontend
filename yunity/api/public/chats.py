@@ -354,12 +354,24 @@ class ChatParticipants(ApiBase, View):
 class ChatParticipant(ApiBase, View):
     def delete(self, request, chatid, userid):
         """Remove a user from the chat.
-
-        url_parameter:
-            userid:
-                type: integer
-                required: true
-                description: the id of the user to remove
+        ---
+        tags:
+            - Chat
+        parameters:
+            - in: path
+              name: chatid
+              description: ID of chat
+              type: integer
+            - in: path
+              name: userid
+              description: ID of user to remove from chat
+              type: integer
+        responses:
+            201:
+                description: Participant deleted
+            403:
+                description: The logged in user is not part of the conversation
+        ...
 
         :type request: HttpRequest
         :type chatid: int

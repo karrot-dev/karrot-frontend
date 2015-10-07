@@ -73,7 +73,9 @@ class IntegrationTest(object):
             self.given_database()
             self.given_request()
             self.given_user()
+
             self.when_calling_endpoint()
+
             self.then_response_status_matches(testcase)
             self.then_response_body_matches(testcase)
             self.then_database_is_updated(testcase)

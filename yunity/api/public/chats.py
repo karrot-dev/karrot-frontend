@@ -139,7 +139,7 @@ class Chats(ApiBase, View):
 
         type_str = message['type']
         if type_str not in ['TEXT', 'IMAGE']:
-            return self.error({'reason': 'invalid type'})
+            return self.error(reason='invalid type')
         content = message['content']
         created_at = datetime.utcnow().isoformat()
 
@@ -187,7 +187,7 @@ class Chat(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({'reason':'user does not have rights to chat'})
+            return self.forbidden(reason='user does not have rights to chat')
         chat_name = request.body['name']
         chat = ChatModel.objects.get(id=chatid)
         chat.name = chat_name
@@ -265,10 +265,10 @@ class ChatMessages(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({'reason':'user does not have rights to chat'})
+            return self.forbidden(reason='user does not have rights to chat')
         type_str = request.body['type']
         if type_str not in ['TEXT', 'IMAGE']:
-            return self.error('invalid type')
+            return self.error(reason='invalid type')
         content = request.body['content']
         senderid = request.user.id
         created_at = datetime.utcnow().isoformat()
@@ -325,7 +325,7 @@ class ChatMessages(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({'reason', 'user does not have rights to chat'})
+            return self.forbidden(reason='user does not have rights to chat')
 
         if request.GET['take'] or request.GET['before_id']:
             return NotImplemented
@@ -381,7 +381,7 @@ class ChatParticipants(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({'reason': 'user does not have rights to chat'})
+            return self.forbidden(reason='user does not have rights to chat')
 
         users_to_add = UserModel.objects \
             .filter(id=request.body['users']) \
@@ -423,7 +423,7 @@ class ChatParticipant(ApiBase, View):
 
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
-            return self.forbidden({'reason':'user does not have rights to chat'})
+            return self.forbidden(reason='user does not have rights to chat')
 
         ChatModel.objects \
             .get(id=chatid) \

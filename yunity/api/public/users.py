@@ -113,7 +113,7 @@ class UserMultiple(ApiBase, View):
             .values('id', 'display_name', 'picture_url')\
             .all()
         if len(users) != len(userids):
-            return self.error({"reason": "one or more userids do not exist"})
+            return self.error(reason="one or more userids do not exist")
 
         return self.success({"users": [dict(_) for _ in users]})
 

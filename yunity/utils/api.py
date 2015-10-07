@@ -10,54 +10,58 @@ from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_403_FORB
 
 class ApiBase(object):
     @classmethod
-    def validation_failure(cls, data=None, status=HTTP_400_BAD_REQUEST):
+    def validation_failure(cls, reason, **kwargs):
         """
-        :type data: dict
-        :type status: int
+        :type reason: str
+        :type kwargs: dict
         :rtype JsonResponse
 
         """
-        return JsonResponse(data or {}, status=status)
+        payload = dict(kwargs)
+        payload["reason"] = reason
+        return JsonResponse(payload, status=HTTP_400_BAD_REQUEST)
 
     @classmethod
-    def success(cls, data=None, status=HTTP_200_OK):
+    def success(cls, data=None):
         """
         :type data: dict
-        :type status: int
         :rtype JsonResponse
 
         """
-        return JsonResponse(data or {}, status=status)
+        return JsonResponse(data or {}, status=HTTP_200_OK)
 
     @classmethod
-    def created(cls, data=None, status=HTTP_201_CREATED):
+    def created(cls, data=None):
         """
         :type data: dict
-        :type status: int
         :rtype JsonResponse
 
         """
-        return JsonResponse(data or {}, status=status)
+        return JsonResponse(data or {}, status=HTTP_201_CREATED)
 
     @classmethod
-    def forbidden(cls, data=None, status=HTTP_403_FORBIDDEN):
+    def forbidden(cls, reason, **kwargs):
         """
-        :type data: dict
-        :type status: int
+        :type reason: str
+        :type kwargs: dict
         :rtype JsonResponse
 
         """
-        return JsonResponse(data or {}, status=status)
+        payload = dict(kwargs)
+        payload["reason"] = reason
+        return JsonResponse(payload, status=HTTP_403_FORBIDDEN)
 
     @classmethod
-    def error(cls, data=None, status=HTTP_400_BAD_REQUEST):
+    def error(cls, reason, **kwargs):
         """
-        :type data: dict
-        :type status: int
+        :type reason: str
+        :type kwargs: dict
         :rtype JsonResponse
 
         """
-        return JsonResponse(data or {}, status=status)
+        payload = dict(kwargs)
+        payload["reason"] = reason
+        return JsonResponse(payload, status=HTTP_400_BAD_REQUEST)
 
 
 class JsonRequest(object):
@@ -107,7 +111,7 @@ def body_as_json(expected_keys=None):
             try:
                 json_request = JsonRequest.from_http_request(request, expected_keys)
             except ValueError as e:
-                return api_base.validation_failure({'message': str(e)})
+                return api_base.validation_failure(reason=str(e))
 
             return func(api_base, json_request, *args, **kwargs)
         return wrapper
@@ -132,7 +136,7 @@ def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
                     try:
                         parsed_param = item_type(raw_param)
                     except ValueError:
-                        return api_base.validation_failure({'message': 'invalid type: {}'.format(raw_param)})
+                        return api_base.validation_failure(reason='invalid type: {}'.format(raw_param))
                     else:
                         parsed_params.append(parsed_param)
                 kwargs[param_name] = parsed_params

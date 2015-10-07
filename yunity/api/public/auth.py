@@ -50,7 +50,7 @@ class Login(ApiBase, View):
             login(request, user)
             return self.success({'id': user.id})
         else:
-            return self.forbidden({"reason": "wrong login credentials."})
+            return self.forbidden(reason="wrong login credentials.")
 
 
 class Logout(ApiBase, View):

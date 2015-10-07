@@ -1,7 +1,7 @@
 ids_uri_pattern_delim = ','
 
 
-def _integerid_list(name, minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=1000, delim=ids_uri_pattern_delim):
+def _multiple_integerid(name, minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=200, delim=ids_uri_pattern_delim):
     """
     :type name: str
     :type minlength: int
@@ -10,7 +10,7 @@ def _integerid_list(name, minlength=1, maxlength=10, minrepetitions=1, maxrepeti
     :type maxrepetitions: int
     :rtype str
 
-    >>> _integerid_list(name='foo_list', minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=3)
+    >>> _multiple_integerid(name='foo_list', minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=3)
     '(?P<foo_list>[0-9]{1,10}(,[0-9]{1,10}){0,2})'
 
     """
@@ -20,12 +20,10 @@ def _integerid_list(name, minlength=1, maxlength=10, minrepetitions=1, maxrepeti
 
 
 def _integerid(name, minlength=1, maxlength=10):
-    return _integerid_list(name, minlength, maxlength, minrepetitions=1, maxrepetitions=1)
+    return _multiple_integerid(name, minlength, maxlength, minrepetitions=1, maxrepetitions=1)
 
-def _multiple_integerid(name, minlength=1, maxlength=10):
-    return _integerid_list(name, minlength, maxlength, minrepetitions=1, maxrepetitions=200)
 
-category_ids_uri_pattern = _integerid_list('categoryids')
+category_ids_uri_pattern = _multiple_integerid('categoryids')
 chat_id_uri_pattern = _integerid('chatid')
 feedback_id_uri_pattern = _integerid('feedbackid')
 opportunity_id_uri_pattern = _integerid('opportunityid')

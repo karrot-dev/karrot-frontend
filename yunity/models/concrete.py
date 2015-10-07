@@ -2,8 +2,9 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField, ManyToManyField, EmailField, \
     BooleanField
 from django.utils import timezone
+
 from yunity.models.abstract import MapItem, Conversation, Request
-from yunity.models.utils import BaseModel, MaxLengthCharField
+from yunity.utils.model import BaseModel, MaxLengthCharField
 
 
 class UserManager(BaseUserManager):

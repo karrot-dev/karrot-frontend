@@ -1,4 +1,3 @@
-from django.contrib.auth.models import BaseUserManager
 from django.db.models import Model, CharField, Field, AutoField
 from django.db.models.fields.related import RelatedField
 

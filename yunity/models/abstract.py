@@ -1,7 +1,8 @@
 from django.db.models import OneToOneField, ManyToManyField, TextField, DateTimeField, ForeignKey
-from yunity.models.utils import MaxLengthCharField, BaseModel
-from yunity.utils.elasticsearch import ElasticsearchMixin
 from django.contrib.postgres.fields import JSONField
+
+from yunity.utils.model import MaxLengthCharField, BaseModel
+from yunity.utils.elasticsearch import ElasticsearchMixin
 
 
 class VersionTrait(BaseModel):

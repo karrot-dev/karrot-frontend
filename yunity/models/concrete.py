@@ -25,8 +25,7 @@ class UserManager(BaseUserManager):
             locations=locations or self._default_location,
             type=type or self._default_type,
             display_name=display_name or email,
-            **extra_fields,
-        )
+            **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user

@@ -156,7 +156,31 @@ class Chats(ApiBase, View):
 class Chat(ApiBase, View):
     @body_as_json(expected_keys=['name'])
     def put(self, request, chatid):
-        """Update details about chat chatid
+        """Update details about specific chat
+        ---
+        tags:
+            - Chat
+        parameters:
+            - in: body
+              name: body
+              schema:
+                  id: modify_chat
+                  required:
+                    - name
+                  properties:
+                      name:
+                          type: string
+                          example: Peter's chat
+                          description: User defined name of chat
+        responses:
+            200:
+                description: Chat modified
+                schema:
+                    $ref: '#/definitions/chat_information'
+
+            403:
+                description: The logged in user is not part of the conversation
+        ...
 
         :type request: HttpRequest
         :type chatid: int

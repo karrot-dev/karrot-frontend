@@ -9,8 +9,6 @@ from yunity.utils.model import BaseModel, MaxLengthCharField
 
 
 class UserManager(BaseUserManager):
-    _default_location = {'latitude': 0.0, 'longitude': 0.0}
-    _default_type = Category.objects.get(name="user.default")
     use_in_migrations = True
 
     def _create_user(self, email, password, locations=None, type=None, display_name=None, **extra_fields):
@@ -22,8 +20,8 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=email,
             is_active=True,
-            locations=locations or self._default_location,
-            type=type or self._default_type,
+            locations=locations or {'latitude': 0.0, 'longitude': 0.0},
+            type=type or Category.objects.get(name="user.default"),
             display_name=display_name or email,
             **extra_fields)
         user.set_password(password)

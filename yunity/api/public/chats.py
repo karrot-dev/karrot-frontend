@@ -134,7 +134,7 @@ class Chats(ApiBase, View):
         if type_str not in ['TEXT', 'IMAGE']:
             return self.error({'reason': 'invalid type'})
         content = message['content']
-        created_at = datetime.datetime.utcnow().isoformat()
+        created_at = datetime.utcnow().isoformat()
 
         message = MessageModel.objects.create(
             sent_by_id=request.user.id,
@@ -232,7 +232,7 @@ class ChatMessages(ApiBase, View):
             return self.error('invalid type')
         content = request.body['content']
         senderid = request.user.id
-        created_at = datetime.datetime.utcnow().isoformat()
+        created_at = datetime.utcnow().isoformat()
 
         message = MessageModel.objects.create(
             sent_by=senderid,

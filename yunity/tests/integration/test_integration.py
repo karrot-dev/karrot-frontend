@@ -35,7 +35,11 @@ class IntegrationTest(object):
         else:
             raise NotImplementedError('unknown http method: {}'.format(http_method))
 
-        self.request.user = self.database.request_user
+    def given_user(self):
+        try:
+            self.request.user = self.database.request_user
+        except AttributeError:
+            pass
 
     def when_calling_endpoint(self):
         endpoint = self._request['endpoint']
@@ -68,6 +72,7 @@ class IntegrationTest(object):
             """
             self.given_database()
             self.given_request()
+            self.given_user()
             self.when_calling_endpoint()
             self.then_response_status_matches(testcase)
             self.then_response_body_matches(testcase)

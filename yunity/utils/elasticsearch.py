@@ -48,7 +48,7 @@ def es_client(timeout=120):
     return Elasticsearch([{'host': settings.ES_HOST, 'timeout': timeout}])
 
 
-def es_search(doc_type, es=None):
+def es_search(doc_type=None, es=None):
     """
     Easily create a Search instance, the starting point of any self-respecting
     Elasticsearch query

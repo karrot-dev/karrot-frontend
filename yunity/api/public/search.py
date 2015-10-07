@@ -1,3 +1,4 @@
+from collections import defaultdict
 import logging
 
 from django.conf.urls import url
@@ -5,6 +6,8 @@ from django.views.generic import View
 
 from yunity.utils.api import ApiBase
 from yunity.models import MapItem
+from yunity.utils.elasticsearch import es_search
+
 
 logger = logging.getLogger(__name__)
 
@@ -50,7 +53,28 @@ class Search(ApiBase, View):
     Used to power e.g. the global search bar
     """
     def get(self, request):
-        raise NotImplementedError
+        """
+        TODO:
+            - use intelligent ES query to facet across categories instead
+            of grouping with Python
+        """
+        groups = defaultdict(list)
+        results = []
+
+        hits = es_search().execute().hits  # TODO: change
+        for h in hits:
+            groups[h.meta['doc_type']].append(h.to_dict())
+
+        for category, group in groups.items():
+            results.append({
+                "category": category,
+                "results": group,
+                "total": len(group)  # TODO: get real total via faceting
+            })
+
+        return self.success({
+            "result_groups": results
+        })
 
 
 class SearchMap(ApiBase, View):

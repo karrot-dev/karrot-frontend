@@ -63,14 +63,14 @@ class Valuable(MapItem):
 
     def get_es_type(self):
         category_name = self.type.name
-        return "valuable.{}".format(category_name)
+        return "valuable::{}".format(category_name)
 
 
 class Opportunity(MapItem):
 
     def get_es_type(self):
         category_name = self.type.name
-        return "opportunity.{}".format(category_name)
+        return "opportunity::{}".format(category_name)
 
 
 class Category(BaseModel):

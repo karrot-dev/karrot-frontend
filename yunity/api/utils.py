@@ -10,7 +10,7 @@ from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_403_FORB
 
 class ApiBase(object):
     @classmethod
-    def validation_failure(cls, message, status=HTTP_400_BAD_REQUEST):
+    def validation_failure(cls, data=None, status=HTTP_400_BAD_REQUEST):
         """
         :type message: str
         :type status: int
@@ -40,7 +40,7 @@ class ApiBase(object):
         return JsonResponse(data or {}, status=status)
 
     @classmethod
-    def forbidden(cls, message, status=HTTP_403_FORBIDDEN):
+    def forbidden(cls, data=None, status=HTTP_403_FORBIDDEN):
         """
         :type message: str
         :type status: int
@@ -50,7 +50,7 @@ class ApiBase(object):
         return JsonResponse(data or {}, status=status)
 
     @classmethod
-    def error(cls, message, status=HTTP_400_BAD_REQUEST):
+    def error(cls, data=None, status=HTTP_400_BAD_REQUEST):
         """
         :type message: str
         :type status: int

@@ -17,16 +17,23 @@ class Login(ApiBase, View):
             200:
                 description: Login state
                 schema:
-                    $ref: '#/definitions/user_information_response
+                    id: user_login_response
+                    type: object
+                    required:
+                      - user
+                    properties:
+                        user:
+                            $ref: '#/definitions/user_information_response'
             404:
                 description: User is not logged in
+        ...
 
         :type request: HttpRequest
         """
         if request.user.is_authenticated():
-            return self.success({'id': request.user.id, 'name': request.user.name})
+            return self.success({'user': {'id': request.user.id, 'name': request.user.name}})
         else:
-            return self.error(status=yunity.utils.status.HTTP_404_NOT_FOUND)
+            return self.error('User not logged in.')
 
     @body_as_json(expected_keys=['email', 'password'])
     def post(self, request, data):
@@ -51,7 +58,9 @@ class Login(ApiBase, View):
                           description: password of user
         responses:
             200:
-                description: User logged in
+                description: Login state
+                schema:
+                    $ref: '#/definitions/user_login_response'
             403:
                 description: User credentials wrong
         ...
@@ -62,7 +71,7 @@ class Login(ApiBase, View):
         user = authenticate(email=data['email'], password=data['password'])
         if user is not None:
             login(request, user)
-            return self.success({'id': user.id})
+            return self.success({'user': {'id': request.user.id, 'name': request.user.name}})
         else:
             return self.forbidden(reason="wrong login credentials.")
 

@@ -4,6 +4,7 @@ from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField
 from django.utils import timezone
 from yunity.models.abstract import MapItem, Conversation, Request
 from yunity.models.utils import BaseModel, MaxLengthCharField
+from yunity.utils.elasticsearch import ElasticsearchMixin
 
 
 class UserManager(BaseUserManager):
@@ -60,13 +61,17 @@ class User(AbstractBaseUser, MapItem):
 
 
 class Valuable(MapItem):
-    def to_es(self):
-        return super().to_es()
+
+    def get_es_type(self):
+        category_name = self.type.name
+        return "valuable.{}".format(category_name)
 
 
 class Opportunity(MapItem):
-    def to_es(self):
-        return super().to_es()
+
+    def get_es_type(self):
+        category_name = self.type.name
+        return "opportunity.{}".format(category_name)
 
 
 class Category(BaseModel):

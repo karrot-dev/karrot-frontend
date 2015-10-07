@@ -18,7 +18,7 @@ class ElasticsearchMixin(object):
 
     def sync_to_es(self):
         index_doc(
-            self.__class__.get_es_doc_type(),
+            self.get_es_type(),
             self.pk,
             self.to_es()
         )
@@ -28,20 +28,20 @@ class ElasticsearchMixin(object):
         """Generate Elasticsearch representation"""
         raise NotImplementedError
 
-    @classmethod
-    def get_es_doc_type(cls):
+    @abc.abstractmethod
+    def get_es_type(self):
         """
         Defines the doc type used in Elasticsearch for this model
         :return: string
         """
-        return cls.__name__.lower()
+        raise NotImplementedError
 
     @classmethod
     def es_search(cls):
         """
         :return: ES Search instance
         """
-        return es_search(cls.get_es_doc_type())
+        return NotImplementedError
 
 
 def es_client(timeout=120):
@@ -78,7 +78,7 @@ def create_index(es):
     from yunity.models import MapItem, Category
 
     MAPPABLE_MAPPING = {
-        MapItem.get_es_doc_type(): {
+        "TODO-dynamic-category-name": {
             'properties': {
                 'locations': {
                     'type': 'geo_point',
@@ -93,24 +93,25 @@ def create_index(es):
 
     es.indices.put_mapping(
         index=settings.ES_INDEX,
-        doc_type=MapItem.get_es_doc_type(),
+        doc_type="TODO-dynamic-category-name",
         body=MAPPABLE_MAPPING
     )
 
 
 def get_es_indexed_models():
 
-    from yunity.models import MapItem
+    from yunity.models import Opportunity, Valuable
 
     return (
-        MapItem,
+        Valuable,
+        Opportunity,
     )
 
 
 def index_db(models):
     for model in models:
         for o in model.objects.all():
-            index_doc(model.get_es_doc_type(), o.pk, o.to_es())
+            index_doc(o.get_es_type(), o.pk, o.to_es())
 
 
 def rebuild_index(es):
@@ -139,12 +140,12 @@ def delete_doc(doc_type, pk):
 
 
 def es_index_instance(sender, instance, **kwargs):
-    table_name = instance.__class__.get_es_doc_type()
+    table_name = instance.get_es_type()
     index_doc(table_name, instance.pk, instance.to_es())
 
 
 def es_delete_instance(sender, instance, **kwargs):
-    table_name = instance.__class__.get_es_doc_type()
+    table_name = instance.get_es_type()
     try:
         delete_doc(table_name, instance.pk)
     except NotFoundError:
@@ -163,12 +164,12 @@ def connect_es_signals():
         post_save.connect(
             es_index_instance,
             sender=model,
-            dispatch_uid="update_%s" % model.get_es_doc_type()
+            dispatch_uid="update_%s" % model.__class__
         )
         post_delete.connect(
             es_delete_instance,
             sender=model,
-            dispatch_uid="delete_%s" % model.get_es_doc_type()
+            dispatch_uid="delete_%s" % model.__class__
         )
 
 

@@ -12,6 +12,7 @@ class JsonRequestFactory(RequestFactory):
 
 class DeepMatcher(object):
     ANY_INT = 'AnyInt'
+    ANY_STRING = 'AnyString'
 
     @classmethod
     def _fuzzy_match_dicts(cls, actual, expected):
@@ -29,6 +30,9 @@ class DeepMatcher(object):
         if expected == cls.ANY_INT:
             if not isinstance(actual, int):
                 raise ValueError('expected any integer, got {}'.format(actual))
+        elif expected == cls.ANY_STRING:
+            if not isinstance(actual, str):
+                raise ValueError('expected any string, got {}'.format(actual))
         else:
             if actual != expected:
                 raise ValueError('expected {}, got {}'.format(expected, actual))

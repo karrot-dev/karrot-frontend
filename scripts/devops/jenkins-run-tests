@@ -1,0 +1,43 @@
+#!/bin/sh
+
+###################################################################################
+# configuration
+###################################################################################
+workspace_root='/var/srv/webdev/repo/yunity-master'
+current_directory="${PWD}"
+log() { /usr/games/cowsay "$@"; }
+
+
+###################################################################################
+# set up the environment
+###################################################################################
+cd "${workspace_root}"
+log 'updating code'
+    git pull --rebase
+    ln -fs "${workspace_root}/wuppdays/local_settings.py.example" \
+           "${workspace_root}/wuppdays/local_settings.py"
+log 'updating dependencies'
+    . "${workspace_root}/env/bin/activate"
+    pip install -r requirements.pip
+log 'running with settings'
+    ./manage.py diffsettings
+
+
+###################################################################################
+# reset state of running application
+###################################################################################
+log 'updating database'
+    ./manage.py migrate
+
+
+###################################################################################
+# run the test inside jenkins workspace
+###################################################################################
+log 'running tests'
+    ./manage.py test -v 3
+
+
+###################################################################################
+# cleanup
+###################################################################################
+cd "${current_directory}"

@@ -2,7 +2,7 @@ from django.conf import settings
 import redis
 
 
-class RealtimeClientMiddleware():
+class RealtimeClientMiddleware(object):
     def process_request(self, request):
         return None
 
@@ -20,7 +20,7 @@ class RealtimeClientMiddleware():
         return response
 
 
-class RealtimeClientData():
+class RealtimeClientData(object):
     PREFIX = 'session-store'
     r = None
 
@@ -40,7 +40,7 @@ class RealtimeClientData():
 
     @classmethod
     def session_key(cls, session):
-        return (cls.PREFIX + '-' + str(session))
+        return '{prefix}-{session}'.format(prefix=cls.PREFIX, session=session)
 
     @classmethod
     def get_user_by_session(cls, session):

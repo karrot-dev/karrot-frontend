@@ -4,9 +4,10 @@
   "user": 5,
   "body": {
     "email": "foodsharing-raphi@gmail.com",
+    "name": "Raphael Wintrich",
     "display_name": "Foodsharing Raphi",
     "password": "iamawesome42",
     "latitude": 12.345,
-    "longitude": 678.90
+    "longitude": 67.89
   }
 }

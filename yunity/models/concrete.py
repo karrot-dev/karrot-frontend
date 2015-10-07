@@ -2,9 +2,9 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField, ManyToManyField, EmailField, \
     BooleanField
 from django.utils import timezone
+
 from yunity.models.abstract import MapItem, Conversation, Request
-from yunity.models.utils import BaseModel, MaxLengthCharField
-from yunity.utils.elasticsearch import ElasticsearchMixin
+from yunity.utils.model import BaseModel, MaxLengthCharField
 
 
 class UserManager(BaseUserManager):
@@ -14,7 +14,6 @@ class UserManager(BaseUserManager):
         """ Creates and saves a User with the given username, email and password.
 
         """
-        now = timezone.now()
         if email is None:
             raise ValueError('The given email must be set')
         email = self.normalize_email(email)
@@ -25,7 +24,7 @@ class UserManager(BaseUserManager):
         if display_name is None:
             display_name = email
 
-        user = self.model(email=email, is_active=True, date_joined=now, locations=locations, type=type,
+        user = self.model(email=email, is_active=True, locations=locations, type=type,
                           display_name=display_name, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)

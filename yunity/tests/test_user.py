@@ -1,11 +1,9 @@
-from . import factories as f
-import json
-
 from django.test import TestCase
+
+from yunity.tests.utils import factories as f
 from yunity.api.public.users import Users as UsersView
 from yunity.models import User as UserModel
-from yunity.tests.utils import JsonRequestFactory
-
+from yunity.tests.utils.utils import JsonRequestFactory
 import yunity.utils.status as status
 
 

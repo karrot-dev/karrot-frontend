@@ -1,12 +1,9 @@
-from django.conf.urls import url
-from django.http import HttpRequest
-from django.views.generic import View
-
 import logging
 
+from django.conf.urls import url
 from django.views.generic import View
 
-from yunity.api.utils import ApiBase
+from yunity.utils.api import ApiBase
 from yunity.models import MapItem
 
 logger = logging.getLogger(__name__)

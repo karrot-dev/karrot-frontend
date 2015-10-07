@@ -3,12 +3,11 @@ from django.contrib.auth import get_user_model
 from django.http import HttpRequest
 from django.utils.datetime_safe import datetime
 from django.views.generic import View
-from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 
-from yunity.api.utils import ApiBase, body_as_json, model_to_json
+from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
+from yunity.utils.api import ApiBase, body_as_json
 from yunity.models import Category as CategoryModel
 
-import json
 
 class UserAll(ApiBase, View):
     @body_as_json(expected_keys=['email', 'password', 'name'])

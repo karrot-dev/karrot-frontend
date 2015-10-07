@@ -1,9 +1,9 @@
 from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import opportunity_id_uri_pattern, wallpost_id_uri_pattern
 
-from yunity.api.utils import ApiBase
+from yunity.api.ids import opportunity_id_uri_pattern, wallpost_id_uri_pattern
+from yunity.utils.api import ApiBase
 
 
 class Opportunities(ApiBase, View):

@@ -4,7 +4,7 @@ from django.core.urlresolvers import resolve
 from pkg_resources import resource_listdir
 from django.test import TestCase
 
-from yunity.tests.utils import JsonRequestFactory, load_json_resource, is_test_resource, content_json, DeepMatcher
+from yunity.utils.test import JsonRequestFactory, load_json_resource, is_test_resource, content_json, DeepMatcher
 
 
 class IntegrationTest(object):

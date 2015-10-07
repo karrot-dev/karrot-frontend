@@ -3,9 +3,9 @@ from django.db.models import Max, Q
 from django.http import HttpRequest
 from django.utils.datetime_safe import datetime
 from django.views.generic import View
-from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 
-from yunity.api.utils import ApiBase, model_to_json, body_as_json
+from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
+from yunity.utils.api import ApiBase, model_to_json, body_as_json
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel

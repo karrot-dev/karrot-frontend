@@ -1,9 +1,9 @@
 from django.conf.urls import url
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
-from utils.session import RealtimeClientData
 
-from yunity.api.utils import ApiBase, body_as_json
+from utils.session import RealtimeClientData
+from yunity.utils.api import ApiBase, body_as_json
 
 
 class Login(ApiBase, View):

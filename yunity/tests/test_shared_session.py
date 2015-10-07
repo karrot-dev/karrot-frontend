@@ -1,5 +1,5 @@
 from django.test import TestCase
-from utils.session import RealtimeClientData
+from yunity.utils.session import RealtimeClientData
 
 
 class TestSharedSession(TestCase):

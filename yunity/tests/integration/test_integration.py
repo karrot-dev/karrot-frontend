@@ -85,7 +85,7 @@ class IntegrationTest(object):
 
 class IntegrationTestSuite(TestCase):
     @classmethod
-    def autodiscover(cls, root='yunity.tests.integration.resources'):
+    def autodiscover(cls, root='yunity.resources.tests.integration'):
         for test_name in filter(is_test_resource, resource_listdir(root, '')):
             test_resource = '{}.{}'.format(root, test_name)
             cls.add_test(test_name, IntegrationTest(test_resource))

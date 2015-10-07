@@ -138,11 +138,12 @@ class Chats(ApiBase, View):
         created_at = datetime.datetime.utcnow().isoformat()
 
         message = MessageModel.objects.create(
-                sent_by=sender,
-                in_conversation=chat,
-                created_at=created_at,
-                type=type_str,
-                content=content)
+            sent_by=sender,
+            in_conversation=chat,
+            created_at=created_at,
+            type=type_str,
+            content=content,
+        )
         return self.created({'id': chat.id})
 
 

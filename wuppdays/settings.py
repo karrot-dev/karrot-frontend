@@ -148,6 +148,9 @@ ES_INDEX = 'yunity'
 
 
 CORS_ORIGIN_WHITELIST = []
+# Allow all request origins. Will still require valid CSRF token and session information for modification but allows
+# e.g. including the docs from any location
+CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = 'yunity.User'
 

@@ -13,3 +13,12 @@ class TestSharedSession(TestCase):
         self.assertEqual(RealtimeClientData.get_user_by_session('123'), '3')
         RealtimeClientData.set_user_session('123', 4)
         self.assertEqual(RealtimeClientData.get_user_by_session('123'), '4')
+
+    def test_integration_data_to_users(self):
+        """ This is a RealtimeClient integration test.
+
+        For current implementation, subscribe to the notifications topic to see it working:
+        redis-cli subscribe notifications
+        """
+        RealtimeClientData.set_user_session('123', 3)
+        RealtimeClientData.send_to_users([3], {'msg': 'hello'})

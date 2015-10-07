@@ -1,5 +1,5 @@
 from django.conf import settings
-import redis
+import redis, json
 
 
 class RealtimeClientMiddleware(object):
@@ -22,6 +22,7 @@ class RealtimeClientMiddleware(object):
 
 class RealtimeClientData(object):
     PREFIX = 'session-store'
+    USER_NOTIFICATION_CHANNEL = 'notifications'
     r = None
 
     @classmethod
@@ -60,3 +61,13 @@ class RealtimeClientData(object):
     def destroy_user_session(cls, session):
         cls.connect()
         cls.r.delete(cls.session_key(session))
+
+    @classmethod
+    def send_to_users(cls, userids, data):
+        """
+        :param userids: list of userids to send the data to
+        :param data: dictionary that will be json encoded and send to each user
+        :return:
+        """
+        cls.connect()
+        cls.r.publish('notifications', '{{"users" : [{}], "data": {}}}'.format(','.join(map(str, userids)), json.dumps(data)))

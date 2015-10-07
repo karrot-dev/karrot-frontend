@@ -9,27 +9,32 @@ from yunity.utils.model import BaseModel, MaxLengthCharField
 
 
 class UserManager(BaseUserManager):
+    _default_location = {'latitude': 0.0, 'longitude': 0.0}
+    _default_type = Category.objects.get(name="user.default")
     use_in_migrations = True
 
-    def _create_user(self, email, password, locations, type, display_name, **extra_fields):
+    def _create_user(self, email, password, locations=None, type=None, display_name=None, **extra_fields):
         """ Creates and saves a User with the given username, email and password.
 
         """
-        if email is None:
-            raise ValueError('The given email must be set')
-        email = self.normalize_email(email)
-        if locations is None:
-            locations = {'latitude': 0.0, 'longitude': 0.0}
-        if type is None:
-            type = Category.objects.get(name="user.default")
-        if display_name is None:
-            display_name = email
+        email = self._validate_email(email)
 
-        user = self.model(email=email, is_active=True, locations=locations, type=type,
-                          display_name=display_name, **extra_fields)
+        user = self.model(
+            email=email,
+            is_active=True,
+            locations=locations or self._default_location,
+            type=type or self._default_type,
+            display_name=display_name or email,
+            **extra_fields,
+        )
         user.set_password(password)
         user.save(using=self._db)
         return user
+
+    def _validate_email(self, email):
+        if email is None:
+            raise ValueError('The given email must be set')
+        return self.normalize_email(email)
 
     def create_user(self, email=None, password=None, locations=None, type=None, display_name=None, **extra_fields):
         return self._create_user(email, password, locations, type, display_name, **extra_fields)

@@ -7,6 +7,7 @@ from django.db.models.signals import post_save, post_delete
 from elasticsearch import Elasticsearch, NotFoundError
 from elasticsearch.exceptions import NotFoundError
 from elasticsearch_dsl import Search
+from yunity.utils.mappings import valuable_mapping, opportunity_mapping
 
 logger = logging.getLogger(__name__)
 
@@ -75,27 +76,34 @@ def drop_index(es):
 
 def create_index(es):
 
-    from yunity.models import MapItem, Category
-
-    MAPPABLE_MAPPING = {
-        "TODO-dynamic-category-name": {
-            'properties': {
-                'locations': {
-                    'type': 'geo_point',
-                    'index_name': 'location',
-                    'doc_values': True,
-                }
-            }
-        }
-    }
+    from yunity.models import Category
 
     es.indices.create(index=settings.ES_INDEX, ignore=400)
 
-    es.indices.put_mapping(
-        index=settings.ES_INDEX,
-        doc_type="TODO-dynamic-category-name",
-        body=MAPPABLE_MAPPING
-    )
+    for category in Category.objects.all():
+        valuable_doc_type = get_es_type('valuable', category.name)
+        opportunity_doc_type = get_es_type('opportunity', category.name)
+
+        val_mapping = valuable_mapping(valuable_doc_type)
+        opp_mapping = opportunity_mapping(opportunity_doc_type)
+
+        if val_mapping:
+            es.indices.put_mapping(
+                index=settings.ES_INDEX,
+                doc_type=valuable_doc_type,
+                body=val_mapping
+            )
+
+        if opp_mapping:
+            es.indices.put_mapping(
+                index=settings.ES_INDEX,
+                doc_type=opportunity_doc_type,
+                body=opp_mapping
+            )
+
+
+def get_es_type(base, category_name):
+    return "{}::{}".format(base, category_name)
 
 
 def get_es_indexed_models():

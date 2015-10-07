@@ -36,7 +36,15 @@ class MapItem(VersionTrait, FeedbackTrait, AdministrationTrait, ElasticsearchMix
         return {
             "id": self.id,
             "name": self.name,
-            "locations": self.locations,
+            "locations": [
+                {
+                    "name": loc['description'],
+                    "point": {
+                        "lat": loc['latitude'],
+                        "lon": loc['longitude'],
+                    }
+                } for loc in self.locations
+            ],
             # "locations": [{"lat": loc['latitude'], "lon": loc['longitude']} for loc in self.locations],
             "metadata": self.metadata,
         }

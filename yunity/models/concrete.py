@@ -4,6 +4,7 @@ from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField
 from django.utils import timezone
 
 from yunity.models.abstract import MapItem, Conversation, Request
+from yunity.utils.elasticsearch import get_es_type
 from yunity.utils.model import BaseModel, MaxLengthCharField
 
 
@@ -63,14 +64,14 @@ class Valuable(MapItem):
 
     def get_es_type(self):
         category_name = self.type.name
-        return "valuable::{}".format(category_name)
+        return get_es_type('valuable', category_name)
 
 
 class Opportunity(MapItem):
 
     def get_es_type(self):
         category_name = self.type.name
-        return "opportunity::{}".format(category_name)
+        return get_es_type('opportunity', category_name)
 
 
 class Category(BaseModel):

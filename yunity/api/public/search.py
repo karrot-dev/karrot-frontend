@@ -22,7 +22,7 @@ def filter_es_geo_distance(esq, lat, lon, radius_km):
     """
     geo_params = {
         'distance': "%skm" % radius_km,
-        'mappable.location': {
+        'locations.point': {
             'lat': lat,
             'lon': lon,
         }
@@ -38,7 +38,7 @@ def sort_es_geo_distance(esq, lat, lon):
     :return: ES Search instance
     """
     return esq.sort({'_geo_distance': {
-        "location": {
+        "locations.point": {
             "lat": lat,
             "lon": lon,
         },
@@ -67,7 +67,7 @@ class Search(ApiBase, View):
 
         for category, group in groups.items():
             results.append({
-                "category": category,
+                "doc_type": category,  # TODO: use category name/slug/id
                 "results": group,
                 "total": len(group)  # TODO: get real total via faceting
             })
@@ -88,20 +88,40 @@ class SearchMap(ApiBase, View):
             - decide on what id to use (MapItem, or [type]:[id], etc.)
             - and much more...
         """
-        term = request.GET.get('q', '')
+
+        def _serialize(hit):
+            """
+            TODO: Ideally elasticsearch will handle this itself
+            """
+            return {
+                "id": hit.id,
+                "doc_type": hit.meta['doc_type'],  # TODO: replace with name/id
+                "locations": [
+                    {
+                        "latitude": loc['point']['lat'],
+                        "longitude": loc['point']['lon'],
+                    } for loc in hit.locations
+                ]
+            }
+
+        term = request.GET.get('q', '')  # TODO: hook this up somehow
         lat = float(request.GET.get('lat', 0))
         lon = float(request.GET.get('lon', 0))
         radius = float(request.GET.get('radius_km', 0))
 
-        esq = MapItem.es_search()
+        esq = es_search()
+        esq = esq.fields()  # TODO: filter out unnecessary fields
         if lat and lon:
             esq = sort_es_geo_distance(esq, lat, lon)
             if radius:
+                # TODO: this doesn't work
                 esq = filter_es_geo_distance(esq, lat, lon, radius)
 
-        hits = [m.to_dict() for m in esq.execute().hits]
-        return self.success(hits)
+        hits = [_serialize(m) for m in esq.execute().hits]
 
+        return self.success({
+            "results": hits
+        })
 
 
 class SearchDetail(ApiBase, View):

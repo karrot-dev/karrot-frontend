@@ -10,7 +10,7 @@ from yunity.models import Category as CategoryModel
 
 
 class UserAll(ApiBase, View):
-    @body_as_json(expected_keys=['email', 'password', 'name'])
+    @body_as_json(expected_keys=['email', 'password', 'display_name'])
     def post(self, request):
         """register a new user
         ---
@@ -24,7 +24,7 @@ class UserAll(ApiBase, View):
                   required:
                     - email
                     - password
-                    - name
+                    - display_name
                   properties:
                       email:
                           type: string
@@ -34,7 +34,7 @@ class UserAll(ApiBase, View):
                           type: string
                           description: Password for user. Will be validated to specific rules
                           example: PaulsStrongPasswordWhichHeNeverForgets
-                      name:
+                      display_name:
                           type: string
                           example: Paul
                           description: The public displayed name
@@ -134,7 +134,7 @@ class UserSingle(ApiBase, View):
               schema:
                   id: user_information
                   properties:
-                      name:
+                      display_name:
                         type: string
                         example: Paul
                         description: Display name of the user

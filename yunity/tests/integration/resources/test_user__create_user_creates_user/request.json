@@ -1,0 +1,12 @@
+{
+  "endpoint": "/api/user",
+  "method": "post",
+  "user": 1000,
+  "body": {
+    "email": "foodsharing-raphi@gmail.com",
+    "display_name": "Foodsharing Raphi",
+    "password": "iamawesome42",
+    "latitude": 12.345,
+    "longitude": 678.90
+  }
+}

@@ -17,12 +17,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 
-import yunity.urls
+import yunity.api.urls
 import yunity.doc.flask_swagger
 
-
 urlpatterns = [
-    url(r'^api/', include(yunity.urls)),
+    url(r'^api/', include(yunity.api.urls)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^doc$', yunity.doc.flask_swagger.doc),
 ]

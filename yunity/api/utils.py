@@ -17,7 +17,7 @@ class ApiBase(object):
         :rtype JsonResponse
 
         """
-        return JsonResponse({'message': message}, status=status)
+        return JsonResponse(data or {}, status=status)
 
     @classmethod
     def success(cls, data=None, status=HTTP_200_OK):
@@ -47,7 +47,7 @@ class ApiBase(object):
         :rtype JsonResponse
 
         """
-        return JsonResponse({'message': message}, status=status)
+        return JsonResponse(data or {}, status=status)
 
     @classmethod
     def error(cls, message, status=HTTP_400_BAD_REQUEST):
@@ -57,7 +57,7 @@ class ApiBase(object):
         :rtype JsonResponse
 
         """
-        return JsonResponse({'message': message}, status=status)
+        return JsonResponse(data or {}, status=status)
 
 
 class JsonRequest(object):

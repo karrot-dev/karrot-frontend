@@ -10,4 +10,6 @@ yunity/resources/tests/integration/test_name__tested_functionality
     |-- response.json    # defines the expectations on what gets returned from the API
     `-- final_data.py    # defines the expectations on the database after the API call has finished
 ```
+
+Note that ids of objects created in the test-data start at **5**.
 """

@@ -1,7 +1,7 @@
 {
   "endpoint": "/api/user",
   "method": "post",
-  "user": 1000,
+  "user": 5,
   "body": {
     "email": "foodsharing-raphi@gmail.com",
     "display_name": "Foodsharing Raphi",

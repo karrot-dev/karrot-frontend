@@ -1,9 +1,9 @@
 {
   "endpoint": "/api/chats",
   "method": "post",
-  "user": 1000,
+  "user": 5,
   "body": {
-    "participants": [1000, 1001],
+    "participants": [5, 6],
     "message": {
       "content": "some message to get the conversation started",
       "type": "TEXT"

@@ -8,13 +8,6 @@ class Factory(DjangoModelFactory):
         model = None
         abstract = True
 
-    @classmethod
-    def create_batch_with_ids(cls, num_instances, id_start):
-        models = cls.create_batch(num_instances)
-        for i, model in enumerate(models):
-            model.id = id_start + i
-        return models
-
 
 class CategoryFactory(Factory):
     class Meta:

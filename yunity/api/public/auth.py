@@ -15,17 +15,13 @@ class Login(ApiBase, View):
             - Authentication
         responses:
             200:
-                description: Login state
+                description: Login state with an empty user if not logged in
                 schema:
                     id: user_login_response
                     type: object
-                    required:
-                      - user
                     properties:
                         user:
                             $ref: '#/definitions/user_information_response'
-            404:
-                description: User is not logged in
         ...
 
         :type request: HttpRequest
@@ -33,7 +29,7 @@ class Login(ApiBase, View):
         if request.user.is_authenticated():
             return self.success({'user': {'id': request.user.id, 'name': request.user.name}})
         else:
-            return self.error('User not logged in.')
+            return self.success({'user': {}})
 
     @body_as_json(expected_keys=['email', 'password'])
     def post(self, request, data):

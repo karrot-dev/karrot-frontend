@@ -327,6 +327,9 @@ class ChatMessages(ApiBase, View):
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden({'reason', 'user does not have rights to chat'})
 
+        if request.GET['take'] or request.GET['before_id']:
+            return NotImplemented
+
         messages = MessageModel.objects \
             .filter(in_conversation=chatid) \
             .reverse() \

@@ -24,7 +24,7 @@ class UserAll(ApiBase, View):
             locations='{}',
             type=category,
             display_name=request.body['name'],
-            date_joined=datetime.datetime.utcnow().isostring()
+            date_joined=datetime.utcnow().isostring()
         )
 
         return self.created({"id": user.id,

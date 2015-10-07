@@ -2,7 +2,7 @@ from django.conf import settings
 import redis
 
 
-class RealtimeClientMiddleware():
+class RealtimeClientMiddleware(object):
     def process_request(self, request):
         return None
 
@@ -20,7 +20,7 @@ class RealtimeClientMiddleware():
         return response
 
 
-class RealtimeClientData():
+class RealtimeClientData(object):
     PREFIX = 'session-store'
     r = None
 

@@ -1,72 +1,65 @@
 from importlib import import_module
 
-from django.core.urlresolvers import resolve
 from pkg_resources import resource_listdir
-from django.test import TestCase
+from django.test import TestCase, Client
 
-from yunity.utils.test import JsonRequestFactory, is_test_resource, content_json, DeepMatcher, maybe_import
+from yunity.utils.test import is_test_resource, content_json, DeepMatcher, maybe_import, json_stringify
 
 
 class IntegrationTest(object):
-    _request_factory = JsonRequestFactory()
+    _client = Client()
 
     def __init__(self, resource):
-        self._database_setup = lambda: maybe_import('{}.initial_data'.format(resource))
-        self._database_checks = lambda: maybe_import('{}.final_data'.format(resource))
-        self._request = self._load_request(resource)
-        self._response = self._load_response(resource)
-        self.request = None
-        self.response = None
+        self._resource_root = resource
+        self.actual_response = None
 
-    @classmethod
-    def _load_response(cls, resource):
+    def _resource(self, name):
+        _cache = '__cache__{}'.format(name)
         try:
-            return import_module('{}.response'.format(resource)).response
-        except Exception:
-            raise ValueError('must specify response.py for test')
+            return getattr(self, _cache)
+        except AttributeError:
+            try:
+                value = getattr(import_module('{}.{}'.format(self._resource_root, name)), name)
+            except Exception:
+                raise ValueError('must specify {}.py for test'.format(name))
+            setattr(self, _cache, value)
+            return value
 
-    @classmethod
-    def _load_request(cls, resource):
-        try:
-            return import_module('{}.request'.format(resource)).request
-        except Exception:
-            raise ValueError('must specify request in request.py for test')
+    @property
+    def request_data(self):
+        return self._resource('request')
 
-    def _post(self):
-        endpoint = self._request['endpoint']
-        body = self._request['body']
-        return self._request_factory.post(endpoint, body)
+    @property
+    def response_data(self):
+        return self._resource('response')
 
     def given_database(self):
-        self._database_setup()
-
-    def given_request(self):
-        http_method = self._request['method'].upper()
-
-        if http_method == 'POST':
-            self.request = self._post()
-        else:
-            raise NotImplementedError('unknown http method: {}'.format(http_method))
+        maybe_import('{}.initial_data'.format(self._resource_root))
 
     def given_user(self):
-        try:
-            self.request.user = self._request['user']
-        except KeyError:
+        request_user = self.request_data.get('user')
+        if request_user:
             pass
 
     def when_calling_endpoint(self):
-        endpoint = self._request['endpoint']
-        api = getattr(resolve(endpoint).func.view_class(), self._request['method'])
-        self.response = api(self.request)
+        method = self.request_data['method'].lower()
+        path = self.request_data['endpoint']
+        data = self.request_data.get('body')
+        api = getattr(self._client, method)
+        self.actual_response = api(
+            path=path,
+            data=json_stringify(data),
+            content_type='application/json',
+        )
 
     def then_response_status_matches(self, testcase):
-        actual_status = self.response.status_code
-        expected_status = self._response['http_status']
-        testcase.assertEqual(actual_status, expected_status, 'http status not matching: "{}"'.format(content_json(self.response).get('reason', '(no error reason)')))
+        expected_status = self.response_data['http_status']
+        actual_status = self.actual_response.status_code
+        testcase.assertEqual(actual_status, expected_status, 'http status not matching: "{}"'.format(content_json(self.actual_response).get('reason', '(no error reason)')))
 
     def then_response_body_matches(self, testcase):
-        actual_response = content_json(self.response)
-        expected_response = self._response.get('response', {})
+        actual_response = content_json(self.actual_response)
+        expected_response = self.response_data.get('response', {})
         try:
             DeepMatcher.fuzzy_match(actual_response, expected_response)
         except ValueError as e:
@@ -74,7 +67,7 @@ class IntegrationTest(object):
 
     def then_database_is_updated(self, testcase):
         try:
-            self._database_checks()
+            maybe_import('{}.final_data'.format(self._resource_root))
         except AssertionError as e:
             testcase.fail(e.args[0])
 
@@ -84,7 +77,6 @@ class IntegrationTest(object):
             :type testcase: TestCase
             """
             self.given_database()
-            self.given_request()
             self.given_user()
 
             self.when_calling_endpoint()

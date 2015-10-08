@@ -6,11 +6,6 @@ from pkg_resources import resource_string
 from django.test import RequestFactory
 
 
-class JsonRequestFactory(RequestFactory):
-    def post(self, path, data=None, secure=False, **kwargs):
-        return super().post(path, data=json_stringify(data), content_type="application/json", secure=secure, **kwargs)
-
-
 class DeepMatcher(object):
     ANY_INT = 'AnyInt'
     ANY_STRING = 'AnyString'

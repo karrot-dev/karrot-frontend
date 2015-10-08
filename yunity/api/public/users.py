@@ -4,6 +4,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
+from yunity.utils import status
 from yunity.utils.api import ApiBase, body_as_json
 from yunity.models import Category as CategoryModel
 

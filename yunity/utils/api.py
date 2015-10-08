@@ -65,14 +65,16 @@ class ApiBase(object):
         return cls._json_response(status=HTTP_403_FORBIDDEN, reason=reason, **kwargs)
 
     @classmethod
-    def error(cls, reason, **kwargs):
+    def error(cls, reason, status=HTTP_400_BAD_REQUEST, **kwargs):
         """
         :type reason: str
+        :type status: int
         :type kwargs: dict
         :rtype JsonResponse
+        :param status: HTTP response status, defined in status.py
 
         """
-        return cls._json_response(status=HTTP_400_BAD_REQUEST, reason=reason, **kwargs)
+        return cls._json_response(status, reason=reason, **kwargs)
 
 
 class JsonRequest(object):

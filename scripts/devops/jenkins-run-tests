@@ -1,43 +1,51 @@
 #!/bin/sh
 
-###################################################################################
-# configuration
-###################################################################################
-workspace_root='/var/srv/webdev/repo/yunity-master'
-current_directory="${PWD}"
-log() { /usr/games/cowsay "$@"; }
+log() {
+    /usr/games/cowsay "$@"
+}
 
+update_code() {
+    local basedir="$1"
 
-###################################################################################
-# set up the environment
-###################################################################################
-cd "${workspace_root}"
-log 'updating code'
+    log 'updating code'
     git pull --rebase
-    ln -fs "${workspace_root}/wuppdays/local_settings.py.example" \
-           "${workspace_root}/wuppdays/local_settings.py"
-log 'updating dependencies'
-    . "${workspace_root}/env/bin/activate"
+    ln -fs "${basedir}/wuppdays/local_settings.py.example" \
+           "${basedir}/wuppdays/local_settings.py"
+}
+
+update_dependencies() {
+    local basedir="$1"
+
+    log 'updating dependencies'
+    . "${basedir}/env/bin/activate"
     pip install -r requirements.pip
-log 'running with settings'
-    ./manage.py diffsettings
+}
 
+update_database() {
+    local basedir="$1"
 
-###################################################################################
-# reset state of running application
-###################################################################################
-log 'updating database'
-    ./manage.py migrate
+    log 'updating database'
+    "${basedir}"/manage.py migrate
+}
 
+run_tests() {
+    local basedir="$1"
 
-###################################################################################
-# run the test inside jenkins workspace
-###################################################################################
-log 'running tests'
-    ./manage.py test -v 3
+    log 'running tests'
+    "${basedir}"/manage.py test -v 3
+}
 
+main() {
+    set -o errexit
+    set -o pipefail
 
-###################################################################################
-# cleanup
-###################################################################################
-cd "${current_directory}"
+    workspace_root="$1"
+
+    update_code "${workspace_root}"
+    update_dependencies "${workspace_root}"
+    update_database "${workspace_root}"
+
+    run_tests "${workspace_root}"
+}
+
+[ $# -eq 1 ] && (cd "$1"; main "$1")

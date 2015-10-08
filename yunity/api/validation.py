@@ -17,6 +17,11 @@ def _is_category(value):
     return value
 
 
+def _is_message_type(value):
+    (OfType(str) & IsIn('TEXT', 'IMAGE'))(value)
+    return value
+
+
 def validate_chat_message(request):
     validate_chat_message_type(request)
     (HasKey('message') & _is_reasonable_length_string)(request)
@@ -24,7 +29,7 @@ def validate_chat_message(request):
 
 
 def validate_chat_message_type(request):
-    (HasKey('type') & OfType(str) & IsIn('TEXT', 'IMAGE'))(request)
+    (HasKey('type') & _is_message_type)(request)
     return request
 
 

@@ -4,8 +4,7 @@ from django.core.urlresolvers import resolve
 from pkg_resources import resource_listdir
 from django.test import TestCase
 
-from yunity.utils.test import JsonRequestFactory, load_json_resource, is_test_resource, content_json, DeepMatcher, \
-    maybe_import
+from yunity.utils.test import JsonRequestFactory, is_test_resource, content_json, DeepMatcher, maybe_import
 
 
 class IntegrationTest(object):
@@ -22,9 +21,9 @@ class IntegrationTest(object):
     @classmethod
     def _load_response(cls, resource):
         try:
-            return load_json_resource(resource, 'response.json')
+            return import_module('{}.response'.format(resource)).response
         except Exception:
-            raise ValueError('must specify response.json for test')
+            raise ValueError('must specify response.py for test')
 
     @classmethod
     def _load_request(cls, resource):

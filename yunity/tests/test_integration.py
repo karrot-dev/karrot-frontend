@@ -34,9 +34,6 @@ class IntegrationTest(object):
     def response_data(self):
         return self._resource('response')
 
-    def given_database(self):
-        maybe_import('{}.initial_data'.format(self._resource_root))
-
     def given_user(self):
         request_user = self.request_data.get('user')
         if request_user:
@@ -95,7 +92,6 @@ class IntegrationTest(object):
             """
             :type testcase: TestCase
             """
-            self.given_database()
             self.given_user()
 
             self.when_calling_endpoint()

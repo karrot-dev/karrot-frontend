@@ -7,25 +7,6 @@ class Factory(DjangoModelFactory):
         model = None
         abstract = True
 
-    _create_batch_cache = []
-    _create_cache = {}
-
-    @classmethod
-    def create_batch_safe(cls, num_instances):
-        instances_to_be_created = num_instances - len(cls._create_batch_cache)
-        if instances_to_be_created > 0:
-            cls._create_batch_cache.extend(cls.create_batch(instances_to_be_created))
-        return cls._create_batch_cache[:num_instances]
-
-    @classmethod
-    def create_safe(cls, *args, **kwargs):
-        key = str(args) + str(sorted(kwargs.items()))
-        value = cls._create_cache.get(key)
-        if value is None:
-            value = cls.create(*args, **kwargs)
-            cls._create_cache[key] = value
-        return value
-
 
 class CategoryFactory(Factory):
     class Meta:

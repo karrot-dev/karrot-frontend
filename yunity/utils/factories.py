@@ -1,4 +1,3 @@
-from django.utils.datetime_safe import datetime
 from factory import DjangoModelFactory, CREATE_STRATEGY, Sequence, LazyAttribute, PostGeneration, post_generation, SubFactory
 
 
@@ -25,9 +24,7 @@ class UserFactory(Factory):
     email = LazyAttribute(lambda obj: '%s@email.com' % obj.display_name)
     is_active = True
     is_staff = False
-    date_joined = datetime.now()
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
-    last_login = datetime.now()
     locations = []
 
 

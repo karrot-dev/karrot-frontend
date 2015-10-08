@@ -4,7 +4,9 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
-from yunity.utils.api import ApiBase, model_to_json, body_as_json
+from yunity.api.validation import validate_chat_message, validate_chat_participants, validate_chat_name, \
+    validate_chat_message_type, validate_chat_message_content, validate_chat_users
+from yunity.utils.api import ApiBase, model_to_json, body_as_json, Parameter
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
@@ -36,6 +38,7 @@ def user_has_rights_to_chat(chatid, userid):
         .filter(id=chatid) \
         .filter(Q(participants=userid) | Q(administrated_by=userid)) \
         .exists()
+
 
 class Chats(ApiBase, View):
     def get(self, request):
@@ -70,7 +73,10 @@ class Chats(ApiBase, View):
 
         return self.success({'chats': [chat_to_json(_) for _ in chats]})
 
-    @body_as_json(expected_keys=['participants', 'message'])
+    @body_as_json(parameters=(
+        Parameter(name='message', validator=validate_chat_message),
+        Parameter(name='participants', validator=validate_chat_participants),
+    ))
     def post(self, request):
         """Create a new chat involving participants and add the first message.
         ---
@@ -151,7 +157,9 @@ class Chats(ApiBase, View):
 
 
 class Chat(ApiBase, View):
-    @body_as_json(expected_keys=['name'])
+    @body_as_json(parameters=[
+        Parameter(name='name', validator=validate_chat_name),
+    ])
     def put(self, request, chatid):
         """Update details about specific chat
         ---
@@ -193,7 +201,10 @@ class Chat(ApiBase, View):
 
 
 class ChatMessages(ApiBase, View):
-    @body_as_json(expected_keys=['type', 'content'])
+    @body_as_json(parameters=[
+        Parameter(name='type', validator=validate_chat_message_type),
+        Parameter(name='content', validator=validate_chat_message_content),
+    ])
     def post(self, request, chatid):
         """ Send a new message in given chat
         ---
@@ -334,7 +345,9 @@ class ChatMessages(ApiBase, View):
 
 
 class ChatParticipants(ApiBase, View):
-    @body_as_json(expected_keys=['users'])
+    @body_as_json(parameters=[
+        Parameter(name='users', validator=validate_chat_users),
+    ])
     def post(self, request, chatid):
         """Add a list of users to the chat.
         ---

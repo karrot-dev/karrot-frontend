@@ -3,7 +3,8 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import category_ids_uri_pattern
-from yunity.utils.api import ApiBase, body_as_json, resource_as_list
+from yunity.api.validation import validate_categories
+from yunity.utils.api import ApiBase, body_as_json, resource_as_list, Parameter
 from yunity.models import Category as CategoryModel
 
 
@@ -66,7 +67,9 @@ class Categories(ApiBase, View):
             'parent': _.parent_id,
         } for _ in categories]})
 
-    @body_as_json(expected_keys=['categories'])
+    @body_as_json(parameters=[
+        Parameter(name='categories', validator=validate_categories),
+    ])
     def post(self, request):
         """Creates a new category.
 

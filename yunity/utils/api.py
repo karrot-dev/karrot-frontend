@@ -1,3 +1,4 @@
+from collections import namedtuple
 from functools import wraps
 from json import loads as load_json_string
 
@@ -77,16 +78,22 @@ class ApiBase(object):
         return cls._json_response(status, reason=reason, **kwargs)
 
 
+class Parameter(object):
+    def __init__(self, name, validator=None):
+        self.name = name
+        self.validator = validator or (lambda _: True)
+
+
 class JsonRequest(object):
     def __init__(self, http_request, json_body):
         self._http_request = http_request
         self._json_body = json_body
 
     @classmethod
-    def from_http_request(cls, http_request, expected_keys):
+    def from_http_request(cls, http_request, parameters):
         """
         :type http_request: HttpRequest
-        :type expected_keys: list
+        :type parameters: list
         :rtype: JsonRequest
         :raises ValueError: if the request body is not valid JSON or one of the expected keys is missing
 
@@ -96,10 +103,11 @@ class JsonRequest(object):
         except ValueError:
             raise ValueError('incorrect json request')
 
-        for expected_key in expected_keys:
-            value = json_data.get(expected_key)
+        for paramter in parameters:
+            value = json_data.get(paramter.name)
             if not value:
-                raise ValueError('missing key: {}'.format(expected_key))
+                raise ValueError('missing key: {}'.format(paramter))
+            json_data[paramter.name] = paramter.validator(value)
 
         return cls(http_request, json_data)
 
@@ -109,20 +117,20 @@ class JsonRequest(object):
         return getattr(self._http_request, item)
 
 
-def body_as_json(expected_keys=None):
-    """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object.
+def body_as_json(parameters=None):
+    """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object
     The decorator modifies the request object, parsing the request.body field into a dictionary.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 
-    :type expected_keys: list
+    :type parameters: list
     """
-    expected_keys = expected_keys or []
+    parameters = parameters or []
 
     def decorator(func):
         @wraps(func)
         def wrapper(api_base, request, *args, **kwargs):
             try:
-                json_request = JsonRequest.from_http_request(request, expected_keys)
+                json_request = JsonRequest.from_http_request(request, parameters)
             except ValueError as e:
                 return api_base.validation_failure(reason=str(e))
 

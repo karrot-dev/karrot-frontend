@@ -6,12 +6,18 @@ from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.utils import status
-from yunity.utils.api import ApiBase, body_as_json
+from yunity.api.validation import validate_user_email, validate_user_display_name
+from yunity.api.validation import validate_user_password
+from yunity.utils.api import ApiBase, body_as_json, Parameter
 from yunity.models import Category as CategoryModel
 
 
 class UserAll(ApiBase, View):
-    @body_as_json(expected_keys=['email', 'password', 'display_name'])
+    @body_as_json(parameters=[
+        Parameter(name='email', validator=validate_user_email),
+        Parameter(name='password', validator=validate_user_password),
+        Parameter(name='display_name', validator=validate_user_display_name),
+    ])
     def post(self, request):
         """register a new user
         ---

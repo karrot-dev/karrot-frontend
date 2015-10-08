@@ -12,6 +12,7 @@ class IntegrationTest(object):
     def __init__(self, resource):
         self._resource_root = resource
         self.actual_response = None
+        self.actual_exception = None
 
     def _resource(self, name):
         _cache = '__cache__{}'.format(name)
@@ -46,11 +47,17 @@ class IntegrationTest(object):
         path = self.request_data['endpoint']
         data = self.request_data.get('body')
         api = getattr(self._client, method)
-        self.actual_response = api(
-            path=path,
-            data=json_stringify(data),
-            content_type='application/json',
-        )
+        try:
+            self.actual_response = api(
+                path=path,
+                data=json_stringify(data),
+                content_type='application/json',
+            )
+        except Exception as e:
+            self.actual_exception = e
+
+    def then_there_was_no_exception(self, testcase):
+        testcase.assertIsNone(self.actual_exception, 'unexpected exception: {}'.format(self.actual_exception))
 
     def then_response_status_matches(self, testcase):
         expected_status = self.response_data['http_status']
@@ -81,6 +88,7 @@ class IntegrationTest(object):
 
             self.when_calling_endpoint()
 
+            self.then_there_was_no_exception(testcase)
             self.then_response_status_matches(testcase)
             self.then_response_body_matches(testcase)
             self.then_database_is_updated(testcase)

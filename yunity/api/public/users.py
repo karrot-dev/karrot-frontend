@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from django.contrib.auth import get_user_model
 from django.http import HttpRequest
-from django.utils.datetime_safe import datetime
 from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern

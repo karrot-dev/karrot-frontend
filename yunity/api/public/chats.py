@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from django.db.models import Max, Q
 from django.http import HttpRequest
-from django.utils.datetime_safe import datetime
 from django.views.generic import View
 
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
@@ -141,12 +140,10 @@ class Chats(ApiBase, View):
         if type_str not in ['TEXT', 'IMAGE']:
             return self.error(reason='invalid type')
         content = message['content']
-        created_at = datetime.utcnow().isoformat()
 
         message = MessageModel.objects.create(
             sent_by_id=request.user.id,
             in_conversation_id=chat.id,
-            created_at=created_at,
             type=type_str,
             content=content,
         )
@@ -271,12 +268,10 @@ class ChatMessages(ApiBase, View):
             return self.error(reason='invalid type')
         content = request.body['content']
         senderid = request.user.id
-        created_at = datetime.utcnow().isoformat()
 
         message = MessageModel.objects.create(
             sent_by=senderid,
             in_conversation_id=chatid,
-            created_at=created_at,
             type=type_str,
             content=content,
         )

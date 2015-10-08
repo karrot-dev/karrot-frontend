@@ -57,14 +57,23 @@ class IntegrationTest(object):
             self.actual_exception = e
 
     def then_there_was_no_exception(self, testcase):
+        """
+        :type testcase: TestCase
+        """
         testcase.assertIsNone(self.actual_exception, 'unexpected exception: {}'.format(self.actual_exception))
 
     def then_response_status_matches(self, testcase):
+        """
+        :type testcase: TestCase
+        """
         expected_status = self.response_data['http_status']
         actual_status = self.actual_response.status_code
         testcase.assertEqual(actual_status, expected_status, 'http status not matching: "{}"'.format(content_json(self.actual_response).get('reason', '(no error reason)')))
 
     def then_response_body_matches(self, testcase):
+        """
+        :type testcase: TestCase
+        """
         actual_response = content_json(self.actual_response)
         expected_response = self.response_data.get('response', {})
         try:
@@ -73,6 +82,9 @@ class IntegrationTest(object):
             testcase.fail(e.args[0])
 
     def then_database_is_updated(self, testcase):
+        """
+        :type testcase: TestCase
+        """
         try:
             maybe_import('{}.final_data'.format(self._resource_root))
         except AssertionError as e:

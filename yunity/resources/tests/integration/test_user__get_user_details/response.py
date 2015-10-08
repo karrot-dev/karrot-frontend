@@ -4,8 +4,8 @@ response = {
     "http_status": 200,
     "response": {
         "users": [
-            {"display_name": "Testuser1", "id": users[0].id},
-            {"display_name": "Testuser2", "id": users[1].id}
+            {"display_name": users[0].display_name, "id": users[0].id},
+            {"display_name": users[1].display_name, "id": users[1].id}
         ]
     }
 }

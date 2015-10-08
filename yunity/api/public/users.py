@@ -61,6 +61,7 @@ class UserAll(ApiBase, View):
         category = CategoryModel.objects.get(name='user.default')
         try:
             locations = [{
+                'description': request.body['location_description'],
                 'latitude': request.body['latitude'],
                 'longitude': request.body['longitude'],
             }]

@@ -51,7 +51,7 @@ class IntegrationTest(object):
     def given_user(self):
         try:
             self.request.user = self._request['user']
-        except AttributeError:
+        except KeyError:
             pass
 
     def when_calling_endpoint(self):

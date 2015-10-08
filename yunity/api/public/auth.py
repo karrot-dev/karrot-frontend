@@ -36,7 +36,7 @@ class Login(ApiBase, View):
             return self.success({'user': {}})
 
     @body_as_json(expected_keys=['email', 'password'])
-    def post(self, request, data):
+    def post(self, request):
         """Logs in the user using the provided credentials
         ---
         tags:
@@ -68,7 +68,7 @@ class Login(ApiBase, View):
 
         :type request: HttpRequest
         """
-        user = authenticate(email=data['email'], password=data['password'])
+        user = authenticate(email=request.body['email'], password=request.body['password'])
         if user is not None:
             login(request, user)
             return self.success({'user': {'id': request.user.id, 'name': request.user.name}})

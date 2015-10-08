@@ -6,6 +6,11 @@ def _is_reasonable_length_string(value, maxlen=100000):
     return value
 
 
+def _is_list_of_ids(value):
+    (OfType(list) & Each(OfType(int)))(value)
+    return value
+
+
 def validate_chat_message(request):
     validate_chat_message_type(request)
     (HasKey('message') & _is_reasonable_length_string)(request)
@@ -28,12 +33,12 @@ def validate_chat_name(request):
 
 
 def validate_chat_participants(request):
-    (HasKey('participants') & OfType(list) & Each(OfType(int)))(request)
+    (HasKey('participants') & _is_list_of_ids)(request)
     return request
 
 
 def validate_chat_users(request):
-    (HasKey('users') & OfType(list) & Each(OfType(int)))(request)
+    (HasKey('users') & _is_list_of_ids)(request)
     return request
 
 

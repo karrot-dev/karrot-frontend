@@ -23,8 +23,8 @@ def _is_message_type(value):
 
 
 def validate_chat_message(request):
-    validate_chat_message_type(request)
-    (HasKey('message') & _is_reasonable_length_string)(request)
+    (HasKey('message') & validate_chat_message_type)(request)
+    (HasKey('message') & validate_chat_message_content)(request)
     return request
 
 

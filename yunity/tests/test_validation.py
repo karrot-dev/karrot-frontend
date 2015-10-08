@@ -100,13 +100,13 @@ class TestApiValidation(AbstractValidationTestCase):
         self.when_calling(validate_chat_users)
         self.then_validation_failed()
 
-    def test_validate_message_passes(self):
-        self.given_data({'message': 'woo message', 'type': 'TEXT'})
+    def test_validate_chat_message_passes(self):
+        self.given_data({'message': {'content': 'woo message', 'type': 'TEXT'}})
         self.when_calling(validate_chat_message)
         self.then_validation_passed()
 
-    def test_validate_message_fails(self):
-        self.given_data({'content': 'message without a type field, oh no!'})
+    def test_validate_chat_message_fails(self):
+        self.given_data({'message': {'content': 'message without a type field, oh no!'}})
         self.when_calling(validate_chat_message)
         self.then_validation_failed()
 

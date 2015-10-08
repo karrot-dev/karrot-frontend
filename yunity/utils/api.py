@@ -104,10 +104,7 @@ class JsonRequest(object):
             raise ValueError('incorrect json request')
 
         for paramter in parameters:
-            value = json_data.get(paramter.name)
-            if not value:
-                raise ValueError('missing key: {}'.format(paramter))
-            json_data[paramter.name] = paramter.validator(value)
+            paramter.validator(json_data)
 
         return cls(http_request, json_data)
 

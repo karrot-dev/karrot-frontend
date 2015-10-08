@@ -1,9 +1,14 @@
-from yunity.utils.validation import Each, OfType, IsIn, HasKey, ShorterThan, IsEmail
+from yunity.utils.validation import Each, OfType, IsIn, HasKey, IsEmail, ShorterThan
+
+
+def _is_reasonable_length_string(value, maxlen=100000):
+    (OfType(str) & ShorterThan(maxlen))(value)
+    return value
 
 
 def validate_chat_message(request):
     validate_chat_message_type(request)
-    (HasKey('message') & OfType(str) & ShorterThan(100000))(request)
+    (HasKey('message') & _is_reasonable_length_string)(request)
     return request
 
 
@@ -13,12 +18,12 @@ def validate_chat_message_type(request):
 
 
 def validate_chat_message_content(request):
-    (HasKey('content') & OfType(str) & ShorterThan(100000))(request)
+    (HasKey('content') & _is_reasonable_length_string)(request)
     return request
 
 
 def validate_chat_name(request):
-    (HasKey('name') & OfType(str) & ShorterThan(100000))(request)
+    (HasKey('name') & _is_reasonable_length_string)(request)
     return request
 
 

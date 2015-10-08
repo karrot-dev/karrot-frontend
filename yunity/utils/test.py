@@ -1,6 +1,7 @@
 from importlib import import_module
 from json import dumps as dump_json
 from json import loads as load_json
+from django.utils.datetime_safe import datetime
 
 from pkg_resources import resource_string
 from django.test import RequestFactory
@@ -9,6 +10,7 @@ from django.test import RequestFactory
 class DeepMatcher(object):
     ANY_INT = 'AnyInt'
     ANY_STRING = 'AnyString'
+    DATETIME_AROUND_NOW = 'DatetimeAroundNow'
 
     @classmethod
     def _fuzzy_match_dicts(cls, actual, expected):
@@ -29,6 +31,12 @@ class DeepMatcher(object):
         elif expected == cls.ANY_STRING:
             if not isinstance(actual, str):
                 raise ValueError('expected any string, got {}'.format(actual))
+        elif expected == cls.DATETIME_AROUND_NOW:
+            actual_time = datetime.strptime(actual, "%Y-%m-%dT%H:%M:%S")
+            now = datetime.utcnow()
+            difference = now - actual_time
+            if abs(difference.total_seconds()) > 60:
+                raise ValueError('expected an UTC time string within 60 seconds of now, got {}'.format(actual))
         else:
             if actual != expected:
                 raise ValueError('expected {}, got {}'.format(expected, actual))

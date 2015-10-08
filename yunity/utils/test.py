@@ -1,3 +1,4 @@
+from importlib import import_module
 from json import dumps as dump_json
 from json import loads as load_json
 
@@ -64,3 +65,10 @@ def load_json_resource(resource, filename):
 
 def is_test_resource(resource):
     return resource.startswith('test_')
+
+
+def maybe_import(resource):
+    try:
+        import_module(resource)
+    except ImportError:
+        pass

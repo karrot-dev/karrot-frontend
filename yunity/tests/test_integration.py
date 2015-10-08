@@ -4,20 +4,34 @@ from django.core.urlresolvers import resolve
 from pkg_resources import resource_listdir
 from django.test import TestCase
 
-from yunity.utils.test import JsonRequestFactory, load_json_resource, is_test_resource, content_json, DeepMatcher
+from yunity.utils.test import JsonRequestFactory, load_json_resource, is_test_resource, content_json, DeepMatcher, \
+    maybe_import
 
 
 class IntegrationTest(object):
     _request_factory = JsonRequestFactory()
 
     def __init__(self, resource):
-        self._initial_data = '{}.initial_data'.format(resource)
-        self._final_data = '{}.final_data'.format(resource)
-        self._request = import_module('{}.request'.format(resource)).request
-        self._response = load_json_resource(resource, 'response.json')
-        self.database = None
+        self._database_setup = lambda: maybe_import('{}.initial_data'.format(resource))
+        self._database_checks = lambda: maybe_import('{}.final_data'.format(resource))
+        self._request = self._load_request(resource)
+        self._response = self._load_response(resource)
         self.request = None
         self.response = None
+
+    @classmethod
+    def _load_response(cls, resource):
+        try:
+            return load_json_resource(resource, 'response.json')
+        except Exception:
+            raise ValueError('must specify response.json for test')
+
+    @classmethod
+    def _load_request(cls, resource):
+        try:
+            return import_module('{}.request'.format(resource)).request
+        except Exception:
+            raise ValueError('must specify request in request.py for test')
 
     def _post(self):
         endpoint = self._request['endpoint']
@@ -25,11 +39,7 @@ class IntegrationTest(object):
         return self._request_factory.post(endpoint, body)
 
     def given_database(self):
-        if self.database is None:
-            try:
-                self.database = import_module(self._initial_data)
-            except ImportError:
-                pass
+        self._database_setup()
 
     def given_request(self):
         http_method = self._request['method'].upper()
@@ -41,7 +51,7 @@ class IntegrationTest(object):
 
     def given_user(self):
         try:
-            self.request.user = self.database.request_user
+            self.request.user = self._request['user']
         except AttributeError:
             pass
 
@@ -65,9 +75,7 @@ class IntegrationTest(object):
 
     def then_database_is_updated(self, testcase):
         try:
-            import_module(self._final_data)
-        except ImportError:
-            pass
+            self._database_checks()
         except AssertionError as e:
             testcase.fail(e.args[0])
 

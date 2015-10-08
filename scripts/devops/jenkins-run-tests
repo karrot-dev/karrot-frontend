@@ -37,7 +37,6 @@ run_tests() {
 
 main() {
     set -o errexit
-    set -o pipefail
 
     workspace_root="$1"
 

@@ -40,7 +40,7 @@ class IntegrationTest(object):
     def given_user(self):
         request_user = self.request_data.get('user')
         if request_user:
-            pass
+            self._client.force_login(request_user)
 
     def when_calling_endpoint(self):
         method = self.request_data['method'].lower()

@@ -75,7 +75,7 @@ class Login(ApiBase, View):
         user = authenticate(email=request.body['email'], password=request.body['password'])
         if user is not None:
             login(request, user)
-            return self.success({'user': {'id': request.user.id, 'display_name': user.name}})
+            return self.success({'user': {'id': request.user.id, 'display_name': user.display_name}})
         else:
             return self.forbidden(reason="wrong login credentials.")
 

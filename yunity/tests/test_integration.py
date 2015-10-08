@@ -13,7 +13,7 @@ class IntegrationTest(object):
     def __init__(self, resource):
         self._initial_data = '{}.initial_data'.format(resource)
         self._final_data = '{}.final_data'.format(resource)
-        self._request = load_json_resource(resource, 'request.json')
+        self._request = import_module('{}.request'.format(resource)).request
         self._response = load_json_resource(resource, 'response.json')
         self.database = None
         self.request = None

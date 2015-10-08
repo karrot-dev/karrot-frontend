@@ -31,7 +31,7 @@ class Login(ApiBase, View):
         # force a CSRF token to be generated for the frontend to use
         get_token(request)
         if request.user.is_authenticated():
-            return self.success({'user': {'id': request.user.id, 'name': request.user.name}})
+            return self.success({'user': {'id': request.user.id, 'display_name': request.user.display_name}})
         else:
             return self.success({'user': {}})
 
@@ -71,7 +71,7 @@ class Login(ApiBase, View):
         user = authenticate(email=request.body['email'], password=request.body['password'])
         if user is not None:
             login(request, user)
-            return self.success({'user': {'id': request.user.id, 'name': request.user.name}})
+            return self.success({'user': {'id': request.user.id, 'display_name': user.name}})
         else:
             return self.forbidden(reason="wrong login credentials.")
 

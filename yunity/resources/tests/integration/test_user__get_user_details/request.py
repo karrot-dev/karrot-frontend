@@ -1,4 +1,6 @@
+from .initial_data import users
+
 request = {
-    "endpoint": "/api/user/5,6",
+    "endpoint": "/api/user/{},{}".format(users[0].id, users[1].id),
     "method": "get"
 }

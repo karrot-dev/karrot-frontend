@@ -14,7 +14,7 @@ class RealtimeClientMiddleware(object):
         """
         if request.user.is_authenticated():
             if request.session.modified:
-                RealtimeClientData.set_user_session(request.session.session_key)
+                RealtimeClientData.set_user_session(request.session.session_key, request.user.id)
         else:
             RealtimeClientData.destroy_user_session(request.session.session_key)
         return response

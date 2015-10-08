@@ -54,10 +54,6 @@ def content_json(response):
     return load_json(response.content.decode("utf-8"))
 
 
-def load_json_resource(resource, filename):
-    return load_json(resource_string(resource, filename).decode('utf8'))
-
-
 def is_test_resource(resource):
     return resource.startswith('test_')
 

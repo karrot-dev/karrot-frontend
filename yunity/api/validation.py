@@ -11,6 +11,12 @@ def _is_list_of_ids(value):
     return value
 
 
+def _is_category(value):
+    (HasKey('name') & OfType(str))(value)
+    (HasKey('parent') & OfType(int))(value)
+    return value
+
+
 def validate_chat_message(request):
     validate_chat_message_type(request)
     (HasKey('message') & _is_reasonable_length_string)(request)
@@ -43,11 +49,7 @@ def validate_chat_users(request):
 
 
 def validate_categories(request):
-    def validate_category(data):
-        (HasKey('name') & OfType(str))(data)
-        (HasKey('parent') & OfType(int))(data)
-
-    (HasKey('categories') & OfType(list) & Each(validate_category))(request)
+    (HasKey('categories') & OfType(list) & Each(_is_category))(request)
     return request
 
 

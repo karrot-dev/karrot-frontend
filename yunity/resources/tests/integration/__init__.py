@@ -6,10 +6,8 @@ In order to add a new integration test, create a new package with the following 
 yunity/resources/tests/integration/test_name__tested_functionality
     |-- __init__.py
     |-- initial_data.py  # defines the calls to setup the database with the data you need to run your test
-    |-- request.json     # defines the request to the API
+    |-- request.py       # defines the request to the API in a `request` dictionary variable
     |-- response.json    # defines the expectations on what gets returned from the API
     `-- final_data.py    # defines the expectations on the database after the API call has finished
 ```
-
-Note that ids of objects created in the test-data start at **5**.
 """

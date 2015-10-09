@@ -11,12 +11,6 @@ class Mock(DjangoModelFactory):
         abstract = True
 
 
-class MockCategory(Mock):
-    class Meta:
-        model = "yunity.Category"
-        strategy = CREATE_STRATEGY
-
-
 class MockUser(Mock):
     class Meta:
         model = "yunity.User"

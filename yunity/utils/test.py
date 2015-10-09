@@ -3,9 +3,6 @@ from json import dumps as dump_json
 from json import loads as load_json
 from django.utils.datetime_safe import datetime
 
-from pkg_resources import resource_string
-from django.test import RequestFactory
-
 
 class DeepMatcher(object):
     ANY_INT = 'AnyInt'

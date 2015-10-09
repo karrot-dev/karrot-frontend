@@ -1,11 +1,5 @@
-from django.db.models import Model, CharField, Field, AutoField
+from django.db.models import Model, AutoField, Field
 from django.db.models.fields.related import RelatedField
-
-
-class MaxLengthCharField(CharField):
-    def __init__(self, *args, **kwargs):
-        kwargs['max_length'] = 255
-        super().__init__(*args, **kwargs)
 
 
 class BaseModel(Model):

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 
-import yunity.utils.models
+import yunity.utils.models.field
 
 
 class Migration(migrations.Migration):
@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='chat',
             name='name',
-            field=yunity.utils.models.MaxLengthCharField(max_length=255, null=True),
+            field=yunity.utils.models.field.MaxLengthCharField(max_length=255, null=True),
         ),
         migrations.AddField(
             model_name='user',

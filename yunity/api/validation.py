@@ -1,25 +1,32 @@
-from yunity.utils.validation import Each, OfType, IsIn, HasKey, IsEmail, ShorterThan
+from yunity.utils.validation import Each, OfType, IsIn, HasKey, IsEmail, ShorterThan, Validator
 
 
-def _is_reasonable_length_string(value, maxlen=100000):
-    (OfType(str) & ShorterThan(maxlen))(value)
-    return value
+class IsReasonableLengthString(Validator):
+    def __init__(self, maxlen=100000):
+        self.maxlen = maxlen
+
+    def __call__(self, value):
+        (OfType(str) & ShorterThan(self.maxlen))(value)
+        return value
 
 
-def _is_list_of_ids(value):
-    (OfType(list) & Each(OfType(int)))(value)
-    return value
+class IsListOfIds(Validator):
+    def __call__(self, value):
+        (OfType(list) & Each(OfType(int)))(value)
+        return value
 
 
-def _is_category(value):
-    (HasKey('name') & OfType(str))(value)
-    (HasKey('parent') & OfType(int))(value)
-    return value
+class IsCategory(Validator):
+    def __call__(self, value):
+        (HasKey('name') & OfType(str))(value)
+        (HasKey('parent') & OfType(int))(value)
+        return value
 
 
-def _is_message_type(value):
-    (OfType(str) & IsIn('TEXT', 'IMAGE'))(value)
-    return value
+class IsMessageType(Validator):
+    def __call__(self, value):
+        (OfType(str) & IsIn('TEXT', 'IMAGE'))(value)
+        return value
 
 
 def validate_chat_message(request):
@@ -29,32 +36,32 @@ def validate_chat_message(request):
 
 
 def validate_chat_message_type(request):
-    (HasKey('type') & _is_message_type)(request)
+    (HasKey('type') & IsMessageType())(request)
     return request
 
 
 def validate_chat_message_content(request):
-    (HasKey('content') & _is_reasonable_length_string)(request)
+    (HasKey('content') & IsReasonableLengthString())(request)
     return request
 
 
 def validate_chat_name(request):
-    (HasKey('name') & _is_reasonable_length_string)(request)
+    (HasKey('name') & IsReasonableLengthString())(request)
     return request
 
 
 def validate_chat_participants(request):
-    (HasKey('participants') & _is_list_of_ids)(request)
+    (HasKey('participants') & IsListOfIds())(request)
     return request
 
 
 def validate_chat_users(request):
-    (HasKey('users') & _is_list_of_ids)(request)
+    (HasKey('users') & IsListOfIds())(request)
     return request
 
 
 def validate_categories(request):
-    (HasKey('categories') & OfType(list) & Each(_is_category))(request)
+    (HasKey('categories') & OfType(list) & Each(IsCategory()))(request)
     return request
 
 

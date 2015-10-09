@@ -54,7 +54,7 @@ class DeepMatcher(object):
 
 
 def json_stringify(data):
-    return dump_json(data).encode("utf-8") if data else None
+    return dump_json(data, sort_keys=True, separators=(',', ':')).encode("utf-8") if data else None
 
 
 def content_json(response):

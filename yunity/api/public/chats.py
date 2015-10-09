@@ -460,6 +460,8 @@ class ChatParticipant(ApiBase, View):
                 description: Participant deleted
             403:
                 description: The logged in user is not part of the conversation
+                schema:
+                    $ref: '#/definitions/result_error_forbidden'
         ...
 
         :type request: HttpRequest

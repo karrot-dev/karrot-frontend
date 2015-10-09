@@ -336,7 +336,7 @@ class ChatMessages(ApiBase, View):
               description: The newest retrieved message is the first earlier one than this ID
               type: integer
         responses:
-            201:
+            200:
                 description: Result message set
                 schema:
                     id: result_messages

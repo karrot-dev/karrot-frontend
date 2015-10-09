@@ -5,6 +5,7 @@ users = MockUser.create_batch(2)
 request_user = users[0]
 
 chat = Chat.objects.create()
+chat.participants.add(*users)
 chatid = chat.id
 
 Message.objects.create(

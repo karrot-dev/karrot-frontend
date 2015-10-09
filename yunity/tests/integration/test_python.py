@@ -7,24 +7,29 @@ from yunity.utils.tests.abc import BaseTestCase
 import yunity
 
 
-def _path_to_module(path, root_module_path, pysuffix='.py'):
+def _source_to_module(path, root_module_path, pysuffix='.py'):
     path = path[len(dirname(root_module_path)) + 1:-len(pysuffix)]
     path = path.replace('/', '.')
     return path
 
 
-def iter_modules(root_module_path, excludes=None, pysuffix='.py'):
-    def is_module(_):
+def iter_sources(root_module_path, pysuffix='.py'):
+    def is_source(_):
         return _.endswith(pysuffix) and not _.startswith('__init__')
 
+    for root, _, leaves in walk(root_module_path):
+        for leaf in filter(is_source, leaves):
+            yield join_path(root, leaf)
+
+
+def iter_modules(root_module_path, excludes=None):
     def is_blacklisted(_):
         return excludes and any(_.startswith(exclude) for exclude in excludes)
 
-    for root, _, leaves in walk(root_module_path):
-        for leaf in filter(is_module, leaves):
-            module = _path_to_module(join_path(root, leaf), root_module_path)
-            if not is_blacklisted(module):
-                yield module
+    for source in iter_sources(root_module_path):
+        module = _source_to_module(source, root_module_path)
+        if not is_blacklisted(module):
+            yield module
 
 
 def import_or_reload(resource):

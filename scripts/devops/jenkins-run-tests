@@ -9,8 +9,8 @@ update_code() {
 
     log 'updating code'
     git pull --rebase
-    ln -fs "${basedir}/wuppdays/local_settings.py.example" \
-           "${basedir}/wuppdays/local_settings.py"
+    ln -fs "${basedir}/config/local_settings.py.example" \
+           "${basedir}/config/local_settings.py"
 }
 
 update_dependencies() {

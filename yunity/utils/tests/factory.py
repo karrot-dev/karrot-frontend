@@ -40,19 +40,6 @@ class ChatFactory(Factory):
         if not create:
             return
         if extracted:
-            # A list of groups were passed in, use them
             for participant in extracted:
                 self.participants.add(participant)
 
-
-class MessageFactory(Factory):
-    class Meta:
-        model = "yunity.Message"
-        strategy = CREATE_STRATEGY
-
-    sent_by = None  # ForeignKey('yunity.User')
-    reply_to = None  # ForeignKey('self', null=True, related_name='replies')
-    in_conversation = None  # ForeignKey('yunity.Conversation', related_name='messages')
-    created_at = None  # DateTimeField(auto_now=True)
-    type = None  # MaxLengthCharField()
-    content = None  # TextField()

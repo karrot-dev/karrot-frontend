@@ -1,8 +1,7 @@
-from importlib import import_module, reload
+from importlib import import_module
 from os.path import join as join_path, dirname
 from os import walk
 from sys import modules
-from unittest import skip
 
 from yunity.utils.tests.abc import BaseTestCase
 import yunity
@@ -32,16 +31,7 @@ def iter_modules(root_module_path, excludes=None):
             yield module
 
 
-def import_or_reload(resource):
-    module = modules.get(resource)
-    if module:
-        return reload(module)
-    else:
-        return import_module(resource)
-
-
 class PytonIsValidTestCase(BaseTestCase):
-    @skip
     def test_all_modules_import_cleanly(self):
         self.given_data(root_module_path=yunity.__path__[0])
         self.given_data(excludes={
@@ -56,7 +46,7 @@ class PytonIsValidTestCase(BaseTestCase):
         self.exception = []
         for module in iter_modules(*self.args, **self.kwargs):
             try:
-                import_or_reload(module)
+                import_module(module)
             except Exception as e:
                 self.exception.append((module, e))
 

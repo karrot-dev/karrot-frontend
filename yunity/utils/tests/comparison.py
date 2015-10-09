@@ -7,15 +7,17 @@ class DeepMatcher(object):
     DATETIME_AROUND_NOW = 'DatetimeAroundNow'
 
     @classmethod
-    def _fuzzy_match_dicts(cls, actual, expected):
+    def _fuzzy_match_dicts(cls, actual, expected, reason):
         for key, expected_value in expected.items():
             actual_value = actual.get(key)
-            cls.fuzzy_match(actual_value, expected_value)
+            reason += key+"."
+            cls.fuzzy_match(actual_value, expected_value, reason)
 
     @classmethod
-    def _fuzzy_match_lists(cls, actual, expected):
+    def _fuzzy_match_lists(cls, actual, expected, reason):
         for expected_item, actual_item in zip(expected, actual):
-            cls.fuzzy_match(actual_item, expected_item)
+            reason += "[]"
+            cls.fuzzy_match(actual_item, expected_item, reason)
 
     @classmethod
     def _fuzzy_match_leaves(cls, actual, expected):
@@ -36,13 +38,16 @@ class DeepMatcher(object):
                 raise ValueError('expected {}, got {}'.format(expected, actual))
 
     @classmethod
-    def fuzzy_match(cls, actual, expected):
+    def fuzzy_match(cls, actual, expected, reason=""):
         """
         :raises ValueError: if the arguments do not match
         """
         if isinstance(expected, dict) and isinstance(actual, dict):
-            cls._fuzzy_match_dicts(actual, expected)
+            cls._fuzzy_match_dicts(actual, expected, reason)
         elif isinstance(expected, list) and isinstance(actual, list):
-            cls._fuzzy_match_lists(actual, expected)
+            cls._fuzzy_match_lists(actual, expected, reason)
         else:
-            cls._fuzzy_match_leaves(actual, expected)
+            try:
+                cls._fuzzy_match_leaves(actual, expected)
+            except ValueError as e:
+                raise ValueError("Reason: "+reason+", "+e.args[0])

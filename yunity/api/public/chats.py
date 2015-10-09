@@ -351,6 +351,14 @@ class ChatMessages(ApiBase, View):
 
             403:
                 description: The logged in user is not part of the conversation
+                schema:
+                    id: result_error_forbidden
+                    type: object
+                    required:
+                      - reason
+                    properties:
+                        reason:
+                            type: string
         ...
 
 

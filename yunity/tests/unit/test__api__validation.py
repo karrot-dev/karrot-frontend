@@ -1,7 +1,7 @@
 from yunity.api.validation import validate_user_email, validate_user_password, validate_user_display_name, \
     validate_chat_message_type, validate_chat_message_content, validate_chat_name, validate_chat_users, validate_categories, \
     validate_chat_participants, validate_chat_message
-from yunity.utils.tests import BaseTestCase
+from yunity.utils.tests.abc import BaseTestCase
 
 
 class TestApiValidation(BaseTestCase):

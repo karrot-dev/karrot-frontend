@@ -1,5 +1,5 @@
 from yunity.api.ids import multiple_integerids, single_integerid
-from yunity.utils.tests import BaseTestCase
+from yunity.utils.tests.abc import BaseTestCase
 
 
 class IdsTestCase(BaseTestCase):

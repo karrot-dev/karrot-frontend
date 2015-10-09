@@ -1,4 +1,4 @@
-from yunity.utils.tests import BaseTestCase
+from yunity.utils.tests.abc import BaseTestCase
 from yunity.utils.validation import ShorterThan, HasKey, IsIn, OfType, Each, AndThen
 
 

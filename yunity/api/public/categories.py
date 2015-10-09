@@ -4,7 +4,8 @@ from django.views.generic import View
 
 from yunity.api.ids import category_ids_uri_pattern
 from yunity.api.validation import validate_categories
-from yunity.utils.api import ApiBase, body_as_json, resource_as_list, Parameter
+from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list
+from yunity.utils.api.request import Parameter
 from yunity.models import Category as CategoryModel
 
 

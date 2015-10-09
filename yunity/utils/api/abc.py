@@ -1,12 +1,10 @@
-from collections import namedtuple
 from functools import wraps
-from json import loads as load_json_string
 
-from django.db.models import Model
 from django.http import JsonResponse
-from yunity.api.ids import ids_uri_pattern_delim
 
-from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_403_FORBIDDEN, HTTP_201_CREATED
+from yunity.api.ids import ids_uri_pattern_delim
+from yunity.utils.api.request import JsonRequest
+from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN
 
 
 class ApiBase(object):
@@ -78,42 +76,6 @@ class ApiBase(object):
         return cls._json_response(status, reason=reason, **kwargs)
 
 
-class Parameter(object):
-    def __init__(self, name, validator=None):
-        self.name = name
-        self.validator = validator or (lambda _: True)
-
-
-class JsonRequest(object):
-    def __init__(self, http_request, json_body):
-        self._http_request = http_request
-        self._json_body = json_body
-
-    @classmethod
-    def from_http_request(cls, http_request, parameters):
-        """
-        :type http_request: HttpRequest
-        :type parameters: list
-        :rtype: JsonRequest
-        :raises ValueError: if the request body is not valid JSON or one of the expected keys is missing
-
-        """
-        try:
-            json_data = load_json_string(http_request.body.decode("utf-8"))
-        except ValueError:
-            raise ValueError('incorrect json request')
-
-        for paramter in parameters:
-            paramter.validator(json_data)
-
-        return cls(http_request, json_data)
-
-    def __getattr__(self, item):
-        if item == 'body':
-            return self._json_body
-        return getattr(self._http_request, item)
-
-
 def body_as_json(parameters=None):
     """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object
     The decorator modifies the request object, parsing the request.body field into a dictionary.
@@ -162,15 +124,3 @@ def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
             return func(api_base, *args, **kwargs)
         return wrapper
     return decorator
-
-
-def model_to_json(model, *fields):
-    serialized = dict()
-    for field in fields:
-        value = getattr(model, field)
-        if not value:
-            continue
-        if isinstance(value, Model):
-            value = value.id
-        serialized[field] = value
-    return serialized

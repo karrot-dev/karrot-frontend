@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import take_id_uri_pattern
-from yunity.utils.api import ApiBase
+from yunity.utils.api.abc import ApiBase
 
 
 class Takes(ApiBase, View):

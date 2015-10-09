@@ -4,7 +4,7 @@ import logging
 from django.conf.urls import url
 from django.views.generic import View
 
-from yunity.utils.api import ApiBase
+from yunity.utils.api.abc import ApiBase
 from yunity.models import MapItem
 from yunity.utils.elasticsearch import es_search
 

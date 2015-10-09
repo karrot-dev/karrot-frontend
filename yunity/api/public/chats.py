@@ -6,7 +6,9 @@ from django.views.generic import View
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api.validation import validate_chat_message, validate_chat_participants, validate_chat_name, \
     validate_chat_message_type, validate_chat_message_content, validate_chat_users
-from yunity.utils.api import ApiBase, model_to_json, body_as_json, Parameter
+from yunity.utils.api.abc import ApiBase, body_as_json
+from yunity.utils.api.request import Parameter
+from yunity.utils.api.misc import model_to_json
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel

@@ -6,7 +6,8 @@ from yunity.api.validation import validate_user_email
 from yunity.api.validation import validate_user_password
 
 from yunity.utils.session import RealtimeClientData
-from yunity.utils.api import ApiBase, body_as_json, Parameter
+from yunity.utils.api.abc import ApiBase, body_as_json
+from yunity.utils.api.request import Parameter
 
 
 class Login(ApiBase, View):

@@ -157,7 +157,8 @@ class Chats(ApiBase, View):
                           $ref: '#/definitions/message'
 
             403:
-                description: The logged in user is not part of the conversation
+                description: Insufficient rights to create this chat. (Include yourself into the participants or do not
+                             create a chat with more than XX users
         ...
 
 

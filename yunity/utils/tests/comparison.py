@@ -28,7 +28,7 @@ class DeepMatcher(object):
             if not isinstance(actual, str):
                 raise ValueError('expected any string, got {}'.format(actual))
         elif expected == cls.DATETIME_AROUND_NOW:
-            actual_time = datetime.strptime(actual, "%Y-%m-%dT%H:%M:%S")
+            actual_time = datetime.strptime(actual.split(".")[0], "%Y-%m-%dT%H:%M:%S")
             now = datetime.utcnow()
             difference = now - actual_time
             if abs(difference.total_seconds()) > 60:

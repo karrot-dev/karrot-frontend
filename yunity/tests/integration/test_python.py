@@ -7,12 +7,6 @@ from yunity.utils.tests.abc import BaseTestCase
 import yunity
 
 
-def _source_to_module(path, root_module_path, pysuffix='.py'):
-    path = path[len(dirname(root_module_path)) + 1:-len(pysuffix)]
-    path = path.replace('/', '.')
-    return path
-
-
 def iter_sources(root_module_path, pysuffix='.py'):
     def is_source(_):
         return _.endswith(pysuffix) and not _.startswith('__init__')
@@ -26,8 +20,13 @@ def iter_modules(root_module_path, excludes=None):
     def is_blacklisted(_):
         return excludes and any(_.startswith(exclude) for exclude in excludes)
 
+    def source_to_module(_, pysuffix='.py'):
+        _ = _[len(dirname(root_module_path)) + 1:-len(pysuffix)]
+        _ = _.replace('/', '.')
+        return _
+
     for source in iter_sources(root_module_path):
-        module = _source_to_module(source, root_module_path)
+        module = source_to_module(source)
         if not is_blacklisted(module):
             yield module
 

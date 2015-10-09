@@ -2,6 +2,7 @@ from importlib import import_module, reload
 from os.path import join as join_path, dirname
 from os import walk
 from sys import modules
+from unittest import skip
 
 from yunity.utils.tests.abc import BaseTestCase
 import yunity
@@ -40,6 +41,7 @@ def import_or_reload(resource):
 
 
 class PytonIsValidTestCase(BaseTestCase):
+    @skip
     def test_all_modules_import_cleanly(self):
         self.given_data(root_module_path=yunity.__path__[0])
         self.given_data(excludes={

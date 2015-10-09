@@ -8,9 +8,29 @@ class BaseTestCase(TestCase):
         self.result = None
         self.exception = None
 
+    def _update_args(self, args):
+        self.args.extend(args)
+
+    def _update_kwargs(self, kwargs):
+        for parameter, new_value in kwargs.items():
+            try:
+                existing_value = self.kwargs[parameter]
+            except KeyError:
+                self.kwargs[parameter] = new_value
+            else:
+                self._consolidate_kwargs(parameter, new_value, existing_value)
+
+    def _consolidate_kwargs(self, parameter, new_value, existing_value):
+        if isinstance(existing_value, list) and isinstance(new_value, list):
+            self.kwargs[parameter].extend(new_value)
+        elif isinstance(existing_value, dict) and isinstance(new_value, dict):
+            self.kwargs[parameter].update(new_value)
+        elif new_value != existing_value:
+            raise ValueError('duplicate values provided for argument {}'.format(parameter))
+
     def given_data(self, *args, **kwargs):
-        self.args = args
-        self.kwargs = kwargs
+        self._update_args(args)
+        self._update_kwargs(kwargs)
 
     def when_calling(self, function):
         try:

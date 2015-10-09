@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django.db.models import Max, Q
+from django.db.models import Q
 from django.http import HttpRequest
 from django.views.generic import View
 
@@ -12,6 +12,7 @@ from yunity.utils.api.misc import model_to_json
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
+from yunity.utils.query import Json_agg
 
 
 def user_to_json(user):
@@ -69,11 +70,37 @@ class Chats(ApiBase, View):
         """
         chats = ChatModel.objects \
             .filter(participants=request.user.id) \
-            .annotate(most_recent_message=Max('messages__created_at')) \
-            .order_by('-most_recent_message') \
             .values('id')
+        chat_values = ChatModel.objects.filter(id__in=chats)\
+            .order_by('id')\
+            .annotate(all_participants=Json_agg('participants'))\
+            .values(
+                'id', 'all_participants', 'name'
+            )
+        messages = MessageModel.objects.filter(in_conversation__in=chats)\
+            .order_by('in_conversation','-created_at')\
+            .distinct('in_conversation')\
+            .values('in_conversation','created_at','id','content','type','sent_by_id')
+        messages = list(messages)
+        messages.sort(key=lambda x: x['created_at'], reverse=True)
 
-        return self.success({'chats': [chat_to_json(_) for _ in chats]})
+        message_dict = []
+        for m in messages:
+            cv = chat_values.get(id=m['in_conversation'])
+            o = {"participants": cv['all_participants'],
+                 "name": cv['name'],
+                 "message": {
+                     "id": m['id'],
+                     "content": m['content'],
+                     "type": m['type'],
+                     "sender": m['sent_by_id'],
+                     "created_at": m['created_at'].isoformat()
+                    },
+                 "id": m['in_conversation']}
+            message_dict.append(o)
+
+
+        return self.success({'chats': message_dict})
 
     @body_as_json(parameters=(
         Parameter(name='message', validator=validate_chat_message),

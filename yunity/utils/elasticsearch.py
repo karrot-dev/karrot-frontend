@@ -1,15 +1,15 @@
-import abc
-import logging
+from abc import abstractmethod
+from logging import getLogger
 
 from django.conf import settings
 from django.db.models.signals import post_save, post_delete
-
-from elasticsearch import Elasticsearch, NotFoundError
+from elasticsearch import Elasticsearch
 from elasticsearch.exceptions import NotFoundError
 from elasticsearch_dsl import Search
+
 from yunity.utils.mappings import valuable_mapping, opportunity_mapping
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 
 class ElasticsearchMixin(object):
@@ -24,12 +24,12 @@ class ElasticsearchMixin(object):
             self.to_es()
         )
 
-    @abc.abstractmethod
+    @abstractmethod
     def to_es(self):
         """Generate Elasticsearch representation"""
         raise NotImplementedError
 
-    @abc.abstractmethod
+    @abstractmethod
     def get_es_type(self):
         """
         Defines the doc type used in Elasticsearch for this model

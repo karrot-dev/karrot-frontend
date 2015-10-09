@@ -1,12 +1,5 @@
-# -*- coding: utf-8 -*-
-
-from optparse import make_option
-
-
-# Django
 from django.core.management.base import BaseCommand
 
-# app
 from yunity.utils.elasticsearch import es_client, rebuild_index
 
 

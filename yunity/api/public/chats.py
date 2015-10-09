@@ -456,7 +456,7 @@ class ChatParticipant(ApiBase, View):
               description: ID of user to remove from chat
               type: integer
         responses:
-            201:
+            204:
                 description: Participant deleted
             403:
                 description: The logged in user is not part of the conversation

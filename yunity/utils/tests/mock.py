@@ -39,9 +39,9 @@ class MockChat(Mock):
     administrated_by = SubFactory(MockUser)
 
     @post_generation
-    def participants(self, create, extracted, **kwargs):
-        if not create:
+    def participants(self, created, participants, **kwargs):
+        if not created:
             return
-        if extracted:
-            for participant in extracted:
+        if participants:
+            for participant in participants:
                 self.participants.add(participant)

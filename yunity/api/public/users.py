@@ -80,7 +80,7 @@ class UserAll(ApiBase, View):
                     email=request.body['email'],
                     password=request.body['password'],
                     locations=locations,
-                    type=category,
+                    category=category,
                     display_name=request.body['display_name'],
                 )
         except IntegrityError as e:

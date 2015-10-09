@@ -12,7 +12,7 @@ from yunity.utils.models.field import MaxLengthCharField
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, email, password, locations=None, type=None, display_name=None, **extra_fields):
+    def _create_user(self, email, password, locations=None, category=None, display_name=None, **extra_fields):
         """ Creates and saves a User with the given username, email and password.
 
         """
@@ -22,7 +22,7 @@ class UserManager(BaseUserManager):
             email=email,
             is_active=True,
             locations=locations or {'latitude': 0.0, 'longitude': 0.0},
-            type=type or Category.objects.get(name="user.default"),
+            type=category or Category.objects.get(name="user.default"),
             display_name=display_name or email,
             **extra_fields)
         user.set_password(password)
@@ -34,8 +34,8 @@ class UserManager(BaseUserManager):
             raise ValueError('The given email must be set')
         return self.normalize_email(email)
 
-    def create_user(self, email=None, password=None, locations=None, type=None, display_name=None, **extra_fields):
-        return self._create_user(email, password, locations, type, display_name, **extra_fields)
+    def create_user(self, email=None, password=None, locations=None, category=None, display_name=None, **extra_fields):
+        return self._create_user(email, password, locations, category, display_name, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
         return self._create_user(email, password, None, None, None, **extra_fields)

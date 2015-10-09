@@ -10,6 +10,7 @@ import django.utils.timezone
 
 import yunity.utils.models.field
 import yunity.utils.elasticsearch
+import yunity.models.concrete
 
 
 class Migration(migrations.Migration):
@@ -78,7 +79,7 @@ class Migration(migrations.Migration):
             },
             bases=('yunity.mapitem', models.Model),
             managers=[
-                ('objects', yunity.models.UserManager()),
+                ('objects', yunity.models.concrete.UserManager()),
             ],
         ),
         migrations.CreateModel(

@@ -15,7 +15,7 @@ import yaml
 import re
 
 from collections import defaultdict
-import yunity
+import yunity.api.urls
 
 
 def _sanitize(comment):
@@ -118,7 +118,7 @@ def get_rules(urlpattern, rule_base=''):
     return urls
 
 
-def swagger(app, process_doc=_sanitize, base=''):
+def swagger(urlpatterns, process_doc=_sanitize, base=''):
     """
     Call this from an @app.route method like this
     @app.route('/spec.json')
@@ -130,7 +130,7 @@ def swagger(app, process_doc=_sanitize, base=''):
     Callers can and should add and override at will
 
     Arguments:
-    app -- the flask app to inspect
+    urlpatterns -- the urlpatterns to inspect
 
     Keyword arguments:
     process_doc -- text sanitization method, the default simply replaces \n with <br>
@@ -152,7 +152,7 @@ def swagger(app, process_doc=_sanitize, base=''):
     optional_fields = ['tags', 'consumes', 'produces', 'schemes', 'security',
                        'deprecated', 'operationId', 'externalDocs']
 
-    rules = get_rules(app.urls.urlpatterns, base)
+    rules = get_rules(urlpatterns, base)
     for rule in rules:
         operations = dict()
         for verb, method in rule['methods']:
@@ -195,4 +195,4 @@ def swagger(app, process_doc=_sanitize, base=''):
 
 
 def doc(request):
-    return JsonResponse(swagger(yunity.api, base='/api/'))
+    return JsonResponse(swagger(yunity.api.urls.urlpatterns, base='/api/'))

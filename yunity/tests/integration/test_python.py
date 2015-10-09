@@ -1,7 +1,6 @@
 from importlib import import_module
 from os.path import join as join_path, dirname
 from os import walk
-from sys import modules
 
 from yunity.utils.tests.abc import BaseTestCase
 import yunity

@@ -1,9 +1,11 @@
 from unittest import TestCase
+from django.test import RequestFactory
 from yunity.utils.api.request import JsonRequestFactory
 
 
 class BaseTestCase(TestCase):
     json_request_factory = JsonRequestFactory()
+    request_factory = RequestFactory()
 
     def setUp(self):
         self.args = []

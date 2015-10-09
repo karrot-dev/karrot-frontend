@@ -29,18 +29,18 @@ def _parse_docstring(obj, process_doc):
         line_feed = full_doc.find('\n')
         if line_feed != -1:
             first_line = process_doc(full_doc[:line_feed])
-            yaml_sep = full_doc[line_feed+1:].find('---')
+            yaml_sep = full_doc[line_feed + 1:].find('---')
             if yaml_sep != -1:
-                other_lines = process_doc(full_doc[line_feed+1:line_feed+yaml_sep])
-                separator = full_doc[line_feed+yaml_sep+3:].find('...')
+                other_lines = process_doc(full_doc[line_feed + 1:line_feed + yaml_sep])
+                separator = full_doc[line_feed + yaml_sep + 3:].find('...')
                 if separator > 0:
-                    yaml_doc = full_doc[line_feed+yaml_sep:line_feed+yaml_sep+separator+3]
+                    yaml_doc = full_doc[line_feed + yaml_sep:line_feed + yaml_sep + separator + 3]
                 else:
-                    yaml_doc = full_doc[line_feed+yaml_sep:]
+                    yaml_doc = full_doc[line_feed + yaml_sep:]
 
                 swag = yaml.safe_load(yaml_doc)
             else:
-                other_lines = process_doc(full_doc[line_feed+1:])
+                other_lines = process_doc(full_doc[line_feed + 1:])
         else:
             first_line = full_doc
     return first_line, other_lines, swag
@@ -60,7 +60,7 @@ def _extract_definitions(alist, level=None):
         ret = []
         items = source.get('items')
         if items is not None and 'schema' in items:
-            ret += _extract_definitions([items], level+1)
+            ret += _extract_definitions([items], level + 1)
         return ret
 
     # for tracking level of recursion
@@ -90,7 +90,7 @@ def _extract_definitions(alist, level=None):
                 # this occurs recursively
                 properties = schema.get('properties')
                 if properties is not None:
-                    defs += _extract_definitions(properties.values(), level+1)
+                    defs += _extract_definitions(properties.values(), level + 1)
 
                 defs += _extract_array_defs(schema)
 
@@ -98,7 +98,8 @@ def _extract_definitions(alist, level=None):
 
     return defs
 
-def get_rules(urlpattern, rule_base = ''):
+
+def get_rules(urlpattern, rule_base=''):
     """
     :param urlpattern: base urlpatterns of the application to document
     :return: list of dictionaries of all rules and methodname/method name pairs for each rule
@@ -113,8 +114,9 @@ def get_rules(urlpattern, rule_base = ''):
             method_names = list(filter(lambda x: hasattr(pattern.callback.view_class, x), possible_methods))
             methods = list(map(lambda m: getattr(pattern.callback.view_class, m), method_names))
             verb_method = zip(method_names, methods)
-            urls.append({'rule' : pattern_rule, 'methods': list(verb_method)})
+            urls.append({'rule': pattern_rule, 'methods': list(verb_method)})
     return urls
+
 
 def swagger(app, process_doc=_sanitize, base=''):
     """
@@ -146,7 +148,6 @@ def swagger(app, process_doc=_sanitize, base=''):
 
     paths = output['paths']
     definitions = output['definitions']
-    ignore_verbs = {"HEAD", "OPTIONS"}
     # technically only responses is non-optional
     optional_fields = ['tags', 'consumes', 'produces', 'schemes', 'security',
                        'deprecated', 'operationId', 'externalDocs']
@@ -186,13 +187,12 @@ def swagger(app, process_doc=_sanitize, base=''):
 
         if len(operations):
             rule = rule['rule']
-            for arg in re.findall('(\(\?P<(.*?\:)?(.*?)>[^()]*(?:\([^()]*\))[^()]*\))', rule):
+            for arg in re.findall('(\(\?P<(.*?:)?(.*?)>[^()]*(?:\([^()]*\))[^()]*\))', rule):
                 rule = rule.replace(arg[0], '{%s}' % arg[2])
-            rule = rule.translate(str.maketrans('','','^$'))
+            rule = rule.translate(str.maketrans('', '', '^$'))
             paths[rule].update(operations)
     return output
 
+
 def doc(request):
     return JsonResponse(swagger(yunity.api, base='/api/'))
-
-

@@ -5,11 +5,17 @@ from __future__ import unicode_literals
 from django.db import migrations
 from yunity.models import Category
 
-initial_categories = ("user.default","valuable.default","opportunity.default")
+initial_categories = (
+    "user.default",
+    "valuable.default",
+    "opportunity.default",
+)
+
 
 def create_initial_categories(apps, schema_editor):
     for name in initial_categories:
         Category.objects.create(name=name)
+
 
 def remove_initial_categories(apps, schema_editor):
     Category.objects.filter(name__in=initial_categories).delete()

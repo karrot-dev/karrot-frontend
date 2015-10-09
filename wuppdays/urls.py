@@ -31,14 +31,12 @@ urlpatterns = [
 # TODO: remove if superceded
 if getattr(settings, 'LOCAL_WEBAPP_PATH', None):
     urlpatterns += [
-        url('^$',
-        'django.views.static.serve', {
+        url('^$', 'django.views.static.serve', {
             'path': 'index.html',
             'document_root': settings.LOCAL_WEBAPP_PATH,
             'show_indexes': True,
         }),
-        url('^(?P<path>.*)',
-        'django.views.static.serve', {
+        url('^(?P<path>.*)', 'django.views.static.serve', {
             'document_root': settings.LOCAL_WEBAPP_PATH,
             'show_indexes': True,
         })

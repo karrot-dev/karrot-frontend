@@ -50,9 +50,9 @@ class MessageFactory(Factory):
         model = "yunity.Message"
         strategy = CREATE_STRATEGY
 
-    sent_by = None #ForeignKey('yunity.User')
-    reply_to = None #ForeignKey('self', null=True, related_name='replies')
-    in_conversation = None #ForeignKey('yunity.Conversation', related_name='messages')
-    created_at = None #DateTimeField(auto_now=True)
-    type = None #MaxLengthCharField()
-    content = None #TextField()
+    sent_by = None  # ForeignKey('yunity.User')
+    reply_to = None  # ForeignKey('self', null=True, related_name='replies')
+    in_conversation = None  # ForeignKey('yunity.Conversation', related_name='messages')
+    created_at = None  # DateTimeField(auto_now=True)
+    type = None  # MaxLengthCharField()
+    content = None  # TextField()

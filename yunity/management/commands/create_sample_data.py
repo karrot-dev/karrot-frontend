@@ -66,10 +66,10 @@ user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias
                                     locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
 
 user_neel = User.objects.create(email='ne@el.com', display_name='Neel', name='neel', type=category_user, provenance='yunity.org',
-    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
+                                locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
 
 user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo', type=category_user, provenance='yunity.org',
-    locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
+                               locations=[{"latitude": 0.1, "longitude": 42.1, "description": "home address"}])
 
 
 ##################################################

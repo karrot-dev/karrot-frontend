@@ -135,7 +135,6 @@ class SearchDetail(ApiBase, View):
         raise NotImplementedError
 
 
-
 urlpatterns = [
     url(r'^/$', Search.as_view()),
     url(r'^/map/?$', SearchMap.as_view()),

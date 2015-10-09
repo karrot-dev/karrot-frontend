@@ -86,8 +86,10 @@ class UserAll(ApiBase, View):
         except IntegrityError as e:
             return self.error(reason=str(e), status=status.HTTP_409_CONFLICT)
 
-        return self.created({"id": user.id,
-                      "display_name": user.display_name})
+        return self.created({
+            "id": user.id,
+            "display_name": user.display_name,
+        })
 
 
 class UserMultiple(ApiBase, View):
@@ -128,6 +130,7 @@ class UserMultiple(ApiBase, View):
             return self.error(reason="one or more userids do not exist")
 
         return self.success({"users": [dict(_) for _ in users]})
+
 
 class UserSingle(ApiBase, View):
     def put(self, request, userid):

@@ -1,5 +1,7 @@
+import json
+
 from django.conf import settings
-import redis, json
+from redis import StrictRedis
 
 
 class RealtimeClientMiddleware(object):
@@ -34,13 +36,13 @@ class RealtimeClientData(object):
         """
         establish_own_connection = not use_django_redis_connection
         if use_django_redis_connection:
-            try :
+            try:
                 from django_redis import get_redis_connection
                 cls.r = get_redis_connection("default")
             except:
                 establish_own_connection = True
         if establish_own_connection:
-            cls.r = redis.StrictRedis(host='localhost', port=6379, db=0)
+            cls.r = StrictRedis(host='localhost', port=6379, db=0)
 
     @classmethod
     def connect(cls):

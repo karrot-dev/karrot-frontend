@@ -1,7 +1,10 @@
 from unittest import TestCase
+from yunity.utils.api.request import JsonRequestFactory
 
 
 class BaseTestCase(TestCase):
+    json_request_factory = JsonRequestFactory()
+
     def setUp(self):
         self.args = []
         self.kwargs = {}

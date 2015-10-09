@@ -1,4 +1,6 @@
 from json import loads as load_json_string
+from django.test import RequestFactory
+from yunity.utils.tests.misc import json_stringify
 from yunity.utils.validation import HasKey
 
 
@@ -6,6 +8,15 @@ class Parameter(object):
     def __init__(self, name, validator=None):
         self.name = name
         self.validator = validator or HasKey(name)
+
+
+class JsonRequestFactory(RequestFactory):
+    def post(self, path, data=None, **kwargs):
+        return super().post(
+            path=path,
+            data=json_stringify(data),
+            content_type='application/json; charset=utf-8',
+        )
 
 
 class JsonRequest(object):

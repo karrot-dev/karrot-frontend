@@ -1,13 +1,4 @@
-from yunity.utils.validation import Each, OfType, IsIn, HasKey, IsEmail, ShorterThan, Validator
-
-
-class IsReasonableLengthString(Validator):
-    def __init__(self, maxlen=100000):
-        self.maxlen = maxlen
-
-    def __call__(self, value):
-        (OfType(str) & ShorterThan(self.maxlen))(value)
-        return value
+from yunity.utils.validation import Each, OfType, IsIn, HasKey, IsEmail, Validator, IsReasonableLengthString
 
 
 class IsListOfIds(Validator):

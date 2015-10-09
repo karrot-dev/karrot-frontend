@@ -90,3 +90,12 @@ class IsEmail(Validator):
         except ValidationError:
             raise ValueError('not a valid email address')
         return value
+
+
+class IsReasonableLengthString(Validator):
+    def __init__(self, maxlen=100000):
+        self.maxlen = maxlen
+
+    def __call__(self, value):
+        (OfType(str) & ShorterThan(self.maxlen))(value)
+        return value

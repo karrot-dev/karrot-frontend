@@ -1,6 +1,8 @@
 from importlib import import_module
 from json import dumps as dump_json
 from json import loads as load_json
+from unittest import TestCase
+
 from django.utils.datetime_safe import datetime
 
 
@@ -68,3 +70,26 @@ def maybe_import(resource):
         import_module(resource)
     except ImportError:
         pass
+
+
+class AbstractValidationTestCase(TestCase):
+    def setUp(self):
+        self.data = None
+        self.result = None
+        self.exception = None
+
+    def given_data(self, data):
+        self.data = data
+
+    def when_calling(self, function):
+        try:
+            self.result = function(self.data)
+        except Exception as e:
+            self.exception = e
+
+    def then_validation_failed(self):
+        self.assertIsInstance(self.exception, ValueError)
+
+    def then_validation_passed(self):
+        self.assertIsNotNone(self.result, 'did not get a result')
+        self.assertIsNone(self.exception, 'got an unexpected exception')

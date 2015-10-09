@@ -1,4 +1,4 @@
-from yunity.utils.tests.factory import UserFactory
+from yunity.utils.tests.mock import MockUser
 
-users = UserFactory.create_batch(2)
+users = MockUser.create_batch(2)
 request_user = users[0]

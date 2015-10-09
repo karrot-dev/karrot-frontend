@@ -1,5 +1,5 @@
-from yunity.utils.tests.factory import UserFactory
+from yunity.utils.tests.mock import MockUser
 
 users = [
-    UserFactory.create(email="testuser1234@mail.com", display_name="I am the existing user"),
+    MockUser.create(email="testuser1234@mail.com", display_name="I am the existing user"),
 ]

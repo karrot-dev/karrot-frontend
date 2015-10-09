@@ -1,25 +1,25 @@
 from factory import DjangoModelFactory, CREATE_STRATEGY, Sequence, LazyAttribute, PostGeneration, post_generation, SubFactory
 
 
-class Factory(DjangoModelFactory):
+class Mock(DjangoModelFactory):
     class Meta:
         strategy = CREATE_STRATEGY
         model = None
         abstract = True
 
 
-class CategoryFactory(Factory):
+class MockCategory(Mock):
     class Meta:
         model = "yunity.Category"
         strategy = CREATE_STRATEGY
 
 
-class UserFactory(Factory):
+class MockUser(Mock):
     class Meta:
         model = "yunity.User"
         strategy = CREATE_STRATEGY
 
-    type = CategoryFactory.create()
+    type = MockCategory.create()
     display_name = Sequence(lambda n: "user{}".format(n))
     email = LazyAttribute(lambda obj: '%s@email.com' % obj.display_name)
     is_active = True
@@ -28,12 +28,12 @@ class UserFactory(Factory):
     locations = []
 
 
-class ChatFactory(Factory):
+class MockChat(Mock):
     class Meta:
         model = "yunity.Chat"
         strategy = CREATE_STRATEGY
 
-    administrated_by = SubFactory(UserFactory)
+    administrated_by = SubFactory(MockUser)
 
     @post_generation
     def participants(self, create, extracted, **kwargs):

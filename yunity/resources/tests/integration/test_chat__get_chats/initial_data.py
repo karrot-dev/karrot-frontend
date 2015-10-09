@@ -1,7 +1,7 @@
 from yunity.models import Chat, Message
-from yunity.utils.tests.factory import UserFactory
+from yunity.utils.tests.mock import MockUser
 
-users = UserFactory.create_batch(3)
+users = MockUser.create_batch(3)
 request_user = users[0]
 
 chat1 = Chat.objects.create()

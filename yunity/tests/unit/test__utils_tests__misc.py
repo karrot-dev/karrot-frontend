@@ -22,6 +22,6 @@ class MaybeImportTestCase(BaseTestCase):
         self.then_invocation_passed_with(result=modules[__name__])
 
     def test_maybe_import_does_not_import_missing_module(self):
-        self.given_data('this.module.does.not.exist')
+        self.given_data('a.module.that.does.not.exist')
         self.when_calling(maybe_import)
         self.then_invocation_passed_with(result=None)

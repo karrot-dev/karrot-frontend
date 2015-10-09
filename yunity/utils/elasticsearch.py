@@ -78,7 +78,39 @@ def create_index(es):
 
     from yunity.models import Category
 
-    es.indices.create(index=settings.ES_INDEX, ignore=400)
+    es.indices.create(index=settings.ES_INDEX, body={
+        "mappings":{
+
+            # see:
+            #   https://www.elastic.co/guide/en/elasticsearch/guide/current/default-mapping.html
+            #   https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-dynamic-mapping.html
+
+            "_default_": {
+
+                # TODO: eventually probably need to turn off dynamic mappings
+                # "dynamic": False,
+
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "store": True
+                    },
+
+                    # TODO: see about making these custom dynamic mapping
+                    # see https://www.elastic.co/guide/en/elasticsearch/guide/current/custom-dynamic-mapping.html
+
+                    'locations': {
+                        'properties': {
+                            'point': {
+                                'type': 'geo_point',
+                                'doc_values': True,
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }, ignore=400)
 
     for category in Category.objects.all():
         valuable_doc_type = get_es_type('valuable', category.name)

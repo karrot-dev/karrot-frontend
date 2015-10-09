@@ -7,9 +7,7 @@ from django.views.generic import View
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.elasticsearch import es_search
 
-
 logger = logging.getLogger(__name__)
-
 
 def filter_es_geo_distance(esq, lat, lon, radius_km):
     """ Add a distance filter to a search query
@@ -29,24 +27,6 @@ def filter_es_geo_distance(esq, lat, lon, radius_km):
     return esq.filter('geo_distance', **geo_params)
 
 
-def sort_es_geo_distance(esq, lat, lon):
-    """ Add a distance sort to a search query
-    :param esq: ES Search instance
-    :param lat: latitude
-    :param lon: longitude
-    :return: ES Search instance
-    """
-    return esq.sort({'_geo_distance': {
-        "locations.point": {
-            "lat": lat,
-            "lon": lon,
-        },
-        "order": "desc",
-        "unit": "km",
-        "distance_type": "plane",
-    }})
-
-
 class Search(ApiBase, View):
     """
     Used to power e.g. the global search bar
@@ -60,9 +40,58 @@ class Search(ApiBase, View):
         groups = defaultdict(list)
         results = []
 
-        hits = es_search().execute().hits  # TODO: change
-        for h in hits:
-            groups[h.meta['doc_type']].append(h.to_dict())
+        params = request.GET.dict()
+
+        esq = es_search()
+
+        q       = params.pop("q", None)
+        nearest = params.pop("nearest", None)
+        radius  = params.pop("radius", "100km")
+
+        if q:
+            esq = esq.query("simple_query_string", query=q, fields=["_all"])
+
+        if nearest:
+            
+            lat, lon = map(float, nearest.split(','))
+
+            # more weighting is given to closer things
+            # based on https://www.elastic.co/guide/en/elasticsearch/guide/current/decay-functions.html
+
+            esq = esq.query('function_score', functions=[
+                {
+                    "gauss": {
+                        "locations.point": {
+                          "origin": { "lat": lat, "lon": lon },
+                          "offset": "0",
+                          "scale":  radius # something at this radius gets
+                                           # 50% score of something at the origin
+                        }
+                    },
+                    "weight": 1
+                }
+            ])
+
+        # collects all the remaining params as metadata filters
+        # TODO: not all metadata should be filterable (some may be private/admin)
+
+        for key, value in params.items():
+            esq = esq.filter("term", **{ "metadata.{}".format(key) : value })
+            print('p', key, value)
+
+        # faceting on doc type
+        esq.aggs.bucket("doc_type", "terms", field="_type")
+
+        # TODO: also facet on metadata values...
+
+        response = esq.execute()
+
+        hits = response.hits
+
+        for hit in hits:
+            d = hit.to_dict()
+            d["_meta"] = { k: hit.meta.to_dict()[k] for k in ('score', 'doc_type')}
+            groups[hit.meta['doc_type']].append(d)
 
         for category, group in groups.items():
             results.append({
@@ -72,7 +101,13 @@ class Search(ApiBase, View):
             })
 
         return self.success({
-            "result_groups": results
+            "result_groups": results,
+            "aggregations": response.aggregations.to_dict()
+
+            # these are useful if you want to see the raw query/results
+            #"_query": esq.to_dict(),
+            #"_result": response.to_dict()
+
         })
 
 
@@ -92,29 +127,27 @@ class SearchMap(ApiBase, View):
             """
             TODO: Ideally elasticsearch will handle this itself
             """
-            return {
-                "id": hit.id,
-                "doc_type": hit.meta['doc_type'],  # TODO: replace with name/id
-                "locations": [
+            d = { "id": hit.id }
+            d["_meta"] = { "doc_type": hit.meta.doc_type }
+            d["locations"] = [
                     {
                         "latitude": loc['point']['lat'],
                         "longitude": loc['point']['lon'],
                     } for loc in hit.locations
                 ]
-            }
+            return d
 
-        term = request.GET.get('q', '')  # TODO: hook this up somehow
-        lat = float(request.GET.get('lat', 0))
-        lon = float(request.GET.get('lon', 0))
-        radius = float(request.GET.get('radius_km', 0))
+        params = request.GET.dict()
 
         esq = es_search()
-        esq = esq.fields()  # TODO: filter out unnecessary fields
-        if lat and lon:
-            esq = sort_es_geo_distance(esq, lat, lon)
-            if radius:
-                # TODO: this doesn't work
-                esq = filter_es_geo_distance(esq, lat, lon, radius)
+
+        q = params.pop("q", None)
+
+        if q:
+            esq = esq.query("simple_query_string", query=q, fields=["_all"])
+
+        # TODO: filter out unnecessary fields
+        # esq = esq.fields()  
 
         hits = [_serialize(m) for m in esq.execute().hits]
 

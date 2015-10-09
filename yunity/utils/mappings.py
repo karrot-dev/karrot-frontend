@@ -13,14 +13,16 @@ def _valuable_metadata_mappings(doc_type):
                 'type': 'string',
                 'index': 'not_analyzed',
             }
-        }
+        },
+        'basket': {},
+        'company': {}
     }
     return mappings.get(category_name)
 
 
 def valuable_mapping(doc_type):
     metadata = _valuable_metadata_mappings(doc_type)
-    if metadata:
+    if metadata is not None:
         return {
             doc_type: {
                 'properties': {
@@ -29,7 +31,6 @@ def valuable_mapping(doc_type):
                         'store': True,
                     },
                     'locations': {
-                        'index_name': 'location',
                         'properties': {
                             'point': {
                                 'type': 'geo_point',

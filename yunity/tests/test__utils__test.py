@@ -1,4 +1,5 @@
-from yunity.utils.test import BaseTestCase, DeepMatcher, json_stringify
+from sys import modules
+from yunity.utils.test import BaseTestCase, DeepMatcher, json_stringify, maybe_import
 
 
 class DeepMatcherTestCase(BaseTestCase):
@@ -62,4 +63,16 @@ class JsonStringifyTestCase(BaseTestCase):
     def test_json_stringify_creates_none_from_none(self):
         self.given_data(None)
         self.when_calling(json_stringify)
+        self.then_invocation_passed_with(result=None)
+
+
+class MaybeImportTestCase(BaseTestCase):
+    def test_maybe_import_imports_existing_module(self):
+        self.given_data(__name__)
+        self.when_calling(maybe_import)
+        self.then_invocation_passed_with(result=modules[__name__])
+
+    def test_maybe_import_does_not_import_missing_module(self):
+        self.given_data('this.module.does.not.exist')
+        self.when_calling(maybe_import)
         self.then_invocation_passed_with(result=None)

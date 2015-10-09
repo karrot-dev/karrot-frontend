@@ -89,20 +89,20 @@ class BaseTestCase(TestCase):
         except Exception as e:
             self.exception = e
 
+    def _then_there_was_no_exception(self):
+        self.assertIsNone(self.exception, 'got an unexpected exception')
+
     def then_invocation_failed_with(self, exception):
         self.assertIsInstance(self.exception, exception)
 
-    def then_there_was_no_exception(self):
-        self.assertIsNone(self.exception, 'got an unexpected exception')
-
     def then_invocation_passed_with_no_result(self):
-        self.then_there_was_no_exception()
+        self._then_there_was_no_exception()
         self.assertIsNone(self.result, 'got an unexpected result')
 
     def then_invocation_passed_with_any_result(self):
-        self.then_there_was_no_exception()
+        self._then_there_was_no_exception()
         self.assertIsNotNone(self.result, 'did not get a result')
 
     def then_invocation_passed_with(self, result):
-        self.then_there_was_no_exception()
+        self._then_there_was_no_exception()
         self.assertEqual(self.result, result, 'results do not match')

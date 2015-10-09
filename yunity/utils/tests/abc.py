@@ -1,6 +1,21 @@
 from unittest import TestCase
 from django.test import RequestFactory
 from yunity.utils.api.request import JsonRequestFactory
+from yunity.utils.validation import Validator
+
+
+class AnyResult(Validator):
+    def __call__(self, value):
+        if value is None:
+            raise ValueError('expected any value, got nothing')
+        return value
+
+
+class NoResult(Validator):
+    def __call__(self, value):
+        if value is not None:
+            raise ValueError('expected no value, got {}'.format(value))
+        return value
 
 
 class BaseTestCase(TestCase):
@@ -46,17 +61,21 @@ class BaseTestCase(TestCase):
     def _then_there_was_no_exception(self):
         self.assertIsNone(self.exception, 'got an unexpected exception')
 
+    def _then_result_validates(self, validator):
+        try:
+            validator(self.result)
+        except ValueError as e:
+            self.fail('result did not pass validation: {}'.format(e.args[0]))
+
+    def _then_result_matches(self, result):
+        self.assertEqual(self.result, result, 'results do not match')
+
     def then_invocation_failed_with(self, exception):
         self.assertIsInstance(self.exception, exception)
 
-    def then_invocation_passed_with_no_result(self):
-        self._then_there_was_no_exception()
-        self.assertIsNone(self.result, 'got an unexpected result')
-
-    def then_invocation_passed_with_any_result(self):
-        self._then_there_was_no_exception()
-        self.assertIsNotNone(self.result, 'did not get a result')
-
     def then_invocation_passed_with(self, result):
         self._then_there_was_no_exception()
-        self.assertEqual(self.result, result, 'results do not match')
+        if isinstance(result, Validator):
+            self._then_result_validates(result)
+        else:
+            self._then_result_matches(result)

@@ -1,10 +1,11 @@
 from json import loads as load_json_string
+from yunity.utils.validation import HasKey
 
 
 class Parameter(object):
     def __init__(self, name, validator=None):
         self.name = name
-        self.validator = validator or (lambda _: True)
+        self.validator = validator or HasKey(name)
 
 
 class JsonRequest(object):

@@ -12,7 +12,7 @@ from yunity.utils.api.misc import model_to_json
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
-from yunity.utils.query import Json_agg
+from yunity.utils.models.aggregate import Json_agg
 
 
 def user_to_json(user):

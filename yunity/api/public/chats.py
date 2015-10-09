@@ -99,7 +99,6 @@ class Chats(ApiBase, View):
                  "id": m['in_conversation']}
             message_dict.append(o)
 
-
         return self.success({'chats': message_dict})
 
     @body_as_json(parameters=(

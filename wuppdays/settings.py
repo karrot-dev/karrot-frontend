@@ -63,36 +63,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'wuppdays.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.jinja2.Jinja2',
-        'DIRS': [
-            # unfortunately I couldn't figure out how to auto-detect other
-            # apps - if any other apps have templates they must be added here.
-            os.path.join(BASE_DIR, 'yunity', 'templates')
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'environment': 'wuppdays.jinja2.environment',
-        },
-    },
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+TEMPLATES = []
 
 CACHES = {
     "default": {

@@ -1,5 +1,5 @@
 from sys import modules
-from yunity.utils.test import BaseTestCase, DeepMatcher, json_stringify, maybe_import
+from yunity.utils.tests import BaseTestCase, DeepMatcher, json_stringify, maybe_import
 
 
 class DeepMatcherTestCase(BaseTestCase):

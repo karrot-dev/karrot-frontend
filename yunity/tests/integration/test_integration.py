@@ -3,7 +3,7 @@ from importlib import import_module
 from pkg_resources import resource_listdir
 from django.test import TestCase, Client
 
-from yunity.utils.test import is_test_resource, content_json, DeepMatcher, maybe_import, json_stringify
+from yunity.utils.tests import is_test_resource, content_json, DeepMatcher, maybe_import, json_stringify
 
 
 class IntegrationTest(object):

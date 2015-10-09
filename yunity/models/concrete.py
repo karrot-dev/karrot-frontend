@@ -5,7 +5,7 @@ from django.utils import timezone
 
 from yunity.models.abstract import MapItem, Conversation, Request
 from yunity.utils.elasticsearch import get_es_type
-from yunity.utils.model import BaseModel, MaxLengthCharField
+from yunity.utils.models import BaseModel, MaxLengthCharField
 
 
 class UserManager(BaseUserManager):

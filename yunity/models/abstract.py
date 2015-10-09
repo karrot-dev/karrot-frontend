@@ -1,7 +1,7 @@
 from django.db.models import OneToOneField, ManyToManyField, TextField, DateTimeField, ForeignKey
 from django.contrib.postgres.fields import JSONField
 
-from yunity.utils.model import MaxLengthCharField, BaseModel
+from yunity.utils.models import MaxLengthCharField, BaseModel
 from yunity.utils.elasticsearch import ElasticsearchMixin
 
 

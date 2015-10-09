@@ -8,7 +8,7 @@ from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
 
-import yunity.utils.model
+import yunity.utils.models
 import yunity.utils.elasticsearch
 
 
@@ -53,7 +53,7 @@ class Migration(migrations.Migration):
                 ('administrationtrait_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, to='yunity.AdministrationTrait')),
                 ('feedbacktrait_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, to='yunity.FeedbackTrait')),
                 ('versiontrait_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.VersionTrait')),
-                ('provenance', yunity.utils.model.MaxLengthCharField(max_length=255)),
+                ('provenance', yunity.utils.models.MaxLengthCharField(max_length=255)),
                 ('name', models.TextField()),
                 ('locations', django.contrib.postgres.fields.jsonb.JSONField()),
                 ('contacts', django.contrib.postgres.fields.jsonb.JSONField()),
@@ -85,7 +85,7 @@ class Migration(migrations.Migration):
             name='Category',
             fields=[
                 ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.BaseModel')),
-                ('name', yunity.utils.model.MaxLengthCharField(max_length=255)),
+                ('name', yunity.utils.models.MaxLengthCharField(max_length=255)),
                 ('parent', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='children', to='yunity.Category')),
             ],
             bases=('yunity.basemodel',),
@@ -94,8 +94,8 @@ class Migration(migrations.Migration):
             name='Feedback',
             fields=[
                 ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.BaseModel')),
-                ('status', yunity.utils.model.MaxLengthCharField(max_length=255)),
-                ('type', yunity.utils.model.MaxLengthCharField(max_length=255)),
+                ('status', yunity.utils.models.MaxLengthCharField(max_length=255)),
+                ('type', yunity.utils.models.MaxLengthCharField(max_length=255)),
             ],
             bases=('yunity.basemodel',),
         ),
@@ -104,7 +104,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.BaseModel')),
                 ('created_at', models.DateTimeField(auto_now=True)),
-                ('type', yunity.utils.model.MaxLengthCharField(max_length=255)),
+                ('type', yunity.utils.models.MaxLengthCharField(max_length=255)),
                 ('payload', models.TextField()),
                 ('caused_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='interation_caused', to=settings.AUTH_USER_MODEL)),
             ],
@@ -115,7 +115,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.BaseModel')),
                 ('created_at', models.DateTimeField(auto_now=True)),
-                ('type', yunity.utils.model.MaxLengthCharField(max_length=255)),
+                ('type', yunity.utils.models.MaxLengthCharField(max_length=255)),
                 ('content', models.TextField()),
                 ('reply_to', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='replies', to='yunity.Message')),
                 ('sent_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
@@ -134,7 +134,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('feedbacktrait_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.FeedbackTrait')),
                 ('time', models.DateTimeField(null=True)),
-                ('status', yunity.utils.model.MaxLengthCharField(max_length=255)),
+                ('status', yunity.utils.models.MaxLengthCharField(max_length=255)),
             ],
             bases=('yunity.feedbacktrait',),
         ),
@@ -195,7 +195,7 @@ class Migration(migrations.Migration):
             name='Participate',
             fields=[
                 ('request_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.Request')),
-                ('type', yunity.utils.model.MaxLengthCharField(max_length=255)),
+                ('type', yunity.utils.models.MaxLengthCharField(max_length=255)),
                 ('target', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='yunity.Opportunity')),
             ],
             bases=('yunity.request',),

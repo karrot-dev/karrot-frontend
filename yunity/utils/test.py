@@ -103,6 +103,6 @@ def is_test_resource(resource):
 
 def maybe_import(resource):
     try:
-        import_module(resource)
+        return import_module(resource)
     except ImportError:
-        pass
+        return None

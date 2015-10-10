@@ -10,7 +10,7 @@ from yunity.utils import status
 from yunity.api.validation import validate_user_email, validate_user_display_name
 from yunity.api.validation import validate_user_password
 from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list, resource_as
-from yunity.utils.api.request import Parameter
+from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
 from yunity.models import User as UserModel
 from yunity.utils.status import HTTP_404_NOT_FOUND

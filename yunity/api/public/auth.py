@@ -2,12 +2,12 @@ from django.conf.urls import url
 from django.contrib.auth import authenticate, login, logout
 from django.middleware.csrf import get_token
 from django.views.generic import View
+
 from yunity.api.validation import validate_user_email
 from yunity.api.validation import validate_user_password
-
 from yunity.utils.session import RealtimeClientData
 from yunity.utils.api.abc import ApiBase, body_as_json
-from yunity.utils.api.request import Parameter
+from yunity.utils.request import Parameter
 
 
 class Login(ApiBase, View):

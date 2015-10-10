@@ -1,6 +1,8 @@
 from unittest import TestCase
+
 from django.test import RequestFactory
-from yunity.utils.api.request import JsonRequestFactory
+
+from yunity.utils.request import JsonRequestFactory
 from yunity.utils.validation import Validator
 
 

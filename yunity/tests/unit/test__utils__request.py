@@ -1,4 +1,4 @@
-from yunity.utils.api.request import JsonRequest, Parameter
+from yunity.utils.request import JsonRequest, Parameter
 from yunity.utils.tests.abc import BaseTestCase, AnyResult
 from yunity.utils.validation import OfType, HasKey
 

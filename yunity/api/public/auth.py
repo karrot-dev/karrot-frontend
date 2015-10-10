@@ -73,11 +73,16 @@ class Login(ApiBase, View):
         :type request: HttpRequest
         """
         user = authenticate(email=request.body['email'], password=request.body['password'])
-        if user is not None:
-            login(request, user)
-            return self.success({'user': {'id': request.user.id, 'display_name': user.display_name}})
-        else:
+        if user is None:
             return self.forbidden(reason="wrong login credentials.")
+
+        login(request, user)
+        return self.success({
+            'user': {
+                'id': request.user.id,
+                'display_name': user.display_name,
+            },
+        })
 
 
 class Logout(ApiBase, View):

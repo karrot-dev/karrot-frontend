@@ -1,6 +1,25 @@
 from sys import modules
+from django.http import HttpResponse
 from yunity.utils.tests.abc import BaseTestCase
-from yunity.utils.tests.misc import json_stringify, maybe_import
+from yunity.utils.tests.misc import json_stringify, maybe_import, content_json
+
+
+class ContentJsonTestCase(BaseTestCase):
+    def test_content_json_returns_content(self):
+        self.given_json_response(content={"foo": 1})
+        self.when_calling(content_json)
+        self.then_invocation_passed_with(result={"foo": 1})
+
+    def test_content_json_fails_when_response_content_is_not_valid_json(self):
+        self.given_raw_response(content='not a json response')
+        self.when_calling(content_json)
+        self.then_invocation_failed_with(ValueError)
+
+    def given_json_response(self, content):
+        self.given_raw_response(json_stringify(content))
+
+    def given_raw_response(self, content):
+        self.given_data(response=HttpResponse(content=content))
 
 
 class JsonStringifyTestCase(BaseTestCase):

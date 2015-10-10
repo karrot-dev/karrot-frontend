@@ -7,35 +7,40 @@ class DeepMatcher(object):
     DATETIME_AROUND_NOW = 'DatetimeAroundNow'
 
     @classmethod
+    def _raise_not_matching(cls, actual, expected, reason):
+        raise ValueError('got "{actual}", expected "{expected}", trace "{reason}"'.format(
+            actual=actual,
+            expected=expected,
+            reason=reason,
+        ))
+
+    @classmethod
     def _fuzzy_match_dicts(cls, actual, expected, reason):
         for key, expected_value in expected.items():
             actual_value = actual.get(key)
-            reason += key+"."
-            cls.fuzzy_match(actual_value, expected_value, reason)
+            cls.fuzzy_match(actual_value, expected_value, '{reason}.{key}'.format(reason=reason, key=key))
 
     @classmethod
     def _fuzzy_match_lists(cls, actual, expected, reason):
-        for expected_item, actual_item in zip(expected, actual):
-            reason += "[]"
-            cls.fuzzy_match(actual_item, expected_item, reason)
+        for i, (expected_item, actual_item) in enumerate(zip(expected, actual)):
+            cls.fuzzy_match(actual_item, expected_item, '{reason}[{i}]'.format(reason=reason, i=i))
 
     @classmethod
-    def _fuzzy_match_leaves(cls, actual, expected):
+    def _fuzzy_match_leaves(cls, actual, expected, reason):
         if expected == cls.ANY_INT:
             if not isinstance(actual, int):
-                raise ValueError('expected any integer, got {}'.format(actual))
+                cls._raise_not_matching(actual, 'any integer', reason)
         elif expected == cls.ANY_STRING:
             if not isinstance(actual, str):
-                raise ValueError('expected any string, got {}'.format(actual))
+                cls._raise_not_matching(actual, 'any string', reason)
         elif expected == cls.DATETIME_AROUND_NOW:
             actual_time = datetime.strptime(actual.split(".")[0], "%Y-%m-%dT%H:%M:%S")
             now = datetime.utcnow()
             difference = now - actual_time
             if abs(difference.total_seconds()) > 60:
-                raise ValueError('expected an UTC time string within 60 seconds of now, got {}'.format(actual))
-        else:
-            if actual != expected:
-                raise ValueError('expected {}, got {}'.format(expected, actual))
+                cls._raise_not_matching(actual, 'utc time string within 60 seconds of now', reason)
+        elif actual != expected:
+            cls._raise_not_matching(actual, expected, reason)
 
     @classmethod
     def fuzzy_match(cls, actual, expected, reason=""):
@@ -47,7 +52,4 @@ class DeepMatcher(object):
         elif isinstance(expected, list) and isinstance(actual, list):
             cls._fuzzy_match_lists(actual, expected, reason)
         else:
-            try:
-                cls._fuzzy_match_leaves(actual, expected)
-            except ValueError as e:
-                raise ValueError("Reason: "+reason+", "+e.args[0])
+            cls._fuzzy_match_leaves(actual, expected, reason)

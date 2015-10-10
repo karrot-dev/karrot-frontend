@@ -159,6 +159,8 @@ class Chats(ApiBase, View):
             403:
                 description: Insufficient rights to create this chat. (Include yourself into the participants or do not
                              create a chat with more than XX users
+                schema:
+                    $ref: '#/definitions/result_error_forbidden'
         ...
 
 
@@ -214,6 +216,8 @@ class Chat(ApiBase, View):
 
             403:
                 description: The logged in user is not part of the conversation
+                schema:
+                    $ref: '#/definitions/result_error_forbidden'
         ...
 
         :type request: HttpRequest
@@ -298,6 +302,8 @@ class ChatMessages(ApiBase, View):
 
             403:
                 description: The logged in user is not part of the conversation
+                schema:
+                    $ref: '#/definitions/result_error_forbidden'
         ...
 
         """
@@ -460,6 +466,8 @@ class ChatParticipant(ApiBase, View):
                 description: Participant deleted
             403:
                 description: The logged in user is not part of the conversation
+                schema:
+                    $ref: '#/definitions/result_error_forbidden'
         ...
 
         :type request: HttpRequest

@@ -47,7 +47,7 @@ class IntegrationTest(object):
 
     def given_data(self):
         with atomic():
-            import_module('{}.{}'.format(self._resource_root, 'initial_data'))
+            import_module('{}.initial_data'.format(self._resource_root))
 
     def given_user(self):
         request_user = self.request_data.get('user')

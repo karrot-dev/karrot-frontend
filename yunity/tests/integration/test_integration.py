@@ -4,7 +4,8 @@ from django.db.transaction import atomic
 from pkg_resources import resource_listdir
 from django.test import TestCase, Client
 
-from yunity.utils.misc import json_stringify, content_json, maybe_import
+from yunity.utils.misc import json_stringify, maybe_import
+from yunity.utils.response import content_json
 from yunity.utils.tests.comparison import DeepMatcher
 
 

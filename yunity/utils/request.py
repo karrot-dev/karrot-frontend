@@ -1,5 +1,7 @@
-from json import loads as load_json_string
+from json import loads as load_json
+
 from django.test import RequestFactory
+
 from yunity.utils.misc import json_stringify
 from yunity.utils.validation import HasKey
 
@@ -36,7 +38,7 @@ class JsonRequest(object):
         parameters = parameters or []
 
         try:
-            json_data = load_json_string(http_request.body.decode("utf-8"))
+            json_data = load_json(http_request.body.decode("utf-8"))
         except ValueError:
             raise ValueError('incorrect json request')
 

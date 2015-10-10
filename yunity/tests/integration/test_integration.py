@@ -1,4 +1,5 @@
 from importlib import import_module
+from django.db.transaction import atomic
 
 from pkg_resources import resource_listdir
 from django.test import TestCase, Client
@@ -43,6 +44,10 @@ class IntegrationTest(object):
             return '(not a json response)'
         except KeyError:
             return '(no error reason)'
+
+    def given_data(self):
+        with atomic():
+            import_module('{}.{}'.format(self._resource_root, 'initial_data'))
 
     def given_user(self):
         request_user = self.request_data.get('user')
@@ -105,6 +110,7 @@ class IntegrationTest(object):
             """
             :type testcase: TestCase
             """
+            self.given_data()
             self.given_user()
 
             self.when_calling_endpoint()

@@ -70,7 +70,7 @@ class IntegrationTest(object):
         """
         expected_status = self.response_data['http_status']
         actual_status = self.actual_response.status_code
-        testcase.assertEqual(actual_status, expected_status, 'http status not matching: "{}"'.format(content_json(self.actual_response).get('reason', '(no error reason)')))
+        testcase.assertEqual(actual_status, expected_status, 'http status not matching')
 
     def then_response_body_matches(self, testcase):
         """

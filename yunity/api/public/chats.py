@@ -1,5 +1,7 @@
 from django.conf.urls import url
+from django.db import IntegrityError
 from django.db.models import Q
+from django.db.transaction import atomic
 from django.http import HttpRequest
 from django.views.generic import View
 
@@ -414,14 +416,14 @@ class ChatParticipants(ApiBase, View):
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
-        users_to_add = UserModel.objects \
-            .filter(id=request.body['users']) \
-            .all()
-
-        ChatModel.objects \
-            .get(id=chatid) \
-            .participants \
-            .add(users_to_add)
+        try:
+            with atomic():
+                ChatModel.objects \
+                    .get(id=chatid) \
+                    .participants \
+                    .add(*request.body['users'])
+        except IntegrityError as e:
+            return self.error(reason='A supplied user does not exist')
 
         return self.success()
 

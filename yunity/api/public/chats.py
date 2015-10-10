@@ -6,7 +6,7 @@ from django.views.generic import View
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api.validation import validate_chat_message, validate_chat_participants, validate_chat_name, \
     validate_chat_message_type, validate_chat_message_content, validate_chat_users
-from yunity.utils.api.abc import ApiBase, body_as_json
+from yunity.utils.api.abc import ApiBase, body_as_json, resource_as
 from yunity.utils.api.request import Parameter
 from yunity.utils.api.misc import model_to_json
 from yunity.models.concrete import Chat as ChatModel
@@ -237,6 +237,7 @@ class Chat(ApiBase, View):
 
 
 class ChatMessages(ApiBase, View):
+    @resource_as('chatid', item_type=int)
     @body_as_json(parameters=[
         Parameter(name='type', validator=validate_chat_message_type),
         Parameter(name='content', validator=validate_chat_message_content),
@@ -309,20 +310,17 @@ class ChatMessages(ApiBase, View):
                     $ref: '#/definitions/result_error_forbidden'
         ...
 
+        :type request: HttpRequest
+        :type chatid: int
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
-        type_str = request.body['type']
-        if type_str not in ['TEXT', 'IMAGE']:
-            return self.error(reason='invalid type')
-        content = request.body['content']
-        senderid = request.user.id
 
         message = MessageModel.objects.create(
-            sent_by=senderid,
+            sent_by=request.user.id,
             in_conversation_id=chatid,
-            type=type_str,
-            content=content,
+            type=request.body['type'],
+            content=request.body['content'],
         )
 
         return self.success(message_to_json(message))

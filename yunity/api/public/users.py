@@ -9,7 +9,7 @@ from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.utils import status
 from yunity.api.validation import validate_user_email, validate_user_display_name
 from yunity.api.validation import validate_user_password
-from yunity.utils.api.abc import ApiBase, body_as_json
+from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list
 from yunity.utils.api.request import Parameter
 from yunity.models import Category as CategoryModel
 from yunity.models import User as UserModel
@@ -102,6 +102,7 @@ class UserAll(ApiBase, View):
 
 
 class UserMultiple(ApiBase, View):
+    @resource_as_list('userids', item_type=int)
     def get(self, request, userids):
         """get details about all given users
         ---
@@ -130,7 +131,6 @@ class UserMultiple(ApiBase, View):
         :type request: HttpRequest
         :type userids: [int]
         """
-        userids = [int(_) for _ in userids.split(",")]
         users = get_user_model().objects\
             .filter(id__in=userids)\
             .values('id', 'display_name', 'picture_url')\

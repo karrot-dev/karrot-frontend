@@ -1,9 +1,9 @@
-from .initial_data import request_user
+from .initial_data import user
 
 request = {
-    "endpoint": "/api/user/{}".format(request_user),
+    "endpoint": "/api/user/{}".format(user.id),
     "method": "put",
-    "user": request_user,
+    "user": user,
     "body": {
         "display_name": "My brand new name",
     }

@@ -1,10 +1,10 @@
-from .initial_data import request_user
+from .initial_data import user
 from .request import request
 
 response = {
     "http_status": 201,
     "response": {
-        "id": request_user,
+        "id": user.id,
         "display_name": request['body']['display_name'],
     }
 }

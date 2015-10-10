@@ -407,12 +407,6 @@ class ChatParticipants(ApiBase, View):
                 description: At least one user does not exist, none added
         ...
 
-        request_json:
-            users:
-                type: list
-                required: true
-                description: a list of ids of users to remove
-
         :type request: HttpRequest
         :type chatid: int
 

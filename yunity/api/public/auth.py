@@ -70,7 +70,6 @@ class Login(ApiBase, View):
                 description: User credentials wrong
         ...
 
-
         :type request: HttpRequest
         """
         user = authenticate(email=request.body['email'], password=request.body['password'])

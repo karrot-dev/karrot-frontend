@@ -35,6 +35,15 @@ class IntegrationTest(object):
     def response_data(self):
         return self._resource('response')
 
+    @property
+    def actual_exception_cause(self):
+        try:
+            return content_json(self.actual_response)['reason']
+        except ValueError:
+            return '(not a json response)'
+        except KeyError:
+            return '(no error reason)'
+
     def given_user(self):
         request_user = self.request_data.get('user')
         if request_user:
@@ -67,7 +76,9 @@ class IntegrationTest(object):
         """
         expected_status = self.response_data['http_status']
         actual_status = self.actual_response.status_code
-        testcase.assertEqual(actual_status, expected_status, 'http status not matching')
+        if actual_status != expected_status:
+
+            testcase.fail('http status not matching: {}'.format(self.actual_exception_cause))
 
     def then_response_body_matches(self, testcase):
         """

@@ -1,4 +1,4 @@
-from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, SubFactory
+from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, SubFactory, PostGeneration
 
 from yunity.models import Category
 from yunity.utils.tests.fake import faker
@@ -30,7 +30,7 @@ class MockUser(Mock):
     type = Category.objects.get(name='user.default')
     display_name = LazyAttribute(lambda _: faker.name())
     email = LazyAttribute(lambda _: faker.email())
-    password = LazyAttribute(lambda _: faker.password())
+    password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
     locations = LazyAttribute(lambda _: [faker.location() for _ in range(2)])
 
 

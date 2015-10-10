@@ -98,6 +98,29 @@ def body_as_json(parameters=None):
     return decorator
 
 
+def resource_as(param_name, item_type=str):
+    """Decorator to convert a single resource from the URI into a given type.
+    Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
+
+    :type param_name: str
+    :type item_type: function :: str -> T
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(api_base, *args, **kwargs):
+            raw_param = kwargs.get(param_name)
+            if raw_param:
+                try:
+                    parsed_param = item_type(raw_param)
+                except ValueError:
+                    return api_base.validation_failure(reason='invalid type: {}'.format(raw_param))
+                kwargs[param_name] = parsed_param
+
+            return func(api_base, *args, **kwargs)
+        return wrapper
+    return decorator
+
+
 def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
     """Decorator to split a multi-resource URI into a list of multiple resources.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.

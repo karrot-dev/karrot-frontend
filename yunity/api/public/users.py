@@ -9,7 +9,7 @@ from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.utils import status
 from yunity.api.validation import validate_user_email, validate_user_display_name
 from yunity.api.validation import validate_user_password
-from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list
+from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list, resource_as
 from yunity.utils.api.request import Parameter
 from yunity.models import Category as CategoryModel
 from yunity.models import User as UserModel
@@ -142,6 +142,7 @@ class UserMultiple(ApiBase, View):
 
 
 class UserSingle(ApiBase, View):
+    @resource_as('userid', item_type=int)
     @body_as_json(parameters=[
         Parameter(name='display_name', validator=validate_user_display_name),
     ])
@@ -178,8 +179,6 @@ class UserSingle(ApiBase, View):
         :type request: HttpRequest
         :type userid: int
         """
-        userid = int(userid)
-
         if not _has_rights_to_modify(request.user.id, userid):
             return self.forbidden(reason='current user does not have rights to modify user {}'.format(userid))
 

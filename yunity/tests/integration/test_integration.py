@@ -58,7 +58,8 @@ class IntegrationTest(object):
         """
         :type testcase: TestCase
         """
-        testcase.assertIsNone(self.actual_exception, 'unexpected exception: {}'.format(self.actual_exception.args[0]))
+        if self.actual_exception is not None:
+            testcase.fail('unexpected exception: {}'.format(self.actual_exception.args[0]))
 
     def then_response_status_matches(self, testcase):
         """

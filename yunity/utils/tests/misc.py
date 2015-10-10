@@ -21,14 +21,6 @@ def content_json(response):
         raise ValueError('invalid json content in response')
 
 
-def is_test_resource(resource):
-    """
-    :type resource: str
-    :rtype: bool
-    """
-    return resource.startswith('test_')
-
-
 def maybe_import(resource):
     """
     :type resource: str

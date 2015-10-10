@@ -4,7 +4,7 @@ from django.db.transaction import atomic
 from pkg_resources import resource_listdir
 from django.test import TestCase, Client
 
-from yunity.utils.tests.misc import is_test_resource, content_json, maybe_import, json_stringify
+from yunity.utils.tests.misc import content_json, maybe_import, json_stringify
 from yunity.utils.tests.comparison import DeepMatcher
 
 
@@ -125,8 +125,16 @@ class IntegrationTest(object):
 
 class IntegrationTestSuite(TestCase):
     @classmethod
+    def is_integration_test(cls, resource):
+        """
+        :type resource: str
+        :rtype: bool
+        """
+        return resource.startswith('test_')
+
+    @classmethod
     def autodiscover(cls, root='yunity.resources.tests.integration'):
-        for test_name in filter(is_test_resource, resource_listdir(root, '')):
+        for test_name in filter(cls.is_integration_test, resource_listdir(root, '')):
             test_resource = '{}.{}'.format(root, test_name)
             cls.add_test(test_name, IntegrationTest(test_resource))
 

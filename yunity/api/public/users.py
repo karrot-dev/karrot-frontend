@@ -61,6 +61,8 @@ class UserAll(ApiBase, View):
                                 type: number
                                 description: Identifier of the User
                                 example: 3
+            409:
+                description: That emailaddress is already registered
         ...
 
         :type request: HttpRequest

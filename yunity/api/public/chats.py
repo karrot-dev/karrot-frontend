@@ -473,6 +473,5 @@ urlpatterns = [
     url(r'/^{chatid}/?$'.format(chatid=chat_id_uri_pattern), Chat.as_view()),
     url(r'/^{chatid}/messages/?$'.format(chatid=chat_id_uri_pattern), ChatMessages.as_view()),
     url(r'/^{chatid}/participants/?$'.format(chatid=chat_id_uri_pattern), ChatParticipants.as_view()),
-    url(r'/^{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern),
-        ChatParticipant.as_view()),
+    url(r'/^{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern), ChatParticipant.as_view()),
 ]

@@ -8,32 +8,10 @@ from yunity.api.validation import validate_chat_message, validate_chat_participa
     validate_chat_message_type, validate_chat_message_content, validate_chat_users
 from yunity.utils.api.abc import ApiBase, body_as_json, resource_as
 from yunity.utils.api.request import Parameter
-from yunity.utils.api.misc import model_to_json
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
 from yunity.utils.models.aggregate import Json_agg
-
-
-def user_to_json(user):
-    return model_to_json(user, 'id')
-
-
-def message_to_json(message):
-    return model_to_json(message, 'sender', 'created_at', 'type', 'content')
-
-
-def chat_to_json(chat):
-    return model_to_json(chat, 'id')
-
-
-def chat_from(userids):
-    participants = UserModel.objects \
-        .filter(id__in=userids) \
-        .all()
-    chat = ChatModel.objects.create()
-    chat.participants = participants
-    return chat
 
 
 def user_has_rights_to_chat(chatid, userid):
@@ -169,7 +147,11 @@ class Chats(ApiBase, View):
 
         """
         participant_ids = request.body['participants']
-        chat = chat_from(participant_ids)
+        participants = UserModel.objects \
+            .filter(id__in=participant_ids) \
+            .all()
+        chat = ChatModel.objects.create()
+        chat.participants = participants
 
         message = request.body['message']
 
@@ -323,7 +305,7 @@ class ChatMessages(ApiBase, View):
             content=request.body['content'],
         )
 
-        return self.success(message_to_json(message))
+        return self.success({'id': message.id})
 
     def get(self, request, chatid):
         """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
@@ -385,7 +367,7 @@ class ChatMessages(ApiBase, View):
             .reverse() \
             .all()
 
-        return self.success({'messages': [message_to_json(_) for _ in messages]})
+        return self.success({'messages': [_.id for _ in messages]})
 
 
 class ChatParticipants(ApiBase, View):

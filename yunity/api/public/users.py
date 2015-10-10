@@ -6,14 +6,13 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
-from yunity.utils import status
 from yunity.api.validation import validate_user_email, validate_user_display_name
 from yunity.api.validation import validate_user_password
 from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list, resource_as
 from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
 from yunity.models import User as UserModel
-from yunity.utils.status import HTTP_404_NOT_FOUND
+from yunity.resources.http.status import HTTP_404_NOT_FOUND, HTTP_409_CONFLICT
 
 
 def _has_rights_to_modify(request_user_id, modified_user_id):
@@ -93,7 +92,7 @@ class UserAll(ApiBase, View):
                     display_name=request.body['display_name'],
                 )
         except IntegrityError as e:
-            return self.error(reason=str(e), status=status.HTTP_409_CONFLICT)
+            return self.error(reason=str(e), status=HTTP_409_CONFLICT)
 
         return self.created({
             "id": user.id,

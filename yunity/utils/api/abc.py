@@ -4,7 +4,7 @@ from django.http import JsonResponse
 
 from yunity.api.ids import ids_uri_pattern_delim
 from yunity.utils.request import JsonRequest
-from yunity.utils.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN
+from yunity.resources.http.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN
 
 
 class ApiBase(object):

@@ -6,7 +6,7 @@ from yunity.api.validation import validate_category_name, validate_category_pare
 from yunity.utils.api.abc import ApiBase, body_as_json
 from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
-from yunity.utils.status import HTTP_409_CONFLICT
+from yunity.resources.http.status import HTTP_409_CONFLICT
 
 
 def _category_exists(category_id):

@@ -1,10 +1,10 @@
 from importlib import import_module
-from django.db.transaction import atomic
 
+from django.db.transaction import atomic
 from pkg_resources import resource_listdir
 from django.test import TestCase, Client
 
-from yunity.utils.tests.misc import content_json, maybe_import, json_stringify
+from yunity.utils.misc import json_stringify, content_json, maybe_import
 from yunity.utils.tests.comparison import DeepMatcher
 
 

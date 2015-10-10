@@ -1,7 +1,9 @@
 from sys import modules
+
 from django.http import HttpResponse
+
 from yunity.utils.tests.abc import BaseTestCase
-from yunity.utils.tests.misc import json_stringify, maybe_import, content_json
+from yunity.utils.misc import json_stringify, content_json, maybe_import
 
 
 class ContentJsonTestCase(BaseTestCase):

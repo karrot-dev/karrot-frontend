@@ -1,7 +1,7 @@
 from django.conf import settings
 from redis import StrictRedis
 
-from yunity.utils.tests.misc import json_stringify
+from yunity.utils.misc import json_stringify
 
 
 class RealtimeClientMiddleware(object):

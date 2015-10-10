@@ -8,7 +8,10 @@ def json_stringify(data):
 
 
 def content_json(response):
-    return load_json(response.content.decode("utf-8"))
+    try:
+        return load_json(response.content.decode("utf-8"))
+    except ValueError:
+        raise ValueError('invalid json content in response')
 
 
 def is_test_resource(resource):

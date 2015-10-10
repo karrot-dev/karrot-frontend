@@ -226,11 +226,14 @@ class Chat(ApiBase, View):
         """
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
-        chat_name = request.body['name']
-        chat = ChatModel.objects.get(id=chatid)
-        chat.name = chat_name
 
-        return self.success({'name': chat.name})
+        chat = ChatModel.objects.get(id=chatid)
+        chat.name = request.body['name']
+        chat.save()
+
+        return self.success({
+            'name': chat.name,
+        })
 
 
 class ChatMessages(ApiBase, View):

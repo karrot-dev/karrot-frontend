@@ -1,4 +1,3 @@
-import traceback
 from importlib import import_module
 
 from pkg_resources import resource_listdir
@@ -53,16 +52,13 @@ class IntegrationTest(object):
                 content_type='application/json',
             )
         except Exception as e:
-            self.actual_exception = traceback.format_exc(e)
+            self.actual_exception = e
 
     def then_there_was_no_exception(self, testcase):
         """
         :type testcase: TestCase
         """
-        if self.actual_exception:
-            error_string = 'unexpected exception: {}'\
-                                  .format(self.actual_exception)
-            testcase.fail(error_string)
+        testcase.assertIsNone(self.actual_exception, 'unexpected exception: {}'.format(self.actual_exception.args[0]))
 
     def then_response_status_matches(self, testcase):
         """

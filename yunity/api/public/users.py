@@ -173,6 +173,7 @@ class UserSingle(ApiBase, View):
                     $ref: '#/definitions/user_information_response'
             403:
                 description: You are not allowed to modify that user
+        ...
 
         :type request: HttpRequest
         :type userid: int

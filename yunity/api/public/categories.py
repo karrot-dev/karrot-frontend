@@ -96,33 +96,6 @@ class Categories(ApiBase, View):
         } for _ in categories]})
 
 
-class Category(ApiBase, View):
-    @resource_as_list('categoryids', item_type=int)
-    def get(self, request, categoryids):
-        """Describe one or more categories.
-
-        response_json:
-            categories:
-                type: list
-                description: a list of {'id': integer, 'name': string, 'parent': integer} objects describing the categories
-
-        :type request: HttpRequest
-        :type categoryids: list
-        :rtype JsonResponse
-
-        """
-        categories = CategoryModel.objects \
-            .filter(id__in=categoryids) \
-            .all()
-
-        return self.success({'categories': [{
-            'id': _.id,
-            'name': _.name,
-            'parent': _.parent_id,
-        } for _ in categories]})
-
-
 urlpatterns = [
     url(r'^/$', Categories.as_view()),
-    url(r'^/{categoryids}/?$'.format(categoryids=category_ids_uri_pattern), Category.as_view()),
 ]

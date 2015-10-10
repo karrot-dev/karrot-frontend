@@ -79,7 +79,7 @@ class Login(ApiBase, View):
         login(request, user)
         return self.success({
             'user': {
-                'id': request.user.id,
+                'id': user.id,
                 'display_name': user.display_name,
             },
         })

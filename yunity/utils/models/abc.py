@@ -6,10 +6,16 @@ class BaseModel(Model):
     id = AutoField(primary_key=True)
 
     def _get_explicit_field_names(self):
+        """
+        :rtype: list
+        """
         return [field.name for field in self._meta.get_fields()
                 if isinstance(field, Field) and not isinstance(field, RelatedField)]
 
     def to_dict(self):
+        """
+        :rtype: dict
+        """
         fields = self._get_explicit_field_names()
         return {field: getattr(self, field) for field in fields if getattr(self, field)}
 

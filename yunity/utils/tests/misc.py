@@ -4,10 +4,17 @@ from json import loads as load_json
 
 
 def json_stringify(data):
+    """
+    :rtype: str
+    """
     return dump_json(data, sort_keys=True, separators=(',', ':')).encode("utf-8") if data else None
 
 
 def content_json(response):
+    """
+    :type response: HttpResponse
+    :rtype: dict
+    """
     try:
         return load_json(response.content.decode("utf-8"))
     except ValueError:
@@ -15,10 +22,18 @@ def content_json(response):
 
 
 def is_test_resource(resource):
+    """
+    :type resource: str
+    :rtype: bool
+    """
     return resource.startswith('test_')
 
 
 def maybe_import(resource):
+    """
+    :type resource: str
+    :rtype: module
+    """
     try:
         return import_module(resource)
     except ImportError:

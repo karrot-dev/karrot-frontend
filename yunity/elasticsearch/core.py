@@ -1,4 +1,3 @@
-from abc import abstractmethod
 from logging import getLogger
 
 from django.conf import settings
@@ -7,42 +6,9 @@ from elasticsearch import Elasticsearch
 from elasticsearch.exceptions import NotFoundError
 from elasticsearch_dsl import Search
 
-from yunity.utils.mappings import valuable_mapping, opportunity_mapping
+from yunity.elasticsearch.mappings import valuable_mapping, opportunity_mapping
 
 logger = getLogger(__name__)
-
-
-class ElasticsearchMixin(object):
-    """
-    Mixin for facilitating Elasticsearch indexing of a Model.
-    """
-
-    def sync_to_es(self):
-        index_doc(
-            self.get_es_type(),
-            self.pk,
-            self.to_es()
-        )
-
-    @abstractmethod
-    def to_es(self):
-        """Generate Elasticsearch representation"""
-        raise NotImplementedError
-
-    @abstractmethod
-    def get_es_type(self):
-        """
-        Defines the doc type used in Elasticsearch for this model
-        :return: string
-        """
-        raise NotImplementedError
-
-    @classmethod
-    def es_search(cls):
-        """
-        :return: ES Search instance
-        """
-        return NotImplementedError
 
 
 def es_client(timeout=120):
@@ -226,4 +192,3 @@ def disconnect_es_signals():
             es_delete_instance,
             sender=model
         )
-

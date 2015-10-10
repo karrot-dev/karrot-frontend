@@ -5,7 +5,7 @@ from django.conf.urls import url
 from django.views.generic import View
 
 from yunity.utils.api.abc import ApiBase
-from yunity.utils.elasticsearch import es_search
+from yunity.elasticsearch.core import es_search
 
 logger = logging.getLogger(__name__)
 

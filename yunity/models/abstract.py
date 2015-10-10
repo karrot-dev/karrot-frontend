@@ -3,7 +3,7 @@ from django.contrib.postgres.fields import JSONField
 
 from yunity.utils.models.abc import BaseModel
 from yunity.utils.models.field import MaxLengthCharField
-from yunity.utils.elasticsearch import ElasticsearchMixin
+from yunity.elasticsearch.abc import ElasticsearchMixin
 
 
 class VersionTrait(BaseModel):

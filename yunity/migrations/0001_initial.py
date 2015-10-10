@@ -8,8 +8,9 @@ from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
 
+import yunity.elasticsearch.abc
 import yunity.utils.models.field
-import yunity.utils.elasticsearch
+import yunity.elasticsearch.core
 import yunity.models.concrete
 
 
@@ -60,7 +61,8 @@ class Migration(migrations.Migration):
                 ('contacts', django.contrib.postgres.fields.jsonb.JSONField()),
                 ('metadata', django.contrib.postgres.fields.jsonb.JSONField()),
             ],
-            bases=('yunity.versiontrait', 'yunity.feedbacktrait', 'yunity.administrationtrait', yunity.utils.elasticsearch.ElasticsearchMixin),
+            bases=('yunity.versiontrait', 'yunity.feedbacktrait', 'yunity.administrationtrait',
+                   yunity.elasticsearch.abc.ElasticsearchMixin),
         ),
         migrations.CreateModel(
             name='User',

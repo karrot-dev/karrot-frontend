@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from yunity.utils.elasticsearch import es_client, rebuild_index
+from yunity.elasticsearch.core import es_client, rebuild_index
 
 
 class Command(BaseCommand):

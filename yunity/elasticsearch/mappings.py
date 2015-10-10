@@ -1,5 +1,3 @@
-
-
 def _valuable_metadata_mappings(doc_type):
     _, category_name = doc_type.split('::')
     mappings = {

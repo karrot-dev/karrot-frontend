@@ -4,7 +4,7 @@ from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField
 from django.utils import timezone
 
 from yunity.models.abstract import MapItem, Conversation, Request
-from yunity.utils.elasticsearch import get_es_type
+from yunity.elasticsearch.core import get_es_type
 from yunity.utils.models.abc import BaseModel
 from yunity.utils.models.field import MaxLengthCharField
 

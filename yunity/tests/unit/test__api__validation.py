@@ -1,6 +1,6 @@
 from yunity.api.validation import validate_user_email, validate_user_password, validate_user_display_name, \
-    validate_chat_message_type, validate_chat_message_content, validate_chat_name, validate_chat_users, validate_categories, \
-    validate_chat_participants, validate_chat_message
+    validate_chat_message_type, validate_chat_message_content, validate_chat_name, validate_chat_users, \
+    validate_chat_participants, validate_chat_message, validate_category_name, validate_category_parent
 from yunity.utils.tests.abc import BaseTestCase, AnyResult
 
 
@@ -85,14 +85,24 @@ class TestApiValidation(BaseTestCase):
         self.when_calling(validate_chat_message)
         self.then_invocation_failed_with(ValueError)
 
-    def test_validate_categories_passes(self):
-        self.given_data({'categories': [{'name': 'foodsharing-basket', 'parent': 1}]})
-        self.when_calling(validate_categories)
+    def test_validate_category_name_passes(self):
+        self.given_data({'name': 'foodsharing-basket'})
+        self.when_calling(validate_category_name)
         self.then_invocation_passed_with(AnyResult())
 
-    def test_validate_categories_fails(self):
-        self.given_data({'categories': [{'parent': 1}]})
-        self.when_calling(validate_categories)
+    def test_validate_category_name_fails(self):
+        self.given_data({'name': 'really lo{}ng name'.format('o' * 999999)})
+        self.when_calling(validate_category_name)
+        self.then_invocation_failed_with(ValueError)
+
+    def test_validate_category_parent_passes(self):
+        self.given_data({'parent': 123})
+        self.when_calling(validate_category_parent)
+        self.then_invocation_passed_with(AnyResult())
+
+    def test_validate_category_parent_fails(self):
+        self.given_data({'parent': '123'})
+        self.when_calling(validate_category_parent)
         self.then_invocation_failed_with(ValueError)
 
     def test_validate_participants_passes(self):

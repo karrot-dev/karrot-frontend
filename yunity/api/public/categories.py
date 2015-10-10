@@ -2,32 +2,19 @@ from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
 
-from yunity.api.ids import category_ids_uri_pattern
-from yunity.api.validation import validate_categories
-from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list
+from yunity.api.validation import validate_category_name, validate_category_parent
+from yunity.utils.api.abc import ApiBase, body_as_json
 from yunity.utils.api.request import Parameter
 from yunity.models import Category as CategoryModel
+from yunity.utils.status import HTTP_409_CONFLICT
 
 
-def category_from(name, parent=None):
-    """
-    :type name: str
-    :type parent: str
-    :rtype: CategoryModel
-
-    """
-    parent = CategoryModel.objects.get(id=parent) if parent is not None else None
-    return CategoryModel.objects.create(name=name, parent=parent)
+def _category_exists(category_id):
+    return CategoryModel.objects.filter(id=category_id).exists()
 
 
-def categories_from(categories):
-    """
-    :type categories: list
-    :rtype: list
-
-    """
-    # TODO: Maybe change implementation to `bulk_create` at some point...
-    return [category_from(_.get('name'), _.get('parent')) for _ in categories]
+def _category_name_exists(category_name):
+    return CategoryModel.objects.filter(name=category_name).exists()
 
 
 class Categories(ApiBase, View):
@@ -69,7 +56,8 @@ class Categories(ApiBase, View):
         } for _ in categories]})
 
     @body_as_json(parameters=[
-        Parameter(name='categories', validator=validate_categories),
+        Parameter(name='name', validator=validate_category_name),
+        Parameter(name='parent', validator=validate_category_parent),
     ])
     def post(self, request):
         """Creates a new category.
@@ -114,11 +102,16 @@ class Categories(ApiBase, View):
         :rtype JsonResponse
 
         """
-        categories = categories_from(request.body.get('categories', []))
+        if _category_name_exists(request.body['name']):
+            return self.error(reason='category name already exists', status=HTTP_409_CONFLICT)
+        if not _category_exists(request.body['parent']):
+            return self.error(reason='parent category does not exist')
 
-        return self.created({'categories': [{
-            'id': _.id,
-        } for _ in categories]})
+        new_category = CategoryModel.objects.create(name=request.body['name'], parent_id=request.body['parent'])
+
+        return self.created({
+            'id': new_category.id,
+        })
 
 
 urlpatterns = [

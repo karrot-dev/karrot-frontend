@@ -80,7 +80,7 @@ class Opportunity(MapItem):
 class Category(BaseModel):
     parent = ForeignKey('self', null=True, related_name='children')
 
-    name = MaxLengthCharField()
+    name = MaxLengthCharField(unique=True)
 
 
 class Message(BaseModel):

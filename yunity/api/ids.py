@@ -37,7 +37,6 @@ def single_integerid(name, minlength=1, maxlength=10):
     )
 
 
-category_ids_uri_pattern = multiple_integerids('categoryids')
 chat_id_uri_pattern = single_integerid('chatid')
 feedback_id_uri_pattern = single_integerid('feedbackid')
 opportunity_id_uri_pattern = single_integerid('opportunityid')

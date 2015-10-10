@@ -7,13 +7,6 @@ class IsListOfIds(Validator):
         return value
 
 
-class IsCategory(Validator):
-    def __call__(self, value):
-        (HasKey('name') & OfType(str))(value)
-        (HasKey('parent') & OfType(int))(value)
-        return value
-
-
 class IsMessageType(Validator):
     def __call__(self, value):
         (OfType(str) & IsIn('TEXT', 'IMAGE'))(value)
@@ -51,8 +44,13 @@ def validate_chat_users(request):
     return request
 
 
-def validate_categories(request):
-    (HasKey('categories') & OfType(list) & Each(IsCategory()))(request)
+def validate_category_name(request):
+    (HasKey('name') & IsReasonableLengthString())(request)
+    return request
+
+
+def validate_category_parent(request):
+    (HasKey('parent') & OfType(int))(request)
     return request
 
 

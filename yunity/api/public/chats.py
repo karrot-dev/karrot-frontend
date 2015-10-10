@@ -170,6 +170,7 @@ class Chats(ApiBase, View):
 
 
 class Chat(ApiBase, View):
+    @resource_as('chatid', item_type=int)
     @body_as_json(parameters=[
         Parameter(name='name', validator=validate_chat_name),
     ])
@@ -307,6 +308,7 @@ class ChatMessages(ApiBase, View):
 
         return self.success({'id': message.id})
 
+    @resource_as('chatid', item_type=int)
     def get(self, request, chatid):
         """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
         ---
@@ -371,6 +373,7 @@ class ChatMessages(ApiBase, View):
 
 
 class ChatParticipants(ApiBase, View):
+    @resource_as('chatid', item_type=int)
     @body_as_json(parameters=[
         Parameter(name='users', validator=validate_chat_users),
     ])
@@ -430,6 +433,8 @@ class ChatParticipants(ApiBase, View):
 
 
 class ChatParticipant(ApiBase, View):
+    @resource_as('chatid', item_type=int)
+    @resource_as('userid', item_type=int)
     def delete(self, request, chatid, userid):
         """Remove a user from the chat.
         ---

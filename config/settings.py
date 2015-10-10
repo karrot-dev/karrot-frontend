@@ -49,8 +49,8 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'yunity.utils.session.RealtimeClientMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,6 +122,8 @@ CORS_ORIGIN_WHITELIST = []
 # Allow all request origins. Will still require valid CSRF token and session information for modification but allows
 # e.g. including the docs from any location
 CORS_ORIGIN_ALLOW_ALL = True
+
+SESSION_COOKIE_HTTPONLY = False
 
 AUTH_USER_MODEL = 'yunity.User'
 

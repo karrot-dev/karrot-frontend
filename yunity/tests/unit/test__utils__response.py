@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+
 from yunity.utils.misc import json_stringify
 from yunity.utils.response import content_json
 from yunity.utils.tests.abc import BaseTestCase

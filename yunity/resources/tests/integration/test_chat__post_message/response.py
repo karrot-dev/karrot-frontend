@@ -1,4 +1,4 @@
-from .initial_data import users, request_user
+from .initial_data import request_user
 from yunity.utils.tests.comparison import DeepMatcher
 
 response = {

@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+
 from .initial_data import users
 from .request import request
 

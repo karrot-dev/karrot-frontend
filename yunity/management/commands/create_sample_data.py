@@ -29,6 +29,7 @@ Neel chats lorem ipsum with tilmann, while Flo, Matthias and tilmann have a grou
 
 """
 from datetime import datetime
+
 from django.utils.timezone import make_aware
 
 from yunity.models import *

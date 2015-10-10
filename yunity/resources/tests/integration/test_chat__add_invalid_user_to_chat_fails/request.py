@@ -5,6 +5,6 @@ request = {
     "method": "post",
     "user": request_user,
     "body": {
-        "users": [666666]
+        "users": [666666, 22]
     }
 }

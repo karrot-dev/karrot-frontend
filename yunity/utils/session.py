@@ -1,7 +1,7 @@
-import json
-
 from django.conf import settings
 from redis import StrictRedis
+
+from yunity.utils.tests.misc import json_stringify
 
 
 class RealtimeClientMiddleware(object):
@@ -81,4 +81,4 @@ class RealtimeClientData(object):
         :return:
         """
         cls.connect()
-        cls.r.publish('notifications', '{{"users" : [{}], "data": {}}}'.format(','.join(map(str, userids)), json.dumps(data)))
+        cls.r.publish('notifications', '{{"users" : [{}], "data": {}}}'.format(','.join(map(str, userids)), json_stringify(data)))

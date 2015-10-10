@@ -4,9 +4,7 @@ request = {
     "endpoint": "/api/auth/login",
     "method": "post",
     "body": {
-        "user": {
-            "email": user.email,
-            "password": 'wrong password',
-        },
+        "email": user.email,
+        "password": 'wrong password',
     },
 }

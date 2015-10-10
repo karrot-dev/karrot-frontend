@@ -30,21 +30,12 @@
 ### Setup the servers
 
 #### ElasticSearch
-If you get "low disk watermark" errors from ElasticSearch, create a config .yml file (e.g. `~/.elasticsearch.yml`) with
-the following contents:
-
-```yml
-cluster:
-    routing:
-      allocation:
-        disk:
-          threshold_enabled: false
-```
-
-Then invoke the server like so: `elasticsearch -Des.config="~/.elasticsearch.yml"``
+If you get "low disk watermark" errors from ElasticSearch, start elasticsearch as follows:
+ 
+- elasticsearch -Des.config="config/elasticsearch.yml"
 
 #### Crossbar
-If you need to modify the crossbar ip/port settings, you may copy the .crossbar/config.json to a local .crossbar/config_local.json and run
+If you need to modify the crossbar ip/port settings, copy `config/crossbar.json` to a local `.crossbar/config_local.json` and run
 
 - crossbar start --config config_server.json
 

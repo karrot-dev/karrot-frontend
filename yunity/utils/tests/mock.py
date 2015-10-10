@@ -11,6 +11,15 @@ class Mock(DjangoModelFactory):
         abstract = True
 
 
+class MockCategory(Mock):
+    class Meta:
+        model = "yunity.Category"
+        strategy = CREATE_STRATEGY
+
+    name = LazyAttribute(lambda _: faker.word())
+    parent = None
+
+
 class MockUser(Mock):
     class Meta:
         model = "yunity.User"

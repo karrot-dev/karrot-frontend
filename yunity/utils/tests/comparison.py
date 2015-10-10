@@ -7,6 +7,29 @@ class DeepMatcher(object):
     DATETIME_AROUND_NOW = 'DatetimeAroundNow'
 
     @classmethod
+    def _match_datetime_around_now(cls, actual, reason):
+        actual_time = datetime.strptime(actual.split(".")[0], "%Y-%m-%dT%H:%M:%S")
+        now = datetime.utcnow()
+        difference = now - actual_time
+        if abs(difference.total_seconds()) > 60:
+            cls._raise_not_matching(actual, 'utc time string within 60 seconds of now', reason)
+
+    @classmethod
+    def _match_any_string(cls, actual, reason):
+        if not isinstance(actual, str):
+            cls._raise_not_matching(actual, 'any string', reason)
+
+    @classmethod
+    def _match_any_int(cls, actual, reason):
+        if not isinstance(actual, int):
+            cls._raise_not_matching(actual, 'any integer', reason)
+
+    @classmethod
+    def _match_objects(cls, actual, expected, reason):
+        if actual != expected:
+            cls._raise_not_matching(actual, expected, reason)
+
+    @classmethod
     def _raise_not_matching(cls, actual, expected, reason):
         raise ValueError('got "{actual}", expected "{expected}", trace "{reason}"'.format(
             actual=actual,
@@ -28,19 +51,13 @@ class DeepMatcher(object):
     @classmethod
     def _fuzzy_match_leaves(cls, actual, expected, reason):
         if expected == cls.ANY_INT:
-            if not isinstance(actual, int):
-                cls._raise_not_matching(actual, 'any integer', reason)
+            cls._match_any_int(actual, reason)
         elif expected == cls.ANY_STRING:
-            if not isinstance(actual, str):
-                cls._raise_not_matching(actual, 'any string', reason)
+            cls._match_any_string(actual, reason)
         elif expected == cls.DATETIME_AROUND_NOW:
-            actual_time = datetime.strptime(actual.split(".")[0], "%Y-%m-%dT%H:%M:%S")
-            now = datetime.utcnow()
-            difference = now - actual_time
-            if abs(difference.total_seconds()) > 60:
-                cls._raise_not_matching(actual, 'utc time string within 60 seconds of now', reason)
-        elif actual != expected:
-            cls._raise_not_matching(actual, expected, reason)
+            cls._match_datetime_around_now(actual, reason)
+        else:
+            cls._match_objects(actual, expected, reason)
 
     @classmethod
     def fuzzy_match(cls, actual, expected, reason=""):

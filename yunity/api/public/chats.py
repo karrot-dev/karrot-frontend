@@ -11,7 +11,7 @@ from yunity.utils.api.request import Parameter
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
-from yunity.utils.models.aggregate import Json_agg
+from yunity.utils.models.aggregate import JsonAggregate
 
 
 def user_has_rights_to_chat(chatid, userid):
@@ -51,7 +51,7 @@ class Chats(ApiBase, View):
             .values('id')
         chat_values = ChatModel.objects.filter(id__in=chats)\
             .order_by('id')\
-            .annotate(all_participants=Json_agg('participants'))\
+            .annotate(all_participants=JsonAggregate('participants'))\
             .values(
                 'id', 'all_participants', 'name'
             )

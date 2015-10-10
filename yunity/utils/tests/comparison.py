@@ -8,7 +8,7 @@ class DeepMatcher(object):
 
     @classmethod
     def _match_datetime_around_now(cls, actual, reason):
-        actual_time = datetime.strptime(actual.split(".")[0], "%Y-%m-%dT%H:%M:%S")
+        actual_time = datetime.strptime(actual.split('.')[0], '%Y-%m-%dT%H:%M:%S')
         now = datetime.utcnow()
         difference = now - actual_time
         if abs(difference.total_seconds()) > 60:
@@ -60,7 +60,7 @@ class DeepMatcher(object):
             cls._match_objects(actual, expected, reason)
 
     @classmethod
-    def fuzzy_match(cls, actual, expected, reason=""):
+    def fuzzy_match(cls, actual, expected, reason=''):
         """
         :raises ValueError: if the arguments do not match
         """

@@ -42,9 +42,9 @@ class IntegrationTest(object):
         try:
             return content_json(self.actual_response)['reason']
         except ValueError:
-            return '(not a json response)'
+            return 'not a json response'
         except KeyError:
-            return '(no error reason)'
+            return 'no error reason'
 
     def given_data(self):
         with atomic():
@@ -83,8 +83,9 @@ class IntegrationTest(object):
         expected_status = self.response_data['http_status']
         actual_status = self.actual_response.status_code
         if actual_status != expected_status:
-
-            testcase.fail('http status not matching: {}'.format(self.actual_exception_cause))
+            testcase.fail(
+                'http status not matching: expected: {} got {} ({})'.format(expected_status, actual_status,
+                                                                            self.actual_exception_cause))
 
     def then_response_body_matches(self, testcase):
         """

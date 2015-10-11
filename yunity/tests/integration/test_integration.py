@@ -2,7 +2,7 @@ from importlib import import_module
 
 from django.db.transaction import atomic
 from pkg_resources import resource_listdir
-from django.test import TestCase, Client
+from django.test import Client, TransactionTestCase
 
 from yunity.utils.misc import json_stringify, maybe_import
 from yunity.utils.response import content_json
@@ -125,7 +125,8 @@ class IntegrationTest(object):
         return test
 
 
-class IntegrationTestSuite(TestCase):
+class IntegrationTestSuite(TransactionTestCase):
+    serialized_rollback = True
     @classmethod
     def is_integration_test(cls, resource):
         """

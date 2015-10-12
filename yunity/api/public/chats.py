@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.db import IntegrityError
-from django.db.models import Q, Max, F
+from django.db.models import Q, Max
 from django.db.transaction import atomic
 from django.http import HttpRequest
 from django.views.generic import View
@@ -70,7 +70,6 @@ class Chats(ApiBase, View):
         chats = ChatModel.objects \
             .filter(participants__id__in=[request.user.id]) \
             .annotate(latest_message_time=Max('messages__created_at')) \
-            .filter(messages__created_at=F('latest_message_time')) \
             .order_by('-latest_message_time')
 
         return self.success({'chats': [chat_to_dict(chat) for chat in chats]})

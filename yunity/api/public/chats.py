@@ -139,26 +139,17 @@ class Chats(ApiBase, View):
         :rtype JsonResponse
 
         """
-        participant_ids = request.body['participants']
-        participants = UserModel.objects \
-            .filter(id__in=participant_ids) \
-            .all()
         chat = ChatModel.objects.create()
-        chat.participants = participants
+        chat.participants = request.body['participants']
+        chat.save()
 
-        message = request.body['message']
-
-        type_str = message['type']
-        if type_str not in ['TEXT', 'IMAGE']:
-            return self.error(reason='invalid type')
-        content = message['content']
-
-        message = MessageModel.objects.create(
+        MessageModel.objects.create(
             sent_by_id=request.user.id,
             in_conversation_id=chat.id,
-            type=type_str,
-            content=content,
+            type=request.body['message']['type'],
+            content=request.body['message']['content'],
         )
+
         return self.created({'id': chat.id})
 
 

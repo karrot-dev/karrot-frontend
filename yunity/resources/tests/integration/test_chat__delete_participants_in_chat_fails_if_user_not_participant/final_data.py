@@ -1,4 +1,5 @@
 from yunity.models import Chat
+from .initial_data import chatid, original_number_of_participants
 
-chat = Chat.objects.first()
-assert chat.participants.count() == 2, "Participant was not deleted"
+chat = Chat.objects.get(id=chatid)
+assert chat.participants.count() == original_number_of_participants, "Participant was deleted"

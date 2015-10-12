@@ -374,7 +374,7 @@ class ChatMessages(ApiBase, View):
 
         messages = MessageModel.objects \
             .filter(in_conversation=chatid) \
-            .reverse() \
+            .order_by('-created_at') \
             .all()
 
         return self.success({

@@ -462,12 +462,12 @@ class ChatParticipant(ApiBase, View):
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
-        ChatModel.objects \
-            .get(id=chatid) \
-            .filter(participants=userid) \
-            .delete()
+        chat = ChatModel.objects.get(id=chatid)
+        user = UserModel.objects.get(id=userid)
 
-        return self.success()
+        chat.participants.remove(user)
+
+        return self.deleted()
 
 urlpatterns = [
     url(r'^$', Chats.as_view()),

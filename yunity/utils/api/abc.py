@@ -4,7 +4,8 @@ from django.http import JsonResponse
 
 from yunity.api.ids import ids_uri_pattern_delim
 from yunity.utils.request import JsonRequest
-from yunity.resources.http.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN
+from yunity.resources.http.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN, \
+    HTTP_204_NO_CONTENT
 
 
 class ApiBase(object):
@@ -52,6 +53,15 @@ class ApiBase(object):
 
         """
         return cls._json_response(status=HTTP_201_CREATED, data=data)
+
+    @classmethod
+    def deleted(cls, data=None):
+        """
+        :type data: dict
+        :rtype JsonResponse
+
+        """
+        return cls._json_response(status=HTTP_204_NO_CONTENT, data=data)
 
     @classmethod
     def forbidden(cls, reason, **kwargs):

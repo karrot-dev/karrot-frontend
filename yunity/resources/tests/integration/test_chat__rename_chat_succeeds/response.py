@@ -2,7 +2,7 @@ from .initial_data import users
 from yunity.utils.tests.comparison import DeepMatcher
 
 response = {
-    "http_status": 201,
+    "http_status": 200,
     "response": {
            "participants": [users[0].id, users[1].id, users[2].id],
            "name": "New funny name",

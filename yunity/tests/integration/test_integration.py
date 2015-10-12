@@ -91,7 +91,13 @@ class IntegrationTest(object):
         """
         :type testcase: TestCase
         """
-        actual_response = content_json(self.actual_response)
+        def _get_response_json_content():
+            try:
+                return content_json(self.actual_response)
+            except ValueError:
+                testcase.fail('expected a json response, got: "{}"'.format(self.actual_response.content.decode('utf-8')))
+
+        actual_response = _get_response_json_content()
         expected_response = self.response_data.get('response', {})
         try:
             DeepMatcher.fuzzy_match(actual_response, expected_response)

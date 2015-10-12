@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from yunity.api.ids import ids_uri_pattern_delim
 from yunity.utils.request import JsonRequest
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN, \
-    HTTP_204_NO_CONTENT, HTTP_409_CONFLICT
+    HTTP_204_NO_CONTENT, HTTP_409_CONFLICT, HTTP_404_NOT_FOUND
 
 
 class ApiBase(object):
@@ -61,6 +61,15 @@ class ApiBase(object):
 
         """
         return cls._json_response(status=HTTP_204_NO_CONTENT)
+
+    @classmethod
+    def not_found(cls, reason):
+        """
+        :type reason: str
+        :rtype JsonResponse
+
+        """
+        return cls._json_response(status=HTTP_404_NOT_FOUND, reason=reason)
 
     @classmethod
     def forbidden(cls, reason):

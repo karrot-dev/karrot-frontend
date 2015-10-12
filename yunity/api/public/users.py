@@ -184,7 +184,7 @@ class UserSingle(ApiBase, View):
         try:
             modified_user = UserModel.objects.get(id=userid)
         except ObjectDoesNotExist:
-            return self.error(reason='user {} does not exist'.format(userid), status=HTTP_404_NOT_FOUND)
+            return self.not_found(reason='user {} does not exist'.format(userid))
 
         modified_user.display_name = request.body['display_name']
         modified_user.save()

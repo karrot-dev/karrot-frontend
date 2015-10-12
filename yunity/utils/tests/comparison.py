@@ -1,11 +1,12 @@
 from django.utils.datetime_safe import datetime
 
 
-class DeepMatcher(object):
-    ANY_INT = 'AnyInt'
-    ANY_STRING = 'AnyString'
-    DATETIME_AROUND_NOW = 'DatetimeAroundNow'
+ANY_INT = 'AnyInt'
+ANY_STRING = 'AnyString'
+DATETIME_AROUND_NOW = 'DatetimeAroundNow'
 
+
+class DeepMatcher(object):
     @classmethod
     def _match_datetime_around_now(cls, actual, reason):
         actual_time = datetime.strptime(actual.split('.')[0], '%Y-%m-%dT%H:%M:%S')
@@ -50,11 +51,11 @@ class DeepMatcher(object):
 
     @classmethod
     def _fuzzy_match_leaves(cls, actual, expected, reason):
-        if expected == cls.ANY_INT:
+        if expected == ANY_INT:
             cls._match_any_int(actual, reason)
-        elif expected == cls.ANY_STRING:
+        elif expected == ANY_STRING:
             cls._match_any_string(actual, reason)
-        elif expected == cls.DATETIME_AROUND_NOW:
+        elif expected == DATETIME_AROUND_NOW:
             cls._match_datetime_around_now(actual, reason)
         else:
             cls._match_objects(actual, expected, reason)

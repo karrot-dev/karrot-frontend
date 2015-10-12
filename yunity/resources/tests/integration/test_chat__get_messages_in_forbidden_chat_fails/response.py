@@ -1,6 +1,8 @@
+from yunity.utils.tests.comparison import ANY_STRING
+
 response = {
     "http_status": 403,
     "response": {
-        "reason": "AnyString"
+        "reason": ANY_STRING,
     }
 }

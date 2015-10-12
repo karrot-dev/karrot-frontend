@@ -1,25 +1,25 @@
 from yunity.utils.tests.abc import BaseTestCase, NoResult
-from yunity.utils.tests.comparison import DeepMatcher
+from yunity.utils.tests.comparison import DeepMatcher, ANY_INT, ANY_STRING
 
 
 class DeepMatcherTestCase(BaseTestCase):
     def test_fuzzy_match_succeeds_with_fuzzy_int_leaves(self):
-        self.given_data(actual=1, expected=DeepMatcher.ANY_INT)
+        self.given_data(actual=1, expected=ANY_INT)
         self.when_calling(DeepMatcher.fuzzy_match)
         self.then_invocation_passed_with(NoResult())
 
     def test_fuzzy_match_fails_with_fuzzy_int_leaves(self):
-        self.given_data(actual='foo', expected=DeepMatcher.ANY_INT)
+        self.given_data(actual='foo', expected=ANY_INT)
         self.when_calling(DeepMatcher.fuzzy_match)
         self.then_invocation_failed_with(ValueError)
 
     def test_fuzzy_match_succeeds_with_fuzzy_string_leaves(self):
-        self.given_data(actual='foo', expected=DeepMatcher.ANY_STRING)
+        self.given_data(actual='foo', expected=ANY_STRING)
         self.when_calling(DeepMatcher.fuzzy_match)
         self.then_invocation_passed_with(NoResult())
 
     def test_fuzzy_match_fails_with_fuzzy_string_leaves(self):
-        self.given_data(actual=1, expected=DeepMatcher.ANY_STRING)
+        self.given_data(actual=1, expected=ANY_STRING)
         self.when_calling(DeepMatcher.fuzzy_match)
         self.then_invocation_failed_with(ValueError)
 

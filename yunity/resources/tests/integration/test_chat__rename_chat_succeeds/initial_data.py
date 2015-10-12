@@ -11,7 +11,7 @@ chat.name = "initial unrelated name"
 chat.save()
 chatid = chat.id
 
-Message.objects.create(
+initial_message = Message.objects.create(
     content="Hello group chat!",
     type="TEXT",
     sent_by=users[0],

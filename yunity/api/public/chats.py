@@ -22,6 +22,15 @@ def user_has_rights_to_chat(chatid, userid):
         .exists()
 
 
+def message_to_dict(message):
+    return {
+        'id': message.id,
+        'sender': message.sent_by_id,
+        'created_at': message.created_at.isoformat(),
+        'type': message.type,
+        'content': message.content,
+    }
+
 class Chats(ApiBase, View):
     def get(self, request):
         """List all chats in which the currently logged in user is involved.
@@ -61,13 +70,7 @@ class Chats(ApiBase, View):
                 'id': chat.id,
                 'name': chat.name,
                 'participants': participants,
-                'message': {
-                    'id': newest_message.id,
-                    'sender': newest_message.sent_by_id,
-                    'created_at': newest_message.created_at.isoformat(),
-                    'type': newest_message.type,
-                    'content': newest_message.content,
-                },
+                'message': message_to_dict(newest_message),
             })
 
         return self.success({'chats': r})
@@ -290,13 +293,7 @@ class ChatMessages(ApiBase, View):
             content=request.body['content'],
         )
 
-        return self.created({
-            'id': message.id,
-            'sender': message.sent_by_id,
-            'created_at': message.created_at.isoformat(),
-            'type': message.type,
-            'content': message.content,
-        })
+        return self.created(message_to_dict(message))
 
     @resource_as('chatid', item_type=int)
     def get(self, request, chatid):
@@ -366,13 +363,7 @@ class ChatMessages(ApiBase, View):
             messages = messages[:int(take)]
 
         return self.success({
-            'messages': [{
-                'id': _.id,
-                'content': _.content,
-                'created_at': _.created_at.isoformat(),
-                'sender': _.sent_by_id,
-                'type': _.type,
-            } for _ in messages]
+            'messages': [message_to_dict(message) for message in messages]
         })
 
 

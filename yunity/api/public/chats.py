@@ -369,15 +369,23 @@ class ChatMessages(ApiBase, View):
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
-        if request.GET['take'] or request.GET['before_id']:
-            return NotImplemented
+        if 'take' in request.GET or 'before_id' in request.GET:
+            raise NotImplementedError
 
         messages = MessageModel.objects \
             .filter(in_conversation=chatid) \
             .reverse() \
             .all()
 
-        return self.success({'messages': [_.id for _ in messages]})
+        return self.success({
+            'messages': [{
+                'id': _.id,
+                'content': _.content,
+                'created_at': _.created_at.isoformat(),
+                'sender': _.sent_by_id,
+                'type': _.type,
+            } for _ in messages]
+        })
 
 
 class ChatParticipants(ApiBase, View):

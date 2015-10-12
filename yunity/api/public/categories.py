@@ -103,7 +103,7 @@ class Categories(ApiBase, View):
 
         """
         if _category_name_exists(request.body['name']):
-            return self.error(reason='category name already exists', status=HTTP_409_CONFLICT)
+            return self.conflict(reason='category name already exists')
         if not _category_exists(request.body['parent']):
             return self.error(reason='parent category does not exist')
 

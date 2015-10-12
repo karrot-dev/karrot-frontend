@@ -91,8 +91,8 @@ class UserAll(ApiBase, View):
                     category=category,
                     display_name=request.body['display_name'],
                 )
-        except IntegrityError as e:
-            return self.error(reason=str(e), status=HTTP_409_CONFLICT)
+        except IntegrityError:
+            return self.conflict(reason='user already exists')
 
         return self.created({
             "id": user.id,

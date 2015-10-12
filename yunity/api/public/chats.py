@@ -369,13 +369,18 @@ class ChatMessages(ApiBase, View):
         if not user_has_rights_to_chat(chatid, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
-        if 'take' in request.GET or 'before_id' in request.GET:
+        if 'before_id' in request.GET:
             raise NotImplementedError
 
         messages = MessageModel.objects \
             .filter(in_conversation=chatid) \
-            .order_by('-created_at') \
-            .all()
+            .order_by('-created_at')
+
+        if 'take' in request.GET:
+            take = int(request.GET['take'])
+            messages = messages[:take]
+        else:
+            messages = messages.all()
 
         return self.success({
             'messages': [{

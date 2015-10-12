@@ -425,7 +425,7 @@ class ChatParticipants(ApiBase, View):
         except IntegrityError as e:
             return self.error(reason='A supplied user does not exist')
 
-        return self.success()
+        return self.created()
 
 
 class ChatParticipant(ApiBase, View):

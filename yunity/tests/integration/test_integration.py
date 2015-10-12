@@ -83,9 +83,11 @@ class IntegrationTest(object):
         expected_status = self.response_data['http_status']
         actual_status = self.actual_response.status_code
         if actual_status != expected_status:
-            testcase.fail(
-                'http status not matching: expected: {} got {} ({})'.format(expected_status, actual_status,
-                                                                            self.actual_exception_cause))
+            testcase.fail('http status not matching: expected: {} got {} ({})'.format(
+                expected_status,
+                actual_status,
+                self.actual_exception_cause,
+            ))
 
     def then_response_body_matches(self, testcase):
         """

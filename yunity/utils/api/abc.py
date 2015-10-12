@@ -55,35 +55,32 @@ class ApiBase(object):
         return cls._json_response(status=HTTP_201_CREATED, data=data)
 
     @classmethod
-    def deleted(cls, data=None):
+    def deleted(cls):
         """
-        :type data: dict
         :rtype JsonResponse
 
         """
-        return cls._json_response(status=HTTP_204_NO_CONTENT, data=data)
+        return cls._json_response(status=HTTP_204_NO_CONTENT)
 
     @classmethod
-    def forbidden(cls, reason, **kwargs):
+    def forbidden(cls, reason):
         """
         :type reason: str
-        :type kwargs: dict
         :rtype JsonResponse
 
         """
-        return cls._json_response(status=HTTP_403_FORBIDDEN, reason=reason, **kwargs)
+        return cls._json_response(status=HTTP_403_FORBIDDEN, reason=reason)
 
     @classmethod
-    def error(cls, reason, status=HTTP_400_BAD_REQUEST, **kwargs):
+    def error(cls, reason, status=HTTP_400_BAD_REQUEST):
         """
         :type reason: str
         :type status: int
-        :type kwargs: dict
         :rtype JsonResponse
         :param status: HTTP response status, defined in status.py
 
         """
-        return cls._json_response(status, reason=reason, **kwargs)
+        return cls._json_response(status, reason=reason)
 
 
 def body_as_json(parameters=None):

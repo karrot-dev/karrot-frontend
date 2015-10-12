@@ -7,7 +7,9 @@ user_to_delete = users[2]
 
 chat = Chat.objects.create()
 chat.participants.add(*users)
+
 chatid = chat.id
+original_number_of_participants = chat.participants.count()
 
 Message.objects.create(
     content="Hello Matthias!",

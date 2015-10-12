@@ -407,6 +407,8 @@ class ChatParticipants(ApiBase, View):
                 description: All users added
             400:
                 description: At least one user does not exist, none added
+            403:
+                description: The user does not have the rights to add participants to the chat
         ...
 
         :type request: HttpRequest

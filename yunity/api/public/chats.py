@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.db import IntegrityError
-from django.db.models import Q
+from django.db.models import Q, Max, F
 from django.db.transaction import atomic
 from django.http import HttpRequest
 from django.views.generic import View
@@ -13,7 +13,6 @@ from yunity.utils.request import Parameter
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
-from yunity.utils.models.aggregate import JsonAggregate
 
 
 def user_has_rights_to_chat(chatid, userid):
@@ -49,37 +48,29 @@ class Chats(ApiBase, View):
 
         """
         chats = ChatModel.objects \
-            .filter(participants=request.user.id) \
-            .values('id')
-        chat_values = ChatModel.objects.filter(id__in=chats)\
-            .order_by('id')\
-            .annotate(all_participants=JsonAggregate('participants'))\
-            .values(
-                'id', 'all_participants', 'name'
-            )
-        messages = MessageModel.objects.filter(in_conversation__in=chats)\
-            .order_by('in_conversation','-created_at')\
-            .distinct('in_conversation')\
-            .values('in_conversation','created_at','id','content','type','sent_by_id')
-        messages = list(messages)
-        messages.sort(key=lambda x: x['created_at'], reverse=True)
+            .filter(participants__id__in=[request.user.id]) \
+            .annotate(latest_message_time=Max('messages__created_at')) \
+            .filter(messages__created_at=F('latest_message_time')) \
+            .order_by('-latest_message_time')
 
-        message_dict = []
-        for m in messages:
-            cv = chat_values.get(id=m['in_conversation'])
-            o = {"participants": cv['all_participants'],
-                 "name": cv['name'],
-                 "message": {
-                     "id": m['id'],
-                     "content": m['content'],
-                     "type": m['type'],
-                     "sender": m['sent_by_id'],
-                     "created_at": m['created_at'].isoformat()
-                    },
-                 "id": m['in_conversation']}
-            message_dict.append(o)
+        r = []
+        for chat in chats:
+            participants = [_['id'] for _ in chat.participants.order_by('id').values('id')]
+            newest_message = chat.messages.order_by('-created_at').first()
+            r.append({
+                'id': chat.id,
+                'name': chat.name,
+                'participants': participants,
+                'message': {
+                    'id': newest_message.id,
+                    'sender': newest_message.sent_by_id,
+                    'created_at': newest_message.created_at.isoformat(),
+                    'type': newest_message.type,
+                    'content': newest_message.content,
+                },
+            })
 
-        return self.success({'chats': message_dict})
+        return self.success({'chats': r})
 
     @body_as_json(parameters=(
         Parameter(name='message', validator=validate_chat_message),

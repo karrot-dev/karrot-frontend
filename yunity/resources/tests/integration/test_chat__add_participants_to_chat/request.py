@@ -1,10 +1,10 @@
-from .initial_data import request_user, chatid, add_users
+from .initial_data import request_user, chat, add_users
 
 request = {
-    "endpoint": "/api/chats/{}/participants".format(chatid),
+    "endpoint": "/api/chats/{}/participants".format(chat.id),
     "method": "post",
     "user": request_user,
     "body": {
-        "users": [add_users[0].id, add_users[1].id]
+        "users": [_.id for _ in add_users],
     }
 }

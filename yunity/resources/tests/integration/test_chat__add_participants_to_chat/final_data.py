@@ -1,4 +1,5 @@
 from yunity.models import Chat
+from .initial_data import chat, add_users, initial_users
 
-chat = Chat.objects.first()
-assert chat.participants.count() == 4, "Participants were not added"
+num_chat_participants = Chat.objects.get(id=chat.id).participants.count()
+assert num_chat_participants == len(add_users) + len(initial_users), "Participants were not added"

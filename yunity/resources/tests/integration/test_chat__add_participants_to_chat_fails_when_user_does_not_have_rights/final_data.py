@@ -1,4 +1,5 @@
 from yunity.models import Chat
-from .initial_data import chatid, number_of_initial_participants
+from .initial_data import chat, initial_users
 
-assert Chat.objects.get(id=chatid).participants.count() == number_of_initial_participants, "Participant are not supposed to change"
+num_chat_participants = Chat.objects.get(id=chat.id).participants.count()
+assert num_chat_participants == len(initial_users), "Participant are not supposed to change"

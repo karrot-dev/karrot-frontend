@@ -8,7 +8,6 @@ add_users = users[2:]
 
 chat = Chat.objects.create()
 chat.participants.add(*initial_users)
-chatid = chat.id
 
 Message.objects.create(
     content="Hello group chat!",

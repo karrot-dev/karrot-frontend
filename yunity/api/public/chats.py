@@ -302,13 +302,19 @@ class ChatMessages(ApiBase, View):
             return self.forbidden(reason='user does not have rights to chat')
 
         message = MessageModel.objects.create(
-            sent_by=request.user.id,
+            sent_by=request.user,
             in_conversation_id=chatid,
             type=request.body['type'],
             content=request.body['content'],
         )
 
-        return self.success({'id': message.id})
+        return self.created({
+            'id': message.id,
+            'sender': message.sent_by_id,
+            'created_at': message.created_at.isoformat(),
+            'type': message.type,
+            'content': message.content,
+        })
 
     @resource_as('chatid', item_type=int)
     def get(self, request, chatid):

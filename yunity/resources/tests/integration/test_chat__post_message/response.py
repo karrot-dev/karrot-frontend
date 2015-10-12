@@ -1,13 +1,13 @@
-from .initial_data import request_user
-from yunity.utils.tests.comparison import DeepMatcher
+from .initial_data import chat_responder
+from .request import request
 
 response = {
     "http_status": 201,
     "response": {
-        "content": "Hello Matthias!",
-        "sender": request_user,
-        "created_at": DeepMatcher.DATETIME_AROUND_NOW,
+        "content": request["body"]["content"],
+        "sender": chat_responder.id,
+        "created_at": "DatetimeAroundNow",
         "id": "AnyInt",
-        "type": "TEXT"
+        "type": request["body"]["type"]
     }
 }

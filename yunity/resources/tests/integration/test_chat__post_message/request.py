@@ -1,9 +1,9 @@
-from .initial_data import request_user, chatid
+from .initial_data import chat_responder, chat
 
 request = {
-    "endpoint": "/api/chats/{}/messages".format(chatid),
+    "endpoint": "/api/chats/{}/messages".format(chat.id),
     "method": "post",
-    "user": request_user,
+    "user": chat_responder,
     "body": {
         "content": "Hello Matthias!",
         "type": "TEXT"

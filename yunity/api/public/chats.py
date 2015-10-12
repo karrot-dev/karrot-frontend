@@ -22,6 +22,17 @@ def user_has_rights_to_chat(chatid, userid):
         .exists()
 
 
+def chat_to_dict(chat):
+    participants = [_['id'] for _ in chat.participants.order_by('id').values('id')]
+    newest_message = chat.messages.order_by('-created_at').first()
+    return {
+        'id': chat.id,
+        'name': chat.name,
+        'participants': participants,
+        'message': message_to_dict(newest_message),
+    }
+
+
 def message_to_dict(message):
     return {
         'id': message.id,
@@ -62,18 +73,7 @@ class Chats(ApiBase, View):
             .filter(messages__created_at=F('latest_message_time')) \
             .order_by('-latest_message_time')
 
-        r = []
-        for chat in chats:
-            participants = [_['id'] for _ in chat.participants.order_by('id').values('id')]
-            newest_message = chat.messages.order_by('-created_at').first()
-            r.append({
-                'id': chat.id,
-                'name': chat.name,
-                'participants': participants,
-                'message': message_to_dict(newest_message),
-            })
-
-        return self.success({'chats': r})
+        return self.success({'chats': [chat_to_dict(chat) for chat in chats]})
 
     @body_as_json(parameters=(
         Parameter(name='message', validator=validate_chat_message),
@@ -201,9 +201,7 @@ class Chat(ApiBase, View):
         chat.name = request.body['name']
         chat.save()
 
-        return self.success({
-            'name': chat.name,
-        })
+        return self.success(chat_to_dict(chat))
 
 
 class ChatMessages(ApiBase, View):

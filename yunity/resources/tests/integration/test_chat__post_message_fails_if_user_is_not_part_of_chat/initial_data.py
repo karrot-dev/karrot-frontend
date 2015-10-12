@@ -1,16 +1,14 @@
 from yunity.models import Chat, Message
 from yunity.utils.tests.mock import MockUser
 
-users = MockUser.create_batch(2)
-request_user = users[0]
+chat_starter, request_user = MockUser.create_batch(2)
 
 chat = Chat.objects.create()
-chat.participants.add(*users)
-chatid = chat.id
+chat.participants.add(chat_starter)
 
 Message.objects.create(
     content="Hey, I created a chat",
     type="TEXT",
-    sent_by=users[1],
+    sent_by=chat_starter,
     in_conversation=chat
 )

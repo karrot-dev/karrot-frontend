@@ -90,15 +90,13 @@ class ApiBase(object):
         return cls._json_response(status=HTTP_409_CONFLICT, reason=reason)
 
     @classmethod
-    def error(cls, reason, status=HTTP_400_BAD_REQUEST):
+    def error(cls, reason):
         """
         :type reason: str
-        :type status: int
         :rtype JsonResponse
-        :param status: HTTP response status, defined in status.py
 
         """
-        return cls._json_response(status, reason=reason)
+        return cls._json_response(status=HTTP_400_BAD_REQUEST, reason=reason)
 
 
 def body_as_json(parameters=None):

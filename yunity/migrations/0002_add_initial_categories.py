@@ -25,7 +25,7 @@ def remove_initial_categories(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('yunity', '0002_auto_20151003_1204'),
+        ('yunity', '0001_initial'),
     ]
 
     operations = [

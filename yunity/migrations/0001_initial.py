@@ -58,8 +58,8 @@ class Migration(migrations.Migration):
                 ('provenance', yunity.utils.models.field.MaxLengthCharField(max_length=255)),
                 ('name', models.TextField()),
                 ('locations', django.contrib.postgres.fields.jsonb.JSONField()),
-                ('contacts', django.contrib.postgres.fields.jsonb.JSONField()),
-                ('metadata', django.contrib.postgres.fields.jsonb.JSONField()),
+                ('contacts', django.contrib.postgres.fields.jsonb.JSONField(null=True)),
+                ('metadata', django.contrib.postgres.fields.jsonb.JSONField(null=True)),
             ],
             bases=('yunity.versiontrait', 'yunity.feedbacktrait', 'yunity.administrationtrait',
                    yunity.elasticsearch.abc.ElasticsearchMixin),
@@ -75,6 +75,7 @@ class Migration(migrations.Migration):
                 ('is_staff', models.BooleanField(default=False)),
                 ('date_joined', models.DateTimeField(default=django.utils.timezone.now)),
                 ('display_name', models.TextField()),
+                ('picture_url', models.TextField(null=True)),
             ],
             options={
                 'abstract': False,
@@ -88,7 +89,7 @@ class Migration(migrations.Migration):
             name='Category',
             fields=[
                 ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.BaseModel')),
-                ('name', yunity.utils.models.field.MaxLengthCharField(max_length=255)),
+                ('name', yunity.utils.models.field.MaxLengthCharField(max_length=255, unique=True)),
                 ('parent', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='children', to='yunity.Category')),
             ],
             bases=('yunity.basemodel',),
@@ -184,6 +185,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('conversation_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='yunity.Conversation')),
                 ('participants', models.ManyToManyField(to=settings.AUTH_USER_MODEL)),
+                ('name', yunity.utils.models.field.MaxLengthCharField(max_length=255, null=True)),
             ],
             bases=('yunity.conversation',),
         ),

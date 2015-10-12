@@ -12,7 +12,6 @@ from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list, resour
 from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
 from yunity.models import User as UserModel
-from yunity.resources.http.status import HTTP_404_NOT_FOUND, HTTP_409_CONFLICT
 
 
 def _has_rights_to_modify(request_user_id, modified_user_id):

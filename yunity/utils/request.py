@@ -27,23 +27,17 @@ class JsonRequest(object):
         self._json_body = json_body
 
     @classmethod
-    def from_http_request(cls, http_request, parameters=None):
+    def from_http_request(cls, http_request):
         """
         :type http_request: HttpRequest
-        :type parameters: list
         :rtype: JsonRequest
-        :raises ValueError: if the request body is not valid JSON or one of the expected keys is missing
+        :raises ValueError: if the request body is not valid JSON
 
         """
-        parameters = parameters or []
-
         try:
             json_data = load_json(http_request.body.decode("utf-8"))
         except ValueError:
             raise ValueError('incorrect json request')
-
-        for paramter in parameters:
-            paramter.validator(json_data)
 
         return cls(http_request, json_data)
 

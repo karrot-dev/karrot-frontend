@@ -3,11 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.middleware.csrf import get_token
 from django.views.generic import View
 
-from yunity.api.validation import validate_user_email
-from yunity.api.validation import validate_user_password
+from yunity.api import types
 from yunity.utils.session import RealtimeClientData
-from yunity.utils.api.abc import ApiBase, body_as_json
-from yunity.utils.request import Parameter
+from yunity.utils.api.abc import ApiBase, request_parameter, json_request
 
 
 class Login(ApiBase, View):
@@ -37,10 +35,9 @@ class Login(ApiBase, View):
         else:
             return self.success({'user': {}})
 
-    @body_as_json(parameters=[
-        Parameter(name='email', validator=validate_user_email),
-        Parameter(name='password', validator=validate_user_password),
-    ])
+    @json_request
+    @request_parameter('email', of_type=types.user_email)
+    @request_parameter('password', of_type=types.user_password)
     def post(self, request):
         """Logs in the user using the provided credentials
         ---

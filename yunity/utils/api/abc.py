@@ -103,24 +103,47 @@ class ApiBase(object):
         return cls._json_response(status=HTTP_400_BAD_REQUEST, reason=reason)
 
 
-def body_as_json(parameters=None):
-    """Decorator to validate that a request is in JSON and (optionally) has some specific keys in the JSON object
-    The decorator modifies the request object, parsing the request.body field into a dictionary.
-    Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
+def json_request(func):
+    """Decorator to validate that the body of a request is in JSON
+    (gives a 400 response if the request body does not decode into valid json).
 
-    :type parameters: list
+    The decorator modifies the request object, parsing the request.body field into a dictionary.
+
+    Note: This decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
     """
-    parameters = parameters or []
+
+    @wraps(func)
+    def wrapper(api_base, request, *args, **kwargs):
+        try:
+            request = JsonRequest.from_http_request(request)
+        except ValueError:
+            return api_base.validation_failure(reason='not a valid json request')
+
+        return func(api_base, request, *args, **kwargs)
+    return wrapper
+
+
+def request_parameter(with_name, of_type=str):
+    """Decorator to validate that the named parameter on the request body exists and passes some validation
+    (gives a 400 response if any of the resources do not convert to the type).
+
+    Note: This decorator should only be used on http-dispatch methods on ApiBase.
+
+    :type with_name: str
+    :type of_type: function :: str -> T
+    """
 
     def decorator(func):
         @wraps(func)
         def wrapper(api_base, request, *args, **kwargs):
             try:
-                json_request = JsonRequest.from_http_request(request, parameters)
+                request.body[with_name] = of_type(request.body[with_name])
+            except KeyError:
+                return api_base.validation_failure(reason='missing request parameter {}'.format(with_name))
             except ValueError as e:
                 return api_base.validation_failure(reason=str(e))
 
-            return func(api_base, json_request, *args, **kwargs)
+            return func(api_base, request, *args, **kwargs)
         return wrapper
     return decorator
 

@@ -2,9 +2,8 @@ from django.conf.urls import url
 from django.http import HttpRequest
 from django.views.generic import View
 
-from yunity.api.validation import validate_category_name, validate_category_parent
-from yunity.utils.api.abc import ApiBase, body_as_json
-from yunity.utils.request import Parameter
+from yunity.api import types
+from yunity.utils.api.abc import ApiBase, json_request, request_parameter
 from yunity.models import Category as CategoryModel
 
 
@@ -54,10 +53,9 @@ class Categories(ApiBase, View):
             'parent': _.parent_id,
         } for _ in categories]})
 
-    @body_as_json(parameters=[
-        Parameter(name='name', validator=validate_category_name),
-        Parameter(name='parent', validator=validate_category_parent),
-    ])
+    @json_request
+    @request_parameter('name', of_type=types.category_name)
+    @request_parameter('parent', of_type=types.category_parent)
     def post(self, request):
         """Creates a new category.
         ---

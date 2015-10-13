@@ -1,16 +1,15 @@
-from functools import wraps
 from django.conf.urls import url
 from django.db import IntegrityError
-from django.db.models import Q, Max
+from django.db.models import Max
 from django.db.transaction import atomic
 from django.http import HttpRequest
+
 from django.views.generic import View
 
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
-from yunity.api.validation import validate_chat_message, validate_chat_participants, validate_chat_name, \
-    validate_chat_message_type, validate_chat_message_content, validate_chat_users
-from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource, permissions_required_for
-from yunity.utils.request import Parameter
+from yunity.api import types
+from yunity.utils.api.abc import ApiBase, uri_resource, permissions_required_for, json_request, \
+    request_parameter
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
@@ -69,10 +68,9 @@ class Chats(ApiBase, View):
 
         return self.success({'chats': [chat_to_dict(chat) for chat in chats]})
 
-    @body_as_json(parameters=(
-        Parameter(name='message', validator=validate_chat_message),
-        Parameter(name='participants', validator=validate_chat_participants),
-    ))
+    @json_request
+    @request_parameter('message', of_type=types.message)
+    @request_parameter('participants', of_type=types.list_of_userids)
     def post(self, request):
         """Create a new chat involving participants and add the first message.
         ---
@@ -151,10 +149,9 @@ class Chats(ApiBase, View):
 
 
 class Chat(ApiBase, View):
+    @json_request
     @uri_resource('chat', of_type=ChatModel)
-    @body_as_json(parameters=[
-        Parameter(name='name', validator=validate_chat_name),
-    ])
+    @request_parameter('name', of_type=types.chat_name)
     @permissions_required_for('chat')
     def put(self, request, chat):
         """Update details about specific chat
@@ -198,11 +195,10 @@ class Chat(ApiBase, View):
 
 
 class ChatMessages(ApiBase, View):
+    @json_request
     @uri_resource('chat', of_type=ChatModel)
-    @body_as_json(parameters=[
-        Parameter(name='type', validator=validate_chat_message_type),
-        Parameter(name='content', validator=validate_chat_message_content),
-    ])
+    @request_parameter('type', of_type=types.message_type)
+    @request_parameter('content', of_type=types.message_content)
     @permissions_required_for('chat')
     def post(self, request, chat):
         """ Send a new message in given chat
@@ -359,10 +355,9 @@ class ChatMessages(ApiBase, View):
 
 
 class ChatParticipants(ApiBase, View):
+    @json_request
     @uri_resource('chat', of_type=ChatModel)
-    @body_as_json(parameters=[
-        Parameter(name='users', validator=validate_chat_users),
-    ])
+    @request_parameter('users', of_type=types.list_of_userids)
     @permissions_required_for('chat')
     def post(self, request, chat):
         """Add a list of users to the chat.

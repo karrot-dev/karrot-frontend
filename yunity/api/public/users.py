@@ -6,10 +6,9 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
-from yunity.api.validation import validate_user_email, validate_user_display_name
-from yunity.api.validation import validate_user_password
-from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource, permissions_required_for
-from yunity.utils.request import Parameter
+from yunity.api import types
+from yunity.utils.api.abc import ApiBase, uri_resource, permissions_required_for, json_request, \
+    request_parameter
 from yunity.models import Category as CategoryModel
 
 
@@ -33,11 +32,10 @@ def parse_locations(request):
 
 
 class UserAll(ApiBase, View):
-    @body_as_json(parameters=[
-        Parameter(name='email', validator=validate_user_email),
-        Parameter(name='password', validator=validate_user_password),
-        Parameter(name='display_name', validator=validate_user_display_name),
-    ])
+    @json_request
+    @request_parameter('email', of_type=types.user_email)
+    @request_parameter('password', of_type=types.user_password)
+    @request_parameter('display_name', of_type=types.user_display_name)
     def post(self, request):
         """register a new user
         ---
@@ -139,10 +137,9 @@ class UserMultiple(ApiBase, View):
 
 
 class UserSingle(ApiBase, View):
+    @json_request
     @uri_resource('user', of_type=get_user_model())
-    @body_as_json(parameters=[
-        Parameter(name='display_name', validator=validate_user_display_name),
-    ])
+    @request_parameter('display_name', of_type=types.user_display_name)
     @permissions_required_for('user')
     def put(self, request, user):
         """Modify a user: Yourself or any user you have sufficient rights for.

@@ -7,6 +7,14 @@ from yunity.utils.api.abc import ApiBase, json_request, request_parameter
 from yunity.models import Category as CategoryModel
 
 
+def category_to_json(category):
+    return {
+        'id': category.id,
+        'name': category.name,
+        'parent': category.parent_id,
+    }
+
+
 class Categories(ApiBase, View):
     def get(self, request):
         """List all categories.
@@ -39,11 +47,7 @@ class Categories(ApiBase, View):
         """
         categories = CategoryModel.objects.all()
 
-        return self.success({'categories': [{
-            'id': _.id,
-            'name': _.name,
-            'parent': _.parent_id,
-        } for _ in categories]})
+        return self.success({'categories': [category_to_json(category) for category in categories]})
 
     @json_request
     @request_parameter('name', of_type=types.category_name)

@@ -124,40 +124,14 @@ def body_as_json(parameters=None):
     return decorator
 
 
-def resource_as(param_name, item_type=str):
-    """Decorator to convert a single resource from the URI into a given type.
-    If the type is a model, look-up an intance of the model by id.
-    Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
+def resource_as(param_name, item_type=str, delim=ids_uri_pattern_delim):
+    """Decorator to parse one or more resources from an URI and convert them to a certain type
+    (gives a 400 response if any of the resources do not convert to the type).
 
-    :type param_name: str
-    :type item_type: function :: str -> T
-    """
-    def decorator(func):
-        @wraps(func)
-        def wrapper(api_base, *args, **kwargs):
-            raw_param = kwargs.get(param_name)
-            if raw_param:
-                if type(item_type) == type(Model):
-                    try:
-                        parsed_param = item_type.objects.get(id=raw_param)
-                    except ObjectDoesNotExist:
-                        return api_base.not_found(reason='{} does not exist'.format(item_type.__class__.__name__))
-                else:
-                    try:
-                        parsed_param = item_type(raw_param)
-                    except ValueError:
-                        return api_base.validation_failure(reason='parameter does not have type {}'.format(item_type.__name__))
-                kwargs[param_name] = parsed_param
+    If the type is a model, look-up the intances of the model by ids of the resources
+    (gives a 404 response if any of the resources are not found).
 
-            return func(api_base, *args, **kwargs)
-        return wrapper
-    return decorator
-
-
-def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
-    """Decorator to split a multi-resource URI into a list of multiple resources.
-    If the type is a model, look-up the intances of the model by ids.
-    Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
+    Note: This decorator should only be used on http-dispatch methods on ApiBase.
 
     :type param_name: str
     :type item_type: function :: str -> T
@@ -177,7 +151,7 @@ def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
                         parsed_params = [item_type(raw_param) for raw_param in raw_params]
                     except ValueError:
                         return api_base.validation_failure(reason='one or more parameters does not have type {}'.format(item_type.__name__))
-                kwargs[param_name] = parsed_params
+                kwargs[param_name] = parsed_params if len(parsed_params) > 1 else parsed_params[0]
 
             return func(api_base, *args, **kwargs)
         return wrapper

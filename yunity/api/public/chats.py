@@ -449,6 +449,5 @@ urlpatterns = [
     url(r'^{chat}/?$'.format(chat=chat_id_uri_pattern), Chat.as_view()),
     url(r'^{chat}/messages/?$'.format(chat=chat_id_uri_pattern), ChatMessages.as_view()),
     url(r'^{chat}/participants/?$'.format(chat=chat_id_uri_pattern), ChatParticipants.as_view()),
-    url(r'^{chat}/participants/{user}/?$'.format(chat=chat_id_uri_pattern, user=user_id_uri_pattern),
-        ChatParticipant.as_view()),
+    url(r'^{chat}/participants/{user}/?$'.format(chat=chat_id_uri_pattern, user=user_id_uri_pattern), ChatParticipant.as_view()),
 ]

@@ -124,7 +124,7 @@ def body_as_json(parameters=None):
     return decorator
 
 
-def resource_as(param_name, item_type=str, delim=ids_uri_pattern_delim):
+def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_pattern_delim):
     """Decorator to parse one or more resources from an URI and convert them to a certain type
     (gives a 400 response if any of the resources do not convert to the type).
 
@@ -133,25 +133,25 @@ def resource_as(param_name, item_type=str, delim=ids_uri_pattern_delim):
 
     Note: This decorator should only be used on http-dispatch methods on ApiBase.
 
-    :type param_name: str
-    :type item_type: function :: str -> T
-    :type delim: str
+    :type with_name: str
+    :type of_type: function :: str -> T
+    :type with_multi_resource_separator: str
     """
     def decorator(func):
         @wraps(func)
         def wrapper(api_base, *args, **kwargs):
-            raw_params = kwargs.get(param_name, '').split(delim)
+            raw_params = kwargs.get(with_name, '').split(with_multi_resource_separator)
             if raw_params:
-                if type(item_type) == type(Model):
-                    parsed_params = item_type.objects.filter(id__in=raw_params)
+                if type(of_type) == type(Model):
+                    parsed_params = of_type.objects.filter(id__in=raw_params)
                     if len(parsed_params) != len(raw_params):
-                        return api_base.not_found(reason='one or more {}s do not exist'.format(item_type.__class__.__name__))
+                        return api_base.not_found(reason='one or more {}s do not exist'.format(of_type.__class__.__name__))
                 else:
                     try:
-                        parsed_params = [item_type(raw_param) for raw_param in raw_params]
+                        parsed_params = [of_type(raw_param) for raw_param in raw_params]
                     except ValueError:
-                        return api_base.validation_failure(reason='one or more parameters does not have type {}'.format(item_type.__name__))
-                kwargs[param_name] = parsed_params if len(parsed_params) > 1 else parsed_params[0]
+                        return api_base.validation_failure(reason='one or more parameters does not have type {}'.format(of_type.__name__))
+                kwargs[with_name] = parsed_params if len(parsed_params) > 1 else parsed_params[0]
 
             return func(api_base, *args, **kwargs)
         return wrapper

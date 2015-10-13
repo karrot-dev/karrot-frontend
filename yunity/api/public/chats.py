@@ -8,7 +8,7 @@ from django.views.generic import View
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api.validation import validate_chat_message, validate_chat_participants, validate_chat_name, \
     validate_chat_message_type, validate_chat_message_content, validate_chat_users
-from yunity.utils.api.abc import ApiBase, body_as_json, resource_as
+from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource
 from yunity.utils.request import Parameter
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
@@ -157,7 +157,7 @@ class Chats(ApiBase, View):
 
 
 class Chat(ApiBase, View):
-    @resource_as('chat', item_type=ChatModel)
+    @uri_resource('chat', of_type=ChatModel)
     @body_as_json(parameters=[
         Parameter(name='name', validator=validate_chat_name),
     ])
@@ -206,7 +206,7 @@ class Chat(ApiBase, View):
 
 
 class ChatMessages(ApiBase, View):
-    @resource_as('chat', item_type=ChatModel)
+    @uri_resource('chat', of_type=ChatModel)
     @body_as_json(parameters=[
         Parameter(name='type', validator=validate_chat_message_type),
         Parameter(name='content', validator=validate_chat_message_content),
@@ -296,7 +296,7 @@ class ChatMessages(ApiBase, View):
 
         return self.created(message_to_dict(message))
 
-    @resource_as('chat', item_type=ChatModel)
+    @uri_resource('chat', of_type=ChatModel)
     def get(self, request, chat):
         """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
         ---
@@ -371,7 +371,7 @@ class ChatMessages(ApiBase, View):
 
 
 class ChatParticipants(ApiBase, View):
-    @resource_as('chat', item_type=ChatModel)
+    @uri_resource('chat', of_type=ChatModel)
     @body_as_json(parameters=[
         Parameter(name='users', validator=validate_chat_users),
     ])
@@ -426,8 +426,8 @@ class ChatParticipants(ApiBase, View):
 
 
 class ChatParticipant(ApiBase, View):
-    @resource_as('chat', item_type=ChatModel)
-    @resource_as('user', item_type=UserModel)
+    @uri_resource('chat', of_type=ChatModel)
+    @uri_resource('user', of_type=UserModel)
     def delete(self, request, chat, user):
         """Remove a user from the chat.
         ---

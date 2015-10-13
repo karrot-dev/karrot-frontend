@@ -7,7 +7,7 @@ from django.views.generic import View
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.api.validation import validate_user_email, validate_user_display_name
 from yunity.api.validation import validate_user_password
-from yunity.utils.api.abc import ApiBase, body_as_json, resource_as
+from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource
 from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
 
@@ -98,7 +98,7 @@ class UserAll(ApiBase, View):
 
 
 class UserMultiple(ApiBase, View):
-    @resource_as('users', item_type=get_user_model())
+    @uri_resource('users', of_type=get_user_model())
     def get(self, request, users):
         """get details about all given users
         ---
@@ -138,7 +138,7 @@ class UserMultiple(ApiBase, View):
 
 
 class UserSingle(ApiBase, View):
-    @resource_as('user', item_type=get_user_model())
+    @uri_resource('user', of_type=get_user_model())
     @body_as_json(parameters=[
         Parameter(name='display_name', validator=validate_user_display_name),
     ])

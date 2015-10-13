@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from django.contrib.auth import get_user_model
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError, transaction
 from django.http import HttpRequest
 from django.views.generic import View
@@ -11,7 +10,6 @@ from yunity.api.validation import validate_user_password
 from yunity.utils.api.abc import ApiBase, body_as_json, resource_as_list, resource_as
 from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
-from yunity.models import User as UserModel
 
 
 def _has_rights_to_modify(request_user_id, modified_user_id):
@@ -100,8 +98,8 @@ class UserAll(ApiBase, View):
 
 
 class UserMultiple(ApiBase, View):
-    @resource_as_list('userids', item_type=int)
-    def get(self, request, userids):
+    @resource_as_list('users', item_type=get_user_model())
+    def get(self, request, users):
         """get details about all given users
         ---
         tags:
@@ -129,24 +127,22 @@ class UserMultiple(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type userids: [int]
-        """
-        users = get_user_model().objects\
-            .filter(id__in=userids)\
-            .values('id', 'display_name', 'picture_url')\
-            .all()
-        if len(users) != len(userids):
-            return self.error(reason="one or more userids do not exist")
+        :type users: [UserModel]
 
-        return self.success({"users": [dict(_) for _ in users]})
+        """
+        return self.success({"users": [{
+            'id': _.id,
+            'display_name': _.display_name,
+            'picture_url': _.picture_url,
+        } for _ in users]})
 
 
 class UserSingle(ApiBase, View):
-    @resource_as('userid', item_type=int)
+    @resource_as('user', item_type=get_user_model())
     @body_as_json(parameters=[
         Parameter(name='display_name', validator=validate_user_display_name),
     ])
-    def put(self, request, userid):
+    def put(self, request, user):
         """Modify a user: Yourself or any user you have sufficient rights for.
         Only the provided fields will be changed. To clear fields, set them explicitly as empty.
         ---
@@ -179,27 +175,22 @@ class UserSingle(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type userid: int
+        :type user: UserModel
         """
-        if not _has_rights_to_modify(request.user.id, userid):
-            return self.forbidden(reason='current user does not have rights to modify user {}'.format(userid))
+        if not _has_rights_to_modify(request.user.id, user.id):
+            return self.forbidden(reason='current user does not have rights to modify user {}'.format(user.id))
 
-        try:
-            modified_user = UserModel.objects.get(id=userid)
-        except ObjectDoesNotExist:
-            return self.not_found(reason='user {} does not exist'.format(userid))
-
-        modified_user.display_name = request.body['display_name']
-        modified_user.save()
+        user.display_name = request.body['display_name']
+        user.save()
 
         return self.created({
-            'id': modified_user.id,
-            'display_name': modified_user.display_name,
+            'id': user.id,
+            'display_name': user.display_name,
         })
 
 
 urlpatterns = [
     url(r'^$', UserAll.as_view()),
-    url(r'^{userid}/?$'.format(userid=user_id_uri_pattern), UserSingle.as_view()),
-    url(r'^{userids}/?$'.format(userids=multiple_user_id_uri_pattern), UserMultiple.as_view()),
+    url(r'^{user}/?$'.format(user=user_id_uri_pattern), UserSingle.as_view()),
+    url(r'^{users}/?$'.format(users=multiple_user_id_uri_pattern), UserMultiple.as_view()),
 ]

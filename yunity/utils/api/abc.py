@@ -1,5 +1,8 @@
 from functools import wraps
 
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Model
+
 from django.http import JsonResponse
 
 from yunity.api.ids import ids_uri_pattern_delim
@@ -123,6 +126,7 @@ def body_as_json(parameters=None):
 
 def resource_as(param_name, item_type=str):
     """Decorator to convert a single resource from the URI into a given type.
+    If the type is a model, look-up an intance of the model by id.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 
     :type param_name: str
@@ -133,10 +137,16 @@ def resource_as(param_name, item_type=str):
         def wrapper(api_base, *args, **kwargs):
             raw_param = kwargs.get(param_name)
             if raw_param:
-                try:
-                    parsed_param = item_type(raw_param)
-                except ValueError:
-                    return api_base.validation_failure(reason='invalid type: {}'.format(raw_param))
+                if type(item_type) == type(Model):
+                    try:
+                        parsed_param = item_type.objects.get(id=raw_param)
+                    except ObjectDoesNotExist:
+                        return api_base.not_found(reason='{} does not exist'.format(item_type.__class__.__name__))
+                else:
+                    try:
+                        parsed_param = item_type(raw_param)
+                    except ValueError:
+                        return api_base.validation_failure(reason='parameter does not have type {}'.format(item_type.__name__))
                 kwargs[param_name] = parsed_param
 
             return func(api_base, *args, **kwargs)
@@ -146,6 +156,7 @@ def resource_as(param_name, item_type=str):
 
 def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
     """Decorator to split a multi-resource URI into a list of multiple resources.
+    If the type is a model, look-up the intances of the model by ids.
     Note: this decorator should only be used to decorate http-dispatch instance methods on subclasses of ApiBase.
 
     :type param_name: str
@@ -157,14 +168,15 @@ def resource_as_list(param_name, item_type=str, delim=ids_uri_pattern_delim):
         def wrapper(api_base, *args, **kwargs):
             raw_params = kwargs.get(param_name, '').split(delim)
             if raw_params:
-                parsed_params = []
-                for raw_param in raw_params:
+                if type(item_type) == type(Model):
+                    parsed_params = item_type.objects.filter(id__in=raw_params)
+                    if len(parsed_params) != len(raw_params):
+                        return api_base.not_found(reason='one or more {}s do not exist'.format(item_type.__class__.__name__))
+                else:
                     try:
-                        parsed_param = item_type(raw_param)
+                        parsed_params = [item_type(raw_param) for raw_param in raw_params]
                     except ValueError:
-                        return api_base.validation_failure(reason='invalid type: {}'.format(raw_param))
-                    else:
-                        parsed_params.append(parsed_param)
+                        return api_base.validation_failure(reason='one or more parameters does not have type {}'.format(item_type.__name__))
                 kwargs[param_name] = parsed_params
 
             return func(api_base, *args, **kwargs)

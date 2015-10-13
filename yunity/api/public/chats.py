@@ -42,6 +42,7 @@ def message_to_dict(message):
         'content': message.content,
     }
 
+
 class Chats(ApiBase, View):
     def get(self, request):
         """List all chats in which the currently logged in user is involved.
@@ -156,11 +157,11 @@ class Chats(ApiBase, View):
 
 
 class Chat(ApiBase, View):
-    @resource_as('chatid', item_type=int)
+    @resource_as('chat', item_type=ChatModel)
     @body_as_json(parameters=[
         Parameter(name='name', validator=validate_chat_name),
     ])
-    def put(self, request, chatid):
+    def put(self, request, chat):
         """Update details about specific chat
         ---
         tags:
@@ -192,13 +193,12 @@ class Chat(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chatid: int
+        :type chat: ChatModel
 
         """
-        if not user_has_rights_to_chat(chatid, request.user.id):
+        if not user_has_rights_to_chat(chat.id, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
-        chat = ChatModel.objects.get(id=chatid)
         chat.name = request.body['name']
         chat.save()
 
@@ -206,12 +206,12 @@ class Chat(ApiBase, View):
 
 
 class ChatMessages(ApiBase, View):
-    @resource_as('chatid', item_type=int)
+    @resource_as('chat', item_type=ChatModel)
     @body_as_json(parameters=[
         Parameter(name='type', validator=validate_chat_message_type),
         Parameter(name='content', validator=validate_chat_message_content),
     ])
-    def post(self, request, chatid):
+    def post(self, request, chat):
         """ Send a new message in given chat
         ---
         tags:
@@ -282,22 +282,22 @@ class ChatMessages(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chatid: int
+        :type chat: ChatModel
         """
-        if not user_has_rights_to_chat(chatid, request.user.id):
+        if not user_has_rights_to_chat(chat.id, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
         message = MessageModel.objects.create(
-            sent_by=request.user,
-            in_conversation_id=chatid,
+            sent_by_id=request.user.id,
+            in_conversation_id=chat.id,
             type=request.body['type'],
             content=request.body['content'],
         )
 
         return self.created(message_to_dict(message))
 
-    @resource_as('chatid', item_type=int)
-    def get(self, request, chatid):
+    @resource_as('chat', item_type=ChatModel)
+    def get(self, request, chat):
         """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
         ---
         tags:
@@ -345,14 +345,14 @@ class ChatMessages(ApiBase, View):
 
 
         :type request: HttpRequest
-        :type chatid: int
+        :type chat: ChatModel
 
         """
-        if not user_has_rights_to_chat(chatid, request.user.id):
+        if not user_has_rights_to_chat(chat.id, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
         messages = MessageModel.objects \
-            .filter(in_conversation=chatid) \
+            .filter(in_conversation=chat.id) \
             .order_by('-created_at')
 
         take = request.GET.get('take')
@@ -371,11 +371,11 @@ class ChatMessages(ApiBase, View):
 
 
 class ChatParticipants(ApiBase, View):
-    @resource_as('chatid', item_type=int)
+    @resource_as('chat', item_type=ChatModel)
     @body_as_json(parameters=[
         Parameter(name='users', validator=validate_chat_users),
     ])
-    def post(self, request, chatid):
+    def post(self, request, chat):
         """Add a list of users to the chat.
         ---
         tags:
@@ -410,28 +410,25 @@ class ChatParticipants(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chatid: int
+        :type chat: ChatModel
 
         """
-        if not user_has_rights_to_chat(chatid, request.user.id):
+        if not user_has_rights_to_chat(chat.id, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
 
         try:
             with atomic():
-                ChatModel.objects \
-                    .get(id=chatid) \
-                    .participants \
-                    .add(*request.body['users'])
-        except IntegrityError as e:
+                chat.participants.add(*request.body['users'])
+        except IntegrityError:
             return self.error(reason='A supplied user does not exist')
 
         return self.created()
 
 
 class ChatParticipant(ApiBase, View):
-    @resource_as('chatid', item_type=int)
-    @resource_as('userid', item_type=int)
-    def delete(self, request, chatid, userid):
+    @resource_as('chat', item_type=ChatModel)
+    @resource_as('user', item_type=UserModel)
+    def delete(self, request, chat, user):
         """Remove a user from the chat.
         ---
         tags:
@@ -457,15 +454,12 @@ class ChatParticipant(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chatid: int
-        :type userid: int
+        :type chat: ChatModel
+        :type user: UserModel
 
         """
-        if not user_has_rights_to_chat(chatid, request.user.id):
+        if not user_has_rights_to_chat(chat.id, request.user.id):
             return self.forbidden(reason='user does not have rights to chat')
-
-        chat = ChatModel.objects.get(id=chatid)
-        user = UserModel.objects.get(id=userid)
 
         chat.participants.remove(user)
 
@@ -473,9 +467,9 @@ class ChatParticipant(ApiBase, View):
 
 urlpatterns = [
     url(r'^$', Chats.as_view()),
-    url(r'^{chatid}/?$'.format(chatid=chat_id_uri_pattern), Chat.as_view()),
-    url(r'^{chatid}/messages/?$'.format(chatid=chat_id_uri_pattern), ChatMessages.as_view()),
-    url(r'^{chatid}/participants/?$'.format(chatid=chat_id_uri_pattern), ChatParticipants.as_view()),
-    url(r'^{chatid}/participants/{userid}/?$'.format(chatid=chat_id_uri_pattern, userid=user_id_uri_pattern),
+    url(r'^{chat}/?$'.format(chat=chat_id_uri_pattern), Chat.as_view()),
+    url(r'^{chat}/messages/?$'.format(chat=chat_id_uri_pattern), ChatMessages.as_view()),
+    url(r'^{chat}/participants/?$'.format(chat=chat_id_uri_pattern), ChatParticipants.as_view()),
+    url(r'^{chat}/participants/{user}/?$'.format(chat=chat_id_uri_pattern, user=user_id_uri_pattern),
         ChatParticipant.as_view()),
 ]

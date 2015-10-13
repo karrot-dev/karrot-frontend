@@ -13,6 +13,9 @@ from yunity.models import Category as CategoryModel
 
 
 def user_to_json(user):
+    if not user.is_authenticated():
+        return {}
+
     return {
         'id': user.id,
         'display_name': user.display_name,

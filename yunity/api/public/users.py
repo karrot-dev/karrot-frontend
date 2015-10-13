@@ -124,6 +124,8 @@ class UserMultiple(ApiBase, View):
                         type: array
                         items:
                             $ref: '#/definitions/user_information_response'
+            404:
+                description: one or more users do not exist
         ...
 
         :type request: HttpRequest
@@ -172,6 +174,8 @@ class UserSingle(ApiBase, View):
                     $ref: '#/definitions/user_information_response'
             403:
                 description: You are not allowed to modify that user
+            404:
+                description: the user does not exist
         ...
 
         :type request: HttpRequest

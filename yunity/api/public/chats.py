@@ -187,6 +187,8 @@ class Chat(ApiBase, View):
                 description: The logged in user is not part of the conversation
                 schema:
                     $ref: '#/definitions/result_error_forbidden'
+            404:
+                description: the chat does not exist
         ...
 
         :type request: HttpRequest
@@ -275,6 +277,8 @@ class ChatMessages(ApiBase, View):
                 description: The logged in user is not part of the conversation
                 schema:
                     $ref: '#/definitions/result_error_forbidden'
+            404:
+                description: the chat does not exist
         ...
 
         :type request: HttpRequest
@@ -335,6 +339,8 @@ class ChatMessages(ApiBase, View):
                     properties:
                         reason:
                             type: string
+            404:
+                description: the chat does not exist
         ...
 
 
@@ -399,6 +405,8 @@ class ChatParticipants(ApiBase, View):
                 description: At least one user does not exist, none added
             403:
                 description: The user does not have the rights to add participants to the chat
+            404:
+                description: The chat does not exist
         ...
 
         :type request: HttpRequest
@@ -444,6 +452,8 @@ class ChatParticipant(ApiBase, View):
                 description: The logged in user is not part of the conversation
                 schema:
                     $ref: '#/definitions/result_error_forbidden'
+            404:
+                description: the chat does not exist or the user does not exist
         ...
 
         :type request: HttpRequest

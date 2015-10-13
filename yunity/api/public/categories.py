@@ -7,14 +7,6 @@ from yunity.utils.api.abc import ApiBase, json_request, request_parameter
 from yunity.models import Category as CategoryModel
 
 
-def _category_exists(category_id):
-    return CategoryModel.objects.filter(id=category_id).exists()
-
-
-def _category_name_exists(category_name):
-    return CategoryModel.objects.filter(name=category_name).exists()
-
-
 class Categories(ApiBase, View):
     def get(self, request):
         """List all categories.
@@ -99,11 +91,6 @@ class Categories(ApiBase, View):
         :rtype JsonResponse
 
         """
-        if _category_name_exists(request.body['name']):
-            return self.conflict(reason='category name already exists')
-        if not _category_exists(request.body['parent']):
-            return self.error(reason='parent category does not exist')
-
         new_category = CategoryModel.objects.create(name=request.body['name'], parent_id=request.body['parent'])
 
         return self.created({

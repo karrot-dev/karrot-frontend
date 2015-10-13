@@ -1,4 +1,11 @@
 from abc import ABCMeta, abstractmethod
+from yunity.resources.http.status import HTTP_400_BAD_REQUEST
+
+
+class ValidationFailure(Exception):
+    def __init__(self, message, status=HTTP_400_BAD_REQUEST):
+        self.message = message
+        self.status = status
 
 
 class Validator(object, metaclass=ABCMeta):
@@ -26,7 +33,7 @@ class Each(Validator):
 
     def __call__(self, values):
         if not hasattr(values, '__iter__'):
-            raise ValueError('not iterable')
+            raise ValidationFailure('not iterable')
         validated = []
         for value in values:
             validated.append(self.validator(value))
@@ -39,7 +46,7 @@ class OfType(Validator):
 
     def __call__(self, value):
         if not isinstance(value, self.clazz):
-            raise ValueError('not a {}'.format(self.clazz.__name__))
+            raise ValidationFailure('not a {}'.format(self.clazz.__name__))
         return value
 
 
@@ -49,7 +56,7 @@ class IsIn(Validator):
 
     def __call__(self, value):
         if value not in self.elements:
-            raise ValueError('unknown element: allowed are "{}"'.format(', '.join(map(str, self.elements))))
+            raise ValidationFailure('unknown element: allowed are "{}"'.format(', '.join(map(str, self.elements))))
         return value
 
 
@@ -61,9 +68,9 @@ class HasKey(Validator):
         try:
             value = mapping.get(self.key)
         except AttributeError:
-            raise ValueError('element does not have keys')
+            raise ValidationFailure('element does not have keys')
         if value is None:
-            raise ValueError('missing key: {}'.format(self.key))
+            raise ValidationFailure('missing key: {}'.format(self.key))
         return value
 
 
@@ -75,9 +82,9 @@ class ShorterThan(Validator):
         try:
             assert len(value) <= self.maxlen
         except AssertionError:
-            raise ValueError('element is longer than {}'.format(self.maxlen))
+            raise ValidationFailure('element is longer than {}'.format(self.maxlen))
         except TypeError:
-            raise ValueError('element does not have length')
+            raise ValidationFailure('element does not have length')
         return value
 
 

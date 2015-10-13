@@ -10,6 +10,7 @@ from yunity.models import Chat as ChatModel
 from yunity.utils.request import JsonRequest
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN, \
     HTTP_204_NO_CONTENT, HTTP_409_CONFLICT, HTTP_404_NOT_FOUND
+from yunity.utils.validation import ValidationFailure
 
 
 class ApiBase(object):
@@ -31,14 +32,14 @@ class ApiBase(object):
         return JsonResponse(payload, status=status)
 
     @classmethod
-    def validation_failure(cls, reason, **kwargs):
+    def validation_failure(cls, reason, status=HTTP_400_BAD_REQUEST):
         """
         :type reason: str
-        :type kwargs: dict
+        :type status: int
         :rtype JsonResponse
 
         """
-        return cls._json_response(status=HTTP_400_BAD_REQUEST, reason=reason, **kwargs)
+        return cls._json_response(status=status, reason=reason)
 
     @classmethod
     def success(cls, data=None):
@@ -140,8 +141,8 @@ def request_parameter(with_name, of_type=str):
                 request.body[with_name] = of_type(request.body[with_name])
             except KeyError:
                 return api_base.validation_failure(reason='missing request parameter {}'.format(with_name))
-            except ValueError as e:
-                return api_base.validation_failure(reason=str(e))
+            except ValidationFailure as e:
+                return api_base.validation_failure(reason=e.message, status=e.status)
 
             return func(api_base, request, *args, **kwargs)
         return wrapper

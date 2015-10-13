@@ -1,5 +1,8 @@
 from yunity.api import types
+from yunity.models import Category
 from yunity.utils.tests.abc import BaseTestCase, AnyResult
+from yunity.utils.tests.mock import MockCategory
+from yunity.utils.validation import ValidationFailure
 
 
 class TestApiValidation(BaseTestCase):
@@ -11,7 +14,7 @@ class TestApiValidation(BaseTestCase):
     def test_validate_user_email_fails(self):
         self.given_data('clearly.not.an.email.com')
         self.when_calling(types.user_email)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_user_password_passes(self):
         self.given_data('my-secret-P4ssw0rd')
@@ -21,7 +24,7 @@ class TestApiValidation(BaseTestCase):
     def test_validate_user_password_fails(self):
         self.given_data('Really lo{}ng password'.format('o' * 999999))
         self.when_calling(types.user_password)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_user_display_name_passes(self):
         self.given_data('Adam')
@@ -31,7 +34,7 @@ class TestApiValidation(BaseTestCase):
     def test_validate_user_display_name_fails(self):
         self.given_data('Really lo{}ng name'.format('o' * 999999))
         self.when_calling(types.user_display_name)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_message_type_passes_for_text(self):
         self.given_data('TEXT')
@@ -46,7 +49,7 @@ class TestApiValidation(BaseTestCase):
     def test_validate_message_type_fails(self):
         self.given_data('not-yet-implemented-type')
         self.when_calling(types.message_type)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_message_content_passes(self):
         self.given_data('This is the message content. ☺')
@@ -56,7 +59,7 @@ class TestApiValidation(BaseTestCase):
     def test_validate_message_content_fails(self):
         self.given_data('Really lo{}ng message'.format('o' * 999999))
         self.when_calling(types.message_type)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_chat_name_passes(self):
         self.given_data('my super cool group chat')
@@ -66,7 +69,7 @@ class TestApiValidation(BaseTestCase):
     def test_validate_chat_name_fails(self):
         self.given_data('my super lo{}ng chat name'.format('o' * 999999))
         self.when_calling(types.chat_name)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_list_of_user_ids_passes(self):
         self.given_data([1, 2, 34, 678])
@@ -76,7 +79,7 @@ class TestApiValidation(BaseTestCase):
     def test_validate_list_of_user_ids_fails(self):
         self.given_data([1, 2, 'Adam', 3])
         self.when_calling(types.list_of_userids)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_message_passes(self):
         self.given_data({'content': 'woo message', 'type': 'TEXT'})
@@ -86,24 +89,34 @@ class TestApiValidation(BaseTestCase):
     def test_validate_message_fails(self):
         self.given_data({'content': 'message without a type field, oh no!'})
         self.when_calling(types.message)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_category_name_passes(self):
-        self.given_data('foodsharing-basket')
+        self.given_data('not-yet-existing-category')
         self.when_calling(types.category_name)
         self.then_invocation_passed_with(AnyResult())
 
-    def test_validate_category_name_fails(self):
+    def test_validate_category_name_fails_with_long_name(self):
         self.given_data('really lo{}ng name'.format('o' * 999999))
         self.when_calling(types.category_name)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
+
+    def test_validate_category_name_fails_with_existing_category(self):
+        self.given_data(MockCategory.create().name)
+        self.when_calling(types.category_name)
+        self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_category_parent_passes(self):
-        self.given_data(123)
+        self.given_data(MockCategory.create().id)
         self.when_calling(types.category_parent)
         self.then_invocation_passed_with(AnyResult())
 
-    def test_validate_category_parent_fails(self):
-        self.given_data('123')
+    def test_validate_category_parent_fails_with_unknown_parent(self):
+        self.given_data(12345)
         self.when_calling(types.category_parent)
-        self.then_invocation_failed_with(ValueError)
+        self.then_invocation_failed_with(ValidationFailure)
+
+    def test_validate_category_parent_fails_with_wrong_type(self):
+        self.given_data('not-a-category-id')
+        self.when_calling(types.category_parent)
+        self.then_invocation_failed_with(ValidationFailure)

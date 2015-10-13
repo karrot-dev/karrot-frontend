@@ -4,7 +4,7 @@ from django.db.transaction import atomic
 from pkg_resources import resource_listdir
 from django.test import Client, TransactionTestCase
 
-from yunity.utils.misc import json_stringify, maybe_import
+from yunity.utils.misc import json_stringify
 from yunity.utils.response import content_json
 from yunity.utils.tests.comparison import DeepMatcher
 
@@ -12,30 +12,21 @@ from yunity.utils.tests.comparison import DeepMatcher
 class IntegrationTest(object):
     _client = Client()
 
-    def __init__(self, resource):
-        self._resource_root = resource
+    def __init__(self, request, response, initial_data, final_data):
+        self._request_data_resource = request
+        self._response_data_resource = response
+        self._initial_data_resource = initial_data
+        self._final_data_resource = final_data
         self.actual_response = None
         self.actual_exception = None
 
-    def _resource(self, name):
-        _cache = '__cache__{}'.format(name)
-        try:
-            return getattr(self, _cache)
-        except AttributeError:
-            try:
-                value = getattr(import_module('{}.{}'.format(self._resource_root, name)), name)
-            except Exception:
-                raise ValueError('must specify {}.py for test'.format(name))
-            setattr(self, _cache, value)
-            return value
-
     @property
     def request_data(self):
-        return self._resource('request')
+        return import_module(self._request_data_resource).request
 
     @property
     def response_data(self):
-        return self._resource('response')
+        return import_module(self._response_data_resource).response
 
     @property
     def actual_exception_cause(self):
@@ -48,7 +39,7 @@ class IntegrationTest(object):
 
     def given_data(self):
         with atomic():
-            import_module('{}.initial_data'.format(self._resource_root))
+            import_module(self._initial_data_resource)
 
     def given_user(self):
         request_user = self.request_data.get('user')
@@ -111,7 +102,7 @@ class IntegrationTest(object):
         :type testcase: TestCase
         """
         try:
-            maybe_import('{}.final_data'.format(self._resource_root))
+            import_module(self._final_data_resource)
         except AssertionError as e:
             testcase.fail(e.args[0])
 
@@ -135,19 +126,34 @@ class IntegrationTest(object):
 
 class IntegrationTestSuite(TransactionTestCase):
     serialized_rollback = True
+
     @classmethod
-    def is_integration_test(cls, resource):
-        """
-        :type resource: str
-        :rtype: bool
-        """
-        return resource.startswith('test_')
+    def is_test_root(cls, resource):
+        return resource.startswith('test_') and not resource.endswith('.py')
+
+    @classmethod
+    def is_resource(cls, resource):
+        return resource.endswith('.py') and not resource.startswith('__init__')
+
+    @classmethod
+    def required_resources(cls):
+        return {'initial_data', 'final_data', 'request', 'response'}
+
+    @classmethod
+    def list_test_resources(cls, root, test_name):
+        test_root = '{}.{}'.format(root, test_name)
+        test_resources = {}
+        for test_resource in filter(cls.is_resource, resource_listdir(test_root, '')):
+            test_resource = test_resource.split('.py')[0]
+            test_resources[test_resource] = '{}.{}'.format(test_root, test_resource)
+        return test_resources
 
     @classmethod
     def autodiscover(cls, root='yunity.resources.tests.integration'):
-        for test_name in filter(cls.is_integration_test, resource_listdir(root, '')):
-            test_resource = '{}.{}'.format(root, test_name)
-            cls.add_test(test_name, IntegrationTest(test_resource))
+        for test_name in filter(cls.is_test_root, resource_listdir(root, '')):
+            test_resources = cls.list_test_resources(root, test_name)
+            if all(required_resource in test_resources for required_resource in cls.required_resources()):
+                cls.add_test(test_name, IntegrationTest(**test_resources))
 
     @classmethod
     def add_test(cls, test_name, integration_test):

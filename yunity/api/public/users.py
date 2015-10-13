@@ -74,6 +74,7 @@ class UserAll(ApiBase, View):
 
         :type request: HttpRequest
         """
+
         category = CategoryModel.objects.get(name='user.default')
         try:
             locations = [{
@@ -129,7 +130,6 @@ class UserMultiple(ApiBase, View):
 
         :type request: HttpRequest
         :type users: [UserModel]
-
         """
 
         return self.success({"users": [user_to_json(user) for user in users]})
@@ -176,6 +176,7 @@ class UserSingle(ApiBase, View):
         :type request: HttpRequest
         :type user: UserModel
         """
+
         user.display_name = request.body['display_name']
         user.save()
 

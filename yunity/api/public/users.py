@@ -12,6 +12,14 @@ from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
 
 
+def user_to_json(user):
+    return {
+        'id': user.id,
+        'display_name': user.display_name,
+        'picture_url': user.picture_url,
+    }
+
+
 class UserAll(ApiBase, View):
     @body_as_json(parameters=[
         Parameter(name='email', validator=validate_user_email),
@@ -87,10 +95,7 @@ class UserAll(ApiBase, View):
         except IntegrityError:
             return self.conflict(reason='user already exists')
 
-        return self.created({
-            "id": user.id,
-            "display_name": user.display_name,
-        })
+        return self.created(user_to_json(user))
 
 
 class UserMultiple(ApiBase, View):
@@ -126,11 +131,8 @@ class UserMultiple(ApiBase, View):
         :type users: [UserModel]
 
         """
-        return self.success({"users": [{
-            'id': _.id,
-            'display_name': _.display_name,
-            'picture_url': _.picture_url,
-        } for _ in users]})
+
+        return self.success({"users": [user_to_json(user) for user in users]})
 
 
 class UserSingle(ApiBase, View):
@@ -177,10 +179,7 @@ class UserSingle(ApiBase, View):
         user.display_name = request.body['display_name']
         user.save()
 
-        return self.created({
-            'id': user.id,
-            'display_name': user.display_name,
-        })
+        return self.created(user_to_json(user))
 
 
 urlpatterns = [

@@ -1,3 +1,5 @@
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 from yunity.utils.validation import Each, OfType, IsIn, HasKey, IsEmail, IsReasonableLengthString
 
 
@@ -38,7 +40,10 @@ def category_parent(value):
 
 
 def user_email(value):
-    IsEmail()(value)
+    try:
+        validate_email(value)
+    except ValidationError:
+        raise ValueError('not a valid email address')
     return value
 
 

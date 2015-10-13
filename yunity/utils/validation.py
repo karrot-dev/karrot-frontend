@@ -1,8 +1,5 @@
 from abc import ABCMeta, abstractmethod
 
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email
-
 
 class Validator(object, metaclass=ABCMeta):
     def __and__(self, other):
@@ -81,15 +78,6 @@ class ShorterThan(Validator):
             raise ValueError('element is longer than {}'.format(self.maxlen))
         except TypeError:
             raise ValueError('element does not have length')
-        return value
-
-
-class IsEmail(Validator):
-    def __call__(self, value):
-        try:
-            validate_email(value)
-        except ValidationError:
-            raise ValueError('not a valid email address')
         return value
 
 

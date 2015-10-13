@@ -16,7 +16,7 @@ class MockCategory(Mock):
         model = "yunity.Category"
         strategy = CREATE_STRATEGY
 
-    name = LazyAttribute(lambda _: faker.word())
+    name = LazyAttribute(lambda _: ' '.join(faker.words(5)))
     parent = None
 
 

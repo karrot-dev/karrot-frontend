@@ -186,6 +186,14 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
 
 
 def permissions_required_for(resource_name):
+    """Decorator to validate that the requesting user has permissions to access a resource with the given name
+    (gives a 403 response if the user isn't authorized to access the resource).
+
+    Note: This decorator should only be used on http-dispatch methods on ApiBase.
+
+    :type resource_name: str
+    """
+
     def has_permissions_for_user(request_user, user):
         return user.id == request_user.id
 

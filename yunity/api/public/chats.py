@@ -1,3 +1,4 @@
+from functools import wraps
 from django.conf.urls import url
 from django.db import IntegrityError
 from django.db.models import Q, Max
@@ -15,11 +16,22 @@ from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
 
 
-def user_has_rights_to_chat(chatid, userid):
-    return ChatModel.objects \
-        .filter(id=chatid) \
-        .filter(Q(participants=userid) | Q(administrated_by=userid)) \
-        .exists()
+def permissions_required_for(resource_name):
+    def has_permissions(user, resource):
+        return ChatModel.objects \
+            .filter(id=resource.id) \
+            .filter(Q(participants=user.id) | Q(administrated_by=user.id)) \
+            .exists()
+
+    def decorator(func):
+        @wraps(func)
+        def wrapper(api_base, request, *args, **kwargs):
+            return func(api_base, request, *args, **kwargs) \
+                if has_permissions(request.user, kwargs[resource_name]) \
+                else api_base.forbidden(reason='user does not have rights to access {}'.format(resource_name))
+
+        return wrapper
+    return decorator
 
 
 def chat_to_dict(chat):
@@ -161,6 +173,7 @@ class Chat(ApiBase, View):
     @body_as_json(parameters=[
         Parameter(name='name', validator=validate_chat_name),
     ])
+    @permissions_required_for('chat')
     def put(self, request, chat):
         """Update details about specific chat
         ---
@@ -194,10 +207,7 @@ class Chat(ApiBase, View):
 
         :type request: HttpRequest
         :type chat: ChatModel
-
         """
-        if not user_has_rights_to_chat(chat.id, request.user.id):
-            return self.forbidden(reason='user does not have rights to chat')
 
         chat.name = request.body['name']
         chat.save()
@@ -211,6 +221,7 @@ class ChatMessages(ApiBase, View):
         Parameter(name='type', validator=validate_chat_message_type),
         Parameter(name='content', validator=validate_chat_message_content),
     ])
+    @permissions_required_for('chat')
     def post(self, request, chat):
         """ Send a new message in given chat
         ---
@@ -284,8 +295,6 @@ class ChatMessages(ApiBase, View):
         :type request: HttpRequest
         :type chat: ChatModel
         """
-        if not user_has_rights_to_chat(chat.id, request.user.id):
-            return self.forbidden(reason='user does not have rights to chat')
 
         message = MessageModel.objects.create(
             sent_by_id=request.user.id,
@@ -297,6 +306,7 @@ class ChatMessages(ApiBase, View):
         return self.created(message_to_dict(message))
 
     @uri_resource('chat', of_type=ChatModel)
+    @permissions_required_for('chat')
     def get(self, request, chat):
         """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
         ---
@@ -343,13 +353,9 @@ class ChatMessages(ApiBase, View):
                 description: the chat does not exist
         ...
 
-
         :type request: HttpRequest
         :type chat: ChatModel
-
         """
-        if not user_has_rights_to_chat(chat.id, request.user.id):
-            return self.forbidden(reason='user does not have rights to chat')
 
         messages = MessageModel.objects \
             .filter(in_conversation=chat.id) \
@@ -375,6 +381,7 @@ class ChatParticipants(ApiBase, View):
     @body_as_json(parameters=[
         Parameter(name='users', validator=validate_chat_users),
     ])
+    @permissions_required_for('chat')
     def post(self, request, chat):
         """Add a list of users to the chat.
         ---
@@ -411,10 +418,7 @@ class ChatParticipants(ApiBase, View):
 
         :type request: HttpRequest
         :type chat: ChatModel
-
         """
-        if not user_has_rights_to_chat(chat.id, request.user.id):
-            return self.forbidden(reason='user does not have rights to chat')
 
         try:
             with atomic():
@@ -428,6 +432,7 @@ class ChatParticipants(ApiBase, View):
 class ChatParticipant(ApiBase, View):
     @uri_resource('chat', of_type=ChatModel)
     @uri_resource('user', of_type=UserModel)
+    @permissions_required_for('chat')
     def delete(self, request, chat, user):
         """Remove a user from the chat.
         ---
@@ -456,10 +461,7 @@ class ChatParticipant(ApiBase, View):
         :type request: HttpRequest
         :type chat: ChatModel
         :type user: UserModel
-
         """
-        if not user_has_rights_to_chat(chat.id, request.user.id):
-            return self.forbidden(reason='user does not have rights to chat')
 
         chat.participants.remove(user)
 

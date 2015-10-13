@@ -1,3 +1,5 @@
+from functools import wraps
+
 from django.conf.urls import url
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError, transaction
@@ -12,8 +14,19 @@ from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
 
 
-def _has_rights_to_modify(request_user_id, modified_user_id):
-    return request_user_id == modified_user_id
+def modification_permissions_required_for(resource_name):
+    def has_modification_permissions(user, resource):
+        return user.id == resource.id
+
+    def decorator(func):
+        @wraps(func)
+        def wrapper(api_base, request, *args, **kwargs):
+            return func(api_base, request, *args, **kwargs) \
+                if has_modification_permissions(request.user, kwargs[resource_name]) \
+                else api_base.forbidden(reason='user does not have rights to modify {}'.format(resource_name))
+
+        return wrapper
+    return decorator
 
 
 class UserAll(ApiBase, View):
@@ -142,6 +155,7 @@ class UserSingle(ApiBase, View):
     @body_as_json(parameters=[
         Parameter(name='display_name', validator=validate_user_display_name),
     ])
+    @modification_permissions_required_for('user')
     def put(self, request, user):
         """Modify a user: Yourself or any user you have sufficient rights for.
         Only the provided fields will be changed. To clear fields, set them explicitly as empty.
@@ -177,9 +191,6 @@ class UserSingle(ApiBase, View):
         :type request: HttpRequest
         :type user: UserModel
         """
-        if not _has_rights_to_modify(request.user.id, user.id):
-            return self.forbidden(reason='current user does not have rights to modify user {}'.format(user.id))
-
         user.display_name = request.body['display_name']
         user.save()
 

@@ -20,6 +20,17 @@ def user_to_json(user):
     }
 
 
+def parse_locations(request):
+    try:
+        return [{
+            'description': request.body['location_description'],
+            'latitude': request.body['latitude'],
+            'longitude': request.body['longitude'],
+        }]
+    except KeyError:
+        return []
+
+
 class UserAll(ApiBase, View):
     @body_as_json(parameters=[
         Parameter(name='email', validator=validate_user_email),
@@ -75,22 +86,13 @@ class UserAll(ApiBase, View):
         :type request: HttpRequest
         """
 
-        category = CategoryModel.objects.get(name='user.default')
-        try:
-            locations = [{
-                'description': request.body['location_description'],
-                'latitude': request.body['latitude'],
-                'longitude': request.body['longitude'],
-            }]
-        except KeyError:
-            locations = []
         try:
             with transaction.atomic():
                 user = get_user_model().objects.create_user(
                     email=request.body['email'],
                     password=request.body['password'],
-                    locations=locations,
-                    category=category,
+                    locations=parse_locations(request),
+                    category=CategoryModel.objects.get(name='user.default'),
                     display_name=request.body['display_name'],
                 )
         except IntegrityError:

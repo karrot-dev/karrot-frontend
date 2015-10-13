@@ -1,14 +1,14 @@
 from django.conf.urls import url
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError
-from django.db.transaction import atomic
 from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.api import types
+from yunity.resources.http.status import HTTP_409_CONFLICT
 from yunity.utils.api.abc import ApiBase, uri_resource, permissions_required_for, json_request, \
-    request_parameter
+    request_parameter, rollback_on
 from yunity.models import Category as CategoryModel
 
 
@@ -39,6 +39,7 @@ class UserAll(ApiBase, View):
     @request_parameter('email', of_type=types.user_email)
     @request_parameter('password', of_type=types.user_password)
     @request_parameter('display_name', of_type=types.user_display_name)
+    @rollback_on(IntegrityError, reason='user already exists', status=HTTP_409_CONFLICT)
     def post(self, request):
         """register a new user
         ---
@@ -88,17 +89,13 @@ class UserAll(ApiBase, View):
         :type request: HttpRequest
         """
 
-        try:
-            with atomic():
-                user = get_user_model().objects.create_user(
-                    email=request.body['email'],
-                    password=request.body['password'],
-                    locations=parse_locations(request),
-                    category=CategoryModel.objects.get(name='user.default'),
-                    display_name=request.body['display_name'],
-                )
-        except IntegrityError:
-            return self.conflict(reason='user already exists')
+        user = get_user_model().objects.create_user(
+            email=request.body['email'],
+            password=request.body['password'],
+            locations=parse_locations(request),
+            category=CategoryModel.objects.get(name='user.default'),
+            display_name=request.body['display_name'],
+        )
 
         return self.created(user_to_json(user))
 

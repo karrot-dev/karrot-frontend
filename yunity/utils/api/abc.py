@@ -2,6 +2,7 @@ from functools import wraps
 
 from django.contrib.auth import get_user_model
 from django.db.models import Model, Q
+from django.db.transaction import atomic
 
 from django.http import JsonResponse
 
@@ -95,13 +96,14 @@ class ApiBase(object):
         return cls._json_response(status=HTTP_409_CONFLICT, reason=reason)
 
     @classmethod
-    def error(cls, reason):
+    def error(cls, reason, status=HTTP_400_BAD_REQUEST):
         """
         :type reason: str
+        :type status: int
         :rtype JsonResponse
 
         """
-        return cls._json_response(status=HTTP_400_BAD_REQUEST, reason=reason)
+        return cls._json_response(status=status, reason=reason)
 
 
 def json_request(func):
@@ -206,6 +208,30 @@ def permissions_required_for(resource_name):
             return func(api_base, request, *args, **kwargs) \
                 if has_permissions(request.user, kwargs[resource_name]) \
                 else api_base.forbidden(reason='user does not have rights to access {}'.format(resource_name))
+
+        return wrapper
+    return decorator
+
+
+def rollback_on(exception, reason, status=HTTP_400_BAD_REQUEST):
+    """Decorator to roll back a transaction if an exception occurs and return an error response instead.
+
+    Note: This decorator should only be used on http-dispatch methods on ApiBase.
+
+    :type exception: Exception
+    :type reason: str
+    :type status: int
+    """
+
+    def decorator(func):
+        @wraps(func)
+        def wrapper(api_base, *args, **kwargs):
+            # noinspection PyBroadException
+            try:
+                with atomic():
+                    return func(api_base, *args, **kwargs)
+            except exception:
+                return api_base.error(reason=reason, status=status)
 
         return wrapper
     return decorator

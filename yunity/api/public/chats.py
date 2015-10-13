@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from django.db import IntegrityError
 from django.db.models import Max
-from django.db.transaction import atomic
 from django.http import HttpRequest
 
 from django.views.generic import View
@@ -9,7 +8,7 @@ from django.views.generic import View
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api import types
 from yunity.utils.api.abc import ApiBase, uri_resource, permissions_required_for, json_request, \
-    request_parameter
+    request_parameter, rollback_on
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
@@ -357,6 +356,7 @@ class ChatParticipants(ApiBase, View):
     @uri_resource('chat', of_type=ChatModel)
     @request_parameter('users', of_type=types.list_of_userids)
     @permissions_required_for('chat')
+    @rollback_on(IntegrityError, reason='A supplied user does not exist')
     def post(self, request, chat):
         """Add a list of users to the chat.
         ---
@@ -395,11 +395,7 @@ class ChatParticipants(ApiBase, View):
         :type chat: ChatModel
         """
 
-        try:
-            with atomic():
-                chat.participants.add(*request.body['users'])
-        except IntegrityError:
-            return self.error(reason='A supplied user does not exist')
+        chat.participants.add(*request.body['users'])
 
         return self.created()
 

@@ -2,7 +2,6 @@ from collections import defaultdict
 import logging
 
 from django.conf.urls import url
-
 from django.views.generic import View
 
 from yunity.utils.api.abc import ApiBase

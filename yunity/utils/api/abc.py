@@ -1,6 +1,6 @@
 from functools import wraps
-from django.contrib.auth import get_user_model
 
+from django.contrib.auth import get_user_model
 from django.db.models import Model, Q
 
 from django.http import JsonResponse

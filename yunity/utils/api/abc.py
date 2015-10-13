@@ -1,11 +1,12 @@
 from functools import wraps
+from django.contrib.auth import get_user_model
 
-from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Model
+from django.db.models import Model, Q
 
 from django.http import JsonResponse
 
 from yunity.api.ids import ids_uri_pattern_delim
+from yunity.models import Chat as ChatModel
 from yunity.utils.request import JsonRequest
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED, HTTP_403_FORBIDDEN, \
     HTTP_204_NO_CONTENT, HTTP_409_CONFLICT, HTTP_404_NOT_FOUND
@@ -154,5 +155,33 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
                 kwargs[with_name] = parsed_params if len(parsed_params) > 1 else parsed_params[0]
 
             return func(api_base, *args, **kwargs)
+        return wrapper
+    return decorator
+
+
+def permissions_required_for(resource_name):
+    def has_permissions_for_user(request_user, user):
+        return user.id == request_user.id
+
+    def has_permissions_for_chat(request_user, chat):
+        return ChatModel.objects \
+            .filter(id=chat.id) \
+            .filter(Q(participants=request_user.id) | Q(administrated_by=request_user.id)) \
+            .exists()
+
+    def has_permissions(request_user, resource):
+        if isinstance(resource, get_user_model()):
+            return has_permissions_for_user(request_user, resource)
+        if isinstance(resource, ChatModel):
+            return has_permissions_for_chat(request_user, resource)
+        raise NotImplementedError
+
+    def decorator(func):
+        @wraps(func)
+        def wrapper(api_base, request, *args, **kwargs):
+            return func(api_base, request, *args, **kwargs) \
+                if has_permissions(request.user, kwargs[resource_name]) \
+                else api_base.forbidden(reason='user does not have rights to access {}'.format(resource_name))
+
         return wrapper
     return decorator

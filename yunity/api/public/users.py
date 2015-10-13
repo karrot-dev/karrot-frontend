@@ -1,5 +1,3 @@
-from functools import wraps
-
 from django.conf.urls import url
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError, transaction
@@ -9,24 +7,9 @@ from django.views.generic import View
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.api.validation import validate_user_email, validate_user_display_name
 from yunity.api.validation import validate_user_password
-from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource
+from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource, permissions_required_for
 from yunity.utils.request import Parameter
 from yunity.models import Category as CategoryModel
-
-
-def modification_permissions_required_for(resource_name):
-    def has_modification_permissions(user, resource):
-        return user.id == resource.id
-
-    def decorator(func):
-        @wraps(func)
-        def wrapper(api_base, request, *args, **kwargs):
-            return func(api_base, request, *args, **kwargs) \
-                if has_modification_permissions(request.user, kwargs[resource_name]) \
-                else api_base.forbidden(reason='user does not have rights to modify {}'.format(resource_name))
-
-        return wrapper
-    return decorator
 
 
 class UserAll(ApiBase, View):
@@ -155,7 +138,7 @@ class UserSingle(ApiBase, View):
     @body_as_json(parameters=[
         Parameter(name='display_name', validator=validate_user_display_name),
     ])
-    @modification_permissions_required_for('user')
+    @permissions_required_for('user')
     def put(self, request, user):
         """Modify a user: Yourself or any user you have sufficient rights for.
         Only the provided fields will be changed. To clear fields, set them explicitly as empty.

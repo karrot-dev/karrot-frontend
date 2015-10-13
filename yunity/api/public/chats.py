@@ -9,29 +9,11 @@ from django.views.generic import View
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api.validation import validate_chat_message, validate_chat_participants, validate_chat_name, \
     validate_chat_message_type, validate_chat_message_content, validate_chat_users
-from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource
+from yunity.utils.api.abc import ApiBase, body_as_json, uri_resource, permissions_required_for
 from yunity.utils.request import Parameter
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
-
-
-def permissions_required_for(resource_name):
-    def has_permissions(user, resource):
-        return ChatModel.objects \
-            .filter(id=resource.id) \
-            .filter(Q(participants=user.id) | Q(administrated_by=user.id)) \
-            .exists()
-
-    def decorator(func):
-        @wraps(func)
-        def wrapper(api_base, request, *args, **kwargs):
-            return func(api_base, request, *args, **kwargs) \
-                if has_permissions(request.user, kwargs[resource_name]) \
-                else api_base.forbidden(reason='user does not have rights to access {}'.format(resource_name))
-
-        return wrapper
-    return decorator
 
 
 def chat_to_dict(chat):

@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth import get_user_model
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError
+from django.db.transaction import atomic
 from django.http import HttpRequest
 from django.views.generic import View
 
@@ -87,7 +88,7 @@ class UserAll(ApiBase, View):
         """
 
         try:
-            with transaction.atomic():
+            with atomic():
                 user = get_user_model().objects.create_user(
                     email=request.body['email'],
                     password=request.body['password'],

@@ -349,9 +349,7 @@ class ChatMessages(ApiBase, View):
         if take is not None:
             messages = messages[:int(take)]
 
-        return self.success({
-            'messages': [message_to_dict(message) for message in messages]
-        })
+        return self.success({'messages': [message_to_dict(message) for message in messages]})
 
 
 class ChatParticipants(ApiBase, View):

@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.contrib.auth import authenticate, login, logout
-from django.middleware.csrf import get_token
+from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from django.views.generic import View
 
 from yunity.api import types
@@ -28,8 +28,7 @@ class Login(ApiBase, View):
 
         :type request: HttpRequest
         """
-        # force a CSRF token to be generated for the frontend to use
-        get_token(request)
+        generate_csrf_token_for_frontend(request)
         if request.user.is_authenticated():
             return self.success({'user': {'id': request.user.id, 'display_name': request.user.display_name}})
         else:

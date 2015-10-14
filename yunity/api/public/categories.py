@@ -3,17 +3,10 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api import types
+from yunity.api.serialization import category_to_dict
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter
 from yunity.models import Category as CategoryModel
-
-
-def category_to_json(category):
-    return {
-        'id': category.id,
-        'name': category.name,
-        'parent': category.parent_id,
-    }
 
 
 class Categories(ApiBase, View):
@@ -48,7 +41,7 @@ class Categories(ApiBase, View):
         """
         categories = CategoryModel.objects.all()
 
-        return self.success({'categories': [category_to_json(category) for category in categories]})
+        return self.success({'categories': [category_to_dict(category) for category in categories]})
 
     @json_request
     @request_parameter('name', of_type=types.category_name)

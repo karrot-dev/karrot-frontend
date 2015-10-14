@@ -7,33 +7,13 @@ from django.views.generic import View
 
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api import types
+from yunity.api.serialization import chat_to_dict, message_to_dict
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
     rollback_on
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel
-
-
-def chat_to_dict(chat):
-    participants = [_['id'] for _ in chat.participants.order_by('id').values('id')]
-    newest_message = chat.messages.order_by('-created_at').first()
-    return {
-        'id': chat.id,
-        'name': chat.name,
-        'participants': participants,
-        'message': message_to_dict(newest_message),
-    }
-
-
-def message_to_dict(message):
-    return {
-        'id': message.id,
-        'sender': message.sent_by_id,
-        'created_at': message.created_at.isoformat(),
-        'type': message.type,
-        'content': message.content,
-    }
 
 
 class Chats(ApiBase, View):

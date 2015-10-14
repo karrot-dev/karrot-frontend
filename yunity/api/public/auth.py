@@ -4,7 +4,7 @@ from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from django.views.generic import View
 
 from yunity.api import types
-from yunity.api.public.users import user_to_json
+from yunity.api.serialization import user_to_dict
 from yunity.utils.session import RealtimeClientData
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter
@@ -31,7 +31,7 @@ class Login(ApiBase, View):
         :type request: HttpRequest
         """
         generate_csrf_token_for_frontend(request)
-        return self.success({'user': user_to_json(request.user)})
+        return self.success({'user': user_to_dict(request.user)})
 
     @json_request
     @request_parameter('email', of_type=types.user_email)
@@ -72,7 +72,7 @@ class Login(ApiBase, View):
             return self.forbidden(reason='wrong login credentials.')
 
         login(request, user)
-        return self.success({'user': user_to_json(user)})
+        return self.success({'user': user_to_dict(user)})
 
 
 class Logout(ApiBase, View):

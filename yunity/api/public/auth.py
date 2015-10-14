@@ -6,7 +6,8 @@ from django.views.generic import View
 from yunity.api import types
 from yunity.api.public.users import user_to_json
 from yunity.utils.session import RealtimeClientData
-from yunity.utils.api.abc import ApiBase, request_parameter, json_request
+from yunity.utils.api.abc import ApiBase
+from yunity.utils.api.decorators import json_request, request_parameter
 
 
 class Login(ApiBase, View):

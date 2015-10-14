@@ -7,8 +7,9 @@ from django.views.generic import View
 
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api import types
-from yunity.utils.api.abc import ApiBase, uri_resource, permissions_required_for, json_request, \
-    request_parameter, rollback_on
+from yunity.utils.api.abc import ApiBase
+from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
+    rollback_on
 from yunity.models.concrete import Chat as ChatModel
 from yunity.models.concrete import Message as MessageModel
 from yunity.models.concrete import User as UserModel

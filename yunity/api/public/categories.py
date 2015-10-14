@@ -3,7 +3,8 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api import types
-from yunity.utils.api.abc import ApiBase, json_request, request_parameter
+from yunity.utils.api.abc import ApiBase
+from yunity.utils.api.decorators import json_request, request_parameter
 from yunity.models import Category as CategoryModel
 
 

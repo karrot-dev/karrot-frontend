@@ -31,10 +31,7 @@ def multiple_integerids(name, minlength=1, maxlength=10, minrepetitions=1, maxre
 
 
 def single_integerid(name, minlength=1, maxlength=10):
-    return _named_regex(
-        name=name,
-        regex=_create_integerid(minlength, maxlength),
-    )
+    return _named_regex(name=name, regex=_create_integerid(minlength, maxlength))
 
 
 chat_id_uri_pattern = single_integerid('chat')

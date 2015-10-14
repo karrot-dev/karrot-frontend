@@ -31,7 +31,7 @@
 
 #### ElasticSearch
 If you get "low disk watermark" errors from ElasticSearch, start elasticsearch as follows:
- 
+
 - elasticsearch -Des.config="config/elasticsearch.yml"
 
 #### Crossbar

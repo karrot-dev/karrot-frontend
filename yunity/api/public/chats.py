@@ -6,8 +6,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
-from yunity.api import types
-from yunity.api.serialization import chat_to_dict, message_to_dict
+from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
     rollback_on
@@ -46,7 +45,7 @@ class Chats(ApiBase, View):
             .annotate(latest_message_time=Max('messages__created_at')) \
             .order_by('-latest_message_time')
 
-        return self.success({'chats': [chat_to_dict(chat) for chat in chats]})
+        return self.success({'chats': [serializers.chat(chat) for chat in chats]})
 
     @json_request
     @request_parameter('message', of_type=types.message)
@@ -171,7 +170,7 @@ class Chat(ApiBase, View):
         chat.name = request.body['name']
         chat.save()
 
-        return self.success(chat_to_dict(chat))
+        return self.success(serializers.chat(chat))
 
 
 class ChatMessages(ApiBase, View):
@@ -261,7 +260,7 @@ class ChatMessages(ApiBase, View):
             content=request.body['content'],
         )
 
-        return self.created(message_to_dict(message))
+        return self.created(serializers.message(message))
 
     @uri_resource('chat', of_type=ChatModel)
     @permissions_required_for('chat')
@@ -329,7 +328,7 @@ class ChatMessages(ApiBase, View):
         if take is not None:
             messages = messages[:int(take)]
 
-        return self.success({'messages': [message_to_dict(message) for message in messages]})
+        return self.success({'messages': [serializers.message(message) for message in messages]})
 
 
 class ChatParticipants(ApiBase, View):

@@ -5,8 +5,7 @@ from django.http import HttpRequest
 from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
-from yunity.api import types
-from yunity.api.serialization import user_to_dict
+from yunity.api import types, serializers
 from yunity.resources.http.status import HTTP_409_CONFLICT
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
@@ -88,7 +87,7 @@ class UserAll(ApiBase, View):
             display_name=request.body['display_name'],
         )
 
-        return self.created(user_to_dict(user))
+        return self.created(serializers.user(user))
 
 
 class UserMultiple(ApiBase, View):
@@ -124,7 +123,7 @@ class UserMultiple(ApiBase, View):
         :type users: [UserModel]
         """
 
-        return self.success({"users": [user_to_dict(user) for user in users]})
+        return self.success({"users": [serializers.user(user) for user in users]})
 
 
 class UserSingle(ApiBase, View):
@@ -171,7 +170,7 @@ class UserSingle(ApiBase, View):
         user.display_name = request.body['display_name']
         user.save()
 
-        return self.created(user_to_dict(user))
+        return self.created(serializers.user(user))
 
 
 urlpatterns = [

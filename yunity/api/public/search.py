@@ -127,15 +127,19 @@ class SearchMap(ApiBase, View):
             """
             TODO: Ideally elasticsearch will handle this itself
             """
-            d = { "id": hit.id }
-            d["_meta"] = { "doc_type": hit.meta.doc_type }
-            d["locations"] = [
+            return {
+                "id": hit.id,
+                "_meta": {
+                    "doc_type": hit.meta.doc_type,
+                },
+                "locations": [
                     {
                         "latitude": loc['point']['lat'],
                         "longitude": loc['point']['lon'],
-                    } for loc in hit.locations
-                ]
-            return d
+                    }
+                    for loc in hit.locations
+                ],
+            }
 
         params = request.GET.dict()
 

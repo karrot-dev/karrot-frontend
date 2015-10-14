@@ -1,5 +1,4 @@
 from yunity.api import types
-from yunity.models import Category
 from yunity.utils.tests.abc import BaseTestCase, AnyResult
 from yunity.utils.tests.mock import MockCategory
 from yunity.utils.validation import ValidationFailure

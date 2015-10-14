@@ -80,7 +80,7 @@ If you get a "virtual memory error" with any of the postgres commands, close PyC
 
 ### Data model
 
-[![ER diagram](documentation/yunity-schema.png)](documentation/yunity-schema.xml)
+[![ER diagram](yunity/doc/yunity-schema.png)](yunity/doc/yunity-schema.xml)
 
 ## API Documentation
 

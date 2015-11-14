@@ -3,7 +3,6 @@ cffi==1.2.1
 characteristic==14.3.0
 click==5.1
 crossbar==0.11.1
-crossbarconnect==0.5.3
 cryptography==1.0.2
 decorator==4.0.4
 Django==1.9a1

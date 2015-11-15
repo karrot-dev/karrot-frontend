@@ -3,7 +3,7 @@ characteristic==14.3.0
 click==5.1
 cryptography==1.0.2
 decorator==4.0.4
-Django==1.9a1
+Django==1.9b1
 django-cors-headers==1.1.0
 django-extensions==1.5.7
 django-jinja==1.4.1

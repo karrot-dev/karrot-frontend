@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'django.contrib.postgres',
 
     # Django packages
@@ -126,11 +125,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 SESSION_COOKIE_HTTPONLY = False
 
 AUTH_USER_MODEL = 'yunity.User'
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-STATIC_URL = '/static/'
 
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control

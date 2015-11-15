@@ -25,19 +25,3 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^doc$', yunity.doc.flask_swagger.doc),
 ]
-
-
-# easy solution for serving a frontend from Django
-# TODO: remove if superceded
-if getattr(settings, 'LOCAL_WEBAPP_PATH', None):
-    urlpatterns += [
-        url('^$', 'django.views.static.serve', {
-            'path': 'index.html',
-            'document_root': settings.LOCAL_WEBAPP_PATH,
-            'show_indexes': True,
-        }),
-        url('^(?P<path>.*)', 'django.views.static.serve', {
-            'document_root': settings.LOCAL_WEBAPP_PATH,
-            'show_indexes': True,
-        })
-    ]

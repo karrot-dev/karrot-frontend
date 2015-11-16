@@ -71,7 +71,7 @@ class Login(ApiBase, View):
             return self.forbidden(reason='wrong login credentials.')
 
         login(request, user)
-        return self.success({'user': user_to_dict(user)})
+        return self.success({'user': serializers.user(user)})
 
 
 class Logout(ApiBase, View):

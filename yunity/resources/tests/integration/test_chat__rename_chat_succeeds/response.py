@@ -11,7 +11,6 @@ response = {
                "sender": initial_message.sent_by.id,
                "created_at": initial_message.created_at.isoformat(),
                "id": initial_message.id,
-               "type": initial_message.type,
            },
            "id": chat.id,
     }

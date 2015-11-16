@@ -5,13 +5,7 @@ from yunity.utils.validation import Each, OfType, HasKey, IsReasonableLengthStri
 
 
 def message(value):
-    (HasKey('type') & message_type)(value)
     (HasKey('content') & message_content)(value)
-    return value
-
-
-def message_type(value):
-    (OfType(str) & IsIn('TEXT', 'IMAGE'))(value)
     return value
 
 

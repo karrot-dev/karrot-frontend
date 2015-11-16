@@ -8,7 +8,6 @@ request = {
         "participants": [users[0].id, users[1].id],
         "message": {
             "content": "some message to get the conversation started",
-            "type": "TEXT"
         }
     }
 }

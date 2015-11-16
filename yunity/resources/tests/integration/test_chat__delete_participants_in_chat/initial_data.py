@@ -13,14 +13,12 @@ original_number_of_participants = chat.participants.count()
 
 ConversationMessage.objects.create(
     content="Hello Matthias!",
-    type="TEXT",
     sent_by=users[0],
     in_conversation=chat
 )
 
 ConversationMessage.objects.create(
     content="Hi Tilmann! How are you?",
-    type="TEXT",
     sent_by=users[1],
     in_conversation=chat
 )

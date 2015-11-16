@@ -38,115 +38,34 @@ from yunity.models import *
 def _datetime(fmt):
     return make_aware(datetime.strptime(fmt, '%Y-%m-%d %H:%M'))
 
-
-##################################################
-# category
-##################################################
-
-category_foodsharing = Category.objects.create(name='foodsharing')
-category_user = Category.objects.create(name='user')
-category_foodsharing_company = Category.objects.create(name='company', parent=category_foodsharing)
-category_foodsharing_foodbasket = Category.objects.create(name='basket', parent=category_foodsharing)
-
-
 ##################################################
 # user
 ##################################################
 
-# some geo locations to use
-
-location_berlin = {"latitude": 52.5167, "longitude": 13.3833, "description": "in Berlin"}
-location_bremen = {"latitude": 53.0833, "longitude": 8.8000,  "description": "in Bremen"}
-location_kiel   = {"latitude": 54.3333, "longitude": 10.1333, "description": "in Kiel"}
-location_munich = {"latitude": 48.1333, "longitude": 11.5667, "description": "in Munich"}
-
 user_tilmann = User.objects.create(
     email='til@man.com',
     display_name='Mr T',
-    name='tilmann',
-    type=category_user,
-    provenance='yunity.org',
-    locations=[location_berlin]
+    first_name='tilmann',
+    last_name='becker'
 )
 
-user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias',
-                                    name='matthias', type=category_user, provenance='yunity.org',
-                                    locations=[location_bremen])
+user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', first_name='matthias', last_name='lar')
 
-user_neel = User.objects.create(email='ne@el.com', display_name='Neel', name='neel', type=category_user, provenance='yunity.org',
-    locations=[location_kiel])
+user_neel = User.objects.create(email='ne@el.com', display_name='Neel', first_name='neel', last_name='neel')
 
-user_flo = User.objects.create(email='f@lo.com', display_name='Flo', name='flo', type=category_user, provenance='yunity.org',
-    locations=[location_munich])
-
-
-##################################################
-# use-case: foodsharing store
-##################################################
-
-foodsharing_store = Opportunity.objects.create(
-    provenance='yunity.org',
-    name='alnatura',
-    type=category_foodsharing_company,
-    metadata={
-        "price": "expensive",
-        "style": "sophisticated"
-    },
-    locations=[location_berlin]
-)
-foodsharing_store.administrated_by.add(user_tilmann, user_matthias)
-
-foodsharing_store_wall = Wall.objects.create(target=foodsharing_store)
-Message.objects.create(type='text', content="hey guys, i can't make the pickup today :(", sent_by=user_neel, in_conversation=foodsharing_store_wall)
-
-Participate.objects.create(requested_by=user_neel, target=foodsharing_store, status='granted', type='team')
-Participate.objects.create(requested_by=user_flo, target=foodsharing_store, status='granted', type='team')
-
-Participate.objects.create(requested_by=user_flo, target=foodsharing_store, status='granted', type='picker', time=_datetime('2015-10-15 17:00'))
-Participate.objects.create(requested_by=user_neel, target=foodsharing_store, status='requested', type='picker', time=_datetime('2015-10-14 17:00'))
-Participate.objects.create(requested_by=user_neel, target=foodsharing_store, status='requested', type='picker', time=_datetime('2015-10-13 17:00'))
-Participate.objects.create(requested_by=None, target=foodsharing_store, type='picker', time=_datetime('2015-10-12 17:00'))
-
-
-##################################################
-# use-case: food basket
-##################################################
-
-foodsharing_basket = Valuable.objects.create(
-    provenance='foodsharing.de',
-    name='super tasty bananas and bread',
-    type=category_foodsharing_foodbasket,
-    metadata={
-        "quality": "good",
-        "brand": "unknown"
-    },
-    locations=[location_munich]
-)
-foodsharing_basket.administrated_by.add(user_tilmann)
-
-foodsharing_basket_wall = Wall.objects.create(target=foodsharing_basket)
-Message.objects.create(type='text', content='please pick up my super tasty stuff', sent_by=user_tilmann, in_conversation=foodsharing_basket_wall)
-Message.objects.create(type='picture', content='yunity.org/pics/mybasket.png', sent_by=user_tilmann, in_conversation=foodsharing_basket_wall)
-
-Take.objects.create(requested_by=user_neel, target=foodsharing_basket)
-Take.objects.create(requested_by=user_matthias, target=foodsharing_basket)
-
-
-##################################################
-# use-case: chat
-##################################################
+user_flo = User.objects.create(email='f@lo.com', display_name='Flo', first_name='flo', last_name='g')
 
 num_chat_messages = 10
 
-chat_pair = Chat.objects.create()
+chat_pair = Conversation.objects.create()
 chat_pair.participants.add(user_neel, user_tilmann)
 for i in range(num_chat_messages):
-    Message.objects.create(content="Hi Neel, lorem ipsum {}".format(i), type='text', sent_by=user_tilmann, in_conversation=chat_pair)
-    Message.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), type='text', sent_by=user_neel, in_conversation=chat_pair)
+    ConversationMessage.objects.create(content="Hi Neel, lorem ipsum {}".format(i), sent_by=user_tilmann, in_conversation=chat_pair)
+    ConversationMessage.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), sent_by=user_neel, in_conversation=chat_pair)
 
-chat_group = Chat.objects.create()
+chat_group = Conversation.objects.create()
 chat_group.participants.add(user_matthias, user_flo, user_tilmann)
 for i in range(num_chat_messages):
-    Message.objects.create(content="Hi all, lorem ipsum {}".format(i), type='text', sent_by=user_matthias, in_conversation=chat_group)
-    Message.objects.create(content="Hi too, lorem ipsum {}".format(i), type='text', sent_by=user_flo, in_conversation=chat_group)
-    Message.objects.create(content="Bla, lorem ipsum {}".format(i), type='text', sent_by=user_tilmann, in_conversation=chat_group)
+    ConversationMessage.objects.create(content="Hi all, lorem ipsum {}".format(i), sent_by=user_matthias, in_conversation=chat_group)
+    ConversationMessage.objects.create(content="Hi too, lorem ipsum {}".format(i), sent_by=user_flo, in_conversation=chat_group)
+    ConversationMessage.objects.create(content="Bla, lorem ipsum {}".format(i), sent_by=user_tilmann, in_conversation=chat_group)

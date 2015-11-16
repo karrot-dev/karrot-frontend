@@ -34,21 +34,6 @@ class TestApiValidation(BaseTestCase):
         self.when_calling(types.user_display_name)
         self.then_invocation_failed_with(ValidationFailure)
 
-    def test_validate_message_type_passes_for_text(self):
-        self.given_data('TEXT')
-        self.when_calling(types.message_type)
-        self.then_invocation_passed_with(AnyResult())
-
-    def test_validate_message_type_passes_for_image(self):
-        self.given_data('IMAGE')
-        self.when_calling(types.message_type)
-        self.then_invocation_passed_with(AnyResult())
-
-    def test_validate_message_type_fails(self):
-        self.given_data('not-yet-implemented-type')
-        self.when_calling(types.message_type)
-        self.then_invocation_failed_with(ValidationFailure)
-
     def test_validate_message_content_passes(self):
         self.given_data('This is the message content. ☺')
         self.when_calling(types.message_content)
@@ -80,11 +65,6 @@ class TestApiValidation(BaseTestCase):
         self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_message_passes(self):
-        self.given_data({'content': 'woo message', 'type': 'TEXT'})
+        self.given_data({'content': 'woo message'})
         self.when_calling(types.message)
         self.then_invocation_passed_with(AnyResult())
-
-    def test_validate_message_fails(self):
-        self.given_data({'content': 'message without a type field, oh no!'})
-        self.when_calling(types.message)
-        self.then_invocation_failed_with(ValidationFailure)

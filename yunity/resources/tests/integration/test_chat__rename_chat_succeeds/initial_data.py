@@ -13,7 +13,6 @@ chatid = chat.id
 
 initial_message = ConversationMessage.objects.create(
     content="Hello group chat!",
-    type="TEXT",
     sent_by=users[0],
     in_conversation=chat
 )

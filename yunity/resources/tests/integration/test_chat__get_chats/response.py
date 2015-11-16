@@ -12,7 +12,6 @@ response = {
                     "sender": users[0].id,
                     "created_at": DATETIME_AROUND_NOW,
                     "id": ANY_INT,
-                    "type": "TEXT"
                 },
                 "id": ANY_INT,
             },
@@ -24,7 +23,6 @@ response = {
                     "sender": users[1].id,
                     "created_at": DATETIME_AROUND_NOW,
                     "id": ANY_INT,
-                    "type": "TEXT"
                 },
                 "id": ANY_INT,
             },

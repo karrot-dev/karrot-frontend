@@ -10,7 +10,6 @@ response = {
                 "sender": _.sent_by.id,
                 "created_at": DATETIME_AROUND_NOW,
                 "id": ANY_INT,
-                "type": "TEXT"
             } for _ in reversed(before_messages)
         ]
     }

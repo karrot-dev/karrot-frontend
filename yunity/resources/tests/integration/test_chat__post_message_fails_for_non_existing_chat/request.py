@@ -6,6 +6,5 @@ request = {
     "user": request_user,
     "body": {
         "content": "Hello Matthias!",
-        "type": "TEXT"
     }
 }

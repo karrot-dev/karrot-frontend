@@ -120,7 +120,6 @@ class Chats(ApiBase, View):
         MessageModel.objects.create(
             sent_by_id=request.user.id,
             in_conversation_id=chat.id,
-            type=request.body['message']['type'],
             content=request.body['message']['content'],
         )
 
@@ -176,7 +175,6 @@ class Chat(ApiBase, View):
 class ChatMessages(ApiBase, View):
     @json_request
     @uri_resource('chat', of_type=ConversationModel)
-    @request_parameter('type', of_type=types.message_type)
     @request_parameter('content', of_type=types.message_content)
     @permissions_required_for('chat')
     def post(self, request, chat):
@@ -197,15 +195,10 @@ class ChatMessages(ApiBase, View):
                     - type
                     - content
                   properties:
-                      type:
-                          type: string
-                          enum: [TEXT, IMAGE]
-                          description: Type of this message
-                          example: TEXT
                       content:
                           type: string
                           example: Hi Peter, how are you?
-                          description: Content, e.g. utf8-formatted plain text or image id received by the upload endpoint
+                          description: Content, e.g. utf8-formatted plain text
         responses:
             201:
                 description: Chat message added
@@ -213,17 +206,11 @@ class ChatMessages(ApiBase, View):
                     id: message
                     type: object
                     required:
-                      - type
                       - content
                       - sender
                       - created_at
                       - id
                     properties:
-                        type:
-                            type: string
-                            enum: [TEXT, IMAGE]
-                            description: Type of this message
-                            example: TEXT
                         content:
                             type: string
                             example: Hi Peter, how are you?
@@ -256,7 +243,6 @@ class ChatMessages(ApiBase, View):
         message = MessageModel.objects.create(
             sent_by_id=request.user.id,
             in_conversation_id=chat.id,
-            type=request.body['type'],
             content=request.body['content'],
         )
 

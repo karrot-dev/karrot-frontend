@@ -10,7 +10,6 @@ chatid = chat.id
 messages = [
     ConversationMessage.objects.create(
         content="This is message {}".format(i),
-        type="TEXT",
         sent_by=sender,
         in_conversation=chat
     ) for i in range(10)

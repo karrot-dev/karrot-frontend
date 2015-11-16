@@ -9,6 +9,5 @@ response = {
         "sender": chat_responder.id,
         "created_at": DATETIME_AROUND_NOW,
         "id": ANY_INT,
-        "type": request["body"]["type"]
     }
 }

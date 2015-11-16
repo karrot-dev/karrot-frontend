@@ -11,14 +11,12 @@ chat1.save()
 
 ConversationMessage.objects.create(
     content="Hey, I created a group chat",
-    type="TEXT",
     sent_by=users[0],
     in_conversation=chat1
 )
 
 ConversationMessage.objects.create(
     content="Thanks, how are you two?",
-    type="TEXT",
     sent_by=users[1],
     in_conversation=chat1
 )
@@ -28,7 +26,6 @@ chat2.participants.add(users[0], users[1])
 
 ConversationMessage.objects.create(
     content="Hello user 1",
-    type="TEXT",
     sent_by=users[0],
     in_conversation=chat2
 )
@@ -38,7 +35,6 @@ chat3.participants.add(users[2], users[1])
 
 ConversationMessage.objects.create(
     content="Unrelated stuff",
-    type="TEXT",
     sent_by=users[2],
     in_conversation=chat3
 )

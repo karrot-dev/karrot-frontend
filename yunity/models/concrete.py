@@ -58,11 +58,9 @@ class User(AbstractBaseUser):
 
 class ConversationMessage(BaseModel):
     sent_by = ForeignKey('yunity.User')
-    reply_to = ForeignKey('self', null=True, related_name='replies')
     in_conversation = ForeignKey('yunity.Conversation', related_name='messages')
 
     created_at = DateTimeField(auto_now=True)
-    type = MaxLengthCharField()
     content = TextField()
 
 

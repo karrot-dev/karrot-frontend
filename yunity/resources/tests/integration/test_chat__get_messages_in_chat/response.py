@@ -10,14 +10,12 @@ response = {
                 "sender": users[1].id,
                 "created_at": DATETIME_AROUND_NOW,
                 "id": ANY_INT,
-                "type": "TEXT"
             },
             {
                 "content": "Hello Matthias!",
                 "sender": users[0].id,
                 "created_at": DATETIME_AROUND_NOW,
                 "id": ANY_INT,
-                "type": "TEXT"
             },
         ]
     }

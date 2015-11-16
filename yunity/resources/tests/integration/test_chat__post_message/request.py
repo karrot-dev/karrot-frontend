@@ -6,6 +6,5 @@ request = {
     "user": chat_responder,
     "body": {
         "content": "Hello Matthias!",
-        "type": "TEXT"
     }
 }

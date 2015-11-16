@@ -8,7 +8,6 @@ chat.participants.add(chat_starter, chat_responder)
 
 ConversationMessage.objects.create(
     content="Hey, I created a chat",
-    type="TEXT",
     sent_by=chat_starter,
     in_conversation=chat
 )

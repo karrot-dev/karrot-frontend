@@ -33,6 +33,5 @@ def conversation_message(model):
         'id': model.id,
         'sender': model.sent_by_id,
         'created_at': model.created_at.isoformat(),
-        'type': model.type,
         'content': model.content,
     }

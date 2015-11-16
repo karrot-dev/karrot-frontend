@@ -17,6 +17,8 @@ class MockUser(Mock):
     is_active = True
     is_staff = False
     display_name = LazyAttribute(lambda _: faker.name())
+    first_name = LazyAttribute(lambda _: faker.name())
+    last_name = LazyAttribute(lambda _: faker.name())
     email = LazyAttribute(lambda _: faker.email())
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
 

@@ -31,7 +31,8 @@ class UserAll(ApiBase, View):
                   required:
                     - email
                     - password
-                    - display_name
+                    - first_name
+                    - last_name
                   properties:
                       email:
                           type: string
@@ -41,10 +42,18 @@ class UserAll(ApiBase, View):
                           type: string
                           description: Password for user. Will be validated to specific rules
                           example: PaulsStrongPasswordWhichHeNeverForgets
+                      last_name:
+                          type: string
+                          example: Webber
+                          description: The last name
+                      first_name:
+                          type: string
+                          example: Paul
+                          description: The first name
                       display_name:
                           type: string
                           example: Paul
-                          description: The public displayed name
+                          description: The public displayed name, defaults to first_name if not specified
         responses:
             201:
                 description: User created
@@ -133,10 +142,18 @@ class UserSingle(ApiBase, View):
               schema:
                   id: user_information
                   properties:
+                      last_name:
+                          type: string
+                          example: Webber
+                          description: The last name
+                      first_name:
+                          type: string
+                          example: Paul
+                          description: The first name
                       display_name:
-                        type: string
-                        example: Paul
-                        description: Display name of the user
+                          type: string
+                          example: Paul
+                          description: The public displayed name, defaults to first_name if not specified
 
         responses:
             201:

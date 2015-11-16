@@ -5,7 +5,8 @@ def user(model):
     return {
         'id': model.id,
         'display_name': model.display_name,
-        'picture_url': model.picture_url,
+        'first_name': model.first_name,
+        'last_name': model.last_name,
     }
 
 

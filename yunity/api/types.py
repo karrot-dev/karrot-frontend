@@ -40,3 +40,13 @@ def user_password(value):
 def user_display_name(value):
     IsReasonableLengthString()(value)
     return value
+
+
+def user_first_name(value):
+    IsReasonableLengthString()(value)
+    return value
+
+
+def user_last_name(value):
+    IsReasonableLengthString()(value)
+    return value

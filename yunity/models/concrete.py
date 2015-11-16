@@ -39,7 +39,7 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, None, None, None, **extra_fields)
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, BaseModel):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)

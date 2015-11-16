@@ -3,6 +3,9 @@ from django.db.models.fields.related import RelatedField
 
 
 class BaseModel(Model):
+    class Meta:
+        abstract = True
+
     id = AutoField(primary_key=True)
 
     def _get_explicit_field_names(self):

@@ -105,13 +105,7 @@ def get_es_type(base, category_name):
 
 
 def get_es_indexed_models():
-
-    from yunity.models import Opportunity, Valuable
-
-    return (
-        Valuable,
-        Opportunity,
-    )
+    return []
 
 
 def index_db(models):

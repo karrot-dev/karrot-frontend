@@ -35,11 +35,5 @@ def single_integerid(name, minlength=1, maxlength=10):
 
 
 chat_id_uri_pattern = single_integerid('chat')
-feedback_id_uri_pattern = single_integerid('feedback')
-opportunity_id_uri_pattern = single_integerid('opportunity')
-participate_id_uri_pattern = single_integerid('participate')
-take_id_uri_pattern = single_integerid('take')
 user_id_uri_pattern = single_integerid('user')
 multiple_user_id_uri_pattern = multiple_integerids('users')
-valuable_id_uri_pattern = single_integerid('valuable')
-wallpost_id_uri_pattern = single_integerid('wallpost')

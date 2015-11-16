@@ -10,18 +10,6 @@ from yunity.resources.http.status import HTTP_409_CONFLICT
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
     rollback_on
-from yunity.models import Category as CategoryModel
-
-
-def parse_locations(request):
-    try:
-        return [{
-            'description': request.body['location_description'],
-            'latitude': request.body['latitude'],
-            'longitude': request.body['longitude'],
-        }]
-    except KeyError:
-        return []
 
 
 class UserAll(ApiBase, View):
@@ -82,8 +70,6 @@ class UserAll(ApiBase, View):
         user = get_user_model().objects.create_user(
             email=request.body['email'],
             password=request.body['password'],
-            locations=parse_locations(request),
-            category=CategoryModel.objects.get(name='user.default'),
             display_name=request.body['display_name'],
         )
 

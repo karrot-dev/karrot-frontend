@@ -103,7 +103,7 @@ def permissions_required_for(resource_name):
     def has_permissions_for_chat(request_user, chat):
         return ChatModel.objects \
             .filter(id=chat.id) \
-            .filter(Q(participants=request_user.id) | Q(administrated_by=request_user.id)) \
+            .filter(Q(participants=request_user.id)) \
             .exists()
 
     def has_permissions(request_user, resource):

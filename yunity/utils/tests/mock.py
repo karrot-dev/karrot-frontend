@@ -1,6 +1,4 @@
 from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, SubFactory, PostGeneration
-
-from yunity.models import Category
 from yunity.utils.tests.fake import faker
 
 
@@ -11,15 +9,6 @@ class Mock(DjangoModelFactory):
         abstract = True
 
 
-class MockCategory(Mock):
-    class Meta:
-        model = "yunity.Category"
-        strategy = CREATE_STRATEGY
-
-    name = LazyAttribute(lambda _: ' '.join(faker.words(5)))
-    parent = None
-
-
 class MockUser(Mock):
     class Meta:
         model = "yunity.User"
@@ -27,11 +16,9 @@ class MockUser(Mock):
 
     is_active = True
     is_staff = False
-    type = Category.objects.filter(name='user.default').first()
     display_name = LazyAttribute(lambda _: faker.name())
     email = LazyAttribute(lambda _: faker.email())
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
-    locations = LazyAttribute(lambda _: [faker.location() for _ in range(2)])
 
 
 class MockChat(Mock):

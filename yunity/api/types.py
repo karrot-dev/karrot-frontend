@@ -1,8 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-from yunity.models import Category
-from yunity.resources.http.status import HTTP_409_CONFLICT
-from yunity.utils.validation import Each, OfType, IsIn, HasKey, IsReasonableLengthString, ValidationFailure
+
+from yunity.utils.validation import Each, OfType, HasKey, IsReasonableLengthString, ValidationFailure
 
 
 def message(value):
@@ -28,24 +27,6 @@ def chat_name(value):
 
 def list_of_userids(value):
     (OfType(list) & Each(OfType(int)))(value)
-    return value
-
-
-def category_name(value):
-    IsReasonableLengthString()(value)
-
-    if Category.objects.filter(name=value).exists():
-        raise ValidationFailure('category name already exists', HTTP_409_CONFLICT)
-
-    return value
-
-
-def category_parent(value):
-    OfType(int)(value)
-
-    if not Category.objects.filter(id=value).exists():
-        raise ValidationFailure('category parent does not exist')
-
     return value
 
 

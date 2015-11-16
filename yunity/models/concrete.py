@@ -3,8 +3,6 @@ from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField
     BooleanField
 from django.utils import timezone
 
-from yunity.models.abstract import MapItem, Conversation, Request
-from yunity.elasticsearch.core import get_es_type
 from yunity.utils.models.abc import BaseModel
 from yunity.utils.models.field import MaxLengthCharField
 
@@ -21,8 +19,6 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=email,
             is_active=True,
-            locations=locations or {'latitude': 0.0, 'longitude': 0.0},
-            type=category or Category.objects.get(name="user.default"),
             display_name=display_name or email,
             **extra_fields)
         user.set_password(password)
@@ -41,7 +37,7 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, None, None, None, **extra_fields)
 
 
-class User(AbstractBaseUser, MapItem):
+class User(AbstractBaseUser):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
@@ -53,34 +49,11 @@ class User(AbstractBaseUser, MapItem):
 
     USERNAME_FIELD = 'email'
 
-    def to_es(self):
-        return super().to_es()
-
     def get_full_name(self):
         return self.name
 
     def get_short_name(self):
-        return self.name
-
-
-class Valuable(MapItem):
-
-    def get_es_type(self):
-        category_name = self.type.name
-        return get_es_type('valuable', category_name)
-
-
-class Opportunity(MapItem):
-
-    def get_es_type(self):
-        category_name = self.type.name
-        return get_es_type('opportunity', category_name)
-
-
-class Category(BaseModel):
-    parent = ForeignKey('self', null=True, related_name='children')
-
-    name = MaxLengthCharField(unique=True)
+        return self.display_name
 
 
 class Message(BaseModel):
@@ -93,43 +66,7 @@ class Message(BaseModel):
     content = TextField()
 
 
-class Interaction(BaseModel):
-    created_at = DateTimeField(auto_now=True)
-    type = MaxLengthCharField()
-    payload = TextField()
-
-    caused_by = ForeignKey('yunity.User', related_name='interation_caused')
-    changed = OneToOneField('yunity.VersionTrait')
-
-
-class Feedback(BaseModel):
-    about = OneToOneField('yunity.FeedbackTrait')
-    provided_by = OneToOneField('yunity.User', related_name='feedback_provider')
-    arbitrated_by = ManyToManyField('yunity.User', related_name='feedback_arbitrators')
-
-    status = MaxLengthCharField()
-    type = MaxLengthCharField()
-
-
 class Chat(Conversation):
     participants = ManyToManyField('yunity.User')
 
     name = MaxLengthCharField(null=True)
-
-
-class Wall(Conversation):
-    target = OneToOneField('yunity.MapItem')
-
-
-class ArbitrationLog(Conversation):
-    target = OneToOneField('yunity.Feedback')
-
-
-class Participate(Request):
-    target = ForeignKey('yunity.Opportunity')
-
-    type = MaxLengthCharField()
-
-
-class Take(Request):
-    target = ForeignKey('yunity.Valuable')

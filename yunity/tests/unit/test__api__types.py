@@ -1,6 +1,5 @@
 from yunity.api import types
 from yunity.utils.tests.abc import BaseTestCase, AnyResult
-from yunity.utils.tests.mock import MockCategory
 from yunity.utils.validation import ValidationFailure
 
 
@@ -88,34 +87,4 @@ class TestApiValidation(BaseTestCase):
     def test_validate_message_fails(self):
         self.given_data({'content': 'message without a type field, oh no!'})
         self.when_calling(types.message)
-        self.then_invocation_failed_with(ValidationFailure)
-
-    def test_validate_category_name_passes(self):
-        self.given_data('not-yet-existing-category')
-        self.when_calling(types.category_name)
-        self.then_invocation_passed_with(AnyResult())
-
-    def test_validate_category_name_fails_with_long_name(self):
-        self.given_data('really lo{}ng name'.format('o' * 999999))
-        self.when_calling(types.category_name)
-        self.then_invocation_failed_with(ValidationFailure)
-
-    def test_validate_category_name_fails_with_existing_category(self):
-        self.given_data(MockCategory.create().name)
-        self.when_calling(types.category_name)
-        self.then_invocation_failed_with(ValidationFailure)
-
-    def test_validate_category_parent_passes(self):
-        self.given_data(MockCategory.create().id)
-        self.when_calling(types.category_parent)
-        self.then_invocation_passed_with(AnyResult())
-
-    def test_validate_category_parent_fails_with_unknown_parent(self):
-        self.given_data(12345)
-        self.when_calling(types.category_parent)
-        self.then_invocation_failed_with(ValidationFailure)
-
-    def test_validate_category_parent_fails_with_wrong_type(self):
-        self.given_data('not-a-category-id')
-        self.when_calling(types.category_parent)
         self.then_invocation_failed_with(ValidationFailure)

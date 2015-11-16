@@ -42,7 +42,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, MapItem):
-    email = EmailField(max_length=64, unique=True)
+    email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
     date_joined = DateTimeField(default=timezone.now)

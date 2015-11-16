@@ -29,7 +29,7 @@ def json_request(func):
     return wrapper
 
 
-def request_parameter(with_name, of_type=str):
+def request_parameter(with_name, of_type=str, optional=False):
     """Decorator to validate that the named parameter on the request body exists and passes some validation
     (gives a 400 response if any of the resources do not convert to the type).
 
@@ -37,6 +37,7 @@ def request_parameter(with_name, of_type=str):
 
     :type with_name: str
     :type of_type: function :: str -> T
+    :type optional: bool
     """
 
     def decorator(func):
@@ -45,7 +46,8 @@ def request_parameter(with_name, of_type=str):
             try:
                 request.body[with_name] = of_type(request.body[with_name])
             except KeyError:
-                return api_base.validation_failure(reason='missing request parameter {}'.format(with_name))
+                if not optional:
+                    return api_base.validation_failure(reason='missing request parameter {}'.format(with_name))
             except ValidationFailure as e:
                 return api_base.validation_failure(reason=e.message, status=e.status)
 

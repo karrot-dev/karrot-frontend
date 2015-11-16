@@ -88,31 +88,7 @@ A swagger description file is generated at /doc. You can pass it to any swagger 
 
 ### Install swagger locally
 
-An easy swagger setup can be included into the django distribution. Add the following line to your local_settings.py
-
-```
-LOCAL_WEBAPP_PATH = 'path_to_/yunity-core/static'
-```
-
-and clone the swagger-ui repo there:
-
-```
-git clone https://github.com/swagger-api/swagger-ui.git
-```
-
-Now you can point your browser to the swagger index.html
-
-```
-localhost:8000:/swagger-ui/dist/index.html
-```
-
-just enter
-
-```
-http://localhost:8000/doc
-```
-
-and you can explore the API.
+See the yunity-setup repository [![yunity-setup repository](https://https://github.com/yunity/yunity-setup)] for a complete local environment that also includes a swagger release.
 
 ## Settings
 

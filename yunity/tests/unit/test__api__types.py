@@ -57,7 +57,7 @@ class TestApiValidation(BaseTestCase):
 
     def test_validate_message_content_fails(self):
         self.given_data('Really lo{}ng message'.format('o' * 999999))
-        self.when_calling(types.message_type)
+        self.when_calling(types.message_content)
         self.then_invocation_failed_with(ValidationFailure)
 
     def test_validate_chat_name_passes(self):

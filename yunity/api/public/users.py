@@ -16,7 +16,9 @@ class UserAll(ApiBase, View):
     @json_request
     @request_parameter('email', of_type=types.user_email)
     @request_parameter('password', of_type=types.user_password)
-    @request_parameter('display_name', of_type=types.user_display_name)
+    @request_parameter('display_name', of_type=types.user_display_name, optional=True)
+    @request_parameter('first_name', of_type=types.user_first_name)
+    @request_parameter('last_name', of_type=types.user_last_name)
     @rollback_on(IntegrityError, reason='user already exists', status=HTTP_409_CONFLICT)
     def post(self, request):
         """register a new user
@@ -80,6 +82,8 @@ class UserAll(ApiBase, View):
             email=request.body['email'],
             password=request.body['password'],
             display_name=request.body['display_name'],
+            first_name=request.body['first_name'],
+            last_name=request.body['last_name'],
         )
 
         return self.created(serializers.user(user))

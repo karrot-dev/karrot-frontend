@@ -6,6 +6,8 @@ request = {
     "body": {
         "email": users[0].email,
         "password": "testpwd",
-        "display_name": "I try to register an existing mail"
+        "display_name": "I try to register an existing mail",
+        "first_name": "doesn't",
+        "last_name": "matter"
     }
 }

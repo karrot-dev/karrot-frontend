@@ -4,6 +4,8 @@ response = {
     "http_status": 201,
     "response": {
         "id": ANY_INT,
-        "display_name": "Mr Test"
+        "display_name": "Mr Test",
+        "first_name": "first",
+        "last_name": "last",
     }
 }

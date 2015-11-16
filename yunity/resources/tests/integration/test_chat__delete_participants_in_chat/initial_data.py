@@ -1,24 +1,24 @@
-from yunity.models import Chat, Message
+from yunity.models import Conversation, ConversationMessage
 from yunity.utils.tests.mock import MockUser
 
 users = MockUser.create_batch(3)
 request_user = users[0]
 user_to_delete = users[2]
 
-chat = Chat.objects.create()
+chat = Conversation.objects.create()
 chat.participants.add(*users)
 
 chatid = chat.id
 original_number_of_participants = chat.participants.count()
 
-Message.objects.create(
+ConversationMessage.objects.create(
     content="Hello Matthias!",
     type="TEXT",
     sent_by=users[0],
     in_conversation=chat
 )
 
-Message.objects.create(
+ConversationMessage.objects.create(
     content="Hi Tilmann! How are you?",
     type="TEXT",
     sent_by=users[1],

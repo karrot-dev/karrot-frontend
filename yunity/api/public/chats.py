@@ -10,8 +10,8 @@ from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
     rollback_on
-from yunity.models.concrete import Chat as ChatModel
-from yunity.models.concrete import Message as MessageModel
+from yunity.models.concrete import Conversation as ConversationModel
+from yunity.models.concrete import ConversationMessage as MessageModel
 from yunity.models.concrete import User as UserModel
 
 
@@ -40,12 +40,12 @@ class Chats(ApiBase, View):
         :type request: HttpRequest
 
         """
-        chats = ChatModel.objects \
+        chats = ConversationModel.objects \
             .filter(participants__id__in=[request.user.id]) \
             .annotate(latest_message_time=Max('messages__created_at')) \
             .order_by('-latest_message_time')
 
-        return self.success({'chats': [serializers.chat(chat) for chat in chats]})
+        return self.success({'chats': [serializers.conversation(chat) for chat in chats]})
 
     @json_request
     @request_parameter('message', of_type=types.message)
@@ -113,7 +113,7 @@ class Chats(ApiBase, View):
         :rtype JsonResponse
 
         """
-        chat = ChatModel.objects.create()
+        chat = ConversationModel.objects.create()
         chat.participants = request.body['participants']
         chat.save()
 
@@ -129,7 +129,7 @@ class Chats(ApiBase, View):
 
 class Chat(ApiBase, View):
     @json_request
-    @uri_resource('chat', of_type=ChatModel)
+    @uri_resource('chat', of_type=ConversationModel)
     @request_parameter('name', of_type=types.chat_name)
     @permissions_required_for('chat')
     def put(self, request, chat):
@@ -164,18 +164,18 @@ class Chat(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chat: ChatModel
+        :type chat: ConversationModel
         """
 
         chat.name = request.body['name']
         chat.save()
 
-        return self.success(serializers.chat(chat))
+        return self.success(serializers.conversation(chat))
 
 
 class ChatMessages(ApiBase, View):
     @json_request
-    @uri_resource('chat', of_type=ChatModel)
+    @uri_resource('chat', of_type=ConversationModel)
     @request_parameter('type', of_type=types.message_type)
     @request_parameter('content', of_type=types.message_content)
     @permissions_required_for('chat')
@@ -250,7 +250,7 @@ class ChatMessages(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chat: ChatModel
+        :type chat: ConversationModel
         """
 
         message = MessageModel.objects.create(
@@ -260,9 +260,9 @@ class ChatMessages(ApiBase, View):
             content=request.body['content'],
         )
 
-        return self.created(serializers.message(message))
+        return self.created(serializers.conversation_message(message))
 
-    @uri_resource('chat', of_type=ChatModel)
+    @uri_resource('chat', of_type=ConversationModel)
     @permissions_required_for('chat')
     def get(self, request, chat):
         """Retrieve all the messages in the given chat, sorted descending by time (most recent first).
@@ -311,7 +311,7 @@ class ChatMessages(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chat: ChatModel
+        :type chat: ConversationModel
         """
 
         messages = MessageModel.objects \
@@ -328,12 +328,12 @@ class ChatMessages(ApiBase, View):
         if take is not None:
             messages = messages[:int(take)]
 
-        return self.success({'messages': [serializers.message(message) for message in messages]})
+        return self.success({'messages': [serializers.conversation_message(message) for message in messages]})
 
 
 class ChatParticipants(ApiBase, View):
     @json_request
-    @uri_resource('chat', of_type=ChatModel)
+    @uri_resource('chat', of_type=ConversationModel)
     @request_parameter('users', of_type=types.list_of_userids)
     @permissions_required_for('chat')
     @rollback_on(IntegrityError, reason='A supplied user does not exist')
@@ -372,7 +372,7 @@ class ChatParticipants(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chat: ChatModel
+        :type chat: ConversationModel
         """
 
         chat.participants.add(*request.body['users'])
@@ -381,7 +381,7 @@ class ChatParticipants(ApiBase, View):
 
 
 class ChatParticipant(ApiBase, View):
-    @uri_resource('chat', of_type=ChatModel)
+    @uri_resource('chat', of_type=ConversationModel)
     @uri_resource('user', of_type=UserModel)
     @permissions_required_for('chat')
     def delete(self, request, chat, user):
@@ -410,7 +410,7 @@ class ChatParticipant(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chat: ChatModel
+        :type chat: ConversationModel
         :type user: UserModel
         """
 

@@ -1,4 +1,4 @@
-from yunity.models import Chat, Message
+from yunity.models import Conversation, ConversationMessage
 from yunity.utils.tests.mock import MockUser
 
 users = MockUser.create_batch(4)
@@ -6,10 +6,10 @@ request_user = users[0]
 initial_users = users[:2]
 add_users = users[2:]
 
-chat = Chat.objects.create()
+chat = Conversation.objects.create()
 chat.participants.add(*initial_users)
 
-Message.objects.create(
+ConversationMessage.objects.create(
     content="Hello group chat!",
     type="TEXT",
     sent_by=users[0],

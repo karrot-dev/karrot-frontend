@@ -1,4 +1,4 @@
-from yunity.models import Chat
+from yunity.models import Conversation
 
-chat = Chat.objects.first()
+chat = Conversation.objects.first()
 assert chat.name == "New funny name", "Chat rename not in database"

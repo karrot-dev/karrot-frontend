@@ -23,7 +23,7 @@ class MockUser(Mock):
 
 class MockChat(Mock):
     class Meta:
-        model = "yunity.Chat"
+        model = "yunity.Conversation"
         strategy = CREATE_STRATEGY
 
     administrated_by = SubFactory(MockUser)

@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.db.models import Model, Q
 from django.db.transaction import atomic
 from yunity.api.ids import ids_uri_pattern_delim
-from yunity.models import Chat as ChatModel
+from yunity.models import Conversation as ConversationModel
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST
 from yunity.utils.request import JsonRequest
 from yunity.utils.validation import ValidationFailure
@@ -101,7 +101,7 @@ def permissions_required_for(resource_name):
         return user.id == request_user.id
 
     def has_permissions_for_chat(request_user, chat):
-        return ChatModel.objects \
+        return ConversationModel.objects \
             .filter(id=chat.id) \
             .filter(Q(participants=request_user.id)) \
             .exists()
@@ -109,7 +109,7 @@ def permissions_required_for(resource_name):
     def has_permissions(request_user, resource):
         if isinstance(resource, get_user_model()):
             return has_permissions_for_user(request_user, resource)
-        if isinstance(resource, ChatModel):
+        if isinstance(resource, ConversationModel):
             return has_permissions_for_chat(request_user, resource)
         raise NotImplementedError
 

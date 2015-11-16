@@ -56,7 +56,7 @@ class User(AbstractBaseUser):
         return self.display_name
 
 
-class Message(BaseModel):
+class ConversationMessage(BaseModel):
     sent_by = ForeignKey('yunity.User')
     reply_to = ForeignKey('self', null=True, related_name='replies')
     in_conversation = ForeignKey('yunity.Conversation', related_name='messages')
@@ -66,7 +66,7 @@ class Message(BaseModel):
     content = TextField()
 
 
-class Chat(Conversation):
+class Conversation(BaseModel):
     participants = ManyToManyField('yunity.User')
 
     name = MaxLengthCharField(null=True)

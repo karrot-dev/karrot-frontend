@@ -1,3 +1,3 @@
-from yunity.models import Chat
+from yunity.models import Conversation
 
-assert Chat.objects.count() == 1, 'chat object was not created'
+assert Conversation.objects.count() == 1, 'chat object was not created'

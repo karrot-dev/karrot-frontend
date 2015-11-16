@@ -17,18 +17,18 @@ def category(model):
     }
 
 
-def chat(model):
+def conversation(model):
     participants = [_['id'] for _ in model.participants.order_by('id').values('id')]
     newest_message = model.messages.order_by('-created_at').first()
     return {
         'id': model.id,
         'name': model.name,
         'participants': participants,
-        'message': message(newest_message),
+        'message': conversation_message(newest_message),
     }
 
 
-def message(model):
+def conversation_message(model):
     return {
         'id': model.id,
         'sender': model.sent_by_id,

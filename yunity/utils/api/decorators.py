@@ -56,12 +56,14 @@ def request_parameter(with_name, of_type=str, optional=False):
     return decorator
 
 
-def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_pattern_delim):
+def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_pattern_delim, min_resources=1, max_resources=None):
     """Decorator to parse one or more resources from an URI and convert them to a certain type
     (gives a 400 response if any of the resources do not convert to the type).
 
-    If the type is a model, look-up the intances of the model by ids of the resources
+    If the type is a model, look-up the instances of the model by ids of the resources
     (gives a 404 response if any of the resources are not found).
+
+    Returns a list of results except when exactly one result is expected, that is returned.
 
     Note: This decorator should only be used on http-dispatch methods on ApiBase.
 
@@ -74,6 +76,10 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
         def wrapper(api_base, *args, **kwargs):
             raw_params = kwargs.get(with_name, '').split(with_multi_resource_separator)
             if raw_params:
+                if len(raw_params) < min_resources:
+                    return api_base.validation_failure(reason='parameter count has to be at least {}'.format(min_resources))
+                elif max_resources is not None and len(raw_params) > max_resources:
+                    return api_base.validation_failure(reason='parameter count has to be at most {}'.format(max_resources))
                 if type(of_type) == type(Model):
                     parsed_params = of_type.objects.filter(id__in=raw_params)
                     if len(parsed_params) != len(raw_params):
@@ -83,7 +89,9 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
                         parsed_params = [of_type(raw_param) for raw_param in raw_params]
                     except ValueError:
                         return api_base.validation_failure(reason='one or more parameters does not have type {}'.format(of_type.__name__))
-                kwargs[with_name] = parsed_params if len(parsed_params) > 1 else parsed_params[0]
+                kwargs[with_name] = parsed_params \
+                                        if max_resources is None or max_resources > 1 or min_resources != 1 \
+                                    else parsed_params[0]
 
             return func(api_base, *args, **kwargs)
         return wrapper

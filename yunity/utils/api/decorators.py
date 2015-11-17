@@ -86,7 +86,7 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
                 if type(of_type) == type(Model):
                     parsed_params = of_type.objects.filter(id__in=raw_params)
                     if len(parsed_params) != len(raw_params):
-                        return api_base.not_found(reason='one or more {}s do not exist'.format(of_type.__class__.__name__))
+                        return api_base.not_found(reason='one or more {}s do not exist'.format(of_type.__name__))
                 else:
                     try:
                         parsed_params = [of_type(raw_param) for raw_param in raw_params]

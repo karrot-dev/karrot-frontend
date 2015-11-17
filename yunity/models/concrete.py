@@ -72,6 +72,19 @@ class Conversation(BaseModel):
 
     name = MaxLengthCharField(null=True)
 
+
 class Item(BaseModel):
     user = ForeignKey('yunity.User')
     description = TextField()
+
+
+class Group(BaseModel):
+    name = MaxLengthCharField()
+    description = TextField(null=True)
+    members = ManyToManyField('yunity.User', through='GroupMembership')
+
+
+class GroupMembership(BaseModel):
+    user = ForeignKey('yunity.User')
+    group = ForeignKey(Group)
+    joined_at = DateTimeField(auto_now=True)

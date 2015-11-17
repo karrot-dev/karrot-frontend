@@ -1,4 +1,5 @@
 from importlib import import_module
+from traceback import TracebackException
 
 from django.db.transaction import atomic
 from pkg_resources import resource_listdir
@@ -58,14 +59,14 @@ class IntegrationTest(object):
                 content_type='application/json',
             )
         except Exception as e:
-            self.actual_exception = e
+            self.actual_exception = TracebackException.from_exception(e)
 
     def then_there_was_no_exception(self, testcase):
         """
         :type testcase: TestCase
         """
         if self.actual_exception is not None:
-            testcase.fail('unexpected exception: {}'.format(self.actual_exception.args[0]))
+            testcase.fail('unexpected exception: {}'.format(''.join(list(self.actual_exception.format()))))
 
     def then_response_status_matches(self, testcase):
         """

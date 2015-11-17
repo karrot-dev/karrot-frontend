@@ -12,6 +12,8 @@
 - Real-time: gcc libffi-devel python-devel openssl-devel
 - Push-hooks: vlc
 
+Requires Python 3.5 as of 2015-11-17 TracebackException utility is used.
+
 ### Install Pycharm
 - wget https://download.jetbrains.com/python/pycharm-professional-4.5.4.tar.gz
 - tar xf pycharm-professional-4.5.4.tar.gz

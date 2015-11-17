@@ -1,5 +1,5 @@
 request = {
-    "endpoint": "/api/user",
+    "endpoint": "/api/users",
     "method": "post",
     "body": {
         "email": "testuser1234@mail.com",

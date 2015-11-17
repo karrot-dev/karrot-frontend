@@ -1,7 +1,7 @@
 from .initial_data import users
 
 request = {
-    "endpoint": "/api/user",
+    "endpoint": "/api/users",
     "method": "post",
     "body": {
         "email": users[0].email,

@@ -1,5 +1,6 @@
-from django.db.models import Model, AutoField, Field
+from django.db.models import Model, AutoField, Field, DateTimeField
 from django.db.models.fields.related import RelatedField
+from django.utils import timezone
 
 
 class BaseModel(Model):
@@ -7,6 +8,7 @@ class BaseModel(Model):
         abstract = True
 
     id = AutoField(primary_key=True)
+    created_at = DateTimeField(default=timezone.now)
 
     def _get_explicit_field_names(self):
         """

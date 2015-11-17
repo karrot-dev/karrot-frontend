@@ -43,7 +43,6 @@ class User(AbstractBaseUser, BaseModel):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
-    date_joined = DateTimeField(default=timezone.now)
     display_name = TextField()
     first_name = MaxLengthCharField(null=True)
     last_name = MaxLengthCharField(null=True)
@@ -63,7 +62,6 @@ class ConversationMessage(BaseModel):
     sent_by = ForeignKey('yunity.User')
     in_conversation = ForeignKey('yunity.Conversation', related_name='messages')
 
-    created_at = DateTimeField(auto_now=True)
     content = TextField()
 
 
@@ -87,4 +85,3 @@ class Group(BaseModel):
 class GroupMembership(BaseModel):
     user = ForeignKey('yunity.User')
     group = ForeignKey(Group)
-    joined_at = DateTimeField(auto_now=True)

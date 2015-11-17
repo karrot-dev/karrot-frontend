@@ -217,7 +217,7 @@ class UserChat(ApiBase, View):
         """
 
         participants = [request.user.id, user.id]
-        chat = ConversationModel.objects.filter(participants__id__in=participants).annotate(c=Count('participants')).filter(c=2)
+        chat = ConversationModel.objects.filter(participants__id__in=participants).annotate(c=Count('participants')).filter(c=2).first()
         if not chat:
             chat = ConversationModel.objects.create()
             chat.participants = participants

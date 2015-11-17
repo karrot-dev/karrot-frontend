@@ -17,12 +17,14 @@ def category(model):
         'parent': model.parent_id,
     }
 
+
 def item(model):
     return {
         'id': model.id,
         'user_id': model.user_id,
         'description': model.description,
     }
+
 
 def conversation(model):
     participants = [_['id'] for _ in model.participants.order_by('id').values('id')]

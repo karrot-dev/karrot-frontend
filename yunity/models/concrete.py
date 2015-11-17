@@ -71,3 +71,7 @@ class Conversation(BaseModel):
     participants = ManyToManyField('yunity.User')
 
     name = MaxLengthCharField(null=True)
+
+class Item(BaseModel):
+    user = ForeignKey('yunity.User')
+    description = TextField()

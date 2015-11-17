@@ -1,6 +1,6 @@
 ids_uri_pattern_delim = ','
 
-
+# must correspond to the regex found in yunity_swagger.py
 def _named_regex(name, regex):
     return '(?P<{name}>{regex})'.format(name=name, regex=regex)
 
@@ -37,3 +37,5 @@ def single_integerid(name, minlength=1, maxlength=10):
 chat_id_uri_pattern = single_integerid('chat')
 user_id_uri_pattern = single_integerid('user')
 multiple_user_id_uri_pattern = multiple_integerids('users')
+
+item_id_uri_pattern = single_integerid('item')

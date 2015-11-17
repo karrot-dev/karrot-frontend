@@ -12,7 +12,7 @@ from yunity.utils.api.decorators import json_request, request_parameter, uri_res
     rollback_on
 
 
-class UserAll(ApiBase, View):
+class Users(ApiBase, View):
     @json_request
     @request_parameter('email', of_type=types.user_email)
     @request_parameter('password', of_type=types.user_password)
@@ -89,7 +89,7 @@ class UserAll(ApiBase, View):
         return self.created(serializers.user(user))
 
 
-class UserMultiple(ApiBase, View):
+class User(ApiBase, View):
     @uri_resource('users', of_type=get_user_model())
     def get(self, request, users):
         """get details about all given users
@@ -98,7 +98,7 @@ class UserMultiple(ApiBase, View):
             - User
         parameters:
             - in: path
-              name: userids
+              name: users
               type: array
               collectionFormat: csv
               items:
@@ -124,13 +124,13 @@ class UserMultiple(ApiBase, View):
 
         return self.success({"users": [serializers.user(user) for user in users]})
 
-
-class UserSingle(ApiBase, View):
     @json_request
-    @uri_resource('user', of_type=get_user_model())
-    @request_parameter('display_name', of_type=types.user_display_name)
-    @permissions_required_for('user')
-    def put(self, request, user):
+    @uri_resource('users', of_type=get_user_model(), max_resources=1)
+    @request_parameter('display_name', of_type=types.user_display_name, optional=True)
+    @request_parameter('first_name', of_type=types.user_first_name, optional=True)
+    @request_parameter('last_name', of_type=types.user_last_name, optional=True)
+    @permissions_required_for('users')
+    def put(self, request, users):
         """Modify a user: Yourself or any user you have sufficient rights for.
         Only the provided fields will be changed. To clear fields, set them explicitly as empty.
         ---
@@ -138,7 +138,7 @@ class UserSingle(ApiBase, View):
             - User
         parameters:
             - in: path
-              name: userid
+              name: users
               type: integer
             - in: body
               name: body
@@ -171,17 +171,21 @@ class UserSingle(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type user: UserModel
+        :type users: UserModel
         """
 
-        user.display_name = request.body['display_name']
-        user.save()
+        if 'display_name' in request.body:
+            users.display_name = request.body['display_name']
+        if 'first_name' in request.body:
+            users.first_name = request.body['first_name']
+        if 'last_name' in request.body:
+            users.last_name = request.body['last_name']
+        users.save()
 
-        return self.created(serializers.user(user))
+        return self.created(serializers.user(users))
 
 
 urlpatterns = [
-    url(r'^$', UserAll.as_view()),
-    url(r'^{user}/?$'.format(user=user_id_uri_pattern), UserSingle.as_view()),
-    url(r'^{users}/?$'.format(users=multiple_user_id_uri_pattern), UserMultiple.as_view()),
+    url(r'^$', Users.as_view()),
+    url(r'^{users}/?$'.format(users=multiple_user_id_uri_pattern), User.as_view()),
 ]

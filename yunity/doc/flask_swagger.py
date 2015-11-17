@@ -5,7 +5,7 @@ An endpoint that traverses all restful endpoints producing a swagger 2.0 schema
 If a swagger yaml description is found in the docstrings for an endpoint
 we add the endpoint to swagger specification output
 
-Taken from https://github.com/gangverk/flask-swagger
+Based on https://github.com/gangverk/flask-swagger
 Under MIT License
 
 """
@@ -188,8 +188,16 @@ def swagger(urlpatterns, process_doc=_sanitize, base=''):
 
         if len(operations):
             rule = rule['rule']
-            for arg in re.findall('(\(\?P<(.*?:)?(.*?)>[^()]*(?:\([^()]*\))[^()]*\))', rule):
-                rule = rule.replace(arg[0], '{%s}' % arg[2])
+            # must correspond to the paths created in ids.py
+            # you can check they are ok by running `curl -s http://localhost:8000/doc | jq -r '.paths | keys | .[]'`
+            # 1. remove all the parens that are not named params
+            re_parens = r'\([^?()][^?P][^()]+\)'
+            while re.search(re_parens, rule):
+                rule = re.sub(re_parens, '', rule)
+            # 2. reformat named params from: (?P<myparam>...) to: {myparam}
+            for arg in re.findall('(\(\?P<(.*?)>[^()]+\))', rule):
+                rule = rule.replace(arg[0], '{%s}' % arg[1])
+            rule = rule.replace('/?', '/')
             rule = rule.translate(str.maketrans('', '', '^$'))
             paths[rule].update(operations)
     return output

@@ -74,11 +74,15 @@ class RealtimeClientData(object):
         cls.r.delete(cls.session_key(session))
 
     @classmethod
-    def send_to_users(cls, userids, data):
+    def send_to_users(cls, userids, type, payload):
         """
         :param userids: list of userids to send the data to
-        :param data: dictionary that will be json encoded and send to each user
+        :param type: Type of the payload as an arbitrary string
+        :param payload: dictionary that will be json encoded and send to each user
         :return:
         """
         cls.connect()
-        cls.r.publish('notifications', '{{"users" : [{}], "data": {}}}'.format(','.join(map(str, userids)), json_stringify(data)))
+        data = {"users": userids,
+                "type": type,
+                "payload": payload}
+        cls.r.publish('notifications', json_stringify(data))

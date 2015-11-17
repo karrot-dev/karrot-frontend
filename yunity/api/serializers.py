@@ -25,6 +25,25 @@ def item(model):
         'description': model.description,
     }
 
+def group_summary(model):
+    return {
+        'id': model.id,
+        'name': model.name,
+        'description': model.description,
+    }
+
+def group(model):
+    return {
+        'id': model.id,
+        'name': model.name,
+        'description': model.description,
+        'members': [group_membership(membership) for membership in model.groupmembership_set.all()]
+    }
+
+def group_membership(model):
+    return {
+        'user_id': model.user_id
+    }
 
 def conversation(model):
     participants = [_['id'] for _ in model.participants.order_by('id').values('id')]

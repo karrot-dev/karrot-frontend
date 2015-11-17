@@ -8,9 +8,11 @@ def message(value):
     (HasKey('content') & message_content)(value)
     return value
 
+
 def message_content(value):
     IsReasonableLengthString()(value)
     return value
+
 
 def chat_name(value):
     IsReasonableLengthString()(value)
@@ -49,6 +51,17 @@ def user_last_name(value):
     IsReasonableLengthString()(value)
     return value
 
+
 def item_description(value):
+    IsReasonableLengthString()(value)
+    return value
+
+
+def group_name(value):
+    IsReasonableLengthString()(value)
+    return value
+
+
+def group_description(value):
     IsReasonableLengthString()(value)
     return value

@@ -39,3 +39,5 @@ user_id_uri_pattern = single_integerid('user')
 multiple_user_id_uri_pattern = multiple_integerids('users')
 
 item_id_uri_pattern = single_integerid('item')
+
+group_id_uri_pattern = single_integerid('group')

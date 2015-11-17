@@ -79,9 +79,9 @@ class Item(BaseModel):
 class Group(BaseModel):
     name = MaxLengthCharField()
     description = TextField(null=True)
-    members = ManyToManyField('yunity.User', through='GroupMembership')
+    members = ManyToManyField(User, through='yunity.GroupMembership')
 
 
 class GroupMembership(BaseModel):
-    user = ForeignKey('yunity.User')
+    user = ForeignKey(User)
     group = ForeignKey(Group)

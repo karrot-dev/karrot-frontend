@@ -52,9 +52,11 @@ class Login(ApiBase, View):
                       email:
                           type: string
                           description: email for user
+                          example: paul@example.com
                       password:
                           type: string
                           description: password of user
+                          example: PaulsStrongPasswordWhichHeNeverForgets
         responses:
             200:
                 description: Login state

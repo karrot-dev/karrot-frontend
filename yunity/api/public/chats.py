@@ -13,6 +13,7 @@ from yunity.utils.api.decorators import json_request, request_parameter, uri_res
 from yunity.models.concrete import Conversation as ConversationModel
 from yunity.models.concrete import ConversationMessage as MessageModel
 from yunity.models.concrete import User as UserModel
+from yunity.utils.session import RealtimeClientData
 
 
 class Chats(ApiBase, View):
@@ -246,7 +247,13 @@ class ChatMessages(ApiBase, View):
             content=request.body['content'],
         )
 
-        return self.created(serializers.conversation_message(message))
+        serialized_message = serializers.conversation_message(message)
+        payload = {'chat_id': chat.id, 'message': serialized_message}
+        RealtimeClientData.send_to_users(list(chat.participants.values_list('id', flat=True)),
+                                         RealtimeClientData.Types.CHAT_MESSAGE,
+                                         payload)
+
+        return self.created(serialized_message)
 
     @uri_resource('chat', of_type=ConversationModel)
     @permissions_required_for('chat')

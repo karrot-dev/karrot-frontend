@@ -1,4 +1,4 @@
-"""wuppdays URL Configuration
+"""yunity URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -18,10 +18,10 @@ from django.contrib import admin
 from django.conf import settings
 
 import yunity.api.urls
-import yunity.doc.flask_swagger
+import yunity.doc.yunity_swagger
 
 urlpatterns = [
     url(r'^api/', include(yunity.api.urls)),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^doc$', yunity.doc.flask_swagger.doc),
+    url(r'^doc$', yunity.doc.yunity_swagger.doc),
 ]

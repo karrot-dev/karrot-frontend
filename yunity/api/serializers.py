@@ -30,9 +30,12 @@ def conversation(model):
 
 
 def conversation_message(model):
-    return {
-        'id': model.id,
-        'sender': model.sent_by_id,
-        'created_at': model.created_at.isoformat(),
-        'content': model.content,
-    }
+    if model:
+        return {
+            'id': model.id,
+            'sender': model.sent_by_id,
+            'created_at': model.created_at.isoformat(),
+            'content': model.content,
+        }
+    else:
+        return None

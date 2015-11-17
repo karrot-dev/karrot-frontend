@@ -1,7 +1,7 @@
 from .initial_data import user
 
 request = {
-    "endpoint": "/api/user/{}".format(user.id),
+    "endpoint": "/api/users/{}".format(user.id),
     "method": "put",
     "user": user,
     "body": {

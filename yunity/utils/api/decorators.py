@@ -56,7 +56,7 @@ def request_parameter(with_name, of_type=str, optional=False):
     return decorator
 
 
-def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_pattern_delim, min_resources=1, max_resources=None):
+def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_pattern_delim, min_resources=1, max_resources=1):
     """Decorator to parse one or more resources from an URI and convert them to a certain type
     (gives a 400 response if any of the resources do not convert to the type).
 
@@ -64,6 +64,8 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
     (gives a 404 response if any of the resources are not found).
 
     Returns a list of results except when exactly one result is expected, that is returned.
+    The default behaviour expects exactly one result, set max_resources to None or an arbitrary
+    limit to accept multiple.
 
     Note: This decorator should only be used on http-dispatch methods on ApiBase.
 
@@ -96,6 +98,22 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
             return func(api_base, *args, **kwargs)
         return wrapper
     return decorator
+
+
+def login_required(func):
+    """Decorator to require the requesting user to be logged in.
+
+    gives a 403 error response if the user is not logged in.
+
+    Note: This decorator should only be used on http-dispatch methods on ApiBase.
+    """
+    @wraps(func)
+    def wrapper(api_base, request, *args, **kwargs):
+        return func(api_base, request, *args, **kwargs) \
+            if request.user.is_authenticated() \
+            else api_base.forbidden(reason='a logged in user is required')
+
+    return wrapper
 
 
 def permissions_required_for(resource_name):

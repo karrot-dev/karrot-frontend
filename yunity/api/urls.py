@@ -9,5 +9,5 @@ import yunity.api.public.users
 urlpatterns = [
     url(r'^auth', include(yunity.api.public.auth)),
     url(r'^chats/?', include(yunity.api.public.chats)),
-    url(r'^user/?', include(yunity.api.public.users)),
+    url(r'^users/?', include(yunity.api.public.users)),
 ]

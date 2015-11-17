@@ -90,7 +90,7 @@ class Users(ApiBase, View):
 
 
 class User(ApiBase, View):
-    @uri_resource('users', of_type=get_user_model())
+    @uri_resource('users', of_type=get_user_model(), max_resources=None)
     def get(self, request, users):
         """get details about all given users
         ---
@@ -125,7 +125,7 @@ class User(ApiBase, View):
         return self.success({"users": [serializers.user(user) for user in users]})
 
     @json_request
-    @uri_resource('users', of_type=get_user_model(), max_resources=1)
+    @uri_resource('users', of_type=get_user_model())
     @request_parameter('display_name', of_type=types.user_display_name, optional=True)
     @request_parameter('first_name', of_type=types.user_first_name, optional=True)
     @request_parameter('last_name', of_type=types.user_last_name, optional=True)

@@ -184,7 +184,7 @@ class ChatMessages(ApiBase, View):
             - Chat
         parameters:
             - in: path
-              name: chatid
+              name: chat
               description: ID of chat
               type: integer
             - in: body
@@ -257,7 +257,7 @@ class ChatMessages(ApiBase, View):
             - Chat
         parameters:
             - in: path
-              name: chatid
+              name: chat
               description: ID of chat
               type: integer
             - in: query
@@ -330,7 +330,7 @@ class ChatParticipants(ApiBase, View):
             - Chat
         parameters:
             - in: path
-              name: chatid
+              name: chat
               description: ID of chat
               type: integer
             - in: body
@@ -377,7 +377,7 @@ class ChatParticipant(ApiBase, View):
             - Chat
         parameters:
             - in: path
-              name: chatid
+              name: chat
               description: ID of chat
               type: integer
             - in: path

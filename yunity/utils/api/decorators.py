@@ -100,6 +100,22 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
     return decorator
 
 
+def login_required(func):
+    """Decorator to require the requesting user to be logged in.
+
+    gives a 403 error response if the user is not logged in.
+
+    Note: This decorator should only be used on http-dispatch methods on ApiBase.
+    """
+    @wraps(func)
+    def wrapper(api_base, request, *args, **kwargs):
+        return func(api_base, request, *args, **kwargs) \
+            if request.user.is_authenticated() \
+            else api_base.forbidden(reason='a logged in user is required')
+
+    return wrapper
+
+
 def permissions_required_for(resource_name):
     """Decorator to validate that the requesting user has permissions to access a resource with the given name
     (gives a 403 response if the user isn't authorized to access the resource).

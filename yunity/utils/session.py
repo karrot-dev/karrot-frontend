@@ -25,6 +25,10 @@ class RealtimeClientMiddleware(object):
 class RealtimeClientData(object):
     PREFIX = 'session-store'
     USER_NOTIFICATION_CHANNEL = 'notifications'
+
+    class Types(object):
+        CHAT_MESSAGE = 'chat_message'
+
     r = None
 
     @classmethod

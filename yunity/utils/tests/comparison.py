@@ -69,5 +69,26 @@ class DeepMatcher(object):
             cls._fuzzy_match_dicts(actual, expected, reason)
         elif isinstance(expected, list) and isinstance(actual, list):
             cls._fuzzy_match_lists(actual, expected, reason)
+        elif isinstance(expected, CustomMatcher):
+            expected.compare(actual, reason)
         else:
             cls._fuzzy_match_leaves(actual, expected, reason)
+
+
+class CustomMatcher(object):
+    def __init__(self, comparator):
+        self.comparator = comparator
+
+    def compare(self, actual, reason):
+        self.comparator(actual, reason)
+
+class NotEqualsMatcher(CustomMatcher):
+    def __init__(self, not_expected):
+        self.not_expected = not_expected
+
+    def compare(self, actual, reason):
+        if actual == self.not_expected:
+            raise ValueError('got "{actual}" which was not expected, trace "{reason}"'.format(
+                actual=actual,
+                reason=reason,
+            ))

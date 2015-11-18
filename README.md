@@ -24,7 +24,7 @@ Requires Python 3.5 as of 2015-11-17 TracebackException utility is used.
 - mkdir -p ~/virtualenvs/yunity-core
 - virtualenv --python=python3 --no-site-packages ~/virtualenvs/yunity-core
 - source ~/virtualenvs/yunity-core/bin/activate
-- pip install -r ~/yunity-core/requirements.pip
+- pip install -r ~/yunity-core/requirements.txt
 - To push a git commit image, decide between VLC or fswebcam:
   - ln -rs scripts/git-hooks/picture-vlc .git/hooks/pre-push
   - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
@@ -98,3 +98,12 @@ In development, you can add and override local settings in
 `wuppdays/local_settings.py`, which is present in `.gitignore` and hence out of
 version control. If the file is not present, i.e. in production, nothing
 happens.
+
+## Update requirement packages
+
+pip-tools is used to manage requirements. To use the latest possible requirements, do:
+
+- pip install pip-tools
+- pip-compile
+
+Use pip-compile -p to include prereleases.

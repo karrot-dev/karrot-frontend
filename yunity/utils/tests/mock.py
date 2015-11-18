@@ -23,12 +23,10 @@ class MockUser(Mock):
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
 
 
-class MockChat(Mock):
+class MockConversation(Mock):
     class Meta:
         model = "yunity.Conversation"
         strategy = CREATE_STRATEGY
-
-    administrated_by = SubFactory(MockUser)
 
     @post_generation
     def participants(self, created, participants, **kwargs):

@@ -36,13 +36,6 @@ If you get "low disk watermark" errors from ElasticSearch, start elasticsearch a
 
 - elasticsearch -Des.config="config/elasticsearch.yml"
 
-#### Crossbar
-If you need to modify the crossbar ip/port settings, copy `config/crossbar.json` to a local `.crossbar/config_local.json` and run
-
-- crossbar start --config config_server.json
-
-(the .crossbar path is automatically prepended)
-
 #### Postgres
 - sudo -iu postgres
 - initdb -D /var/lib/pgsql/data -E utf8
@@ -69,7 +62,6 @@ If you get a "virtual memory error" with any of the postgres commands, close PyC
 
 ### Start the servers
 - Start Elasticsearch: sudo /etc/init.d/elasticsearch start
-- Start Crossbar: cd ~/yunity-core; crossbar start
 - Start Redis: redis-server
 - Start Postgres: postgres -D /var/lib/pgsql/data
 

@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.db.models import Model, Q
 from django.db.transaction import atomic
 from yunity.api.ids import ids_uri_pattern_delim
-from yunity.models import Conversation as ConversationModel
+from yunity.models import Conversation as ConversationModel, ConversationType
 from yunity.models import Item as ItemModel
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST
 from yunity.utils.request import JsonRequest
@@ -115,6 +115,22 @@ def login_required(func):
             else api_base.forbidden(reason='a logged in user is required')
 
     return wrapper
+
+
+def chat_participants_user_modifiable(chat_arg_name):
+    """Decorator to detect if a chat participant list might be changed via user request or not
+    (gives a 403 response when this is not allowed)
+
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(api_base, request, *args, **kwargs):
+            return func(api_base, request, *args, **kwargs) \
+                if kwargs[chat_arg_name].type in [ConversationType.USER_MULTICHAT] \
+                else api_base.forbidden(reason='the participants are not to be modified')
+
+        return wrapper
+    return decorator
 
 
 def permissions_required_for(resource_name):

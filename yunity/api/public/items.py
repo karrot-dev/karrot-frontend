@@ -6,7 +6,7 @@ from django.views.generic import View
 from yunity.api.ids import item_id_uri_pattern
 from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
-from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for
+from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, login_required
 from yunity.models.concrete import Item as ItemModel
 
 
@@ -37,6 +37,7 @@ class Items(ApiBase, View):
 
         return self.success({'items': [serializers.item(item) for item in items]})
 
+    @login_required
     @json_request
     @request_parameter('description', of_type=types.item_description)
     def post(self, request):

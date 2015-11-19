@@ -9,7 +9,7 @@ from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
-    rollback_on
+    rollback_on, login_required, chat_participants_user_modifiable
 from yunity.models.concrete import Conversation as ConversationModel, ConversationType
 from yunity.models.concrete import ConversationMessage as MessageModel
 from yunity.models.concrete import User as UserModel
@@ -17,6 +17,7 @@ from yunity.utils.session import RealtimeClientData
 
 
 class Chats(ApiBase, View):
+    @login_required
     def get(self, request):
         """List all chats in which the currently logged in user is involved.
         The chats are in descending order of the most recent message time; this means that the first element of the
@@ -48,6 +49,7 @@ class Chats(ApiBase, View):
 
         return self.success({'chats': [serializers.conversation(chat) for chat in chats]})
 
+    @login_required
     @json_request
     @request_parameter('message', of_type=types.message)
     @request_parameter('participants', of_type=types.list_of_userids)
@@ -329,6 +331,7 @@ class ChatParticipants(ApiBase, View):
     @uri_resource('chat', of_type=ConversationModel)
     @request_parameter('users', of_type=types.list_of_userids)
     @permissions_required_for('chat')
+    @chat_participants_user_modifiable('chat')
     @rollback_on(IntegrityError, reason='A supplied user does not exist')
     def post(self, request, chat):
         """Add a list of users to the chat.
@@ -377,6 +380,7 @@ class ChatParticipant(ApiBase, View):
     @uri_resource('chat', of_type=ConversationModel)
     @uri_resource('user', of_type=UserModel)
     @permissions_required_for('chat')
+    @chat_participants_user_modifiable('chat')
     def delete(self, request, chat, user):
         """Remove a user from the chat.
         ---

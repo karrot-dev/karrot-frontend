@@ -5,6 +5,7 @@
 #    pip-compile requirements.in
 #
 django-cors-headers==1.1.0
+django-enumfield==1.3b2
 django-extensions==1.5.9
 django-redis==4.3.0
 django==1.9rc1

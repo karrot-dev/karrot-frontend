@@ -15,6 +15,31 @@ from yunity.utils.api.decorators import json_request, request_parameter, uri_res
 
 
 class Users(ApiBase, View):
+    def get(self, request):
+        """get details about all users
+        ---
+        tags:
+            - User
+
+        responses:
+            201:
+                description: User information
+                schema:
+                    type: object
+                    properties:
+                      users:
+                        type: array
+                        items:
+                            $ref: '#/definitions/user_information_response'
+        ...
+
+        :type request: HttpRequest
+        :type users: [UserModel]
+        """
+
+        users = get_user_model().objects.all()
+        return self.success({"users": [serializers.user(user) for user in users]})
+
     @json_request
     @request_parameter('email', of_type=types.user_email)
     @request_parameter('password', of_type=types.user_password)

@@ -37,12 +37,7 @@ def group(model):
         'id': model.id,
         'name': model.name,
         'description': model.description,
-        'members': [group_membership(membership) for membership in model.groupmembership_set.all()]
-    }
-
-def group_membership(model):
-    return {
-        'user_id': model.user_id
+        'members': [user(member) for member in model.members.all()]
     }
 
 def conversation(model):

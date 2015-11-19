@@ -104,12 +104,7 @@ class Groups(ApiBase, View):
                             type: array
                             description: List of members in the group
                             items:
-                                type: object
-                                properties:
-                                    user_id:
-                                        type: number
-                                        description: user id of member
-                                        example: 1
+                                $ref: '#/definitions/user_information_response'
 
 
             403:

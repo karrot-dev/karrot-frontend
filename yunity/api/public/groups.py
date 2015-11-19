@@ -1,4 +1,6 @@
 from django.conf.urls import url
+from django.contrib.auth import get_user_model
+from django.db import IntegrityError
 from django.http import HttpRequest
 
 from django.views.generic import View
@@ -7,7 +9,7 @@ from yunity.api.ids import group_id_uri_pattern
 from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
-    login_required
+    login_required, rollback_on
 from yunity.models.concrete import Group as GroupModel, GroupMembership as GroupMembershipModel
 
 
@@ -132,6 +134,56 @@ class Groups(ApiBase, View):
         return self.created(serializers.group(group))
 
 
+class GroupMembers(ApiBase, View):
+    @json_request
+    @uri_resource('group', of_type=GroupModel)
+    @request_parameter('users', of_type=types.list_of_userids)
+    @permissions_required_for('group')
+    @rollback_on(IntegrityError, reason='A supplied user does not exist')
+    def post(self, request, group):
+        """Add a list of users to the group.
+        ---
+        tags:
+            - Group
+        parameters:
+            - in: path
+              name: group
+              description: ID of group
+              type: integer
+            - in: body
+              name: body
+              schema:
+                  id: groupusers
+                  required:
+                      - users
+                  properties:
+                      users:
+                          type: array
+                          description: List of users to add to this specific group.
+                          example: [1, 5, 8]
+                          items:
+                              type: number
+        responses:
+            201:
+                description: All users added
+            400:
+                description: At least one user does not exist, none added
+            403:
+                description: The user does not have the rights to add participants to the group
+            404:
+                description: The group does not exist
+        ...
+
+        :type request: HttpRequest
+        :type chat: ConversationModel
+        """
+
+        for user in request.body['users']:
+            user = get_user_model().objects.get(id=user)
+            GroupMembershipModel.objects.create(user=user, group=group)
+
+        return self.created()
+
 class Group(ApiBase, View):
     @uri_resource('group', of_type=GroupModel, max_resources=1)
     def get(self, request, group):
@@ -160,4 +212,5 @@ class Group(ApiBase, View):
 urlpatterns = [
     url(r'^$', Groups.as_view()),
     url(r'^{group}/?$'.format(group=group_id_uri_pattern), Group.as_view()),
+    url(r'^{group}/members/?$'.format(group=group_id_uri_pattern), GroupMembers.as_view()),
 ]

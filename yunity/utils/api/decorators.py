@@ -5,6 +5,7 @@ from django.db.transaction import atomic
 from yunity.api.ids import ids_uri_pattern_delim
 from yunity.models import Conversation as ConversationModel, ConversationType
 from yunity.models import Item as ItemModel
+from yunity.models import Group as GroupModel
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST
 from yunity.utils.request import JsonRequest
 from yunity.utils.validation import ValidationFailure
@@ -145,6 +146,12 @@ def permissions_required_for(resource_name):
     def has_permissions_for_user(request_user, user):
         return user.id == request_user.id
 
+    def has_permissions_for_group(request_user, group):
+        return GroupModel.objects \
+            .filter(id=group.id) \
+            .filter(Q(members=request_user.id)) \
+            .exists()
+
     def has_permissions_for_chat(request_user, chat):
         return ConversationModel.objects \
             .filter(id=chat.id) \
@@ -159,6 +166,8 @@ def permissions_required_for(resource_name):
             return has_permissions_for_user(request_user, resource)
         if isinstance(resource, ConversationModel):
             return has_permissions_for_chat(request_user, resource)
+        if isinstance(resource, GroupModel):
+            return has_permissions_for_group(request_user, resource)
         if isinstance(resource, ItemModel):
             return has_permissions_for_item(request_user, resource)
         raise NotImplementedError

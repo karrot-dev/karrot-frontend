@@ -1,10 +1,10 @@
-from yunity.models import Conversation, ConversationMessage
+from yunity.models import Conversation, ConversationMessage, ConversationType
 from yunity.utils.tests.mock import MockUser
 
 users = MockUser.create_batch(2)
 request_user = users[0]
 
-chat = Conversation.objects.create()
+chat = Conversation.objects.create(type=ConversationType.USER_MULTICHAT)
 chat.participants.add(*users)
 
 chatid = chat.id

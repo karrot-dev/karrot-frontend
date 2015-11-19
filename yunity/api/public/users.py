@@ -216,6 +216,9 @@ class UserChat(ApiBase, View):
         :type user: [UserModel]
         """
 
+        if request.user.id == user.id:
+            return self.forbidden('You are not allowed to create a chat with just yourself')
+
         participants = [request.user.id, user.id]
         chat = ConversationModel.objects.filter(type=ConversationType.ONE_ON_ONE).filter(participants__id__in=participants).annotate(c=Count('participants')).filter(c=2).first()
         if not chat:

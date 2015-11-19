@@ -1,3 +1,4 @@
+from yunity.models import ConversationType
 from yunity.utils.tests.mock import MockUser, MockConversation
 
 users = [
@@ -5,4 +6,4 @@ users = [
     MockUser.create(email="testuser2@mail.com", display_name="Testuser2"),
 ]
 
-chat = MockConversation.create(participants=users)
+chat = MockConversation.create(participants=users, type=ConversationType.ONE_ON_ONE)

@@ -7,7 +7,7 @@ from django.views.generic import View
 
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.api import types, serializers
-from yunity.models import Conversation as ConversationModel
+from yunity.models import Conversation as ConversationModel, ConversationType
 from yunity.resources.http.status import HTTP_409_CONFLICT
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
@@ -217,9 +217,9 @@ class UserChat(ApiBase, View):
         """
 
         participants = [request.user.id, user.id]
-        chat = ConversationModel.objects.filter(participants__id__in=participants).annotate(c=Count('participants')).filter(c=2).first()
+        chat = ConversationModel.objects.filter(type=ConversationType.ONE_ON_ONE).filter(participants__id__in=participants).annotate(c=Count('participants')).filter(c=2).first()
         if not chat:
-            chat = ConversationModel.objects.create()
+            chat = ConversationModel.objects.create(type=ConversationType.ONE_ON_ONE)
             chat.participants = participants
             chat.save()
 

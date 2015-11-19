@@ -10,7 +10,7 @@ from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
     rollback_on
-from yunity.models.concrete import Conversation as ConversationModel
+from yunity.models.concrete import Conversation as ConversationModel, ConversationType
 from yunity.models.concrete import ConversationMessage as MessageModel
 from yunity.models.concrete import User as UserModel
 from yunity.utils.session import RealtimeClientData
@@ -114,7 +114,7 @@ class Chats(ApiBase, View):
         :rtype JsonResponse
 
         """
-        chat = ConversationModel.objects.create()
+        chat = ConversationModel.objects.create(type=ConversationType.USER_MULTICHAT)
         chat.participants = request.body['participants']
         chat.save()
 

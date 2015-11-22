@@ -1,0 +1,14 @@
+Django
+django-cors-headers
+django-enumfield
+django-extensions
+django-redis
+elasticsearch
+elasticsearch-dsl
+factory-boy
+fake-factory
+hiredis
+psycopg2
+PyYAML
+redis
+six

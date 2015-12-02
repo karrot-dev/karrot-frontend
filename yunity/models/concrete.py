@@ -1,7 +1,7 @@
-from django_enumfield import enum
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.db.models import TextField, ForeignKey, DateTimeField, OneToOneField, ManyToManyField, EmailField, \
+from django.db.models import TextField, ForeignKey, ManyToManyField, EmailField, \
     BooleanField
+from django_enumfield import enum
 
 from yunity.utils.models.abc import BaseModel
 from yunity.utils.models.field import MaxLengthCharField
@@ -32,7 +32,8 @@ class UserManager(BaseUserManager):
             raise ValueError('The given email must be set')
         return self.normalize_email(email)
 
-    def create_user(self, email=None, password=None, first_name=None, last_name=None, display_name=None, **extra_fields):
+    def create_user(self, email=None, password=None, first_name=None, last_name=None, display_name=None,
+                    **extra_fields):
         return self._create_user(email, password, first_name, last_name, display_name, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
@@ -72,7 +73,7 @@ class ConversationType(enum.Enum):
 
 class Conversation(BaseModel):
     participants = ManyToManyField('yunity.User')
-    type = enum.EnumField(ConversationType, default = ConversationType.ONE_ON_ONE)
+    type = enum.EnumField(ConversationType, default=ConversationType.ONE_ON_ONE)
 
     name = MaxLengthCharField(null=True)
 

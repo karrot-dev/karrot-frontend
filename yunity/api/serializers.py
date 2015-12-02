@@ -25,12 +25,14 @@ def item(model):
         'description': model.description,
     }
 
+
 def group_summary(model):
     return {
         'id': model.id,
         'name': model.name,
         'description': model.description,
     }
+
 
 def group(model):
     return {
@@ -39,6 +41,7 @@ def group(model):
         'description': model.description,
         'members': [user(member) for member in model.members.all()]
     }
+
 
 def conversation(model):
     participants = [_['id'] for _ in model.participants.order_by('id').values('id')]

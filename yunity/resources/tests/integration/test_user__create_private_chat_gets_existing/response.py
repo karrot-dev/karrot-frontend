@@ -4,6 +4,6 @@ response = {
     "http_status": 201,
     "response": {
         "chat":
-            {"id": chat.id }
+            {"id": chat.id}
     }
 }

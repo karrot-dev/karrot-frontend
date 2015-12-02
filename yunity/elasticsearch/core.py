@@ -42,10 +42,8 @@ def drop_index(es):
 
 def create_index(es):
 
-    from yunity.models import Category
-
     es.indices.create(index=settings.ES_INDEX, body={
-        "mappings":{
+        "mappings": {
 
             # see:
             #   https://www.elastic.co/guide/en/elasticsearch/guide/current/default-mapping.html
@@ -77,27 +75,6 @@ def create_index(es):
             }
         }
     }, ignore=400)
-
-    for category in Category.objects.all():
-        valuable_doc_type = get_es_type('valuable', category.name)
-        opportunity_doc_type = get_es_type('opportunity', category.name)
-
-        val_mapping = valuable_mapping(valuable_doc_type)
-        opp_mapping = opportunity_mapping(opportunity_doc_type)
-
-        if val_mapping:
-            es.indices.put_mapping(
-                index=settings.ES_INDEX,
-                doc_type=valuable_doc_type,
-                body=val_mapping
-            )
-
-        if opp_mapping:
-            es.indices.put_mapping(
-                index=settings.ES_INDEX,
-                doc_type=opportunity_doc_type,
-                body=opp_mapping
-            )
 
 
 def get_es_type(base, category_name):

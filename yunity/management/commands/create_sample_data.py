@@ -29,14 +29,13 @@ Neel chats lorem ipsum with tilmann, while Flo, Matthias and tilmann have a grou
 
 """
 from datetime import datetime
-
 from django.utils.timezone import make_aware
-
 from yunity.models import *
 
 
 def _datetime(fmt):
     return make_aware(datetime.strptime(fmt, '%Y-%m-%d %H:%M'))
+
 
 ##################################################
 # user
@@ -49,7 +48,8 @@ user_tilmann = User.objects.create(
     last_name='becker'
 )
 
-user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', first_name='matthias', last_name='lar')
+user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', first_name='matthias',
+                                    last_name='lar')
 
 user_neel = User.objects.create(email='ne@el.com', display_name='Neel', first_name='neel', last_name='neel')
 
@@ -60,12 +60,17 @@ num_chat_messages = 10
 chat_pair = Conversation.objects.create()
 chat_pair.participants.add(user_neel, user_tilmann)
 for i in range(num_chat_messages):
-    ConversationMessage.objects.create(content="Hi Neel, lorem ipsum {}".format(i), sent_by=user_tilmann, in_conversation=chat_pair)
-    ConversationMessage.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), sent_by=user_neel, in_conversation=chat_pair)
+    ConversationMessage.objects.create(content="Hi Neel, lorem ipsum {}".format(i), sent_by=user_tilmann,
+                                       in_conversation=chat_pair)
+    ConversationMessage.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), sent_by=user_neel,
+                                       in_conversation=chat_pair)
 
 chat_group = Conversation.objects.create()
 chat_group.participants.add(user_matthias, user_flo, user_tilmann)
 for i in range(num_chat_messages):
-    ConversationMessage.objects.create(content="Hi all, lorem ipsum {}".format(i), sent_by=user_matthias, in_conversation=chat_group)
-    ConversationMessage.objects.create(content="Hi too, lorem ipsum {}".format(i), sent_by=user_flo, in_conversation=chat_group)
-    ConversationMessage.objects.create(content="Bla, lorem ipsum {}".format(i), sent_by=user_tilmann, in_conversation=chat_group)
+    ConversationMessage.objects.create(content="Hi all, lorem ipsum {}".format(i), sent_by=user_matthias,
+                                       in_conversation=chat_group)
+    ConversationMessage.objects.create(content="Hi too, lorem ipsum {}".format(i), sent_by=user_flo,
+                                       in_conversation=chat_group)
+    ConversationMessage.objects.create(content="Bla, lorem ipsum {}".format(i), sent_by=user_tilmann,
+                                       in_conversation=chat_group)

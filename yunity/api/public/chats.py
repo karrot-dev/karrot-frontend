@@ -2,9 +2,7 @@ from django.conf.urls import url
 from django.db import IntegrityError
 from django.db.models import Max
 from django.http import HttpRequest
-
 from django.views.generic import View
-
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
@@ -217,7 +215,8 @@ class ChatMessages(ApiBase, View):
                         content:
                             type: string
                             example: Hi Peter, how are you?
-                            description: Content, e.g. utf8-formatted plain text or image id received by the upload endpoint
+                            description: Content, e.g. utf8-formatted plain text or image id received by the upload
+                                         endpoint
                         sender:
                             type: integer
                             description: Userid of sender of message
@@ -415,10 +414,12 @@ class ChatParticipant(ApiBase, View):
 
         return self.deleted()
 
+
 urlpatterns = [
     url(r'^$', Chats.as_view()),
     url(r'^{chat}/?$'.format(chat=chat_id_uri_pattern), Chat.as_view()),
     url(r'^{chat}/messages/?$'.format(chat=chat_id_uri_pattern), ChatMessages.as_view()),
     url(r'^{chat}/participants/?$'.format(chat=chat_id_uri_pattern), ChatParticipants.as_view()),
-    url(r'^{chat}/participants/{user}/?$'.format(chat=chat_id_uri_pattern, user=user_id_uri_pattern), ChatParticipant.as_view()),
+    url(r'^{chat}/participants/{user}/?$'.format(chat=chat_id_uri_pattern, user=user_id_uri_pattern),
+        ChatParticipant.as_view()),
 ]

@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.conf import settings
 
 import yunity.api.urls
 import yunity.doc.yunity_swagger

@@ -12,8 +12,7 @@ messages = [
         content="This is message {}".format(i),
         sent_by=sender,
         in_conversation=chat
-    ) for i in range(10)
-    ]
+    ) for i in range(10)]
 
 split = 6
 before_messages = messages[:split]

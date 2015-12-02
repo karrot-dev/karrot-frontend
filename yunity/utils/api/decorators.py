@@ -28,6 +28,7 @@ def json_request(func):
             return api_base.validation_failure(reason='not a valid json request')
 
         return func(api_base, request, *args, **kwargs)
+
     return wrapper
 
 
@@ -54,11 +55,14 @@ def request_parameter(with_name, of_type=str, optional=False):
                 return api_base.validation_failure(reason=e.message, status=e.status)
 
             return func(api_base, request, *args, **kwargs)
+
         return wrapper
+
     return decorator
 
 
-def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_pattern_delim, min_resources=1, max_resources=1):
+def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_pattern_delim, min_resources=1,
+                 max_resources=1):
     """Decorator to parse one or more resources from an URI and convert them to a certain type
     (gives a 400 response if any of the resources do not convert to the type).
 
@@ -75,15 +79,18 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
     :type of_type: function :: str -> T
     :type with_multi_resource_separator: str
     """
+
     def decorator(func):
         @wraps(func)
         def wrapper(api_base, *args, **kwargs):
             raw_params = kwargs.get(with_name, '').split(with_multi_resource_separator)
             if raw_params:
                 if len(raw_params) < min_resources:
-                    return api_base.validation_failure(reason='parameter count has to be at least {}'.format(min_resources))
+                    return api_base.validation_failure(
+                        reason='parameter count has to be at least {}'.format(min_resources))
                 elif max_resources is not None and len(raw_params) > max_resources:
-                    return api_base.validation_failure(reason='parameter count has to be at most {}'.format(max_resources))
+                    return api_base.validation_failure(
+                        reason='parameter count has to be at most {}'.format(max_resources))
                 if type(of_type) == type(Model):
                     parsed_params = of_type.objects.filter(id__in=raw_params)
                     if len(parsed_params) != len(raw_params):
@@ -92,13 +99,16 @@ def uri_resource(with_name, of_type=str, with_multi_resource_separator=ids_uri_p
                     try:
                         parsed_params = [of_type(raw_param) for raw_param in raw_params]
                     except ValueError:
-                        return api_base.validation_failure(reason='one or more parameters does not have type {}'.format(of_type.__name__))
+                        return api_base.validation_failure(
+                            reason='one or more parameters does not have type {}'.format(of_type.__name__))
                 kwargs[with_name] = parsed_params \
-                                        if max_resources is None or max_resources > 1 or min_resources != 1 \
-                                    else parsed_params[0]
+                    if max_resources is None or max_resources > 1 or min_resources != 1 \
+                    else parsed_params[0]
 
             return func(api_base, *args, **kwargs)
+
         return wrapper
+
     return decorator
 
 
@@ -109,6 +119,7 @@ def login_required(func):
 
     Note: This decorator should only be used on http-dispatch methods on ApiBase.
     """
+
     @wraps(func)
     def wrapper(api_base, request, *args, **kwargs):
         return func(api_base, request, *args, **kwargs) \
@@ -123,6 +134,7 @@ def chat_participants_user_modifiable(chat_arg_name):
     (gives a 403 response when this is not allowed)
 
     """
+
     def decorator(func):
         @wraps(func)
         def wrapper(api_base, request, *args, **kwargs):
@@ -131,6 +143,7 @@ def chat_participants_user_modifiable(chat_arg_name):
                 else api_base.forbidden(reason='the participants are not to be modified')
 
         return wrapper
+
     return decorator
 
 
@@ -177,6 +190,7 @@ def permissions_required_for(resource_name):
                 else api_base.forbidden(reason='user does not have rights to access {}'.format(resource_name))
 
         return wrapper
+
     return decorator
 
 
@@ -201,4 +215,5 @@ def rollback_on(exception, reason, status=HTTP_400_BAD_REQUEST):
                 return api_base.error(reason=reason, status=status)
 
         return wrapper
+
     return decorator

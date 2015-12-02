@@ -1,5 +1,6 @@
 ids_uri_pattern_delim = ','
 
+
 # must correspond to the regex found in yunity_swagger.py
 def _named_regex(name, regex):
     return '(?P<{name}>{regex})'.format(name=name, regex=regex)
@@ -10,7 +11,8 @@ def _create_integerid(minlength, maxlength):
     return integerid
 
 
-def multiple_integerids(name, minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=200, delim=ids_uri_pattern_delim):
+def multiple_integerids(name, minlength=1, maxlength=10, minrepetitions=1, maxrepetitions=200,
+                        delim=ids_uri_pattern_delim):
     """
     :type name: str
     :type minlength: int

@@ -1,4 +1,4 @@
-from .initial_data import request_user, chat, add_users
+from .initial_data import chat, add_users
 
 request = {
     "endpoint": "/api/chats/{}/participants".format(chat.id),

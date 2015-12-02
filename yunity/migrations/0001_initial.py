@@ -56,8 +56,11 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now=True)),
                 ('content', models.TextField()),
-                ('in_conversation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='messages', to='yunity.Conversation')),
-                ('sent_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('in_conversation',
+                 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='messages',
+                                   to='yunity.Conversation')),
+                ('sent_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                              to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'abstract': False,

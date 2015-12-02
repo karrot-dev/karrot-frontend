@@ -1,4 +1,4 @@
 response = {
-    "http_status": 204, # NO CONTENT
+    "http_status": 204,  # NO CONTENT
     "response": {}
 }

@@ -4,7 +4,6 @@ from django.db import IntegrityError
 from django.db.models import Count
 from django.http import HttpRequest
 from django.views.generic import View
-
 from yunity.api.ids import user_id_uri_pattern, multiple_user_id_uri_pattern
 from yunity.api import types, serializers
 from yunity.models import Conversation as ConversationModel, ConversationType
@@ -34,7 +33,6 @@ class Users(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type users: [UserModel]
         """
 
         users = get_user_model().objects.all()
@@ -245,7 +243,8 @@ class UserChat(ApiBase, View):
             return self.forbidden('You are not allowed to create a chat with just yourself')
 
         participants = [request.user.id, user.id]
-        chat = ConversationModel.objects.filter(type=ConversationType.ONE_ON_ONE).filter(participants__id__in=participants).annotate(c=Count('participants')).filter(c=2).first()
+        chat = ConversationModel.objects.filter(type=ConversationType.ONE_ON_ONE).filter(
+            participants__id__in=participants).annotate(c=Count('participants')).filter(c=2).first()
         if not chat:
             chat = ConversationModel.objects.create(type=ConversationType.ONE_ON_ONE)
             chat.participants = participants

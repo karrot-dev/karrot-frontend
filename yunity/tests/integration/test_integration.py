@@ -1,10 +1,8 @@
 from importlib import import_module
 from traceback import TracebackException
-
 from django.db.transaction import atomic
 from pkg_resources import resource_listdir
 from django.test import Client, TransactionTestCase
-
 from yunity.utils.misc import json_stringify
 from yunity.utils.response import content_json
 from yunity.utils.tests.comparison import DeepMatcher
@@ -85,11 +83,13 @@ class IntegrationTest(object):
         """
         :type testcase: TestCase
         """
+
         def _get_response_json_content():
             try:
                 return content_json(self.actual_response)
             except ValueError:
-                testcase.fail('expected a json response, got: "{}"'.format(self.actual_response.content.decode('utf-8')))
+                testcase.fail(
+                    'expected a json response, got: "{}"'.format(self.actual_response.content.decode('utf-8')))
 
         actual_response = _get_response_json_content()
         expected_response = self.response_data.get('response', {})

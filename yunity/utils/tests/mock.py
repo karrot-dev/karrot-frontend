@@ -1,4 +1,5 @@
-from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, SubFactory, PostGeneration
+from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, PostGeneration
+
 from yunity.utils.tests.fake import faker
 
 

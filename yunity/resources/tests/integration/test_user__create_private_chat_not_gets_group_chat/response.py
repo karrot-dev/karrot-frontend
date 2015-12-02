@@ -5,6 +5,6 @@ response = {
     "http_status": 201,
     "response": {
         "chat":
-            {"id": NotEqualsMatcher(chat.id) }
+            {"id": NotEqualsMatcher(chat.id)}
     }
 }

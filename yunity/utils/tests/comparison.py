@@ -82,8 +82,10 @@ class CustomMatcher(object):
     def compare(self, actual, reason):
         self.comparator(actual, reason)
 
+
 class NotEqualsMatcher(CustomMatcher):
     def __init__(self, not_expected):
+        super().__init__(self.compare)
         self.not_expected = not_expected
 
     def compare(self, actual, reason):

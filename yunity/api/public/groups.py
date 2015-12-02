@@ -2,9 +2,7 @@ from django.conf.urls import url
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 from django.http import HttpRequest
-
 from django.views.generic import View
-
 from yunity.api.ids import group_id_uri_pattern
 from yunity.api import types, serializers
 from yunity.utils.api.abc import ApiBase
@@ -175,7 +173,7 @@ class GroupMembers(ApiBase, View):
         ...
 
         :type request: HttpRequest
-        :type chat: ConversationModel
+        :type group: ConversationModel
         """
 
         for user in request.body['users']:
@@ -183,6 +181,7 @@ class GroupMembers(ApiBase, View):
             GroupMembershipModel.objects.create(user=user, group=group)
 
         return self.created()
+
 
 class Group(ApiBase, View):
     @uri_resource('group', of_type=GroupModel, max_resources=1)

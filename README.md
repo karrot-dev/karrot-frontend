@@ -5,12 +5,14 @@
 # yunity-core
 
 ## Getting started
+For a very quick startup, please checkout the [yunity-setup Repo](https://github.com/yunity/yunity-setup). Alternatively, the following steps allow a manual installation.
 
 ### Install system dependencies
 - Python: python3 python3-devel python-virtualenv
 - Databases: postgresql postgresql-devel redis [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/1.4/setup-repositories.html)
 - Real-time: gcc libffi-devel python-devel openssl-devel
 - Push-hooks: vlc
+- Code style: pep8
 
 Requires Python 3.5 as of 2015-11-17 TracebackException utility is used.
 
@@ -25,9 +27,9 @@ Requires Python 3.5 as of 2015-11-17 TracebackException utility is used.
 - virtualenv --python=python3 --no-site-packages ~/virtualenvs/yunity-core
 - source ~/virtualenvs/yunity-core/bin/activate
 - pip install -r ~/yunity-core/requirements.txt
-- To push a git commit image, decide between VLC or fswebcam:
-  - ln -rs scripts/git-hooks/picture-vlc .git/hooks/pre-push
-  - ln -rs scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
+- To take a git commit image, decide between VLC or fswebcam:
+  - ln -rs yunity/management/scripts/git-hooks/picture-vlc .git/hooks/pre-push
+  - ln -rs yunity/management/scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
 ### Setup the servers
 
@@ -84,7 +86,7 @@ A swagger description file is generated at /doc. You can pass it to any swagger 
 
 See the yunity-setup repository [![yunity-setup repository](https://https://github.com/yunity/yunity-setup)] for a complete local environment that also includes a swagger release.
 
-## Settings
+## Django application settings
 
 In development, you can add and override local settings in
 `wuppdays/local_settings.py`, which is present in `.gitignore` and hence out of
@@ -99,3 +101,16 @@ pip-tools is used to manage requirements. To use the latest possible requirement
 - pip-compile
 
 Use pip-compile -p to include prereleases.
+
+## Contributing to yunity-core
+
+To contribute, please get in contact with us. We want to follow a pull request / code review cycle as soon as possible but in our early design stages we prefer to work in teams at the same desk.
+We use
+
+- github issues for development tasks (try waffle.io for a nice view on it)
+- [slack](https://yunity.slack.com) as team communication, not only for development
+
+### Coding guidelines
+We follow the pep8 with disabled whitespace checks and a wider maximum line length of 120 characters.
+As always, the coding style may not apply at some parts.
+You can execute yunity/management/scripts/git-hooks/pep8-check in the repository root.

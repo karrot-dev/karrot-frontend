@@ -1,0 +1,6 @@
+ERRORS=`find . -name '*.py' -not -path './env*' -not -path './.*' -print0 | xargs -0 pep8 --ignore=W391 --max-line-length=120 | tee /dev/stderr | wc -l`
+if [ "$ERRORS" -gt 0 ]; then
+  exit 1
+fi
+
+exit 0

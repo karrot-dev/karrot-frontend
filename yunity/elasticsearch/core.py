@@ -6,8 +6,6 @@ from elasticsearch import Elasticsearch
 from elasticsearch.exceptions import NotFoundError
 from elasticsearch_dsl import Search
 
-from yunity.elasticsearch.mappings import valuable_mapping, opportunity_mapping
-
 logger = getLogger(__name__)
 
 

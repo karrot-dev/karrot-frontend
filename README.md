@@ -72,6 +72,8 @@ If you get a "virtual memory error" with any of the postgres commands, close PyC
 - Set the project interpreter to ~/virtualenvs/yunity-core/bin/python
 - Run yunity-core (Shift+F10)
 
+If a migration fails with a error message, similar to `django.db.utils.ProgrammingError: column "id" referenced in foreign key constraint does not exist`, run the command `./manage.py reset_db`, followed by `./manage.py migrate` to reset the database.
+
 ## Architecture
 
 ### Data model

@@ -78,7 +78,7 @@ If a migration fails with a error message, similar to `django.db.utils.Programmi
 
 ### Data model
 
-[![ER diagram](yunity/doc/yunity-schema.png)](yunity/doc/yunity-schema.xml)
+Currently, the data model is subject to change. When the backend reaches the beta stage, an ER-diagram could be put here.
 
 ## API Documentation
 

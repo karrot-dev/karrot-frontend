@@ -40,6 +40,8 @@ class Items(ApiBase, View):
     @login_required
     @json_request
     @request_parameter('description', of_type=types.item_description)
+    @request_parameter('latitude', of_type=types.latitude)
+    @request_parameter('longitude', of_type=types.longitude)
     def post(self, request):
         """Create a new item
         ---
@@ -52,11 +54,21 @@ class Items(ApiBase, View):
                   id: create_item
                   required:
                     - description
+                    - latitude
+                    - longitude
                   properties:
                       description:
                           type: string
                           description: description of item
                           example: Some lovely bananas, and a bit of stale old bread too
+                      latitude:
+                          type: float
+                          description: latitude of item location
+                          example: 50.827845
+                      longitude:
+                          type: float
+                          description: longitude of item location
+                          example: 12.921370
         responses:
             201:
                 description: Item created
@@ -80,9 +92,21 @@ class Items(ApiBase, View):
                             type: string
                             example: A box of mouldy apples full of worms, and a couple of squashed tomatoes too
                             description: Description of the item
+                        latitude:
+                            type: float
+                            description: latitude of item location
+                            example: 50.827845
+                        longitude:
+                            type: float
+                            description: longitude of item location
+                            example: 12.921370
 
             403:
                 description: Insufficient rights to create this item
+                schema:
+                    $ref: '#/definitions/result_error_forbidden'
+            400:
+                description: Invalid parameter in request
                 schema:
                     $ref: '#/definitions/result_error_forbidden'
         ...
@@ -95,7 +119,9 @@ class Items(ApiBase, View):
 
         item = ItemModel.objects.create(
             user_id=request.user.id,
-            description=request.body['description']
+            description=request.body['description'],
+            latitude=request.body['latitude'],
+            longitude=request.body['longitude']
         )
 
         return self.created(serializers.item(item))

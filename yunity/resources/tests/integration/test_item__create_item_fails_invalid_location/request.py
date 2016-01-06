@@ -5,8 +5,8 @@ request = {
     "method": "post",
     "body": {
         "description": "my lovely test item",
-        "latitude": 50.827845,
-        "longitude": 12.921370
+        "latitude": -666,
+        "longitude": 666
     },
     "user": request_user,
 }

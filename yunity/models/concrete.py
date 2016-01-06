@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models import TextField, ForeignKey, ManyToManyField, EmailField, \
-    BooleanField
+    BooleanField, FloatField
 from django_enumfield import enum
 
 from yunity.utils.models.abc import BaseModel
@@ -81,6 +81,8 @@ class Conversation(BaseModel):
 class Item(BaseModel):
     user = ForeignKey('yunity.User')
     description = TextField()
+    latitude = FloatField(blank=True, null=True)
+    longitude = FloatField(blank=True, null=True)
 
 
 class Group(BaseModel):

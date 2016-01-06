@@ -23,6 +23,8 @@ def item(model):
         'id': model.id,
         'user_id': model.user_id,
         'description': model.description,
+        'latitude': model.latitude,
+        'longitude': model.longitude
     }
 
 

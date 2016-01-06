@@ -87,6 +87,28 @@ class ShorterThan(Validator):
             raise ValidationFailure('element does not have length')
         return value
 
+class LessOrEqualThan(Validator):
+    def __init__(self, maxval):
+        self.maxval = maxval
+
+    def __call__(self, value):
+        try:
+            assert value <= self.maxval
+        except AssertionError:
+            raise ValidationFailure('value is bigger than {}'.format(self.maxval))
+        return value
+
+class GreaterOrEqualThan(Validator):
+    def __init__(self, minval):
+        self.minval = minval
+
+    def __call__(self, value):
+        try:
+            assert value >= self.minval
+        except AssertionError:
+            raise ValidationFailure('value is smaller than {}'.format(self.minval))
+        return value
+
 
 class IsReasonableLengthString(Validator):
     def __init__(self, maxlen=100000):

@@ -1,8 +1,9 @@
-from importlib import import_module
 from traceback import TracebackException
+
 from django.db.transaction import atomic
-from pkg_resources import resource_listdir
 from django.test import Client, TransactionTestCase
+from importlib import import_module
+from pkg_resources import resource_listdir
 from yunity.utils.misc import json_stringify
 from yunity.utils.response import content_json
 from yunity.utils.tests.comparison import DeepMatcher

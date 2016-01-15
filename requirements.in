@@ -2,6 +2,7 @@ Django
 django-cors-headers
 django-enumfield
 django-extensions
+django-polymorphic
 django-redis
 elasticsearch
 elasticsearch-dsl

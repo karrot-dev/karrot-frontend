@@ -41,7 +41,7 @@ def group(model):
         'id': model.id,
         'name': model.name,
         'description': model.description,
-        'members': [user(member) for member in model.members.all()]
+        'members': [user(member) for member in model.hub.members.all()]
     }
 
 

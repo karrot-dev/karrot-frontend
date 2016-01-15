@@ -1,13 +1,11 @@
 from django.conf.urls import url
 from django.http import HttpRequest
-
 from django.views.generic import View
-
-from yunity.api.ids import item_id_uri_pattern
 from yunity.api import types, serializers
+from yunity.api.ids import item_id_uri_pattern
+from yunity.base.other_models import Item as ItemModel
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, login_required
-from yunity.models.concrete import Item as ItemModel
 
 
 class Items(ApiBase, View):

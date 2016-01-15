@@ -3,14 +3,14 @@ from django.db import IntegrityError
 from django.db.models import Max
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.api import types, serializers
+from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
+from yunity.conversations.models import Conversation as ConversationModel
+from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
+from yunity.users.models import User as UserModel
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
     rollback_on, login_required, chat_participants_user_modifiable
-from yunity.models.concrete import Conversation as ConversationModel, ConversationType
-from yunity.models.concrete import ConversationMessage as MessageModel
-from yunity.models.concrete import User as UserModel
 from yunity.utils.session import RealtimeClientData
 
 

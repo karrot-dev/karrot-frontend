@@ -1,4 +1,4 @@
-from yunity.utils.models.field import MaxLengthCharField
+from yunity.base.models import MaxLengthCharField
 from yunity.utils.tests.abc import BaseTestCase
 
 

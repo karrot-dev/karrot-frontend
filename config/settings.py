@@ -43,8 +43,15 @@ INSTALLED_APPS = (
     'django_extensions',
     'corsheaders',
 
+    # extra libs
+    'polymorphic',
+
     # Application
     'yunity',
+    'yunity.api',
+    'yunity.base',
+    'yunity.users',
+    'yunity.conversations',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -124,7 +131,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 SESSION_COOKIE_HTTPONLY = False
 
-AUTH_USER_MODEL = 'yunity.User'
+AUTH_USER_MODEL = 'users.User'
 
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control

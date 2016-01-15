@@ -1,5 +1,5 @@
 from yunity.api import serializers
-from yunity.models import Conversation as ConversationModel
+from yunity.conversations.models import Conversation as ConversationModel
 from yunity.utils.tests.abc import BaseTestCase, AnyResult
 
 

@@ -3,12 +3,12 @@ from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 from django.http import HttpRequest
 from django.views.generic import View
-from yunity.api.ids import group_id_uri_pattern
 from yunity.api import types, serializers
+from yunity.api.ids import group_id_uri_pattern
+from yunity.base.other_models import Group as GroupModel
 from yunity.utils.api.abc import ApiBase
 from yunity.utils.api.decorators import json_request, request_parameter, uri_resource, permissions_required_for, \
     login_required, rollback_on
-from yunity.models.concrete import Group as GroupModel, GroupMembership as GroupMembershipModel
 
 
 class Groups(ApiBase, View):
@@ -124,10 +124,7 @@ class Groups(ApiBase, View):
             description=request.body['description'],
         )
 
-        membership = GroupMembershipModel.objects.create(
-            user=request.user,
-            group=group,
-        )
+        group.hub.hubmembership_set.create(user=request.user)
 
         return self.created(serializers.group(group))
 
@@ -178,7 +175,7 @@ class GroupMembers(ApiBase, View):
 
         for user in request.body['users']:
             user = get_user_model().objects.get(id=user)
-            GroupMembershipModel.objects.create(user=user, group=group)
+            group.hub.hubmembership_set.create(user=user)
 
         return self.created()
 

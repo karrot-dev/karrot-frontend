@@ -29,8 +29,10 @@ Neel chats lorem ipsum with tilmann, while Flo, Matthias and tilmann have a grou
 
 """
 from datetime import datetime
+
 from django.utils.timezone import make_aware
-from yunity.models import *
+from yunity.conversations.models import ConversationMessage, Conversation
+from yunity.users.models import User
 
 
 def _datetime(fmt):

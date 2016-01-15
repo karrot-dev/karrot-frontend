@@ -1,8 +1,8 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 
-from yunity.utils.validation import Each, OfType, HasKey, IsReasonableLengthString, ValidationFailure, LessOrEqualThan, \
-    GreaterOrEqualThan
+from yunity.utils.validation import Each, OfType, HasKey, IsReasonableLengthString, \
+    ValidationFailure, LessOrEqualThan, GreaterOrEqualThan
 
 
 def message(value):
@@ -67,9 +67,11 @@ def group_description(value):
     IsReasonableLengthString()(value)
     return value
 
+
 def latitude(value):
     (OfType(float) & GreaterOrEqualThan(-90.0) & LessOrEqualThan(90.0))(value)
     return value
+
 
 def longitude(value):
     (OfType(float) & GreaterOrEqualThan(-180.0) & LessOrEqualThan(180.0))(value)

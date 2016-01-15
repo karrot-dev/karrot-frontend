@@ -1,4 +1,4 @@
-from yunity.models import Conversation, ConversationMessage
+from yunity.conversations.models import ConversationMessage, Conversation
 from yunity.utils.tests.mock import MockUser
 
 users = MockUser.create_batch(2)

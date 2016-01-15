@@ -1,7 +1,7 @@
 from sys import modules
 
-from yunity.utils.tests.abc import BaseTestCase
 from yunity.utils.misc import json_stringify, maybe_import
+from yunity.utils.tests.abc import BaseTestCase
 
 
 class JsonStringifyTestCase(BaseTestCase):

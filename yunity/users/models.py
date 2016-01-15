@@ -1,10 +1,6 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.db.models import TextField, ForeignKey, ManyToManyField, EmailField, \
-    BooleanField, FloatField
-from django_enumfield import enum
-
-from yunity.utils.models.abc import BaseModel
-from yunity.utils.models.field import MaxLengthCharField
+from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.db.models import EmailField, BooleanField, TextField
+from yunity.base.models import BaseModel, MaxLengthCharField
 
 
 class UserManager(BaseUserManager):
@@ -57,40 +53,3 @@ class User(AbstractBaseUser, BaseModel):
 
     def get_short_name(self):
         return self.display_name
-
-
-class ConversationMessage(BaseModel):
-    sent_by = ForeignKey('yunity.User')
-    in_conversation = ForeignKey('yunity.Conversation', related_name='messages')
-
-    content = TextField()
-
-
-class ConversationType(enum.Enum):
-    ONE_ON_ONE = 0
-    USER_MULTICHAT = 1
-
-
-class Conversation(BaseModel):
-    participants = ManyToManyField('yunity.User')
-    type = enum.EnumField(ConversationType, default=ConversationType.ONE_ON_ONE)
-
-    name = MaxLengthCharField(null=True)
-
-
-class Item(BaseModel):
-    user = ForeignKey('yunity.User')
-    description = TextField()
-    latitude = FloatField(blank=True, null=True)
-    longitude = FloatField(blank=True, null=True)
-
-
-class Group(BaseModel):
-    name = MaxLengthCharField()
-    description = TextField(null=True)
-    members = ManyToManyField(User, through='yunity.GroupMembership')
-
-
-class GroupMembership(BaseModel):
-    user = ForeignKey(User)
-    group = ForeignKey(Group)

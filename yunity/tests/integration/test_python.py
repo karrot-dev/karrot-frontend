@@ -1,9 +1,8 @@
-from importlib import import_module
-from os.path import join as join_path, dirname
-from os import walk
-
-from yunity.utils.tests.abc import BaseTestCase
 import yunity
+from importlib import import_module
+from os import walk
+from os.path import join as join_path, dirname
+from yunity.utils.tests.abc import BaseTestCase
 
 
 def iter_sources(root_module_path, pysuffix='.py'):

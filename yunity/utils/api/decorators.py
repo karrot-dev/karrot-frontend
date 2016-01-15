@@ -1,11 +1,11 @@
-from functools import wraps
 from django.contrib.auth import get_user_model
 from django.db.models import Model, Q
 from django.db.transaction import atomic
+from functools import wraps
 from yunity.api.ids import ids_uri_pattern_delim
-from yunity.models import Conversation as ConversationModel, ConversationType
-from yunity.models import Item as ItemModel
-from yunity.models import Group as GroupModel
+from yunity.base.other_models import Group as GroupModel
+from yunity.base.other_models import Item as ItemModel
+from yunity.conversations.models import ConversationType, Conversation as ConversationModel
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST
 from yunity.utils.request import JsonRequest
 from yunity.utils.validation import ValidationFailure

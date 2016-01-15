@@ -87,6 +87,7 @@ class ShorterThan(Validator):
             raise ValidationFailure('element does not have length')
         return value
 
+
 class LessOrEqualThan(Validator):
     def __init__(self, maxval):
         self.maxval = maxval
@@ -97,6 +98,7 @@ class LessOrEqualThan(Validator):
         except AssertionError:
             raise ValidationFailure('value is bigger than {}'.format(self.maxval))
         return value
+
 
 class GreaterOrEqualThan(Validator):
     def __init__(self, minval):

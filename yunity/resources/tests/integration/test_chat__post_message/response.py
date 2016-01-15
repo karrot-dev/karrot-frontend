@@ -1,6 +1,6 @@
+from yunity.utils.tests.comparison import ANY_INT, DATETIME_AROUND_NOW
 from .initial_data import chat_responder
 from .request import request
-from yunity.utils.tests.comparison import ANY_INT, DATETIME_AROUND_NOW
 
 response = {
     "http_status": 201,

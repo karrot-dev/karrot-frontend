@@ -1,5 +1,5 @@
-from .initial_data import before_messages
 from yunity.utils.tests.comparison import ANY_INT, DATETIME_AROUND_NOW
+from .initial_data import before_messages
 
 response = {
     "http_status": 200,

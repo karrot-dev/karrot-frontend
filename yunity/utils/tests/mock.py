@@ -1,4 +1,6 @@
+from django.contrib.auth import get_user_model
 from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, PostGeneration
+from yunity.conversations.models import Conversation
 
 from yunity.utils.tests.fake import faker
 
@@ -12,7 +14,7 @@ class Mock(DjangoModelFactory):
 
 class MockUser(Mock):
     class Meta:
-        model = "yunity.User"
+        model = get_user_model()
         strategy = CREATE_STRATEGY
 
     is_active = True
@@ -26,7 +28,7 @@ class MockUser(Mock):
 
 class MockConversation(Mock):
     class Meta:
-        model = "yunity.Conversation"
+        model = Conversation
         strategy = CREATE_STRATEGY
 
     @post_generation

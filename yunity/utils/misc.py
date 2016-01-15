@@ -1,5 +1,6 @@
-from importlib import import_module
 from json import dumps as dump_json
+
+from importlib import import_module
 
 
 def json_stringify(data):

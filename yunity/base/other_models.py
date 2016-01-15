@@ -13,8 +13,6 @@ class Group(BaseModel, HubbedMixin):
     name = MaxLengthCharField()
     description = TextField(null=True)
 
-    items = ManyToManyField(Item)
-
 
 class Store(BaseModel, HubbedMixin):
     name = MaxLengthCharField(null=True)

@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'yunity.base',
     'yunity.users',
     'yunity.conversations',
+    'yunity.walls',
 )
 
 MIDDLEWARE_CLASSES = (

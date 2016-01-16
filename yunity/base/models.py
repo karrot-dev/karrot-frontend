@@ -2,11 +2,12 @@ from config import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Model, AutoField, Field, DateTimeField, ForeignKey, ManyToManyField, CASCADE, \
-    PositiveIntegerField, Manager, CharField
+    PositiveIntegerField, Manager, CharField, OneToOneField, BooleanField
 from django.db.models.fields.related import RelatedField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
+from yunity.walls.models import Wall
 
 
 class BaseModel(Model):
@@ -62,15 +63,13 @@ class Hub(BaseModel):
 
     objects = HubManager()
 
-    members = ManyToManyField('users.User', through=HubMembership)
+    members = ManyToManyField(settings.AUTH_USER_MODEL, through=HubMembership)
+
+    wall = OneToOneField(Wall, null=True, on_delete=CASCADE)
+    has_wall = BooleanField()
 
 
 class HubbedMixin:
-
-    @classmethod
-    def configure(cls, teams=False, wall=False):
-        pass
-
     @property
     def hub(self):
         ctype = ContentType.objects.get_for_model(self.__class__)

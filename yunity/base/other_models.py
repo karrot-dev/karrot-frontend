@@ -26,5 +26,3 @@ class Team(BaseModel, HubbedMixin):
     name = MaxLengthCharField(null=True)
     permissions = ManyToManyField(Permission)
     team_hub = ForeignKey(Hub)
-
-    HubbedMixin.configure(wall=True)

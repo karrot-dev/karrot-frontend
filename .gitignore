@@ -7,6 +7,7 @@ env
 /dump.rdb
 /db.sqlite3
 *.pid
+**/migrations
 
 # IDE
 /.idea

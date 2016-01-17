@@ -14,7 +14,9 @@ class Item(BaseModel):
 class Group(BaseModel, HubMixin):
     name = MaxLengthCharField()
     description = TextField(null=True)
+    parent = ForeignKey('base.Group', null=True, on_delete=CASCADE)
 
+    is_content_included_in_parent = BooleanField(default=False)
 
 
 class Store(BaseModel, HubMixin):

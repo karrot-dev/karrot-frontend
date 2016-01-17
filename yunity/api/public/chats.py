@@ -3,6 +3,7 @@ from django.db import IntegrityError
 from django.db.models import Max
 from django.http import HttpRequest
 from django.views.generic import View
+
 from yunity.api import types, serializers
 from yunity.api.ids import chat_id_uri_pattern, user_id_uri_pattern
 from yunity.conversations.models import Conversation as ConversationModel

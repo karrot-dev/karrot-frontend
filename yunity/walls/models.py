@@ -1,5 +1,6 @@
-from config import settings
 from django.db.models import ForeignKey, TextField
+
+from config import settings
 from yunity.base.models import BaseModel
 
 

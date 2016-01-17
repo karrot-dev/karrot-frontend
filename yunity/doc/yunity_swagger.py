@@ -10,12 +10,13 @@ Under MIT License
 
 """
 import inspect
-
 import re
-import yaml
-import yunity.api.urls
 from collections import defaultdict
+
+import yaml
 from django.http.response import JsonResponse
+
+import yunity.api.urls
 
 
 def _sanitize(comment):

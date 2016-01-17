@@ -1,6 +1,7 @@
 from json import loads as load_json
 
 from django.test import RequestFactory
+
 from yunity.utils.misc import json_stringify
 from yunity.utils.validation import HasKey
 

@@ -1,7 +1,9 @@
+from functools import wraps
+
 from django.contrib.auth import get_user_model
 from django.db.models import Model, Q
 from django.db.transaction import atomic
-from functools import wraps
+
 from yunity.api.ids import ids_uri_pattern_delim
 from yunity.base.other_models import Group as GroupModel
 from yunity.base.other_models import Item as ItemModel

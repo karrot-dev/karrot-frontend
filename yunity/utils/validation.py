@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+
 from yunity.resources.http.status import HTTP_400_BAD_REQUEST
 
 

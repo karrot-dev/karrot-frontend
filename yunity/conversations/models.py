@@ -1,5 +1,6 @@
 from django.db.models import ForeignKey, TextField, ManyToManyField
 from django_enumfield import enum
+
 from yunity.base.models import BaseModel, MaxLengthCharField
 from yunity.users.models import User
 

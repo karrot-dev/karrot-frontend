@@ -1,5 +1,6 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db.models import EmailField, BooleanField, TextField
+
 from yunity.base.models import BaseModel, MaxLengthCharField
 
 

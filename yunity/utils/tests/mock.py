@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, PostGeneration
-from yunity.conversations.models import Conversation
 
+from yunity.conversations.models import Conversation
 from yunity.utils.tests.fake import faker
 
 

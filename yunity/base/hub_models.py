@@ -48,7 +48,7 @@ class InitialHubOptions:
         self.has_wall=has_wall
 
 
-class HubbedMixin:
+class HubMixin:
 
     _initial_hub_options = InitialHubOptions()
 
@@ -74,7 +74,7 @@ class HubbedMixin:
 # create Hub just after HubModel gets created
 @receiver(post_save)
 def create_hub_if_not_exists(sender, instance, **kwargs):
-    if isinstance(instance, HubbedMixin):
+    if isinstance(instance, HubMixin):
         if not instance.hub_exists:
             Hub.objects.create(target_content_type=ContentType.objects.get_for_model(instance),
                                target_id=instance.id,

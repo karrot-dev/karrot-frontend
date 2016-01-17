@@ -1,6 +1,6 @@
-from django.db.models import ForeignKey, TextField, FloatField, ManyToManyField
+from django.db.models import ForeignKey, TextField, FloatField, ManyToManyField, BooleanField, CASCADE
 
-from yunity.base.hub_models import Hub, HubbedMixin
+from yunity.base.hub_models import Hub, HubMixin
 from yunity.base.models import BaseModel, MaxLengthCharField
 
 
@@ -11,12 +11,13 @@ class Item(BaseModel):
     longitude = FloatField(blank=True, null=True)
 
 
-class Group(BaseModel, HubbedMixin):
+class Group(BaseModel, HubMixin):
     name = MaxLengthCharField()
     description = TextField(null=True)
 
 
-class Store(BaseModel, HubbedMixin):
+
+class Store(BaseModel, HubMixin):
     name = MaxLengthCharField(null=True)
 
 
@@ -24,7 +25,7 @@ class Permission(BaseModel):
     name = MaxLengthCharField(null=True)
 
 
-class Team(BaseModel, HubbedMixin):
+class Team(BaseModel, HubMixin):
     name = MaxLengthCharField(null=True)
     permissions = ManyToManyField(Permission)
     team_hub = ForeignKey(Hub)

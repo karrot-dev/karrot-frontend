@@ -16,7 +16,5 @@ DATABASES = {
 }
 
 SHELL_PLUS_PRE_IMPORTS = (
-    ('yunity.utils.elasticsearch', ('*')),
+    ('yunity.base.hub_models', ('InitialHubOptions')),
 )
-
-ES_INDEX = 'yunity_<yourname>'

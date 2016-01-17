@@ -1,5 +1,7 @@
 from django.db.models import ForeignKey, TextField, FloatField, ManyToManyField
-from yunity.base.models import BaseModel, HubbedMixin, MaxLengthCharField, Hub
+
+from yunity.base.hub_models import Hub, HubbedMixin
+from yunity.base.models import BaseModel, MaxLengthCharField
 
 
 class Item(BaseModel):

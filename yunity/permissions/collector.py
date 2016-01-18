@@ -1,16 +1,23 @@
 class Collector():
     def __init__(self):
         self.hubs = []
+        self.user = []
+        self.group_trees = []
+        self.connected_with = []
+        self.public = None
+        self.requires_user = None
 
-    def add_hub(self, hub, action):
+    def require_hub(self, hub, action):
         self.hubs.append((hub, action))
 
-    def make_public(self):
-        self.public = True
+    def require_group_tree(self, group, action):
+        self.group_trees.append((group, action))
 
-    def requires_user(self):
-        self.requires_user = True
+    def make_public(self, action):
+        self.public = action
 
-    def connected_with(self, user):
-        self.connected_with = user
+    def require_user(self, action):
+        self.requires_user = action
 
+    def require_connection_with(self, user, action):
+        self.connected_with.append((user, action))

@@ -1,7 +1,10 @@
+from config import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db.models import EmailField, BooleanField, TextField
+from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, ForeignKey
+from django_enumfield import enum
 
 from yunity.base.models import BaseModel, MaxLengthCharField
+from yunity.walls.models import Wall
 
 
 class UserManager(BaseUserManager):
@@ -37,6 +40,20 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, None, None, None, **extra_fields)
 
 
+class ProfileVisibility(enum.Enum):
+    PRIVATE = 0
+    CONNECTED_USERS = 1
+    COMMUNITIES = 2
+    REGISTERED_USERS = 3
+    PUBLIC = 4
+
+
+class UserConnection(BaseModel):
+    requester = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE, related_name='+')
+    requestee = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE, related_name='+')
+
+    confirmed = BooleanField(default=False)
+
 class User(AbstractBaseUser, BaseModel):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
@@ -44,6 +61,9 @@ class User(AbstractBaseUser, BaseModel):
     display_name = TextField()
     first_name = MaxLengthCharField(null=True)
     last_name = MaxLengthCharField(null=True)
+
+    wall = OneToOneField(Wall, null=True, on_delete=CASCADE)
+    profile_visibility = enum.EnumField(ProfileVisibility, default=ProfileVisibility.PRIVATE)
 
     objects = UserManager()
 

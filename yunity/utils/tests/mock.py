@@ -3,6 +3,7 @@ from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_gen
 
 from yunity.conversations.models import Conversation
 from yunity.utils.tests.fake import faker
+from yunity.walls.models import Wall
 
 
 class Mock(DjangoModelFactory):
@@ -24,6 +25,8 @@ class MockUser(Mock):
     last_name = LazyAttribute(lambda _: faker.name())
     email = LazyAttribute(lambda _: faker.email())
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
+
+    wall = Wall.objects.create()
 
 
 class MockConversation(Mock):

@@ -24,6 +24,7 @@ def resolve_wall(wall, collector):
     u = User.objects.filter(wall_id = wall.id).first()
     """:type : User"""
     if u:
+        collector.allow_user(u, 'read')
         if u.profile_visibility == ProfileVisibility.PUBLIC:
             collector.allow_public('read')
         elif u.profile_visibility == ProfileVisibility.PRIVATE:

@@ -1,7 +1,8 @@
 from django.contrib.contenttypes.models import ContentType
 from yunity.base.hub_models import Hub
 from yunity.base.other_models import Group
-from yunity.permissions.models import HubPermission, UserPermission, GroupTreePermission, UserConnectionPermission
+from yunity.permissions.models import HubPermission, UserPermission, GroupTreePermission, UserConnectionPermission, \
+    ConstantPermission, ConstantPermissionType
 from yunity.users.models import User, ProfileVisibility
 from yunity.walls.models import Wall
 
@@ -63,8 +64,8 @@ class Collector():
         self.users = []
         self.group_trees = []
         self.connected_with = []
-        self.public = None
-        self.requires_user = None
+        self.public_actions = []
+        self.any_registered_user_actions = []
 
     def allow_hub(self, hub, action):
         self.hubs.append((hub, action))
@@ -79,10 +80,10 @@ class Collector():
         self.users.append((user, action))
 
     def allow_public(self, action):
-        self.public = action
+        self.public_actions.append(action)
 
     def allow_any_registered_user(self, action):
-        self.requires_user = action
+        self.any_registered_user_actions.append(action)
 
     def save(self, target):
         """ Creates the model entries for this collector to store the permissions.
@@ -100,3 +101,9 @@ class Collector():
 
         for u, a in self.connected_with:
             UserConnectionPermission.objects.get_or_create(user=u, action=a, **base_params)
+
+        for a in self.public_actions:
+            ConstantPermission.objects.get_or_create(type=ConstantPermissionType.PUBLIC, action=a, **base_params)
+
+        for a in self.any_registered_user_actions:
+            ConstantPermission.objects.get_or_create(type=ConstantPermissionType.REGISTERED_USERS, action=a, **base_params)

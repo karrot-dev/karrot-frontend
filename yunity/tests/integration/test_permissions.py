@@ -39,7 +39,7 @@ class PermissionsTests(TestCase):
     def test_user_wall_is_public_readable(self):
         u = MockUser.create(profile_visibility=ProfileVisibility.PUBLIC)
         c = resolve_permissions(u.wall)
-        self.assertEqual(c.public, 'read', 'user wall not public readable')
+        self.assertEqual(c.public_actions, ['read'], 'user wall not public readable')
 
     def test_user_wall_is_community_readable_base(self):
         u = MockUser.create(profile_visibility=ProfileVisibility.COMMUNITIES)

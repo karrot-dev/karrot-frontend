@@ -15,28 +15,28 @@ def resolve_wall(wall, collector):
         if h.target_content_type.model == 'group':
             g = h.target
             """:type : Group"""
-            collector.require_hub(h, 'read')
+            collector.allow_hub(h, 'read')
             if g.is_content_included_in_parent:
                 for parent in g.parents():
-                    collector.require_hub(parent.hub, 'read')
+                    collector.allow_hub(parent.hub, 'read')
         return
 
     u = User.objects.filter(wall_id = wall.id).first()
     """:type : User"""
     if u:
         if u.profile_visibility == ProfileVisibility.PUBLIC:
-            collector.make_public('read')
+            collector.allow_public('read')
         elif u.profile_visibility == ProfileVisibility.PRIVATE:
             pass
         elif u.profile_visibility == ProfileVisibility.REGISTERED_USERS:
-            collector.require_user('read')
+            collector.allow_any_registered_user('read')
         elif u.profile_visibility == ProfileVisibility.CONNECTED_USERS:
-            collector.require_connection_with(u, 'read')
+            collector.allow_connection_with(u, 'read')
         elif u.profile_visibility == ProfileVisibility.COMMUNITIES:
             groups = u.hub_set.targets_with_content_type(Group)
             roots = set(map(lambda x: x.root(), groups))
             for r in roots:
-                collector.require_group_tree(r, 'read')
+                collector.allow_group_tree(r, 'read')
         else:
             raise NotImplementedError('Unimplemented ProfileVisibility ' + u.profile_visibility + 'for user ' + u)
 

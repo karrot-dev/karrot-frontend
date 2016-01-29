@@ -12,7 +12,6 @@ class PermissionMixin():
     pass
 
 
-
 class Permission(BaseModel):
     class Meta:
         abstract = True
@@ -22,6 +21,7 @@ class Permission(BaseModel):
     target = GenericForeignKey('target_content_type', 'target_id')
 
     action = TextField()
+
 
 class ConstantPermissionType(enum.Enum):
     PUBLIC = 0
@@ -41,4 +41,8 @@ class HubPermission(Permission):
 
 
 class UserPermission(Permission):
+    user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
+
+
+class UserConnectionPermission(Permission):
     user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)

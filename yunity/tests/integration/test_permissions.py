@@ -28,13 +28,11 @@ class PermissionsTests(TestCase):
         t.wall = w2
         t.save()
 
-
     def test_nothing(self):
         pass
 
     def test_user_wall_is_public_readable(self):
         u = MockUser.create(profile_visibility=ProfileVisibility.PUBLIC)
-        #self.assertNotEqual(u.wall, None)
         c = resolve_permissions(u.wall)
         self.assertEqual(c.public, 'read', 'user wall not public readable')
 
@@ -42,7 +40,6 @@ class PermissionsTests(TestCase):
         u = MockUser.create(profile_visibility=ProfileVisibility.COMMUNITIES)
         g = Group.objects.filter(name='toplevel group 2').first()
         g.hub.hubmembership_set.create(user=u)
-        #self.assertNotEqual(u.wall, None)
         c = resolve_permissions(u.wall)
         self.assertEqual(c.group_trees, [(g, 'read')], 'set of communities differs from communities user is part of')
 
@@ -50,8 +47,7 @@ class PermissionsTests(TestCase):
         u = MockUser.create(profile_visibility=ProfileVisibility.COMMUNITIES)
         g = Group.objects.filter(name='2ba').first()
         g.hub.hubmembership_set.create(user=u)
-        #self.assertNotEqual(u.wall, None)
         c = resolve_permissions(u.wall)
         community = Group.objects.filter(name='toplevel group 2').first()
-        self.assertEqual(c.group_trees, [(community, 'read')], 'set of communities differs from communities user is part of')
-
+        self.assertEqual(c.group_trees, [(community, 'read')],
+                         'set of communities differs from communities user is part of')

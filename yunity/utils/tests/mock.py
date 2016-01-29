@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
-from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, PostGeneration
+from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, post_generation, PostGeneration, RelatedFactory, \
+    SubFactory
 
 from yunity.conversations.models import Conversation
 from yunity.utils.tests.fake import faker
@@ -11,6 +12,11 @@ class Mock(DjangoModelFactory):
         strategy = CREATE_STRATEGY
         model = None
         abstract = True
+
+
+class MockWall(Mock):
+    class Meta:
+        model = Wall
 
 
 class MockUser(Mock):
@@ -26,7 +32,7 @@ class MockUser(Mock):
     email = LazyAttribute(lambda _: faker.email())
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
 
-    wall = Wall.objects.create()
+    wall = SubFactory(MockWall)
 
 
 class MockConversation(Mock):

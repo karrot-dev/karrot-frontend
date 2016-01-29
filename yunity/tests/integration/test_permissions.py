@@ -56,3 +56,10 @@ class PermissionsTests(TestCase):
         community = Group.objects.filter(name='toplevel group 2').first()
         self.assertEqual(c.group_trees, [(community, 'read')],
                          'set of communities differs from communities user is part of')
+
+    def test_team_get_wall_permission(self):
+        g = Group.objects.get(name='2b')
+        team = g.hub.team_set.create()
+        team.actions.create(module='wall', action='write')
+        c = resolve_permissions(g.hub.wall)
+        self.assertCountEqual(c.hubs, [(g.hub, 'read'), (team.hub, 'write')])

@@ -38,11 +38,12 @@ class Store(BaseModel, HubMixin):
     name = MaxLengthCharField(null=True)
 
 
-class Permission(BaseModel):
-    name = MaxLengthCharField(null=True)
-
-
 class Team(BaseModel, HubMixin):
     name = MaxLengthCharField(null=True)
-    permissions = ManyToManyField(Permission)
     team_hub = ForeignKey(Hub)
+
+
+class TeamAction(BaseModel):
+    team = ForeignKey(Team, related_name='actions')
+    module = TextField()
+    action = TextField()

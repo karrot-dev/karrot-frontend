@@ -19,6 +19,9 @@ def resolve_wall(wall, collector):
             if g.is_content_included_in_parent:
                 for parent in g.parents():
                     collector.allow_hub(parent.hub, 'read')
+            for team in h.team_set.all():
+                for action in team.actions.filter(module='wall'):
+                    collector.allow_hub(team.hub, action.action)
         return
 
     u = User.objects.filter(wall_id = wall.id).first()

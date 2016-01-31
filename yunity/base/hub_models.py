@@ -2,7 +2,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Manager, ForeignKey, CASCADE, PositiveIntegerField, ManyToManyField, OneToOneField, \
     BooleanField
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 
 from yunity.base.models import BaseModel
@@ -50,7 +50,8 @@ class InitialHubOptions:
 
 class HubMixin:
 
-    _initial_hub_options = InitialHubOptions()
+    def __init__(self):
+        self._initial_hub_options = getattr(self.__class__, 'DEFAULT_HUB_OPTIONS', InitialHubOptions())
 
     @property
     def initial_hub_options(self):
@@ -79,3 +80,8 @@ def create_hub_if_not_exists(sender, instance, **kwargs):
             Hub.objects.create(target_content_type=ContentType.objects.get_for_model(instance),
                                target_id=instance.id,
                                has_wall=instance.initial_hub_options.has_wall)
+
+@receiver(pre_save, sender=Hub)
+def create_hub_wall(sender, instance, **kwargs):
+    if instance.has_wall and not instance.wall_id:
+        instance.wall = Wall.objects.create()

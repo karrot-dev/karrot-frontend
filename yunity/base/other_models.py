@@ -2,7 +2,7 @@ from itertools import chain
 
 from django.db.models import ForeignKey, TextField, FloatField, ManyToManyField, BooleanField, CASCADE
 
-from yunity.base.hub_models import Hub, HubMixin
+from yunity.base.hub_models import Hub, HubMixin, InitialHubOptions
 from yunity.base.models import BaseModel, MaxLengthCharField
 
 
@@ -14,6 +14,9 @@ class Item(BaseModel):
 
 
 class Group(BaseModel, HubMixin):
+
+    DEFAULT_HUB_OPTIONS = InitialHubOptions(has_wall=True)
+
     @classmethod
     def all_children_of(cls, *groups):
         return list(chain.from_iterable([c.all_children() for c in groups]))

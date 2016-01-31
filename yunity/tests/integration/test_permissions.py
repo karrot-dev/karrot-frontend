@@ -20,14 +20,6 @@ class PermissionsTests(TestCase):
         hb = Group.objects.create(name='2b', parent=h)
         hba = Group.objects.create(name='2ba', parent=hb)
 
-        t = gaa.hub
-        t.wall = w
-        t.save()
-
-        t = hb.hub
-        t.wall = w2
-        t.save()
-
     def test_nothing(self):
         pass
 

@@ -6,8 +6,9 @@ from yunity.permissions.models import UserPermission, UserConnectionPermission, 
     ConstantPermission, ConstantPermissionType
 from yunity.users.models import UserConnection, User
 
-def permissions_query(user_id, group_ids, filter, field):
 
+def permissions_query(user, filter, field):
+    group_ids = None
     values_list_kwargs = {}
 
     if isinstance(field, str):
@@ -23,8 +24,12 @@ def permissions_query(user_id, group_ids, filter, field):
     user_connection_actions = []
     registered_user_actions = []
     hub_actions = []
-    if user_id:
-        user_actions = UserPermission.objects.filter(user_id=user_id, **filter).values_list(*fields, **values_list_kwargs)
+    if user:
+        user_id = user.id
+        group_ids = user.hub_set.targets_with_content_type(Group)
+
+        user_actions = UserPermission.objects.filter(user_id=user_id, **filter).values_list(*fields,
+                                                                                            **values_list_kwargs)
         """ UserConnectionPermissions include all users where connected users get an action granted
             so we filter by any user we are connected to to be in that table
 
@@ -42,13 +47,12 @@ def permissions_query(user_id, group_ids, filter, field):
             type=ConstantPermissionType.REGISTERED_USERS).values_list(*fields, **values_list_kwargs)
 
         """ Collect all hubs the user is a member of """
-        hubs = User.objects.get(id=user_id).hub_set.all()
-        hub_actions = HubPermission.objects.filter(**filter).filter(hub__in=hubs).values_list(*fields, **values_list_kwargs)
-
+        hubs = user.hub_set.all()
+        hub_actions = HubPermission.objects.filter(**filter).filter(hub__in=hubs).values_list(*fields,
+                                                                                              **values_list_kwargs)
 
     group_tree_actions = []
     if group_ids:
-
         """ The following group hierarchy queries should be optimized soon to be done completely in SQL.
         """
         groups = Group.objects.filter(id__in=group_ids)
@@ -56,13 +60,14 @@ def permissions_query(user_id, group_ids, filter, field):
         group_tree_actions = GroupTreePermission.objects.filter(**filter).filter(
                 group__in=group_parents).values_list(*fields, **values_list_kwargs)
 
-    return chain(constant_actions, user_actions, user_connection_actions, registered_user_actions, hub_actions, group_tree_actions)
+    return chain(constant_actions, user_actions, user_connection_actions, registered_user_actions, hub_actions,
+                 group_tree_actions)
 
 
-def list_targets_with_class(user_id, group_ids, target_class):
+def list_targets_with_class(user, target_class):
     ctype = ContentType.objects.get_for_model(target_class)
     ctype_params = { 'target_content_type_id': ctype.id }
-    target_fields = permissions_query(user_id, group_ids, filter=ctype_params, field=['target_id', 'action'])
+    target_fields = permissions_query(user, filter=ctype_params, field=['target_id', 'action'])
     target_ids = []
     target_id_to_action_map = {}
     for target_id, action in target_fields:
@@ -74,7 +79,11 @@ def list_targets_with_class(user_id, group_ids, target_class):
     return map(lambda x: (x, target_id_to_action_map[x.id]), targets)
 
 
-def list_actions_for_target(user_id, group_ids, target):
+def list_actions_for_target(user, target):
     ctype = ContentType.objects.get_for_model(target)
     target_params = {'target_content_type_id': ContentType.objects.get_for_model(target).id, 'target_id': target.id}
-    return list(permissions_query(user_id, group_ids, filter=target_params, field='action'))
+    return list(permissions_query(user, filter=target_params, field='action'))
+
+
+def can(user, action, target):
+    return action in list_actions_for_target(user, target)

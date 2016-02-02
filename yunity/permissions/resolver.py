@@ -2,6 +2,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from yunity.walls.actions import Action as WallAction
 from yunity.base.hub_models import Hub
 from yunity.base.other_models import Group
 from yunity.permissions.models import HubPermission, UserPermission, GroupTreePermission, UserConnectionPermission, \
@@ -20,32 +21,36 @@ def resolve_wall(wall, collector):
         if h.target_content_type.model == 'group':
             g = h.target
             """:type : Group"""
-            collector.allow_hub(h, 'read')
-            if g.is_content_included_in_parent:
-                for parent in g.parents():
-                    collector.allow_hub(parent.hub, 'read')
+
+            collector.allow_hub(h, WallAction.CREATE)
+            collector.allow_hub(h, WallAction.COMMENT)
+            collector.allow_hub(h, WallAction.READ)
+
             for team in h.team_set.all():
-                for action in team.actions.filter(module='wall'):
+                for action in team.actions.filter(module=WallAction.module_name()):
                     collector.allow_hub(team.hub, action.action)
         return
 
     u = User.objects.filter(wall_id = wall.id).first()
     """:type : User"""
     if u:
-        collector.allow_user(u, 'read')
+        collector.allow_user(u, WallAction.CREATE)
+        collector.allow_user(u, WallAction.READ)
+        collector.allow_user(u, WallAction.DELETE)
+        collector.allow_any_registered_user(WallAction.COMMENT)
         if u.profile_visibility == ProfileVisibility.PUBLIC:
-            collector.allow_public('read')
+            collector.allow_public(WallAction.READ)
         elif u.profile_visibility == ProfileVisibility.PRIVATE:
             pass
         elif u.profile_visibility == ProfileVisibility.REGISTERED_USERS:
-            collector.allow_any_registered_user('read')
+            collector.allow_any_registered_user(WallAction.READ)
         elif u.profile_visibility == ProfileVisibility.CONNECTED_USERS:
-            collector.allow_connection_with(u, 'read')
+            collector.allow_connection_with(u, WallAction.READ)
         elif u.profile_visibility == ProfileVisibility.COMMUNITIES:
             groups = u.hub_set.targets_with_content_type(Group)
             roots = set(map(lambda x: x.root(), groups))
             for r in roots:
-                collector.allow_group_tree(r, 'read')
+                collector.allow_group_tree(r, WallAction.READ)
         else:
             raise NotImplementedError('Unimplemented ProfileVisibility ' + u.profile_visibility + 'for user ' + u)
 

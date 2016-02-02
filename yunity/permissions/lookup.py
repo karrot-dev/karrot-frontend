@@ -1,12 +1,10 @@
 from itertools import chain
 
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import Q
-from yunity.base.hub_models import Hub
 from yunity.base.other_models import Group
 from yunity.permissions.models import UserPermission, UserConnectionPermission, HubPermission, GroupTreePermission, \
     ConstantPermission, ConstantPermissionType
-from yunity.users.models import UserConnection
+from yunity.users.models import UserConnection, User
 
 
 def list_actions_for_target(user_id, group_ids, target):
@@ -19,6 +17,7 @@ def list_actions_for_target(user_id, group_ids, target):
     user_actions = []
     user_connection_actions = []
     registered_user_actions = []
+    hub_actions = []
     if user_id:
         user_actions = UserPermission.objects.filter(user_id=user_id, **target_params).values_list('action', flat=True)
         """ UserConnectionPermissions include all users where connected users get an action granted
@@ -37,13 +36,13 @@ def list_actions_for_target(user_id, group_ids, target):
         registered_user_actions = ConstantPermission.objects.filter(**target_params).filter(
             type=ConstantPermissionType.REGISTERED_USERS).values_list('action', flat=True)
 
-    hub_actions = []
+        """ Collect all hubs the user is a member of """
+        hubs = User.objects.get(id=user_id).hub_set.all()
+        hub_actions = HubPermission.objects.filter(**target_params).filter(hub__in=hubs).values_list('action',flat=True)
+
+
     group_tree_actions = []
     if group_ids:
-        hubs = Hub.objects.filter(target_content_type_id=ContentType.objects.get_for_model(Group)).filter(
-                target_id__in=group_ids)
-        hub_actions = HubPermission.objects.filter(**target_params).filter(hub__in=hubs).values_list('action',
-                                                                                                     flat=True)
 
         """ The following group hierarchy queries should be optimized soon to be done completely in SQL.
         """

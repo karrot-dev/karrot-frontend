@@ -1,7 +1,7 @@
 from django.db.models import ForeignKey, TextField
 
 from config import settings
-from yunity.base.models import BaseModel
+from yunity.base.base_models import BaseModel
 
 
 class Wall(BaseModel):

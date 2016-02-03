@@ -1,8 +1,8 @@
 from yunity.utils.request import JsonRequest
-from yunity.utils.tests.abc import BaseTestCase, AnyResult
+from yunity.utils.tests.abc import BaseRequestTestCase, AnyResult
 
 
-class JsonRequestTestCase(BaseTestCase):
+class JsonRequestTestCase(BaseRequestTestCase):
     def test_from_http_request_creates_json_request(self):
         self.given_json_request(body={'foo': 1})
         self.when_calling(JsonRequest.from_http_request)

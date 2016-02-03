@@ -1,8 +1,8 @@
-from yunity.utils.tests.abc import BaseTestCase, AnyResult
+from yunity.utils.tests.abc import BaseRequestTestCase, AnyResult
 from yunity.utils.validation import ShorterThan, HasKey, IsIn, OfType, Each, AndThen, ValidationFailure
 
 
-class TestValidationUtil(BaseTestCase):
+class TestValidationUtil(BaseRequestTestCase):
     def test_shorter_than_rejects_item_without_length(self):
         self.given_data(123)
         self.when_calling(ShorterThan(100))

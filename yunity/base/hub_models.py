@@ -5,8 +5,8 @@ from django.db.models import Manager, ForeignKey, CASCADE, PositiveIntegerField,
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 
-from yunity.base.models import BaseModel
 from config import settings
+from yunity.base.base_models import BaseModel
 from yunity.walls.models import Wall
 
 
@@ -72,7 +72,6 @@ class HubMixin:
         return Hub.objects.filter(target_content_type__id=ctype.id, target_id=self.id).exists()
 
 
-# create Hub just after HubModel gets created
 @receiver(post_save)
 def create_hub_if_not_exists(sender, instance, **kwargs):
     if isinstance(instance, HubMixin):
@@ -80,6 +79,7 @@ def create_hub_if_not_exists(sender, instance, **kwargs):
             Hub.objects.create(target_content_type=ContentType.objects.get_for_model(instance),
                                target_id=instance.id,
                                has_wall=instance.initial_hub_options.has_wall)
+
 
 @receiver(pre_save, sender=Hub)
 def create_hub_wall(sender, instance, **kwargs):

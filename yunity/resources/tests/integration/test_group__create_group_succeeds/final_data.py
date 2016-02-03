@@ -1,4 +1,5 @@
-from yunity.base.other_models import Group as GroupModel
+from yunity.groups.models import Group as GroupModel
+
 from .initial_data import request_user
 
 group = GroupModel.objects.filter(name="test group name", description="test group description").first()

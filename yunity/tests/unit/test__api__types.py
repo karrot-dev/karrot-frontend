@@ -1,9 +1,9 @@
 from yunity.api import types
-from yunity.utils.tests.abc import BaseTestCase, AnyResult
+from yunity.utils.tests.abc import BaseRequestTestCase, AnyResult
 from yunity.utils.validation import ValidationFailure
 
 
-class TestApiValidation(BaseTestCase):
+class TestApiValidation(BaseRequestTestCase):
     def test_validate_user_email_passes(self):
         self.given_data('adam@foo.com')
         self.when_calling(types.user_email)

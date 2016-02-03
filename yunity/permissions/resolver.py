@@ -1,20 +1,18 @@
 from django.contrib.contenttypes.models import ContentType
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from yunity.groups.models import Group
 
-from yunity.walls.actions import Action as WallAction
 from yunity.base.hub_models import Hub
-from yunity.base.other_models import Group
+from yunity.groups.actions import Action as GroupAction
 from yunity.permissions.models import HubPermission, UserPermission, GroupTreePermission, UserConnectionPermission, \
     ConstantPermission, ConstantPermissionType
 from yunity.users.models import User, ProfileVisibility
+from yunity.walls.actions import Action as WallAction
 from yunity.walls.models import Wall
 
 
 def resolve_wall(wall, collector):
     """
     a wall of a group is accessible for everyone in the group.
-    Additionally, a group setting may make group content (also walls) available in all parents as well.
     """
     h = Hub.objects.filter(wall_id = wall.id).first()
     if h:
@@ -59,6 +57,11 @@ def resolve_group(group, collector):
     collector.add(resolve_permissions(group.hub.wall))
     for g in group.children.all():
         resolve_group(g, collector)
+
+    h = g.hub
+    for team in h.team_set.all():
+        for action in team.actions.filter(module=GroupAction.module_name()):
+            collector.allow_hub(team.hub, action.action)
 
 
 resolvers = {

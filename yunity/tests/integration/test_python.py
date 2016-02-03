@@ -3,7 +3,7 @@ from os import walk
 from os.path import join as join_path, dirname
 
 import yunity
-from yunity.utils.tests.abc import BaseTestCase
+from yunity.utils.tests.abc import BaseRequestTestCase
 
 
 def iter_sources(root_module_path, pysuffix='.py'):
@@ -30,7 +30,7 @@ def iter_modules(root_module_path, excludes=None):
             yield module
 
 
-class PytonIsValidTestCase(BaseTestCase):
+class PytonIsValidTestCase(BaseRequestTestCase):
     def test_all_modules_import_cleanly(self):
         self.given_data(root_module_path=yunity.__path__[0])
         self.given_data(excludes={

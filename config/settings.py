@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'yunity.conversations',
     'yunity.permissions',
     'yunity.walls',
+    'yunity.groups',
 )
 
 MIDDLEWARE_CLASSES = (

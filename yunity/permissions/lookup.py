@@ -1,10 +1,11 @@
 from itertools import chain
 
 from django.contrib.contenttypes.models import ContentType
-from yunity.base.other_models import Group
+from yunity.groups.models import Group
+
 from yunity.permissions.models import UserPermission, UserConnectionPermission, HubPermission, GroupTreePermission, \
     ConstantPermission, ConstantPermissionType
-from yunity.users.models import UserConnection, User
+from yunity.users.models import UserConnection
 
 
 def permissions_query(user, filter, field):

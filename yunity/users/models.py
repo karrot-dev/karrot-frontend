@@ -1,9 +1,9 @@
-from config import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, ForeignKey
 from django_enumfield import enum
 
-from yunity.base.models import BaseModel, MaxLengthCharField
+from config import settings
+from yunity.base.base_models import BaseModel, MaxLengthCharField
 from yunity.walls.models import Wall
 
 

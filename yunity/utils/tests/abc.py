@@ -1,4 +1,6 @@
-from unittest import TestCase
+from unittest import TestCase as UnittestTestCase
+
+from django.test import TestCase as DjangoTestCase
 
 from django.test import RequestFactory
 
@@ -20,7 +22,13 @@ class NoResult(Validator):
         return value
 
 
-class BaseTestCase(TestCase):
+class BaseTestCase(DjangoTestCase):
+    def assertIncludes(self, collection, item):
+        if item not in collection:
+            self.fail('item {} was not in collection {}'.format(item, collection))
+
+
+class BaseRequestTestCase(UnittestTestCase):
     json_request_factory = JsonRequestFactory()
     request_factory = RequestFactory()
 

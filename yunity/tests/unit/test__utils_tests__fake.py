@@ -1,4 +1,4 @@
-from yunity.utils.tests.abc import BaseTestCase
+from yunity.utils.tests.abc import BaseRequestTestCase
 from yunity.utils.tests.fake import faker as default_faker, Faker
 from yunity.utils.validation import Validator, OfType, HasKey, IsReasonableLengthString
 
@@ -10,7 +10,7 @@ class ValidLocation(Validator):
         (HasKey('longitude') & OfType(float))(location)
 
 
-class FakerTestCase(BaseTestCase):
+class FakerTestCase(BaseRequestTestCase):
     def test_faker_creates_fake_locations(self):
         self.given_data()
         self.when_calling(default_faker.location)

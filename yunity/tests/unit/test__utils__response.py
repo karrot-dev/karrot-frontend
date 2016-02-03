@@ -2,10 +2,10 @@ from django.http import HttpResponse
 
 from yunity.utils.misc import json_stringify
 from yunity.utils.response import content_json
-from yunity.utils.tests.abc import BaseTestCase
+from yunity.utils.tests.abc import BaseRequestTestCase
 
 
-class ContentJsonTestCase(BaseTestCase):
+class ContentJsonTestCase(BaseRequestTestCase):
     def test_content_json_returns_content(self):
         self.given_json_response(content={"foo": 1})
         self.when_calling(content_json)

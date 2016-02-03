@@ -1,10 +1,11 @@
+from django.conf.urls import include
+from django.conf.urls import url
+
 import yunity.api.public.auth
 import yunity.api.public.chats
 import yunity.api.public.groups
 import yunity.api.public.items
 import yunity.api.public.users
-from django.conf.urls import include
-from django.conf.urls import url
 
 urlpatterns = [
     url(r'^auth', include(yunity.api.public.auth)),

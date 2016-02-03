@@ -24,6 +24,9 @@ class Group(BaseModel, HubMixin):
     def all_children(self):
         return self.__class__.all_children_of(*self.children)
 
+    def is_community(self):
+        return self.parent_id is None
+
     name = TextField()
     description = TextField(null=True)
     parent = ForeignKey('groups.Group', null=True, on_delete=CASCADE, related_name='children')

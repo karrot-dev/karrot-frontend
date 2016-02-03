@@ -1,10 +1,10 @@
-from enum import Enum
+from yunity.base.action_enum import ActionEnum
 
-class Action(Enum):
+class Action(ActionEnum):
 
     @classmethod
     def module_name(cls):
-        return 'wall'
+        return 'group'
 
     CREATE = 'create'
     DELETE = 'delete'

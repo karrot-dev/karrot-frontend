@@ -1,4 +1,6 @@
 from django.contrib.contenttypes.models import ContentType
+
+from yunity.base.action_enum import ActionEnum
 from yunity.groups.models import Group
 
 from yunity.base.hub_models import Hub
@@ -26,7 +28,7 @@ def resolve_wall(wall, collector):
 
             for team in h.team_set.all():
                 for action in team.actions.filter(module=WallAction.module_name()):
-                    collector.allow_hub(team.hub, action.action)
+                    collector.allow_hub(team.hub, WallAction(action.action))
         return
 
     u = User.objects.filter(wall_id = wall.id).first()
@@ -58,10 +60,13 @@ def resolve_group(group, collector):
     for g in group.children.all():
         resolve_group(g, collector)
 
-    h = g.hub
+    if group.is_community():
+        collector.allow_any_registered_user(GroupAction.JOIN)
+
+    h = group.hub
     for team in h.team_set.all():
         for action in team.actions.filter(module=GroupAction.module_name()):
-            collector.allow_hub(team.hub, action.action)
+            collector.allow_hub(team.hub, GroupAction(action.action))
 
 
 resolvers = {
@@ -123,25 +128,27 @@ class Collector():
         for c in self.child_collectors:
             c.save()
 
-        base_params = {'target_content_type_id': ContentType.objects.get_for_model(self.target).id, 'target_id': self.target.id}
+        base_params = {'target_content_type_id': ContentType.objects.get_for_model(self.target).id,
+                       'target_id': self.target.id}
 
         for h, a in self.hubs:
-            HubPermission.objects.get_or_create(hub=h, action=a, **base_params)
+            HubPermission.objects.get_or_create(hub=h, **a.to_params(), **base_params)
 
         for u, a in self.users:
-            UserPermission.objects.get_or_create(user=u, action=a, **base_params)
+            UserPermission.objects.get_or_create(user=u, **a.to_params(), **base_params)
 
         for g, a in self.group_trees:
-            GroupTreePermission.objects.get_or_create(group=g, action=a, **base_params)
+            GroupTreePermission.objects.get_or_create(group=g, **a.to_params(), **base_params)
 
         for u, a in self.connected_with:
-            UserConnectionPermission.objects.get_or_create(user=u, action=a, **base_params)
+            UserConnectionPermission.objects.get_or_create(user=u, **a.to_params(), **base_params)
 
         for a in self.public_actions:
-            ConstantPermission.objects.get_or_create(type=ConstantPermissionType.PUBLIC, action=a, **base_params)
+            ConstantPermission.objects.get_or_create(type=ConstantPermissionType.PUBLIC, **a.to_params(), **base_params)
 
         for a in self.any_registered_user_actions:
-            ConstantPermission.objects.get_or_create(type=ConstantPermissionType.REGISTERED_USERS, action=a, **base_params)
+            ConstantPermission.objects.get_or_create(type=ConstantPermissionType.REGISTERED_USERS, **a.to_params(),
+                                                     **base_params)
 
 
 # @receiver(post_save)

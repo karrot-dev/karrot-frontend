@@ -21,6 +21,7 @@ class Permission(BaseModel):
     target_id = PositiveIntegerField()
     target = GenericForeignKey('target_content_type', 'target_id')
 
+    module = TextField()
     action = TextField()
 
 

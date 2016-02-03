@@ -80,11 +80,15 @@ def list_targets_with_class(user, target_class):
     return map(lambda x: (x, target_id_to_action_map[x.id]), targets)
 
 
+def list_all_actions_with_targets(user):
+    pass
+
+
 def list_actions_for_target(user, target):
     ctype = ContentType.objects.get_for_model(target)
     target_params = {'target_content_type_id': ContentType.objects.get_for_model(target).id, 'target_id': target.id}
-    return list(permissions_query(user, filter=target_params, field='action'))
+    return list(permissions_query(user, filter=target_params, field=['module', 'action']))
 
 
 def can(user, action, target):
-    return action in list_actions_for_target(user, target)
+    return action.to_tuple() in list_actions_for_target(user, target)

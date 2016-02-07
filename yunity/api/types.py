@@ -67,13 +67,22 @@ def group_description(value):
     IsReasonableLengthString()(value)
     return value
 
-
 def latitude(value):
-    (OfType(float) & GreaterOrEqualThan(-90.0) & LessOrEqualThan(90.0))(value)
+    try:
+        (OfType(int))(value)
+    except:
+        (OfType(float))(value)
+
+    (GreaterOrEqualThan(-90.0) & LessOrEqualThan(90.0))(value)
     return value
 
 
 def longitude(value):
-    (OfType(float) & GreaterOrEqualThan(-180.0) & LessOrEqualThan(180.0))(value)
+    try:
+        (OfType(int))(value)
+    except:
+        (OfType(float))(value)
+
+    (GreaterOrEqualThan(-180.0) & LessOrEqualThan(180.0))(value)
     return value
 

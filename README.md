@@ -5,46 +5,18 @@
 # yunity-core
 
 ## Getting started
-For a very quick startup, please checkout the [yunity-setup Repo](https://github.com/yunity/yunity-setup). Alternatively, the following steps allow a manual installation.
+For a very quick startup, please checkout the [yunity-setup Repo](https://github.com/yunity/yunity-setup).
+If you want to only install the backend, please have a look into the setup repo for the dependencies and configuration.
 
-### Install system dependencies
-- Python: python3 python3-devel python-virtualenv
-- Databases: postgresql postgresql-devel redis [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/1.4/setup-repositories.html)
-- Real-time: gcc libffi-devel python-devel openssl-devel
-- Push-hooks: vlc
-- Code style: pep8
-
-Requires Python 3.5 as of 2015-11-17 TracebackException utility is used.
-
-### Install Pycharm
-- wget https://download.jetbrains.com/python/pycharm-professional-4.5.4.tar.gz
-- tar xf pycharm-professional-4.5.4.tar.gz
-- ./pycharm-4.5.4/bin/pycharm.sh
-
-### Create the environment
+## Create the environment manually
 - git clone git@github.com:yunity/yunity-core.git ~/yunity-core
-- mkdir -p ~/virtualenvs/yunity-core
-- virtualenv --python=python3 --no-site-packages ~/virtualenvs/yunity-core
-- source ~/virtualenvs/yunity-core/bin/activate
+- mkdir -p ~/virtualenvs/env
+- virtualenv --python=python3 --no-site-packages ~/yunity-core/env
+- source ~/yunity-core/env/bin/activate
 - pip install -r ~/yunity-core/requirements.txt
-- To take a git commit image, decide between VLC or fswebcam:
-  - ln -rs yunity/management/scripts/git-hooks/picture-vlc .git/hooks/pre-push
-  - ln -rs yunity/management/scripts/git-hooks/picture-fswebcam .git/hooks/pre-push
 
-### Setup the servers
-
-#### ElasticSearch
-If you get "low disk watermark" errors from ElasticSearch, start elasticsearch as follows:
-
-- elasticsearch -Des.config="config/elasticsearch.yml"
-
-#### Postgres
-- sudo -iu postgres
-- initdb -D /var/lib/pgsql/data -E utf8
-- createuser -s yunity-user
-- createdb yunity-database
-
-Add the connection to your local Postgres database server to `wuppdays/local_settings.py`.
+### Configure database access
+Add the connection parameters to your local Postgres database server to `wuppdays/local_settings.py`.
 
 ```
 DATABASES = {
@@ -61,42 +33,46 @@ DATABASES = {
 
 If you get a "virtual memory error" with any of the postgres commands, close PyCharm and re-issue your command.
 
+## IDE
+We use PyCharm for development. The open source free professional licences are still pending, for now use the community edition from https://www.jetbrains.com/pycharm/download/.
 
-### Start the servers
-- Start Elasticsearch: sudo /etc/init.d/elasticsearch start
-- Start Redis: redis-server
-- Start Postgres: postgres -D /var/lib/pgsql/data
+Archlinux users may install pycharm-community from the aur.
 
-### Run the project
-- charm ~/yunity-core
-- Set the project interpreter to ~/virtualenvs/yunity-core/bin/python
-- Run yunity-core (Shift+F10)
+Please set the python interpreter to the virtual env python created during during the setup.
 
-If a migration fails with a error message, similar to `django.db.utils.ProgrammingError: column "id" referenced in foreign key constraint does not exist`, run the command `./manage.py reset_db`, followed by `./manage.py migrate` to reset the database.
+## Django quick introduction
+Before using any tools from the shell, you need to activate the virtualenv:
+
+```sh
+source ./env/bin/activate
+```
+
+The manage.py application can be used to perform administrative tasks:
+
+  - makemigrations: Create database migrations
+  - migrate: Apply database migrations
+  - remakeallmigrations: Remove and recreate all migrations
+  - shell\_plus: (requires ipython) for playing in a django python environment
+  - test: Run automated tests
 
 ## Architecture
 
 ### Data model
-
 Currently, the data model is subject to change. When the backend reaches the beta stage, an ER-diagram could be put here.
 
 ## API Documentation
-
 A swagger description file is generated at /doc. You can pass it to any swagger installation.
 
 ### Install swagger locally
-
 See the yunity-setup repository [![yunity-setup repository](https://https://github.com/yunity/yunity-setup)] for a complete local environment that also includes a swagger release.
 
 ## Django application settings
-
 In development, you can add and override local settings in
 `wuppdays/local_settings.py`, which is present in `.gitignore` and hence out of
 version control. If the file is not present, i.e. in production, nothing
 happens.
 
 ## Update requirement packages
-
 pip-tools is used to manage requirements. To use the latest possible requirements, do:
 
 - pip install pip-tools
@@ -105,7 +81,6 @@ pip-tools is used to manage requirements. To use the latest possible requirement
 Use pip-compile -p to include prereleases.
 
 ## Contributing to yunity-core
-
 To contribute, please get in contact with us. We want to follow a pull request / code review cycle as soon as possible but in our early design stages we prefer to work in teams at the same desk.
 We use
 

@@ -11,3 +11,7 @@ env
 
 # IDE
 /.idea
+
+# Python files
+*.pyc
+*.pyo

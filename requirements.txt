@@ -24,4 +24,4 @@ urllib3==1.14             # via elasticsearch
 
 # The following packages are commented out because they are
 # considered to be unsafe in a requirements file:
-# setuptools==19.2          # via django-polymorphic
+# setuptools                # via django-polymorphic

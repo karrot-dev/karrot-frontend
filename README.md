@@ -40,6 +40,11 @@ Archlinux users may install pycharm-community from the aur.
 
 Please set the python interpreter to the virtual env python created during during the setup.
 
+### Vim
+
+For all those who love Vim, just enable syntax checking and add python and django plugins to Vim. Follow [using vim with django](https://code.djangoproject.com/wiki/UsingVimWithDjango).
+
+
 ## Django quick introduction
 Before using any tools from the shell, you need to activate the virtualenv:
 

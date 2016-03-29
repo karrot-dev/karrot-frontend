@@ -59,8 +59,8 @@ class User(AbstractBaseUser, BaseModel):
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
     display_name = TextField()
-    first_name = MaxLengthCharField(null=True)
-    last_name = MaxLengthCharField(null=True)
+    first_name = TextField(null=True)
+    last_name = TextField(null=True)
 
     wall = OneToOneField(Wall, null=True, on_delete=CASCADE)
     profile_visibility = enum.EnumField(ProfileVisibility, default=ProfileVisibility.PRIVATE)

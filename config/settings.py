@@ -42,6 +42,9 @@ INSTALLED_APPS = (
     # Django packages
     'django_extensions',
     'corsheaders',
+    'rest_framework',
+    'rest_framework_docs',
+    'rest_framework_nested',
 
     # extra libs
     'polymorphic',

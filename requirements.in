@@ -4,11 +4,15 @@ django-enumfield
 django-extensions
 django-polymorphic
 django-redis
+djangorestframework
+drf-nested-routers
+drfdocs
 elasticsearch
 elasticsearch-dsl
 factory-boy
 fake-factory
 hiredis
+markdown
 psycopg2
 PyYAML
 redis

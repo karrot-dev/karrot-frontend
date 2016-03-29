@@ -16,10 +16,16 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-import yunity.api.urls
+#import yunity.api.urls
+from rest_framework import routers
+from yunity.api.public.users import UsersViewSet
+
+router = routers.DefaultRouter()
+router.register(r'user', UsersViewSet)
+
 
 urlpatterns = [
-    url(r'^api/', include(yunity.api.urls)),
+    url(r'^api/', include(router.urls, namespace='api')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),

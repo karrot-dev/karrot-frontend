@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.staticfiles',
     'django.contrib.messages',
     'django.contrib.postgres',
 
@@ -122,6 +123,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+STATIC_URL = '/static/'
 
 ES_HOST = os.environ.get('ES_HOST', 'localhost')
 

@@ -44,8 +44,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'corsheaders',
     'rest_framework',
-    'rest_framework_docs',
     'rest_framework_nested',
+    'rest_framework_swagger',
 
     # extra libs
     'polymorphic',

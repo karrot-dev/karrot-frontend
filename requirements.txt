@@ -9,10 +9,10 @@ django-enumfield==1.3b2
 django-extensions==1.6.1
 django-polymorphic==0.8.1
 django-redis==4.3.0
+django-rest-swagger==0.3.5
 django==1.9.1
 djangorestframework==3.3.3
 drf-nested-routers==0.11.1
-drfdocs==0.0.9
 elasticsearch-dsl==0.0.9
 elasticsearch==2.2.0
 factory-boy==2.6.0

@@ -4,9 +4,9 @@ django-enumfield
 django-extensions
 django-polymorphic
 django-redis
+django-rest-swagger
 djangorestframework
 drf-nested-routers
-drfdocs
 elasticsearch
 elasticsearch-dsl
 factory-boy

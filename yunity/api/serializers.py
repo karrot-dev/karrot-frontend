@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from yunity.conversations.models import Conversation as ConversationModel
 from rest_framework import serializers
 
 
@@ -36,18 +37,6 @@ def group(model):
         'members': [user(member) for member in model.hub.members.all()]
     }
 
-
-def conversation(model):
-    participants = [_['id'] for _ in model.participants.order_by('id').values('id')]
-    newest_message = model.messages.order_by('-created_at').first()
-    return {
-        'id': model.id,
-        'name': model.name,
-        'participants': participants,
-        'message': conversation_message(newest_message),
-    }
-
-
 def conversation_message(model):
     if model:
         return {
@@ -68,3 +57,10 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return self.Meta.model.objects.create_user(**{x: validated_data[x] for x in self.get_fields() if x is not 'id'})
+
+
+class ConversationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ConversationModel
+        fields = ['id', 'name', 'participants']
+

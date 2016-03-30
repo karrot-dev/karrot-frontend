@@ -1,0 +1,17 @@
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'yunity_database',
+        'TEST': {
+            'NAME': 'yunity_test'
+        'USER': 'ubuntu',
+    }
+}
+
+SHELL_PLUS_PRE_IMPORTS = (
+    ('yunity.base.hub_models', ('InitialHubOptions')),
+    ('yunity.permissions.resolver', ('resolve_permissions')),
+    ('yunity.users.models', ('ProfileVisibility')),
+    ('yunity.utils.tests.mock', ('*')),
+    ('yunity.permissions.lookup', ('*')),
+)

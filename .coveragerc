@@ -1,3 +1,7 @@
 [run]
 source = yunity
-omit = yunity/resources, yunity/tests
+branch = true
+omit = yunity/resources/*, yunity/tests/*
+
+[report]
+precision = 2

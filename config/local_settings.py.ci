@@ -4,7 +4,7 @@ DATABASES = {
         'NAME': 'yunity_database',
         'TEST': {
             'NAME': 'yunity_test'
-        }
+        },
         'USER': 'ubuntu',
     }
 }

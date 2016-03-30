@@ -1,13 +1,5 @@
-def user(model):
-    if not model.is_authenticated():
-        return {}
-
-    return {
-        'id': model.id,
-        'display_name': model.display_name,
-        'first_name': model.first_name,
-        'last_name': model.last_name,
-    }
+from django.contrib.auth import get_user_model
+from rest_framework import serializers
 
 
 def category(model):
@@ -66,3 +58,13 @@ def conversation_message(model):
         }
     else:
         return None
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ['id', 'display_name', 'first_name', 'last_name', 'email', 'password']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        return self.Meta.model.objects.create_user(**{x: validated_data[x] for x in self.get_fields() if x is not 'id'})

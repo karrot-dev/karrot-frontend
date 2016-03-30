@@ -4,24 +4,25 @@
 #
 #    pip-compile requirements.in
 #
+coverage==4.1b2
 django-cors-headers==1.1.0
 django-enumfield==1.3b2
 django-extensions==1.6.1
-django-polymorphic==0.8.1
+django-polymorphic==0.9.1
 django-redis==4.3.0
 django-rest-swagger==0.3.5
-django==1.9.1
+Django==1.9.4             # via django-rest-swagger
 djangorestframework==3.3.3
 drf-nested-routers==0.11.1
-elasticsearch-dsl==0.0.9
-elasticsearch==2.2.0
-factory-boy==2.6.0
-fake-factory==0.5.3
+elasticsearch-dsl==2.0.0
+elasticsearch==2.3.0
+factory-boy==2.6.1
+fake-factory==0.5.7
 hiredis==0.2.0
 markdown==2.6.6
 psycopg2==2.6.1
-python-dateutil==2.4.2    # via elasticsearch-dsl
-pyyaml==3.11
+python-dateutil==2.5.2    # via elasticsearch-dsl, fake-factory
+PyYAML==3.11              # via django-rest-swagger
 redis==2.10.5
 six==1.10.0
 urllib3==1.14             # via elasticsearch

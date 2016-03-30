@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from yunity.conversations.models import Conversation as ConversationModel
+from yunity.groups.models import Group as GroupModel
 from rest_framework import serializers
 
 
@@ -18,23 +19,6 @@ def item(model):
         'description': model.description,
         'latitude': model.latitude,
         'longitude': model.longitude
-    }
-
-
-def group_summary(model):
-    return {
-        'id': model.id,
-        'name': model.name,
-        'description': model.description,
-    }
-
-
-def group(model):
-    return {
-        'id': model.id,
-        'name': model.name,
-        'description': model.description,
-        'members': [user(member) for member in model.hub.members.all()]
     }
 
 def conversation_message(model):
@@ -56,9 +40,23 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        return self.Meta.model.objects.create_user(**{x: validated_data[x] for x in self.get_fields() if x is not 'id'})
+        return self.Meta.model.objects.create_user(**{x: validated_data.get(x, None) for x in self.get_fields() if x is not 'id'})
 
 
+class GroupSerializer(serializers.ModelSerializer):
+    members = UserSerializer(many=True, read_only=True)
+    class meta:
+        model = GroupModel
+        fields = ['id', 'name', 'description']
+
+
+def group(model):
+    return {
+        'id': model.id,
+        'name': model.name,
+        'description': model.description,
+        'members': [user(member) for member in model.hub.members.all()]
+    }
 class ConversationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConversationModel

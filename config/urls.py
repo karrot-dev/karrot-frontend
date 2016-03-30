@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-#import yunity.api.urls
 from rest_framework_nested import routers
 from yunity.api.public.users import UsersViewSet, UserChatViewSet
 

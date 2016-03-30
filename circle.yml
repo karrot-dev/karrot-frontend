@@ -3,6 +3,12 @@ machine:
     version: 3.5.0
 database:
   override:
-    - mysql -u ubuntu -e "create database yunity_database"
-    - mysql -u ubuntu -e "create database yunity_test"
+    - psql -c "CREATE DATABASE yunity_database;"
+    - psql -c "CREATE DATABASE yunity_test;"
     - cp config/local_settings.py.ci config/local_settings.py
+    - python manage.py remakeallmigrations
+test:
+  override:
+    - coverage run manage.py test
+  post:
+    - coverage html -d $CIRCLE_ARTIFACTS

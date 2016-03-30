@@ -4,7 +4,6 @@ machine:
 database:
   override:
     - psql -c "CREATE DATABASE yunity_database;"
-    - psql -c "CREATE DATABASE yunity_test;"
     - cp config/local_settings.py.ci config/local_settings.py
     - python manage.py remakeallmigrations
 test:

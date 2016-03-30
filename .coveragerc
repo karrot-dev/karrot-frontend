@@ -1,2 +1,3 @@
 [run]
 source = yunity
+omit = yunity/resources, yunity/tests

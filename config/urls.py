@@ -18,14 +18,18 @@ from django.contrib import admin
 
 #import yunity.api.urls
 from rest_framework_nested import routers
-from yunity.api.public.users import UsersViewSet
+from yunity.api.public.users import UsersViewSet, UserChatViewSet
 
 router = routers.DefaultRouter()
 router.register(r'user', UsersViewSet)
 
+user_router = routers.NestedSimpleRouter(router, r'user', lookup='user')
+user_router.register(r'chat', UserChatViewSet, base_name='user-chat')
+
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),
+    url(r'^api/', include(user_router.urls, namespace='api')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),

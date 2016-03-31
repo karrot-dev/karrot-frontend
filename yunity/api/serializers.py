@@ -59,7 +59,6 @@ class GroupSerializer(HubbedMixin, serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'members']
 
 
-
 class ConversationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConversationModel

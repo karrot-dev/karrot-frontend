@@ -17,10 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from rest_framework_nested import routers
+from yunity.api.public.groups import GroupsViewSet
 from yunity.api.public.users import UsersViewSet, UserChatViewSet
 
 router = routers.DefaultRouter()
 router.register(r'user', UsersViewSet)
+router.register(r'group', GroupsViewSet)
 
 user_router = routers.NestedSimpleRouter(router, r'user', lookup='user')
 user_router.register(r'chat', UserChatViewSet, base_name='user-chat')

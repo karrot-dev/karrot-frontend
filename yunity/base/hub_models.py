@@ -24,6 +24,9 @@ class HubMembership(BaseModel):
     hub = ForeignKey('base.Hub', on_delete=CASCADE)
     user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
 
+    class Meta:
+        unique_together = (("hub", "user"),)
+
 
 class Hub(BaseModel):
 

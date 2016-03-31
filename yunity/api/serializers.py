@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from rest_framework.fields import SerializerMethodField
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.groups.models import Group as GroupModel
 from rest_framework import serializers
@@ -33,6 +34,14 @@ def conversation_message(model):
         return None
 
 
+class HubbedMixin():
+    """ Adds extraction methods that add nested serializers interesting for hubbed models."""
+    def get_members(self, Hubbed):
+        members = Hubbed.hub.members.all()
+        serializer = UserSerializer(instance=members, many=True)
+        return serializer.data
+
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
@@ -43,20 +52,14 @@ class UserSerializer(serializers.ModelSerializer):
         return self.Meta.model.objects.create_user(**{x: validated_data.get(x, None) for x in self.get_fields() if x is not 'id'})
 
 
-class GroupSerializer(serializers.ModelSerializer):
-    members = UserSerializer(many=True, read_only=True)
-    class meta:
+class GroupSerializer(HubbedMixin, serializers.ModelSerializer):
+    members = SerializerMethodField()
+    class Meta:
         model = GroupModel
-        fields = ['id', 'name', 'description']
+        fields = ['id', 'name', 'description', 'members']
 
 
-def group(model):
-    return {
-        'id': model.id,
-        'name': model.name,
-        'description': model.description,
-        'members': [user(member) for member in model.hub.members.all()]
-    }
+
 class ConversationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConversationModel

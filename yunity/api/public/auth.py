@@ -12,7 +12,6 @@ class AuthViewSet(viewsets.ViewSet):
         ---
         response_serializer: UserSerializer
         """
-        print('login state')
         generate_csrf_token_for_frontend(request)
         if request.user.is_anonymous():
             serializer = UserSerializer()
@@ -34,6 +33,5 @@ class AuthViewSet(viewsets.ViewSet):
 
     @list_route(methods=['POST'])
     def logout(self, request, **kwargs):
-        print('logged out')
         return Response(status = status.HTTP_200_OK)
 

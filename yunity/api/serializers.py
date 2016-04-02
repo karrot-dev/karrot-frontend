@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate, login
 from rest_framework.fields import SerializerMethodField
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.groups.models import Group as GroupModel
@@ -40,6 +40,29 @@ class HubbedMixin():
         members = Hubbed.hub.members.all()
         serializer = UserSerializer(instance=members, many=True)
         return serializer.data
+
+
+class AuthLoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        credentials = {'email': attrs.get('email'), 'password': attrs.get('password')}
+        if all(credentials.values()):
+            user = authenticate(**credentials)
+            if user:
+                if not user.is_active:
+                    msg = 'User account is disabled'
+                    raise serializers.ValidationError(msg)
+                login(self.context['request'], user)
+            else:
+                msg = 'Unable to login with provided credentials.'
+                raise serializers.ValidationError(msg)
+        else:
+            msg = 'Please provide email and password fields'
+            raise serializers.ValidationError(msg)
+
+        return user
 
 
 class UserSerializer(serializers.ModelSerializer):

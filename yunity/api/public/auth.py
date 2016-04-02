@@ -1,4 +1,3 @@
-from django.contrib.auth.models import AnonymousUser
 from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from rest_framework import status, viewsets
 from rest_framework.decorators import list_route

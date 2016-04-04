@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from rest_framework import status, viewsets
 from rest_framework.decorators import list_route
@@ -27,11 +28,12 @@ class AuthViewSet(viewsets.ViewSet):
         """
         serializer = AuthLoginSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
-            return Response(UserSerializer(, status=status.HTTP_201_CREATED)
+            return Response(data=UserSerializer(request.user).data, status=status.HTTP_201_CREATED)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
     @list_route(methods=['POST'])
     def logout(self, request, **kwargs):
+        logout(request)
         return Response(status = status.HTTP_200_OK)
 

@@ -30,7 +30,7 @@ class AuthViewSet(viewsets.ViewSet):
         if serializer.is_valid():
             return Response(data=UserSerializer(request.user).data, status=status.HTTP_201_CREATED)
         else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @list_route(methods=['POST'])
     def logout(self, request, **kwargs):

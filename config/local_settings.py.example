@@ -1,7 +1,5 @@
 import os
 
-LOCAL_WEBAPP_PATH = '/Users/<yourname>/yunity/yunity-webapp-mobile/'
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DATABASES = {
@@ -9,7 +7,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'yunity-database',
         'USER': 'yunity-user',
-        'PASSWORD': '',
+        'PASSWORD': 'yunity',
         'HOST': 'localhost',
         'PORT': '',
     }

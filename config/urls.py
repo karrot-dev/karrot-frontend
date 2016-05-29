@@ -18,21 +18,29 @@ from django.contrib import admin
 
 from rest_framework_nested import routers
 from yunity.api.public.auth import AuthViewSet
-from yunity.api.public.groups import GroupsViewSet
-from yunity.api.public.users import UsersViewSet, UserChatViewSet
+from yunity.api.public.chats import ChatViewSet, ChatMessageViewSet
+from yunity.api.public.groups import GroupViewSet
+from yunity.api.public.users import UserViewSet, UserChatViewSet
 
 router = routers.DefaultRouter()
-router.register(r'user', UsersViewSet)
-router.register(r'group', GroupsViewSet)
+
+router.register(r'group', GroupViewSet)
 router.register(r'auth', AuthViewSet, base_name='auth')
 
+# User endpoints
+router.register(r'user', UserViewSet)
 user_router = routers.NestedSimpleRouter(router, r'user', lookup='user')
 user_router.register(r'chat', UserChatViewSet, base_name='user-chat')
 
+# Chat endpoints
+router.register(r'chat', ChatViewSet)
+chat_router = routers.NestedSimpleRouter(router, r'chat', lookup='chat')
+chat_router.register(r'messages', ChatMessageViewSet, base_name='chat-messages')
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),
     url(r'^api/', include(user_router.urls, namespace='api')),
+    url(r'^api/', include(chat_router.urls, namespace='api')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),

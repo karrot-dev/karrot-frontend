@@ -6,7 +6,9 @@ from rest_framework.response import Response
 from yunity.api.serializers import UserSerializer, AuthLoginSerializer
 
 
-class AuthViewSet(viewsets.ViewSet):
+class AuthViewSet(viewsets.GenericViewSet):
+    serializer_class = AuthLoginSerializer
+
     @list_route(methods=['get'])
     def status(self, request):
         """ Get the login state (logged in user)

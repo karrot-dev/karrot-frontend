@@ -1,8 +1,7 @@
 from django.contrib.auth import get_user_model, authenticate, login
-from rest_framework.fields import SerializerMethodField
-from yunity.conversations.models import Conversation as ConversationModel
-from yunity.groups.models import Group as GroupModel
 from rest_framework import serializers
+from rest_framework.fields import SerializerMethodField
+from yunity.groups.models import Group as GroupModel
 
 
 def category(model):
@@ -21,17 +20,6 @@ def item(model):
         'latitude': model.latitude,
         'longitude': model.longitude
     }
-
-def conversation_message(model):
-    if model:
-        return {
-            'id': model.id,
-            'sender': model.sent_by_id,
-            'created_at': model.created_at.isoformat(),
-            'content': model.content,
-        }
-    else:
-        return None
 
 
 class HubbedMixin():
@@ -80,10 +68,3 @@ class GroupSerializer(HubbedMixin, serializers.ModelSerializer):
     class Meta:
         model = GroupModel
         fields = ['id', 'name', 'description', 'members']
-
-
-class ConversationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ConversationModel
-        fields = ['id', 'name', 'participants']
-

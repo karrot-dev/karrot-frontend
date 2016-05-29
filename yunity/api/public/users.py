@@ -2,11 +2,12 @@ from django.contrib.auth import get_user_model
 from django.db.models import Count
 from rest_framework import viewsets
 from rest_framework.response import Response
-from yunity.api.serializers import UserSerializer, ConversationSerializer
+from yunity.api.serializers import UserSerializer
 from yunity.conversations.models import Conversation as ConversationModel, ConversationType
+from yunity.conversations.serializers import ConversationSerializer
 
 
-class UsersViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 

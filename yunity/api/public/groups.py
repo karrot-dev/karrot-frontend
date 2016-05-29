@@ -13,6 +13,6 @@ class JoinableHubMixin:
         return Response(status=status.HTTP_200_OK)
 
 
-class GroupsViewSet(JoinableHubMixin, viewsets.ModelViewSet):
+class GroupViewSet(JoinableHubMixin, viewsets.ModelViewSet):
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer

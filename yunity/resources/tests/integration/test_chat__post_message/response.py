@@ -6,8 +6,8 @@ response = {
     "http_status": 201,
     "response": {
         "content": request["body"]["content"],
-        "sender": chat_responder.id,
-        "created_at": DATETIME_AROUND_NOW,
+        "author": chat_responder.id,
+        "time": DATETIME_AROUND_NOW,
         "id": ANY_INT,
     }
 }

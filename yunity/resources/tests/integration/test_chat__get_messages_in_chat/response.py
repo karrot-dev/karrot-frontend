@@ -7,14 +7,14 @@ response = {
         "messages": [
             {
                 "content": "Hi Tilmann! How are you?",
-                "sender": users[1].id,
-                "created_at": DATETIME_AROUND_NOW,
+                "author": users[1].id,
+                "time": DATETIME_AROUND_NOW,
                 "id": ANY_INT,
             },
             {
                 "content": "Hello Matthias!",
-                "sender": users[0].id,
-                "created_at": DATETIME_AROUND_NOW,
+                "author": users[0].id,
+                "time": DATETIME_AROUND_NOW,
                 "id": ANY_INT,
             },
         ]

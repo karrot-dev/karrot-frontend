@@ -1,4 +1,4 @@
-from yunity.utils.tests.comparison import ANY_INT, DATETIME_AROUND_NOW
+from yunity.utils.tests.comparison import ANY_INT, ANY_STRING, DATETIME_AROUND_NOW
 from .initial_data import users
 
 response = {
@@ -6,24 +6,35 @@ response = {
     "response": {
         "chats": [
             {
-                "participants": [users[0].id, users[1].id],
-                "message": {
+                "participants": [{"id": users[0].id, "name": ANY_STRING},
+                                 {"id": users[1].id, "name": ANY_STRING}],
+                "type": "ONE_ON_ONE",
+                "messages": [{
                     "content": "Hello user 1",
-                    "sender": users[0].id,
-                    "created_at": DATETIME_AROUND_NOW,
+                    "author": users[0].id,
+                    "time": DATETIME_AROUND_NOW,
                     "id": ANY_INT,
-                },
+                }],
                 "id": ANY_INT,
             },
             {
-                "name": "My little group chat",
-                "participants": [users[0].id, users[1].id, users[2].id],
-                "message": {
+                "topic": "My little group chat",
+                "participants": [{"id": users[0].id, "name": ANY_STRING},
+                                 {"id": users[1].id, "name": ANY_STRING},
+                                 {"id": users[2].id, "name": ANY_STRING}],
+                "type": "USER_MULTICHAT",
+                "messages": [{
                     "content": "Thanks, how are you two?",
-                    "sender": users[1].id,
-                    "created_at": DATETIME_AROUND_NOW,
+                    "author": users[1].id,
+                    "time": DATETIME_AROUND_NOW,
                     "id": ANY_INT,
-                },
+                    },
+                    {
+                    "content": "Hey, I created a group chat",
+                    "author": users[0].id,
+                    "time": DATETIME_AROUND_NOW,
+                    "id": ANY_INT,
+                    }],
                 "id": ANY_INT,
             },
 

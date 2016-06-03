@@ -1,7 +1,7 @@
 from .initial_data import request_user
 
 request = {
-    "endpoint": "/api/chats",
+    "endpoint": "/api/conversations",
     "method": "get",
     "user": request_user
 }

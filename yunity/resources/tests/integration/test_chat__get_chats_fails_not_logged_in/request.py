@@ -1,4 +1,4 @@
 request = {
-    "endpoint": "/api/chats",
+    "endpoint": "/api/conversations",
     "method": "get",
 }

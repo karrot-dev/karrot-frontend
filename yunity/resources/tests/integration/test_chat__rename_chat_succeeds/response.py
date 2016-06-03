@@ -5,11 +5,11 @@ response = {
     "http_status": 200,
     "response": {
         "participants": [users[0].id, users[1].id, users[2].id],
-        "name": request['body']['name'],
+        "topic": request['body']['name'],
         "message": {
             "content": initial_message.content,
-            "sender": initial_message.sent_by.id,
-            "created_at": initial_message.created_at.isoformat(),
+            "author": initial_message.sent_by.id,
+            "time": initial_message.created_at.isoformat(),
             "id": initial_message.id,
         },
         "id": chat.id,

@@ -30,10 +30,10 @@ class ChatMessageViewSet(mixins.CreateModelMixin,
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        chat_id = self.kwargs['chat_pk']
+        chat_id = self.kwargs['conversations_pk']
         return self.queryset.filter(in_conversation=chat_id)
 
     def create(self, request, *args, **kwargs):
         "chat_pk isn't available in the serializer, so insert it here"
-        request.data['in_conversation_id'] = kwargs.pop('chat_pk')
+        request.data['in_conversation_id'] = kwargs.pop('conversations_pk')
         return super().create(request, *args, **kwargs)

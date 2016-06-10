@@ -24,18 +24,18 @@ from yunity.api.public.users import UserViewSet, UserChatViewSet
 
 router = routers.DefaultRouter()
 
-router.register(r'group', GroupViewSet)
+router.register(r'groups', GroupViewSet)
 router.register(r'auth', AuthViewSet, base_name='auth')
 
 # User endpoints
-router.register(r'user', UserViewSet)
-user_router = routers.NestedSimpleRouter(router, r'user', lookup='user')
-user_router.register(r'chat', UserChatViewSet, base_name='user-chat')
+router.register(r'users', UserViewSet)
+user_router = routers.NestedSimpleRouter(router, r'users', lookup='users')
+user_router.register(r'chats', UserChatViewSet, base_name='user-chats')
 
 # Chat endpoints
-router.register(r'chat', ChatViewSet)
-chat_router = routers.NestedSimpleRouter(router, r'chat', lookup='chat')
-chat_router.register(r'messages', ChatMessageViewSet, base_name='chat-messages')
+router.register(r'conversations', ChatViewSet)
+chat_router = routers.NestedSimpleRouter(router, r'conversations', lookup='conversations')
+chat_router.register(r'messages', ChatMessageViewSet, base_name='conversations-messages')
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),

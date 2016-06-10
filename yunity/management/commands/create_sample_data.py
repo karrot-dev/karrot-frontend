@@ -32,7 +32,7 @@ from datetime import datetime
 
 from django.utils.timezone import make_aware
 
-from yunity.conversations.models import ConversationMessage, Conversation
+from yunity.conversations.models import ConversationMessage, Conversation, ConversationType
 from yunity.users.models import User
 
 
@@ -51,29 +51,32 @@ user_tilmann = User.objects.create(
     last_name='becker'
 )
 
-user_matthias = User.objects.create(email='mat@hias.com', display_name='Matthias', first_name='matthias',
-                                    last_name='lar')
+user_matthias = User.objects.create_user(email='mat@hias.com', display_name='Matthias', first_name='matthias',
+                                    last_name='lar', password='abc')
 
-user_neel = User.objects.create(email='ne@el.com', display_name='Neel', first_name='neel', last_name='neel')
+user_neel = User.objects.create_user(email='ne@el.com', display_name='Neel', first_name='neel', last_name='neel',
+                                password='abc')
 
-user_flo = User.objects.create(email='f@lo.com', display_name='Flo', first_name='flo', last_name='g')
+
+user_flo = User.objects.create_user(email='f@lo.com', display_name='Flo', first_name='flo', last_name='g',
+                               password='abc')
 
 num_chat_messages = 10
 
 chat_pair = Conversation.objects.create()
 chat_pair.participants.add(user_neel, user_tilmann)
 for i in range(num_chat_messages):
-    ConversationMessage.objects.create(content="Hi Neel, lorem ipsum {}".format(i), sent_by=user_tilmann,
+    ConversationMessage.objects.create(content="Hi Neel, lorem ipsum {}".format(i), author=user_tilmann,
                                        in_conversation=chat_pair)
-    ConversationMessage.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), sent_by=user_neel,
+    ConversationMessage.objects.create(content="Hi Tilmann, lorem ipsum {}".format(i), author=user_neel,
                                        in_conversation=chat_pair)
 
-chat_group = Conversation.objects.create()
+chat_group = Conversation.objects.create(type=ConversationType.MULTICHAT, topic="Matthias, Flo und Tilmann")
 chat_group.participants.add(user_matthias, user_flo, user_tilmann)
 for i in range(num_chat_messages):
-    ConversationMessage.objects.create(content="Hi all, lorem ipsum {}".format(i), sent_by=user_matthias,
+    ConversationMessage.objects.create(content="Hi all, lorem ipsum {}".format(i), author=user_matthias,
                                        in_conversation=chat_group)
-    ConversationMessage.objects.create(content="Hi too, lorem ipsum {}".format(i), sent_by=user_flo,
+    ConversationMessage.objects.create(content="Hi too, lorem ipsum {}".format(i), author=user_flo,
                                        in_conversation=chat_group)
-    ConversationMessage.objects.create(content="Bla, lorem ipsum {}".format(i), sent_by=user_tilmann,
+    ConversationMessage.objects.create(content="Bla, lorem ipsum {}".format(i), author=user_tilmann,
                                        in_conversation=chat_group)

@@ -7,18 +7,18 @@ from yunity.users.models import User
 
 class ConversationType(enum.Enum):
     ONE_ON_ONE = 0
-    USER_MULTICHAT = 1
+    MULTICHAT = 1
 
 
 class Conversation(BaseModel):
     participants = ManyToManyField(User)
     type = enum.EnumField(ConversationType, default=ConversationType.ONE_ON_ONE)
 
-    name = MaxLengthCharField(null=True)
+    topic = MaxLengthCharField(null=True)
 
 
 class ConversationMessage(BaseModel):
-    sent_by = ForeignKey(User)
+    author = ForeignKey(User)
     in_conversation = ForeignKey(Conversation, related_name='messages')
 
     content = TextField()

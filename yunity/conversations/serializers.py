@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from rest_framework.fields import CharField, DateTimeField
 from rest_framework.relations import PrimaryKeyRelatedField
+from yunity.api.serializers import UserSerializer
 from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.users.models import User as UserModel
@@ -8,8 +9,8 @@ from yunity.users.models import User as UserModel
 
 class MessageSerializer(serializers.Serializer):
     content = CharField(max_length=100000)
-    sent_by = PrimaryKeyRelatedField(read_only=True)
-    created_at = DateTimeField(read_only=True)
+    author = PrimaryKeyRelatedField(read_only=True)
+    time = DateTimeField(read_only=True, source='created_at')
 
     def create(self, validated_data):
         message = MessageModel.objects.create(
@@ -21,7 +22,7 @@ class MessageSerializer(serializers.Serializer):
 
 
 class ConversationSerializer(serializers.Serializer):
-    name = CharField(max_length=150, required=False)
+    topic = CharField(max_length=150, required=False)
 
     # Writing
     with_participants = PrimaryKeyRelatedField(many=True, write_only=True, queryset=UserModel.objects.all())
@@ -29,7 +30,7 @@ class ConversationSerializer(serializers.Serializer):
 
     # Reading
     id = PrimaryKeyRelatedField(read_only=True)
-    participants = PrimaryKeyRelatedField(many=True, read_only=True)
+    participants = UserSerializer(many=True, read_only=True)
     messages = MessageSerializer(many=True, read_only=True)
 
     def create(self, validated_data):
@@ -39,7 +40,7 @@ class ConversationSerializer(serializers.Serializer):
         participant_ids = [_.id for _ in validated_data['with_participants']] + \
                             [self.context['request'].user.id, ]
         if len(participant_ids) > 2:
-            chat_type = ConversationType.USER_MULTICHAT
+            chat_type = ConversationType.MULTICHAT
         else:
             chat_type = ConversationType.ONE_ON_ONE
 

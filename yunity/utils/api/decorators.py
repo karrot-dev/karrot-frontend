@@ -141,7 +141,7 @@ def chat_participants_user_modifiable(chat_arg_name):
         @wraps(func)
         def wrapper(api_base, request, *args, **kwargs):
             return func(api_base, request, *args, **kwargs) \
-                if kwargs[chat_arg_name].type in [ConversationType.USER_MULTICHAT] \
+                if kwargs[chat_arg_name].type in [ConversationType.MULTICHAT] \
                 else api_base.forbidden(reason='the participants are not to be modified')
 
         return wrapper

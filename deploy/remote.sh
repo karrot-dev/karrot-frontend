@@ -45,3 +45,5 @@ createdb yunity-dev
   env/bin/python manage.py migrate && \
   env/bin/python manage.py check --deploy
 )
+
+touch /tmp/yunity-dev.reload

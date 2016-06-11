@@ -42,15 +42,19 @@ project = yunity-core
 base = /home/deploy
 
 chdir = %(base)/%(project)
-home = %(base)/Env/%(project)
-module = %(project).wsgi:application
+home = %(base)/%(project)/env
+module = config.wsgi:application
 
 master = true
 processes = 2
 
-socket = %(base)/%(project)/%(project).sock
+socket = /tmp/yunity-dev.sock
+
+touch-reload = /tmp/yunity-dev.reload
+
 chmod-socket = 664
 vacuum = true
+
 ```
 
 ```

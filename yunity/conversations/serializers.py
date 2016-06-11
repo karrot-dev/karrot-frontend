@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from rest_framework.fields import CharField, DateTimeField
+from rest_framework.fields import CharField, DateTimeField, SerializerMethodField
 from rest_framework.relations import PrimaryKeyRelatedField
 from yunity.api.serializers import UserSerializer
 from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
@@ -30,8 +30,12 @@ class ConversationSerializer(serializers.Serializer):
 
     # Reading
     id = PrimaryKeyRelatedField(read_only=True)
+    type = SerializerMethodField(read_only=True)
     participants = UserSerializer(many=True, read_only=True)
     messages = MessageSerializer(many=True, read_only=True)
+
+    def get_type(self, obj):
+        return ConversationType.name(obj.type)
 
     def create(self, validated_data):
         """

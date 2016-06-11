@@ -38,8 +38,8 @@ createdb yunity-dev
 (
   cd yunity-core && \
   git clean -fd && \
-  git pull && \
   git checkout $BRANCH && \
+  git pull && \
   env/bin/pip install -r requirements.txt && \
   env/bin/python manage.py remakeallmigrations && \
   env/bin/python manage.py migrate && \

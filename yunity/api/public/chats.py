@@ -1,7 +1,10 @@
-from django.db.models import Max
+from django.db.models import Max, Count
+from django.http import Http404
+from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
-from yunity.conversations.serializers import ConversationSerializer, MessageSerializer
-from yunity.conversations.models import Conversation as ConversationModel
+from rest_framework.response import Response
+from yunity.conversations.serializers import ConversationSerializer, MessageSerializer, ConversationByUserSerializer
+from yunity.conversations.models import Conversation as ConversationModel, ConversationType
 from yunity.conversations.models import ConversationMessage as MessageModel
 from rest_framework import viewsets, mixins
 
@@ -37,3 +40,13 @@ class ChatMessageViewSet(mixins.CreateModelMixin,
         "chat_pk isn't available in the serializer, so insert it here"
         request.data['in_conversation_id'] = kwargs.pop('conversations_pk')
         return super().create(request, *args, **kwargs)
+
+
+class UserChatViewSet(mixins.RetrieveModelMixin,
+                      viewsets.GenericViewSet):
+    serializer_class = ConversationByUserSerializer
+    queryset = ConversationModel.objects
+    lookup_field = 'participants__id'
+
+    def get_queryset(self):
+        return self.queryset.filter(type=ConversationType.ONE_ON_ONE).filter(participants__id=self.request.user.id)

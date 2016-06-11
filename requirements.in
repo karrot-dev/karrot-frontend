@@ -1,5 +1,5 @@
 coverage
-Django
+django
 django-cors-headers
 django-enumfield
 django-extensions

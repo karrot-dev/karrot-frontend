@@ -69,13 +69,52 @@ Create nginx config:
 ```
 
 ```
+upstream websocket {
+    server localhost:5090;
+}
+
+upstream django {
+    server unix:/tmp/yunity-dev.sock;
+}
+
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    '' close;
+}
+
 server {
-    listen 80;
+
     server_name dev.yunity.org;
+
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    ssl_certificate /var/www/yunity-dev/cert/fullchain.pem;
+    ssl_certificate_key /var/www/yunity-dev/cert/key.pem;
+
+    root /home/deploy/public;
+
     location / {
-        include         uwsgi_params;
-        uwsgi_pass      unix:/tmp/yunity-dev.sock;
+        try_files $uri /index.html;
     }
+
+    location /api/ {
+        include uwsgi_params;
+        uwsgi_pass django;
+
+        uwsgi_param Host $host;
+        uwsgi_param X-Real-IP $remote_addr;
+        uwsgi_param X-Forwarded-For $proxy_add_x_forwarded_for;
+        uwsgi_param X-Forwarded-Proto $http_x_forwarded_proto;
+    }
+
+    location /socket/ {
+        proxy_pass http://websocket;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+    } 
+
 }
 
 ```

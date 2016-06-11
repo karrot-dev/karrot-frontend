@@ -8,9 +8,11 @@ database:
     - python manage.py remakeallmigrations
 test:
   override:
-    - echo "disabled tests while testing deployment"
+    - coverage run manage.py test
+  post:
+    - coverage html -d $CIRCLE_ARTIFACTS
 deployment:
   dev:
-    branch: deploy
+    branch: master
     commands:
       - ./deploy.sh

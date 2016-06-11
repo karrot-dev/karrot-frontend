@@ -1,11 +1,16 @@
 #!/bin/bash
 
-set -x
 set -e
 
-echo "------------------------------------"
-env
-echo "------------------------------------"
+HOST=yuca.yunity.org
 
-scp deploy/remote.sh deploy@yuca.yunity.org:
-ssh deploy@yuca.yunity.org sh deploy.remote.sh
+BRANCH=$CIRCLE_BRANCH
+
+if [ "x$BRANCH" = "x" ]; then
+  BRANCH=$(git rev-parse --abbrev-ref HEAD)
+fi
+
+echo "deploying branch [$BRANCH] to [$HOST]"
+
+scp deploy/remote.sh deploy@$HOST:deploy.sh
+ssh deploy@$HOST ./deploy.sh $BRANCH

@@ -1,7 +1,13 @@
 #!/bin/bash
 
-set -x
 set -e
+
+BRANCH=$1
+
+if [ "x$BRANCH" = "x" ]; then
+  echo "Please pass branch to deploy as first argument"
+  exit 1
+fi
 
 if [ ! -d yunity-core ]; then
   git clone https://github.com/yunity/yunity-core.git
@@ -12,7 +18,6 @@ if [ ! -d yunity-core/env ]; then
 fi
 
 cat <<-CONFIG > yunity-core/config/local_settings.py
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -23,11 +28,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 DEBUG = False
-
 ALLOWED_HOSTS = ['dev.yunity.org']
-
 CONFIG
 
 dropdb --if-exists yunity-dev
@@ -37,6 +39,7 @@ createdb yunity-dev
   cd yunity-core && \
   git clean -fd && \
   git pull && \
+  git checkout $BRANCH && \
   env/bin/pip install -r requirements.txt && \
   env/bin/python manage.py remakeallmigrations && \
   env/bin/python manage.py migrate && \

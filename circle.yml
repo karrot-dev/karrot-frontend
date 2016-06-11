@@ -11,6 +11,6 @@ test:
     - echo "disabled tests while testing deployment"
 deployment:
   dev:
-    branch: master
+    branch: deploy
     commands:
       - ./deploy.sh

@@ -71,3 +71,21 @@ class ConversationSerializer(serializers.Serializer):
         if len(value) == 1 and self.context['request'].user.id in value:
             raise serializers.ValidationError("Requesting user is only participant")
         return value
+
+
+class ConversationByUserSerializer(serializers.Serializer):
+    message = CharField(max_length=MAX_MESSAGE_LENGTH, write_only=True)
+    conversation_partner = PrimaryKeyRelatedField(write_only=True, queryset=UserModel.objects.all())
+    id = IntegerField(read_only=True)
+
+    def create(self, validated_data):
+        conversation = ConversationModel.objects.filter(type=ConversationType.ONE_ON_ONE).filter(participants__id=self.context['request'].user.id).filter(validated_data['conversation_partner']).first()
+        if not conversation:
+            conversation = ConversationModel.objects.create(type=ConversationType.ONE_ON_ONE)
+            conversation.participants = [self.context['request'].user.id, validated_data['conversation_partner']]
+            conversation.save()
+
+        MessageModel.objects.create(sent_by_id=self.context['request'].user.id,
+                                    in_conversation_id=conversation.id,
+                                    content=self.validated_data['message'])
+

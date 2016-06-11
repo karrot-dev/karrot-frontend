@@ -1,14 +1,17 @@
 from rest_framework import serializers
-from rest_framework.fields import CharField, DateTimeField, SerializerMethodField
+from rest_framework.fields import CharField, DateTimeField, IntegerField, SerializerMethodField
 from rest_framework.relations import PrimaryKeyRelatedField
 from yunity.api.serializers import UserSerializer
 from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.users.models import User as UserModel
 
+MAX_MESSAGE_LENGTH = 1000000
+MAX_TOPIC_LENGTH = 150
+
 
 class MessageSerializer(serializers.Serializer):
-    content = CharField(max_length=100000)
+    content = CharField(max_length=MAX_MESSAGE_LENGTH)
     author = PrimaryKeyRelatedField(read_only=True)
     time = DateTimeField(read_only=True, source='created_at')
 
@@ -22,14 +25,14 @@ class MessageSerializer(serializers.Serializer):
 
 
 class ConversationSerializer(serializers.Serializer):
-    topic = CharField(max_length=150, required=False)
+    topic = CharField(max_length=MAX_TOPIC_LENGTH, required=False)
 
     # Writing
     with_participants = PrimaryKeyRelatedField(many=True, write_only=True, queryset=UserModel.objects.all())
-    message = CharField(max_length=100000, write_only=True)
+    message = CharField(max_length=MAX_MESSAGE_LENGTH, write_only=True)
 
     # Reading
-    id = PrimaryKeyRelatedField(read_only=True)
+    id = IntegerField(read_only=True)
     type = SerializerMethodField(read_only=True)
     participants = UserSerializer(many=True, read_only=True)
     messages = MessageSerializer(many=True, read_only=True)
@@ -37,25 +40,24 @@ class ConversationSerializer(serializers.Serializer):
     def get_type(self, obj):
         return ConversationType.name(obj.type)
 
+
     def create(self, validated_data):
         """
         Create new conversation with other users and a message
         """
         participant_ids = [_.id for _ in validated_data['with_participants']] + \
                             [self.context['request'].user.id, ]
-        if len(participant_ids) > 2:
-            chat_type = ConversationType.MULTICHAT
-        else:
-            chat_type = ConversationType.ONE_ON_ONE
+        chat_type = ConversationType.MULTICHAT
 
         chat = ConversationModel.objects.create(type=chat_type)
         chat.participants = participant_ids
         chat.save()
 
+        # Todo: refactor to message serializer
         MessageModel.objects.create(
             sent_by_id=self.context['request'].user.id,
             in_conversation_id=chat.id,
-            content=validated_data['message']['content'],
+            content=validated_data['message'],
         )
 
         return chat

@@ -21,6 +21,7 @@ from yunity.api.public.auth import AuthViewSet
 from yunity.api.public.chats import ChatViewSet, ChatMessageViewSet, UserChatViewSet
 from yunity.api.public.groups import GroupViewSet
 from yunity.api.public.users import UserViewSet
+from yunity.stores.api import StoreViewSet
 
 router = routers.DefaultRouter()
 
@@ -29,6 +30,9 @@ router.register(r'auth', AuthViewSet, base_name='auth')
 
 # User endpoints
 router.register(r'users', UserViewSet)
+
+# Store endpoints
+router.register(r'stores', StoreViewSet)
 
 # Chat endpoints
 router.register(r'conversations', ChatViewSet)

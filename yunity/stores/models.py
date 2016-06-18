@@ -13,4 +13,3 @@ class Store(BaseModel):
     group = models.ForeignKey('groups.Group')
     name = models.TextField()
     description = models.TextField()
-    pass

@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.fields import CharField, DateTimeField, IntegerField, SerializerMethodField
 from rest_framework.relations import PrimaryKeyRelatedField
 from yunity.api.serializers import UserSerializer
+from yunity.conversations.services import get_or_create_user_conversation
 from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.users.models import User as UserModel
@@ -77,17 +78,6 @@ class ConversationSerializer(serializers.Serializer):
 
 class ConversationByUserSerializer(serializers.Serializer):
     message = CharField(max_length=MAX_MESSAGE_LENGTH, write_only=True)
-    conversation_partner = PrimaryKeyRelatedField(write_only=True, queryset=UserModel.objects.all())
     id = IntegerField(read_only=True)
 
-    def create(self, validated_data):
-        conversation = ConversationModel.objects.filter(type=ConversationType.ONE_ON_ONE).filter(participants__id=self.context['request'].user.id).filter(validated_data['conversation_partner']).first()
-        if not conversation:
-            conversation = ConversationModel.objects.create(type=ConversationType.ONE_ON_ONE)
-            conversation.participants = [self.context['request'].user.id, validated_data['conversation_partner']]
-            conversation.save()
-
-        MessageModel.objects.create(sent_by_id=self.context['request'].user.id,
-                                    in_conversation_id=conversation.id,
-                                    content=self.validated_data['message'])
 

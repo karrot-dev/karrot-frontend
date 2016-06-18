@@ -1,8 +1,9 @@
 from django.db.models import Max, Count
-from django.http import Http404
-from rest_framework.generics import get_object_or_404
+from rest_framework import status
+from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from yunity.conversations.services import get_or_create_user_conversation, add_to_conversation
 from yunity.conversations.serializers import ConversationSerializer, MessageSerializer, ConversationByUserSerializer
 from yunity.conversations.models import Conversation as ConversationModel, ConversationType
 from yunity.conversations.models import ConversationMessage as MessageModel
@@ -50,3 +51,12 @@ class UserChatViewSet(mixins.RetrieveModelMixin,
 
     def get_queryset(self):
         return self.queryset.filter(type=ConversationType.ONE_ON_ONE).filter(participants__id=self.request.user.id)
+
+    @detail_route(methods=['post'], url_path='messages')
+    def post_message(self, request, participants__id):
+        participants = [request.user.id, participants__id]
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        conversation = get_or_create_user_conversation(participants)
+        add_to_conversation(conversation.id, request.user.id, serializer.validated_data)
+        return Response(self.get_serializer(conversation).data, status=status.HTTP_201_CREATED)

@@ -3,7 +3,7 @@ from yunity.walls.actions import Action as WallAction
 from yunity.groups.models import Group
 from yunity.permissions.resolver import resolve_permissions
 from yunity.users.models import ProfileVisibility
-from yunity.utils.tests.mock import MockUser
+from yunity.users.factories import User
 from yunity.walls.models import Wall
 
 
@@ -25,24 +25,24 @@ class PermissionsTests(BaseTestCase):
         pass
 
     def test_user_wall_is_author_readable(self):
-        u = MockUser.create(profile_visibility=ProfileVisibility.PRIVATE)
+        u = User.create(profile_visibility=ProfileVisibility.PRIVATE)
         c = resolve_permissions(u.wall)
         self.assertIncludes(c.users, (u, WallAction.READ))
 
     def test_user_wall_is_public_readable(self):
-        u = MockUser.create(profile_visibility=ProfileVisibility.PUBLIC)
+        u = User.create(profile_visibility=ProfileVisibility.PUBLIC)
         c = resolve_permissions(u.wall)
         self.assertEqual(c.public_actions, [WallAction.READ], 'user wall not public readable')
 
     def test_user_wall_is_community_readable_base(self):
-        u = MockUser.create(profile_visibility=ProfileVisibility.COMMUNITIES)
+        u = User.create(profile_visibility=ProfileVisibility.COMMUNITIES)
         g = Group.objects.filter(name='toplevel group 2').first()
         g.hub.hubmembership_set.create(user=u)
         c = resolve_permissions(u.wall)
         self.assertEqual(c.group_trees, [(g, WallAction.READ)], 'set of communities differs from communities user is part of')
 
     def test_user_wall_is_community_readable_user_child(self):
-        u = MockUser.create(profile_visibility=ProfileVisibility.COMMUNITIES)
+        u = User.create(profile_visibility=ProfileVisibility.COMMUNITIES)
         g = Group.objects.filter(name='2ba').first()
         g.hub.hubmembership_set.create(user=u)
         c = resolve_permissions(u.wall)

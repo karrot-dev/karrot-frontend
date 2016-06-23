@@ -1,12 +1,13 @@
-from rest_framework import viewsets, mixins
-from yunity.stores.serializers import StoreDetailSerializer
+from rest_framework import viewsets, mixins, generics
+from yunity.stores.serializers import StoreDetailSerializer, StoreSummarySerializer
 from yunity.stores.models import Store as StoreModel
 
 
-class StoreViewSet(viewsets.GenericViewSet,
-                   mixins.ListModelMixin,
-                   mixins.CreateModelMixin):
+class StoreList(generics.ListCreateAPIView):
     serializer_class = StoreDetailSerializer
     queryset = StoreModel.objects
 
 
+class StoreSummary(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = StoreSummarySerializer
+    queryset = StoreModel.objects

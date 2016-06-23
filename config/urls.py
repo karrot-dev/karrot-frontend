@@ -21,7 +21,7 @@ from yunity.api.public.auth import AuthViewSet
 from yunity.api.public.chats import ChatViewSet, ChatMessageViewSet, UserChatViewSet
 from yunity.api.public.groups import GroupViewSet
 from yunity.api.public.users import UserViewSet
-from yunity.stores.api import StoreViewSet
+from yunity.stores.api import StoreList, StoreSummary
 
 router = routers.DefaultRouter()
 
@@ -30,9 +30,6 @@ router.register(r'auth', AuthViewSet, base_name='auth')
 
 # User endpoints
 router.register(r'users', UserViewSet)
-
-# Store endpoints
-router.register(r'stores', StoreViewSet)
 
 # Chat endpoints
 router.register(r'conversations', ChatViewSet)
@@ -43,6 +40,8 @@ router.register(r'conversations-by-user', UserChatViewSet)
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),
     url(r'^api/', include(chat_router.urls, namespace='api')),
+    url(r'^api/stores/$', StoreList.as_view(), name='store-list'),
+    url(r'^api/stores/(?P<pk>[0-9]+)', StoreSummary.as_view(), name='store-summary'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),

@@ -16,10 +16,9 @@ class StoreDetailSerializer(serializers.Serializer):
 
 class PickupDateSerializer(serializers.Serializer):
     date = serializers.DateTimeField()
-    user_ids = serializers.PrimaryKeyRelatedField(queryset=get_user_model().objects.all(), many=True)
+    user_ids = serializers.PrimaryKeyRelatedField(source='user', queryset=get_user_model().objects.all(), many=True)
 
 
-class StoreSummarySerializer(serializers.Serializer):
-    details = StoreDetailSerializer(read_only=True)
-    pickups = PickupDateSerializer(read_only=True, many=True)
+class StoreSummarySerializer(StoreDetailSerializer):
+    pickups = PickupDateSerializer(source='pickupdates', read_only=True, many=True)
 

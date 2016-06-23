@@ -7,9 +7,8 @@ django-polymorphic
 django-redis
 django-rest-swagger
 djangorestframework
+djangorestframework-jwt
 drf-nested-routers
-elasticsearch
-elasticsearch-dsl
 factory-boy
 fake-factory
 hiredis

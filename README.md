@@ -95,3 +95,9 @@ We use
 We follow the pep8 with disabled whitespace checks and a wider maximum line length of 120 characters.
 As always, the coding style may not apply at some parts.
 You can execute yunity/management/scripts/git-hooks/pep8-check in the repository root.
+
+## Using the API
+A live instance of yunity is running at https://dev.yunity.org. The database will be emptied regularly, any data may be available to the public. Use at your own risk for testing.
+Use https://dev.yunity.org/api/ for a browseable API and for API requests.
+A session is identified via the sessionid cookie. Additionally, a csrftoken cookie is set with each POST request (initially for the login). To issue any other POST request than a login, you need to provide the contents of the csrftoken cookie in the X-CSRFToken header field. The session cookie is automatically appended to each request by the browser.
+For more detailled notes on how to implement this in javascript, see https://docs.djangoproject.com/en/1.9/ref/csrf/

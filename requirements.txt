@@ -13,7 +13,6 @@ django-polymorphic==0.9.2
 django-redis==4.4.3
 django-rest-swagger==0.3.7
 django==1.9.7
-djangorestframework-jwt==1.8.0
 djangorestframework==3.3.3
 drf-nested-routers==0.11.1
 factory-boy==2.7.0

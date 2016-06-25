@@ -7,7 +7,6 @@ django-polymorphic
 django-redis
 django-rest-swagger
 djangorestframework
-djangorestframework-jwt
 drf-nested-routers
 factory-boy
 fake-factory

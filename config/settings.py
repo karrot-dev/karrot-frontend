@@ -138,8 +138,9 @@ CORS_ORIGIN_WHITELIST = []
 # Allow all request origins. Will still require valid CSRF token and session information for modification but allows
 # e.g. including the docs from any location
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
-SESSION_COOKIE_HTTPONLY = False
+SESSION_COOKIE_HTTPONLY = True
 
 AUTH_USER_MODEL = 'users.User'
 

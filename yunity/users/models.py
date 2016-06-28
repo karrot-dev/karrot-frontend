@@ -3,7 +3,7 @@ from django.db.models import EmailField, BooleanField, TextField, OneToOneField,
 from django_enumfield import enum
 
 from config import settings
-from yunity.base.base_models import BaseModel, MaxLengthCharField
+from yunity.base.base_models import BaseModel
 from yunity.walls.models import Wall
 
 

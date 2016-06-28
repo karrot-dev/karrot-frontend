@@ -1,7 +1,7 @@
 from django.db.models import ForeignKey, TextField, ManyToManyField
 from django_enumfield import enum
 
-from yunity.base.base_models import BaseModel, MaxLengthCharField
+from yunity.base.base_models import BaseModel
 from yunity.users.models import User
 
 
@@ -14,7 +14,7 @@ class Conversation(BaseModel):
     participants = ManyToManyField(User)
     type = enum.EnumField(ConversationType, default=ConversationType.ONE_ON_ONE)
 
-    topic = MaxLengthCharField(null=True)
+    topic = TextField(null=True)
 
 
 class ConversationMessage(BaseModel):

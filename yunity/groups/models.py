@@ -11,24 +11,5 @@ class Group(BaseModel, HubMixin):
 
     DEFAULT_HUB_OPTIONS = InitialHubOptions(has_wall=True)
 
-    @classmethod
-    def all_children_of(cls, *groups):
-        return list(chain.from_iterable([c.all_children() for c in groups]))
-
-    def parents(self):
-        return [self.parent] + self.parent.parents() if self.parent else []
-
-    def root(self):
-        return self.parent.root() if self.parent else self
-
-    def all_children(self):
-        return self.__class__.all_children_of(*self.children)
-
-    def is_community(self):
-        return self.parent_id is None
-
     name = TextField()
     description = TextField(null=True)
-    parent = ForeignKey('groups.Group', null=True, on_delete=CASCADE, related_name='children')
-
-    is_content_included_in_parent = BooleanField(default=False)

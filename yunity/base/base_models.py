@@ -28,11 +28,3 @@ class BaseModel(Model):
         model = str(self.__class__.__name__)
         columns = ', '.join('{}="{}"'.format(field, value) for field, value in self.to_dict().items())
         return '{}({})'.format(model, columns)
-
-
-class MaxLengthCharField(CharField):
-    def __init__(self, *args, **kwargs):
-        kwargs['max_length'] = 255
-        super().__init__(*args, **kwargs)
-
-

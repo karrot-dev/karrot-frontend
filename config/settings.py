@@ -56,7 +56,6 @@ INSTALLED_APPS = (
     'yunity.base',
     'yunity.users',
     'yunity.conversations',
-    'yunity.permissions',
     'yunity.walls',
     'yunity.groups',
     'yunity.stores'

@@ -5,8 +5,9 @@ from yunity.base.base_models import BaseModel
 
 class PickupDate(BaseModel):
     date = models.DateTimeField()
-    users = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    collectors = models.ManyToManyField(settings.AUTH_USER_MODEL)
     store = models.ForeignKey('stores.store', related_name='pickupdates')
+    max_collectors = models.IntegerField(null=True)
 
 
 class Store(BaseModel):

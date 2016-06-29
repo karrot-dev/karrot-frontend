@@ -21,7 +21,7 @@ from yunity.api.public.auth import AuthViewSet
 from yunity.api.public.chats import ChatViewSet, ChatMessageViewSet, UserChatViewSet
 from yunity.api.public.groups import GroupViewSet
 from yunity.api.public.users import UserViewSet
-from yunity.stores.api import StoreList, StoreSummary
+from yunity.stores.api import StoreList, StoreSummary, PickupDatesViewSet
 
 router = routers.DefaultRouter()
 
@@ -36,6 +36,9 @@ router.register(r'conversations', ChatViewSet)
 chat_router = routers.NestedSimpleRouter(router, r'conversations', lookup='conversations')
 chat_router.register(r'messages', ChatMessageViewSet, base_name='conversations-messages')
 router.register(r'conversations-by-user', UserChatViewSet)
+
+# pickup date endpoints
+router.register(r'pickup-dates', PickupDatesViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),

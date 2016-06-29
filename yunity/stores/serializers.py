@@ -15,8 +15,10 @@ class StoreDetailSerializer(serializers.Serializer):
 
 
 class PickupDateSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     date = serializers.DateTimeField()
-    user_ids = serializers.PrimaryKeyRelatedField(source='user', queryset=get_user_model().objects.all(), many=True)
+    collector_ids = serializers.PrimaryKeyRelatedField(source='collectors', queryset=get_user_model().objects.all(), many=True)
+    max_collectors = serializers.IntegerField()
 
 
 class StoreSummarySerializer(StoreDetailSerializer):

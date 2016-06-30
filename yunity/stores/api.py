@@ -1,4 +1,4 @@
-from rest_framework import viewsets, mixins, generics
+from rest_framework import viewsets, generics
 from yunity.stores.serializers import StoreDetailSerializer, StoreSummarySerializer, PickupDateSerializer
 from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
 

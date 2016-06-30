@@ -1,8 +1,7 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.relations import PrimaryKeyRelatedField
-from yunity.users.models import User as UserModel
-
 
 class UserIDSerializer(serializers.Serializer):
-    id = PrimaryKeyRelatedField(write_only=True, queryset=UserModel.objects.all())
+    id = PrimaryKeyRelatedField(write_only=True, queryset=get_user_model().objects.all())
     pass

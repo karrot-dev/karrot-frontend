@@ -1,10 +1,10 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.fields import CharField, DateTimeField, IntegerField, SerializerMethodField
 from rest_framework.relations import PrimaryKeyRelatedField
 from yunity.users.serializers import UserSerializer
 from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
 from yunity.conversations.models import Conversation as ConversationModel
-from yunity.users.models import User as UserModel
 
 MAX_MESSAGE_LENGTH = 1000000
 MAX_TOPIC_LENGTH = 150
@@ -28,7 +28,7 @@ class ConversationSerializer(serializers.Serializer):
     topic = CharField(max_length=MAX_TOPIC_LENGTH, required=False)
 
     # Writing
-    with_participants = PrimaryKeyRelatedField(many=True, write_only=True, queryset=UserModel.objects.all())
+    with_participants = PrimaryKeyRelatedField(many=True, write_only=True, queryset=get_user_model().objects.all())
     message = CharField(max_length=MAX_MESSAGE_LENGTH, write_only=True)
 
     # Reading

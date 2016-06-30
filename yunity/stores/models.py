@@ -1,11 +1,11 @@
+from django.contrib.auth import get_user_model
 from django.db import models
-from config import settings
 from yunity.base.base_models import BaseModel
 
 
 class PickupDate(BaseModel):
     date = models.DateTimeField()
-    collectors = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    collectors = models.ManyToManyField(get_user_model())
     store = models.ForeignKey('stores.store', related_name='pickupdates')
     max_collectors = models.IntegerField(null=True)
 

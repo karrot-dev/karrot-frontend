@@ -48,12 +48,6 @@ class ProfileVisibility(enum.Enum):
     PUBLIC = 4
 
 
-class UserConnection(BaseModel):
-    requester = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE, related_name='+')
-    requestee = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE, related_name='+')
-
-    confirmed = BooleanField(default=False)
-
 class User(AbstractBaseUser, BaseModel):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)

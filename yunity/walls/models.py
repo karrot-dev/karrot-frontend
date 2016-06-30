@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db.models import ForeignKey, TextField
 
 from config import settings
@@ -10,10 +11,10 @@ class Wall(BaseModel):
 
 class WallPost(BaseModel):
     wall = ForeignKey(Wall)
-    author = ForeignKey(settings.AUTH_USER_MODEL)
+    author = ForeignKey(get_user_model())
 
 
 class WallPostContent(BaseModel):
     post = ForeignKey(WallPost)
-    author = ForeignKey(settings.AUTH_USER_MODEL)
+    author = ForeignKey(get_user_model())
     body = TextField()

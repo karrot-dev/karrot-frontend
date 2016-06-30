@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from rest_framework.fields import CharField, DateTimeField, IntegerField, SerializerMethodField
 from rest_framework.relations import PrimaryKeyRelatedField
-from yunity.api.serializers import UserSerializer
-from yunity.conversations.services import get_or_create_user_conversation
+from yunity.users.serializers import UserSerializer
 from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.users.models import User as UserModel

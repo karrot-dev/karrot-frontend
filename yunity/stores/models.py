@@ -13,4 +13,4 @@ class PickupDate(BaseModel):
 class Store(BaseModel):
     group = models.ForeignKey('groups.Group')
     name = models.TextField()
-    description = models.TextField()
+    description = models.TextField(null=True)

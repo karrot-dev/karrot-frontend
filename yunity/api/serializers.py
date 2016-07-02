@@ -23,4 +23,3 @@ class AuthLoginSerializer(serializers.Serializer):
             raise serializers.ValidationError(msg)
 
         return user
-

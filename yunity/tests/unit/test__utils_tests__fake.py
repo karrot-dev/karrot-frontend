@@ -4,6 +4,7 @@ from yunity.utils.validation import Validator, OfType, HasKey, IsReasonableLengt
 
 
 class ValidLocation(Validator):
+
     def __call__(self, location):
         (HasKey('description') & IsReasonableLengthString())(location)
         (HasKey('latitude') & OfType(float))(location)
@@ -11,6 +12,7 @@ class ValidLocation(Validator):
 
 
 class FakerTestCase(BaseRequestTestCase):
+
     def test_faker_creates_fake_locations(self):
         self.given_data()
         self.when_calling(default_faker.location)

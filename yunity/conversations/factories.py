@@ -3,6 +3,7 @@ from yunity.conversations.models import Conversation as ConversationModel
 
 
 class Conversation(DjangoModelFactory):
+
     class Meta:
         model = ConversationModel
         strategy = CREATE_STRATEGY

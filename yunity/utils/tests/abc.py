@@ -9,6 +9,7 @@ from yunity.utils.validation import Validator
 
 
 class AnyResult(Validator):
+
     def __call__(self, value):
         if value is None:
             raise ValueError('expected any value, got nothing')
@@ -16,6 +17,7 @@ class AnyResult(Validator):
 
 
 class NoResult(Validator):
+
     def __call__(self, value):
         if value is not None:
             raise ValueError('expected no value, got {}'.format(value))
@@ -23,6 +25,7 @@ class NoResult(Validator):
 
 
 class BaseTestCase(DjangoTestCase):
+
     def assertIncludes(self, collection, item):
         if item not in collection:
             self.fail('item {} was not in collection {}'.format(item, collection))

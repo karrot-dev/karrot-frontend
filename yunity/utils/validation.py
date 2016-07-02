@@ -4,12 +4,14 @@ from yunity.resources.http.status import HTTP_400_BAD_REQUEST
 
 
 class ValidationFailure(Exception):
+
     def __init__(self, message, status=HTTP_400_BAD_REQUEST):
         self.message = message
         self.status = status
 
 
 class Validator(object, metaclass=ABCMeta):
+
     def __and__(self, other):
         return AndThen(self, other)
 
@@ -19,6 +21,7 @@ class Validator(object, metaclass=ABCMeta):
 
 
 class AndThen(Validator):
+
     def __init__(self, *validators):
         self.validators = list(validators)
 
@@ -29,6 +32,7 @@ class AndThen(Validator):
 
 
 class Each(Validator):
+
     def __init__(self, validator):
         self.validator = validator
 
@@ -42,6 +46,7 @@ class Each(Validator):
 
 
 class OfType(Validator):
+
     def __init__(self, clazz):
         self.clazz = clazz
 
@@ -52,16 +57,19 @@ class OfType(Validator):
 
 
 class IsIn(Validator):
+
     def __init__(self, *elements):
         self.elements = set(elements)
 
     def __call__(self, value):
         if value not in self.elements:
-            raise ValidationFailure('unknown element: allowed are "{}"'.format(', '.join(map(str, self.elements))))
+            raise ValidationFailure('unknown element: allowed are "{}"'.format(
+                ', '.join(map(str, self.elements))))
         return value
 
 
 class HasKey(Validator):
+
     def __init__(self, key):
         self.key = key
 
@@ -76,6 +84,7 @@ class HasKey(Validator):
 
 
 class ShorterThan(Validator):
+
     def __init__(self, maxlen):
         self.maxlen = maxlen
 
@@ -90,6 +99,7 @@ class ShorterThan(Validator):
 
 
 class LessOrEqualThan(Validator):
+
     def __init__(self, maxval):
         self.maxval = maxval
 
@@ -102,6 +112,7 @@ class LessOrEqualThan(Validator):
 
 
 class GreaterOrEqualThan(Validator):
+
     def __init__(self, minval):
         self.minval = minval
 
@@ -114,6 +125,7 @@ class GreaterOrEqualThan(Validator):
 
 
 class IsReasonableLengthString(Validator):
+
     def __init__(self, maxlen=100000):
         self.maxlen = maxlen
 

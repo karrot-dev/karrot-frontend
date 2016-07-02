@@ -3,6 +3,7 @@ from yunity.utils.tests.comparison import DeepMatcher, ANY_INT, ANY_STRING
 
 
 class DeepMatcherTestCase(BaseRequestTestCase):
+
     def test_fuzzy_match_succeeds_with_fuzzy_int_leaves(self):
         self.given_data(actual=1, expected=ANY_INT)
         self.when_calling(DeepMatcher.fuzzy_match)

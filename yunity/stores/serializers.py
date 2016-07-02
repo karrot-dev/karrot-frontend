@@ -21,8 +21,8 @@ class PickupDateSerializer(serializers.Serializer):
                                                        many=True,
                                                        read_only=True)
     max_collectors = serializers.IntegerField()
-    store = serializers.PrimaryKeyRelatedField(#source='stores.store',
-                                               queryset=StoreModel.objects.all())
+    store = serializers.PrimaryKeyRelatedField(  # source='stores.store',
+        queryset=StoreModel.objects.all())
 
     def create(self, validated_data):
         return PickupDateModel.objects.create(**validated_data)
@@ -36,4 +36,3 @@ class PickupDateSerializer(serializers.Serializer):
 
 class StoreSummarySerializer(StoreDetailSerializer):
     pickups = PickupDateSerializer(source='pickupdates', read_only=True, many=True)
-

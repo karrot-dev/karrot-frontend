@@ -7,6 +7,7 @@ DATETIME_AROUND_NOW = 'DatetimeAroundNow'
 
 
 class DeepMatcher(object):
+
     @classmethod
     def _match_datetime_around_now(cls, actual, reason):
         actual_time = datetime.strptime(actual.split('.')[0], '%Y-%m-%dT%H:%M:%S')
@@ -42,7 +43,8 @@ class DeepMatcher(object):
     def _fuzzy_match_dicts(cls, actual, expected, reason):
         for key, expected_value in expected.items():
             actual_value = actual.get(key)
-            cls.fuzzy_match(actual_value, expected_value, '{reason}.{key}'.format(reason=reason, key=key))
+            cls.fuzzy_match(actual_value, expected_value,
+                            '{reason}.{key}'.format(reason=reason, key=key))
 
     @classmethod
     def _fuzzy_match_lists(cls, actual, expected, reason):
@@ -76,6 +78,7 @@ class DeepMatcher(object):
 
 
 class CustomMatcher(object):
+
     def __init__(self, comparator):
         self.comparator = comparator
 
@@ -84,6 +87,7 @@ class CustomMatcher(object):
 
 
 class NotEqualsMatcher(CustomMatcher):
+
     def __init__(self, not_expected):
         super().__init__(self.compare)
         self.not_expected = not_expected

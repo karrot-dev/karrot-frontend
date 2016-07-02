@@ -3,6 +3,7 @@ from yunity.utils.validation import ShorterThan, HasKey, IsIn, OfType, Each, And
 
 
 class TestValidationUtil(BaseRequestTestCase):
+
     def test_shorter_than_rejects_item_without_length(self):
         self.given_data(123)
         self.when_calling(ShorterThan(100))

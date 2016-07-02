@@ -5,6 +5,7 @@ from yunity.utils.tests.abc import BaseRequestTestCase
 
 
 class JsonStringifyTestCase(BaseRequestTestCase):
+
     def test_json_stringify_creates_json_from_dict(self):
         self.given_data({'a': 1, 'b': [2, 3], 'c': {'d': 4}})
         self.when_calling(json_stringify)
@@ -17,6 +18,7 @@ class JsonStringifyTestCase(BaseRequestTestCase):
 
 
 class MaybeImportTestCase(BaseRequestTestCase):
+
     def test_maybe_import_imports_existing_module(self):
         self.given_data(__name__)
         self.when_calling(maybe_import)

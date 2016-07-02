@@ -23,4 +23,3 @@ class GroupViewSet(viewsets.ModelViewSet):
                             status=status.HTTP_400_BAD_REQUEST)
         group.members.remove(request.user)
         return Response(status=status.HTTP_200_OK)
-

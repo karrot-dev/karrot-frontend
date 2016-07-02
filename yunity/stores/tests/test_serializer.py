@@ -5,6 +5,7 @@ from yunity.stores.serializers import StoreSummarySerializer
 
 
 class TestStoreSummarySerializer(TestCase):
+
     @classmethod
     def setUpClass(cls):
         super(TestStoreSummarySerializer, cls).setUpClass()
@@ -17,6 +18,6 @@ class TestStoreSummarySerializer(TestCase):
         self.assertEqual(len(serializer.data['pickups']), 0)
 
     def test_storesummary_pickups(self):
-        pickup = PickupDate(store=self.store)
+        PickupDate(store=self.store)
         serializer = StoreSummarySerializer(self.store)
         self.assertEqual(len(serializer.data['pickups']), 1)

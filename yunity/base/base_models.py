@@ -1,9 +1,10 @@
-from django.db.models import Model, AutoField, Field, DateTimeField, CharField
+from django.db.models import Model, AutoField, Field, DateTimeField
 from django.db.models.fields.related import RelatedField
 from django.utils import timezone
 
 
 class BaseModel(Model):
+
     class Meta:
         abstract = True
 
@@ -26,5 +27,6 @@ class BaseModel(Model):
 
     def __repr__(self):
         model = str(self.__class__.__name__)
-        columns = ', '.join('{}="{}"'.format(field, value) for field, value in self.to_dict().items())
+        columns = ', '.join('{}="{}"'.format(field, value)
+                            for field, value in self.to_dict().items())
         return '{}({})'.format(model, columns)

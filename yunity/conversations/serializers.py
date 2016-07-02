@@ -28,7 +28,8 @@ class ConversationSerializer(serializers.Serializer):
     topic = CharField(max_length=MAX_TOPIC_LENGTH, required=False)
 
     # Writing
-    with_participants = PrimaryKeyRelatedField(many=True, write_only=True, queryset=get_user_model().objects.all())
+    with_participants = PrimaryKeyRelatedField(
+        many=True, write_only=True, queryset=get_user_model().objects.all())
     message = CharField(max_length=MAX_MESSAGE_LENGTH, write_only=True)
 
     # Reading
@@ -40,13 +41,12 @@ class ConversationSerializer(serializers.Serializer):
     def get_type(self, obj):
         return ConversationType.name(obj.type)
 
-
     def create(self, validated_data):
         """
         Create new conversation with other users and a message
         """
         participant_ids = [_.id for _ in validated_data['with_participants']] + \
-                            [self.context['request'].user.id, ]
+            [self.context['request'].user.id, ]
         chat_type = ConversationType.MULTICHAT
 
         chat = ConversationModel.objects.create(type=chat_type)
@@ -78,5 +78,3 @@ class ConversationSerializer(serializers.Serializer):
 class ConversationByUserSerializer(serializers.Serializer):
     message = CharField(max_length=MAX_MESSAGE_LENGTH, write_only=True)
     id = IntegerField(read_only=True)
-
-

@@ -21,4 +21,5 @@ class TestSharedSession(TestCase):
         redis-cli subscribe notifications
         """
         RealtimeClientData.set_user_session('123', 3)
-        RealtimeClientData.send_to_users([3], RealtimeClientData.Types.CHAT_MESSAGE, {'msg': 'hello'})
+        RealtimeClientData.send_to_users(
+            [3], RealtimeClientData.Types.CHAT_MESSAGE, {'msg': 'hello'})

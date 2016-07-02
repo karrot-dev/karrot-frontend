@@ -1,4 +1,3 @@
-import os
 import re
 
 import shutil
@@ -9,6 +8,7 @@ from django.core.management.base import BaseCommand
 from yunity.management.commands.makeallmigrations import Command as MakeAllMigrationsCommand
 
 from config import settings
+
 
 class Command(BaseCommand):
     help = 'Remake all migrations'

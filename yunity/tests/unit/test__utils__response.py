@@ -6,6 +6,7 @@ from yunity.utils.tests.abc import BaseRequestTestCase
 
 
 class ContentJsonTestCase(BaseRequestTestCase):
+
     def test_content_json_returns_content(self):
         self.given_json_response(content={"foo": 1})
         self.when_calling(content_json)

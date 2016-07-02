@@ -5,16 +5,18 @@ from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateMo
 
 
 class Store(DjangoModelFactory):
+
     class Meta:
         model = StoreModel
 
     group = SubFactory(Group)
 
+
 class PickupDate(DjangoModelFactory):
+
     class Meta:
         model = PickupDateModel
 
     store = SubFactory(Store)
     date = LazyFunction(datetime.utcnow)
     max_collectors = None
-

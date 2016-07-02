@@ -1,2 +1,3 @@
 pip-tools
+flake8
 ipython

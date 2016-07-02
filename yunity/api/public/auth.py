@@ -38,5 +38,4 @@ class AuthViewSet(viewsets.GenericViewSet):
     @list_route(methods=['POST'])
     def logout(self, request, **kwargs):
         logout(request)
-        return Response(status = status.HTTP_200_OK)
-
+        return Response(status=status.HTTP_200_OK)

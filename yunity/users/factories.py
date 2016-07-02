@@ -5,6 +5,7 @@ from yunity.utils.tests.fake import faker
 
 
 class User(DjangoModelFactory):
+
     class Meta:
         model = get_user_model()
         strategy = CREATE_STRATEGY

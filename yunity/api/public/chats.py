@@ -1,4 +1,4 @@
-from django.db.models import Max, Count
+from django.db.models import Max
 from rest_framework import status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated

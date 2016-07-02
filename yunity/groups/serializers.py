@@ -3,6 +3,7 @@ from yunity.groups.models import Group as GroupModel
 
 
 class GroupSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = GroupModel
         fields = ['id', 'name', 'description', 'members']

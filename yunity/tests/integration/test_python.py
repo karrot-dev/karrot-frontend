@@ -31,6 +31,7 @@ def iter_modules(root_module_path, excludes=None):
 
 
 class PytonIsValidTestCase(BaseRequestTestCase):
+
     def test_all_modules_import_cleanly(self):
         self.given_data(root_module_path=yunity.__path__[0])
         self.given_data(excludes={

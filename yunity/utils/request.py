@@ -7,12 +7,14 @@ from yunity.utils.validation import HasKey
 
 
 class Parameter(object):
+
     def __init__(self, name, validator=None):
         self.name = name
         self.validator = validator or HasKey(name)
 
 
 class JsonRequestFactory(RequestFactory):
+
     def post(self, path, data=None, **kwargs):
         return super().post(
             path=path,
@@ -22,6 +24,7 @@ class JsonRequestFactory(RequestFactory):
 
 
 class JsonRequest(object):
+
     def __init__(self, http_request, json_body):
         self._http_request = http_request
         self._json_body = json_body

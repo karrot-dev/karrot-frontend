@@ -5,6 +5,7 @@ from yunity.utils.misc import json_stringify
 
 
 class RealtimeClientMiddleware(object):
+
     @staticmethod
     def process_request(request):
         return None

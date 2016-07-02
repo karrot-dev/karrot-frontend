@@ -16,10 +16,6 @@ class StoreSummary(generics.RetrieveUpdateDestroyAPIView):
     queryset = StoreModel.objects
 
 
-class StorePickupDateCreate(generics.CreateAPIView):
-    serializer_class = PickupDateSerializer
-
-
 class PickupDatesViewSet(mixins.CreateModelMixin,
                          mixins.ListModelMixin,
                          mixins.RetrieveModelMixin,
@@ -51,4 +47,3 @@ class PickupDatesViewSet(mixins.CreateModelMixin,
         s = self.get_serializer_class()
         return Response(s(pickupdate).data,
                         status=status.HTTP_200_OK)
-

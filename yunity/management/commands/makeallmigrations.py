@@ -11,18 +11,18 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('--dry-run', action='store_true', dest='dry_run', default=False,
-            help="Just show what migrations would be made; don't actually write them.")
+                            help="Just show what migrations would be made; don't actually write them.")
         parser.add_argument('--merge', action='store_true', dest='merge', default=False,
-            help="Enable fixing of migration conflicts.")
+                            help="Enable fixing of migration conflicts.")
         parser.add_argument('--empty', action='store_true', dest='empty', default=False,
-            help="Create an empty migration.")
+                            help="Create an empty migration.")
         parser.add_argument('--noinput', '--no-input',
-            action='store_false', dest='interactive', default=True,
-            help='Tells Django to NOT prompt the user for input of any kind.')
+                            action='store_false', dest='interactive', default=True,
+                            help='Tells Django to NOT prompt the user for input of any kind.')
         parser.add_argument('-n', '--name', action='store', dest='name', default=None,
-            help="Use this name for migration file(s).")
+                            help="Use this name for migration file(s).")
         parser.add_argument('-e', '--exit', action='store_true', dest='exit_code', default=False,
-            help='Exit with error code 1 if no changes needing migrations are found.')
+                            help='Exit with error code 1 if no changes needing migrations are found.')
 
     def handle(self, *args, **options):
         app_labels = []

@@ -22,6 +22,7 @@ def get_or_create_user_conversation(participants):
 
     return conversation
 
+
 def add_to_conversation(conversation_id, author_id, data):
     MessageModel.objects.create(author_id=author_id,
                                 in_conversation_id=conversation_id,

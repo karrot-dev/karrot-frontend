@@ -16,3 +16,4 @@ psycopg2
 PyYAML
 redis
 six
+flake8

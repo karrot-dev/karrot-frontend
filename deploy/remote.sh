@@ -31,7 +31,7 @@ DATABASES = {
     }
 }
 DEBUG = False
-ALLOWED_HOSTS = ['dev.yunity.org']
+ALLOWED_HOSTS = ['dev.yunity.org', 'mvp-proposal.yunity.org']
 STATIC_ROOT = '${deploy_dir}/yunity-core/static/'
 CONFIG
 

@@ -47,7 +47,7 @@ createdb yunity-dev
   env/bin/python manage.py remakeallmigrations && \
   env/bin/python manage.py migrate && \
   env/bin/python manage.py check --deploy && \
-  env/bin/python manage.py collectstatic
+  env/bin/python manage.py collectstatic --clear --no-input
 )
 
 touch /tmp/yunity-dev.reload

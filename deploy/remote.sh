@@ -17,6 +17,8 @@ if [ ! -d yunity-core/env ]; then
   virtualenv --python=python3 --no-site-packages yunity-core/env
 fi
 
+deploy_dir=$(pwd)
+
 cat <<-CONFIG > yunity-core/config/local_settings.py
 DATABASES = {
     'default': {
@@ -30,6 +32,7 @@ DATABASES = {
 }
 DEBUG = False
 ALLOWED_HOSTS = ['dev.yunity.org']
+STATIC_ROOT = '${deploy_dir}/yunity-core/static/'
 CONFIG
 
 dropdb --if-exists yunity-dev
@@ -43,7 +46,8 @@ createdb yunity-dev
   env/bin/pip install -r requirements.txt && \
   env/bin/python manage.py remakeallmigrations && \
   env/bin/python manage.py migrate && \
-  env/bin/python manage.py check --deploy
+  env/bin/python manage.py check --deploy && \
+  env/bin/python manage.py collectstatic
 )
 
 touch /tmp/yunity-dev.reload

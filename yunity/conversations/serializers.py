@@ -17,7 +17,7 @@ class MessageSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         message = MessageModel.objects.create(
-            sent_by_id=self.context['request'].user.id,
+            author_id=self.context['request'].user.id,
             in_conversation_id=self.context['request'].data['in_conversation_id'],
             **validated_data)
 
@@ -55,7 +55,7 @@ class ConversationSerializer(serializers.Serializer):
 
         # Todo: refactor to message serializer
         MessageModel.objects.create(
-            sent_by_id=self.context['request'].user.id,
+            author_id=self.context['request'].user.id,
             in_conversation_id=chat.id,
             content=validated_data['message'],
         )

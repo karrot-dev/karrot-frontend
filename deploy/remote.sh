@@ -35,8 +35,7 @@ ALLOWED_HOSTS = ['dev.yunity.org', 'mvp-proposal.yunity.org']
 STATIC_ROOT = '${deploy_dir}/yunity-core/static/'
 CONFIG
 
-dropdb --if-exists yunity-dev
-createdb yunity-dev
+createdb yunity-dev || true
 
 (
   cd yunity-core && \
@@ -44,7 +43,6 @@ createdb yunity-dev
   git checkout $BRANCH && \
   git pull && \
   env/bin/pip install -r requirements.txt && \
-  env/bin/python manage.py remakeallmigrations && \
   env/bin/python manage.py migrate && \
   env/bin/python manage.py check --deploy && \
   env/bin/python manage.py collectstatic --clear --no-input

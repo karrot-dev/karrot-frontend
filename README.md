@@ -5,33 +5,7 @@
 # yunity-core
 
 ## Getting started
-For a very quick startup, please checkout the [yunity-setup Repo](https://github.com/yunity/yunity-setup).
-If you want to only install the backend, please have a look into the setup repo for the dependencies and configuration.
-
-## Create the environment manually
-- git clone git@github.com:yunity/yunity-core.git ~/yunity-core
-- mkdir -p ~/virtualenvs/env
-- virtualenv --python=python3 --no-site-packages ~/yunity-core/env
-- source ~/yunity-core/env/bin/activate
-- pip install -r ~/yunity-core/requirements.txt
-
-### Configure database access
-Add the connection parameters to your local Postgres database server to `wuppdays/local_settings.py`.
-
-```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yunity-database',
-        'USER': 'yunity-user',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
-```
-
-If you get a "virtual memory error" with any of the postgres commands, close PyCharm and re-issue your command.
+For a quick startup, please checkout the [yunity-setup Repo](https://github.com/yunity/yunity-setup).
 
 ## IDE
 We use PyCharm for development. The open source free professional licences are still pending, for now use the community edition from https://www.jetbrains.com/pycharm/download/.

@@ -42,7 +42,7 @@ Currently, the data model is subject to change. When the backend reaches the bet
 A swagger description file is generated at /doc. You can pass it to any swagger installation.
 
 ### Install swagger locally
-See the yunity-setup repository [![yunity-setup repository](https://https://github.com/yunity/yunity-setup)] for a complete local environment that also includes a swagger release.
+See the yunity-setup repository [![yunity-setup repository](https://github.com/yunity/yunity-setup)] for a complete local environment that also includes a swagger release.
 
 ## Django application settings
 In development, you can add and override local settings in

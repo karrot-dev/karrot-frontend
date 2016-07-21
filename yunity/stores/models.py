@@ -1,4 +1,3 @@
-from django.db import models
 from config import settings
 from yunity.base.base_models import BaseModel
 from django.db import models

@@ -4,6 +4,7 @@ from config import settings
 from yunity.base.base_models import BaseModel
 from django.db import models
 
+
 class ConversationType(enum.Enum):
     ONE_ON_ONE = 0
     MULTICHAT = 1

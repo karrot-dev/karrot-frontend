@@ -25,6 +25,4 @@ class PickupDateSerializer(serializers.Serializer):
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = StoreModel
-        fields = ['id', 'name', 'description', 'group', 'pickups']
-
-    pickups = PickupDateSerializer(source='pickupdates', read_only=True, many=True)
+        fields = ['id', 'name', 'description', 'group']

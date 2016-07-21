@@ -1,18 +1,18 @@
-from rest_framework import mixins, viewsets, generics, status
+from rest_framework import mixins, viewsets, status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from yunity.stores.serializers import StoreDetailSerializer, StoreSummarySerializer, PickupDateSerializer
+from yunity.stores.serializers import StoreSerializer, PickupDateSerializer
 from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
 
 
-class StoreList(generics.ListCreateAPIView):
-    serializer_class = StoreDetailSerializer
-    queryset = StoreModel.objects
-
-
-class StoreSummary(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = StoreSummarySerializer
+class StoreViewSet(mixins.CreateModelMixin,
+                   mixins.ListModelMixin,
+                   mixins.RetrieveModelMixin,
+                   mixins.UpdateModelMixin,
+                   mixins.DestroyModelMixin,
+                   viewsets.GenericViewSet):
+    serializer_class = StoreSerializer
     queryset = StoreModel.objects
 
 

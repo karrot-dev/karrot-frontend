@@ -66,9 +66,11 @@ We use
 - [slack](https://yunity.slack.com) as team communication, not only for development
 
 ### Coding guidelines
-We follow the pep8 with disabled whitespace checks and a wider maximum line length of 120 characters.
+We follow PEP8 with the same rules as the [Django project](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/).
 As always, the coding style may not apply at some parts.
-You can execute yunity/management/scripts/git-hooks/pep8-check in the repository root.
+You can execute `flake8` in the repository root to check your code.
+
+Code will only be accepted into `master` if it passes the PEP8 test.
 
 ## Using the API
 A live instance of yunity is running at https://dev.yunity.org. The database will be emptied regularly, any data may be available to the public. Use at your own risk for testing.

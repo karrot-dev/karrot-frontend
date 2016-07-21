@@ -25,6 +25,7 @@ psycopg2==2.6.1
 pycodestyle==2.0.0        # via flake8
 pyflakes==1.2.3           # via flake8
 python-dateutil==2.5.3    # via fake-factory
+pytz==2016.6.1
 PyYAML==3.11              # via django-rest-swagger
 redis==2.10.5
 six==1.10.0

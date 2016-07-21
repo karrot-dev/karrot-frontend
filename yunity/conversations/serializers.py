@@ -5,6 +5,7 @@ from rest_framework.relations import PrimaryKeyRelatedField
 from yunity.users.serializers import UserSerializer
 from yunity.conversations.models import ConversationMessage as MessageModel, ConversationType
 from yunity.conversations.models import Conversation as ConversationModel
+from yunity.utils.session import RealtimeClientData
 
 MAX_MESSAGE_LENGTH = 1000000
 MAX_TOPIC_LENGTH = 150
@@ -20,6 +21,12 @@ class MessageSerializer(serializers.Serializer):
             author_id=self.context['request'].user.id,
             in_conversation_id=self.context['request'].data['in_conversation_id'],
             **validated_data)
+
+        serialized_message = self.to_representation(message)
+        payload = {'conversation_id': message.in_conversation_id, 'message': serialized_message}
+        RealtimeClientData.send_to_users(list(message.in_conversation.participants.values_list('id', flat=True)),
+                                         RealtimeClientData.Types.CONVERSATION_MESSAGE,
+                                         payload)
 
         return message
 

@@ -30,7 +30,7 @@ class RealtimeClientData(object):
     USER_NOTIFICATION_CHANNEL = 'notifications'
 
     class Types(object):
-        CHAT_MESSAGE = 'chat_message'
+        CONVERSATION_MESSAGE = 'conversation_message'
 
     r = None
 

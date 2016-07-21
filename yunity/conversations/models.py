@@ -2,6 +2,7 @@ from django.db.models import ForeignKey, TextField, ManyToManyField
 from django_enumfield import enum
 from config import settings
 from yunity.base.base_models import BaseModel
+from django.db import models
 
 
 class ConversationType(enum.Enum):
@@ -17,7 +18,7 @@ class Conversation(BaseModel):
 
 
 class ConversationMessage(BaseModel):
-    author = ForeignKey(settings.AUTH_USER_MODEL)
-    in_conversation = ForeignKey(Conversation, related_name='messages')
+    author = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    in_conversation = ForeignKey(Conversation, related_name='messages', on_delete=models.CASCADE)
 
     content = TextField()

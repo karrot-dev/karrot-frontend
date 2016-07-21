@@ -10,8 +10,6 @@ DATABASES = {
 }
 
 SHELL_PLUS_PRE_IMPORTS = (
-    ('yunity.base.hub_models', ('InitialHubOptions')),
-    ('yunity.permissions.resolver', ('resolve_permissions')),
     ('yunity.users.models', ('ProfileVisibility')),
     ('yunity.utils.tests.mock', ('*')),
     ('yunity.permissions.lookup', ('*')),

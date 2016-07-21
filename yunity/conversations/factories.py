@@ -1,4 +1,4 @@
-from factory import CREATE_STRATEGY, post_generation, DjangoModelFactory, SubFactory
+from factory import post_generation, DjangoModelFactory, SubFactory, LazyAttribute
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.conversations.models import ConversationMessage as MessageModel
 from yunity.users.factories import User
@@ -6,10 +6,8 @@ from yunity.utils.tests.fake import faker
 
 
 class Conversation(DjangoModelFactory):
-
     class Meta:
         model = ConversationModel
-        strategy = CREATE_STRATEGY
 
     @post_generation
     def participants(self, created, participants, **kwargs):
@@ -26,4 +24,4 @@ class Message(DjangoModelFactory):
 
     author = SubFactory(User)
     in_conversation = SubFactory(Conversation)
-    content = faker.text()
+    content = LazyAttribute(lambda x: faker.text())

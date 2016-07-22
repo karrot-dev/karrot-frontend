@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, PostGeneration, SubFactory
-from yunity.base.factories import Wall
+from yunity.walls.factories import Wall
 from yunity.utils.tests.fake import faker
 
 

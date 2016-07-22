@@ -3,7 +3,7 @@ from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from rest_framework import status, viewsets
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
-from yunity.api.serializers import AuthLoginSerializer
+from yunity.userauth.serializers import AuthLoginSerializer
 from yunity.users.serializers import UserSerializer
 
 

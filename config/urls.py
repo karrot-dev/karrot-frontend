@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
 from rest_framework_nested import routers
-from yunity.api.public.auth import AuthViewSet
+from yunity.userauth.api import AuthViewSet
 from yunity.conversations.api import ChatViewSet, ChatMessageViewSet
-from yunity.api.public.groups import GroupViewSet
-from yunity.api.public.users import UserViewSet
+from yunity.groups.api import GroupViewSet
 from yunity.stores.api import StoreViewSet, PickupDatesViewSet
+from yunity.users.api import UserViewSet
 
 router = routers.DefaultRouter()
 

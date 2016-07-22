@@ -15,6 +15,7 @@ class ChatViewSet(mixins.CreateModelMixin,
     queryset = ConversationModel.objects
     serializer_class = ConversationSerializer
     permission_classes = (IsAuthenticated,)
+    filter_fields = ('participants',)
 
     def get_queryset(self):
         return self.queryset.filter(participants__id__in=[self.request.user.id]) \

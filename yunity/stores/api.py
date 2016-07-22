@@ -14,6 +14,7 @@ class StoreViewSet(mixins.CreateModelMixin,
                    viewsets.GenericViewSet):
     serializer_class = StoreSerializer
     queryset = StoreModel.objects
+    filter_fields = ('group',)
 
 
 class PickupDatesViewSet(mixins.CreateModelMixin,
@@ -25,6 +26,7 @@ class PickupDatesViewSet(mixins.CreateModelMixin,
     serializer_class = PickupDateSerializer
     queryset = PickupDateModel.objects
     permission_classes = (IsAuthenticated,)
+    filter_fields = ('store',)
 
     @detail_route(methods=['POST', 'GET'])
     def add(self, request, pk=None):

@@ -3,7 +3,7 @@ from os import walk
 from os.path import join as join_path, dirname
 
 import yunity
-from yunity.utils.tests.abc import BaseRequestTestCase
+from django.test import TestCase
 
 
 def iter_sources(root_module_path, pysuffix='.py'):
@@ -30,21 +30,20 @@ def iter_modules(root_module_path, excludes=None):
             yield module
 
 
-class PythonIsValidTestCase(BaseRequestTestCase):
+class PythonIsValidTestCase(TestCase):
 
     def test_all_modules_import_cleanly(self):
-        self.given_data(root_module_path=yunity.__path__[0])
-        self.given_data(excludes={
-            'yunity.resources',                               # intgration test data files have side-effects
+        excludes = {
             'yunity.tests.integration.test_integration',      # integration test runner has side-effects
-            'yunity.management.commands.create_sample_data',  # sample data command has side-effects
-        })
+        }
+        self.data = {'root_module_path': yunity.__path__[0],
+                     'excludes': excludes}
         self.when_importing_modules()
         self.then_all_modules_import_cleanly()
 
     def when_importing_modules(self):
         self.exception = []
-        for module in iter_modules(*self.args, **self.kwargs):
+        for module in iter_modules(**self.data):
             try:
                 import_module(module)
             except Exception as e:

@@ -1,8 +1,8 @@
-from yunity.utils.tests.abc import BaseRequestTestCase
+from django.test import TestCase
 from yunity.utils.tests.fake import Faker
 
 
-class FakerTestCase(BaseRequestTestCase):
+class FakerTestCase(TestCase):
 
     def test_faker_is_deterministic(self):
         self.given_new_faker()

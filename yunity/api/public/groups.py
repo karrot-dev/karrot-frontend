@@ -8,6 +8,7 @@ from yunity.groups.models import Group as GroupModel
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer
+    filter_fields = ('members',)
 
     @detail_route(methods=['POST', 'GET'])
     def join(self, request, pk=None):

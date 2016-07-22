@@ -50,29 +50,32 @@ class ConversationSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         """
-        Create new conversation with other users and a message
+        Create new conversation with other user(s) and a message
         """
-        participant_ids = [_.id for _ in validated_data['with_participants']] + \
-            [self.context['request'].user.id, ]
-        chat_type = ConversationType.MULTICHAT
+        message_data = {'content': validated_data.pop('message'),
+                        'author_id': self.context['request'].user.id,
+                        }
 
-        chat = ConversationModel.objects.create(type=chat_type)
+        participant_ids = [_.id for _ in validated_data.pop('with_participants')] + \
+                          [self.context['request'].user.id, ]
+
+        # Set default type
+        if len(participant_ids) == 2:
+            chat_type = ConversationType.ONE_ON_ONE
+        else:
+            chat_type = ConversationType.MULTICHAT
+
+        chat = ConversationModel.objects.create(**validated_data, type=chat_type)
         chat.participants = participant_ids
         chat.save()
 
         # Todo: refactor to message serializer
         MessageModel.objects.create(
-            author_id=self.context['request'].user.id,
+            **message_data,
             in_conversation_id=chat.id,
-            content=validated_data['message'],
         )
 
         return chat
-
-    def update(self, conversation, validated_data):
-        conversation.name = validated_data.get('name', conversation.name)
-        conversation.save()
-        return conversation
 
     def validate_with_participants(self, value):
         if len(value) < 1:
@@ -82,6 +85,8 @@ class ConversationSerializer(serializers.Serializer):
         return value
 
 
-class ConversationByUserSerializer(serializers.Serializer):
-    message = CharField(max_length=MAX_MESSAGE_LENGTH, write_only=True)
-    id = IntegerField(read_only=True)
+class ConversationUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ConversationModel
+        fields = ['topic', ]
+        extra_kwargs = {'topic': {'required': False, 'max_length': MAX_TOPIC_LENGTH}}

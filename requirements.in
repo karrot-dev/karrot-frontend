@@ -19,3 +19,4 @@ six
 flake8
 pytz
 django-filter
+django-crispy-forms

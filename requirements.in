@@ -18,3 +18,4 @@ redis
 six
 flake8
 pytz
+django-filter

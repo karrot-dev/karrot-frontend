@@ -1,17 +1,6 @@
 from rest_framework import serializers
-from yunity.groups.models import Group
 from yunity.stores.models import Store as StoreModel
 from yunity.stores.models import PickupDate as PickupDateModel
-
-
-class StoreDetailSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField()
-    description = serializers.CharField()
-    group = serializers.PrimaryKeyRelatedField(queryset=Group.objects.all())
-
-    def create(self, validated_data):
-        return StoreModel.objects.create(**validated_data)
 
 
 class PickupDateSerializer(serializers.Serializer):
@@ -21,8 +10,7 @@ class PickupDateSerializer(serializers.Serializer):
                                                        many=True,
                                                        read_only=True)
     max_collectors = serializers.IntegerField()
-    store = serializers.PrimaryKeyRelatedField(  # source='stores.store',
-        queryset=StoreModel.objects.all())
+    store = serializers.PrimaryKeyRelatedField(queryset=StoreModel.objects.all())
 
     def create(self, validated_data):
         return PickupDateModel.objects.create(**validated_data)
@@ -34,5 +22,9 @@ class PickupDateSerializer(serializers.Serializer):
         return pickupdate
 
 
-class StoreSummarySerializer(StoreDetailSerializer):
+class StoreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StoreModel
+        fields = ['id', 'name', 'description', 'group', 'pickups']
+
     pickups = PickupDateSerializer(source='pickupdates', read_only=True, many=True)

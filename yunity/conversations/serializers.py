@@ -48,7 +48,6 @@ class ConversationSerializer(serializers.Serializer):
     def get_type(self, obj):
         return ConversationType.name(obj.type)
 
-
     def create(self, validated_data):
         """
         Create new conversation with other user(s) and a message

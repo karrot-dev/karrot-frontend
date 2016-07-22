@@ -52,7 +52,7 @@ INSTALLED_APPS = (
 
     # Application
     'yunity',
-    'yunity.api',
+    'yunity.userauth',
     'yunity.base',
     'yunity.users',
     'yunity.conversations',

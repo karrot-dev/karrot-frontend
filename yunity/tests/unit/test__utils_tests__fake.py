@@ -1,22 +1,8 @@
 from yunity.utils.tests.abc import BaseRequestTestCase
-from yunity.utils.tests.fake import faker as default_faker, Faker
-from yunity.utils.validation import Validator, OfType, HasKey, IsReasonableLengthString
-
-
-class ValidLocation(Validator):
-
-    def __call__(self, location):
-        (HasKey('description') & IsReasonableLengthString())(location)
-        (HasKey('latitude') & OfType(float))(location)
-        (HasKey('longitude') & OfType(float))(location)
+from yunity.utils.tests.fake import Faker
 
 
 class FakerTestCase(BaseRequestTestCase):
-
-    def test_faker_creates_fake_locations(self):
-        self.given_data()
-        self.when_calling(default_faker.location)
-        self.then_invocation_passed_with(ValidLocation())
 
     def test_faker_is_deterministic(self):
         self.given_new_faker()

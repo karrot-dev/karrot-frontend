@@ -18,7 +18,7 @@ from django.contrib import admin
 
 from rest_framework_nested import routers
 from yunity.api.public.auth import AuthViewSet
-from yunity.api.public.chats import ChatViewSet, ChatMessageViewSet
+from yunity.conversations.api import ChatViewSet, ChatMessageViewSet
 from yunity.api.public.groups import GroupViewSet
 from yunity.api.public.users import UserViewSet
 from yunity.stores.api import StoreViewSet, PickupDatesViewSet

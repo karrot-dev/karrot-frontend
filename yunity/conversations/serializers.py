@@ -78,14 +78,16 @@ class ConversationSerializer(serializers.Serializer):
 
         return chat
 
-    def update(self, conversation, validated_data):
-        conversation.name = validated_data.get('name', conversation.name)
-        conversation.save()
-        return conversation
-
     def validate_with_participants(self, value):
         if len(value) < 1:
             raise serializers.ValidationError("No chat participants given")
         if len(value) == 1 and self.context['request'].user.id in value:
             raise serializers.ValidationError("Requesting user is only participant")
         return value
+
+
+class ConversationUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ConversationModel
+        fields = ['topic', ]
+        extra_kwargs = {'topic': {'required': False, 'max_length': MAX_TOPIC_LENGTH}}

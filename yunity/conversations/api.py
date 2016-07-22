@@ -1,6 +1,6 @@
 from django.db.models import Max
 from rest_framework.permissions import IsAuthenticated
-from yunity.conversations.serializers import ConversationSerializer, MessageSerializer
+from yunity.conversations.serializers import ConversationSerializer, MessageSerializer, ConversationUpdateSerializer
 from yunity.conversations.models import Conversation as ConversationModel
 from yunity.conversations.models import ConversationMessage as MessageModel
 from rest_framework import viewsets, mixins
@@ -21,6 +21,12 @@ class ChatViewSet(mixins.CreateModelMixin,
         return self.queryset.filter(participants__id__in=[self.request.user.id]) \
             .annotate(latest_message_time=Max('messages__created_at')) \
             .order_by('-latest_message_time')
+
+    def get_serializer_class(self):
+        serializer_class = self.serializer_class
+        if self.request.method == 'PUT':
+            serializer_class = ConversationUpdateSerializer
+        return serializer_class
 
 
 class ChatMessageViewSet(mixins.CreateModelMixin,

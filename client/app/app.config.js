@@ -4,7 +4,7 @@ let appConfig = ($stateProvider, $locationProvider) => {
   "ngInject";
   $locationProvider.html5Mode(true).hashPrefix('!');
   $stateProvider
-    .state('yunity.login', {
+    .state('app.login', {
       url: '/login',
       data: {
         loggedIn: false

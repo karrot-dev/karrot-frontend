@@ -65,14 +65,14 @@ class ConversationSerializer(serializers.Serializer):
         else:
             chat_type = ConversationType.MULTICHAT
 
-        chat = ConversationModel.objects.create(**validated_data, type=chat_type)
+        chat = ConversationModel.objects.create(type=chat_type, **validated_data)
         chat.participants = participant_ids
         chat.save()
 
         # Todo: refactor to message serializer
         MessageModel.objects.create(
-            **message_data,
             in_conversation_id=chat.id,
+            **message_data
         )
 
         return chat

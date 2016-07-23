@@ -1,6 +1,6 @@
 machine:
   python:
-    version: 3.5.0
+    version: 3.4.2
 database:
   override:
     - psql -c "CREATE DATABASE yunity_database;"

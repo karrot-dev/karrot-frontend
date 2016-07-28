@@ -2,7 +2,7 @@ from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE
 from django_enumfield import enum
 
-from yunity.base.base_models import BaseModel
+from yunity.base.base_models import BaseModel, LocationModel
 from yunity.walls.models import Wall
 
 
@@ -47,7 +47,7 @@ class ProfileVisibility(enum.Enum):
     PUBLIC = 4
 
 
-class User(AbstractBaseUser, BaseModel):
+class User(AbstractBaseUser, BaseModel, LocationModel):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)

@@ -1,5 +1,5 @@
 from config import settings
-from yunity.base.base_models import BaseModel
+from yunity.base.base_models import BaseModel, LocationModel
 from django.db import models
 
 
@@ -10,7 +10,7 @@ class PickupDate(BaseModel):
     max_collectors = models.IntegerField(null=True)
 
 
-class Store(BaseModel):
+class Store(BaseModel, LocationModel):
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE)
     name = models.TextField()
     description = models.TextField(null=True)

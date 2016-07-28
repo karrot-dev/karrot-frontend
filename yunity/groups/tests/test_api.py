@@ -3,6 +3,7 @@ from rest_framework.test import APITestCase
 from yunity.groups.factories import Group as GroupFactory
 from yunity.groups.models import Group as GroupModel
 from yunity.users.factories import User
+from yunity.utils.tests.fake import faker
 
 
 class TestGroupsAPI(APITestCase):
@@ -20,6 +21,19 @@ class TestGroupsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['name'], data['name'])
         self.assertEqual(GroupModel.objects.get(name=data['name']).description, data['description'])
+
+    def test_create_group_with_location(self):
+        self.client.force_login(user=self.user)
+        data = {'name': faker.name(),
+                'description': faker.text(),
+                'address': faker.address(),
+                'latitude': faker.latitude(),
+                'longitude': faker.longitude()}
+        response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['name'], data['name'])
+        self.assertEqual(GroupModel.objects.get(name=data['name']).description, data['description'])
+        self.assertEqual(response.data['address'], data['address'])
 
     def test_create_group_fails_if_not_logged_in(self):
         data = {'name': 'random_name', 'description': 'still alive'}

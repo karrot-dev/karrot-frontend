@@ -1,5 +1,6 @@
 from rest_framework import status, viewsets
 from rest_framework.decorators import detail_route
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from yunity.groups.serializers import GroupSerializer
 from yunity.groups.models import Group as GroupModel
@@ -9,14 +10,17 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer
     filter_fields = ('members',)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
-    @detail_route(methods=['POST', 'GET'])
+    @detail_route(methods=['POST', 'GET'],
+                  permission_classes=(IsAuthenticated,))
     def join(self, request, pk=None):
         group = self.get_object()
         group.members.add(request.user)
         return Response(status=status.HTTP_200_OK)
 
-    @detail_route(methods=['POST', 'GET'])
+    @detail_route(methods=['POST', 'GET'],
+                  permission_classes=(IsAuthenticated,))
     def leave(self, request, pk=None):
         group = self.get_object()
         if not group.members.filter(id=request.user.id).exists():

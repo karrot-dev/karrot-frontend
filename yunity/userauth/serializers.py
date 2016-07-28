@@ -8,18 +8,14 @@ class AuthLoginSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         credentials = {'email': attrs.get('email'), 'password': attrs.get('password')}
-        if all(credentials.values()):
-            user = authenticate(**credentials)
-            if user:
-                if not user.is_active:
-                    msg = 'User account is disabled'
-                    raise serializers.ValidationError(msg)
-                login(self.context['request'], user)
-            else:
-                msg = 'Unable to login with provided credentials.'
+        user = authenticate(**credentials)
+        if user:
+            if not user.is_active:
+                msg = 'User account is disabled'
                 raise serializers.ValidationError(msg)
+            login(self.context['request'], user)
         else:
-            msg = 'Please provide email and password fields'
+            msg = 'Unable to login with provided credentials.'
             raise serializers.ValidationError(msg)
 
         return user

@@ -7,8 +7,9 @@ class AuthenticationService extends base {
     return ['display_name', 'email'];
   }
 
-  constructor($rootScope, $http, User) {
+  constructor($rootScope, $http) {
     'ngInject';
+    super();
     this.$rootScope=$rootScope;
     this.$http=$http;
     this._credentials = {};

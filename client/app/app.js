@@ -1,16 +1,30 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngMaterial from 'angular-material';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
-import AppRun from './app.run';
-import AppConfig from './app.config';
+import AppMaterial from './app.material';
 import 'normalize.css';
+import '../../node_modules/angular-material/angular-material.css';
 
 angular.module('app', [
     uiRouter,
+    ngMaterial,
     Common,
     Components
-]).config(AppConfig)
-  .run(AppRun)
-  .component('app', AppComponent);
+]).config(($stateProvider, $locationProvider, $urlRouterProvider) => {
+  "ngInject";
+  $locationProvider.html5Mode(false).hashPrefix('!');
+  $stateProvider
+    .state('app', {
+      abstract: true,
+      url: '/',
+      data: {
+        loggedIn: false
+      }
+    });
+    $urlRouterProvider.otherwise('/login');
+})
+.config(AppMaterial)
+.component('app', AppComponent);

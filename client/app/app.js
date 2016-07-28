@@ -19,10 +19,7 @@ angular.module('app', [
   $stateProvider
     .state('app', {
       abstract: true,
-      url: '/',
-      data: {
-        loggedIn: false
-      }
+      url: '/'
     });
     $urlRouterProvider.otherwise('/login');
 })

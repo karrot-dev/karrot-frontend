@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from yunity.groups.serializers import GroupSerializer
 from yunity.groups.models import Group as GroupModel
 
+
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer

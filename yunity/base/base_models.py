@@ -1,4 +1,4 @@
-from django.db.models import Model, AutoField, Field, DateTimeField
+from django.db.models import Model, AutoField, Field, DateTimeField, TextField, FloatField
 from django.db.models.fields.related import RelatedField
 from django.utils import timezone
 
@@ -30,3 +30,12 @@ class BaseModel(Model):
         columns = ', '.join('{}="{}"'.format(field, value)
                             for field, value in self.to_dict().items())
         return '{}({})'.format(model, columns)
+
+
+class LocationModel(Model):
+    class Meta:
+        abstract = True
+
+    address = TextField(null=True)
+    latitude = FloatField(null=True)
+    longitude = FloatField(null=True)

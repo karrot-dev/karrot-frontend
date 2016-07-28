@@ -6,7 +6,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GroupModel
-        fields = ['id', 'name', 'description', 'members']
+        fields = ['id', 'name', 'description', 'members', 'address', 'latitude', 'longitude']
         extra_kwargs = {
             'members': {'read_only': True}
         }

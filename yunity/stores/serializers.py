@@ -25,4 +25,4 @@ class PickupDateSerializer(serializers.Serializer):
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = StoreModel
-        fields = ['id', 'name', 'description', 'group']
+        fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude']

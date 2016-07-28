@@ -1,3 +1,4 @@
+from rest_framework import filters
 from rest_framework import mixins, viewsets, status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
@@ -15,6 +16,8 @@ class StoreViewSet(mixins.CreateModelMixin,
     serializer_class = StoreSerializer
     queryset = StoreModel.objects
     filter_fields = ('group',)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'description')
 
 
 class PickupDatesViewSet(mixins.CreateModelMixin,

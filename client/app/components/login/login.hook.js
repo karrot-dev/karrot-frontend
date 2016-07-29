@@ -2,11 +2,9 @@ let loginHook = ($transitions) => {
   'ngInject';
   $transitions.onBefore(
     {to: 'login'},
-    () => {
-      'ngInject';
-      console.log("to login!");
-      return true;
-      //return Authentication.isLoggedIn;
+    (transition) => {
+      var auth=transition.injector().get('Authentication');
+      return !auth.isLoggedIn;
     }
   );
 };

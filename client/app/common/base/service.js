@@ -1,14 +1,23 @@
 class base {
-  validate(o) {
-    for (prop of this.properties) {
-      if(!o.hasOwnProperty(prop))
+
+  static properties () {
+    return [];
+  }
+
+  validate(o, cb, conc) {
+    if(Array.isArray(cb)) {
+      cb = null;
+      conc = cb;
+    }
+    var props=this.constructor.properties();
+    if(conc) props=props.concat(conc);
+    for (let p of props) {
+      if(!o.hasOwnProperty(p) || (cb?cb.call(this,p,o):o[p]+"" === ""))
         return false;
     }
     return true;
   }
-  constructor() {
-
-  }
+  constructor() {}
 }
 
 export default base;

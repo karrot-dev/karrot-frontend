@@ -3,7 +3,7 @@ import base from '../base/service';
 
 class AuthenticationService extends base {
 
-  static get properties () {
+  static properties () {
     return ['display_name', 'email'];
   }
 
@@ -32,16 +32,18 @@ class AuthenticationService extends base {
   }
 
   update() {
-    return this.$http.post('/api/auth/status/')
+    this.$http.get('/api/auth/status/')
     .then((data) => {
+      data=data.data;
       if(!this.validate(data)) {
         this.$rootScope.$broadcast("authentication.update.fail");
         this.isLoggedIn=false;
-        return Promise.reject("Not logged in");
       } else {
+        console.log("validation success");
         this._credentials=data;
+        console.log(this._credentials);
         this.$rootScope.$broadcast("authentication.update.success");
-        return this.User.user(this._credentials.id);
+        console.log("broadcasted authentication.update.success");
       }
     }, () => {
       this._credentials={};

@@ -4,16 +4,18 @@ let homeHook = ($transitions) => {
     {to: 'home.*'},
     (transition) => {
       var auth=transition.injector().get('Authentication'),
-          $state=transition.injector().get('$state');
-      console.log("to home!");
+          $state=transition.injector().get('$state'),
+          $rootScope=transition.injector().get('$rootScope');
       return new Promise((resolve, reject) => {
         auth.update();
-        $rootScope.
-          $on('authentication.update.success', () => {resolve()});
-        $rootScope.
-          $on('authentication.update.error', () => {reject()});
-        $rootScope.
-          $on('authentication.update.fail', () => {reject()});
+        return new Promise((resolve, reject) => {
+          $rootScope.
+            $on('authentication.update.success', () => {resolve()});
+          $rootScope.
+            $on('authentication.update.error', () => {reject()});
+          $rootScope.
+            $on('authentication.update.fail', () => {reject()});
+        }).then(() => {resolve();}, () => {reject();});
       }).then(() => {
         return true;
       }, () => {

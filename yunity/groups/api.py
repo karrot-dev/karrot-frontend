@@ -1,3 +1,4 @@
+from rest_framework import filters
 from rest_framework import status, viewsets
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
@@ -10,6 +11,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer
     filter_fields = ('members',)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'description')
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @detail_route(methods=['POST', 'GET'],

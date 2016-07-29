@@ -4,11 +4,10 @@ import LoginComponent from './login.component';
 import LoginTemplate from './login.html';
 
 describe('Login', () => {
-  let $rootScope, makeController;
+  let makeController;
 
   beforeEach(window.module(LoginModule));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
+  beforeEach(inject(() => {
     makeController = () => {
       return new LoginController();
     };

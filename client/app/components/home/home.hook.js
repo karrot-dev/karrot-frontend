@@ -10,12 +10,22 @@ let homeHook = ($transitions) => {
         auth.update();
         return new Promise((resolve, reject) => {
           $rootScope.
-            $on('authentication.update.success', () => {resolve()});
+            $on('authentication.update.success', () => {
+              resolve()
+            });
           $rootScope.
-            $on('authentication.update.error', () => {reject()});
+            $on('authentication.update.error', () => {
+              reject()
+            });
           $rootScope.
-            $on('authentication.update.fail', () => {reject()});
-        }).then(() => {resolve();}, () => {reject();});
+            $on('authentication.update.fail', () => {
+              reject()
+            });
+        }).then(() => {
+          resolve();
+        }, () => {
+          reject();
+        });
       }).then(() => {
         return true;
       }, () => {

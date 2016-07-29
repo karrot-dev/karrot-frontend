@@ -3,13 +3,10 @@
 import gulp     from 'gulp';
 import webpack  from 'webpack';
 import path     from 'path';
-import sync     from 'run-sequence';
 import rename   from 'gulp-rename';
 import template from 'gulp-template';
 import eslint   from 'gulp-eslint';
-import fs       from 'fs';
 import yargs    from 'yargs';
-import lodash   from 'lodash';
 import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
@@ -74,9 +71,9 @@ gulp.task('webpack', ['clean'], (cb) => {
 
 gulp.task('lint', () => {
   return gulp.src([
-      '**/*.js', 
-      '!node_modules/**', 
-      '!dist/**', 
+      '**/*.js',
+      '!node_modules/**',
+      '!dist/**',
       '!generator/**'
     ])
     .pipe(eslint())
@@ -103,8 +100,8 @@ gulp.task('serve', () => {
 
       // to yunity-core
       proxy([
-        '/api', 
-        '/docs', 
+        '/api',
+        '/docs',
         '/static/rest_framework',
         '/static/rest_framework_swagger'
       ], {

@@ -27,7 +27,7 @@ module.exports = {
     // If you are using more complicated project structure, consider to specify common chunks manually.
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: function (module, count) {
+      minChunks: function (module) {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
       }
     })

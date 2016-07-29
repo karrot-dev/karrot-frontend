@@ -2,9 +2,8 @@ machine:
   node:
     version: 5.5.0
 dependencies:
-  pre:
-    - npm run lint
   post:
+    - npm run lint
     - npm run build
 general:
   artifacts:

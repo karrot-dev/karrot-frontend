@@ -4,6 +4,9 @@ machine:
 dependencies:
   post:
     - npm run build
+test:
+  pre:
+    - npm run lint
 general:
   artifacts:
     - dist

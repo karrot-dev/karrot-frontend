@@ -6,6 +6,7 @@ import path     from 'path';
 import sync     from 'run-sequence';
 import rename   from 'gulp-rename';
 import template from 'gulp-template';
+import eslint   from 'gulp-eslint';
 import fs       from 'fs';
 import yargs    from 'yargs';
 import lodash   from 'lodash';
@@ -13,6 +14,7 @@ import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
 import proxy    from 'http-proxy-middleware';
+import runSequence          from 'run-sequence';
 import webpackDevMiddelware from 'webpack-dev-middleware';
 import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
@@ -46,6 +48,10 @@ let paths = {
   dest: path.join(__dirname, 'dist')
 };
 
+gulp.task('dist', (cb) => {
+  runSequence('lint', 'webpack', cb);
+});
+
 // use webpack.config.js to build modules
 gulp.task('webpack', ['clean'], (cb) => {
   const config = require('./webpack.dist.config');
@@ -64,6 +70,18 @@ gulp.task('webpack', ['clean'], (cb) => {
 
     cb();
   });
+});
+
+gulp.task('lint', () => {
+  return gulp.src([
+      '**/*.js', 
+      '!node_modules/**', 
+      '!dist/**', 
+      '!generator/**'
+    ])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('serve', () => {

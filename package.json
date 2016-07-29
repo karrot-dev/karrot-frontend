@@ -62,7 +62,8 @@
     "build": "NODE_ENV=production gulp webpack",
     "dev": "gulp",
     "lint": "gulp lint",
-    "test": "karma start"
+    "test": "karma start",
+    "test:watch": "karma start --no-single-run --auto-watch"
   },
   "keywords": [
     "angular",

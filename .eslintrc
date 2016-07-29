@@ -13,7 +13,6 @@
     "no-implied-eval": 2,
     "no-implicit-coercion": 2,
     "no-throw-literal": 2,
-    "no-unused-vars": [2, {"varsIgnorePattern": "(angular|mocks)"}],
     "brace-style": 2
   },
   "env": {

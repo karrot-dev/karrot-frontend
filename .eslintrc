@@ -2,12 +2,24 @@
   "extends": "eslint:recommended",
   "plugins": ["angular"],
   "rules": {
-    "angular/no-service-method": 0
+    "angular/no-service-method": 0,
+    "no-extra-parens": 2,
+    "dot-notation": 2,
+    "eqeqeq": 2,
+    "guard-for-in": 2,
+    "no-alert": 2,
+    "no-caller": 2,
+    "no-eval": 2,
+    "no-implied-eval": 2,
+    "no-implicit-coercion": 2,
+    "no-throw-literal": 2,
+    "no-unused-vars": [2, {"varsIgnorePattern": "(angular|mocks)"}],
+    "brace-style": 2
   },
   "env": {
     "es6": true,
     "browser": true,
-    "jasmine": true,
+    "mocha": true,
     "node": true
   },
   "ecmaFeatures": {
@@ -15,10 +27,12 @@
   },
   "parserOptions": {
     "sourceType": "module",
+    "ecmaVersion": 6
   },
   "globals": {
     "angular": true,
     "module": true,
-    "inject": true
+    "inject": true,
+    "expect": true
   }
 }

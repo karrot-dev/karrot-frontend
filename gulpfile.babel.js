@@ -12,6 +12,7 @@ import lodash   from 'lodash';
 import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
+import proxy    from 'http-proxy-middleware';
 import webpackDevMiddelware from 'webpack-dev-middleware';
 import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
@@ -81,6 +82,25 @@ gulp.task('serve', () => {
     open: false,
     server: {baseDir: root},
     middleware: [
+
+      // to yunity-core
+      proxy([
+        '/api', 
+        '/docs', 
+        '/static/rest_framework',
+        '/static/rest_framework_swagger'
+      ], {
+        target: 'http://localhost:8000',
+        changeOrigin: true
+      }),
+
+      // to yunity-sockets
+      proxy('/socket', {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        ws: true
+      }),
+
       historyApiFallback(),
       webpackDevMiddelware(compiler, {
         stats: {

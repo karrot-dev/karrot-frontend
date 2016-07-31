@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from yunity.users.serializers import UserSerializer
 
 
-class IsRequestUser(BasePermission):
+class IsSameUser(BasePermission):
     message = 'You can modify only your own user data.'
 
     def has_object_permission(self, request, view, obj):
@@ -25,6 +25,6 @@ class UserViewSet(viewsets.ModelViewSet):
         elif self.action in ('list', 'retrieve'):
             self.permission_classes = (IsAuthenticated,)
         else:
-            self.permission_classes = (IsRequestUser,)
+            self.permission_classes = (IsSameUser,)
 
         return super().get_permissions()

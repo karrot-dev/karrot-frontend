@@ -1,68 +1,37 @@
-import angular from 'angular';
-import base from '../base/service';
-
-class AuthenticationService extends base {
-
-  static properties () {
-    return ['display_name', 'email'];
-  }
+class AuthCommunicationService {
 
   constructor($rootScope, $http) {
     'ngInject';
-    super();
-    this.$rootScope=$rootScope;
     this.$http=$http;
-    this._credentials = {};
-    this._isLoggedIn=false;
-  }
-
-  get credentials() {
-    return angular.copy(this._credentials);
-  }
-
-  get isLoggedIn() {
-    return this._isLoggedIn;
   }
 
   login(email,password) {
-    this.$http.post('/api/auth/',{email,password})
+    return this.$http.post('/api/auth/',{email,password})
     .then((data) => {
-      this._credentials=data;
-      this._isLoggedIn=true;
-      this.$rootScope.$broadcast("authentication.login.success");
+      return Promise.resolve(data.data);
     }, (data) => {
-      this.$rootScope.$broadcast("authentication.login.fail", data);
+      return Promise.reject(data);
     });
   }
 
   update() {
-    this.$http.get('/api/auth/status/')
+    return this.$http.get('/api/auth/status/')
     .then((data) => {
-      data=data.data;
-      if(!this.validate(data)) {
-        this.$rootScope.$broadcast("authentication.update.fail");
-        this._isLoggedIn=false;
-      } else {
-        this._credentials=data;
-        this.$rootScope.$broadcast("authentication.update.success");
-      }
+      return Promise.resolve(data.data);
     }, () => {
-      this._credentials={};
-      this._isLoggedIn=false;
-      this.$rootScope.$broadcast("authentication.update.error");
+      return Promise.reject();
     });
   }
 
   logout() {
-    this.$http.post('/api/auth/logout/',{email:'',password:''})
+    var email='',password='';
+    return this.$http.post('/api/auth/logout/',{email,password})
     .then(() => {
-      this._credentials={};
-      this._isLoggedIn=false;
-      this.$rootScope.$broadcast("authentication.logout.success");
+      return Promise.resolve()
     }, () => {
-      this.$rootScope.$broadcast("authentication.logout.error");
+      return Promise.reject();
     });
   }
 }
 
-export default AuthenticationService;
+export default AuthCommunicationService;

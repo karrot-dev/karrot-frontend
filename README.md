@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/yunity/yunity-angular.png?label=ready&title=Ready)](https://waffle.io/yunity/yunity-angular)
 [![CircleCI](https://circleci.com/gh/yunity/yunity-angular.svg?style=svg)](https://circleci.com/gh/yunity/yunity-angular)
 
 #Yunity Angular

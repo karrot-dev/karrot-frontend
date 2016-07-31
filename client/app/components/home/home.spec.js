@@ -1,15 +1,13 @@
 import HomeModule from './home'
 
 describe('Home', () => {
-  let $rootScope, $state, $location, $componentController, $compile;
+  let $rootScope, $componentController, $compile;
 
   beforeEach(window.module(HomeModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
     $componentController = $injector.get('$componentController');
-    $state = $injector.get('$state');
-    $location = $injector.get('$location');
     $compile = $injector.get('$compile');
   }));
 
@@ -33,11 +31,11 @@ describe('Home', () => {
 
   describe('View', () => {
     // view layer specs.
-    let scope, template;
+    let scope;
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<home></home>')(scope);
+      $compile('<home></home>')(scope);
       scope.$apply();
     });
 

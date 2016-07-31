@@ -4,15 +4,9 @@ import LoginComponent from './login.component';
 import LoginTemplate from './login.html';
 
 describe('Login', () => {
-  let $rootScope, $state, $location, $componentController, $compile;
 
   beforeEach(window.module(LoginModule));
-  beforeEach(inject(($injector) => {
-    $rootScope = $injector.get('$rootScope');
-    $componentController = $injector.get('$componentController');
-    $state = $injector.get('$state');
-    $location = $injector.get('$location');
-    $compile = $injector.get('$compile');
+  beforeEach(inject((/*$injector*/) => {
   }));
 
   describe('Module', () => {

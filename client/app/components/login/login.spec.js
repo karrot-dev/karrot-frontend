@@ -4,13 +4,15 @@ import LoginComponent from './login.component';
 import LoginTemplate from './login.html';
 
 describe('Login', () => {
-  let makeController;
+  let $rootScope, $state, $location, $componentController, $compile;
 
   beforeEach(window.module(LoginModule));
-  beforeEach(inject(() => {
-    makeController = () => {
-      return new LoginController();
-    };
+  beforeEach(inject(($injector) => {
+    $rootScope = $injector.get('$rootScope');
+    $componentController = $injector.get('$componentController');
+    $state = $injector.get('$state');
+    $location = $injector.get('$location');
+    $compile = $injector.get('$compile');
   }));
 
   describe('Module', () => {
@@ -19,18 +21,11 @@ describe('Login', () => {
 
   describe('Controller', () => {
     // controller specs
-    it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
-      let controller = makeController();
-      expect(controller).to.have.property('name');
-    });
   });
 
   describe('Template', () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
-    it('has name in template [REMOVE]', () => {
-      expect(LoginTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
-    });
   });
 
   describe('Component', () => {

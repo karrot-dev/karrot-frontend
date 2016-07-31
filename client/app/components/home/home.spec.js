@@ -15,11 +15,6 @@ describe('Home', () => {
 
   describe('Module', () => {
     // top-level specs: i.e., routes, injection, naming
-    it('default component should be home', () => {
-      $location.url('/');
-      $rootScope.$digest();
-      expect($state.current.component).to.eq('home');
-    });
   });
 
   describe('Controller', () => {
@@ -47,7 +42,7 @@ describe('Home', () => {
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('Found in home.html');
+
     });
 
   });

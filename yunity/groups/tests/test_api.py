@@ -13,6 +13,11 @@ class TestGroupsAPI(APITestCase):
         cls.user = User()
         cls.group = GroupFactory()
         cls.url = '/api/groups/'
+        cls.group_data = {'name': faker.name(),
+                          'description': faker.text(),
+                          'address': faker.address(),
+                          'latitude': faker.latitude(),
+                          'longitude': faker.longitude()}
 
     def test_create_group(self):
         self.client.force_login(user=self.user)
@@ -24,29 +29,74 @@ class TestGroupsAPI(APITestCase):
 
     def test_create_group_with_location(self):
         self.client.force_login(user=self.user)
-        data = {'name': faker.name(),
-                'description': faker.text(),
-                'address': faker.address(),
-                'latitude': faker.latitude(),
-                'longitude': faker.longitude()}
-        response = self.client.post(self.url, data, format='json')
+        response = self.client.post(self.url, self.group_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data['name'], data['name'])
-        self.assertEqual(GroupModel.objects.get(name=data['name']).description, data['description'])
-        self.assertEqual(response.data['address'], data['address'])
+        self.assertEqual(response.data['name'], self.group_data['name'])
+        self.assertEqual(GroupModel.objects.get(name=self.group_data['name']).description,
+                         self.group_data['description'])
+        self.assertEqual(response.data['address'], self.group_data['address'])
 
     def test_create_group_fails_if_not_logged_in(self):
         data = {'name': 'random_name', 'description': 'still alive'}
         response = self.client.post(self.url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_get_groups(self):
+    def test_list_groups(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_get_groups_as_user(self):
+    def test_list_groups_as_user(self):
         self.client.force_login(user=self.user)
         response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_retrieve_group(self):
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_retrieve_group_as_user(self):
+        self.client.force_login(user=self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_patch_group(self):
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.patch(url, self.group_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_patch_group_as_user(self):
+        self.client.force_login(user=self.user)
+        self.group.members.remove(self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.patch(url, self.group_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_patch_group_as_member(self):
+        self.client.force_login(user=self.user)
+        self.group.members.add(self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.patch(url, self.group_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_put_group(self):
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.put(url, self.group_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_put_group_as_user(self):
+        self.client.force_login(user=self.user)
+        self.group.members.remove(self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.put(url, self.group_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_put_group_as_member(self):
+        self.client.force_login(user=self.user)
+        self.group.members.add(self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.put(url, self.group_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_join_group(self):
@@ -68,3 +118,22 @@ class TestGroupsAPI(APITestCase):
         self.group.members.add(self.user)
         response = self.client.post('/api/groups/1/leave/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_delete_group(self):
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_delete_group_as_user(self):
+        self.client.force_login(user=self.user)
+        self.group.members.remove(self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_delete_group_as_member(self):
+        self.client.force_login(user=self.user)
+        self.group.members.add(self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

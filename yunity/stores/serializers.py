@@ -26,3 +26,8 @@ class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = StoreModel
         fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude']
+
+    def validate_group(self, group_id):
+        if group_id not in self.context['request'].user.groups.all():
+            raise serializers.ValidationError('You are not member of the given group.')
+        return group_id

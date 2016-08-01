@@ -10,14 +10,14 @@ class TestStoresAPI(APITestCase):
         super().setUpClass()
         cls.url = '/api/stores/'
         cls.group = Group()
-        cls.user_data = {'name': faker.name(),
-                         'description': faker.name(),
-                         'group': cls.group.id,
-                         'address': faker.address(),
-                         'latitude': faker.latitude(),
-                         'longitude': faker.longitude()}
+        cls.store_data = {'name': faker.name(),
+                          'description': faker.name(),
+                          'group': cls.group.id,
+                          'address': faker.address(),
+                          'latitude': faker.latitude(),
+                          'longitude': faker.longitude()}
 
     def test_create(self):
-        response = self.client.post(self.url, self.user_data, format='json')
+        response = self.client.post(self.url, self.store_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['name'], self.user_data['name'])

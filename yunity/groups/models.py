@@ -6,4 +6,4 @@ from config import settings
 class Group(BaseModel, LocationModel):
     name = TextField()
     description = TextField(null=True)
-    members = ManyToManyField(settings.AUTH_USER_MODEL)
+    members = ManyToManyField(settings.AUTH_USER_MODEL, related_name='groups')

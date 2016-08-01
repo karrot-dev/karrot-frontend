@@ -1,5 +1,5 @@
+from django.utils import timezone
 from factory import DjangoModelFactory, SubFactory, LazyFunction
-from faker.utils.datetime_safe import datetime
 from yunity.groups.factories import Group
 from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
 
@@ -18,5 +18,5 @@ class PickupDate(DjangoModelFactory):
         model = PickupDateModel
 
     store = SubFactory(Store)
-    date = LazyFunction(datetime.utcnow)
-    max_collectors = None
+    date = LazyFunction(timezone.now)
+    max_collectors = 5

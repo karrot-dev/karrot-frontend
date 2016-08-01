@@ -26,6 +26,9 @@ class PickupDatesViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,)
     permission_classes = (IsAuthenticated,)
 
+    def get_queryset(self):
+        return self.queryset.filter(store__group__members=self.request.user)
+
     @detail_route(methods=['POST', 'GET'])
     def add(self, request, pk=None):
         pickupdate = self.get_object()

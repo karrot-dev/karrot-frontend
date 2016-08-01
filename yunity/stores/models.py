@@ -11,6 +11,6 @@ class PickupDate(BaseModel):
 
 
 class Store(BaseModel, LocationModel):
-    group = models.ForeignKey('groups.Group', on_delete=models.CASCADE)
+    group = models.ForeignKey('groups.Group', on_delete=models.CASCADE, related_name='store')
     name = models.TextField()
     description = models.TextField(null=True)

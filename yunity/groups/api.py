@@ -1,10 +1,17 @@
 from rest_framework import filters
 from rest_framework import status, viewsets
 from rest_framework.decorators import detail_route
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, BasePermission
 from rest_framework.response import Response
 from yunity.groups.serializers import GroupSerializer
 from yunity.groups.models import Group as GroupModel
+
+
+class IsMember(BasePermission):
+    message = 'You are not a member.'
+
+    def has_object_permission(self, request, view, obj):
+        return request.user in obj.members.all()
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -13,7 +20,14 @@ class GroupViewSet(viewsets.ModelViewSet):
     filter_fields = ('members',)
     filter_backends = (filters.SearchFilter,)
     search_fields = ('name', 'description')
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get_permissions(self):
+        if self.action in ('update', 'partial_update', 'destroy'):
+            self.permission_classes = (IsMember,)
+        else:
+            self.permission_classes = (IsAuthenticatedOrReadOnly,)
+
+        return super().get_permissions()
 
     @detail_route(methods=['POST', 'GET'],
                   permission_classes=(IsAuthenticated,))

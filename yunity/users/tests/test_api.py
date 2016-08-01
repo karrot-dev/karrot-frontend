@@ -27,13 +27,24 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(response.data['email'], self.user_data['email'])
         self.assertAlmostEqual(response.data['latitude'], float(self.user_data['latitude']))
 
-    def test_get_users_forbidden(self):
+    def test_list_users_forbidden(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_get_users_allowed(self):
+    def test_list_users_allowed(self):
         self.client.force_login(user=self.user)
         response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_retrieve_user_forbidden(self):
+        url = self.url + str(self.user.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_retrieve_user_allowed(self):
+        self.client.force_login(user=self.user2)
+        url = self.url + str(self.user.id) + '/'
+        response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_patch_user_forbidden(self):

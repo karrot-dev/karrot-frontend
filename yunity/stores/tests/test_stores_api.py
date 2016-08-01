@@ -12,7 +12,7 @@ class TestStoresAPI(APITestCase):
         super().setUpClass()
         cls.url = '/api/stores/'
 
-        # group with one member and one store
+        # group with two members and one store
         cls.member = User()
         cls.member2 = User()
         cls.group = Group(members=[cls.member, cls.member2])

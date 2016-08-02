@@ -24,7 +24,7 @@ class ChatViewSet(mixins.CreateModelMixin,
 
     def get_serializer_class(self):
         serializer_class = self.serializer_class
-        if self.request.method == 'PUT':
+        if self.action in ('update', 'partial_update'):
             serializer_class = ConversationUpdateSerializer
         return serializer_class
 
@@ -41,6 +41,6 @@ class ChatMessageViewSet(mixins.CreateModelMixin,
         return self.queryset.filter(in_conversation=chat_id)
 
     def create(self, request, *args, **kwargs):
-        "chat_pk isn't available in the serializer, so insert it here"
+        # chat_pk isn't available in the serializer, so insert it here
         request.data['in_conversation_id'] = kwargs.pop('conversations_pk')
         return super().create(request, *args, **kwargs)

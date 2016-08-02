@@ -13,7 +13,6 @@ hiredis
 markdown
 psycopg2
 redis
-six
 flake8
 pytz
 django-filter

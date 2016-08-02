@@ -29,4 +29,4 @@ python-dateutil==2.5.3    # via fake-factory
 pytz==2016.6.1
 PyYAML==3.11              # via django-rest-swagger
 redis==2.10.5
-six==1.10.0
+six==1.10.0               # via django-extensions, fake-factory, python-dateutil

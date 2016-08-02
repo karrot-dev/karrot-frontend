@@ -88,5 +88,5 @@ class ConversationSerializer(serializers.Serializer):
 class ConversationUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConversationModel
-        fields = ['topic', ]
+        fields = ['id', 'topic', ]
         extra_kwargs = {'topic': {'required': False, 'max_length': MAX_TOPIC_LENGTH}}

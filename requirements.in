@@ -3,7 +3,6 @@ django
 django-cors-headers
 django-enumfield
 django-extensions
-django-polymorphic
 django-redis
 django-rest-swagger
 djangorestframework

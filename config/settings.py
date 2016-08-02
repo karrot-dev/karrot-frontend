@@ -47,9 +47,6 @@ INSTALLED_APPS = (
     'rest_framework_nested',
     'rest_framework_swagger',
 
-    # extra libs
-    'polymorphic',
-
     # Application
     'yunity',
     'yunity.userauth',

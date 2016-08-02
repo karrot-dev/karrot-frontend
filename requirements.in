@@ -12,7 +12,6 @@ fake-factory
 hiredis
 markdown
 psycopg2
-PyYAML
 redis
 six
 flake8

@@ -23,7 +23,7 @@ class TestConversationsAPI(APITestCase):
 
         # another chat
         cls.conversation_data = {'topic': faker.name(),
-                                 'with_participants': [cls.participant2.id,],
+                                 'with_participants': [cls.participant2.id, ],
                                  'message': faker.text()}
         cls.patch_data = {'topic': 'new topic'}
         cls.put_data = {'topic': 'new topic'}

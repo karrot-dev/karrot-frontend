@@ -1,11 +1,11 @@
 coverage
-django==1.9.*
+django
 django-cors-headers
 django-enumfield==1.3b2
 django-extensions
 django-redis
 django-rest-swagger==0.3.*
-djangorestframework==3.3.*
+djangorestframework
 drf-nested-routers
 factory-boy
 hiredis

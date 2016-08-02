@@ -54,10 +54,8 @@ happens.
 ## Update requirement packages
 pip-tools is used to manage requirements. To use the latest possible requirements, do:
 
-- pip install pip-tools
-- pip-compile --upgrade
-
-Use pip-compile --upgrade -p to include prereleases.
+- `pip install pip-tools`
+- `pip-compile --upgrade`
 
 ## Contributing to yunity-core
 To contribute, please get in contact with us. We want to follow a pull request / code review cycle as soon as possible but in our early design stages we prefer to work in teams at the same desk.

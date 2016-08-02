@@ -8,7 +8,6 @@ django-rest-swagger
 djangorestframework
 drf-nested-routers
 factory-boy
-fake-factory
 hiredis
 markdown
 psycopg2

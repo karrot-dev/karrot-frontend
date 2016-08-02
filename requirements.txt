@@ -17,7 +17,7 @@ django==1.9.7
 djangorestframework==3.3.3
 drf-nested-routers==0.11.1
 factory-boy==2.7.0
-fake-factory==0.5.7
+fake-factory==0.5.7       # via factory-boy
 flake8==2.6.2
 hiredis==0.2.0
 markdown==2.6.6

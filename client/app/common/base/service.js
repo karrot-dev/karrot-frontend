@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 class base {
 
   static properties () {
@@ -22,6 +24,18 @@ class base {
       }
     }
     return true;
+  }
+
+  static resolvePrivateKey(pk) {
+    if(angular.isObject(pk)) {
+      if(pk['pk'])
+        pk=pk['pk'];
+      else
+        return null;
+    }
+    if(isNaN(pk))
+      return null;
+    return pk;
   }
   constructor() {}
 }

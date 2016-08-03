@@ -5,6 +5,10 @@ dependencies:
   post:
     - npm run lint
     - npm run build
+test:
+  override:
+    - npm run test -- --reporters junit
+    - mv TESTS*.xml $CIRCLE_TEST_REPORTS/
 general:
   artifacts:
     - dist

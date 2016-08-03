@@ -1,5 +1,5 @@
 from rest_framework import filters
-from rest_framework import mixins, viewsets, status
+from rest_framework import viewsets, status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -7,29 +7,27 @@ from yunity.stores.serializers import StoreSerializer, PickupDateSerializer
 from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
 
 
-class StoreViewSet(mixins.CreateModelMixin,
-                   mixins.ListModelMixin,
-                   mixins.RetrieveModelMixin,
-                   mixins.UpdateModelMixin,
-                   mixins.DestroyModelMixin,
-                   viewsets.GenericViewSet):
+class StoreViewSet(viewsets.ModelViewSet):
     serializer_class = StoreSerializer
     queryset = StoreModel.objects
     filter_fields = ('group',)
     filter_backends = (filters.SearchFilter,)
     search_fields = ('name', 'description')
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return self.queryset.filter(group__members=self.request.user)
 
 
-class PickupDatesViewSet(mixins.CreateModelMixin,
-                         mixins.ListModelMixin,
-                         mixins.RetrieveModelMixin,
-                         mixins.UpdateModelMixin,
-                         mixins.DestroyModelMixin,
-                         viewsets.GenericViewSet):
+class PickupDatesViewSet(viewsets.ModelViewSet):
     serializer_class = PickupDateSerializer
     queryset = PickupDateModel.objects
-    permission_classes = (IsAuthenticated,)
     filter_fields = ('store',)
+    filter_backends = (filters.SearchFilter,)
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return self.queryset.filter(store__group__members=self.request.user)
 
     @detail_route(methods=['POST', 'GET'])
     def add(self, request, pk=None):

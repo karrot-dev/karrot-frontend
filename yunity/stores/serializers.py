@@ -21,8 +21,18 @@ class PickupDateSerializer(serializers.Serializer):
         pickupdate.save()
         return pickupdate
 
+    def validate_store(self, store_id):
+        if not self.context['request'].user.groups.filter(store=store_id).all():
+            raise serializers.ValidationError('You are not member of the store\'s group.')
+        return store_id
+
 
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = StoreModel
         fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude']
+
+    def validate_group(self, group_id):
+        if group_id not in self.context['request'].user.groups.all():
+            raise serializers.ValidationError('You are not member of the given group.')
+        return group_id

@@ -1,7 +1,10 @@
+import angular from 'angular';
+
 class LoginController {
-  constructor() {
+  constructor($scope, Authentication) {
     'ngInject';
     this.name = 'login';
+    $scope.credentials={user:'',password:'',remember:''};
   }
 }
 

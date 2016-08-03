@@ -5,27 +5,30 @@
     <div flex="nogrow" layout="column">
       <div flex></div>
       <div flex>
-        <form>
+        <form login-form>
           <h2>Login</h2>
           <md-input-container class="md-block">
             <label>Email</label>
-            <input type="email" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+            <input type="email" name="email" required minlength="10" maxlength="100" ng-model="user" ng-pattern="/^(([a-zA-Z]|[0-9])|([-]|[_]|[.]))+[@](([a-zA-Z0-9])|([-])){2,63}[.](([a-zA-Z0-9]){2,63})+$/i"/>
           </md-input-container>
           <md-input-container class="md-block">
             <label>Password</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password" required ng-model="password">
           </md-input-container>
 
-          <md-switch class="md-primary" md-no-ink aria-label="Remember me">
+          <md-switch class="md-primary" md-no-ink aria-label="Remember me" ng-model="remember">
             Remember me
           </md-switch>
 
-          <md-button class="md-raised md-accent" type="submit" ui-sref="home">
+          <md-button class="md-raised md-accent" type="submit">
             Login
           </md-button>
-          <md-button href="#/signUp">
+          <md-button ui-sref="signUp">
             Sign up!
           </md-button>
+          <label ng-bind="$ctrl.remember"></label>
+          <label ng-bind="$ctrl.password"></label>
+          <label ng-bind="$ctrl.user"></label>
         </form>
       </div>
     </div>

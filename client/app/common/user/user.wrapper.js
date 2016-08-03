@@ -1,4 +1,3 @@
-import angular from 'angular';
 import base from '../base/service';
 
 class UserService extends base {

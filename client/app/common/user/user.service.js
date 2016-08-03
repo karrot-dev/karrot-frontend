@@ -5,8 +5,8 @@ class AuthCommunicationService {
     this.$http=$http;
   }
 
-  users(search) {
-    return this.$http.get('/api/users/',{params: {email,password}})
+  users(/*search*/) {
+    return this.$http.get('/api/users/')
     .then((data) => {
       return Promise.resolve(data.data);
     }, (data) => {

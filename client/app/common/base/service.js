@@ -28,8 +28,8 @@ class base {
 
   static resolvePrivateKey(pk) {
     if(angular.isObject(pk)) {
-      if(pk['pk'])
-        pk=pk['pk'];
+      if(pk.pk)
+        pk=pk.pk;
       else
         return null;
     }

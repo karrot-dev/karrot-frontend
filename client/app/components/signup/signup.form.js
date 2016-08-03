@@ -2,7 +2,7 @@ var signupForm = (User, $state) => {
   'ngInject';
   return {
     restrict: 'A',
-    link: (scope, element, attrs) => {
+    link: (scope, element/*, attrs*/) => {
       element.on('submit', () => {
         if(!scope.password || scope.password!==scope.passwordrepeat || scope.password.length < 1) {
           alert("Set a good password!");
@@ -18,7 +18,7 @@ var signupForm = (User, $state) => {
         User.create(user)
         .then(() => {
           $state.go('login');
-        }, (err) => {
+        }, (/*err*/) => {
           alert('Signup failed');
           //do shake animation on submit button and show error
         });

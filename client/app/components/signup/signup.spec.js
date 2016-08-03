@@ -4,11 +4,11 @@ import SignupComponent from './signup.component';
 import SignupTemplate from './signup.html';
 
 describe('Signup', () => {
-  let $rootScope, makeController;
+  let /*$rootScope, */makeController;
 
   beforeEach(window.module(SignupModule));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
+  beforeEach(inject((/*_$rootScope_*/) => {
+    /*$rootScope = _$rootScope_;*/
     makeController = () => {
       return new SignupController();
     };

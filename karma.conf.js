@@ -18,6 +18,7 @@ module.exports = function (config) {
       require("karma-chrome-launcher"),
       require("karma-mocha"),
       require("karma-mocha-reporter"),
+      require("karma-junit-reporter"),
       require("karma-sourcemap-loader"),
       require("karma-webpack")
     ],

@@ -30,7 +30,6 @@ The manage.py application can be used to perform administrative tasks:
 
   - makemigrations: Create database migrations
   - migrate: Apply database migrations
-  - remakeallmigrations: Remove and recreate all migrations
   - shell\_plus: (requires ipython) for playing in a django python environment
   - test: Run automated tests
 

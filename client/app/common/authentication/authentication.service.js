@@ -1,6 +1,6 @@
 class AuthCommunicationService {
 
-  constructor($rootScope, $http) {
+  constructor($http) {
     'ngInject';
     this.$http=$http;
   }

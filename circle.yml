@@ -12,6 +12,7 @@ test:
     - flake8 ./
   post:
     - coverage html -d $CIRCLE_ARTIFACTS
+    - pip install codecov && codecov
 deployment:
   dev:
     branch: master

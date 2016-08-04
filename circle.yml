@@ -7,8 +7,10 @@ dependencies:
     - npm run build
 test:
   override:
-    - npm run test -- --reporters junit
+    - NODE_ENV=test npm test -- --reporters junit,coverage
     - mv TESTS*.xml $CIRCLE_TEST_REPORTS/
+  post:
+    - bash <(curl -s https://codecov.io/bash)
 general:
   artifacts:
     - dist

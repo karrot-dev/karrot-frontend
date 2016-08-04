@@ -16,6 +16,7 @@ module.exports = function (config) {
     plugins: [
       require("karma-chai"),
       require("karma-chrome-launcher"),
+      require("karma-coverage"),
       require("karma-mocha"),
       require("karma-mocha-reporter"),
       require("karma-junit-reporter"),
@@ -64,6 +65,13 @@ module.exports = function (config) {
     browsers: ['Chrome'],
 
     // if true, Karma runs tests once and exits
-    singleRun: true
+    singleRun: true,
+
+    // Setup the coverage to report lcov
+    coverageReporter: {
+      type: 'lcovonly',
+      dir: 'coverage/'
+    }
+
   });
 };

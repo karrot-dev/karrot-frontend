@@ -1,7 +1,7 @@
-let loginHook = ($transitions) => {
+let signupHook = ($transitions) => {
   'ngInject';
   $transitions.onBefore(
-    {to: 'login'},
+    {to: 'signup'},
     (transition) => {
       var auth=transition.injector().get('Authentication'),
           $state=transition.injector().get('$state');
@@ -14,4 +14,4 @@ let loginHook = ($transitions) => {
   );
 };
 
-export default loginHook;
+export default signupHook;

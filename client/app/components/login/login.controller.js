@@ -1,7 +1,11 @@
 class LoginController {
-  constructor() {
+  constructor($scope) {
     'ngInject';
     this.name = 'login';
+    $scope.user='';
+    $scope.password=''
+    $scope.remember=false;
+    $scope.loginStatus='';
   }
 }
 

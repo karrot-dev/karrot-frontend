@@ -1,4 +1,5 @@
-[![Stories in Ready](https://badge.waffle.io/yunity/yunity-angular.png?label=ready&title=Ready)](https://waffle.io/yunity/yunity-angular)
+[![Stories in Ready](https://badge.waffle.io/yunity/yunity-angular.svg?label=In%20Progress&title=In%20Progress)](http://waffle.io/yunity/yunity-angular)
+
 [![CircleCI](https://circleci.com/gh/yunity/yunity-angular.svg?style=svg)](https://circleci.com/gh/yunity/yunity-angular)
 [![Known Vulnerabilities](https://snyk.io/test/github/yunity/yunity-angular/badge.svg)](https://snyk.io/test/github/yunity/yunity-angular)
 

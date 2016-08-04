@@ -13,7 +13,7 @@ angular.module('app', [
     ngMaterial,
     Common,
     Components
-]).config(($stateProvider, $locationProvider, $urlRouterProvider) => {
+]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {
   "ngInject";
   $locationProvider.html5Mode(false).hashPrefix('!');
   $stateProvider
@@ -21,7 +21,9 @@ angular.module('app', [
       abstract: true,
       url: '/'
     });
-    $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/login');
+  $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+  $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 })
 .config(AppMaterial)
 .component('app', AppComponent);

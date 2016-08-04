@@ -5,7 +5,6 @@ class LoginController {
     $scope.user='';
     $scope.password=''
     $scope.remember=false;
-    $scope.loginStatus='';
   }
 }
 

@@ -1,6 +1,6 @@
 class SignupController {
   constructor($scope) {
-    "ngInject";
+    'ngInject';
     this.name = 'signup';
     $scope.firstName='';
     $scope.lastName='';

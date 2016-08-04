@@ -4,13 +4,13 @@ import SignupComponent from './signup.component';
 import SignupTemplate from './signup.html';
 
 describe('Signup', () => {
-  let /*$rootScope, */makeController;
+  let $rootScope, makeController;
 
   beforeEach(window.module(SignupModule));
-  beforeEach(inject((/*_$rootScope_*/) => {
-    /*$rootScope = _$rootScope_;*/
+  beforeEach(inject((_$rootScope_) => {
+    $rootScope = _$rootScope_;
     makeController = () => {
-      return new SignupController();
+      return new SignupController($rootScope);
     };
   }));
 
@@ -27,11 +27,7 @@ describe('Signup', () => {
   });
 
   describe('Template', () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-    it('has name in template [REMOVE]', () => {
-      expect(SignupTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
-    });
+
   });
 
   describe('Component', () => {

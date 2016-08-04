@@ -6,9 +6,12 @@ var loginForm = (Authentication, $state) => {
       element.on('submit', () => {
         Authentication.login(scope.user, scope.password)
         .then(() => {
+          scope.loginStatus="success";
+          scope.loginForm.$error.failed=false;
           $state.go('home');
         }, (/*err*/) => {
-          alert('Login failed');
+          scope.loginForm.$error.failed=true;
+          scope.password='';
           //do shake animation on submit button and show error
         });
       });

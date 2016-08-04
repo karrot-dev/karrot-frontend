@@ -3,11 +3,11 @@ import uiRouter from 'angular-ui-router';
 import loginComponent from './login.component';
 import loginForm from './login.form';
 import loginHook from './login.hook';
-//import Authentication from '../../common/authentication/authentication';
+import ngMessages from 'angular-messages';
 
 let loginModule = angular.module('login', [
-  uiRouter/*,
-  Authentication*/
+  uiRouter,
+  ngMessages
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {

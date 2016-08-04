@@ -3,8 +3,13 @@ let loginHook = ($transitions) => {
   $transitions.onBefore(
     {to: 'login'},
     (transition) => {
-      var auth=transition.injector().get('Authentication');
-      return !auth.isLoggedIn;
+      var auth=transition.injector().get('Authentication'),
+          $state=transition.injector().get('$state');
+      return auth.update().then(() => {
+        return $state.target('home');
+      }, () => {
+        return true;
+      });
     }
   );
 };

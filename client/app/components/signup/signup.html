@@ -5,7 +5,7 @@
         </div>
     </md-content>
 
-    <form signup-form>
+    <form signup-form name="signupForm">
         <h2 style="padding: .2em;"> Sign Up! </h2>
 
         <div layout="row">
@@ -47,6 +47,14 @@
         <md-button ui-sref="login">
           Back to Login
         </md-button>
+        <div ng-messages="loginForm.$error">
+          <div class="form-error" ng-message="failed">
+            Sign up failed!
+          </div>
+          <div class="form-error" ng-message="password">
+            Set a good password!
+          </div>
+        </div>
     </form>
 
 

@@ -5,7 +5,7 @@
     <div flex="nogrow" layout="column">
       <div flex></div>
       <div flex>
-        <form login-form>
+        <form login-form name="loginForm">
           <h2>Login</h2>
           <md-input-container class="md-block">
             <label>Email</label>
@@ -26,6 +26,11 @@
           <md-button ui-sref="signup">
             Sign up!
           </md-button>
+          <div ng-messages="loginForm.$error">
+            <div class="form-error" ng-message="failed">
+              Login failed!
+            </div>
+          </div>
         </form>
       </div>
     </div>

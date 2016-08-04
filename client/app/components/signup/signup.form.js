@@ -5,7 +5,7 @@ var signupForm = (User, $state) => {
     link: (scope, element/*, attrs*/) => {
       element.on('submit', () => {
         if(!scope.password || scope.password!==scope.passwordrepeat || scope.password.length < 1) {
-          alert("Set a good password!");
+          scope.signupForm.$error.password=true;
           return;
         }
         var user = {
@@ -19,7 +19,9 @@ var signupForm = (User, $state) => {
         .then(() => {
           $state.go('login');
         }, (/*err*/) => {
-          alert('Signup failed');
+          scope.signupForm.$error.failed=true;
+          scope.password='';
+          scope.passwordrepeat='';
           //do shake animation on submit button and show error
         });
       });

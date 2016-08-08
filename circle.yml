@@ -5,7 +5,6 @@ database:
   override:
     - psql -c "CREATE DATABASE yunity_database;"
     - cp config/local_settings.py.ci config/local_settings.py
-    - python manage.py remakeallmigrations
 test:
   override:
     - coverage run manage.py test

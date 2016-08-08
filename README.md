@@ -30,7 +30,6 @@ The manage.py application can be used to perform administrative tasks:
 
   - makemigrations: Create database migrations
   - migrate: Apply database migrations
-  - remakeallmigrations: Remove and recreate all migrations
   - shell\_plus: (requires ipython) for playing in a django python environment
   - test: Run automated tests
 
@@ -54,10 +53,8 @@ happens.
 ## Update requirement packages
 pip-tools is used to manage requirements. To use the latest possible requirements, do:
 
-- pip install pip-tools
-- pip-compile --upgrade
-
-Use pip-compile --upgrade -p to include prereleases.
+- `pip install pip-tools`
+- `pip-compile --upgrade`
 
 ## Contributing to yunity-core
 To contribute, please get in contact with us. We want to follow a pull request / code review cycle as soon as possible but in our early design stages we prefer to work in teams at the same desk.

@@ -18,7 +18,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer
     filter_fields = ('members',)
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
     search_fields = ('name', 'description')
 
     def get_permissions(self):

@@ -10,6 +10,13 @@ from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateMo
 
 
 class StoreViewSet(viewsets.ModelViewSet):
+    """
+    Stores
+
+    # Query parameters
+    - `?group` - filter by store group id
+    - `?search` - search in name and description
+    """
     serializer_class = StoreSerializer
     queryset = StoreModel.objects
     filter_fields = ('group',)
@@ -22,6 +29,13 @@ class StoreViewSet(viewsets.ModelViewSet):
 
 
 class PickupDatesViewSet(viewsets.ModelViewSet):
+    """
+    Pickup Dates
+
+    # Query parameters
+    - `?store` - filter by store id
+    - `?group` - filter by group id
+    """
     serializer_class = PickupDateSerializer
     queryset = PickupDateModel.objects
     filter_backends = (filters.DjangoFilterBackend,)

@@ -11,7 +11,12 @@ class ChatViewSet(mixins.CreateModelMixin,
                   mixins.RetrieveModelMixin,
                   mixins.UpdateModelMixin,
                   viewsets.GenericViewSet):
+    """
+    Conversations
 
+    # Query parameters
+    - `?participants` - filter by participant user id
+    """
     queryset = ConversationModel.objects
     serializer_class = ConversationSerializer
     permission_classes = (IsAuthenticated,)
@@ -32,6 +37,9 @@ class ChatViewSet(mixins.CreateModelMixin,
 class ChatMessageViewSet(mixins.CreateModelMixin,
                          mixins.ListModelMixin,
                          viewsets.GenericViewSet):
+    """
+    Conversation Message
+    """
     queryset = MessageModel.objects
     serializer_class = MessageSerializer
     permission_classes = (IsAuthenticated,)

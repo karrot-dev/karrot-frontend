@@ -15,6 +15,13 @@ class IsMember(BasePermission):
 
 
 class GroupViewSet(viewsets.ModelViewSet):
+    """
+    Groups
+
+    # Query parameters
+    - `?members` - filter by member user id
+    - `?search` - search in name and description
+    """
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer
     filter_fields = ('members',)

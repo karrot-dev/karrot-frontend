@@ -14,6 +14,12 @@ class IsSameUser(BasePermission):
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    """
+    Users
+
+    # Query parameters
+    - `?search` - search in `display_name`, `first_name` and `last_name`
+    """
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
     filter_backends = (filters.SearchFilter,)

@@ -3,6 +3,8 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+
+from yunity.stores.filters import PickupDatesFilter
 from yunity.stores.serializers import StoreSerializer, PickupDateSerializer
 from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
 
@@ -11,7 +13,7 @@ class StoreViewSet(viewsets.ModelViewSet):
     serializer_class = StoreSerializer
     queryset = StoreModel.objects
     filter_fields = ('group',)
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
     search_fields = ('name', 'description')
     permission_classes = (IsAuthenticated,)
 
@@ -22,8 +24,8 @@ class StoreViewSet(viewsets.ModelViewSet):
 class PickupDatesViewSet(viewsets.ModelViewSet):
     serializer_class = PickupDateSerializer
     queryset = PickupDateModel.objects
-    filter_fields = ('store',)
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = PickupDatesFilter
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):

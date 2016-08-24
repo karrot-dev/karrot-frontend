@@ -1,14 +1,13 @@
 import HomeModule from './home'
 
 describe('Home', () => {
-  let $rootScope, $componentController, $compile;
+  let $rootScope, $componentController;
 
   beforeEach(window.module(HomeModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
     $componentController = $injector.get('$componentController');
-    $compile = $injector.get('$compile');
   }));
 
   describe('Module', () => {
@@ -31,17 +30,5 @@ describe('Home', () => {
 
   describe('View', () => {
     // view layer specs.
-    let scope;
-
-    beforeEach(() => {
-      scope = $rootScope.$new();
-      $compile('<home></home>')(scope);
-      scope.$apply();
-    });
-
-    it('has name in template', () => {
-
-    });
-
   });
 });

@@ -2,12 +2,13 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import homeComponent from './home.component';
 import homeHook from './home.hook';
- 
+import logout from './home.logout';
+
 let homeModule = angular.module('home', [
   uiRouter
-]);
+])
 
-homeModule.config(($stateProvider) => { 
+.config(($stateProvider) => {
   "ngInject";
 
   $stateProvider
@@ -15,30 +16,14 @@ homeModule.config(($stateProvider) => {
       url: '/',
       component: 'home'
     });
-});
+})
 
-homeModule.run(homeHook);
+.run(homeHook)
 
-var component = homeModule.component('home', homeComponent);
+.directive('logout', logout)
 
-angular.module('home').directive('yunityLogout', ['Authentication', '$window', '$http', function(auth, $window, $http) {
-    return {
-        restrict: 'E',
-        template: '<button>Log Out</button>',
-        link: function(scope, element, attrs, controller) {
-          if (!auth.isLoggedIn) {
-            element.style.display='none';
-          }
-          element.bind('click', function() {
-            auth.logout();
-            // Logout currently always fails with error message:
-            // {"data":{"detail":"CSRF Failed: CSRF token missing or incorrect."},"status":403,"config":{"method":"POST","transformRequest":[null],"transformResponse":[null],"url":"/api/auth/logout/","data":{"email":"","password":""},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json;charset=utf-8"}},"statusText":"Forbidden"}
-            $window.location.href='/';
-            $window.location.reload();
-          });
-        }
-    }
-}]); 
+.component('home', homeComponent)
 
-export default component.name;
+.name;
 
+export default homeModule;

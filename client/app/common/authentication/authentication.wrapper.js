@@ -58,7 +58,7 @@ class AuthService extends base {
   }
 
   logout() {
-    this.AuthCom.logout()
+    return this.AuthCom.logout()
     .then(() => {
       this._credentials={};
       this._isLoggedIn=false;

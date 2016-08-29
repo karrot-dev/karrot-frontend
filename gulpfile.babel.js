@@ -41,7 +41,9 @@ let paths = {
     path.join(__dirname, root, 'app/app.js')
   ],
   output: root,
-  blankTemplates: path.join(__dirname, 'generator', 'component/**/*.**'),
+  blankTemplates: (temp) => {
+    return path.join(__dirname, 'generator', temp, '**/*.**');
+  },
   dest: path.join(__dirname, 'dist')
 };
 
@@ -137,10 +139,11 @@ gulp.task('component', () => {
     return val.charAt(0).toUpperCase() + val.slice(1);
   };
   const name = yargs.argv.name;
+  const temp = yargs.argv.template || 'component';
   const parentPath = yargs.argv.parent || '';
   const destPath = path.join(resolveToComponents(), parentPath, name);
 
-  return gulp.src(paths.blankTemplates)
+  return gulp.src(paths.blankTemplates(temp))
     .pipe(template({
       name: name,
       upCaseName: cap(name)

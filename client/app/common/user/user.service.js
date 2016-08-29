@@ -1,4 +1,4 @@
-class AuthCommunicationService {
+class UserCommunicationService {
 
   constructor($http) {
     'ngInject';
@@ -51,4 +51,4 @@ class AuthCommunicationService {
   }
 }
 
-export default AuthCommunicationService;
+export default UserCommunicationService;

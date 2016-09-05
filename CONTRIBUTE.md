@@ -2,7 +2,7 @@
 If you want to contribute code to the frontend repository, you should first read through these guidelines.
 
 ##General
-* before committing make sure `npm lint` and `npm test` were successful
+* before committing make sure `npm run lint` and `npm test` were successful
 * branches and PRs instead of direct commits to master (except it is a small and urgent fix)
 * if you are working on issues create a branch labeled as what your change (in one word) postfixed with `#` and issue number
 * claim in the issue comments when you're working on one, and take part in the discussion

@@ -8,3 +8,10 @@ This is the proposal for yunity webapp using Angular Version 1.
 Angular Material is the UI framework of choice.
 
 We use the [NG6-starter](https://github.com/AngularClass/NG6-starter).
+
+
+#yunity and foodsaving international (= FS-INT)
+Foodsaving international will be the first release of the yunity platform.
+[FS-INT](https://yunity.atlassian.net/wiki/display/FSINT/)
+Yunity will extend the FS-INT platform to form a multi-saving and sharing platform for food, items, skills, transport, spaces...
+ 

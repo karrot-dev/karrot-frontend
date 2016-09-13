@@ -9,17 +9,17 @@ if [ "x$BRANCH" = "x" ]; then
   exit 1
 fi
 
-if [ ! -d yunity-core ]; then
-  git clone https://github.com/yunity/yunity-core.git
+if [ ! -d foodsaving-backend ]; then
+  git clone https://github.com/yunity/foodsaving-backend.git
 fi
 
-if [ ! -d yunity-core/env ]; then
-  virtualenv --python=python3 --no-site-packages yunity-core/env
+if [ ! -d foodsaving-backend/env ]; then
+  virtualenv --python=python3 --no-site-packages foodsaving-backend/env
 fi
 
 deploy_dir=$(pwd)
 
-cat <<-CONFIG > yunity-core/config/local_settings.py
+cat <<-CONFIG > foodsaving-backend/config/local_settings.py
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -32,13 +32,13 @@ DATABASES = {
 }
 DEBUG = False
 ALLOWED_HOSTS = ['dev.yunity.org', 'mvp-proposal.yunity.org']
-STATIC_ROOT = '${deploy_dir}/yunity-core/static/'
+STATIC_ROOT = '${deploy_dir}/foodsaving-backend/static/'
 CONFIG
 
 createdb yunity-dev || true
 
 (
-  cd yunity-core && \
+  cd foodsaving-backend && \
   git clean -fd && \
   git checkout $BRANCH && \
   git pull && \

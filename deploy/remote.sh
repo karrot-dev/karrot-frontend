@@ -31,7 +31,7 @@ DATABASES = {
     }
 }
 DEBUG = False
-ALLOWED_HOSTS = ['dev.yunity.org', 'mvp-proposal.yunity.org']
+ALLOWED_HOSTS = ['dev.yunity.org', 'mvp-proposal.yunity.org', 'mvp-design.yunity.org']
 STATIC_ROOT = '${deploy_dir}/foodsaving-backend/static/'
 CONFIG
 

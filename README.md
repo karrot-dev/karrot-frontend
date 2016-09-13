@@ -3,10 +3,10 @@
 [![Stories in "In Progress"](https://badge.waffle.io/yunity/yunity.svg?label=%5Bkanban%5D%20in-progress&title=In%20Progress)](https://waffle.io/yunity/yunity)
 [![CircleCI](https://circleci.com/gh/yunity/yunity-core/tree/master.svg?style=svg)](https://circleci.com/gh/yunity/yunity-core/tree/master)
 
-# yunity-core
+# foosaving-backend
 
 ## Getting started
-For a quick startup, please checkout the [yunity-setup Repo](https://github.com/yunity/yunity-setup).
+For a quick startup, please checkout the [foodsaving-setup Repo](https://github.com/yunity/foodsaving-setup).
 
 ## IDE
 We use PyCharm for development. The open source free professional licences are still pending, for now use the community edition from https://www.jetbrains.com/pycharm/download/.
@@ -41,12 +41,9 @@ Currently, the data model is subject to change. When the backend reaches the bet
 ## API Documentation
 A swagger description file is generated at /doc. You can pass it to any swagger installation.
 
-### Install swagger locally
-See the yunity-setup repository [![yunity-setup repository](https://github.com/yunity/yunity-setup)] for a complete local environment that also includes a swagger release.
-
 ## Django application settings
 In development, you can add and override local settings in
-`wuppdays/local_settings.py`, which is present in `.gitignore` and hence out of
+`config/local_settings.py`, which is present in `.gitignore` and hence out of
 version control. If the file is not present, i.e. in production, nothing
 happens.
 
@@ -56,7 +53,7 @@ pip-tools is used to manage requirements. To use the latest possible requirement
 - `pip install pip-tools`
 - `pip-compile --upgrade`
 
-## Contributing to yunity-core
+## Contributing to foodsaving-backend
 To contribute, please get in contact with us. We want to follow a pull request / code review cycle as soon as possible but in our early design stages we prefer to work in teams at the same desk.
 We use
 

@@ -10,7 +10,6 @@ class UserService extends base {
     'ngInject';
     super();
     this.UserCom=UserCommunication;
-    this.users=[];
   }
 
   users(search) {

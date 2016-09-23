@@ -6,48 +6,23 @@ class UserCommunicationService {
   }
 
   users(/*search*/) {
-    return this.$http.get('/api/users/')
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, (data) => {
-      return Promise.reject(data);
-    });
+    return this.$http.get('/api/users/').then(res => res.data);
   }
 
   create(user) {
-    return this.$http.post('/api/users/',user)
-    .then(() => {
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.post('/api/users/', user).then(res => res.data);
   }
 
   get(pk) {
-    return this.$http.get(`/api/users/${pk}`)
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.get(`/api/users/${pk}/`).then(res => res.data);
   }
 
-  save(user) {
-    return this.$http.patch(`/api/users/${user.id}/`)
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+  save(id, updates) {
+    return this.$http.patch(`/api/users/${id}/`, updates).then(res => res.data);
   }
 
   delete(pk) {
-    return this.$http.delete(`/api/users/${pk}`)
-    .then(() => {
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
-    })
+    return this.$http.delete(`/api/users/${pk}/`);
   }
 }
 

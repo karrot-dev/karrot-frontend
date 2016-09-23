@@ -32,6 +32,7 @@
     "angular": true,
     "module": true,
     "inject": true,
-    "expect": true
+    "expect": true,
+    "assert": true
   }
 }

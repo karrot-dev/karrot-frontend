@@ -40,9 +40,9 @@ class UserService extends base {
     });
   }
 
-  save(user) {
+  save(id, changes) {
     if(UserService.validate(["pk"]))
-      return this.UserCom.save(user);
+      return this.UserCom.save(id, changes);
     else
       return Promise.reject();
   }

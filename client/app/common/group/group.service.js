@@ -5,17 +5,17 @@ class GroupComService {
     this.$http=$http;
   }
   
-  groups() {
+  groups(/*search*/) {
     return this.$http.get('/api/groups/')
     .then((data) => {
       return Promise.resolve(data.data);
-    }, () => {
+    }, (data) => {
       return Promise.reject();
     });      
   } 
   
   create(group) {
-    return this.$http.post('/api/groups/',user)
+    return this.$http.post('/api/groups/',group)
     .then(() => {
       return Promise.resolve();
     }, () => {

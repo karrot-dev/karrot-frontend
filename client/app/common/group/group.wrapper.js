@@ -13,23 +13,23 @@ class GroupService extends base {
   }
   
   groups(search) {
-    return this.GroupCom.users(search);
+    return this.GroupCom.groups(search);
   }
 
   create(group) {
-    return this.GroupCom.create(user);
+    return this.GroupCom.create(group);
   }
 
   get(groupId) {
     return this.GroupCom.get(groupId);
   }
 
-  save(user) {
-    return this.GroupCom.save(user);
+  save(group) {
+    return this.GroupCom.save(group);
   }
 
-  delete(pk) {
-    return this.GroupCom.delete(pk);
+  delete(groupId) {
+    return this.GroupCom.delete(groupId);
   }
 }
 

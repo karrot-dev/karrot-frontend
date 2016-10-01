@@ -6,48 +6,23 @@ class GroupComService {
   }
   
   groups(/*search*/) {
-    return this.$http.get('/api/groups/')
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, (data) => {
-      return Promise.reject(data);
-    });      
+    return this.$http.get('/api/groups/').then(res => res.data);
   } 
   
   create(group) {
-    return this.$http.post('/api/groups/',group)
-    .then(() => {
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.post('/api/groups/', group).then(res => res.data);
   }
 
   get(groupId) {
-    return this.$http.get(`/api/groups/${groupId}`)
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.get(`/api/groups/${groupId}/`).then(res => res.data);
   }
 
-  save(group) {
-    return this.$http.patch(`/api/groups/${group.id}/`)
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+  save(groupId, updates) {
+    return this.$http.patch(`/api/groups/${groupId}/`, updates).then(res => res.data);
   }
 
   delete(groupId) {
-    return this.$http.delete(`/api/groups/${groupId}`)
-    .then(() => {
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
-    })
+    return this.$http.delete(`/api/groups/${groupId}/`);
   }
 }
 

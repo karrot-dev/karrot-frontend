@@ -24,8 +24,8 @@ class GroupService extends base {
     return this.GroupCom.get(groupId);
   }
 
-  save(group) {
-    return this.GroupCom.save(group);
+  save(groupId, updates) {
+    return this.GroupCom.save(groupId, updates);
   }
 
   delete(groupId) {

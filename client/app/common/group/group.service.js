@@ -10,7 +10,7 @@ class GroupComService {
     .then((data) => {
       return Promise.resolve(data.data);
     }, (data) => {
-      return Promise.reject();
+      return Promise.reject(data);
     });      
   } 
   

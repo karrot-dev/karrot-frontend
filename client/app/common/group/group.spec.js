@@ -22,7 +22,7 @@ describe('group service', function() {
   }];
 
   let groupModifyData = {
-    "name": "Foodsharing Darmstadt"
+    "name": "Foodsharing Mannheim"
   };
 
   beforeEach(inject(function($injector) {

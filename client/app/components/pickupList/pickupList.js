@@ -1,7 +1,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import pickupListComponent from './pickupList.component';
-import pickupListItem from './pickupListItem/pickupListItem';
 
 let pickupListModule = angular.module('pickupList', [
   uiRouter
@@ -53,8 +52,6 @@ let pickupListModule = angular.module('pickupList', [
 })
 
 */
-
-.directive('pickupListItem', pickupListItem)
 
 .component('pickupList', pickupListComponent)
 

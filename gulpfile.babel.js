@@ -17,6 +17,8 @@ import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
+import yConfig from './yConfig';
+
 let root = 'client';
 
 // helper method for resolving paths
@@ -100,22 +102,10 @@ gulp.task('serve', () => {
     server: {baseDir: root},
     middleware: [
 
-      // to yunity-core
-      proxy([
-        '/api',
-        '/docs',
-        '/static/rest_framework',
-        '/static/rest_framework_swagger'
-      ], {
-        target: 'http://localhost:8000',
-        changeOrigin: true
-      }),
-
-      // to yunity-sockets
-      proxy('/socket', {
-        target: 'http://localhost:8080',
+      // to foodsaving-backend
+      proxy('/api', {
+        target: yConfig.backend,
         changeOrigin: true,
-        ws: true
       }),
 
       historyApiFallback(),

@@ -12,16 +12,16 @@ class GroupService extends base {
     this.GroupCom=GroupCommunication;
   }
   
-  groups(search) {
-    return this.GroupCom.groups(search);
-  }
-
   create(group) {
     return this.GroupCom.create(group);
   }
 
-  get(groupId) {
-    return this.GroupCom.get(groupId);
+  get(params) {
+    if(params.id){
+        return this.GroupCom.getById(params.id);
+    } else {
+        return this.GroupCom.get(params);
+    }
   }
 
   save(groupId, updates) {

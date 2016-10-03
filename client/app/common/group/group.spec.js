@@ -37,7 +37,7 @@ describe('group service', function() {
 
   it('lists groups', () => {
     $httpBackend.expectGET('/api/groups/').respond(groupData);
-    Group.groups().then((data) => {
+    Group.get({}).then((data) => {
       expect(data).to.deep.equal(groupData);
     }).catch(() => {
       assert.fail();
@@ -55,9 +55,31 @@ describe('group service', function() {
     $httpBackend.flush();
   });
 
+
+  it('get all groups', () => {
+    $httpBackend.expectGET('/api/groups/').respond(groupData);
+    Group.get({}).then((data) => {
+      expect(data).to.deep.equal(groupData);
+    }).catch(() => {
+      assert.fail();
+    });
+    $httpBackend.flush();
+  });
+  
   it('get group details', () => {
     $httpBackend.expectGET('/api/groups/1/').respond(groupData);
-    Group.get(1).then((data) => {
+    Group.get({id: 1}).then((data) => {
+      expect(data).to.deep.equal(groupData);
+    }).catch(() => {
+      assert.fail();
+    });
+    $httpBackend.flush();
+  });
+  
+  
+  it('filter groups by search', () => {
+    $httpBackend.expectGET('/api/groups/?search=Foods').respond(groupData);
+    Group.get({search: "Foods"}).then((data) => {
       expect(data).to.deep.equal(groupData);
     }).catch(() => {
       assert.fail();

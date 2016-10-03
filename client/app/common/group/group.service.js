@@ -5,15 +5,19 @@ class GroupComService {
     this.$http=$http;
   }
   
-  groups(/*search*/) {
-    return this.$http.get('/api/groups/').then(res => res.data);
-  } 
-  
   create(group) {
     return this.$http.post('/api/groups/', group).then(res => res.data);
   }
 
-  get(groupId) {
+  get(params) {
+    return this.$http({
+        url: '/api/groups/', 
+        method: "GET",
+        params: params
+    }).then(res => res.data);
+  }
+  
+  getById(groupId) {
     return this.$http.get(`/api/groups/${groupId}/`).then(res => res.data);
   }
 

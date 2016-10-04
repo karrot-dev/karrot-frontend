@@ -1,9 +1,6 @@
-import UserCommunication from './user.service';
-import User from './user.wrapper';
+import User from './user.service';
 
 let userModule = angular.module('User', [])
-
-.service('UserCommunication', UserCommunication)
 
 .service('User', User)
 

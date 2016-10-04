@@ -37,7 +37,6 @@ Add services by executing `gulp component --name <service> --template service --
 +-<service>.js              module declaration
 +-<service>.service.js      service fetching data
 +-<service>.spec.js         tests
-+-<service>.wrapper.js      wrapper of .service.js, keeping data
 ```
 
 ##Code style
@@ -54,6 +53,4 @@ Keep controllers simple!
 As the use of `ng-click` is discouraged, so are controller functions.
 
 ###Services
-A service consists of two parts:
-* The communication service calling the backend through `$http`
-* The wrapper storing and validating data and hiding communication related information from the consumer of the service
+A service calls the backend through `$http` and validates data.

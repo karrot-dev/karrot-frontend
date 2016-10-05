@@ -3,6 +3,7 @@
   "extends": "angular",
   "rules": {
     "angular/deferred": 2,
+    "angular/no-service-method": 0,
     "array-bracket-spacing": 2,
     "arrow-parens": 2,
     "arrow-spacing": 2,
@@ -78,7 +79,7 @@
     "object-shorthand": 2,
     "prefer-arrow-callback": 2,
     "prefer-rest-params": 2,
-    "quotes": [2, "single"],
+    "quotes": [2, "double"],
     "require-yield": 2,
     "semi": [2, "always"],
     "space-unary-ops": [2, {"words": true, "nonwords": false}],

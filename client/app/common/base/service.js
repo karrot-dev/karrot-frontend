@@ -7,7 +7,7 @@ class base {
   }
 
   static validate(o, cb, conc) {
-    if (Array.isArray(cb)) {
+    if (angular.isArray(cb)) {
       cb = null;
       conc = cb;
     }

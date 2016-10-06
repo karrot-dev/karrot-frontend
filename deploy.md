@@ -49,7 +49,6 @@ master = true
 processes = 2
 
 socket = /tmp/fstool.sock
-http-socket = /tmp/fstool.http.sock
 
 touch-reload = /tmp/fstool.reload
 

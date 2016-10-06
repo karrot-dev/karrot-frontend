@@ -1,4 +1,4 @@
-import angular from 'angular';
+import angular from "angular";
 
 class base {
 
@@ -7,19 +7,19 @@ class base {
   }
 
   static validate(o, cb, conc) {
-    if(Array.isArray(cb)) {
+    if (Array.isArray(cb)) {
       cb = null;
       conc = cb;
     }
-    if(!cb)
+    if (!cb)
       cb = (p,o) => {
-        return !(String(o[p]) === "")
+        return !(String(o[p]) === "");
       };
-    var props=this.properties();
-    if(conc)
-      props=props.concat(conc);
+    let props = this.properties();
+    if (conc)
+      props = props.concat(conc);
     for (let p of props) {
-      if(!o.hasOwnProperty(p) || !cb.call(this,p,o,props)) {
+      if (!o.hasOwnProperty(p) || !cb.call(this,p,o,props)) {
         return false;
       }
     }
@@ -27,13 +27,13 @@ class base {
   }
 
   static resolvePrivateKey(pk) {
-    if(angular.isObject(pk)) {
-      if(pk.pk)
-        pk=pk.pk;
+    if (angular.isObject(pk)) {
+      if (pk.pk)
+        pk = pk.pk;
       else
         return null;
     }
-    if(isNaN(pk))
+    if (isNaN(pk))
       return null;
     return pk;
   }

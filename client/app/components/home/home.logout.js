@@ -1,18 +1,18 @@
-var logout = (Authentication, $state) => {
-  'ngInject';
+let logout = (Authentication, $state) => {
+  "ngInject";
   return {
-    restrict: 'A',
+    restrict: "A",
     link: (scope, element/*, attrs*/) => {
-      element.on('click', () => {
+      element.on("click", () => {
         Authentication.logout()
         .then(() => {
-          $state.go('login');
+          $state.go("login");
         }, () => {
           //Logout failed!
         });
       });
     }
-  }
+  };
 };
 
 export default logout;

@@ -1,9 +1,9 @@
-import angular from 'angular';
-import Authentication from './authentication/authentication';
-import User from './user/user';
-import Group from './group/group';
+import angular from "angular";
+import Authentication from "./authentication/authentication";
+import User from "./user/user";
+import Group from "./group/group";
 
-let commonModule = angular.module('app.common', [
+let commonModule = angular.module("app.common", [
   Authentication,
   User,
   Group

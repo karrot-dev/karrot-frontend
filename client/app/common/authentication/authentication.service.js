@@ -1,12 +1,12 @@
 class AuthCommunicationService {
 
   constructor($http) {
-    'ngInject';
-    this.$http=$http;
+    "ngInject";
+    this.$http = $http;
   }
 
   login(email,password) {
-    return this.$http.post('/api/auth/',{email,password})
+    return this.$http.post("/api/auth/",{ email,password })
     .then((data) => {
       return Promise.resolve(data.data);
     }, (data) => {
@@ -15,7 +15,7 @@ class AuthCommunicationService {
   }
 
   update() {
-    return this.$http.get('/api/auth/status/')
+    return this.$http.get("/api/auth/status/")
     .then((data) => {
       return Promise.resolve(data.data);
     }, () => {
@@ -24,10 +24,10 @@ class AuthCommunicationService {
   }
 
   logout() {
-    var email='',password='';
-    return this.$http.post('/api/auth/logout/',{email,password})
+    let email = "",password = "";
+    return this.$http.post("/api/auth/logout/",{ email,password })
     .then(() => {
-      return Promise.resolve()
+      return Promise.resolve();
     }, () => {
       return Promise.reject();
     });

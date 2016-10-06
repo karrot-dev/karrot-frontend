@@ -1,8 +1,8 @@
-import User from './user.service';
+import User from "./user.service";
 
-let userModule = angular.module('User', [])
+let userModule = angular.module("User", [])
 
-.service('User', User)
+.service("User", User)
 
 .name;
 

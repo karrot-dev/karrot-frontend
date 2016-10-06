@@ -6,6 +6,8 @@ class base {
     return [];
   }
 
+  // TODO: resolve complexity issue
+  // eslint-disable-next-line complexity
   static validate(o, cb, conc) {
     if (angular.isArray(cb)) {
       cb = null;

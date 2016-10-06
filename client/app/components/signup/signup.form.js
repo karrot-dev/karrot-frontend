@@ -8,6 +8,8 @@ let signupForm = (User, $state) => {
           scope.signupForm.$error.password = true;
           return;
         }
+        // TODO: handle camelcase <-> snakecase conversion elsewhere
+        /* eslint-disable camelcase */
         let user = {
           display_name: scope.username,
           first_name: scope.firstName,
@@ -15,6 +17,7 @@ let signupForm = (User, $state) => {
           email: scope.email,
           password: scope.password
         };
+        /* eslint-enable camelcase */
         User.create(user)
         .then(() => {
           $state.go("login");

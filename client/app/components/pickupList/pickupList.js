@@ -11,10 +11,10 @@ let pickupListModule = angular.module('pickupList', [
     var mArr = null,
         mGroupBy = null,
         mRetArr = null,
-        getMemoArr = (arr, groupBy) => {
+        getMemoArr = (arr) => {
             var ret = {};
             angular.forEach(arr, (item) => {
-                    var groupValue = item[groupBy];
+                    var groupValue = item.date;
                     groupValue = $filter('date')(groupValue, 'yyyy-MM-dd', '');
                     if (ret[groupValue]) {
                         ret[groupValue].push(item);
@@ -25,16 +25,15 @@ let pickupListModule = angular.module('pickupList', [
             return ret;
         };
     return (arr) => {
-        groupBy = 'date';
-        var newMemoArr = getMemoArr(arr, groupBy);
+        var newMemoArr = getMemoArr(arr);
 
-        if (mGroupBy !== groupBy || !angular.equals(mArr, newMemoArr)) {
+        if (mGroupBy !== 'date' || !angular.equals(mArr, newMemoArr)) {
             mArr = newMemoArr;
-            mGroupBy = groupBy;
+            mGroupBy = 'date';
             mRetArr = [];
             var groups = {};
             angular.forEach(arr, (item) => {
-                var groupValue = item[groupBy];
+                var groupValue = item.date;
                 groupValue = $filter('date')(groupValue, 'yyyy-MM-dd', '');
                 if (groups[groupValue]) {
                     groups[groupValue].items.push(item);
@@ -42,7 +41,7 @@ let pickupListModule = angular.module('pickupList', [
                     groups[groupValue] = {
                         items: [item]
                     };
-                    groups[groupValue][groupBy] = groupValue;
+                    groups[groupValue].date = groupValue;
                     mRetArr.push(groups[groupValue]);
                 }
             });
@@ -50,9 +49,7 @@ let pickupListModule = angular.module('pickupList', [
         return mRetArr;
     };
 })
-
 */
-
 .component('pickupList', pickupListComponent)
 
 .name;

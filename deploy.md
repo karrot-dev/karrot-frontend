@@ -7,10 +7,10 @@ sudo apt-get install postgresql-server-dev-9.4 python3-dev dev
 Create db user with permissions:
 
 ```
-createuser yunity-dev
+createuser fstool
 sudo -u postgres psql
-> alter user "yunity-dev" with password 'yunity';
-> grant all privileges on database "yunity-dev" to "yunity-dev";
+> alter user "fstool" with password 'fstool';
+> grant all privileges on database "fstool" to "fstool";
 ```
 
 Give deploy user postgres permissions
@@ -34,11 +34,11 @@ Setup uwsgi:
 sudo apt-get install uwsgi uwsgi-plugin-python3
 ```
 
-create /etc/uwsgi/apps-available/yunity-dev.ini
+create /etc/uwsgi/apps-available/fstool.ini
 
 ```
 [uwsgi]
-project = yunity-core
+project = foodsaving-backend
 base = /home/deploy
 
 chdir = %(base)/%(project)
@@ -48,9 +48,10 @@ module = config.wsgi:application
 master = true
 processes = 2
 
-socket = /tmp/yunity-dev.sock
+socket = /tmp/fstool.sock
+http-socket = /tmp/fstool.http.sock
 
-touch-reload = /tmp/yunity-dev.reload
+touch-reload = /tmp/fstool.reload
 
 chmod-socket = 664
 vacuum = true
@@ -59,13 +60,13 @@ vacuum = true
 
 ```
 cd /etc/uwsgi/apps-enabled/
-sudo ln -s ../apps-available/yunity-dev.ini
+sudo ln -s ../apps-available/fstool.ini
 ```
 
 Create nginx config:
 
 ```
-/etc/nginx/sites-available/yunity-dev
+/etc/nginx/sites-available/fstool
 ```
 
 ```
@@ -74,7 +75,7 @@ upstream websocket {
 }
 
 upstream django {
-    server unix:/tmp/yunity-dev.sock;
+    server unix:/tmp/fstool.sock;
 }
 
 map $http_upgrade $connection_upgrade {
@@ -84,15 +85,15 @@ map $http_upgrade $connection_upgrade {
 
 server {
 
-    server_name dev.yunity.org;
+    server_name fstool.yunity.org;
 
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
-    ssl_certificate /var/www/yunity-dev/cert/fullchain.pem;
-    ssl_certificate_key /var/www/yunity-dev/cert/key.pem;
+    ssl_certificate /var/www/fstool/cert/fullchain.pem;
+    ssl_certificate_key /var/www/fstool/cert/key.pem;
 
-    root /home/deploy/public;
+    root /home/deploy/public-angular;
 
     location / {
         try_files $uri /index.html;
@@ -123,5 +124,5 @@ symlink it to sites-enabled:
 
 ```
 cd /etc/nginx/sites-enabled
-ln -s ../sites-available/yunity-dev .
+ln -s ../sites-available/fstool .
 ```

@@ -17,7 +17,7 @@ import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
-import yConfig from './yConfig';
+const BACKEND = process.env.BACKEND || 'https://dev.yunity.org/';
 
 let root = 'client';
 
@@ -104,15 +104,15 @@ gulp.task('serve', () => {
 
       // to foodsaving-backend
       proxy('/api', {
-        target: yConfig.backend,
+        target: BACKEND,
         changeOrigin: true,
         onProxyReq: proxyReq => {
-          if (/^https:/.test(yConfig.backend)) {
+          if (/^https:/.test(BACKEND)) {
             // For secure backends we must set the referer to make django happy
             // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226
             // If the backend tries to use this referer for anything useful it will break
             // as it is a blatant lie, but I don't think it does...
-            proxyReq.setHeader('referer', yConfig.backend);
+            proxyReq.setHeader('referer', BACKEND);
           }
         }
       }),

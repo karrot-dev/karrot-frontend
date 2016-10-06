@@ -7,4 +7,4 @@ node_modules
 dist/
 TESTS*.xml
 coverage
-yConfig.local.js
+.env

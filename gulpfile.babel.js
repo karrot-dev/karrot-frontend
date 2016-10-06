@@ -17,7 +17,7 @@ import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
-const BACKEND = process.env.BACKEND || 'https://dev.yunity.org/';
+const BACKEND = process.env.BACKEND || 'https://fstool.yunity.org/';
 
 let root = 'client';
 

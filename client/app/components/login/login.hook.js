@@ -1,12 +1,12 @@
 let loginHook = ($transitions) => {
-  'ngInject';
+  "ngInject";
   $transitions.onBefore(
-    {to: 'login'},
+    { to: "login" },
     (transition) => {
-      var auth=transition.injector().get('Authentication'),
-          $state=transition.injector().get('$state');
+      let auth = transition.injector().get("Authentication"),
+        $state = transition.injector().get("$state");
       return auth.update().then(() => {
-        return $state.target('home');
+        return $state.target("home");
       }, () => {
         return true;
       });

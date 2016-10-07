@@ -1,9 +1,6 @@
-import <%= upCaseName %>Com from './<%= name %>.service';
-import <%= upCaseName %> from './<%= name %>.wrapper';
+import <%= upCaseName %> from './<%= name %>.service';
 
-let <%= name %>Module = angular.module('<%= upCaseName %>', []);
-
-.service('<%= upCaseName %>Communication', <%= upCaseName %>Com)
+let <%= name %>Module = angular.module('<%= upCaseName %>', [])
 
 .service('<%= upCaseName %>', <%= upCaseName %>)
 

@@ -1,10 +1,10 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import homeComponent from './home.component';
-import homeHook from './home.hook';
-import logout from './home.logout';
+import angular from "angular";
+import uiRouter from "angular-ui-router";
+import homeComponent from "./home.component";
+import homeHook from "./home.hook";
+import logout from "./home.logout";
 
-let homeModule = angular.module('home', [
+let homeModule = angular.module("home", [
   uiRouter
 ])
 
@@ -12,17 +12,17 @@ let homeModule = angular.module('home', [
   "ngInject";
 
   $stateProvider
-    .state('home', {
-      url: '/',
-      component: 'home'
+    .state("home", {
+      url: "/",
+      component: "home"
     });
 })
 
 .run(homeHook)
 
-.directive('logout', logout)
+.directive("logout", logout)
 
-.component('home', homeComponent)
+.component("home", homeComponent)
 
 .name;
 

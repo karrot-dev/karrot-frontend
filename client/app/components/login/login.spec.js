@@ -1,37 +1,37 @@
-import LoginModule from './login'
-import LoginController from './login.controller';
-import LoginComponent from './login.component';
-import LoginTemplate from './login.html';
+import LoginModule from "./login";
+import LoginController from "./login.controller";
+import LoginComponent from "./login.component";
+import LoginTemplate from "./login.html";
 
-describe('Login', () => {
+describe("Login", () => {
 
   beforeEach(window.module(LoginModule));
   beforeEach(inject((/*$injector*/) => {
   }));
 
-  describe('Module', () => {
+  describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
   });
 
-  describe('Controller', () => {
+  describe("Controller", () => {
     // controller specs
   });
 
-  describe('Template', () => {
+  describe("Template", () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
   });
 
-  describe('Component', () => {
+  describe("Component", () => {
       // component/directive specs
-      let component = LoginComponent;
+    let component = LoginComponent;
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(LoginTemplate);
-      });
+    it("includes the intended template",() => {
+      expect(component.template).to.equal(LoginTemplate);
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(LoginController);
-      });
+    it("invokes the right controller", () => {
+      expect(component.controller).to.equal(LoginController);
+    });
   });
 });

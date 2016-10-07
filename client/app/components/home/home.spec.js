@@ -1,34 +1,34 @@
-import HomeModule from './home'
+import HomeModule from "./home";
 
-describe('Home', () => {
+describe("Home", () => {
   let $rootScope, $componentController;
 
   beforeEach(window.module(HomeModule));
 
   beforeEach(inject(($injector) => {
-    $rootScope = $injector.get('$rootScope');
-    $componentController = $injector.get('$componentController');
+    $rootScope = $injector.get("$rootScope");
+    $componentController = $injector.get("$componentController");
   }));
 
-  describe('Module', () => {
+  describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
   });
 
-  describe('Controller', () => {
+  describe("Controller", () => {
     // controller specs
     let controller;
     beforeEach(() => {
-      controller = $componentController('home', {
+      controller = $componentController("home", {
         $scope: $rootScope.$new()
       });
     });
 
-    it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
+    it("has a name property", () => { // erase if removing this.name from the controller
+      expect(controller).to.have.property("name");
     });
   });
 
-  describe('View', () => {
+  describe("View", () => {
     // view layer specs.
   });
 });

@@ -1,8 +1,8 @@
-import Store from './store.service';
+import Store from "./store.service";
 
-let storeModule = angular.module('Store', [])
+let storeModule = angular.module("Store", [])
 
-.service('Store', Store)
+.service("Store", Store)
 
 .name;
 

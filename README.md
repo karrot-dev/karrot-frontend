@@ -26,17 +26,21 @@ Foodsaving international will be the first release of the yunity platform.
 
 To clone and install
 
-```git clone
+```
+git clone
 cd foodsaving-frontend
 npm install
 ```
 
 To run the local dev server
 
-```npm run dev
+```
+npm run dev
 ```
 
 To lint and run the tests
 
-```npm run lint
-npm run test```
+```
+npm run lint
+npm run test
+```

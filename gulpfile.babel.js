@@ -17,6 +17,8 @@ import webpackHotMiddelware from "webpack-hot-middleware";
 import colorsSupported      from "supports-color";
 import historyApiFallback   from "connect-history-api-fallback";
 
+const BACKEND = process.env.BACKEND || "https://fstool.yunity.org/";
+
 let root = "client";
 
 // helper method for resolving paths
@@ -99,23 +101,19 @@ gulp.task("serve", () => {
     open: false,
     server: { baseDir: root },
     middleware: [
-
-      // to yunity-core
-      proxy([
-        "/api",
-        "/docs",
-        "/static/rest_framework",
-        "/static/rest_framework_swagger"
-      ], {
-        target: "http://localhost:8000",
-        changeOrigin: true
-      }),
-
-      // to yunity-sockets
-      proxy("/socket", {
-        target: "http://localhost:8080",
+      // to foodsaving-backend
+      proxy("/api", {
+        target: BACKEND,
         changeOrigin: true,
-        ws: true
+        onProxyReq: (proxyReq) => {
+          if (/^https:/.test(BACKEND)) {
+            // For secure backends we must set the referer to make django happy
+            // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226
+            // If the backend tries to use this referer for anything useful it will break
+            // as it is a blatant lie, but I don't think it does...
+            proxyReq.setHeader("referer", BACKEND);
+          }
+        }
       }),
 
       historyApiFallback(),

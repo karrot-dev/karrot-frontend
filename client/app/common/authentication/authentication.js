@@ -1,9 +1,6 @@
-import AuthCommunication from "./authentication.service";
-import Authentication from "./authentication.wrapper";
+import Authentication from "./authentication.service";
 
 let authenticationModule = angular.module("Authentication", [])
-
-.service("AuthCommunication", AuthCommunication)
 
 .service("Authentication", Authentication)
 

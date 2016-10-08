@@ -14,7 +14,7 @@
 All packages can be obtained from core, extra or community repositories. When queried, chose to install all packets out of base-devel.
 
 ```sh
-sudo pacman -S base-devel python python-pip python-virtualenv postgresql python-redis redis npm
+sudo pacman -S base-devel python python-pip python-virtualenv postgresql python-redis redis
 ```
 
 Afterwards, do the first-time postgres setup (taken from the [Arch Linux wiki](https://wiki.archlinux.org/index.php/PostgreSQL))
@@ -50,7 +50,7 @@ sudo apt-get install git redis-server python3 python3-dev python-virtualenv post
 All packages should be available in the default repositories `repo-oss` and `repo-non-oss`.
 
 ```sh
-sudo zypper install python-virtualenv postgresql-devel postgresql python-redis redis npm
+sudo zypper install python-virtualenv postgresql-devel postgresql python-redis redis
 ```
 
 ## Django quick introduction

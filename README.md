@@ -8,16 +8,23 @@
 
 
 # foodsaving frontend
-Frontend for the foodsaving tool using AngularJS 1.5.
-Angular Material is the UI framework of choice.
+Frontend for the foodsaving tool using AngularJS 1.5 (component-based style)
+Read more about the [contribution guidelines](https://github.com/yunity/foodsaving-frontend/blob/master/CONTRIBUTE.md).
 
-We use the [NG6-starter](https://github.com/AngularClass/NG6-starter).
+The [backend](https://github.com/yunity/foodsaving-backend) had quite some progress in the last months and is currently in a stable state. If you find a bug or miss something in the API, please file an issue in the backend repository.
+
+We used the [NG6-starter](https://github.com/AngularClass/NG6-starter) kit.
 
 
-## yunity and foodsaving international (= FSINT)
-Foodsaving international will be the first release of the yunity platform.
+## yunity and foodsaving
+The foodsaving tool will be the first release of the yunity platform.
+The [FSINT team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity provides additional resources to build up foodsaving.
+At a later point, more features could be added that support the yunity vision and mission, e.g. multi-sharing communities, item pooling, integrated decision making (syscon).
 
-[FS-INT](https://yunity.atlassian.net/wiki/display/FSINT/)
+### Potential users
+In future, we want our feature requests to come directly from foodsaving communities, to fulfil their needs and desires.
+
+We don't have testing communities yet: we are in touch with [existing foodsaving networks](https://yunity.atlassian.net/wiki/display/YUN/Existing+initiatives) who have shown interest in testing the tool once it presents sufficient features for them.
 
 # Getting started
 

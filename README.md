@@ -63,3 +63,12 @@ To lint and run the tests
 npm run lint
 npm run test
 ```
+
+## Backend
+
+Per default, all requests to `/api` are forwarded to the online backend `fstool.yunity.org/api`.
+To use a local backend, create a file `.env` with content like
+
+```
+BACKEND=http://localhost:8080/
+```

@@ -2,7 +2,9 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import signupComponent from "./signup.component";
 import signupForm from "./signup.form";
-import signupHook from "./signup.hook";
+import hookFactory from "../../common/authentication/hook";
+
+let hook = hookFactory("signup", { authenticated: "home", anonymous: true });
 
 let signupModule = angular.module("signup", [
   uiRouter
@@ -16,7 +18,7 @@ let signupModule = angular.module("signup", [
   });
 })
 
-.run(signupHook)
+.run(hook)
 
 .directive("signupForm", signupForm)
 

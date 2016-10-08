@@ -52,11 +52,10 @@ Add services by executing `gulp component --name <service> --template service --
 ## How to use what?
 
 ### Directives
-Please avoid built-in directives like `ng-click`. Create a directive instead but keep them simple as possible.
+Use built-in directives, e.g. `ng-click`.
 
 ### Controller
-Keep controllers simple!
-As the use of `ng-click` is discouraged, so are controller functions.
+Use controller functions, but keep them simple.
 
 ### Services
 A service calls the backend through `$http` and validates data.

@@ -1,6 +1,9 @@
-[![Stories in Ready](https://badge.waffle.io/yunity/yunity-angular.svg?label=In%20Progress&title=In%20Progress)](http://waffle.io/yunity/yunity-angular)
+[![Stories in Ready](https://badge.waffle.io/yunity/foodsaving-frontend.svg?label=ready&title=ready)](http://waffle.io/yunity/foodsaving-frontend)
+[![Stories in Progress](https://badge.waffle.io/yunity/foodsaving-frontend.svg?label=in-progress&title=in-progress)](http://waffle.io/yunity/foodsaving-frontend)
+[![Stories in Progress](https://badge.waffle.io/yunity/foodsaving-frontend.svg?label=needs-approval&title=needs-approval)](http://waffle.io/yunity/foodsaving-frontend)
 
-[![CircleCI](https://circleci.com/gh/yunity/yunity-angular.svg?style=svg)](https://circleci.com/gh/yunity/yunity-angular)
+[![CodeCov](https://codecov.io/github/yunity/foodsaving-frontend/coverage.svg)](https://codecov.io/gh/yunity/foodsaving-frontend)
+[![CircleCI](https://circleci.com/gh/yunity/foodsaving-frontend.svg?style=shield)](https://circleci.com/gh/yunity/foodsaving-frontend)
 [![Known Vulnerabilities](https://snyk.io/test/github/yunity/yunity-angular/badge.svg)](https://snyk.io/test/github/yunity/yunity-angular)
 
 
@@ -21,7 +24,7 @@ Foodsaving international will be the first release of the yunity platform.
 ## Requirements
 
 - nodejs and npm
-- gulp
+- gulp `npm install -g gulp`
 - chrome (for testing)
 
 To clone and install

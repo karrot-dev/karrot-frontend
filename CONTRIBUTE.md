@@ -47,7 +47,7 @@ Add services by executing `gulp component --name <service> --template service --
 
 ## Code style
 * use the *.editorconfig* file (for atom: install *editorconfig* module)
-* Use ES6 features
+* Use ES6 features (except of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
 
 ## How to use what?
 

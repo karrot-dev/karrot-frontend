@@ -18,10 +18,10 @@ class AuthViewSet(viewsets.GenericViewSet):
         """
         generate_csrf_token_for_frontend(request)
         if request.user.is_anonymous():
-            serializer = UserSerializer()
+            return Response(data={"error": "not_authed"}, status=status.HTTP_401_UNAUTHORIZED)
         else:
             serializer = UserSerializer(request.user)
-        return Response(serializer.data)
+            return Response(serializer.data)
 
     def create(self, request, **kwargs):
         """ Log in

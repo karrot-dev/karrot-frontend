@@ -34,8 +34,8 @@ class TestUserAuthAPI(APITestCase):
 
     def test_status_not_logged_in(self):
         response = self.client.get('/api/auth/status/')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['display_name'], '')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.data['error'], 'not_authed')
 
     def test_status_as_user(self):
         self.client.force_login(user=self.user)

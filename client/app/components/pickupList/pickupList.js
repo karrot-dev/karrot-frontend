@@ -6,8 +6,8 @@ let pickupListModule = angular.module('pickupList', [
   uiRouter
 ])
 
-/*
 .filter("groupByDate", ($filter) => {
+    'ngInject';        
     var mArr = null,
         mGroupBy = null,
         mRetArr = null,
@@ -49,7 +49,7 @@ let pickupListModule = angular.module('pickupList', [
         return mRetArr;
     };
 })
-*/
+
 .component('pickupList', pickupListComponent)
 
 .name;

@@ -45,7 +45,7 @@ As the foodsaving tool requires relatively recent versions of some packages, usi
 sudo apt-get install git redis-server python3 python3-dev python-virtualenv postgresql postgresql-server-dev-9.4 gcc build-essential g++ libffi-dev libncurses5-dev
 ```
 
-### OpenSUSE Leap
+#### OpenSUSE Leap
 
 All packages should be available in the default repositories `repo-oss` and `repo-non-oss`.
 

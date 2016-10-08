@@ -133,24 +133,23 @@ describe("authentication", () => {
       });
 
       it("to login", () => {
-          module(($provide) => {
-            $provide.value("Authentication", mockAuthenticationFailure);
-          });
-          let hook = hookFactory("home", { authenticated: true, anonymous: "login" });
-          hook($transition);
-        });
-      });
-
-      it("to home", () => {
         module(($provide) => {
-          $provide.value("Authentication", mockAuthenticationSuccess);
+          $provide.value("Authentication", mockAuthenticationFailure);
         });
-        let mockReaction = ($state, reaction) => {
-          expect(reaction).to.be(true);
-        };
-        let hook = hookFactory("home", { authenticated: true, anonymous: "login" }, mockReaction);
+        let hook = hookFactory("home", { authenticated: true, anonymous: "login" });
         hook($transition);
       });
+    });
+
+    it("to home", () => {
+      module(($provide) => {
+        $provide.value("Authentication", mockAuthenticationSuccess);
+      });
+      let mockReaction = ($state, reaction) => {
+        expect(reaction).to.be(true);
+      };
+      let hook = hookFactory("home", { authenticated: true, anonymous: "login" }, mockReaction);
+      hook($transition);
     });
 
     describe("transition from home", () => {
@@ -165,9 +164,5 @@ describe("authentication", () => {
       });
     });
 
-    it("transition from home to home", () => {
-
-    });
   });
-
 });

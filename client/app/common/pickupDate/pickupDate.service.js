@@ -1,23 +1,30 @@
-class PickupDateComService {
+import base from '../base/service';
+
+class PickupDateComService extends base {
   constructor($http) {
     'ngInject';
+    super();
     this.$http=$http;
   }
-  
-  pickupDate(/*search*/) {
+
+  pickupDate() {
     return this.$http.get('/api/pickup-dates/').then(res => res.data);
-  } 
-  
+  }
+
   create(group) {
     return this.$http.post('/api/pickup-dates/', group).then(res => res.data);
   }
-  
+
   get(params) {
-    return this.$http({
-        url: '/api/pickup-dates/', 
-        method: "GET",
-        params: params
-     }).then(res => res.data);
+    if(params.id){
+        return this.getById(params.id);
+    } else {
+        return this.$http({
+            url: '/api/pickup-dates/',
+            method: "GET",
+            params: params
+         }).then(res => res.data);
+    }
   }
 
   getById(pickupId) {
@@ -31,11 +38,11 @@ class PickupDateComService {
   delete(pickupId) {
     return this.$http.delete(`/api/pickup-dates/${pickupId}/`);
   }
-  
+
   join(pickupId) {
     return this.$http.post(`/api/pickup-dates/${pickupId}/add/`, {});
   }
-  
+
   leave(pickupId) {
     return this.$http.post(`/api/pickup-dates/${pickupId}/remove/`, {});
   }

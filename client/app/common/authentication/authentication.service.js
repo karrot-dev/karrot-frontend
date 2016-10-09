@@ -15,12 +15,7 @@ class AuthCommunicationService {
   }
 
   update() {
-    return this.$http.get("/api/auth/status/")
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.get("/api/auth/status/").then((res) => res.data);
   }
 
   logout() {

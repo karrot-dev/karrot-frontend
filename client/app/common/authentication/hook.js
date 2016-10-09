@@ -5,8 +5,9 @@ const setReaction = ($state, reaction, reactionHook) => {
     let r;
     if (angular.isString(reaction)) {
       r = $state.target(reaction);
+    } else {
+      r = reaction;
     }
-    r = reaction;
     if (angular.isFunction(reactionHook)) {
       reactionHook(r);
     }

@@ -7,12 +7,13 @@ class AuthService extends base {
     return ["display_name", "email"];
   }
 
-  constructor(AuthCommunication) {
+  constructor(AuthCommunication, $q) {
     "ngInject";
     super();
     this.AuthCom = AuthCommunication;
     this._credentials = {};
     this._isLoggedIn = false;
+    this.$q = $q;
   }
 
   get credentials() {
@@ -29,14 +30,12 @@ class AuthService extends base {
       if (AuthService.validate(credentials)) {
         this._credentials = credentials;
         this._isLoggedIn = true;
-        return Promise.resolve(credentials);
+        return this.$q.resolve(credentials);
       } else {
         this._credentials = {};
         this._isLoggedIn = false;
-        return Promise.reject();
+        return this.$q.reject();
       }
-    }, (errdata) => {
-      return Promise.reject(errdata);
     });
   }
 
@@ -46,14 +45,12 @@ class AuthService extends base {
       if (AuthService.validate(credentials)) {
         this._credentials = credentials;
         this._isLoggedIn = true;
-        return Promise.resolve(credentials);
+        return this.$q.resolve(credentials);
       } else {
         this._credentials = {};
         this._isLoggedIn = false;
-        return Promise.reject();
+        return this.$q.reject();
       }
-    }, (errdata) => {
-      return Promise.reject(errdata);
     });
   }
 
@@ -62,9 +59,7 @@ class AuthService extends base {
     .then(() => {
       this._credentials = {};
       this._isLoggedIn = false;
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
+      return this.$q.resolve();
     });
   }
 }

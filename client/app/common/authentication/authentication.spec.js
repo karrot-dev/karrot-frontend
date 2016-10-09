@@ -1,13 +1,16 @@
 import AuthenticationModule from "./authentication";
-import hookFactory from "./hook.js";
+
+const { module } = angular.mock;
 
 describe("authentication", () => {
+
   let $httpBackend, Authentication;
 
   beforeEach(module(AuthenticationModule));
+
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
-    Authentication = $injector.get("Group");
+    Authentication = $injector.get("Authentication");
   }));
 
   let loginData = {
@@ -47,6 +50,7 @@ describe("authentication", () => {
         .catch(() => {
           assert.fail();
         });
+      $httpBackend.flush();
     });
 
     it("allows login", () => {
@@ -58,6 +62,7 @@ describe("authentication", () => {
         .catch(() => {
           assert.fail();
         });
+      $httpBackend.flush();
     });
 
     it("disallows login", () => {
@@ -71,6 +76,7 @@ describe("authentication", () => {
         .catch(() => {
           assert.done();
         });
+      $httpBackend.flush();
     });
 
     it("logs user out", () => {
@@ -81,6 +87,7 @@ describe("authentication", () => {
         .then(() => {
           assert.done();
         });
+      $httpBackend.flush();
     });
 
     afterEach(() => {
@@ -89,80 +96,4 @@ describe("authentication", () => {
     });
   });
 
-  describe("hook", () => {
-    let $state, $q, $transition, testModule = "yunity.test.authentication";
-
-    beforeEach(() => {
-      angular
-        .module(testModule, [AuthenticationModule])
-        .config(($stateProvider) => {
-          "ngInject";
-          $stateProvider
-            .state("login", {})
-            .state("home", {});
-        });
-    });
-
-    beforeEach(inject(($injector) => {
-      $state = $injector.get("$state");
-      $q = $injector.get("$q");
-      $transition = $injector.get("$transition");
-    }));
-
-    beforeEach(module(testModule));
-
-    let mockAuthenticationSuccess = {
-      update: () => {
-        return $q((resolve) => {
-          resolve(loginData);
-        });
-      }
-    };
-    let mockAuthenticationFailure = {
-      update: () => {
-        return $q((resolve, reject) => {
-          reject();
-        });
-      }
-    };
-
-    describe("transition from login", () => {
-
-      beforeEach(() => {
-        $state.go("login");
-      });
-
-      it("to login", () => {
-        module(($provide) => {
-          $provide.value("Authentication", mockAuthenticationFailure);
-        });
-        let hook = hookFactory("home", { authenticated: true, anonymous: "login" });
-        hook($transition);
-      });
-    });
-
-    it("to home", () => {
-      module(($provide) => {
-        $provide.value("Authentication", mockAuthenticationSuccess);
-      });
-      let mockReaction = ($state, reaction) => {
-        expect(reaction).to.be(true);
-      };
-      let hook = hookFactory("home", { authenticated: true, anonymous: "login" }, mockReaction);
-      hook($transition);
-    });
-
-    describe("transition from home", () => {
-      beforeEach(() => {
-        $state.go("home");
-      });
-      it("to login", () => {
-
-      });
-      it("to home", () => {
-
-      });
-    });
-
-  });
 });

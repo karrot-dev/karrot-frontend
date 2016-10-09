@@ -4,10 +4,10 @@ import hookFactory from "./hook.js";
 describe("authentication", () => {
   let $httpBackend, Authentication;
 
-  beforeEach(module(AuthenticationModule));
+  beforeEach(angular.module(AuthenticationModule));
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
-    Authentication = $injector.get("Group");
+    Authentication = $injector.get("Authentication");
   }));
 
   let loginData = {
@@ -109,8 +109,6 @@ describe("authentication", () => {
       $transition = $injector.get("$transition");
     }));
 
-    beforeEach(module(testModule));
-
     let mockAuthenticationSuccess = {
       update: () => {
         return $q((resolve) => {
@@ -133,7 +131,7 @@ describe("authentication", () => {
       });
 
       it("to login", () => {
-        module(($provide) => {
+        angular.module(($provide) => {
           $provide.value("Authentication", mockAuthenticationFailure);
         });
         let hook = hookFactory("home", { authenticated: true, anonymous: "login" });
@@ -142,7 +140,7 @@ describe("authentication", () => {
     });
 
     it("to home", () => {
-      module(($provide) => {
+      angular.module(($provide) => {
         $provide.value("Authentication", mockAuthenticationSuccess);
       });
       let mockReaction = ($state, reaction) => {

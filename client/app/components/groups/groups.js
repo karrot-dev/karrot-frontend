@@ -15,7 +15,7 @@ let groupsModule = angular.module('groups', [
         component: 'groups',
         resolve: {
           groupdata: (Group, $stateParams) => {
-            return Group.get($stateParams.id);
+            return Group.get({"id": $stateParams.id});
           }
         }
     });

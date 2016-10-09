@@ -7,25 +7,17 @@ class AuthCommunicationService {
 
   login(email,password) {
     return this.$http.post("/api/auth/",{ email,password })
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, (data) => {
-      return Promise.reject(data);
-    });
+      .then((res) => res.data);
   }
 
   update() {
-    return this.$http.get("/api/auth/status/").then((res) => res.data);
+    return this.$http.get("/api/auth/status/")
+      .then((res) => res.data);
   }
 
   logout() {
     let email = "",password = "";
-    return this.$http.post("/api/auth/logout/",{ email,password })
-    .then(() => {
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.post("/api/auth/logout/",{ email, password });
   }
 }
 

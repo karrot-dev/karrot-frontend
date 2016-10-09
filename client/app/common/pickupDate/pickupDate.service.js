@@ -7,16 +7,12 @@ class PickupDateComService extends base {
     this.$http=$http;
   }
 
-  pickupDate() {
-    return this.$http.get('/api/pickup-dates/').then(res => res.data);
-  }
-
-  create(group) {
-    return this.$http.post('/api/pickup-dates/', group).then(res => res.data);
+  create(pickup) {
+    return this.$http.post('/api/pickup-dates/', pickup).then(res => res.data);
   }
 
   get(params) {
-    if(params.id){
+    if(params && params.id){
         return this.getById(params.id);
     } else {
         return this.$http({
@@ -40,11 +36,11 @@ class PickupDateComService extends base {
   }
 
   join(pickupId) {
-    return this.$http.post(`/api/pickup-dates/${pickupId}/add/`, {});
+    return this.$http.post(`/api/pickup-dates/${pickupId}/add/`, {}).then(res => res.data);
   }
 
   leave(pickupId) {
-    return this.$http.post(`/api/pickup-dates/${pickupId}/remove/`, {});
+    return this.$http.post(`/api/pickup-dates/${pickupId}/remove/`, {}).then(res => res.data);
   }
 }
 

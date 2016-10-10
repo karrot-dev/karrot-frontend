@@ -1,9 +1,9 @@
-import template from './signup.html';
-import controller from './signup.controller';
-import './signup.styl';
+import template from "./signup.html";
+import controller from "./signup.controller";
+import "./signup.styl";
 
 let signupComponent = {
-  restrict: 'E',
+  restrict: "E",
   bindings: {},
   template,
   controller

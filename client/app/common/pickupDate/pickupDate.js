@@ -1,8 +1,8 @@
-import PickupDate from './pickupDate.service';
+import PickupDate from "./pickupDate.service";
 
-let pickupDateModule = angular.module('PickupDate', [])
+let pickupDateModule = angular.module("PickupDate", [])
 
-.service('PickupDate', PickupDate)
+.service("PickupDate", PickupDate)
 
 .name;
 

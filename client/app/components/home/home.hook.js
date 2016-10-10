@@ -1,17 +1,17 @@
 let homeHook = ($transitions) => {
-  'ngInject';
+  "ngInject";
   $transitions.onBefore(
-    {to: 'home.*'},
+    { to: "home.*" },
     (transition) => {
-      var auth=transition.injector().get('Authentication'),
-          $state=transition.injector().get('$state');
+      let auth = transition.injector().get("Authentication"),
+        $state = transition.injector().get("$state");
       return auth.update().then(() => {
         return true;
       }, () => {
-        return $state.target('login');
+        return $state.target("login");
       });
     }
   );
-}
+};
 
 export default homeHook;

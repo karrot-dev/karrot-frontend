@@ -1,24 +1,35 @@
-class GroupComService {
+import base from "../base/service";
+
+class GroupService extends base {
 
   constructor($http) {
-    'ngInject';
-    this.$http=$http;
-  }
-  
-  groups(/*search*/) {
-    return this.$http.get('/api/groups/').then(res => res.data);
-  } 
-  
-  create(group) {
-    return this.$http.post('/api/groups/', group).then(res => res.data);
+    "ngInject";
+    super();
+    this.$http = $http;
   }
 
-  get(groupId) {
-    return this.$http.get(`/api/groups/${groupId}/`).then(res => res.data);
+  create(group) {
+    return this.$http.post("/api/groups/", group).then((res) => res.data);
+  }
+
+  get(params) {
+    if (params.id) {
+      return this.getById(params.id);
+    } else {
+      return this.$http({
+        url: "/api/groups/",
+        method: "GET",
+        params
+      }).then((res) => res.data);
+    }
+  }
+
+  getById(groupId) {
+    return this.$http.get(`/api/groups/${groupId}/`).then((res) => res.data);
   }
 
   save(groupId, updates) {
-    return this.$http.patch(`/api/groups/${groupId}/`, updates).then(res => res.data);
+    return this.$http.patch(`/api/groups/${groupId}/`, updates).then((res) => res.data);
   }
 
   delete(groupId) {
@@ -26,4 +37,4 @@ class GroupComService {
   }
 }
 
-export default GroupComService;
+export default GroupService;

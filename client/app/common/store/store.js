@@ -1,11 +1,8 @@
-import StoreCom from './store.service';
-import Store from './store.wrapper';
+import Store from "./store.service";
 
-let storeModule = angular.module('Store', [])
+let storeModule = angular.module("Store", [])
 
-.service('StoreCommunication', StoreCom)
-
-.service('Store', Store)
+.service("Store", Store)
 
 .name;
 

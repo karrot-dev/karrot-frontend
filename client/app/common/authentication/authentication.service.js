@@ -1,4 +1,4 @@
-class AuthCommunicationService {
+class AuthenticationService {
 
   constructor($http) {
     "ngInject";
@@ -6,18 +6,18 @@ class AuthCommunicationService {
   }
 
   login(email,password) {
-    return this.$http.post("/api/auth/",{ email,password })
-      .then((res) => res.data);
+    return this.$http.post("/api/auth/", { email,password })
+      .then((data) => data.data);
   }
 
   update() {
     return this.$http.get("/api/auth/status/")
-      .then((res) => res.data);
+      .then((data) => data.data);
   }
 
   logout() {
-    return this.$http.post("/api/auth/logout/");
+    return this.$http.post("/api/auth/logout/", {});
   }
 }
 
-export default AuthCommunicationService;
+export default AuthenticationService;

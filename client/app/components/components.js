@@ -6,7 +6,7 @@ import signup from './signup/signup';
 import pickupList from './pickupList/pickupList';
 import pickupListItem from './pickupList/pickupListItem/pickupListItem';
 
-let componentModule = angular.module('app.components', [
+let componentModule = angular.module("app.components", [
   login,
   groups,
   home,

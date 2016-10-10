@@ -1,11 +1,11 @@
-import AuthCommunication from './authentication.service';
-import Authentication from './authentication.wrapper';
+import AuthCommunication from "./authentication.service";
+import Authentication from "./authentication.wrapper";
 
-let authenticationModule = angular.module('Authentication', [])
+let authenticationModule = angular.module("Authentication", [])
 
-.service('AuthCommunication', AuthCommunication)
+.service("AuthCommunication", AuthCommunication)
 
-.service('Authentication', Authentication)
+.service("Authentication", Authentication)
 
 .name;
 

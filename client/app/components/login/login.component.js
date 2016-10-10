@@ -1,9 +1,9 @@
-import template from './login.html';
-import controller from './login.controller';
-import './login.styl';
+import template from "./login.html";
+import controller from "./login.controller";
+import "./login.styl";
 
 let loginComponent = {
-  restrict: 'E',
+  restrict: "E",
   bindings: {},
   template,
   controller

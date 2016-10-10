@@ -1,7 +1,9 @@
 import UserModule from "./user";
 
+let { module } = angular.mock;
+
 describe("user service", () => {
-  beforeEach(window.module(UserModule));
+  beforeEach(module(UserModule));
   let $httpBackend, User;
 
   let userData = [{
@@ -39,61 +41,43 @@ describe("user service", () => {
 
   it("lists users", () => {
     $httpBackend.expectGET("/api/users/").respond(userData);
-    User.get().then((data) => {
-      expect(data).to.deep.equal(userData);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(User.get()).to.eventually.deep.equal(userData);
     $httpBackend.flush();
   });
 
   it("lists filtered users", () => {
-    $httpBackend.expectGET("/api/users/?email=til@man.com").respond(userData);
-    User.get({ email: "til@man.com" }).then((data) => {
-      expect(data).to.deep.equal(userData);
-    }).catch(() => {
-      assert.fail();
-    });
+    $httpBackend.expectGET("/api/users/?last_name=becker").respond(userData);
+    expect(User.get({ "last_name": "becker" })).to.eventually.deep.equal(userData);
     $httpBackend.flush();
   });
 
   it("creates user", () => {
     $httpBackend.expectPOST("/api/users/", userCreateData).respond(userData);
-    User.create(userCreateData).then((data) => {
-      expect(data).to.deep.equal(userData);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(User.create(userCreateData)).to.eventually.deep.equal(userData);
     $httpBackend.flush();
   });
 
-  it("gets user details", () => {
+  it("gets user details via get", () => {
     $httpBackend.expectGET("/api/users/1/").respond(userData[0]);
-    User.getById(1).then((data) => {
-      expect(data).to.deep.equal(userData[0]);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(User.get({ id: 1, someOtherAttribute: "someValue" })).to.eventually.deep.equal(userData[0]);
+    $httpBackend.flush();
+  });
+
+  it("gets user details via getById", () => {
+    $httpBackend.expectGET("/api/users/1/").respond(userData[0]);
+    expect(User.getById(1)).to.eventually.deep.equal(userData[0]);
     $httpBackend.flush();
   });
 
   it("saves user details", () => {
     $httpBackend.expectPATCH("/api/users/1/", userModifyData).respond(userData[0]);
-    User.save(1, userModifyData).then((data) => {
-      expect(data).to.deep.equal(userData[0]);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(User.save(1, userModifyData)).to.eventually.deep.equal(userData[0]);
     $httpBackend.flush();
   });
 
   it("deletes user", () => {
     $httpBackend.expectDELETE("/api/users/1/").respond(200);
-    User.delete(1).then(() => {
-      assert(true);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(User.delete(1)).to.be.fulfilled;
     $httpBackend.flush();
   });
 });

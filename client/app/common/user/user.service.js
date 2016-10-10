@@ -24,12 +24,12 @@ class UserService extends base {
     return this.$http.get(`/api/users/${userId}/`).then((res) => res.data);
   }
 
-  save(id, updates) {
-    return this.$http.patch(`/api/users/${id}/`, updates).then((res) => res.data);
+  save(userId, updates) {
+    return this.$http.patch(`/api/users/${userId}/`, updates).then((res) => res.data);
   }
 
-  delete(pk) {
-    return this.$http.delete(`/api/users/${pk}/`);
+  delete(userId) {
+    return this.$http.delete(`/api/users/${userId}/`);
   }
 }
 

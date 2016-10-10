@@ -39,7 +39,17 @@ describe("user service", () => {
 
   it("lists users", () => {
     $httpBackend.expectGET("/api/users/").respond(userData);
-    User.users().then((data) => {
+    User.get().then((data) => {
+      expect(data).to.deep.equal(userData);
+    }).catch(() => {
+      assert.fail();
+    });
+    $httpBackend.flush();
+  });
+
+  it("lists filtered users", () => {
+    $httpBackend.expectGET("/api/users/?email=til@man.com").respond(userData);
+    User.get({ email: "til@man.com" }).then((data) => {
       expect(data).to.deep.equal(userData);
     }).catch(() => {
       assert.fail();
@@ -57,27 +67,27 @@ describe("user service", () => {
     $httpBackend.flush();
   });
 
-  it("get user details", () => {
-    $httpBackend.expectGET("/api/users/1/").respond(userData);
-    User.get(1).then((data) => {
-      expect(data).to.deep.equal(userData);
+  it("gets user details", () => {
+    $httpBackend.expectGET("/api/users/1/").respond(userData[0]);
+    User.getById(1).then((data) => {
+      expect(data).to.deep.equal(userData[0]);
     }).catch(() => {
       assert.fail();
     });
     $httpBackend.flush();
   });
 
-  it("save user details", () => {
-    $httpBackend.expectPATCH("/api/users/1/", userModifyData).respond(userData);
+  it("saves user details", () => {
+    $httpBackend.expectPATCH("/api/users/1/", userModifyData).respond(userData[0]);
     User.save(1, userModifyData).then((data) => {
-      expect(data).to.deep.equal(userData);
+      expect(data).to.deep.equal(userData[0]);
     }).catch(() => {
       assert.fail();
     });
     $httpBackend.flush();
   });
 
-  it("delete user", () => {
+  it("deletes user", () => {
     $httpBackend.expectDELETE("/api/users/1/").respond(200);
     User.delete(1).then(() => {
       assert(true);

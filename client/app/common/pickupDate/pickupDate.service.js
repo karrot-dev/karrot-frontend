@@ -15,11 +15,7 @@ class PickupDateComService extends base {
     if (params && params.id){
       return this.getById(params.id);
     } else {
-      return this.$http({
-        url: "/api/pickup-dates/",
-        method: "GET",
-        params
-      }).then((res) => res.data);
+      return this.$http.get("/api/pickup-dates/", { params }).then((res) => res.data);
     }
   }
 

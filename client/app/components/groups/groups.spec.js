@@ -1,9 +1,9 @@
 //import GroupsModule from './groups'
-import GroupsController from './groups.controller';
-import GroupsComponent from './groups.component';
-import GroupsTemplate from './groups.html';
+import GroupsController from "./groups.controller";
+import GroupsComponent from "./groups.component";
+import GroupsTemplate from "./groups.html";
 
-describe('Groups', () => {
+describe("Groups", () => {
   /*let $rootScope, makeController;
   
   beforeEach(window.module(GroupsModule));
@@ -14,20 +14,20 @@ describe('Groups', () => {
     };
   }));*/
 
-  describe('Module', () => {
+  describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
   });
 
-  describe('Component', () => {
+  describe("Component", () => {
       // component/directive specs
-      let component = GroupsComponent;
+    let component = GroupsComponent;
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(GroupsTemplate);
-      });
+    it("includes the intended template",() => {
+      expect(component.template).to.equal(GroupsTemplate);
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(GroupsController);
-      });
+    it("invokes the right controller", () => {
+      expect(component.controller).to.equal(GroupsController);
+    });
   });
 });

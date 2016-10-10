@@ -16,8 +16,7 @@ class AuthenticationService {
   }
 
   logout() {
-    let email = "",password = "";
-    return this.$http.post("/api/auth/logout/", { email,password });
+    return this.$http.post("/api/auth/logout/", {});
   }
 }
 

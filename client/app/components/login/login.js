@@ -2,8 +2,10 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import loginComponent from "./login.component";
 import loginForm from "./login.form";
-import loginHook from "./login.hook";
 import ngMessages from "angular-messages";
+import hookFactory from "../../common/authentication/hook";
+
+let hook = hookFactory("login", { authenticated: "home", anonymous: true });
 
 let loginModule = angular.module("login", [
   uiRouter,
@@ -19,7 +21,7 @@ let loginModule = angular.module("login", [
   $urlRouterProvider.otherwise("/login");
 })
 
-.run(loginHook)
+.run(hook)
 
 .directive("loginForm", loginForm)
 

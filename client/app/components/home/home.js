@@ -1,8 +1,10 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import homeComponent from "./home.component";
-import homeHook from "./home.hook";
 import logout from "./home.logout";
+import hookFactory from "../../common/authentication/hook";
+
+let hook = hookFactory("home", { authenticated: true, anonymous: "login" });
 
 let homeModule = angular.module("home", [
   uiRouter
@@ -18,7 +20,7 @@ let homeModule = angular.module("home", [
     });
 })
 
-.run(homeHook)
+.run(hook)
 
 .directive("logout", logout)
 

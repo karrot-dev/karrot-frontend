@@ -8,47 +8,28 @@ class UserService extends base {
     this.$http = $http;
   }
 
-  users() {
-    return this.$http.get("/api/users/").then((res) => res.data);
-  }
-
   create(user) {
-    if (UserService.validate(["email", "password", "display_name"])) {
-      return this.$http.post("/api/users/", user).then((res) => res.data);
+    return this.$http.post("/api/users/", user).then((res) => res.data);
+  }
+
+  get(params) {
+    if (params && params.id){
+      return this.getById(params.id);
     } else {
-      return Promise.reject();
+      return this.$http.get("/api/users/", { params }).then((res) => res.data);
     }
   }
 
-  get(pk) {
-    pk = UserService.resolvePrivateKey(pk);
-    if (!pk)
-      return Promise.reject();
-
-    return this.$http.get(`/api/users/${pk}/`).then((res) => res.data).then((user) => {
-      if (UserService.validate(user)) {
-        return Promise.resolve(user);
-      } else {
-        return Promise.reject();
-      }
-    });
+  getById(userId) {
+    return this.$http.get(`/api/users/${userId}/`).then((res) => res.data);
   }
 
-  save(id, updates) {
-    if (UserService.validate(["id"])) {
-      return this.$http.patch(`/api/users/${id}/`, updates).then((res) => res.data);
-    } else {
-      return Promise.reject();
-    }
+  save(userId, updates) {
+    return this.$http.patch(`/api/users/${userId}/`, updates).then((res) => res.data);
   }
 
-  delete(pk) {
-    pk = UserService.resolvePrivateKey(pk);
-    if (pk) {
-      return this.$http.delete(`/api/users/${pk}/`);
-    } else {
-      return Promise.reject();
-    }
+  delete(userId) {
+    return this.$http.delete(`/api/users/${userId}/`);
   }
 }
 

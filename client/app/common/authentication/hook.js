@@ -9,7 +9,7 @@ const setReaction = ($state, reaction) => {
   };
 };
 
-const hookFactory = (target, detour = { authenticated: true, anonymous: "login" }) => {
+const createHook = (target, detour = { authenticated: true, anonymous: "login" }) => {
   let hook = ($transitions) => {
     "ngInject";
     $transitions.onBefore(
@@ -26,4 +26,16 @@ const hookFactory = (target, detour = { authenticated: true, anonymous: "login" 
   return hook;
 };
 
-export default hookFactory;
+const hookProvider = ($transitionsProvider) => {
+  "ngInject";
+  return {
+    setup(target, detour = { authenticated: true, anonymous: "login" }) {
+      createHook(target, detour)($transitionsProvider);
+    },
+    $get() {
+
+    }
+  };
+};
+
+export { hookProvider, createHook };

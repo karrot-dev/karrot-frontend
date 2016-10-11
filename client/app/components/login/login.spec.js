@@ -5,6 +5,7 @@ import LoginTemplate from "./login.html";
 
 describe("Login", () => {
 
+  beforeEach(window.module("Authentication")); //to load hookProvider
   beforeEach(window.module(LoginModule));
   beforeEach(inject((/*$injector*/) => {
   }));

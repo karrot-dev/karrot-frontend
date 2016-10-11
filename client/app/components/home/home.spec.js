@@ -3,6 +3,7 @@ import HomeModule from "./home";
 describe("Home", () => {
   let $rootScope, $componentController;
 
+  beforeEach(window.module("Authentication")); //to load hookProvider
   beforeEach(window.module(HomeModule));
 
   beforeEach(inject(($injector) => {

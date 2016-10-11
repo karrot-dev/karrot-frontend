@@ -1,21 +1,15 @@
 import angular from "angular";
 
-const setReaction = ($state, reaction, reactionHook) => {
+const setReaction = ($state, reaction) => {
   return () => {
-    let r;
     if (angular.isString(reaction)) {
-      r = $state.target(reaction);
-    } else {
-      r = reaction;
+      return $state.target(reaction);
     }
-    if (angular.isFunction(reactionHook)) {
-      reactionHook(r);
-    }
-    return r;
+    return reaction;
   };
 };
 
-const hookFactory = (target, detour = { authenticated: true, anonymous: "login" }, reactionHook) => {
+const hookFactory = (target, detour = { authenticated: true, anonymous: "login" }) => {
   let hook = ($transitions) => {
     "ngInject";
     $transitions.onBefore(
@@ -24,8 +18,8 @@ const hookFactory = (target, detour = { authenticated: true, anonymous: "login" 
         let auth = transition.injector().get("Authentication"),
           $state = transition.injector().get("$state");
         return auth.update()
-          .then(setReaction($state, detour.authenticated, reactionHook))
-          .catch(setReaction($state, detour.anonymous, reactionHook));
+          .then(setReaction($state, detour.authenticated))
+          .catch(setReaction($state, detour.anonymous));
       }
     );
   };

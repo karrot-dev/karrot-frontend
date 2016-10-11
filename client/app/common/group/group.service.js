@@ -12,19 +12,15 @@ class GroupService extends base {
     return this.$http.post("/api/groups/", group).then((res) => res.data);
   }
 
-  get(params) {
-    if (params.id) {
-      return this.getById(params.id);
-    } else {
-      return this.$http({
-        url: "/api/groups/",
-        method: "GET",
-        params
-      }).then((res) => res.data);
-    }
+  getByUser(member) {
+    return this.$http.get("/api/groups/", { member }).then((res) => res.data);
   }
 
-  getById(groupId) {
+  search(search) {
+    return this.$http.get("/api/groups/", { search }).then((res) => res.data);
+  }
+
+  get(groupId) {
     return this.$http.get(`/api/groups/${groupId}/`).then((res) => res.data);
   }
 

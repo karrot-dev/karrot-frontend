@@ -16,14 +16,10 @@ class StoreComService extends base {
   }
 
   get(params) {
-    if (params.id){
+    if (params && params.id){
       return this.getById(params.id);
     } else {
-      return this.$http({
-        url: "/api/stores/",
-        method: "GET",
-        params
-      }).then((res) => res.data);
+      return this.$http.get("/api/stores/", { params }).then((res) => res.data);
     }
   }
 

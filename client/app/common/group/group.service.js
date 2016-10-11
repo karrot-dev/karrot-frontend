@@ -13,14 +13,10 @@ class GroupService extends base {
   }
 
   get(params) {
-    if (params.id) {
+    if (params && params.id) {
       return this.getById(params.id);
     } else {
-      return this.$http({
-        url: "/api/groups/",
-        method: "GET",
-        params
-      }).then((res) => res.data);
+      return this.$http.get("/api/groups/", { params }).then((res) => res.data);
     }
   }
 

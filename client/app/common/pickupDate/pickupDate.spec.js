@@ -1,7 +1,9 @@
 import PickupDateModule from "./pickupDate";
 
+let { module } = angular.mock;
+
 describe("pickupDate service", () => {
-  beforeEach(window.module(PickupDateModule));
+  beforeEach(module(PickupDateModule));
   let $httpBackend, PickupDate;
 
   beforeEach(inject(($injector) => {

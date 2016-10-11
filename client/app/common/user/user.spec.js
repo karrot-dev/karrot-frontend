@@ -81,7 +81,7 @@ describe("user service", () => {
     $httpBackend.flush();
   });
 
-  it("delete user fails if not found", () => {
+  it("fails to delete non-existing user", () => {
     $httpBackend.expectDELETE("/api/users/1337/").respond(404);
     expect(User.delete(1337)).to.be.rejected;
     $httpBackend.flush();

@@ -64,6 +64,8 @@ npm run lint
 npm run test
 ```
 
+If you want to use an eslint plugin for your editor, please keep in mind that you either have to install all eslint plugins listed in package.json globally or you run `npm install`. Otherwise your eslint plugin may not work.
+
 ## Backend
 
 Per default, all requests to `/api` are forwarded to the online backend `fstool.yunity.org/api`.

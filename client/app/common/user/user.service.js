@@ -1,10 +1,7 @@
-import base from "../base/service";
-
-class UserService extends base {
+class UserService {
 
   constructor($http) {
     "ngInject";
-    super();
     this.$http = $http;
   }
 

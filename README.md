@@ -4,7 +4,7 @@
 
 [![CodeCov](https://codecov.io/github/yunity/foodsaving-frontend/coverage.svg)](https://codecov.io/gh/yunity/foodsaving-frontend)
 [![CircleCI](https://circleci.com/gh/yunity/foodsaving-frontend.svg?style=shield)](https://circleci.com/gh/yunity/foodsaving-frontend)
-[![Known Vulnerabilities](https://snyk.io/test/github/yunity/yunity-angular/badge.svg)](https://snyk.io/test/github/yunity/yunity-angular)
+[![Known Vulnerabilities](https://snyk.io/test/github/yunity/foodsaving-frontend/e4f6927cccfbde340636d20b863efd508be19ec0/badge.svg)](https://snyk.io/test/github/yunity/foodsaving-frontend/e4f6927cccfbde340636d20b863efd508be19ec0)
 
 
 # foodsaving frontend

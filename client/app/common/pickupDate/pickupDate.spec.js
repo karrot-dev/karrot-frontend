@@ -52,31 +52,41 @@ describe("pickupDate service", () => {
 
   it("lists all pickupdates", () => {
     $httpBackend.expectGET("/api/pickup-dates/").respond(pickupData);
-    expect(PickupDate.get()).to.eventually.deep.equal(pickupData);
+    expect(PickupDate.get())
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupData);
     $httpBackend.flush();
   });
 
   it("gets pickupdate", () => {
     $httpBackend.expectGET("/api/pickup-dates/15/").respond(pickupData[0]);
-    expect(PickupDate.get({ id: 15 })).to.eventually.deep.equal(pickupData[0]);
+    expect(PickupDate.get({ id: 15 }))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
   });
 
   it("filters pickupdates", () => {
     $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData[0]);
-    expect(PickupDate.get({ store: 9 })).to.eventually.deep.equal(pickupData[0]);
+    expect(PickupDate.get({ store: 9 }))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
   });
 
   it("creates pickupdate", () => {
     $httpBackend.expectPOST("/api/pickup-dates/", pickupCreateData).respond(pickupData[0]);
-    expect(PickupDate.create(pickupCreateData)).to.eventually.deep.equal(pickupData[0]);
+    expect(PickupDate.create(pickupCreateData))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
   });
 
   it("save pickupdate", () => {
     $httpBackend.expectPATCH("/api/pickup-dates/15/", pickupModifyData).respond(pickupModifiedData);
-    expect(PickupDate.save(15, pickupModifyData)).to.eventually.deep.equal(pickupModifiedData);
+    expect(PickupDate.save(15, pickupModifyData))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupModifiedData);
     $httpBackend.flush();
   });
 
@@ -88,13 +98,17 @@ describe("pickupDate service", () => {
 
   it("join pickupdate", () => {
     $httpBackend.expectPOST("/api/pickup-dates/15/add/").respond(pickupJoinedData);
-    expect(PickupDate.join(15)).to.eventually.deep.equal(pickupJoinedData);
+    expect(PickupDate.join(15))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupJoinedData);
     $httpBackend.flush();
   });
 
   it("leave pickupdate", () => {
     $httpBackend.expectPOST("/api/pickup-dates/15/remove/").respond(pickupModifiedData);
-    expect(PickupDate.leave(15)).to.eventually.deep.equal(pickupModifiedData);
+    expect(PickupDate.leave(15))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupModifiedData);
     $httpBackend.flush();
   });
 });

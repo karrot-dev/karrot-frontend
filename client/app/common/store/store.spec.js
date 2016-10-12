@@ -40,31 +40,41 @@ describe("store service", () => {
 
   it("lists stores", () => {
     $httpBackend.expectGET("/api/stores/").respond(storeData);
-    expect(Store.stores()).to.eventually.deep.equal(storeData);
+    expect(Store.stores())
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
   });
 
   it("creates store", () => {
     $httpBackend.expectPOST("/api/stores/", storeCreateData).respond(storeData);
-    expect(Store.create(storeCreateData)).to.eventually.deep.equal(storeData);
+    expect(Store.create(storeCreateData))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
   });
 
   it("gets store details", () => {
     $httpBackend.expectGET("/api/stores/1/").respond(storeData);
-    expect(Store.get({ id: 1 })).to.eventually.deep.equal(storeData);
+    expect(Store.get({ id: 1 }))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
   });
 
   it("filters stores by group", () => {
     $httpBackend.expectGET("/api/stores/?group=1").respond(storeData);
-    expect(Store.get({ group: 1 })).to.eventually.deep.equal(storeData);
+    expect(Store.get({ group: 1 }))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
   });
 
   it("saves store details", () => {
     $httpBackend.expectPATCH("/api/stores/1/", storeModifyData).respond(storeData);
-    expect(Store.save(1, storeModifyData)).to.eventually.deep.equal(storeData);
+    expect(Store.save(1, storeModifyData))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
   });
 

@@ -27,66 +27,39 @@ describe("authentication", () => {
   describe("service", () => {
     let failLogin = { error: "not_authed" };
 
-    it("rejects anonymous user", (done) => {
+    it("rejects anonymous user", () => {
       $httpBackend.expectGET("/api/auth/status/").respond(401, failLogin);
-      Authentication.update()
-        .then(() => {
-          done(new Error("shouldn't be resolved"));
-        })
-        .catch((res) => {
-          expect(res.data).to.deep.equal(failLogin);
-          done();
-        });
+      expect(Authentication.update())
+        .to.be.rejected.and
+        .to.eventually.deep.equal(failLogin);
       $httpBackend.flush();
     });
 
-    it("allows authenticated user", (done) => {
+    it("allows authenticated user", () => {
       $httpBackend.expectGET("/api/auth/status/").respond(loginData);
-      Authentication.update()
-        .then((data) => {
-          expect(data).to.deep.equal(loginData);
-          done();
-        })
-        .catch(() => {
-          done(new Error("shouldn't be resolved"));
-        });
+      expect(Authentication.update())
+        .to.be.fulfilled.and
+        .to.eventually.deep.equal(loginData);
       $httpBackend.flush();
     });
 
-    it("allows login", (done) => {
+    it("allows login", () => {
       $httpBackend.expectPOST("/api/auth/").respond(loginData);
-      Authentication.login("", "")
-        .then((data) => {
-          expect(data).to.be.deep.equal(loginData);
-          done();
-        })
-        .catch(() => {
-          done(new Error("shouldn't be resolved"));
-        });
+      expect(Authentication.login("", ""))
+        .to.be.fulfilled.and
+        .to.eventually.deep.equal(loginData);
       $httpBackend.flush();
     });
 
-    it("disallows login", (done) => {
+    it("disallows login", () => {
       $httpBackend.expectPOST("/api/auth/").respond(400);
-      Authentication.login("", "")
-        .then(() => {
-          done(new Error("shouldn't be resolved"));
-        })
-        .catch(() => {
-          done();
-        });
+      expect(Authentication.login("", "")).to.be.rejected;
       $httpBackend.flush();
     });
 
-    it("logs user out", (done) => {
+    it("logs user out", () => {
       $httpBackend.expectPOST("/api/auth/logout/").respond(200);
-      Authentication.logout()
-        .then(() => {
-          done();
-        })
-        .catch(() => {
-          done(new Error("shouldn't be resolved"));
-        });
+      expect(Authentication.logout()).to.be.fulfilled;
       $httpBackend.flush();
     });
 

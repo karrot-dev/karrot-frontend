@@ -1,18 +1,21 @@
 class AuthenticationService {
 
-  constructor($http) {
+  constructor($http, $q) {
     "ngInject";
     this.$http = $http;
+    this.$q = $q;
   }
 
-  login(email,password) {
-    return this.$http.post("/api/auth/", { email,password })
-      .then((data) => data.data);
+  login(email, password) {
+    return this.$http.post("/api/auth/", { email, password })
+      .then((res) => res.data)
+      .catch((res) => this.$q.reject(res.data));
   }
 
   update() {
     return this.$http.get("/api/auth/status/")
-      .then((data) => data.data);
+      .then((res) => res.data)
+      .catch((res) => this.$q.reject(res.data));
   }
 
   logout() {

@@ -39,7 +39,8 @@ class PickupListController {
     }
     
     /*
-     * Filters pickups, so that only the ones specified by the criteria in the menu are shown
+     * Filters pickups, so that only the ones specified by the criteria in the header menu are shown
+     * @return filtered pickups
      */
   filterPickups() {
     let pickups = [];
@@ -54,6 +55,10 @@ class PickupListController {
     return pickups;
   }
   
+  /*
+   * groups pickups by date
+   * @return array with items like: {"date": "yyyy-MM-dd", "items", [pickups]}
+   */
   groupByDate(arr){
     let getArrayItem = (date, arr) => {
       for (let i = 0; i < arr.length; i++){

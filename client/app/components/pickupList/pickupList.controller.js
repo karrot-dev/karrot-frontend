@@ -1,11 +1,13 @@
 class PickupListController {
     
-    constructor(Authentication, PickupDate, Store) {
-        'ngInject';        
-        this.reversed = false;
-        this.Authentication = Authentication;
-        this.PickupDate = PickupDate;
-        this.Store = Store;
+  constructor(Authentication, PickupDate, Store, $filter) {
+    "ngInject";
+    this.reversed = false;
+    this.Authentication = Authentication;
+    this.PickupDate = PickupDate;
+    this.Store = Store;
+    this.userId = -1;
+    this.$filter = $filter;
         
         
         this.pickupList = {
@@ -39,21 +41,41 @@ class PickupListController {
     /*
      * Filters pickups, so that only the ones specified by the criteria in the menu are shown
      */
-    filterPickups() {
-        var pickups = [];
-        angular.forEach(this.allPickups, (currentPickup) => {
-                if (   currentPickup.isUserMember && this.pickupList.showJoined
-                        || currentPickup.isFull && this.pickupList.showFull
-                        || !currentPickup.isFull && this.pickupList.showOpen) {
-                    pickups.push(currentPickup);
-                }
-        });
-        this.pickups = pickups;
-    }
+  filterPickups() {
+    let pickups = [];
+    angular.forEach(this.allPickups, (currentPickup) => {
+      if (currentPickup.isUserMember && this.pickupList.showJoined
+        || currentPickup.isFull && this.pickupList.showFull
+        || !currentPickup.isFull && this.pickupList.showOpen) {
+        pickups.push(currentPickup);
+      }
+    });
+    this.groupedPickups = this.groupByDate(pickups);
+    return pickups;
+  }
+  
+  groupByDate(arr){
+    let getArrayItem = (date, arr) => {
+      for (let i = 0; i < arr.length; i++){
+        if (arr[i].date === date){
+          return arr[i];
+        }
+      }
+      return undefined;
+    };
     
-    toggleReversed() {
-        this.reversed = !this.reversed;
-    }
+    let retArr = [];
+    angular.forEach(arr, (pickup) => {
+      let pickupDay = this.$filter("date")(pickup.date, "yyyy-MM-dd", "");
+      let arrayItem = getArrayItem(pickupDay, retArr);
+      if (angular.isDefined(arrayItem)){
+        arrayItem.items.push(pickup);
+      } else {
+        retArr.push({ "date": pickupDay, "items": [pickup] });
+      }
+    });
+    return retArr;
+  }
     
     
     /**

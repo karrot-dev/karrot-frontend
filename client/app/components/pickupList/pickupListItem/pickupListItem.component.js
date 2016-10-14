@@ -1,14 +1,14 @@
-import template from './pickupListItem.html';
-import controller from './pickupListItem.controller';
-import './pickupListItem.styl';
+import template from "./pickupListItem.html";
+import controller from "./pickupListItem.controller";
+import "./pickupListItem.styl";
 
 let pickupListItemComponent = {
-  restrict: 'E',
+  restrict: "E",
   bindings: {
-        data: "<",              // pickup info, including .isFull .isMember etc..
-        showDetail: "<",        // 'store'
-        parentCtrl: "<"         // Controller of pickupList
-    },
+    data: "<",              // pickup info, including .isFull .isMember etc..
+    showDetail: "<",        // 'store'
+    parentCtrl: "<"         // Controller of pickupList
+  },
   template,
   controller
 };

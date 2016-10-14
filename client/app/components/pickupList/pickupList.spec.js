@@ -209,14 +209,12 @@ describe("PickupList", () => {
     "longitude": 2.8125
   };
 
-describe('PickupList', () => {
-  beforeEach(window.module(PickupListModule));
   
-  describe('Module', () => {
+  describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
   });
 
-  describe('Controller', () => {
+  describe("Controller", () => {
     // controller specs
     let controller;
     
@@ -296,21 +294,12 @@ describe('PickupList', () => {
     });
   });
 
-  describe('Template', () => {
+  describe("Template", () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
   });
 
-  describe('Component', () => {
+  describe("Component", () => {
       // component/directive specs
-      let component = PickupListComponent;
-
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(PickupListTemplate);
-      });
-
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(PickupListController);
-      });
   });
 });

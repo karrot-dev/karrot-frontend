@@ -57,7 +57,7 @@ describe("PickupListItem", () => {
     // template specs
   });
 
-  describe('Component', () => {
+  describe("Component", () => {
       // component/directive specs
   });
 });

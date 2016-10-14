@@ -1,11 +1,8 @@
-import PickupDateCom from './pickupDate.service';
-import PickupDate from './pickupDate.wrapper';
+import PickupDate from "./pickupDate.service";
 
-let pickupDateModule = angular.module('PickupDate', [])
+let pickupDateModule = angular.module("PickupDate", [])
 
-.service('PickupDateCommunication', PickupDateCom)
-
-.service('PickupDate', PickupDate)
+.service("PickupDate", PickupDate)
 
 .name;
 

@@ -1,37 +1,26 @@
-class AuthCommunicationService {
+class AuthenticationService {
 
-  constructor($http) {
-    'ngInject';
-    this.$http=$http;
+  constructor($http, $q) {
+    "ngInject";
+    this.$http = $http;
+    this.$q = $q;
   }
 
-  login(email,password) {
-    return this.$http.post('/api/auth/',{email,password})
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, (data) => {
-      return Promise.reject(data);
-    });
+  login(email, password) {
+    return this.$http.post("/api/auth/", { email, password })
+      .then((res) => res.data)
+      .catch((res) => this.$q.reject(res.data));
   }
 
   update() {
-    return this.$http.get('/api/auth/status/')
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.get("/api/auth/status/")
+      .then((res) => res.data)
+      .catch((res) => this.$q.reject(res.data));
   }
 
   logout() {
-    var email='',password='';
-    return this.$http.post('/api/auth/logout/',{email,password})
-    .then(() => {
-      return Promise.resolve()
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.post("/api/auth/logout/", {});
   }
 }
 
-export default AuthCommunicationService;
+export default AuthenticationService;

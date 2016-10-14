@@ -1,26 +1,28 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import signupComponent from './signup.component';
-import signupForm from './signup.form';
-import signupHook from './signup.hook';
+import angular from "angular";
+import uiRouter from "angular-ui-router";
+import signupComponent from "./signup.component";
+import signupForm from "./signup.form";
+import hookFactory from "../../common/authentication/hook";
 
-let signupModule = angular.module('signup', [
+let hook = hookFactory("signup", { authenticated: "home", anonymous: true });
+
+let signupModule = angular.module("signup", [
   uiRouter
 ])
 
 .config(($stateProvider) => {
   "ngInject";
-  $stateProvider.state('signup', {
-    url: '/signup',
-    component: 'signup'
+  $stateProvider.state("signup", {
+    url: "/signup",
+    component: "signup"
   });
 })
 
-.run(signupHook)
+.run(hook)
 
-.directive('signupForm', signupForm)
+.directive("signupForm", signupForm)
 
-.component('signup', signupComponent)
+.component("signup", signupComponent)
 
 .name;
 

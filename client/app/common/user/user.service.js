@@ -1,54 +1,37 @@
-class UserCommunicationService {
+class UserService {
 
   constructor($http) {
-    'ngInject';
-    this.$http=$http;
-  }
-
-  users(/*search*/) {
-    return this.$http.get('/api/users/')
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, (data) => {
-      return Promise.reject(data);
-    });
+    "ngInject";
+    this.$http = $http;
   }
 
   create(user) {
-    return this.$http.post('/api/users/',user)
-    .then(() => {
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
-    });
+    return this.$http.post("/api/users/", user)
+      .then((res) => res.data);
   }
 
-  get(pk) {
-    return this.$http.get(`/api/users/${pk}`)
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+  get(params) {
+    if (params && params.id){
+      return this.getById(params.id);
+    } else {
+      return this.$http.get("/api/users/", { params })
+        .then((res) => res.data);
+    }
   }
 
-  save(user) {
-    return this.$http.patch(`/api/users/${user.id}/`)
-    .then((data) => {
-      return Promise.resolve(data.data);
-    }, () => {
-      return Promise.reject();
-    });
+  getById(userId) {
+    return this.$http.get(`/api/users/${userId}/`)
+      .then((res) => res.data);
   }
 
-  delete(pk) {
-    return this.$http.delete(`/api/users/${pk}`)
-    .then(() => {
-      return Promise.resolve();
-    }, () => {
-      return Promise.reject();
-    })
+  save(userId, updates) {
+    return this.$http.patch(`/api/users/${userId}/`, updates)
+      .then((res) => res.data);
+  }
+
+  delete(userId) {
+    return this.$http.delete(`/api/users/${userId}/`);
   }
 }
 
-export default UserCommunicationService;
+export default UserService;

@@ -1,10 +1,12 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import homeComponent from './home.component';
-import homeHook from './home.hook';
-import logout from './home.logout';
+import angular from "angular";
+import uiRouter from "angular-ui-router";
+import homeComponent from "./home.component";
+import logout from "./home.logout";
+import hookFactory from "../../common/authentication/hook";
 
-let homeModule = angular.module('home', [
+let hook = hookFactory("home", { authenticated: true, anonymous: "login" });
+
+let homeModule = angular.module("home", [
   uiRouter
 ])
 
@@ -12,17 +14,17 @@ let homeModule = angular.module('home', [
   "ngInject";
 
   $stateProvider
-    .state('home', {
-      url: '/',
-      component: 'home'
+    .state("home", {
+      url: "/",
+      component: "home"
     });
 })
 
-.run(homeHook)
+.run(hook)
 
-.directive('logout', logout)
+.directive("logout", logout)
 
-.component('home', homeComponent)
+.component("home", homeComponent)
 
 .name;
 

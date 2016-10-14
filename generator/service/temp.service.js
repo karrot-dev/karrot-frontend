@@ -1,7 +1,7 @@
-class <%= upCaseName %>ComService {
+class <%= upCaseName %>Service {
   constructor() {
 
   }
 }
 
-export default <%= upCaseName %>ComService;
+export default <%= upCaseName %>Service;

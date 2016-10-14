@@ -1,11 +1,8 @@
-import GroupCom from './group.service';
-import Group from './group.wrapper';
+import Group from "./group.service";
 
-let groupModule = angular.module('Group', [])
+let groupModule = angular.module("Group", [])
 
-.service('GroupCommunication', GroupCom)
-
-.service('Group', Group)
+.service("Group", Group)
 
 .name;
 

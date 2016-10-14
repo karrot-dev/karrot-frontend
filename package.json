@@ -10,13 +10,14 @@
     "angular-material": "^1.1.0-rc.5",
     "angular-messages": "^1.5.8",
     "angular-ui-router": "^1.0.0-beta.1",
+    "font-awesome": "^4.6.3",
     "normalize.css": "^4.2.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
-    "babel-plugin-istanbul": "^1.0.3",
+    "babel-plugin-istanbul": "^2.0.1",
     "babel-plugin-transform-runtime": "^6.7.5",
     "babel-polyfill": "^6.7.4",
     "babel-preset-es2015": "^6.13.0",
@@ -26,10 +27,12 @@
     "browser-sync": "^2.11.1",
     "chai": "^3.4.0",
     "connect-history-api-fallback": "^1.1.0",
-    "css-loader": "^0.23.1",
+    "css-loader": "^0.25.0",
     "del": "^2.2.0",
     "eslint": "^3.2.0",
+    "eslint-config-angular": "^0.5.0",
     "eslint-plugin-angular": "^1.3.1",
+    "file-loader": "^0.9.0",
     "fs-walk": "0.0.1",
     "gulp": "^3.9.0",
     "gulp-eslint": "^3.0.1",
@@ -40,7 +43,8 @@
     "http-proxy-middleware": "^0.17.0",
     "karma": "^1.1.2",
     "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^1.0.1",
+    "karma-chai-plugins": "^0.8.0",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-junit-reporter": "^1.1.0",
     "karma-mocha": "^1.1.1",
@@ -60,11 +64,11 @@
     "webpack": "^1.9.5",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0",
-    "yargs": "^4.8.1"
+    "yargs": "^5.0.0"
   },
   "scripts": {
     "build": "NODE_ENV=production gulp webpack",
-    "dev": "gulp",
+    "dev": "test -f .env && env $(cat .env) gulp || gulp",
     "lint": "gulp lint",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --auto-watch"

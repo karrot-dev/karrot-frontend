@@ -11,7 +11,6 @@ const setReaction = ($state, reaction) => {
 
 const createHook = (target, detour = { authenticated: true, anonymous: "login" }) => {
   let hook = ($transitions) => {
-    "ngInject";
     $transitions.onBefore(
       { to: target },
       (transition) => {

@@ -2,11 +2,9 @@ import LoginModule from "./login";
 import LoginController from "./login.controller";
 import LoginComponent from "./login.component";
 import LoginTemplate from "./login.html";
-import Authentication from "../../common/authentication/authentication.js";
 
 describe("Login", () => {
 
-  beforeEach(window.module(Authentication));
   beforeEach(window.module(LoginModule));
   beforeEach(inject((/*$injector*/) => {
   }));

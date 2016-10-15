@@ -3,18 +3,18 @@
     <div flex class="translucent-1"></div>
     <div flex="nogrow" layout="column" class="translucent-1">
       <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
-        <form login-form name="loginForm">
+        <form login-form ng-submit="ctrl.login()">
           <h2>Login</h2>
           <md-input-container class="md-block">
             <label>Email</label>
-            <input type="text" name="user" required ng-model="user">
+            <input type="text" name="email" required ng-model="ctrl.email">
           </md-input-container>
           <md-input-container class="md-block">
             <label>Password</label>
-            <input type="password" name="password" required ng-model="password">
+            <input type="password" name="password" required ng-model="ctrl.password">
           </md-input-container>
 
-          <md-switch class="md-primary" md-no-ink aria-label="Remember me" ng-model="remember">
+          <md-switch class="md-primary" md-no-ink aria-label="Remember me" ng-model="ctrl.remember">
             Remember me
           </md-switch>
 
@@ -24,11 +24,6 @@
           <md-button ui-sref="signup">
             Sign up!
           </md-button>
-          <div ng-messages="loginForm.$error">
-            <div class="form-error" ng-message="failed">
-              Login failed!
-            </div>
-          </div>
         </form>
       </div>
     </div>

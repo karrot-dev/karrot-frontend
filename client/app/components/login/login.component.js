@@ -6,7 +6,8 @@ let loginComponent = {
   restrict: "E",
   bindings: {},
   template,
-  controller
+  controller,
+  controllerAs: "ctrl"
 };
 
 export default loginComponent;

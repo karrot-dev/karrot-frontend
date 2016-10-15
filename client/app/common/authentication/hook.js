@@ -28,14 +28,16 @@ const createHook = (target, detour = { authenticated: true, anonymous: "login" }
 
 const hookProvider = ($transitionsProvider) => {
   "ngInject";
-  return {
+  let p = {
     setup(target, detour = { authenticated: true, anonymous: "login" }) {
-      return createHook(target, detour)($transitionsProvider);
+      return p.createHook(target, detour)($transitionsProvider);
     },
+    createHook,
     $get() {
 
     }
   };
+  return p;
 };
 
 export default hookProvider;

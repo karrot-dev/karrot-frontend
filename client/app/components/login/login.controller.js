@@ -6,8 +6,7 @@ class LoginController {
       Authentication,
       $state,
       email: "",
-      password: "",
-      remember: false
+      password: ""
     });
   }
 
@@ -19,6 +18,7 @@ class LoginController {
     })
     .catch(() => {
       this.password = "";
+      // TODO error handling
     });
   }
 }

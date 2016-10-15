@@ -3,25 +3,21 @@ import uiRouter from "angular-ui-router";
 import loginComponent from "./login.component";
 import loginForm from "./login.form";
 import ngMessages from "angular-messages";
-import hookFactory from "../../common/authentication/hook";
-
-let hook = hookFactory("login", { authenticated: "home", anonymous: true });
 
 let loginModule = angular.module("login", [
   uiRouter,
   ngMessages
 ])
 
-.config(($stateProvider, $urlRouterProvider) => {
+.config(($stateProvider, $urlRouterProvider, hookProvider) => {
   "ngInject";
   $stateProvider.state("login", {
     url: "/login",
     component: "login"
   });
   $urlRouterProvider.otherwise("/login");
+  hookProvider.setup("login", { authenticated: "home", anonymous: true });
 })
-
-.run(hook)
 
 .directive("loginForm", loginForm)
 

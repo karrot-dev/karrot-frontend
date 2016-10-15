@@ -1,17 +1,17 @@
 import AuthenticationModule from "./authentication";
-import hookFactory from "./hook.js";
 
 const { module } = angular.mock;
 
 describe("hook", () => {
 
-  let $httpBackend, $state, $transitions;
+  let $httpBackend, $state, $transitions, createHook;
 
   beforeEach(module(AuthenticationModule));
-  beforeEach(module(($stateProvider) => {
+  beforeEach(module(($stateProvider, hookProvider) => {
     $stateProvider
       .state("home", { url: "/" })
       .state("login", { url: "/login" });
+    createHook = hookProvider.createHook;
   }));
 
   beforeEach(inject(($injector) => {
@@ -42,7 +42,7 @@ describe("hook", () => {
       let anonymous = true; // this is ignored as we are logged in
 
       // register hook
-      let hook = hookFactory(target, { authenticated, anonymous });
+      let hook = createHook(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);
@@ -56,7 +56,7 @@ describe("hook", () => {
       let anonymous = true; // this is ignored as we are logged in
 
       // register hook
-      let hook = hookFactory(target, { authenticated, anonymous });
+      let hook = createHook(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);
@@ -78,7 +78,7 @@ describe("hook", () => {
       let authenticated = ""; // ignored as we are not logged in
 
       // register hook
-      let hook = hookFactory(target, { authenticated, anonymous });
+      let hook = createHook(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);
@@ -92,7 +92,7 @@ describe("hook", () => {
       let authenticated = ""; // ignored as we are not logged in
 
       // register hook
-      let hook = hookFactory(target, { authenticated, anonymous });
+      let hook = createHook(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);

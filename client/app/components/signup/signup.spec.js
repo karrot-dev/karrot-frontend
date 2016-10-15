@@ -6,6 +6,7 @@ import SignupTemplate from "./signup.html";
 describe("Signup", () => {
   let $rootScope, makeController;
 
+  beforeEach(window.module("Authentication")); //to load hookProvider
   beforeEach(window.module(SignupModule));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;

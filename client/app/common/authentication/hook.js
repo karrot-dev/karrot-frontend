@@ -30,7 +30,7 @@ const hookProvider = ($transitionsProvider) => {
   "ngInject";
   return {
     setup(target, detour = { authenticated: true, anonymous: "login" }) {
-      createHook(target, detour)($transitionsProvider);
+      return createHook(target, detour)($transitionsProvider);
     },
     $get() {
 
@@ -38,4 +38,4 @@ const hookProvider = ($transitionsProvider) => {
   };
 };
 
-export { hookProvider, createHook };
+export default hookProvider;

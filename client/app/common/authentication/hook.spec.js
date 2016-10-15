@@ -1,5 +1,4 @@
 import AuthenticationModule from "./authentication";
-import { createHook } from "./hook";
 
 const { module } = angular.mock;
 
@@ -42,7 +41,7 @@ describe("hook", () => {
       let anonymous = true; // this is ignored as we are logged in
 
       // register hook
-      let hook = createHook(target, { authenticated, anonymous });
+      let hook = hookProvider.setup(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);
@@ -56,7 +55,7 @@ describe("hook", () => {
       let anonymous = true; // this is ignored as we are logged in
 
       // register hook
-      let hook = createHook(target, { authenticated, anonymous });
+      let hook = hookProvider.setup(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);
@@ -78,7 +77,7 @@ describe("hook", () => {
       let authenticated = ""; // ignored as we are not logged in
 
       // register hook
-      let hook = createHook(target, { authenticated, anonymous });
+      let hook = hookProvider.setup(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);
@@ -92,7 +91,7 @@ describe("hook", () => {
       let authenticated = ""; // ignored as we are not logged in
 
       // register hook
-      let hook = createHook(target, { authenticated, anonymous });
+      let hook = hookProvider.setup(target, { authenticated, anonymous });
       hook($transitions);
 
       $state.go(target);

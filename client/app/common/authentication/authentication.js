@@ -1,6 +1,6 @@
 import Authentication from "./authentication.service";
 import uiRouter from "angular-ui-router";
-import { hookProvider } from "./hook.js";
+import hookProvider from "./hook.js";
 
 let authenticationModule = angular.module("Authentication", [
   uiRouter

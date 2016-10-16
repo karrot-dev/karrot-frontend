@@ -1,9 +1,12 @@
-import AuthCommunication from "./authentication.service";
-import Authentication from "./authentication.wrapper";
+import Authentication from "./authentication.service";
+import uiRouter from "angular-ui-router";
+import hookProvider from "./hook.js";
 
-let authenticationModule = angular.module("Authentication", [])
+let authenticationModule = angular.module("Authentication", [
+  uiRouter
+])
 
-.service("AuthCommunication", AuthCommunication)
+.provider("hook", hookProvider)
 
 .service("Authentication", Authentication)
 

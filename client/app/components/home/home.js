@@ -1,24 +1,21 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import homeComponent from "./home.component";
-import homeHook from "./home.hook";
 import logout from "./home.logout";
 
 let homeModule = angular.module("home", [
   uiRouter
 ])
 
-.config(($stateProvider) => {
+.config(($stateProvider, hookProvider) => {
   "ngInject";
-
   $stateProvider
     .state("home", {
       url: "/",
       component: "home"
     });
+  hookProvider.setup("home", { authenticated: true, anonymous: "login" });
 })
-
-.run(homeHook)
 
 .directive("logout", logout)
 

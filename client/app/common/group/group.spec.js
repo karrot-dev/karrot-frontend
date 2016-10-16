@@ -37,73 +37,53 @@ describe("group service", () => {
 
   it("lists groups", () => {
     $httpBackend.expectGET("/api/groups/").respond(groupData);
-    Group.get({}).then((data) => {
-      expect(data).to.deep.equal(groupData);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(Group.get())
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
   });
 
   it("creates group", () => {
     $httpBackend.expectPOST("/api/groups/", groupCreateData).respond(groupData);
-    Group.create(groupCreateData).then((data) => {
-      expect(data).to.deep.equal(groupData);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(Group.create(groupCreateData))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
   });
 
+  it("gets group details via get", () => {
+    $httpBackend.expectGET("/api/groups/1/").respond(groupData[0]);
+    expect(Group.get({ id: 1 }))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(groupData[0]);
+    $httpBackend.flush();
+  });
 
-  it("get all groups", () => {
-    $httpBackend.expectGET("/api/groups/").respond(groupData);
-    Group.get({}).then((data) => {
-      expect(data).to.deep.equal(groupData);
-    }).catch(() => {
-      assert.fail();
-    });
-    $httpBackend.flush();
-  });
-  
-  it("get group details", () => {
-    $httpBackend.expectGET("/api/groups/1/").respond(groupData);
-    Group.get({ id: 1 }).then((data) => {
-      expect(data).to.deep.equal(groupData);
-    }).catch(() => {
-      assert.fail();
-    });
-    $httpBackend.flush();
-  });
-  
-  
-  it("filter groups by search", () => {
+  it("filters groups by search", () => {
     $httpBackend.expectGET("/api/groups/?search=Foods").respond(groupData);
-    Group.get({ search: "Foods" }).then((data) => {
-      expect(data).to.deep.equal(groupData);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(Group.get({ search: "Foods" }))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
   });
 
-  it("save group details", () => {
+  it("saves group details", () => {
     $httpBackend.expectPATCH("/api/groups/1/", groupModifyData).respond(groupData);
-    Group.save(1, groupModifyData).then((data) => {
-      expect(data).to.deep.equal(groupData);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(Group.save(1, groupModifyData))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
   });
 
-  it("delete group", () => {
+  it("deletes group", () => {
     $httpBackend.expectDELETE("/api/groups/1/").respond(200);
-    Group.delete(1).then(() => {
-      assert(true);
-    }).catch(() => {
-      assert.fail();
-    });
+    expect(Group.delete(1)).to.be.fulfilled;
+    $httpBackend.flush();
+  });
+
+  it("delete group is rejected", () => {
+    $httpBackend.expectDELETE("/api/groups/2/").respond(403);
+    expect(Group.delete(2)).to.be.rejected;
     $httpBackend.flush();
   });
 });

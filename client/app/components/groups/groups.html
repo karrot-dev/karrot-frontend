@@ -1,0 +1,13 @@
+<md-content layout-padding class="md-whiteframe-1dp">
+    <h1 class="md-headline">{{$ctrl.groupdata.name}}</h1>
+    <p>{{$ctrl.groupdata.description}}</p>
+    
+    <md-tabs md-dynamic-height md-border-bottom flex>
+        <md-tab label="pickups">
+            <pickup-list header="Pickups" group-id="{{$ctrl.groupdata.id}}" show-detail="store"></pickup-list>
+        </md-tab>
+        <md-tab label="members"></md-tab>
+        <md-tab label="stores"></md-tab>
+        <md-tab label="map"></md-tab>
+    </md-tabs>
+</md-content>

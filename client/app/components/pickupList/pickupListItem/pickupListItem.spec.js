@@ -1,32 +1,32 @@
 //import PickupListItemModule from './pickupListItem'
-import PickupListItemController from './pickupListItem.controller';
-import PickupListItemComponent from './pickupListItem.component';
-import PickupListItemTemplate from './pickupListItem.html';
+import PickupListItemController from "./pickupListItem.controller";
+import PickupListItemComponent from "./pickupListItem.component";
+import PickupListItemTemplate from "./pickupListItem.html";
 
-describe('PickupListItem', () => {
+describe("PickupListItem", () => {
 
-  describe('Module', () => {
+  describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
   });
 
-  describe('Controller', () => {
+  describe("Controller", () => {
     // controller specs
   });
 
-  describe('Template', () => {
+  describe("Template", () => {
     // template specs
   });
 
-  describe('Component', () => {
+  describe("Component", () => {
       // component/directive specs
-      let component = PickupListItemComponent;
+    let component = PickupListItemComponent;
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(PickupListItemTemplate);
-      });
+    it("includes the intended template",() => {
+      expect(component.template).to.equal(PickupListItemTemplate);
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(PickupListItemController);
-      });
+    it("invokes the right controller", () => {
+      expect(component.controller).to.equal(PickupListItemController);
+    });
   });
 });

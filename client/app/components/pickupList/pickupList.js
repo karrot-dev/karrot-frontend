@@ -1,8 +1,8 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import pickupListComponent from './pickupList.component';
+import angular from "angular";
+import uiRouter from "angular-ui-router";
+import pickupListComponent from "./pickupList.component";
 
-let pickupListModule = angular.module('pickupList', [
+let pickupListModule = angular.module("pickupList", [
   uiRouter
 ])
 
@@ -50,7 +50,7 @@ let pickupListModule = angular.module('pickupList', [
     };
 })
 */
-.component('pickupList', pickupListComponent)
+.component("pickupList", pickupListComponent)
 
 .name;
 

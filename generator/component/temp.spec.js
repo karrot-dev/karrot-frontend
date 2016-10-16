@@ -3,10 +3,12 @@ import <%= upCaseName %>Controller from './<%= name %>.controller';
 import <%= upCaseName %>Component from './<%= name %>.component';
 import <%= upCaseName %>Template from './<%= name %>.html';
 
+const { module } = angular.mock;
+
 describe('<%= upCaseName %>', () => {
   let $rootScope, makeController;
 
-  beforeEach(window.module(<%= upCaseName %>Module));
+  beforeEach(module(<%= upCaseName %>Module));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
     makeController = () => {

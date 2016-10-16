@@ -6,25 +6,21 @@ import <%= upCaseName %>Template from './<%= name %>.html';
 const { module } = angular.mock;
 
 describe('<%= upCaseName %>', () => {
-  let $rootScope, makeController;
-
   beforeEach(module(<%= upCaseName %>Module));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
-    makeController = () => {
-      return new <%= upCaseName %>Controller();
-    };
-  }));
 
   describe('Module', () => {
     // top-level specs: i.e., routes, injection, naming
   });
 
   describe('Controller', () => {
-    // controller specs
-    it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
-      let controller = makeController();
-      expect(controller).to.have.property('name');
+    let $componentController;
+    beforeEach(inject((_$componentController_) => {
+      $componentController = _$componentController_;
+    }));
+
+    it("should exist", () => {
+      let ctrl = $componentController('<%= name %>', {});
+      expect(ctrl).to.exist;
     });
   });
 

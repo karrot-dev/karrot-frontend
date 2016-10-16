@@ -2,7 +2,6 @@ import LoginModule from "./login";
 import LoginController from "./login.controller";
 import LoginComponent from "./login.component";
 import LoginTemplate from "./login.html";
-import sinon from "sinon";
 
 const { module } = angular.mock;
 

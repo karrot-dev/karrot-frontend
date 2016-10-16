@@ -10,6 +10,9 @@ describe("<%= upCaseName %>", () => {
 
   describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
+    it("is named <%= name %>", () => {
+      expect(LoginModule).to.equal("<%= name %>");
+    });
   });
 
   describe("Controller", () => {

@@ -1,48 +1,49 @@
-import <%= upCaseName %>Module from './<%= name %>'
-import <%= upCaseName %>Controller from './<%= name %>.controller';
-import <%= upCaseName %>Component from './<%= name %>.component';
-import <%= upCaseName %>Template from './<%= name %>.html';
+import <%= upCaseName %>Module from "./<%= name %>";
+import <%= upCaseName %>Controller from "./<%= name %>.controller";
+import <%= upCaseName %>Component from "./<%= name %>.component";
+import <%= upCaseName %>Template from "./<%= name %>.html";
 
-describe('<%= upCaseName %>', () => {
-  let $rootScope, makeController;
+const { module } = angular.mock;
 
-  beforeEach(window.module(<%= upCaseName %>Module));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
-    makeController = () => {
-      return new <%= upCaseName %>Controller();
-    };
-  }));
+describe("<%= upCaseName %>", () => {
+  beforeEach(module(<%= upCaseName %>Module));
 
-  describe('Module', () => {
+  describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
-  });
-
-  describe('Controller', () => {
-    // controller specs
-    it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
-      let controller = makeController();
-      expect(controller).to.have.property('name');
+    it("is named <%= name %>", () => {
+      expect(<%= upCaseName %>Module).to.equal("<%= name %>");
     });
   });
 
-  describe('Template', () => {
+  describe("Controller", () => {
+    let $componentController;
+    beforeEach(inject((_$componentController_) => {
+      $componentController = _$componentController_;
+    }));
+
+    it("should exist", () => {
+      let ctrl = $componentController("<%= name %>", {});
+      expect(ctrl).to.exist;
+    });
+  });
+
+  describe("Template", () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
-    it('has name in template [REMOVE]', () => {
+    it("has name in template [REMOVE]", () => {
       expect(<%= upCaseName %>Template).to.match(/{{\s?\$ctrl\.name\s?}}/g);
     });
   });
 
-  describe('Component', () => {
+  describe("Component", () => {
       // component/directive specs
       let component = <%= upCaseName %>Component;
 
-      it('includes the intended template',() => {
+      it("includes the intended template",() => {
         expect(component.template).to.equal(<%= upCaseName %>Template);
       });
 
-      it('invokes the right controller', () => {
+      it("invokes the right controller", () => {
         expect(component.controller).to.equal(<%= upCaseName %>Controller);
       });
   });

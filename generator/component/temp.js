@@ -1,12 +1,12 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import <%= name %>Component from './<%= name %>.component';
+import angular from "angular";
+import uiRouter from "angular-ui-router";
+import <%= name %>Component from "./<%= name %>.component";
 
-let <%= name %>Module = angular.module('<%= name %>', [
+let <%= name %>Module = angular.module("<%= name %>", [
   uiRouter
 ])
 
-.component('<%= name %>', <%= name %>Component)
+.component("<%= name %>", <%= name %>Component)
 
 .name;
 

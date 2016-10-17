@@ -3,6 +3,7 @@ import controller from "./<%= name %>.controller";
 import "./<%= name %>.styl";
 
 let <%= name %>Component = {
+  restrict: "",
   bindings: {},
   template,
   controller

@@ -3,15 +3,15 @@
     <div flex class="translucent-1"></div>
     <div flex="nogrow" layout="column" class="translucent-1">
       <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
-        <form login-form ng-submit="ctrl.login()">
+        <form login-form ng-submit="$ctrl.login()">
           <h2>Login</h2>
           <md-input-container class="md-block">
             <label>Email</label>
-            <input type="text" name="email" required ng-model="ctrl.email">
+            <input type="text" name="email" required ng-model="$ctrl.email">
           </md-input-container>
           <md-input-container class="md-block">
             <label>Password</label>
-            <input type="password" name="password" required ng-model="ctrl.password">
+            <input type="password" name="password" required ng-model="$ctrl.password">
           </md-input-container>
 
           <md-button class="md-raised md-accent" type="submit">

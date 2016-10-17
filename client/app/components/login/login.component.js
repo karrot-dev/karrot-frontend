@@ -3,9 +3,9 @@ import controller from "./login.controller";
 import "./login.styl";
 
 let loginComponent = {
+  bindings: {},
   template,
-  controller,
-  controllerAs: "ctrl"
+  controller
 };
 
 export default loginComponent;

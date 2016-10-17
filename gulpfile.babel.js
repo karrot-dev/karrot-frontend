@@ -136,12 +136,32 @@ gulp.task("component", () => {
   const cap = (val) => {
     return val.charAt(0).toUpperCase() + val.slice(1);
   };
-  const name = yargs.argv.name;
-  const temp = yargs.argv.template || "component";
+  const name = yargs.argv.name || "componentGeneratorGulpTest";
+  const temp = "component";
+  const parentPath = yargs.argv.parent || "";
+  const destPath = path.join(resolveToComponents(), parentPath, "_" + name);
+
+  return gulp.src(paths.blankTemplates(temp))
+    .pipe(template({
+      name,
+      upCaseName: cap(name)
+    }))
+    .pipe(rename((path) => {
+      path.basename = path.basename.replace("temp", name);
+    }))
+    .pipe(gulp.dest(destPath));
+});
+
+gulp.task("page", () => {
+  const cap = (val) => {
+    return val.charAt(0).toUpperCase() + val.slice(1);
+  };
+  const name = yargs.argv.name || "pageGeneratorGulpTest";
+  const generator = "page";
   const parentPath = yargs.argv.parent || "";
   const destPath = path.join(resolveToComponents(), parentPath, name);
 
-  return gulp.src(paths.blankTemplates(temp))
+  return gulp.src(paths.blankTemplates(generator))
     .pipe(template({
       name,
       upCaseName: cap(name)

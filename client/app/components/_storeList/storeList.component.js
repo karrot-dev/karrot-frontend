@@ -3,7 +3,6 @@ import controller from "./storeList.controller";
 import "./storeList.styl";
 
 let storeListComponent = {
-  restrict: "E",
   bindings: {
     showEdit: "@",
     stores: "<",

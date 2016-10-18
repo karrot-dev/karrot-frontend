@@ -9,7 +9,7 @@ let groupDetailComponent = {
   },
   template,
   controller,
-  restrict: "E"
+  restrict: ""
 };
 
 export default groupDetailComponent;

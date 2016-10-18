@@ -3,7 +3,6 @@ import controller from "./userList.controller";
 import "./userList.styl";
 
 let userListComponent = {
-  restrict: "E",
   bindings: {
     showEdit: "@",
     users: "<",

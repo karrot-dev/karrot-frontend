@@ -3,7 +3,6 @@ import controller from "./pickupListItem.controller";
 import "./pickupListItem.styl";
 
 let pickupListItemComponent = {
-  restrict: "E",
   bindings: {
     data: "<",              // pickup info, including .isFull .isMember etc..
     showDetail: "<",        // 'store'

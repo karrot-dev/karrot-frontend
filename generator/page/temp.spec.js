@@ -2,10 +2,12 @@ import <%= upCaseName %>Module from "./<%= name %>";
 import <%= upCaseName %>Controller from "./<%= name %>.controller";
 import <%= upCaseName %>Component from "./<%= name %>.component";
 import <%= upCaseName %>Template from "./<%= name %>.html";
+import Authentication from "../../common/authentication/authentication";
 
 const { module } = angular.mock;
 
 describe("<%= upCaseName %>", () => {
+  beforeEach(module(Authentication));
   beforeEach(module(<%= upCaseName %>Module));
 
   describe("Module", () => {

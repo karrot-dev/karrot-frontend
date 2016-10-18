@@ -12,10 +12,13 @@ let groupDetailModule = angular.module("groupDetail", [
   $stateProvider
     .state("groupDetail", {
       url: "/group/:id",
-      component: "groups",
+      component: "groupDetail",
       resolve: {
         groupdata: (Group, $stateParams) => {
           return Group.get({ "id": $stateParams.id });
+        },
+        stores: (Store, $stateParams) => {
+          return Store.get({ "group": $stateParams.id });
         }
       }
     });

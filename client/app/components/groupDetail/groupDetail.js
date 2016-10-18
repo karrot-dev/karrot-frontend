@@ -6,9 +6,8 @@ let groupDetailModule = angular.module("groupDetail", [
   uiRouter
 ])
 
-.config(($stateProvider) => {
+.config(($stateProvider, hookProvider) => {
   "ngInject";
-
   $stateProvider
     .state("groupDetail", {
       url: "/group/:id",
@@ -22,6 +21,7 @@ let groupDetailModule = angular.module("groupDetail", [
         }
       }
     });
+  hookProvider.setup("groupDetail", { authenticated: true, anonymous: "login" });
 })
 
 .component("groupDetail", groupDetailComponent)

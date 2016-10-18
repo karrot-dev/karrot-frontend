@@ -32,11 +32,12 @@ describe("Login", () => {
     });
 
     context("login", () => {
-      let $httpBackend, stateSpy;
+      let $httpBackend, $state;
       beforeEach(() => {
         inject((_$httpBackend_, _$state_) => {
           $httpBackend = _$httpBackend_;
-          stateSpy = sinon.spy(_$state_, "go");
+          $state = _$state_;
+          sinon.stub($state, "go");
         });
       });
 
@@ -60,7 +61,7 @@ describe("Login", () => {
         Object.assign(ctrl, { email, password });
         ctrl.login();
         $httpBackend.flush();
-        assert(stateSpy.calledWith("home"), "state not called with home");
+        expect($state.go).to.have.been.calledWith("home");
       });
 
       it("rejects wrong password", () => {

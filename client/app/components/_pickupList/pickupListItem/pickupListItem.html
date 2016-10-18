@@ -6,7 +6,7 @@
         </span>
         <div class="pickupList-pickup-people">
             <a class="pickuplist-pickup-person" ng-repeat="collectorId in $ctrl.data.collector_ids" href="#/profile/{{collectorId}}">
-                <img src="assets/images/user.png"/>
+                <img class="pickupList-pickup-img" src="assets/images/user.png"/>
             </a>
             <div class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>
         </div>

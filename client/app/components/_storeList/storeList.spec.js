@@ -1,4 +1,5 @@
 import StoreListModule from "./storeList";
+import StoreModule from "../../common/store/store";
 
 describe("StoreList", () => {
   let $rootScope, $componentController, $httpBackend;
@@ -6,7 +7,7 @@ describe("StoreList", () => {
   let { module } = angular.mock;
 
   beforeEach(module(StoreListModule));
-  beforeEach(module("Store"));
+  beforeEach(module(StoreModule));
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
@@ -23,10 +24,6 @@ describe("StoreList", () => {
     "latitude": null,
     "longitude": null
   };
-
-  describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
-  });
 
   describe("Controller", () => {
     let controller;
@@ -52,14 +49,5 @@ describe("StoreList", () => {
       $httpBackend.expectGET("/api/stores/1/").respond(storeOne);
       $httpBackend.flush();
     });
-  });
-
-  describe("Template", () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-  });
-
-  describe("Component", () => {
-      // component/directive specs
   });
 });

@@ -25,10 +25,6 @@ describe("PickupListItem", () => {
     "isUserMember": true,
     "isFull": false
   };
-          
-  describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
-  });
 
   describe("Controller with date detail", () => {
     let controller;
@@ -51,13 +47,5 @@ describe("PickupListItem", () => {
     it("test join and leave function", () => {
       $httpBackend.expectPOST("/api/pickup-dates/11/join");
     });
-  });
-  
-  describe("Template", () => {
-    // template specs
-  });
-
-  describe("Component", () => {
-      // component/directive specs
   });
 });

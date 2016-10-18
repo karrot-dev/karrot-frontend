@@ -1,4 +1,8 @@
 import PickupListModule from "./pickupList";
+import UserModule from "../../common/user/user";
+import StoreModule from "../../common/store/store";
+import AuthenticationModule from "../../common/authentication/authentication";
+import PickupDateModule from "../../common/pickupDate/pickupDate";
 
 describe("PickupList", () => {
   let $rootScope, $componentController, $httpBackend;
@@ -6,10 +10,10 @@ describe("PickupList", () => {
   let { module } = angular.mock;
 
   beforeEach(module(PickupListModule));
-  beforeEach(module("User"));
-  beforeEach(module("Store"));
-  beforeEach(module("Authentication"));
-  beforeEach(module("PickupDate"));
+  beforeEach(module(UserModule));
+  beforeEach(module(StoreModule));
+  beforeEach(module(AuthenticationModule));
+  beforeEach(module(PickupDateModule));
   
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
@@ -209,11 +213,6 @@ describe("PickupList", () => {
     "longitude": 2.8125
   };
 
-  
-  describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
-  });
-
   describe("Controller", () => {
     // controller specs
     let controller;
@@ -292,14 +291,5 @@ describe("PickupList", () => {
       let updatedData = controller.allPickups;
       expect(updatedData[0].store).to.eventually.deep.equal(storeData);
     });
-  });
-
-  describe("Template", () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-  });
-
-  describe("Component", () => {
-      // component/directive specs
   });
 });

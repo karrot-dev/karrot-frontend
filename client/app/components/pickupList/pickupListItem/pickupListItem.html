@@ -1,0 +1,24 @@
+<md-list-item layout="row" layout-align="end stretch" class="md-2-line pickupList-pickup">
+    <div flex class="pickupList-pickup-left">
+        <span class="pickupList-pickup-info">
+            <span style="margin-right: .5em;" class="md-title">{{$ctrl.data.date| date:'HH:mm'}}</span>
+            <span ng-if="$ctrl.showDetail === 'store'"><a href="#/stores/{{$ctrl.data.store.id}}">{{$ctrl.data.store.name}}</a></span>
+            <span ng-if="$ctrl.showDetail !== 'store'">{{$ctrl.data.date| date:'EEEE, dd.MM.yyyy'}}</span>
+        </span>
+        <div class="pickupList-pickup-people">
+            <a class="pickuplist-pickup-person" ng-repeat="collectorId in $ctrl.data.collector_ids" href="#/profile/{{collectorId}}">
+                <img src="assets/images/user.png"/>
+            </a>
+            <div class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>
+        </div>
+    </div>
+    <md-button ng-click="$ctrl.leave()" ng-show="{{$ctrl.data.isUserMember}}" class="md-accent pickupList-pickup-right">
+        <p>Leave</p>
+    </md-button>
+    <md-button ng-click="$ctrl.join()" ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-accent md-hue-3 pickupList-pickup-right">
+        <p>Join</p>
+    </md-button>
+    <md-button ng-disabled="true" ng-show="{{!$ctrl.data.isUserMember && $ctrl.data.isFull}}" class="md-accent pickupList-pickup-right">
+        <p>Full!</p>
+    </md-button>
+</md-list-item>

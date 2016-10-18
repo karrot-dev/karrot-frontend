@@ -6,6 +6,7 @@ import topbar from "./topbar/topbar";
 
 let componentModule = angular.module("app.components", [
   login,
+  groups,
   home,
   signup,
   topbar

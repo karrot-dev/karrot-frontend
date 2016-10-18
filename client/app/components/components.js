@@ -1,15 +1,22 @@
 import angular from "angular";
-import login from "./login/login";
+import groups from "./groups/groups";
 import home from "./home/home";
+import login from "./login/login";
+import pickupList from "./_pickupList/pickupList";
+import pickupListItem from "./_pickupList/pickupListItem/pickupListItem";
 import signup from "./signup/signup";
-import topbar from "./topbar/topbar";
-import userList from "./userList/userList";
+import storeList from "./_storeList/storeList";
+import topbar from "./_topbar/topbar";
+import userList from "./_userList/userList";
 
 let componentModule = angular.module("app.components", [
-  login,
   groups,
   home,
+  login,
+  pickupList,
+  pickupListItem,
   signup,
+  storeList,
   topbar,
   userList
 ])

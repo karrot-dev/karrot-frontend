@@ -54,7 +54,7 @@ describe("Login", () => {
 
       it("logs user in", () => {
         let email = "example@example.com";
-        let password = "123";
+        let password = "correctPassword";
         $httpBackend.expectPOST("/api/auth/", { email, password }).respond(200, loginData);
         $httpBackend.expectGET("/api/auth/status/").respond(200, loginData);
         let ctrl = $componentController("login", {});
@@ -66,13 +66,15 @@ describe("Login", () => {
 
       it("rejects wrong password", () => {
         let email = "example@example.com";
-        let password = "";
+        let password = "wrongPassword";
         $httpBackend.expectPOST("/api/auth/", { email, password }).respond(400);
         $httpBackend.expectGET("/api/auth/status/").respond(200, loginData);
         let ctrl = $componentController("login", {});
         Object.assign(ctrl, { email, password });
         ctrl.login();
         $httpBackend.flush();
+        expect($state.go).to.not.have.been.called;
+        expect(ctrl.password).to.equal("");
       });
     });
 

@@ -1,8 +1,8 @@
-class GroupsController {
+class GroupDetailController {
   constructor() {
     "ngInject";
     //console.log('this is the data from resolve', this.groupdata);
   }
 }
 
-export default GroupsController;
+export default GroupDetailController;

@@ -1,8 +1,8 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
-import groupsComponent from "./groups.component";
+import groupDetailComponent from "./groupDetail.component";
 
-let groupsModule = angular.module("groups", [
+let groupDetailModule = angular.module("groupDetail", [
   uiRouter
 ])
 
@@ -10,7 +10,7 @@ let groupsModule = angular.module("groups", [
   "ngInject";
 
   $stateProvider
-    .state("groups", {
+    .state("groupDetail", {
       url: "/group/:id",
       component: "groups",
       resolve: {
@@ -21,8 +21,8 @@ let groupsModule = angular.module("groups", [
     });
 })
 
-.component("groups", groupsComponent)
+.component("groupDetail", groupDetailComponent)
 
 .name;
 
-export default groupsModule;
+export default groupDetailModule;

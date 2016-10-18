@@ -1,5 +1,5 @@
 import angular from "angular";
-import groups from "./groups/groups";
+import groupDetail from "./groupDetail/groupDetail";
 import home from "./home/home";
 import login from "./login/login";
 import pickupList from "./_pickupList/pickupList";
@@ -10,7 +10,7 @@ import topbar from "./_topbar/topbar";
 import userList from "./_userList/userList";
 
 let componentModule = angular.module("app.components", [
-  groups,
+  groupDetail,
   home,
   login,
   pickupList,

@@ -1,9 +1,8 @@
 <md-list-item layout="row" layout-align="end stretch" class="md-2-line pickupList-pickup">
     <div flex class="pickupList-pickup-left">
-        <span class="pickupList-pickup-info">
-            <span style="margin-right: .5em;" class="md-title">{{$ctrl.data.date| date:'HH:mm'}}</span>
-            <span ng-if="$ctrl.showDetail === 'store'"><a href="#/stores/{{$ctrl.data.store.id}}">{{$ctrl.data.store.name}}</a></span>
-            <span ng-if="$ctrl.showDetail !== 'store'">{{$ctrl.data.date| date:'EEEE, dd.MM.yyyy'}}</span>
+        <span class="pickupList-pickup-info-container">
+            <span class="md-title">{{$ctrl.data.date| date:'HH:mm'}}</span>
+            <span class="pickupList-pickup-info"><a href="{{$ctrl.info.href}}">{{$ctrl.info.text}}</a></span>
         </span>
         <div class="pickupList-pickup-people">
             <a class="pickuplist-pickup-person" ng-repeat="collectorId in $ctrl.data.collector_ids" href="#/profile/{{collectorId}}">

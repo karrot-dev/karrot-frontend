@@ -1,10 +1,23 @@
 class LoginController {
-  constructor($scope) {
+  constructor(Authentication, $state) {
     "ngInject";
-    this.name = "login";
-    $scope.user = "";
-    $scope.password = "";
-    $scope.remember = false;
+    Object.assign(this, {
+      Authentication,
+      $state,
+      email: "",
+      password: ""
+    });
+  }
+
+  login() {
+    this.Authentication.login(this.email, this.password)
+    .then(() => {
+      this.$state.go("home");
+    })
+    .catch(() => {
+      this.password = "";
+      // TODO error handling
+    });
   }
 }
 

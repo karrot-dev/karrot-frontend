@@ -14,7 +14,12 @@ describe("UserList", () => {
     $rootScope = $injector.get("$rootScope");
     $componentController = $injector.get("$componentController");
   }));
-  
+
+  afterEach(() => {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
   let userOne = {
     "id": 1,
     "name": "Testuser1",
@@ -31,25 +36,25 @@ describe("UserList", () => {
 
   describe("Controller", () => {
     let controller;
-        
+
     it("check binding of complete users",() => {
       controller = $componentController("userList", {
         $scope: $rootScope.$new()
       }, {
         users: [userOne]
       });
-      
+
       expect(controller.userData).to.deep.equal([userOne]);
     });
-    
-    
+
+
     it("maps users-array",() => {
       controller = $componentController("userList", {
         $scope: $rootScope.$new()
       }, {
         users: [1]
       });
-      
+
       $httpBackend.expectGET("/api/users/1/").respond(userOne);
       $httpBackend.flush();
     });

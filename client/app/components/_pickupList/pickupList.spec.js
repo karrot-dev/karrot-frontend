@@ -21,6 +21,11 @@ describe("PickupList", () => {
     $componentController = $injector.get("$componentController");
   }));
 
+  afterEach(() => {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
   let authData = {
     "id": 1,
     "display_name": "Lars",
@@ -228,6 +233,10 @@ describe("PickupList", () => {
       $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
     });
 
+    afterEach(() => {
+      $httpBackend.flush();
+    });
+
 
     it("bindings", () => {
       expect(controller.storeId).to.equal(9);
@@ -237,7 +246,6 @@ describe("PickupList", () => {
     it("automatic update", () => {
       $httpBackend.expectGET("/api/auth/status/").respond(authData);
       $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData);
-      $httpBackend.flush();
     });
 
 
@@ -279,16 +287,17 @@ describe("PickupList", () => {
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
       $httpBackend.whenGET("/api/stores/9/").respond(storeData);
-      $httpBackend.flush();
     });
 
+    afterEach(() => {
+      $httpBackend.flush();
+    });
 
     it("addPickupInfo get Store Info functionality", () => {
       controller.userId = 1;
       controller.addPickuplistInfos(pickupData);
       let updatedData = controller.allPickups;
       expect(updatedData[0].store).to.eventually.deep.equal(storeData);
-      $httpBackend.flush();
     });
   });
 });

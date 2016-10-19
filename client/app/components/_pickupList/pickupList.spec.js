@@ -213,7 +213,7 @@ describe("PickupList", () => {
     "longitude": 2.8125
   };
 
-  describe("Controller", () => {
+  describe("Controller with showDetail = date (default)", () => {
     let controller;
     
     beforeEach(() => {
@@ -223,6 +223,10 @@ describe("PickupList", () => {
         storeId: 9,
         header: "My amazing Pickups"
       });
+      
+      $httpBackend.when("/api/auth/status/").respond(authData);
+      $httpBackend.when("/api/pickup-dates/?store=9").respond(pickupData);
+      $httpBackend.when("/api/stores/9/").respond(pickupData);
     });
     
     
@@ -239,10 +243,6 @@ describe("PickupList", () => {
     
     
     it("addPickupInfo functionality", () => {
-      $httpBackend.when("/api/auth/status/").respond(authData);
-      $httpBackend.when("/api/pickup-dates/?store=9").respond(pickupData);
-      $httpBackend.when("/api/stores/9/").respond(pickupData);
-      
       controller.userId = 1;
       controller.addPickuplistInfos(pickupData);
       let updatedData = controller.allPickups;
@@ -280,10 +280,6 @@ describe("PickupList", () => {
     
     
     it("addPickupInfo get Store Info functionality", () => {
-      $httpBackend.when("/api/auth/status/").respond(authData);
-      $httpBackend.when("/api/pickup-dates/?store=9").respond(pickupData);
-      $httpBackend.when("/api/stores/9/").respond(storeData);
-      
       controller.userId = 1;
       controller.addPickuplistInfos(pickupData);
       let updatedData = controller.allPickups;

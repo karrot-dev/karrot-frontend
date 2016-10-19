@@ -9,7 +9,7 @@ class PickupListItemController {
       href: ""
     };
     
-    if (this.showDetail == "store"){
+    if (this.showDetail === "store"){
       this.data.store.then((storeData) => {
         this.info.text = storeData.name;
         this.info.href = "#/stores/" + storeData.id;

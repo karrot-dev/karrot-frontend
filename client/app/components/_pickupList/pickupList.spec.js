@@ -287,6 +287,7 @@ describe("PickupList", () => {
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
       $httpBackend.whenGET("/api/stores/9/").respond(storeData);
+      $httpBackend.flush();
     });
 
     afterEach(() => {

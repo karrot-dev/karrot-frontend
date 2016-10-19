@@ -3,7 +3,7 @@ import GroupDetailComponent from "./groupDetail.component";
 import GroupDetailTemplate from "./groupDetail.html";
 
 describe("GroupDetail", () => {
-  
+
   describe("Component", () => {
     let component = GroupDetailComponent;
 

@@ -3,12 +3,12 @@ class PickupListItemController {
     "ngInject";
     this.$http = $http;
     this.PickupDate = PickupDate;
-    
+
     this.info = {
       text: "Loading...",
       href: ""
     };
-    
+
     if (this.showDetail === "store"){
       this.data.store.then((storeData) => {
         this.info.text = storeData.name;

@@ -45,7 +45,11 @@ describe("PickupListItem", () => {
     });
     
     it("test join and leave function", () => {
-      $httpBackend.expectPOST("/api/pickup-dates/11/join");
+      $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
+      $httpBackend.expectPOST("/api/pickup-dates/11/remove/").respond("");
+      controller.join();
+      controller.leave();
+      $httpBackend.flush();
     });
   });
 });

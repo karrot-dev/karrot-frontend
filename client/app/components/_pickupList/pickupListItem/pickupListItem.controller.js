@@ -9,13 +9,13 @@ class PickupListItemController {
       href: ""
     };
     
-    if (this.showDetail !== "store"){
-      this.info.text = $filter("date")(this.data.date, "EEEE, dd.MM.yyyy");
-    } else {
+    if (this.showDetail == "store"){
       this.data.store.then((storeData) => {
         this.info.text = storeData.name;
         this.info.href = "#/stores/" + storeData.id;
       });
+    } else {
+      this.info.text = $filter("date")(this.data.date, "EEEE, dd.MM.yyyy");
     }
   }
 

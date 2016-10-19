@@ -287,7 +287,6 @@ describe("PickupList", () => {
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
       $httpBackend.whenGET("/api/stores/9/").respond(storeData);
-      $httpBackend.flush();
     });
 
     afterEach(() => {
@@ -298,7 +297,7 @@ describe("PickupList", () => {
       controller.userId = 1;
       controller.addPickuplistInfos(pickupData);
       let updatedData = controller.allPickups;
-      expect(updatedData[0].store).to.eventually.deep.equal(storeData);
+      expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
     });
   });
 });

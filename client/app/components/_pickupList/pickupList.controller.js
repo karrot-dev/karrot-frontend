@@ -34,7 +34,7 @@ class PickupListController {
       currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
 
       if (this.showDetail === "store") {
-        currentPickup.store = this.Store.getById(currentPickup.store);
+        currentPickup.storePromise = this.Store.getById(currentPickup.store);
       }
     });
     this.allPickups = pickups;

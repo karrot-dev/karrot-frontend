@@ -10,7 +10,7 @@ class PickupListItemController {
     };
 
     if (this.showDetail === "store"){
-      this.data.store.then((storeData) => {
+      this.data.storePromise.then((storeData) => {
         this.info.text = storeData.name;
         this.info.href = "#/stores/" + storeData.id;
       });

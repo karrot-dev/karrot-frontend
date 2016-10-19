@@ -14,13 +14,13 @@ describe("PickupList", () => {
   beforeEach(module(StoreModule));
   beforeEach(module(AuthenticationModule));
   beforeEach(module(PickupDateModule));
-  
+
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     $rootScope = $injector.get("$rootScope");
     $componentController = $injector.get("$componentController");
   }));
-  
+
   let authData = {
     "id": 1,
     "display_name": "Lars",
@@ -123,7 +123,7 @@ describe("PickupList", () => {
       "isUserMember": false,
       "isFull": false
     }];
-  
+
   let pickupDataInfoAddedGrouped = [
     {
       "date": "2016-09-16",
@@ -202,7 +202,7 @@ describe("PickupList", () => {
       "isFull": true
     }
   ];
-  
+
   let storeData = {
     "id": 9,
     "name": "REWE Neuried",
@@ -215,7 +215,7 @@ describe("PickupList", () => {
 
   describe("Controller with showDetail = date (default)", () => {
     let controller;
-    
+
     beforeEach(() => {
       controller = $componentController("pickupList", {
         $scope: $rootScope.$new()
@@ -223,25 +223,24 @@ describe("PickupList", () => {
         storeId: 9,
         header: "My amazing Pickups"
       });
-      
-      $httpBackend.when("/api/auth/status/").respond(authData);
-      $httpBackend.when("/api/pickup-dates/?store=9").respond(pickupData);
-      $httpBackend.when("/api/stores/9/").respond(pickupData);
+
+      $httpBackend.whenGET("/api/auth/status/").respond(authData);
+      $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
     });
-    
-    
+
+
     it("bindings", () => {
       expect(controller.storeId).to.equal(9);
       expect(controller.header).to.equal("My amazing Pickups");
     });
-    
+
     it("automatic update", () => {
       $httpBackend.expectGET("/api/auth/status/").respond(authData);
       $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData);
       $httpBackend.flush();
     });
-    
-    
+
+
     it("addPickupInfo functionality", () => {
       controller.userId = 1;
       controller.addPickuplistInfos(pickupData);
@@ -249,7 +248,7 @@ describe("PickupList", () => {
       expect(updatedData).to.deep.equal(pickupDataInfoAdded);
       expect(updatedData[0].store).to.deep.equal(9);
     });
-    
+
     it("filter functionality", () => {
       controller.allPickups = pickupDataInfoAdded;
       controller.pickupList = {
@@ -259,15 +258,15 @@ describe("PickupList", () => {
       };
       expect(controller.filterPickups()).to.deep.equal(fullPickups);
     });
-    
+
     it("groupByDate functionality", () => {
       expect(controller.groupByDate(pickupDataInfoAdded)).to.deep.equal(pickupDataInfoAddedGrouped);
     });
   });
-  
+
   describe("Controller with showDetail = store", () => {
     let controller;
-    
+
     beforeEach(() => {
       controller = $componentController("pickupList", {
         $scope: $rootScope.$new()
@@ -276,14 +275,20 @@ describe("PickupList", () => {
         header: "My amazing Pickups",
         showDetail: "store"
       });
+
+      $httpBackend.whenGET("/api/auth/status/").respond(authData);
+      $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
+      $httpBackend.whenGET("/api/stores/9/").respond(storeData);
+      $httpBackend.flush();
     });
-    
-    
+
+
     it("addPickupInfo get Store Info functionality", () => {
       controller.userId = 1;
       controller.addPickuplistInfos(pickupData);
       let updatedData = controller.allPickups;
       expect(updatedData[0].store).to.eventually.deep.equal(storeData);
+      $httpBackend.flush();
     });
   });
 });

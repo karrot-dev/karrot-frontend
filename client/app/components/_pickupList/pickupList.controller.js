@@ -19,7 +19,7 @@ class PickupListController {
     this.Authentication.update().then((data) => {
       this.userId = data.id;
       this.updatePickups();
-    }); // need to update first, sotion.credentials are set
+    });
   }
     
     /**

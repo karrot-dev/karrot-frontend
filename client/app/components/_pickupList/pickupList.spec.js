@@ -214,7 +214,6 @@ describe("PickupList", () => {
   };
 
   describe("Controller", () => {
-    // controller specs
     let controller;
     
     beforeEach(() => {
@@ -267,7 +266,6 @@ describe("PickupList", () => {
   });
   
   describe("Controller with showDetail = store", () => {
-    // controller specs
     let controller;
     
     beforeEach(() => {

@@ -18,16 +18,18 @@ The feature will get merged if there is no resistance from the development team.
 ## Adding features
 
 ### Add components
-To add a component just execute `gulp component --name <component>`. It will create all necessary files in *client/app/component*:
+To add a component(-partial) just execute `gulp component --name <component>`. It will create all necessary files in *client/app/_<component>* (The underscore is there for clarification, that this is not a page component):
 ```
-+<comp>
-+-<comp>.component.js       component configuration
-+-<comp>.controller.js      controller function
-+-<comp>.html               component HTML
-+-<comp>.js                 module declaration
-+-<comp>.spec.js            tests
-+-<comp>.styl               styles
++<component>
++-<component>.component.js       component configuration
++-<component>.controller.js      controller function
++-<component>.html               component HTML
++-<component>.js                 module declaration
++-<component>.spec.js            tests
++-<component>.styl               styles
 ```
+
+To add a component-page, execute `gulp page --name <component>`. In comparison to the above, it adds some default routing configuration.
 
 ### Add routes
 Follow *Add components* first the add some routing configuration to `<component>.js`.
@@ -37,7 +39,7 @@ In case you need AngularUI Routers transition hooks create `<component>.hook.js`
 If you need to add a directive place it as a separate file in your component folder. Name the file like `<component>.<directives name or job>.js`, for example `home.logout.js`. Define it in `<component>.js`, then.
 
 ### Add services
-Add services by executing `gulp component --name <service> --template service --parent ../common`.
+Add services by executing `gulp service --name <service>`.
 ```
 +<service>
 +-<service>.js              module declaration

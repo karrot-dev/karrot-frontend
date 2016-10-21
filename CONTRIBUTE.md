@@ -32,8 +32,9 @@ To add a component(-partial) just execute `gulp component --name <component>`. I
 To add a component-page, execute `gulp page --name <component>`. In comparison to the above, it adds some default routing configuration.
 
 ### Add routes
-Follow *Add components* first the add some routing configuration to `<component>.js`.
-In case you need AngularUI Routers transition hooks create `<component>.hook.js` and place your hook code there. Make a `.run()` call your transition hook code.
+Follow *Add components* first to create your page component.
+In the config section you can use the `hookProvider` to create a new hook to handle rerouting.
+The method `hookProvider.setup("targetState", { authenticated: true, anonymous: "login" });` can handle different behaviours for an authenticated ("loggedIn") and anonymous state.
 
 ### Add directives
 If you need to add a directive place it as a separate file in your component folder. Name the file like `<component>.<directives name or job>.js`, for example `home.logout.js`. Define it in `<component>.js`, then.

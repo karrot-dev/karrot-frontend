@@ -48,9 +48,14 @@ Add services by executing `gulp service --name <service>`.
 +-<service>.spec.js         tests
 ```
 
+## Naming conventions
+* components, that don't add a route (=partials) should have a "_"-prefix in their folder name
+
 ## Code style
 * use the *.editorconfig* file (for atom: install *editorconfig* module)
 * Use ES6 features (except of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
+* Avoid creating directives
+* Avoid global components, import them where needed
 
 ## How to use what?
 

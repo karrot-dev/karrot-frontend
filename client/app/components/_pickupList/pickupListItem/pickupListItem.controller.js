@@ -9,10 +9,10 @@ class PickupListItemController {
       href: ""
     };
 
-    if (this.showDetail === "store"){
+    if (this.showDetail === "store") {
       this.data.storePromise.then((storeData) => {
         this.info.text = storeData.name;
-        this.info.href = "#/stores/" + storeData.id;
+        this.info.href = "#!/store/" + storeData.id;
       });
     } else {
       this.info.text = $filter("date")(this.data.date, "EEEE, dd.MM.yyyy");

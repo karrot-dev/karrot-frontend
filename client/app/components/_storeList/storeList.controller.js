@@ -5,13 +5,14 @@
  */
 
 class StoreListController {
-  constructor(Store) {
+  constructor(Store, $state) {
     "ngInject";
 
     this.Store = Store;
+    this.$state = $state;
 
     // check if stores it's a list of IDs or Stores
-    if (angular.isNumber(this.stores[0])){
+    if (angular.isNumber(this.stores[0])) {
       this.storeData = [];
       this.getStores();
     } else {
@@ -22,21 +23,21 @@ class StoreListController {
   /*
    * gets all stores in this.stores id-array, and saves the result in storeData
    */
-  getStores(){
+  getStores() {
     angular.forEach(this.stores, (storeID) => {
       this.Store.getById(storeID).then((data) => this.storeData.push(data));
     });
   }
 
-  onClick(store){
-    if (angular.isDefined(this.callback)){
+  onClick(store) {
+    if (angular.isDefined(this.callback)) {
       this.callback(store);
     } else {
-      //TODO: open store page
+      this.$state.go( "storeDetail", { id: store.id } );
     }
   }
 
-  editStore(){
+  editStore() {
     //TODO: Open Edit Panel
   }
 }

@@ -1,4 +1,4 @@
-import logo from "file!./logo-white.png";
+import logo from "file!./logo-bright.png";
 
 class TopbarController {
   constructor() {

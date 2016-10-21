@@ -6,7 +6,7 @@ let AppMaterial = ($mdThemingProvider) => {
     "200": "91cb46", // yunity Green
     "300": "fbaf36", // yunity yellow
     "400": "0290a2", // yunity blue 0290a2
-    "500": "f66c41", // yunity Orange
+    "500": "4a3520", // brown
     "600": "2b9ccb", // blue for Links
     "700": "FFFF00",
     "800": "3572B0", // Chat Blue

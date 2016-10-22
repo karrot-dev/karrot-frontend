@@ -18,26 +18,29 @@ The feature will get merged if there is no resistance from the development team.
 ## Adding features
 
 ### Add components
-To add a component just execute `gulp component --name <component>`. It will create all necessary files in *client/app/component*:
+To add a component(-partial) just execute `gulp component --name <component>`. It will create all necessary files in *client/app/_<component>* (The underscore is there for clarification, that this is not a page component):
 ```
-+<comp>
-+-<comp>.component.js       component configuration
-+-<comp>.controller.js      controller function
-+-<comp>.html               component HTML
-+-<comp>.js                 module declaration
-+-<comp>.spec.js            tests
-+-<comp>.styl               styles
++<component>
++-<component>.component.js       component configuration
++-<component>.controller.js      controller function
++-<component>.html               component HTML
++-<component>.js                 module declaration
++-<component>.spec.js            tests
++-<component>.styl               styles
 ```
 
+To add a component-page, execute `gulp page --name <component>`. In comparison to the above, it adds some default routing configuration.
+
 ### Add routes
-Follow *Add components* first the add some routing configuration to `<component>.js`.
-In case you need AngularUI Routers transition hooks create `<component>.hook.js` and place your hook code there. Make a `.run()` call your transition hook code.
+Follow *Add components* first to create your page component.
+In the config section you can use the `hookProvider` to create a new hook to handle rerouting.
+The method `hookProvider.setup("targetState", { authenticated: true, anonymous: "login" });` can handle different behaviours for an authenticated ("loggedIn") and anonymous state.
 
 ### Add directives
 If you need to add a directive place it as a separate file in your component folder. Name the file like `<component>.<directives name or job>.js`, for example `home.logout.js`. Define it in `<component>.js`, then.
 
 ### Add services
-Add services by executing `gulp component --name <service> --template service --parent ../common`.
+Add services by executing `gulp service --name <service>`.
 ```
 +<service>
 +-<service>.js              module declaration
@@ -45,9 +48,14 @@ Add services by executing `gulp component --name <service> --template service --
 +-<service>.spec.js         tests
 ```
 
+## Naming conventions
+* components, that don't add a route (=partials) should have a "_"-prefix in their folder name
+
 ## Code style
 * use the *.editorconfig* file (for atom: install *editorconfig* module)
 * Use ES6 features (except of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
+* Avoid creating directives
+* Avoid global components, import them where needed
 
 ## How to use what?
 

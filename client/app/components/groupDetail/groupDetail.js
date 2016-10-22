@@ -14,10 +14,10 @@ let groupDetailModule = angular.module("groupDetail", [
       component: "groupDetail",
       resolve: {
         groupdata: (Group, $stateParams) => {
-          return Group.get({ "id": $stateParams.id });
+          return Group.get($stateParams.id);
         },
         stores: (Store, $stateParams) => {
-          return Store.get({ "group": $stateParams.id });
+          return Store.listByGroupId($stateParams.id);
         }
       }
     });

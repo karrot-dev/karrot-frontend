@@ -1,5 +1,4 @@
 class UserService {
-
   constructor($http) {
     "ngInject";
     this.$http = $http;

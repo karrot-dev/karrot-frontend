@@ -4,7 +4,7 @@ class PickupListController {
     "ngInject";
     this.reversed = false;
     this.Authentication = Authentication;
-    this.PickupDateService = PickupDate;
+    this.PickupDate = PickupDate;
     this.Store = Store;
     this.userId = -1;
     this.$filter = $filter;
@@ -95,9 +95,9 @@ class PickupListController {
   updatePickups() {
     let promise = {};
     if (angular.isDefined(this.groupId)) {
-      promise = this.PickupDateService.listByGroupId(this.groupId);
+      promise = this.PickupDate.listByGroupId(this.groupId);
     } else if (angular.isDefined(this.storeId)) {
-      promise = this.PickupDateService.listByStoreId(this.storeId);
+      promise = this.PickupDate.listByStoreId(this.storeId);
     }
 
     promise.then((data) => this.addPickuplistInfos(data));

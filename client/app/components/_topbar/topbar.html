@@ -1,35 +1,35 @@
 <md-toolbar class="md-medium-small md-whiteframe-3dp">
-    <div layout="row" layout-align="space-between center">
-      <span flex="5"></span>
-      <!--<span flex show-gt-md></span>-->
-      <a ui-sref="home">
-        <img ng-src="{{$ctrl.logo}}" alt="Yunity" style="width: 2em;">
-      </a>
+  <div layout="row" layout-align="space-between center">
+    <span flex="5"></span>
+    <!--<span flex show-gt-md></span>-->
+    <a ui-sref="home">
+      <img ng-src="{{$ctrl.logo}}" alt="Yunity" style="width: 2em;">
+    </a>
 
-      <span flex="15"></span>
+    <span flex="15"></span>
 
-      <search></search>
+    <search></search>
 
-      <span flex></span>
+    <span flex></span>
 
-      <!--<chat-menu></chat-menu>-->
+    <!--<chat-menu></chat-menu>-->
 
-      <span flex hide-xs></span>
+    <span flex hide-xs></span>
 
-      <md-button class="md-icon-button" aria-label="Chat" ui-sref="home.chat">
-          <i class="fa fa-fw fa-comments"></i>
+    <md-button class="md-icon-button" aria-label="Chat" ui-sref="home.chat">
+        <i class="fa fa-fw fa-comments"></i>
+    </md-button>
+    <md-button ui-sref="home.profile" class="md-icon-button" aria-label="User">
+      <i class="fa fa-fw fa-user"></i>
+    </md-button>
+    <md-button class="md-icon-button" aria-label="Logout" logout hide-xs>
+      <i class="fa fa-fw fa-sign-out"></i>
+    </md-button>
+    <span hide show-xs>
+      <md-button class="md-icon-button" aria-label="Open Sidenavigation" menu-toggle>
+        <i class="icon fa fa-fw fa-bars"></i>
       </md-button>
-      <md-button ui-sref="home.profile" class="md-icon-button" aria-label="User">
-        <i class="fa fa-fw fa-user"></i>
-      </md-button>
-      <md-button class="md-icon-button" aria-label="Logout" logout hide-xs>
-        <i class="fa fa-fw fa-sign-out"></i>
-      </md-button>
-      <span hide show-xs>
-        <md-button class="md-icon-button" aria-label="Open Sidenavigation" menu-toggle>
-          <i class="icon fa fa-fw fa-bars"></i>
-        </md-button>
-      </span>
-      <span flex="5" hide-xs></span>
-    </div>
+    </span>
+    <span flex="5" hide-xs></span>
+  </div>
 </md-toolbar>

@@ -1,7 +1,9 @@
 import GroupModule from "./group";
 
+const { module } = angular.mock;
+
 describe("group service", () => {
-  beforeEach(window.module(GroupModule));
+  beforeEach(module(GroupModule));
   let $httpBackend, Group;
 
   let groupData = [{

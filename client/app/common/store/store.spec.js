@@ -1,7 +1,9 @@
 import StoreModule from "./store";
 
+const { module } = angular.mock;
+
 describe("store service", () => {
-  beforeEach(window.module(StoreModule));
+  beforeEach(module(StoreModule));
   let $httpBackend, Store;
 
   let storeData = [{

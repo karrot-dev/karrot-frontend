@@ -1,8 +1,8 @@
 <md-list layout-padding>
-    <md-list-item ng-repeat="store in $ctrl.storeData" ng-click="$ctrl.onClick(store)">
-        <p>{{store.name}}</p>       
-        <md-button ng-show="$ctrl.showEdit" class="md-secondary md-icon-button" aria-label="Edit" ng-click="editStore(store)">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-        </md-button> 
-    </md-list-item>
+  <md-list-item ng-repeat="store in $ctrl.storeData" ng-click="$ctrl.onClick(store)">
+    <p>{{store.name}}</p>
+    <md-button ng-show="$ctrl.showEdit" class="md-secondary md-icon-button" aria-label="Edit" ng-click="editStore(store)">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </md-button>
+  </md-list-item>
 </md-list>

@@ -3,10 +3,12 @@ import TopbarController from "./topbar.controller";
 import TopbarComponent from "./topbar.component";
 import TopbarTemplate from "./topbar.html";
 
+const { module } = angular.mock;
+
 describe("Topbar", () => {
   let makeController;
 
-  beforeEach(window.module(TopbarModule));
+  beforeEach(module(TopbarModule));
   beforeEach(inject(() => {
     makeController = () => {
       return new TopbarController();

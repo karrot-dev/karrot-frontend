@@ -67,9 +67,17 @@ describe("pickupDate service", () => {
     $httpBackend.flush();
   });
 
-  it("filters pickupdates", () => {
+  it("filters pickupdates by store", () => {
     $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData[0]);
     expect(PickupDate.listByStoreId(9))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupData[0]);
+    $httpBackend.flush();
+  });
+
+  it("filters pickupdates by group", () => {
+    $httpBackend.expectGET("/api/pickup-dates/?group=9").respond(pickupData[0]);
+    expect(PickupDate.listByGroupId(9))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();

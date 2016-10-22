@@ -72,7 +72,7 @@ describe("group service", () => {
 
   it("filters groups by search", () => {
     $httpBackend.expectGET("/api/groups/?search=Foods").respond(groupData);
-    expect(Group.search("Foods" ))
+    expect(Group.search("Foods"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();

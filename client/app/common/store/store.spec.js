@@ -73,6 +73,14 @@ describe("store service", () => {
     $httpBackend.flush();
   });
 
+  it("filters stores by searchquery", () => {
+    $httpBackend.expectGET("/api/stores/?search=sometext").respond(storeData);
+    expect(Store.search("sometext"))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(storeData);
+    $httpBackend.flush();
+  });
+
   it("saves store details", () => {
     $httpBackend.expectPATCH("/api/stores/1/", storeModifyData).respond(storeData);
     expect(Store.save(storeModifyData))

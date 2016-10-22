@@ -1,0 +1,30 @@
+<div class="md-whiteframe-10dp" style="width: 100%;">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h2><i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-shopping-basket"></i>Create Pickup</h2>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+    <form ng-submit='ctrl.createPickup()'>
+
+      <md-datepicker ng-model="ctrl.pickupData.date" md-placeholder="Enter date"></md-datepicker>
+      <md-input-container class="md-block">
+        <label>Time</label>
+        <md-icon class="fa fa-clock-o fa-2x"></md-icon>
+        <input ng-model="ctrl.pickupData.time"
+               type="time"/>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Maximum No. of Collectors</label>
+        <input name="MaxNoCollectors" ng-model="ctrl.pickupData.max_collectors"
+               type="number"/>
+      </md-input-container>
+
+      <div layout="row" layout-align="end center">
+        <md-button ng-click="ctrl.closeDialog()">Cancel</md-button>
+        <md-button class="md-raised md-primary md-hue-3" type="submit">Create</md-button>
+      </div>
+    </form>
+  </md-content>
+</div>

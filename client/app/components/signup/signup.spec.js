@@ -2,12 +2,15 @@ import SignupModule from "./signup";
 import SignupController from "./signup.controller";
 import SignupComponent from "./signup.component";
 import SignupTemplate from "./signup.html";
+import Authentication from "../../common/authentication/authentication";
+
+const { module } = angular.mock;
 
 describe("Signup", () => {
   let $rootScope, makeController;
 
-  beforeEach(window.module("Authentication")); //to load hookProvider
-  beforeEach(window.module(SignupModule));
+  beforeEach(module(Authentication)); //to load hookProvider
+  beforeEach(module(SignupModule));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
     makeController = () => {
@@ -32,7 +35,7 @@ describe("Signup", () => {
   });
 
   describe("Component", () => {
-      // component/directive specs
+    // component/directive specs
     let component = SignupComponent;
 
     it("includes the intended template",() => {

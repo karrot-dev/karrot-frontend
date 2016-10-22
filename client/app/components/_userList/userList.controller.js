@@ -24,7 +24,7 @@ class UserListController {
    */
   getUsers(){
     angular.forEach(this.users, (userID) => {
-      this.User.getById(userID).then((data) => this.userData.push(data));
+      this.User.get(userID).then((data) => this.userData.push(data));
     });
   }
 

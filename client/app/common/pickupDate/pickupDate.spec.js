@@ -31,6 +31,7 @@ describe("pickupDate service", () => {
   };
 
   let pickupModifyData = {
+    "id": 15,
     "max_collectors": 5
   };
 
@@ -52,7 +53,7 @@ describe("pickupDate service", () => {
 
   it("lists all pickupdates", () => {
     $httpBackend.expectGET("/api/pickup-dates/").respond(pickupData);
-    expect(PickupDate.get())
+    expect(PickupDate.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData);
     $httpBackend.flush();
@@ -60,7 +61,7 @@ describe("pickupDate service", () => {
 
   it("gets pickupdate", () => {
     $httpBackend.expectGET("/api/pickup-dates/15/").respond(pickupData[0]);
-    expect(PickupDate.get({ id: 15 }))
+    expect(PickupDate.get(15))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
@@ -68,7 +69,7 @@ describe("pickupDate service", () => {
 
   it("filters pickupdates", () => {
     $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData[0]);
-    expect(PickupDate.get({ store: 9 }))
+    expect(PickupDate.listByStoreId(9))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
@@ -84,7 +85,7 @@ describe("pickupDate service", () => {
 
   it("save pickupdate", () => {
     $httpBackend.expectPATCH("/api/pickup-dates/15/", pickupModifyData).respond(pickupModifiedData);
-    expect(PickupDate.save(15, pickupModifyData))
+    expect(PickupDate.save(pickupModifyData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupModifiedData);
     $httpBackend.flush();

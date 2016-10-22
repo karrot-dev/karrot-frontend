@@ -9,22 +9,34 @@ class PickupDateComService {
       .then((res) => res.data);
   }
 
-  get(params) {
-    if (params && params.id){
-      return this.getById(params.id);
-    } else {
-      return this.$http.get("/api/pickup-dates/", { params })
-        .then((res) => res.data);
-    }
-  }
-
-  getById(pickupId) {
+  get(pickupId) {
     return this.$http.get(`/api/pickup-dates/${pickupId}/`)
       .then((res) => res.data);
   }
 
-  save(pickupId, updates) {
-    return this.$http.patch(`/api/pickup-dates/${pickupId}/`, updates)
+  list() {
+    return this.$http.get("/api/pickup-dates/")
+      .then((res) => res.data);
+  }
+
+  listByGroupId(groupId) {
+    return this.$http.get("/api/pickup-dates/", { params: { group: groupId } })
+      .then((res) => res.data);
+  }
+
+  listByStoreId(storeId) {
+    return this.$http.get("/api/pickup-dates/", { params: { store: storeId } })
+      .then((res) => res.data);
+  }
+
+  search(query) {
+    return this.$http.get("/api/pickup-dates/", { params: { search: query } })
+      .then((res) => res.data);
+  }
+
+  save(pickup) {
+    let pickupId = pickup.id;
+    return this.$http.patch(`/api/pickup-dates/${pickupId}/`, pickup)
       .then((res) => res.data);
   }
 

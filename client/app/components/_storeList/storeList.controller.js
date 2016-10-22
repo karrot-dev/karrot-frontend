@@ -8,7 +8,7 @@ class StoreListController {
   constructor(Store, $state) {
     "ngInject";
 
-    this.Store = Store;
+    this.StoreService = Store;
     this.$state = $state;
 
     // check if stores it's a list of IDs or Stores
@@ -25,7 +25,7 @@ class StoreListController {
    */
   getStores() {
     angular.forEach(this.stores, (storeID) => {
-      this.Store.getById(storeID).then((data) => this.storeData.push(data));
+      this.StoreService.get(storeID).then((data) => this.storeData.push(data));
     });
   }
 

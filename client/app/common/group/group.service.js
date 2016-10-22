@@ -10,27 +10,31 @@ class GroupService {
       .then((res) => res.data);
   }
 
-  get(params) {
-    if (params && params.id) {
-      return this.getById(params.id);
-    } else {
-      return this.$http.get("/api/groups/", { params })
-        .then((res) => res.data);
-    }
-  }
-
-  getById(groupId) {
+  get(groupId) {
     return this.$http.get(`/api/groups/${groupId}/`)
       .then((res) => res.data);
   }
 
-  save(groupId, updates) {
-    return this.$http.patch(`/api/groups/${groupId}/`, updates)
+  list() {
+    return this.$http.get("/api/groups/")
       .then((res) => res.data);
   }
 
-  delete(groupId) {
-    return this.$http.delete(`/api/groups/${groupId}/`);
+  listByMemberId(memberId) {
+    // TODO: backend supports filtering by multiple IDs, combined with OR
+    return this.$http.get("/api/groups/", { params: { members: memberId } })
+      .then((res) => res.data);
+  }
+
+  search(query) {
+    return this.$http.get("/api/groups/", { params: { search: query } })
+      .then((res) => res.data);
+  }
+
+  save(group) {
+    let groupId = group.id;
+    return this.$http.patch(`/api/groups/${groupId}/`, group)
+      .then((res) => res.data);
   }
 }
 

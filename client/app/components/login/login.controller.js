@@ -1,11 +1,13 @@
 class LoginController {
-  constructor(Authentication, $state) {
+  constructor(Authentication, $state, $scope) {
     "ngInject";
     Object.assign(this, {
       Authentication,
       $state,
+      $scope,
       email: "",
-      password: ""
+      password: "",
+      error: { wrong: false }
     });
   }
 
@@ -16,7 +18,7 @@ class LoginController {
     })
     .catch(() => {
       this.password = "";
-      // TODO error handling
+      this.error.wrong = true;
     });
   }
 }

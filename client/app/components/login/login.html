@@ -12,6 +12,9 @@
           <md-input-container class="md-block">
             <label>Password</label>
             <input type="password" name="password" required ng-model="$ctrl.password">
+            <div ng-messages="$ctrl.error">
+              <div ng-message="wrong">The credentials are wrong.</div>
+            </div>
           </md-input-container>
 
           <md-button class="md-raised md-accent" type="submit">

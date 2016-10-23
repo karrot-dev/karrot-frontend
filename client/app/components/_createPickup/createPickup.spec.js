@@ -7,13 +7,28 @@ import PickupDate from "../../common/pickupDate/pickupDate";
 const { module } = angular.mock;
 
 describe("CreatePickup", () => {
+  let $rootScope, $componentController, $httpBackend;
+  
   beforeEach(module(CreatePickupModule));
   beforeEach(module(PickupDate));
 
   beforeEach(() => {
     angular.mock.module(($provide) => {
-      $provide.value("$mdDialog", {});
+      $provide.value("$mdDialog", {
+        hide: () => {}
+      });
     });
+  });
+
+  beforeEach(inject(($injector) => {
+    $httpBackend = $injector.get("$httpBackend");
+    $rootScope = $injector.get("$rootScope");
+    $componentController = $injector.get("$componentController");
+  }));
+
+  afterEach(() => {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
   });
 
   describe("Module", () => {
@@ -24,14 +39,33 @@ describe("CreatePickup", () => {
   });
 
   describe("Controller", () => {
-    let $componentController;
-    beforeEach(inject((_$componentController_) => {
-      $componentController = _$componentController_;
-    }));
+    let controller;
 
-    it("should exist", () => {
-      let ctrl = $componentController("createPickup", {});
-      expect(ctrl).to.exist;
+    beforeEach(() => {
+      controller = $componentController("createPickup", {
+        $scope: $rootScope.$new()
+      }, {
+        storeId: 2,
+        pickuplistCtrl: {
+          updatePickups: () => {}
+        }
+      }); 
+    });
+    
+    it("test pickup creation", () => {
+      controller.pickupData = {
+        date: "07/14/2016",
+        time: {
+          getHours: () => {return 15;},
+          getMinutes: () => {return 22;}
+        },
+        maxCollectors: 5
+      };
+      controller.createPickup();
+
+      $httpBackend.expect('POST', '/api/pickup-dates/', {max_collectors: 5, date: "2016-07-14T13:22:00.000Z", store: 2})
+        .respond(201, 'success');
+      $httpBackend.flush();
     });
   });
 

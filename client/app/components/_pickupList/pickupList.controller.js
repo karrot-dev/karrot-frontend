@@ -1,6 +1,6 @@
 class PickupListController {
 
-  constructor(Authentication, PickupDate, Store, $filter) {
+  constructor(Authentication, PickupDate, Store, $filter, $mdDialog, $document) {
     "ngInject";
     this.reversed = false;
     this.Authentication = Authentication;
@@ -8,7 +8,9 @@ class PickupListController {
     this.Store = Store;
     this.userId = -1;
     this.$filter = $filter;
-
+    
+    this.$mdDialog = $mdDialog;
+    this.$document = $document;
 
     this.pickupList = {
       showJoined: false,
@@ -101,6 +103,26 @@ class PickupListController {
     }
 
     this.PickupDate.get(filter).then((data) => this.addPickuplistInfos(data));
+  }
+
+  openCreatePickupPanel($event) {
+    let parentEl = this.$document.body;
+       
+    let DialogController = function (storeId) {
+      "ngInject";
+      this.storeId = storeId;
+    };
+
+    this.$mdDialog.show({
+      parent: parentEl,
+      targetEvent: $event,
+      template: "{{storeId}}<create-pickup store-id='$ctrl.storeId'></create-pickup>",
+      locals: {
+        storeId: this.storeId
+      },
+      controller: DialogController,
+      controllerAs: "$ctrl"
+    });
   }
 }
 

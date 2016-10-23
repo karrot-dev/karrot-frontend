@@ -1,4 +1,5 @@
 import angular from "angular";
+import createPickup from "./_createPickup/createPickup";
 import groupDetail from "./groupDetail/groupDetail";
 import home from "./home/home";
 import login from "./login/login";
@@ -10,6 +11,7 @@ import topbar from "./_topbar/topbar";
 import userList from "./_userList/userList";
 
 let componentModule = angular.module("app.components", [
+  createPickup,
   groupDetail,
   home,
   login,

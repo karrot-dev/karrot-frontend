@@ -3,7 +3,9 @@ import controller from "./createPickup.controller";
 import "./createPickup.styl";
 
 let createPickupComponent = {
-  bindings: {},
+  bindings: {
+    storeId: "<"
+  },
   template,
   controller
 };

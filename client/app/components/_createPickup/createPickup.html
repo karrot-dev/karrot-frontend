@@ -5,24 +5,24 @@
     </div>
   </md-toolbar>
   <md-content layout-padding>
-    <form ng-submit='ctrl.createPickup()'>
+    <form ng-submit='$ctrl.createPickup()'>
 
-      <md-datepicker ng-model="ctrl.pickupData.date" md-placeholder="Enter date"></md-datepicker>
+      <md-datepicker ng-model="$ctrl.pickupData.date" md-placeholder="Enter date"></md-datepicker>
       <md-input-container class="md-block">
         <label>Time</label>
         <md-icon class="fa fa-clock-o fa-2x"></md-icon>
-        <input ng-model="ctrl.pickupData.time"
+        <input ng-model="$ctrl.pickupData.time"
                type="time"/>
       </md-input-container>
 
       <md-input-container class="md-block">
         <label>Maximum No. of Collectors</label>
-        <input name="MaxNoCollectors" ng-model="ctrl.pickupData.max_collectors"
+        <input name="MaxNoCollectors" ng-model="$ctrl.pickupData.maxCollectors"
                type="number"/>
       </md-input-container>
 
       <div layout="row" layout-align="end center">
-        <md-button ng-click="ctrl.closeDialog()">Cancel</md-button>
+        <md-button ng-click="$ctrl.closePanel()">Cancel</md-button>
         <md-button class="md-raised md-primary md-hue-3" type="submit">Create</md-button>
       </div>
     </form>

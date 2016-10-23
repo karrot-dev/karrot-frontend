@@ -11,8 +11,9 @@ class CreatePickupController {
     newDate.setHours(this.pickupData.time.getHours());
     newDate.setMinutes(this.pickupData.time.getMinutes());
 
+
     let dataToSend = {
-      max_collectors: this.pickupData.maxCollectors,
+      max_collectors: this.pickupData.maxCollectors, // eslint-disable-line
       date: newDate,
       store: this.storeId
     };

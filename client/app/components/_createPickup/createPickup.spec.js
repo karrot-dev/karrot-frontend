@@ -53,11 +53,14 @@ describe("CreatePickup", () => {
     });
 
     it("test pickup creation", () => {
+      let d = new Date();
+      let n = d.getTimezoneOffset() / 60;
+
       controller.pickupData = {
         date: "07/14/2016",
         time: {
           getHours: () => {
-            return 15;
+            return 15 - n;
           },
           getMinutes: () => {
             return 22;
@@ -67,7 +70,7 @@ describe("CreatePickup", () => {
       };
       controller.createPickup();
 
-      $httpBackend.expectPOST("/api/pickup-dates/", { max_collectors: 5, date: "2016-07-14T13:22:00.000Z", store: 2 }) // eslint-disable-line
+      $httpBackend.expectPOST("/api/pickup-dates/", { max_collectors: 5, date: "2016-07-14T15:22:00.000Z", store: 2 }) // eslint-disable-line
         .respond(201, "success");
       $httpBackend.flush();
     });

@@ -1,7 +1,8 @@
 class CreatePickupController {
-  constructor($mdDialog) {
+  constructor($mdDialog, PickupDate) {
     "ngInject";
     this.$mdDialog = $mdDialog;
+    this.PickupDate = PickupDate;
   }
 
   createPickup() {
@@ -16,7 +17,7 @@ class CreatePickupController {
       store: this.storeId
     };
 
-    //yPostReq.req('/api/pickup-dates/', dataToSend, thisDialog.refreshPage, thisDialog.closeDialog);
+    this.PickupDate.create(dataToSend);
     this.$mdDialog.hide();
   }
 

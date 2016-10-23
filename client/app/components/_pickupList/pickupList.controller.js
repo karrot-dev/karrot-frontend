@@ -8,7 +8,7 @@ class PickupListController {
     this.Store = Store;
     this.userId = -1;
     this.$filter = $filter;
-    
+
     this.$mdDialog = $mdDialog;
     this.$document = $document;
 
@@ -107,7 +107,7 @@ class PickupListController {
 
   openCreatePickupPanel($event) {
     let parentEl = this.$document.body;
-       
+
     let DialogController = function (storeId) {
       "ngInject";
       this.storeId = storeId;

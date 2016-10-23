@@ -4,32 +4,34 @@ class StoreComService {
     this.$http = $http;
   }
 
-  stores() {
-    return this.$http.get("/api/stores/")
+  create(store) {
+    return this.$http.post("/api/stores/", store)
       .then((res) => res.data);
   }
 
-  create(group) {
-    return this.$http.post("/api/stores/", group)
-      .then((res) => res.data);
-  }
-
-  get(params) {
-    if (params && params.id){
-      return this.getById(params.id);
-    } else {
-      return this.$http.get("/api/stores/", { params })
-        .then((res) => res.data);
-    }
-  }
-
-  getById(storeId){
+  get(storeId){
     return this.$http.get(`/api/stores/${storeId}/`)
       .then((res) => res.data);
   }
 
-  save(storeId, updates) {
-    return this.$http.patch(`/api/stores/${storeId}/`, updates)
+  list() {
+    return this.$http.get("/api/stores/")
+      .then((res) => res.data);
+  }
+
+  listByGroupId(groupId) {
+    return this.$http.get("/api/stores/", { params: { group: groupId } })
+      .then((res) => res.data);
+  }
+
+  search(query) {
+    return this.$http.get("/api/stores/", { params: { search: query } })
+      .then((res) => res.data);
+  }
+
+  save(store) {
+    let storeId = store.id;
+    return this.$http.patch(`/api/stores/${storeId}/`, store)
       .then((res) => res.data);
   }
 

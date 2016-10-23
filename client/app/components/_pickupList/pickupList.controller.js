@@ -34,7 +34,7 @@ class PickupListController {
       currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
 
       if (this.showDetail === "store") {
-        currentPickup.storePromise = this.Store.getById(currentPickup.store);
+        currentPickup.storePromise = this.Store.get(currentPickup.store);
       }
     });
     this.allPickups = pickups;
@@ -93,14 +93,14 @@ class PickupListController {
      * update function that should be called every time something is changed in the list
      */
   updatePickups() {
-    let filter = {};
+    let promise = {};
     if (angular.isDefined(this.groupId)) {
-      filter = { group: this.groupId };
+      promise = this.PickupDate.listByGroupId(this.groupId);
     } else if (angular.isDefined(this.storeId)) {
-      filter = { store: this.storeId };
+      promise = this.PickupDate.listByStoreId(this.storeId);
     }
 
-    this.PickupDate.get(filter).then((data) => this.addPickuplistInfos(data));
+    promise.then((data) => this.addPickuplistInfos(data));
   }
 }
 

@@ -26,6 +26,7 @@ describe("user service", () => {
   }];
 
   let userModifyData = {
+    "id": 1,
     "last_name": "becker"
   };
 
@@ -41,15 +42,15 @@ describe("user service", () => {
 
   it("lists users", () => {
     $httpBackend.expectGET("/api/users/").respond(userData);
-    expect(User.get())
+    expect(User.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData);
     $httpBackend.flush();
   });
 
   it("lists filtered users", () => {
-    $httpBackend.expectGET("/api/users/?last_name=becker").respond(userData);
-    expect(User.get({ "last_name": "becker" }))
+    $httpBackend.expectGET("/api/users/?search=becker").respond(userData);
+    expect(User.search("becker"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData);
     $httpBackend.flush();
@@ -63,17 +64,9 @@ describe("user service", () => {
     $httpBackend.flush();
   });
 
-  it("gets user details via get", () => {
+  it("gets user details", () => {
     $httpBackend.expectGET("/api/users/1/").respond(userData[0]);
-    expect(User.get({ id: 1, someOtherAttribute: "someValue" }))
-      .to.be.fulfilled.and
-      .to.eventually.deep.equal(userData[0]);
-    $httpBackend.flush();
-  });
-
-  it("gets user details via getById", () => {
-    $httpBackend.expectGET("/api/users/1/").respond(userData[0]);
-    expect(User.getById(1))
+    expect(User.get(1))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData[0]);
     $httpBackend.flush();
@@ -81,7 +74,7 @@ describe("user service", () => {
 
   it("saves user details", () => {
     $httpBackend.expectPATCH("/api/users/1/", userModifyData).respond(userData[0]);
-    expect(User.save(1, userModifyData))
+    expect(User.save(userModifyData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData[0]);
     $httpBackend.flush();

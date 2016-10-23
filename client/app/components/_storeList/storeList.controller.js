@@ -25,7 +25,7 @@ class StoreListController {
    */
   getStores() {
     angular.forEach(this.stores, (storeID) => {
-      this.Store.getById(storeID).then((data) => this.storeData.push(data));
+      this.Store.get(storeID).then((data) => this.storeData.push(data));
     });
   }
 

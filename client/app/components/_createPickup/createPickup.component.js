@@ -4,7 +4,8 @@ import "./createPickup.styl";
 
 let createPickupComponent = {
   bindings: {
-    storeId: "<"
+    storeId: "<",
+    pickuplistCtrl: "<"
   },
   template,
   controller

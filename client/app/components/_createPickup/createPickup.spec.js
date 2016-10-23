@@ -9,10 +9,10 @@ const { module } = angular.mock;
 describe("CreatePickup", () => {
   beforeEach(module(CreatePickupModule));
   beforeEach(module(PickupDate));
-  
+
   beforeEach(() => {
-    angular.mock.module($provide => {
-      $provide.value('$mdDialog', {});
+    angular.mock.module(($provide) => {
+      $provide.value("$mdDialog", {});
     });
   });
 

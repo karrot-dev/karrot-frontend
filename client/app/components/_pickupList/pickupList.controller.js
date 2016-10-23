@@ -108,17 +108,20 @@ class PickupListController {
   openCreatePickupPanel($event) {
     let parentEl = this.$document.body;
 
-    let DialogController = function (storeId) {
+    let DialogController = function (storeId, pickuplistCtrl) {
       "ngInject";
       this.storeId = storeId;
+      this.pickuplistCtrl = pickuplistCtrl;
     };
 
     this.$mdDialog.show({
       parent: parentEl,
       targetEvent: $event,
-      template: "{{storeId}}<create-pickup store-id='$ctrl.storeId'></create-pickup>",
+      template: `{{storeId}}<create-pickup store-id='$ctrl.storeId'
+        pickuplist-ctrl='$ctrl.pickuplistCtrl'></create-pickup>`,
       locals: {
-        storeId: this.storeId
+        storeId: this.storeId,
+        pickuplistCtrl: this
       },
       controller: DialogController,
       controllerAs: "$ctrl"

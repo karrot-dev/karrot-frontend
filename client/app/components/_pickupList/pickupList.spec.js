@@ -14,19 +14,19 @@ describe("PickupList", () => {
   beforeEach(module(StoreModule));
   beforeEach(module(AuthenticationModule));
   beforeEach(module(PickupDateModule));
-  
+
   beforeEach(() => {
-    angular.mock.module($provide => {
-      $provide.value('$mdDialog', {});
+    angular.mock.module(($provide) => {
+      $provide.value("$mdDialog", {});
     });
   });
-  
+
   beforeEach(() => {
-    angular.mock.module($provide => {
-      $provide.value('$document', {});
+    angular.mock.module(($provide) => {
+      $provide.value("$document", {});
     });
   });
-  
+
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");

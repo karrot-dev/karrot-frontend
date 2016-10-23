@@ -17,7 +17,9 @@ class CreatePickupController {
       store: this.storeId
     };
 
-    this.PickupDate.create(dataToSend);
+    this.PickupDate.create(dataToSend).then(() => {
+      this.pickuplistCtrl.updatePickups();
+    });
     this.$mdDialog.hide();
   }
 

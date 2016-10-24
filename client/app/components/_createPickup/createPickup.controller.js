@@ -3,18 +3,21 @@ class CreatePickupController {
     "ngInject";
     this.$mdDialog = $mdDialog;
     this.PickupDate = PickupDate;
+    this.date = {};
   }
 
-  createPickup() {
-    // mix datefield and timefield to one date
+  assembleDate() {
     let newDate = new Date(this.pickupData.date);
     newDate.setHours(this.pickupData.time.getHours());
     newDate.setMinutes(this.pickupData.time.getMinutes());
+    this.date = newDate;
+  }
 
-
+  createPickup() {
+    this.assembleDate();
     let dataToSend = {
       max_collectors: this.pickupData.maxCollectors, // eslint-disable-line
-      date: newDate,
+      date: this.date,
       store: this.storeId
     };
 

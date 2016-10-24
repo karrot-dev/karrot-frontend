@@ -4,40 +4,39 @@
     <div></div>
   </md-content>
 
-  <form signup-form name="signupForm">
+  <form signup-form ng-submit="$ctrl.signup()">
     <h2 style="padding: .2em;"> Sign Up! </h2>
 
     <div layout="row">
       <md-input-container  flex="50">
         <label>First Name</label>
-        <input required type="text" ng-model="firstName">
+        <input required type="text" ng-model="$ctrl.firstName">
       </md-input-container>
       <md-input-container  flex="50">
         <label>Last Name</label>
-        <input required type="text" ng-model="lastName">
+        <input required type="text" ng-model="$ctrl.lastName">
       </md-input-container>
     </div>
 
     <md-input-container class="md-block">
       <label>Username</label>
-      <input required type="text" name="Username" ng-model="username"
-             minlength="5" maxlength="100" />
+      <input required type="text" name="Username" ng-model="$ctrl.username"
+             minlength="4" maxlength="100" />
     </md-input-container>
 
     <md-input-container class="md-block">
       <label>Email</label>
-      <input required type="email" name="Email" ng-model="email"
-             minlength="10" maxlength="100"/>
+      <input required type="email" name="Email" ng-model="$ctrl.email"/>
     </md-input-container>
 
     <div layout="row">
-      <md-input-container  flex="50">
+      <md-input-container flex="50">
         <label>Password</label>
-        <input type="password" required name="password" ng-model="password">
+        <input type="password" required name="password" ng-model="$ctrl.password">
       </md-input-container>
       <md-input-container flex="50">
         <label>Repeat Password</label>
-        <input type="password" required name="password" ng-model="passwordrepeat">
+        <input type="password" required name="password" ng-model="$ctrl.passwordrepeat">
       </md-input-container>
     </div>
 

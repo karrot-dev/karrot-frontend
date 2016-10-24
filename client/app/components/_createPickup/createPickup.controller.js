@@ -4,6 +4,7 @@ class CreatePickupController {
     this.$mdDialog = $mdDialog;
     this.PickupDate = PickupDate;
     this.date = {};
+    this.pickupData = { maxCollectors: 2 };
   }
 
   assembleDate() {

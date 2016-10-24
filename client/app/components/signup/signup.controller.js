@@ -37,7 +37,7 @@ class SignupController {
     .then(() => {
       this.$state.go("login");
     }, () => {
-      // TODO show toast
+      // TODO do better error handling, e.g. when username exists
       this.password = "";
       this.passwordrepeat = "";
       this.error.failed = true;

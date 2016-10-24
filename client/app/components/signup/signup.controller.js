@@ -10,19 +10,13 @@ class SignupController {
       username: "",
       email: "",
       password: "",
-      passwordrepeat: "",
       error: {
-        password: false,
         failed: false
       }
     });
   }
 
   signup() {
-    if (!this.password || this.password !== this.passwordrepeat || this.password.length < 1) {
-      this.error.password = true;
-      return;
-    }
     // TODO: handle camelcase <-> snakecase conversion elsewhere
     /* eslint-disable camelcase */
     let user = {
@@ -39,7 +33,6 @@ class SignupController {
     }, () => {
       // TODO do better error handling, e.g. when username exists
       this.password = "";
-      this.passwordrepeat = "";
       this.error.failed = true;
     });
   }

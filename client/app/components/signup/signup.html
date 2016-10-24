@@ -24,16 +24,11 @@
       <input required type="email" name="Email" ng-model="$ctrl.email"/>
     </md-input-container>
 
-    <div layout="row">
-      <md-input-container flex="50">
-        <label>Password</label>
-        <input type="password" required name="password" ng-model="$ctrl.password">
-      </md-input-container>
-      <md-input-container flex="50">
-        <label>Repeat Password</label>
-        <input type="password" required name="password" ng-model="$ctrl.passwordrepeat">
-      </md-input-container>
-    </div>
+    <md-input-container>
+      <label>Password</label>
+      <input type="password" required name="password" ng-model="$ctrl.password">
+    </md-input-container>
+
 
 
     <md-button class="md-raised md-accent" type="submit">Join</md-button>
@@ -43,9 +38,6 @@
     <div ng-messages="$ctrl.error">
       <div class="form-error" ng-message="failed">
         Sign up failed!
-      </div>
-      <div class="form-error" ng-message="password">
-        Set a good password!
       </div>
     </div>
   </form>

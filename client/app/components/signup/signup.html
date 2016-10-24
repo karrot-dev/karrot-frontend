@@ -1,9 +1,4 @@
 <md-content layout-padding style="margin-bottom: 4em" class="md-whiteframe-2dp">
-
-  <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-    <div></div>
-  </md-content>
-
   <form signup-form ng-submit="$ctrl.signup()">
     <h2 style="padding: .2em;"> Sign Up! </h2>
 
@@ -45,7 +40,7 @@
     <md-button ui-sref="login">
       Back to Login
     </md-button>
-    <div ng-messages="loginForm.$error">
+    <div ng-messages="$ctrl.error">
       <div class="form-error" ng-message="failed">
         Sign up failed!
       </div>

@@ -12,14 +12,15 @@ class SignupController {
       password: "",
       passwordrepeat: "",
       error: {
-        passwordWrong: false
+        password: false,
+        failed: false
       }
     });
   }
 
   signup() {
     if (!this.password || this.password !== this.passwordrepeat || this.password.length < 1) {
-      this.error.passwordWrong = true;
+      this.error.password = true;
       return;
     }
     // TODO: handle camelcase <-> snakecase conversion elsewhere
@@ -39,6 +40,7 @@ class SignupController {
       // TODO show toast
       this.password = "";
       this.passwordrepeat = "";
+      this.error.failed = true;
     });
   }
 }

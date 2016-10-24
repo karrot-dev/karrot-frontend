@@ -1,9 +1,13 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import signupComponent from "./signup.component";
+import Authentication from "../../common/authentication/authentication";
+import User from "../../common/user/user";
 
 let signupModule = angular.module("signup", [
-  uiRouter
+  uiRouter,
+  Authentication,
+  User
 ])
 
 .config(($stateProvider, hookProvider) => {

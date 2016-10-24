@@ -1,5 +1,4 @@
 class UserService {
-
   constructor($http) {
     "ngInject";
     this.$http = $http;
@@ -10,22 +9,24 @@ class UserService {
       .then((res) => res.data);
   }
 
-  get(params) {
-    if (params && params.id){
-      return this.getById(params.id);
-    } else {
-      return this.$http.get("/api/users/", { params })
-        .then((res) => res.data);
-    }
-  }
-
-  getById(userId) {
+  get(userId) {
     return this.$http.get(`/api/users/${userId}/`)
       .then((res) => res.data);
   }
 
-  save(userId, updates) {
-    return this.$http.patch(`/api/users/${userId}/`, updates)
+  list() {
+    return this.$http.get("/api/users/")
+      .then((res) => res.data);
+  }
+
+  search(query) {
+    return this.$http.get("/api/users/", { params: { search: query } })
+      .then((res) => res.data);
+  }
+
+  save(user) {
+    let userId = user.id;
+    return this.$http.patch(`/api/users/${userId}/`, user)
       .then((res) => res.data);
   }
 

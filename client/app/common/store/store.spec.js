@@ -1,7 +1,9 @@
 import StoreModule from "./store";
 
+const { module } = angular.mock;
+
 describe("store service", () => {
-  beforeEach(window.module(StoreModule));
+  beforeEach(module(StoreModule));
   let $httpBackend, Store;
 
   let storeData = [{
@@ -25,6 +27,7 @@ describe("store service", () => {
   }];
 
   let storeModifyData = {
+    "id": 1,
     "name": "Aldi"
   };
 
@@ -40,7 +43,7 @@ describe("store service", () => {
 
   it("lists stores", () => {
     $httpBackend.expectGET("/api/stores/").respond(storeData);
-    expect(Store.stores())
+    expect(Store.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
@@ -56,7 +59,7 @@ describe("store service", () => {
 
   it("gets store details", () => {
     $httpBackend.expectGET("/api/stores/1/").respond(storeData);
-    expect(Store.get({ id: 1 }))
+    expect(Store.get(1))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
@@ -64,7 +67,15 @@ describe("store service", () => {
 
   it("filters stores by group", () => {
     $httpBackend.expectGET("/api/stores/?group=1").respond(storeData);
-    expect(Store.get({ group: 1 }))
+    expect(Store.listByGroupId(1))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(storeData);
+    $httpBackend.flush();
+  });
+
+  it("filters stores by searchquery", () => {
+    $httpBackend.expectGET("/api/stores/?search=sometext").respond(storeData);
+    expect(Store.search("sometext"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(storeData);
     $httpBackend.flush();
@@ -72,7 +83,7 @@ describe("store service", () => {
 
   it("saves store details", () => {
     $httpBackend.expectPATCH("/api/stores/1/", storeModifyData).respond(storeData);
-    expect(Store.save(1, storeModifyData))
+    expect(Store.save(storeModifyData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(storeData);
     $httpBackend.flush();

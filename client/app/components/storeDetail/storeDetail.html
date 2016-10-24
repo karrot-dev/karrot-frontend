@@ -1,0 +1,9 @@
+<topbar></topbar>
+<div class="storeDetail page-container">
+  <md-content layout-padding class="md-whiteframe-1dp">
+    <h1 class="md-headline">{{$ctrl.storedata.name}}</h1>
+    <p>{{$ctrl.storedata.description}}</p>
+
+    <pickup-list header="Pickups" store-id="{{$ctrl.storedata.id}}"></pickup-list>
+  </md-content>
+</div>

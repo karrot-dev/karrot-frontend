@@ -1,11 +1,13 @@
 import HomeModule from "./home";
 import Authentication from "../../common/authentication/authentication";
 
+const { module } = angular.mock;
+
 describe("Home", () => {
   let $rootScope, $componentController;
 
-  beforeEach(window.module(Authentication)); //to load hookProvider
-  beforeEach(window.module(HomeModule));
+  beforeEach(module(Authentication)); //to load hookProvider
+  beforeEach(module(HomeModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get("$rootScope");

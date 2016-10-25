@@ -1,5 +1,5 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE
+from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, CharField, DateTimeField
 from django_enumfield import enum
 
 from yunity.base.base_models import BaseModel, LocationModel
@@ -54,6 +54,10 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     display_name = TextField()
     first_name = TextField(null=True)
     last_name = TextField(null=True)
+
+    activation_key = CharField(max_length=40, null=True)
+    key_expires = DateTimeField(null=True)
+    mail_verified = BooleanField(default=False)
 
     wall = OneToOneField(Wall, null=True, on_delete=CASCADE)
     profile_visibility = enum.EnumField(ProfileVisibility, default=ProfileVisibility.PRIVATE)

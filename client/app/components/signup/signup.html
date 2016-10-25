@@ -36,7 +36,8 @@
     </md-button-container>
     <div ng-messages="$ctrl.error">
       <div class="form-error" ng-message="failed">
-        Sign up failed!
+        Sign up failed!<br>
+        {{$ctrl.error.msg}}
       </div>
     </div>
   </form>

@@ -11,7 +11,8 @@ class SignupController {
       email: "",
       password: "",
       error: {
-        failed: false
+        failed: false,
+        msg: ""
       }
     });
   }
@@ -30,9 +31,15 @@ class SignupController {
     this.User.create(user)
     .then(() => {
       this.$state.go("login");
-    }, () => {
-      // TODO do better error handling, e.g. when username exists
-      this.password = "";
+    }, (data) => {
+      if (data.email) {
+        this.email = "";
+        this.error.msg = data.email[0];
+      } else {
+        this.password = "";
+      }
+
+      // TODO do better/complete error handling, e.g. when username exists
       this.error.failed = true;
     });
   }

@@ -136,4 +136,4 @@ class TestGroupsAPI(APITestCase):
         self.group.members.add(self.user)
         url = self.url + str(self.group.id) + '/'
         response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

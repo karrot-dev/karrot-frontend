@@ -1,8 +1,11 @@
 from rest_framework import filters
-from rest_framework import status, viewsets
+from rest_framework import status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, BasePermission
 from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
+
+from yunity.base.permissions import DenyAll
 from yunity.groups.serializers import GroupSerializer
 from yunity.groups.models import Group as GroupModel
 
@@ -14,7 +17,7 @@ class IsMember(BasePermission):
         return request.user in obj.members.all()
 
 
-class GroupViewSet(viewsets.ModelViewSet):
+class GroupViewSet(ModelViewSet):
     """
     Groups
 
@@ -29,7 +32,9 @@ class GroupViewSet(viewsets.ModelViewSet):
     search_fields = ('name', 'description')
 
     def get_permissions(self):
-        if self.action in ('update', 'partial_update', 'destroy'):
+        if self.action in ('destroy'):
+            self.permission_classes = (DenyAll,)
+        elif self.action in ('update', 'partial_update'):
             self.permission_classes = (IsMember,)
         else:
             self.permission_classes = (IsAuthenticatedOrReadOnly,)

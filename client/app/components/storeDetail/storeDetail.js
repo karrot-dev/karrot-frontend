@@ -16,7 +16,7 @@ let storeDetailModule = angular.module("storeDetail", [
       component: "storeDetail",
       resolve: {
         storedata: (Store, $stateParams) => {
-          return Store.get({ "id": $stateParams.id });
+          return Store.get($stateParams.id);
         }
       }
     });

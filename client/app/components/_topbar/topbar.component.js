@@ -3,7 +3,9 @@ import controller from "./topbar.controller";
 import "./topbar.styl";
 
 let topbarComponent = {
-  bindings: {},
+  bindings: {
+    activeGroup: "<"
+  },
   template,
   controller
 };

@@ -1,8 +1,9 @@
 class GroupService {
 
-  constructor($http) {
+  constructor($http, Authentication) {
     "ngInject";
     this.$http = $http;
+    this.Authentication = Authentication;
   }
 
   create(group) {
@@ -24,6 +25,11 @@ class GroupService {
     // TODO: backend supports filtering by multiple IDs, combined with OR
     return this.$http.get("/api/groups/", { params: { members: memberId } })
       .then((res) => res.data);
+  }
+
+  listMy() {
+    let myUserId = this.Authentication.data.id;
+    return this.listByMemberId(myUserId);
   }
 
   search(query) {

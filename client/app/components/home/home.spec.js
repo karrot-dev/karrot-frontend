@@ -1,38 +1,46 @@
 import HomeModule from "./home";
-import Authentication from "../../common/authentication/authentication";
 
 const { module } = angular.mock;
 
 describe("Home", () => {
-  let $rootScope, $componentController;
-
-  beforeEach(module(Authentication)); //to load hookProvider
-  beforeEach(module(HomeModule));
-
-  beforeEach(inject(($injector) => {
-    $rootScope = $injector.get("$rootScope");
-    $componentController = $injector.get("$componentController");
-  }));
+  beforeEach(() => {
+    module(HomeModule);
+  });
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
+    it("is named home", () => {
+      expect(HomeModule).to.equal("home");
+    });
   });
 
   describe("Controller", () => {
-    // controller specs
-    let controller;
+    let $componentController, $httpBackend, $state, Authentication;
     beforeEach(() => {
-      controller = $componentController("home", {
-        $scope: $rootScope.$new()
+      inject((_$componentController_, _$httpBackend_, _$state_, _Authentication_) => {
+        $componentController = _$componentController_;
+        $httpBackend = _$httpBackend_;
+        $state = _$state_;
+        Authentication = _Authentication_;
       });
+      Authentication.data = { id: 1 };
+      sinon.stub($state, "go");
     });
 
-    it("has a name property", () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property("name");
+    afterEach(() => {
+      $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.verifyNoOutstandingRequest();
     });
-  });
 
-  describe("View", () => {
-    // view layer specs.
+    let groupData = [
+      { id: 50 },
+      { id: 99 }
+    ];
+
+    it("should redirect user", () => {
+      $httpBackend.expectGET("/api/groups/?members=1").respond(200, groupData);
+      $componentController("home", {});
+      $httpBackend.flush();
+      expect($state.go).to.have.been.calledWith("groupDetail", { id: 50 });
+    });
   });
 });

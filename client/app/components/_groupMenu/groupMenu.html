@@ -1,20 +1,20 @@
-<md-menu md-offset="0 50" class="groupmenu" md-ink-ripple>
+<md-menu md-offset="0 50" md-ink-ripple>
 
  <a ng-click="$ctrl.openMenu($mdOpenMenu, $event)" class="md-button">
    Kirchheim
    <i class="fa fa-caret-down md-caption"></i>
  </a>
  <md-menu-content>
-   <md-menu-item ng-repeat="group in $ctrl.groups">
-     <md-button href="#!/group/{{ group.id }}">
+   <md-menu-item ng-repeat="groupitem in $ctrl.groups">
+     <md-button ui-sref="groupDetail({ id: groupitem.id })">
        <i class="fa fa-circle-o"> </i>
-       {{ group.name }}
+       {{ groupitem.name }}
      </md-button>
    </md-menu-item>
    <md-menu-item>
-     <md-button href="#!/group/find" class="join">
+     <md-button href="#!/group/find" class="group-menu-join-button">
        <i class="fa fa-plus"></i>
-      Join community
+       Join community (not implemented)
      </md-button>
    </md-menu-item>
  </md-menu-content>

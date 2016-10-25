@@ -76,6 +76,16 @@ In development, you can add and override local settings in
 version control. If the file is not present, i.e. in production, nothing
 happens.
 
+## Migrations
+
+Sometimes you will need to create Django migrations.
+
+```
+source env/bin/activate
+./manage.py makemigrations
+./manage.py migrate
+```
+
 # Contributing to foodsaving-backend
 To contribute, please get in contact with us. We want to follow a pull request / code review cycle as soon as possible but in our early design stages we prefer to work in teams at the same desk.
 We use
@@ -115,9 +125,9 @@ pip-tools is used to manage requirements. To use the latest possible requirement
 - `pip-compile --upgrade`
 
 ## IDE
-We use PyCharm for development. The open source free professional licences are still pending, for now use the community edition from https://www.jetbrains.com/pycharm/download/.
+We use (PyCharm)[https://www.jetbrains.com/pycharm/download/] for development. We have some licenses available for the professional version which includes Django support specifically. The free community edition also works well.
 
-Archlinux users may install pycharm-community from the aur.
+You can use whatever you want of course.
 
 Please set the python interpreter to the virtual env python created during during the setup.
 

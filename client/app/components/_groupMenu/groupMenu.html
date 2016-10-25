@@ -5,7 +5,8 @@
    <i class="fa fa-caret-down md-caption"></i>
  </a>
  <md-menu-content>
-   <md-menu-item ng-repeat="groupitem in $ctrl.groups">
+   <md-menu-item ng-repeat="groupitem in $ctrl.groups"
+                 ng-if="groupitem.id !== $ctrl.activeGroup.id">
      <md-button ui-sref="groupDetail({ id: groupitem.id })">
        <i class="fa fa-circle-o"> </i>
        {{ groupitem.name }}

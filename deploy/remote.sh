@@ -34,6 +34,11 @@ DATABASES = {
 DEBUG = False
 ALLOWED_HOSTS = ['fstool.yunity.org', 'mvp-proposal.yunity.org', 'mvp-design.yunity.org']
 STATIC_ROOT = '${deploy_dir}/${backend_dir}/static/'
+ANYMAIL = {
+    "SPARKPOST_API_KEY": add your server key
+}
+
+DEFAULT_FROM_EMAIL = "fstool@yunity.org"
 CONFIG
 
 createdb fstool || true

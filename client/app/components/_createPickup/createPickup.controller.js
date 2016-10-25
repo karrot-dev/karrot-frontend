@@ -4,7 +4,10 @@ class CreatePickupController {
     this.$mdDialog = $mdDialog;
     this.PickupDate = PickupDate;
     this.date = {};
-    this.pickupData = { maxCollectors: 2 };
+    this.pickupData = {
+      date: new Date(),
+      maxCollectors: 2
+    };
   }
 
   assembleDate() {
@@ -15,6 +18,9 @@ class CreatePickupController {
   }
 
   createPickup() {
+    if (!this.pickupData.date || !this.pickupData.time || !this.pickupData.maxCollectors) {
+      return "invalid form data";
+    }
     this.assembleDate();
     let dataToSend = {
       max_collectors: this.pickupData.maxCollectors, // eslint-disable-line

@@ -2,9 +2,11 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import homeComponent from "./home.component";
 import logout from "./home.logout";
+import Group from "../../common/group/group";
 
 let homeModule = angular.module("home", [
-  uiRouter
+  uiRouter,
+  Group
 ])
 
 .config(($stateProvider, hookProvider) => {

@@ -85,4 +85,20 @@ describe("group service", () => {
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
   });
+
+  context("auth interaction", () => {
+    let Authentication;
+    beforeEach(inject((_Authentication_) => {
+      Authentication = _Authentication_;
+    }));
+
+    it("filters my groups", () => {
+      Authentication.data = { id: 2 };
+      $httpBackend.expectGET("/api/groups/?members=2").respond(groupData);
+      expect(Group.listMy())
+        .to.be.fulfilled.and
+        .to.eventually.deep.equal(groupData);
+      $httpBackend.flush();
+    });
+  });
 });

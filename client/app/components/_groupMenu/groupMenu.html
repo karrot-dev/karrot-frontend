@@ -1,0 +1,22 @@
+<md-menu md-offset="0 50" md-ink-ripple>
+
+ <a ng-click="$ctrl.openMenu($mdOpenMenu, $event)" class="md-button">
+   {{$ctrl.activeGroup.name || "Please choose a group..."}}
+   <i class="fa fa-caret-down md-caption"></i>
+ </a>
+ <md-menu-content>
+   <md-menu-item ng-repeat="groupitem in $ctrl.groups"
+                 ng-if="groupitem.id !== $ctrl.activeGroup.id">
+     <md-button ui-sref="groupDetail({ id: groupitem.id })">
+       <i class="fa fa-circle-o"> </i>
+       {{ groupitem.name }}
+     </md-button>
+   </md-menu-item>
+   <md-menu-item>
+     <md-button href="#!/group/find" class="group-menu-join-button">
+       <i class="fa fa-plus"></i>
+       Join community (not implemented)
+     </md-button>
+   </md-menu-item>
+ </md-menu-content>
+</md-menu>

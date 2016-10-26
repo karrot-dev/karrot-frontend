@@ -6,7 +6,24 @@
     </div>
     <center>Redirecting to your beloved group...</center>
   </div>
-  <center ng-show="!$ctrl.redirecting">
-    You aren't part of any group yet <big>&#128546;</big>
-  </center>
+  <div ng-show="!$ctrl.redirecting">
+    <center ng-show="!$ctrl.groups">
+      You aren't part of any group yet <big>&#128546;</big>
+    </center>
+    <div flex>
+      <center ng-show="$ctrl.groups">
+        Which group do you want to join? <i class="fa fa-smile-o"> </i>
+      </center>
+      <md-list>
+        <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0"
+                      class="groupList"
+                      layout="row" layout-align="space-between stretch"
+                      ng-click="$ctrl.joinGroup(group.id)">
+          <div flex>{{group.name}}</div>
+          <div flex class="small">{{group.description}}</div>
+          <div flex class="small">Members: {{group.members.length}}</div>
+        </md-list-item>
+      </md-list>
+    </div>
+  </div>
 </md-content>

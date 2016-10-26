@@ -5,7 +5,8 @@ import "./home.styl";
 let homeComponent = {
   restrict: "",
   bindings: {
-    redirecting: "<"
+    redirecting: "<",
+    groups: "<"
   },
   template,
   controller

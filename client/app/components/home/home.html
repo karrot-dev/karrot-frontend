@@ -1,7 +1,12 @@
 <topbar></topbar>
 <md-content layout-padding>
-  <div layout="row" layout-align="space-around">
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  <div ng-show="$ctrl.redirecting">
+    <div layout="row" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <center>Redirecting to your beloved group...</center>
   </div>
-  <center>Redirecting to your beloved group...</center>
+  <center ng-show="!$ctrl.redirecting">
+    You aren't part of any group yet <big>&#128546;</big>
+  </center>
 </md-content>

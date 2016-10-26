@@ -4,7 +4,9 @@ import "./home.styl";
 
 let homeComponent = {
   restrict: "",
-  bindings: {},
+  bindings: {
+    redirecting: "<"
+  },
   template,
   controller
 };

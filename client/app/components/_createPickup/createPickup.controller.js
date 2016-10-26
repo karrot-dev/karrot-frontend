@@ -18,9 +18,6 @@ class CreatePickupController {
   }
 
   createPickup() {
-    if (!this.pickupData.date || !this.pickupData.time || !this.pickupData.maxCollectors) {
-      return "invalid form data";
-    }
     this.assembleDate();
     let dataToSend = {
       max_collectors: this.pickupData.maxCollectors, // eslint-disable-line

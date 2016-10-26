@@ -5,17 +5,17 @@
     </div>
   </md-toolbar>
   <md-content layout-padding>
-    <form ng-submit='$ctrl.createPickup()' name="createPickupForm">
+    <form ng-submit='createPickupForm.$valid && $ctrl.createPickup()' name="createPickupForm">
 
       <md-input-container>
-        <md-datepicker ng-model="$ctrl.pickupData.date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+        <md-datepicker required ng-model="$ctrl.pickupData.date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
       </md-input-container>
+
       <md-input-container>
         <label>Time</label>
         <md-icon class="fa fa-clock-o fa-2x"></md-icon>
-        <input ng-model="$ctrl.pickupData.time" name="time" placeholder="HH:mm"
+        <input ng-model="$ctrl.pickupData.time" name="time" placeholder="20:00"
                type="time" required />
-
         <div ng-messages="createPickupForm.time.$error" role="alert">
           <span ng-message="time">
             enter a valid time: [hh:mm]

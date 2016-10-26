@@ -9,6 +9,7 @@ import storeList from "./_storeList/storeList";
 import topbar from "./_topbar/topbar";
 import userList from "./_userList/userList";
 import groupMenu from "./_groupMenu/groupMenu";
+import languageChooser from "./_languageChooser/languageChooser";
 
 let componentModule = angular.module("app.components", [
   groupDetail,
@@ -20,7 +21,8 @@ let componentModule = angular.module("app.components", [
   storeList,
   topbar,
   userList,
-  groupMenu
+  groupMenu,
+  languageChooser
 ])
 
         .name;

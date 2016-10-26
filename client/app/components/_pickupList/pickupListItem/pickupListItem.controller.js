@@ -20,11 +20,17 @@ class PickupListItemController {
   }
 
   join() {
-    this.PickupDate.join(this.data.id).then(this.parentCtrl.updatePickups(), null);
+    // TODO: error handling
+    this.PickupDate.join(this.data.id).then(() => {
+      this.parentCtrl.updatePickups();
+    });
   }
 
   leave() {
-    this.PickupDate.leave(this.data.id).then(this.parentCtrl.updatePickups(), null);
+    // TODO: error handling
+    this.PickupDate.leave(this.data.id).then(() => {
+      this.parentCtrl.updatePickups();
+    });
   }
 }
 

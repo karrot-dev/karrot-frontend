@@ -34,7 +34,7 @@
 
       <div layout="row" layout-align="end center">
         <md-button ng-click="$ctrl.closePanel()">Cancel</md-button>
-        <md-button class="md-raised md-primary md-hue-3" type="submit">Create</md-button>
+        <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createPickupForm.$invalid">Create</md-button>
       </div>
     </form>
   </md-content>

@@ -15,6 +15,19 @@ describe("PickupList", () => {
   beforeEach(module(AuthenticationModule));
   beforeEach(module(PickupDateModule));
 
+  beforeEach(() => {
+    angular.mock.module(($provide) => {
+      $provide.value("$mdDialog", {});
+    });
+  });
+
+  beforeEach(() => {
+    angular.mock.module(($provide) => {
+      $provide.value("$document", {});
+    });
+  });
+
+
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     $rootScope = $injector.get("$rootScope");

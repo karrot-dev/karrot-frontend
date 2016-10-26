@@ -1,13 +1,15 @@
 class PickupListController {
 
-  constructor(Authentication, PickupDate, Store, $filter, $mdDialog, $document) {
+  constructor(Authentication, PickupDate, Store, User, $filter, $mdDialog, $document, $q) {
     "ngInject";
     this.reversed = false;
     this.Authentication = Authentication;
     this.PickupDate = PickupDate;
     this.Store = Store;
+    this.User = User;
     this.userId = -1;
     this.$filter = $filter;
+    this.$q = $q;
 
     this.$mdDialog = $mdDialog;
     this.$document = $document;
@@ -34,6 +36,12 @@ class PickupListController {
     angular.forEach(pickups, (currentPickup) => {
       currentPickup.isUserMember = currentPickup.collector_ids.indexOf(this.userId) !== -1;
       currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
+
+      let collectorsPromises = [];
+      angular.forEach(currentPickup.collector_ids, (userId) => {
+        collectorsPromises.push(this.User.get(userId));
+      });
+      currentPickup.collectorsPromise = this.$q.all(collectorsPromises);
 
       if (this.showDetail === "store") {
         currentPickup.storePromise = this.Store.get(currentPickup.store);

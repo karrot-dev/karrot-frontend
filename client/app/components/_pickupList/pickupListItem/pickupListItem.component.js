@@ -4,8 +4,8 @@ import "./pickupListItem.styl";
 
 let pickupListItemComponent = {
   bindings: {
-    pickupdata: "<",
-    showDetail: "<",
+    data: "<",              // pickup info, including .isFull .isUserMember etc..
+    showDetail: "<",        // same as in pickupList
     parentCtrl: "<"         // Controller of pickupList
   },
   template,

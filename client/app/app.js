@@ -7,6 +7,7 @@ import AppMaterial from "./app.material";
 import "normalize.css";
 import "../../node_modules/angular-material/angular-material.css";
 import "./fonts/fonts";
+import "./app.styl";
 
 import mainLayout from "./layouts/main.html";
 

@@ -1,7 +1,8 @@
 class GroupService {
 
-  constructor($http, Authentication) {
+  constructor($q, $http, Authentication) {
     "ngInject";
+    this.$q = $q;
     this.$http = $http;
     this.Authentication = Authentication;
   }
@@ -28,8 +29,12 @@ class GroupService {
   }
 
   listMy() {
-    let myUserId = this.Authentication.data.id;
-    return this.listByMemberId(myUserId);
+    if (this.Authentication.data) {
+      let myUserId = this.Authentication.data.id;
+      return this.listByMemberId(myUserId);
+    } else {
+      return this.$q.resolve([]);
+    }
   }
 
   search(query) {

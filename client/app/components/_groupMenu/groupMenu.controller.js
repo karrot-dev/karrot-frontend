@@ -1,9 +1,10 @@
 class GroupMenuController {
-  constructor(Group) {
+  constructor(Group, CurrentGroup) {
     "ngInject";
     Object.assign(this, {
       Group,
-      groups: []
+      groups: [],
+      activeGroup: CurrentGroup.value
     });
   }
 

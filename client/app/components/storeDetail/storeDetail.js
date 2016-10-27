@@ -12,6 +12,7 @@ let storeDetailModule = angular.module("storeDetail", [
   "ngInject";
   $stateProvider
     .state("storeDetail", {
+      parent: "main",
       url: "/store/:id",
       component: "storeDetail",
       resolve: {

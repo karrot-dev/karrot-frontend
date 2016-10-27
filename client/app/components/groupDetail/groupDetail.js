@@ -10,11 +10,15 @@ let groupDetailModule = angular.module("groupDetail", [
   "ngInject";
   $stateProvider
     .state("groupDetail", {
+      parent: "main",
       url: "/group/:id",
       component: "groupDetail",
       resolve: {
-        groupdata: (Group, $stateParams) => {
-          return Group.get($stateParams.id);
+        groupdata: (Group, CurrentGroup, $stateParams) => {
+          return Group.get($stateParams.id).then((group) => {
+            CurrentGroup.set(group);
+            return group;
+          });
         },
         stores: (Store, $stateParams) => {
           return Store.listByGroupId($stateParams.id);

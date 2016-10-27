@@ -10,6 +10,7 @@ describe("Login", () => {
     module(LoginModule);
     module(($stateProvider) => {
       $stateProvider
+        .state("splash", { url: "", abstract: true })
         .state("home", { url: "/" });
     });
   });

@@ -1,5 +1,3 @@
-
-
 class HomeController {
   constructor($state, Group) {
     "ngInject";

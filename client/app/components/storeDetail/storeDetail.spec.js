@@ -7,7 +7,7 @@ const { module } = angular.mock;
 
 describe("StoreDetail", () => {
 
-  let $httpBackend, $state, $injector;
+  let $httpBackend, $state;
 
   beforeEach(module(StoreDetailModule));
 
@@ -16,8 +16,7 @@ describe("StoreDetail", () => {
       .state("main", { url: "", abstract: true });
   }));
 
-  beforeEach(inject((_$injector_) => {
-    $injector = _$injector_;
+  beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     $state = $injector.get("$state");
   }));

@@ -2,13 +2,31 @@ import StoreDetailModule from "./storeDetail";
 import StoreDetailController from "./storeDetail.controller";
 import StoreDetailComponent from "./storeDetail.component";
 import StoreDetailTemplate from "./storeDetail.html";
-import Authentication from "../../common/authentication/authentication";
 
 const { module } = angular.mock;
 
 describe("StoreDetail", () => {
-  beforeEach(module(Authentication));
+
+  let $httpBackend, $state, $injector, $resolve;
+
   beforeEach(module(StoreDetailModule));
+
+  beforeEach(module(($stateProvider) => {
+    $stateProvider
+      .state("main", { url: "", abstract: true });
+  }));
+
+  beforeEach(inject((_$injector_) => {
+    $injector = _$injector_;
+    $httpBackend = $injector.get("$httpBackend");
+    $state = $injector.get("$state");
+    $resolve = $injector.get("$resolve");
+  }));
+
+  afterEach(() => {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
 
   describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
@@ -27,6 +45,44 @@ describe("StoreDetail", () => {
       let ctrl = $componentController("storeDetail", {});
       expect(ctrl).to.exist;
     });
+  });
+
+  describe("Routes", () => {
+
+    context("when logged in", () => {
+
+      let loginData = {
+        "display_name": "asdflo",
+        "email": "asdf.asdf@asdf.asdf"
+      };
+
+      beforeEach(() => {
+        $httpBackend.expectGET("/api/auth/status/").respond(loginData);
+      });
+
+      describe("storeDetail", () => {
+
+        let groupData = {
+          id: 12
+        };
+
+        let storeData = {
+          id: 25,
+          group: groupData.id
+        };
+
+        it("should load store and group information", () => {
+          $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
+          $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
+          $state.go("storeDetail", { id: storeData.id });
+          $httpBackend.flush();
+          expect($state.current.component).to.equal("storeDetail");
+        });
+
+      });
+
+    });
+
   });
 
   describe("Template", () => {

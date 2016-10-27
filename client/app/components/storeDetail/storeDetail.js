@@ -2,8 +2,15 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import storeDetailComponent from "./storeDetail.component";
 
+import AuthenticationModule from "../../common/authentication/authentication";
+import storeModule from "../../common/store/store";
+import groupModule from "../../common/group/group";
+
 let storeDetailModule = angular.module("storeDetail", [
-  uiRouter
+  uiRouter,
+  AuthenticationModule,
+  storeModule,
+  groupModule
 ])
 
 .component("storeDetail", storeDetailComponent)

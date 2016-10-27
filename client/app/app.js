@@ -10,6 +10,7 @@ import "./fonts/fonts";
 import "./app.styl";
 
 import mainLayout from "./layouts/main.html";
+import splashLayout from "./layouts/splash.html";
 
 angular.module("app", [
   uiRouter,
@@ -24,6 +25,11 @@ angular.module("app", [
       abstract: true,
       url: "",
       template: mainLayout
+    })
+    .state("splash", {
+      abstract: true,
+      url: "",
+      template: splashLayout
     });
   $urlRouterProvider.otherwise("/login");
   $httpProvider.defaults.xsrfCookieName = "csrftoken";

@@ -1,7 +1,13 @@
 <topbar active-group="$ctrl.groupdata"></topbar>
 <div class="groupDetail page-container">
   <md-content layout-padding class="md-whiteframe-1dp">
-    <h1 class="md-headline">{{$ctrl.groupdata.name}}</h1>
+    <div layout="row">
+      <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
+      <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
+      <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leaveGroup()">
+        <i class="fa fa-fw fa-sign-out"></i>
+      </md-button>
+    </div>
     <p>{{$ctrl.groupdata.description}}</p>
 
     <md-tabs md-dynamic-height md-border-bottom flex>

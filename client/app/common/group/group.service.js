@@ -42,6 +42,16 @@ class GroupService {
     return this.$http.patch(`/api/groups/${groupId}/`, group)
       .then((res) => res.data);
   }
+
+  join(groupId) {
+    return this.$http.post(`/api/groups/${groupId}/join/`, {})
+      .then((res) => res.data);
+  }
+
+  leave(groupId) {
+    return this.$http.post(`/api/groups/${groupId}/leave/`, {})
+      .then((res) => res.data);
+  }
 }
 
 export default GroupService;

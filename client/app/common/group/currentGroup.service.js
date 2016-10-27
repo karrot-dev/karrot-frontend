@@ -15,10 +15,6 @@ export default class CurrentGroup {
     });
   }
 
-  get() {
-    return this.value;
-  }
-
   set(value) {
     angular.copy(value, this.value);
   }

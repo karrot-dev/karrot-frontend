@@ -2,8 +2,13 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import groupDetailComponent from "./groupDetail.component";
 
+import AuthenticationModule from "../../common/authentication/authentication";
+import groupModule from "../../common/group/group";
+
 let groupDetailModule = angular.module("groupDetail", [
-  uiRouter
+  uiRouter,
+  AuthenticationModule,
+  groupModule
 ])
 
 .config(($stateProvider, hookProvider) => {
@@ -11,7 +16,7 @@ let groupDetailModule = angular.module("groupDetail", [
   $stateProvider
     .state("groupDetail", {
       parent: "main",
-      url: "/group/:id",
+      url: "/group/{id:int}",
       component: "groupDetail",
       resolve: {
         groupdata: (Group, CurrentGroup, $stateParams) => {

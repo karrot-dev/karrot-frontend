@@ -1,31 +1,29 @@
-<md-content ng-cloak>
-  <div layout="row" class="yOrange">
-    <div flex class="translucent-1"></div>
-    <div flex="nogrow" layout="column" class="translucent-1">
-      <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
-        <form login-form ng-submit="$ctrl.login()">
-          <h2>Login</h2>
-          <md-input-container class="md-block">
-            <label>Email</label>
-            <input type="text" name="email" required ng-model="$ctrl.email">
-          </md-input-container>
-          <md-input-container class="md-block">
-            <label>Password</label>
-            <input type="password" name="password" required ng-model="$ctrl.password">
-            <div ng-messages="$ctrl.error" type="alert">
-              <div ng-message="wrong">The given credentials are wrong. Please check them carefully.</div>
-            </div>
-          </md-input-container>
+<div layout="row">
+  <div flex></div>
+  <div flex="nogrow" layout="column">
+    <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
+      <form login-form ng-submit="$ctrl.login()">
+        <h2>Login</h2>
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input type="text" name="email" required ng-model="$ctrl.email">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input type="password" name="password" required ng-model="$ctrl.password">
+          <div ng-messages="$ctrl.error" type="alert">
+            <div ng-message="wrong">The given credentials are wrong. Please check them carefully.</div>
+          </div>
+        </md-input-container>
 
-          <md-button class="md-raised md-accent" type="submit">
-            Login
-          </md-button>
-          <md-button ui-sref="signup">
-            Sign up!
-          </md-button>
-        </form>
-      </div>
+        <md-button class="md-raised md-accent" type="submit">
+          Login
+        </md-button>
+        <md-button ui-sref="signup">
+          Sign up!
+        </md-button>
+      </form>
     </div>
-    <div flex class="translucent-1"></div>
   </div>
-</md-content>
+  <div flex></div>
+</div>

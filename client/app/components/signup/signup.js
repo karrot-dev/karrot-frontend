@@ -13,6 +13,7 @@ let signupModule = angular.module("signup", [
 .config(($stateProvider, hookProvider) => {
   "ngInject";
   $stateProvider.state("signup", {
+    parent: "splash",
     url: "/signup",
     component: "signup"
   });

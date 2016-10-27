@@ -13,6 +13,7 @@ let loginModule = angular.module("login", [
 .config(($stateProvider, $urlRouterProvider, hookProvider) => {
   "ngInject";
   $stateProvider.state("login", {
+    parent: "splash",
     url: "/login",
     component: "login"
   });

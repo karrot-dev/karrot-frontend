@@ -1,7 +1,8 @@
 class GroupService {
 
-  constructor($http, Authentication) {
+  constructor($q, $http, Authentication) {
     "ngInject";
+    this.$q = $q;
     this.$http = $http;
     this.Authentication = Authentication;
   }

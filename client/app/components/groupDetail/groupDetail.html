@@ -1,25 +1,21 @@
-<topbar active-group="$ctrl.groupdata"></topbar>
-<div class="groupDetail page-container">
-  <md-content layout-padding class="md-whiteframe-1dp">
-    <div layout="row">
-      <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
-      <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
-      <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leaveGroup()">
-        <i class="fa fa-fw fa-sign-out"></i>
-      </md-button>
-    </div>
-    <p>{{$ctrl.groupdata.description}}</p>
-
-    <md-tabs md-dynamic-height md-border-bottom flex>
-      <md-tab label="pickups">
-        <pickup-list header="Pickups" group-id="{{$ctrl.groupdata.id}}" show-detail="store"></pickup-list>
-      </md-tab>
-      <md-tab label="members">
-        <user-list users="$ctrl.groupdata.members"></user-list>
-      </md-tab>
-      <md-tab label="stores">
-        <store-list stores="$ctrl.stores"></store-list>
-      </md-tab>
-    </md-tabs>
-  </md-content>
+<div class="groupDetail">
+  <div layout="row">
+    <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
+    <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
+    <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leaveGroup()">
+      <i class="fa fa-fw fa-sign-out"></i>
+    </md-button>
+  </div>
+  <p>{{$ctrl.groupdata.description}}</p>
+  <md-tabs md-dynamic-height md-border-bottom flex>
+    <md-tab label="pickups">
+      <pickup-list header="Pickups" group-id="{{$ctrl.groupdata.id}}" show-detail="store"></pickup-list>
+    </md-tab>
+    <md-tab label="members">
+      <user-list users="$ctrl.groupdata.members"></user-list>
+    </md-tab>
+    <md-tab label="stores">
+      <store-list stores="$ctrl.stores"></store-list>
+    </md-tab>
+  </md-tabs>
 </div>

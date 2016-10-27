@@ -7,7 +7,7 @@ const { module } = angular.mock;
 
 describe("StoreDetail", () => {
 
-  let $httpBackend, $state, $injector, $resolve;
+  let $httpBackend, $state, $injector;
 
   beforeEach(module(StoreDetailModule));
 
@@ -20,7 +20,6 @@ describe("StoreDetail", () => {
     $injector = _$injector_;
     $httpBackend = $injector.get("$httpBackend");
     $state = $injector.get("$state");
-    $resolve = $injector.get("$resolve");
   }));
 
   afterEach(() => {

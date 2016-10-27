@@ -3,9 +3,7 @@ import controller from "./groupMenu.controller";
 import "./groupMenu.styl";
 
 let groupMenuComponent = {
-  bindings: {
-    activeGroup: "<"
-  },
+  bindings: {},
   template,
   controller
 };

@@ -1,0 +1,42 @@
+<div class="md-whiteframe-10dp" style="width: 100%;">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h2><i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-shopping-basket"></i>Create Pickup</h2>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+    <form ng-submit='createPickupForm.$valid && $ctrl.createPickup()' name="createPickupForm">
+
+      <md-input-container>
+        <md-datepicker required ng-model="$ctrl.pickupData.date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Time</label>
+        <md-icon class="fa fa-clock-o fa-2x"></md-icon>
+        <input ng-model="$ctrl.pickupData.time" name="time" placeholder="20:00"
+               pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+               type="time" required />
+        <div ng-messages="createPickupForm.time.$error" role="alert">
+          <span ng-message="time, pattern">
+            enter a valid time: [hh:mm]
+          </span>
+        </div>
+      </md-input-container>
+
+      <md-slider-container>
+        <label>Max Slots</label>
+        <md-slider ng-model="$ctrl.pickupData.maxCollectors" min=1 max=9></md-slider>
+        <md-input-container>
+          <input name="MaxNoCollectors" ng-model="$ctrl.pickupData.maxCollectors"
+                 type="number" min=1 />
+        </md-input-container>
+      </md-slider-container>
+
+      <div layout="row" layout-align="end center">
+        <md-button ng-click="$ctrl.closePanel()">Cancel</md-button>
+        <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createPickupForm.$invalid">Create</md-button>
+      </div>
+    </form>
+  </md-content>
+</div>

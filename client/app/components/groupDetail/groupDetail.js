@@ -2,19 +2,28 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import groupDetailComponent from "./groupDetail.component";
 
+import AuthenticationModule from "../../common/authentication/authentication";
+import groupModule from "../../common/group/group";
+
 let groupDetailModule = angular.module("groupDetail", [
-  uiRouter
+  uiRouter,
+  AuthenticationModule,
+  groupModule
 ])
 
 .config(($stateProvider, hookProvider) => {
   "ngInject";
   $stateProvider
     .state("groupDetail", {
-      url: "/group/:id",
+      parent: "main",
+      url: "/group/{id:int}",
       component: "groupDetail",
       resolve: {
-        groupdata: (Group, $stateParams) => {
-          return Group.get($stateParams.id);
+        groupdata: (Group, CurrentGroup, $stateParams) => {
+          return Group.get($stateParams.id).then((group) => {
+            CurrentGroup.set(group);
+            return group;
+          });
         },
         stores: (Store, $stateParams) => {
           return Store.listByGroupId($stateParams.id);

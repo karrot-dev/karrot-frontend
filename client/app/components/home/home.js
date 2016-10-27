@@ -13,6 +13,7 @@ let homeModule = angular.module("home", [
   "ngInject";
   $stateProvider
     .state("home", {
+      parent: "main",
       url: "/",
       component: "home"
     });

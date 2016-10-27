@@ -1,7 +1,8 @@
 class GroupService {
 
-  constructor($http, Authentication) {
+  constructor($q, $http, Authentication) {
     "ngInject";
+    this.$q = $q;
     this.$http = $http;
     this.Authentication = Authentication;
   }
@@ -40,6 +41,16 @@ class GroupService {
   save(group) {
     let groupId = group.id;
     return this.$http.patch(`/api/groups/${groupId}/`, group)
+      .then((res) => res.data);
+  }
+
+  join(groupId) {
+    return this.$http.post(`/api/groups/${groupId}/join/`, {})
+      .then((res) => res.data);
+  }
+
+  leave(groupId) {
+    return this.$http.post(`/api/groups/${groupId}/leave/`, {})
       .then((res) => res.data);
   }
 }

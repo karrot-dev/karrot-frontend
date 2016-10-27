@@ -1,4 +1,5 @@
 import angular from "angular";
+import createPickup from "./_createPickup/createPickup";
 import groupDetail from "./groupDetail/groupDetail";
 import home from "./home/home";
 import login from "./login/login";
@@ -12,6 +13,7 @@ import groupMenu from "./_groupMenu/groupMenu";
 import languageChooser from "./_languageChooser/languageChooser";
 
 let componentModule = angular.module("app.components", [
+  createPickup,
   groupDetail,
   home,
   login,

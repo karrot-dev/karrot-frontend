@@ -1,32 +1,30 @@
-<md-content ng-cloak>
-  <div layout="row" class="yOrange">
-    <div flex class="translucent-1"></div>
-    <div flex="nogrow" layout="column" class="translucent-1">
-      <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
-        <form login-form ng-submit="$ctrl.login()">
-          <h2 translate>LOGIN.TITLE</h2>
-          <language-chooser></language-chooser>
-          <md-input-container class="md-block">
-            <label translate>LOGIN.EMAIL</label>
-            <input type="text" name="email" required ng-model="$ctrl.email">
-          </md-input-container>
-          <md-input-container class="md-block">
-            <label translate>LOGIN.PASSWORD</label>
-            <input type="password" name="password" required ng-model="$ctrl.password">
-            <div ng-messages="$ctrl.error" type="alert">
-              <div ng-message="wrong" translate>LOGIN.WRONG</div>
-            </div>
-          </md-input-container>
+<div layout="row">
+  <div flex></div>
+  <div flex="nogrow" layout="column">
+    <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
+      <form login-form ng-submit="$ctrl.login()">
+        <h2 translate>LOGIN.TITLE</h2>
+        <language-chooser></language-chooser>
+        <md-input-container class="md-block">
+          <label translate>LOGIN.EMAIL</label>
+          <input type="text" name="email" required ng-model="$ctrl.email">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label translate>LOGIN.PASSWORD</label>
+          <input type="password" name="password" required ng-model="$ctrl.password">
+          <div ng-messages="$ctrl.error" type="alert">
+            <div ng-message="wrong" translate>LOGIN.WRONG</div>
+          </div>
+        </md-input-container>
 
-          <md-button class="md-raised md-accent" type="submit">
-            {{ "LOGIN.SUBMIT" | translate }}
-          </md-button>
-          <md-button ui-sref="signup">
-            {{ "LOGIN.SIGNUP" | translate }}
-          </md-button>
-        </form>
-      </div>
+        <md-button class="md-raised md-accent" type="submit">
+          {{ "LOGIN.SUBMIT" | translate }}
+        </md-button>
+        <md-button ui-sref="signup">
+          {{ "LOGIN.SIGNUP" | translate }}
+        </md-button>
+      </form>
     </div>
-    <div flex class="translucent-1"></div>
   </div>
-</md-content>
+  <div flex></div>
+</div>

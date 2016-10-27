@@ -16,9 +16,22 @@ let storeDetailModule = angular.module("storeDetail", [
       url: "/store/:id",
       component: "storeDetail",
       resolve: {
+
         storedata: (Store, $stateParams) => {
           return Store.get($stateParams.id);
+        },
+
+        /**
+          Loads the group for this store, and sets it as the current group
+        */
+        groupdata: (storedata, Group, CurrentGroup) => {
+          "ngInject";
+          return Group.get(storedata.group).then((group) => {
+            CurrentGroup.set(group);
+            return group;
+          });
         }
+
       }
     });
   hookProvider.setup("storeDetail", { authenticated: true, anonymous: "login" });

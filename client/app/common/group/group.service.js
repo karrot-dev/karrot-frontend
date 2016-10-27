@@ -29,12 +29,8 @@ class GroupService {
   }
 
   listMy() {
-    if (this.Authentication.data) {
-      let myUserId = this.Authentication.data.id;
-      return this.listByMemberId(myUserId);
-    } else {
-      return this.$q.resolve([]);
-    }
+    let myUserId = this.Authentication.data.id;
+    return this.listByMemberId(myUserId);
   }
 
   search(query) {

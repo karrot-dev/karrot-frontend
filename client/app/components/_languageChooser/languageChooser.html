@@ -1,2 +1,18 @@
-<md-button ng-click="$ctrl.changeLanguage('de')">DE</md-button>
-<md-button ng-click="$ctrl.changeLanguage('en')">EN</md-button>
+<md-menu>
+ <md-button md-menu-origin ng-click="$mdOpenMenu()">
+   Speak...
+   <i class="fa fa-caret-down md-caption"></i>
+ </md-button>
+ <md-menu-content>
+   <md-menu-item>
+     <md-button ng-click="$ctrl.changeLanguage('en')" md-menu-align-target>
+       EN
+     </md-button>
+   </md-menu-item>
+   <md-menu-item>
+     <md-button ng-click="$ctrl.changeLanguage('de')">
+       DE
+     </md-button>
+   </md-menu-item>
+ </md-menu-content>
+</md-menu>

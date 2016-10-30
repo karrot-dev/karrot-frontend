@@ -18,8 +18,8 @@ describe("LanguageChooser", () => {
     }));
 
     it("should exist", () => {
-      let ctrl = $componentController("languageChooser", {});
-      expect(ctrl).to.exist;
+      let $ctrl = $componentController("languageChooser", {});
+      expect($ctrl).to.exist;
     });
 
     context("stubbed translate", () => {
@@ -31,8 +31,8 @@ describe("LanguageChooser", () => {
       }));
 
       it("calls use method", () => {
-        let ctrl = $componentController("languageChooser", {});
-        ctrl.changeLanguage("de");
+        let $ctrl = $componentController("languageChooser", {});
+        $ctrl.changeLanguage("de");
         expect($translate.use).to.have.been.calledWith("de");
       });
     });

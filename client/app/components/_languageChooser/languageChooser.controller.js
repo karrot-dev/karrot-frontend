@@ -3,14 +3,12 @@ class LanguageChooserController {
     "ngInject";
     Object.assign(this, {
       $translate,
-      activeLang: $translate.use(),
       providedLangs: ["de", "en"]
     });
   }
 
   changeLanguage(langKey) {
     this.$translate.use(langKey);
-    this.activeLang = langKey;
   }
 }
 

@@ -11,7 +11,8 @@ module.exports = {
        { test: /\.html$/, loader: "raw" },
        { test: /\.styl$/, loader: "style!css!stylus" },
        { test: /\.css$/, loader: "style!css" },
-       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" }
+       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
+       { test: /\.json$/, loader: "json" }
     ]
   },
   plugins: [

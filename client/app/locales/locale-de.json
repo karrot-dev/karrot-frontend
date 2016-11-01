@@ -1,0 +1,10 @@
+{
+  "LOGIN": {
+    "TITLE": "Login",
+    "EMAIL": "E-Mail",
+    "PASSWORD": "Passwort",
+    "WRONG": "Die Anmeldedaten sind fehlerhaft. Bitte überprüfe sie sorgfältig.",
+    "SUBMIT": "Login",
+    "SIGNUP": "Neuanmeldung"
+  }
+}

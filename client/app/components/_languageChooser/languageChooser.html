@@ -1,0 +1,13 @@
+<md-menu>
+  <md-button md-menu-origin ng-click="$mdOpenMenu()">
+    <i class="fa fa-globe fa-2x"></i>
+    {{ $ctrl.$translate.use() }}
+  </md-button>
+  <md-menu-content>
+    <md-menu-item ng-repeat="langKey in $ctrl.providedLangs">
+      <md-button ng-click="$ctrl.changeLanguage(langKey)" md-menu-align-target>
+        <strong>{{ langKey | uppercase }}</strong>
+      </md-button>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>

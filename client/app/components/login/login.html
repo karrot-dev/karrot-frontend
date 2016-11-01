@@ -3,24 +3,24 @@
   <div flex="nogrow" layout="column">
     <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
       <form login-form ng-submit="$ctrl.login()">
-        <h2>Login</h2>
+        <h2 translate>LOGIN.TITLE</h2>
         <md-input-container class="md-block">
-          <label>Email</label>
+          <label translate>LOGIN.EMAIL</label>
           <input type="text" name="email" required ng-model="$ctrl.email">
         </md-input-container>
         <md-input-container class="md-block">
-          <label>Password</label>
+          <label translate>LOGIN.PASSWORD</label>
           <input type="password" name="password" required ng-model="$ctrl.password">
           <div ng-messages="$ctrl.error" type="alert">
-            <div ng-message="wrong">The given credentials are wrong. Please check them carefully.</div>
+            <div ng-message="wrong" translate>LOGIN.WRONG</div>
           </div>
         </md-input-container>
 
         <md-button class="md-raised md-accent" type="submit">
-          Login
+          {{ "LOGIN.SUBMIT" | translate }}
         </md-button>
         <md-button ui-sref="signup">
-          Sign up!
+          {{ "LOGIN.SIGNUP" | translate }}
         </md-button>
       </form>
     </div>

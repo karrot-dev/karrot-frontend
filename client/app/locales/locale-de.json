@@ -6,5 +6,35 @@
     "WRONG": "Die Anmeldedaten sind fehlerhaft. Bitte überprüfe sie sorgfältig.",
     "SUBMIT": "Login",
     "SIGNUP": "Neuanmeldung"
+  },
+  "GROUP": {
+    "PICKUPS": "Abholungen",
+    "MEMBERS": "Mitglieder",
+    "STORES": "Betriebe",
+    "LEAVE": "Gruppe verlassen..."
+  },
+  "PICKUPLIST": {
+    "CREATE": "Neu...",
+    "JOINED": "Eingetragen",
+    "OPEN": "Offen",
+    "FULL": "Belegt",
+    "SORT": "Sortieren",
+    "FILTER": "Filtern",
+    "ITEM": {
+      "LEAVE": "Nicht abholen",
+      "JOIN": "Abholen",
+      "FULL": "Belegt"
+    }
+  },
+  "GROUPMENU": {
+    "JOIN": "Gruppe beitreten (noch nicht implementiert)"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Neue Abholung erstellen",
+    "TIME": "Uhrzeit",
+    "TIME_ERROR": "Bitte gültige Uhrzeit eingeben [hh:mm]",
+    "MAX_COLLECTORS": "Anzahl Abholer",
+    "CANCEL": "Abbrechen",
+    "CREATE": "Erstellen"
   }
 }

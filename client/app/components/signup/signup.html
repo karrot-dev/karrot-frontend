@@ -3,43 +3,48 @@
   <div flex="nogrow" layout="column">
     <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
       <form signup-form ng-submit="$ctrl.signup()" layout="column">
-        <h2 style="padding: .2em;"> Sign Up! </h2>
+        <h2 style="padding: .2em;" translate="SIGNUP.TITLE" translate-default="Sign Up!">
+        </h2>
 
         <md-input-container flex>
-          <label>Username</label>
+          <label translate="SIGNUP.USERNAME" translate-default="Name"></label>
           <input required type="text" name="Username" ng-model="$ctrl.username"/>
         </md-input-container>
 
         <md-input-container flex>
-          <label>Email</label>
+          <label translate="SIGNUP.EMAIL" translate-default="Mail"></label>
           <input required type="email" name="Email" ng-model="$ctrl.email"/>
         </md-input-container>
 
         <md-input-container flex>
-          <label>Password</label>
+          <label translate="SIGNUP.PASSWORD" translate-default="Password"></label>
           <input type="password" required name="password" ng-model="$ctrl.password">
         </md-input-container>
 
         <div flex>
           <md-input-container>
-            <label>First Name</label>
+            <label translate="SIGNUP.FIRSTNAME" translate-default="First Name"></label>
             <input required type="text" ng-model="$ctrl.firstName">
           </md-input-container>
           <md-input-container>
-            <label>Last Name</label>
+            <label translate="SIGNUP.LASTNAME" translate-default="Last Name"></label>
             <input required type="text" ng-model="$ctrl.lastName">
           </md-input-container>
         </div>
 
         <md-button-container flex>
           <md-button ui-sref="login">
-            Back to Login
+            <translate translate="SIGNUP.BACK" translate-default="Back to Login"/>
           </md-button>
-          <md-button class="md-raised md-accent" type="submit">Join</md-button>
+          <md-button class="md-raised md-accent" type="submit">
+            <translate translate="SIGNUP.OK" translate-default="Join"/>
+          </md-button>
         </md-button-container>
         <div ng-messages="$ctrl.error">
           <div class="form-error" ng-message="failed">
-            Sign up failed!<br>
+            <translate translate="SIGNUP.FAILED" translate-default="Sign up failed!"/>
+            <br>
+            <!-- TODO remove or translate error message -->
             {{$ctrl.error.msg}}
           </div>
         </div>

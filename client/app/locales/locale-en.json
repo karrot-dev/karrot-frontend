@@ -1,10 +1,8 @@
 {
-  "LOGIN": {
-    "TITLE": "Login",
-    "EMAIL": "Mail",
-    "PASSWORD": "Password",
-    "WRONG": "The given credentials are wrong. Please check them carefully.",
-    "SUBMIT": "Login",
-    "SIGNUP": "Sign up!"
+  "GROUP": {
+    "PICKUPS": "Pickups",
+    "MEMBERS": "Members",
+    "STORES": "Stores",
+    "LEAVE": "Leave group..."
   }
 }

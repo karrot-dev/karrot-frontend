@@ -74,3 +74,7 @@ To use a local backend, create a file `.env` with content like
 ```
 BACKEND=http://localhost:8080/
 ```
+
+# Questions?
+
+Join our [open chatroom on matrix.org](https://riot.im/app/#/room/#foodsaving-tool:matrix.org)!

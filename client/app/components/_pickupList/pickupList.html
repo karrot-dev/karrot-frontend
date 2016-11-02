@@ -1,35 +1,36 @@
-<div class="pickupList">
+<div class="pickupList" translate-namespace="PICKUPLIST">
 
   <!-- Menu Bar -->
   <div>
     <h3 class="md-title"><i class="icon fa fa-shopping-basket" aria-hidden="true"></i>  {{$ctrl.header}}</h3>
     <div style="display: inline-block">
       <md-button ng-show="$ctrl.showCreateButton" class="small md-primary md-hue-3" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel()">
-        <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i> Create
+        <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
+        <translate translate=".CREATE" translate-default="Create"/>
       </md-button>
       <md-menu>
         <md-button class="small"  ng-click="$mdOpenMenu()">
-          <span hide-xs>Filter</span> <i class="fa fa-filter" aria-hidden="true"></i>
+          <span hide-xs translate=".FILTER" translate-default="Filter"></span> <i class="fa fa-filter" aria-hidden="true"></i>
         </md-button>
         <md-menu-content width="4">
           <md-list>
             <md-list-item>
-              <p>joined</p>
+              <p translate=".JOINED" translate-default="joined"></p>
               <md-checkbox class="md-secondary" ng-model="$ctrl.pickupList.showJoined" ng-change="$ctrl.filterPickups()"></md-checkbox>
             </md-list-item>
             <md-list-item>
-              <p>open</p>
+              <p translate=".OPEN" translate-default="open"></p>
               <md-checkbox class="md-secondary" ng-model="$ctrl.pickupList.showOpen" ng-change="$ctrl.filterPickups()"></md-checkbox>
             </md-list-item>
             <md-list-item>
-              <p>full</p>
+              <p translate=".FULL" translate-default="full"></p>
               <md-checkbox class="md-secondary" ng-model="$ctrl.pickupList.showFull" ng-change="$ctrl.filterPickups()"></md-checkbox>
             </md-list-item>
           </md-list>
         </md-menu-content>
       </md-menu>
       <md-button class="small" ng-click="$ctrl.toggleReversed()">
-        <span hide-xs>Sort</span> <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.reversed , 'fa-angle-up': !$ctrl.reversed  }" aria-hidden="true"></i>
+        <span hide-xs translate=".SORT" translate-default="Sort"></span> <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.reversed , 'fa-angle-up': !$ctrl.reversed  }" aria-hidden="true"></i>
       </md-button>
     </div>
   </div>

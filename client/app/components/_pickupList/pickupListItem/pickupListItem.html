@@ -5,8 +5,9 @@
       <span class="pickupList-pickup-info"><a href="{{$ctrl.info.href}}">{{$ctrl.info.text}}</a></span>
     </span>
     <div class="pickupList-pickup-people">
-      <a class="pickuplist-pickup-person" ng-repeat="collectorId in $ctrl.data.collector_ids" href="#/profile/{{collectorId}}">
-        <img class="pickupList-pickup-img" src="assets/images/user.png"/>
+      <a class="pickuplist-pickup-person" ng-repeat="collector in $ctrl.collectors" href="#/profile/{{collector.id}}">
+        <!--<img class="pickupList-pickup-img" src="assets/images/user.png"/>-->
+        <span>{{collector.display_name}}{{$last ? '' : ', '}}</span>
       </a>
       <div class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>
     </div>

@@ -7,6 +7,7 @@ describe("PickupListItem", () => {
 
   beforeEach(module(PickupListItemModule));
   beforeEach(module("PickupDate"));
+  beforeEach(module("User"));
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
@@ -47,9 +48,12 @@ describe("PickupListItem", () => {
 
     it("test date info", () => {
       expect(controller.info.text).to.deep.equal("Saturday, 17.09.2016");
+      $httpBackend.expectGET("/api/users/1/").respond("");
+      $httpBackend.flush();
     });
 
     it("test join and leave function", () => {
+      $httpBackend.expectGET("/api/users/1/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/remove/").respond("");
       controller.join();

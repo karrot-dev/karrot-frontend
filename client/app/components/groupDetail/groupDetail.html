@@ -1,4 +1,4 @@
-<div class="groupDetail">
+<div class="groupDetail" translate-namespace="GROUP">
   <div layout="row">
     <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
     <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
@@ -9,14 +9,29 @@
   </div>
   <p>{{$ctrl.groupdata.description}}</p>
   <md-tabs md-dynamic-height md-border-bottom flex>
-    <md-tab label="{{ 'GROUP.PICKUPS' | translate }}">
-      <pickup-list header="{{ 'GROUP.PICKUPS' | translate }}" group-id="{{$ctrl.groupdata.id}}" show-detail="store"></pickup-list>
+    <md-tab>
+      <md-tab-label>
+        <translate translate=".PICKUPS" translate-default="Pickups"/>
+      </md-tab-label>
+      <md-tab-body>
+        <pickup-list group-id="{{$ctrl.groupdata.id}}" show-detail="store"></pickup-list>
+      </md-tab-body>
     </md-tab>
-    <md-tab label="{{ 'GROUP.MEMBERS' | translate }}">
-      <user-list users="$ctrl.groupdata.members"></user-list>
+    <md-tab>
+      <md-tab-label>
+        <translate translate=".MEMBERS" translate-default="Members"/>
+      </md-tab-label>
+      <md-tab-body>
+        <user-list users="$ctrl.groupdata.members"></user-list>
+      </md-tab-body>
     </md-tab>
-    <md-tab label="{{ 'GROUP.STORES' | translate }}">
-      <store-list stores="$ctrl.stores"></store-list>
+    <md-tab>
+      <md-tab-label>
+        <translate translate=".STORES" translate-default="Stores"/>
+      </md-tab-label>
+      <md-tab-body>
+        <store-list stores="$ctrl.stores"></store-list>
+      </md-tab-body>
     </md-tab>
   </md-tabs>
 </div>

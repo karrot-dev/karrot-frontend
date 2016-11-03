@@ -1,8 +1,5 @@
 {
   "GROUP": {
-    "PICKUPS": "Pickups",
-    "MEMBERS": "Members",
-    "STORES": "Stores",
     "LEAVE": "Leave group..."
   }
 }

@@ -12,8 +12,8 @@ class GroupDetailController {
     });
 
     this.pickupListOptions = {
-      header: "",
       showDetail: "store",
+      showTopbar: false,
       filter: {
         showJoined: true,
         showOpen: true,

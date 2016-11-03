@@ -16,7 +16,7 @@ class PickupListController {
       header: "Pickups",
       showCreateButton: false,
       showDetail: "date",
-      showFilterOptions: true,
+      showTopbar: true,
       filter: {
         showJoined: false,
         showOpen: true,

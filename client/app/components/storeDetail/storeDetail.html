@@ -1,5 +1,5 @@
 <div class="storeDetail">
   <h1 class="md-headline">{{$ctrl.storedata.name}}</h1>
   <p>{{$ctrl.storedata.description}}</p>
-  <pickup-list header="Pickups" show-create-button="true" store-id="{{$ctrl.storedata.id}}"></pickup-list>
+  <pickup-list store-id="{{$ctrl.storedata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
 </div>

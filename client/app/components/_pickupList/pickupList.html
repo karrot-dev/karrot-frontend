@@ -2,9 +2,9 @@
 
   <!-- Menu Bar -->
   <div>
-    <h3 class="md-title"><i class="icon fa fa-shopping-basket" aria-hidden="true"></i>  {{$ctrl.header}}</h3>
+    <h3 class="md-title"><i class="icon fa fa-shopping-basket" aria-hidden="true"></i>  {{$ctrl.options.header}}</h3>
     <div style="display: inline-block">
-      <md-button ng-show="$ctrl.showCreateButton" class="small md-primary md-hue-3" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel()">
+      <md-button ng-show="$ctrl.options.showCreateButton" class="small md-primary md-hue-3" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel()">
         <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i> Create
       </md-button>
       <md-menu>
@@ -15,21 +15,21 @@
           <md-list>
             <md-list-item>
               <p>joined</p>
-              <md-checkbox class="md-secondary" ng-model="$ctrl.pickupList.showJoined" ng-change="$ctrl.filterPickups()"></md-checkbox>
+              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showJoined" ng-change="$ctrl.filterPickups()"></md-checkbox>
             </md-list-item>
             <md-list-item>
               <p>open</p>
-              <md-checkbox class="md-secondary" ng-model="$ctrl.pickupList.showOpen" ng-change="$ctrl.filterPickups()"></md-checkbox>
+              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showOpen" ng-change="$ctrl.filterPickups()"></md-checkbox>
             </md-list-item>
             <md-list-item>
               <p>full</p>
-              <md-checkbox class="md-secondary" ng-model="$ctrl.pickupList.showFull" ng-change="$ctrl.filterPickups()"></md-checkbox>
+              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showFull" ng-change="$ctrl.filterPickups()"></md-checkbox>
             </md-list-item>
           </md-list>
         </md-menu-content>
       </md-menu>
       <md-button class="small" ng-click="$ctrl.toggleReversed()">
-        <span hide-xs>Sort</span> <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.reversed , 'fa-angle-up': !$ctrl.reversed  }" aria-hidden="true"></i>
+        <span hide-xs>Sort</span> <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.options.reversed , 'fa-angle-up': !$ctrl.options.reversed  }" aria-hidden="true"></i>
       </md-button>
     </div>
   </div>
@@ -37,10 +37,10 @@
 
   <!-- Items -->
   <md-content style="padding: 0">
-    <section ng-repeat="pickupDate in $ctrl.groupedPickups | orderBy:'date':$ctrl.reversed">
+    <section ng-repeat="pickupDate in $ctrl.groupedPickups | orderBy:'date':$ctrl.options.reversed">
       <md-subheader class="md-sticky">{{pickupDate.date| date:'EEEE, dd.MM.yyyy'}}</md-subheader>
       <md-list>
-        <pickup-list-item show-detail="$ctrl.showDetail" parent-ctrl="$ctrl" data="pickup" ng-repeat="pickup in pickupDate.items| orderBy:['-date']:$ctrl.reversed"></pickup-list-item>
+        <pickup-list-item show-detail="$ctrl.options.showDetail" parent-ctrl="$ctrl" data="pickup" ng-repeat="pickup in pickupDate.items| orderBy:['-date']:$ctrl.options.reversed"></pickup-list-item>
       </md-list>
     </section>
   </md-content>

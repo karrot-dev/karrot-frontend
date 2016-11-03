@@ -239,7 +239,9 @@ describe("PickupList", () => {
         $scope: $rootScope.$new()
       }, {
         storeId: 9,
-        header: "My amazing Pickups"
+        options: {
+          header: "My amazing Pickups"
+        }
       });
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
@@ -253,7 +255,7 @@ describe("PickupList", () => {
 
     it("bindings", () => {
       expect(controller.storeId).to.equal(9);
-      expect(controller.header).to.equal("My amazing Pickups");
+      expect(controller.options.header).to.equal("My amazing Pickups");
     });
 
     it("automatic update", () => {
@@ -272,7 +274,7 @@ describe("PickupList", () => {
 
     it("filter functionality", () => {
       controller.allPickups = pickupDataInfoAdded;
-      controller.pickupList = {
+      controller.options.filter = {
         showJoined: false,
         showOpen: false,
         showFull: true
@@ -293,8 +295,10 @@ describe("PickupList", () => {
         $scope: $rootScope.$new()
       }, {
         storeId: 9,
-        header: "My amazing Pickups",
-        showDetail: "store"
+        options: {
+          header: "My amazing Pickups",
+          showDetail: "store"
+        }
       });
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);

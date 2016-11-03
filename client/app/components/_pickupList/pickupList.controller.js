@@ -2,21 +2,32 @@ class PickupListController {
 
   constructor(Authentication, PickupDate, Store, $filter, $mdDialog, $document) {
     "ngInject";
-    this.reversed = false;
-    this.Authentication = Authentication;
-    this.PickupDate = PickupDate;
-    this.Store = Store;
-    this.userId = -1;
-    this.$filter = $filter;
 
-    this.$mdDialog = $mdDialog;
-    this.$document = $document;
+    Object.assign(this, {
+      Authentication,
+      PickupDate,
+      Store,
+      $filter,
+      $mdDialog,
+      $document
+    });
 
-    this.pickupList = {
-      showJoined: false,
-      showOpen: true,
-      showFull: false
+    this.defaultOptions = {
+      header: "Pickups",
+      showCreateButton: false,
+      showDetail: "date",
+      showFilterOptions: true,
+      filter: {
+        showJoined: false,
+        showOpen: true,
+        showFull: false
+      },
+      reversed: false
     };
+
+    this.options = angular.merge(this.defaultOptions, this.options);
+
+    this.userId = -1;
 
     this.Authentication.update().then((data) => {
       this.userId = data.id;
@@ -35,12 +46,12 @@ class PickupListController {
       currentPickup.isUserMember = currentPickup.collector_ids.indexOf(this.userId) !== -1;
       currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
 
-      if (this.showDetail === "store") {
+      if (this.options.showDetail === "store") {
         currentPickup.storePromise = this.Store.get(currentPickup.store);
       }
     });
     this.allPickups = pickups;
-    this.filterPickups();
+    return pickups;
   }
 
     /*
@@ -50,13 +61,12 @@ class PickupListController {
   filterPickups() {
     let pickups = [];
     angular.forEach(this.allPickups, (currentPickup) => {
-      if (currentPickup.isUserMember && this.pickupList.showJoined
-        || currentPickup.isFull && this.pickupList.showFull
-        || !currentPickup.isFull && this.pickupList.showOpen) {
+      if (currentPickup.isUserMember && this.options.filter.showJoined
+        || currentPickup.isFull && this.options.filter.showFull
+        || !currentPickup.isFull && this.options.filter.showOpen) {
         pickups.push(currentPickup);
       }
     });
-    this.groupedPickups = this.groupByDate(pickups);
     return pickups;
   }
 
@@ -88,7 +98,7 @@ class PickupListController {
   }
 
   toggleReversed() {
-    this.reversed = !this.reversed;
+    this.options.reversed = !this.options.reversed;
   }
 
     /**
@@ -101,8 +111,13 @@ class PickupListController {
     } else if (angular.isDefined(this.storeId)) {
       promise = this.PickupDate.listByStoreId(this.storeId);
     }
+    promise.then((data) => this.addInfosAndDisplayPickups(data));
+  }
 
-    promise.then((data) => this.addPickuplistInfos(data));
+  addInfosAndDisplayPickups(newPickups) {
+    newPickups = this.addPickuplistInfos(newPickups);
+    newPickups = this.filterPickups(newPickups);
+    this.groupedPickups = this.groupByDate(newPickups);
   }
 
   openCreatePickupPanel($event) {

@@ -266,7 +266,7 @@ describe("PickupList", () => {
 
     it("addPickupInfo functionality", () => {
       controller.userId = 1;
-      controller.addPickuplistInfos(pickupData);
+      controller.addPickupInfosAndDisplay(pickupData);
       let updatedData = controller.allPickups;
       expect(updatedData).to.deep.equal(pickupDataInfoAdded);
       expect(updatedData[0].store).to.deep.equal(9);
@@ -279,7 +279,7 @@ describe("PickupList", () => {
         showOpen: false,
         showFull: true
       };
-      expect(controller.filterPickups()).to.deep.equal(fullPickups);
+      expect(controller.filterAndDisplayPickups()).to.deep.equal(fullPickups);
     });
 
     it("groupByDate functionality", () => {
@@ -312,7 +312,7 @@ describe("PickupList", () => {
 
     it("addPickupInfo get Store Info functionality", () => {
       controller.userId = 1;
-      controller.addPickuplistInfos(pickupData);
+      controller.addPickupInfosAndDisplay(pickupData);
       let updatedData = controller.allPickups;
       expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
     });

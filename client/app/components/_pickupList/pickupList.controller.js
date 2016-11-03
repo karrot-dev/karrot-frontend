@@ -41,7 +41,7 @@ class PickupListController {
      * - isFull
      * - store (if showDetail == store)
      */
-  addPickuplistInfos(pickups) {
+  addPickupInfosAndDisplay(pickups) {
     angular.forEach(pickups, (currentPickup) => {
       currentPickup.isUserMember = currentPickup.collector_ids.indexOf(this.userId) !== -1;
       currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
@@ -51,14 +51,14 @@ class PickupListController {
       }
     });
     this.allPickups = pickups;
-    return pickups;
+    this.filterAndDisplayPickups();
   }
 
     /*
      * Filters pickups, so that only the ones specified by the criteria in the header menu are shown
      * @return filtered pickups
      */
-  filterPickups() {
+  filterAndDisplayPickups() {
     let pickups = [];
     angular.forEach(this.allPickups, (currentPickup) => {
       if (currentPickup.isUserMember && this.options.filter.showJoined
@@ -67,6 +67,7 @@ class PickupListController {
         pickups.push(currentPickup);
       }
     });
+    this.groupedPickups = this.groupByDate(pickups);
     return pickups;
   }
 
@@ -111,13 +112,7 @@ class PickupListController {
     } else if (angular.isDefined(this.storeId)) {
       promise = this.PickupDate.listByStoreId(this.storeId);
     }
-    promise.then((data) => this.addInfosAndDisplayPickups(data));
-  }
-
-  addInfosAndDisplayPickups(newPickups) {
-    newPickups = this.addPickuplistInfos(newPickups);
-    newPickups = this.filterPickups(newPickups);
-    this.groupedPickups = this.groupByDate(newPickups);
+    promise.then((data) => this.addPickupInfosAndDisplay(data));
   }
 
   openCreatePickupPanel($event) {

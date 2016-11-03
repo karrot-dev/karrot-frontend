@@ -17,6 +17,7 @@ class PickupListController {
       showCreateButton: false,
       showDetail: "date",
       showTopbar: true,
+      showStickyHeaders: !(angular.isUndefined(this.options.showDetail) || this.options.showDetail === "date"),
       filter: {
         showJoined: false,
         showOpen: true,
@@ -26,7 +27,6 @@ class PickupListController {
     };
 
     this.options = angular.merge(this.defaultOptions, this.options);
-
     this.userId = -1;
 
     this.Authentication.update().then((data) => {

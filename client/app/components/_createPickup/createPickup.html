@@ -3,7 +3,7 @@
     <div class="md-toolbar-tools">
       <h2>
         <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-shopping-basket"></i>
-        <translate translate="CREATEPICKUP.TITLE" translate-default="Create Pickup"/>
+        <any translate="CREATEPICKUP.TITLE" translate-default="Create Pickup"/>
       </h2>
     </div>
   </md-toolbar>
@@ -38,10 +38,10 @@
 
       <div layout="row" layout-align="end center">
         <md-button ng-click="$ctrl.closePanel()">
-          <translate translate="CREATEPICKUP.CANCEL" translate-default="Cancel"/>
+          <any translate="CREATEPICKUP.CANCEL" translate-default="Cancel"/>
         </md-button>
         <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createPickupForm.$invalid">
-          <translate translate="CREATEPICKUP.CREATE" translate-default="Create"/>
+          <any translate="CREATEPICKUP.CREATE" translate-default="Create"/>
         </md-button>
       </div>
     </form>

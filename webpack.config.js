@@ -1,18 +1,29 @@
 let path    = require("path");
 let webpack = require("webpack");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
+let WebPackAngularTranslate = require("webpack-angular-translate");
 
 module.exports = {
   devtool: "sourcemap",
   entry: {},
   module: {
+    preLoaders: [
+      {
+        test: /\.html$/,
+        loader: WebPackAngularTranslate.htmlLoader()
+      }
+    ],
     loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: "ng-annotate!babel" },
-       { test: /\.html$/, loader: "raw" },
-       { test: /\.styl$/, loader: "style!css!stylus" },
-       { test: /\.css$/, loader: "style!css" },
-       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
-       { test: /\.json$/, loader: "json" }
+      {
+        test: /\.js$/,
+        exclude: [/app\/lib/, /node_modules/],
+        loader: WebPackAngularTranslate.jsLoader("ng-annotate!babel")
+      },
+      { test: /\.html$/, loader: "raw" },
+      { test: /\.styl$/, loader: "style!css!stylus" },
+      { test: /\.css$/, loader: "style!css" },
+      { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
+      { test: /\.json$/, loader: "json" }
     ]
   },
   plugins: [
@@ -32,6 +43,10 @@ module.exports = {
       minChunks (module) {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, "client")) === -1;
       }
+    }),
+
+    new WebPackAngularTranslate.Plugin({
+      fileName: "locale_defaults.json"
     })
   ]
 };

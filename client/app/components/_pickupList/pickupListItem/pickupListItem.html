@@ -1,5 +1,4 @@
-<md-list-item layout="row" layout-align="end stretch" class="md-2-line pickupList-pickup"
-  translate-namespace="PICKUPLIST.ITEM">
+<md-list-item layout="row" layout-align="end stretch" class="md-2-line pickupList-pickup">
   <div flex class="pickupList-pickup-left">
     <span class="pickupList-pickup-info-container">
       <span class="md-title">{{$ctrl.data.date| date:'HH:mm'}}</span>
@@ -13,12 +12,12 @@
     </div>
   </div>
   <md-button ng-click="$ctrl.leave()" ng-show="{{$ctrl.data.isUserMember}}" class="md-accent pickupList-pickup-right">
-    <p translate=".LEAVE" translate-default="Leave"></p>
+    <p translate="PICKUPLIST.ITEM.LEAVE" translate-default="Leave"></p>
   </md-button>
   <md-button ng-click="$ctrl.join()" ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-accent md-hue-3 pickupList-pickup-right">
-    <p translate=".JOIN" translate-default="Join"></p>
+    <p translate="PICKUPLIST.ITEM.JOIN" translate-default="Join"></p>
   </md-button>
   <md-button ng-disabled="true" ng-show="{{!$ctrl.data.isUserMember && $ctrl.data.isFull}}" class="md-accent pickupList-pickup-right">
-    <p translate=".FULL" translate-default="Full!"></p>
+    <p translate="PICKUPLIST.ITEM.FULL" translate-default="Full!"></p>
   </md-button>
 </md-list-item>

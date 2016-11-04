@@ -1,32 +1,32 @@
-<div layout="row" translate-namespace="LOGIN">
+<div layout="row">
   <div flex></div>
   <div flex="nogrow" layout="column">
     <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
       <form login-form ng-submit="$ctrl.login()">
-        <h2 translate=".TITLE"
+        <h2 translate="LOGIN.TITLE"
             translate-default="Login"></h2>
         <md-input-container class="md-block">
-          <label translate=".EMAIL"
+          <label translate="LOGIN.EMAIL"
                  translate-default="Mail"></label>
           <input type="text" name="email" required ng-model="$ctrl.email">
         </md-input-container>
         <md-input-container class="md-block">
-          <label translate=".PASSWORD"
+          <label translate="LOGIN.PASSWORD"
                  translate-default="Password"></label>
           <input type="password" name="password" required ng-model="$ctrl.password">
           <div ng-messages="$ctrl.error" type="alert">
             <div ng-message="wrong"
-                 translate=".WRONG"
+                 translate="LOGIN.WRONG"
                  translate-default="The given credentials are wrong. Please check them carefully.">
             </div>
           </div>
         </md-input-container>
 
         <md-button class="md-raised md-accent" type="submit">
-          <translate translate=".SUBMIT" translate-default="Login"/>
+          <translate translate="LOGIN.SUBMIT" translate-default="Login"/>
         </md-button>
         <md-button ui-sref="signup">
-          <translate translate=".SIGNUP" translate-default="Sign up!"/>
+          <translate translate="LOGIN.SIGNUP" translate-default="Sign up!"/>
         </md-button>
       </form>
     </div>

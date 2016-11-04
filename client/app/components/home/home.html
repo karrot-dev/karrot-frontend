@@ -1,18 +1,18 @@
-<md-content layout-padding translate-namespace="HOME">
+<md-content layout-padding>
   <div ng-show="$ctrl.redirecting">
     <div layout="row" layout-align="space-around">
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <center translate=".REDIRECT" translate-default="Redirecting to your beloved group..."></center>
+    <center translate="HOME.REDIRECT" translate-default="Redirecting to your beloved group..."></center>
   </div>
   <div ng-show="!$ctrl.redirecting">
     <center ng-show="!$ctrl.groups"
-      translate=".NOGROUPS"
+      translate="HOME.NOGROUPS"
       translate-default="You aren't part of any group yet <big>&#128546;</big>">
     </center>
     <div flex>
       <center ng-show="$ctrl.groups"
-        translate=".WHICHGROUP"
+        translate="HOME.WHICHGROUP"
         translate-default="Which group do you want to join?">
         <i class="fa fa-smile-o"></i>
       </center>
@@ -24,7 +24,7 @@
           <div flex>{{group.name}}</div>
           <div flex class="small">{{group.description}}</div>
           <div flex class="small">
-            <translate translate=".MEMBERS" translate-default="Members"/>
+            <translate translate="HOME.MEMBERS" translate-default="Members"/>
             : {{group.members.length}}</div>
         </md-list-item>
       </md-list>

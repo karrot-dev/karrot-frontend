@@ -22,8 +22,8 @@ describe("<%= upCaseName %>", () => {
     }));
 
     it("should exist", () => {
-      let ctrl = $componentController("<%= name %>", {});
-      expect(ctrl).to.exist;
+      let $ctrl = $componentController("<%= name %>", {});
+      expect($ctrl).to.exist;
     });
   });
 

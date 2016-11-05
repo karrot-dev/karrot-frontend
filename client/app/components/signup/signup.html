@@ -34,15 +34,15 @@
 
         <md-button-container flex>
           <md-button ui-sref="login">
-            <span translate="SIGNUP.BACK" translate-default="Back to Login"/>
+            <span translate="SIGNUP.BACK" translate-default="Back to Login"></span>
           </md-button>
           <md-button class="md-raised md-accent" type="submit">
-            <span translate="SIGNUP.OK" translate-default="Join"/>
+            <span translate="SIGNUP.OK" translate-default="Join"></span>
           </md-button>
         </md-button-container>
         <div ng-messages="$ctrl.error">
           <div class="form-error" ng-message="failed">
-            <span translate="SIGNUP.FAILED" translate-default="Sign up failed!"/>
+            <span translate="SIGNUP.FAILED" translate-default="Sign up failed!"></span>
             <br>
             <!-- TODO remove or translate error message -->
             {{$ctrl.error.msg}}

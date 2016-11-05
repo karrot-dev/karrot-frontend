@@ -1,14 +1,13 @@
 class PickupListItemController {
-  constructor($http, PickupDate, $filter, User) {
+  constructor(PickupDate, User) {
     "ngInject";
-    this.$http = $http;
     this.PickupDate = PickupDate;
     this.User = User;
-    this.$filter = $filter;
+    this.showStoreDetail = this.showDetail === "store";
 
     this.collectors = [];
 
-    this.setInfo();
+    this.setStoreInfo();
     this.setCollectors();
   }
 
@@ -32,22 +31,14 @@ class PickupListItemController {
     });
   }
 
-  setInfo(){
-    this.setInfoText("Loading...", "");
-
-    if (this.showDetail === "store") {
+  setStoreInfo(){
+    if (this.showStoreDetail) {
       this.data.storePromise.then((storeData) => {
-        this.setInfoText(storeData.name, "#!/store/" + storeData.id);
+        this.storeData = storeData;
       });
-    } else {
-      let newInfoText = this.$filter("date")(this.data.date, "EEEE, dd.MM.yyyy");
-      this.setInfoText(newInfoText, "");
     }
   }
 
-  setInfoText(text, href){
-    this.info = { text, href };
-  }
 }
 
 export default PickupListItemController;

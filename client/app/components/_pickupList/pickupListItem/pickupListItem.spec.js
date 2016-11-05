@@ -1,7 +1,7 @@
 import PickupListItemModule from "./pickupListItem";
 
 describe("PickupListItem", () => {
-  let $rootScope, $componentController, $httpBackend;
+  let $rootScope, $componentController, $httpBackend, $q;
 
   let { module } = angular.mock;
 
@@ -13,6 +13,9 @@ describe("PickupListItem", () => {
     $httpBackend = $injector.get("$httpBackend");
     $rootScope = $injector.get("$rootScope");
     $componentController = $injector.get("$componentController");
+    $q = $injector.get("$q");
+
+    pickupData.storePromise = $q((resolve) => resolve(storeData));
   }));
 
   afterEach(() => {
@@ -32,6 +35,10 @@ describe("PickupListItem", () => {
     "isFull": false
   };
 
+  let storeData = {
+    "id": 9
+  };
+
   describe("Controller with date detail", () => {
     let controller;
 
@@ -46,12 +53,6 @@ describe("PickupListItem", () => {
       });
     });
 
-    it("test date info", () => {
-      expect(controller.info.text).to.deep.equal("Saturday, 17.09.2016");
-      $httpBackend.expectGET("/api/users/1/").respond("");
-      $httpBackend.flush();
-    });
-
     it("test join and leave function", () => {
       $httpBackend.expectGET("/api/users/1/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
@@ -59,6 +60,25 @@ describe("PickupListItem", () => {
       controller.join();
       controller.leave();
       $httpBackend.flush();
+    });
+  });
+
+  describe("Controller with store detail", () => {
+    let $ctrl;
+
+    beforeEach(() => {
+      $ctrl = $componentController("pickupListItem", {
+        $scope: $rootScope.$new()
+      }, {
+        data: pickupData,
+        showDetail: "store"
+      });
+    });
+
+    it("gets store data", () => {
+      $httpBackend.expectGET("/api/users/1/").respond("");
+      $httpBackend.flush();
+      expect($ctrl.storeData).to.deep.equal(storeData);
     });
   });
 });

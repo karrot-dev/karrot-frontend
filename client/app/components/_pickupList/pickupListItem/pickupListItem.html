@@ -2,7 +2,18 @@
   <div flex class="pickupList-pickup-left">
     <span class="pickupList-pickup-info-container">
       <span class="md-title">{{$ctrl.data.date| date:'HH:mm'}}</span>
-      <span class="pickupList-pickup-info"><a href="{{$ctrl.info.href}}">{{$ctrl.info.text}}</a></span>
+      <span class="pickupList-pickup-info">
+        <span ng-if="$ctrl.showStoreDetail">
+          <i ng-if="!$ctrl.storeData" class="fa fa-spinner"></i>
+          <a ng-if="$ctrl.storeData"
+             ui-sref="storeDetail({ id: $ctrl.storeData.id })">
+            {{$ctrl.storeData.name}}
+          </a>
+        </span>
+        <span ng-if="!$ctrl.showStoreDetail">
+          {{$ctrl.data.date|date:'EEEE, dd.MM.yyyy'}}
+        </span>
+      </span>
     </span>
     <div class="pickupList-pickup-people">
       <a class="pickuplist-pickup-person" ng-repeat="collector in $ctrl.collectors" href="#/profile/{{collector.id}}">

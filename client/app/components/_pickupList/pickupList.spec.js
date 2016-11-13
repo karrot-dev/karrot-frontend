@@ -9,30 +9,23 @@ describe("PickupList", () => {
 
   let { module } = angular.mock;
 
-  beforeEach(module(PickupListModule));
-  beforeEach(module(UserModule));
-  beforeEach(module(StoreModule));
-  beforeEach(module(AuthenticationModule));
-  beforeEach(module(PickupDateModule));
-
   beforeEach(() => {
+    module(PickupListModule);
+    module(UserModule);
+    module(StoreModule);
+    module(AuthenticationModule);
+    module(PickupDateModule);
+
     angular.mock.module(($provide) => {
       $provide.value("$mdDialog", {});
-    });
-  });
-
-  beforeEach(() => {
-    angular.mock.module(($provide) => {
       $provide.value("$document", {});
     });
+    inject(($injector) => {
+      $httpBackend = $injector.get("$httpBackend");
+      $rootScope = $injector.get("$rootScope");
+      $componentController = $injector.get("$componentController");
+    });
   });
-
-
-  beforeEach(inject(($injector) => {
-    $httpBackend = $injector.get("$httpBackend");
-    $rootScope = $injector.get("$rootScope");
-    $componentController = $injector.get("$componentController");
-  }));
 
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();

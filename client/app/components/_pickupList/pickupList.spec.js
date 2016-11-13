@@ -34,13 +34,7 @@ describe("PickupList", () => {
 
   let authData = {
     "id": 1,
-    "display_name": "Lars",
-    "first_name": "Lars",
-    "last_name": "Wolf",
-    "email": "l@l.de",
-    "address": null,
-    "latitude": null,
-    "longitude": null
+    "display_name": "Lars"
   };
 
   let pickupData = [{
@@ -135,6 +129,8 @@ describe("PickupList", () => {
       "isFull": false
     }];
 
+  let fullPickups = [pickupDataInfoAdded[1]];
+
   let pickupDataInfoAddedGrouped = [
     {
       "date": "2016-09-16",
@@ -199,29 +195,9 @@ describe("PickupList", () => {
       }]
     }];
 
-  let fullPickups = [
-    {
-      "id": 14,
-      "date": "2016-09-16T01:00:00Z",
-      "collector_ids": [
-        1,
-        8
-      ],
-      "max_collectors": 2,
-      "store": 9,
-      "isUserMember": true,
-      "isFull": true
-    }
-  ];
-
   let storeData = {
     "id": 9,
-    "name": "REWE Neuried",
-    "description": "dasdsd",
-    "group": 4,
-    "address": "Muenchen",
-    "latitude": 51.6180165487737,
-    "longitude": 2.8125
+    "name": "REWE Neuried"
   };
 
   describe("Controller with showDetail = date (default)", () => {

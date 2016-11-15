@@ -2,7 +2,7 @@ import UserListModule from "./userList";
 import UserModule from "../../common/user/user";
 
 describe("UserList", () => {
-  let $rootScope, $componentController, $httpBackend;
+  let $componentController, $httpBackend;
 
   let { module } = angular.mock;
 
@@ -11,7 +11,6 @@ describe("UserList", () => {
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
-    $rootScope = $injector.get("$rootScope");
     $componentController = $injector.get("$componentController");
   }));
 
@@ -39,7 +38,6 @@ describe("UserList", () => {
 
     it("check binding of complete users",() => {
       controller = $componentController("userList", {
-        $scope: $rootScope.$new()
       }, {
         users: [userOne]
       });
@@ -50,7 +48,6 @@ describe("UserList", () => {
 
     it("maps users-array",() => {
       controller = $componentController("userList", {
-        $scope: $rootScope.$new()
       }, {
         users: [1]
       });

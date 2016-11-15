@@ -43,6 +43,12 @@
     "TIME_ERROR": "enter a valid time: [hh:mm]",
     "MAX_COLLECTORS": "Max Slots"
   },
+  "CREATESTORE": {
+    "TITLE": "Create a new store",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address"
+  },
   "PICKUPLIST": {
     "FILTER": "Filter",
     "JOINED": "joined",

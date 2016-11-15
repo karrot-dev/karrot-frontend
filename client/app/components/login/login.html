@@ -3,30 +3,25 @@
   <div flex="nogrow" layout="column">
     <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
       <form login-form ng-submit="$ctrl.login()">
-        <h2 translate="LOGIN.TITLE"
-            translate-default="Login"></h2>
+        <h2 translate="LOGIN.TITLE"></h2>
         <md-input-container class="md-block">
-          <label translate="LOGIN.EMAIL"
-                 translate-default="Mail"></label>
+          <label translate="USERDATA.EMAIL"></label>
           <input type="text" name="email" required ng-model="$ctrl.email">
         </md-input-container>
         <md-input-container class="md-block">
-          <label translate="LOGIN.PASSWORD"
-                 translate-default="Password"></label>
+          <label translate="USERDATA.PASSWORD"></label>
           <input type="password" name="password" required ng-model="$ctrl.password">
           <div ng-messages="$ctrl.error" type="alert">
-            <div ng-message="wrong"
-                 translate="LOGIN.WRONG"
-                 translate-default="The given credentials are wrong. Please check them carefully.">
+            <div ng-message="wrong" translate="LOGIN.WRONG">
             </div>
           </div>
         </md-input-container>
 
         <md-button class="md-raised md-accent" type="submit">
-          <span translate="LOGIN.SUBMIT" translate-default="Login"></span>
+          <span translate="LOGIN.SUBMIT"></span>
         </md-button>
         <md-button ui-sref="signup">
-          <span translate="LOGIN.SIGNUP" translate-default="Sign up!"></span>
+          <span translate="LOGIN.SIGNUP"></span>
         </md-button>
       </form>
     </div>

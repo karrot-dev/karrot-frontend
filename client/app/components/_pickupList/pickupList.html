@@ -6,31 +6,32 @@
     <div style="display: inline-block">
       <md-button ng-show="$ctrl.options.showCreateButton" class="small md-primary md-hue-3" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel()">
         <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
-        <span translate="PICKUPLIST.CREATE" translate-default="Create"></span>
+        <span translate="BUTTON.CREATE"></span>
       </md-button>
       <md-menu>
         <md-button class="small"  ng-click="$mdOpenMenu()">
-          <span hide-xs translate="PICKUPLIST.FILTER" translate-default="Filter"></span> <i class="fa fa-filter" aria-hidden="true"></i>
+          <span hide-xs translate="PICKUPLIST.FILTER"></span>
+          <i class="fa fa-filter" aria-hidden="true"></i>
         </md-button>
         <md-menu-content width="4">
           <md-list>
             <md-list-item>
-              <p translate="PICKUPLIST.JOINED" translate-default="joined"></p>
+              <p translate="PICKUPLIST.JOINED"></p>
               <md-checkbox class="md-secondary" ng-model="$ctrl.options.pickupList.showJoined" ng-change="$ctrl.filterAndDisplayPickups()"></md-checkbox>
             </md-list-item>
             <md-list-item>
-              <p translate="PICKUPLIST.OPEN" translate-default="open"></p>
+              <p translate="PICKUPLIST.OPEN"></p>
               <md-checkbox class="md-secondary" ng-model="$ctrl.options.pickupList.showOpen" ng-change="$ctrl.filterAndDisplayPickups()"></md-checkbox>
             </md-list-item>
             <md-list-item>
-              <p translate="PICKUPLIST.FULL" translate-default="full"></p>
+              <p translate="PICKUPLIST.FULL"></p>
               <md-checkbox class="md-secondary" ng-model="$ctrl.options.pickupList.showFull" ng-change="$ctrl.filterAndDisplayPickups()"></md-checkbox>
             </md-list-item>
           </md-list>
         </md-menu-content>
       </md-menu>
       <md-button class="small" ng-click="$ctrl.toggleReversed()">
-        <span hide-xs translate="PICKUPLIST.SORT" translate-default="Sort"></span>
+        <span hide-xs translate="PICKUPLIST.SORT"></span>
         <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.options.reversed , 'fa-angle-up': !$ctrl.options.reversed  }" aria-hidden="true"></i>
       </md-button>
     </div>

@@ -2,7 +2,7 @@ import StoreListModule from "./storeList";
 import StoreModule from "../../common/store/store";
 
 describe("StoreList", () => {
-  let $rootScope, $componentController, $httpBackend;
+  let $componentController, $httpBackend;
 
   let { module } = angular.mock;
 
@@ -16,7 +16,6 @@ describe("StoreList", () => {
     });
     inject(($injector) => {
       $httpBackend = $injector.get("$httpBackend");
-      $rootScope = $injector.get("$rootScope");
       $componentController = $injector.get("$componentController");
     });
   });
@@ -41,7 +40,6 @@ describe("StoreList", () => {
 
     it("check binding of complete stores",() => {
       controller = $componentController("storeList", {
-        $scope: $rootScope.$new()
       }, {
         stores: [storeOne]
       });
@@ -52,7 +50,6 @@ describe("StoreList", () => {
 
     it("maps stores-array",() => {
       controller = $componentController("storeList", {
-        $scope: $rootScope.$new()
       }, {
         stores: [1]
       });

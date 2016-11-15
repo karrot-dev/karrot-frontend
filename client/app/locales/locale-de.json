@@ -1,10 +1,58 @@
 {
-  "LOGIN": {
-    "TITLE": "Login",
+  "USERDATA": {
     "EMAIL": "E-Mail",
     "PASSWORD": "Passwort",
-    "WRONG": "Die Anmeldedaten sind fehlerhaft. Bitte überprüfe sie sorgfältig.",
+    "USERNAME": "Name",
+    "FIRSTNAME": "Vorname",
+    "LASTNAME": "Nachname"
+  },
+  "BUTTON": {
+    "CREATE": "Erstellen",
+    "CANCEL": "Abbrechen"
+  },
+  "GROUP": {
+    "LEAVE": "Gruppe verlassen",
+    "PICKUPS": "Abholungen",
+    "MEMBERS": "Anzahl Mitglieder",
+    "STORES": "Betriebe"
+  },
+  "HOME": {
+    "REDIRECT": "Umleitung zu deiner Gruppe...",
+    "NOGROUPS": " Du bist noch kein Mitglied einer Gruppe <big>😢</big>",
+    "WHICHGROUP": "Welcher Gruppe willst du beitreten?",
+    "MEMBERS": "Anzahl Mitglieder"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "WRONG": "Die eingegebenen Zugangsdaten sind falsch. Bitte überprüfe sie noch einmal.",
     "SUBMIT": "Login",
     "SIGNUP": "Neuanmeldung"
+  },
+  "SIGNUP": {
+    "TITLE": "Neuanmeldung",
+    "BACK": "Zurück zum Login",
+    "OK": "Beitreten",
+    "FAILED": "Accounterstellung fehlgeschlagen!"
+  },
+  "GROUPMENU": {
+    "JOIN": "Zu einer Gruppe beitreten (TODO)"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Abholungstermin erstellen",
+    "TIME": "Uhrzeit",
+    "TIME_ERROR": "Gib eine gültige Uhrzeit ein [hh:mm]",
+    "MAX_COLLECTORS": "Anzahl Abholer"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filter",
+    "JOINED": "eingetragen",
+    "OPEN": "offen",
+    "FULL": "belegt",
+    "SORT": "Sortieren",
+    "ITEM": {
+      "LEAVE": "Nicht mehr abholen",
+      "JOIN": "Abholen",
+      "FULL": "belegt"
+    }
   }
 }

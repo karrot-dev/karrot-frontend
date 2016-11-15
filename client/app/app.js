@@ -1,7 +1,9 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
+import ngCookies from "angular-cookies";
 import translate from "angular-translate";
+import translateStorageCookie from "angular-translate-storage-cookie";
 import Common from "./common/common";
 import Components from "./components/components";
 import AppMaterial from "./app.material";
@@ -17,7 +19,9 @@ import splashLayout from "./layouts/splash.html";
 angular.module("app", [
   uiRouter,
   ngMaterial,
+  ngCookies,
   translate,
+  translateStorageCookie,
   Common,
   Components
 ]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {

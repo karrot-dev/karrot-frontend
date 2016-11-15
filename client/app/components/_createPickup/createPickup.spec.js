@@ -7,7 +7,7 @@ import PickupDate from "../../common/pickupDate/pickupDate";
 const { module } = angular.mock;
 
 describe("CreatePickup", () => {
-  let $rootScope, $componentController, $httpBackend;
+  let $componentController, $httpBackend;
 
   beforeEach(module(CreatePickupModule));
   beforeEach(module(PickupDate));
@@ -22,7 +22,6 @@ describe("CreatePickup", () => {
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
-    $rootScope = $injector.get("$rootScope");
     $componentController = $injector.get("$componentController");
   }));
 
@@ -43,7 +42,6 @@ describe("CreatePickup", () => {
 
     beforeEach(() => {
       controller = $componentController("createPickup", {
-        $scope: $rootScope.$new()
       }, {
         storeId: 2,
         pickuplistCtrl: {

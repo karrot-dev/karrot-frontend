@@ -3,43 +3,48 @@
   <div flex="nogrow" layout="column">
     <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
       <form signup-form ng-submit="$ctrl.signup()" layout="column">
-        <h2 style="padding: .2em;"> Sign Up! </h2>
+        <h2 style="padding: .2em;" translate="SIGNUP.TITLE">
+        </h2>
 
         <md-input-container flex>
-          <label>Username</label>
+          <label translate="USERDATA.USERNAME"></label>
           <input required type="text" name="Username" ng-model="$ctrl.username"/>
         </md-input-container>
 
         <md-input-container flex>
-          <label>Email</label>
+          <label translate="USERDATA.EMAIL"></label>
           <input required type="email" name="Email" ng-model="$ctrl.email"/>
         </md-input-container>
 
         <md-input-container flex>
-          <label>Password</label>
+          <label translate="USERDATA.PASSWORD"></label>
           <input type="password" required name="password" ng-model="$ctrl.password">
         </md-input-container>
 
         <div flex>
           <md-input-container>
-            <label>First Name</label>
+            <label translate="USERDATA.FIRSTNAME"></label>
             <input required type="text" ng-model="$ctrl.firstName">
           </md-input-container>
           <md-input-container>
-            <label>Last Name</label>
+            <label translate="USERDATA.LASTNAME"></label>
             <input required type="text" ng-model="$ctrl.lastName">
           </md-input-container>
         </div>
 
         <md-button-container flex>
           <md-button ui-sref="login">
-            Back to Login
+            <span translate="SIGNUP.BACK"></span>
           </md-button>
-          <md-button class="md-raised md-accent" type="submit">Join</md-button>
+          <md-button class="md-raised md-accent" type="submit">
+            <span translate="SIGNUP.OK"></span>
+          </md-button>
         </md-button-container>
         <div ng-messages="$ctrl.error">
           <div class="form-error" ng-message="failed">
-            Sign up failed!<br>
+            <span translate="SIGNUP.FAILED"></span>
+            <br>
+            <!-- TODO remove or translate error message -->
             {{$ctrl.error.msg}}
           </div>
         </div>

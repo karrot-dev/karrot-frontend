@@ -1,10 +1,58 @@
 {
-  "LOGIN": {
-    "TITLE": "Login",
+  "USERDATA": {
     "EMAIL": "Mail",
     "PASSWORD": "Password",
+    "USERNAME": "Name",
+    "FIRSTNAME": "First Name",
+    "LASTNAME": "Last Name"
+  },
+  "BUTTON": {
+    "CREATE": "Create",
+    "CANCEL": "Cancel"
+  },
+  "GROUP": {
+    "LEAVE": "Leave group...",
+    "PICKUPS": "Pickups",
+    "MEMBERS": "Members",
+    "STORES": "Stores"
+  },
+  "HOME": {
+    "REDIRECT": "Redirecting to your beloved group...",
+    "NOGROUPS": "You aren't part of any group yet <big>😢</big>",
+    "WHICHGROUP": "Which group do you want to join?",
+    "MEMBERS": "Members"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
     "WRONG": "The given credentials are wrong. Please check them carefully.",
     "SUBMIT": "Login",
     "SIGNUP": "Sign up!"
+  },
+  "SIGNUP": {
+    "TITLE": "Sign Up!",
+    "BACK": "Back to Login",
+    "OK": "Join",
+    "FAILED": "Sign up failed!"
+  },
+  "GROUPMENU": {
+    "JOIN": "Join community (not implemented)"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Create Pickup",
+    "TIME": "Time",
+    "TIME_ERROR": "enter a valid time: [hh:mm]",
+    "MAX_COLLECTORS": "Max Slots"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filter",
+    "JOINED": "joined",
+    "OPEN": "open",
+    "FULL": "full",
+    "SORT": "Sort",
+    "ITEM": {
+      "LEAVE": "Leave",
+      "JOIN": "Join",
+      "FULL": "Full!"
+    }
   }
 }

@@ -2,20 +2,36 @@
   <div layout="row">
     <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
     <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
-    <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leaveGroup()">
+    <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
+      aria-label="{{ 'GROUP.LEAVE' | translate }}">
       <i class="fa fa-fw fa-sign-out"></i>
     </md-button>
   </div>
   <p>{{$ctrl.groupdata.description}}</p>
   <md-tabs md-dynamic-height md-border-bottom flex>
-    <md-tab label="pickups">
-      <pickup-list group-id="{{$ctrl.groupdata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
+    <md-tab>
+      <md-tab-label>
+        <span translate="GROUP.PICKUPS"></span>
+      </md-tab-label>
+      <md-tab-body>
+        <pickup-list group-id="{{$ctrl.groupdata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
+      </md-tab-body>
     </md-tab>
-    <md-tab label="members">
-      <user-list users="$ctrl.groupdata.members"></user-list>
+    <md-tab>
+      <md-tab-label>
+        <span translate="GROUP.MEMBERS"></span>
+      </md-tab-label>
+      <md-tab-body>
+        <user-list users="$ctrl.groupdata.members"></user-list>
+      </md-tab-body>
     </md-tab>
-    <md-tab label="stores">
-      <store-list stores="$ctrl.stores"></store-list>
+    <md-tab>
+      <md-tab-label>
+        <span translate="GROUP.STORES"></span>
+      </md-tab-label>
+      <md-tab-body>
+        <store-list stores="$ctrl.stores"></store-list>
+      </md-tab-body>
     </md-tab>
   </md-tabs>
 </div>

@@ -11,14 +11,16 @@ class CreateStoreController {
   }
 
   createStore() {
-    this.Store.create(this.storeData).then(() => {
-      // TODO: reload page
+    // TODO show spinning wheel
+    this.Store.create(this.storeData).then((data) => {
+      this.$mdDialog.hide(data);
+    }).catch((err) => {
+      console.log(err);
     });
-    this.$mdDialog.hide();
   }
 
   closePanel() {
-    this.$mdDialog.hide();
+    this.$mdDialog.cancel();
   }
 }
 

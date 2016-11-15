@@ -10,15 +10,11 @@ describe("CreateStore", () => {
 
   beforeEach(() => {
     module(CreateStoreModule);
-    angular.mock.module(($provide) => {
-      $provide.value("$mdDialog", {
-        hide: () => {}
-      });
-    });
     inject(($injector) => {
       $httpBackend = $injector.get("$httpBackend");
       $mdDialog = $injector.get("$mdDialog");
       sinon.stub($mdDialog, "hide");
+      sinon.stub($mdDialog, "cancel");
     });
   });
 
@@ -53,17 +49,17 @@ describe("CreateStore", () => {
       $httpBackend.expectPOST("/api/stores/", {
         group: 1337,
         name: "blabla"
-      }).respond();
+      }).respond({ some: "data" });
 
       $ctrl.createStore();
       $httpBackend.flush();
-      expect($mdDialog.hide).to.have.been.called;
+      expect($mdDialog.hide).to.have.been.calledWith({ some: "data" });
     });
 
     it("closes panel", () => {
       let $ctrl = $componentController("createStore", {});
       $ctrl.closePanel();
-      expect($mdDialog.hide).to.have.been.called;
+      expect($mdDialog.cancel).to.have.been.called;
     });
   });
 

@@ -61,6 +61,8 @@ class StoreListController {
       },
       controller: DialogController,
       controllerAs: "$ctrl"
+    }).then((data) => {
+      this.storeData.push(data);
     });
   }
 }

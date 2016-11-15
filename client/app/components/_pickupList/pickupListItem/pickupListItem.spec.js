@@ -1,7 +1,7 @@
 import PickupListItemModule from "./pickupListItem";
 
 describe("PickupListItem", () => {
-  let $rootScope, $componentController, $httpBackend, $q;
+  let $componentController, $httpBackend, $q;
 
   let { module } = angular.mock;
 
@@ -11,7 +11,6 @@ describe("PickupListItem", () => {
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
-    $rootScope = $injector.get("$rootScope");
     $componentController = $injector.get("$componentController");
     $q = $injector.get("$q");
 
@@ -44,7 +43,6 @@ describe("PickupListItem", () => {
 
     beforeEach(() => {
       controller = $componentController("pickupListItem", {
-        $scope: $rootScope.$new()
       }, {
         data: pickupData,
         parentCtrl: {
@@ -68,7 +66,6 @@ describe("PickupListItem", () => {
 
     beforeEach(() => {
       $ctrl = $componentController("pickupListItem", {
-        $scope: $rootScope.$new()
       }, {
         data: pickupData,
         showDetail: "store"

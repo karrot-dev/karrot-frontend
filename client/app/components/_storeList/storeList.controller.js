@@ -5,11 +5,14 @@
  */
 
 class StoreListController {
-  constructor(Store, $state) {
+  constructor(Store, $state, $document, $mdDialog) {
     "ngInject";
-
-    this.Store = Store;
-    this.$state = $state;
+    Object.assign(this, {
+      Store,
+      $state,
+      $document,
+      $mdDialog
+    });
 
     // check if stores it's a list of IDs or Stores
     if (angular.isNumber(this.stores[0])) {
@@ -39,6 +42,26 @@ class StoreListController {
 
   editStore() {
     //TODO: Open Edit Panel
+  }
+
+  openCreateStorePanel($event) {
+    let parentEl = this.$document.body;
+
+    let DialogController = function (groupId) {
+      "ngInject";
+      this.groupId = groupId;
+    };
+
+    this.$mdDialog.show({
+      parent: parentEl,
+      targetEvent: $event,
+      template: `{{storeId}}<create-store group-id='$ctrl.groupId'></create-store>`,
+      locals: {
+        groupId: this.groupId
+      },
+      controller: DialogController,
+      controllerAs: "$ctrl"
+    });
   }
 }
 

@@ -6,6 +6,8 @@ import CreateStoreTemplate from "./createStore.html";
 const { module } = angular.mock;
 
 describe("CreateStore", () => {
+  let $mdDialog, $httpBackend;
+
   beforeEach(() => {
     module(CreateStoreModule);
     angular.mock.module(($provide) => {
@@ -13,6 +15,16 @@ describe("CreateStore", () => {
         hide: () => {}
       });
     });
+    inject(($injector) => {
+      $httpBackend = $injector.get("$httpBackend");
+      $mdDialog = $injector.get("$mdDialog");
+      sinon.stub($mdDialog, "hide");
+    });
+  });
+
+  afterEach(() => {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
   });
 
   describe("Module", () => {
@@ -31,6 +43,27 @@ describe("CreateStore", () => {
     it("should exist", () => {
       let $ctrl = $componentController("createStore", {});
       expect($ctrl).to.exist;
+    });
+
+    it("creates store", () => {
+      let $ctrl = $componentController("createStore", {}, {
+        groupId: 1337
+      });
+      $ctrl.storeData.name = "blabla";
+      $httpBackend.expectPOST("/api/stores/", {
+        group: 1337,
+        name: "blabla"
+      }).respond();
+
+      $ctrl.createStore();
+      $httpBackend.flush();
+      expect($mdDialog.hide).to.have.been.called;
+    });
+
+    it("closes panel", () => {
+      let $ctrl = $componentController("createStore", {});
+      $ctrl.closePanel();
+      expect($mdDialog.hide).to.have.been.called;
     });
   });
 

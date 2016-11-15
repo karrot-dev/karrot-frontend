@@ -4,11 +4,9 @@ import "./pickupList.styl";
 
 let pickupListComponent = {
   bindings: {
-    showCreateButton: "@",  // show create-pickup button
-    header: "@",            // set custom headline
-    showDetail: "@",        // default: date; other options: "store"
     groupId: "@",
-    storeId: "@"
+    storeId: "@",
+    options: "<"
   },
   template,
   controller

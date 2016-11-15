@@ -1,5 +1,4 @@
 import StoreListModule from "./storeList";
-import StoreModule from "../../common/store/store";
 
 describe("StoreList", () => {
   let $componentController, $httpBackend;
@@ -8,12 +7,6 @@ describe("StoreList", () => {
 
   beforeEach(() => {
     module(StoreListModule);
-    module(StoreModule);
-
-    angular.mock.module(($provide) => {
-      $provide.value("$mdDialog", {});
-      $provide.value("$document", {});
-    });
     inject(($injector) => {
       $httpBackend = $injector.get("$httpBackend");
       $componentController = $injector.get("$componentController");
@@ -36,26 +29,29 @@ describe("StoreList", () => {
   };
 
   describe("Controller", () => {
-    let controller;
-
     it("check binding of complete stores",() => {
-      controller = $componentController("storeList", {
+      let $ctrl = $componentController("storeList", {
       }, {
         stores: [storeOne]
       });
 
-      expect(controller.storeData).to.deep.equal([storeOne]);
+      expect($ctrl.storeData).to.deep.equal([storeOne]);
     });
 
 
     it("maps stores-array",() => {
-      controller = $componentController("storeList", {
+      $componentController("storeList", {
       }, {
         stores: [1]
       });
 
       $httpBackend.expectGET("/api/stores/1/").respond(storeOne);
       $httpBackend.flush();
+    });
+
+    it("opens dialog to create store", () => {
+      let $ctrl = $componentController("storeList", {}, { stores: [] } );
+      $ctrl.openCreateStorePanel();
     });
   });
 });

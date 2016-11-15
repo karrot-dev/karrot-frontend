@@ -9,30 +9,23 @@ describe("PickupList", () => {
 
   let { module } = angular.mock;
 
-  beforeEach(module(PickupListModule));
-  beforeEach(module(UserModule));
-  beforeEach(module(StoreModule));
-  beforeEach(module(AuthenticationModule));
-  beforeEach(module(PickupDateModule));
-
   beforeEach(() => {
+    module(PickupListModule);
+    module(UserModule);
+    module(StoreModule);
+    module(AuthenticationModule);
+    module(PickupDateModule);
+
     angular.mock.module(($provide) => {
       $provide.value("$mdDialog", {});
-    });
-  });
-
-  beforeEach(() => {
-    angular.mock.module(($provide) => {
       $provide.value("$document", {});
     });
+    inject(($injector) => {
+      $httpBackend = $injector.get("$httpBackend");
+      $rootScope = $injector.get("$rootScope");
+      $componentController = $injector.get("$componentController");
+    });
   });
-
-
-  beforeEach(inject(($injector) => {
-    $httpBackend = $injector.get("$httpBackend");
-    $rootScope = $injector.get("$rootScope");
-    $componentController = $injector.get("$componentController");
-  }));
 
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
@@ -41,13 +34,7 @@ describe("PickupList", () => {
 
   let authData = {
     "id": 1,
-    "display_name": "Lars",
-    "first_name": "Lars",
-    "last_name": "Wolf",
-    "email": "l@l.de",
-    "address": null,
-    "latitude": null,
-    "longitude": null
+    "display_name": "Lars"
   };
 
   let pickupData = [{
@@ -142,6 +129,8 @@ describe("PickupList", () => {
       "isFull": false
     }];
 
+  let fullPickups = [pickupDataInfoAdded[1]];
+
   let pickupDataInfoAddedGrouped = [
     {
       "date": "2016-09-16",
@@ -206,29 +195,9 @@ describe("PickupList", () => {
       }]
     }];
 
-  let fullPickups = [
-    {
-      "id": 14,
-      "date": "2016-09-16T01:00:00Z",
-      "collector_ids": [
-        1,
-        8
-      ],
-      "max_collectors": 2,
-      "store": 9,
-      "isUserMember": true,
-      "isFull": true
-    }
-  ];
-
   let storeData = {
     "id": 9,
-    "name": "REWE Neuried",
-    "description": "dasdsd",
-    "group": 4,
-    "address": "Muenchen",
-    "latitude": 51.6180165487737,
-    "longitude": 2.8125
+    "name": "REWE Neuried"
   };
 
   describe("Controller with showDetail = date (default)", () => {
@@ -239,7 +208,9 @@ describe("PickupList", () => {
         $scope: $rootScope.$new()
       }, {
         storeId: 9,
-        header: "My amazing Pickups"
+        options: {
+          header: "My amazing Pickups"
+        }
       });
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
@@ -253,7 +224,7 @@ describe("PickupList", () => {
 
     it("bindings", () => {
       expect(controller.storeId).to.equal(9);
-      expect(controller.header).to.equal("My amazing Pickups");
+      expect(controller.options.header).to.equal("My amazing Pickups");
     });
 
     it("automatic update", () => {
@@ -264,7 +235,7 @@ describe("PickupList", () => {
 
     it("addPickupInfo functionality", () => {
       controller.userId = 1;
-      controller.addPickuplistInfos(pickupData);
+      controller.addPickupInfosAndDisplay(pickupData);
       let updatedData = controller.allPickups;
       expect(updatedData).to.deep.equal(pickupDataInfoAdded);
       expect(updatedData[0].store).to.deep.equal(9);
@@ -272,12 +243,12 @@ describe("PickupList", () => {
 
     it("filter functionality", () => {
       controller.allPickups = pickupDataInfoAdded;
-      controller.pickupList = {
+      controller.options.filter = {
         showJoined: false,
         showOpen: false,
         showFull: true
       };
-      expect(controller.filterPickups()).to.deep.equal(fullPickups);
+      expect(controller.filterAndDisplayPickups()).to.deep.equal(fullPickups);
     });
 
     it("groupByDate functionality", () => {
@@ -293,8 +264,10 @@ describe("PickupList", () => {
         $scope: $rootScope.$new()
       }, {
         storeId: 9,
-        header: "My amazing Pickups",
-        showDetail: "store"
+        options: {
+          header: "My amazing Pickups",
+          showDetail: "store"
+        }
       });
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
@@ -308,7 +281,7 @@ describe("PickupList", () => {
 
     it("addPickupInfo get Store Info functionality", () => {
       controller.userId = 1;
-      controller.addPickuplistInfos(pickupData);
+      controller.addPickupInfosAndDisplay(pickupData);
       let updatedData = controller.allPickups;
       expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
     });

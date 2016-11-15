@@ -10,6 +10,16 @@ class GroupDetailController {
         leaveGroup: false
       }
     });
+
+    this.pickupListOptions = {
+      showDetail: "store",
+      showTopbar: false,
+      filter: {
+        showJoined: true,
+        showOpen: true,
+        showFull: false
+      }
+    };
   }
 
   leaveGroup() {

@@ -55,7 +55,7 @@ class StoreListController {
     this.$mdDialog.show({
       parent: parentEl,
       targetEvent: $event,
-      template: `{{storeId}}<create-store group-id='$ctrl.groupId'></create-store>`,
+      template: "<create-store group-id='$ctrl.groupId'></create-store>",
       locals: {
         groupId: this.groupId
       },

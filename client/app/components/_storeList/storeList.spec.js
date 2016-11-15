@@ -6,14 +6,20 @@ describe("StoreList", () => {
 
   let { module } = angular.mock;
 
-  beforeEach(module(StoreListModule));
-  beforeEach(module(StoreModule));
+  beforeEach(() => {
+    module(StoreListModule);
+    module(StoreModule);
 
-  beforeEach(inject(($injector) => {
-    $httpBackend = $injector.get("$httpBackend");
-    $rootScope = $injector.get("$rootScope");
-    $componentController = $injector.get("$componentController");
-  }));
+    angular.mock.module(($provide) => {
+      $provide.value("$mdDialog", {});
+      $provide.value("$document", {});
+    });
+    inject(($injector) => {
+      $httpBackend = $injector.get("$httpBackend");
+      $rootScope = $injector.get("$rootScope");
+      $componentController = $injector.get("$componentController");
+    });
+  });
 
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();

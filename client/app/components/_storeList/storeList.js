@@ -1,9 +1,11 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import storeListComponent from "./storeList.component";
+import createStore from "../_createStore/createStore";
 
 let storeListModule = angular.module("storeList", [
-  uiRouter
+  uiRouter,
+  createStore
 ])
 
 .component("storeList", storeListComponent)

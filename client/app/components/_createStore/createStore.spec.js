@@ -6,7 +6,14 @@ import CreateStoreTemplate from "./createStore.html";
 const { module } = angular.mock;
 
 describe("CreateStore", () => {
-  beforeEach(module(CreateStoreModule));
+  beforeEach(() => {
+    module(CreateStoreModule);
+    angular.mock.module(($provide) => {
+      $provide.value("$mdDialog", {
+        hide: () => {}
+      });
+    });
+  });
 
   describe("Module", () => {
     // top-level specs: i.e., routes, injection, naming
@@ -24,14 +31,6 @@ describe("CreateStore", () => {
     it("should exist", () => {
       let $ctrl = $componentController("createStore", {});
       expect($ctrl).to.exist;
-    });
-  });
-
-  describe("Template", () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-    it("has name in template [REMOVE]", () => {
-      expect(CreateStoreTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
     });
   });
 

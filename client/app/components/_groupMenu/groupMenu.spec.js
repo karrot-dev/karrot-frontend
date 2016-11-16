@@ -22,8 +22,14 @@ describe("GroupMenu", () => {
     }));
 
     it("should exist", () => {
-      let ctrl = $componentController("groupMenu", {});
-      expect(ctrl).to.exist;
+      let $ctrl = $componentController("groupMenu", {});
+      expect($ctrl).to.exist;
+    });
+
+    it("opens join group dialog", () => {
+      let $ctrl = $componentController("groupMenu", {});
+      $ctrl.openJoinGroupDialog();
+      // TODO resolve and test promise
     });
   });
 

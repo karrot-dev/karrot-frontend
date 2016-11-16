@@ -1,7 +1,6 @@
 /**
  * TODOs
  *  open Edit Panel
- *  open Store Page
  */
 
 class StoreListController {
@@ -45,15 +44,13 @@ class StoreListController {
   }
 
   openCreateStorePanel($event) {
-    let parentEl = this.$document.body;
-
     let DialogController = function (groupId) {
       "ngInject";
       this.groupId = groupId;
     };
 
     this.$mdDialog.show({
-      parent: parentEl,
+      parent: this.$document.body,
       targetEvent: $event,
       template: "<create-store group-id='$ctrl.groupId'></create-store>",
       locals: {

@@ -3,7 +3,8 @@ class CreateGroupController {
     "ngInject";
     Object.assign(this, {
       $state,
-      Group
+      Group,
+      groupData: {}
     });
   }
 
@@ -11,10 +12,7 @@ class CreateGroupController {
     this.Group.create(this.groupData).then((data) => {
       this.$state.go("groupDetail", { id: data.id });
     }).catch((error) => {
-      this.error = {
-        failed: true,
-        msg: error.data
-      };
+      this.error = error.data;
     });
   }
 }

@@ -1,10 +1,8 @@
 import CreateGroupModule from "./createGroup";
-import Authentication from "../../common/authentication/authentication";
 
 const { module } = angular.mock;
 
 describe("CreateGroup", () => {
-  beforeEach(module(Authentication));
   beforeEach(module(CreateGroupModule));
 
   describe("Module", () => {
@@ -14,14 +12,39 @@ describe("CreateGroup", () => {
   });
 
   describe("Controller", () => {
-    let $componentController;
-    beforeEach(inject((_$componentController_) => {
-      $componentController = _$componentController_;
+    let $componentController, $httpBackend, $state;
+    beforeEach(inject(($injector) => {
+      $componentController = $injector.get("$componentController");
+      $httpBackend = $injector.get("$httpBackend");
+      $state = $injector.get("$state");
+      sinon.stub($state, "go");
     }));
 
-    it("should exist", () => {
+    afterEach(() => {
+      $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.verifyNoOutstandingRequest();
+    });
+
+    it("creates group", () => {
       let $ctrl = $componentController("createGroup", {});
-      expect($ctrl).to.exist;
+      $ctrl.groupData.name = "blabla";
+      $ctrl.createGroup();
+      $httpBackend.expectPOST("/api/groups/", {
+        name: "blabla"
+      }).respond(201, { id: 987 });
+      $httpBackend.flush();
+      expect($state.go).to.have.been.calledWith("groupDetail", { id: 987 });
+    });
+
+    it("fails to create group", () => {
+      let $ctrl = $componentController("createGroup", {});
+      $ctrl.groupData.name = "blabla";
+      $ctrl.createGroup();
+      $httpBackend.expectPOST("/api/groups/", {
+        name: "blabla"
+      }).respond(400, "message");
+      $httpBackend.flush();
+      expect($ctrl.error).to.equal("message");
     });
   });
 });

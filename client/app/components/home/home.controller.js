@@ -1,30 +1,35 @@
 class HomeController {
-  constructor($state, Group) {
+  constructor($state, $document, $mdDialog, Group) {
     "ngInject";
-    this.$state = $state;
-    this.Group = Group;
-
-    this.name = "home";
-    this.redirecting = true;
+    Object.assign(this, {
+      $state,
+      $document,
+      $mdDialog,
+      Group
+    });
 
     this.Group.listMy().then((data) => {
       if (data.length > 0) {
         $state.go("groupDetail", { id: data[0].id });
       } else {
-        this.redirecting = false;
-        this.Group.list().then((data) => {
-          this.groups = data.sort((a,b) => b.members.length - a.members.length);
-        });
+        this.openJoinGroupDialog();
       }
     });
   }
 
-  joinGroup (groupId) {
-    this.redirecting = true;
-    this.Group.join(groupId).then(() => {
+  openJoinGroupDialog($event) {
+    let parentEl = this.$document.body;
+
+    this.$mdDialog.show({
+      parent: parentEl,
+      targetEvent: $event,
+      template: "<join-group></join-group>"
+    }).then((groupId) => {
       this.$state.go("groupDetail", { id: groupId });
     });
   }
+
+
 }
 
 export default HomeController;

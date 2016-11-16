@@ -16,11 +16,12 @@
     "MEMBERS": "Members",
     "STORES": "Stores"
   },
-  "HOME": {
-    "REDIRECT": "Redirecting to your beloved group...",
-    "NOGROUPS": "You aren't part of any group yet <big>😢</big>",
+  "JOINGROUP": {
     "WHICHGROUP": "Which group do you want to join?",
     "MEMBERS": "Members"
+  },
+  "HOME": {
+    "REDIRECT": "Redirecting to your beloved group..."
   },
   "LOGIN": {
     "TITLE": "Login",

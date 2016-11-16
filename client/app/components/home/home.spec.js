@@ -42,5 +42,12 @@ describe("Home", () => {
       $httpBackend.flush();
       expect($state.go).to.have.been.calledWith("groupDetail", { id: 50 });
     });
+
+    it("opens join group dialog", () => {
+      $httpBackend.expectGET("/api/groups/?members=1").respond(200, {});
+      $httpBackend.expectGET("/api/groups/").respond(200, []);
+      $componentController("home", {});
+      $httpBackend.flush();
+    });
   });
 });

@@ -1,0 +1,27 @@
+<md-dialog-content>
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h2>
+        <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-smile-o"></i>
+        <span translate="JOINGROUP.WHICHGROUP"></span>
+      </h2>
+    </div>
+  </md-toolbar>
+  <md-list>
+    <md-list-item>
+      <span translate="JOINGROUP.NAME"></span>
+      <span translate="JOINGROUP.MEMBERS" class="md-secondary"></span>
+    </md-list-item>
+    <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0"
+                  ng-click="$ctrl.joinGroup(group.id)">
+      <span>{{group.name}}</span>
+      <span class="md-secondary">{{group.members.length}}</span>
+    </md-list-item>
+  </md-list>
+</md-dialog-content>
+
+<md-dialog-actions>
+  <md-button ng-click="$ctrl.$mdDialog.cancel()">
+    <span translate="BUTTON.CANCEL"></span>
+  </md-button>
+</md-dialog-actions>

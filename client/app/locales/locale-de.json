@@ -16,11 +16,12 @@
     "MEMBERS": "Anzahl Mitglieder",
     "STORES": "Betriebe"
   },
-  "HOME": {
-    "REDIRECT": "Umleitung zu deiner Gruppe...",
-    "NOGROUPS": " Du bist noch kein Mitglied einer Gruppe <big>😢</big>",
+  "JOINGROUP": {
     "WHICHGROUP": "Welcher Gruppe willst du beitreten?",
     "MEMBERS": "Anzahl Mitglieder"
+  },
+  "HOME": {
+    "REDIRECT": "Umleitung zu deiner Gruppe..."
   },
   "LOGIN": {
     "TITLE": "Login",

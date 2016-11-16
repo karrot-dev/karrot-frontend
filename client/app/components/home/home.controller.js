@@ -18,10 +18,8 @@ class HomeController {
   }
 
   openJoinGroupDialog($event) {
-    let parentEl = this.$document.body;
-
     this.$mdDialog.show({
-      parent: parentEl,
+      parent: this.$document.body,
       targetEvent: $event,
       template: "<join-group></join-group>"
     }).then((groupId) => {

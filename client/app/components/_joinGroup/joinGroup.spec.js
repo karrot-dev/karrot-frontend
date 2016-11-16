@@ -1,7 +1,4 @@
 import JoinGroupModule from "./joinGroup";
-import JoinGroupController from "./joinGroup.controller";
-import JoinGroupComponent from "./joinGroup.component";
-import JoinGroupTemplate from "./joinGroup.html";
 
 const { module } = angular.mock;
 
@@ -9,40 +6,32 @@ describe("JoinGroup", () => {
   beforeEach(module(JoinGroupModule));
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
     it("is named joinGroup", () => {
       expect(JoinGroupModule).to.equal("joinGroup");
     });
   });
 
   describe("Controller", () => {
-    let $componentController;
-    beforeEach(inject((_$componentController_) => {
-      $componentController = _$componentController_;
+    let $componentController, $httpBackend, $mdDialog;
+    beforeEach(inject(($injector) => {
+      $componentController = $injector.get("$componentController");
+      $httpBackend = $injector.get("$httpBackend");
+      $mdDialog = $injector. get("$mdDialog");
+      sinon.stub($mdDialog, "hide");
     }));
 
-    it("should exist", () => {
-      let $ctrl = $componentController("joinGroup", {});
-      expect($ctrl).to.exist;
+    afterEach(() => {
+      $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.verifyNoOutstandingRequest();
     });
 
     it("joins group", () => {
       let $ctrl = $componentController("joinGroup", {});
-      $ctrl.joinGroup();
-      // TODO assert something
-    });
-  });
-
-  describe("Component", () => {
-    // component/directive specs
-    let component = JoinGroupComponent;
-
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(JoinGroupTemplate);
-    });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(JoinGroupController);
+      $httpBackend.expectGET("/api/groups/").respond([]);
+      $ctrl.joinGroup(1337);
+      $httpBackend.expectPOST("/api/groups/1337/join/").respond();
+      $httpBackend.flush();
+      expect($mdDialog.hide).to.have.been.calledWith(1337);
     });
   });
 });

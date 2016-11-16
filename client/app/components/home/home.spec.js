@@ -14,17 +14,22 @@ describe("Home", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $httpBackend, $state, Authentication;
-    beforeEach(() => {
-      inject((_$componentController_, _$httpBackend_, _$state_, _Authentication_) => {
-        $componentController = _$componentController_;
-        $httpBackend = _$httpBackend_;
-        $state = _$state_;
-        Authentication = _Authentication_;
-      });
+    let $componentController, $httpBackend, $state, $mdDialog, $q, Authentication;
+    beforeEach(inject(($injector) => {
+      $componentController = $injector.get("$componentController");
+      $httpBackend = $injector.get("$httpBackend");
+
+      Authentication = $injector.get("Authentication");
       Authentication.data = { id: 1 };
+
+      $mdDialog = $injector.get("$mdDialog");
+      sinon.stub($mdDialog, "show");
+
+      $state = $injector.get("$state");
       sinon.stub($state, "go");
-    });
+
+      $q = $injector.get("$q");
+    }));
 
     afterEach(() => {
       $httpBackend.verifyNoOutstandingExpectation();
@@ -45,9 +50,12 @@ describe("Home", () => {
 
     it("opens join group dialog", () => {
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, {});
-      $httpBackend.expectGET("/api/groups/").respond(200, []);
+      $mdDialog.show.returns($q((resolve) => {
+        resolve(1337);
+      }));
       $componentController("home", {});
       $httpBackend.flush();
+      expect($state.go).to.have.been.calledWith( "groupDetail", { id: 1337 } );
     });
   });
 });

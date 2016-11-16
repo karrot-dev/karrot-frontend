@@ -13,14 +13,14 @@
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
     "PICKUPS": "Abholungen",
-    "MEMBERS": "Anzahl Mitglieder",
+    "MEMBERS": "Mitglieder",
     "STORES": "Betriebe"
   },
   "HOME": {
     "REDIRECT": "Umleitung zu deiner Gruppe...",
     "NOGROUPS": " Du bist noch kein Mitglied einer Gruppe <big>😢</big>",
     "WHICHGROUP": "Welcher Gruppe willst du beitreten?",
-    "MEMBERS": "Anzahl Mitglieder"
+    "NUM_MEMBERS": "Anzahl Mitglieder"
   },
   "LOGIN": {
     "TITLE": "Login",

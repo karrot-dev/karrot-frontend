@@ -11,6 +11,7 @@ import topbar from "./_topbar/topbar";
 import userList from "./_userList/userList";
 import groupMenu from "./_groupMenu/groupMenu";
 import languageChooser from "./_languageChooser/languageChooser";
+import createGroup from "./createGroup/createGroup";
 
 let componentModule = angular.module("app.components", [
   createPickup,
@@ -24,9 +25,8 @@ let componentModule = angular.module("app.components", [
   topbar,
   userList,
   groupMenu,
-  languageChooser
-])
-
-        .name;
+  languageChooser,
+  createGroup
+]).name;
 
 export default componentModule;

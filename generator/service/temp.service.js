@@ -1,6 +1,8 @@
 class <%= upCaseName %>Service {
   constructor() {
-
+    "ngInject";
+    Object.assign(this, {
+    });
   }
 }
 

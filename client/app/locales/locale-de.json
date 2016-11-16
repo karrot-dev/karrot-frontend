@@ -13,10 +13,11 @@
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
     "PICKUPS": "Abholungen",
-    "MEMBERS": "Anzahl Mitglieder",
+    "MEMBERS": "Mitglieder",
     "STORES": "Betriebe"
   },
   "JOINGROUP": {
+    "NAME": "Name",
     "WHICHGROUP": "Welcher Gruppe willst du beitreten?",
     "MEMBERS": "Anzahl Mitglieder"
   },
@@ -36,7 +37,7 @@
     "FAILED": "Accounterstellung fehlgeschlagen!"
   },
   "GROUPMENU": {
-    "JOIN": "Zu einer Gruppe beitreten (TODO)"
+    "JOIN": "Zu einer Gruppe beitreten"
   },
   "CREATEPICKUP": {
     "TITLE": "Abholungstermin erstellen",

@@ -5,7 +5,7 @@ import AuthenticationModule from "../../common/authentication/authentication";
 import PickupDateModule from "../../common/pickupDate/pickupDate";
 
 describe("PickupList", () => {
-  let $rootScope, $componentController, $httpBackend;
+  let $componentController, $httpBackend;
 
   let { module } = angular.mock;
 
@@ -22,7 +22,6 @@ describe("PickupList", () => {
     });
     inject(($injector) => {
       $httpBackend = $injector.get("$httpBackend");
-      $rootScope = $injector.get("$rootScope");
       $componentController = $injector.get("$componentController");
     });
   });
@@ -205,7 +204,6 @@ describe("PickupList", () => {
 
     beforeEach(() => {
       controller = $componentController("pickupList", {
-        $scope: $rootScope.$new()
       }, {
         storeId: 9,
         options: {
@@ -261,7 +259,6 @@ describe("PickupList", () => {
 
     beforeEach(() => {
       controller = $componentController("pickupList", {
-        $scope: $rootScope.$new()
       }, {
         storeId: 9,
         options: {

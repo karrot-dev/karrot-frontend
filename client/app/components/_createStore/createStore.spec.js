@@ -52,8 +52,19 @@ describe("CreateStore", () => {
       }).respond({ some: "data" });
 
       $ctrl.createStore();
+      expect($ctrl.ongoing).to.be.true;
       $httpBackend.flush();
       expect($mdDialog.hide).to.have.been.calledWith({ some: "data" });
+    });
+
+    it("fails to create store", () => {
+      let $ctrl = $componentController("createStore", {});
+      $httpBackend.expectPOST("/api/stores/").respond(403, { error: "message" });
+      $ctrl.createStore();
+      expect($ctrl.ongoing).to.be.true;
+      $httpBackend.flush();
+      expect($ctrl.ongoing).to.be.false;
+      expect($ctrl.error).to.deep.equal({ error: "message" });
     });
 
     it("closes panel", () => {

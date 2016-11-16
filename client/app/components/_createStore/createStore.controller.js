@@ -6,16 +6,19 @@ class CreateStoreController {
       Store,
       storeData: {
         group: this.groupId
-      }
+      },
+      ongoing: false
     });
   }
 
   createStore() {
-    // TODO show spinning wheel
+    this.ongoing = true;
+    this.error = "";
     this.Store.create(this.storeData).then((data) => {
       this.$mdDialog.hide(data);
     }).catch((err) => {
-      console.log(err);
+      this.error = err.data;
+      this.ongoing = false;
     });
   }
 

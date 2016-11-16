@@ -31,10 +31,13 @@
         <md-button ng-click="$ctrl.closePanel()">
           <span translate="BUTTON.CANCEL"></span>
         </md-button>
-        <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createStoreForm.$invalid">
-          <span translate="BUTTON.CREATE"></span>
+        <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createStoreForm.$invalid || $ctrl.ongoing">
+          <span ng-if="!$ctrl.ongoing" translate="BUTTON.CREATE"></span>
+          <i ng-if="$ctrl.ongoing" class="fa fa-spinner"></i>
         </md-button>
       </div>
+
+      {{ $ctrl.error }}
     </form>
   </md-content>
 </div>

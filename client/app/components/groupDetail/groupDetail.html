@@ -1,20 +1,30 @@
 <div class="groupDetail">
   <div layout="row">
-    <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
+    <h1 class="md-headline" flex editable-text="$ctrl.groupData.name" onaftersave="$ctrl.updateGroupData()">
+      {{$ctrl.groupData.name}}
+    </h1>
     <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
     <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
       aria-label="{{ 'GROUP.LEAVE' | translate }}">
       <i class="fa fa-fw fa-sign-out"></i>
     </md-button>
   </div>
-  <p>{{$ctrl.groupdata.description}}</p>
+  <div>
+    <span editable-textarea="$ctrl.groupData.description" onaftersave="$ctrl.updateGroupData()" e-form="textBtnForm"
+          e-rows="10" e-cols="50">
+      <pre>{{$ctrl.groupData.description}}</pre>
+    </span>
+    <md-button class="md-raised" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
+      <i class="fa fa-pencil"></i>
+    </md-button>
+  </div>
   <md-tabs md-dynamic-height md-border-bottom flex>
     <md-tab>
       <md-tab-label>
         <span translate="GROUP.PICKUPS"></span>
       </md-tab-label>
       <md-tab-body>
-        <pickup-list group-id="{{$ctrl.groupdata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
+        <pickup-list group-id="{{$ctrl.groupData.id}}" options="$ctrl.pickupListOptions"></pickup-list>
       </md-tab-body>
     </md-tab>
     <md-tab>
@@ -22,7 +32,7 @@
         <span translate="GROUP.MEMBERS"></span>
       </md-tab-label>
       <md-tab-body>
-        <user-list users="$ctrl.groupdata.members"></user-list>
+        <user-list users="$ctrl.groupData.members"></user-list>
       </md-tab-body>
     </md-tab>
     <md-tab>

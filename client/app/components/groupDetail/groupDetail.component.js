@@ -4,7 +4,7 @@ import "./groupDetail.styl";
 
 let groupDetailComponent = {
   bindings: {
-    groupdata: "<",
+    groupData: "<",
     stores: "<"
   },
   template,

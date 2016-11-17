@@ -24,7 +24,7 @@ let groupDetailModule = angular.module("groupDetail", [
       url: "/group/{id:int}",
       component: "groupDetail",
       resolve: {
-        groupdata: (Group, CurrentGroup, $stateParams) => {
+        groupData: (Group, CurrentGroup, $stateParams) => {
           return Group.get($stateParams.id).then((group) => {
             CurrentGroup.set(group);
             return group;

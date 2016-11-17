@@ -24,7 +24,6 @@ describe("StoreDetail", () => {
   });
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
     it("is named storeDetail", () => {
       expect(StoreDetailModule).to.equal("storeDetail");
     });
@@ -32,13 +31,17 @@ describe("StoreDetail", () => {
 
   describe("Controller", () => {
     let $componentController;
-    beforeEach(inject((_$componentController_) => {
-      $componentController = _$componentController_;
+    beforeEach(inject(($injector) => {
+      $componentController = $injector.get("$componentController");
     }));
 
-    it("should exist", () => {
-      let ctrl = $componentController("storeDetail", {});
-      expect(ctrl).to.exist;
+    it("should save storedata", () => {
+      let storedata = { id: 667, name: "blarb" };
+      let $ctrl = $componentController("storeDetail", {}, { storedata });
+      let feedback = $ctrl.updateStoredata();
+      $httpBackend.expectPATCH(`/api/stores/${storedata.id}/`, storedata).respond(storedata);
+      $httpBackend.flush();
+      expect(feedback).to.eventually.deep.equal(storedata);
     });
   });
 

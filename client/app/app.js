@@ -8,6 +8,8 @@ import Common from "./common/common";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppTranslate from "./app.translate";
+import "angular-xeditable";
+import "../../node_modules/angular-xeditable/dist/css/xeditable.css";
 import "normalize.css";
 import "../../node_modules/angular-material/angular-material.css";
 import "./fonts/fonts";
@@ -19,6 +21,7 @@ import splashLayout from "./layouts/splash.html";
 angular.module("app", [
   uiRouter,
   ngMaterial,
+  "xeditable",
   ngCookies,
   translate,
   translateStorageCookie,

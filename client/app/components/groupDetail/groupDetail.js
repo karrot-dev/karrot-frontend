@@ -1,14 +1,19 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import groupDetailComponent from "./groupDetail.component";
-
 import AuthenticationModule from "../../common/authentication/authentication";
 import groupModule from "../../common/group/group";
+import storeList from "../_storeList/storeList";
+import userList from "../_userList/userList";
+import pickupList from "../_pickupList/pickupList";
 
 let groupDetailModule = angular.module("groupDetail", [
   uiRouter,
   AuthenticationModule,
-  groupModule
+  groupModule,
+  storeList,
+  userList,
+  pickupList
 ])
 
 .config(($stateProvider, hookProvider) => {

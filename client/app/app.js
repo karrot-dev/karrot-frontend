@@ -5,7 +5,7 @@ import ngCookies from "angular-cookies";
 import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
 import Common from "./common/common";
-import Components from "./components/components";
+import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppTranslate from "./app.translate";
 import "normalize.css";
@@ -23,7 +23,7 @@ angular.module("app", [
   translate,
   translateStorageCookie,
   Common,
-  Components
+  PageComponents
 ]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {
   "ngInject";
   $locationProvider.html5Mode(false).hashPrefix("!");

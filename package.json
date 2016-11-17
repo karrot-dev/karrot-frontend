@@ -1,7 +1,7 @@
 {
-  "name": "yunity-angular",
+  "name": "foodsaving-frontend",
   "version": "0.0.1",
-  "description": "Yunity webapp proposal using Angular + Angular Material",
+  "description": "Tool to support foodsaving groups worldwide",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.0",
@@ -78,16 +78,14 @@
     "test:watch": "karma start --no-single-run --auto-watch"
   },
   "keywords": [
-    "angular",
-    "webpack",
-    "es6",
     "yunity",
-    "foodsharing"
+    "foodsharing",
+    "foodsaving"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunity/yunity-angular.git"
+    "url": "https://github.com/yunity/foodsaving-frontend.git"
   },
-  "author": "Yunity",
+  "author": "yunity",
   "license": "MIT"
 }

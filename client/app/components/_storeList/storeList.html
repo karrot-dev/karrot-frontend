@@ -1,4 +1,8 @@
 <md-list layout-padding>
+  <md-button class="small md-primary md-hue-3" aria-label="Create Store" ng-click="$ctrl.openCreateStorePanel($event)">
+    <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
+    <span translate="BUTTON.CREATE"></span>
+  </md-button>
   <md-list-item ng-repeat="store in $ctrl.storeData" ng-click="$ctrl.onClick(store)">
     <p>{{store.name}}</p>
     <md-button ng-show="$ctrl.showEdit" class="md-secondary md-icon-button" aria-label="Edit" ng-click="editStore(store)">

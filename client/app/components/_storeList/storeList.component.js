@@ -6,7 +6,8 @@ let storeListComponent = {
   bindings: {
     showEdit: "@",
     stores: "<",
-    callback: "<"
+    callback: "<",
+    groupId: "<"
   },
   template,
   controller

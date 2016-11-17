@@ -6,11 +6,8 @@ import StoreDetailTemplate from "./storeDetail.html";
 const { module } = angular.mock;
 
 describe("StoreDetail", () => {
-
   let $httpBackend, $state;
-
   beforeEach(module(StoreDetailModule));
-
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });
@@ -46,7 +43,6 @@ describe("StoreDetail", () => {
   });
 
   describe("Routes", () => {
-
     context("when logged in", () => {
 
       let loginData = {
@@ -59,11 +55,9 @@ describe("StoreDetail", () => {
       });
 
       describe("storeDetail", () => {
-
         let groupData = {
           id: 12
         };
-
         let storeData = {
           id: 25,
           group: groupData.id
@@ -76,14 +70,8 @@ describe("StoreDetail", () => {
           $httpBackend.flush();
           expect($state.current.component).to.equal("storeDetail");
         });
-
       });
-
     });
-
-  });
-
-  describe("Template", () => {
   });
 
   describe("Component", () => {

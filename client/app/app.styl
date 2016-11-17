@@ -11,3 +11,22 @@ yunity-orange = #f66c41;
 // the main layout panel
 .main-panel
   padding: 16px
+
+// styles for angular-xeditable
+.editable-click
+  color: inherit;
+  border-bottom: none;
+
+.editable-click:hover
+  opacity: 0.8;
+  color: inherit;
+
+.editable-click:hover::after
+  // copied from font-awesome
+  content: "\f040";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;

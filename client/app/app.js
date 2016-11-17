@@ -8,6 +8,7 @@ import Common from "./common/common";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppTranslate from "./app.translate";
+import AppXEditableConfig from "./app.xeditable";
 import "angular-xeditable";
 import "../../node_modules/angular-xeditable/dist/css/xeditable.css";
 import "normalize.css";
@@ -46,4 +47,5 @@ angular.module("app", [
   $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
 })
 .config(AppTranslate)
-.config(AppMaterial);
+.config(AppMaterial)
+.run(AppXEditableConfig);

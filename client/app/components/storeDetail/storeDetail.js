@@ -1,16 +1,17 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import storeDetailComponent from "./storeDetail.component";
-
 import AuthenticationModule from "../../common/authentication/authentication";
 import storeModule from "../../common/store/store";
 import groupModule from "../../common/group/group";
+import pickupList from "../_pickupList/pickupList";
 
 let storeDetailModule = angular.module("storeDetail", [
   uiRouter,
   AuthenticationModule,
   storeModule,
-  groupModule
+  groupModule,
+  pickupList
 ])
 
 .component("storeDetail", storeDetailComponent)

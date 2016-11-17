@@ -19,7 +19,7 @@
   "JOINGROUP": {
     "NAME": "Name",
     "WHICHGROUP": "Welcher Gruppe willst du beitreten?",
-    "MEMBERS": "Anzahl Mitglieder"
+    "NUM_MEMBERS": "Anzahl Mitglieder"
   },
   "HOME": {
     "REDIRECT": "Umleitung zu deiner Gruppe..."

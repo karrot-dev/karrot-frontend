@@ -1,23 +1,7 @@
 import StoreListModule from "./storeList";
-import StoreModule from "../../common/store/store";
 
 describe("StoreList", () => {
-  let $componentController, $httpBackend;
-
   let { module } = angular.mock;
-
-  beforeEach(module(StoreListModule));
-  beforeEach(module(StoreModule));
-
-  beforeEach(inject(($injector) => {
-    $httpBackend = $injector.get("$httpBackend");
-    $componentController = $injector.get("$componentController");
-  }));
-
-  afterEach(() => {
-    $httpBackend.verifyNoOutstandingExpectation();
-    $httpBackend.verifyNoOutstandingRequest();
-  });
 
   let storeOne = {
     "id": 1,
@@ -30,26 +14,52 @@ describe("StoreList", () => {
   };
 
   describe("Controller", () => {
-    let controller;
+    let $componentController, $httpBackend, $q, $mdDialog, $rootScope;
+
+    beforeEach(() => {
+      module(StoreListModule);
+      inject(($injector) => {
+        $httpBackend = $injector.get("$httpBackend");
+        $componentController = $injector.get("$componentController");
+        $q = $injector.get("$q");
+        $mdDialog = $injector.get("$mdDialog");
+        sinon.stub($mdDialog, "show");
+        $rootScope = $injector.get("$rootScope");
+      });
+    });
+
+    afterEach(() => {
+      $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.verifyNoOutstandingRequest();
+    });
 
     it("check binding of complete stores",() => {
-      controller = $componentController("storeList", {
+      let $ctrl = $componentController("storeList", {
       }, {
         stores: [storeOne]
       });
-
-      expect(controller.storeData).to.deep.equal([storeOne]);
+      expect($ctrl.storeData).to.deep.equal([storeOne]);
     });
 
-
     it("maps stores-array",() => {
-      controller = $componentController("storeList", {
+      $componentController("storeList", {
       }, {
         stores: [1]
       });
 
       $httpBackend.expectGET("/api/stores/1/").respond(storeOne);
       $httpBackend.flush();
+    });
+
+    it("opens dialog to create store", () => {
+      let $ctrl = $componentController("storeList", {}, { stores: [] } );
+      $mdDialog.show.returns($q((resolve) => {
+        resolve({ id: 999 });
+      }));
+      $ctrl.openCreateStorePanel();
+      $rootScope.$apply();
+      expect($mdDialog.show).to.have.been.called;
+      expect($ctrl.storeData).to.deep.equal([{ id: 999 }]);
     });
   });
 });

@@ -19,7 +19,7 @@
   "JOINGROUP": {
     "NAME": "Name",
     "WHICHGROUP": "Which group do you want to join?",
-    "MEMBERS": "Members"
+    "NUM_MEMBERS": "Members"
   },
   "HOME": {
     "REDIRECT": "Redirecting to your beloved group..."
@@ -44,6 +44,12 @@
     "TIME": "Time",
     "TIME_ERROR": "enter a valid time: [hh:mm]",
     "MAX_COLLECTORS": "Max Slots"
+  },
+  "CREATESTORE": {
+    "TITLE": "Create a new store",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address"
   },
   "PICKUPLIST": {
     "FILTER": "Filter",

@@ -3,7 +3,7 @@
     {{$ctrl.storedata.name}}
   </h1>
   <div editable-textarea="$ctrl.storedata.description" onaftersave="$ctrl.updateStoredata()">
-    <p>{{$ctrl.storedata.description || 'no description'}}</p>
+    <p class="multiline">{{$ctrl.storedata.description || 'no description'}}</p>
   </div>
   <pickup-list store-id="{{$ctrl.storedata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
 </div>

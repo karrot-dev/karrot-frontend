@@ -12,7 +12,7 @@
   <div>
     <span editable-textarea="$ctrl.groupData.description" onaftersave="$ctrl.updateGroupData()" e-form="textBtnForm"
           e-rows="10" e-cols="50">
-      <pre>{{$ctrl.groupData.description}}</pre>
+      <p class="multiline">{{$ctrl.groupData.description}}</p>
     </span>
     <md-button class="md-raised" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
       <i class="fa fa-pencil"></i>

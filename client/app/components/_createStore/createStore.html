@@ -27,6 +27,18 @@
                type="text" />
       </md-input-container>
 
+      <md-input-container>
+        <label translate="CREATESTORE.LAT"></label>
+        <input ng-model="$ctrl.storeData.latitude"
+               type="text" />
+      </md-input-container>
+
+      <md-input-container>
+        <label translate="CREATESTORE.LNG"></label>
+        <input ng-model="$ctrl.storeData.longitude"
+               type="text" />
+      </md-input-container>
+
       <div layout="row" layout-align="end center">
         <md-button ng-click="$ctrl.closePanel()">
           <span translate="BUTTON.CANCEL"></span>

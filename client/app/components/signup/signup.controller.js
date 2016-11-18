@@ -5,8 +5,6 @@ class SignupController {
       name: "signup",
       User,
       $state,
-      firstName: "",
-      lastName: "",
       username: "",
       email: "",
       password: "",
@@ -22,8 +20,6 @@ class SignupController {
     /* eslint-disable camelcase */
     let user = {
       display_name: this.username,
-      first_name: this.firstName,
-      last_name: this.lastName,
       email: this.email,
       password: this.password
     };

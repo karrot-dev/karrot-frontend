@@ -2,9 +2,7 @@
   "USERDATA": {
     "EMAIL": "E-Mail",
     "PASSWORD": "Passwort",
-    "USERNAME": "Name",
-    "FIRSTNAME": "Vorname",
-    "LASTNAME": "Nachname"
+    "USERNAME": "Name"
   },
   "BUTTON": {
     "CREATE": "Erstellen",

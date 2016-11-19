@@ -21,7 +21,10 @@ class StoreMapController {
       let bounds = new L.latLngBounds(Object.values(this.markers)).pad(0.2); // eslint-disable-line
       this.bounds = {
         northEast: bounds._northEast,
-        southWest: bounds._southWest
+        southWest: bounds._southWest,
+        options: {
+          maxZoom: 12
+        }
       };
     }
   }

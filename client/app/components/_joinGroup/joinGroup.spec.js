@@ -30,6 +30,7 @@ describe("JoinGroup", () => {
       $httpBackend.expectGET("/api/groups/").respond([]);
       $ctrl.joinGroup(1337);
       $httpBackend.expectPOST("/api/groups/1337/join/").respond();
+      $httpBackend.expectGET("/api/auth/status/").respond([]);
       $httpBackend.flush();
       expect($mdDialog.hide).to.have.been.calledWith(1337);
     });

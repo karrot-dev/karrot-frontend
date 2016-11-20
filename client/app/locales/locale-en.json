@@ -14,11 +14,13 @@
     "MEMBERS": "Members",
     "STORES": "Stores"
   },
-  "HOME": {
-    "REDIRECT": "Redirecting to your beloved group...",
-    "NOGROUPS": "You aren't part of any group yet <big>😢</big>",
+  "JOINGROUP": {
+    "NAME": "Name",
     "WHICHGROUP": "Which group do you want to join?",
     "NUM_MEMBERS": "Members"
+  },
+  "HOME": {
+    "REDIRECT": "Redirecting to your beloved group..."
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -33,7 +35,7 @@
     "FAILED": "Sign up failed!"
   },
   "GROUPMENU": {
-    "JOIN": "Join community (not implemented)"
+    "JOIN": "Join community"
   },
   "CREATEPICKUP": {
     "TITLE": "Create Pickup",

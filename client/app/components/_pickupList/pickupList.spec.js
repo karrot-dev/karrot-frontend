@@ -1,8 +1,4 @@
 import PickupListModule from "./pickupList";
-import UserModule from "../../common/user/user";
-import StoreModule from "../../common/store/store";
-import AuthenticationModule from "../../common/authentication/authentication";
-import PickupDateModule from "../../common/pickupDate/pickupDate";
 
 describe("PickupList", () => {
   let $componentController, $httpBackend;
@@ -11,15 +7,6 @@ describe("PickupList", () => {
 
   beforeEach(() => {
     module(PickupListModule);
-    module(UserModule);
-    module(StoreModule);
-    module(AuthenticationModule);
-    module(PickupDateModule);
-
-    angular.mock.module(($provide) => {
-      $provide.value("$mdDialog", {});
-      $provide.value("$document", {});
-    });
     inject(($injector) => {
       $httpBackend = $injector.get("$httpBackend");
       $componentController = $injector.get("$componentController");
@@ -200,10 +187,10 @@ describe("PickupList", () => {
   };
 
   describe("Controller with showDetail = date (default)", () => {
-    let controller;
+    let $ctrl;
 
     beforeEach(() => {
-      controller = $componentController("pickupList", {
+      $ctrl = $componentController("pickupList", {
       }, {
         storeId: 9,
         options: {
@@ -221,8 +208,8 @@ describe("PickupList", () => {
 
 
     it("bindings", () => {
-      expect(controller.storeId).to.equal(9);
-      expect(controller.options.header).to.equal("My amazing Pickups");
+      expect($ctrl.storeId).to.equal(9);
+      expect($ctrl.options.header).to.equal("My amazing Pickups");
     });
 
     it("automatic update", () => {
@@ -232,33 +219,33 @@ describe("PickupList", () => {
 
 
     it("addPickupInfo functionality", () => {
-      controller.userId = 1;
-      controller.addPickupInfosAndDisplay(pickupData);
-      let updatedData = controller.allPickups;
+      $ctrl.userId = 1;
+      $ctrl.addPickupInfosAndDisplay(pickupData);
+      let updatedData = $ctrl.allPickups;
       expect(updatedData).to.deep.equal(pickupDataInfoAdded);
       expect(updatedData[0].store).to.deep.equal(9);
     });
 
     it("filter functionality", () => {
-      controller.allPickups = pickupDataInfoAdded;
-      controller.options.filter = {
+      $ctrl.allPickups = pickupDataInfoAdded;
+      $ctrl.options.filter = {
         showJoined: false,
         showOpen: false,
         showFull: true
       };
-      expect(controller.filterAndDisplayPickups()).to.deep.equal(fullPickups);
+      expect($ctrl.filterAndDisplayPickups()).to.deep.equal(fullPickups);
     });
 
     it("groupByDate functionality", () => {
-      expect(controller.groupByDate(pickupDataInfoAdded)).to.deep.equal(pickupDataInfoAddedGrouped);
+      expect($ctrl.groupByDate(pickupDataInfoAdded)).to.deep.equal(pickupDataInfoAddedGrouped);
     });
   });
 
   describe("Controller with showDetail = store", () => {
-    let controller;
+    let $ctrl;
 
     beforeEach(() => {
-      controller = $componentController("pickupList", {
+      $ctrl = $componentController("pickupList", {
       }, {
         storeId: 9,
         options: {
@@ -277,10 +264,29 @@ describe("PickupList", () => {
     });
 
     it("addPickupInfo get Store Info functionality", () => {
-      controller.userId = 1;
-      controller.addPickupInfosAndDisplay(pickupData);
-      let updatedData = controller.allPickups;
+      $ctrl.userId = 1;
+      $ctrl.addPickupInfosAndDisplay(pickupData);
+      let updatedData = $ctrl.allPickups;
       expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
+    });
+
+    describe("createPickup dialog", () => {
+      let $q, $rootScope;
+      beforeEach(() => {
+        inject(($injector) => {
+          $q = $injector.get("$q");
+          $rootScope = $injector.get("$rootScope");
+        });
+      });
+
+      it("is called and updates pickup list", () => {
+        sinon.stub($ctrl.$mdDialog, "show");
+        sinon.stub($ctrl, "updatePickups");
+        $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
+        $ctrl.openCreatePickupPanel();
+        $rootScope.$apply();
+        expect($ctrl.updatePickups).to.have.been.called;
+      });
     });
   });
 });

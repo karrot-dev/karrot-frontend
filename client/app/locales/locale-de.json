@@ -2,9 +2,7 @@
   "USERDATA": {
     "EMAIL": "E-Mail",
     "PASSWORD": "Passwort",
-    "USERNAME": "Name",
-    "FIRSTNAME": "Vorname",
-    "LASTNAME": "Nachname"
+    "USERNAME": "Name"
   },
   "BUTTON": {
     "CREATE": "Erstellen",
@@ -16,11 +14,13 @@
     "MEMBERS": "Mitglieder",
     "STORES": "Betriebe"
   },
-  "HOME": {
-    "REDIRECT": "Umleitung zu deiner Gruppe...",
-    "NOGROUPS": " Du bist noch kein Mitglied einer Gruppe <big>😢</big>",
+  "JOINGROUP": {
+    "NAME": "Name",
     "WHICHGROUP": "Welcher Gruppe willst du beitreten?",
     "NUM_MEMBERS": "Anzahl Mitglieder"
+  },
+  "HOME": {
+    "REDIRECT": "Umleitung zu deiner Gruppe..."
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -35,7 +35,7 @@
     "FAILED": "Accounterstellung fehlgeschlagen!"
   },
   "GROUPMENU": {
-    "JOIN": "Zu einer Gruppe beitreten (TODO)"
+    "JOIN": "Zu einer Gruppe beitreten"
   },
   "CREATEGROUP": {
     "TITLE": "Gruppe erstellen",

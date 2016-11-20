@@ -1,7 +1,8 @@
+<md-button ui-sref="groupDetail({ id: $ctrl.activeGroup.id })">
+  {{$ctrl.activeGroup.name || "Please choose a group..."}}
+</md-button>
 <md-menu md-offset="0 50" md-ink-ripple>
-
  <a ng-click="$ctrl.openMenu($mdOpenMenu, $event)" class="md-button">
-   {{$ctrl.activeGroup.name || "Please choose a group..."}}
    <i class="fa fa-caret-down md-caption"></i>
  </a>
  <md-menu-content>
@@ -13,7 +14,7 @@
      </md-button>
    </md-menu-item>
    <md-menu-item>
-     <md-button href="#!/group/find" class="group-menu-join-button">
+     <md-button class="group-menu-join-button" ng-click="$ctrl.openJoinGroupDialog($event)">
        <i class="fa fa-plus"></i>
        <span translate="GROUPMENU.JOIN"></span>
      </md-button>

@@ -34,7 +34,7 @@ class CreateStoreMapController {
         lat: this.latitude,
         lng: this.longitude,
         zoom: 12
-      }
+      };
       /* this does not work - why??
       let b = hit.boundingbox;
       this.bounds = {

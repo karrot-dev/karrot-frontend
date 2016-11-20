@@ -35,16 +35,6 @@ class CreateStoreMapController {
         lng: this.longitude,
         zoom: 12
       };
-      /* this does not work - why??
-      let b = hit.boundingbox;
-      this.bounds = {
-        southWest: { lat: parseFloat(b[0]), lng: parseFloat(b[2]) },
-        northEast: { lat: parseFloat(b[1]), lng: parseFloat(b[3]) },
-        options: {
-          maxZoom: 12
-        }
-      };
-      */
     });
 
 

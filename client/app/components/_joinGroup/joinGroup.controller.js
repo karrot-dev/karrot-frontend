@@ -9,10 +9,10 @@ class JoinGroupController {
 
     this.groups = [];
 
-    this.Group.list().then((data) => {
-      this.allGroups = data.sort((a,b) => b.members.length - a.members.length);
+    this.Group.list().then((allGroups) => {
+      let sortedGroups = allGroups.sort((a,b) => b.members.length - a.members.length);
       this.Authentication.update().then((data) => {
-        angular.forEach(this.allGroups, (curGroup) => {
+        angular.forEach(sortedGroups, (curGroup) => {
           if (curGroup.members.indexOf(data.id) === -1){
             this.groups.push(curGroup);
           }

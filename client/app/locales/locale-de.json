@@ -37,6 +37,12 @@
   "GROUPMENU": {
     "JOIN": "Zu einer Gruppe beitreten (TODO)"
   },
+  "CREATEGROUP": {
+    "TITLE": "Gruppe erstellen",
+    "NAME": "Name",
+    "DESCRIPTION": "Beschreibung",
+    "ADDRESS": "Adresse"
+  },
   "CREATEPICKUP": {
     "TITLE": "Abholungstermin erstellen",
     "TIME": "Uhrzeit",

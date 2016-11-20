@@ -9,8 +9,6 @@ describe("user service", () => {
   let userData = [{
     "id": 1,
     "display_name": "Mr T",
-    "first_name": "tilmann",
-    "last_name": "becker",
     "email": "til@man.com",
     "address": null,
     "latitude": null,
@@ -19,15 +17,13 @@ describe("user service", () => {
 
   let userCreateData = [{
     "display_name": "Mr T",
-    "first_name": "tilmann",
-    "last_name": "becker",
     "email": "til@man.com",
     "password": "abc"
   }];
 
   let userModifyData = {
     "id": 1,
-    "last_name": "becker"
+    "display_name": "becker"
   };
 
   beforeEach(inject(($injector) => {

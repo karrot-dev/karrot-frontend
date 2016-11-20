@@ -10,7 +10,7 @@
   <md-list>
     <md-list-item>
       <span translate="JOINGROUP.NAME"></span>
-      <span translate="JOINGROUP.MEMBERS" class="md-secondary"></span>
+      <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
     </md-list-item>
     <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0"
                   ng-click="$ctrl.joinGroup(group.id)">

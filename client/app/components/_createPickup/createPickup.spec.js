@@ -2,7 +2,6 @@ import CreatePickupModule from "./createPickup";
 import CreatePickupController from "./createPickup.controller";
 import CreatePickupComponent from "./createPickup.component";
 import CreatePickupTemplate from "./createPickup.html";
-import PickupDate from "../../common/pickupDate/pickupDate";
 
 const { module } = angular.mock;
 
@@ -10,8 +9,6 @@ describe("CreatePickup", () => {
   let $componentController, $httpBackend;
 
   beforeEach(module(CreatePickupModule));
-  beforeEach(module(PickupDate));
-
   beforeEach(() => {
     angular.mock.module(($provide) => {
       $provide.value("$mdDialog", {
@@ -19,7 +16,6 @@ describe("CreatePickup", () => {
       });
     });
   });
-
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     $componentController = $injector.get("$componentController");
@@ -31,7 +27,6 @@ describe("CreatePickup", () => {
   });
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
     it("is named createPickup", () => {
       expect(CreatePickupModule).to.equal("createPickup");
     });

@@ -44,8 +44,6 @@ describe("Signup", () => {
 
       let signupRequest = {
         "display_name": "test",
-        "first_name": "test",
-        "last_name": "test",
         "email": "test@test.org",
         "password": "123"
       };
@@ -53,8 +51,6 @@ describe("Signup", () => {
       let signupResponse = {
         "id": 55,
         "display_name": "test",
-        "first_name": "test",
-        "last_name": "test",
         "email": "test@test.org"
       };
 
@@ -63,8 +59,6 @@ describe("Signup", () => {
         let ctrl = $componentController("signup", {});
         Object.assign(ctrl, {
           username: signupRequest.display_name,
-          firstName: signupRequest.first_name,
-          lastName: signupRequest.last_name,
           email: signupRequest.email,
           password: signupRequest.password,
           passwordrepeat: signupRequest.password

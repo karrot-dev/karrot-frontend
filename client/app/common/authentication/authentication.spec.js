@@ -16,8 +16,6 @@ describe("authentication", () => {
   let loginData = {
     "id": 7,
     "display_name": "asdflo",
-    "first_name": null,
-    "last_name": null,
     "email": "asdf.asdf@asdf.asdf",
     "address": null,
     "latitude": null,

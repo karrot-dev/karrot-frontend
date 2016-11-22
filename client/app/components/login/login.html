@@ -1,6 +1,6 @@
 <div layout="row">
   <div flex></div>
-  <div flex="nogrow" layout="column">
+  <div flex="nogrow" layout="column" id="loginContainer" ng-class="[{shake: $ctrl.error.wrong}]">
     <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
       <form login-form ng-submit="$ctrl.login()">
         <h2 translate="LOGIN.TITLE"></h2>

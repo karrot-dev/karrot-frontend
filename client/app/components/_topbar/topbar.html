@@ -8,8 +8,11 @@
 
     <span flex></span>
     <language-chooser></language-chooser>
-    <md-button class="md-icon-button" aria-label="Logout" logout hide-xs>
+    <md-button class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout hide-xs>
       <i class="fa fa-fw fa-sign-out"></i>
+      <md-tooltip>
+          <span translate="TOPBAR.LOGOUT"></span>
+      </md-tooltip>
     </md-button>
     <span flex="5" hide-xs></span>
   </div>

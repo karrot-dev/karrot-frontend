@@ -12,9 +12,9 @@ class LoginController {
   }
 
   login() {
+    this.error.wrong = false;
     this.Authentication.login(this.email, this.password)
     .then(() => {
-      this.error.wrong = false;
       this.$state.go("home");
     })
     .catch(() => {

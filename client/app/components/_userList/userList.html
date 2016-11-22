@@ -1,6 +1,6 @@
 <md-list layout-padding>
   <md-list-item ng-repeat="user in $ctrl.userData" ng-click="$ctrl.onClick(user)">
-    <p>{{user.first_name}} {{user.last_name}} (@{{user.display_name}})</p>
+    <p>{{user.display_name}}</p>
     <md-button ng-show="$ctrl.showEdit" class="md-secondary md-icon-button" aria-label="Edit" ng-click="editUser(user)">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </md-button>

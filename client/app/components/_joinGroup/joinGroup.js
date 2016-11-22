@@ -1,17 +1,17 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
-import groupMenuComponent from "./groupMenu.component";
 import Group from "../../common/group/group";
+import joinGroupComponent from "./joinGroup.component";
 
-let groupMenuModule = angular.module("groupMenu", [
+let joinGroupModule = angular.module("joinGroup", [
   uiRouter,
   ngMaterial,
   Group
 ])
 
-.component("groupMenu", groupMenuComponent)
+.component("joinGroup", joinGroupComponent)
 
 .name;
 
-export default groupMenuModule;
+export default joinGroupModule;

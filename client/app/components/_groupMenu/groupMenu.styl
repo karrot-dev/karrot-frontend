@@ -7,9 +7,21 @@ group-menu
 .group-menu-join-button
   font-size: 0.8em
 
+#group-menu-container
+    width:100%
+    max-width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+    max-width: -moz-max-content;    /* Firefox/Gecko */
+    max-width: -webkit-max-content; /* Chrome */
+
 #group-menu-active-group
     text-align: right
     margin-left: 1em
+    max-width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+    max-width: -moz-max-content;    /* Firefox/Gecko */
+    max-width: -webkit-max-content; /* Chrome */
+    text-overflow: ellipsis
+    padding: 0em
 
 #group-menu-group-picker
     text-align: left
+    min-width: 50px

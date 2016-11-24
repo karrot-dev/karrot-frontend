@@ -49,6 +49,12 @@
     "TIME_ERROR": "Gib eine gültige Uhrzeit ein [hh:mm]",
     "MAX_COLLECTORS": "Anzahl Abholer"
   },
+  "CREATESTORE": {
+    "TITLE": "Betrieb eintragen",
+    "NAME": "Name",
+    "DESCRIPTION": "Beschreibung",
+    "ADDRESS": "Adresse"
+  },
   "PICKUPLIST": {
     "FILTER": "Filter",
     "JOINED": "eingetragen",

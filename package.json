@@ -59,6 +59,7 @@
     "mocha": "^3.0.1",
     "ng-annotate-loader": "0.1.1",
     "node-libs-browser": "^1.0.0",
+    "postcss-loader": "^1.1.1",
     "raw-loader": "^0.5.1",
     "run-sequence": "^1.2.2",
     "style-loader": "^0.13.1",

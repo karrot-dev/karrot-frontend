@@ -1,9 +1,13 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import userDetailComponent from "./userDetail.component";
+import Authentication from "../../common/authentication/authentication";
+import User from "../../common/user/user";
 
 let userDetailModule = angular.module("userDetail", [
-  uiRouter
+  uiRouter,
+  Authentication,
+  User
 ])
 
 .component("userDetail", userDetailComponent)
@@ -17,9 +21,7 @@ let userDetailModule = angular.module("userDetail", [
       component: "userDetail",
       resolve: {
         userdata: (User, $stateParams) => {
-          return User.get($stateParams.id).then((user) => {
-            return user;
-          });
+          return User.get($stateParams.id).then((user) => user);
         }
       }
     });

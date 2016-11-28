@@ -1,6 +1,7 @@
 let path    = require("path");
 let webpack = require("webpack");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
+let autoprefixer = require("autoprefixer");
 
 module.exports = {
   devtool: "sourcemap",
@@ -9,12 +10,13 @@ module.exports = {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: "ng-annotate!babel" },
        { test: /\.html$/, loader: "raw" },
-       { test: /\.styl$/, loader: "style!css!stylus" },
-       { test: /\.css$/, loader: "style!css" },
+       { test: /\.styl$/, loader: "style!css?importLoaders=1!postcss!stylus" },
+       { test: /\.css$/, loader: "style!css!postcss" },
        { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
        { test: /\.json$/, loader: "json" }
     ]
   },
+  postcss: [autoprefixer()],
   plugins: [
     // Injects bundles in your index.html instead of wiring all manually.
     // It also adds hash to all injected assets so we don't have problems

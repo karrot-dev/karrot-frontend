@@ -22,6 +22,9 @@
   "HOME": {
     "REDIRECT": "Redirecting to your beloved group..."
   },
+  "TOPBAR": {
+    "LOGOUT": "Logout"
+  },
   "LOGIN": {
     "TITLE": "Login",
     "WRONG": "The given credentials are wrong. Please check them carefully.",

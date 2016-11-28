@@ -22,6 +22,9 @@
   "HOME": {
     "REDIRECT": "Umleitung zu deiner Gruppe..."
   },
+  "TOPBAR": {
+    "LOGOUT": "Ausloggen"
+  },
   "LOGIN": {
     "TITLE": "Login",
     "WRONG": "Die eingegebenen Zugangsdaten sind falsch. Bitte überprüfe sie noch einmal.",

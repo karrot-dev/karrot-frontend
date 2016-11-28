@@ -1,8 +1,5 @@
 <md-list layout-padding>
-  <md-list-item ng-repeat="user in $ctrl.userData" ng-click="$ctrl.onClick(user)">
+  <md-list-item ng-repeat="user in $ctrl.userData" ui-sref="userDetail({ id: {{user.id}} })">
     <p>{{user.display_name}}</p>
-    <md-button ng-show="$ctrl.showEdit" class="md-secondary md-icon-button" aria-label="Edit" ng-click="editUser(user)">
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-    </md-button>
   </md-list-item>
 </md-list>

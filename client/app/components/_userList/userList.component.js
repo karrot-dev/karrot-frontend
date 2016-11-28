@@ -4,9 +4,7 @@ import "./userList.styl";
 
 let userListComponent = {
   bindings: {
-    showEdit: "@",
-    users: "<",
-    callback: "<"
+    users: "<"
   },
   template,
   controller

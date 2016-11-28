@@ -1,4 +1,4 @@
-class <%= upCaseName %>Service {
+class UserDetailController {
   constructor() {
     "ngInject";
     Object.assign(this, {
@@ -6,4 +6,4 @@ class <%= upCaseName %>Service {
   }
 }
 
-export default <%= upCaseName %>Service;
+export default UserDetailController;

@@ -29,10 +29,6 @@ describe("UserList", () => {
     "longitude": null
   };
 
-  describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
-  });
-
   describe("Controller", () => {
     let controller;
 
@@ -55,14 +51,5 @@ describe("UserList", () => {
       $httpBackend.expectGET("/api/users/1/").respond(userOne);
       $httpBackend.flush();
     });
-  });
-
-  describe("Template", () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-  });
-
-  describe("Component", () => {
-      // component/directive specs
   });
 });

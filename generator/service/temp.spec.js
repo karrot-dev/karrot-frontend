@@ -6,8 +6,8 @@ describe("<%= name %>", () => {
   let <%= upCaseName %>;
   beforeEach(() => {
     module(<%= upCaseName %>Module);
-    inject((_<%= upCaseName %>_) => {
-      <%= upCaseName %> = _<%= upCaseName %>_;
+    inject(($injector) => {
+      <%= upCaseName %> = $injector.get("<%= upCaseName %>");
     });
   });
 

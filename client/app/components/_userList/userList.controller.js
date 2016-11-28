@@ -1,14 +1,9 @@
-/**
- * TODOs
- *  open Edit Panel
- *  open User Page
- */
-
 class UserListController {
   constructor(User) {
     "ngInject";
-
-    this.User = User;
+    Object.assign(this, {
+      User
+    });
 
     // check if users it's a list of IDs or Users
     if (angular.isNumber(this.users[0])){
@@ -26,18 +21,6 @@ class UserListController {
     angular.forEach(this.users, (userID) => {
       this.User.get(userID).then((data) => this.userData.push(data));
     });
-  }
-
-  onClick(user){
-    if (angular.isDefined(this.callback)){
-      this.callback(user);
-    } else {
-      //TODO: open user page
-    }
-  }
-
-  editUser(){
-    //TODO: Open Edit Panel
   }
 }
 

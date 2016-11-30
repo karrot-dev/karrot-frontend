@@ -1,8 +1,7 @@
 class CreateStoreMapController {
-  constructor($http) {
+  constructor() {
     "ngInject";
     Object.assign(this, {
-      $http,
       markers: {},
       bounds: {},
       center: {
@@ -11,34 +10,34 @@ class CreateStoreMapController {
       defaults: {
         scrollWheelZoom: false,
         zoomControl: false
+      },
+      $onChanges: (change) => {
+        if (change.latitude || change.longitude || change.address) {
+          this.setMarker(
+            change.latitude.currentValue,
+            change.longitude.currentValue,
+            change.address.currentValue);
+        }
       }
     });
   }
 
-  update() {
-    this.$http.get("https://nominatim.openstreetmap.org/search", {
-      params: { format: "json", limit: 1, q: this.address }
-    }).then((data) => {
-      let hit = data.data[0];
-      this.latitude = parseFloat(hit.lat);
-      this.longitude = parseFloat(hit.lon);
-      this.markers = {
-        pin: {
-          lat: this.latitude,
-          lng: this.longitude,
-          draggable: true,
-          message: hit.display_name
-        }
-      };
-      this.center = {
-        lat: this.latitude,
-        lng: this.longitude,
-        zoom: 12
-      };
-    });
-
-
+  setMarker(lat, lng, message) {
+    this.markers = {
+      pin: {
+        lat,
+        lng,
+        draggable: true,
+        message
+      }
+    };
+    this.center = {
+      lat,
+      lng,
+      zoom: 12
+    };
   }
+
 }
 
 export default CreateStoreMapController;

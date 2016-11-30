@@ -17,9 +17,12 @@ describe("CreateStoreMap", () => {
       $componentController = $injector.get("$componentController");
     }));
 
-    it("should exist", () => {
+    it("sets marker", () => {
       let $ctrl = $componentController("createStoreMap", {});
-      expect($ctrl).to.exist;
+      let lat = 1.99, lng = 2.99, name = "bla";
+      $ctrl.setMarker(lat, lng, name);
+      expect($ctrl.markers.pin.lat).to.equal(lat);
+      expect($ctrl.markers.pin.lng).to.equal(lng);
     });
   });
 });

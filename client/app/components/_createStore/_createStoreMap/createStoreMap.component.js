@@ -4,9 +4,9 @@ import "./createStoreMap.styl";
 
 let createStoreMapComponent = {
   bindings: {
-    address: "=",
-    latitude: "=",
-    longitude: "="
+    address: "<",
+    latitude: "<",
+    longitude: "<"
   },
   template,
   controller

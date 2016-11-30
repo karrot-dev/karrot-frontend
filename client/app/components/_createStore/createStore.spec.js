@@ -24,7 +24,6 @@ describe("CreateStore", () => {
   });
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
     it("is named createStore", () => {
       expect(CreateStoreModule).to.equal("createStore");
     });
@@ -35,11 +34,6 @@ describe("CreateStore", () => {
     beforeEach(inject((_$componentController_) => {
       $componentController = _$componentController_;
     }));
-
-    it("should exist", () => {
-      let $ctrl = $componentController("createStore", {});
-      expect($ctrl).to.exist;
-    });
 
     it("creates store", () => {
       let $ctrl = $componentController("createStore", {}, {
@@ -71,6 +65,15 @@ describe("CreateStore", () => {
       let $ctrl = $componentController("createStore", {});
       $ctrl.closePanel();
       expect($mdDialog.cancel).to.have.been.called;
+    });
+
+    it.skip("looks up address", () => {
+      // need to mock Geocoding service
+      let $ctrl = $componentController("createStore", {});
+      $ctrl.addressLookup();
+      expect($ctrl.lookupOngoing).to.be.true;
+      $httpBackend.flush();
+      expect($ctrl.lookupOngoing).to.be.false;
     });
   });
 

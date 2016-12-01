@@ -86,6 +86,18 @@ describe("CreateStore", () => {
       expect($ctrl.storeData.longitude).to.equal(2.99);
       expect($ctrl.storeData.lookedUpAddress).to.equal("blubb");
     });
+
+    it("fails to look up address", () => {
+      Geocoding.lookupAddress.returns($q((resolve, reject) => {
+        reject();
+      }));
+      let $ctrl = $componentController("createStore", {});
+      $ctrl.storeData.address = "blubb_query";
+      $ctrl.addressLookup();
+      expect($ctrl.lookupOngoing).to.be.true;
+      $rootScope.$apply();
+      expect($ctrl.lookupOngoing).to.be.false;
+    });
   });
 
   describe("Component", () => {

@@ -1,17 +1,18 @@
 class StoreMapController {
-  constructor($scope) {
+  constructor() {
     "ngInject";
     Object.assign(this, {
       markers: {},
       bounds: {},
       defaults: {
         scrollWheelZoom: false
+      },
+      $onInit: this.update,
+      $onChanges: (changes) => {
+        if (changes.storeData) {
+          this.update();
+        }
       }
-    });
-    this.update();
-
-    $scope.$on("storeDataChange", () => {
-      this.update();
     });
   }
 

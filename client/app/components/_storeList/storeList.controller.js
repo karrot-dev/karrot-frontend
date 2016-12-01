@@ -4,14 +4,13 @@
  */
 
 class StoreListController {
-  constructor(Store, $state, $document, $mdDialog, $scope) {
+  constructor(Store, $state, $document, $mdDialog) {
     "ngInject";
     Object.assign(this, {
       Store,
       $state,
       $document,
-      $mdDialog,
-      $scope
+      $mdDialog
     });
 
     // check if stores it's a list of IDs or Stores
@@ -60,8 +59,10 @@ class StoreListController {
       controller: DialogController,
       controllerAs: "$ctrl"
     }).then((data) => {
-      this.storeData.push(data);
-      this.$scope.$broadcast("storeDataChange");
+      // use a copy to trigger change detection
+      let t = angular.copy(this.storeData);
+      t.push(data);
+      this.storeData = t;
     });
   }
 }

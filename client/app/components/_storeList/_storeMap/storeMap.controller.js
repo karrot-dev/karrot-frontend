@@ -7,7 +7,6 @@ class StoreMapController {
       defaults: {
         scrollWheelZoom: false
       },
-      $onInit: this.update,
       $onChanges: (changes) => {
         if (changes.storeData) {
           this.update();

@@ -29,7 +29,7 @@ describe("StoreMap", () => {
       $scope.$apply();
       expect($ctrl.hasMarkers()).to.be.true;
       expect($ctrl.markers).to.deep.equal({
-        99: { lat: 1.99, lng: 2.99, message: "test1", draggable: false }
+        99: { lat: 1.99, lng: 2.99, message: "<a ui-sref='storeDetail({ id: 99})'>test1</a>", draggable: false }
       });
     });
   });

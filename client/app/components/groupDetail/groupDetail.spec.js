@@ -6,10 +6,13 @@ import GroupDetailTemplate from "./groupDetail.html";
 const { module } = angular.mock;
 
 describe("GroupDetail", () => {
-
   let $httpBackend, $state;
 
   beforeEach(module(GroupDetailModule));
+  beforeEach(module(($stateProvider) => {
+    $stateProvider
+      .state("main", { url: "", abstract: true });
+  }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -23,7 +26,6 @@ describe("GroupDetail", () => {
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     $state = $injector.get("$state");
-    sinon.stub($state, "go");
   }));
 
   afterEach(() => {
@@ -51,6 +53,7 @@ describe("GroupDetail", () => {
     beforeEach(inject(($componentController, _CurrentGroup_) => {
       CurrentGroup = _CurrentGroup_;
       $ctrl = $componentController("groupDetail", {});
+      sinon.stub($state, "go");
     }));
 
     it("should exist", () => {
@@ -88,6 +91,20 @@ describe("GroupDetail", () => {
       expect($state.go).to.not.have.been.called;
     });
 
+  });
+
+  describe("Route", () => {
+    beforeEach(() => {
+      $httpBackend.expectGET("/api/auth/status/").respond({});
+    });
+
+    let groupData = { id: 12 };
+    it("should load group information", () => {
+      $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
+      $state.go("groupDetail", { id: groupData.id });
+      $httpBackend.flush();
+      expect($state.current.component).to.equal("groupDetail");
+    });
   });
 
 });

@@ -12,11 +12,15 @@ class CreateStoreMapController {
         zoomControl: false
       },
       $onChanges: (change) => {
-        if (change.latitude || change.longitude || change.address) {
+        if ( (change.latitude || change.longitude || change.address)
+              && (angular.isDefined(this.latitude)
+                  && angular.isDefined(this.longitude)
+                  && angular.isDefined(this.address))
+            ) {
           this.setMarker(
-            change.latitude.currentValue,
-            change.longitude.currentValue,
-            change.address.currentValue);
+            this.latitude,
+            this.longitude,
+            this.address);
         }
       }
     });
@@ -27,7 +31,7 @@ class CreateStoreMapController {
       pin: {
         lat,
         lng,
-        draggable: true,
+        draggable: false,
         message
       }
     };

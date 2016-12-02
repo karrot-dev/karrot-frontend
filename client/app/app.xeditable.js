@@ -3,12 +3,15 @@ let AppXEditableConfig = (editableOptions, editableThemes) => {
   editableThemes.custom = {
     formTpl: "<form class='editable-wrap'></form>",
     noformTpl: "<span class='editable-wrap'></span>",
-    controlsTpl: "<span class='editable-controls' layout='row'></span>",
+    controlsTpl: "<md-input-container class='editable-controls' ng-class='{\"md-input-invalid\": $error}'>" +
+                 "</md-input-container>",
     inputTpl: "",
-    errorTpl: "<div class='editable-error' data-ng-if='$error' data-ng-bind='$error'></div>",
+    errorTpl: "<div ng-messages='{message: $error}'>" +
+              "<div class='editable-error' ng-message='message'>{{$error}}" +
+              "</div></div>",
     buttonsTpl: "<span class='editable-buttons'></span>",
-    submitTpl: "<md-button type='submit' class='md-raised md-accent'><span></span></md-button>",
-    cancelTpl: "<md-button type='button' class='md-raised' ng-click='$form.$cancel()'><span></span></md-button>",
+    submitTpl: "<md-button type='submit' class='md-primary'><span></span></md-button>",
+    cancelTpl: "<md-button type='button' class='md-warn' ng-click='$form.$cancel()'><span></span></md-button>",
     resetTpl: "<md-button type='reset' class='md-raised'><span></span></md-button>"
   };
   editableOptions.theme = "custom";

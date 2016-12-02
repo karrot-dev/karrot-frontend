@@ -1,26 +1,39 @@
 <div class="groupDetail">
-  <div layout="row">
-    <h1 class="md-headline" flex editable-text="$ctrl.groupData.name" onaftersave="$ctrl.updateGroupData()">
-      {{$ctrl.groupData.name}}
-    </h1>
-    <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
-    <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
-      aria-label="{{ 'GROUP.LEAVE' | translate }}">
-      <md-tooltip md-direction="left">
-          <span translate="GROUP.LEAVE"></span>
-      </md-tooltip>
-      <i class="fa fa-fw fa-sign-out"></i>
-    </md-button>
-  </div>
-  <div>
-    <span editable-textarea="$ctrl.groupData.description" onaftersave="$ctrl.updateGroupData()" e-form="textBtnForm"
-          e-rows="10" e-cols="50">
+  <form editable-form name="editableGroup" onaftersave="$ctrl.updateGroupData()">
+    <div layout="row">
+      <h1 class="md-headline" flex editable-text="$ctrl.groupData.name">
+        {{$ctrl.groupData.name}}
+      </h1>
+      <span ng-show="!editableGroup.$visible">
+        <md-button class="md-icon-button" ng-click="editableGroup.$show()"
+          aria-label="{{ 'GROUP.EDIT' | translate }}">
+          <md-tooltip md-direction="left">
+              <span translate="GROUP.EDIT"></span>
+          </md-tooltip>
+          <i class="fa fa-pencil"></i>
+        </md-button>
+        <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
+        <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
+          aria-label="{{ 'GROUP.LEAVE' | translate }}">
+          <md-tooltip md-direction="left">
+              <span translate="GROUP.LEAVE"></span>
+          </md-tooltip>
+          <i class="fa fa-fw fa-sign-out"></i>
+        </md-button>
+      </span>
+    </div>
+    <div editable-textarea="$ctrl.groupData.description">
       <p class="multiline">{{$ctrl.groupData.description}}</p>
-    </span>
-    <md-button class="md-raised" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
-      <i class="fa fa-pencil"></i>
-    </md-button>
-  </div>
+    </div>
+    <div ng-show="editableGroup.$visible" layout="row" layout-align="end start">
+      <md-button class="md-icon-button" ng-disabled="editableGroup.$waiting" ng-click="editableGroup.$cancel()">
+        <i class="fa fa-times"></i>
+      </md-button>
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="editableGroup.$waiting">
+        <i class="fa fa-check"></i>
+      </md-button>
+    </div>
+  </form>
   <md-tabs md-dynamic-height md-border-bottom flex>
     <md-tab>
       <md-tab-label>

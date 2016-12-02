@@ -1,9 +1,28 @@
 <div class="storeDetail">
-  <h1 class="md-headline" editable-text="$ctrl.storedata.name" onaftersave="$ctrl.updateStoredata()">
-    {{$ctrl.storedata.name}}
-  </h1>
-  <div editable-textarea="$ctrl.storedata.description" onaftersave="$ctrl.updateStoredata()">
-    <p class="multiline">{{$ctrl.storedata.description || 'no description'}}</p>
-  </div>
+  <form editable-form name="editableStore" onaftersave="$ctrl.updateStoredata()">
+    <div layout="row">
+      <h1 class="md-headline" flex editable-text="$ctrl.storedata.name">
+        {{$ctrl.storedata.name}}
+      </h1>
+      <md-button class="md-icon-button" ng-click="editableStore.$show()" ng-show="!editableStore.$visible"
+        aria-label="{{ 'STOREDETAIL.EDIT' | translate }}">
+        <md-tooltip md-direction="left">
+            <span translate="STOREDETAIL.EDIT"></span>
+        </md-tooltip>
+        <i class="fa fa-pencil"></i>
+      </md-button>
+    </div>
+    <div editable-textarea="$ctrl.storedata.description">
+      <p class="multiline">{{$ctrl.storedata.description}}</p>
+    </div>
+    <div ng-show="editableStore.$visible" layout="row" layout-align="end start">
+      <md-button class="md-icon-button" ng-disabled="editableStore.$waiting" ng-click="editableStore.$cancel()">
+        <i class="fa fa-times"></i>
+      </md-button>
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="editableStore.$waiting">
+        <i class="fa fa-check"></i>
+      </md-button>
+    </div>
+  </form>
   <pickup-list store-id="{{$ctrl.storedata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
 </div>

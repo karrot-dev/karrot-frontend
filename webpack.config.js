@@ -13,7 +13,8 @@ module.exports = {
        { test: /\.styl$/, loader: "style!css?importLoaders=1!postcss!stylus" },
        { test: /\.css$/, loader: "style!css!postcss" },
        { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
-       { test: /\.json$/, loader: "json" }
+       { test: /\.json$/, loader: "json" },
+       { test: /\.(png|jpg|jpeg|svg)$/, loader: "file?name=images/[hash].[ext]" }
     ]
   },
   postcss: [autoprefixer()],

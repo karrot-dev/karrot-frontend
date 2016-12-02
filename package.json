@@ -13,7 +13,8 @@
     "angular-translate-storage-cookie": "^2.13.0",
     "angular-ui-router": "^1.0.0-beta.1",
     "font-awesome": "^4.6.3",
-    "normalize.css": "^5.0.0"
+    "normalize.css": "^5.0.0",
+    "ui-leaflet": "^2.0.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",

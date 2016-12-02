@@ -6,15 +6,19 @@ import CreateStoreTemplate from "./createStore.html";
 const { module } = angular.mock;
 
 describe("CreateStore", () => {
-  let $mdDialog, $httpBackend;
+  let Geocoding, $mdDialog, $httpBackend, $q, $rootScope;
 
   beforeEach(() => {
     module(CreateStoreModule);
     inject(($injector) => {
+      Geocoding = $injector.get("Geocoding");
+      sinon.stub(Geocoding, "lookupAddress");
       $httpBackend = $injector.get("$httpBackend");
       $mdDialog = $injector.get("$mdDialog");
       sinon.stub($mdDialog, "hide");
       sinon.stub($mdDialog, "cancel");
+      $q = $injector.get("$q");
+      $rootScope = $injector.get("$rootScope");
     });
   });
 
@@ -24,7 +28,6 @@ describe("CreateStore", () => {
   });
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
     it("is named createStore", () => {
       expect(CreateStoreModule).to.equal("createStore");
     });
@@ -35,11 +38,6 @@ describe("CreateStore", () => {
     beforeEach(inject((_$componentController_) => {
       $componentController = _$componentController_;
     }));
-
-    it("should exist", () => {
-      let $ctrl = $componentController("createStore", {});
-      expect($ctrl).to.exist;
-    });
 
     it("creates store", () => {
       let $ctrl = $componentController("createStore", {}, {
@@ -71,6 +69,34 @@ describe("CreateStore", () => {
       let $ctrl = $componentController("createStore", {});
       $ctrl.closePanel();
       expect($mdDialog.cancel).to.have.been.called;
+    });
+
+    it("looks up address", () => {
+      Geocoding.lookupAddress.returns($q((resolve) => {
+        resolve({ latitude: 1.99, longitude: 2.99, name: "blubb" });
+      }));
+      let $ctrl = $componentController("createStore", {});
+      $ctrl.storeData.address = "blubb_query";
+      $ctrl.addressLookup();
+      expect($ctrl.lookupOngoing).to.be.true;
+      $rootScope.$apply();
+      expect($ctrl.lookupOngoing).to.be.false;
+      expect(Geocoding.lookupAddress).to.have.been.calledWith("blubb_query");
+      expect($ctrl.storeData.latitude).to.equal(1.99);
+      expect($ctrl.storeData.longitude).to.equal(2.99);
+      expect($ctrl.storeData.lookedUpAddress).to.equal("blubb");
+    });
+
+    it("fails to look up address", () => {
+      Geocoding.lookupAddress.returns($q((resolve, reject) => {
+        reject();
+      }));
+      let $ctrl = $componentController("createStore", {});
+      $ctrl.storeData.address = "blubb_query";
+      $ctrl.addressLookup();
+      expect($ctrl.lookupOngoing).to.be.true;
+      $rootScope.$apply();
+      expect($ctrl.lookupOngoing).to.be.false;
     });
   });
 

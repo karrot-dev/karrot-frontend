@@ -1,43 +1,57 @@
-<div class="md-whiteframe-10dp" style="width: 100%;">
-  <md-toolbar class="md-hue-1">
-    <div class="md-toolbar-tools">
-      <h2>
-        <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-arrow-right"></i>
-        <span translate="CREATESTORE.TITLE"></span>
-      </h2>
-    </div>
-  </md-toolbar>
-  <md-content layout-padding>
-    <form ng-submit='createStoreForm.$valid && $ctrl.createStore()' name="createStoreForm" layout="column">
-      <md-input-container>
-        <label translate="CREATESTORE.NAME"></label>
-        <input ng-model="$ctrl.storeData.name" name="name"
-               type="text" required />
-      </md-input-container>
+<md-toolbar class="md-hue-1">
+  <div class="md-toolbar-tools">
+    <h2>
+      <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-arrow-right"></i>
+      <span translate="CREATESTORE.TITLE"></span>
+    </h2>
+  </div>
+</md-toolbar>
+<md-content layout-padding>
+  <form ng-submit='createStoreForm.$valid && $ctrl.createStore()' name="createStoreForm" layout="column">
+    <div flex layout="row">
+      <div flex layout="column">
+        <md-input-container>
+          <label translate="CREATESTORE.NAME"></label>
+          <input ng-model="$ctrl.storeData.name" name="name"
+                 type="text" required />
+        </md-input-container>
 
-      <md-input-container>
-        <label translate="CREATESTORE.DESCRIPTION"></label>
-        <input ng-model="$ctrl.storeData.description" name="description"
-               type="text" />
-      </md-input-container>
 
-      <md-input-container>
-        <label translate="CREATESTORE.ADDRESS"></label>
-        <input ng-model="$ctrl.storeData.address" name="address"
-               type="text" />
-      </md-input-container>
-
-      <div layout="row" layout-align="end center">
-        <md-button ng-click="$ctrl.closePanel()">
-          <span translate="BUTTON.CANCEL"></span>
-        </md-button>
-        <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createStoreForm.$invalid || $ctrl.ongoing">
-          <span ng-if="!$ctrl.ongoing" translate="BUTTON.CREATE"></span>
-          <i ng-if="$ctrl.ongoing" class="fa fa-spinner"></i>
-        </md-button>
+        <div flex layout="row">
+          <md-input-container>
+            <label translate="CREATESTORE.ADDRESS"></label>
+            <input ng-model="$ctrl.storeData.address" name="address"
+                   type="text" ng-blur="$ctrl.addressLookup()"/>
+          </md-input-container>
+          <md-button ng-click="$ctrl.addressLookup()" class="md-icon-button" ng-disabled="!$ctrl.storeData.address || $ctrl.lookupOngoing">
+            <i class="fa fa-search" ng-show="!$ctrl.lookupOngoing"></i>
+            <i class="fa fa-spinner" ng-show="$ctrl.lookupOngoing"></i>
+          </md-button>
+        </div>
+        
+        <md-input-container class="md-block">
+          <label translate="CREATESTORE.DESCRIPTION"></label>
+          <textarea ng-model="$ctrl.storeData.description" name="description" rows="1" md-select-on-focus></textarea>
+        </md-input-container>
       </div>
 
-      {{ $ctrl.error }}
-    </form>
-  </md-content>
-</div>
+      <create-store-map
+        address="$ctrl.storeData.lookedUpAddress"
+        latitude="$ctrl.storeData.latitude"
+        longitude="$ctrl.storeData.longitude"
+      ></create-store-map>
+    </div>
+
+    <div flex layout="row" layout-align="end center">
+      <md-button ng-click="$ctrl.closePanel()">
+        <span translate="BUTTON.CANCEL"></span>
+      </md-button>
+      <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createStoreForm.$invalid || $ctrl.ongoing">
+        <span ng-if="!$ctrl.ongoing" translate="BUTTON.CREATE"></span>
+        <i ng-if="$ctrl.ongoing" class="fa fa-spinner"></i>
+      </md-button>
+    </div>
+
+    {{ $ctrl.error }}
+  </form>
+</md-content>

@@ -1,9 +1,11 @@
 class CreateStoreController {
-  constructor($mdDialog, Store) {
+  constructor($scope, $mdDialog, Store, Geocoding) {
     "ngInject";
     Object.assign(this, {
+      $scope,
       $mdDialog,
       Store,
+      Geocoding,
       storeData: {
         group: this.groupId
       },
@@ -24,6 +26,19 @@ class CreateStoreController {
 
   closePanel() {
     this.$mdDialog.cancel();
+  }
+
+  addressLookup() {
+    this.lookupOngoing = true;
+    this.Geocoding.lookupAddress(this.storeData.address).then((data) => {
+      this.storeData.latitude = data.latitude;
+      this.storeData.longitude = data.longitude;
+      this.storeData.lookedUpAddress = data.name;
+      this.lookupOngoing = false;
+    }).catch(() => {
+      // TODO: show that nothing was found
+      this.lookupOngoing = false;
+    });
   }
 }
 

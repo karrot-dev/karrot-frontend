@@ -59,7 +59,10 @@ class StoreListController {
       controller: DialogController,
       controllerAs: "$ctrl"
     }).then((data) => {
-      this.storeData.push(data);
+      // use a copy to trigger change detection
+      let t = angular.copy(this.storeData);
+      t.push(data);
+      this.storeData = t;
     });
   }
 }

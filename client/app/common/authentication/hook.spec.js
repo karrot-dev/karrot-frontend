@@ -14,6 +14,15 @@ describe("hook", () => {
     createHook = hookProvider.createHook;
   }));
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     $state = $injector.get("$state");

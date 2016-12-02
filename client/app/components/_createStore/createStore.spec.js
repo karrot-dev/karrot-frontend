@@ -6,11 +6,13 @@ import CreateStoreTemplate from "./createStore.html";
 const { module } = angular.mock;
 
 describe("CreateStore", () => {
-  let Geocoding, $mdDialog, $httpBackend, $q, $rootScope;
+  beforeEach(module(CreateStoreModule));
+  let $log, Geocoding, $mdDialog, $httpBackend, $q, $rootScope;
 
   beforeEach(() => {
-    module(CreateStoreModule);
     inject(($injector) => {
+      $log = $injector.get("$log");
+      $log.reset();
       Geocoding = $injector.get("Geocoding");
       sinon.stub(Geocoding, "lookupAddress");
       $httpBackend = $injector.get("$httpBackend");
@@ -25,6 +27,7 @@ describe("CreateStore", () => {
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
+    $log.assertEmpty();
   });
 
   describe("Module", () => {

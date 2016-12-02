@@ -15,6 +15,15 @@ describe("Login", () => {
     });
   });
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   describe("Module", () => {
     it("is named login", () => {
       expect(LoginModule).to.equal("login");

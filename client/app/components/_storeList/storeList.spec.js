@@ -2,6 +2,16 @@ import StoreListModule from "./storeList";
 
 describe("StoreList", () => {
   let { module } = angular.mock;
+  beforeEach(module(StoreListModule));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
 
   let storeOne = {
     "id": 1,
@@ -16,17 +26,14 @@ describe("StoreList", () => {
   describe("Controller", () => {
     let $componentController, $httpBackend, $q, $mdDialog, $rootScope;
 
-    beforeEach(() => {
-      module(StoreListModule);
-      inject(($injector) => {
-        $httpBackend = $injector.get("$httpBackend");
-        $componentController = $injector.get("$componentController");
-        $q = $injector.get("$q");
-        $mdDialog = $injector.get("$mdDialog");
-        sinon.stub($mdDialog, "show");
-        $rootScope = $injector.get("$rootScope");
-      });
-    });
+    beforeEach(inject(($injector) => {
+      $httpBackend = $injector.get("$httpBackend");
+      $componentController = $injector.get("$componentController");
+      $q = $injector.get("$q");
+      $mdDialog = $injector.get("$mdDialog");
+      sinon.stub($mdDialog, "show");
+      $rootScope = $injector.get("$rootScope");
+    }));
 
     afterEach(() => {
       $httpBackend.verifyNoOutstandingExpectation();

@@ -5,6 +5,15 @@ const { module } = angular.mock;
 describe("CurrentGroup service", () => {
   beforeEach(module(GroupModule));
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   let CurrentGroup;
 
   beforeEach(inject(($injector) => {

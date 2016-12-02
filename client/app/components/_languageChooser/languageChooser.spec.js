@@ -5,6 +5,15 @@ const { module } = angular.mock;
 describe("LanguageChooser", () => {
   beforeEach(module(LanguageChooserModule));
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   describe("Module", () => {
     it("is named languageChooser", () => {
       expect(LanguageChooserModule).to.equal("languageChooser");

@@ -12,20 +12,11 @@ describe("CreateStoreMap", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $rootScope, $compile;
+    let $rootScope, $compile;
     beforeEach(inject(($injector) => {
-      $componentController = $injector.get("$componentController");
       $rootScope = $injector.get("$rootScope");
       $compile = $injector.get("$compile");
     }));
-
-    it("sets marker", () => {
-      let $ctrl = $componentController("createStoreMap", {});
-      let lat = 1.99, lng = 2.99, name = "bla";
-      $ctrl.setMarker(lat, lng, name);
-      expect($ctrl.markers.pin.lat).to.equal(lat);
-      expect($ctrl.markers.pin.lng).to.equal(lng);
-    });
 
     it("updates marker on change", () => {
       let $scope = $rootScope.$new();

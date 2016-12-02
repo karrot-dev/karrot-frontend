@@ -16,23 +16,23 @@
                  type="text" required />
         </md-input-container>
 
-        <md-input-container>
-          <label translate="CREATESTORE.DESCRIPTION"></label>
-          <input ng-model="$ctrl.storeData.description" name="description"
-                 type="text" />
-        </md-input-container>
 
         <div flex layout="row">
           <md-input-container>
             <label translate="CREATESTORE.ADDRESS"></label>
             <input ng-model="$ctrl.storeData.address" name="address"
-                   type="text" />
+                   type="text" ng-blur="$ctrl.addressLookup()"/>
           </md-input-container>
           <md-button ng-click="$ctrl.addressLookup()" class="md-icon-button" ng-disabled="!$ctrl.storeData.address || $ctrl.lookupOngoing">
             <i class="fa fa-search" ng-show="!$ctrl.lookupOngoing"></i>
             <i class="fa fa-spinner" ng-show="$ctrl.lookupOngoing"></i>
           </md-button>
         </div>
+        
+        <md-input-container class="md-block">
+          <label translate="CREATESTORE.DESCRIPTION"></label>
+          <textarea ng-model="$ctrl.storeData.description" name="description" rows="1" md-select-on-focus></textarea>
+        </md-input-container>
       </div>
 
       <create-store-map

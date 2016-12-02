@@ -40,7 +40,7 @@ class StoreMapController {
       markers[e.id] = {
         lat: e.latitude,
         lng: e.longitude,
-        message: e.name,
+        message: "<a ui-sref='storeDetail({ id: {{" + e.id + "}} })'>" + e.name + "</a>",
         draggable: false
       };
     });

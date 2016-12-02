@@ -30,7 +30,7 @@ describe("GroupMenu", () => {
       }));
       $ctrl.openJoinGroupDialog();
       $rootScope.$apply();
-      expect($state.go).to.have.been.calledWith( "groupDetail", { id: 1337 } );
+      expect($state.go).to.have.been.calledWith( "groupDetail", { groupId: 1337 } );
     });
   });
 });

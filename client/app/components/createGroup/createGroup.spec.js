@@ -33,7 +33,7 @@ describe("CreateGroup", () => {
         name: "blabla"
       }).respond(201, { id: 987 });
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith("groupDetail", { id: 987 });
+      expect($state.go).to.have.been.calledWith("groupDetail", { groupId: 987 });
     });
 
     it("fails to create group", () => {

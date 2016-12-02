@@ -35,7 +35,7 @@ class StoreListController {
     if (angular.isDefined(this.callback)) {
       this.callback(store);
     } else {
-      this.$state.go( "storeDetail", { id: store.id } );
+      this.$state.go( "storeDetail", { storeId: store.id, groupId: store.group } );
     }
   }
 

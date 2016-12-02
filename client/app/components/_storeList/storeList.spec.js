@@ -40,33 +40,24 @@ describe("StoreList", () => {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("check binding of complete stores",() => {
-      let $ctrl = $componentController("storeList", {
-      }, {
-        stores: [storeOne]
-      });
-      expect($ctrl.storeData).to.deep.equal([storeOne]);
-    });
-
-    it("maps stores-array",() => {
-      $componentController("storeList", {
-      }, {
-        stores: [1]
-      });
-
-      $httpBackend.expectGET("/api/stores/1/").respond(storeOne);
+    it("gets store data",() => {
+      let $ctrl = $componentController("storeList");
+      $httpBackend.expectGET("/api/stores/").respond([storeOne]);
       $httpBackend.flush();
+      expect($ctrl.storeList).to.deep.equal([storeOne]);
     });
 
     it("opens dialog to create store", () => {
-      let $ctrl = $componentController("storeList", {}, { stores: [] } );
+      let $ctrl = $componentController("storeList");
+      $httpBackend.expectGET("/api/stores/").respond([]);
+      $httpBackend.flush();
       $mdDialog.show.returns($q((resolve) => {
         resolve({ id: 999 });
       }));
       $ctrl.openCreateStorePanel();
       $rootScope.$apply();
       expect($mdDialog.show).to.have.been.called;
-      expect($ctrl.storeData).to.deep.equal([{ id: 999 }]);
+      expect($ctrl.storeList).to.deep.equal([{ id: 999 }]);
     });
   });
 });

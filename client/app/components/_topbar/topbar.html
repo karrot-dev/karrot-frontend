@@ -1,18 +1,19 @@
 <md-toolbar class="md-medium-small md-whiteframe-3dp">
-  <div layout="row" layout-align="space-between center">
-    <span flex="5"></span>
+  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+    <span flex="5" hide-xs></span>
     <a ui-sref="home">
       <img ng-src="{{$ctrl.logo}}" alt="yunity" style="width: 2em;">
     </a>
-    <group-menu></group-menu>
+    <group-menu style="min-width: 50%"></group-menu>
 
     <span flex></span>
     <language-chooser></language-chooser>
-    <span flex></span>
-
-    <md-button class="md-icon-button" aria-label="Logout" logout hide-xs>
+    <md-button class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
       <i class="fa fa-fw fa-sign-out"></i>
+      <md-tooltip>
+          <span translate="TOPBAR.LOGOUT"></span>
+      </md-tooltip>
     </md-button>
-    <span flex="5" hide-xs></span>
+    <span flex="5"></span>
   </div>
 </md-toolbar>

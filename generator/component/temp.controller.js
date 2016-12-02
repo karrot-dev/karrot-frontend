@@ -1,5 +1,8 @@
 class <%= upCaseName %>Controller {
   constructor() {
+    "ngInject";
+    Object.assign(this, {
+    });
   }
 }
 

@@ -16,7 +16,7 @@
       </span>
     </span>
     <div class="pickupList-pickup-people">
-      <a class="pickuplist-pickup-person" ng-repeat="collector in $ctrl.collectors" href="#/profile/{{collector.id}}">
+      <a class="pickuplist-pickup-person" ng-repeat="collector in $ctrl.collectors" ui-sref="userDetail({ id: {{collector.id}} })">
         <!--<img class="pickupList-pickup-img" src="assets/images/user.png"/>-->
         <span>{{collector.display_name}}{{$last ? '' : ', '}}</span>
       </a>

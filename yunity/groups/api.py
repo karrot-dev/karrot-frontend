@@ -32,7 +32,7 @@ class GroupViewSet(ModelViewSet):
     search_fields = ('name', 'description')
 
     def get_permissions(self):
-        if self.action in ('destroy'):
+        if self.action == 'destroy':
             self.permission_classes = (DenyAll,)
         elif self.action in ('update', 'partial_update'):
             self.permission_classes = (IsMember,)

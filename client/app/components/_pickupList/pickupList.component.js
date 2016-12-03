@@ -4,8 +4,8 @@ import "./pickupList.styl";
 
 let pickupListComponent = {
   bindings: {
-    groupId: "@",
-    storeId: "@",
+    groupId: "<",
+    storeId: "<",
     options: "<"
   },
   template,

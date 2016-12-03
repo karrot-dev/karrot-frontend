@@ -41,7 +41,7 @@
         <span translate="GROUP.PICKUPS"></span>
       </md-tab-label>
       <md-tab-body>
-        <pickup-list group-id="{{$ctrl.groupData.id}}" options="$ctrl.pickupListOptions"></pickup-list>
+        <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
       </md-tab-body>
     </md-tab>
     <md-tab>
@@ -57,7 +57,7 @@
         <span translate="GROUP.STORES"></span>
       </md-tab-label>
       <md-tab-body>
-        <store-list group-id="$ctrl.groupdata.id"></store-list>
+        <store-list group-id="$ctrl.groupData.id"></store-list>
       </md-tab-body>
     </md-tab>
   </md-tabs>

@@ -89,7 +89,7 @@ describe("GroupDetail", () => {
       expect($state.go).to.not.have.been.called;
     });
 
-    it("saves groupdata", () => {
+    it("saves groupData", () => {
       let groupData = { id: 667, name: "blarb" };
       let $ctrl = $componentController("groupDetail", {}, { groupData });
       let feedback = $ctrl.updateGroupData();

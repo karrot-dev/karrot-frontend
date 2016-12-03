@@ -23,16 +23,13 @@ describe("StoreList", () => {
     "longitude": null
   };
 
-  describe("Controller", () => {
-    let $componentController, $httpBackend, $q, $mdDialog, $rootScope;
-
-    beforeEach(inject(($injector) => {
+  describe("Component", () => {
+    let $scope, $ctrl, $httpBackend;
+    beforeEach(inject((_$rootScope_, _$compile_, $injector) => {
+      $scope = _$rootScope_.$new();
+      let component = _$compile_("<store-list group-id='groupId'></store-list>")($scope);
+      $ctrl = component.isolateScope().$ctrl;
       $httpBackend = $injector.get("$httpBackend");
-      $componentController = $injector.get("$componentController");
-      $q = $injector.get("$q");
-      $mdDialog = $injector.get("$mdDialog");
-      sinon.stub($mdDialog, "show");
-      $rootScope = $injector.get("$rootScope");
     }));
 
     afterEach(() => {
@@ -40,20 +37,32 @@ describe("StoreList", () => {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("gets store data",() => {
-      let $ctrl = $componentController("storeList", {}, { groupId: 67 });
+    it("gets store data", () => {
       $httpBackend.expectGET("/api/stores/?group=67").respond([storeOne]);
+      expect($ctrl.storeList).to.be.undefined;
+      $scope.groupId = 67;
+      $scope.$apply();
+      expect($ctrl.groupId).to.equal(67);
       $httpBackend.flush();
-      expect($ctrl.storeList).to.deep.equal([storeOne]);
+      // avoid comparing the internal $$hashkey value
+      expect(angular.toJson($ctrl.storeList)).to.equal(angular.toJson([storeOne]));
     });
+  });
+
+  describe("Controller", () => {
+    let $componentController, $q, $mdDialog, $rootScope;
+
+    beforeEach(inject(($injector) => {
+      $componentController = $injector.get("$componentController");
+      $q = $injector.get("$q");
+      $mdDialog = $injector.get("$mdDialog");
+      sinon.stub($mdDialog, "show");
+      $rootScope = $injector.get("$rootScope");
+    }));
 
     it("opens dialog to create store", () => {
-      // from controller init, could be mocked away
-      let $ctrl = $componentController("storeList", {}, { groupId: 67 });
-      $httpBackend.expectGET("/api/stores/?group=67").respond([]);
-      $httpBackend.flush();
-
-      // real test
+      // don't load storeList
+      let $ctrl = $componentController("storeList", {}, { storeList: [] });
       $mdDialog.show.returns($q((resolve) => {
         resolve({ id: 999 });
       }));

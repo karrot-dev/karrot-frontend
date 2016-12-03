@@ -35,6 +35,7 @@ class PickupDatesViewSet(viewsets.ModelViewSet):
     # Query parameters
     - `?store` - filter by store id
     - `?group` - filter by group id
+    - `?date_0=<from_date>&date_1=<to_date>` - filter by date, can also either give date_0 or date_1
     """
     serializer_class = PickupDateSerializer
     queryset = PickupDateModel.objects

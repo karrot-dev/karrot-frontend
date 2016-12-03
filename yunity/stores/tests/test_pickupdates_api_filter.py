@@ -1,3 +1,6 @@
+from datetime import timedelta
+
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 from yunity.groups.factories import Group
@@ -47,3 +50,25 @@ class TestPickupdatesAPIFilter(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.data[0]['id'], self.pickup2.id)
+
+    def test_filter_after_date(self):
+        one_day = timedelta(days=1)
+        self.client.force_login(user=self.member)
+        response = self.client.get(self.url, {'date_0': self.pickup.date + one_day})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 0)
+
+        response = self.client.get(self.url, {'date_0': self.pickup.date - one_day})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)
+
+    def test_filter_before_date(self):
+        one_day = timedelta(days=1)
+        self.client.force_login(user=self.member)
+        response = self.client.get(self.url, {'date_1': self.pickup.date + one_day})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)
+
+        response = self.client.get(self.url, {'date_1': self.pickup.date - one_day})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 0)

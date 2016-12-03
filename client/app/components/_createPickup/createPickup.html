@@ -11,7 +11,7 @@
     <form ng-submit='createPickupForm.$valid && $ctrl.createPickup()' name="createPickupForm">
 
       <md-input-container>
-        <md-datepicker required ng-model="$ctrl.pickupData.date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+        <md-datepicker required ng-model="$ctrl.pickupData.date" md-placeholder="Enter date" md-open-on-focus md-hide-icons="triangle"></md-datepicker>
       </md-input-container>
 
       <md-input-container>
@@ -26,12 +26,8 @@
       </md-input-container>
 
       <md-slider-container>
-        <label translate="CREATEPICKUP.MAX_COLLECTORS"></label>
-        <md-slider ng-model="$ctrl.pickupData.maxCollectors" min=1 max=9></md-slider>
-        <md-input-container>
-          <input name="MaxNoCollectors" ng-model="$ctrl.pickupData.maxCollectors"
-                 type="number" min=1 />
-        </md-input-container>
+        <label><span translate="CREATEPICKUP.MAX_COLLECTORS"></span>: {{$ctrl.pickupData.maxCollectors}}</label>
+        <md-slider md-discrete ng-model="$ctrl.pickupData.maxCollectors" step=1 min=1 max=9></md-slider>
       </md-slider-container>
 
       <div layout="row" layout-align="end center">

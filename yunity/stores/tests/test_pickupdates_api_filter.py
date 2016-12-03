@@ -1,6 +1,5 @@
 from datetime import timedelta
 
-from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 from yunity.groups.factories import Group

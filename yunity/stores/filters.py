@@ -7,9 +7,11 @@ from rest_framework import filters
 
 from yunity.stores.models import PickupDate
 
+
 class ISODateTimeField(forms.DateTimeField):
     def strptime(self, value, format):
         return parse_datetime(force_str(value))
+
 
 class DateTimeRangeField(RangeField):
     def __init__(self, *args, **kwargs):
@@ -17,6 +19,7 @@ class DateTimeRangeField(RangeField):
             ISODateTimeField(),
             ISODateTimeField())
         super(DateTimeRangeField, self).__init__(fields, *args, **kwargs)
+
 
 class DateTimeFromToRangeFilter(django_filters.RangeFilter):
     field_class = DateTimeRangeField

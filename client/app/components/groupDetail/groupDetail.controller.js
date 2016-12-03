@@ -1,6 +1,7 @@
 class GroupDetailController {
-  constructor(Group, CurrentGroup, $state, $stateParams) {
+  constructor(Group, CurrentGroup, $mdMedia, $state, $stateParams) {
     "ngInject";
+    this.screenIsSmall = !$mdMedia("gt-sm");
     Object.assign(this, {
       Group,
       CurrentGroup,
@@ -13,7 +14,7 @@ class GroupDetailController {
 
     this.pickupListOptions = {
       showDetail: "store",
-      showTopbar: false,
+      showTopbar: true,
       filter: {
         showJoined: true,
         showOpen: true,

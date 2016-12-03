@@ -1,40 +1,59 @@
-<div class="groupDetail">
-  <div layout="row">
-    <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
-    <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
-    <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
-      aria-label="{{ 'GROUP.LEAVE' | translate }}">
-      <md-tooltip md-direction="left">
-          <span translate="GROUP.LEAVE"></span>
-      </md-tooltip>
-      <i class="fa fa-fw fa-sign-out"></i>
-    </md-button>
-  </div>
-  <p>{{$ctrl.groupdata.description}}</p>
-  <md-tabs md-dynamic-height md-border-bottom flex>
-    <md-tab>
-      <md-tab-label>
-        <span translate="GROUP.PICKUPS"></span>
-      </md-tab-label>
-      <md-tab-body>
+<div layout="row" layout-margin>
+  <div class="groupDetail md-whiteframe-2dp" flex="100" flex-gt-sm="60">
+    <div layout="row">
+      <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
+      <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
+      <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
+        aria-label="{{ 'GROUP.LEAVE' | translate }}">
+        <md-tooltip md-direction="left">
+            <span translate="GROUP.LEAVE"></span>
+        </md-tooltip>
+        <i class="fa fa-fw fa-sign-out"></i>
+      </md-button>
+    </div>
+    <p>{{$ctrl.groupdata.description}}</p>
+    <span ng-if="$ctrl.screenIsSmall">
+      <md-tabs md-dynamic-height md-border-bottom flex>
+        <md-tab>
+          <md-tab-label>
+            <span translate="GROUP.PICKUPS"></span>
+          </md-tab-label>
+          <md-tab-body>
+            <pickup-list group-id="{{$ctrl.groupdata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <span translate="GROUP.MEMBERS"></span>
+          </md-tab-label>
+          <md-tab-body>
+            <user-list users="$ctrl.groupdata.members"></user-list>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <span translate="GROUP.STORES"></span>
+          </md-tab-label>
+          <md-tab-body>
+            <store-list group-id="$ctrl.groupId"></store-list>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>   
+    </span>
+    <span ng-if="!$ctrl.screenIsSmall">
+      <div layout-padding>
         <pickup-list group-id="{{$ctrl.groupdata.id}}" options="$ctrl.pickupListOptions"></pickup-list>
-      </md-tab-body>
-    </md-tab>
-    <md-tab>
-      <md-tab-label>
-        <span translate="GROUP.MEMBERS"></span>
-      </md-tab-label>
-      <md-tab-body>
-        <user-list users="$ctrl.groupdata.members"></user-list>
-      </md-tab-body>
-    </md-tab>
-    <md-tab>
-      <md-tab-label>
-        <span translate="GROUP.STORES"></span>
-      </md-tab-label>
-      <md-tab-body>
-        <store-list group-id="$ctrl.groupId"></store-list>
-      </md-tab-body>
-    </md-tab>
-  </md-tabs>
+      </div>
+    </span>
+  </div>
+  <span ng-if="!$ctrl.screenIsSmall" flex="40">
+      <div class="md-whiteframe-2dp" layout-padding>
+        <h3 translate="GROUP.STORES"></h3>
+        <store-list group-id="$ctrl.groupId"></store-list>        
+      </div>
+      <div class="md-whiteframe-2dp" layout-padding>
+        <h3 translate="GROUP.MEMBERS"></h3>
+        <user-list users="$ctrl.groupdata.members"></user-list>     
+      </div>
+  </span>
 </div>

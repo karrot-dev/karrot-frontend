@@ -21,25 +21,18 @@ let storeDetailModule = angular.module("storeDetail", [
   $stateProvider
     .state("storeDetail", {
       parent: "main",
-      url: "/store/:id",
+      url: "/group/{groupId:int}/store/{storeId:int}",
       component: "storeDetail",
       resolve: {
-
         storedata: (Store, $stateParams) => {
-          return Store.get($stateParams.id);
+          return Store.get($stateParams.storeId);
         },
-
-        /**
-          Loads the group for this store, and sets it as the current group
-        */
-        groupdata: (storedata, Group, CurrentGroup) => {
-          "ngInject";
-          return Group.get(storedata.group).then((group) => {
+        groupdata: (Group, CurrentGroup, $stateParams) => {
+          return Group.get($stateParams.groupId).then((group) => {
             CurrentGroup.set(group);
             return group;
           });
         }
-
       }
     });
   hookProvider.setup("storeDetail", { authenticated: true, anonymous: "login" });

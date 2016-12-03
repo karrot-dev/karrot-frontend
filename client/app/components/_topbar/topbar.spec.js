@@ -9,6 +9,16 @@ describe("Topbar", () => {
   let makeController;
 
   beforeEach(module(TopbarModule));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   beforeEach(inject(() => {
     makeController = () => {
       return new TopbarController();

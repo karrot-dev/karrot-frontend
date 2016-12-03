@@ -4,6 +4,16 @@ let { module } = angular.mock;
 
 describe("pickupDate service", () => {
   beforeEach(module(PickupDateModule));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   let $httpBackend, PickupDate;
 
   beforeEach(inject(($injector) => {

@@ -6,14 +6,16 @@ import StoreDetailTemplate from "./storeDetail.html";
 const { module } = angular.mock;
 
 describe("StoreDetail", () => {
-  let $httpBackend, $state;
   beforeEach(module(StoreDetailModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
 
+  let $log, $httpBackend, $state;
   beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
     $httpBackend = $injector.get("$httpBackend");
     $state = $injector.get("$state");
   }));
@@ -21,6 +23,7 @@ describe("StoreDetail", () => {
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
+    $log.assertEmpty();
   });
 
   describe("Module", () => {
@@ -58,9 +61,8 @@ describe("StoreDetail", () => {
       });
 
       describe("storeDetail", () => {
-        let groupData = {
-          id: 12
-        };
+        let groupData = { id: 12 };
+
         let storeData = {
           id: 25,
           group: groupData.id
@@ -69,7 +71,7 @@ describe("StoreDetail", () => {
         it("should load store and group information", () => {
           $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
           $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-          $state.go("storeDetail", { id: storeData.id });
+          $state.go("storeDetail", { storeId: storeData.id, groupId: groupData.id });
           $httpBackend.flush();
           expect($state.current.component).to.equal("storeDetail");
         });

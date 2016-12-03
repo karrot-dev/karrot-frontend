@@ -2,6 +2,7 @@
   <form editable-form name="editableGroup" onaftersave="$ctrl.updateGroupData()">
     <div layout="row">
       <h1 class="md-headline" flex editable-text="$ctrl.groupData.name">
+        <i class="fa fa-home" aria-hidden="true"></i>
         {{$ctrl.groupData.name}}
       </h1>
       <span ng-show="!editableGroup.$visible">
@@ -56,7 +57,7 @@
         <span translate="GROUP.STORES"></span>
       </md-tab-label>
       <md-tab-body>
-        <store-list stores="$ctrl.stores" group-id="$ctrl.groupId"></store-list>
+        <store-list group-id="$ctrl.groupdata.id"></store-list>
       </md-tab-body>
     </md-tab>
   </md-tabs>

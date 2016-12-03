@@ -60,9 +60,7 @@ describe("StoreDetail", () => {
 
       describe("storeDetail", () => {
 
-        let groupData = {
-          id: 12
-        };
+        let groupData = { id: 12 };
 
         let storeData = {
           id: 25,
@@ -72,18 +70,12 @@ describe("StoreDetail", () => {
         it("should load store and group information", () => {
           $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
           $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-          $state.go("storeDetail", { id: storeData.id });
+          $state.go("storeDetail", { storeId: storeData.id, groupId: groupData.id });
           $httpBackend.flush();
           expect($state.current.component).to.equal("storeDetail");
         });
-
       });
-
     });
-
-  });
-
-  describe("Template", () => {
   });
 
   describe("Component", () => {

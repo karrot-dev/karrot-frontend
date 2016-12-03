@@ -21,11 +21,11 @@ let groupDetailModule = angular.module("groupDetail", [
   $stateProvider
     .state("groupDetail", {
       parent: "main",
-      url: "/group/{id:int}",
+      url: "/group/{groupId:int}",
       component: "groupDetail",
       resolve: {
         groupdata: (Group, CurrentGroup, $stateParams) => {
-          return Group.get($stateParams.id).then((group) => {
+          return Group.get($stateParams.groupId).then((group) => {
             CurrentGroup.set(group);
             return group;
           });

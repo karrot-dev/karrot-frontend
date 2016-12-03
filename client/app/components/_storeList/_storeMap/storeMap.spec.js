@@ -34,11 +34,15 @@ describe("StoreMap", () => {
       let $ctrl = component.isolateScope().$ctrl;
       expect($ctrl.hasMarkers()).to.be.false;
 
-      $scope.storeList = [{ id: 99, latitude: 1.99, longitude: 2.99, name: "test1" }];
+      $scope.storeList = [{ id: 99, group: 5, latitude: 1.99, longitude: 2.99, name: "test1" }];
       $scope.$apply();
       expect($ctrl.hasMarkers()).to.be.true;
       expect($ctrl.markers).to.deep.equal({
-        99: { lat: 1.99, lng: 2.99, message: "<a ui-sref='storeDetail({ id: 99 })'>test1</a>", draggable: false }
+        99: {
+          lat: 1.99,
+          lng: 2.99,
+          message: "<a ui-sref='storeDetail({ storeId: 99, groupId: 5 })'>test1</a>",
+          draggable: false }
       });
     });
   });

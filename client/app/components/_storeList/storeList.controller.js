@@ -7,6 +7,7 @@ class StoreListController {
       $document,
       $mdDialog
     });
+
     Store.listByGroupId(this.groupId).then((data) => this.storeList = data);
   }
 

@@ -7,6 +7,15 @@ describe("Home", () => {
     module(HomeModule);
   });
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   describe("Module", () => {
     it("is named home", () => {
       expect(HomeModule).to.equal("home");

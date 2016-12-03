@@ -4,6 +4,16 @@ const { module } = angular.mock;
 
 describe("store service", () => {
   beforeEach(module(StoreModule));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   let $httpBackend, Store;
 
   let storeData = [{

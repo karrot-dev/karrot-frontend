@@ -4,7 +4,7 @@ import "./storeMap.styl";
 
 let storeMapComponent = {
   bindings: {
-    storeData: "<"
+    storeList: "<"
   },
   template,
   controller

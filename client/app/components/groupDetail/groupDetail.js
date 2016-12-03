@@ -29,9 +29,6 @@ let groupDetailModule = angular.module("groupDetail", [
             CurrentGroup.set(group);
             return group;
           });
-        },
-        stores: (Store, $stateParams) => {
-          return Store.listByGroupId($stateParams.groupId);
         }
       }
     });

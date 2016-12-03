@@ -4,9 +4,6 @@ import "./storeList.styl";
 
 let storeListComponent = {
   bindings: {
-    showEdit: "@",
-    stores: "<",
-    callback: "<",
     groupId: "<"
   },
   template,

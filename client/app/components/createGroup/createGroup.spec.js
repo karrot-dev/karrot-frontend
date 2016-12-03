@@ -5,6 +5,15 @@ const { module } = angular.mock;
 describe("CreateGroup", () => {
   beforeEach(module(CreateGroupModule));
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   describe("Module", () => {
     it("is named createGroup", () => {
       expect(CreateGroupModule).to.equal("createGroup");

@@ -43,6 +43,12 @@ module.exports = function (config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ["mocha"],
 
+    mochaReporter: {
+      // first run will have the full output and the next runs just output the summary and errors in mocha style
+      output: "autowatch",
+      showDiff: true
+    },
+
     // web server port
     port: 9876,
 

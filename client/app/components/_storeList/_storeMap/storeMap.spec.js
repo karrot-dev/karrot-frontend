@@ -34,7 +34,7 @@ describe("StoreMap", () => {
       let $ctrl = component.isolateScope().$ctrl;
       expect($ctrl.hasMarkers()).to.be.false;
 
-      $scope.storeData = [{ id: 99, group: 5, latitude: 1.99, longitude: 2.99, name: "test1" }];
+      $scope.storeList = [{ id: 99, group: 5, latitude: 1.99, longitude: 2.99, name: "test1" }];
       $scope.$apply();
       expect($ctrl.hasMarkers()).to.be.true;
       expect($ctrl.markers).to.deep.equal({

@@ -41,16 +41,19 @@ describe("StoreList", () => {
     });
 
     it("gets store data",() => {
-      let $ctrl = $componentController("storeList");
-      $httpBackend.expectGET("/api/stores/").respond([storeOne]);
+      let $ctrl = $componentController("storeList", {}, { groupId: 67 });
+      $httpBackend.expectGET("/api/stores/?group=67").respond([storeOne]);
       $httpBackend.flush();
       expect($ctrl.storeList).to.deep.equal([storeOne]);
     });
 
     it("opens dialog to create store", () => {
-      let $ctrl = $componentController("storeList");
-      $httpBackend.expectGET("/api/stores/").respond([]);
+      // from controller init, could be mocked away
+      let $ctrl = $componentController("storeList", {}, { groupId: 67 });
+      $httpBackend.expectGET("/api/stores/?group=67").respond([]);
       $httpBackend.flush();
+
+      // real test
       $mdDialog.show.returns($q((resolve) => {
         resolve({ id: 999 });
       }));

@@ -101,7 +101,7 @@ describe("GroupDetail", () => {
     let groupData = { id: 12 };
     it("should load group information", () => {
       $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-      $state.go("groupDetail", { id: groupData.id });
+      $state.go("groupDetail", { groupId: groupData.id });
       $httpBackend.flush();
       expect($state.current.component).to.equal("groupDetail");
     });

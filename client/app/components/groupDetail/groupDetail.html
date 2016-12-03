@@ -36,7 +36,7 @@
         </md-button>
       </div>
     </form>
-    <md-tabs ng-if="$ctrl.screenIsSmall" md-dynamic-height md-border-bottom flex>
+    <md-tabs ng-if="screenIsSmall" md-dynamic-height md-border-bottom flex>
       <md-tab>
         <md-tab-label>
           <span translate="GROUP.PICKUPS"></span>
@@ -62,11 +62,11 @@
         </md-tab-body>
       </md-tab>
     </md-tabs>
-    <div ng-if="!$ctrl.screenIsSmall" layout-padding>
+    <div ng-if="!screenIsSmall" layout-padding>
       <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
     </div>
   </div>
-  <span ng-if="!$ctrl.screenIsSmall" flex="40">
+  <span ng-if="!screenIsSmall" flex="40">
       <div class="md-whiteframe-2dp" layout-padding>
         <h3 translate="GROUP.STORES"></h3>
           <store-list group-id="$ctrl.groupData.id"></store-list>     

@@ -1,7 +1,14 @@
 class GroupDetailController {
-  constructor(Group, CurrentGroup, $mdMedia, $state, $stateParams) {
+  constructor(Group, CurrentGroup, $mdMedia, $scope, $state, $stateParams) {
     "ngInject";
-    this.screenIsSmall = !$mdMedia("gt-sm");
+    $scope.screenIsSmall = !$mdMedia("gt-sm");
+    
+    $scope.$watch(function() { return $mdMedia("gt-sm"); }, function(big) {
+      $scope.screenIsSmall = !big;
+    });
+
+
+
     Object.assign(this, {
       Group,
       CurrentGroup,

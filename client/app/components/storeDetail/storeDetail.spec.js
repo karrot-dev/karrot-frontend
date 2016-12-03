@@ -6,17 +6,16 @@ import StoreDetailTemplate from "./storeDetail.html";
 const { module } = angular.mock;
 
 describe("StoreDetail", () => {
-
-  let $httpBackend, $state;
-
   beforeEach(module(StoreDetailModule));
-
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
 
+  let $log, $httpBackend, $state;
   beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
     $httpBackend = $injector.get("$httpBackend");
     $state = $injector.get("$state");
   }));
@@ -24,6 +23,7 @@ describe("StoreDetail", () => {
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
+    $log.assertEmpty();
   });
 
   describe("Module", () => {

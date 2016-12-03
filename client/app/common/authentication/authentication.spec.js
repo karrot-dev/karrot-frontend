@@ -8,6 +8,15 @@ describe("authentication", () => {
 
   beforeEach(module(AuthenticationModule));
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   beforeEach(inject((_$httpBackend_, _Authentication_) => {
     $httpBackend = _$httpBackend_;
     Authentication = _Authentication_;

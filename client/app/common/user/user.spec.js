@@ -6,6 +6,15 @@ describe("user service", () => {
   beforeEach(module(UserModule));
   let $httpBackend, User;
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   let userData = [{
     "id": 1,
     "display_name": "Mr T",

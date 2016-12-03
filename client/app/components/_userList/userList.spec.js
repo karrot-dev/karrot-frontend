@@ -1,5 +1,4 @@
 import UserListModule from "./userList";
-import UserModule from "../../common/user/user";
 
 describe("UserList", () => {
   let $componentController, $httpBackend;
@@ -7,7 +6,15 @@ describe("UserList", () => {
   let { module } = angular.mock;
 
   beforeEach(module(UserListModule));
-  beforeEach(module(UserModule));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");

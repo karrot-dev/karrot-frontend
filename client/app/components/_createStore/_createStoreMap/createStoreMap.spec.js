@@ -5,6 +5,15 @@ const { module } = angular.mock;
 describe("CreateStoreMap", () => {
   beforeEach(module(CreateStoreMapModule));
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   describe("Module", () => {
     it("is named createStoreMap", () => {
       expect(CreateStoreMapModule).to.equal("createStoreMap");

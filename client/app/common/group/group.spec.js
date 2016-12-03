@@ -4,6 +4,16 @@ const { module } = angular.mock;
 
 describe("group service", () => {
   beforeEach(module(GroupModule));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   let $httpBackend, Group;
 
   let groupData = [{

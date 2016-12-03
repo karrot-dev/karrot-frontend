@@ -8,6 +8,15 @@ describe("geocoding", () => {
     module(GeocodingModule);
   });
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     Geocoding = $injector.get("Geocoding");

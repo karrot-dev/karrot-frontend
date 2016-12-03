@@ -4,6 +4,19 @@ const { module } = angular.mock;
 
 describe("UserDetail", () => {
   beforeEach(module(UserDetailModule));
+  beforeEach(module(($stateProvider) => {
+    $stateProvider
+      .state("main", { url: "", abstract: true });
+  }));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
 
   describe("Module", () => {
     it("is named userDetail", () => {
@@ -13,11 +26,6 @@ describe("UserDetail", () => {
 
   describe("Config", () => {
     let $state, $httpBackend;
-
-    beforeEach(module(($stateProvider) => {
-      $stateProvider
-        .state("main", { url: "", abstract: true });
-    }));
 
     beforeEach(inject(($injector) => {
       $state = $injector.get("$state");

@@ -1,8 +1,3 @@
-/**
- * TODOs
- *  open Edit Panel
- */
-
 class StoreListController {
   constructor(Store, $state, $document, $mdDialog) {
     "ngInject";
@@ -12,35 +7,7 @@ class StoreListController {
       $document,
       $mdDialog
     });
-
-    // check if stores it's a list of IDs or Stores
-    if (angular.isNumber(this.stores[0])) {
-      this.storeData = [];
-      this.getStores();
-    } else {
-      this.storeData = this.stores;
-    }
-  }
-
-  /*
-   * gets all stores in this.stores id-array, and saves the result in storeData
-   */
-  getStores() {
-    angular.forEach(this.stores, (storeID) => {
-      this.Store.get(storeID).then((data) => this.storeData.push(data));
-    });
-  }
-
-  onClick(store) {
-    if (angular.isDefined(this.callback)) {
-      this.callback(store);
-    } else {
-      this.$state.go( "storeDetail", { id: store.id } );
-    }
-  }
-
-  editStore() {
-    //TODO: Open Edit Panel
+    Store.listByGroupId(this.groupId).then((data) => this.storeList = data);
   }
 
   openCreateStorePanel($event) {
@@ -60,9 +27,9 @@ class StoreListController {
       controllerAs: "$ctrl"
     }).then((data) => {
       // use a copy to trigger change detection
-      let t = angular.copy(this.storeData);
+      let t = angular.copy(this.storeList);
       t.push(data);
-      this.storeData = t;
+      this.storeList = t;
     });
   }
 }

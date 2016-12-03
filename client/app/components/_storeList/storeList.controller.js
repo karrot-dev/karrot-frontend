@@ -5,9 +5,13 @@ class StoreListController {
       Store,
       $state,
       $document,
-      $mdDialog
+      $mdDialog,
+      $onChanges: (changes) => {
+        if (changes.groupId && angular.isDefined(changes.groupId.currentValue)) {
+          Store.listByGroupId(changes.groupId.currentValue).then((data) => this.storeList = data);
+        }
+      }
     });
-    Store.listByGroupId(this.groupId).then((data) => this.storeList = data);
   }
 
   openCreateStorePanel($event) {

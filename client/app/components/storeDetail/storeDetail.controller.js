@@ -1,5 +1,9 @@
 class StoreDetailController {
-  constructor() {
+  constructor(Store) {
+    "ngInject";
+    Object.assign(this, {
+      Store
+    });
     this.pickupListOptions = {
       showCreateButton: true,
       filter: {
@@ -8,6 +12,10 @@ class StoreDetailController {
         showFull: true
       }
     };
+  }
+
+  updateStoredata() {
+    return this.Store.save(this.storedata);
   }
 }
 

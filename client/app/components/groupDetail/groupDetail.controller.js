@@ -35,6 +35,10 @@ class GroupDetailController {
         this.error.leaveGroup = true;
       });
   }
+
+  updateGroupData() {
+    return this.Group.save(this.groupData);
+  }
 }
 
 export default GroupDetailController;

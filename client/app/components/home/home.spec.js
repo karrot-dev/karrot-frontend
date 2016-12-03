@@ -54,7 +54,7 @@ describe("Home", () => {
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, groupData);
       $componentController("home", {});
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith("groupDetail", { id: 50 });
+      expect($state.go).to.have.been.calledWith("groupDetail", { groupId: 50 });
     });
 
     it("opens join group dialog", () => {
@@ -64,7 +64,7 @@ describe("Home", () => {
       }));
       $componentController("home", {});
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith( "groupDetail", { id: 1337 } );
+      expect($state.go).to.have.been.calledWith( "groupDetail", { groupId: 1337 } );
     });
   });
 });

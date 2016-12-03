@@ -24,7 +24,7 @@ class GroupMenuController {
       targetEvent: $event,
       template: "<join-group></join-group>"
     }).then((groupId) => {
-      this.$state.go("groupDetail", { id: groupId });
+      this.$state.go("groupDetail", { groupId });
     });
   }
 }

@@ -10,9 +10,13 @@
   },
   "GROUP": {
     "LEAVE": "Leave group...",
+    "EDIT": "Edit group",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
     "STORES": "Stores"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Edit store"
   },
   "JOINGROUP": {
     "NAME": "Name",

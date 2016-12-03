@@ -12,6 +12,7 @@
     "angular-messages": "^1.5.8",
     "angular-translate-storage-cookie": "^2.13.0",
     "angular-ui-router": "^1.0.0-beta.1",
+    "angular-xeditable": "^0.5.0",
     "font-awesome": "^4.6.3",
     "normalize.css": "^5.0.0",
     "ui-leaflet": "^2.0.0"

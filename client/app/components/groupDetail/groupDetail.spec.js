@@ -47,20 +47,16 @@ describe("GroupDetail", () => {
   });
 
   describe("Controller", () => {
+    let CurrentGroup, $componentController;
 
-    let CurrentGroup, $ctrl;
-
-    beforeEach(inject(($componentController, _CurrentGroup_) => {
-      CurrentGroup = _CurrentGroup_;
-      $ctrl = $componentController("groupDetail", {});
+    beforeEach(inject(($injector) => {
+      $componentController = $injector.get("$componentController");
+      CurrentGroup = $injector.get("CurrentGroup");
       sinon.stub($state, "go");
     }));
 
-    it("should exist", () => {
-      expect($ctrl).to.exist;
-    });
-
     it("should be able to leave a group", () => {
+      let $ctrl = $componentController("groupDetail", {});
       let groupId = 9834;
       $httpBackend.expectPOST(`/api/groups/${groupId}/leave/`).respond(200);
       Object.assign($ctrl, { groupId });
@@ -70,6 +66,7 @@ describe("GroupDetail", () => {
     });
 
     it("clears the current group if you leave it", () => {
+      let $ctrl = $componentController("groupDetail", {});
       let groupId = 2424;
       $httpBackend.expectPOST(`/api/groups/${groupId}/leave/`).respond(200);
       CurrentGroup.set({ id: groupId });
@@ -82,6 +79,7 @@ describe("GroupDetail", () => {
     });
 
     it("sets an error flag if leaving fails", () => {
+      let $ctrl = $componentController("groupDetail", {});
       let groupId = 98238;
       $httpBackend.expectPOST(`/api/groups/${groupId}/leave/`).respond(400);
       Object.assign($ctrl, { groupId });
@@ -89,6 +87,15 @@ describe("GroupDetail", () => {
       $httpBackend.flush();
       expect($ctrl.error.leaveGroup).to.be.true;
       expect($state.go).to.not.have.been.called;
+    });
+
+    it("saves groupdata", () => {
+      let groupData = { id: 667, name: "blarb" };
+      let $ctrl = $componentController("groupDetail", {}, { groupData });
+      let feedback = $ctrl.updateGroupData();
+      $httpBackend.expectPATCH(`/api/groups/${groupData.id}/`, groupData).respond(groupData);
+      $httpBackend.flush();
+      expect(feedback).to.eventually.deep.equal(groupData);
     });
 
   });

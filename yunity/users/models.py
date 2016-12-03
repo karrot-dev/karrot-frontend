@@ -1,9 +1,11 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE
+from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, CharField
 from django_enumfield import enum
 
 from yunity.base.base_models import BaseModel, LocationModel
 from yunity.walls.models import Wall
+
+MAX_DISPLAY_NAME_LENGTH = 80
 
 
 class UserManager(BaseUserManager):
@@ -51,7 +53,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
-    display_name = TextField()
+    display_name = CharField(max_length=MAX_DISPLAY_NAME_LENGTH)
     first_name = TextField(null=True)
     last_name = TextField(null=True)
 

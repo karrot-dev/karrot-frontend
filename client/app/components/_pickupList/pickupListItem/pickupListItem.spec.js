@@ -1,7 +1,7 @@
 import PickupListItemModule from "./pickupListItem";
 
 describe("PickupListItem", () => {
-  let $componentController, $httpBackend, $q;
+  let $log, $componentController, $httpBackend, $q;
 
   let { module } = angular.mock;
 
@@ -10,6 +10,8 @@ describe("PickupListItem", () => {
   beforeEach(module("User"));
 
   beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
     $httpBackend = $injector.get("$httpBackend");
     $componentController = $injector.get("$componentController");
     $q = $injector.get("$q");
@@ -20,6 +22,7 @@ describe("PickupListItem", () => {
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
+    $log.assertEmpty();
   });
 
   let pickupData = {

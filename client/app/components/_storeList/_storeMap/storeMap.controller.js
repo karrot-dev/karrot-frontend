@@ -8,7 +8,7 @@ class StoreMapController {
         scrollWheelZoom: false
       },
       $onChanges: (changes) => {
-        if (changes.storeData) {
+        if (changes.storeList) {
           this.update();
         }
       }
@@ -16,7 +16,7 @@ class StoreMapController {
   }
 
   update() {
-    this.markers = this.getMarkers(this.storeData);
+    this.markers = this.getMarkers(this.storeList);
     if (this.hasMarkers()) {
       let bounds = new L.latLngBounds(Object.values(this.markers)).pad(0.2); // eslint-disable-line
       this.bounds = {
@@ -40,7 +40,7 @@ class StoreMapController {
       markers[e.id] = {
         lat: e.latitude,
         lng: e.longitude,
-        message: "<a ui-sref='storeDetail({ id: " + e.id + "})'>" + e.name + "</a>",
+        message: "<a ui-sref='storeDetail({ id: " + e.id + " })'>" + e.name + "</a>",
         draggable: false
       };
     });

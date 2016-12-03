@@ -1,13 +1,15 @@
 import PickupListModule from "./pickupList";
 
 describe("PickupList", () => {
-  let $componentController, $httpBackend;
+  let $log, $componentController, $httpBackend;
 
   let { module } = angular.mock;
 
   beforeEach(() => {
     module(PickupListModule);
     inject(($injector) => {
+      $log = $injector.get("$log");
+      $log.reset();
       $httpBackend = $injector.get("$httpBackend");
       $componentController = $injector.get("$componentController");
     });
@@ -16,6 +18,7 @@ describe("PickupList", () => {
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
+    $log.assertEmpty();
   });
 
   let authData = {

@@ -16,6 +16,16 @@ describe("CreatePickup", () => {
       });
     });
   });
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     $componentController = $injector.get("$componentController");

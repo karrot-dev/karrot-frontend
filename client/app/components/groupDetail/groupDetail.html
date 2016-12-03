@@ -1,6 +1,9 @@
 <div class="groupDetail">
   <div layout="row">
-    <h1 class="md-headline" flex>{{$ctrl.groupdata.name}}</h1>
+    <h1 class="md-headline" flex>
+      <i class="fa fa-home" aria-hidden="true"></i>
+      {{$ctrl.groupdata.name}}
+    </h1>
     <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
     <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
       aria-label="{{ 'GROUP.LEAVE' | translate }}">

@@ -41,14 +41,14 @@ class GroupViewSet(ModelViewSet):
 
         return super().get_permissions()
 
-    @detail_route(methods=['POST', 'GET'],
+    @detail_route(methods=['POST'],
                   permission_classes=(IsAuthenticated,))
     def join(self, request, pk=None):
         group = self.get_object()
         group.members.add(request.user)
         return Response(status=status.HTTP_200_OK)
 
-    @detail_route(methods=['POST', 'GET'],
+    @detail_route(methods=['POST'],
                   permission_classes=(IsAuthenticated,))
     def leave(self, request, pk=None):
         group = self.get_object()

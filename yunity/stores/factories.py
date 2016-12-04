@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.utils import timezone
 from factory import DjangoModelFactory, SubFactory, LazyFunction
 from factory import LazyAttribute
@@ -17,11 +19,15 @@ class Store(DjangoModelFactory):
     description = LazyAttribute(lambda x: faker.name())
 
 
+def in_one_day():
+    return timezone.now() + timedelta(days=1)
+
+
 class PickupDate(DjangoModelFactory):
 
     class Meta:
         model = PickupDateModel
 
     store = SubFactory(Store)
-    date = LazyFunction(timezone.now)
+    date = LazyFunction(in_one_day)
     max_collectors = 5

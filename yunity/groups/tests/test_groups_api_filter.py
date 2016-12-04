@@ -37,6 +37,11 @@ class TestStoresAPIFilter(APITestCase):
         self.assertEqual(len(response.data), 2)
         self.assertFalse(self.empty_group.id in [_['id'] for _ in response.data])
 
+    def test_include_empty(self):
+        response = self.client.get(self.url, {'include_empty': True})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 3)
+
     def test_search_name(self):
         response = self.client.get(self.url, {'search': self.group.name})
         self.assertEqual(response.status_code, status.HTTP_200_OK)

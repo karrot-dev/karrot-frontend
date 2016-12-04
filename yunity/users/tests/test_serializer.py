@@ -11,5 +11,5 @@ class TestUserSerializer(TestCase):
 
     def test_instantiation(self):
         serializer = UserSerializer(self.user)
-        for k in ['id', 'display_name', 'first_name', 'last_name', 'email']:
+        for k in ['id', 'display_name', 'email']:
             self.assertEqual(serializer.data[k], getattr(self.user, k))

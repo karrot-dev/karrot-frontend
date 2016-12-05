@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from yunity.base.permissions import DenyAll
+from yunity.groups.filters import GroupsFilter
 from yunity.groups.serializers import GroupSerializer
 from yunity.groups.models import Group as GroupModel
 
@@ -24,11 +25,12 @@ class GroupViewSet(ModelViewSet):
     # Query parameters
     - `?members` - filter by member user id
     - `?search` - search in name and description
+    - `?include_empty` - set to False to exclude empty groups without members
     """
     queryset = GroupModel.objects.all()
     serializer_class = GroupSerializer
-    filter_fields = ('members',)
     filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
+    filter_class = GroupsFilter
     search_fields = ('name', 'description')
 
     def get_permissions(self):

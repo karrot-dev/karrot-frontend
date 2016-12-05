@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from yunity.stores.filters import PickupDatesFilter
+from yunity.stores.permissions import IsUpcoming
 from yunity.stores.serializers import StoreSerializer, PickupDateSerializer
 from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
 
@@ -41,12 +42,12 @@ class PickupDatesViewSet(viewsets.ModelViewSet):
     queryset = PickupDateModel.objects
     filter_backends = (filters.DjangoFilterBackend,)
     filter_class = PickupDatesFilter
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, IsUpcoming)
 
     def get_queryset(self):
         return self.queryset.filter(store__group__members=self.request.user)
 
-    @detail_route(methods=['POST', 'GET'])
+    @detail_route(methods=['POST'])
     def add(self, request, pk=None):
         pickupdate = self.get_object()
         if pickupdate.collectors.count() >= pickupdate.max_collectors:
@@ -57,7 +58,7 @@ class PickupDatesViewSet(viewsets.ModelViewSet):
         return Response(s(pickupdate).data,
                         status=status.HTTP_200_OK)
 
-    @detail_route(methods=['POST', 'GET'])
+    @detail_route(methods=['POST'])
     def remove(self, request, pk=None):
         pickupdate = self.get_object()
         if not pickupdate.collectors.filter(id=request.user.id).exists():

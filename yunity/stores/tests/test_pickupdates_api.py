@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -25,9 +27,18 @@ class TestPickupDatesAPI(APITestCase):
         cls.user = User()
 
         # another pickup date for above store
-        cls.pickup_data = {'date': timezone.now(),
+        cls.pickup_data = {'date': timezone.now() + timedelta(days=2),
                            'max_collectors': 5,
                            'store': cls.store.id}
+
+        # past pickup date
+        cls.past_pickup_data = {'date': timezone.now() - timedelta(days=1),
+                                'max_collectors': 5,
+                                'store': cls.store.id}
+        cls.past_pickup = PickupDate(store=cls.store, date=timezone.now() - timedelta(days=1))
+        cls.past_pickup_url = cls.url + str(cls.past_pickup.id) + '/'
+        cls.past_join_url = cls.past_pickup_url + 'add/'
+        cls.past_leave_url = cls.past_pickup_url + 'remove/'
 
     def test_create_pickup(self):
         response = self.client.post(self.url, self.pickup_data, format='json')
@@ -43,6 +54,11 @@ class TestPickupDatesAPI(APITestCase):
         response = self.client.post(self.url, self.pickup_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
+    def test_create_past_pickup_date_fails(self):
+        self.client.force_login(user=self.member)
+        response = self.client.post(self.url, self.past_pickup_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
     def test_list_pickups(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
@@ -57,7 +73,7 @@ class TestPickupDatesAPI(APITestCase):
         self.client.force_login(user=self.member)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
+        self.assertEqual(len(response.data), 2)
 
     def test_retrieve_pickups(self):
         response = self.client.get(self.pickup_url)
@@ -87,6 +103,11 @@ class TestPickupDatesAPI(APITestCase):
         response = self.client.patch(self.pickup_url, self.pickup_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_patch_past_pickup_fails(self):
+        self.client.force_login(user=self.member)
+        response = self.client.patch(self.past_pickup_url, self.pickup_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
     def test_put_pickup(self):
         response = self.client.put(self.pickup_url, self.pickup_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
@@ -100,6 +121,11 @@ class TestPickupDatesAPI(APITestCase):
         self.client.force_login(user=self.member)
         response = self.client.put(self.pickup_url, self.pickup_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_put_past_pickup_fails(self):
+        self.client.force_login(user=self.member)
+        response = self.client.put(self.past_pickup_url, self.pickup_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_delete_pickup(self):
         response = self.client.delete(self.pickup_url)
@@ -115,6 +141,11 @@ class TestPickupDatesAPI(APITestCase):
         response = self.client.delete(self.pickup_url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
+    def test_delete_past_pickup_fails(self):
+        self.client.force_login(user=self.member)
+        response = self.client.delete(self.past_pickup_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
     def test_join_pickup(self):
         response = self.client.post(self.join_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
@@ -128,6 +159,11 @@ class TestPickupDatesAPI(APITestCase):
         self.client.force_login(user=self.member)
         response = self.client.post(self.join_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_join_past_pickup_fails(self):
+        self.client.force_login(user=self.member)
+        response = self.client.post(self.past_join_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_leave_pickup(self):
         response = self.client.post(self.leave_url)
@@ -143,3 +179,9 @@ class TestPickupDatesAPI(APITestCase):
         self.pickup.collectors.add(self.member)
         response = self.client.post(self.leave_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_leave_past_pickup_fails(self):
+        self.client.force_login(user=self.member)
+        self.past_pickup.collectors.add(self.member)
+        response = self.client.post(self.past_leave_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

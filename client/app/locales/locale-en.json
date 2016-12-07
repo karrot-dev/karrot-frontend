@@ -39,7 +39,8 @@
     "TITLE": "Sign Up!",
     "BACK": "Back to Login",
     "OK": "Join",
-    "FAILED": "Sign up failed!"
+    "FAILED": "Sign up failed!",
+    "WARNING": "Beta warning: this website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
   },
   "GROUPMENU": {
     "JOIN": "Join community"

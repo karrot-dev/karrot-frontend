@@ -1,0 +1,73 @@
+{
+  "USERDATA": {
+    "EMAIL": "Email",
+    "PASSWORD": "Mot de passe",
+    "USERNAME": "Nom"
+  },
+  "BUTTON": {
+    "CREATE": "créer",
+    "CANCEL": "Annuler"
+  },
+  "GROUP": {
+    "LEAVE": "Quitter le groupe...",
+    "PICKUPS": "Récoltes",
+    "MEMBERS": "Membres",
+    "STORES": "Magasins"
+  },
+  "JOINGROUP": {
+    "NAME": "Nom",
+    "WHICHGROUP": "Quel groupe voulez-vous rejoindre ?",
+    "NUM_MEMBERS": "Membres"
+  },
+  "HOME": {
+    "REDIRECT": "Redirection vers votre groupe préféré..."
+  },
+  "TOPBAR": {
+    "LOGOUT": "Déconnexion"
+  },
+  "LOGIN": {
+    "TITLE": "Connexion",
+    "WRONG": "Les informations entrées sont fausses. S'il vous plaît vérifiez les attentivement.",
+    "SUBMIT": "Connexion",
+    "SIGNUP": "Enregistrez vous !"
+  },
+  "SIGNUP": {
+    "TITLE": "Enregistrez vous !",
+    "BACK": "Retour à la connexion",
+    "OK": "Rejoindre",
+    "FAILED": "L'enregistrement a échoué !"
+  },
+  "GROUPMENU": {
+    "JOIN": "Rejoindre la communauté"
+  },
+  "CREATEGROUP": {
+    "TITLE": "Créer un groupe",
+    "NAME": "Nom",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Adresse"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Créer une récolte",
+    "TIME": "Temps",
+    "TIME_ERROR": "Entrez un temps valide : [hh:mm]",
+    "MAX_COLLECTORS": "Nombre maximum d'emplacements"
+  },
+  "CREATESTORE": {
+    "TITLE": "Créer un nouveau magasin",
+    "NAME": "Nom",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Adresse"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filtre",
+    "JOINED": "Rejoint",
+    "OPEN": "ouvert",
+    "FULL": "complet",
+    "SORT": "Trier",
+    "ITEM": {
+      "LEAVE": "Quitter",
+      "JOIN": "Rejoindre",
+      "FULL": "Complet !"
+    }
+  }
+}

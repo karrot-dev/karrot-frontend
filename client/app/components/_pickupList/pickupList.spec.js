@@ -1,7 +1,7 @@
 import PickupListModule from "./pickupList";
 
 describe("PickupList", () => {
-  let $log, $componentController, $httpBackend;
+  let $log, $componentController, $httpBackend, now, clock;
 
   let { module } = angular.mock;
 
@@ -13,12 +13,15 @@ describe("PickupList", () => {
       $httpBackend = $injector.get("$httpBackend");
       $componentController = $injector.get("$componentController");
     });
+    now = new Date(2016, 8, 1);
+    clock = sinon.useFakeTimers(now.getTime());
   });
 
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
     $log.assertEmpty();
+    clock.restore();
   });
 
   let authData = {
@@ -202,7 +205,7 @@ describe("PickupList", () => {
       });
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
-      $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
+      $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
     });
 
     afterEach(() => {
@@ -217,7 +220,7 @@ describe("PickupList", () => {
 
     it("automatic update", () => {
       $httpBackend.expectGET("/api/auth/status/").respond(authData);
-      $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData);
+      $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
     });
 
 
@@ -258,7 +261,7 @@ describe("PickupList", () => {
       });
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
-      $httpBackend.whenGET("/api/pickup-dates/?store=9").respond(pickupData);
+      $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
       $httpBackend.whenGET("/api/stores/9/").respond(storeData);
     });
 

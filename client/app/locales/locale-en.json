@@ -1,7 +1,7 @@
 {
   "GLOBAL":{
-    "GITHUB_NOTE":"Development platform",
-    "DEVMAIL_NOTE":"(only for Errors/Suggestions)"
+    "GITHUB_NOTE":"Development",
+    "DEVMAIL_NOTE":"write us a mail for errors/suggestions"
   },
   "USERDATA": {
     "EMAIL": "Mail",

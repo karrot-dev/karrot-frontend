@@ -1,6 +1,7 @@
 {
   "GLOBAL":{
-    "WARNING":"Warning"
+    "WARNING":"Warning",
+    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
   },
   "USERDATA": {
     "EMAIL": "Mail",
@@ -42,8 +43,7 @@
     "TITLE": "Sign Up!",
     "BACK": "Back to Login",
     "OK": "Join",
-    "FAILED": "Sign up failed!",
-    "WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
+    "FAILED": "Sign up failed!"
   },
   "GROUPMENU": {
     "JOIN": "Join community"

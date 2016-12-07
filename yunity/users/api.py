@@ -37,4 +37,4 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         users_groups = self.request.user.groups.values('id')
-        return self.queryset.filter(groups__in=users_groups)
+        return self.queryset.filter(groups__in=users_groups).distinct()

@@ -21,12 +21,10 @@ class TestUsersAPI(APITestCase):
                          'address': faker.address(),
                          'latitude': faker.latitude(),
                          'longitude': faker.longitude()}
-        cls.group = Group()
-        cls.group.members.add(cls.user)
-        cls.group.members.add(cls.user2)
+        cls.group = Group(members=[cls.user, cls.user2])
+        cls.another_common_group = Group(members=[cls.user, cls.user2])
         cls.user_in_another_group = User()
-        cls.another_group = Group()
-        cls.another_group.members.add(cls.user_in_another_group)
+        cls.another_group = Group(members=[cls.user_in_another_group, ])
 
     def test_create_user(self):
         response = self.client.post(self.url, self.user_data, format='json')

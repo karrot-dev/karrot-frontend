@@ -1,4 +1,8 @@
 {
+  "GLOBAL":{
+    "GITHUB_NOTE":"Development platform",
+    "DEVMAIL_NOTE":"(only for Errors/Suggestions)"
+  },
   "USERDATA": {
     "EMAIL": "Mail",
     "PASSWORD": "Password",

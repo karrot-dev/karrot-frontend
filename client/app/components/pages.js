@@ -7,6 +7,7 @@ import storeDetail from "./storeDetail/storeDetail";
 import userDetail from "./userDetail/userDetail";
 import createGroup from "./createGroup/createGroup";
 import topbar from "./_topbar/topbar";
+import conversations from "./conversations/conversations";
 
 let componentModule = angular.module("app.components", [
   groupDetail,
@@ -16,7 +17,8 @@ let componentModule = angular.module("app.components", [
   storeDetail,
   userDetail,
   createGroup,
-  topbar
+  topbar,
+  conversations
 ]).name;
 
 export default componentModule;

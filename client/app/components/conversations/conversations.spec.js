@@ -1,9 +1,9 @@
 import ConversationsModule from "./conversations";
 
+
 const { module } = angular.mock;
 
 describe("Conversations", () => {
-  beforeEach(module(Authentication));
   beforeEach(module(ConversationsModule));
 
   describe("Module", () => {

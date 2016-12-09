@@ -4,8 +4,8 @@ import "./conversationsList.styl";
 
 let conversationsListComponent = {
   bindings: {
-    active: '<',
-    small: '<'
+    active: "<",
+    small: "<"
   },
   template,
   controller

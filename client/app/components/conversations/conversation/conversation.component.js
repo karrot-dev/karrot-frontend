@@ -4,7 +4,7 @@ import "./conversation.styl";
 
 let conversationComponent = {
   bindings: {
-    id: '<'
+    id: "<"
   },
   template,
   controller

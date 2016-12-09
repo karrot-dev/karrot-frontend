@@ -4,10 +4,10 @@ import "./message.styl";
 
 let messageComponent = {
   bindings: {
-    author: '<',
-    content: '<',
-    time: '<',
-    withAuthor: '<'
+    author: "<",
+    content: "<",
+    time: "<",
+    withAuthor: "<"
   },
   template,
   controller

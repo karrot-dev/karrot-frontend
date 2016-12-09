@@ -21,8 +21,8 @@ let conversationsModule = angular.module("conversations", [
       url: "/conversations",
       component: "conversations",
       params: {
-          threadView: false
-      },
+        threadView: false
+      }
     })
     .state("conversation", {
       parent: "main",

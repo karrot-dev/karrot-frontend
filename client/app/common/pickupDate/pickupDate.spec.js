@@ -14,16 +14,22 @@ describe("pickupDate service", () => {
     $log.assertEmpty();
   });
 
-  let $httpBackend, PickupDate;
+  let $httpBackend, PickupDate, now, clock;
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     PickupDate = $injector.get("PickupDate");
   }));
 
+  beforeEach(() => {
+    now = new Date();
+    clock = sinon.useFakeTimers(now.getTime());
+  });
+
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
+    clock.restore();
   });
 
   let pickupData = [{
@@ -61,8 +67,8 @@ describe("pickupDate service", () => {
     "store": 9
   };
 
-  it("lists all pickupdates", () => {
-    $httpBackend.expectGET("/api/pickup-dates/").respond(pickupData);
+  it("lists upcoming pickupdates", () => {
+    $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}`).respond(pickupData);
     expect(PickupDate.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData);
@@ -77,16 +83,16 @@ describe("pickupDate service", () => {
     $httpBackend.flush();
   });
 
-  it("filters pickupdates by store", () => {
-    $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData[0]);
+  it("filters upcoming pickupdates by store", () => {
+    $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData[0]);
     expect(PickupDate.listByStoreId(9))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
   });
 
-  it("filters pickupdates by group", () => {
-    $httpBackend.expectGET("/api/pickup-dates/?group=9").respond(pickupData[0]);
+  it("filters upcoming pickupdates by group", () => {
+    $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}&group=9`).respond(pickupData[0]);
     expect(PickupDate.listByGroupId(9))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData[0]);

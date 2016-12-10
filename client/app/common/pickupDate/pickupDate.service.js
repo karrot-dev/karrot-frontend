@@ -15,17 +15,17 @@ class PickupDateComService {
   }
 
   list() {
-    return this.$http.get("/api/pickup-dates/")
+    return this.$http.get("/api/pickup-dates/", { params: { "date_0": new Date() } })
       .then((res) => res.data);
   }
 
   listByGroupId(groupId) {
-    return this.$http.get("/api/pickup-dates/", { params: { group: groupId } })
+    return this.$http.get("/api/pickup-dates/", { params: { group: groupId, "date_0": new Date() } })
       .then((res) => res.data);
   }
 
   listByStoreId(storeId) {
-    return this.$http.get("/api/pickup-dates/", { params: { store: storeId } })
+    return this.$http.get("/api/pickup-dates/", { params: { store: storeId, "date_0": new Date() } })
       .then((res) => res.data);
   }
 

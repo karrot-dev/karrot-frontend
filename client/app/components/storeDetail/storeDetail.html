@@ -34,5 +34,6 @@
       </md-button>
     </div>
   </form>
+  <store-detail-map ng-if="$ctrl.storedata" store-data="$ctrl.storedata"></store-detail-map>
   <pickup-list store-id="$ctrl.storedata.id" options="$ctrl.pickupListOptions"></pickup-list>
 </div>

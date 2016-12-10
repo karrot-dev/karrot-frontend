@@ -90,12 +90,23 @@ describe("GroupDetail", () => {
     });
 
     it("saves groupData", () => {
-      let groupData = { id: 667, name: "blarb" };
+      let groupData = { id: 667, name: "blarb", description: "la" };
       let $ctrl = $componentController("groupDetail", {}, { groupData });
       let feedback = $ctrl.updateGroupData();
       $httpBackend.expectPATCH(`/api/groups/${groupData.id}/`, groupData).respond(groupData);
       $httpBackend.flush();
       expect(feedback).to.eventually.deep.equal(groupData);
+    });
+
+    it("$onChanges updates store description HTML", () => {
+      let groupData = { description: "new desc" };
+      let $ctrl = $componentController("groupDetail", {}, { groupData });
+      $ctrl.$onChanges({
+        groupData: {
+          currentValue: groupData
+        }
+      });
+      expect($ctrl.descriptionHTML).to.equal("<p>new desc</p>\n");
     });
 
   });

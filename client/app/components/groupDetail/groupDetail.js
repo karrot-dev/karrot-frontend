@@ -1,14 +1,18 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import ngSanitize from "angular-sanitize";
 import groupDetailComponent from "./groupDetail.component";
 import AuthenticationModule from "../../common/authentication/authentication";
 import groupModule from "../../common/group/group";
 import storeList from "../_storeList/storeList";
 import userList from "../_userList/userList";
 import pickupList from "../_pickupList/pickupList";
+import marked from "angular-marked";
 
 let groupDetailModule = angular.module("groupDetail", [
   uiRouter,
+  ngSanitize,
+  marked,
   AuthenticationModule,
   groupModule,
   storeList,

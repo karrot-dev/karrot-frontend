@@ -1,5 +1,7 @@
 {
   "GLOBAL":{
+    "GITHUB_NOTE":"Development",
+    "DEVMAIL_NOTE":"write us a mail for errors/suggestions",
     "WARNING":"Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
   },

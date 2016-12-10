@@ -11,16 +11,18 @@ class StoreDetailMapController {
   }
 
   $onChanges(changes) {
-    if (changes.storeData) {
-      this.update();
+    if (changes.storeData && changes.storeData.currentValue) {
+      this.updateWith(changes.storeData.currentValue);
     }
   }
 
-  update() {
-    this.setMarker(
-      this.storeData.latitude,
-      this.storeData.longitude,
-      this.storeData.address);
+  updateWith(storeData) {
+    if (storeData.latitude && storeData.longitude && storeData.address) {
+      this.setMarker(
+        storeData.latitude,
+        storeData.longitude,
+        storeData.address);
+    }
   }
 
   setMarker(lat, lng, message) {

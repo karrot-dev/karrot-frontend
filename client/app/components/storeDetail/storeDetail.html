@@ -13,6 +13,15 @@
         <i class="fa fa-pencil"></i>
       </md-button>
     </div>
+    <p editable-text="$ctrl.storedata.address">
+      <span ng-if="$ctrl.storedata.address">
+        <md-tooltip>
+            <span translate="STOREDETAIL.ADDRESS"></span>
+        </md-tooltip>
+        <i class="fa fa-map-marker"></i>
+        {{$ctrl.storedata.address}}
+      </span>
+    </p>
     <div editable-textarea="$ctrl.storedata.description">
       <p class="multiline">{{$ctrl.storedata.description}}</p>
     </div>

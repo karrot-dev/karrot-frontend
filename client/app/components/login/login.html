@@ -1,6 +1,15 @@
 <div id="loginContent" layout-padding class="md-whiteframe-2dp" ng-class="[{shake: $ctrl.error.wrong}]">
   <form login-form ng-submit="$ctrl.login()">
     <h2 translate="LOGIN.TITLE"></h2>
+    <md-card>
+      <md-card-title>
+        <i class="fa fa-exclamation-triangle"></i>
+        <b translate="GLOBAL.WARNING"></b>
+      </md-card-title>
+      <md-card-content>
+        <p translate="GLOBAL.BETA_WARNING"></p>
+      </md-card-content>
+    </md-card>
     <md-input-container class="md-block">
       <label translate="USERDATA.EMAIL"></label>
       <input type="text" name="email" required ng-model="$ctrl.email">

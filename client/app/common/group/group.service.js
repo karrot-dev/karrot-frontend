@@ -18,7 +18,7 @@ class GroupService {
   }
 
   list() {
-    return this.$http.get("/api/groups/")
+    return this.$http.get("/api/groups/", { params: { "include_empty": "False" } })
       .then((res) => res.data);
   }
 

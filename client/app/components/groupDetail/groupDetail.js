@@ -39,6 +39,16 @@ let groupDetailModule = angular.module("groupDetail", [
   hookProvider.setup("groupDetail", { authenticated: true, anonymous: "login" });
 })
 
+.config((markedProvider) => {
+  "ngInject";
+  markedProvider.setRenderer({
+    link: (href, title, text) => {
+      let _title = title ? "title=" + title : "";
+      return `<a href='${href}' ${_title} target='_blank'>${text}</a>`;
+    }
+  });
+})
+
 .component("groupDetail", groupDetailComponent)
 
 .name;

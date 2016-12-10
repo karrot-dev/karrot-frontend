@@ -24,7 +24,7 @@
       </span>
     </div>
     <div editable-textarea="$ctrl.groupData.description">
-      <p class="multiline">{{$ctrl.groupData.description}}</p>
+      <expandable-panel content="$ctrl.groupData.description" markdown="true"></expandable-panel>
     </div>
     <div ng-show="editableGroup.$visible" layout="row" layout-align="end start">
       <md-button class="md-icon-button" ng-disabled="editableGroup.$waiting" ng-click="editableGroup.$cancel()">

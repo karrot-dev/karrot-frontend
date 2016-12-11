@@ -1,10 +1,11 @@
 class GroupDetailController {
-  constructor(Group, CurrentGroup, $state, $stateParams) {
+  constructor(Group, CurrentGroup, $state, $stateParams, marked) {
     "ngInject";
     Object.assign(this, {
       Group,
       CurrentGroup,
       $state,
+      marked,
       groupId: $stateParams.id,
       error: {
         leaveGroup: false
@@ -22,6 +23,16 @@ class GroupDetailController {
     };
   }
 
+  $onChanges(changes) {
+    if (changes.groupData && changes.groupData.currentValue) {
+      this.updateDescriptionHTML(changes.groupData.currentValue.description);
+    }
+  }
+
+  updateDescriptionHTML(source) {
+    this.descriptionHTML = this.marked(source);
+  }
+
   leaveGroup() {
     this.Group.leave(this.groupId)
       .then(() => {
@@ -36,7 +47,10 @@ class GroupDetailController {
   }
 
   updateGroupData() {
-    return this.Group.save(this.groupData);
+    return this.Group.save(this.groupData).then((data) => {
+      this.updateDescriptionHTML(data.description);
+      return data;
+    });
   }
 }
 

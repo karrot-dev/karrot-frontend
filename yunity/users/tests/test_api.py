@@ -13,14 +13,16 @@ class TestUsersAPI(APITestCase):
         cls.user = User()
         cls.user2 = User()
         cls.url = '/api/users/'
-        cls.user_data = {'display_name': faker.name(),
-                         'first_name': faker.name(),
-                         'last_name': faker.name(),
-                         'email': faker.email(),
-                         'password': faker.name(),
-                         'address': faker.address(),
-                         'latitude': faker.latitude(),
-                         'longitude': faker.longitude()}
+        cls.user_data = {
+            'display_name': faker.name(),
+            'first_name': faker.name(),
+            'last_name': faker.name(),
+            'email': faker.email(),
+            'password': faker.name(),
+            'address': faker.address(),
+            'latitude': faker.latitude(),
+            'longitude': faker.longitude()
+        }
         cls.group = Group(members=[cls.user, cls.user2])
         cls.another_common_group = Group(members=[cls.user, cls.user2])
         cls.user_in_another_group = User()
@@ -31,6 +33,7 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['email'], self.user_data['email'])
         self.assertAlmostEqual(response.data['latitude'], float(self.user_data['latitude']))
+        self.assertEqual(response.data['description'], '')
 
     def test_list_users_forbidden(self):
         response = self.client.get(self.url)
@@ -52,6 +55,7 @@ class TestUsersAPI(APITestCase):
         url = self.url + str(self.user.id) + '/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['description'], self.user.description)
 
     def test_retrieve_user_in_another_group_fails(self):
         self.client.force_login(user=self.user2)
@@ -75,6 +79,13 @@ class TestUsersAPI(APITestCase):
         url = self.url + str(self.user.id) + '/'
         response = self.client.patch(url, self.user_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_patch_only_description(self):
+        self.client.force_login(user=self.user)
+        url = self.url + str(self.user.id) + '/'
+        response = self.client.patch(url, {'description': ' test'}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['description'], ' test')
 
     def test_put_user_forbidden(self):
         url = self.url + str(self.user.id) + '/'

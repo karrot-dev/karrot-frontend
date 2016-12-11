@@ -7,8 +7,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ['id', 'display_name', 'email', 'password',
-                  'address', 'latitude', 'longitude']
-        extra_kwargs = {'password': {'write_only': True}}
+                  'address', 'latitude', 'longitude', 'description']
+        extra_kwargs = {'password': {'write_only': True},
+                        'description': {'trim_whitespace': False}}
+
+    def validate(self, data):
+        if 'description' not in data:
+            data['description'] = ''
+        return data
 
     def create(self, validated_data):
         return self.Meta.model.objects.create_user(

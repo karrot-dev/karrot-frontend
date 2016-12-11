@@ -56,6 +56,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     display_name = CharField(max_length=MAX_DISPLAY_NAME_LENGTH)
     first_name = TextField(null=True)
     last_name = TextField(null=True)
+    description = TextField(blank=True)
 
     wall = OneToOneField(Wall, null=True, on_delete=CASCADE)
     profile_visibility = enum.EnumField(ProfileVisibility, default=ProfileVisibility.PRIVATE)

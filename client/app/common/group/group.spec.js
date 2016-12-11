@@ -49,7 +49,7 @@ describe("group service", () => {
   });
 
   it("lists groups", () => {
-    $httpBackend.expectGET("/api/groups/").respond(groupData);
+    $httpBackend.expectGET("/api/groups/?include_empty=False").respond(groupData);
     expect(Group.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);

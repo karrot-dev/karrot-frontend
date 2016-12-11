@@ -14,8 +14,7 @@ export default class ExpandablePanelController {
   constructor() {
     "ngInject";
     Object.assign(this, {
-      expandable: false,
-      expanded: false,
+      collapsed: false,
       parsed: ""
     });
   }
@@ -25,7 +24,7 @@ export default class ExpandablePanelController {
       // more then 10 lines?
       let lines = content.match(/\n/mg);
       if (lines && lines.length > 9) {
-        this.expandable = true;
+        this.collapsed = true;
       }
 
       if (this.markdown) {

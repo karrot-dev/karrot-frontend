@@ -33,7 +33,4 @@ export default class ExpandablePanelController {
       }
     }
   }
-  toggle() {
-    this.expanded = !this.expanded;
-  }
 }

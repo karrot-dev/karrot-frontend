@@ -1,7 +1,9 @@
-<div class="{{$ctrl.expandable ? 'expandable' : ''}} {{$ctrl.expanded ? 'expanded' : 'collapsed'}}">
+<div ng-class="{expandable: $ctrl.expandable, expanded: $ctrl.expanded, collapsed: !$ctrl.expanded}">
   <div ng-if="$ctrl.markdown" ng-bind-html="$ctrl.parsed" class="content"></div>
   <div ng-if="!$ctrl.markdown" class="content">{{$ctrl.content}}</div>
   <div ng-if="$ctrl.expandable" class="expandablePanelSlider">
-    <button ng-click="$ctrl.toggle()"><i class="fa fa-arrow-{{$ctrl.expanded ? 'up' : 'down'}}"></i></button>
+    <md-button class="md-icon-button md-raised" ng-click="$ctrl.expanded = !$ctrl.expanded">
+      <i class="fa fa-arrow-{{$ctrl.expanded ? 'up' : 'down'}}"></i>
+    </md-button>
   </div>
 </div>

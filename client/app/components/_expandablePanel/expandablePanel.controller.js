@@ -1,7 +1,13 @@
 import markdown from "markdown-it";
+import markdownLinkAttributes from "markdown-it-link-attributes";
 const md = markdown({
   xhtmlOut: true,
-  breaks: true
+  breaks: true,
+  linkify: true
+});
+md.use(markdownLinkAttributes, {
+  target: "_blank",
+  rel: "noopener nofollow noreferrer"
 });
 
 export default class ExpandablePanelController {

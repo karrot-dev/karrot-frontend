@@ -1,6 +1,7 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+from config import settings
 from yunity.groups.factories import Group
 from yunity.users.factories import User
 from yunity.utils.tests.fake import faker
@@ -86,6 +87,12 @@ class TestUsersAPI(APITestCase):
         response = self.client.patch(url, {'description': ' test'}, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['description'], ' test')
+
+    def test_patch_too_long_description(self):
+        self.client.force_login(user=self.user)
+        url = self.url + str(self.user.id) + '/'
+        response = self.client.patch(url, {'description': 'ab' * settings.DESCRIPTION_MAX_LENGTH}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_put_user_forbidden(self):
         url = self.url + str(self.user.id) + '/'

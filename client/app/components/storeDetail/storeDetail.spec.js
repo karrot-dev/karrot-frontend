@@ -79,6 +79,26 @@ describe("StoreDetail", () => {
       $rootScope.$apply();
       expect($ctrl.lookupOngoing).to.be.false;
     });
+
+    it("onChanges sets storeEdit and mapData", () => {
+      let storeData = { id: 986, group: 5, description: "abc" };
+      let $ctrl = $componentController("storeDetail", {}, {});
+      $ctrl.$onChanges({ storedata: { currentValue: storeData } });
+      expect($ctrl.storeEdit).to.deep.equal(storeData);
+      expect($ctrl.mapData).to.deep.equal(storeData);
+    });
+
+    it("resets mapData", () => {
+      let storeData = { id: 986, group: 5, description: "abc" };
+      let storeEdit = Object.assign(angular.copy(storeData), { description: "999" });
+      let $cancel = sinon.spy();
+      let $scope = { editableStore: { $cancel } };
+      let $ctrl = $componentController("storeDetail", { $scope }, { storedata: storeData });
+      $ctrl.mapData = storeEdit;
+      $ctrl.reset();
+      expect($ctrl.mapData).to.deep.equal(storeData);
+      expect($cancel).to.have.been.called;
+    });
   });
 
   describe("Routes", () => {

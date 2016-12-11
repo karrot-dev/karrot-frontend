@@ -2,6 +2,8 @@ from datetime import timedelta
 
 from django.utils import timezone
 from rest_framework import serializers
+
+from config import settings
 from yunity.stores.models import Store as StoreModel
 from yunity.stores.models import PickupDate as PickupDateModel
 
@@ -44,6 +46,13 @@ class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = StoreModel
         fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude']
+        extra_kwargs = {'description': {'trim_whitespace': False,
+                                        'max_length': settings.DESCRIPTION_MAX_LENGTH}}
+
+    def validate(self, data):
+        if 'description' not in data:
+            data['description'] = ''
+        return data
 
     def validate_group(self, group_id):
         if group_id not in self.context['request'].user.groups.all():

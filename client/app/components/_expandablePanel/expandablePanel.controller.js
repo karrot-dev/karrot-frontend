@@ -14,8 +14,8 @@ export default class ExpandablePanelController {
     });
     $timeout( () => {
 
-      // more then 4 lines?
-      if (this.content.match(/\n/mg).length > 3) {
+      // more then 10 lines?
+      if (this.content.match(/\n/mg).length > 9) {
         this.expandable = true;
       }
 

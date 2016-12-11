@@ -35,5 +35,15 @@ describe("ExpandablePanel", () => {
       });
       expect($ctrl.parsed).to.equal("<p>sometext</p>\n");
     });
+
+    it("collapses long text", () => {
+      let $ctrl = $componentController("expandablePanel", { });
+      $ctrl.$onChanges({
+        content: {
+          currentValue: new Array(20).join("text\n")
+        }
+      });
+      expect($ctrl.collapsed).to.be.true;
+    });
   });
 });

@@ -26,9 +26,14 @@ describe("ExpandablePanel", () => {
       $componentController = $injector.get("$componentController");
     }));
 
-    it("should exist", () => {
-      let $ctrl = $componentController("expandablePanel", {});
-      expect($ctrl).to.exist;
+    it("renders markdown", () => {
+      let $ctrl = $componentController("expandablePanel", { }, { markdown: true });
+      $ctrl.$onChanges({
+        content: {
+          currentValue: "sometext"
+        }
+      });
+      expect($ctrl.parsed).to.equal("<p>sometext</p>\n");
     });
   });
 });

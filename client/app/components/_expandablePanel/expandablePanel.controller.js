@@ -11,10 +11,9 @@ md.use(markdownLinkAttributes, {
 });
 
 export default class ExpandablePanelController {
-  constructor($sce) {
+  constructor() {
     "ngInject";
     Object.assign(this, {
-      $sce,
       expandable: false,
       expanded: false,
       parsed: ""
@@ -24,12 +23,13 @@ export default class ExpandablePanelController {
     if (changes.content && changes.content.currentValue) {
       let content = changes.content.currentValue;
       // more then 10 lines?
-      if (content.match(/\n/mg).length > 9) {
+      let lines = content.match(/\n/mg);
+      if (lines && lines.length > 9) {
         this.expandable = true;
       }
 
       if (this.markdown) {
-        this.parsed = this.$sce.trustAsHtml(md.render(content));
+        this.parsed = md.render(content);
       }
     }
   }

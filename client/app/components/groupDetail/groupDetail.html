@@ -1,4 +1,23 @@
 <div layout="row" layout-margin>
+    <!-- Sidenav -->
+    <span ng-if="!screenIsSmall" id="group-detail-sidenav" flex="40">
+      <div class="md-whiteframe-2dp" style="padding: 0">
+        <md-toolbar class="md-hue-1">
+          <div class="md-toolbar-tools">
+            <h3 translate="GROUP.STORES"></h3>       
+          </div>
+        </md-toolbar>
+        <md-content layout-padding>
+          <store-list group-id="$ctrl.groupData.id"></store-list>          
+        </md-content> 
+      </div>
+      <div class="md-whiteframe-2dp" layout-padding>
+        <h3 translate="GROUP.MEMBERS"></h3>
+        <user-list users="$ctrl.groupData.members"></user-list>     
+      </div>
+  </span>
+  
+  
   <div class="groupDetail md-whiteframe-2dp" flex="100" flex-gt-sm="60" style="padding:0">
     <form editable-form name="editableGroup" onaftersave="$ctrl.updateGroupData()">
       <div layout="row">
@@ -28,6 +47,7 @@
           </div>    
           </div>
         </md-toolbar>
+        <md-content layout-padding>
           <div editable-textarea="$ctrl.groupData.description">
             <p class="multiline">{{$ctrl.groupData.description}}</p>
           </div>
@@ -69,21 +89,6 @@
           <div ng-if="!screenIsSmall" layout-padding>
             <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
           </div>
+        </md-content>
   </div>
-  <span ng-if="!screenIsSmall" id="group-detail-sidenav" flex="40">
-      <div class="md-whiteframe-2dp" style="padding: 0">
-        <md-toolbar class="md-hue-1">
-          <div class="md-toolbar-tools">
-            <h3 translate="GROUP.STORES"></h3>       
-          </div>
-        </md-toolbar>
-        <md-content layout-padding>
-          <store-list group-id="$ctrl.groupData.id"></store-list>          
-        </md-content> 
-      </div>
-      <div class="md-whiteframe-2dp" layout-padding>
-        <h3 translate="GROUP.MEMBERS"></h3>
-        <user-list users="$ctrl.groupData.members"></user-list>     
-      </div>
-  </span>
 </div>

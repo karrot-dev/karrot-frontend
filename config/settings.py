@@ -164,6 +164,8 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/api-auth/login/'
 LOGOUT_URL = '/api-auth/logout/'
 
+DESCRIPTION_MAX_LENGTH = 100000
+
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control
 try:

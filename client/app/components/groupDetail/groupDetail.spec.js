@@ -57,9 +57,9 @@ describe("GroupDetail", () => {
 
     it("should be able to leave a group", () => {
       let $ctrl = $componentController("groupDetail", {});
-      let groupId = 9834;
-      $httpBackend.expectPOST(`/api/groups/${groupId}/leave/`).respond(200);
-      Object.assign($ctrl, { groupId });
+      let groupData = { id: 9834 };
+      $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
+      Object.assign($ctrl, { groupData });
       $ctrl.leaveGroup();
       $httpBackend.flush();
       expect($state.go).to.have.been.calledWith("home");
@@ -67,11 +67,11 @@ describe("GroupDetail", () => {
 
     it("clears the current group if you leave it", () => {
       let $ctrl = $componentController("groupDetail", {});
-      let groupId = 2424;
-      $httpBackend.expectPOST(`/api/groups/${groupId}/leave/`).respond(200);
-      CurrentGroup.set({ id: groupId });
-      expect(CurrentGroup.value).to.deep.equal({ id: groupId });
-      Object.assign($ctrl, { groupId });
+      let groupData = { id: 2424 };
+      $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
+      CurrentGroup.set({ id: groupData.id });
+      expect(CurrentGroup.value).to.deep.equal({ id: groupData.id });
+      Object.assign($ctrl, { groupData });
       $ctrl.leaveGroup();
       $httpBackend.flush();
       expect(CurrentGroup.value).to.deep.equal({});
@@ -80,9 +80,9 @@ describe("GroupDetail", () => {
 
     it("sets an error flag if leaving fails", () => {
       let $ctrl = $componentController("groupDetail", {});
-      let groupId = 98238;
-      $httpBackend.expectPOST(`/api/groups/${groupId}/leave/`).respond(400);
-      Object.assign($ctrl, { groupId });
+      let groupData = { id: 98238 };
+      $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(400);
+      Object.assign($ctrl, { groupData });
       $ctrl.leaveGroup();
       $httpBackend.flush();
       expect($ctrl.error.leaveGroup).to.be.true;

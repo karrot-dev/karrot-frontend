@@ -24,6 +24,12 @@
   "STOREDETAIL": {
     "EDIT": "Edit store"
   },
+  "USERDETAIL": {
+    "EDIT": "Edit user",
+    "DISPLAY_NAME": "Name",
+    "EMAIL": "Mail",
+    "DESCRIPTION": "About you"
+  },
   "JOINGROUP": {
     "NAME": "Name",
     "WHICHGROUP": "Which group do you want to join?",

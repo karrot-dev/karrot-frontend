@@ -46,5 +46,9 @@
         <pickup-list-item show-detail="$ctrl.options.showDetail" parent-ctrl="$ctrl" data="pickup" ng-repeat="pickup in pickupDate.items| orderBy:['-date']:$ctrl.options.reversed"></pickup-list-item>
       </md-list>
     </section>
+    <md-content ng-if="!$ctrl.groupedPickups.length"  layout-padding>
+      <h4 style="margin-bottom: 0"><i class="fa fa-bed"></i> <translate>PICKUPLIST.NONE</translate></h4>
+      <small ng-if="!$ctrl.options.showCreateButton" translate="PICKUPLIST.NONE_HINT"></small>
+    </md-content>
   </md-content>
 </div>

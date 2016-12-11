@@ -1,0 +1,63 @@
+<div class="conversationList">
+  <a ng-repeat="conversation in $ctrl.list" ui-sref="conversation({id:conversation.id})" layout="row" class="conversation {{conversation.id == $ctrl.active ? 'active' : ''}}">
+
+    <!-- avatar/icon -->
+    <div flex="9">
+      <div ng-if="conversation.type == 'MULTICHAT'" class="picture">
+        <i class="fa fa-users"></i>
+      </div>
+      <div ng-if="conversation.type == 'ONE_ON_ONE'" class="picture">
+        <span ng-if="conversation.partner.picture">
+          <img src="{{conversation.partner.picture}}"></img>
+        </span>
+        <span ng-if="!conversation.partner.picture">
+          <i class="fa fa-user"></i>
+        </span>
+      </div>
+    </div>
+
+    <!-- second column @ large -->
+    <div ng-if="!$ctrl.small" flex="40">
+      <div ng-if="conversation.type == 'MULTICHAT'">
+        <div class="truncate">{{ conversation.topic }}</div>
+        <div class="truncate sub">
+          <span ng-repeat="p in conversation.participants">
+            {{p.display_name}}<span ng-if="!$last">, <span>
+          </span>
+        </div>
+      </div>
+      <div ng-if="conversation.type == 'ONE_ON_ONE'" class="doubleLine">
+        <div>{{ conversation.partner.display_name }}</div>
+      </div>
+    </div>
+
+    <!-- second column @ small -->
+    <div ng-if="$ctrl.small" flex>
+      <div class="sub" style="float:right">
+        {{ conversation.previewMessage.time | date:'shortDate' }}
+      </div>
+      <div ng-if="conversation.type == 'MULTICHAT'" class="truncate">{{ conversation.topic }}</div>
+      <div ng-if="conversation.type == 'ONE_ON_ONE'" class="truncate">{{ conversation.partner.display_name }}</div>
+      <div class="truncate preview sub">
+        <i ng-if="conversation.repliedLast" class="fa fa-reply"></i>
+        {{ conversation.previewMessage.content }}
+      </div>
+    </div>
+
+
+    <!-- third column @ large -->
+    <div ng-if="!$ctrl.small" flex>
+      <div class="truncate preview">
+        <i ng-if="conversation.repliedLast" class="fa fa-reply"></i>
+        {{ conversation.previewMessage.content }}
+      </div>
+      <div class="sub">
+        {{ conversation.previewMessage.time | date:'medium' }}
+      </div>
+    </div>
+  </a>
+  <div ng-if="$ctrl.isInitialized && !$ctrl.list.length" translate="CONVERSATIONS.NO_ENTRIES"></div>
+  <div ng-if="!$ctrl.isInitialized" layout="row" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+</div>

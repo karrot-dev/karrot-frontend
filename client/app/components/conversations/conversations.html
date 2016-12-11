@@ -1,0 +1,17 @@
+<div>
+  <div ng-if="!$ctrl.threadView">
+    <h2><i class="fa fa-comments"></i> Conversations</h2>
+    <conversations-list></conversations-list>
+  </div>
+
+
+  <h2 ng-if="$ctrl.threadView" hide-xs><i class="fa fa-comments"></i> Conversations</h2>
+  <div ng-if="$ctrl.threadView" layout="row" style="min-height: 100px">
+    <div flex="35" class="seperater" hide-xs>
+      <conversations-list active="$ctrl.conversationId" small="true"></conversations-list>
+    </div>
+    <div flex>
+      <conversation id="$ctrl.conversationId"></conversation>
+    </div>
+  </div>
+</div>

@@ -2,8 +2,6 @@ from config import settings
 from yunity.base.base_models import BaseModel, LocationModel
 from django.db import models
 
-MAX_STORE_NAME_LENGTH = 80
-
 
 class PickupDate(BaseModel):
     date = models.DateTimeField()
@@ -14,5 +12,5 @@ class PickupDate(BaseModel):
 
 class Store(BaseModel, LocationModel):
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE, related_name='store')
-    name = models.CharField(max_length=MAX_STORE_NAME_LENGTH)
+    name = models.CharField(max_length=settings.NAME_MAX_LENGTH)
     description = models.TextField(blank=True)

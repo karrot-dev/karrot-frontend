@@ -15,4 +15,4 @@ class PickupDate(BaseModel):
 class Store(BaseModel, LocationModel):
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE, related_name='store')
     name = models.CharField(max_length=MAX_STORE_NAME_LENGTH)
-    description = models.TextField(null=True)
+    description = models.TextField(blank=True)

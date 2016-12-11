@@ -15,6 +15,11 @@ class GroupSerializer(serializers.ModelSerializer):
                             'max_length': settings.DESCRIPTION_MAX_LENGTH}
         }
 
+    def validate(self, data):
+        if 'description' not in data:
+            data['description'] = ''
+        return data
+
     def create(self, validated_data):
         member_ids = [self.context['request'].user.id, ]
 

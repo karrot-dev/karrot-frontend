@@ -7,5 +7,5 @@ MAX_NAME_LENGTH = 80
 
 class Group(BaseModel, LocationModel):
     name = CharField(max_length=MAX_NAME_LENGTH)
-    description = TextField(null=True)
+    description = TextField(blank=True)
     members = ManyToManyField(settings.AUTH_USER_MODEL, related_name='groups')

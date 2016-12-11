@@ -49,6 +49,11 @@ class StoreSerializer(serializers.ModelSerializer):
         extra_kwargs = {'description': {'trim_whitespace': False,
                                         'max_length': settings.DESCRIPTION_MAX_LENGTH}}
 
+    def validate(self, data):
+        if 'description' not in data:
+            data['description'] = ''
+        return data
+
     def validate_group(self, group_id):
         if group_id not in self.context['request'].user.groups.all():
             raise serializers.ValidationError('You are not member of the given group.')

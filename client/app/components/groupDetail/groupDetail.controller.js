@@ -1,11 +1,10 @@
 class GroupDetailController {
-  constructor(Group, CurrentGroup, $state, $stateParams) {
+  constructor(Group, CurrentGroup, $state) {
     "ngInject";
     Object.assign(this, {
       Group,
       CurrentGroup,
       $state,
-      groupId: $stateParams.id,
       error: {
         leaveGroup: false
       }
@@ -23,9 +22,9 @@ class GroupDetailController {
   }
 
   leaveGroup() {
-    this.Group.leave(this.groupId)
+    this.Group.leave(this.groupData.id)
       .then(() => {
-        if (this.CurrentGroup.value.id === this.groupId) {
+        if (this.CurrentGroup.value.id === this.groupData.id) {
           this.CurrentGroup.clear();
         }
         this.$state.go("home");

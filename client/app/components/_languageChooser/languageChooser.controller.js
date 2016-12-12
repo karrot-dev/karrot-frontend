@@ -3,7 +3,7 @@ class LanguageChooserController {
     "ngInject";
     Object.assign(this, {
       $translate,
-      providedLangs: ["de", "en"]
+      providedLangs: ["de", "en", "fr"]
     });
   }
 

@@ -46,12 +46,52 @@ describe("UserDetail", () => {
   });
 
   describe("Controller", () => {
-    let $ctrl;
-    beforeEach(inject((_$componentController_) => {
-      $ctrl = _$componentController_("userDetail", {});
+    let $ctrl, Authentication, User, $q, $scope;
+    beforeEach(inject(($injector, _$componentController_) => {
+      Authentication = $injector.get("Authentication");
+      sinon.stub(Authentication, "update");
+      User = $injector.get("User");
+      sinon.stub(User, "save");
+      $q = $injector.get("$q");
+      $scope = $injector.get("$rootScope").$new();
+      $ctrl = _$componentController_("userDetail", { $scope });
     }));
-    it("to exist", () => {
-      expect($ctrl).to.exist;
+
+    it("makes page non-editable", () => {
+      Authentication.update.returns($q((resolve) => {
+        resolve({ id: 2 });
+      }));
+      $ctrl.$onChanges({ userdata: { currentValue: { id: 666 } } });
+      expect($ctrl.editable).to.be.undefined;
+      $scope.$apply();
+      expect($ctrl.editable).to.be.false;
+    });
+
+    it("makes page editable", () => {
+      Authentication.update.returns($q((resolve) => {
+        resolve({ id: 666 });
+      }));
+      $ctrl.$onChanges({ userdata: { currentValue: { id: 666 } } });
+      expect($ctrl.editable).to.be.undefined;
+      $scope.$apply();
+      expect($ctrl.editable).to.be.true;
+    });
+
+    it("submits changed data", () => {
+      let userdata = { id: 666, email: "l@l.de" };
+      $ctrl.userdata = userdata;
+      $ctrl.editEnable();
+      expect($ctrl.editEnabled).to.be.true;
+      expect($ctrl.saving).to.be.false;
+      $ctrl.editData.email = "another@mail.com";
+      User.save.withArgs($ctrl.editData).returns($q((resolve) => {
+        resolve($ctrl.editData);
+      }));
+      $ctrl.submitEdit();
+      expect($ctrl.saving).to.be.true;
+      $scope.$apply();
+      expect($ctrl.editEnabled).to.be.false;
+      expect($ctrl.saving).to.be.false;
     });
   });
 });

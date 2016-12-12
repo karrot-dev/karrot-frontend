@@ -21,9 +21,9 @@ export default class ExpandablePanelController {
   $onChanges(changes) {
     if (changes.content && changes.content.currentValue) {
       let content = changes.content.currentValue;
-      // more then 10 lines?
+
       let lines = content.match(/\n/mg);
-      if (lines && lines.length > 9) {
+      if (this.collapse && lines && lines.length >= this.collapse) {
         this.collapsed = true;
       }
 

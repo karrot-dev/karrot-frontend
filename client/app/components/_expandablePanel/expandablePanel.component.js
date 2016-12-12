@@ -5,7 +5,8 @@ import "./expandablePanel.styl";
 let expandablePanelComponent = {
   bindings: {
     content: "<",
-    markdown: "<"
+    markdown: "<",
+    collapse: "<"
   },
   template,
   controller

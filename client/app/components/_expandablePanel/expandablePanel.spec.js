@@ -37,7 +37,7 @@ describe("ExpandablePanel", () => {
     });
 
     it("collapses long text", () => {
-      let $ctrl = $componentController("expandablePanel", { });
+      let $ctrl = $componentController("expandablePanel", { }, { collapse: 10 });
       $ctrl.$onChanges({
         content: {
           currentValue: new Array(20).join("text\n")

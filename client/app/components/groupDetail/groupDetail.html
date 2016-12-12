@@ -10,17 +10,6 @@
         <store-list group-id="$ctrl.groupData.id"></store-list>          
       </md-content> 
     </div>
-
-    <div class="md-whiteframe-2dp"  style="padding: 0">
-      <md-toolbar class="md-hue-1">
-        <div class="md-toolbar-tools">
-          <h3 translate="GROUP.MEMBERS"></h3>     
-        </div>
-      </md-toolbar>
-      <md-content>
-        <user-list users="$ctrl.groupData.members"></user-list>
-      </md-content>
-    </div>
   </span>
 
   <div class="groupDetail md-whiteframe-2dp" style="padding: 0; width: 100%">
@@ -88,10 +77,26 @@
             </md-tab-body>
           </md-tab>
         </md-tabs>
-        <div ng-if="!screenIsSmall">
-            <hr/>
-            <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
-        </div>
+        
+        
+        <md-tabs ng-if="!screenIsSmall" md-dynamic-height md-border-bottom flex>
+          <md-tab>
+            <md-tab-label>
+              <span translate="GROUP.PICKUPS"></span>
+            </md-tab-label>
+            <md-tab-body>
+              <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>
+              <span translate="GROUP.MEMBERS"></span>
+            </md-tab-label>
+            <md-tab-body>
+              <user-list users="$ctrl.groupData.members"></user-list>
+            </md-tab-body>
+          </md-tab>
+        </md-tabs>
       </md-content>
     </form>
   </div>

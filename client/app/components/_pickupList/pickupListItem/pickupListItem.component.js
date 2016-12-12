@@ -6,6 +6,7 @@ let pickupListItemComponent = {
   bindings: {
     data: "<",              // pickup info, including .isFull .isUserMember etc..
     showDetail: "<",        // same as in pickupList
+    onDelete: "&",
     parentCtrl: "<"         // Controller of pickupList
   },
   template,

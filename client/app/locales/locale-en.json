@@ -22,7 +22,8 @@
     "STORES": "Stores"
   },
   "STOREDETAIL": {
-    "EDIT": "Edit store"
+    "EDIT": "Edit store",
+    "ADDRESS": "Address"
   },
   "USERDETAIL": {
     "EDIT": "Edit user",

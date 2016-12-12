@@ -11,7 +11,7 @@
       </md-button>
     </div>
     <h3><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $ctrl.userdata.email }}</h3>
-    <p>{{ $ctrl.userdata.description }}</p>
+    <expandable-panel content="$ctrl.userdata.description" markdown="true" collapse="1000"></expandable-panel>
   </div>
 
   <form ng-if="$ctrl.editEnabled" name="editUser" ng-submit="editUser.$valid && $ctrl.submitEdit()" layout="column">

@@ -1,7 +1,6 @@
 let path    = require("path");
 let webpack = require("webpack");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
-let autoprefixer = require("autoprefixer");
 
 module.exports = {
   devtool: "sourcemap",
@@ -17,7 +16,6 @@ module.exports = {
        { test: /\.(png|jpg|jpeg|svg)$/, loader: "file?name=images/[hash].[ext]" }
     ]
   },
-  postcss: [autoprefixer()],
   plugins: [
     // Injects bundles in your index.html instead of wiring all manually.
     // It also adds hash to all injected assets so we don't have problems

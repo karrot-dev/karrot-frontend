@@ -1,4 +1,10 @@
 {
+  "GLOBAL":{
+    "GITHUB_NOTE":"Development",
+    "DEVMAIL_NOTE":"write us a mail for errors/suggestions",
+    "WARNING":"Warning",
+    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
+  },
   "USERDATA": {
     "EMAIL": "Mail",
     "PASSWORD": "Password",
@@ -16,7 +22,14 @@
     "STORES": "Stores"
   },
   "STOREDETAIL": {
-    "EDIT": "Edit store"
+    "EDIT": "Edit store",
+    "ADDRESS": "Address"
+  },
+  "USERDETAIL": {
+    "EDIT": "Edit user",
+    "DISPLAY_NAME": "Name",
+    "EMAIL": "Mail",
+    "DESCRIPTION": "About you"
   },
   "JOINGROUP": {
     "NAME": "Name",
@@ -72,6 +85,8 @@
       "LEAVE": "Leave",
       "JOIN": "Join",
       "FULL": "Full!"
-    }
+    },
+    "NONE":"No upcoming pickups",
+    "NONE_HINT":"You can create a new pickup on the store page."
   }
 }

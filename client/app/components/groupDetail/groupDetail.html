@@ -1,94 +1,98 @@
 <div layout="row" layout-margin>
-    <!-- Sidenav -->
-    <span ng-if="!screenIsSmall" id="group-detail-sidenav" flex="40">
-      <div class="md-whiteframe-2dp" style="padding: 0">
-        <md-toolbar class="md-hue-1">
-          <div class="md-toolbar-tools">
-            <h3 translate="GROUP.STORES"></h3>       
-          </div>
-        </md-toolbar>
-        <md-content layout-padding>
-          <store-list group-id="$ctrl.groupData.id"></store-list>          
-        </md-content> 
-      </div>
-      <div class="md-whiteframe-2dp" layout-padding>
-        <h3 translate="GROUP.MEMBERS"></h3>
-        <user-list users="$ctrl.groupData.members"></user-list>     
-      </div>
+  <span ng-if="!screenIsSmall" id="group-detail-sidenav" flex="40">
+    <div class="md-whiteframe-2dp" style="padding: 0">
+      <md-toolbar class="md-hue-1">
+        <div class="md-toolbar-tools">
+          <h3 translate="GROUP.STORES"></h3>       
+        </div>
+      </md-toolbar>
+      <md-content>
+        <store-list group-id="$ctrl.groupData.id"></store-list>          
+      </md-content> 
+    </div>
+
+    <div class="md-whiteframe-2dp"  style="padding: 0">
+      <md-toolbar class="md-hue-1">
+        <div class="md-toolbar-tools">
+          <h3 translate="GROUP.MEMBERS"></h3>     
+        </div>
+      </md-toolbar>
+      <md-content>
+        <user-list users="$ctrl.groupData.members"></user-list>
+      </md-content>
+    </div>
   </span>
-  
-  
-  <div class="groupDetail md-whiteframe-2dp" flex="100" flex-gt-sm="60" style="padding:0">
+
+  <div class="groupDetail md-whiteframe-2dp" style="padding: 0; width: 100%">
     <form editable-form name="editableGroup" onaftersave="$ctrl.updateGroupData()">
-      <div layout="row">
-        <md-toolbar class="md-hue-1">
-          <div class="md-toolbar-tools">
-            <h1 class="md-headline" flex editable-text="$ctrl.groupData.name">
-              <i class="fa fa-home" aria-hidden="true"></i>
-              {{$ctrl.groupData.name}}
-            </h1>
-            <span ng-show="!editableGroup.$visible">
-              <md-button class="md-icon-button" ng-click="editableGroup.$show()"
-                aria-label="{{ 'GROUP.EDIT' | translate }}">
-                <md-tooltip md-direction="left">
-                    <span translate="GROUP.EDIT"></span>
-                </md-tooltip>
-                <i class="fa fa-pencil"></i>
-              </md-button>
-              <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
-              <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
-                aria-label="{{ 'GROUP.LEAVE' | translate }}">
-                <md-tooltip md-direction="left">
-                    <span translate="GROUP.LEAVE"></span>
-                </md-tooltip>
-                <i class="fa fa-fw fa-sign-out"></i>
-              </md-button>
-            </span>
-          </div>    
-          </div>
-        </md-toolbar>
-        <md-content layout-padding>
-          <div editable-textarea="$ctrl.groupData.description">
-            <p class="multiline">{{$ctrl.groupData.description}}</p>
-          </div>
-          <div ng-show="editableGroup.$visible" layout="row" layout-align="end start">
-            <md-button class="md-icon-button" ng-disabled="editableGroup.$waiting" ng-click="editableGroup.$cancel()">
-              <i class="fa fa-times"></i>
+      <md-toolbar class="md-hue-1">
+        <div class="md-toolbar-tools">
+          <h1 class="md-headline" flex editable-text="$ctrl.groupData.name">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            {{$ctrl.groupData.name}}
+          </h1>
+          <span ng-show="!editableGroup.$visible">
+            <md-button class="md-icon-button" ng-click="editableGroup.$show()"
+                       aria-label="{{ 'GROUP.EDIT' | translate }}">
+              <md-tooltip md-direction="left">
+                <span translate="GROUP.EDIT"></span>
+              </md-tooltip>
+              <i class="fa fa-pencil"></i>
             </md-button>
-            <md-button type="submit" class="md-raised md-primary" ng-disabled="editableGroup.$waiting">
-              <i class="fa fa-check"></i>
+            <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
+            <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
+                       aria-label="{{ 'GROUP.LEAVE' | translate }}">
+              <md-tooltip md-direction="left">
+                <span translate="GROUP.LEAVE"></span>
+              </md-tooltip>
+              <i class="fa fa-fw fa-sign-out"></i>
             </md-button>
-          </div>
-          </form>
-          <md-tabs ng-if="screenIsSmall" md-dynamic-height md-border-bottom flex>
-            <md-tab>
-              <md-tab-label>
-                <span translate="GROUP.PICKUPS"></span>
-              </md-tab-label>
-              <md-tab-body>
-                <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
-              </md-tab-body>
-            </md-tab>
-            <md-tab>
-              <md-tab-label>
-                <span translate="GROUP.MEMBERS"></span>
-              </md-tab-label>
-              <md-tab-body>
-                <user-list users="$ctrl.groupData.members"></user-list>
-              </md-tab-body>
-            </md-tab>
-            <md-tab>
-              <md-tab-label>
-                <span translate="GROUP.STORES"></span>
-              </md-tab-label>
-              <md-tab-body>
-                <store-list group-id="$ctrl.groupData.id"></store-list>
-              </md-tab-body>
-            </md-tab>
-          </md-tabs>
-          <div ng-if="!screenIsSmall" layout-padding>
+          </span>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div editable-textarea="$ctrl.groupData.description">
+          <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
+        </div>
+        <div ng-show="editableGroup.$visible" layout="row" layout-align="end start">
+          <md-button class="md-icon-button" ng-disabled="editableGroup.$waiting" ng-click="editableGroup.$cancel()">
+            <i class="fa fa-times"></i>
+          </md-button>
+          <md-button type="submit" class="md-raised md-primary" ng-disabled="editableGroup.$waiting">
+            <i class="fa fa-check"></i>
+          </md-button>
+        </div>
+        <md-tabs ng-if="screenIsSmall" md-dynamic-height md-border-bottom flex>
+          <md-tab>
+            <md-tab-label>
+              <span translate="GROUP.PICKUPS"></span>
+            </md-tab-label>
+            <md-tab-body>
+              <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>
+              <span translate="GROUP.MEMBERS"></span>
+            </md-tab-label>
+            <md-tab-body>
+              <user-list users="$ctrl.groupData.members"></user-list>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>
+              <span translate="GROUP.STORES"></span>
+            </md-tab-label>
+            <md-tab-body>
+              <store-list group-id="$ctrl.groupData.id"></store-list>
+            </md-tab-body>
+          </md-tab>
+        </md-tabs>
+        <div ng-if="!screenIsSmall">
+            <hr/>
             <pickup-list group-id="$ctrl.groupData.id" options="$ctrl.pickupListOptions"></pickup-list>
-          </div>
-        </md-content>
+        </div>
+      </md-content>
+    </form>
   </div>
 </div>

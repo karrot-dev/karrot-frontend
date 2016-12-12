@@ -8,16 +8,35 @@
       <md-button class="md-icon-button" ng-click="editableStore.$show()" ng-show="!editableStore.$visible"
         aria-label="{{ 'STOREDETAIL.EDIT' | translate }}">
         <md-tooltip md-direction="left">
-            <span translate="STOREDETAIL.EDIT"></span>
+          <span translate="STOREDETAIL.EDIT"></span>
         </md-tooltip>
         <i class="fa fa-pencil"></i>
+      </md-button>
+    </div>
+    <div ng-hide="editableStore.$visible">
+      <p ng-if="$ctrl.storedata.address">
+        <md-tooltip>
+          <span translate="STOREDETAIL.ADDRESS"></span>
+        </md-tooltip>
+        <i class="fa fa-map-marker"></i>
+        {{$ctrl.storedata.address}}
+      </p>
+    </div>
+    <div ng-if="editableStore.$visible">
+      <md-input-container>
+        <label translate="STOREDETAIL.ADDRESS"></label>
+        <input type="text" ng-model="$ctrl.storeEdit.address">
+      </md-input-container>
+      <md-button ng-click="$ctrl.addressLookup()" class="md-icon-button" ng-disabled="!$ctrl.storeEdit.address || $ctrl.lookupOngoing">
+        <i class="fa fa-search" ng-show="!$ctrl.lookupOngoing"></i>
+        <i class="fa fa-spinner" ng-show="$ctrl.lookupOngoing"></i>
       </md-button>
     </div>
     <div editable-textarea="$ctrl.storedata.description">
       <p class="multiline">{{$ctrl.storedata.description}}</p>
     </div>
-    <div ng-show="editableStore.$visible" layout="row" layout-align="end start">
-      <md-button class="md-icon-button" ng-disabled="editableStore.$waiting" ng-click="editableStore.$cancel()">
+    <div ng-if="editableStore.$visible" layout="row" layout-align="end start">
+      <md-button class="md-icon-button" ng-disabled="editableStore.$waiting" ng-click="$ctrl.reset()">
         <i class="fa fa-times"></i>
       </md-button>
       <md-button type="submit" class="md-raised md-primary" ng-disabled="editableStore.$waiting">
@@ -25,5 +44,6 @@
       </md-button>
     </div>
   </form>
+  <store-detail-map ng-if="$ctrl.mapData" store-data="$ctrl.mapData"></store-detail-map>
   <pickup-list store-id="$ctrl.storedata.id" options="$ctrl.pickupListOptions"></pickup-list>
 </div>

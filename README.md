@@ -35,6 +35,12 @@ In future, we want our feature requests to come directly from foodsaving communi
 
 We don't have testing communities yet: we are in touch with [existing foodsaving networks](https://yunity.atlassian.net/wiki/display/YUN/Existing+initiatives) who have shown interest in testing the tool once it presents sufficient features for them.
 
+## Translation
+
+We are using [Transifex](https://www.transifex.com/) to provide the foodsaving tool in many languages. To help us with translation, please [create an account](http://transifex.com/signup) and [apply for foodsaving tool group](https://www.transifex.com/yunity-1/foodsaving-tool/frontend/).
+
+After selecting your destination language and choosing the resource file, go ahead to start translating!
+
 # Getting started
 
 ## Requirements
@@ -75,6 +81,9 @@ To use a local backend, create a file `.env` with content like
 BACKEND=http://localhost:8080/
 ```
 
+## Transifex integration
+
+Configuration for the [transifex CLI client](https://docs.transifex.com/client/) is in `.tx/config`. After instaling the client, you can use `tx push` and `tx pull` to synchronize the strings with the transifex server.
 # Questions?
 
 Join our [open chatroom on matrix.org](https://riot.im/app/#/room/#foodsaving-tool:matrix.org)!

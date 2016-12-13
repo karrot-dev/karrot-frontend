@@ -22,6 +22,9 @@ The [FSINT team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity
 At a later point, more features could be added that support the yunity vision and mission, e.g. multi-sharing communities, item pooling, integrated decision making (syscon).
 
 ## Current development goals
+
+Continue reading in our [elaborate roadmap](ROADMAP.md) for more details.
+
 - user: sign-up with name and email address
 - group/community: create a group, add yourself to a group, leave a group, set up name, description, address and position of a group
 - store: create a store which belongs to a group, set up name, description, address and position of a store

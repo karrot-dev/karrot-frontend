@@ -265,15 +265,20 @@ describe("PickupList", () => {
       $httpBackend.whenGET("/api/stores/9/").respond(storeData);
     });
 
-    afterEach(() => {
-      $httpBackend.flush();
-    });
-
     it("addPickupInfo get Store Info functionality", () => {
       $ctrl.userId = 1;
       $ctrl.addPickupInfosAndDisplay(pickupData);
       let updatedData = $ctrl.allPickups;
       expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
+      $httpBackend.flush();
+    });
+
+    it("deletes pickup", () => {
+      sinon.stub($ctrl, "updatePickups");
+      $httpBackend.expectDELETE("/api/pickup-dates/87/").respond();
+      $ctrl.delete({ id: 87 });
+      $httpBackend.flush();
+      expect($ctrl.updatePickups).to.have.been.called;
     });
 
     describe("createPickup dialog", () => {
@@ -292,6 +297,7 @@ describe("PickupList", () => {
         $ctrl.openCreatePickupPanel();
         $rootScope.$apply();
         expect($ctrl.updatePickups).to.have.been.called;
+        $httpBackend.flush();
       });
     });
   });

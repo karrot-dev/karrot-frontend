@@ -115,6 +115,12 @@ class PickupListController {
     promise.then((data) => this.addPickupInfosAndDisplay(data));
   }
 
+  delete(pickup) {
+    this.PickupDate.delete(pickup.id).then(() => {
+      this.updatePickups();
+    });
+  }
+
   openCreatePickupPanel($event) {
     let DialogController = function (storeId) {
       "ngInject";

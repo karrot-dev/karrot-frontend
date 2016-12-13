@@ -84,7 +84,8 @@
     "ITEM": {
       "LEAVE": "Leave",
       "JOIN": "Join",
-      "FULL": "Full!"
+      "FULL": "Full!",
+      "DELETE": "Delete pickup date"
     },
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."

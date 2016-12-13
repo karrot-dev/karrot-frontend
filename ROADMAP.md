@@ -42,7 +42,3 @@ Only major features and improvements will be listed here.
 - Work teams for groups
 - more login options (Google, GitHub, Slack, ...)
 - Native App for Android and iOS
--
-
-
--

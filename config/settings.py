@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework_nested',
     'rest_framework_swagger',
+    'influxdb_metrics',
 
     # Application
     'yunity',

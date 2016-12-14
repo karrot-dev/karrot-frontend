@@ -21,17 +21,15 @@ The foodsaving tool will be the first release of the yunity platform.
 The [FSINT team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity provides additional resources to build up foodsaving.
 At a later point, more features could be added that support the yunity vision and mission, e.g. multi-sharing communities, item pooling, integrated decision making (syscon).
 
-## Current development goals
+## Development goals
 
-Continue reading in our [elaborate roadmap](ROADMAP.md) for more details.
-
-- user: sign-up with name and email address
-- group/community: create a group, add yourself to a group, leave a group, set up name, description, address and position of a group
-- store: create a store which belongs to a group, set up name, description, address and position of a store
-- pick-ups: create a pick-up date which belongs to a store, set time and max. amount of ppl who can collect food, user can enter themselves for pick-up
-- conversations: write messages to one or more people (present in the backend but is not a priority task for frontend) 
+Our current development goals are prioritized and written down in our [elaborate roadmap](ROADMAP.md).
 
 We are keeping the features down to a minimum (check out [that meeting's notes](https://yunity.atlassian.net/wiki/display/YUN/2016-09-13+-+Narrowing+down+features)), in order to progressively build up a useful tool.
+
+## Releases
+
+Look into our [change log file](CHANGELOG.md) for a quick overview of past versions and recent changes.
 
 ### Potential users
 In future, we want our feature requests to come directly from foodsaving communities, to fulfill their needs and desires.
@@ -50,7 +48,7 @@ After selecting your destination language and choosing the resource file, go ahe
 
 - nodejs and npm
 - gulp `npm install -g gulp`
-- chrome (for testing)
+- chrome or chromium (for testing)
 
 To clone and install
 

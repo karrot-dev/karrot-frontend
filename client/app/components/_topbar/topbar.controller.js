@@ -1,8 +1,18 @@
 import logo from "./carrot-logo.svgimage";
 
 class TopbarController {
-  constructor() {
-    this.logo = logo;
+  constructor(Authentication) {
+    "ngInject";
+    Object.assign(this, {
+      logo,
+      Authentication
+    });
+  }
+
+  $onInit() {
+    this.Authentication.update().then((data) => {
+      this.loggedInUser = data;
+    });
   }
 }
 

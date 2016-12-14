@@ -40,7 +40,8 @@
     "REDIRECT": "Redirecting to your beloved group..."
   },
   "TOPBAR": {
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "USERPROFILE": "Visit your profile"
   },
   "LOGIN": {
     "TITLE": "Login",

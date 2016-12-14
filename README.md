@@ -21,15 +21,15 @@ The foodsaving tool will be the first release of the yunity platform.
 The [FSINT team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity provides additional resources to build up foodsaving.
 At a later point, more features could be added that support the yunity vision and mission, e.g. multi-sharing communities, item pooling, integrated decision making (syscon).
 
+## Releases
+
+Look into our [change log file](CHANGELOG.md) for a quick overview of past versions and recent changes.
+
 ## Development goals
 
 Our current development goals are prioritized and written down in our [elaborate roadmap](ROADMAP.md).
 
 We are keeping the features down to a minimum (check out [that meeting's notes](https://yunity.atlassian.net/wiki/display/YUN/2016-09-13+-+Narrowing+down+features)), in order to progressively build up a useful tool.
-
-## Releases
-
-Look into our [change log file](CHANGELOG.md) for a quick overview of past versions and recent changes.
 
 ### Potential users
 In future, we want our feature requests to come directly from foodsaving communities, to fulfill their needs and desires.

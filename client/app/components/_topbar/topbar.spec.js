@@ -1,5 +1,4 @@
 import TopbarModule from "./topbar";
-import TopbarController from "./topbar.controller";
 
 const { module } = angular.mock;
 

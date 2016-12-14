@@ -34,6 +34,15 @@ DATABASES = {
 DEBUG = False
 ALLOWED_HOSTS = ['fstool.yunity.org', 'mvp-proposal.yunity.org', 'mvp-design.yunity.org']
 STATIC_ROOT = '${deploy_dir}/${backend_dir}/static/'
+INFLUXDB_HOST = '127.0.0.1'
+INFLUXDB_PORT = '8086'
+INFLUXDB_USER = ''
+INFLUXDB_PASSWORD = ''
+INFLUXDB_DATABASE = 'fstool'
+INFLUXDB_TAGS_HOST = 'yuca'
+INFLUXDB_TIMEOUT = 2
+INFLUXDB_USE_CELERY = False
+INFLUXDB_USE_THREADING = True
 CONFIG
 
 createdb fstool || true

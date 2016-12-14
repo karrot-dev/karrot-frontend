@@ -9,6 +9,8 @@ DATABASES = {
     }
 }
 
+INFLUXDB_DISABLED = True
+
 SHELL_PLUS_PRE_IMPORTS = (
     ('yunity.users.models', ('ProfileVisibility')),
     ('yunity.utils.tests.mock', ('*')),

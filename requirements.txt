@@ -4,6 +4,9 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+amqp==2.1.3               # via kombu
+billiard==3.5.0.2         # via celery
+celery==4.0.1             # via django-influxdb-metrics
 coreapi==2.1.1            # via django-rest-swagger, openapi-codec
 coverage==4.2
 django-cors-headers==1.3.1
@@ -11,6 +14,7 @@ django-crispy-forms==1.6.1
 django-enumfield==1.3b2
 django-extensions==1.7.5
 django-filter==1.0.1
+django-influxdb-metrics==1.3.1
 django-redis==4.6.0
 django-rest-swagger==2.1.0
 django==1.10.4
@@ -20,17 +24,23 @@ factory-boy==2.7.0
 fake-factory==0.7.2       # via factory-boy
 flake8==3.2.1
 hiredis==0.2.0
+influxdb==4.0.0           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
+kombu==4.0.1              # via celery
 markdown==2.6.7
 mccabe==0.5.2             # via flake8
 openapi-codec==1.2.1      # via django-rest-swagger
+psutil==5.0.0             # via python-server-metrics
 psycopg2==2.6.2
 pycodestyle==2.2.0        # via flake8
 pyflakes==1.3.0           # via flake8
-python-dateutil==2.6.0    # via fake-factory
+python-dateutil==2.6.0    # via fake-factory, influxdb
+python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2016.7
 redis==2.10.5
-requests==2.12.3          # via coreapi
+requests==2.12.3          # via coreapi, influxdb
 simplejson==3.10.0        # via django-rest-swagger
-six==1.10.0               # via django-extensions, fake-factory, python-dateutil
+six==1.10.0               # via django-extensions, fake-factory, influxdb, python-dateutil, tld
+tld==0.7.6                # via django-influxdb-metrics
 uritemplate==3.0.0        # via coreapi
+vine==1.1.3               # via amqp

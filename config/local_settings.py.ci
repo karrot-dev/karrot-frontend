@@ -9,6 +9,17 @@ DATABASES = {
     }
 }
 
+INFLUXDB_DISABLED = True
+INFLUXDB_HOST = ''
+INFLUXDB_PORT = ''
+INFLUXDB_USER = ''
+INFLUXDB_PASSWORD = ''
+INFLUXDB_DATABASE = ''
+INFLUXDB_TAGS_HOST = ''
+INFLUXDB_TIMEOUT = 2
+INFLUXDB_USE_CELERY = False
+INFLUXDB_USE_THREADING = True
+
 SHELL_PLUS_PRE_IMPORTS = (
     ('yunity.users.models', ('ProfileVisibility')),
     ('yunity.utils.tests.mock', ('*')),

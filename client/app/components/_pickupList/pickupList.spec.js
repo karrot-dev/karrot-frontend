@@ -36,39 +36,39 @@ describe("PickupList", () => {
     "max_collectors": 2,
     "store": 9
   },
-    {
-      "id": 14,
-      "date": "2016-09-16T01:00:00Z",
-      "collector_ids": [
-        1,
-        8
-      ],
-      "max_collectors": 2,
-      "store": 9
-    },
-    {
-      "id": 11,
-      "date": "2016-09-17T16:00:00Z",
-      "collector_ids": [
-        1
-      ],
-      "max_collectors": 3,
-      "store": 9
-    },
-    {
-      "id": 5,
-      "date": "2016-09-18T12:00:18Z",
-      "collector_ids": [],
-      "max_collectors": 5,
-      "store": 9
-    },
-    {
-      "id": 4,
-      "date": "2017-09-22T20:00:05Z",
-      "collector_ids": [],
-      "max_collectors": 2,
-      "store": 9
-    }];
+  {
+    "id": 14,
+    "date": "2016-09-16T01:00:00Z",
+    "collector_ids": [
+      1,
+      8
+    ],
+    "max_collectors": 2,
+    "store": 9
+  },
+  {
+    "id": 11,
+    "date": "2016-09-17T16:00:00Z",
+    "collector_ids": [
+      1
+    ],
+    "max_collectors": 3,
+    "store": 9
+  },
+  {
+    "id": 5,
+    "date": "2016-09-18T12:00:18Z",
+    "collector_ids": [],
+    "max_collectors": 5,
+    "store": 9
+  },
+  {
+    "id": 4,
+    "date": "2017-09-22T20:00:05Z",
+    "collector_ids": [],
+    "max_collectors": 2,
+    "store": 9
+  }];
 
   let pickupDataInfoAdded = [{
     "id": 15,
@@ -79,47 +79,47 @@ describe("PickupList", () => {
     "isUserMember": false,
     "isFull": false
   },
-    {
-      "id": 14,
-      "date": "2016-09-16T01:00:00Z",
-      "collector_ids": [
-        1,
-        8
-      ],
-      "max_collectors": 2,
-      "store": 9,
-      "isUserMember": true,
-      "isFull": true
-    },
-    {
-      "id": 11,
-      "date": "2016-09-17T16:00:00Z",
-      "collector_ids": [
-        1
-      ],
-      "max_collectors": 3,
-      "store": 9,
-      "isUserMember": true,
-      "isFull": false
-    },
-    {
-      "id": 5,
-      "date": "2016-09-18T12:00:18Z",
-      "collector_ids": [],
-      "max_collectors": 5,
-      "store": 9,
-      "isUserMember": false,
-      "isFull": false
-    },
-    {
-      "id": 4,
-      "date": "2017-09-22T20:00:05Z",
-      "collector_ids": [],
-      "max_collectors": 2,
-      "store": 9,
-      "isUserMember": false,
-      "isFull": false
-    }];
+  {
+    "id": 14,
+    "date": "2016-09-16T01:00:00Z",
+    "collector_ids": [
+      1,
+      8
+    ],
+    "max_collectors": 2,
+    "store": 9,
+    "isUserMember": true,
+    "isFull": true
+  },
+  {
+    "id": 11,
+    "date": "2016-09-17T16:00:00Z",
+    "collector_ids": [
+      1
+    ],
+    "max_collectors": 3,
+    "store": 9,
+    "isUserMember": true,
+    "isFull": false
+  },
+  {
+    "id": 5,
+    "date": "2016-09-18T12:00:18Z",
+    "collector_ids": [],
+    "max_collectors": 5,
+    "store": 9,
+    "isUserMember": false,
+    "isFull": false
+  },
+  {
+    "id": 4,
+    "date": "2017-09-22T20:00:05Z",
+    "collector_ids": [],
+    "max_collectors": 2,
+    "store": 9,
+    "isUserMember": false,
+    "isFull": false
+  }];
 
   let fullPickups = [pickupDataInfoAdded[1]];
 
@@ -135,18 +135,18 @@ describe("PickupList", () => {
         "isUserMember": false,
         "isFull": false
       },
-        {
-          "id": 14,
-          "date": "2016-09-16T01:00:00Z",
-          "collector_ids": [
-            1,
-            8
-          ],
-          "max_collectors": 2,
-          "store": 9,
-          "isUserMember": true,
-          "isFull": true
-        }]
+      {
+        "id": 14,
+        "date": "2016-09-16T01:00:00Z",
+        "collector_ids": [
+          1,
+          8
+        ],
+        "max_collectors": 2,
+        "store": 9,
+        "isUserMember": true,
+        "isFull": true
+      }]
     },
     {
       "date": "2016-09-17",

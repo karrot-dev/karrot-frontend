@@ -44,6 +44,6 @@
       </md-button>
     </div>
   </form>
-  <store-detail-map ng-if="$ctrl.mapData" store-data="$ctrl.mapData"></store-detail-map>
+  <store-detail-map ng-if="$ctrl.mapData.latitude && $ctrl.mapData.longitude" store-data="$ctrl.mapData"></store-detail-map>
   <pickup-list store-id="$ctrl.storedata.id" options="$ctrl.pickupListOptions"></pickup-list>
 </div>

@@ -8,6 +8,13 @@
 
     <span flex></span>
     <language-chooser></language-chooser>
+    <md-button class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
+      <i class="fa fa-user"></i>
+      {{ $ctrl.loggedInUser.display_name }}
+      <md-tooltip>
+          <span translate="TOPBAR.USERPROFILE"></span>
+      </md-tooltip>
+    </md-button>
     <md-button class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
       <i class="fa fa-fw fa-sign-out"></i>
       <md-tooltip>

@@ -1,5 +1,6 @@
 <div layout="row" layout-margin>
-  <span ng-if="!screenIsSmall" id="group-detail-sidenav" flex="40">
+  <div flex></div>
+  <span ng-if="!screenIsSmall" id="group-detail-sidenav" flex="40" style="max-width:25em">
     <div class="md-whiteframe-2dp" style="padding: 0">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
@@ -12,7 +13,7 @@
     </div>
   </span>
 
-  <div class="groupDetail md-whiteframe-2dp" style="padding: 0; width: 100%">
+  <div class="groupDetail md-whiteframe-2dp" style="padding: 0; width: 100%; max-width: 60em">
     <form editable-form name="editableGroup" onaftersave="$ctrl.updateGroupData()">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
@@ -100,4 +101,6 @@
       </md-content>
     </form>
   </div>
+  
+  <div flex></div>
 </div>

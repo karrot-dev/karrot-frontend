@@ -14,6 +14,12 @@
           {{$ctrl.data.date|date:'EEEE, dd.MM.yyyy'}}
         </span>
       </span>
+      <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button md-warn" ng-click="$ctrl.onDelete($ctrl.data)" aria-label="{{ 'PICKUPLIST.ITEM.DELETE' | translate }}">
+        <md-tooltip>
+          <span translate="PICKUPLIST.ITEM.DELETE"></span>
+        </md-tooltip>
+        <i class="fa fa-times"></i>
+      </md-button>
     </span>
     <div class="pickupList-pickup-people">
       <a class="pickuplist-pickup-person" ng-repeat="collector in $ctrl.collectors" ui-sref="userDetail({ id: {{collector.id}} })">

@@ -41,7 +41,8 @@
   },
   "TOPBAR": {
     "LOGOUT": "Logout",
-    "USERPROFILE": "Visit your profile"
+    "USERPROFILE": "Visit your profile",
+    "GREETING": "Hi, {{username}}!"
   },
   "LOGIN": {
     "TITLE": "Login",

@@ -33,7 +33,7 @@
 
 <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
   <md-toolbar class="md-theme-light">
-    <h1 class="md-toolbar-tools">Hi, {{ $ctrl.loggedInUser.display_name }}!</h1>
+    <h1 class="md-toolbar-tools"><span translate="TOPBAR.GREETING" translate-values='{ username: $ctrl.loggedInUser.display_name}'></span></h1>
   </md-toolbar>
   <md-content layout-padding>    
     <md-menu-content width="4">

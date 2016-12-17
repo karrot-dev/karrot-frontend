@@ -1,21 +1,21 @@
 import markdown from "markdown-it";
 import markdownLinkAttributes from "markdown-it-link-attributes";
-const md = markdown({
-  xhtmlOut: true,
-  breaks: true,
-  linkify: true
-});
-md.use(markdownLinkAttributes, {
-  target: "_blank",
-  rel: "noopener nofollow noreferrer"
-});
 
 export default class ExpandablePanelController {
   constructor() {
     "ngInject";
     Object.assign(this, {
       collapsed: false,
-      parsed: ""
+      parsed: "",
+      md: markdown({
+        xhtmlOut: true,
+        breaks: true,
+        linkify: true
+      })
+    });
+    this.md.use(markdownLinkAttributes, {
+      target: "_blank",
+      rel: "noopener nofollow noreferrer"
     });
   }
   $onChanges(changes) {
@@ -28,7 +28,7 @@ export default class ExpandablePanelController {
       }
 
       if (this.markdown) {
-        this.parsed = md.render(content);
+        this.parsed = this.md.render(content);
       }
     }
   }

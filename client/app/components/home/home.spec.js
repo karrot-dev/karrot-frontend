@@ -52,7 +52,7 @@ describe("Home", () => {
 
     it("should redirect user", () => {
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, groupData);
-      $componentController("home", {});
+      $componentController("home", {}).$onInit();
       $httpBackend.flush();
       expect($state.go).to.have.been.calledWith("groupDetail", { groupId: 50 });
     });
@@ -62,7 +62,7 @@ describe("Home", () => {
       $mdDialog.show.returns($q((resolve) => {
         resolve(1337);
       }));
-      $componentController("home", {});
+      $componentController("home", {}).$onInit();
       $httpBackend.flush();
       expect($state.go).to.have.been.calledWith( "groupDetail", { groupId: 1337 } );
     });

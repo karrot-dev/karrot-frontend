@@ -36,7 +36,7 @@ describe("ExpandablePanel", () => {
       expect($ctrl.parsed).to.equal("<p>sometext</p>\n");
     });
 
-    it("collapses long text", () => {
+    it("collapses and expands long text", () => {
       let $ctrl = $componentController("expandablePanel", { }, { collapse: 10 });
       $ctrl.$onChanges({
         content: {
@@ -44,6 +44,8 @@ describe("ExpandablePanel", () => {
         }
       });
       expect($ctrl.collapsed).to.be.true;
+      $ctrl.expand();
+      expect($ctrl.collapsed).to.be.false;
     });
   });
 });

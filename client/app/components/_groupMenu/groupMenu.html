@@ -1,5 +1,5 @@
 <div layout="row" layout-nowrap id="group-menu-container">
-  <md-button ui-sref="groupDetail({ groupId: $ctrl.activeGroup.id })" id="group-menu-active-group" flex>
+  <md-button ui-sref="groupDetail.group.pickups({ groupId: $ctrl.activeGroup.id })" id="group-menu-active-group" flex>
     {{$ctrl.activeGroup.name || "Please choose a group..."}}
   </md-button>
   <md-menu md-ink-ripple>
@@ -9,7 +9,7 @@
    <md-menu-content>
      <md-menu-item ng-repeat="groupitem in $ctrl.groups"
                    ng-if="groupitem.id !== $ctrl.activeGroup.id">
-       <md-button ui-sref="groupDetail({ groupId: groupitem.id })">
+       <md-button ui-sref="groupDetail.group.pickups({ groupId: groupitem.id })">
          <i class="fa fa-circle-o"> </i>
          {{ groupitem.name }}
        </md-button>

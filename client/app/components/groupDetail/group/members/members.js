@@ -11,10 +11,10 @@ let MembersModule = angular.module("members", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state("groupDetail.members", {
+    .state("groupDetail.group.members", {
       url: "/members",
       views: {
-        "detail@groupDetail": {
+        "detail@groupDetail.group": {
           component: "members"
         }
       }

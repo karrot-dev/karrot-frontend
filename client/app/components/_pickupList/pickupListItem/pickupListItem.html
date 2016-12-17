@@ -6,7 +6,7 @@
         <span ng-if="$ctrl.showStoreDetail">
           <i ng-if="!$ctrl.storeData" class="fa fa-spinner"></i>
           <a ng-if="$ctrl.storeData"
-             ui-sref="storeDetail({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
+             ui-sref="groupDetail.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
             {{$ctrl.storeData.name}}
           </a>
         </span>

@@ -7,10 +7,12 @@ class HomeController {
       $mdDialog,
       Group
     });
+  }
 
+  $onInit() {
     this.Group.listMy().then((data) => {
       if (data.length > 0) {
-        $state.go("groupDetail", { groupId: data[0].id });
+        this.$state.go("groupDetail", { groupId: data[0].id });
       } else {
         this.openJoinGroupDialog();
       }

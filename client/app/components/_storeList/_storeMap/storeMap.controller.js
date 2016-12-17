@@ -6,13 +6,14 @@ class StoreMapController {
       bounds: {},
       defaults: {
         scrollWheelZoom: false
-      },
-      $onChanges: (changes) => {
-        if (changes.storeList) {
-          this.update();
-        }
       }
     });
+  }
+
+  $onChanges(changes) {
+    if (changes.storeList) {
+      this.update();
+    }
   }
 
   update() {

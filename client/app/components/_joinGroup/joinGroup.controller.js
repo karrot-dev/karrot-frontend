@@ -4,11 +4,12 @@ class JoinGroupController {
     Object.assign(this, {
       $mdDialog,
       Group,
-      Authentication
+      Authentication,
+      groups: []
     });
+  }
 
-    this.groups = [];
-
+  $onInit() {
     this.Group.list().then((allGroups) => {
       let sortedGroups = allGroups.sort((a,b) => b.members.length - a.members.length);
       this.Authentication.update().then((data) => {

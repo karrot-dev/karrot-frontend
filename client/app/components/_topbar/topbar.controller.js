@@ -10,7 +10,7 @@ class TopbarController {
       $scope.screenIsSmall = !big;
     });
 
-    $scope.toggleRight = () => {
+    this.toggleRight = () => {
       $mdSidenav("right")
         .toggle();
     };

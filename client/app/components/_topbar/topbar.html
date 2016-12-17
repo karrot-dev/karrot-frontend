@@ -22,14 +22,13 @@
       </md-tooltip>
     </md-button>
     
-    <md-button ng-if="screenIsSmall" ng-click="toggleRight()" class="md-icon-button">
+    <md-button ng-if="screenIsSmall" ng-click="$ctrl.toggleRight()" class="md-icon-button">
       <i class="fa fa-fw fa-bars"></i>
     </md-button>
     
     <span flex="5"></span>
   </div>
 </md-toolbar>
-
 
 <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
   <md-toolbar class="md-theme-light">
@@ -38,13 +37,13 @@
   <md-content layout-padding>    
     <md-menu-content width="4">
       <md-menu-item>
-        <md-button ng-click="toggleRight()" class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
+        <md-button ng-click="$ctrl.toggleRight()" class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
           <i class="fa fa-user"></i>
           <span translate="TOPBAR.USERPROFILE"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button ng-click="toggleRight()" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
+        <md-button ng-click="$ctrl.toggleRight()" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
           <i class="fa fa-fw fa-sign-out"></i>
           <span translate="TOPBAR.LOGOUT"></span>
         </md-button>

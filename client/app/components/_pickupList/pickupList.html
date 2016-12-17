@@ -43,8 +43,18 @@
     <section ng-repeat="pickupDate in $ctrl.groupedPickups | orderBy:'date':$ctrl.options.reversed">
       <md-subheader ng-show="$ctrl.options.showStickyHeaders" class="md-sticky">{{pickupDate.date| date:'EEEE, dd.MM.yyyy'}}</md-subheader>
       <md-list>
-        <pickup-list-item show-detail="$ctrl.options.showDetail" parent-ctrl="$ctrl" data="pickup" ng-repeat="pickup in pickupDate.items| orderBy:['-date']:$ctrl.options.reversed"></pickup-list-item>
+        <pickup-list-item
+          ng-repeat="pickup in pickupDate.items| orderBy:['-date']:$ctrl.options.reversed"
+          show-detail="$ctrl.options.showDetail"
+          on-delete="$ctrl.delete(pickup)"
+          parent-ctrl="$ctrl"
+          data="pickup">
+        </pickup-list-item>
       </md-list>
     </section>
+    <md-content ng-if="!$ctrl.groupedPickups.length"  layout-padding>
+      <h4 style="margin-bottom: 0"><i class="fa fa-bed"></i> <translate>PICKUPLIST.NONE</translate></h4>
+      <small ng-if="!$ctrl.options.showCreateButton" translate="PICKUPLIST.NONE_HINT"></small>
+    </md-content>
   </md-content>
 </div>

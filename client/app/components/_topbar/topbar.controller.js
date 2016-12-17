@@ -1,8 +1,7 @@
-import logo from "./logo-white.png";
+import logo from "./carrot-logo.svgimage";
 
 class TopbarController {
   constructor() {
-    this.name = "topbar";
     this.logo = logo;
   }
 }

@@ -2,7 +2,6 @@ class PickupListController {
 
   constructor(Authentication, PickupDate, Store, $filter, $mdDialog, $document) {
     "ngInject";
-
     Object.assign(this, {
       Authentication,
       PickupDate,
@@ -11,7 +10,9 @@ class PickupListController {
       $mdDialog,
       $document
     });
+  }
 
+  $onInit() {
     this.defaultOptions = {
       header: "Pickups",
       showCreateButton: false,
@@ -27,7 +28,6 @@ class PickupListController {
     };
 
     this.options = angular.merge(this.defaultOptions, this.options);
-    this.userId = -1;
 
     this.Authentication.update().then((data) => {
       this.userId = data.id;

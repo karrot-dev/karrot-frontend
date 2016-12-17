@@ -3,8 +3,8 @@ class GroupDetailController {
     "ngInject";
     let currentState = $state.current.name;
     this.currentNavItem = currentState.replace("groupDetail.", "");
-    
-    if(this.currentNavItem == "groupDetail"){
+
+    if (this.currentNavItem === "groupDetail"){
       this.currentNavItem = "pickups";
       $state.go("groupDetail.pickups");
     }

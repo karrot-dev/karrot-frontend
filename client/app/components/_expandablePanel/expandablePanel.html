@@ -1,0 +1,9 @@
+<div class="expandablePanel" ng-class="{collapsed: $ctrl.collapsed}">
+  <div ng-if="$ctrl.markdown" ng-bind-html="$ctrl.parsed" class="content"></div>
+  <div ng-if="!$ctrl.markdown" class="content">{{$ctrl.content}}</div>
+  <div ng-if="$ctrl.collapsed" class="expandablePanelSlider">
+    <md-button class="md-icon-button md-raised" ng-click="$ctrl.collapsed = false">
+      <i class="fa fa-arrow-down"></i>
+    </md-button>
+  </div>
+</div>

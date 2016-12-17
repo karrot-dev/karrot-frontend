@@ -13,7 +13,8 @@ module.exports = {
        { test: /\.css$/, loader: "style!css!postcss" },
        { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
        { test: /\.json$/, loader: "json" },
-       { test: /\.(png|jpg|jpeg|svg)$/, loader: "file?name=images/[hash].[ext]" }
+       { test: /\.(png|jpg|jpeg)$/, loader: "file?name=images/[hash].[ext]" },
+       { test: /\.svgimage$/, loader: "file?name=images/[hash].svg" }
     ]
   },
   plugins: [

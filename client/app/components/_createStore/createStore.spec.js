@@ -46,6 +46,7 @@ describe("CreateStore", () => {
       let $ctrl = $componentController("createStore", {}, {
         groupId: 1337
       });
+      $ctrl.$onInit();
       $ctrl.storeData.name = "blabla";
       $httpBackend.expectPOST("/api/stores/", {
         group: 1337,
@@ -60,6 +61,7 @@ describe("CreateStore", () => {
 
     it("fails to create store", () => {
       let $ctrl = $componentController("createStore", {});
+      $ctrl.$onInit();
       $httpBackend.expectPOST("/api/stores/").respond(403, { error: "message" });
       $ctrl.createStore();
       expect($ctrl.ongoing).to.be.true;
@@ -79,6 +81,7 @@ describe("CreateStore", () => {
         resolve({ latitude: 1.99, longitude: 2.99, name: "blubb" });
       }));
       let $ctrl = $componentController("createStore", {});
+      $ctrl.$onInit();
       $ctrl.storeData.address = "blubb_query";
       $ctrl.addressLookup();
       expect($ctrl.lookupOngoing).to.be.true;
@@ -95,6 +98,7 @@ describe("CreateStore", () => {
         reject();
       }));
       let $ctrl = $componentController("createStore", {});
+      $ctrl.$onInit();
       $ctrl.storeData.address = "blubb_query";
       $ctrl.addressLookup();
       expect($ctrl.lookupOngoing).to.be.true;

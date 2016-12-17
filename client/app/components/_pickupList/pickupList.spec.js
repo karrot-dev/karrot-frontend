@@ -36,39 +36,39 @@ describe("PickupList", () => {
     "max_collectors": 2,
     "store": 9
   },
-    {
-      "id": 14,
-      "date": "2016-09-16T01:00:00Z",
-      "collector_ids": [
-        1,
-        8
-      ],
-      "max_collectors": 2,
-      "store": 9
-    },
-    {
-      "id": 11,
-      "date": "2016-09-17T16:00:00Z",
-      "collector_ids": [
-        1
-      ],
-      "max_collectors": 3,
-      "store": 9
-    },
-    {
-      "id": 5,
-      "date": "2016-09-18T12:00:18Z",
-      "collector_ids": [],
-      "max_collectors": 5,
-      "store": 9
-    },
-    {
-      "id": 4,
-      "date": "2017-09-22T20:00:05Z",
-      "collector_ids": [],
-      "max_collectors": 2,
-      "store": 9
-    }];
+  {
+    "id": 14,
+    "date": "2016-09-16T01:00:00Z",
+    "collector_ids": [
+      1,
+      8
+    ],
+    "max_collectors": 2,
+    "store": 9
+  },
+  {
+    "id": 11,
+    "date": "2016-09-17T16:00:00Z",
+    "collector_ids": [
+      1
+    ],
+    "max_collectors": 3,
+    "store": 9
+  },
+  {
+    "id": 5,
+    "date": "2016-09-18T12:00:18Z",
+    "collector_ids": [],
+    "max_collectors": 5,
+    "store": 9
+  },
+  {
+    "id": 4,
+    "date": "2017-09-22T20:00:05Z",
+    "collector_ids": [],
+    "max_collectors": 2,
+    "store": 9
+  }];
 
   let pickupDataInfoAdded = [{
     "id": 15,
@@ -79,47 +79,47 @@ describe("PickupList", () => {
     "isUserMember": false,
     "isFull": false
   },
-    {
-      "id": 14,
-      "date": "2016-09-16T01:00:00Z",
-      "collector_ids": [
-        1,
-        8
-      ],
-      "max_collectors": 2,
-      "store": 9,
-      "isUserMember": true,
-      "isFull": true
-    },
-    {
-      "id": 11,
-      "date": "2016-09-17T16:00:00Z",
-      "collector_ids": [
-        1
-      ],
-      "max_collectors": 3,
-      "store": 9,
-      "isUserMember": true,
-      "isFull": false
-    },
-    {
-      "id": 5,
-      "date": "2016-09-18T12:00:18Z",
-      "collector_ids": [],
-      "max_collectors": 5,
-      "store": 9,
-      "isUserMember": false,
-      "isFull": false
-    },
-    {
-      "id": 4,
-      "date": "2017-09-22T20:00:05Z",
-      "collector_ids": [],
-      "max_collectors": 2,
-      "store": 9,
-      "isUserMember": false,
-      "isFull": false
-    }];
+  {
+    "id": 14,
+    "date": "2016-09-16T01:00:00Z",
+    "collector_ids": [
+      1,
+      8
+    ],
+    "max_collectors": 2,
+    "store": 9,
+    "isUserMember": true,
+    "isFull": true
+  },
+  {
+    "id": 11,
+    "date": "2016-09-17T16:00:00Z",
+    "collector_ids": [
+      1
+    ],
+    "max_collectors": 3,
+    "store": 9,
+    "isUserMember": true,
+    "isFull": false
+  },
+  {
+    "id": 5,
+    "date": "2016-09-18T12:00:18Z",
+    "collector_ids": [],
+    "max_collectors": 5,
+    "store": 9,
+    "isUserMember": false,
+    "isFull": false
+  },
+  {
+    "id": 4,
+    "date": "2017-09-22T20:00:05Z",
+    "collector_ids": [],
+    "max_collectors": 2,
+    "store": 9,
+    "isUserMember": false,
+    "isFull": false
+  }];
 
   let fullPickups = [pickupDataInfoAdded[1]];
 
@@ -135,18 +135,18 @@ describe("PickupList", () => {
         "isUserMember": false,
         "isFull": false
       },
-        {
-          "id": 14,
-          "date": "2016-09-16T01:00:00Z",
-          "collector_ids": [
-            1,
-            8
-          ],
-          "max_collectors": 2,
-          "store": 9,
-          "isUserMember": true,
-          "isFull": true
-        }]
+      {
+        "id": 14,
+        "date": "2016-09-16T01:00:00Z",
+        "collector_ids": [
+          1,
+          8
+        ],
+        "max_collectors": 2,
+        "store": 9,
+        "isUserMember": true,
+        "isFull": true
+      }]
     },
     {
       "date": "2016-09-17",
@@ -203,6 +203,7 @@ describe("PickupList", () => {
           header: "My amazing Pickups"
         }
       });
+      $ctrl.$onInit();
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
@@ -259,14 +260,11 @@ describe("PickupList", () => {
           showDetail: "store"
         }
       });
+      $ctrl.$onInit();
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
       $httpBackend.whenGET("/api/stores/9/").respond(storeData);
-    });
-
-    afterEach(() => {
-      $httpBackend.flush();
     });
 
     it("addPickupInfo get Store Info functionality", () => {
@@ -274,6 +272,15 @@ describe("PickupList", () => {
       $ctrl.addPickupInfosAndDisplay(pickupData);
       let updatedData = $ctrl.allPickups;
       expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
+      $httpBackend.flush();
+    });
+
+    it("deletes pickup", () => {
+      sinon.stub($ctrl, "updatePickups");
+      $httpBackend.expectDELETE("/api/pickup-dates/87/").respond();
+      $ctrl.delete({ id: 87 });
+      $httpBackend.flush();
+      expect($ctrl.updatePickups).to.have.been.called;
     });
 
     describe("createPickup dialog", () => {
@@ -292,6 +299,7 @@ describe("PickupList", () => {
         $ctrl.openCreatePickupPanel();
         $rootScope.$apply();
         expect($ctrl.updatePickups).to.have.been.called;
+        $httpBackend.flush();
       });
     });
   });

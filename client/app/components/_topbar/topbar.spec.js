@@ -5,35 +5,57 @@ const { module } = angular.mock;
 describe("Topbar", () => {
   beforeEach(module(TopbarModule));
 
-  let $log;
-  beforeEach(inject(($injector) => {
+  let $log, $ctrl, Authentication, $q, $rootScope;
+  
+  let userData = { id: 5, "display_name": "abc" };
+
+  beforeEach(inject(($injector, _$componentController_) => {
     $log = $injector.get("$log");
     $log.reset();
+    Authentication = $injector.get("Authentication");
+    sinon.stub(Authentication, "update");
+    $q = $injector.get("$q");
+    $rootScope = $injector.get("$rootScope");
+    $ctrl = _$componentController_("topbar", {});
+    Authentication.update.returns($q((resolve) => {
+      resolve(userData);
+    }));
+      
   }));
-  afterEach(() => {
-    $log.assertEmpty();
-  });
 
   describe("Controller", () => {
-    let $ctrl, Authentication, $q, $rootScope;
+    //template = angular.element('<topbar></topbar>');
 
-    beforeEach(inject(($injector, _$componentController_) => {
-      Authentication = $injector.get("Authentication");
-      sinon.stub(Authentication, "update");
-      $q = $injector.get("$q");
-      $rootScope = $injector.get("$rootScope");
-      $ctrl = _$componentController_("topbar", {});
-    }));
+    afterEach(() => {
+      $log.assertEmpty();
+    });
 
     it("calls $onInit", () => {
-      let userData = { id: 5, "display_name": "abc" };
-      Authentication.update.returns($q((resolve) => {
-        resolve(userData);
-      }));
       $ctrl.$onInit();
       $rootScope.$apply();
       expect(Authentication.update).has.been.called;
       expect($ctrl.loggedInUser).to.deep.equal(userData);
+    });
+  });
+  
+  describe("View", () => {
+    let $mdSidenav, $compile, template, scope;
+    //template = angular.element('<topbar></topbar>');
+
+    beforeEach(inject(($injector) => {     
+      $mdSidenav = $injector.get("$mdSidenav");
+      $compile = $injector.get('$compile');   
+      scope = $rootScope.$new();
+      template = $compile('<topbar></topbar>')(scope);
+      scope.$apply();
+      $rootScope.$apply();
+    }));
+
+    it("toggles Right Sidenav", () => {
+      $ctrl.$onInit();
+      expect($mdSidenav("right").isOpen()).to.eq(false);
+      $ctrl.toggleRight();
+      expect($mdSidenav("right").isOpen()).to.eq(true); 
     });
   });
 });

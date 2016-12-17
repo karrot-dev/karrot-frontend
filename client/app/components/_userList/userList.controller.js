@@ -4,7 +4,9 @@ class UserListController {
     Object.assign(this, {
       User
     });
+  }
 
+  $onInit() {
     // check if users it's a list of IDs or Users
     if (angular.isNumber(this.users[0])){
       this.userData = [];

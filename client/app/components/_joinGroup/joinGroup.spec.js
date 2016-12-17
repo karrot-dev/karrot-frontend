@@ -36,6 +36,7 @@ describe("JoinGroup", () => {
 
     it("joins group", () => {
       let $ctrl = $componentController("joinGroup", {});
+      $ctrl.$onInit();
       $httpBackend.expectGET("/api/groups/?include_empty=False").respond([]);
       $ctrl.joinGroup(1337);
       $httpBackend.expectPOST("/api/groups/1337/join/").respond();

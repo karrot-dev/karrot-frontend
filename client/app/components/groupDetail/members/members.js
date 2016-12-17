@@ -8,7 +8,7 @@ let MembersModule = angular.module("members", [
 
 .component("members", membersComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("groupDetail.members", {
@@ -19,7 +19,6 @@ let MembersModule = angular.module("members", [
         }
       }
     });
-  hookProvider.setup("members", { authenticated: true, anonymous: "login" });
 })
 
 .name;

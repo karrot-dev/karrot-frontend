@@ -1,9 +1,9 @@
-import PickupsModule from "./pickups";
+import StoresModule from "./stores";
 
 const { module } = angular.mock;
 
-describe("Pickups", () => {
-  beforeEach(module(PickupsModule));
+describe("Stores", () => {
+  beforeEach(module(StoresModule));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -15,8 +15,8 @@ describe("Pickups", () => {
   });
 
   describe("Module", () => {
-    it("is named pickups", () => {
-      expect(PickupsModule).to.equal("pickups");
+    it("is named stores", () => {
+      expect(StoresModule).to.equal("stores");
     });
   });
 
@@ -27,7 +27,7 @@ describe("Pickups", () => {
     }));
 
     it("should exist", () => {
-      let $ctrl = $componentController("pickups", {});
+      let $ctrl = $componentController("stores", {});
       expect($ctrl).to.exist;
     });
   });

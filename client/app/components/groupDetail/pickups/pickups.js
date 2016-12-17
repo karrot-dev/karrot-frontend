@@ -8,7 +8,7 @@ let pickupsModule = angular.module("pickups", [
 
 .component("pickups", pickupsComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("groupDetail.pickups", {
@@ -19,7 +19,6 @@ let pickupsModule = angular.module("pickups", [
         }
       }
     });
-  hookProvider.setup("pickups", { authenticated: true, anonymous: "login" });
 })
 
 .name;

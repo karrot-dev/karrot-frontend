@@ -9,6 +9,7 @@ import pickupList from "../_pickupList/pickupList";
 import expandablePanel from "../_expandablePanel/expandablePanel";
 import members from "./members/members";
 import pickups from "./pickups/pickups";
+import stores from "./stores/stores";
 
 let groupDetailModule = angular.module("groupDetail", [
   uiRouter,
@@ -19,7 +20,8 @@ let groupDetailModule = angular.module("groupDetail", [
   pickupList,
   expandablePanel,
   members,
-  pickups
+  pickups,
+  stores
 ])
 
 .config(($stateProvider, hookProvider) => {

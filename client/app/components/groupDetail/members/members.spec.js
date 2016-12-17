@@ -5,7 +5,6 @@ const { module } = angular.mock;
 describe("Members", () => {
   beforeEach(module(MembersModule));
 
-  /*
   let $log;
   beforeEach(inject(($injector) => {
     $log = $injector.get("$log");
@@ -32,5 +31,4 @@ describe("Members", () => {
       expect($ctrl).to.exist;
     });
   });
-  */
 });

@@ -38,7 +38,7 @@ describe("Topbar", () => {
   describe("View", () => {
     let $mdSidenav, $compile, scope;
 
-    beforeEach(inject(($injector, $httpBackend) => {
+    beforeEach(inject(($injector) => {
       $mdSidenav = $injector.get("$mdSidenav");
       $compile = $injector.get("$compile");
       scope = $rootScope.$new();

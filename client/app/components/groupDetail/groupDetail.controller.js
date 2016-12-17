@@ -1,12 +1,8 @@
 class GroupDetailController {
-  constructor(Group, CurrentGroup, $state, $mdMedia, $scope) {
+  constructor(Group, CurrentGroup, $state, $mdMedia) {
     "ngInject";
-    $scope.screenIsSmall = !$mdMedia("gt-sm");
-    $scope.$watch(() => {
-      return $mdMedia("gt-sm");
-    }, (big) => {
-      $scope.screenIsSmall = !big;
-    });
+    let currentState = $state.current.name;
+    this.currentNavItem = currentState.replace("groupDetail.", "");
 
     Object.assign(this, {
       Group,
@@ -14,18 +10,9 @@ class GroupDetailController {
       $state,
       error: {
         leaveGroup: false
-      }
+      },
+      $mdMedia
     });
-
-    this.pickupListOptions = {
-      showDetail: "store",
-      showTopbar: true,
-      filter: {
-        showJoined: true,
-        showOpen: true,
-        showFull: false
-      }
-    };
   }
 
   leaveGroup() {

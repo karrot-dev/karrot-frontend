@@ -10,20 +10,21 @@ class CreateStoreMapController {
       defaults: {
         scrollWheelZoom: false,
         zoomControl: false
-      },
-      $onChanges: (change) => {
-        if ( (change.latitude || change.longitude || change.address)
-              && (angular.isDefined(this.latitude)
-                  && angular.isDefined(this.longitude)
-                  && angular.isDefined(this.address))
-            ) {
-          this.setMarker(
-            this.latitude,
-            this.longitude,
-            this.address);
-        }
       }
     });
+  }
+
+  $onChanges(change) {
+    if ( (change.latitude || change.longitude || change.address)
+          && (angular.isDefined(this.latitude)
+              && angular.isDefined(this.longitude)
+              && angular.isDefined(this.address))
+        ) {
+      this.setMarker(
+        this.latitude,
+        this.longitude,
+        this.address);
+    }
   }
 
   setMarker(lat, lng, message) {

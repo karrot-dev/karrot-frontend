@@ -37,23 +37,23 @@ describe("UserList", () => {
   };
 
   describe("Controller", () => {
-    let controller;
-
     it("check binding of complete users",() => {
-      controller = $componentController("userList", {
+      let $ctrl = $componentController("userList", {
       }, {
         users: [userOne]
       });
+      $ctrl.$onInit();
 
-      expect(controller.userData).to.deep.equal([userOne]);
+      expect($ctrl.userData).to.deep.equal([userOne]);
     });
 
 
     it("maps users-array",() => {
-      controller = $componentController("userList", {
+      let $ctrl = $componentController("userList", {
       }, {
         users: [1]
       });
+      $ctrl.$onInit();
 
       $httpBackend.expectGET("/api/users/1/").respond(userOne);
       $httpBackend.flush();

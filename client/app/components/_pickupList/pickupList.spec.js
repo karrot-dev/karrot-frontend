@@ -203,6 +203,7 @@ describe("PickupList", () => {
           header: "My amazing Pickups"
         }
       });
+      $ctrl.$onInit();
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
@@ -259,6 +260,7 @@ describe("PickupList", () => {
           showDetail: "store"
         }
       });
+      $ctrl.$onInit();
 
       $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);

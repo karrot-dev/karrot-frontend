@@ -6,11 +6,15 @@ class CreateStoreController {
       $mdDialog,
       Store,
       Geocoding,
-      storeData: {
-        group: this.groupId
-      },
       ongoing: false
     });
+  }
+
+
+  $onInit() {
+    this.storeData = {
+      group: this.groupId
+    };
   }
 
   createStore() {

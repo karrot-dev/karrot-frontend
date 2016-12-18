@@ -42,24 +42,25 @@ describe("PickupListItem", () => {
   };
 
   describe("Controller with date detail", () => {
-    let controller;
+    let $ctrl;
 
     beforeEach(() => {
-      controller = $componentController("pickupListItem", {
+      $ctrl = $componentController("pickupListItem", {
       }, {
         data: pickupData,
         parentCtrl: {
           "updatePickups": () => {}
         }
       });
+      $ctrl.$onInit();
     });
 
     it("test join and leave function", () => {
       $httpBackend.expectGET("/api/users/1/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/remove/").respond("");
-      controller.join();
-      controller.leave();
+      $ctrl.join();
+      $ctrl.leave();
       $httpBackend.flush();
     });
   });
@@ -73,6 +74,7 @@ describe("PickupListItem", () => {
         data: pickupData,
         showDetail: "store"
       });
+      $ctrl.$onInit();
     });
 
     it("gets store data", () => {

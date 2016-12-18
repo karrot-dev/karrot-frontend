@@ -1,12 +1,15 @@
 class PickupListItemController {
   constructor(PickupDate, User) {
     "ngInject";
-    this.PickupDate = PickupDate;
-    this.User = User;
+    Object.assign(this, {
+      PickupDate,
+      User,
+      collectors: []
+    });
+  }
+
+  $onInit() {
     this.showStoreDetail = this.showDetail === "store";
-
-    this.collectors = [];
-
     this.setStoreInfo();
     this.setCollectors();
   }

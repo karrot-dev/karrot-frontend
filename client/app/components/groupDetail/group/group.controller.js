@@ -1,8 +1,8 @@
 class GroupController {
-  constructor(Group, $state, $mdMedia) {
+  constructor(Group, $state, CurrentGroup, $mdMedia) {
     "ngInject";
     this.groupData = $state.groupData;
-    
+
     let currentState = $state.current.name;
     this.currentNavItem = currentState.replace("groupDetail.group.", "");
 
@@ -10,10 +10,11 @@ class GroupController {
       this.currentNavItem = "pickups";
       $state.go("groupDetail.group.pickups");
     }
-    
+
     Object.assign(this, {
       Group,
       $state,
+      CurrentGroup,
       error: {
         leaveGroup: false
       },

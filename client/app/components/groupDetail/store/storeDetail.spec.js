@@ -103,7 +103,6 @@ describe("StoreDetail", () => {
 
   describe("Routes", () => {
     context("when logged in", () => {
-
       let loginData = {
         "display_name": "asdflo",
         "email": "asdf.asdf@asdf.asdf"
@@ -114,17 +113,14 @@ describe("StoreDetail", () => {
       });
 
       describe("storeDetail", () => {
-        let groupData = { id: 12 };
-
         let storeData = {
           id: 25,
-          group: groupData.id
+          group: 2
         };
 
-        it("should load store and group information", () => {
+        it("should load store information", () => {
           $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
-          $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-          $state.go("storeDetail", { storeId: storeData.id, groupId: groupData.id });
+          $state.go("groupDetail.store", { storeId: storeData.id, groupId: storeData.group });
           $httpBackend.flush();
           expect($state.current.component).to.equal("storeDetail");
         });

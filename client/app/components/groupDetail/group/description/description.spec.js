@@ -3,7 +3,6 @@ import DescriptionModule from "./description";
 const { module } = angular.mock;
 
 describe("Description", () => {
-  beforeEach(module(Authentication));
   beforeEach(module(DescriptionModule));
 
   let $log;

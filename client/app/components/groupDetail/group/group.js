@@ -5,18 +5,20 @@ import description from "./description/description";
 import members from "./members/members";
 import pickups from "./pickups/pickups";
 import stores from "./stores/stores";
+import groupModule from "../../../common/group/group";
 
-let groupModule = angular.module("group", [
+let groupComponentModule = angular.module("group", [
   uiRouter,
   description,
   members,
   pickups,
-  stores
+  stores,
+  groupModule
 ])
 
-.component("group", groupComponent)
+.component("groupComponent", groupComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
 
   $stateProvider
@@ -24,19 +26,12 @@ let groupModule = angular.module("group", [
       url: "",
       views: {
         "mainView@groupDetail": {
-          component: "group"
+          component: "groupComponent"
         }
       }
-    });
-    
-    
-  $stateProvider
-    .state("group", {
-      url: "/group",
-      component: "group"
     });
 })
 
 .name;
 
-export default groupModule;
+export default groupComponentModule;

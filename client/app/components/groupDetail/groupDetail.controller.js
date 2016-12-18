@@ -6,7 +6,7 @@ class GroupDetailController {
     if (currentState === "groupDetail"){
       $state.go("groupDetail.group.pickups");
     }
-    
+
     Object.assign(this, {
       $state,
       error: {

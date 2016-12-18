@@ -1,5 +1,6 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import ngMaterial from "angular-material";
 import groupComponent from "./group.component";
 import description from "./description/description";
 import members from "./members/members";
@@ -9,6 +10,7 @@ import groupModule from "../../../common/group/group";
 
 let groupComponentModule = angular.module("group", [
   uiRouter,
+  ngMaterial,
   description,
   members,
   pickups,

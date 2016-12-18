@@ -10,8 +10,6 @@ describe("Group", () => {
       .state("main", { url: "", abstract: true });
   }));
 
-  beforeEach(module("$mdMedia"));
-
   beforeEach(inject(($injector) => {
     $log = $injector.get("$log");
     $log.reset();

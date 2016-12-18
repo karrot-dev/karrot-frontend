@@ -7,7 +7,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from yunity.base.permissions import DenyAll
 from yunity.groups.filters import GroupsFilter
-from yunity.groups.serializers import GroupSerializer
+from yunity.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
 from yunity.groups.models import Group as GroupModel
 
 
@@ -28,10 +28,25 @@ class GroupViewSet(ModelViewSet):
     - `?include_empty` - set to False to exclude empty groups without members
     """
     queryset = GroupModel.objects.all()
-    serializer_class = GroupSerializer
+    serializer_class = GroupDetailSerializer
+    preview_serializer_class = GroupPreviewSerializer
     filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
     filter_class = GroupsFilter
     search_fields = ('name', 'description')
+
+    def get_serializer_class(self):
+        use_preview_serializer = True
+
+        if self.action == 'create':
+            use_preview_serializer = False
+
+        if self.action in ('retrieve', 'update', 'partial_update'):
+            if self.request.user in self.get_object().members.all():
+                use_preview_serializer = False
+
+        if use_preview_serializer:
+            return GroupPreviewSerializer
+        return GroupDetailSerializer
 
     def get_permissions(self):
         if self.action == 'destroy':
@@ -43,15 +58,25 @@ class GroupViewSet(ModelViewSet):
 
         return super().get_permissions()
 
-    @detail_route(methods=['POST'],
-                  permission_classes=(IsAuthenticated,))
+    @detail_route(
+        methods=['POST'],
+        permission_classes=(IsAuthenticated,)
+    )
     def join(self, request, pk=None):
         group = self.get_object()
+        if group.password != '':
+            if 'password' not in request.data:
+                return Response(data='no group password given', status=status.HTTP_403_FORBIDDEN)
+            if group.password != request.data['password']:
+                return Response(data='group password wrong', status=status.HTTP_403_FORBIDDEN)
+
         group.members.add(request.user)
         return Response(status=status.HTTP_200_OK)
 
-    @detail_route(methods=['POST'],
-                  permission_classes=(IsAuthenticated,))
+    @detail_route(
+        methods=['POST'],
+        permission_classes=(IsAuthenticated,)
+    )
     def leave(self, request, pk=None):
         group = self.get_object()
         if not group.members.filter(id=request.user.id).exists():

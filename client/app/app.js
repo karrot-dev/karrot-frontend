@@ -50,4 +50,19 @@ angular.module("app", [
 })
 .config(AppTranslate)
 .config(AppMaterial)
-.run(AppXEditableConfig);
+.run(AppXEditableConfig)
+.run(['$rootScope', "$breadcrumb", ($rootScope, $breadcrumb) => {
+    function setPageTitle(){
+       let pageTitleString = "";
+       let breadcrumbs = $breadcrumb.getStatesChain();
+       angular.forEach(breadcrumbs, (crumb) => {
+        pageTitleString = crumb.ncyBreadcrumbLabel + " | " + pageTitleString;         
+       });
+       pageTitleString += "FS-Tool";
+       window.document.title = pageTitleString;      
+    }
+    
+    $rootScope.$watch(function(){
+      return window.document.URL;
+    }, setPageTitle);
+}]);

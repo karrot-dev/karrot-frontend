@@ -1,6 +1,6 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
-import groupDetailComponent from "./groupDetail.component";
+import groupComponent from "./group.component";
 import AuthenticationModule from "../../common/authentication/authentication";
 import groupModule from "../../common/group/group";
 import storeList from "../_storeList/storeList";
@@ -8,9 +8,9 @@ import userList from "../_userList/userList";
 import pickupList from "../_pickupList/pickupList";
 import expandablePanel from "../_expandablePanel/expandablePanel";
 import store from "./store/storeDetail";
-import group from "./group/group";
+import groupDetail from "./groupDetail/groupDetail";
 
-let groupDetailModule = angular.module("groupDetail", [
+let groupPageModule = angular.module("group", [
   uiRouter,
   AuthenticationModule,
   groupModule,
@@ -19,7 +19,7 @@ let groupDetailModule = angular.module("groupDetail", [
   pickupList,
   expandablePanel,
   store,
-  group
+  groupDetail
 ])
 
 .config(($stateProvider, hookProvider) => {
@@ -28,7 +28,7 @@ let groupDetailModule = angular.module("groupDetail", [
     .state("group", {
       parent: "main",
       url: "/group/{groupId:int}",
-      component: "groupDetail",
+      component: "group",
       resolve: {
         groupData: ($state, Group, CurrentGroup, $stateParams) => {
           return Group.get($stateParams.groupId).then((group) => {
@@ -39,11 +39,11 @@ let groupDetailModule = angular.module("groupDetail", [
         }
       }
     });
-  hookProvider.setup("groupDetail", { authenticated: true, anonymous: "login" });
+  hookProvider.setup("group", { authenticated: true, anonymous: "login" });
 })
 
-.component("groupDetail", groupDetailComponent)
+.component("group", groupComponent)
 
 .name;
 
-export default groupDetailModule;
+export default groupPageModule;

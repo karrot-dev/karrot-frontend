@@ -1,4 +1,4 @@
-import GroupModule from "./group";
+import GroupModule from "./groupDetail";
 
 const { module } = angular.mock;
 
@@ -29,8 +29,8 @@ describe("Group", () => {
   });
 
   describe("Module", () => {
-    it("is named group", () => {
-      expect(GroupModule).to.equal("group");
+    it("is named groupDetail", () => {
+      expect(GroupModule).to.equal("groupDetail");
     });
   });
 
@@ -44,13 +44,13 @@ describe("Group", () => {
     }));
 
     it("should exist", () => {
-      let $ctrl = $componentController("groupComponent", {});
+      let $ctrl = $componentController("groupDetailComponent", {});
       expect($ctrl).to.exist;
     });
 
 
     it("should be able to leave a group", () => {
-      let $ctrl = $componentController("groupComponent", {});
+      let $ctrl = $componentController("groupDetailComponent", {});
       let groupData = { id: 9834 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
       Object.assign($ctrl, { groupData });
@@ -60,7 +60,7 @@ describe("Group", () => {
     });
 
     it("clears the current group if you leave it", () => {
-      let $ctrl = $componentController("groupComponent", {});
+      let $ctrl = $componentController("groupDetailComponent", {});
       let groupData = { id: 2424 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
       CurrentGroup.set({ id: groupData.id });
@@ -73,7 +73,7 @@ describe("Group", () => {
     });
 
     it("sets an error flag if leaving fails", () => {
-      let $ctrl = $componentController("groupComponent", {});
+      let $ctrl = $componentController("groupDetailComponent", {});
       let groupData = { id: 98238 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(400);
       Object.assign($ctrl, { groupData });
@@ -85,7 +85,7 @@ describe("Group", () => {
 
     it("saves groupData", () => {
       let groupData = { id: 667, name: "blarb" };
-      let $ctrl = $componentController("groupComponent", {}, { groupData });
+      let $ctrl = $componentController("groupDetailComponent", {}, { groupData });
       let feedback = $ctrl.updateGroupData();
       $httpBackend.expectPATCH(`/api/groups/${groupData.id}/`, groupData).respond(groupData);
       $httpBackend.flush();

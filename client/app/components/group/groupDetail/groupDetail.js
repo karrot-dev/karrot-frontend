@@ -1,14 +1,14 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
-import groupComponent from "./group.component";
+import groupDetailComponent from "./groupDetail.component";
 import description from "./description/description";
 import members from "./members/members";
 import pickups from "./pickups/pickups";
 import stores from "./stores/stores";
 import groupModule from "../../../common/group/group";
 
-let groupComponentModule = angular.module("group", [
+let groupDetailModule = angular.module("groupDetail", [
   uiRouter,
   ngMaterial,
   description,
@@ -18,7 +18,7 @@ let groupComponentModule = angular.module("group", [
   groupModule
 ])
 
-.component("groupComponent", groupComponent)
+.component("groupDetail", groupDetailComponent)
 
 .config(($stateProvider) => {
   "ngInject";
@@ -28,7 +28,7 @@ let groupComponentModule = angular.module("group", [
       url: "",
       views: {
         "mainView@group": {
-          component: "groupComponent"
+          component: "groupDetail"
         }
       }
     });
@@ -36,4 +36,4 @@ let groupComponentModule = angular.module("group", [
 
 .name;
 
-export default groupComponentModule;
+export default groupDetailModule;

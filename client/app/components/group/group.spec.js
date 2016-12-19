@@ -1,7 +1,7 @@
-import GroupDetailModule from "./groupDetail";
-import GroupDetailController from "./groupDetail.controller";
-import GroupDetailComponent from "./groupDetail.component";
-import GroupDetailTemplate from "./groupDetail.html";
+import GroupDetailModule from "./group";
+import GroupDetailController from "./group.controller";
+import GroupDetailComponent from "./group.component";
+import GroupDetailTemplate from "./group.html";
 
 const { module } = angular.mock;
 
@@ -68,9 +68,9 @@ describe("GroupDetail", () => {
     let groupData = { id: 12 };
     it("should load group information", () => {
       $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-      $state.go("groupDetail", { groupId: groupData.id });
+      $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
-      expect($state.current.component).to.equal("groupDetail");
+      expect($state.current.component).to.equal("group");
     });
   });
 

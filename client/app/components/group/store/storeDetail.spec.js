@@ -120,7 +120,7 @@ describe("StoreDetail", () => {
 
         it("should load store information", () => {
           $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
-          $state.go("groupDetail.store", { storeId: storeData.id, groupId: storeData.group });
+          $state.go("group.store", { storeId: storeData.id, groupId: storeData.group });
           $httpBackend.flush();
           expect($state.current.component).to.equal("storeDetail");
         });

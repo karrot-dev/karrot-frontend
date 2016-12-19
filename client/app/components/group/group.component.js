@@ -3,10 +3,12 @@ import controller from "./group.controller";
 import "./group.styl";
 
 let groupComponent = {
-  restrict: "",
-  bindings: {},
+  bindings: {
+    groupData: "<"
+  },
   template,
-  controller
+  controller,
+  restrict: ""
 };
 
 export default groupComponent;

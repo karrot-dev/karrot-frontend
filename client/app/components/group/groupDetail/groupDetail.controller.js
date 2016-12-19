@@ -4,11 +4,11 @@ class GroupController {
     this.groupData = $state.groupData;
 
     let currentState = $state.current.name;
-    this.currentNavItem = currentState.replace("groupDetail.group.", "");
+    this.currentNavItem = currentState.replace("group.groupDetail.", "");
 
-    if (this.currentNavItem === "groupDetail.group"){
+    if (this.currentNavItem === "group.groupDetail"){
       this.currentNavItem = "pickups";
-      $state.go("groupDetail.group.pickups");
+      $state.go("group.groupDetail.pickups");
     }
 
     Object.assign(this, {

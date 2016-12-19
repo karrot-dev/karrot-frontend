@@ -52,7 +52,7 @@ angular.module("app", [
 .config(AppMaterial)
 .run(AppXEditableConfig)
 .run(["$rootScope", "$breadcrumb", "$document", ($rootScope, $breadcrumb, $document) => {
-  function setPageTitle(){
+  $rootScope.setPageTitle = () => {
     let pageTitleString = "";
     let breadcrumbs = $breadcrumb.getStatesChain();
     angular.forEach(breadcrumbs, (crumb) => {
@@ -64,5 +64,5 @@ angular.module("app", [
 
   $rootScope.$watch(() => { // eslint-disable-line
     return $document[0].URL;
-  }, setPageTitle);
+  }, $rootScope.setPageTitle);
 }]);

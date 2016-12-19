@@ -37,6 +37,9 @@ let groupPageModule = angular.module("group", [
             return group;
           });
         }
+      },
+      ncyBreadcrumb: {
+        label: 'Group Page'
       }
     });
   hookProvider.setup("group", { authenticated: true, anonymous: "login" });

@@ -4,6 +4,7 @@ import ngMaterial from "angular-material";
 import ngCookies from "angular-cookies";
 import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
+import "angular-breadcrumb";
 import Common from "./common/common";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
@@ -23,6 +24,7 @@ angular.module("app", [
   uiRouter,
   ngMaterial,
   "xeditable",
+  "ncy-angular-breadcrumb",
   ngCookies,
   translate,
   translateStorageCookie,

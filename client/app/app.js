@@ -51,18 +51,18 @@ angular.module("app", [
 .config(AppTranslate)
 .config(AppMaterial)
 .run(AppXEditableConfig)
-.run(['$rootScope', "$breadcrumb", ($rootScope, $breadcrumb) => {
-    function setPageTitle(){
-       let pageTitleString = "";
-       let breadcrumbs = $breadcrumb.getStatesChain();
-       angular.forEach(breadcrumbs, (crumb) => {
-        pageTitleString = crumb.ncyBreadcrumbLabel + " | " + pageTitleString;         
-       });
-       pageTitleString += "FS-Tool";
-       window.document.title = pageTitleString;      
-    }
-    
-    $rootScope.$watch(function(){
-      return window.document.URL;
-    }, setPageTitle);
+.run(["$rootScope", "$breadcrumb", "$document", ($rootScope, $breadcrumb, $document) => {
+  function setPageTitle(){
+    let pageTitleString = "";
+    let breadcrumbs = $breadcrumb.getStatesChain();
+    angular.forEach(breadcrumbs, (crumb) => {
+      pageTitleString = crumb.ncyBreadcrumbLabel + " | " + pageTitleString;
+    });
+    pageTitleString += "FS-Tool";
+    $document[0].title = pageTitleString;
+  }
+
+  $rootScope.$watch(() => { // eslint-disable-line
+    return $document[0].URL;
+  }, setPageTitle);
 }]);

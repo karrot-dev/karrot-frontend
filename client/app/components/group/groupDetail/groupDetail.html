@@ -25,7 +25,7 @@
     </div>
   </md-toolbar>
   <md-content layout-padding>
-    <div ng-if="$ctrl.$mdMedia('gt-sm')" editable-textarea="$ctrl.groupData.description">
+    <div ng-if="$ctrl.$mdMedia('gt-sm') && $ctrl.currentNavItem != 'description'" editable-textarea="$ctrl.groupData.description">
       <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
     </div>
     <div ng-show="editableGroup.$visible" layout="row" layout-align="end start">

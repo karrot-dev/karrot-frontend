@@ -11,10 +11,10 @@ let descriptionModule = angular.module("description", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state("groupDetail.group.description", {
+    .state("group.groupDetail.description", {
       url: "/description",
       views: {
-        "detail@groupDetail.group": {
+        "detail@group.groupDetail": {
           component: "description"
         }
       }

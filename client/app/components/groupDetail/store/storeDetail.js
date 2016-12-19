@@ -21,10 +21,10 @@ let storeDetailModule = angular.module("storeDetail", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state("groupDetail.store", {
+    .state("group.store", {
       url: "/store/{storeId:int}",
       views: {
-        "mainView@groupDetail": {
+        "mainView@group": {
           component: "storeDetail"
         }
       },

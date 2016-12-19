@@ -25,7 +25,7 @@ let groupDetailModule = angular.module("groupDetail", [
 .config(($stateProvider, hookProvider) => {
   "ngInject";
   $stateProvider
-    .state("groupDetail", {
+    .state("group", {
       parent: "main",
       url: "/group/{groupId:int}",
       component: "groupDetail",

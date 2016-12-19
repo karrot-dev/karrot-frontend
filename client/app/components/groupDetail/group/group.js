@@ -24,10 +24,10 @@ let groupComponentModule = angular.module("group", [
   "ngInject";
 
   $stateProvider
-    .state("groupDetail.group", {
+    .state("group.groupDetail", {
       url: "",
       views: {
-        "mainView@groupDetail": {
+        "mainView@group": {
           component: "groupComponent"
         }
       }

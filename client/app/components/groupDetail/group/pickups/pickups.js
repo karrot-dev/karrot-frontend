@@ -11,10 +11,10 @@ let pickupsModule = angular.module("pickups", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state("groupDetail.group.pickups", {
+    .state("group.groupDetail.pickups", {
       url: "/pickups",
       views: {
-        "detail@groupDetail.group": {
+        "detail@group.groupDetail": {
           component: "pickups"
         }
       }

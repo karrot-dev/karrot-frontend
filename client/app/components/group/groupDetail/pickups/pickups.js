@@ -17,6 +17,9 @@ let pickupsModule = angular.module("pickups", [
         "detail@group.groupDetail": {
           component: "pickups"
         }
+      },
+      ncyBreadcrumb: {
+        label: "{{'GROUP.PICKUPS' | translate}}"
       }
     });
 })

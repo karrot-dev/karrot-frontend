@@ -25,6 +25,7 @@ let groupDetailModule = angular.module("groupDetail", [
 
   $stateProvider
     .state("group.groupDetail", {
+      abstract: true,
       url: "",
       views: {
         "mainView@group": {

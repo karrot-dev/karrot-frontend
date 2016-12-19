@@ -34,7 +34,7 @@ let storeDetailModule = angular.module("storeDetail", [
         }
       },
       ncyBreadcrumb: {
-        label: 'Store Page'
+        label: '{{$$childHead.$ctrl.storedata.name}}'
       }
     });
 })

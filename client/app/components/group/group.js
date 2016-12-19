@@ -39,7 +39,7 @@ let groupPageModule = angular.module("group", [
         }
       },
       ncyBreadcrumb: {
-        label: 'Group Page'
+        label: '{{$ctrl.groupData.name}}'
       }
     });
   hookProvider.setup("group", { authenticated: true, anonymous: "login" });

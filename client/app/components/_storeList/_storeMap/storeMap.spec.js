@@ -41,7 +41,7 @@ describe("StoreMap", () => {
         99: {
           lat: 1.99,
           lng: 2.99,
-          message: "<a ui-sref='groupDetail.store({ storeId: 99, groupId: 5 })'>test1</a>",
+          message: "<a ui-sref='group.store({ storeId: 99, groupId: 5 })'>test1</a>",
           draggable: false }
       });
     });

@@ -1,6 +1,10 @@
-class GroupDetailController {
+class GroupController {
   constructor($state, $mdMedia) {
     "ngInject";
+
+    if ($state.current.name === "group"){
+      $state.go("group.groupDetail.pickups");
+    }
 
     Object.assign(this, {
       $state,
@@ -10,13 +14,6 @@ class GroupDetailController {
       $mdMedia
     });
   }
-  
-  $onChanges($state) {
-    if (this.$state.current.name === "group"){
-      this.$state.go("group.groupDetail.pickups");
-    }
-    console.log(this.$state.current.name);
-  }
 }
 
-export default GroupDetailController;
+export default GroupController;

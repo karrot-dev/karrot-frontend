@@ -5,7 +5,7 @@ import GroupDetailTemplate from "./group.html";
 
 const { module } = angular.mock;
 
-describe("GroupDetail", () => {
+describe("Group", () => {
   let $httpBackend, $state;
 
   beforeEach(module(GroupDetailModule));
@@ -55,7 +55,7 @@ describe("GroupDetail", () => {
     }));
 
     it("should exist", () => {
-      let $ctrl = $componentController("groupComponent", {});
+      let $ctrl = $componentController("group", {});
       expect($ctrl).to.exist;
     });
   });

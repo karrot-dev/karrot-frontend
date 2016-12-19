@@ -1,4 +1,4 @@
-class GroupController {
+class GroupDetailController {
   constructor(Group, $state, CurrentGroup, $mdMedia) {
     "ngInject";
     this.groupData = $state.groupData;
@@ -41,4 +41,4 @@ class GroupController {
 
 }
 
-export default GroupController;
+export default GroupDetailController;

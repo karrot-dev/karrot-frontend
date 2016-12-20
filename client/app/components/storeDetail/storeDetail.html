@@ -1,7 +1,7 @@
 <div class="storeDetail">
   <form editable-form name="editableStore" onaftersave="$ctrl.updateStoredata()">
     <div layout="row">
-      <h1 class="md-headline" flex editable-text="$ctrl.storedata.name">
+      <h1 class="md-headline" flex editable-text="$ctrl.storeEdit.name">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         {{$ctrl.storedata.name}}
       </h1>
@@ -32,8 +32,8 @@
         <i class="fa fa-spinner" ng-show="$ctrl.lookupOngoing"></i>
       </md-button>
     </div>
-    <div editable-textarea="$ctrl.storedata.description">
-      <p class="multiline">{{$ctrl.storedata.description}}</p>
+    <div editable-textarea="$ctrl.storeEdit.description">
+      <expandable-panel content="$ctrl.storedata.description" markdown="true" collapse="10"></expandable-panel>
     </div>
     <div ng-if="editableStore.$visible" layout="row" layout-align="end start">
       <md-button class="md-icon-button" ng-disabled="editableStore.$waiting" ng-click="$ctrl.reset()">

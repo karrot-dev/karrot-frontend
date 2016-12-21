@@ -1,9 +1,11 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import pickupList from "../../../_pickupList/pickupList";
 import pickupsComponent from "./pickups.component";
 
 let pickupsModule = angular.module("pickups", [
-  uiRouter
+  uiRouter,
+  pickupList
 ])
 
 .component("pickups", pickupsComponent)

@@ -1,9 +1,11 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import userList from "../../../_userList/userList";
 import membersComponent from "./members.component";
 
 let MembersModule = angular.module("members", [
-  uiRouter
+  uiRouter,
+  userList
 ])
 
 .component("members", membersComponent)

@@ -1,32 +1,57 @@
 import TopbarModule from "./topbar";
-import TopbarController from "./topbar.controller";
 
 const { module } = angular.mock;
 
 describe("Topbar", () => {
-  let makeController;
-
   beforeEach(module(TopbarModule));
 
-  let $log;
-  beforeEach(inject(($injector) => {
+  let $log, $ctrl, Authentication, $q, $rootScope;
+
+  let userData = { id: 5, "display_name": "abc" };
+
+  beforeEach(inject(($injector, _$componentController_) => {
     $log = $injector.get("$log");
     $log.reset();
-  }));
-  afterEach(() => {
-    $log.assertEmpty();
-  });
-
-  beforeEach(inject(() => {
-    makeController = () => {
-      return new TopbarController();
-    };
+    Authentication = $injector.get("Authentication");
+    sinon.stub(Authentication, "update");
+    $q = $injector.get("$q");
+    $rootScope = $injector.get("$rootScope");
+    $ctrl = _$componentController_("topbar", {});
+    Authentication.update.returns($q((resolve) => {
+      resolve(userData);
+    }));
   }));
 
   describe("Controller", () => {
-    it("exists", () => {
-      let $ctrl = makeController();
-      expect($ctrl).to.exist;
+    afterEach(() => {
+      $log.assertEmpty();
+    });
+
+    it("calls $onInit", () => {
+      $ctrl.$onInit();
+      $rootScope.$apply();
+      expect(Authentication.update).has.been.called;
+      expect($ctrl.loggedInUser).to.deep.equal(userData);
+    });
+  });
+
+  describe("View", () => {
+    let $mdSidenav, $compile, scope;
+
+    beforeEach(inject(($injector) => {
+      $mdSidenav = $injector.get("$mdSidenav");
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+      $compile("<topbar></topbar>")(scope);
+      scope.$apply();
+      $rootScope.$apply();
+    }));
+
+    it("toggles Right Sidenav", () => {
+      $ctrl.$onInit();
+      expect($mdSidenav("right").isOpen()).to.eq(false);
+      $ctrl.toggleRight();
+      expect($mdSidenav("right").isOpen()).to.eq(true);
     });
   });
 });

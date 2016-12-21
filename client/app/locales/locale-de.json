@@ -23,7 +23,8 @@
     "REDIRECT": "Umleitung zu deiner Gruppe..."
   },
   "TOPBAR": {
-    "LOGOUT": "Ausloggen"
+    "LOGOUT": "Ausloggen",
+    "GREETING": "Moin, {{username}}!"
   },
   "LOGIN": {
     "TITLE": "Login",

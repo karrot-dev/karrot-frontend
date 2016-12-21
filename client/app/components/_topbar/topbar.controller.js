@@ -1,8 +1,30 @@
 import logo from "./carrot-logo.svgimage";
 
 class TopbarController {
-  constructor() {
-    this.logo = logo;
+  constructor(Authentication, $mdMedia, $scope, $mdSidenav) {
+    "ngInject";
+    $scope.screenIsSmall = !$mdMedia("gt-sm");
+    $scope.$watch(() => {
+      return $mdMedia("gt-sm");
+    }, (big) => {
+      $scope.screenIsSmall = !big;
+    });
+
+    this.toggleRight = () => {
+      $mdSidenav("right")
+        .toggle();
+    };
+
+    Object.assign(this, {
+      logo,
+      Authentication
+    });
+  }
+
+  $onInit() {
+    this.Authentication.update().then((data) => {
+      this.loggedInUser = data;
+    });
   }
 }
 

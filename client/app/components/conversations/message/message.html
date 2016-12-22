@@ -1,0 +1,21 @@
+<div layout="row" class="message">
+  <div flex="15">
+    <div ng-if="$ctrl.withAuthor">
+      <div class="picture">
+        <i class="fa fa-user"></i>
+      </div>
+    </div>
+    <div ng-if="!$ctrl.withAuthor">
+        {{ $ctrl.time | date:'shortTime' }}
+    </div>
+  </div>
+  <div flex>
+    <div ng-if="$ctrl.withAuthor">
+      <div class="time">{{ $ctrl.time | date:'shortTime' }}</div>
+      <div class="author">{{$ctrl.author.display_name}}</div>
+    </div>
+    <div class="content">
+      {{$ctrl.content}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="conversation" >
+  <!-- header -->
+  <div class="conversationHeader">
+    <div class="title">
+      {{$ctrl.topic}}
+      <a ng-click="$ctrl.toggleEditTitleMode()"><i class="fa fa-pencil"></i></a>
+    </div>
+    <div ng-if="$ctrl.isInitialized" class="participants">
+      <i class="fa fa-users"></i>
+      <span ng-repeat="p in $ctrl.participants">
+        <!-- TODO: link to user page -->
+        <a href="#">{{p.display_name}}</a><span ng-if="$index < $ctrl.participants.length-2">, </span>
+        <span ng-if="$index == $ctrl.participants.length-2"> &amp; </span>
+      </span>
+    </div>
+  </div>
+
+  <!-- messages -->
+  <div>
+    <div  class="messagesBox">
+      <div ng-repeat="message in $ctrl.messages">
+        <div class="separator label">
+          <span>{{message.time | date:'longDate'}}</span>
+        </div>
+        <message
+          author="$ctrl.participantById[message.author]"
+          content="message.content"
+          time="message.time"
+          with-author="$index == 0 || $ctrl.messages[$index-1].author != message.author">
+        </message>
+        <div class="separator"></div>
+      </div>
+      <div ng-if="!$ctrl.isInitialized" layout="row" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <div ng-if="$ctrl.isInitialized && !$ctrl.messages.length" layout="row" layout-align="space-around">
+        no messages so far...
+      </div>
+    </div>
+  </div>
+
+  <!-- textbox -->
+  <div class="writeContainer">
+    <textarea name="favoriteColor" placeholder="Write a Message..." layout="space-around" ng-keypress="$ctrl.onKeyDown($event)"></textarea>
+  </div>
+</div>

@@ -60,7 +60,7 @@ angular.module("app", [
     });
     pageTitleString += "FS-Tool";
     $document[0].title = pageTitleString;
-  }
+  };
 
   $rootScope.$watch(() => { // eslint-disable-line
     return $document[0].URL;

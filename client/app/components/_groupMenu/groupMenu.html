@@ -1,5 +1,5 @@
 <div layout="row" layout-nowrap id="group-menu-container">
-  <md-button ui-sref="group.groupDetail.pickups({ groupId: $ctrl.activeGroup.id })" id="group-menu-active-group" flex>
+  <md-button aria-label="{{$ctrl.activeGroup.name || 'Please choose a group...'}}" ui-sref="group.groupDetail.pickups({ groupId: $ctrl.activeGroup.id })" id="group-menu-active-group" flex>
     {{$ctrl.activeGroup.name || "Please choose a group..."}}
   </md-button>
   <md-menu md-ink-ripple>
@@ -9,13 +9,13 @@
    <md-menu-content>
      <md-menu-item ng-repeat="groupitem in $ctrl.groups"
                    ng-if="groupitem.id !== $ctrl.activeGroup.id">
-       <md-button ui-sref="group.groupDetail.pickups({ groupId: groupitem.id })">
+       <md-button aria-label="{{groupitem.name}}" ui-sref="group.groupDetail.pickups({ groupId: groupitem.id })">
          <i class="fa fa-circle-o"> </i>
          {{ groupitem.name }}
        </md-button>
      </md-menu-item>
      <md-menu-item>
-       <md-button class="group-menu-join-button" ng-click="$ctrl.openJoinGroupDialog($event)">
+       <md-button aria-label="{{ 'GROUPMENU.JOIN' | translate }}" class="group-menu-join-button" ng-click="$ctrl.openJoinGroupDialog($event)">
          <i class="fa fa-plus"></i>
          <span translate="GROUPMENU.JOIN"></span>
        </md-button>

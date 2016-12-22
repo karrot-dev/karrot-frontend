@@ -7,14 +7,50 @@
     <group-menu style="min-width: 50%"></group-menu>
 
     <span flex></span>
-    <language-chooser></language-chooser>
-    <md-button class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
+    <language-chooser ng-if="!screenIsSmall"></language-chooser>
+    <md-button ng-if="!screenIsSmall" class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
+      <i class="fa fa-user"></i>
+      {{ $ctrl.loggedInUser.display_name }}
+      <md-tooltip>
+          <span translate="TOPBAR.USERPROFILE"></span>
+      </md-tooltip>
+    </md-button>
+    <md-button ng-if="!screenIsSmall" class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
       <i class="fa fa-fw fa-sign-out"></i>
       <md-tooltip>
           <span translate="TOPBAR.LOGOUT"></span>
       </md-tooltip>
     </md-button>
+    
+    <md-button ng-if="screenIsSmall" aria-label="Navigation" ng-click="$ctrl.toggleRight()" class="md-icon-button">
+      <i class="fa fa-fw fa-bars"></i>
+    </md-button>
+    
     <span flex="5"></span>
   </div>
 </md-toolbar>
 <div ncy-breadcrumb></div>
+
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools"><span translate="TOPBAR.GREETING" translate-values='{ username: $ctrl.loggedInUser.display_name}'></span></h1>
+  </md-toolbar>
+  <md-content layout-padding>    
+    <md-menu-content width="4">
+      <md-menu-item>
+        <md-button ng-click="$ctrl.toggleRight()" class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
+          <i class="fa fa-user"></i>
+          <span translate="TOPBAR.USERPROFILE"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.toggleRight()" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
+          <i class="fa fa-fw fa-sign-out"></i>
+          <span translate="TOPBAR.LOGOUT"></span>
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+    <hr style="padding:0">
+    <language-chooser></language-chooser>
+  </md-content>
+</md-sidenav>

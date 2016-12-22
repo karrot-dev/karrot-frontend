@@ -276,7 +276,13 @@ describe("PickupList", () => {
     });
 
     it("deletes pickup", () => {
+      let $q;
+      inject(($injector) => {
+        $q = $injector.get("$q");
+      });
+      sinon.stub($ctrl.$mdDialog, "show");
       sinon.stub($ctrl, "updatePickups");
+      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
       $httpBackend.expectDELETE("/api/pickup-dates/87/").respond();
       $ctrl.delete({ id: 87 });
       $httpBackend.flush();

@@ -1,9 +1,11 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import expandablePanel from "../../../_expandablePanel/expandablePanel";
 import descriptionComponent from "./description.component";
 
 let descriptionModule = angular.module("description", [
-  uiRouter
+  uiRouter,
+  expandablePanel
 ])
 
 .component("description", descriptionComponent)

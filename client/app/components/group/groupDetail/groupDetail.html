@@ -39,12 +39,18 @@
 
     <md-content class="md-padding">
       <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
-        <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups"><span translate="GROUP.PICKUPS"></span></md-nav-item>
-        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm') || $ctrl.currentNavItem == 'stores'" md-nav-sref="group.groupDetail.stores" name="stores"><span translate="GROUP.STORES"></span></md-nav-item>
+        <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
+          <span translate="GROUP.PICKUPS"></span>
+        </md-nav-item>
+        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm') || $ctrl.currentNavItem == 'stores'" md-nav-sref="group.groupDetail.stores" name="stores">
+          <span translate="GROUP.STORES"></span>
+        </md-nav-item>
         <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm') || $ctrl.currentNavItem == 'description'" md-nav-sref="group.groupDetail.description" name="description">
           <span translate="GROUP.DESCRIPTION"></span>
         </md-nav-item>
-        <md-nav-item md-nav-sref="group.groupDetail.members" name="members"><span translate="GROUP.MEMBERS"></span> ({{$ctrl.groupData.members.length}})</md-nav-item>
+        <md-nav-item md-nav-sref="group.groupDetail.members" name="members">
+          <span translate="GROUP.MEMBERS"></span> ({{$ctrl.groupData.members.length}})
+        </md-nav-item>
       </md-nav-bar>
 
       <div ui-view="detail"></div>

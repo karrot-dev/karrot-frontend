@@ -2,7 +2,7 @@
   <form editable-form name="editableStore" onaftersave="$ctrl.updateStoredata()">
     <md-toolbar class="md-hue-1">
       <div class="md-toolbar-tools">
-        <h1 class="md-headline" flex editable-text="$ctrl.storedata.name">
+        <h1 class="md-headline" flex editable-text="$ctrl.storeEdit.name">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           {{$ctrl.storedata.name}}
         </h1>
@@ -15,10 +15,10 @@
         </md-button>
       </div>
     </md-toolbar>
-    
+
     <md-content layout-padding>
       <store-detail-map ng-if="$ctrl.mapData.latitude && $ctrl.mapData.longitude" store-data="$ctrl.mapData"></store-detail-map>
-      
+
       <div ng-hide="editableStore.$visible">
         <p ng-if="$ctrl.storedata.address">
           <md-tooltip>
@@ -38,8 +38,8 @@
           <i class="fa fa-spinner" ng-show="$ctrl.lookupOngoing"></i>
         </md-button>
       </div>
-      <div editable-textarea="$ctrl.storedata.description">
-        <p class="multiline">{{$ctrl.storedata.description}}</p>
+      <div editable-textarea="$ctrl.storeEdit.description">
+        <expandable-panel content="$ctrl.storedata.description" markdown="true" collapse="10"></expandable-panel>
       </div>
       <div ng-if="editableStore.$visible" layout="row" layout-align="end start">
         <md-button class="md-icon-button" ng-disabled="editableStore.$waiting" ng-click="$ctrl.reset()">

@@ -12,7 +12,8 @@
   },
   "BUTTON": {
     "CREATE": "Create",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "DELETE": "Delete"
   },
   "GROUP": {
     "LEAVE": "Leave group...",
@@ -87,7 +88,8 @@
       "LEAVE": "Leave",
       "JOIN": "Join",
       "FULL": "Full!",
-      "DELETE": "Delete pickup date"
+      "DELETE": "Delete pickup date",
+      "DELETE_TEXT": "Do you really want to delete this pickup date?"
     },
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."

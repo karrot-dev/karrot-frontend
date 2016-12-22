@@ -14,11 +14,11 @@
           {{$ctrl.data.date|date:'EEEE, dd.MM.yyyy'}}
         </span>
       </span>
-      <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button md-warn" ng-click="$ctrl.onDelete($ctrl.data)" aria-label="{{ 'PICKUPLIST.ITEM.DELETE' | translate }}">
+      <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button md-warn" ng-click="$ctrl.onDelete($ctrl.data, $event)" aria-label="{{ 'PICKUPLIST.ITEM.DELETE' | translate }}">
         <md-tooltip>
           <span translate="PICKUPLIST.ITEM.DELETE"></span>
         </md-tooltip>
-        <i class="fa fa-times"></i>
+        <i class="fa fa-trash-o"></i>
       </md-button>
     </span>
     <div class="pickupList-pickup-people">

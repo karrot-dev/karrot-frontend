@@ -1,4 +1,5 @@
-let AppTitleConfig = ["$rootScope", "$breadcrumb", "$document", ($rootScope, $breadcrumb, $document) => {
+let AppTitleConfig = ($rootScope, $breadcrumb, $document) => {
+  "ngInject";
   $rootScope.setPageTitle = () => {
     let pageTitleString = "";
     let breadcrumbs = $breadcrumb.getStatesChain();
@@ -12,6 +13,6 @@ let AppTitleConfig = ["$rootScope", "$breadcrumb", "$document", ($rootScope, $br
   $rootScope.$watch(() => {
     return $document[0].URL;
   }, $rootScope.setPageTitle);
-}];
+};
 
 export default AppTitleConfig;

@@ -63,7 +63,7 @@ If you want to add a message to the user, follow this workflow:
 
 1. in your feature branch, add a new key-value pair in `locale-en.json`
 2. open a Pull Request, get it merged to master
-3. upload `locale-en.json` to our transifex project - you can ask in yuniy Slack #foodsaving-tool for help
+3. upload `locale-en.json` to our transifex project - you can ask in yunity Slack #foodsaving-tool for help
 4. get it translated - you can ask in yunity Slack #translation
 5. download the resulting `locale-**.json` files and get it merged to master
 

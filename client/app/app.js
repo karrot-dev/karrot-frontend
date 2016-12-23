@@ -10,7 +10,6 @@ import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppTranslate from "./app.translate";
 import AppXEditableConfig from "./app.xeditable";
-import AppTitleConfig from "./app.title";
 import "angular-xeditable";
 import "../../node_modules/angular-xeditable/dist/css/xeditable.css";
 import "normalize.css";
@@ -51,5 +50,4 @@ angular.module("app", [
 })
 .config(AppTranslate)
 .config(AppMaterial)
-.run(AppXEditableConfig)
-.run(AppTitleConfig);
+.run(AppXEditableConfig);

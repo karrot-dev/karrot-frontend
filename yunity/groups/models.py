@@ -1,4 +1,3 @@
-from django.db.models import Model
 from django.db.models import TextField, ManyToManyField, CharField
 from yunity.base.base_models import BaseModel, LocationModel
 from config import settings

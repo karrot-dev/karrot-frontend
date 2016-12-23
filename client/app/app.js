@@ -56,9 +56,9 @@ angular.module("app", [
     let pageTitleString = "";
     let breadcrumbs = $breadcrumb.getStatesChain();
     angular.forEach(breadcrumbs, (crumb) => {
-      pageTitleString = crumb.ncyBreadcrumbLabel + " | " + pageTitleString;
+      pageTitleString = crumb.ncyBreadcrumbLabel + " · " + pageTitleString;
     });
-    pageTitleString += "FS-Tool";
+    pageTitleString += "Foodsaving";
     $document[0].title = pageTitleString;
   };
 

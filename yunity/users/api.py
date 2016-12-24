@@ -38,7 +38,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
         return super().get_permissions()
 
-
     @detail_route(methods=['GET'],
                   permission_classes=(IsAuthenticated,))
     def verify_mail(self, request, pk=None):

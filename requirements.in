@@ -4,7 +4,7 @@ django-cors-headers
 django-enumfield==1.3b2
 django-extensions
 django-redis
-django-rest-swagger==0.3.*
+django-rest-swagger
 djangorestframework
 drf-nested-routers
 factory-boy
@@ -18,3 +18,4 @@ django-filter
 django-crispy-forms
 django-anymail
 sparkpost
+django-influxdb-metrics

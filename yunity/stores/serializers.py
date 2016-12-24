@@ -1,4 +1,9 @@
+from datetime import timedelta
+
+from django.utils import timezone
 from rest_framework import serializers
+
+from config import settings
 from yunity.stores.models import Store as StoreModel
 from yunity.stores.models import PickupDate as PickupDateModel
 
@@ -26,11 +31,28 @@ class PickupDateSerializer(serializers.Serializer):
             raise serializers.ValidationError('You are not member of the store\'s group.')
         return store_id
 
+    def validate_date(self, date):
+        if not date > timezone.now() + timedelta(minutes=10):
+            raise serializers.ValidationError('The date should be in the future.')
+        return date
+
+    def validate_max_collectors(self, val):
+        if not val > 0:
+            raise serializers.ValidationError('The number of collectors should be greater than 0.')
+        return val
+
 
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = StoreModel
         fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude']
+        extra_kwargs = {'description': {'trim_whitespace': False,
+                                        'max_length': settings.DESCRIPTION_MAX_LENGTH}}
+
+    def validate(self, data):
+        if 'description' not in data:
+            data['description'] = ''
+        return data
 
     def validate_group(self, group_id):
         if group_id not in self.context['request'].user.groups.all():

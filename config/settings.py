@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'rest_framework_nested',
     'rest_framework_swagger',
     'anymail',
+    'influxdb_metrics',
 
     # Application
     'yunity',
@@ -163,6 +164,12 @@ CORS_ALLOW_CREDENTIALS = True
 SESSION_COOKIE_HTTPONLY = True
 
 AUTH_USER_MODEL = 'users.User'
+
+LOGIN_URL = '/api-auth/login/'
+LOGOUT_URL = '/api-auth/logout/'
+
+DESCRIPTION_MAX_LENGTH = 100000
+NAME_MAX_LENGTH = 80
 
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control

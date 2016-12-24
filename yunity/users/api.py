@@ -21,12 +21,12 @@ class UserViewSet(viewsets.ModelViewSet):
     Users
 
     # Query parameters
-    - `?search` - search in `display_name`, `first_name` and `last_name`
+    - `?search` - search in `display_name`
     """
-    queryset = get_user_model().objects.all()
+    queryset = get_user_model().objects
     serializer_class = UserSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('display_name', 'first_name', 'last_name')
+    search_fields = ('display_name',)
 
     def get_permissions(self):
         if self.action == 'create':
@@ -37,6 +37,7 @@ class UserViewSet(viewsets.ModelViewSet):
             self.permission_classes = (IsSameUser,)
 
         return super().get_permissions()
+
 
     @detail_route(methods=['GET'],
                   permission_classes=(IsAuthenticated,))
@@ -70,3 +71,7 @@ class UserViewSet(viewsets.ModelViewSet):
                             data="Already verified")
         UserSerializer._send_verification_code(user)
         return Response(status=status.HTTP_200_OK)
+
+    def get_queryset(self):
+        users_groups = self.request.user.groups.values('id')
+        return self.queryset.filter(groups__in=users_groups).distinct()

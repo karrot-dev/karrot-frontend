@@ -45,7 +45,7 @@ class ChatMessageViewSet(mixins.CreateModelMixin,
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        chat_id = self.kwargs['conversations_pk']
+        chat_id = self.kwargs.get('conversations_pk')
         return self.queryset.filter(in_conversation=chat_id)
 
     def create(self, request, *args, **kwargs):

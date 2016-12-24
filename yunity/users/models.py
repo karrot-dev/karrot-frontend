@@ -60,7 +60,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     last_name = TextField(null=True)
     description = TextField(blank=True)
 
-    activation_key = CharField(max_length=40, null=True)
+    activation_key = CharField(max_length=40, blank=True)
     key_expires = DateTimeField(null=True)
     mail_verified = BooleanField(default=False)
 

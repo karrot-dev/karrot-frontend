@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import filters
 from rest_framework import status
 from rest_framework import viewsets
-from rest_framework.decorators import list_route
+from rest_framework.decorators import detail_route, list_route
 from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from rest_framework.response import Response
 
@@ -42,17 +42,19 @@ class UserViewSet(viewsets.ModelViewSet):
         users_groups = self.request.user.groups.values('id')
         return self.queryset.filter(groups__in=users_groups).distinct()
 
-    @list_route(
-        methods=['POST'],
-        permission_classes=(IsAuthenticated,)
+    @detail_route(
+        methods=['POST']
     )
     def verify_mail(self, request, pk=None):
         """
         requires "key" parameter
         """
-        if request.user.mail_verified:
+        user = get_user_model().objects.get(id=pk)
+        if not user:
+            return Response(data={'error': 'user does not exist'}, status=status.HTTP_400_BAD_REQUEST)
+        if user.mail_verified:
             return Response(data={'error': 'mail is already verified'}, status=status.HTTP_400_BAD_REQUEST)
-        s = VerifyMailSerializer(request.user, request.data)
+        s = VerifyMailSerializer(user, request.data)
         if s.is_valid():
             s.save()
             return Response(status=status.HTTP_200_OK)

@@ -1,6 +1,6 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 
-from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, CharField
+from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, CharField, DateTimeField
 from django_enumfield import enum
 
 from config import settings

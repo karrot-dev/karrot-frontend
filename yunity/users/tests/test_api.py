@@ -16,8 +16,6 @@ class TestUsersAPI(APITestCase):
         cls.url = '/api/users/'
         cls.user_data = {
             'display_name': faker.name(),
-            'first_name': faker.name(),
-            'last_name': faker.name(),
             'email': faker.email(),
             'password': faker.name(),
             'address': faker.address(),

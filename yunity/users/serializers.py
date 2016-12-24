@@ -4,6 +4,7 @@ from random import random
 
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
+from django.utils import crypto
 from django.utils import timezone
 from rest_framework import serializers
 
@@ -15,10 +16,12 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ['id', 'display_name', 'email', 'password',
-                  'address', 'latitude', 'longitude', 'description']
+                  'address', 'latitude', 'longitude', 'description', 'mail_verified', 'key_expires_at']
         extra_kwargs = {'password': {'write_only': True},
                         'description': {'trim_whitespace': False,
-                                        'max_length': settings.DESCRIPTION_MAX_LENGTH}}
+                                        'max_length': settings.DESCRIPTION_MAX_LENGTH},
+                        'mail_verified': {'read_only': True},
+                        'key_expires_at': {'read_only': True}}
 
     def validate(self, data):
         if 'description' not in data:
@@ -32,11 +35,17 @@ class UserSerializer(serializers.ModelSerializer):
 
         return user
 
+    def update(self, user, validated_data):
+        if 'email' in validated_data and validated_data['email'] != user.email:
+            UserSerializer._send_verification_code(user)
+        return super().update(user, validated_data)
+
     def _send_verification_code(user):
-        key = UserSerializer._get_activation_key(user.display_name)
+        key = crypto.get_random_string(length=40)
         expires = timezone.now() + timedelta(days=7)
+        user.mail_verified = False
         user.activation_key = key
-        user.key_expires = expires
+        user.key_expires_at = expires
         user.save()
 
         # TODO: set proper frontend url
@@ -46,7 +55,3 @@ class UserSerializer(serializers.ModelSerializer):
                   "Here is your activation key: {}. It will be active for 7 days.".format(url),
                   settings.DEFAULT_FROM_EMAIL,
                   [user.email])
-
-    def _get_activation_key(username):
-        salt = hashlib.sha1(str(random()).encode()).hexdigest()[:5]
-        return hashlib.sha1(salt.encode() + username.encode()).hexdigest()

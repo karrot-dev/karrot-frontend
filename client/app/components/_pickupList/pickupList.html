@@ -57,4 +57,38 @@
       <small ng-if="!$ctrl.options.showCreateButton" translate="PICKUPLIST.NONE_HINT"></small>
     </md-content>
   </md-content>
+
+  <!-- confirm to delete pickup -->
+  <div style="visibility: hidden">
+    <div class="md-dialog-container" id="confirmDeleteDialog">
+      <md-dialog>
+        <div class="md-whiteframe-10dp" layout-fill>
+          <md-toolbar class="md-hue-1">
+            <div class="md-toolbar-tools">
+              <h2>
+                <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-trash-o"></i>
+                <span translate="PICKUPLIST.ITEM.DELETE"></span>
+              </h2>
+            </div>
+          </md-toolbar>
+          <div layout-margin>
+            <div translate="PICKUPLIST.ITEM.DELETE_TEXT" flex></div>
+            <div layout="row" layout-align="end center">
+              <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+                <md-tooltip>
+                  <span translate="BUTTON.CANCEL"></span>
+                </md-tooltip>
+                <i class="fa fa-times"></i>
+              </md-button>
+              <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+                <md-tooltip>
+                  <span translate="BUTTON.DELETE"></span>
+                </md-tooltip>
+                <i class="fa fa-trash-o"></i>
+              </md-button>
+            </div>
+          </div>
+      </md-dialog>
+    </div>
+  </div>
 </div>

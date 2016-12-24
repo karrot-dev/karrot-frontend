@@ -115,10 +115,16 @@ class PickupListController {
     promise.then((data) => this.addPickupInfosAndDisplay(data));
   }
 
-  delete(pickup) {
-    this.PickupDate.delete(pickup.id).then(() => {
-      this.updatePickups();
-    });
+  delete(pickup, $event) {
+    this.$mdDialog.show({
+      contentElement: "#confirmDeleteDialog",
+      parent: angular.element(this.$document.body),
+      targetEvent: $event
+    })
+    .then(() => this.PickupDate.delete(pickup.id))
+    .then(() => this.updatePickups())
+    .catch(() => {});
+
   }
 
   openCreatePickupPanel($event) {

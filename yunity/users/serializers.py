@@ -34,15 +34,16 @@ class UserSerializer(serializers.ModelSerializer):
 
     def _send_verification_code(user):
         key = UserSerializer._get_activation_key(user.display_name)
-        expires = timezone.now() + timedelta(days=2)
+        expires = timezone.now() + timedelta(days=7)
         user.activation_key = key
         user.key_expires = expires
         user.save()
 
+        # TODO: set proper frontend url
         url = key
 
         send_mail("Verify your mail address",
-                  "Here is your activation URL: {}. It will be active for 48 hours.".format(url),
+                  "Here is your activation key: {}. It will be active for 7 days.".format(url),
                   settings.DEFAULT_FROM_EMAIL,
                   [user.email])
 

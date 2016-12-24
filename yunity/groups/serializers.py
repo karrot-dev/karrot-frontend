@@ -8,7 +8,15 @@ class GroupDetailSerializer(serializers.ModelSerializer):
     "use this also for creating and updating a group"
     class Meta:
         model = GroupModel
-        fields = ['id', 'name', 'description', 'members', 'address', 'latitude', 'longitude', 'password']
+        fields = ['id',
+                  'name',
+                  'description',
+                  'public_description',
+                  'members',
+                  'address',
+                  'latitude',
+                  'longitude',
+                  'password']
         extra_kwargs = {
             'members': {'read_only': True},
             'description': {'trim_whitespace': False,
@@ -39,7 +47,14 @@ class GroupPreviewSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = GroupModel
-        fields = ['id', 'name', 'address', 'latitude', 'longitude', 'members', 'protected']
+        fields = ['id',
+                  'name',
+                  'public_description',
+                  'address',
+                  'latitude',
+                  'longitude',
+                  'members',
+                  'protected']
 
     protected = serializers.SerializerMethodField()
 

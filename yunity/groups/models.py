@@ -8,3 +8,4 @@ class Group(BaseModel, LocationModel):
     description = TextField(blank=True)
     members = ManyToManyField(settings.AUTH_USER_MODEL, related_name='groups')
     password = CharField(max_length=255, blank=True)
+    public_description = TextField(blank=True)

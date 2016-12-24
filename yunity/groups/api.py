@@ -41,8 +41,13 @@ class GroupViewSet(ModelViewSet):
             use_preview_serializer = False
 
         if self.action in ('retrieve', 'update', 'partial_update'):
-            if self.request.user in self.get_object().members.all():
-                use_preview_serializer = False
+            try:
+                if self.request.user in self.get_object().members.all():
+                    use_preview_serializer = False
+            except AssertionError:
+                # Swagger (using OpenAPI) does not give a pk, therefore
+                # we can't determine if it's legit to return the Detail serializer
+                pass
 
         if use_preview_serializer:
             return GroupPreviewSerializer

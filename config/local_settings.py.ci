@@ -1,13 +1,15 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yunity_database',
+        'NAME': 'fstool-db',
         'TEST': {
-            'NAME': 'yunity_test'
+            'NAME': 'fstool_test'
         },
         'USER': 'ubuntu',
     }
 }
+
+DEFAULT_FROM_EMAIL = "testing@example.com"
 
 INFLUXDB_DISABLED = True
 INFLUXDB_HOST = ''

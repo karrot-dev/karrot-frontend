@@ -11,6 +11,7 @@ DATABASES = {
 
 DEFAULT_FROM_EMAIL = "testing@example.com"
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+HOSTNAME = ''
 
 INFLUXDB_DISABLED = True
 INFLUXDB_HOST = ''

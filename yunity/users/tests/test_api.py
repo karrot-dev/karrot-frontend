@@ -1,3 +1,6 @@
+from datetime import timedelta
+
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -13,6 +16,9 @@ class TestUsersAPI(APITestCase):
         super().setUpClass()
         cls.user = User()
         cls.user2 = User()
+        cls.verified_user = User()
+        cls.verified_user.mail_verified = True
+        cls.verified_user.save()
         cls.url = '/api/users/'
         cls.user_data = {
             'display_name': faker.name(),
@@ -61,6 +67,60 @@ class TestUsersAPI(APITestCase):
         url = self.url + str(self.user_in_another_group.id) + '/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_verify_mail_succeeds(self):
+        self.client.force_login(user=self.user)
+        url = self.url + 'verify_mail/'
+        response = self.client.post(url, {'key': self.user.activation_key})
+        self.assertEqual(response.data, None)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_verify_mail_fails_if_not_logged_in(self):
+        url = self.url + 'verify_mail/'
+        response = self.client.post(url, {'key': self.user.activation_key})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_verify_mail_fails_with_wrong_key(self):
+        self.client.force_login(user=self.user)
+        url = self.url + 'verify_mail/'
+        response = self.client.post(url, {'key': 'w' * 40})
+        self.assertEqual(response.data, {'key': ['Key is invalid']})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_verify_mail_fails_if_key_too_old(self):
+        self.client.force_login(user=self.user)
+        url = self.url + 'verify_mail/'
+        self.user.key_expires_at = timezone.now() - timedelta(days=1)
+        self.user.save()
+        response = self.client.post(url, {'key': self.user.activation_key})
+        self.assertEqual(response.data, {'key': ['Key has expired']})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_verify_mail_fails_without_key(self):
+        self.client.force_login(user=self.user)
+        url = self.url + 'verify_mail/'
+        response = self.client.post(url)
+        self.assertEqual(response.data, {'key': ['This field is required.']})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_resend_verification_succeds(self):
+        self.client.force_login(user=self.user)
+        url = self.url + 'resend_verification/'
+        response = self.client.post(url)
+        self.assertEqual(response.data, None)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_resend_verification_fails_if_not_logged_in(self):
+        url = self.url + 'resend_verification/'
+        response = self.client.post(url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_resend_verification_fails_if_verified(self):
+        self.client.force_login(user=self.verified_user)
+        url = self.url + 'resend_verification/'
+        response = self.client.post(url)
+        self.assertEqual(response.data, {'error': 'Already verified'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_patch_user_forbidden(self):
         url = self.url + str(self.user.id) + '/'

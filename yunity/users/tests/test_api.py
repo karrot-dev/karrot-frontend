@@ -21,9 +21,9 @@ class TestUsersAPI(APITestCase):
         cls.verified_user.save()
         cls.url = '/api/users/'
         cls.user_data = {
-            'display_name': faker.name(),
             'email': faker.email(),
             'password': faker.name(),
+            'display_name': faker.name(),
             'address': faker.address(),
             'latitude': faker.latitude(),
             'longitude': faker.longitude()
@@ -219,3 +219,42 @@ class TestUsersAPI(APITestCase):
         url = self.url + str(self.user.id) + '/'
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+
+class TestChangePassword(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = User()
+        cls.url = '/api/users/'
+        cls.data = {'password': 'new_password'}
+
+    def test_change_with_patch_succeeds(self):
+        self.client.force_login(user=self.user)
+        url = self.url + str(self.user.id) + '/'
+        response = self.client.patch(url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        # logged out
+        response = self.client.patch(url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        # test new password
+        self.assertTrue(self.client.login(email=self.user.email, password='new_password'))
+
+    def test_change_with_put_succeeds(self):
+        self.client.force_login(user=self.user)
+        url = self.url + str(self.user.id) + '/'
+
+        # typical frontend use case of getting, modifying and sending data
+        data = self.client.get(url).data
+        data['password'] = 'really_new_shiny'
+        response = self.client.put(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        # logged out
+        response = self.client.patch(url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        # test new password
+        self.assertTrue(self.client.login(email=self.user.email, password='really_new_shiny'))

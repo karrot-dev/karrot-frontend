@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
+from django.db.models import Q
 from rest_framework import filters
 from rest_framework import status
 from rest_framework import viewsets
@@ -41,7 +42,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         users_groups = self.request.user.groups.values('id')
-        return self.queryset.filter(groups__in=users_groups).distinct()
+        return self.queryset.filter(Q(groups__in=users_groups) | Q(id=self.request.user.id)).distinct()
 
     @list_route(
         methods=['POST'],

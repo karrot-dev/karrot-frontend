@@ -52,13 +52,15 @@ class UserViewSet(viewsets.ModelViewSet):
         requires "key" parameter
         """
         if request.user.mail_verified:
-            return Response(data={'error': 'mail is already verified'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(data={'error': 'mail is already verified'},
+                            status=status.HTTP_400_BAD_REQUEST)
         s = VerifyMailSerializer(request.user, request.data)
         if s.is_valid():
             s.save()
             return Response(status=status.HTTP_200_OK)
         else:
-            return Response(data=s.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(data=s.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
 
     @list_route(
         methods=['POST'],

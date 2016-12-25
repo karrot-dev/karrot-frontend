@@ -4,15 +4,25 @@ from config import settings
 from yunity.groups.models import Group as GroupModel
 
 
-class GroupSerializer(serializers.ModelSerializer):
-
+class GroupDetailSerializer(serializers.ModelSerializer):
+    "use this also for creating and updating a group"
     class Meta:
         model = GroupModel
-        fields = ['id', 'name', 'description', 'members', 'address', 'latitude', 'longitude']
+        fields = ['id',
+                  'name',
+                  'description',
+                  'public_description',
+                  'members',
+                  'address',
+                  'latitude',
+                  'longitude',
+                  'password']
         extra_kwargs = {
             'members': {'read_only': True},
             'description': {'trim_whitespace': False,
-                            'max_length': settings.DESCRIPTION_MAX_LENGTH}
+                            'max_length': settings.DESCRIPTION_MAX_LENGTH},
+            'password': {'trim_whitespace': False,
+                         'max_length': 255}
         }
 
     def validate(self, data):
@@ -28,3 +38,25 @@ class GroupSerializer(serializers.ModelSerializer):
         group.save()
 
         return group
+
+
+class GroupPreviewSerializer(serializers.ModelSerializer):
+    """
+    Public information for all visitors
+    should be readonly
+    """
+    class Meta:
+        model = GroupModel
+        fields = ['id',
+                  'name',
+                  'public_description',
+                  'address',
+                  'latitude',
+                  'longitude',
+                  'members',
+                  'protected']
+
+    protected = serializers.SerializerMethodField()
+
+    def get_protected(self, group):
+        return group.password != ''

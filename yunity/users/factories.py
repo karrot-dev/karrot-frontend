@@ -19,4 +19,10 @@ class User(DjangoModelFactory):
     # Use display_name as password, as it is readable
     password = PostGeneration(lambda obj, *args, **kwargs: obj.set_password(obj.display_name))
 
+    @classmethod
+    def _create(cls, model_class, *args, **kwargs):
+        user = super()._create(model_class, *args, **kwargs)
+        user._unverify_mail()
+        return user
+
     wall = SubFactory(Wall)

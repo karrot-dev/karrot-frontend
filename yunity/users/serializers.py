@@ -1,8 +1,4 @@
-from datetime import timedelta
-
 from django.contrib.auth import get_user_model
-from django.core.mail import send_mail
-from django.utils import crypto
 from django.utils import timezone
 from rest_framework import serializers
 
@@ -30,13 +26,12 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = self.Meta.model.objects.create_user(
             **{x: validated_data.get(x, None) for x in self.get_fields() if x is not 'id'})
-        VerifyMailSerializer._send_verification_code(user)
 
         return user
 
     def update(self, user, validated_data):
         if 'email' in validated_data and validated_data['email'] != user.email:
-            VerifyMailSerializer._send_verification_code(user)
+            user.send_verification_code()
         return super().update(user, validated_data)
 
 
@@ -52,23 +47,9 @@ class VerifyMailSerializer(serializers.Serializer):
         return key
 
     def update(self, user, validated_data):
+        "Mail is now verified, unset the data"
         user.mail_verified = True
         user.activation_key = ''
         user.key_expires_at = None
         user.save()
         return user
-
-    def _send_verification_code(user):
-        key = crypto.get_random_string(length=40)
-        user.mail_verified = False
-        user.activation_key = key
-        user.key_expires_at = timezone.now() + timedelta(days=7)
-        user.save()
-
-        # TODO: set proper frontend url
-        url = key
-
-        send_mail("Verify your mail address",
-                  "Here is your activation key: {}. It will be valid for 7 days.".format(url),
-                  settings.DEFAULT_FROM_EMAIL,
-                  [user.email])

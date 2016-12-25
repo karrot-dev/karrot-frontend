@@ -79,6 +79,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def reset_password(self, request, pk=None):
         """
         send a request with 'email' to this endpoint to get a new password mailed
+
         to prevent information leaks, also returns success if the mail doesn't exist
         """
         request_email = request.data.get('email')

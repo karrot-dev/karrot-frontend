@@ -97,8 +97,8 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     def send_verification_code(self):
         self._unverify_mail()
 
-        # TODO: set proper frontend url
-        url = self.activation_key
+        url = '{hostname}/#!/verify-mail?key={key}'.format(hostname=settings.HOSTNAME,
+                                                           key=self.activation_key)
 
         send_mail('Verify your mail address',
                   'Here is your activation key: {}. It will be valid for 7 days.'.format(url),

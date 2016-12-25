@@ -90,7 +90,7 @@ class UserViewSet(viewsets.ModelViewSet):
         user.save()
 
         send_mail("New password",
-                  "Here is your new temporary password: {}\n".format(new_password) +
+                  "Here is your new temporary password: {}. ".format(new_password) +
                   "You can use it to login. Please change it soon.",
                   settings.DEFAULT_FROM_EMAIL,
                   [user.email])

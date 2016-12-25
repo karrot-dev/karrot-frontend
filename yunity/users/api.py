@@ -28,6 +28,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects
     serializer_class = UserSerializer
     filter_backends = (filters.SearchFilter,)
+    permission_classes = (IsSameUser,)
     search_fields = ('display_name',)
 
     def get_permissions(self):
@@ -35,8 +36,6 @@ class UserViewSet(viewsets.ModelViewSet):
             self.permission_classes = (AllowAny,)
         elif self.action in ('list', 'retrieve'):
             self.permission_classes = (IsAuthenticated,)
-        else:
-            self.permission_classes = (IsSameUser,)
 
         return super().get_permissions()
 
@@ -62,7 +61,7 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(data=s.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @list_route(
-        methods=['POST'],
+        methods=['POST', 'GET'],
         permission_classes=(IsAuthenticated,)
     )
     def resend_verification(self, request, pk=None):
@@ -70,7 +69,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if request.user.mail_verified:
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'Already verified'})
-        VerifyMailSerializer._send_verification_code(request.user)
+        request.user.send_verification_code()
         return Response(status=status.HTTP_200_OK)
 
     @detail_route(

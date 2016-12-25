@@ -10,6 +10,7 @@ DATABASES = {
 }
 
 DEFAULT_FROM_EMAIL = "testing@example.com"
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 INFLUXDB_DISABLED = True
 INFLUXDB_HOST = ''
@@ -27,3 +28,6 @@ SHELL_PLUS_PRE_IMPORTS = (
     ('yunity.utils.tests.mock', ('*')),
     ('yunity.permissions.lookup', ('*')),
 )
+
+SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
+DEBUG = True

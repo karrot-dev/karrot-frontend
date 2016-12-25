@@ -48,6 +48,8 @@ INFLUXDB_TAGS_HOST = 'yuca'
 INFLUXDB_TIMEOUT = 2
 INFLUXDB_USE_CELERY = False
 INFLUXDB_USE_THREADING = True
+
+from .secrets import *
 CONFIG
 
 createdb fstool || true

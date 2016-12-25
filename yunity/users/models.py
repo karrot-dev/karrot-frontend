@@ -100,7 +100,18 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         # TODO: set proper frontend url
         url = self.activation_key
 
-        send_mail("Verify your mail address",
-                  "Here is your activation key: {}. It will be valid for 7 days.".format(url),
+        send_mail('Verify your mail address',
+                  'Here is your activation key: {}. It will be valid for 7 days.'.format(url),
+                  settings.DEFAULT_FROM_EMAIL,
+                  [self.email])
+
+    def reset_password(self):
+        new_password = User.objects.make_random_password(length=20)
+        self.set_password(new_password)
+        self.save()
+
+        send_mail("New password",
+                  "Here is your new temporary password: {}. ".format(new_password) +
+                  "You can use it to login. Please change it soon.",
                   settings.DEFAULT_FROM_EMAIL,
                   [self.email])

@@ -1,11 +1,13 @@
 from django.contrib.auth import get_user_model
+from django.core.mail import send_mail
 from rest_framework import filters
 from rest_framework import status
 from rest_framework import viewsets
-from rest_framework.decorators import list_route
+from rest_framework.decorators import list_route, detail_route
 from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from rest_framework.response import Response
 
+from config import settings
 from yunity.users.serializers import UserSerializer, VerifyMailSerializer
 
 
@@ -69,4 +71,27 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'Already verified'})
         VerifyMailSerializer._send_verification_code(request.user)
+        return Response(status=status.HTTP_200_OK)
+
+    @detail_route(
+        methods=['POST']
+    )
+    def reset_password(self, request, pk=None):
+        "send an empty request to this endpoint to get a new password mailed"
+        user = get_user_model().objects.get(id=pk)
+        if not user:
+            return Response(status=status.HTTP_400_BAD_REQUEST,
+                            data={'error': 'user does not exist'})
+        if not user.mail_verified:
+            return Response(status=status.HTTP_400_BAD_REQUEST,
+                            data={'error': 'mail is not verified'})
+        new_password = get_user_model().objects.make_random_password(length=20)
+        user.set_password(new_password)
+        user.save()
+
+        send_mail("New password",
+                  "Here is your new temporary password: {}\n".format(new_password) +
+                  "You can use it to login. Please change it soon.",
+                  settings.DEFAULT_FROM_EMAIL,
+                  [user.email])
         return Response(status=status.HTTP_200_OK)

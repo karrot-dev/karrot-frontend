@@ -26,11 +26,15 @@ INFLUXDB_USE_THREADING = True
 SHELL_PLUS_PRE_IMPORTS = (
 )
 
-ANYMAIL = {
-    "SPARKPOST_API_KEY": "your sparkpost key"
-}
+# consider using the console backend instead of SparkPost
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# ANYMAIL = {
+#     "SPARKPOST_API_KEY": "your sparkpost key"
+# }
 
 DEFAULT_FROM_EMAIL = "your mail domain"
 
 SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
 DEBUG = True
+HOSTNAME = 'https://localhost:8000'

@@ -146,13 +146,14 @@ class TestUsersAPI(APITestCase):
     def test_reset_password_fails_if_wrong_mail(self):
         url = self.url + 'reset_password/'
         response = self.client.post(url, {'email': 'wrong@example.com'})
-        self.assertEqual(response.data, {'error': 'user does not exist'})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIsNone(response.data)
+        # don't leak out validity of mail addresses, therefore return success
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_reset_password_fails_if_no_email(self):
         url = self.url + 'reset_password/'
         response = self.client.post(url)
-        self.assertEqual(response.data, {'error': 'user does not exist'})
+        self.assertEqual(response.data, {'error': 'mail address is not provided'})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_patch_user_forbidden(self):

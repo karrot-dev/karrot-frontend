@@ -77,14 +77,21 @@ class UserViewSet(viewsets.ModelViewSet):
         methods=['POST']
     )
     def reset_password(self, request, pk=None):
-        "send a request with 'email' to this endpoint to get a new password mailed"
+        """
+        send a request with 'email' to this endpoint to get a new password mailed
+        to prevent information leaks, also returns success if the mail doesn't exist
+        """
         request_email = request.data.get('email')
+        if not request_email:
+            return Response(status=status.HTTP_400_BAD_REQUEST,
+                            data={'error': 'mail address is not provided'})
         try:
             user = get_user_model().objects.get(email=request_email)
         except get_user_model().DoesNotExist:
-            return Response(status=status.HTTP_400_BAD_REQUEST,
-                            data={'error': 'user does not exist'})
+            # don't leak valid mail addresses
+            return Response(status=status.HTTP_204_NO_CONTENT)
         if not user.mail_verified:
+            # I think we can leave this in here, unverified addresses are not so useful to spammers
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'mail is not verified'})
         user.reset_password()

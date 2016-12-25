@@ -49,9 +49,5 @@ class VerifyMailSerializer(serializers.Serializer):
         return key
 
     def update(self, user, validated_data):
-        "Mail is now verified, unset the data"
-        user.mail_verified = True
-        user.activation_key = ''
-        user.key_expires_at = None
-        user.save()
+        user.verify_mail()
         return user

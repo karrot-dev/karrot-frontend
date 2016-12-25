@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from yunity.groups.factories import Group
 from yunity.stores.factories import Store
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 
 
 class TestStoresAPIFilter(APITestCase):
@@ -12,7 +12,7 @@ class TestStoresAPIFilter(APITestCase):
         cls.url = '/api/stores/'
 
         # two groups one store
-        cls.member = User()
+        cls.member = UserFactory()
         cls.group = Group(members=[cls.member, ])
         cls.group2 = Group(members=[cls.member, ])
         cls.store = Store(group=cls.group)

@@ -81,6 +81,12 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     def get_short_name(self):
         return self.display_name
 
+    def verify_mail(self):
+        self.mail_verified = True
+        self.activation_key = ''
+        self.key_expires_at = None
+        self.save()
+
     def _unverify_mail(self):
         key = crypto.get_random_string(length=40)
         self.mail_verified = False

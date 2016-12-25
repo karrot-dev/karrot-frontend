@@ -1,12 +1,13 @@
 from datetime import timedelta
 
+from django.contrib.auth import get_user_model
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 
 from config import settings
 from yunity.groups.factories import Group
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory, VerifiedUserFactory
 from yunity.utils.tests.fake import faker
 
 
@@ -14,11 +15,9 @@ class TestUsersAPI(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = User()
-        cls.user2 = User()
-        cls.verified_user = User()
-        cls.verified_user.mail_verified = True
-        cls.verified_user.save()
+        cls.user = UserFactory()
+        cls.user2 = UserFactory()
+        cls.verified_user = VerifiedUserFactory()
         cls.url = '/api/users/'
         cls.user_data = {
             'email': faker.email(),
@@ -30,7 +29,7 @@ class TestUsersAPI(APITestCase):
         }
         cls.group = Group(members=[cls.user, cls.user2])
         cls.another_common_group = Group(members=[cls.user, cls.user2])
-        cls.user_in_another_group = User()
+        cls.user_in_another_group = UserFactory()
         cls.another_group = Group(members=[cls.user_in_another_group, ])
 
     def test_create_user(self):
@@ -225,7 +224,7 @@ class TestChangePassword(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = User()
+        cls.user = UserFactory()
         cls.url = '/api/users/'
         cls.data = {'password': 'new_password'}
 
@@ -258,3 +257,38 @@ class TestChangePassword(APITestCase):
 
         # test new password
         self.assertTrue(self.client.login(email=self.user.email, password='really_new_shiny'))
+
+
+class TestChangeMail(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.verified_user = VerifiedUserFactory()
+        cls.url = '/api/users/'
+        cls.data = {'email': faker.email()}
+
+    def test_change_with_patch_succeeds(self):
+        self.client.force_login(user=self.verified_user)
+        self.assertTrue(self.verified_user.mail_verified)
+        url = self.url + str(self.verified_user.id) + '/'
+        response = self.client.patch(url, self.data, format='json')
+        user = get_user_model().objects.get(id=self.verified_user.id)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['email'], self.data['email'])
+        self.assertFalse(user.mail_verified)
+
+    def test_change_with_put_succeeds(self):
+        self.client.force_login(user=self.verified_user)
+        self.assertTrue(self.verified_user.mail_verified)
+        url = self.url + str(self.verified_user.id) + '/'
+
+        # typical frontend use case of getting, modifying and sending data
+        data = self.client.get(url).data
+        data['email'] = faker.email()
+        response = self.client.patch(url, data, format='json')
+        user = get_user_model().objects.get(id=self.verified_user.id)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['email'], data['email'])
+        self.assertFalse(user.mail_verified)

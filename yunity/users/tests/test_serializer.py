@@ -1,5 +1,5 @@
 from django.test import TestCase
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 from yunity.users.serializers import UserSerializer
 
 
@@ -7,7 +7,7 @@ class TestUserSerializer(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = User()
+        cls.user = UserFactory()
 
     def test_instantiation(self):
         serializer = UserSerializer(self.user)

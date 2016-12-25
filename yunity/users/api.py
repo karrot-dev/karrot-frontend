@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from rest_framework import filters
 from rest_framework import status
 from rest_framework import viewsets
-from rest_framework.decorators import list_route, detail_route
+from rest_framework.decorators import list_route
 from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from rest_framework.response import Response
 
@@ -61,7 +61,7 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(data=s.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @list_route(
-        methods=['POST', 'GET'],
+        methods=['POST'],
         permission_classes=(IsAuthenticated,)
     )
     def resend_verification(self, request, pk=None):
@@ -72,12 +72,14 @@ class UserViewSet(viewsets.ModelViewSet):
         request.user.send_verification_code()
         return Response(status=status.HTTP_200_OK)
 
-    @detail_route(
-        methods=['POST']
+    @list_route(
+        methods=['POST'],
+        permission_classes=(IsAuthenticated,)
     )
     def reset_password(self, request, pk=None):
-        "send an empty request to this endpoint to get a new password mailed"
-        user = get_user_model().objects.get(id=pk)
+        "send an request to this endpoint to get a new password mailed"
+        request_email = request.data.get('email')
+        user = get_user_model().objects.get(email=request_email)
         if not user:
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'user does not exist'})

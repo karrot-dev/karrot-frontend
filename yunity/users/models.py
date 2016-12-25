@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, CharField, DateTimeField
 from django.utils import crypto
 from django.utils import timezone
+from django.utils.translation import ugettext as _
 from django_enumfield import enum
 
 from config import settings
@@ -100,8 +101,8 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         url = '{hostname}/#!/verify-mail?key={key}'.format(hostname=settings.HOSTNAME,
                                                            key=self.activation_key)
 
-        send_mail('Verify your mail address',
-                  'Here is your activation key: {}. It will be valid for 7 days.'.format(url),
+        send_mail(_('Verify your mail address'),
+                  _('Here is your activation key: {}. It will be valid for 7 days.').format(url),
                   settings.DEFAULT_FROM_EMAIL,
                   [self.email])
 
@@ -110,8 +111,8 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         self.set_password(new_password)
         self.save()
 
-        send_mail("New password",
-                  "Here is your new temporary password: {}. ".format(new_password) +
-                  "You can use it to login. Please change it soon.",
+        send_mail(_('New password'),
+                  _('Here is your new temporary password: {}. You can use it to login. Please change it soon.')
+                  .format(new_password),
                   settings.DEFAULT_FROM_EMAIL,
                   [self.email])

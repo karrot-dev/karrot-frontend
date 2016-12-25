@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: yunity/users/models.py:104
 msgid "Verify your mail address"
-msgstr ""
+msgstr "Bestätige deine E-Mail-Adresse"
 
 #: yunity/users/models.py:105
 msgid "Here is your activation key: {}. It will be valid for 7 days."
-msgstr ""
+msgstr "Hier ist dein Aktivierungsschlüssel: {}. Er wird für 7 Tage gültig sein."
 
 #: yunity/users/models.py:114
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 #: yunity/users/models.py:115
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
-msgstr ""
+msgstr "Hier ist dein neues Zufalls-Passwort: {}. Melde dich damit an und ändere es."

@@ -63,7 +63,8 @@ createdb fstool || true
   env/bin/pip install -r requirements.txt && \
   env/bin/python manage.py migrate --fake-initial && \
   env/bin/python manage.py check --deploy && \
-  env/bin/python manage.py collectstatic --clear --no-input
+  env/bin/python manage.py collectstatic --clear --no-input && \
+  env/bin/python manage.py compilemessages
 )
 
 touch /tmp/fstool.reload

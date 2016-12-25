@@ -8,6 +8,7 @@ env
 /dump.rdb
 /db.sqlite3
 *.pid
+*.mo
 
 # IDE
 /.idea

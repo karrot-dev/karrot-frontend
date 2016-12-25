@@ -8,3 +8,4 @@ dist/
 TESTS*.xml
 coverage
 .env
+nbproject/

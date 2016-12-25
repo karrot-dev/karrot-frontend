@@ -6,6 +6,7 @@ class StoreDetailController {
       Geocoding,
       $scope
     });
+
     this.pickupListOptions = {
       showCreateButton: true,
       filter: {

@@ -4,7 +4,7 @@
     <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
     <span translate="BUTTON.CREATE"></span>
   </md-button>
-  <md-list-item ng-repeat="store in $ctrl.storeList" ui-sref="storeDetail({ storeId: store.id, groupId: store.group })">
+  <md-list-item ng-repeat="store in $ctrl.storeList" ui-sref="group.store({ storeId: store.id, groupId: store.group })">
     <p>{{store.name}}</p>
   </md-list-item>
 </md-list>

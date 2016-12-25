@@ -16,7 +16,10 @@ let createGroupModule = angular.module("createGroup", [
     .state("createGroup", {
       parent: "main",
       url: "/group/create",
-      component: "createGroup"
+      component: "createGroup",
+      ncyBreadcrumb: {
+        label: "{{'CREATEGROUP.TITLE' | translate}}"
+      }
     });
   hookProvider.setup("createGroup", { authenticated: true, anonymous: "login" });
 })

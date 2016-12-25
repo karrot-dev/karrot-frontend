@@ -1,24 +1,25 @@
 class GroupDetailController {
-  constructor(Group, CurrentGroup, $state) {
+  constructor(Group, $state, CurrentGroup, $mdMedia) {
     "ngInject";
+    this.groupData = $state.groupData;
+
+    let currentState = $state.current.name;
+    this.currentNavItem = currentState.replace("group.groupDetail.", "");
+
+    if (this.currentNavItem === "group.groupDetail"){
+      this.currentNavItem = "pickups";
+      $state.go("group.groupDetail.pickups");
+    }
+
     Object.assign(this, {
       Group,
-      CurrentGroup,
       $state,
+      CurrentGroup,
       error: {
         leaveGroup: false
-      }
+      },
+      $mdMedia
     });
-
-    this.pickupListOptions = {
-      showDetail: "store",
-      showTopbar: false,
-      filter: {
-        showJoined: true,
-        showOpen: true,
-        showFull: false
-      }
-    };
   }
 
   leaveGroup() {
@@ -37,6 +38,7 @@ class GroupDetailController {
   updateGroupData() {
     return this.Group.save(this.groupData);
   }
+
 }
 
 export default GroupDetailController;

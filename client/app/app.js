@@ -4,6 +4,7 @@ import ngMaterial from "angular-material";
 import ngCookies from "angular-cookies";
 import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
+import "angular-breadcrumb";
 import Common from "./common/common";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
@@ -23,6 +24,7 @@ angular.module("app", [
   uiRouter,
   ngMaterial,
   "xeditable",
+  "ncy-angular-breadcrumb",
   ngCookies,
   translate,
   translateStorageCookie,
@@ -48,4 +50,19 @@ angular.module("app", [
 })
 .config(AppTranslate)
 .config(AppMaterial)
-.run(AppXEditableConfig);
+.run(AppXEditableConfig)
+.run(["$rootScope", "$breadcrumb", "$document", ($rootScope, $breadcrumb, $document) => {
+  $rootScope.setPageTitle = () => {
+    let pageTitleString = "";
+    let breadcrumbs = $breadcrumb.getStatesChain();
+    angular.forEach(breadcrumbs, (crumb) => {
+      pageTitleString = crumb.ncyBreadcrumbLabel + " | " + pageTitleString;
+    });
+    pageTitleString += "FS-Tool";
+    $document[0].title = pageTitleString;
+  };
+
+  $rootScope.$watch(() => { // eslint-disable-line
+    return $document[0].URL;
+  }, $rootScope.setPageTitle);
+}]);

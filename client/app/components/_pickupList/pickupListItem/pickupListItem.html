@@ -6,7 +6,7 @@
         <span ng-if="$ctrl.showStoreDetail">
           <i ng-if="!$ctrl.storeData" class="fa fa-spinner"></i>
           <a ng-if="$ctrl.storeData"
-             ui-sref="storeDetail({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
+             ui-sref="group.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
             {{$ctrl.storeData.name}}
           </a>
         </span>
@@ -29,13 +29,13 @@
       <div class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>
     </div>
   </div>
-  <md-button ng-click="$ctrl.leave()" ng-show="{{$ctrl.data.isUserMember}}" class="md-accent pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" ng-show="{{$ctrl.data.isUserMember}}" class="md-accent pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.LEAVE"></p>
   </md-button>
-  <md-button ng-click="$ctrl.join()" ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-accent md-hue-3 pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.JOIN' | translate}}" ng-click="$ctrl.join()" ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-accent md-hue-3 pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.JOIN"></p>
   </md-button>
-  <md-button ng-disabled="true" ng-show="{{!$ctrl.data.isUserMember && $ctrl.data.isFull}}" class="md-accent pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.FULL' | translate}}" ng-disabled="true" ng-show="{{!$ctrl.data.isUserMember && $ctrl.data.isFull}}" class="md-accent pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.FULL"></p>
   </md-button>
 </md-list-item>

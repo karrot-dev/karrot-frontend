@@ -4,12 +4,12 @@
   <div ng-show="$ctrl.options.showTopbar">
     <h3 class="md-title"><i class="icon fa fa-shopping-basket" aria-hidden="true"></i>  {{$ctrl.options.header}}</h3>
     <div style="display: inline-block">
-      <md-button ng-show="$ctrl.options.showCreateButton" class="small md-primary md-hue-3" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel($event)">
+      <md-button aria-label="{{'BUTTON.CREATE' | translate}}" ng-show="$ctrl.options.showCreateButton" class="small md-primary md-hue-3" ng-click="$ctrl.openCreatePickupPanel($event)">
         <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
         <span translate="BUTTON.CREATE"></span>
       </md-button>
       <md-menu>
-        <md-button class="small"  ng-click="$mdOpenMenu()">
+        <md-button aria-label="{{'PICKUPLIST.FILTER' | translate}}" class="small"  ng-click="$mdOpenMenu()">
           <span hide-xs translate="PICKUPLIST.FILTER"></span>
           <i class="fa fa-filter" aria-hidden="true"></i>
         </md-button>
@@ -30,7 +30,7 @@
           </md-list>
         </md-menu-content>
       </md-menu>
-      <md-button class="small" ng-click="$ctrl.toggleReversed()">
+      <md-button aria-label="{{'PICKUPLIST.SORT' | translate}}" class="small" ng-click="$ctrl.toggleReversed()">
         <span hide-xs translate="PICKUPLIST.SORT"></span>
         <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.options.reversed , 'fa-angle-up': !$ctrl.options.reversed  }" aria-hidden="true"></i>
       </md-button>

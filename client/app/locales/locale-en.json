@@ -20,7 +20,8 @@
     "EDIT": "Edit group",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
-    "STORES": "Stores"
+    "STORES": "Stores",
+    "DESCRIPTION": "Description"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

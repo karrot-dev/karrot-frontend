@@ -7,6 +7,7 @@
     "angular": "^1.6.0",
     "angular-animate": "^1.6.0",
     "angular-aria": "^1.6.0",
+    "angular-breadcrumb": "^0.5.0",
     "angular-cookies": "^1.6.0",
     "angular-material": "1.1.0",
     "angular-messages": "^1.6.0",

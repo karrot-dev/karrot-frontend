@@ -1,20 +1,15 @@
 import GroupDetailModule from "./groupDetail";
-import GroupDetailController from "./groupDetail.controller";
-import GroupDetailComponent from "./groupDetail.component";
-import GroupDetailTemplate from "./groupDetail.html";
 
 const { module } = angular.mock;
 
 describe("GroupDetail", () => {
-  let $httpBackend, $state;
-
+  let $httpBackend, $state, $log;
   beforeEach(module(GroupDetailModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
 
-  let $log;
   beforeEach(inject(($injector) => {
     $log = $injector.get("$log");
     $log.reset();
@@ -33,17 +28,10 @@ describe("GroupDetail", () => {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  describe("Component", () => {
-    let component = GroupDetailComponent;
-
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(GroupDetailTemplate);
+  describe("Module", () => {
+    it("is named groupDetail", () => {
+      expect(GroupDetailModule).to.equal("groupDetail");
     });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(GroupDetailController);
-    });
-
   });
 
   describe("Controller", () => {
@@ -54,6 +42,12 @@ describe("GroupDetail", () => {
       CurrentGroup = $injector.get("CurrentGroup");
       sinon.stub($state, "go");
     }));
+
+    it("should exist", () => {
+      let $ctrl = $componentController("groupDetail", {});
+      expect($ctrl).to.exist;
+    });
+
 
     it("should be able to leave a group", () => {
       let $ctrl = $componentController("groupDetail", {});
@@ -91,27 +85,12 @@ describe("GroupDetail", () => {
 
     it("saves groupData", () => {
       let groupData = { id: 667, name: "blarb" };
-      let $ctrl = $componentController("groupDetail", {}, { groupData });
+      let $ctrl = $componentController("groupDetail", {});
+      $ctrl.groupData = groupData;
       let feedback = $ctrl.updateGroupData();
       $httpBackend.expectPATCH(`/api/groups/${groupData.id}/`, groupData).respond(groupData);
       $httpBackend.flush();
       expect(feedback).to.eventually.deep.equal(groupData);
     });
-
   });
-
-  describe("Route", () => {
-    beforeEach(() => {
-      $httpBackend.expectGET("/api/auth/status/").respond({});
-    });
-
-    let groupData = { id: 12 };
-    it("should load group information", () => {
-      $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-      $state.go("groupDetail", { groupId: groupData.id });
-      $httpBackend.flush();
-      expect($state.current.component).to.equal("groupDetail");
-    });
-  });
-
 });

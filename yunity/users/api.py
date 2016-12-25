@@ -73,14 +73,14 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(status=status.HTTP_200_OK)
 
     @list_route(
-        methods=['POST'],
-        permission_classes=(IsAuthenticated,)
+        methods=['POST']
     )
     def reset_password(self, request, pk=None):
-        "send an request to this endpoint to get a new password mailed"
+        "send a request with 'email' to this endpoint to get a new password mailed"
         request_email = request.data.get('email')
-        user = get_user_model().objects.get(email=request_email)
-        if not user:
+        try:
+            user = get_user_model().objects.get(email=request_email)
+        except get_user_model().DoesNotExist:
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'user does not exist'})
         if not user.mail_verified:
@@ -95,4 +95,4 @@ class UserViewSet(viewsets.ModelViewSet):
                   "You can use it to login. Please change it soon.",
                   settings.DEFAULT_FROM_EMAIL,
                   [user.email])
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_204_NO_CONTENT)

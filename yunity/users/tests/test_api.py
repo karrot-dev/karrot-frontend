@@ -90,10 +90,20 @@ class TestUsersAPI(APITestCase):
     def test_verify_mail_fails_if_key_too_old(self):
         self.client.force_login(user=self.user)
         url = self.url + 'verify_mail/'
+        backup = self.user.key_expires_at
         self.user.key_expires_at = timezone.now() - timedelta(days=1)
         self.user.save()
         response = self.client.post(url, {'key': self.user.activation_key})
         self.assertEqual(response.data, {'key': ['Key has expired']})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.user.key_expires_at = backup
+        self.user.save()
+
+    def test_verify_mail_fails_if_already_verified(self):
+        self.client.force_login(user=self.verified_user)
+        url = self.url + 'verify_mail/'
+        response = self.client.post(url, {'key': self.user.activation_key})
+        self.assertEqual(response.data, {'error': 'mail is already verified'})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_verify_mail_fails_without_key(self):
@@ -115,11 +125,28 @@ class TestUsersAPI(APITestCase):
         response = self.client.post(url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_resend_verification_fails_if_verified(self):
-        self.client.force_login(user=self.verified_user)
-        url = self.url + 'resend_verification/'
+    def test_reset_password_succeeds(self):
+        url = self.url + 'reset_password/'
+        response = self.client.post(url, {'email': self.verified_user.email})
+        self.assertIsNone(response.data)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_reset_password_fails_if_mail_not_verified(self):
+        url = self.url + 'reset_password/'
+        response = self.client.post(url, {'email': self.user.email})
+        self.assertEqual(response.data, {'error': 'mail is not verified'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_reset_password_fails_if_wrong_mail(self):
+        url = self.url + 'reset_password/'
+        response = self.client.post(url, {'email': 'wrong@example.com'})
+        self.assertEqual(response.data, {'error': 'user does not exist'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_reset_password_fails_if_no_email(self):
+        url = self.url + 'reset_password/'
         response = self.client.post(url)
-        self.assertEqual(response.data, {'error': 'Already verified'})
+        self.assertEqual(response.data, {'error': 'user does not exist'})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_patch_user_forbidden(self):

@@ -52,3 +52,9 @@ md-input-container.editable-controls [ng-message]
 
 .footer a:hover
   opacity 1.0
+
+// Fix: leaflet controls should be below md-dialog
+.leaflet-control-container
+  .leaflet-top
+  .leaflet-bottom
+    z-index 75 !important

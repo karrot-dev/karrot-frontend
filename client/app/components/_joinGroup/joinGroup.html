@@ -14,6 +14,7 @@
     </md-list-item>
     <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0"
                   ng-click="$ctrl.joinGroup(group.id)">
+      <i ng-if="group.protected" class="fa fa-lock"></i>
       <span>{{group.name}}</span>
       <span class="md-secondary">{{group.members.length}}</span>
     </md-list-item>

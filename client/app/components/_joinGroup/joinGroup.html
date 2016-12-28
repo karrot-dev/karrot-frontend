@@ -13,10 +13,26 @@
       <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
     </md-list-item>
     <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0"
-                  ng-click="$ctrl.joinGroup(group.id)">
-      <i ng-if="group.protected" class="fa fa-lock"></i>
-      <span>{{group.name}}</span>
-      <span class="md-secondary">{{group.members.length}}</span>
+                  ng-click="$ctrl.toggleDetails(group)">
+      <div class="md-list-item-text">
+        <p>
+          <i ng-if="group.protected" class="fa fa-lock"></i>
+          <span >{{group.name}}</span>
+          <span class="md-secondary">{{group.members.length}}</span>
+        </p>
+        <div ng-show="group.$showDetails">
+          <form name="groupJoinForm" ng-submit="$ctrl.joinGroup(group)">
+            <md-input-container ng-if="group.protected">
+              <label>Group password</label>
+              <input ng-model="group.password" required type="text">
+              <div ng-messages="group.$error">
+                <div ng-message="passwordWrong">wrong!</div>
+              </div>
+            </md-input-container>
+            <md-button class="md-raised" type="submit">join</md-button>
+          </form>
+        </div>
+      </div>
     </md-list-item>
   </md-list>
 </md-dialog-content>

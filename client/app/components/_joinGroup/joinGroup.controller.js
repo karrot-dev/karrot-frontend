@@ -22,9 +22,18 @@ class JoinGroupController {
     });
   }
 
-  joinGroup (groupId) {
-    this.Group.join(groupId).then(() => {
-      this.$mdDialog.hide(groupId);
+  toggleDetails(group) {
+    group.$showDetails = !group.$showDetails;
+    group.$error = { passwordWrong: false };
+  }
+
+  joinGroup (group) {
+    this.Group.join(group.id, { password: group.password })
+    .then(() => {
+      this.$mdDialog.hide(group.id);
+    })
+    .catch(() => {
+      group.$error.passwordWrong = true;
     });
   }
 }

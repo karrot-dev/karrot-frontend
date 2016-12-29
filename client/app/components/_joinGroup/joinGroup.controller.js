@@ -22,10 +22,6 @@ class JoinGroupController {
     });
   }
 
-  toggleDetails(group) {
-    group.$showDetails = !group.$showDetails;
-  }
-
   joinGroup (group) {
     return this.Group.join(group.id, { password: group.password })
     .then(() => {

@@ -49,13 +49,19 @@
     "TITLE": "Login",
     "WRONG": "The given credentials are wrong. Please check them carefully.",
     "SUBMIT": "Login",
-    "SIGNUP": "Sign up!"
+    "SIGNUP": "Sign up!",
+    "FORGOT_PASSWORD": "Forgot your password?"
   },
   "SIGNUP": {
     "TITLE": "Sign Up!",
     "BACK": "Back to Login",
     "OK": "Join",
     "FAILED": "Sign up failed!"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Mail verfication",
+    "SUCCESS": "Your mail address was successfully verified!",
+    "ERROR": "Something went wrong. Perhaps you already verified your address?"
   },
   "GROUPMENU": {
     "JOIN": "Join community"
@@ -93,5 +99,13 @@
     },
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."
+  },
+  "PASSSWORDRESET": {
+    "TITLE": "Password reset",
+    "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "Mail address",
+    "SUBMIT": "Get new password",
+    "LOGIN": "Back to login page",
+    "SUCCESS": "The request was successfully sent. Have a look at your mails!"
   }
 }

@@ -1,13 +1,11 @@
-<h1>Mail verification</h1>
+<h1 translate="VERIFYMAIL.TITLE"></h1>
 {{ $ctrl.email }}
 <div ng-switch="$ctrl.error">
   <div ng-switch-when="false">
-    <h4>
-      successful
-    </h4>
+    <h4 translate="VERIFYMAIL.SUCCESS"></h4>
   </div>
   <div ng-switch-default>
-    <h4>Error:</h4>
+    <h4 translate="VERIFYMAIL.ERROR"></h4>
     {{ $ctrl.error.data }}
   </div>
 </div>

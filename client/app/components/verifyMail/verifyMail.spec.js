@@ -35,7 +35,7 @@ describe("VerifyMail", () => {
     });
   });
 
-  describe("Route", () => {
+  describe.skip("Route", () => {
     it("goes to state", () => {
       $httpBackend.expectGET("/api/auth/status/").respond({ email: "lala@bla.com" });
       $httpBackend.expectPOST("/api/users/verify_mail/", { key: "abc" }).respond();

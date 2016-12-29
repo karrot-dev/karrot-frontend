@@ -43,7 +43,7 @@ describe("Passwordreset", () => {
     it("fails resetting password", () => {
       let $ctrl = $componentController("passwordreset", {});
       User.resetPassword.returns($q((resolve, reject) => {
-        reject("message");
+        reject({ data: "message" });
       }));
       $ctrl.doReset();
       $rootScope.$apply();

@@ -30,7 +30,9 @@
     "EDIT": "Edit user",
     "DISPLAY_NAME": "Name",
     "EMAIL": "Mail",
-    "DESCRIPTION": "About you"
+    "DESCRIPTION": "About you",
+    "PASSWORD_CHANGE": "Change your password (you will be logged out)",
+    "PASSWORD": "Enter your new password"
   },
   "JOINGROUP": {
     "NAME": "Name",

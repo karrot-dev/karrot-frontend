@@ -16,7 +16,7 @@ class PasswordresetController {
     }).catch((err) => {
       this.ongoing = false;
       this.successful = false;
-      this.error = err;
+      this.error = err.data;
     });
   }
 }

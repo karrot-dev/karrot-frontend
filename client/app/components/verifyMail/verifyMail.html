@@ -1,0 +1,13 @@
+<h1>Mail verification</h1>
+{{ $ctrl.email }}
+<div ng-switch="$ctrl.error">
+  <div ng-switch-when="false">
+    <h4>
+      successful
+    </h4>
+  </div>
+  <div ng-switch-default>
+    <h4>Error:</h4>
+    {{ $ctrl.error.data }}
+  </div>
+</div>

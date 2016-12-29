@@ -19,6 +19,10 @@
   "GROUP": {
     "LEAVE": "Leave group...",
     "EDIT": "Edit group",
+    "TITLE": "Title of this group",
+    "DESCRIPTION": "Group description, visible for members",
+    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
+    "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
     "STORES": "Stores"

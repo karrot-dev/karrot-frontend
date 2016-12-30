@@ -70,7 +70,7 @@
     "FAILED": "Sign up failed!"
   },
   "VERIFYMAIL": {
-    "TITLE": "Mail verfication",
+    "TITLE": "Mail verification",
     "SUCCESS": "Your mail address was successfully verified!",
     "ERROR": "Something went wrong. Perhaps you already verified your address?"
   },

@@ -1,7 +1,7 @@
 from datetime import timedelta
 
+from anymail.message import AnymailMessage
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.core.mail import send_mail
 
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField
 from django.utils import crypto
@@ -86,18 +86,26 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         url = '{hostname}/#!/verify-mail?key={key}'.format(hostname=settings.HOSTNAME,
                                                            key=self.activation_key)
 
-        send_mail(_('Verify your mail address'),
-                  _('Here is your activation key: {}. It will be valid for 7 days.').format(url),
-                  settings.DEFAULT_FROM_EMAIL,
-                  [self.email])
+        AnymailMessage(
+            subject=_('Verify your mail address'),
+            body=_('Here is your activation link: {}. It will be valid for 7 days.').format(url),
+            to=[self.email],
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            track_clicks=False,
+            track_opens=False
+        ).send()
 
     def reset_password(self):
         new_password = User.objects.make_random_password(length=20)
         self.set_password(new_password)
         self.save()
 
-        send_mail(_('New password'),
-                  _('Here is your new temporary password: {}. You can use it to login. Please change it soon.')
-                  .format(new_password),
-                  settings.DEFAULT_FROM_EMAIL,
-                  [self.email])
+        AnymailMessage(
+            subject=_('New password'),
+            body=_('Here is your new temporary password: {}.' +
+                   'You can use it to login. Please change it soon.').format(new_password),
+            to=[self.email],
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            track_clicks=False,
+            track_opens=False
+        ).send()

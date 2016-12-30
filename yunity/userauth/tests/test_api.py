@@ -9,6 +9,7 @@ class TestUserAuthAPI(APITestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.user = UserFactory()
+        cls.disabled_user = UserFactory(is_active=False)
         cls.url = '/api/auth/'
 
     def test_login(self):
@@ -31,6 +32,13 @@ class TestUserAuthAPI(APITestCase):
         response = self.client.post(self.url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(response.data['non_field_errors'], ['Unable to login with provided credentials.', ])
+
+    def test_login_as_disabled_user_fails(self):
+        data = {'email': self.disabled_user.email, 'password': self.disabled_user.display_name}
+        response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        user = auth.get_user(self.client)
+        self.assertFalse(user.is_authenticated())
 
     def test_status_not_logged_in(self):
         response = self.client.get('/api/auth/status/')

@@ -1,18 +1,27 @@
+// modules
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import ngCookies from "angular-cookies";
+import ngAnimate from "angular-animate";
 import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
+import angularLoadingBar from "angular-loading-bar";
+import "angular-xeditable";
+
+// config
 import Common from "./common/common";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppTranslate from "./app.translate";
 import AppXEditableConfig from "./app.xeditable";
-import "angular-xeditable";
-import "../../node_modules/angular-xeditable/dist/css/xeditable.css";
+
+// styles
+import "angular-xeditable/dist/css/xeditable.css";
+import "angular-loading-bar/build/loading-bar.css";
+import "./loading-bar.styl";
 import "normalize.css";
-import "../../node_modules/angular-material/angular-material.css";
+import "angular-material/angular-material.css";
 import "./fonts/fonts";
 import "./app.styl";
 
@@ -23,6 +32,8 @@ angular.module("app", [
   uiRouter,
   ngMaterial,
   "xeditable",
+  angularLoadingBar,
+  ngAnimate,
   ngCookies,
   translate,
   translateStorageCookie,
@@ -48,4 +59,8 @@ angular.module("app", [
 })
 .config(AppTranslate)
 .config(AppMaterial)
+.config((cfpLoadingBarProvider) => {
+  "ngInject";
+  cfpLoadingBarProvider.includeSpinner = false;
+})
 .run(AppXEditableConfig);

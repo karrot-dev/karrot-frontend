@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 from rest_framework import serializers
 
 from config import settings
@@ -9,10 +10,13 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ['id', 'display_name', 'email', 'password',
-                  'address', 'latitude', 'longitude', 'description']
+                  'address', 'latitude', 'longitude', 'description', 'mail_verified', 'key_expires_at']
         extra_kwargs = {'password': {'write_only': True},
                         'description': {'trim_whitespace': False,
-                                        'max_length': settings.DESCRIPTION_MAX_LENGTH}}
+                                        'max_length': settings.DESCRIPTION_MAX_LENGTH},
+                        'mail_verified': {'read_only': True,
+                                          'default': False},
+                        'key_expires_at': {'read_only': True}}
 
     def validate(self, data):
         if 'description' not in data:
@@ -20,5 +24,30 @@ class UserSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        return self.Meta.model.objects.create_user(
+        user = self.Meta.model.objects.create_user(
             **{x: validated_data.get(x, None) for x in self.get_fields() if x is not 'id'})
+
+        return user
+
+    def update(self, user, validated_data):
+        if 'email' in validated_data and validated_data['email'] != user.email:
+            user.send_verification_code()
+        if 'password' in validated_data:
+            user.set_password(validated_data.pop('password'))
+        return super().update(user, validated_data)
+
+
+class VerifyMailSerializer(serializers.Serializer):
+    key = serializers.CharField(max_length=40, min_length=40)
+
+    def validate_key(self, key):
+        user = self.instance
+        if user.key_expires_at < timezone.now():
+            raise serializers.ValidationError('Key has expired')
+        if key != user.activation_key:
+            raise serializers.ValidationError('Key is invalid')
+        return key
+
+    def update(self, user, validated_data):
+        user.verify_mail()
+        return user

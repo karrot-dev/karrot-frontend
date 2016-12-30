@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from yunity.groups.factories import Group as GroupFactory
 from yunity.groups.models import Group as GroupModel
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 from yunity.utils.tests.fake import faker
 
 
@@ -10,8 +10,8 @@ class TestGroupsAPI(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = User()
-        cls.member = User()
+        cls.user = UserFactory()
+        cls.member = UserFactory()
         cls.group = GroupFactory(members=[cls.member, ])
         cls.group_with_password = GroupFactory(password='abc')
         cls.join_password_url = '/api/groups/{}/join/'.format(cls.group_with_password.id)

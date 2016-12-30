@@ -1,14 +1,14 @@
 from django.contrib import auth
 from rest_framework import status
 from rest_framework.test import APITestCase
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 
 
 class TestUserAuthAPI(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = User()
+        cls.user = UserFactory()
         cls.url = '/api/auth/'
 
     def test_login(self):

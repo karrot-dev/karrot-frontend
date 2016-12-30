@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from yunity.groups.factories import Group
 from yunity.stores.factories import Store
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 from yunity.utils.tests.fake import faker
 
 
@@ -13,14 +13,14 @@ class TestStoresAPI(APITestCase):
         cls.url = '/api/stores/'
 
         # group with two members and one store
-        cls.member = User()
-        cls.member2 = User()
+        cls.member = UserFactory()
+        cls.member2 = UserFactory()
         cls.group = Group(members=[cls.member, cls.member2])
         cls.store = Store(group=cls.group)
         cls.store_url = cls.url + str(cls.store.id) + '/'
 
         # not a member
-        cls.user = User()
+        cls.user = UserFactory()
 
         # another store for above group
         cls.store_data = {'name': faker.name(),

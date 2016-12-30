@@ -4,10 +4,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'yunity-database',
-        'USER': 'yunity-user',
-        'PASSWORD': 'yunity',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fstool-db',
+        'USER': 'fstool-user',
+        'PASSWORD': 'fstool-pw',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -25,3 +25,16 @@ INFLUXDB_USE_THREADING = True
 
 SHELL_PLUS_PRE_IMPORTS = (
 )
+
+# consider using the console backend instead of SparkPost
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# ANYMAIL = {
+#     "SPARKPOST_API_KEY": "your sparkpost key"
+# }
+
+DEFAULT_FROM_EMAIL = "your mail domain"
+
+SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
+DEBUG = True
+HOSTNAME = 'https://localhost:8000'

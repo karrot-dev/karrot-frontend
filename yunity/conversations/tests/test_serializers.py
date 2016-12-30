@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.utils.dateparse import parse_datetime
 from yunity.conversations.factories import Message, Conversation
 from yunity.conversations.serializers import MessageSerializer, ConversationSerializer
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 
 
 class TestMessageSerializer(TestCase):
@@ -22,7 +22,7 @@ class TestConversationSerializer(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.conversation = Conversation(participants=[User() for _ in range(3)])
+        cls.conversation = Conversation(participants=[UserFactory() for _ in range(3)])
         [Message(in_conversation=cls.conversation) for _ in range(10)]
 
     def test_instantiation(self):

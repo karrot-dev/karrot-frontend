@@ -33,7 +33,13 @@ DATABASES = {
 }
 DEBUG = False
 ALLOWED_HOSTS = ['fstool.yunity.org', 'mvp-proposal.yunity.org', 'mvp-design.yunity.org']
+HOSTNAME = 'https://fstool.yunity.org'
 STATIC_ROOT = '${deploy_dir}/${backend_dir}/static/'
+ANYMAIL = {
+    "SPARKPOST_API_KEY": add your server key
+}
+
+DEFAULT_FROM_EMAIL = "fstool@yunity.org"
 INFLUXDB_HOST = '127.0.0.1'
 INFLUXDB_PORT = '8086'
 INFLUXDB_USER = ''
@@ -43,6 +49,8 @@ INFLUXDB_TAGS_HOST = 'yuca'
 INFLUXDB_TIMEOUT = 2
 INFLUXDB_USE_CELERY = False
 INFLUXDB_USE_THREADING = True
+
+from .secrets import *
 CONFIG
 
 createdb fstool || true
@@ -55,7 +63,8 @@ createdb fstool || true
   env/bin/pip install -r requirements.txt && \
   env/bin/python manage.py migrate --fake-initial && \
   env/bin/python manage.py check --deploy && \
-  env/bin/python manage.py collectstatic --clear --no-input
+  env/bin/python manage.py collectstatic --clear --no-input && \
+  env/bin/python manage.py compilemessages
 )
 
 touch /tmp/fstool.reload

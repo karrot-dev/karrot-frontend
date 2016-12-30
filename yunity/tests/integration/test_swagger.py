@@ -1,13 +1,13 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 
 
 class TestSwaggerAPI(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = User()
+        cls.user = UserFactory()
         cls.url = '/docs/'
 
     def test_swagger(self):

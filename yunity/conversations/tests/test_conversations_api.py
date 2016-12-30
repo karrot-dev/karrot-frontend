@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from yunity.conversations.factories import Conversation
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 from yunity.utils.tests.fake import faker
 
 
@@ -13,13 +13,13 @@ class TestConversationsAPI(APITestCase):
         cls.url = '/api/conversations/'
 
         # A chat with 2 participants
-        cls.participant = User()
-        cls.participant2 = User()
+        cls.participant = UserFactory()
+        cls.participant2 = UserFactory()
         cls.conversation = Conversation(participants=[cls.participant, cls.participant2])
         cls.conversation_url = cls.url + str(cls.conversation.id) + '/'
 
         # not a participant
-        cls.user = User()
+        cls.user = UserFactory()
 
         # another chat
         cls.conversation_data = {'topic': faker.name(),

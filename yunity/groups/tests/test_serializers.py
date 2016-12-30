@@ -1,14 +1,14 @@
 from django.test import TestCase
 from yunity.groups.factories import Group
+from yunity.users.factories import UserFactory
 from yunity.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
-from yunity.users.factories import User
 
 
 class TestGroupSerializer(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.group = Group(members=[User() for _ in range(3)])
+        cls.group = Group(members=[UserFactory() for _ in range(3)])
 
     def test_detail(self):
         serializer = GroupDetailSerializer(self.group)

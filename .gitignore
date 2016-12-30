@@ -4,9 +4,11 @@ env
 
 # Project
 /config/local_settings.py
+/config/secrets.py
 /dump.rdb
 /db.sqlite3
 *.pid
+*.mo
 
 # IDE
 /.idea

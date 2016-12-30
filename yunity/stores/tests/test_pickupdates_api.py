@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from yunity.groups.factories import Group
 from yunity.stores.factories import Store, PickupDate
-from yunity.users.factories import User
+from yunity.users.factories import UserFactory
 
 
 class TestPickupDatesAPI(APITestCase):
@@ -15,7 +15,7 @@ class TestPickupDatesAPI(APITestCase):
         cls.url = '/api/pickup-dates/'
 
         # pickup date for group with one member and one store
-        cls.member = User()
+        cls.member = UserFactory()
         cls.group = Group(members=[cls.member, ])
         cls.store = Store(group=cls.group)
         cls.pickup = PickupDate(store=cls.store)
@@ -24,7 +24,7 @@ class TestPickupDatesAPI(APITestCase):
         cls.leave_url = cls.pickup_url + 'remove/'
 
         # not a member of the group
-        cls.user = User()
+        cls.user = UserFactory()
 
         # another pickup date for above store
         cls.pickup_data = {'date': timezone.now() + timedelta(days=2),

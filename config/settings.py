@@ -44,9 +44,11 @@ INSTALLED_APPS = (
     'yunity.base',
     'yunity.users',
     'yunity.conversations',
-    'yunity.walls',
     'yunity.groups',
-    'yunity.stores'
+    'yunity.stores',
+
+    # removed app, it's just here that the migration can run
+    'yunity.walls',
 )
 
 

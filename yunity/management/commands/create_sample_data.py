@@ -23,21 +23,16 @@ class Command(BaseCommand):
         user_tilmann = User.objects.create(
             email='til@man.com',
             display_name='Mr T',
-            first_name='tilmann',
-            last_name='becker',
             password='abc'
         )
 
         user_matthias = User.objects.create_user(email='mat@hias.com', display_name='Matthias',
-                                                 first_name='matthias', last_name='lar',
                                                  password='abc')
 
         user_neel = User.objects.create_user(email='ne@el.com', display_name='Neel',
-                                             first_name='neel', last_name='neel',
                                              password='abc')
 
         user_flo = User.objects.create_user(email='f@lo.com', display_name='Flo',
-                                            first_name='flo', last_name='g',
                                             password='abc')
 
         num_chat_messages = 10

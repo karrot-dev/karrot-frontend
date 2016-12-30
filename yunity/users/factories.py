@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
-from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, PostGeneration, SubFactory
-from yunity.walls.factories import Wall
+from factory import DjangoModelFactory, CREATE_STRATEGY, LazyAttribute, PostGeneration
 from yunity.utils.tests.fake import faker
 
 
@@ -24,8 +23,6 @@ class UserFactory(DjangoModelFactory):
         user = super()._create(model_class, *args, **kwargs)
         user._unverify_mail()
         return user
-
-    wall = SubFactory(Wall)
 
 
 class VerifiedUserFactory(UserFactory):

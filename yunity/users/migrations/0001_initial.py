@@ -5,7 +5,18 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.utils.timezone
 import django_enumfield.db.fields
+from django_enumfield import enum
 import yunity.users.models
+
+
+# removed code, moved here for compatibility
+# can be removed when migration get squashed
+class ProfileVisibility(enum.Enum):
+    PRIVATE = 0
+    CONNECTED_USERS = 1
+    COMMUNITIES = 2
+    REGISTERED_USERS = 3
+    PUBLIC = 4
 
 
 class Migration(migrations.Migration):
@@ -29,7 +40,7 @@ class Migration(migrations.Migration):
                 ('display_name', models.TextField()),
                 ('first_name', models.TextField(null=True)),
                 ('last_name', models.TextField(null=True)),
-                ('profile_visibility', django_enumfield.db.fields.EnumField(default=0, enum=yunity.users.models.ProfileVisibility)),
+                ('profile_visibility', django_enumfield.db.fields.EnumField(default=0, enum=ProfileVisibility)),
             ],
             options={
                 'abstract': False,

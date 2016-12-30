@@ -3,15 +3,13 @@ from datetime import timedelta
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.core.mail import send_mail
 
-from django.db.models import EmailField, BooleanField, TextField, OneToOneField, CASCADE, CharField, DateTimeField
+from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField
 from django.utils import crypto
 from django.utils import timezone
 from django.utils.translation import ugettext as _
-from django_enumfield import enum
 
 from config import settings
 from yunity.base.base_models import BaseModel, LocationModel
-from yunity.walls.models import Wall
 
 MAX_DISPLAY_NAME_LENGTH = 80
 
@@ -48,29 +46,16 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, None, None, None, **extra_fields)
 
 
-class ProfileVisibility(enum.Enum):
-    PRIVATE = 0
-    CONNECTED_USERS = 1
-    COMMUNITIES = 2
-    REGISTERED_USERS = 3
-    PUBLIC = 4
-
-
 class User(AbstractBaseUser, BaseModel, LocationModel):
     email = EmailField(max_length=255, unique=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
     display_name = CharField(max_length=settings.NAME_MAX_LENGTH)
-    first_name = TextField(null=True)
-    last_name = TextField(null=True)
     description = TextField(blank=True)
 
     activation_key = CharField(max_length=40, blank=True)
     key_expires_at = DateTimeField(null=True)
     mail_verified = BooleanField(default=False)
-
-    wall = OneToOneField(Wall, null=True, on_delete=CASCADE)
-    profile_visibility = enum.EnumField(ProfileVisibility, default=ProfileVisibility.PRIVATE)
 
     objects = UserManager()
 

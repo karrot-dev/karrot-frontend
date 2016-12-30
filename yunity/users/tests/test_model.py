@@ -3,11 +3,14 @@ from django.db import DataError
 from django.db import IntegrityError
 from django.test import TestCase
 
+from yunity.users.factories import UserFactory
+
 
 class TestUserModel(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.user = UserFactory()
         cls.exampleuser = {
             'display_name': 'bla',
             'email': 'user@example.com',
@@ -24,3 +27,7 @@ class TestUserModel(TestCase):
             too_long = self.exampleuser
             too_long['display_name'] = 'a' * 81
             get_user_model().objects.create_user(**too_long)
+
+    def test_user_representation(self):
+        r = repr(self.user)
+        self.assertTrue(self.user.display_name in r)

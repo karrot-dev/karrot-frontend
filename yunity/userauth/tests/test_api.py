@@ -50,3 +50,12 @@ class TestUserAuthAPI(APITestCase):
         response = self.client.get('/api/auth/status/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['display_name'], self.user.display_name)
+
+    def test_logout(self):
+        self.client.login(email=self.user.email, password=self.user.display_name)
+        user = auth.get_user(self.client)
+        self.assertTrue(user.is_authenticated())
+        response = self.client.post('/api/auth/logout/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        user = auth.get_user(self.client)
+        self.assertFalse(user.is_authenticated())

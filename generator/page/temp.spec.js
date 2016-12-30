@@ -3,7 +3,6 @@ import <%= upCaseName %>Module from "./<%= name %>";
 const { module } = angular.mock;
 
 describe("<%= upCaseName %>", () => {
-  beforeEach(module(Authentication));
   beforeEach(module(<%= upCaseName %>Module));
 
   let $log;

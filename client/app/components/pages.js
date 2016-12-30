@@ -6,6 +6,8 @@ import signup from "./signup/signup";
 import storeDetail from "./storeDetail/storeDetail";
 import userDetail from "./userDetail/userDetail";
 import createGroup from "./createGroup/createGroup";
+import verifyMail from "./verifyMail/verifyMail";
+import passwordreset from "./passwordreset/passwordreset";
 import topbar from "./_topbar/topbar";
 
 let componentModule = angular.module("app.components", [
@@ -16,6 +18,8 @@ let componentModule = angular.module("app.components", [
   storeDetail,
   userDetail,
   createGroup,
+  verifyMail,
+  passwordreset,
   topbar
 ]).name;
 

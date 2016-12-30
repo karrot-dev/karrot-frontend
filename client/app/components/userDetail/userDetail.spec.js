@@ -93,5 +93,49 @@ describe("UserDetail", () => {
       expect($ctrl.editEnabled).to.be.false;
       expect($ctrl.saving).to.be.false;
     });
+
+    context("password change", () => {
+      let userdata = { id: 666 };
+
+      let $state;
+      beforeEach(() => {
+        inject(($injector) => {
+          $state = $injector.get("$state");
+          sinon.stub($state, "go");
+        });
+        $ctrl.userdata = userdata;
+        $ctrl.editEnable();
+      });
+      it("goes to login when password is changed", () => {
+        $ctrl.isChangePassword = true;
+        User.save.returns($q((resolve) => {
+          resolve();
+        }));
+        $ctrl.submitEdit();
+        $scope.$apply();
+        expect($state.go).to.have.been.calledWith("login");
+      });
+
+      it("does not go to login when password is not changed", () => {
+        $ctrl.isChangePassword = false;
+        User.save.returns($q((resolve) => {
+          resolve();
+        }));
+        $ctrl.submitEdit();
+        $scope.$apply();
+        expect($state.go).to.not.have.been.called;
+      });
+
+      it("does not go to login when request fails", () => {
+        $ctrl.isChangePassword = true;
+        User.save.returns($q((resolve, reject) => {
+          reject({ data: "error" });
+        }));
+        $ctrl.submitEdit();
+        $scope.$apply();
+        expect($state.go).to.not.have.been.called;
+      });
+    });
+
   });
 });

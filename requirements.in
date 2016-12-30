@@ -19,3 +19,4 @@ django-crispy-forms
 django-anymail
 sparkpost
 django-influxdb-metrics
+django-scheduler

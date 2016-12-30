@@ -4,6 +4,10 @@ const { module } = angular.mock;
 
 describe("Passwordreset", () => {
   beforeEach(module(PasswordresetModule));
+  beforeEach(module(($stateProvider) => {
+    $stateProvider
+      .state("splash", { url: "", abstract: true });
+  }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -52,7 +56,7 @@ describe("Passwordreset", () => {
     });
   });
 
-  describe.skip("Route", () => {
+  describe("Route", () => {
     let $rootScope, $state;
     beforeEach(inject(($injector) => {
       $state = $injector.get("$state");

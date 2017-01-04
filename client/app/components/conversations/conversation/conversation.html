@@ -19,14 +19,16 @@
   <div>
     <div  class="messagesBox">
       <div ng-repeat="message in $ctrl.messages">
-        <div class="separator label">
+        <div class="separator label" ng-if="!$ctrl.isSameDate(message, $ctrl.messages[$index-1])">
           <span>{{message.time | date:'longDate'}}</span>
         </div>
         <message
           author="$ctrl.participantById[message.author]"
           content="message.content"
           time="message.time"
-          with-author="$index == 0 || $ctrl.messages[$index-1].author != message.author">
+          pending="message.pending"
+          error="message.error"
+          with-author="$index == 0 || $ctrl.messages[$index-1].author != message.author || !$ctrl.isSameDate(message, $ctrl.messages[$index-1])">
         </message>
         <div class="separator"></div>
       </div>
@@ -39,8 +41,8 @@
     </div>
   </div>
 
-  <!-- textbox -->
+  <!-- messagebox -->
   <div class="writeContainer">
-    <textarea name="favoriteColor" placeholder="Write a Message..." layout="space-around" ng-keypress="$ctrl.onKeyDown($event)"></textarea>
+    <textarea placeholder="Write a Message..." layout="space-around" ng-keypress="$ctrl.onKeyDown($event)"></textarea>
   </div>
 </div>

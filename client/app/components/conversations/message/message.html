@@ -1,17 +1,22 @@
-<div layout="row" class="message">
+<div layout="row" ng-class="{'message':true, 'error':$ctrl.error, 'pending':$ctrl.pending}">
   <div flex="15">
     <div ng-if="$ctrl.withAuthor">
       <div class="picture">
         <i class="fa fa-user"></i>
       </div>
     </div>
-    <div ng-if="!$ctrl.withAuthor">
-        {{ $ctrl.time | date:'shortTime' }}
-    </div>
   </div>
   <div flex>
+    <div class="time">
+      <md-progress-circular ng-if="$ctrl.pending" md-mode="indeterminate" md-diameter="10"></md-progress-circular>
+      <span ng-if="!$ctrl.pending && !$ctrl.error">{{ $ctrl.time | date:'shortTime' }}</span>
+      <i ng-if="$ctrl.error" class="fa fa-close">
+        <md-tooltip>
+          could not be sent
+        </md-tooltip>
+      </i>
+    </div>
     <div ng-if="$ctrl.withAuthor">
-      <div class="time">{{ $ctrl.time | date:'shortTime' }}</div>
       <div class="author">{{$ctrl.author.display_name}}</div>
     </div>
     <div class="content">

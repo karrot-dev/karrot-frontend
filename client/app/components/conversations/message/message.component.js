@@ -7,6 +7,8 @@ let messageComponent = {
     author: "<",
     content: "<",
     time: "<",
+    pending: "<",
+    error: "<",
     withAuthor: "<"
   },
   template,

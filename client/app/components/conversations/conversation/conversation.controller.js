@@ -16,11 +16,17 @@ class ConversationController {
       editTitleMode: false,
       currentUserId: false
     });
+
     setTimeout( ( ) => {
       this.load();
     }, 50)
   }
   load() {
+    if(this.id == 'new') {
+      this.isInitialized = true
+      return
+    }
+
     Promise.all([
       this.Authentication.update(),
       this.Conversations.get(this.id)

@@ -1,4 +1,12 @@
-<div class="conversationList">
+<div class="conversationList" ng-if="$ctrl.isInitialized">
+  <a layout="row" ui-sref="conversation({id:'new'})" class="conversation {{$ctrl.active == 'new' ? 'active' : ''}}">
+    <div flex="9">
+      <div class="picture">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
+    <div flex style="padding-top:0.5em">New Group</div>
+  </a>
   <a ng-repeat="conversation in $ctrl.list" ui-sref="conversation({id:conversation.id})" layout="row" class="conversation {{conversation.id == $ctrl.active ? 'active' : ''}}">
 
     <!-- avatar/icon -->
@@ -56,8 +64,8 @@
       </div>
     </div>
   </a>
-  <div ng-if="$ctrl.isInitialized && !$ctrl.list.length" translate="CONVERSATIONS.NO_ENTRIES"></div>
-  <div ng-if="!$ctrl.isInitialized" layout="row" layout-align="space-around">
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-  </div>
+  <div ng-if="!$ctrl.list.length" translate="CONVERSATIONS.NO_ENTRIES"></div>
+</div>
+<div ng-if="!$ctrl.isInitialized" layout="row" layout-align="space-around">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>

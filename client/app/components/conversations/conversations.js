@@ -26,7 +26,7 @@ let conversationsModule = angular.module("conversations", [
     })
     .state("conversation", {
       parent: "main",
-      url: "/conversation/{id:int}",
+      url: "/conversation/:id",
       component: "conversations",
       resolve: {
         threadView: () => true,

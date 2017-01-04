@@ -3,6 +3,7 @@
   <div class="conversationHeader">
     <div class="title">
       {{$ctrl.topic}}
+      <span ng-if="!$ctrl.topic.length" translate="CONVERSATION.ADDTOPIC" style="opacity:0.3"></span>
       <a ng-click="$ctrl.toggleEditTitleMode()"><i class="fa fa-pencil"></i></a>
     </div>
     <div ng-if="$ctrl.isInitialized" class="participants">
@@ -35,9 +36,11 @@
       <div ng-if="!$ctrl.isInitialized" layout="row" layout-align="space-around">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
-      <div ng-if="$ctrl.isInitialized && !$ctrl.messages.length" layout="row" layout-align="space-around">
-        no messages so far...
-      </div>
+      <div
+        ng-if="$ctrl.isInitialized && !$ctrl.messages.length"
+        layout="row"
+        layout-align="space-around"
+        translate="CONVERSATION.NOMESSAGES"></div>
     </div>
   </div>
 

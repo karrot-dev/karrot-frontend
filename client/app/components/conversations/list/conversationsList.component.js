@@ -5,7 +5,8 @@ import "./conversationsList.styl";
 let conversationsListComponent = {
   bindings: {
     active: "<",
-    small: "<"
+    small: "<",
+    createbutton: "<",
   },
   template,
   controller

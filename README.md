@@ -75,7 +75,7 @@ If you want to use an eslint plugin for your editor, please keep in mind that yo
 
 ## Backend
 
-Per default, all requests to `/api` are forwarded to the online backend `fstool.yunity.org/api`.
+Per default, all requests to `/api` are forwarded to the online backend `foodsaving.world/api`.
 To use a local backend, create a file `.env` with content like
 
 ```

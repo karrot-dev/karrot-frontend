@@ -1,23 +1,32 @@
 {
-  "name": "yunity-angular",
+  "name": "foodsaving-frontend",
   "version": "0.0.1",
-  "description": "Yunity webapp proposal using Angular + Angular Material",
+  "description": "Tool to support foodsaving groups worldwide",
   "main": "index.js",
   "dependencies": {
-    "angular": "^1.5.0",
-    "angular-animate": "^1.5.8",
-    "angular-aria": "^1.5.8",
-    "angular-material": "^1.1.0-rc.5",
-    "angular-messages": "^1.5.8",
+    "angular": "^1.6.0",
+    "angular-animate": "^1.6.0",
+    "angular-aria": "^1.6.0",
+    "angular-cookies": "^1.6.0",
+    "angular-loading-bar": "^0.9.0",
+    "angular-material": "1.1.0",
+    "angular-messages": "^1.6.0",
+    "angular-sanitize": "^1.6.0",
+    "angular-translate-storage-cookie": "^2.13.0",
     "angular-ui-router": "^1.0.0-beta.1",
+    "angular-xeditable": "^0.5.0",
     "font-awesome": "^4.6.3",
-    "normalize.css": "^4.2.0"
+    "markdown-it": "^8.2.1",
+    "markdown-it-link-attributes": "^1.0.0",
+    "normalize.css": "^5.0.0",
+    "ui-leaflet": "^2.0.0"
   },
   "devDependencies": {
-    "angular-mocks": "^1.5.0",
+    "angular-mocks": "^1.6.0",
+    "angular-translate": "^2.12.1",
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
-    "babel-plugin-istanbul": "^2.0.1",
+    "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-transform-runtime": "^6.7.5",
     "babel-polyfill": "^6.7.4",
     "babel-preset-es2015": "^6.13.0",
@@ -27,9 +36,9 @@
     "browser-sync": "^2.11.1",
     "chai": "^3.4.0",
     "connect-history-api-fallback": "^1.1.0",
-    "css-loader": "^0.25.0",
+    "css-loader": "^0.26.0",
     "del": "^2.2.0",
-    "eslint": "^3.2.0",
+    "eslint": "^3.12.2",
     "eslint-config-angular": "^0.5.0",
     "eslint-plugin-angular": "^1.3.1",
     "file-loader": "^0.9.0",
@@ -41,6 +50,7 @@
     "gulp-util": "^3.0.7",
     "html-webpack-plugin": "^2.22.0",
     "http-proxy-middleware": "^0.17.0",
+    "json-loader": "^0.5.4",
     "karma": "^1.1.2",
     "karma-chai": "^0.1.0",
     "karma-chai-plugins": "^0.8.0",
@@ -50,11 +60,12 @@
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.1.0",
     "karma-sourcemap-loader": "^0.3.4",
-    "karma-webpack": "^1.5.1",
+    "karma-webpack": "^2.0.0",
     "lodash": "^4.11.1",
     "mocha": "^3.0.1",
-    "ng-annotate-loader": "0.1.1",
-    "node-libs-browser": "^1.0.0",
+    "ng-annotate-loader": "0.2.0",
+    "node-libs-browser": "^2.0.0",
+    "postcss-loader": "^1.1.1",
     "raw-loader": "^0.5.1",
     "run-sequence": "^1.2.2",
     "style-loader": "^0.13.1",
@@ -64,7 +75,7 @@
     "webpack": "^1.9.5",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0",
-    "yargs": "^5.0.0"
+    "yargs": "^6.4.0"
   },
   "scripts": {
     "build": "NODE_ENV=production gulp webpack",
@@ -74,16 +85,14 @@
     "test:watch": "karma start --no-single-run --auto-watch"
   },
   "keywords": [
-    "angular",
-    "webpack",
-    "es6",
     "yunity",
-    "foodsharing"
+    "foodsharing",
+    "foodsaving"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunity/yunity-angular.git"
+    "url": "https://github.com/yunity/foodsaving-frontend.git"
   },
-  "author": "Yunity",
+  "author": "yunity",
   "license": "MIT"
 }

@@ -1,7 +1,19 @@
 import GroupModule from "./group";
 
+const { module } = angular.mock;
+
 describe("group service", () => {
-  beforeEach(window.module(GroupModule));
+  beforeEach(module(GroupModule));
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   let $httpBackend, Group;
 
   let groupData = [{
@@ -10,7 +22,7 @@ describe("group service", () => {
     "address": "Luisenplatz 1",
     "latitude": "49.4879289985449",
     "longitude": "8.46548080444336",
-    "members": []
+    "members": [2]
   }];
 
   let groupCreateData = [{
@@ -22,6 +34,7 @@ describe("group service", () => {
   }];
 
   let groupModifyData = {
+    "id": 1,
     "name": "Foodsharing Mannheim"
   };
 
@@ -36,8 +49,8 @@ describe("group service", () => {
   });
 
   it("lists groups", () => {
-    $httpBackend.expectGET("/api/groups/").respond(groupData);
-    expect(Group.get())
+    $httpBackend.expectGET("/api/groups/?include_empty=False").respond(groupData);
+    expect(Group.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
@@ -53,15 +66,23 @@ describe("group service", () => {
 
   it("gets group details via get", () => {
     $httpBackend.expectGET("/api/groups/1/").respond(groupData[0]);
-    expect(Group.get({ id: 1 }))
+    expect(Group.get(1))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData[0]);
     $httpBackend.flush();
   });
 
+  it("filters groups by member ID", () => {
+    $httpBackend.expectGET("/api/groups/?members=2").respond(groupData);
+    expect(Group.listByMemberId(2))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(groupData);
+    $httpBackend.flush();
+  });
+
   it("filters groups by search", () => {
     $httpBackend.expectGET("/api/groups/?search=Foods").respond(groupData);
-    expect(Group.get({ search: "Foods" }))
+    expect(Group.search("Foods"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
@@ -69,21 +90,44 @@ describe("group service", () => {
 
   it("saves group details", () => {
     $httpBackend.expectPATCH("/api/groups/1/", groupModifyData).respond(groupData);
-    expect(Group.save(1, groupModifyData))
+    expect(Group.save(groupModifyData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
   });
 
-  it("deletes group", () => {
-    $httpBackend.expectDELETE("/api/groups/1/").respond(200);
-    expect(Group.delete(1)).to.be.fulfilled;
+  it("joins a group", () => {
+    $httpBackend.expectPOST("/api/groups/1/join/", {}).respond(200);
+    expect(Group.join(1)).to.be.fulfilled;
     $httpBackend.flush();
   });
 
-  it("delete group is rejected", () => {
-    $httpBackend.expectDELETE("/api/groups/2/").respond(403);
-    expect(Group.delete(2)).to.be.rejected;
+  it("joins a group with password", () => {
+    $httpBackend.expectPOST("/api/groups/1/join/", { password: "abc" }).respond(200);
+    expect(Group.join(1, { password: "abc" })).to.be.fulfilled;
     $httpBackend.flush();
+  });
+
+
+  it("leaves a group", () => {
+    $httpBackend.expectPOST("/api/groups/1/leave/", {}).respond(200);
+    expect(Group.leave(1)).to.be.fulfilled;
+    $httpBackend.flush();
+  });
+
+  context("auth interaction", () => {
+    let Authentication;
+    beforeEach(inject((_Authentication_) => {
+      Authentication = _Authentication_;
+    }));
+
+    it("filters my groups", () => {
+      Authentication.data = { id: 2 };
+      $httpBackend.expectGET("/api/groups/?members=2").respond(groupData);
+      expect(Group.listMy())
+        .to.be.fulfilled.and
+        .to.eventually.deep.equal(groupData);
+      $httpBackend.flush();
+    });
   });
 });

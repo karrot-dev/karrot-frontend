@@ -3,27 +3,79 @@ import SignupController from "./signup.controller";
 import SignupComponent from "./signup.component";
 import SignupTemplate from "./signup.html";
 
-describe("Signup", () => {
-  let $rootScope, makeController;
+const { module } = angular.mock;
 
-  beforeEach(window.module("Authentication")); //to load hookProvider
-  beforeEach(window.module(SignupModule));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
-    makeController = () => {
-      return new SignupController($rootScope);
-    };
+describe("Signup", () => {
+  beforeEach(() => {
+    module(SignupModule);
+  });
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
   }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
+    it("is named login", () => {
+      expect(SignupModule).to.equal("signup");
+    });
   });
 
   describe("Controller", () => {
-    // controller specs
-    it("has a name property [REMOVE]", () => { // erase if removing this.name from the controller
-      let controller = makeController();
-      expect(controller).to.have.property("name");
+    let $componentController;
+    beforeEach(inject((_$componentController_) => {
+      $componentController = _$componentController_;
+    }));
+
+    it("should exist", () => {
+      let ctrl = $componentController("signup", {});
+      expect(ctrl).to.exist;
+    });
+
+    context("signup", () => {
+      let $httpBackend, $state;
+      beforeEach(() => {
+        inject((_$httpBackend_, _$state_) => {
+          $httpBackend = _$httpBackend_;
+          $state = _$state_;
+          sinon.stub($state, "go");
+        });
+      });
+
+      afterEach(() => {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+      });
+
+      let signupRequest = {
+        "display_name": "test",
+        "email": "test@test.org",
+        "password": "123"
+      };
+
+      let signupResponse = {
+        "id": 55,
+        "display_name": "test",
+        "email": "test@test.org"
+      };
+
+      it("signs user up", () => {
+        $httpBackend.expectPOST("/api/users/", signupRequest).respond(200, signupResponse);
+        let ctrl = $componentController("signup", {});
+        Object.assign(ctrl, {
+          username: signupRequest.display_name,
+          email: signupRequest.email,
+          password: signupRequest.password,
+          passwordrepeat: signupRequest.password
+        });
+        ctrl.signup();
+        $httpBackend.flush();
+        expect($state.go).to.have.been.calledWith("login");
+      });
     });
   });
 
@@ -32,7 +84,7 @@ describe("Signup", () => {
   });
 
   describe("Component", () => {
-      // component/directive specs
+    // component/directive specs
     let component = SignupComponent;
 
     it("includes the intended template",() => {

@@ -1,0 +1,122 @@
+{
+  "GLOBAL":{
+    "GITHUB_NOTE":"Development",
+    "DEVMAIL_NOTE":"write us a mail for errors/suggestions",
+    "WARNING":"Warning",
+    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
+  },
+  "USERDATA": {
+    "EMAIL": "Mail",
+    "PASSWORD": "Password",
+    "USERNAME": "Name"
+  },
+  "BUTTON": {
+    "CREATE": "Create",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "JOIN": "Join"
+  },
+  "GROUP": {
+    "LEAVE": "Leave group...",
+    "EDIT": "Edit group",
+    "TITLE": "Title of this group",
+    "DESCRIPTION": "Group description, visible for members",
+    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
+    "PASSWORD": "Enter a password here if you want to make the group private",
+    "PICKUPS": "Pickups",
+    "MEMBERS": "Members",
+    "STORES": "Stores"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Edit store",
+    "ADDRESS": "Address"
+  },
+  "USERDETAIL": {
+    "EDIT": "Edit user",
+    "DISPLAY_NAME": "Name",
+    "EMAIL": "Mail",
+    "DESCRIPTION": "About you",
+    "PASSWORD_CHANGE": "Change your password (you will be logged out)",
+    "PASSWORD": "Enter your new password"
+  },
+  "JOINGROUP": {
+    "NAME": "Name",
+    "WHICHGROUP": "Which group do you want to join?",
+    "NUM_MEMBERS": "Members",
+    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
+    "PASSWORD_LABEL": "Enter password for private group",
+    "PASSWORD_REQUIRED": "This group requires a password",
+    "PASSWORD_WRONG": "You entered the wrong password"
+  },
+  "HOME": {
+    "REDIRECT": "Redirecting to your beloved group..."
+  },
+  "TOPBAR": {
+    "LOGOUT": "Logout",
+    "USERPROFILE": "Visit your profile",
+    "GREETING": "Hi, {{username}}!"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "WRONG": "The given credentials are wrong. Please check them carefully.",
+    "SUBMIT": "Login",
+    "SIGNUP": "Sign up!",
+    "FORGOT_PASSWORD": "Forgot your password?"
+  },
+  "SIGNUP": {
+    "TITLE": "Sign Up!",
+    "BACK": "Back to Login",
+    "OK": "Join",
+    "FAILED": "Sign up failed!"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Mail verification",
+    "SUCCESS": "Your mail address was successfully verified!",
+    "ERROR": "Something went wrong. Perhaps you already verified your address?"
+  },
+  "GROUPMENU": {
+    "JOIN": "Join community"
+  },
+  "CREATEGROUP": {
+    "TITLE": "Create Group",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Create Pickup",
+    "TIME": "Time",
+    "TIME_ERROR": "enter a valid time: [hh:mm]",
+    "MAX_COLLECTORS": "Max Slots"
+  },
+  "CREATESTORE": {
+    "TITLE": "Create a new store",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filter",
+    "JOINED": "joined",
+    "OPEN": "open",
+    "FULL": "full",
+    "SORT": "Sort",
+    "ITEM": {
+      "LEAVE": "Leave",
+      "JOIN": "Join",
+      "FULL": "Full!",
+      "DELETE": "Delete pickup date",
+      "DELETE_TEXT": "Do you really want to delete this pickup date?"
+    },
+    "NONE":"No upcoming pickups",
+    "NONE_HINT":"You can create a new pickup on the store page."
+  },
+  "PASSSWORDRESET": {
+    "TITLE": "Password reset",
+    "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "Mail address",
+    "SUBMIT": "Get new password",
+    "LOGIN": "Back to login page",
+    "SUCCESS": "The request was successfully sent. Have a look at your mails!"
+  }
+}

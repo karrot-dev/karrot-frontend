@@ -1,36 +1,70 @@
 import HomeModule from "./home";
-import Authentication from "../../common/authentication/authentication";
+
+const { module } = angular.mock;
 
 describe("Home", () => {
-  let $rootScope, $componentController;
+  beforeEach(() => {
+    module(HomeModule);
+  });
 
-  beforeEach(window.module(Authentication)); //to load hookProvider
-  beforeEach(window.module(HomeModule));
-
+  let $log;
   beforeEach(inject(($injector) => {
-    $rootScope = $injector.get("$rootScope");
-    $componentController = $injector.get("$componentController");
+    $log = $injector.get("$log");
+    $log.reset();
   }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
 
   describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
+    it("is named home", () => {
+      expect(HomeModule).to.equal("home");
+    });
   });
 
   describe("Controller", () => {
-    // controller specs
-    let controller;
-    beforeEach(() => {
-      controller = $componentController("home", {
-        $scope: $rootScope.$new()
-      });
+    let $componentController, $httpBackend, $state, $mdDialog, $q, Authentication;
+    beforeEach(inject(($injector) => {
+      $componentController = $injector.get("$componentController");
+      $httpBackend = $injector.get("$httpBackend");
+
+      Authentication = $injector.get("Authentication");
+      Authentication.data = { id: 1 };
+
+      $mdDialog = $injector.get("$mdDialog");
+      sinon.stub($mdDialog, "show");
+
+      $state = $injector.get("$state");
+      sinon.stub($state, "go");
+
+      $q = $injector.get("$q");
+    }));
+
+    afterEach(() => {
+      $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("has a name property", () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property("name");
-    });
-  });
+    let groupData = [
+      { id: 50 },
+      { id: 99 }
+    ];
 
-  describe("View", () => {
-    // view layer specs.
+    it("should redirect user", () => {
+      $httpBackend.expectGET("/api/groups/?members=1").respond(200, groupData);
+      $componentController("home", {}).$onInit();
+      $httpBackend.flush();
+      expect($state.go).to.have.been.calledWith("groupDetail", { groupId: 50 });
+    });
+
+    it("opens join group dialog", () => {
+      $httpBackend.expectGET("/api/groups/?members=1").respond(200, {});
+      $mdDialog.show.returns($q((resolve) => {
+        resolve(1337);
+      }));
+      $componentController("home", {}).$onInit();
+      $httpBackend.flush();
+      expect($state.go).to.have.been.calledWith( "groupDetail", { groupId: 1337 } );
+    });
   });
 });

@@ -17,7 +17,7 @@ import webpackHotMiddelware from "webpack-hot-middleware";
 import colorsSupported      from "supports-color";
 import historyApiFallback   from "connect-history-api-fallback";
 
-const BACKEND = process.env.BACKEND || "https://fstool.yunity.org/";
+const BACKEND = process.env.BACKEND || "https://foodsaving.world/";
 
 let root = "client";
 
@@ -28,6 +28,10 @@ let resolveToApp = (glob = "") => {
 
 let resolveToComponents = (glob = "") => {
   return path.join(root, "app/components", glob); // app/components/{glob}
+};
+
+let resolveToCommon = (glob = "") => {
+  return path.join(root, "app/common", glob); // app/common/{glob}
 };
 
 // map of all paths
@@ -138,8 +142,7 @@ gulp.task("component", () => {
   };
   const name = yargs.argv.name || "componentGeneratorGulpTest";
   const temp = "component";
-  const parentPath = yargs.argv.parent || "";
-  const destPath = path.join(resolveToComponents(), parentPath, "_" + name);
+  const destPath = resolveToComponents("_" + name);
 
   return gulp.src(paths.blankTemplates(temp))
     .pipe(template({
@@ -158,8 +161,26 @@ gulp.task("page", () => {
   };
   const name = yargs.argv.name || "pageGeneratorGulpTest";
   const generator = "page";
-  const parentPath = yargs.argv.parent || "";
-  const destPath = path.join(resolveToComponents(), parentPath, name);
+  const destPath = resolveToComponents(name);
+
+  return gulp.src(paths.blankTemplates(generator))
+    .pipe(template({
+      name,
+      upCaseName: cap(name)
+    }))
+    .pipe(rename((path) => {
+      path.basename = path.basename.replace("temp", name);
+    }))
+    .pipe(gulp.dest(destPath));
+});
+
+gulp.task("service", () => {
+  const cap = (val) => {
+    return val.charAt(0).toUpperCase() + val.slice(1);
+  };
+  const name = yargs.argv.name || "serviceGulpTest";
+  const generator = "service";
+  const destPath = resolveToCommon(name);
 
   return gulp.src(paths.blankTemplates(generator))
     .pipe(template({

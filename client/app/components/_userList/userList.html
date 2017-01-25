@@ -1,0 +1,5 @@
+<md-list layout-padding>
+  <md-list-item ng-repeat="user in $ctrl.userData" ui-sref="userDetail({ id: {{user.id}} })">
+    <p>{{user.display_name}}</p>
+  </md-list-item>
+</md-list>

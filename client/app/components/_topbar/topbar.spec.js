@@ -1,39 +1,57 @@
 import TopbarModule from "./topbar";
-import TopbarController from "./topbar.controller";
-import TopbarComponent from "./topbar.component";
-import TopbarTemplate from "./topbar.html";
+
+const { module } = angular.mock;
 
 describe("Topbar", () => {
-  let makeController;
+  beforeEach(module(TopbarModule));
 
-  beforeEach(window.module(TopbarModule));
-  beforeEach(inject(() => {
-    makeController = () => {
-      return new TopbarController();
-    };
+  let $log, $ctrl, Authentication, $q, $rootScope;
+
+  let userData = { id: 5, "display_name": "abc" };
+
+  beforeEach(inject(($injector, _$componentController_) => {
+    $log = $injector.get("$log");
+    $log.reset();
+    Authentication = $injector.get("Authentication");
+    sinon.stub(Authentication, "update");
+    $q = $injector.get("$q");
+    $rootScope = $injector.get("$rootScope");
+    $ctrl = _$componentController_("topbar", {});
+    Authentication.update.returns($q((resolve) => {
+      resolve(userData);
+    }));
   }));
 
-  describe("Module", () => {
-    // top-level specs: i.e., routes, injection, naming
-  });
-
   describe("Controller", () => {
-    it("has name topbar", () => {
-      let controller = makeController();
-      expect(controller.name).to.equal("topbar");
+    afterEach(() => {
+      $log.assertEmpty();
+    });
+
+    it("calls $onInit", () => {
+      $ctrl.$onInit();
+      $rootScope.$apply();
+      expect(Authentication.update).has.been.called;
+      expect($ctrl.loggedInUser).to.deep.equal(userData);
     });
   });
 
-  describe("Component", () => {
-      // component/directive specs
-    let component = TopbarComponent;
+  describe("View", () => {
+    let $mdSidenav, $compile, scope;
 
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(TopbarTemplate);
-    });
+    beforeEach(inject(($injector) => {
+      $mdSidenav = $injector.get("$mdSidenav");
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+      $compile("<topbar></topbar>")(scope);
+      scope.$apply();
+      $rootScope.$apply();
+    }));
 
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(TopbarController);
+    it("toggles Right Sidenav", () => {
+      $ctrl.$onInit();
+      expect($mdSidenav("right").isOpen()).to.eq(false);
+      $ctrl.toggleRight();
+      expect($mdSidenav("right").isOpen()).to.eq(true);
     });
   });
 });

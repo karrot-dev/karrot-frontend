@@ -4,16 +4,32 @@ let { module } = angular.mock;
 
 describe("pickupDate service", () => {
   beforeEach(module(PickupDateModule));
-  let $httpBackend, PickupDate;
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
+  let $httpBackend, PickupDate, now, clock;
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     PickupDate = $injector.get("PickupDate");
   }));
 
+  beforeEach(() => {
+    now = new Date();
+    clock = sinon.useFakeTimers(now.getTime());
+  });
+
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
+    clock.restore();
   });
 
   let pickupData = [{
@@ -31,6 +47,7 @@ describe("pickupDate service", () => {
   };
 
   let pickupModifyData = {
+    "id": 15,
     "max_collectors": 5
   };
 
@@ -50,9 +67,9 @@ describe("pickupDate service", () => {
     "store": 9
   };
 
-  it("lists all pickupdates", () => {
-    $httpBackend.expectGET("/api/pickup-dates/").respond(pickupData);
-    expect(PickupDate.get())
+  it("lists upcoming pickupdates", () => {
+    $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}`).respond(pickupData);
+    expect(PickupDate.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData);
     $httpBackend.flush();
@@ -60,15 +77,23 @@ describe("pickupDate service", () => {
 
   it("gets pickupdate", () => {
     $httpBackend.expectGET("/api/pickup-dates/15/").respond(pickupData[0]);
-    expect(PickupDate.get({ id: 15 }))
+    expect(PickupDate.get(15))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
   });
 
-  it("filters pickupdates", () => {
-    $httpBackend.expectGET("/api/pickup-dates/?store=9").respond(pickupData[0]);
-    expect(PickupDate.get({ store: 9 }))
+  it("filters upcoming pickupdates by store", () => {
+    $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData[0]);
+    expect(PickupDate.listByStoreId(9))
+      .to.be.fulfilled.and
+      .to.eventually.deep.equal(pickupData[0]);
+    $httpBackend.flush();
+  });
+
+  it("filters upcoming pickupdates by group", () => {
+    $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}&group=9`).respond(pickupData[0]);
+    expect(PickupDate.listByGroupId(9))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupData[0]);
     $httpBackend.flush();
@@ -84,7 +109,7 @@ describe("pickupDate service", () => {
 
   it("save pickupdate", () => {
     $httpBackend.expectPATCH("/api/pickup-dates/15/", pickupModifyData).respond(pickupModifiedData);
-    expect(PickupDate.save(15, pickupModifyData))
+    expect(PickupDate.save(pickupModifyData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(pickupModifiedData);
     $httpBackend.flush();

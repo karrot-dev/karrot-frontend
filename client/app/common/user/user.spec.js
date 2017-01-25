@@ -6,11 +6,18 @@ describe("user service", () => {
   beforeEach(module(UserModule));
   let $httpBackend, User;
 
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
   let userData = [{
     "id": 1,
     "display_name": "Mr T",
-    "first_name": "tilmann",
-    "last_name": "becker",
     "email": "til@man.com",
     "address": null,
     "latitude": null,
@@ -19,14 +26,13 @@ describe("user service", () => {
 
   let userCreateData = [{
     "display_name": "Mr T",
-    "first_name": "tilmann",
-    "last_name": "becker",
     "email": "til@man.com",
     "password": "abc"
   }];
 
   let userModifyData = {
-    "last_name": "becker"
+    "id": 1,
+    "display_name": "becker"
   };
 
   beforeEach(inject(($injector) => {
@@ -41,15 +47,15 @@ describe("user service", () => {
 
   it("lists users", () => {
     $httpBackend.expectGET("/api/users/").respond(userData);
-    expect(User.get())
+    expect(User.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData);
     $httpBackend.flush();
   });
 
   it("lists filtered users", () => {
-    $httpBackend.expectGET("/api/users/?last_name=becker").respond(userData);
-    expect(User.get({ "last_name": "becker" }))
+    $httpBackend.expectGET("/api/users/?search=becker").respond(userData);
+    expect(User.search("becker"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData);
     $httpBackend.flush();
@@ -63,17 +69,9 @@ describe("user service", () => {
     $httpBackend.flush();
   });
 
-  it("gets user details via get", () => {
+  it("gets user details", () => {
     $httpBackend.expectGET("/api/users/1/").respond(userData[0]);
-    expect(User.get({ id: 1, someOtherAttribute: "someValue" }))
-      .to.be.fulfilled.and
-      .to.eventually.deep.equal(userData[0]);
-    $httpBackend.flush();
-  });
-
-  it("gets user details via getById", () => {
-    $httpBackend.expectGET("/api/users/1/").respond(userData[0]);
-    expect(User.getById(1))
+    expect(User.get(1))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData[0]);
     $httpBackend.flush();
@@ -81,7 +79,7 @@ describe("user service", () => {
 
   it("saves user details", () => {
     $httpBackend.expectPATCH("/api/users/1/", userModifyData).respond(userData[0]);
-    expect(User.save(1, userModifyData))
+    expect(User.save(userModifyData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(userData[0]);
     $httpBackend.flush();
@@ -96,6 +94,22 @@ describe("user service", () => {
   it("fails to delete non-existing user", () => {
     $httpBackend.expectDELETE("/api/users/1337/").respond(404);
     expect(User.delete(1337)).to.be.rejected;
+    $httpBackend.flush();
+  });
+
+  it("verifies mail", () => {
+    let key = "abc";
+    $httpBackend.expectPOST("/api/users/verify_mail/", { key }).respond(200);
+    expect(User.verifyMail(key))
+      .to.be.fulfilled;
+    $httpBackend.flush();
+  });
+
+  it("resets password", () => {
+    let email = "abc@example.com";
+    $httpBackend.expectPOST("/api/users/reset_password/", { email }).respond(200);
+    expect(User.resetPassword(email))
+      .to.be.fulfilled;
     $httpBackend.flush();
   });
 });

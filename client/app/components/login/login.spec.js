@@ -10,8 +10,18 @@ describe("Login", () => {
     module(LoginModule);
     module(($stateProvider) => {
       $stateProvider
+        .state("splash", { url: "", abstract: true })
         .state("home", { url: "/" });
     });
+  });
+
+  let $log;
+  beforeEach(inject(($injector) => {
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
   });
 
   describe("Module", () => {

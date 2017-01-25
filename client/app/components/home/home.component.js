@@ -3,8 +3,11 @@ import controller from "./home.controller";
 import "./home.styl";
 
 let homeComponent = {
-  restrict: "E",
-  bindings: {},
+  restrict: "",
+  bindings: {
+    redirecting: "<",
+    groups: "<"
+  },
   template,
   controller
 };

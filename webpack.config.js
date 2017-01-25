@@ -9,9 +9,12 @@ module.exports = {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: "ng-annotate!babel" },
        { test: /\.html$/, loader: "raw" },
-       { test: /\.styl$/, loader: "style!css!stylus" },
-       { test: /\.css$/, loader: "style!css" },
-       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" }
+       { test: /\.styl$/, loader: "style!css?importLoaders=1!postcss!stylus" },
+       { test: /\.css$/, loader: "style!css!postcss" },
+       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
+       { test: /\.json$/, loader: "json" },
+       { test: /\.(png|jpg|jpeg)$/, loader: "file?name=images/[hash].[ext]" },
+       { test: /\.svgimage$/, loader: "file?name=images/[hash].svg" }
     ]
   },
   plugins: [

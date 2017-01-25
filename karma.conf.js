@@ -32,12 +32,7 @@ module.exports = function (config) {
     webpack: {
       devtool: "inline-source-map",
       module: {
-        loaders: [
-          { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: "babel" },
-          { test: /\.html/, loader: "raw" },
-          { test: /\.styl$/, loader: "style!css!stylus" },
-          { test: /\.css$/, loader: "style!css" }
-        ]
+        loaders: require("./webpack.config.js").module.loaders
       }
     },
 
@@ -47,6 +42,12 @@ module.exports = function (config) {
 
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ["mocha"],
+
+    mochaReporter: {
+      // first run will have the full output and the next runs just output the summary and errors in mocha style
+      output: "autowatch",
+      showDiff: true
+    },
 
     // web server port
     port: 9876,

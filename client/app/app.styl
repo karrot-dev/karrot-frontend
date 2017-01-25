@@ -1,2 +1,55 @@
-.app
-  height 100%
+.splash
+  height: 100%
+  width: 100%
+  padding: 5em 0
+
+// the main layout panel
+.main-panel
+  padding: 16px
+  margin-top: 1em
+
+.md-dialog-container > md-dialog
+  width: 95%
+  max-width: 40em
+
+.multiline
+  white-space: pre;
+
+// styles for angular-xeditable
+md-input-container.editable-controls
+  padding 0
+  width 100%
+
+md-input-container.editable-controls [ng-message]
+  position static
+
+.editable-wrap
+  width 100%
+
+.editable-click
+  color inherit
+  border-bottom none
+
+.editable-click:hover
+  opacity 0.8
+  color inherit
+
+
+
+.footer
+  opacity 0.6
+  text-align center
+
+.footer a
+  opacity 0.8
+  text-decoration: none;
+  font-weight: 500;
+
+.footer a:hover
+  opacity 1.0
+
+// Fix: leaflet controls should be below md-dialog
+.leaflet-control-container
+  .leaflet-top
+  .leaflet-bottom
+    z-index 75 !important

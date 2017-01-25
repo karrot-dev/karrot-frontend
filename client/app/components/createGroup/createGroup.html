@@ -1,0 +1,26 @@
+<h2 translate="CREATEGROUP.TITLE"></h2>
+
+<form name="createGroupForm" ng-submit="createGroupForm.$valid && $ctrl.createGroup()" layout="column">
+  <md-input-container>
+    <label translate="CREATEGROUP.NAME"></label>
+    <input required type="text" ng-model="$ctrl.groupData.name"/>
+  </md-input-container>
+
+  <md-input-container>
+    <label translate="CREATEGROUP.DESCRIPTION"></label>
+    <input type="text" ng-model="$ctrl.groupData.description"/>
+  </md-input-container>
+
+  <md-input-container>
+    <label translate="CREATEGROUP.ADDRESS"></label>
+    <input type="text" ng-model="$ctrl.groupData.address"/>
+  </md-input-container>
+
+  <md-button-container>
+    <md-button class="md-raised md-accent" type="submit" ng-disabled="createGroupForm.$invalid">
+      <span translate="BUTTON.CREATE"></span>
+    </md-button>
+  </md-button-container>
+  {{$ctrl.error.msg}}
+  </span>
+</form>

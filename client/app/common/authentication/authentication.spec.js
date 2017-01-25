@@ -8,23 +8,30 @@ describe("authentication", () => {
 
   beforeEach(module(AuthenticationModule));
 
+  let $log;
   beforeEach(inject(($injector) => {
-    $httpBackend = $injector.get("$httpBackend");
-    Authentication = $injector.get("Authentication");
+    $log = $injector.get("$log");
+    $log.reset();
+  }));
+  afterEach(() => {
+    $log.assertEmpty();
+  });
+
+  beforeEach(inject((_$httpBackend_, _Authentication_) => {
+    $httpBackend = _$httpBackend_;
+    Authentication = _Authentication_;
   }));
 
   let loginData = {
     "id": 7,
     "display_name": "asdflo",
-    "first_name": null,
-    "last_name": null,
     "email": "asdf.asdf@asdf.asdf",
     "address": null,
     "latitude": null,
     "longitude": null
   };
 
-  describe("service", () => {
+  describe("Auth service", () => {
     let failLogin = { error: "not_authed" };
 
     it("rejects anonymous user", () => {
@@ -61,6 +68,30 @@ describe("authentication", () => {
       $httpBackend.expectPOST("/api/auth/logout/").respond(200);
       expect(Authentication.logout()).to.be.fulfilled;
       $httpBackend.flush();
+    });
+
+    context("auth data cache", () => {
+      it("on login", () => {
+        $httpBackend.expectPOST("/api/auth/").respond(loginData);
+        Authentication.login("", "");
+        $httpBackend.flush();
+        expect(Authentication.data).to.deep.equal(loginData);
+      });
+
+      it("on update", () => {
+        $httpBackend.expectGET("/api/auth/status/").respond(loginData);
+        Authentication.update();
+        $httpBackend.flush();
+        expect(Authentication.data).to.deep.equal(loginData);
+      });
+
+      it("undefined on logout", () => {
+        Authentication.data = { some: "data" };
+        $httpBackend.expectPOST("/api/auth/logout/").respond(loginData);
+        Authentication.logout();
+        $httpBackend.flush();
+        expect(Authentication.data).to.be.undefined;
+      });
     });
 
     afterEach(() => {

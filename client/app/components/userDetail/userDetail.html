@@ -1,0 +1,52 @@
+<div id="userDetail">
+  <div ng-if="!$ctrl.editEnabled">
+    <div layout="row">
+      <h1 flex>{{ $ctrl.userdata.display_name }}</h1>
+      <md-button ng-if="$ctrl.editable" class="md-icon-button" ng-click="$ctrl.editEnable()"
+        aria-label="{{ 'USERDETAIL.EDIT' | translate }}">
+        <md-tooltip md-direction="left">
+            <span translate="USERDETAIL.EDIT"></span>
+        </md-tooltip>
+        <i class="fa fa-pencil"></i>
+      </md-button>
+    </div>
+    <h3><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $ctrl.userdata.email }}</h3>
+    <expandable-panel content="$ctrl.userdata.description" markdown="true" collapse="1000"></expandable-panel>
+  </div>
+
+  <form ng-if="$ctrl.editEnabled" name="editUser" ng-submit="editUser.$valid && $ctrl.submitEdit()" layout="column">
+    <md-input-container>
+      <label translate="USERDETAIL.DISPLAY_NAME"></label>
+      <input required type="text" ng-model="$ctrl.editData.display_name"/>
+    </md-input-container>
+
+    <md-input-container>
+      <label translate="USERDETAIL.EMAIL"></label>
+      <input required type="text" ng-model="$ctrl.editData.email"/>
+    </md-input-container>
+
+    <md-checkbox ng-model="$ctrl.isChangePassword">
+      <span translate="USERDETAIL.PASSWORD_CHANGE"></span>
+    </md-checkbox>
+    <md-input-container ng-if="$ctrl.isChangePassword">
+      <label translate="USERDETAIL.PASSWORD"></label>
+      <input type="password" ng-model="$ctrl.editData.password"/>
+    </md-input-container>
+
+    <md-input-container>
+      <label translate="USERDETAIL.DESCRIPTION"></label>
+      <textarea ng-model="$ctrl.editData.description"></textarea>
+    </md-input-container>
+
+    <p>{{ $ctrl.error }}</p>
+    <div layout="row" layout-align="end start">
+      <md-button class="md-icon-button" ng-click="$ctrl.stopEdit()">
+        <i class="fa fa-times"></i>
+      </md-button>
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="!editUser.$valid || $ctrl.saving">
+        <i class="fa fa-check"></i>
+      </md-button>
+    </div>
+
+  </form>
+</div>

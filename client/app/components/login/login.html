@@ -1,28 +1,36 @@
-<md-content ng-cloak>
-  <div layout="row">
-    <div flex></div>
-    <div flex="nogrow" layout="column">
-      <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
-        <form login-form ng-submit="$ctrl.login()">
-          <h2>Login</h2>
-          <md-input-container class="md-block">
-            <label>Email</label>
-            <input type="text" name="email" required ng-model="$ctrl.email">
-          </md-input-container>
-          <md-input-container class="md-block">
-            <label>Password</label>
-            <input type="password" name="password" required ng-model="$ctrl.password">
-          </md-input-container>
-
-          <md-button class="md-raised md-accent" type="submit">
-            Login
-          </md-button>
-          <md-button ui-sref="signup">
-            Sign up!
-          </md-button>
-        </form>
+<div id="loginContent" layout-padding class="md-whiteframe-2dp" ng-class="[{shake: $ctrl.error.wrong}]">
+  <form login-form ng-submit="$ctrl.login()">
+    <h2 translate="LOGIN.TITLE"></h2>
+    <md-card>
+      <md-card-title>
+        <i class="fa fa-exclamation-triangle"></i>
+        <b translate="GLOBAL.WARNING"></b>
+      </md-card-title>
+      <md-card-content>
+        <p translate="GLOBAL.BETA_WARNING"></p>
+      </md-card-content>
+    </md-card>
+    <md-input-container class="md-block">
+      <label translate="USERDATA.EMAIL"></label>
+      <input type="text" name="email" required ng-model="$ctrl.email">
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label translate="USERDATA.PASSWORD"></label>
+      <input type="password" name="password" required ng-model="$ctrl.password">
+      <div ng-messages="$ctrl.error" type="alert">
+        <div ng-message="wrong" translate="LOGIN.WRONG">
+        </div>
       </div>
-    </div>
-    <div flex></div>
-  </div>
-</md-content>
+    </md-input-container>
+
+    <md-button class="md-raised md-accent" type="submit">
+      <span translate="LOGIN.SUBMIT"></span>
+    </md-button>
+    <md-button ui-sref="signup">
+      <span translate="LOGIN.SIGNUP"></span>
+    </md-button>
+    <md-button ui-sref="passwordreset">
+      <span translate="LOGIN.FORGOT_PASSWORD"></span>
+    </md-button>
+  </form>
+</div>

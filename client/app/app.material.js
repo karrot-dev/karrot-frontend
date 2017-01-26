@@ -1,11 +1,14 @@
 let AppMaterial = ($mdThemingProvider) => {
   "ngInject";
+
   $mdThemingProvider
     .theme("default")
-    .primaryPalette("amber")
-    .accentPalette("amber")
+    .primaryPalette("brown")
+    .accentPalette("deep-orange")
     .warnPalette("indigo")
-    .backgroundPalette("brown");
+    .backgroundPalette("grey")
+    ;
+
 };
 
 export default AppMaterial;

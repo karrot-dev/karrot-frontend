@@ -4,7 +4,7 @@
   <div ng-show="$ctrl.options.showTopbar">
     <h3 class="md-title"><i class="icon fa fa-shopping-basket" aria-hidden="true"></i>  {{$ctrl.options.header}}</h3>
     <div style="display: inline-block">
-      <md-button ng-show="$ctrl.options.showCreateButton" class="small md-primary md-hue-3" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel($event)">
+      <md-button ng-show="$ctrl.options.showCreateButton" class="md-primary" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel($event)">
         <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
         <span translate="BUTTON.CREATE"></span>
       </md-button>
@@ -63,7 +63,7 @@
     <div class="md-dialog-container" id="confirmDeleteDialog">
       <md-dialog>
         <div class="md-whiteframe-10dp" layout-fill>
-          <md-toolbar class="md-hue-1">
+          <md-toolbar>
             <div class="md-toolbar-tools">
               <h2>
                 <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-trash-o"></i>

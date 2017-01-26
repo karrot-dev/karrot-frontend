@@ -2,7 +2,7 @@
   <md-button  aria-label="{{$ctrl.activeGroup.name || 'Please choose a group...'}}" ui-sref="groupDetail({ groupId: $ctrl.activeGroup.id })" id="group-menu-active-group">
     {{$ctrl.activeGroup.name || "Please choose a group..."}}
   </md-button>
-  <md-menu md-ink-ripple>
+  <md-menu>
    <a ng-click="$ctrl.openMenu($mdOpenMenu, $event)" class="md-button" id="group-menu-group-picker">
      <i class="fa fa-caret-down md-caption"></i>
    </a>

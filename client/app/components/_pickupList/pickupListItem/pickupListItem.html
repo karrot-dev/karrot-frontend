@@ -32,10 +32,10 @@
   <md-button ng-click="$ctrl.leave()" ng-show="{{$ctrl.data.isUserMember}}" class="md-accent pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.LEAVE"></p>
   </md-button>
-  <md-button ng-click="$ctrl.join()" ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-accent md-hue-3 pickupList-pickup-right">
+  <md-button ng-click="$ctrl.join()" ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-raised md-primary pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.JOIN"></p>
   </md-button>
-  <md-button ng-disabled="true" ng-show="{{!$ctrl.data.isUserMember && $ctrl.data.isFull}}" class="md-accent pickupList-pickup-right">
+  <md-button ng-disabled="true" ng-show="{{!$ctrl.data.isUserMember && $ctrl.data.isFull}}" class="pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.FULL"></p>
   </md-button>
 </md-list-item>

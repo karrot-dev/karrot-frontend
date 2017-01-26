@@ -1,5 +1,3 @@
-import logo from "./carrot-logo.svgimage";
-
 class TopbarController {
   constructor(Authentication, $mdMedia, $scope, $mdSidenav) {
     "ngInject";
@@ -16,7 +14,6 @@ class TopbarController {
     };
 
     Object.assign(this, {
-      logo,
       Authentication
     });
   }

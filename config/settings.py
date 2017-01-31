@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'rest_framework_swagger',
     'anymail',
     'influxdb_metrics',
+    'timezone_field',
 
     # Application
     'yunity',

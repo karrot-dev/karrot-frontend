@@ -1,7 +1,20 @@
+import pytz
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
 from config import settings
 from yunity.groups.models import Group as GroupModel
+
+
+class TimezoneField(serializers.Field):
+    def to_representation(self, obj):
+        return str(obj)
+
+    def to_internal_value(self, data):
+        try:
+            return pytz.timezone(str(data))
+        except pytz.exceptions.UnknownTimeZoneError:
+            raise ValidationError('Unknown timezone')
 
 
 class GroupDetailSerializer(serializers.ModelSerializer):
@@ -33,7 +46,7 @@ class GroupDetailSerializer(serializers.ModelSerializer):
                 'max_length': 255
             }
         }
-    timezone = serializers.CharField(default='Europe/Berlin')
+    timezone = TimezoneField()
 
     def validate(self, data):
         if 'description' not in data:

@@ -44,8 +44,8 @@ class GroupService {
       .then((res) => res.data);
   }
 
-  join(groupId) {
-    return this.$http.post(`/api/groups/${groupId}/join/`, {})
+  join(groupId, data) {
+    return this.$http.post(`/api/groups/${groupId}/join/`, data ? data : {})
       .then((res) => res.data);
   }
 

@@ -1,4 +1,10 @@
 {
+  "GLOBAL":{
+    "GITHUB_NOTE":"Development",
+    "DEVMAIL_NOTE":"Schreib uns eine Mail, wenn du Fehler findest oder Anmerkungen hast!",
+    "WARNING":"Warnung",
+    "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!"
+  },
   "USERDATA": {
     "EMAIL": "E-Mail",
     "PASSWORD": "Passwort",
@@ -6,25 +12,47 @@
   },
   "BUTTON": {
     "CREATE": "Erstellen",
-    "CANCEL": "Abbrechen"
+    "CANCEL": "Abbrechen",
+    "DELETE": "Löschen",
+    "JOIN": "Beitreten"
   },
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
+    "EDIT": "Gruppe bearbeiten",
+    "TITLE": "Name der Gruppe",
+    "DESCRIPTION": "Gruppenbeschreibung, nur sichtbar für Mitglieder",
+    "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
+    "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
     "PICKUPS": "Abholungen",
     "MEMBERS": "Mitglieder",
     "STORES": "Betriebe"
   },
+  "STOREDETAIL": {
+    "EDIT": "Betrieb bearbeiten",
+    "ADDRESS": "Adresse"
+  },
+  "USERDETAIL": {
+    "EDIT": "User bearbeiten",
+    "DISPLAY_NAME": "Name",
+    "EMAIL": "Email",
+    "DESCRIPTION": "Über dich"
+  },
   "JOINGROUP": {
     "NAME": "Name",
-    "WHICHGROUP": "Welcher Gruppe willst du beitreten?",
-    "NUM_MEMBERS": "Anzahl Mitglieder"
+    "WHICHGROUP": "Welcher Gruppe möchtest du beitreten?",
+    "NUM_MEMBERS": "Mitglieder",
+    "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
+    "PASSWORD_LABEL": "Gib das Passwort für diese geschlossene Gruppe ein.",
+    "PASSWORD_REQUIRED": "Diese Gruppe verlangt ein Passwort.",
+    "PASSWORD_WRONG": "Das von dir eingegebene Passwort ist falsch."
   },
   "HOME": {
     "REDIRECT": "Umleitung zu deiner Gruppe..."
   },
   "TOPBAR": {
-    "LOGOUT": "Ausloggen",
-    "GREETING": "Moin, {{username}}!"
+    "LOGOUT": "Logout",
+    "USERPROFILE": "Dein Profil",
+    "GREETING": "Hi, {{username}}!"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -39,7 +67,7 @@
     "FAILED": "Accounterstellung fehlgeschlagen!"
   },
   "GROUPMENU": {
-    "JOIN": "Zu einer Gruppe beitreten"
+    "JOIN": "Gruppe beitreten"
   },
   "CREATEGROUP": {
     "TITLE": "Gruppe erstellen",
@@ -54,7 +82,7 @@
     "MAX_COLLECTORS": "Anzahl Abholer"
   },
   "CREATESTORE": {
-    "TITLE": "Betrieb eintragen",
+    "TITLE": "Neuen Betrieb anlegen",
     "NAME": "Name",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse"
@@ -68,7 +96,11 @@
     "ITEM": {
       "LEAVE": "Nicht mehr abholen",
       "JOIN": "Abholen",
-      "FULL": "belegt"
-    }
+      "FULL": "belegt",
+      "DELETE": "Abholtermin löschen",
+      "DELETE_TEXT": "Willst du diesen Abholtermin wirklich löschen?"
+    },
+    "NONE":"Es stehen keine Abholungen an.",
+    "NONE_HINT":"Auf der Betriebsseite kannst du Abholtermine erstellen."
   }
 }

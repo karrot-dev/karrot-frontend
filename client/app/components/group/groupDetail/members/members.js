@@ -19,6 +19,9 @@ let MembersModule = angular.module("members", [
         "detail@group.groupDetail": {
           component: "members"
         }
+      },
+      ncyBreadcrumb: {
+        label: "{{'GROUP.MEMBERS' | translate}}"
       }
     });
 })

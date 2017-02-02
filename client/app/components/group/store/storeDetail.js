@@ -32,6 +32,9 @@ let storeDetailModule = angular.module("storeDetail", [
         storedata: (Store, $stateParams) => {
           return Store.get($stateParams.storeId);
         }
+      },
+      ncyBreadcrumb: {
+        label: "{{$$childHead.$ctrl.storedata.name}}"
       }
     });
 })

@@ -2,6 +2,7 @@ yunity-orange = #f66c41;
 
 .splash
   height: 100%
+  width: 100%
   background-color: yunity-orange
   padding: 5em 0
 
@@ -39,6 +40,13 @@ md-input-container.editable-controls [ng-message]
   opacity 0.8
   color inherit
 
+.breadcrumb
+    color: grey
+    padding: .4em
+
+.breadcrumb a
+    color: grey
+    text-decoration: none;
 
 
 .footer
@@ -52,3 +60,9 @@ md-input-container.editable-controls [ng-message]
 
 .footer a:hover
   opacity 1.0
+
+// Fix: leaflet controls should be below md-dialog
+.leaflet-control-container
+  .leaflet-top
+  .leaflet-bottom
+    z-index 75 !important

@@ -80,7 +80,7 @@ describe("GroupDetail", () => {
       $ctrl.leaveGroup();
       $httpBackend.flush();
       expect($ctrl.error.leaveGroup).to.be.true;
-      expect($state.go).to.not.have.been.called;
+      expect($state.go).to.not.have.been.calledWith("home");
     });
 
     it("saves groupData", () => {

@@ -1,4 +1,4 @@
-<md-toolbar class="md-hue-1">
+<md-toolbar>
   <div class="md-toolbar-tools">
     <h2>
       <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-arrow-right"></i>
@@ -28,7 +28,7 @@
             <i class="fa fa-spinner" ng-show="$ctrl.lookupOngoing"></i>
           </md-button>
         </div>
-        
+
         <md-input-container class="md-block">
           <label translate="CREATESTORE.DESCRIPTION"></label>
           <textarea ng-model="$ctrl.storeData.description" name="description" rows="1" md-select-on-focus></textarea>
@@ -46,7 +46,7 @@
       <md-button ng-click="$ctrl.closePanel()">
         <span translate="BUTTON.CANCEL"></span>
       </md-button>
-      <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createStoreForm.$invalid || $ctrl.ongoing">
+      <md-button class="md-raised md-primary" type="submit" ng-disabled="createStoreForm.$invalid || $ctrl.ongoing">
         <span ng-if="!$ctrl.ongoing" translate="BUTTON.CREATE"></span>
         <i ng-if="$ctrl.ongoing" class="fa fa-spinner"></i>
       </md-button>

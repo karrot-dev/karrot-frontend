@@ -1,21 +1,24 @@
-<div>
-  <language-chooser></language-chooser>
-  <md-button href="https://github.com/yunity/foodsaving-frontend">
-    <i class="fa fa-github"></i>
-    Github
-    <md-tooltip md-direction="bottom">
-      <span translate="GLOBAL.GITHUB_NOTE"></span>
-    </md-tooltip>
-  </md-button>
-  <md-button style="text-transform:none" ng-href="mailto:fstool@yunity.org">
-    <i class="fa fa-envelope"></i>
-    fstool@yunity.org
-    <md-tooltip md-direction="bottom">
-      <span translate="GLOBAL.DEVMAIL_NOTE"></span>
-    </md-tooltip>
-  </md-button>
-</div>
-
 <div class="splash">
+  <md-toolbar class="md-whiteframe-3dp" layout>
+    <language-chooser></language-chooser>
+    <md-button href="https://github.com/yunity/foodsaving-frontend">
+      <i class="fa fa-github"></i>
+      Github
+      <md-tooltip md-direction="bottom">
+        <span translate="GLOBAL.GITHUB_NOTE"></span>
+      </md-tooltip>
+    </md-button>
+    <md-button style="text-transform:none" ng-href="mailto:fstool@yunity.org">
+      <i class="fa fa-envelope"></i>
+      fstool@yunity.org
+      <md-tooltip md-direction="bottom">
+        <span translate="GLOBAL.DEVMAIL_NOTE"></span>
+      </md-tooltip>
+    </md-button>
+  </md-toolbar>
+  <div layout layout-align="center center">
+    <logo></logo>
+    <h1>Foodsaving Worldwide</h1>
+  </div>
   <ui-view></ui-view>
 </div>

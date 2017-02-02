@@ -1,5 +1,5 @@
 <div class="md-whiteframe-10dp" style="width: 100%;">
-  <md-toolbar class="md-hue-1">
+  <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>
         <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-shopping-basket"></i>
@@ -26,7 +26,7 @@
       </md-input-container>
 
       <md-slider-container>
-        <label><span translate="CREATEPICKUP.MAX_COLLECTORS"></span>: 
+        <label><span translate="CREATEPICKUP.MAX_COLLECTORS"></span>:
           <md-input-container><input tabindex="-1" name="MaxNoCollectors" ng-model="$ctrl.pickupData.maxCollectors"
 -                 type="number" min=1 />
           </md-input-container>
@@ -38,7 +38,7 @@
         <md-button ng-click="$ctrl.closePanel()">
           <span translate="BUTTON.CANCEL"></span>
         </md-button>
-        <md-button class="md-raised md-primary md-hue-3" type="submit" ng-disabled="createPickupForm.$invalid">
+        <md-button class="md-raised md-primary" type="submit" ng-disabled="createPickupForm.$invalid">
           <span translate="BUTTON.CREATE"></span>
         </md-button>
       </div>

@@ -10,7 +10,19 @@
     min-height: 42px
 
 group-detail h1
-    font-size: 1.2em !important
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+@media (max-width: 559px)
+    group-detail h1
+        font-size: 4vw !important
+
+
+@media (min-width: 600px)
+    group-detail h1
+        font-size: 1.2em !important
+
 
 group-detail nav ul
     max-width: 2em

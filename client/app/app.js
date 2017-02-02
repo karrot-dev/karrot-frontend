@@ -30,6 +30,7 @@ import breadcrumbTemplate from "./templates/breadcrumbs.html";
 
 import mainLayout from "./layouts/main.html";
 import splashLayout from "./layouts/splash.html";
+import logo from "./components/_logo/logo";
 
 angular.module("app", [
   uiRouter,
@@ -42,7 +43,8 @@ angular.module("app", [
   translate,
   translateStorageCookie,
   Common,
-  PageComponents
+  PageComponents,
+  logo
 ]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {
   "ngInject";
   $locationProvider.html5Mode(false).hashPrefix("!");

@@ -1,50 +1,48 @@
-<div style="width: 100%" layout="column">
-  <div flex id="loginContent" layout-padding class="md-whiteframe-2dp">
-    <form signup-form ng-submit="$ctrl.signup()" layout="column">
-      <h2 style="padding: .2em;" translate="SIGNUP.TITLE">
-      </h2>
+<md-card class="md-whiteframe-4dp content" layout-padding>
+  <form signup-form ng-submit="$ctrl.signup()" layout="column">
+    <h2 style="padding: .2em;" translate="SIGNUP.TITLE">
+    </h2>
 
-      <md-card>
-        <md-card-title>
-          <i class="fa fa-exclamation-triangle"></i>
-          <b translate="GLOBAL.WARNING"></b>
-        </md-card-title>
-        <md-card-content>
-          <p translate="GLOBAL.BETA_WARNING"></p>
-        </md-card-content>
-      </md-card>
+    <md-card>
+      <md-card-title>
+        <i class="fa fa-exclamation-triangle"></i>
+        <b translate="GLOBAL.WARNING"></b>
+      </md-card-title>
+      <md-card-content>
+        <p translate="GLOBAL.BETA_WARNING"></p>
+      </md-card-content>
+    </md-card>
 
-      <md-input-container flex>
-        <label translate="USERDATA.USERNAME"></label>
-        <input required type="text" name="Username" ng-model="$ctrl.username"/>
-      </md-input-container>
+    <md-input-container flex>
+      <label translate="USERDATA.USERNAME"></label>
+      <input required type="text" name="Username" ng-model="$ctrl.username"/>
+    </md-input-container>
 
-      <md-input-container flex>
-        <label translate="USERDATA.EMAIL"></label>
-        <input required type="email" name="Email" ng-model="$ctrl.email"/>
-      </md-input-container>
+    <md-input-container flex>
+      <label translate="USERDATA.EMAIL"></label>
+      <input required type="email" name="Email" ng-model="$ctrl.email"/>
+    </md-input-container>
 
-      <md-input-container flex>
-        <label translate="USERDATA.PASSWORD"></label>
-        <input type="password" required name="password" ng-model="$ctrl.password">
-      </md-input-container>
+    <md-input-container flex>
+      <label translate="USERDATA.PASSWORD"></label>
+      <input type="password" required name="password" ng-model="$ctrl.password">
+    </md-input-container>
 
-      <md-button-container flex>
-        <md-button ui-sref="login">
-          <span translate="SIGNUP.BACK"></span>
-        </md-button>
-        <md-button class="md-raised md-accent" type="submit">
-          <span translate="SIGNUP.OK"></span>
-        </md-button>
-      </md-button-container>
-      <div ng-messages="$ctrl.error">
-        <div class="form-error" ng-message="failed">
-          <span translate="SIGNUP.FAILED"></span>
-          <br>
-          <!-- TODO remove or translate error message -->
-          {{$ctrl.error.msg}}
-        </div>
+    <md-button-container flex>
+      <md-button ui-sref="login">
+        <span translate="SIGNUP.BACK"></span>
+      </md-button>
+      <md-button class="md-raised md-accent" type="submit">
+        <span translate="SIGNUP.OK"></span>
+      </md-button>
+    </md-button-container>
+    <div ng-messages="$ctrl.error">
+      <div class="form-error" ng-message="failed">
+        <span translate="SIGNUP.FAILED"></span>
+        <br>
+        <!-- TODO remove or translate error message -->
+        {{$ctrl.error.msg}}
       </div>
-    </form>
-  </div>
-</div>
+    </div>
+  </form>
+</md-card>

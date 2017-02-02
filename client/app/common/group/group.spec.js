@@ -102,6 +102,13 @@ describe("group service", () => {
     $httpBackend.flush();
   });
 
+  it("joins a group with password", () => {
+    $httpBackend.expectPOST("/api/groups/1/join/", { password: "abc" }).respond(200);
+    expect(Group.join(1, { password: "abc" })).to.be.fulfilled;
+    $httpBackend.flush();
+  });
+
+
   it("leaves a group", () => {
     $httpBackend.expectPOST("/api/groups/1/leave/", {}).respond(200);
     expect(Group.leave(1)).to.be.fulfilled;

@@ -96,4 +96,20 @@ describe("user service", () => {
     expect(User.delete(1337)).to.be.rejected;
     $httpBackend.flush();
   });
+
+  it("verifies mail", () => {
+    let key = "abc";
+    $httpBackend.expectPOST("/api/users/verify_mail/", { key }).respond(200);
+    expect(User.verifyMail(key))
+      .to.be.fulfilled;
+    $httpBackend.flush();
+  });
+
+  it("resets password", () => {
+    let email = "abc@example.com";
+    $httpBackend.expectPOST("/api/users/reset_password/", { email }).respond(200);
+    expect(User.resetPassword(email))
+      .to.be.fulfilled;
+    $httpBackend.flush();
+  });
 });

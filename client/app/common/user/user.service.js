@@ -35,6 +35,14 @@ class UserService {
   delete(userId) {
     return this.$http.delete(`/api/users/${userId}/`);
   }
+
+  verifyMail(key) {
+    return this.$http.post("/api/users/verify_mail/", { key });
+  }
+
+  resetPassword(email) {
+    return this.$http.post("/api/users/reset_password/", { email });
+  }
 }
 
 export default UserService;

@@ -12,12 +12,26 @@
       <span translate="JOINGROUP.NAME"></span>
       <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
     </md-list-item>
-    <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0"
-                  ng-click="$ctrl.joinGroup(group.id)">
-      <span>{{group.name}}</span>
-      <span class="md-secondary">{{group.members.length}}</span>
+    <md-divider></md-divider>
+    <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0">
+      <div layout="column" flex>
+        <div layout>
+          <md-button class="join-group-expand" ng-click="group.$showDetails = !group.$showDetails" flex>
+            <i class="fa fa-plus"></i>
+            <span>{{group.name}}</span>
+            <i ng-if="group.protected" class="fa fa-lock"></i>
+          </md-button>
+          <span class="md-secondary">{{group.members.length}}</span>
+        </div>
+        <join-group-preview
+          ng-if="group.$showDetails"
+          group="group"
+          on-join-group="$ctrl.joinGroup(group)"
+          md-whiteframe
+          >
+        </join-group-preview>
+      </div>
     </md-list-item>
-  </md-list>
 </md-dialog-content>
 
 <md-dialog-actions>

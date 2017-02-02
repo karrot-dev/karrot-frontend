@@ -25,7 +25,7 @@
     </div>
   </md-toolbar>
   <md-content layout-padding>
-    <div ng-if="$ctrl.$mdMedia('gt-sm') && $ctrl.currentNavItem != 'description'" editable-textarea="$ctrl.groupData.description">
+    <div ng-if="$ctrl.$mdMedia('gt-sm')" editable-textarea="$ctrl.groupData.description">
       <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
     </div>
     <div ng-show="editableGroup.$visible" layout="row" layout-align="end start">
@@ -42,10 +42,10 @@
         <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
           <span translate="GROUP.PICKUPS"></span>
         </md-nav-item>
-        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm') || $ctrl.currentNavItem == 'stores'" md-nav-sref="group.groupDetail.stores" name="stores">
+        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.stores" name="stores">
           <span translate="GROUP.STORES"></span>
         </md-nav-item>
-        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm') || $ctrl.currentNavItem == 'description'" md-nav-sref="group.groupDetail.description" name="description">
+        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.description" name="description">
           <span translate="GROUP.DESCRIPTION"></span>
         </md-nav-item>
         <md-nav-item md-nav-sref="group.groupDetail.members" name="members">

@@ -4,9 +4,15 @@
     {{ $ctrl.$translate.use() }}
   </md-button>
   <md-menu-content>
-    <md-menu-item ng-repeat="langKey in $ctrl.providedLangs">
+    <md-menu-item ng-repeat="(langKey, name) in $ctrl.providedLangs">
       <md-button ng-click="$ctrl.changeLanguage(langKey)" md-menu-align-target>
-        <strong>{{ langKey | uppercase }}</strong>
+        <strong>{{ name }}</strong>
+      </md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button href="https://www.transifex.com/yunity-1/foodsaving-tool/dashboard/">
+        <i class="fa fa-external-link"></i>
+        <span translate="LANGUAGECHOOSER.ADD_MORE"></span>
       </md-button>
     </md-menu-item>
   </md-menu-content>

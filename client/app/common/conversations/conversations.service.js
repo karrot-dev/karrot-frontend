@@ -26,9 +26,9 @@ export default class ConversationsService {
       message
     }).then((res) => res.data);
   }
-  sendMessage(conversationId, message) {
-    return this.$http.put(`/api/conversations/${conversationId}/`, {
-      message
+  sendMessage(conversationId, content) {
+    return this.$http.post(`/api/conversations/${conversationId}/messages/`, {
+      content
     }).then((res) => res.data);
   }
 }

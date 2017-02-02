@@ -2,11 +2,12 @@ class GroupDetailController {
   constructor(Group, $state, CurrentGroup, $mdMedia) {
     "ngInject";
     this.groupData = $state.groupData;
+    
 
     let currentState = $state.current.name;
     this.currentNavItem = currentState.replace("group.groupDetail.", "");
-
-    if (this.currentNavItem === "group.groupDetail"){
+    
+    if (this.currentNavItem === "" || $mdMedia('gt-sm') && (this.currentNavItem === "stores" || this.currentNavItem === "description" )){
       this.currentNavItem = "pickups";
       $state.go("group.groupDetail.pickups");
     }

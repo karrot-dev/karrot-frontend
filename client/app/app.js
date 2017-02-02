@@ -26,6 +26,8 @@ import "angular-material/angular-material.css";
 import "./fonts/fonts";
 import "./app.styl";
 
+import breadcrumbTemplate from "./templates/breadcrumbs.html";
+
 import mainLayout from "./layouts/main.html";
 import splashLayout from "./layouts/splash.html";
 
@@ -65,4 +67,10 @@ angular.module("app", [
   "ngInject";
   cfpLoadingBarProvider.includeSpinner = false;
 })
-.run(AppXEditableConfig);
+.run(AppXEditableConfig)
+.config(($breadcrumbProvider) => {
+  "ngInject";
+  $breadcrumbProvider.setOptions({
+    template: breadcrumbTemplate
+  });
+});

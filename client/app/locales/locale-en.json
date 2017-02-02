@@ -118,5 +118,8 @@
     "SUBMIT": "Get new password",
     "LOGIN": "Back to login page",
     "SUCCESS": "The request was successfully sent. Have a look at your mails!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Add more languages!"
   }
 }

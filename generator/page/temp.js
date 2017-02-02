@@ -1,9 +1,11 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import Authentication from "../../common/authentication/authentication";
 import <%= name %>Component from "./<%= name %>.component";
 
 let <%= name %>Module = angular.module("<%= name %>", [
-  uiRouter
+  uiRouter,
+  Authentication
 ])
 
 .component("<%= name %>", <%= name %>Component)

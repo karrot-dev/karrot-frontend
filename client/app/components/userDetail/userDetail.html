@@ -25,11 +25,20 @@
       <input required type="text" ng-model="$ctrl.editData.email"/>
     </md-input-container>
 
+    <md-checkbox ng-model="$ctrl.isChangePassword">
+      <span translate="USERDETAIL.PASSWORD_CHANGE"></span>
+    </md-checkbox>
+    <md-input-container ng-if="$ctrl.isChangePassword">
+      <label translate="USERDETAIL.PASSWORD"></label>
+      <input type="password" ng-model="$ctrl.editData.password"/>
+    </md-input-container>
+
     <md-input-container>
       <label translate="USERDETAIL.DESCRIPTION"></label>
       <textarea ng-model="$ctrl.editData.description"></textarea>
     </md-input-container>
 
+    <p>{{ $ctrl.error }}</p>
     <div layout="row" layout-align="end start">
       <md-button class="md-icon-button" ng-click="$ctrl.stopEdit()">
         <i class="fa fa-times"></i>

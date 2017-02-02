@@ -22,9 +22,10 @@ class JoinGroupController {
     });
   }
 
-  joinGroup (groupId) {
-    this.Group.join(groupId).then(() => {
-      this.$mdDialog.hide(groupId);
+  joinGroup (group) {
+    return this.Group.join(group.id, { password: group.password })
+    .then(() => {
+      this.$mdDialog.hide(group.id);
     });
   }
 }

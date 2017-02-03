@@ -1,4 +1,4 @@
-<div class="splash">
+<div class="splash" layout="column">
   <md-toolbar class="md-whiteframe-3dp" layout>
     <language-chooser></language-chooser>
     <md-button href="https://github.com/yunity/foodsaving-frontend">
@@ -16,9 +16,11 @@
       </md-tooltip>
     </md-button>
   </md-toolbar>
-  <div layout layout-align="center center">
-    <logo></logo>
-    <h1>Foodsaving Worldwide</h1>
+  <div layout="column" layout-align="center center" flex="noshrink" layout-margin>
+    <div layout layout-align="center center">
+      <logo></logo>
+      <h1>Foodsaving Worldwide</h1>
+    </div>
+    <ui-view layout-margin></ui-view>
   </div>
-  <ui-view></ui-view>
 </div>

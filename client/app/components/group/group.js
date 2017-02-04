@@ -22,6 +22,7 @@ let groupPageModule = angular.module("group", [
     .state("group", {
       parent: "main",
       url: "/group/{groupId:int}",
+      redirectTo: "group.groupDetail.pickups",
       component: "group",
       resolve: {
         groupData: ($state, Group, CurrentGroup, $stateParams) => {

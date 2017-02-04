@@ -12,15 +12,6 @@ class GroupDetailController {
       },
       $mdMedia
     });
-
-    let currentState = $state.current.name;
-    this.currentNavItem = currentState.replace("group.groupDetail.", "");
-
-    if (this.currentNavItem === "" ||
-        $mdMedia("gt-sm") && (this.currentNavItem === "stores" || this.currentNavItem === "description" )){
-      this.currentNavItem = "pickups";
-      $state.go("group.groupDetail.pickups");
-    }
   }
 
   leaveGroup() {

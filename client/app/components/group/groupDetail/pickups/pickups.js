@@ -14,7 +14,6 @@ let pickupsModule = angular.module("pickups", [
   "ngInject";
   $stateProvider
     .state("group.groupDetail.pickups", {
-      url: "/pickups",
       views: {
         "detail@group.groupDetail": {
           component: "pickups"

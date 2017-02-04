@@ -1,13 +1,15 @@
 from rest_framework import filters
+from rest_framework import mixins
 from rest_framework import viewsets, status
 from rest_framework.decorators import detail_route
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, BasePermission
 from rest_framework.response import Response
 
-from yunity.stores.filters import PickupDatesFilter
+from yunity.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
 from yunity.stores.permissions import IsUpcoming
-from yunity.stores.serializers import StoreSerializer, PickupDateSerializer
-from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
+from yunity.stores.serializers import StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer
+from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
+    PickupDateSeries as PickupDateSeriesModel
 
 
 class StoreViewSet(viewsets.ModelViewSet):
@@ -29,14 +31,66 @@ class StoreViewSet(viewsets.ModelViewSet):
         return self.queryset.filter(group__members=self.request.user)
 
 
-class PickupDatesViewSet(viewsets.ModelViewSet):
+class PickupDateSeriesViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet
+):
+    """
+    Pickup Date Series
+
+    # Query parameters
+    - `?store` - filter by store id
+    """
+    serializer_class = PickupDateSeriesSerializer
+    queryset = PickupDateSeriesModel.objects
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = PickupDateSeriesFilter
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return self.queryset.filter(store__group__members=self.request.user)
+
+
+class DeleteModelMixin(object):
+    """
+    Deletes a model instance by setting the "deleted" field
+    """
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_delete(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def perform_delete(self, instance):
+        instance.deleted = True
+        instance.save()
+
+
+class IsEmptyPickupDate(BasePermission):
+    message = 'You can only delete empty pickup dates.'
+
+    def has_object_permission(self, request, view, obj):
+        return obj.collectors.count() == 0
+
+
+class PickupDateViewSet(
+    DeleteModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet
+):
     """
     Pickup Dates
 
     # Query parameters
+    - `?series` - filter by pickup date series id
     - `?store` - filter by store id
     - `?group` - filter by group id
-    - `?date_0=<from_date>&date_1=<to_date>` - filter by date, can also either give date_0 or date_1
+    - `?date_0=<from_date>`&`date_1=<to_date>` - filter by date, can also either give date_0 or date_1
     """
     serializer_class = PickupDateSerializer
     queryset = PickupDateModel.objects
@@ -44,8 +98,16 @@ class PickupDatesViewSet(viewsets.ModelViewSet):
     filter_class = PickupDatesFilter
     permission_classes = (IsAuthenticated, IsUpcoming)
 
+    def get_permissions(self):
+        if self.action == 'destroy':
+            self.permission_classes = (IsAuthenticated, IsUpcoming, IsEmptyPickupDate,)
+
+        return super().get_permissions()
+
     def get_queryset(self):
-        return self.queryset.filter(store__group__members=self.request.user)
+        # FIXME: move this to a regular job (reduces server load)
+        PickupDateSeriesModel.objects.create_all_pickup_dates()
+        return self.queryset.filter(store__group__members=self.request.user).filter(deleted=False)
 
     @detail_route(methods=['POST'])
     def add(self, request, pk=None):

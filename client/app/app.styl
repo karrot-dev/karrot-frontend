@@ -1,16 +1,20 @@
 .splash
-  padding: 5% 0
   background-image: url('yunityorg.jpg')
+  background-size: cover
+  min-height 100%
   > md-toolbar
     height 42px
     max-height 42px
     min-height 42px
-    position absolute
-    top 0
-  logo > img
-    height 60px
-    opacity 0.8
-    padding 15px 10px
+  logo
+    padding-right 10px
+    > img
+      height 60px
+      opacity 0.8
+  @media screen and (max-width: 450px)
+    h1.title
+      font-size 7vw
+
 
 // the main layout panel
 .md-whiteframe-2dp

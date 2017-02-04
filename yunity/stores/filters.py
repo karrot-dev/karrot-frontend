@@ -5,7 +5,7 @@ from django.utils.encoding import force_str
 from django_filters.fields import RangeField
 from rest_framework import filters
 
-from yunity.stores.models import PickupDate
+from yunity.stores.models import PickupDate, PickupDateSeries
 
 
 class ISODateTimeField(forms.DateTimeField):
@@ -25,10 +25,17 @@ class DateTimeFromToRangeFilter(django_filters.RangeFilter):
     field_class = DateTimeRangeField
 
 
+class PickupDateSeriesFilter(filters.FilterSet):
+    class Meta:
+        model = PickupDateSeries
+        fields = ['store', ]
+
+
 class PickupDatesFilter(filters.FilterSet):
+    store = django_filters.NumberFilter(name='store')
     group = django_filters.NumberFilter(name='store__group__id')
     date = DateTimeFromToRangeFilter(name='date')
 
     class Meta:
         model = PickupDate
-        fields = ['store', 'group', 'date']
+        fields = ['store', 'group', 'date', 'series']

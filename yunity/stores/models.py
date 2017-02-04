@@ -2,7 +2,6 @@ import dateutil.rrule
 from dateutil.relativedelta import relativedelta
 
 from django.utils import timezone
-from django.utils.datetime_safe import datetime, date
 
 from config import settings
 from yunity.base.base_models import BaseModel, LocationModel

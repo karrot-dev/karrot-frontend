@@ -5,7 +5,8 @@ from factory import DjangoModelFactory, SubFactory, LazyFunction
 from factory import LazyAttribute
 
 from yunity.groups.factories import Group
-from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel
+from yunity.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
+    PickupDateSeries as PickupDateSeriesModel
 from yunity.utils.tests.fake import faker
 
 
@@ -31,3 +32,13 @@ class PickupDate(DjangoModelFactory):
     store = SubFactory(Store)
     date = LazyFunction(in_one_day)
     max_collectors = 5
+
+
+class PickupDateSeries(DjangoModelFactory):
+
+    class Meta:
+        model = PickupDateSeriesModel
+
+    store = SubFactory(Store)
+    start_date = LazyAttribute(lambda _: timezone.now())
+    rule = 'FREQ=WEEKLY'

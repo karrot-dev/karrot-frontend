@@ -1,12 +1,11 @@
 class GroupDetailController {
   constructor(Group, $state, CurrentGroup, $mdMedia) {
     "ngInject";
-    this.groupData = $state.groupData;
-
     Object.assign(this, {
       Group,
       $state,
       CurrentGroup,
+      groupData: $state.groupData,
       error: {
         leaveGroup: false
       },

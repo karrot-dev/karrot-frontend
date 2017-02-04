@@ -1,8 +1,9 @@
 class StoresController {
   constructor($stateParams) {
     "ngInject";
-
-    this.groupId = $stateParams.groupId;
+    Object.assign(this, {
+      groupId: $stateParams.groupId
+    });
   }
 }
 

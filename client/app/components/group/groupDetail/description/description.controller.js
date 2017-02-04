@@ -1,7 +1,9 @@
 class DescriptionController {
   constructor($state) {
     "ngInject";
-    this.groupData = $state.groupData;
+    Object.assign(this, {
+      groupData: $state.groupData
+    });
   }
 }
 

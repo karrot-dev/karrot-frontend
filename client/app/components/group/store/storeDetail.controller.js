@@ -4,17 +4,16 @@ class StoreDetailController {
     Object.assign(this, {
       Store,
       Geocoding,
-      $scope
-    });
-
-    this.pickupListOptions = {
-      showCreateButton: true,
-      filter: {
-        showJoined: true,
-        showOpen: true,
-        showFull: true
+      $scope,
+      pickupListOptions: {
+        showCreateButton: true,
+        filter: {
+          showJoined: true,
+          showOpen: true,
+          showFull: true
+        }
       }
-    };
+    });
   }
 
   $onChanges(changes) {

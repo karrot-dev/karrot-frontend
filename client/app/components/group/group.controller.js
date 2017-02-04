@@ -5,9 +5,9 @@ class GroupController {
     if ($state.current.name === "group"){
       $state.go("group.groupDetail.pickups");
     }
-    
+
     $scope.$watch(() => {
-        return $state.$current.name;
+      return $state.$current.name;
     }, (newVal) => {
       if (newVal === "group"){
         $state.go("group.groupDetail.pickups");

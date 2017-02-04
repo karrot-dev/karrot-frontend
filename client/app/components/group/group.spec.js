@@ -58,6 +58,14 @@ describe("Group", () => {
       let $ctrl = $componentController("group", {});
       expect($ctrl).to.exist;
     });
+    
+    it("should redirect to group.groupDetail.pickups", () => {
+      let groupData = { id: 12 };
+      $state.current.name = "group";
+      let $ctrl = $componentController("group", {});
+      Object.assign($ctrl, { groupData });
+      expect($state.go).to.have.been.calledWith("group.groupDetail.pickups");
+    });
   });
 
   describe("Route", () => {
@@ -72,6 +80,8 @@ describe("Group", () => {
       $httpBackend.flush();
       expect($state.current.component).to.equal("group");
     });
+    
+    
   });
 
 });

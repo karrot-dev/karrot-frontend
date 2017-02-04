@@ -3,13 +3,10 @@ from django.db.models.fields.related import RelatedField
 from django.utils import timezone
 
 
-class BaseModel(Model):
+class NicelyFormattedModel(Model):
 
     class Meta:
         abstract = True
-
-    id = AutoField(primary_key=True)
-    created_at = DateTimeField(default=timezone.now)
 
     def _get_explicit_field_names(self):
         """
@@ -30,6 +27,15 @@ class BaseModel(Model):
         columns = ', '.join('{}="{}"'.format(field, value)
                             for field, value in self.to_dict().items())
         return '{}({})'.format(model, columns)
+
+
+class BaseModel(NicelyFormattedModel):
+
+    class Meta:
+        abstract = True
+
+    id = AutoField(primary_key=True)
+    created_at = DateTimeField(default=timezone.now)
 
 
 class LocationModel(Model):

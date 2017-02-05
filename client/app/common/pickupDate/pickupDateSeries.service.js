@@ -10,28 +10,28 @@ class PickupDateSeriesService {
   }
 
   get(seriesId) {
-    return this.$http.get(`/api/pickup-dates-series/${seriesId}/`)
+    return this.$http.get(`/api/pickup-date-series/${seriesId}/`)
       .then((res) => res.data);
   }
 
   list() {
-    return this.$http.get("/api/pickup-dates-series/")
+    return this.$http.get("/api/pickup-date-series/")
       .then((res) => res.data);
   }
 
   listByStoreId(storeId) {
-    return this.$http.get("/api/pickup-dates-series/", { params: { store: storeId } })
+    return this.$http.get("/api/pickup-date-series/", { params: { store: storeId } })
       .then((res) => res.data);
   }
 
   save(series) {
     let seriesId = series.id;
-    return this.$http.patch(`/api/pickup-dates-series/${seriesId}/`, series)
+    return this.$http.patch(`/api/pickup-date-series/${seriesId}/`, series)
       .then((res) => res.data);
   }
 
   delete(seriesId) {
-    return this.$http.delete(`/api/pickup-dates-series/${seriesId}/`);
+    return this.$http.delete(`/api/pickup-date-series/${seriesId}/`);
   }
 }
 

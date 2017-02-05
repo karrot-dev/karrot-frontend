@@ -5,7 +5,7 @@ class PickupDateComService {
   }
 
   create(pickup) {
-    return this.$http.post("/api/pickup-date/", pickup)
+    return this.$http.post("/api/pickup-dates/", pickup)
       .then((res) => res.data);
   }
 

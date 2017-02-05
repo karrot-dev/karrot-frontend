@@ -43,7 +43,8 @@ class PickupDateSeries(BaseModel):
     def create_pickup_dates(self, start=timezone.now):
         # using local time zone to avoid daylight saving time errors
         tz = self.store.group.timezone
-        period_start = start().astimezone(tz).replace(tzinfo=None)
+        # shifting period start time into the future avoids pickup dates which are only valid for a short time
+        period_start = start().astimezone(tz).replace(tzinfo=None) + relativedelta(minutes=5)
         start_date = self.start_date.astimezone(tz).replace(tzinfo=None)
         dates = dateutil.rrule.rrulestr(
             self.rule
@@ -65,6 +66,12 @@ class PickupDateSeries(BaseModel):
                 series=self,
                 store=self.store
             )
+
+    def update_pickup_dates(self, fields):
+        for p in self.pickup_dates.filter(date__gte=timezone.now()):
+            for f in fields:
+                setattr(p, f, getattr(self, f))
+            p.save()
 
 
 class PickupDate(BaseModel):

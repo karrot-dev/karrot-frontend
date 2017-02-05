@@ -61,6 +61,7 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
             setattr(series, attr, value)
         series.save()
         series.create_pickup_dates()
+        series.update_pickup_dates(validated_data.keys())
         return series
 
     def validate_store(self, store_id):

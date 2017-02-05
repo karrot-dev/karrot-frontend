@@ -40,5 +40,5 @@ class PickupDateSeries(DjangoModelFactory):
         model = PickupDateSeriesModel
 
     store = SubFactory(Store)
-    start_date = LazyAttribute(lambda _: timezone.now())
+    start_date = LazyAttribute(lambda _: timezone.now().replace(second=0, microsecond=0))
     rule = 'FREQ=WEEKLY'

@@ -56,9 +56,8 @@ class PickupDateSeries(BaseModel):
         )
         dates = [tz.localize(d) for d in dates]
 
-        pickup_dates = PickupDate.objects.filter(series=self)
         for _ in dates:
-            if pickup_dates.filter(date=_).exists():
+            if self.pickup_dates.filter(date=_).exists():
                 continue
             PickupDate.objects.create(
                 date=_,

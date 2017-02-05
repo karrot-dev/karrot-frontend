@@ -57,8 +57,8 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
         return series
 
     def update(self, series, validated_data):
-        for attr, value in validated_data.items():
-            setattr(series, attr, value)
+        for attr in ('max_collectors', ):
+            setattr(series, attr, validated_data.get(attr))
         series.save()
         series.create_pickup_dates()
         series.update_pickup_dates(validated_data.keys())

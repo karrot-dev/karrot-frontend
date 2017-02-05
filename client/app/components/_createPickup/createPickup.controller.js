@@ -1,31 +1,44 @@
 class CreatePickupController {
-  constructor($mdDialog, PickupDate) {
+  constructor($mdDialog, PickupDate, PickupDateSeries) {
     "ngInject";
-    this.$mdDialog = $mdDialog;
-    this.PickupDate = PickupDate;
-    this.date = {};
-    this.pickupData = {
-      date: new Date(),
-      maxCollectors: 2
-    };
+    Object.assign(this, {
+      $mdDialog,
+      PickupDate,
+      PickupDateSeries,
+      pickupData: {
+        date: new Date(),
+        maxCollectors: 2
+      },
+      isSeries: true,
+      mode: "series"
+    });
   }
 
-  assembleDate() {
-    let newDate = new Date(this.pickupData.date);
-    newDate.setHours(this.pickupData.time.getHours());
-    newDate.setMinutes(this.pickupData.time.getMinutes());
-    this.date = newDate;
+  assembleDate(date, time) {
+    let newDate = new Date(date);
+    newDate.setHours(time.getHours());
+    newDate.setMinutes(time.getMinutes());
+    newDate.setSeconds(0);
+    return newDate;
   }
 
   createPickup() {
-    this.assembleDate();
-    let dataToSend = {
-      max_collectors: this.pickupData.maxCollectors, // eslint-disable-line
-      date: this.date,
-      store: this.storeId
-    };
-
-    this.PickupDate.create(dataToSend).then((data) => {
+    let response;
+    if (this.isSeries) {
+      response = this.PickupDateSeries.create({
+        "max_collectors": this.pickupData.maxCollectors,
+        "start_date": this.assembleDate(new Date(), this.pickupData.time),
+        store: this.storeId,
+        rule: `FREQ=WEEKLY;BYDAY=${this.byDay.join()}`
+      });
+    } else {
+      response = this.PickupDate.create({
+        "max_collectors": this.pickupData.maxCollectors,
+        date: this.assembleDate(this.pickupData.date, this.pickupData.time),
+        store: this.storeId
+      });
+    }
+    response.then((data) => {
       this.$mdDialog.hide(data);
     });
   }

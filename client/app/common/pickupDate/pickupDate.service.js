@@ -5,7 +5,7 @@ class PickupDateComService {
   }
 
   create(pickup) {
-    return this.$http.post("/api/pickup-dates/", pickup)
+    return this.$http.post("/api/pickup-date/", pickup)
       .then((res) => res.data);
   }
 
@@ -26,11 +26,6 @@ class PickupDateComService {
 
   listByStoreId(storeId) {
     return this.$http.get("/api/pickup-dates/", { params: { store: storeId, "date_0": new Date() } })
-      .then((res) => res.data);
-  }
-
-  search(query) {
-    return this.$http.get("/api/pickup-dates/", { params: { search: query } })
       .then((res) => res.data);
   }
 

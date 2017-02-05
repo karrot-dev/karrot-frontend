@@ -85,6 +85,17 @@
   },
   "CREATEPICKUP": {
     "TITLE": "Create Pickup",
+    "SERIES": "Regular",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "MONDAY": "Monday",
+    "TUESDAY": "Tuesday",
+    "WEDNESDAY": "Wednesday",
+    "THURSDAY": "Thursday",
+    "FRIDAY": "Friday",
+    "SATURDAY": "Saturday",
+    "SUNDAY": "Sunday",
+    "HINT_MULTIPLE": "You can select multiple dates here.",
     "TIME": "Time",
     "TIME_ERROR": "enter a valid time: [hh:mm]",
     "MAX_COLLECTORS": "Max Slots"

@@ -1,5 +1,8 @@
+from itertools import zip_longest
+
 import dateutil.rrule
 from dateutil.relativedelta import relativedelta
+from django.db.models import Count
 
 from django.utils import timezone
 
@@ -18,7 +21,7 @@ class Store(BaseModel, LocationModel):
 class PickupDateSeriesManager(models.Manager):
     def create_all_pickup_dates(self):
         for series in self.all():
-            series.create_pickup_dates()
+            series.update_pickup_dates()
 
 
 class PickupDateSeries(BaseModel):
@@ -34,17 +37,16 @@ class PickupDateSeries(BaseModel):
     start_date = models.DateTimeField()
 
     def delete(self, *args, **kwargs):
-        self.delete_future_dates()
+        self.pickup_dates.filter(date__gte=timezone.now()).\
+            annotate(Count('collectors')).\
+            filter(collectors__count=0).\
+            delete()
         return super().delete(*args, **kwargs)
 
-    def delete_future_dates(self):
-        self.pickup_dates.filter(date__gte=timezone.now()).delete()
-
-    def create_pickup_dates(self, start=timezone.now):
+    def get_dates_for_rule(self, start_date):
         # using local time zone to avoid daylight saving time errors
         tz = self.store.group.timezone
-        # shifting period start time into the future avoids pickup dates which are only valid for a short time
-        period_start = start().astimezone(tz).replace(tzinfo=None) + relativedelta(minutes=5)
+        period_start = start_date.astimezone(tz).replace(tzinfo=None)
         start_date = self.start_date.astimezone(tz).replace(tzinfo=None)
         dates = dateutil.rrule.rrulestr(
             self.rule
@@ -54,23 +56,31 @@ class PickupDateSeries(BaseModel):
             period_start,
             period_start + relativedelta(weeks=self.store.weeks_in_advance)
         )
-        dates = [tz.localize(d) for d in dates]
+        return [tz.localize(d) for d in dates]
 
-        for _ in dates:
-            if self.pickup_dates.filter(date=_).exists():
-                continue
-            PickupDate.objects.create(
-                date=_,
-                max_collectors=self.max_collectors,
-                series=self,
-                store=self.store
-            )
-
-    def update_pickup_dates(self, fields):
-        for p in self.pickup_dates.filter(date__gte=timezone.now()):
-            for f in fields:
-                setattr(p, f, getattr(self, f))
-            p.save()
+    def update_pickup_dates(self, start=timezone.now):
+        # shifting period start time into the future avoids pickup dates which are only valid for a short time
+        start_date = start() + relativedelta(minutes=5)
+        for pickup, new_date in zip_longest(
+            self.pickup_dates.filter(date__gte=start_date),
+            self.get_dates_for_rule(start_date=start_date)
+        ):
+            if not pickup:
+                pickup = PickupDate.objects.create(
+                    date=new_date,
+                    max_collectors=self.max_collectors,
+                    series=self,
+                    store=self.store
+                )
+            if not new_date:
+                # only delete pickup dates when they are empty
+                if pickup.collectors.count() <= 0:
+                    pickup.delete()
+                    continue
+            if new_date:
+                pickup.date = new_date
+            pickup.max_collectors = self.max_collectors
+            pickup.save()
 
 
 class PickupDate(BaseModel):
@@ -90,5 +100,5 @@ class PickupDate(BaseModel):
     )
     date = models.DateTimeField()
     collectors = models.ManyToManyField(settings.AUTH_USER_MODEL)
-    max_collectors = models.IntegerField(null=True)
+    max_collectors = models.PositiveIntegerField(null=True)
     deleted = models.BooleanField(default=False)

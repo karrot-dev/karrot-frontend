@@ -1,5 +1,6 @@
 from datetime import timedelta
 
+from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from factory import DjangoModelFactory, SubFactory, LazyFunction
 from factory import LazyAttribute
@@ -40,5 +41,5 @@ class PickupDateSeries(DjangoModelFactory):
         model = PickupDateSeriesModel
 
     store = SubFactory(Store)
-    start_date = LazyAttribute(lambda _: timezone.now().replace(second=0, microsecond=0))
+    start_date = LazyAttribute(lambda _: timezone.now().replace(second=0, microsecond=0) + relativedelta(minutes=15))
     rule = 'FREQ=WEEKLY'

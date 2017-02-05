@@ -28,11 +28,11 @@ class TestPickupdatesAPIFilter(APITestCase):
 
         # a pickup date series
         cls.series = PickupDateSeries(store=cls.store)
-        cls.series.create_pickup_dates()
+        cls.series.update_pickup_dates()
 
         # another pickup date series
         cls.series2 = PickupDateSeries(store=cls.store)
-        cls.series2.create_pickup_dates()
+        cls.series2.update_pickup_dates()
 
     def test_filter_by_store(self):
         self.client.force_login(user=self.member)

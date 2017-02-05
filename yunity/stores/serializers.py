@@ -53,15 +53,15 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         series = self.Meta.model.objects.create(**validated_data)
-        series.create_pickup_dates()
+        series.update_pickup_dates()
         return series
 
     def update(self, series, validated_data):
-        for attr in ('max_collectors', ):
-            setattr(series, attr, validated_data.get(attr))
+        for attr in ('max_collectors', 'start_date', 'rule'):
+            if attr in validated_data:
+                setattr(series, attr, validated_data.get(attr))
         series.save()
-        series.create_pickup_dates()
-        series.update_pickup_dates(validated_data.keys())
+        series.update_pickup_dates()
         return series
 
     def validate_store(self, store_id):

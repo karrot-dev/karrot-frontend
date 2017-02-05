@@ -36,6 +36,7 @@ class PickupDateSeriesViewSet(
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
     mixins.ListModelMixin,
+    mixins.DestroyModelMixin,
     viewsets.GenericViewSet
 ):
     """

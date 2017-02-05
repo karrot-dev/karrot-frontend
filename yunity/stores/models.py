@@ -33,6 +33,10 @@ class PickupDateSeries(BaseModel):
     rule = models.TextField()
     start_date = models.DateTimeField()
 
+    def delete(self, *args, **kwargs):
+        self.pickup_dates.filter(date__gte=timezone.now()).delete()
+        return super().delete(*args, **kwargs)
+
     def create_pickup_dates(self, start=timezone.now):
         # using local time zone to avoid daylight saving time errors
         tz = self.store.group.timezone
@@ -67,7 +71,7 @@ class PickupDate(BaseModel):
     series = models.ForeignKey(
         'stores.PickupDateSeries',
         related_name='pickup_dates',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         null=True
     )
     store = models.ForeignKey(

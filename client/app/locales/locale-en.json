@@ -5,6 +5,11 @@
     "WARNING":"Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
   },
+  "ACTION_NOTICE": {
+    "TITLE": "Call for collaboration!",
+    "TEXT": "Are you interested in building up a foodsaving project or a foodsharing community? Do you know somebody who is already doing it?",
+    "MAIL_TEXT": "Write us a mail!"
+  },
   "USERDATA": {
     "EMAIL": "Mail",
     "PASSWORD": "Password",

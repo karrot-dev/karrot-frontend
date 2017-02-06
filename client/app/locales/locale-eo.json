@@ -14,7 +14,8 @@
     "CREATE": "Krei",
     "CANCEL": "Nuligi",
     "DELETE": "Forigi",
-    "JOIN": "Ensaluti"
+    "JOIN": "Ensaluti",
+    "LEAVE": "Forlasi"
   },
   "GROUP": {
     "LEAVE": "Forlasi la grupon…",

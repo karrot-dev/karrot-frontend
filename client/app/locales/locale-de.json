@@ -14,7 +14,8 @@
     "CREATE": "Erstellen",
     "CANCEL": "Abbrechen",
     "DELETE": "Löschen",
-    "JOIN": "Beitreten"
+    "JOIN": "Beitreten",
+    "LEAVE": "Verlassen"
   },
   "GROUP": {
     "LEAVE": "Gruppe verlassen",

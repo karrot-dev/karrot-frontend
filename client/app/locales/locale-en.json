@@ -14,10 +14,12 @@
     "CREATE": "Create",
     "CANCEL": "Cancel",
     "DELETE": "Delete",
-    "JOIN": "Join"
+    "JOIN": "Join",
+    "LEAVE": "Leave"
   },
   "GROUP": {
     "LEAVE": "Leave group...",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?", 
     "EDIT": "Edit group",
     "TITLE": "Title of this group",
     "DESCRIPTION": "Group description, visible for members",

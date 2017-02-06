@@ -14,10 +14,12 @@
     "CREATE": "Crear",
     "CANCEL": "Cancelar",
     "DELETE": "Eliminar",
-    "JOIN": "Unirse"
+    "JOIN": "Unirse",
+    "LEAVE": "Abandonar"
   },
   "GROUP": {
     "LEAVE": "Abandonar grupo...",
+    "LEAVE_TEXT": "¿De verdad quiere abandonar este grupo?",
     "EDIT": "Editar grupo",
     "TITLE": "Título de este grupo",
     "DESCRIPTION": "Descripción del grupo, visible para sus miembros",

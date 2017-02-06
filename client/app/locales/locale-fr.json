@@ -6,7 +6,8 @@
   },
   "BUTTON": {
     "CREATE": "créer",
-    "CANCEL": "Annuler"
+    "CANCEL": "Annuler",
+    "LEAVE": "Quitter"
   },
   "GROUP": {
     "LEAVE": "Quitter le groupe...",

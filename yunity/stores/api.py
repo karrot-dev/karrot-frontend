@@ -1,4 +1,3 @@
-from django.db import transaction
 from rest_framework import filters
 from rest_framework import mixins
 from rest_framework import viewsets, status
@@ -108,8 +107,7 @@ class PickupDateViewSet(
 
     def get_queryset(self):
         # FIXME: move this to a regular job (reduces server load)
-        with transaction.atomic():
-            PickupDateSeriesModel.objects.create_all_pickup_dates()
+        PickupDateSeriesModel.objects.create_all_pickup_dates()
         return self.queryset.filter(store__group__members=self.request.user).filter(deleted=False)
 
     @detail_route(methods=['POST'])

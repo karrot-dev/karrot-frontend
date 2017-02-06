@@ -2,6 +2,7 @@ from itertools import zip_longest
 
 import dateutil.rrule
 from dateutil.relativedelta import relativedelta
+from django.db import transaction
 from django.db.models import Count
 
 from django.utils import timezone
@@ -19,6 +20,7 @@ class Store(BaseModel, LocationModel):
 
 
 class PickupDateSeriesManager(models.Manager):
+    @transaction.atomic
     def create_all_pickup_dates(self):
         for series in self.all():
             series.update_pickup_dates()
@@ -36,6 +38,7 @@ class PickupDateSeries(BaseModel):
     rule = models.TextField()
     start_date = models.DateTimeField()
 
+    @transaction.atomic
     def delete(self, *args, **kwargs):
         self.pickup_dates.filter(date__gte=timezone.now()).\
             annotate(Count('collectors')).\

@@ -117,7 +117,8 @@
       "JOIN": "Join",
       "FULL": "Full!",
       "DELETE": "Delete pickup date",
-      "DELETE_TEXT": "Do you really want to delete this pickup date?"
+      "DELETE_TEXT": "Do you really want to delete this pickup date?",
+      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."

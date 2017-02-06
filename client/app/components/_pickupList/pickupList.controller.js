@@ -1,10 +1,11 @@
 class PickupListController {
 
-  constructor(Authentication, PickupDate, Store, $filter, $mdDialog, $document) {
+  constructor(Authentication, PickupDate, PickupDateSeries, Store, $filter, $mdDialog, $document) {
     "ngInject";
     Object.assign(this, {
       Authentication,
       PickupDate,
+      PickupDateSeries,
       Store,
       $filter,
       $mdDialog,
@@ -116,12 +117,19 @@ class PickupListController {
   }
 
   delete(pickup, $event) {
+    this.pickupToDelete = pickup;
     this.$mdDialog.show({
       contentElement: "#confirmDeleteDialog",
       parent: angular.element(this.$document.body),
       targetEvent: $event
     })
-    .then(() => this.PickupDate.delete(pickup.id))
+    .then(() => {
+      if (this.isDeleteSeries) {
+        return this.PickupDateSeries.delete(pickup.series);
+      } else {
+        return this.PickupDate.delete(pickup.id);
+      }
+    })
     .then(() => this.updatePickups())
     .catch(() => {});
 

@@ -74,13 +74,13 @@
           <div layout-margin>
             <div translate="PICKUPLIST.ITEM.DELETE_TEXT" flex></div>
             <div layout="row" layout-align="end center">
-              <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+              <md-button aria-label="{{'BUTTON.CANCEL' | translate}}" class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
                 <md-tooltip>
                   <span translate="BUTTON.CANCEL"></span>
                 </md-tooltip>
                 <i class="fa fa-times"></i>
               </md-button>
-              <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+              <md-button aria-label="{{'BUTTON.DELETE' | translate}}" class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
                 <md-tooltip>
                   <span translate="BUTTON.DELETE"></span>
                 </md-tooltip>

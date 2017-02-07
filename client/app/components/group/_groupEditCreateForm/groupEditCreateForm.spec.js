@@ -43,7 +43,7 @@ describe("GroupEditCreateForm", () => {
     });
 
     it("initializes without binding", () => {
-      let $ctrl = $componentController("groupEditCreateForm", {});
+      let $ctrl = $componentController("groupEditCreateForm", {}, { editData: {} });
       $ctrl.$onInit();
       expect($ctrl.query).to.be.undefined;
       expect($ctrl.marker).to.be.undefined;

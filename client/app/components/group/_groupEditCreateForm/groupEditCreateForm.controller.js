@@ -1,3 +1,5 @@
+import jstz from "jstimezonedetect";
+
 class GroupEditCreateFormController {
   constructor(Geocoding) {
     "ngInject";
@@ -14,6 +16,9 @@ class GroupEditCreateFormController {
 
   $onInit() {
     this.trySetLocation(this.editData);
+    if (!this.editData.timezone) {
+      this.editData.timezone = jstz.determine().name();
+    }
   }
 
   geoLookup() {

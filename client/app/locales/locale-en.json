@@ -33,7 +33,8 @@
     "MEMBERS": "Members",
     "STORES": "Stores",
     "DESCRIPTION": "Description",
-    "ADDRESS": "Address"
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

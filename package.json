@@ -17,6 +17,7 @@
     "angular-ui-router": "^1.0.0-beta.1",
     "angular-xeditable": "^0.5.0",
     "font-awesome": "^4.6.3",
+    "jstimezonedetect": "^1.0.6",
     "markdown-it": "^8.2.1",
     "markdown-it-link-attributes": "^1.0.0",
     "normalize.css": "^5.0.0",

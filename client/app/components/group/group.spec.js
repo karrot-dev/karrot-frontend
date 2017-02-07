@@ -58,14 +58,6 @@ describe("Group", () => {
       let $ctrl = $componentController("group", {});
       expect($ctrl).to.exist;
     });
-
-    it("should redirect to group.groupDetail.pickups", () => {
-      let groupData = { id: 12 };
-      $state.current.name = "group";
-      let $ctrl = $componentController("group", {});
-      Object.assign($ctrl, { groupData });
-      expect($state.go).to.have.been.calledWith("group.groupDetail.pickups");
-    });
   });
 
   describe("Route", () => {
@@ -74,11 +66,11 @@ describe("Group", () => {
     });
 
     let groupData = { id: 12 };
-    it("should load group information", () => {
+    it("should load group information & redirect", () => {
       $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
-      expect($state.current.component).to.equal("group");
+      expect($state.current.name).to.equal("group.groupDetail.pickups");
     });
   });
 

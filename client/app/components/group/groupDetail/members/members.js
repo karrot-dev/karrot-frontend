@@ -15,11 +15,7 @@ let MembersModule = angular.module("members", [
   $stateProvider
     .state("group.groupDetail.members", {
       url: "/members",
-      views: {
-        "detail@group.groupDetail": {
-          component: "members"
-        }
-      },
+      component: "members",
       ncyBreadcrumb: {
         label: "{{'GROUP.MEMBERS' | translate}}"
       }

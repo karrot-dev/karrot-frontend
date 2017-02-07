@@ -121,7 +121,7 @@ describe("StoreDetail", () => {
           $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
           $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });
           $httpBackend.flush();
-          expect($state.current.views["mainView@group"].component).to.equal("storeDetail");
+          expect($state.current.component).to.equal("storeDetail");
         });
       });
 

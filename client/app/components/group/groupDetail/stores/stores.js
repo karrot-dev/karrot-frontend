@@ -22,11 +22,7 @@ let storesModule = angular.module("stores", [
           return "group";
         }
       },
-      views: {
-        "detail@group.groupDetail": {
-          component: "stores"
-        }
-      }
+      component: "stores"
     });
 })
 

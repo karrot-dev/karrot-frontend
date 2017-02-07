@@ -23,11 +23,7 @@ let storeDetailModule = angular.module("storeDetail", [
   $stateProvider
     .state("group.store", {
       url: "/store/{storeId:int}",
-      views: {
-        "mainView@group": {
-          component: "storeDetail"
-        }
-      },
+      component: "storeDetail",
       resolve: {
         storedata: (Store, $stateParams) => {
           return Store.get($stateParams.storeId);

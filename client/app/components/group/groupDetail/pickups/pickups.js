@@ -14,11 +14,7 @@ let pickupsModule = angular.module("pickups", [
   "ngInject";
   $stateProvider
     .state("group.groupDetail.pickups", {
-      views: {
-        "detail@group.groupDetail": {
-          component: "pickups"
-        }
-      },
+      component: "pickups",
       ncyBreadcrumb: {
         label: "{{'GROUP.PICKUPS' | translate}}"
       }

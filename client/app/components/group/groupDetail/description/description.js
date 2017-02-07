@@ -22,11 +22,7 @@ let descriptionModule = angular.module("description", [
           return "group";
         }
       },
-      views: {
-        "detail@group.groupDetail": {
-          component: "description"
-        }
-      },
+      component: "description",
       ncyBreadcrumb: {
         label: "{{'GROUP.DESCRIPTION' | translate}}"
       }

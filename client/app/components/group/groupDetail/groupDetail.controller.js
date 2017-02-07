@@ -1,8 +1,8 @@
 class GroupDetailController {
-  constructor(Group, $state, CurrentGroup, $mdMedia) {
+  constructor(GroupService, $state, CurrentGroup, $mdMedia) {
     "ngInject";
     Object.assign(this, {
-      Group,
+      GroupService,
       $state,
       CurrentGroup,
       groupData: $state.groupData,
@@ -17,7 +17,7 @@ class GroupDetailController {
   }
 
   leaveGroup() {
-    this.Group.leave(this.groupData.id)
+    this.GroupService.leave(this.groupData.id)
       .then(() => {
         if (this.CurrentGroup.value.id === this.groupData.id) {
           this.CurrentGroup.clear();
@@ -30,7 +30,7 @@ class GroupDetailController {
   }
 
   updateGroupData() {
-    return this.Group.save(this.groupData);
+    return this.GroupService.save(this.groupData);
   }
 
 }

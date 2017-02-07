@@ -1,16 +1,16 @@
 class HomeController {
-  constructor($state, $document, $mdDialog, Group) {
+  constructor($state, $document, $mdDialog, GroupService) {
     "ngInject";
     Object.assign(this, {
       $state,
       $document,
       $mdDialog,
-      Group
+      GroupService
     });
   }
 
   $onInit() {
-    this.Group.listMy().then((data) => {
+    this.GroupService.listMy().then((data) => {
       if (data.length > 0) {
         this.$state.go("group", { groupId: data[0].id });
       } else {

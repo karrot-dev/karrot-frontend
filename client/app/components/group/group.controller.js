@@ -1,5 +1,5 @@
 class GroupController {
-  constructor($state, $scope, $mdMedia) {
+  constructor($state, $mdMedia) {
     "ngInject";
     Object.assign(this, {
       $state,

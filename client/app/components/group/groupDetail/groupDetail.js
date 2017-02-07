@@ -7,7 +7,7 @@ import members from "./members/members";
 import pickups from "./pickups/pickups";
 import stores from "./stores/stores";
 import expandablePanel from "../../_expandablePanel/expandablePanel";
-import groupModule from "../../../common/group/group";
+import GroupService from "../../../common/group/group";
 
 let groupDetailModule = angular.module("groupDetail", [
   uiRouter,
@@ -17,7 +17,7 @@ let groupDetailModule = angular.module("groupDetail", [
   pickups,
   stores,
   expandablePanel,
-  groupModule
+  GroupService
 ])
 
 .component("groupDetail", groupDetailComponent)

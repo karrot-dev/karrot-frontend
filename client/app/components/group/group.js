@@ -25,8 +25,8 @@ let groupPageModule = angular.module("group", [
       redirectTo: "group.groupDetail.pickups",
       component: "group",
       resolve: {
-        groupData: ($state, Group, CurrentGroup, $stateParams) => {
-          return Group.get($stateParams.groupId).then((group) => {
+        groupData: ($state, GroupService, CurrentGroup, $stateParams) => {
+          return GroupService.get($stateParams.groupId).then((group) => {
             CurrentGroup.set(group);
             $state.groupData = group;
             return group;

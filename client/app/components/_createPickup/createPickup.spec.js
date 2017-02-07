@@ -43,10 +43,10 @@ describe("CreatePickup", () => {
   });
 
   describe("Controller", () => {
-    let controller;
+    let $ctrl;
 
     beforeEach(() => {
-      controller = $componentController("createPickup", {
+      $ctrl = $componentController("createPickup", {
       }, {
         storeId: 2,
         pickuplistCtrl: {
@@ -55,8 +55,9 @@ describe("CreatePickup", () => {
       });
     });
 
-    it("test pickup creation", () => {
-      controller.pickupData = {
+    it("creates one-time pickup", () => {
+      $ctrl.isSeries = false;
+      $ctrl.pickupData = {
         date: "07/14/2016",
         time: {
           getHours: () => {
@@ -68,11 +69,42 @@ describe("CreatePickup", () => {
         },
         maxCollectors: 5
       };
-      controller.createPickup();
-
+      $ctrl.createPickup();
+      let date = new Date(2016, 6, 14, 15, 22, 0);
       $httpBackend.expectPOST("/api/pickup-dates/", {
-        max_collectors: 5, // eslint-disable-line
-        date: controller.date.toISOString(),
+        "max_collectors": 5,
+        date: date.toISOString(),
+        store: 2
+      }).respond(201, "success");
+      $httpBackend.flush();
+    });
+
+    it("creates regular pickup", () => {
+      $ctrl.isSeries = true;
+      $ctrl.byDay =  ["MO","TU"];
+      $ctrl.pickupData = {
+        time: {
+          getHours: () => {
+            return 15;
+          },
+          getMinutes: () => {
+            return 22;
+          }
+        },
+        maxCollectors: 5
+      };
+      $ctrl.createPickup();
+
+      let startDate = new Date();
+      startDate.setHours(15);
+      startDate.setMinutes(22);
+      startDate.setSeconds(0);
+      startDate.setMilliseconds(0);
+
+      $httpBackend.expectPOST("/api/pickup-date-series/", {
+        "max_collectors": 5,
+        "start_date": startDate.toISOString(),
+        rule: "FREQ=WEEKLY;BYDAY=MO,TU",
         store: 2
       }).respond(201, "success");
       $httpBackend.flush();

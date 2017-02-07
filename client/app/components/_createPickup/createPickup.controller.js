@@ -19,6 +19,7 @@ class CreatePickupController {
     newDate.setHours(time.getHours());
     newDate.setMinutes(time.getMinutes());
     newDate.setSeconds(0);
+    newDate.setMilliseconds(0);
     return newDate;
   }
 

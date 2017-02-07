@@ -6,10 +6,12 @@ class CreateGroupController {
     Object.assign(this, {
       $state,
       Group,
-      groupData: {
-        timezone: jstz.determine().name()
-      }
+      groupData: {}
     });
+  }
+
+  $onInit() {
+    this.groupData.timezone = jstz.determine().name();
   }
 
   createGroup() {

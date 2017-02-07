@@ -34,12 +34,21 @@ describe("CreateGroup", () => {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
+    it("runs OnInit", () => {
+      let $ctrl = $componentController("createGroup", {});
+      expect($ctrl.groupData.timezone).to.be.undefined;
+      $ctrl.$onInit();
+      expect($ctrl.groupData.timezone).to.be.defined;
+    });
+
     it("creates group", () => {
       let $ctrl = $componentController("createGroup", {});
       $ctrl.groupData.name = "blabla";
+      $ctrl.groupData.timezone = "Europe/Madrid";
       $ctrl.createGroup();
       $httpBackend.expectPOST("/api/groups/", {
-        name: "blabla"
+        name: "blabla",
+        timezone: "Europe/Madrid"
       }).respond(201, { id: 987 });
       $httpBackend.flush();
       expect($state.go).to.have.been.calledWith("groupDetail", { groupId: 987 });

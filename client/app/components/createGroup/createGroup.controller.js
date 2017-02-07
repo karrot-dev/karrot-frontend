@@ -1,10 +1,14 @@
+import jstz from "jstimezonedetect";
+
 class CreateGroupController {
   constructor($state, Group) {
     "ngInject";
     Object.assign(this, {
       $state,
       Group,
-      groupData: {}
+      groupData: {
+        timezone: jstz.determine().name()
+      }
     });
   }
 

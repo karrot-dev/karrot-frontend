@@ -25,7 +25,8 @@
     "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
-    "STORES": "Stores"
+    "STORES": "Stores",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

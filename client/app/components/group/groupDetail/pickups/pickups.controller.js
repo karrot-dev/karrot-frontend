@@ -1,16 +1,18 @@
 class PickupsController {
   constructor($stateParams) {
     "ngInject";
-    this.pickupListOptions = {
-      showDetail: "store",
-      showTopbar: true,
-      filter: {
-        showJoined: true,
-        showOpen: true,
-        showFull: false
-      },
-      groupId: $stateParams.groupId
-    };
+    Object.assign(this, {
+      groupId: $stateParams.groupId,
+      pickupListOptions: {
+        showDetail: "store",
+        showTopbar: true,
+        filter: {
+          showJoined: true,
+          showOpen: true,
+          showFull: false
+        }
+      }
+    });
   }
 }
 

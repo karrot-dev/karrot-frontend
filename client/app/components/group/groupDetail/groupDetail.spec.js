@@ -92,5 +92,13 @@ describe("GroupDetail", () => {
       $httpBackend.flush();
       expect(feedback).to.eventually.deep.equal(groupData);
     });
+
+    it("highlights correct tab", () => {
+      let groupData = { id: 667, name: "blarb" };
+      $state.current.name = "group.groupDetail.pickups";
+      let $ctrl = $componentController("groupDetail", {});
+      $ctrl.groupData = groupData;
+      expect($ctrl.currentNavItem).to.equal("pickups");
+    });
   });
 });

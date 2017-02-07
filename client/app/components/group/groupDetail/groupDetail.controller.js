@@ -11,6 +11,9 @@ class GroupDetailController {
       },
       $mdMedia
     });
+
+    // set currentNavItem on redirect
+    this.currentNavItem = $state.current.name.replace("group.groupDetail.", "");
   }
 
   leaveGroup() {

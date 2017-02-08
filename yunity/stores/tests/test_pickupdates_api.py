@@ -144,7 +144,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         for response_pickup, old_date in zip(response.data, original_dates):
             self.assertEqual(parse(response_pickup['date']), old_date + relativedelta(hours=2, minutes=20))
 
-    def test_change_start_date(self):
+    def test_change_start_date_to_future(self):
         self.client.force_login(user=self.member)
         # get original dates
         url = '/api/pickup-dates/'
@@ -165,7 +165,32 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for response_pickup, old_date in zip_longest(response.data, original_dates):
             new_date = old_date + relativedelta(days=5)
+            self.assertEqual(parse(response_pickup['date']), new_date)
+
+    def test_change_start_date_to_past(self):
+        self.client.force_login(user=self.member)
+        # get original dates
+        url = '/api/pickup-dates/'
+        response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        original_dates = [parse(_['date']) for _ in response.data]
+
+        # change dates
+        url = '/api/pickup-date-series/{}/'.format(self.series.id)
+        new_startdate = self.series.start_date + relativedelta(days=-5)
+        response = self.client.patch(url, {'start_date': new_startdate.isoformat()})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(parse(response.data['start_date']), new_startdate)
+
+        # compare resulting pickups
+        url = '/api/pickup-dates/'
+        response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        # shifting 5 days to the past is similar to shifting 2 days to the future
+        new_dates = [_ + relativedelta(days=2) for _ in original_dates if (_ + relativedelta(days=2)) > self.now]
+        for response_pickup, new_date in zip_longest(response.data, new_dates):
             if new_date > self.now + relativedelta(weeks=self.store.weeks_in_advance):
+                # date too far in future
                 self.assertIsNone(response_pickup)
             else:
                 self.assertEqual(parse(response_pickup['date']), new_date)
@@ -222,6 +247,31 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(response.data['collector_ids'], [self.member.id, ])
+
+    def test_change_max_collectors_to_invalid_number_fails(self):
+        self.client.force_login(user=self.member)
+        url = '/api/pickup-date-series/{}/'.format(self.series.id)
+        response = self.client.patch(url, {'max_collectors': 0})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+        self.assertEqual(response.data, {'max_collectors': ['The number of collectors should be greater than 0.']})
+
+    def test_set_invalid_store_fails(self):
+        unrelated_store = Store()
+
+        self.client.force_login(user=self.member)
+        url = '/api/pickup-date-series/{}/'.format(self.series.id)
+        response = self.client.patch(url, {'store': unrelated_store.id})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+        self.assertEqual(response.data, {'store': ["You are not member of the store's group."]})
+
+    def test_set_multiple_rules_fails(self):
+        self.client.force_login(user=self.member)
+        url = '/api/pickup-date-series/{}/'.format(self.series.id)
+        response = self.client.patch(url, {
+            'rule': 'RRULE:FREQ=WEEKLY;BYDAY=MO\nRRULE:FREQ=MONTHLY'
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+        self.assertEqual(response.data, {'rule': ['we only handle single rrules']})
 
 
 class TestPickupDatesAPI(APITestCase):

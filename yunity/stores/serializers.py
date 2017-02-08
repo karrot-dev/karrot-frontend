@@ -70,8 +70,6 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
         return store_id
 
     def validate_start_date(self, date):
-        if timezone.is_naive(date):
-            return serializers.ValidationError('should be timezone-aware (contain timezone information)')
         date = date.replace(second=0, microsecond=0)
         return date
 
@@ -83,7 +81,7 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
     def validate_rule(self, rule_string):
         rrule = dateutil.rrule.rrulestr(rule_string)
         if not isinstance(rrule, dateutil.rrule.rrule):
-            raise Exception('we only handle single rrules')
+            raise serializers.ValidationError('we only handle single rrules')
         return rule_string
 
 

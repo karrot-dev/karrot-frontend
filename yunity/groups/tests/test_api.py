@@ -91,6 +91,13 @@ class TestGroupsAPI(APITestCase):
         response = self.client.patch(url, self.group_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_change_timezone_to_invalid_value_fails(self):
+        self.client.force_login(user=self.member)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.patch(url, {'timezone': 'alksjdflkajw'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+        self.assertEqual(response.data, {'timezone': ['Unknown timezone']})
+
     def test_put_group(self):
         url = self.url + str(self.group.id) + '/'
         response = self.client.put(url, self.group_data, format='json')

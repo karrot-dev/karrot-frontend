@@ -1,6 +1,7 @@
 from datetime import timedelta
 
 import dateutil.rrule
+from django.db import transaction
 from django.utils import timezone
 from rest_framework import serializers
 
@@ -96,6 +97,19 @@ class StoreSerializer(serializers.ModelSerializer):
             }
         }
 
+    def update(self, instance, validated_data):
+        update_generated_pickups = False
+        if 'weeks_in_advance' in validated_data and validated_data['weeks_in_advance'] != instance.weeks_in_advance:
+            update_generated_pickups = True
+        instance = super().update(instance, validated_data)
+
+        if update_generated_pickups:
+            with transaction.atomic():
+                for series in instance.series.all():
+                    series.update_pickup_dates()
+
+        return instance
+
     def validate(self, data):
         if 'description' not in data:
             data['description'] = ''
@@ -105,3 +119,8 @@ class StoreSerializer(serializers.ModelSerializer):
         if group_id not in self.context['request'].user.groups.all():
             raise serializers.ValidationError('You are not member of the given group.')
         return group_id
+
+    def validate_weeks_in_advance(self, w):
+        if w < 1:
+            raise serializers.ValidationError('Set at least one week in advance')
+        return w

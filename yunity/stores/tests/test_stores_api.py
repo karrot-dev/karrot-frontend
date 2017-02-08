@@ -1,7 +1,12 @@
+from itertools import zip_longest
+
+from dateutil.parser import parse
+from dateutil.relativedelta import relativedelta
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 from yunity.groups.factories import Group
-from yunity.stores.factories import Store
+from yunity.stores.factories import Store, PickupDateSeries
 from yunity.users.factories import UserFactory
 from yunity.utils.tests.fake import faker
 
@@ -131,3 +136,61 @@ class TestStoresAPI(APITestCase):
         self.client.force_login(user=self.member)
         response = self.client.delete(self.store_url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+
+class TestStoreChangesPickupDateSeriesAPI(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.now = timezone.now()
+        cls.url = '/api/stores/'
+        cls.member = UserFactory()
+        cls.group = Group(members=[cls.member, ])
+        cls.store = Store(group=cls.group)
+        cls.store_url = cls.url + str(cls.store.id) + '/'
+        cls.series = PickupDateSeries(max_collectors=3, store=cls.store)
+        cls.series.update_pickup_dates(start=lambda: cls.now)
+
+    def test_reduce_weeks_in_advance(self):
+        self.client.force_login(user=self.member)
+
+        url = '/api/pickup-dates/'
+        response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        original_dates = [parse(_['date']) for _ in response.data]
+
+        response = self.client.patch(self.store_url, {'weeks_in_advance': 2})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(response.data['weeks_in_advance'], 2)
+
+        url = '/api/pickup-dates/'
+        response = self.client.get(url, {'series': self.series.id})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        new_dates = [_ for _ in original_dates if _ < self.now + relativedelta(weeks=2)]
+        for return_date, new_date in zip_longest(response.data, new_dates):
+            self.assertIsNotNone(return_date)  # would be too far in future
+            self.assertEqual(parse(return_date['date']), new_date)
+
+    def test_increase_weeks_in_advance(self):
+        self.client.force_login(user=self.member)
+
+        url = '/api/pickup-dates/'
+        response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        original_dates = [parse(_['date']) for _ in response.data]
+
+        response = self.client.patch(self.store_url, {'weeks_in_advance': 10})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(response.data['weeks_in_advance'], 10)
+
+        url = '/api/pickup-dates/'
+        response = self.client.get(url, {'series': self.series.id})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertGreater(len(response.data), len(original_dates))
+        for return_date in response.data:
+            self.assertLessEqual(parse(return_date['date']), self.now + relativedelta(weeks=10))
+
+    def test_set_weeks_to_invalid_value(self):
+        self.client.force_login(user=self.member)
+        response = self.client.patch(self.store_url, {'weeks_in_advance': 0})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)

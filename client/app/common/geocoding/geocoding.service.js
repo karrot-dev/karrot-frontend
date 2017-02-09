@@ -8,14 +8,22 @@ class GeocodingService {
 
   lookupAddress(address) {
     return this.$http.get("https://nominatim.openstreetmap.org/search", {
-      params: { format: "json", limit: 1, q: address }
-    }).then((data) => {
-      let hit = data.data[0];
-      return {
-        latitude: parseFloat(hit.lat),
-        longitude: parseFloat(hit.lon),
-        name: hit.display_name
-      };
+      params: { format: "json", q: address }
+    }).then((res) => {
+      console.log(res)
+      return res.data.map(p => {
+        return {
+          lat: parseFloat(p.lat),
+          lng: parseFloat(p.lon),
+          name: p.display_name
+        }
+      })
+      // let hit = data.data[0];
+      // return {
+      //   latitude: parseFloat(hit.lat),
+      //   longitude: parseFloat(hit.lon),
+      //   name: hit.display_name
+      // };
     });
   }
 }

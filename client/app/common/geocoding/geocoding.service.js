@@ -18,12 +18,6 @@ class GeocodingService {
           name: p.display_name
         }
       })
-      // let hit = data.data[0];
-      // return {
-      //   latitude: parseFloat(hit.lat),
-      //   longitude: parseFloat(hit.lon),
-      //   name: hit.display_name
-      // };
     });
   }
 }

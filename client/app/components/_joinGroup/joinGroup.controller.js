@@ -1,11 +1,15 @@
 class JoinGroupController {
-  constructor($mdDialog, Group, Authentication) {
+  constructor($mdDialog, Group, Authentication, $scope) {
     "ngInject";
     Object.assign(this, {
       $mdDialog,
       Group,
       Authentication,
-      groups: []
+      $scope,
+      groups: [],
+      active: null,
+      check: false,
+      password: ''
     });
   }
 
@@ -21,11 +25,27 @@ class JoinGroupController {
       });
     });
   }
+  toggle(group) {
+    if(this.active && this.active.id == group.id) this.active = null
+    else this.active = group
+  }
+  toggleCheck() {
+    if(this.active.protected) {
+      this.check = true
+    } else {
+      this.joinGroup()
+    }
+  }
 
-  joinGroup (group) {
-    return this.Group.join(group.id, { password: group.password })
+  joinGroup() {
+    return this.Group.join(this.active.id, { password: this.password })
     .then(() => {
-      this.$mdDialog.hide(group.id);
+      this.$mdDialog.hide(this.active.id);
+    })
+    .catch(() => {
+      // TODO: set form to invalid
+      // following does not work:
+      // this.$scope.form.password.$setValidity("check", false);
     });
   }
 }

@@ -2,10 +2,16 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import createGroupComponent from "./createGroup.component";
 import GroupService from "../../common/group/group";
+import Geocoding from "../../common/geocoding/geocoding";
+import "leaflet";
+import "ui-leaflet";
+import "leaflet/dist/leaflet.css"; // looks in node_modules
 
 let createGroupModule = angular.module("createGroup", [
   uiRouter,
-  GroupService
+  GroupService,
+  Geocoding,
+  "ui-leaflet"
 ])
 
 .component("createGroup", createGroupComponent)

@@ -33,9 +33,9 @@ describe("geocoding", () => {
       lon: "2.99",
       display_name: "something" // eslint-disable-line
     }];
-    $httpBackend.expectGET("https://nominatim.openstreetmap.org/search?format=json&q=enter_some")
+    $httpBackend.expectGET("https://nominatim.openstreetmap.org/search?accept-language=en&format=json&q=enter_some")
       .respond(latlonname);
-    expect(Geocoding.lookupAddress("enter_some"))
+    expect(Geocoding.lookupAddress("enter_some", "en"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal([
         {

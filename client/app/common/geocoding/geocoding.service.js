@@ -1,16 +1,17 @@
 class GeocodingService {
-  constructor($http) {
+  constructor($http, $translate) {
     "ngInject";
     Object.assign(this, {
-      $http
+      $http,
+      $translate
     });
   }
 
-  lookupAddress(address) {
+  lookupAddress(address, lang=false) {
+    if(!lang) lang = this.$translate.use()
     return this.$http.get("https://nominatim.openstreetmap.org/search", {
-      params: { format: "json", q: address }
+      params: { "accept-language":lang, format: "json", q: address }
     }).then((res) => {
-      console.log(res)
       return res.data.map(p => {
         return {
           lat: parseFloat(p.lat),

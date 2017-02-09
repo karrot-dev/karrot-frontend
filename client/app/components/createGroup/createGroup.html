@@ -11,16 +11,37 @@
     <input type="text" ng-model="$ctrl.groupData.description"/>
   </md-input-container>
 
-  <md-input-container>
+  <!-- <md-input-container>
     <label translate="CREATEGROUP.ADDRESS"></label>
     <input type="text" ng-model="$ctrl.groupData.address"/>
-  </md-input-container>
+  </md-input-container> -->
+
+  <md-autocomplete
+    placeholder="Location"
+    md-item-text="item.name"
+    md-search-text="query"
+    md-items="item in $ctrl.geoLookup(query)"
+    md-selected-item-change="$ctrl.setGeo(item)"
+    required>
+    <md-item-template>
+      <span md-highlight-text="query">{{item.name}}</span>
+    </md-item-template>
+  </md-autocomplete>
+    <leaflet
+      height="200"
+      center="$ctrl.mapCenter"
+      defaults="$ctrl.mapDefaults"
+      markers="{p:$ctrl.groupData}"
+      class="md-whiteframe-z1"></leaflet>
+
+
 
   <md-button-container>
     <md-button class="md-raised md-accent" type="submit" ng-disabled="createGroupForm.$invalid">
       <span translate="BUTTON.CREATE"></span>
     </md-button>
   </md-button-container>
+
   {{$ctrl.error.msg}}
   </span>
 </form>

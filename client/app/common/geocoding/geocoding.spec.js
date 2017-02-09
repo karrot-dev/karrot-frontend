@@ -33,15 +33,17 @@ describe("geocoding", () => {
       lon: "2.99",
       display_name: "something" // eslint-disable-line
     }];
-    $httpBackend.expectGET("https://nominatim.openstreetmap.org/search?format=json&limit=1&q=enter_some")
+    $httpBackend.expectGET("https://nominatim.openstreetmap.org/search?format=json&q=enter_some")
       .respond(latlonname);
     expect(Geocoding.lookupAddress("enter_some"))
       .to.be.fulfilled.and
-      .to.eventually.deep.equal({
-        latitude: 1.99,
-        longitude: 2.99,
-        name: "something"
-      });
+      .to.eventually.deep.equal([
+        {
+          lat: 1.99,
+          lng: 2.99,
+          name: "something"
+        }
+      ]);
     $httpBackend.flush();
   });
 

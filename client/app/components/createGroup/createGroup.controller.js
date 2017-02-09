@@ -15,16 +15,16 @@ class CreateGroupController {
     });
   }
   geoLookup(query) {
-    return this.Geocoding.lookupAddress(query)
+    return this.Geocoding.lookupAddress(query);
   }
   setGeo(item) {
-    if(!item) return
-    this.mapCenter.zoom = 10
-    this.groupData.lat = item.lat
-    this.groupData.lng = item.lng
-    this.groupData.address = item.name
-    this.mapCenter.lat = item.lat
-    this.mapCenter.lng = item.lng
+    if (!item) return;
+    this.mapCenter.zoom = 10;
+    this.groupData.lat = item.lat;
+    this.groupData.lng = item.lng;
+    this.groupData.address = item.name;
+    this.mapCenter.lat = item.lat;
+    this.mapCenter.lng = item.lng;
   }
   createGroup() {
     this.Group.create(this.groupData).then((data) => {

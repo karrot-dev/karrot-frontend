@@ -22,6 +22,7 @@
     md-search-text="query"
     md-items="item in $ctrl.geoLookup(query)"
     md-selected-item-change="$ctrl.setGeo(item)"
+    md-delay="500"
     required>
     <md-item-template>
       <span md-highlight-text="query">{{item.name}}</span>

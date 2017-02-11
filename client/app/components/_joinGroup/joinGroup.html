@@ -1,4 +1,4 @@
-<md-dialog-content ng-if="!$ctrl.check">
+<div layout="column" layout-fill style="overflow: hidden">
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>
@@ -7,62 +7,64 @@
       </h2>
     </div>
   </md-toolbar>
-  <md-list>
-    <md-list-item>
-      <span translate="JOINGROUP.NAME"></span>
-      <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
-    </md-list-item>
-    <md-divider></md-divider>
-    <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0">
-      <div layout="column" flex>
-        <div layout>
-          <md-button class="join-group-expand" ng-click="$ctrl.toggle(group)" flex>
-            <i class="fa fa-group"></i>
-            <span>{{group.name}}</span>
-            <i ng-if="group.protected" class="fa fa-lock"></i>
-          </md-button>
-          <span class="md-secondary">{{group.members.length}}</span>
-        </div>
-        <div ng-if="$ctrl.active && $ctrl.active.id == group.id" class="description">
-          <div ng-if="group.public_description">{{group.public_description}}</div>
-          <em ng-if="!group.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
-          <div layout layout-align="end center">
-            <md-button class="md-raised md-primary" ng-click="$ctrl.toggleCheck()">
-              <span translate="BUTTON.JOIN"></span>
-              <i class="fa fa-arrow-circle-right"></i>
+  <md-content ng-if="!$ctrl.check">
+    <md-list>
+      <md-list-item>
+        <span translate="JOINGROUP.NAME"></span>
+        <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0">
+        <div layout="column" flex>
+          <div layout>
+            <md-button class="join-group-expand" ng-click="$ctrl.toggle(group)" flex>
+              <i class="fa fa-group"></i>
+              <span>{{group.name}}</span>
+              <i ng-if="group.protected" class="fa fa-lock"></i>
             </md-button>
+            <span class="md-secondary">{{group.members.length}}</span>
+          </div>
+          <div ng-if="$ctrl.active && $ctrl.active.id == group.id" class="description">
+            <div ng-if="group.public_description">{{group.public_description}}</div>
+            <em ng-if="!group.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
+            <div layout layout-align="end center">
+              <md-button class="md-raised md-primary" ng-click="$ctrl.toggleCheck()">
+                <span translate="BUTTON.JOIN"></span>
+                <i class="fa fa-arrow-circle-right"></i>
+              </md-button>
+            </div>
           </div>
         </div>
-      </div>
-    </md-list-item>
-</md-dialog-content>
+      </md-list-item>
+    </md-list>
+  </md-content>
 
-<md-dialog-content ng-if="$ctrl.check">
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h2>
-        <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-group"></i>
-        <span>{{$ctrl.active.name}}</span>
-      </h2>
-    </div>
-  </md-toolbar>
-  <form name="form" ng-submit="$ctrl.joinGroup()" style="text-align:center">
-    <h4 translate="JOINGROUP.PASSWORD_LABEL"></h4>
-    <md-input-container>
-      <input name="password" ng-model="$ctrl.password" required type="text"- ng-keypress="form.password.$setValidity('check',true)">
-      <div ng-messages="form.password.$error">
-        <div ng-message="required" translate="JOINGROUP.PASSWORD_REQUIRED"></div>
-        <div ng-message="check" translate="JOINGROUP.PASSWORD_WRONG"></div>
+  <md-content ng-if="$ctrl.check">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-group"></i>
+          <span>{{$ctrl.active.name}}</span>
+        </h2>
       </div>
-    </md-input-container>
-    <md-button class="md-raised md-primary" type="submit" ng-disabled="!form.$valid">
-      <i class="fa fa-arrow-circle-right"></i>
-      <md-tooltip>
-        <span translate="BUTTON.JOIN"></span>
-      </md-tooltip>
-    </md-button>
-  </form>
-</md-dialog-content>
+    </md-toolbar>
+    <form name="form" ng-submit="$ctrl.joinGroup()" style="text-align:center">
+      <h4 translate="JOINGROUP.PASSWORD_LABEL"></h4>
+      <md-input-container>
+        <input name="password" ng-model="$ctrl.password" required type="text"- ng-keypress="form.password.$setValidity('check',true)">
+        <div ng-messages="form.password.$error">
+          <div ng-message="required" translate="JOINGROUP.PASSWORD_REQUIRED"></div>
+          <div ng-message="check" translate="JOINGROUP.PASSWORD_WRONG"></div>
+        </div>
+      </md-input-container>
+      <md-button class="md-raised md-primary" type="submit" ng-disabled="!form.$valid">
+        <i class="fa fa-arrow-circle-right"></i>
+        <md-tooltip>
+          <span translate="BUTTON.JOIN"></span>
+        </md-tooltip>
+      </md-button>
+    </form>
+</md-content>
 
 
 <md-dialog-actions>
@@ -70,3 +72,4 @@
     <span translate="BUTTON.CANCEL"></span>
   </md-button>
 </md-dialog-actions>
+  </div>

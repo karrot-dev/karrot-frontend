@@ -38,9 +38,7 @@ describe("JoinGroup", () => {
       let $ctrl = $componentController("joinGroup", {});
       $ctrl.$onInit();
       $httpBackend.expectGET("/api/groups/?include_empty=False").respond([]);
-      $ctrl.active = {
-        id: 1337
-      };
+      $ctrl.active = { id: 1337 };
       let response = $ctrl.joinGroup();
       $httpBackend.expectPOST("/api/groups/1337/join/").respond();
       $httpBackend.expectGET("/api/auth/status/").respond([]);
@@ -52,28 +50,28 @@ describe("JoinGroup", () => {
 
     it("should change active group", () => {
       let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = {id:1337};
-      $ctrl.toggle({id:5555});
+      $ctrl.active = { id: 1337 };
+      $ctrl.toggle({ id: 5555 });
       expect($ctrl.active.id).to.equal(5555);
     });
 
     it("should close on click on active group", () => {
       let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = {id:1337};
-      $ctrl.toggle({id:1337});
+      $ctrl.active = { id: 1337 };
+      $ctrl.toggle({ id: 1337 });
       expect($ctrl.active).to.be.null;
     });
 
     it("should toggle check if group is protected", () => {
       let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = {id:1337, protected:true};
+      $ctrl.active = { id: 1337, protected: true };
       $ctrl.toggleCheck();
       expect($ctrl.check).to.be.true;
     });
     it("should join group directly if group is not protected", () => {
       let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = {id:1337, protected:false};
-      $ctrl.toggleCheck()
+      $ctrl.active = { id: 1337, protected: false };
+      $ctrl.toggleCheck();
       $httpBackend.expectPOST("/api/groups/1337/join/").respond();
       $httpBackend.flush();
 

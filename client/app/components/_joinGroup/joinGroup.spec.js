@@ -38,7 +38,10 @@ describe("JoinGroup", () => {
       let $ctrl = $componentController("joinGroup", {});
       $ctrl.$onInit();
       $httpBackend.expectGET("/api/groups/?include_empty=False").respond([]);
-      let response = $ctrl.joinGroup({ id: 1337 });
+      $ctrl.active = {
+        id: 1337
+      };
+      let response = $ctrl.joinGroup();
       $httpBackend.expectPOST("/api/groups/1337/join/").respond();
       $httpBackend.expectGET("/api/auth/status/").respond([]);
       $httpBackend.flush();

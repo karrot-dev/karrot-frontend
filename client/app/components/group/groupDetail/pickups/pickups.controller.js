@@ -5,7 +5,7 @@ class PickupsController {
       groupId: $stateParams.groupId,
       pickupListOptions: {
         showDetail: "store",
-        showTopbar: true,
+        showTopbar: false,
         filter: {
           showJoined: true,
           showOpen: true,

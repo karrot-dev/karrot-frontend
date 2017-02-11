@@ -1,14 +1,14 @@
-<div layout="column" layout-fill style="overflow: hidden">
+<div layout="column" style="height: 100%">
   <md-toolbar ng-if="!$ctrl.check">
     <div class="md-toolbar-tools">
       <h2>
-        <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-group"></i>
+        <i style="font-size: 1.2em; margin-right: 1em;" class="fa fa-group"></i>
         <span translate="JOINGROUP.WHICHGROUP"></span>
       </h2>
     </div>
   </md-toolbar>
-  <md-content ng-if="!$ctrl.check">
-    <md-list>
+  <md-content ng-if="!$ctrl.check" flex style="overflow: auto">
+    <md-list style="overflow: visible">
       <md-list-item>
         <span translate="JOINGROUP.NAME"></span>
         <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
@@ -39,15 +39,15 @@
     </md-list>
   </md-content>
 
-  <md-content ng-if="$ctrl.check">
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>
-          <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-group"></i>
-          <span>{{$ctrl.active.name}}</span>
-        </h2>
-      </div>
-    </md-toolbar>
+  <md-toolbar ng-if="$ctrl.check">
+    <div class="md-toolbar-tools">
+      <h2>
+        <i style="font-size: 1.2em; margin-right: 1em;" class="fa fa-group"></i>
+        <span>{{$ctrl.active.name}}</span>
+      </h2>
+    </div>
+  </md-toolbar>
+  <md-content ng-if="$ctrl.check" flex style="overflow: auto">
     <form name="form" ng-submit="$ctrl.joinGroup()" style="text-align:center">
       <h4 translate="JOINGROUP.PASSWORD_LABEL"></h4>
       <md-input-container>
@@ -64,12 +64,12 @@
         </md-tooltip>
       </md-button>
     </form>
-</md-content>
+  </md-content>
 
 
-<md-dialog-actions>
-  <md-button ng-click="$ctrl.$mdDialog.cancel()">
-    <span translate="BUTTON.CANCEL"></span>
-  </md-button>
-</md-dialog-actions>
-  </div>
+  <md-dialog-actions>
+    <md-button ng-click="$ctrl.$mdDialog.cancel()">
+      <span translate="BUTTON.CANCEL"></span>
+    </md-button>
+  </md-dialog-actions>
+</div>

@@ -274,6 +274,63 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         self.assertEqual(response.data, {'rule': ['we only handle single rrules']})
 
 
+class TestPickupDateSeriesAPIAuth(APITestCase):
+    " Test things that are forbidden "
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.url = '/api/pickup-date-series/'
+        cls.series = PickupDateSeries()
+        cls.series_url = '/api/pickup-date-series/{}/'.format(cls.series.id)
+        cls.non_member = UserFactory()
+
+    def create_as_anonymous_fails(self):
+        response = self.client.post(self.url, {})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+
+    def create_as_nonmember_fails(self):
+        self.client.force_login(self.non_member)
+        response = self.client.post(self.url, {})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+
+    def list_as_anonymous_fails(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+
+    def list_as_nonmember_returns_empty_list(self):
+        self.client.force_login(self.non_member)
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(len(response.data), 0)
+
+    def get_as_anonymous_fails(self):
+        response = self.client.get(self.series_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+
+    def get_as_nonmember_fails(self):
+        self.client.force_login(self.non_member)
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND, response.data)
+
+    def patch_as_anonymous_fails(self):
+        response = self.client.patch(self.series_url, {})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+
+    def patch_as_nonmember_fails(self):
+        self.client.force_login(self.non_member)
+        response = self.client.patch(self.url, {})
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND, response.data)
+
+    def delete_as_anonymous_fails(self):
+        response = self.client.delete(self.series_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+
+    def delete_as_nonmember_fails(self):
+        self.client.force_login(self.non_member)
+        response = self.client.delete(self.url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND, response.data)
+
+
 class TestPickupDatesAPI(APITestCase):
     @classmethod
     def setUpClass(cls):

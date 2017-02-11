@@ -1,8 +1,8 @@
 <div layout="row" layout-margin>
-  <div flex></div>
+  <div style="margin: 0" flex></div>
   
   <!-- Stores Sidenav -->
-  <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav" flex="40" style="max-width:25em">
+  <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav">
     <div class="md-whiteframe-2dp" style="padding: 0">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
@@ -20,5 +20,5 @@
       <ui-view></ui-view>
   </div>
   
-  <div flex></div>
+  <div style="margin: 0" flex></div>
 </div>

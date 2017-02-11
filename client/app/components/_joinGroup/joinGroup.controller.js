@@ -9,7 +9,7 @@ class JoinGroupController {
       groups: [],
       active: null,
       check: false,
-      password: ''
+      password: ""
     });
   }
 
@@ -26,14 +26,14 @@ class JoinGroupController {
     });
   }
   toggle(group) {
-    if(this.active && this.active.id == group.id) this.active = null
-    else this.active = group
+    if (this.active && this.active.id === group.id) this.active = null;
+    else this.active = group;
   }
   toggleCheck() {
-    if(this.active.protected) {
-      this.check = true
+    if (this.active.protected) {
+      this.check = true;
     } else {
-      this.joinGroup()
+      this.joinGroup();
     }
   }
 

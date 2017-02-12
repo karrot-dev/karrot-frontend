@@ -34,7 +34,7 @@ class PickupDateSeries(BaseModel):
         related_name='series',
         on_delete=models.CASCADE
     )
-    max_collectors = models.IntegerField(blank=True, null=True)
+    max_collectors = models.PositiveIntegerField(blank=True, null=True)
     rule = models.TextField()
     start_date = models.DateTimeField()
 

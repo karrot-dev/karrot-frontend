@@ -51,11 +51,6 @@ class PickupDateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('The date should be in the future.')
         return date
 
-    def validate_max_collectors(self, val):
-        if not val > 0:
-            raise serializers.ValidationError('The number of collectors should be greater than 0.')
-        return val
-
 
 class PickupDateSeriesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -83,11 +78,6 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
     def validate_start_date(self, date):
         date = date.replace(second=0, microsecond=0)
         return date
-
-    def validate_max_collectors(self, val):
-        if not val > 0:
-            raise serializers.ValidationError('The number of collectors should be greater than 0.')
-        return val
 
     def validate_rule(self, rule_string):
         rrule = dateutil.rrule.rrulestr(rule_string)

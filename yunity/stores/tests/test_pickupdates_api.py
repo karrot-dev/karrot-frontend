@@ -251,9 +251,8 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
     def test_change_max_collectors_to_invalid_number_fails(self):
         self.client.force_login(user=self.member)
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        response = self.client.patch(url, {'max_collectors': 0})
+        response = self.client.patch(url, {'max_collectors': -1})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
-        self.assertEqual(response.data, {'max_collectors': ['The number of collectors should be greater than 0.']})
 
     def test_set_invalid_store_fails(self):
         unrelated_store = Store()
@@ -470,6 +469,11 @@ class TestPickupDatesAPI(APITestCase):
         self.client.force_login(user=self.member)
         response = self.client.patch(self.pickup_url, self.pickup_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+
+    def test_patch_max_collectors_to_negative_value_fails(self):
+        self.client.force_login(user=self.member)
+        response = self.client.patch(self.pickup_url, {'max_collectors': -1})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
 
     def test_patch_past_pickup_fails(self):
         self.client.force_login(user=self.member)

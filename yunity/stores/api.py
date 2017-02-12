@@ -106,8 +106,6 @@ class PickupDateViewSet(
         return super().get_permissions()
 
     def get_queryset(self):
-        # FIXME: move this to a regular job (reduces server load)
-        PickupDateSeriesModel.objects.create_all_pickup_dates()
         return self.queryset.filter(store__group__members=self.request.user).filter(deleted=False)
 
     @detail_route(methods=['POST'])

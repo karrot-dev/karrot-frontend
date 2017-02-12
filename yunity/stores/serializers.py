@@ -15,6 +15,7 @@ class PickupDateSerializer(serializers.ModelSerializer):
     class Meta:
         model = PickupDateModel
         fields = ['id', 'date', 'series', 'store', 'max_collectors', 'collector_ids']
+        update_fields = ['date', 'max_collectors']
         extra_kwargs = {
             'series': {'read_only': True},
         }
@@ -31,8 +32,10 @@ class PickupDateSerializer(serializers.ModelSerializer):
 
     def update(self, pickupdate, validated_data):
         # TODO: fail if store gets changed
-        pickupdate.date = validated_data.get('date', pickupdate.date)
-        pickupdate.max_collectors = validated_data.get('max_collectors', pickupdate.max_collectors)
+        # TODO: remove from series if date or max_collector get changed, and replace with a tombstone
+        for attr in self.Meta.update_fields:
+            if attr in validated_data:
+                setattr(pickupdate, attr, validated_data.pop(attr))
         pickupdate.save()
         return pickupdate
 

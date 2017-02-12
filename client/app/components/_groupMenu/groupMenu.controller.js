@@ -15,7 +15,6 @@ class GroupMenuController {
     this.Group.listMy().then((data) => {
       this.groups = data;
     });
-    // debugger;
     $mdOpenMenu();
   }
 

@@ -80,9 +80,10 @@ class PickupDateSeries(BaseModel):
                 if pickup.collectors.count() <= 0:
                     pickup.delete()
                     continue
-            if new_date:
+            if new_date and not pickup.is_date_changed:
                 pickup.date = new_date
-            pickup.max_collectors = self.max_collectors
+            if not pickup.is_max_collectors_changed:
+                pickup.max_collectors = self.max_collectors
             pickup.save()
 
 
@@ -102,6 +103,12 @@ class PickupDate(BaseModel):
         on_delete=models.CASCADE
     )
     date = models.DateTimeField()
+
     collectors = models.ManyToManyField(settings.AUTH_USER_MODEL)
     max_collectors = models.PositiveIntegerField(null=True)
     deleted = models.BooleanField(default=False)
+
+    # internal values for change detection
+    # used when the respective value in the series gets updated
+    is_date_changed = models.BooleanField(default=False)
+    is_max_collectors_changed = models.BooleanField(default=False)

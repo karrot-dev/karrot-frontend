@@ -31,11 +31,18 @@ class PickupDateSerializer(serializers.ModelSerializer):
         return self.Meta.model.objects.create(**validated_data)
 
     def update(self, pickupdate, validated_data):
-        # TODO: fail if store gets changed
-        # TODO: remove from series if date or max_collector get changed, and replace with a tombstone
+        about_to_change = any([(_ in validated_data) for _ in self.Meta.update_fields])
+        if not about_to_change:
+            return pickupdate
+
         for attr in self.Meta.update_fields:
             if attr in validated_data:
                 setattr(pickupdate, attr, validated_data.pop(attr))
+            if pickupdate.series:
+                if attr == 'max_collectors':
+                    pickupdate.is_max_collectors_changed = True
+                elif attr == 'date':
+                    pickupdate.is_date_changed = True
         pickupdate.save()
         return pickupdate
 

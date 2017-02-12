@@ -273,6 +273,45 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
         self.assertEqual(response.data, {'rule': ['we only handle single rrules']})
 
+    def test_keep_changes_to_max_collectors(self):
+        self.client.force_login(user=self.member)
+        pickup_under_test = self.series.pickup_dates.first()
+        url = '/api/pickup-dates/{}/'.format(pickup_under_test.id)
+
+        # change setting of pickup
+        response = self.client.patch(url, {'max_collectors': 666})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(response.data['max_collectors'], 666)
+
+        # run regular update command of series
+        self.series.update_pickup_dates()
+
+        # check if changes persist
+        url = '/api/pickup-dates/{}/'.format(pickup_under_test.id)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(response.data['max_collectors'], 666)
+
+    def test_keep_changes_to_date(self):
+        self.client.force_login(user=self.member)
+        pickup_under_test = self.series.pickup_dates.first()
+        url = '/api/pickup-dates/{}/'.format(pickup_under_test.id)
+
+        # change setting of pickup
+        target_date = timezone.now() + relativedelta(hours=2)
+        response = self.client.patch(url, {'date': target_date})
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(parse(response.data['date']), target_date)
+
+        # run regular update command of series
+        self.series.update_pickup_dates()
+
+        # check if changes persist
+        url = '/api/pickup-dates/{}/'.format(pickup_under_test.id)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(parse(response.data['date']), target_date)
+
 
 class TestPickupDateSeriesAPIAuth(APITestCase):
     """ Testing actions that are forbidden """

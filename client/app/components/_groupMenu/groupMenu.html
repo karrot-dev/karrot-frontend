@@ -1,13 +1,14 @@
-<div layout="row" layout-nowrap id="group-menu-container">
+<div layout="row" layout-nowrap id="group-menu-container">  
+  <md-button
+    aria-label="{{$ctrl.activeGroup.name || 'Please choose a group...'}}"
+    ui-sref="group.groupDetail.pickups({ groupId: $ctrl.activeGroup.id })"
+    id="group-menu-active-group"
+    flex>
+    <logo></logo>
+    <span style="text-overflow: ellipsis">{{$ctrl.activeGroup.name || "Please choose a group..."}}</span>
+  </md-button>
   <md-menu md-position-mode="target bottom">
     <span>
-      <md-button
-        aria-label="{{$ctrl.activeGroup.name || 'Please choose a group...'}}"
-        ui-sref="group.groupDetail.pickups({ groupId: $ctrl.activeGroup.id })"
-        id="group-menu-active-group">
-        <logo></logo>
-        {{$ctrl.activeGroup.name || "Please choose a group..."}}
-      </md-button>
       <a ng-click="$ctrl.openMenu($mdOpenMenu, $event)" class="md-button" id="group-menu-group-picker">
         <i class="fa fa-caret-down md-caption"></i>
         <div md-menu-origin class="aligner"></div>

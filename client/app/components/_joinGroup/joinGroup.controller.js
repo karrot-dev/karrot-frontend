@@ -1,11 +1,10 @@
 class JoinGroupController {
-  constructor($mdDialog, Group, Authentication, $scope) {
+  constructor($mdDialog, Group, Authentication) {
     "ngInject";
     Object.assign(this, {
       $mdDialog,
       Group,
       Authentication,
-      $scope,
       groups: [],
       active: null,
       check: false,

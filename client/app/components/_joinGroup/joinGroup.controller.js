@@ -43,8 +43,8 @@ class JoinGroupController {
       this.$mdDialog.hide(this.active.id);
     })
     .catch(() => {
-      if(scope && scope.form) {
-        scope.form.password.$setValidity("check", false)
+      if (scope && scope.form) {
+        scope.form.password.$setValidity("check", false);
       }
     });
   }

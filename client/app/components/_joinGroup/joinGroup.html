@@ -48,7 +48,7 @@
     </div>
   </md-toolbar>
   <md-content ng-if="$ctrl.check" flex style="overflow: auto">
-    <form name="form" ng-submit="$ctrl.joinGroup()" style="text-align:center">
+    <form name="form" ng-submit="$ctrl.joinGroup(this)" style="text-align:center">
       <h4 translate="JOINGROUP.PASSWORD_LABEL"></h4>
       <md-input-container>
         <input name="password" ng-model="$ctrl.password" required type="text"- ng-keypress="form.password.$setValidity('check',true)">

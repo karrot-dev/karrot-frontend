@@ -37,15 +37,15 @@ class JoinGroupController {
     }
   }
 
-  joinGroup() {
+  joinGroup(scope) {
     return this.Group.join(this.active.id, { password: this.password })
     .then(() => {
       this.$mdDialog.hide(this.active.id);
     })
     .catch(() => {
-      // TODO: set form to invalid
-      // following does not work:
-      // this.$scope.form.password.$setValidity("check", false);
+      if(scope && scope.form) {
+        scope.form.password.$setValidity("check", false)
+      }
     });
   }
 }

@@ -20,7 +20,6 @@ import AppXEditableConfig from "./app.xeditable";
 // styles
 import "angular-xeditable/dist/css/xeditable.css";
 import "angular-loading-bar/build/loading-bar.css";
-import "./loading-bar.styl";
 import "normalize.css";
 import "angular-material/angular-material.css";
 import "./fonts/fonts";

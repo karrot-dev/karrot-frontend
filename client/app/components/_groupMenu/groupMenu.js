@@ -3,11 +3,13 @@ import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import groupMenuComponent from "./groupMenu.component";
 import GroupService from "../../common/group/group";
+import logo from "../_logo/logo";
 
 let groupMenuModule = angular.module("groupMenu", [
   uiRouter,
   ngMaterial,
-  GroupService
+  GroupService,
+  logo
 ])
 
 .component("groupMenu", groupMenuComponent)

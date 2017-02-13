@@ -37,7 +37,7 @@ class StoreDetailMapController {
     this.center = {
       lat,
       lng,
-      zoom: 12
+      zoom: 16
     };
   }
 }

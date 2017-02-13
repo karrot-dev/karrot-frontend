@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-strict-di ng-cloak class="app">
   <head>
     <meta charset="utf-8">
-    <title>Foodsaving</title>
+    <title ncy-breadcrumb-text="{{ncyBreadcrumbChain}} (Foodsaving)" ncy-breadcrumb-text-separator=" · "></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,7 +50,7 @@
     }
      </style>
   </head>
-  <body ng-app="app" ng-strict-di ng-cloak class="app">
+  <body>
     <ui-view>
       <div class="spinner">
         <div class="bounce1"></div>

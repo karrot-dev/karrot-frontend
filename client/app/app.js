@@ -6,6 +6,7 @@ import ngCookies from "angular-cookies";
 import ngAnimate from "angular-animate";
 import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
+import "angular-breadcrumb";
 import angularLoadingBar from "angular-loading-bar";
 import "angular-xeditable";
 
@@ -24,6 +25,8 @@ import "angular-material/angular-material.css";
 import "./fonts/fonts";
 import "./app.styl";
 
+import breadcrumbTemplate from "./templates/breadcrumbs.html";
+
 import mainLayout from "./layouts/main.html";
 import splashLayout from "./layouts/splash.html";
 import logo from "./components/_logo/logo";
@@ -32,6 +35,7 @@ angular.module("app", [
   uiRouter,
   ngMaterial,
   "xeditable",
+  "ncy-angular-breadcrumb",
   angularLoadingBar,
   ngAnimate,
   ngCookies,
@@ -64,4 +68,10 @@ angular.module("app", [
   "ngInject";
   cfpLoadingBarProvider.includeSpinner = false;
 })
-.run(AppXEditableConfig);
+.run(AppXEditableConfig)
+.config(($breadcrumbProvider) => {
+  "ngInject";
+  $breadcrumbProvider.setOptions({
+    template: breadcrumbTemplate
+  });
+});

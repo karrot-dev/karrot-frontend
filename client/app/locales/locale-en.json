@@ -30,7 +30,8 @@
     "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
-    "STORES": "Stores"
+    "STORES": "Stores",
+    "DESCRIPTION": "Description"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

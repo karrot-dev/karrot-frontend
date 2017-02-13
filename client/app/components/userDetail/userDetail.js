@@ -23,6 +23,9 @@ let userDetailModule = angular.module("userDetail", [
         userdata: (User, $stateParams) => {
           return User.get($stateParams.id).then((user) => user);
         }
+      },
+      ncyBreadcrumb: {
+        label: "{{$$childHead.$ctrl.userdata.display_name}}"
       }
     });
   hookProvider.setup("userDetail", { authenticated: true, anonymous: "login" });

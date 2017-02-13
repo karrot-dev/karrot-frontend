@@ -1,9 +1,9 @@
 class JoinGroupController {
-  constructor($mdDialog, Group, Authentication) {
+  constructor($mdDialog, GroupService, Authentication) {
     "ngInject";
     Object.assign(this, {
       $mdDialog,
-      Group,
+      GroupService,
       Authentication,
       groups: [],
       active: null,
@@ -13,7 +13,7 @@ class JoinGroupController {
   }
 
   $onInit() {
-    this.Group.list().then((allGroups) => {
+    this.GroupService.list().then((allGroups) => {
       let sortedGroups = allGroups.sort((a,b) => b.members.length - a.members.length);
       this.Authentication.update().then((data) => {
         angular.forEach(sortedGroups, (curGroup) => {
@@ -37,7 +37,7 @@ class JoinGroupController {
   }
 
   joinGroup(scope) {
-    return this.Group.join(this.active.id, { password: this.password })
+    return this.GroupService.join(this.active.id, { password: this.password })
     .then(() => {
       this.$mdDialog.hide(this.active.id);
     })

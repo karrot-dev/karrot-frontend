@@ -1,18 +1,18 @@
 class GroupMenuController {
-  constructor($document, $mdDialog, $state, Group, CurrentGroup) {
+  constructor($document, $mdDialog, $state, GroupService, CurrentGroup) {
     "ngInject";
     Object.assign(this, {
       $document,
       $mdDialog,
       $state,
-      Group,
+      GroupService,
       groups: [],
       activeGroup: CurrentGroup.value
     });
   }
 
   openMenu($mdOpenMenu) {
-    this.Group.listMy().then((data) => {
+    this.GroupService.listMy().then((data) => {
       this.groups = data;
     });
     $mdOpenMenu();

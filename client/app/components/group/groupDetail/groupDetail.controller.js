@@ -1,28 +1,23 @@
 class GroupDetailController {
-  constructor(Group, CurrentGroup, $state) {
+  constructor(GroupService, $state, CurrentGroup, $mdMedia) {
     "ngInject";
     Object.assign(this, {
-      Group,
-      CurrentGroup,
+      GroupService,
       $state,
+      CurrentGroup,
+      groupData: $state.groupData,
       error: {
         leaveGroup: false
-      }
+      },
+      $mdMedia
     });
 
-    this.pickupListOptions = {
-      showDetail: "store",
-      showTopbar: false,
-      filter: {
-        showJoined: true,
-        showOpen: true,
-        showFull: false
-      }
-    };
+    // set currentNavItem on redirect
+    this.currentNavItem = $state.current.name.replace("group.groupDetail.", "");
   }
 
   leaveGroup() {
-    this.Group.leave(this.groupData.id)
+    this.GroupService.leave(this.groupData.id)
       .then(() => {
         if (this.CurrentGroup.value.id === this.groupData.id) {
           this.CurrentGroup.clear();
@@ -35,8 +30,9 @@ class GroupDetailController {
   }
 
   updateGroupData() {
-    return this.Group.save(this.groupData);
+    return this.GroupService.save(this.groupData);
   }
+
 }
 
 export default GroupDetailController;

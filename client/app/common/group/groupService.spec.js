@@ -14,7 +14,7 @@ describe("group service", () => {
     $log.assertEmpty();
   });
 
-  let $httpBackend, Group;
+  let $httpBackend, GroupService;
 
   let groupData = [{
     "id": 1,
@@ -40,7 +40,7 @@ describe("group service", () => {
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
-    Group = $injector.get("Group");
+    GroupService = $injector.get("GroupService");
   }));
 
   afterEach(() => {
@@ -50,7 +50,7 @@ describe("group service", () => {
 
   it("lists groups", () => {
     $httpBackend.expectGET("/api/groups/?include_empty=False").respond(groupData);
-    expect(Group.list())
+    expect(GroupService.list())
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
@@ -58,7 +58,7 @@ describe("group service", () => {
 
   it("creates group", () => {
     $httpBackend.expectPOST("/api/groups/", groupCreateData).respond(groupData);
-    expect(Group.create(groupCreateData))
+    expect(GroupService.create(groupCreateData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
@@ -66,7 +66,7 @@ describe("group service", () => {
 
   it("gets group details via get", () => {
     $httpBackend.expectGET("/api/groups/1/").respond(groupData[0]);
-    expect(Group.get(1))
+    expect(GroupService.get(1))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData[0]);
     $httpBackend.flush();
@@ -74,7 +74,7 @@ describe("group service", () => {
 
   it("filters groups by member ID", () => {
     $httpBackend.expectGET("/api/groups/?members=2").respond(groupData);
-    expect(Group.listByMemberId(2))
+    expect(GroupService.listByMemberId(2))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
@@ -82,7 +82,7 @@ describe("group service", () => {
 
   it("filters groups by search", () => {
     $httpBackend.expectGET("/api/groups/?search=Foods").respond(groupData);
-    expect(Group.search("Foods"))
+    expect(GroupService.search("Foods"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
@@ -90,7 +90,7 @@ describe("group service", () => {
 
   it("saves group details", () => {
     $httpBackend.expectPATCH("/api/groups/1/", groupModifyData).respond(groupData);
-    expect(Group.save(groupModifyData))
+    expect(GroupService.save(groupModifyData))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);
     $httpBackend.flush();
@@ -98,20 +98,20 @@ describe("group service", () => {
 
   it("joins a group", () => {
     $httpBackend.expectPOST("/api/groups/1/join/", {}).respond(200);
-    expect(Group.join(1)).to.be.fulfilled;
+    expect(GroupService.join(1)).to.be.fulfilled;
     $httpBackend.flush();
   });
 
   it("joins a group with password", () => {
     $httpBackend.expectPOST("/api/groups/1/join/", { password: "abc" }).respond(200);
-    expect(Group.join(1, { password: "abc" })).to.be.fulfilled;
+    expect(GroupService.join(1, { password: "abc" })).to.be.fulfilled;
     $httpBackend.flush();
   });
 
 
   it("leaves a group", () => {
     $httpBackend.expectPOST("/api/groups/1/leave/", {}).respond(200);
-    expect(Group.leave(1)).to.be.fulfilled;
+    expect(GroupService.leave(1)).to.be.fulfilled;
     $httpBackend.flush();
   });
 
@@ -124,7 +124,7 @@ describe("group service", () => {
     it("filters my groups", () => {
       Authentication.data = { id: 2 };
       $httpBackend.expectGET("/api/groups/?members=2").respond(groupData);
-      expect(Group.listMy())
+      expect(GroupService.listMy())
         .to.be.fulfilled.and
         .to.eventually.deep.equal(groupData);
       $httpBackend.flush();

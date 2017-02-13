@@ -2,11 +2,13 @@ import StoreDetailModule from "./storeDetail";
 import StoreDetailController from "./storeDetail.controller";
 import StoreDetailComponent from "./storeDetail.component";
 import StoreDetailTemplate from "./storeDetail.html";
+import GroupComponentModule from "../group";
 
 const { module } = angular.mock;
 
 describe("StoreDetail", () => {
   beforeEach(module(StoreDetailModule));
+  beforeEach(module(GroupComponentModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });
@@ -102,33 +104,27 @@ describe("StoreDetail", () => {
   });
 
   describe("Routes", () => {
-    context("when logged in", () => {
-
-      let loginData = {
-        "display_name": "asdflo",
-        "email": "asdf.asdf@asdf.asdf"
-      };
-
-      beforeEach(() => {
-        $httpBackend.expectGET("/api/auth/status/").respond(loginData);
-      });
+    context("when logged out", () => {
 
       describe("storeDetail", () => {
-        let groupData = { id: 12 };
 
+        let groupData = {
+          id: 1
+        };
         let storeData = {
           id: 25,
           group: groupData.id
         };
 
-        it("should load store and group information", () => {
-          $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
+        it("should load store information", () => {
           $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-          $state.go("storeDetail", { storeId: storeData.id, groupId: groupData.id });
+          $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
+          $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });
           $httpBackend.flush();
           expect($state.current.component).to.equal("storeDetail");
         });
       });
+
     });
   });
 

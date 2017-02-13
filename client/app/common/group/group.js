@@ -1,15 +1,15 @@
-import Group from "./group.service";
+import GroupService from "./groupService.service";
 import CurrentGroup from "./currentGroup.service";
 import Authentication from "../authentication/authentication";
 
-let groupModule = angular.module("Group", [
+let groupServiceModule = angular.module("GroupService", [
   Authentication
 ])
 
-.service("Group", Group)
+.service("GroupService", GroupService)
 
 .service("CurrentGroup", CurrentGroup)
 
 .name;
 
-export default groupModule;
+export default groupServiceModule;

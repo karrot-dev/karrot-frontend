@@ -1,17 +1,17 @@
 <div layout="row">
   <div flex></div>
-  
+
   <!-- Stores Sidenav -->
-  <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav" style="margin: 1em">
+  <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav" style="margin-right: 1em">
     <div class="md-whiteframe-2dp" style="padding: 0">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
-          <h3 translate="GROUP.STORES"></h3>       
+          <h3 translate="GROUP.STORES"></h3>
         </div>
       </md-toolbar>
       <md-content>
-        <store-list group-id="$ctrl.groupData.id"></store-list>          
-      </md-content> 
+        <store-list group-id="$ctrl.groupData.id"></store-list>
+      </md-content>
     </div>
   </span>
 
@@ -19,6 +19,6 @@
   <div class="md-whiteframe-2dp" style="padding: 0; width: 100%; max-width: 60em;">
       <ui-view></ui-view>
   </div>
-  
+
   <div flex></div>
 </div>

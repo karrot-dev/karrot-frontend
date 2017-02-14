@@ -28,6 +28,25 @@
       <input type="text" ng-model="$ctrl.editData.password"/>
     </md-input-container>
 
+    <md-autocomplete
+      placeholder="{{'GROUP.ADDRESS' | translate}}"
+      md-item-text="item.name"
+      md-search-text="query"
+      md-items="item in $ctrl.geoLookup(query)"
+      md-selected-item-change="$ctrl.setGeo(item)"
+      md-delay="500">
+      <md-item-template>
+        <span md-highlight-text="query">{{item.name}}</span>
+      </md-item-template>
+    </md-autocomplete>
+    <leaflet
+      height="200"
+      center="$ctrl.mapCenter"
+      defaults="$ctrl.mapDefaults"
+      markers="{p:$ctrl.editData}"
+      class="md-whiteframe-z1">
+    </leaflet>
+
     <p>{{ $ctrl.error }}</p>
     <div layout="row" layout-align="end start">
       <md-button class="md-icon-button" ui-sref="^">

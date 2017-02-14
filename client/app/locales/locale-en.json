@@ -31,7 +31,8 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
     "STORES": "Stores",
-    "DESCRIPTION": "Description"
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

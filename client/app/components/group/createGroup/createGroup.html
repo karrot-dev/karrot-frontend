@@ -1,0 +1,18 @@
+<div class="md-whiteframe-2dp" style="padding: 0; width: 100%; max-width: 60em;">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h2 translate="GROUP.CREATE_TITLE"></h2>
+    </div>
+  </md-toolbar>
+
+  <form name="createGroupForm" ng-submit="createGroupForm.$valid && $ctrl.createGroup()" layout="column">
+    <group-edit-create-form edit-data="$ctrl.groupData"></group-edit-create-form>
+
+    <p>{{ $ctrl.error }}</p>
+    <md-button-container>
+      <md-button class="md-raised md-primary" type="submit" ng-disabled="createGroupForm.$invalid">
+        <span translate="BUTTON.CREATE"></span>
+      </md-button>
+    </md-button-container>
+  </form>
+</div>

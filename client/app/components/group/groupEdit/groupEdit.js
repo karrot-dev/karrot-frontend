@@ -3,17 +3,13 @@ import uiRouter from "angular-ui-router";
 import Authentication from "../../../common/authentication/authentication";
 import groupEditComponent from "./groupEdit.component";
 import GroupService from "../../../common/group/group";
-import Geocoding from "../../../common/geocoding/geocoding";
-import "leaflet";
-import "ui-leaflet";
-import "leaflet/dist/leaflet.css"; // looks in node_modules
+import groupEditCreateForm from "../_groupEditCreateForm/groupEditCreateForm";
 
 let groupEditModule = angular.module("groupEdit", [
   uiRouter,
   Authentication,
   GroupService,
-  Geocoding,
-  "ui-leaflet"
+  groupEditCreateForm
 ])
 
 .component("groupEdit", groupEditComponent)

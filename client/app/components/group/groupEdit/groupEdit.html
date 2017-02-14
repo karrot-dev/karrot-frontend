@@ -7,45 +7,8 @@
       </h1>
     </div>
   </md-toolbar>
-  <div layout-padding layout="column">
-    <md-input-container>
-      <label translate="GROUP.TITLE"></label>
-      <input required type="text" ng-model="$ctrl.editData.name"/>
-    </md-input-container>
-
-    <md-input-container>
-      <label translate="GROUP.DESCRIPTION_VERBOSE"></label>
-      <textarea ng-model="$ctrl.editData.description"></textarea>
-    </md-input-container>
-
-    <md-input-container>
-      <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
-      <textarea ng-model="$ctrl.editData.public_description"></textarea>
-    </md-input-container>
-
-    <md-input-container>
-      <label translate="GROUP.PASSWORD"></label>
-      <input type="text" ng-model="$ctrl.editData.password"/>
-    </md-input-container>
-
-    <md-autocomplete
-      placeholder="{{'GROUP.ADDRESS' | translate}}"
-      md-item-text="item.name"
-      md-search-text="query"
-      md-items="item in $ctrl.geoLookup(query)"
-      md-selected-item-change="$ctrl.setGeo(item)"
-      md-delay="500">
-      <md-item-template>
-        <span md-highlight-text="query">{{item.name}}</span>
-      </md-item-template>
-    </md-autocomplete>
-    <leaflet
-      height="200"
-      center="$ctrl.mapCenter"
-      defaults="$ctrl.mapDefaults"
-      markers="{p:$ctrl.editData}"
-      class="md-whiteframe-z1">
-    </leaflet>
+  <div layout="column">
+    <group-edit-create-form edit-data="$ctrl.editData"></group-edit-create-form>
 
     <p>{{ $ctrl.error }}</p>
     <div layout="row" layout-align="end start">

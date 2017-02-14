@@ -10,4 +10,4 @@ class Group(BaseModel, LocationModel):
     members = ManyToManyField(settings.AUTH_USER_MODEL, related_name='groups')
     password = CharField(max_length=255, blank=True)
     public_description = TextField(blank=True)
-    timezone = TimeZoneField(default='Europe/Berlin')
+    timezone = TimeZoneField(default='Europe/Berlin', null=True, blank=True)

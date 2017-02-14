@@ -6,14 +6,33 @@ class GroupDetailController {
       $state,
       CurrentGroup,
       groupData: $state.groupData,
-      error: {
-        leaveGroup: false
-      },
-      $mdMedia
+      $mdMedia,
+      editEnabled: false
     });
 
     // set currentNavItem on redirect
     this.currentNavItem = $state.current.name.replace("group.groupDetail.", "");
+  }
+
+  editEnable() {
+    this.editData = angular.copy(this.groupData);
+    this.editEnabled = true;
+    this.saving = false;
+  }
+
+  submitEdit() {
+    this.saving = true;
+    this.GroupService.save(this.editData).then((data) => {
+      this.groupData = data;
+      this.stopEdit();
+    }).catch((err) => {
+      this.error = err.data;
+    });
+  }
+
+  stopEdit() {
+    this.editEnabled = false;
+    this.saving = false;
   }
 
   leaveGroup() {
@@ -24,15 +43,8 @@ class GroupDetailController {
         }
         this.$state.go("home");
       })
-      .catch(() => {
-        this.error.leaveGroup = true;
-      });
+      .catch(() => {});
   }
-
-  updateGroupData() {
-    return this.GroupService.save(this.groupData);
-  }
-
 }
 
 export default GroupDetailController;

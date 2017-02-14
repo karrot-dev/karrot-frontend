@@ -1,59 +1,47 @@
-<form editable-form name="editableGroup" onaftersave="$ctrl.updateGroupData()">
-  <md-toolbar class="md-hue-1">
-    <div class="md-toolbar-tools">
-      <h1 flex editable-text="$ctrl.groupData.name">
-        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;
-        {{$ctrl.groupData.name}}
-      </h1>
-      <span ng-show="!editableGroup.$visible">
-        <md-button class="md-icon-button" ng-click="editableGroup.$show()"
-                   aria-label="{{ 'GROUP.EDIT' | translate }}">
-          <md-tooltip md-direction="left">
-            <span translate="GROUP.EDIT"></span>
-          </md-tooltip>
-          <i class="fa fa-pencil"></i>
-        </md-button>
-        <span ng-show="{{$ctrl.error.leaveGroup}}"></span>
-        <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
-                   aria-label="{{ 'GROUP.LEAVE' | translate }}">
-          <md-tooltip md-direction="left">
-            <span translate="GROUP.LEAVE"></span>
-          </md-tooltip>
-          <i class="fa fa-fw fa-sign-out"></i>
-        </md-button>
-      </span>
-    </div>
-  </md-toolbar>
-  <md-content layout-padding>
-    <div ng-if="$ctrl.$mdMedia('gt-sm')" editable-textarea="$ctrl.groupData.description">
-      <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
-    </div>
-    <div ng-show="editableGroup.$visible" layout="row" layout-align="end start">
-      <md-button aria-label="{{'BUTTON.CANCEL' | translate}}" class="md-icon-button" ng-disabled="editableGroup.$waiting" ng-click="editableGroup.$cancel()">
-        <i class="fa fa-times"></i>
+<md-toolbar class="md-hue-1">
+  <div class="md-toolbar-tools">
+    <h1 flex>
+      <i class="fa fa-home" aria-hidden="true"></i>&nbsp;
+      {{$ctrl.groupData.name}}
+    </h1>
+    <span>
+      <md-button class="md-icon-button" ui-sref="groupEdit" aria-label="{{ 'GROUP.EDIT' | translate }}">
+        <md-tooltip md-direction="left">
+          <span translate="GROUP.EDIT"></span>
+        </md-tooltip>
+        <i class="fa fa-pencil"></i>
       </md-button>
-      <md-button aria-label="{{'GROUP.EDIT' | translate}}" type="submit" class="md-raised md-primary" ng-disabled="editableGroup.$waiting">
-        <i class="fa fa-check"></i>
+      <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
+                 aria-label="{{ 'GROUP.LEAVE' | translate }}">
+        <md-tooltip md-direction="left">
+          <span translate="GROUP.LEAVE"></span>
+        </md-tooltip>
+        <i class="fa fa-fw fa-sign-out"></i>
       </md-button>
-    </div>
+    </span>
+  </div>
+</md-toolbar>
 
-    <md-content class="md-padding">
-      <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
-        <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
-          <span translate="GROUP.PICKUPS"></span>
-        </md-nav-item>
-        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.stores" name="stores">
-          <span translate="GROUP.STORES"></span>
-        </md-nav-item>
-        <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.description" name="description">
-          <span translate="GROUP.DESCRIPTION"></span>
-        </md-nav-item>
-        <md-nav-item md-nav-sref="group.groupDetail.members" name="members">
-          <span translate="GROUP.MEMBERS"></span> ({{$ctrl.groupData.members.length}})
-        </md-nav-item>
-      </md-nav-bar>
+<md-content layout-padding>
+  <div ng-if="$ctrl.$mdMedia('gt-sm')">
+    <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
+  </div>
+  <md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
+        <span translate="GROUP.PICKUPS"></span>
+      </md-nav-item>
+      <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.stores" name="stores">
+        <span translate="GROUP.STORES"></span>
+      </md-nav-item>
+      <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.description" name="description">
+        <span translate="GROUP.DESCRIPTION"></span>
+      </md-nav-item>
+      <md-nav-item md-nav-sref="group.groupDetail.members" name="members">
+        <span translate="GROUP.MEMBERS"></span> ({{$ctrl.groupData.members.length}})
+      </md-nav-item>
+    </md-nav-bar>
 
-      <ui-view></ui-view>
-    </md-content>
+    <ui-view></ui-view>
   </md-content>
-</form>
+</md-content>

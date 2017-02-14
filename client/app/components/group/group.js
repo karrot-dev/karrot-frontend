@@ -17,7 +17,7 @@ let groupPageModule = angular.module("group", [
   store,
   groupDetail,
   groupEdit,
-  createGroup,
+  createGroup
 ])
 
 .config(($stateProvider, hookProvider) => {

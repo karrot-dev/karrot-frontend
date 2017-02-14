@@ -6,7 +6,7 @@ describe("GroupEditCreateForm", () => {
   beforeEach(module(GroupEditCreateFormModule));
   beforeEach(module({
     Geocoding: {
-      lookupAddress: () => {}
+      lookupAddress: sinon.stub()
     }
   }));
 
@@ -31,7 +31,6 @@ describe("GroupEditCreateForm", () => {
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       Geocoding = $injector.get("Geocoding");
-      sinon.stub(Geocoding, "lookupAddress");
     }));
 
     it("does lookup", () => {

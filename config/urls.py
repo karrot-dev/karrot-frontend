@@ -21,7 +21,7 @@ from rest_framework_swagger.views import get_swagger_view
 from yunity.userauth.api import AuthViewSet
 from yunity.conversations.api import ChatViewSet, ChatMessageViewSet
 from yunity.groups.api import GroupViewSet
-from yunity.stores.api import StoreViewSet, PickupDatesViewSet
+from yunity.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet
 from yunity.users.api import UserViewSet
 
 router = routers.DefaultRouter()
@@ -38,7 +38,8 @@ chat_router = routers.NestedSimpleRouter(router, r'conversations', lookup='conve
 chat_router.register(r'messages', ChatMessageViewSet, base_name='conversations-messages')
 
 # pickup date endpoints
-router.register(r'pickup-dates', PickupDatesViewSet)
+router.register(r'pickup-date-series', PickupDateSeriesViewSet)
+router.register(r'pickup-dates', PickupDateViewSet)
 
 # Store endpoints
 router.register(r'stores', StoreViewSet)

@@ -16,7 +16,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -37,6 +36,7 @@ INSTALLED_APPS = (
     'rest_framework_swagger',
     'anymail',
     'influxdb_metrics',
+    'timezone_field',
 
     # Application
     'yunity',

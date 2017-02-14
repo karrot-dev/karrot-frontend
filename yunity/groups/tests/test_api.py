@@ -20,13 +20,14 @@ class TestGroupsAPI(APITestCase):
                           'description': faker.text(),
                           'address': faker.address(),
                           'latitude': faker.latitude(),
-                          'longitude': faker.longitude()}
+                          'longitude': faker.longitude(),
+                          'timezone': 'Europe/Berlin'}
 
     def test_create_group(self):
         self.client.force_login(user=self.user)
-        data = {'name': 'random_name', 'description': 'still alive'}
+        data = {'name': 'random_name', 'description': 'still alive', 'timezone': 'Europe/Berlin'}
         response = self.client.post(self.url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)
         self.assertEqual(response.data['name'], data['name'])
         self.assertEqual(GroupModel.objects.get(name=data['name']).description, data['description'])
 
@@ -89,6 +90,13 @@ class TestGroupsAPI(APITestCase):
         url = self.url + str(self.group.id) + '/'
         response = self.client.patch(url, self.group_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_change_timezone_to_invalid_value_fails(self):
+        self.client.force_login(user=self.member)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.patch(url, {'timezone': 'alksjdflkajw'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+        self.assertEqual(response.data, {'timezone': ['Unknown timezone']})
 
     def test_put_group(self):
         url = self.url + str(self.group.id) + '/'

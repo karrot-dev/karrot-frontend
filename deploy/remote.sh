@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['foodsaving.world', 'mvp-proposal.yunity.org', 'mvp-design.yuni
 HOSTNAME = 'https://foodsaving.world'
 STATIC_ROOT = '${deploy_dir}/${backend_dir}/static/'
 
-DEFAULT_FROM_EMAIL = 'fstool@yunity.org'
+DEFAULT_FROM_EMAIL = 'mail@foodsaving.world'
 INFLUXDB_HOST = '127.0.0.1'
 INFLUXDB_PORT = '8086'
 INFLUXDB_USER = ''

@@ -101,8 +101,7 @@ You can execute `flake8` in the repository root to check your code.
 Code will only be accepted into `master` if it passes the PEP8 test.
 
 ## Using the API
-A live instance of the foodsaving tool is running at https://fstool.yunity.org. The database will be emptied regularly, any data may be available to the public. Use at your own risk for testing.
-Use https://fstool.yunity.org/api/ for a browseable API and for API requests.
+A live instance of the foodsaving tool is running at https://foodsaving.world/. Use https://foodsaving.world/api/ for a browseable API and for API requests.
 
 A session is identified via the sessionid cookie. Additionally, a csrftoken cookie is set with each POST request (initially for the login). To issue any other POST request than a login, you need to provide the contents of the csrftoken cookie in the X-CSRFToken header field. The session cookie is automatically appended to each request by the browser.
 For more detailled notes on how to implement this in javascript, see https://docs.djangoproject.com/en/1.9/ref/csrf/

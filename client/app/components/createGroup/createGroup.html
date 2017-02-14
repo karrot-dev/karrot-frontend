@@ -18,8 +18,18 @@
         </md-input-container>
 
         <md-input-container>
-          <label translate="CREATEGROUP.DESCRIPTION"></label>
-          <input type="text" ng-model="$ctrl.groupData.description"/>
+          <label translate="GROUP.DESCRIPTION_VERBOSE"></label>
+          <textarea ng-model="$ctrl.groupData.description"></textarea>
+        </md-input-container>
+
+        <md-input-container>
+          <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
+          <textarea ng-model="$ctrl.groupData.public_description"></textarea>
+        </md-input-container>
+
+        <md-input-container>
+          <label translate="GROUP.PASSWORD"></label>
+          <input type="text" ng-model="$ctrl.groupData.password"/>
         </md-input-container>
 
         <md-input-container>

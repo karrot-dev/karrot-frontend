@@ -72,25 +72,14 @@ describe("GroupDetail", () => {
       expect($state.go).to.have.been.calledWith("home");
     });
 
-    it("sets an error flag if leaving fails", () => {
+    it("stays on page if leaving fails", () => {
       let $ctrl = $componentController("groupDetail", {});
       let groupData = { id: 98238 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(400);
       Object.assign($ctrl, { groupData });
       $ctrl.leaveGroup();
       $httpBackend.flush();
-      expect($ctrl.error.leaveGroup).to.be.true;
       expect($state.go).to.not.have.been.calledWith("home");
-    });
-
-    it("saves groupData", () => {
-      let groupData = { id: 667, name: "blarb" };
-      let $ctrl = $componentController("groupDetail", {});
-      $ctrl.groupData = groupData;
-      let feedback = $ctrl.updateGroupData();
-      $httpBackend.expectPATCH(`/api/groups/${groupData.id}/`, groupData).respond(groupData);
-      $httpBackend.flush();
-      expect(feedback).to.eventually.deep.equal(groupData);
     });
 
     it("highlights correct tab", () => {

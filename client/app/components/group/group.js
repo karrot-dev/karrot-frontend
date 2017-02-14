@@ -6,6 +6,7 @@ import AuthenticationModule from "../../common/authentication/authentication";
 import groupModule from "../../common/group/group";
 import store from "./store/storeDetail";
 import groupDetail from "./groupDetail/groupDetail";
+import groupEdit from "./groupEdit/groupEdit";
 
 let groupPageModule = angular.module("group", [
   uiRouter,
@@ -13,7 +14,8 @@ let groupPageModule = angular.module("group", [
   ngMaterial,
   groupModule,
   store,
-  groupDetail
+  groupDetail,
+  groupEdit
 ])
 
 .config(($stateProvider, hookProvider) => {

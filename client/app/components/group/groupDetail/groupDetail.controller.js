@@ -6,33 +6,11 @@ class GroupDetailController {
       $state,
       CurrentGroup,
       groupData: $state.groupData,
-      $mdMedia,
-      editEnabled: false
+      $mdMedia
     });
 
     // set currentNavItem on redirect
     this.currentNavItem = $state.current.name.replace("group.groupDetail.", "");
-  }
-
-  editEnable() {
-    this.editData = angular.copy(this.groupData);
-    this.editEnabled = true;
-    this.saving = false;
-  }
-
-  submitEdit() {
-    this.saving = true;
-    this.GroupService.save(this.editData).then((data) => {
-      this.groupData = data;
-      this.stopEdit();
-    }).catch((err) => {
-      this.error = err.data;
-    });
-  }
-
-  stopEdit() {
-    this.editEnabled = false;
-    this.saving = false;
   }
 
   leaveGroup() {

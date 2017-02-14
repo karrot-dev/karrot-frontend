@@ -54,7 +54,7 @@
     </section>
     
     <md-content ng-if="!$ctrl.isInitialized" layout="row" layout-sm="column" layout-align="space-around">
-      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      <md-progress-circular md-mode="indeterminate" style="margin: 3em auto"></md-progress-circular>
     </md-content>
     
     <md-content ng-if="$ctrl.isInitialized && !$ctrl.groupedPickups.length"  layout-padding>

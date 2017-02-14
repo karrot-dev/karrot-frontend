@@ -1,4 +1,5 @@
 import GeocodingModule from "./geocoding";
+import translate from "angular-translate";
 
 const { module } = angular.mock;
 
@@ -6,6 +7,7 @@ describe("geocoding", () => {
   let $httpBackend, Geocoding;
   beforeEach(() => {
     module(GeocodingModule);
+    module(translate);
   });
 
   let $log;

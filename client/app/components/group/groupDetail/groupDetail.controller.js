@@ -6,9 +6,6 @@ class GroupDetailController {
       $state,
       CurrentGroup,
       groupData: $state.groupData,
-      error: {
-        leaveGroup: false
-      },
       $mdMedia
     });
 
@@ -24,15 +21,8 @@ class GroupDetailController {
         }
         this.$state.go("home");
       })
-      .catch(() => {
-        this.error.leaveGroup = true;
-      });
+      .catch(() => {});
   }
-
-  updateGroupData() {
-    return this.GroupService.save(this.groupData);
-  }
-
 }
 
 export default GroupDetailController;

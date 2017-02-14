@@ -1,9 +1,9 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fstool-db',
+        'NAME': 'fstool',
         'TEST': {
-            'NAME': 'fstool_test'
+            'NAME': 'fstool'
         },
         'USER': 'ubuntu',
     }

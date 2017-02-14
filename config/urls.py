@@ -1,4 +1,4 @@
-"""yunity URL Configuration
+"""URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -18,11 +18,11 @@ from django.contrib import admin
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 
-from yunity.userauth.api import AuthViewSet
-from yunity.conversations.api import ChatViewSet, ChatMessageViewSet
-from yunity.groups.api import GroupViewSet
-from yunity.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet
-from yunity.users.api import UserViewSet
+from foodsaving.userauth.api import AuthViewSet
+from foodsaving.conversations.api import ChatViewSet, ChatMessageViewSet
+from foodsaving.groups.api import GroupViewSet
+from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet
+from foodsaving.users.api import UserViewSet
 
 router = routers.DefaultRouter()
 

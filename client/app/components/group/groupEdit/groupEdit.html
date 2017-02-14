@@ -1,0 +1,41 @@
+<form name="editForm" ng-submit="editForm.$valid && $ctrl.submit()">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h1 flex>
+        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;
+        <span translate="GROUP.EDIT"></span>
+      </h1>
+    </div>
+  </md-toolbar>
+  <div layout-padding layout="column">
+    <md-input-container>
+      <label translate="GROUP.TITLE"></label>
+      <input required type="text" ng-model="$ctrl.editData.name"/>
+    </md-input-container>
+
+    <md-input-container>
+      <label translate="GROUP.DESCRIPTION_VERBOSE"></label>
+      <textarea ng-model="$ctrl.editData.description"></textarea>
+    </md-input-container>
+
+    <md-input-container>
+      <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
+      <textarea ng-model="$ctrl.editData.public_description"></textarea>
+    </md-input-container>
+
+    <md-input-container>
+      <label translate="GROUP.PASSWORD"></label>
+      <input type="text" ng-model="$ctrl.editData.password"/>
+    </md-input-container>
+
+    <p>{{ $ctrl.error }}</p>
+    <div layout="row" layout-align="end start">
+      <md-button class="md-icon-button" ui-sref="^">
+        <i class="fa fa-times"></i>
+      </md-button>
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="!editForm.$valid || $ctrl.saving">
+        <i class="fa fa-check"></i>
+      </md-button>
+    </div>
+  </div>
+</form>

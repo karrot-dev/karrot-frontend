@@ -26,7 +26,7 @@ class PickupListController {
       },
       reversed: false
     };
-
+    this.isInitialized = false;
     this.options = angular.merge(this.defaultOptions, this.options);
 
     this.Authentication.update().then((data) => {
@@ -68,6 +68,7 @@ class PickupListController {
       }
     });
     this.groupedPickups = this.groupByDate(pickups);
+    this.isInitialized = true;
     return pickups;
   }
 

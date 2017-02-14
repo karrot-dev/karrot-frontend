@@ -4,6 +4,12 @@ const { module } = angular.mock;
 
 describe("GroupEditCreateForm", () => {
   beforeEach(module(GroupEditCreateFormModule));
+  beforeEach(module({
+    Geocoding: {
+      lookupAddress: () => {}
+    }
+  }));
+
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -21,14 +27,32 @@ describe("GroupEditCreateForm", () => {
   });
 
   describe("Controller", () => {
-    let $componentController;
+    let $componentController, Geocoding;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
+      Geocoding = $injector.get("Geocoding");
+      sinon.stub(Geocoding, "lookupAddress");
     }));
 
-    it("should exist", () => {
+    it("does lookup", () => {
       let $ctrl = $componentController("groupEditCreateForm", {});
-      expect($ctrl).to.exist;
+      $ctrl.geoLookup("arg");
+      expect(Geocoding.lookupAddress).to.have.been.calledWith("arg");
+    });
+
+    it("sets coords", () => {
+      let $ctrl = $componentController("groupEditCreateForm", {}, { editData: {} });
+      let item = {
+        lat: 1, lng: 2, name: "bla"
+      };
+      $ctrl.setGeo(item);
+      expect($ctrl.editData.address).to.equal("bla");
+    });
+
+    it("doesn't set coords if no value", () => {
+      let $ctrl = $componentController("groupEditCreateForm", {}, { editData: {} });
+      $ctrl.setGeo();
+      expect($ctrl.editData.address).to.be.undefined;
     });
   });
 });

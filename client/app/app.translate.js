@@ -24,7 +24,7 @@ let AppTranslate = ($translateProvider) => {
     "de_*": "de",
     "fr_*": "fr",
     "es_*": "es",
-    "it_*": "it",
+    "it_*": "it"
   })
   .determinePreferredLanguage();
 };

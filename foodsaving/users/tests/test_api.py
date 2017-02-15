@@ -1,14 +1,55 @@
 from datetime import timedelta
 
+from dateutil.relativedelta import relativedelta
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 
 from config import settings
-from foodsaving.groups.factories import Group
+from foodsaving.groups.factories import Group as GroupFactory
+from foodsaving.stores.factories import PickupDate as PickupDateFactory, Store as StoreFactory
 from foodsaving.users.factories import UserFactory, VerifiedUserFactory
 from foodsaving.utils.tests.fake import faker
+
+
+class TestUserDeleteAPI(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = UserFactory()
+        cls.group = GroupFactory(members=[cls.user, ])
+        cls.store = StoreFactory(group=cls.group)
+        cls.pickupdate = PickupDateFactory(
+            store=cls.store,
+            date=timezone.now() + relativedelta(days=1),
+            collectors=[cls.user, ])
+        cls.past_pickupdate = PickupDateFactory(
+            store=cls.store,
+            date=timezone.now() - relativedelta(days=1),
+            collectors=[cls.user, ]
+        )
+        cls.url = '/api/users/{}/'.format(cls.user.id)
+
+    def test_delete_user(self):
+        self.assertEqual(self.group.members.count(), 1)
+        self.assertEqual(self.pickupdate.collectors.count(), 1)
+        self.assertEqual(self.past_pickupdate.collectors.count(), 1)
+
+        self.client.force_login(self.user)
+        response = self.client.delete(self.url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        self.assertFalse(self.group.members.get_queryset().filter(id=self.user.id).exists())
+        self.assertFalse(self.pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
+        self.assertTrue(self.past_pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
+
+        # delete another user
+        u2 = UserFactory()
+        self.client.force_login(u2)
+        url = '/api/users/{}/'.format(u2.id)
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
 
 class TestUsersAPI(APITestCase):
@@ -27,10 +68,10 @@ class TestUsersAPI(APITestCase):
             'latitude': faker.latitude(),
             'longitude': faker.longitude()
         }
-        cls.group = Group(members=[cls.user, cls.user2])
-        cls.another_common_group = Group(members=[cls.user, cls.user2])
+        cls.group = GroupFactory(members=[cls.user, cls.user2])
+        cls.another_common_group = GroupFactory(members=[cls.user, cls.user2])
         cls.user_in_another_group = UserFactory()
-        cls.another_group = Group(members=[cls.user_in_another_group, ])
+        cls.another_group = GroupFactory(members=[cls.user_in_another_group, ])
 
     def test_create_user(self):
         response = self.client.post(self.url, self.user_data, format='json')

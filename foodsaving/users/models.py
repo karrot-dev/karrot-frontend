@@ -47,7 +47,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, BaseModel, LocationModel):
-    email = EmailField(max_length=255, unique=True)
+    email = EmailField(max_length=255, unique=True, null=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
     display_name = CharField(max_length=settings.NAME_MAX_LENGTH)
@@ -56,6 +56,9 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     activation_key = CharField(max_length=40, blank=True)
     key_expires_at = DateTimeField(null=True)
     mail_verified = BooleanField(default=False)
+
+    deleted = BooleanField(default=False)
+    deleted_at = DateTimeField(default=None, null=True)
 
     objects = UserManager()
 

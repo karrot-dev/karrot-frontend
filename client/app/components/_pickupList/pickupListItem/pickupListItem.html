@@ -1,7 +1,7 @@
 <md-list-item layout="row" layout-align="end stretch" class="md-2-line pickupList-pickup">
   <div flex class="pickupList-pickup-left">
     <span class="pickupList-pickup-info-container">
-      <span class="md-title">{{$ctrl.data.date| date:'HH:mm'}}</span>
+      <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
       <span class="pickupList-pickup-info">
         <span ng-if="$ctrl.showStoreDetail">
           <i ng-if="!$ctrl.storeData" class="fa fa-spinner"></i>
@@ -11,7 +11,7 @@
           </a>
         </span>
         <span ng-if="!$ctrl.showStoreDetail">
-          {{$ctrl.data.date|date:'EEEE, dd.MM.yyyy'}}
+          {{$ctrl.data.date | date:'fullDate'}}
         </span>
       </span>
       <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button md-warn" ng-click="$ctrl.onDelete($ctrl.data, $event)" aria-label="{{ 'PICKUPLIST.ITEM.DELETE' | translate }}">

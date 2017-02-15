@@ -1,0 +1,27 @@
+<md-input-container>
+  <div layout="row">
+    <div class="md-default-theme" translate="{{$ctrl.translationLabel}}"></div>
+    <div flex></div>
+    <md-button class="preview" ng-click="$ctrl.togglePreview()">
+      <span ng-if="!$ctrl.isPreview">Vorschau</span>
+      <span ng-if="$ctrl.isPreview">Bearbeiten</span>
+    </md-button>
+  </div>
+  <div ng-if="$ctrl.isPreview" class="textarea-container">
+    <expandable-panel content="$ctrl.model" markdown="true" collapse="10"></expandable-panel>
+  </div>
+  <div ng-if="!$ctrl.isPreview" class="textarea-container">
+    <textarea ng-model="$ctrl.model"></textarea>
+  </div>
+  <div class="help" aria-hidden="true">
+    <b>**bold**</b>
+    <i>*italics*</i>
+    <span>~~strike~~</span>
+    <!--<code>`code`</code>
+    <code class="preformatted">```preformatted```</code>-->
+    <span class="quote">&gt;quote</span>
+    <md-button class="md-icon-button" href="https://guides.github.com/features/mastering-markdown/">
+      <i class="fa fa-question-circle"></i>
+    </md-button>
+  </div>
+</md-input-container>

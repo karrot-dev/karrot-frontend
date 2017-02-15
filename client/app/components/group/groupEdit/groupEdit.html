@@ -13,15 +13,9 @@
       <input required type="text" ng-model="$ctrl.editData.name"/>
     </md-input-container>
 
-    <md-input-container>
-      <label translate="GROUP.DESCRIPTION_VERBOSE"></label>
-      <textarea ng-model="$ctrl.editData.description"></textarea>
-    </md-input-container>
-
-    <md-input-container>
-      <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
-      <textarea ng-model="$ctrl.editData.public_description"></textarea>
-    </md-input-container>
+    <markdown-input translation-label="GROUP.DESCRIPTION_VERBOSE" model="$ctrl.editData.description"></markdown-input>
+    
+    <markdown-input translation-label="GROUP.PUBLIC_DESCRIPTION" model="$ctrl.editData.public_description"></markdown-input>
 
     <md-input-container>
       <label translate="GROUP.PASSWORD"></label>

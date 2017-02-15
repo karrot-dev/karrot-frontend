@@ -9,12 +9,14 @@ import translateStorageCookie from "angular-translate-storage-cookie";
 import "angular-breadcrumb";
 import angularLoadingBar from "angular-loading-bar";
 import "angular-xeditable";
+import ngLocale from "angular-dynamic-locale";
 
 // config
 import Common from "./common/common";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
-import AppTranslate from "./app.translate";
+import AppLocalizeConfig from "./app.localizeConfig";
+import AppLocalizeRun from "./app.localizeRun";
 import AppXEditableConfig from "./app.xeditable";
 
 // styles
@@ -32,6 +34,7 @@ import splashLayout from "./layouts/splash.html";
 import logo from "./components/_logo/logo";
 
 angular.module("app", [
+  ngLocale,
   uiRouter,
   ngMaterial,
   "xeditable",
@@ -62,7 +65,8 @@ angular.module("app", [
   $httpProvider.defaults.xsrfCookieName = "csrftoken";
   $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
 })
-.config(AppTranslate)
+.config(AppLocalizeConfig)
+.run(AppLocalizeRun)
 .config(AppMaterial)
 .config((cfpLoadingBarProvider) => {
   "ngInject";

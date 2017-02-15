@@ -7,7 +7,7 @@ import localeEO from "./locales/locale-eo.json";
 import localeIT from "./locales/locale-it.json";
 import localeRU from "./locales/locale-ru.json";
 
-let AppTranslate = ($translateProvider) => {
+let AppLocalize = ($translateProvider) => {
   "ngInject";
   $translateProvider
   .useCookieStorage()
@@ -32,4 +32,4 @@ let AppTranslate = ($translateProvider) => {
   .determinePreferredLanguage();
 };
 
-export default AppTranslate;
+export default AppLocalize;

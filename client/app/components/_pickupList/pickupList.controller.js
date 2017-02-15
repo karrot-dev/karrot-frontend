@@ -43,21 +43,14 @@ class PickupListController {
      */
   addPickupInfosAndDisplay(pickups) {
     let stores = {};
-    if (this.options.showDetail === "store") {
-      angular.forEach(pickups, (currentPickup) => {
-        stores[currentPickup.store] = {};
-      });
-
-      angular.forEach(stores, (currentStore, storeId) => {
-        stores[storeId] = this.Store.get(storeId);
-      });
-    }
-
     angular.forEach(pickups, (currentPickup) => {
       currentPickup.isUserMember = currentPickup.collector_ids.indexOf(this.userId) !== -1;
       currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
 
       if (this.options.showDetail === "store") {
+        if (angular.isUndefined(stores[currentPickup.store])) {
+          stores[currentPickup.store] = this.Store.get(currentPickup.store);
+        }
         currentPickup.storePromise = stores[currentPickup.store];
       }
     });

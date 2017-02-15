@@ -82,7 +82,7 @@ describe("CreateStore", () => {
 
     it("looks up address", () => {
       Geocoding.lookupAddress.returns($q((resolve) => {
-        resolve({ latitude: 1.99, longitude: 2.99, name: "blubb" });
+        resolve({ latitude: 1.99, longitude: 2.99, address: "blubb" });
       }));
       let $ctrl = $componentController("createStore", {});
       $ctrl.$onInit();

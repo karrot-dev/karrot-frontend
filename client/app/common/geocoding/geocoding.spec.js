@@ -41,9 +41,9 @@ describe("geocoding", () => {
       .to.be.fulfilled.and
       .to.eventually.deep.equal([
         {
-          lat: 1.99,
-          lng: 2.99,
-          name: "something"
+          latitude: 1.99,
+          longitude: 2.99,
+          address: "something"
         }
       ]);
     $httpBackend.flush();

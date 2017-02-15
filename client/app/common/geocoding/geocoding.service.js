@@ -14,9 +14,9 @@ class GeocodingService {
     }).then((res) => {
       return res.data.map((p) => {
         return {
-          lat: parseFloat(p.lat),
-          lng: parseFloat(p.lon),
-          name: p.display_name
+          latitude: parseFloat(p.lat),
+          longitude: parseFloat(p.lon),
+          address: p.display_name
         };
       });
     });

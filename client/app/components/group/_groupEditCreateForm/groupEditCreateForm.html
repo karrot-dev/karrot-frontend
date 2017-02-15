@@ -21,20 +21,21 @@
 
   <md-autocomplete
     placeholder="{{'GROUP.ADDRESS' | translate}}"
-    md-item-text="item.name"
-    md-search-text="query"
-    md-items="item in $ctrl.geoLookup(query)"
-    md-selected-item-change="$ctrl.setGeo(item)"
+    md-search-text="$ctrl.query"
+    md-items="item in $ctrl.geoLookup()"
+    md-item-text="item.address"
+    md-selected-item-change="$ctrl.trySetLocation(item)"
+    md-search-text-change="$ctrl.deleteIfEmpty(text)"
     md-delay="500">
     <md-item-template>
-      <span md-highlight-text="query">{{item.name}}</span>
+      <span md-highlight-text="$ctrl.query">{{item.address}}</span>
     </md-item-template>
   </md-autocomplete>
   <leaflet
     height="200"
     center="$ctrl.mapCenter"
     defaults="$ctrl.mapDefaults"
-    markers="{p:$ctrl.editData}"
+    markers="$ctrl.marker"
     class="md-whiteframe-z1">
   </leaflet>
 </div>

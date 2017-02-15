@@ -12,18 +12,37 @@ class GroupEditCreateFormController {
     });
   }
 
-  geoLookup(query) {
-    return this.Geocoding.lookupAddress(query);
+  $onInit() {
+    this.trySetLocation(this.editData);
   }
 
-  setGeo(item) {
-    if (!item) return;
+  geoLookup() {
+    return this.Geocoding.lookupAddress(this.query);
+  }
+
+  trySetLocation(item) {
+    if (!item || !item.address ) return;
+    this.marker = {
+      p: {
+        lat: item.latitude,
+        lng: item.longitude,
+        message: item.address,
+        draggable: false
+      }
+    };
+    this.query = item.address;
     this.mapCenter.zoom = 10;
-    this.editData.lat = item.lat;
-    this.editData.lng = item.lng;
-    this.editData.address = item.name;
-    this.mapCenter.lat = item.lat;
-    this.mapCenter.lng = item.lng;
+    this.mapCenter.lat = item.latitude;
+    this.mapCenter.lng = item.longitude;
+    Object.assign(this.editData, item);
+  }
+
+  deleteIfEmpty(text) {
+    if (!text) Object.assign(this.editData, {
+      latitude: null,
+      longitude: null,
+      address: null
+    });
   }
 }
 

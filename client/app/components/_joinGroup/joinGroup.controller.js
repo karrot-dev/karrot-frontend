@@ -1,16 +1,19 @@
 class JoinGroupController {
-  constructor($mdDialog, Group, Authentication) {
+  constructor($mdDialog, GroupService, Authentication) {
     "ngInject";
     Object.assign(this, {
       $mdDialog,
-      Group,
+      GroupService,
       Authentication,
-      groups: []
+      groups: [],
+      active: null,
+      check: false,
+      password: ""
     });
   }
 
   $onInit() {
-    this.Group.list().then((allGroups) => {
+    this.GroupService.list().then((allGroups) => {
       let sortedGroups = allGroups.sort((a,b) => b.members.length - a.members.length);
       this.Authentication.update().then((data) => {
         angular.forEach(sortedGroups, (curGroup) => {
@@ -21,11 +24,27 @@ class JoinGroupController {
       });
     });
   }
+  toggle(group) {
+    if (this.active && this.active.id === group.id) this.active = null;
+    else this.active = group;
+  }
+  toggleCheck() {
+    if (this.active.protected) {
+      this.check = true;
+    } else {
+      this.joinGroup();
+    }
+  }
 
-  joinGroup (group) {
-    return this.Group.join(group.id, { password: group.password })
+  joinGroup(scope) {
+    return this.GroupService.join(this.active.id, { password: this.password })
     .then(() => {
-      this.$mdDialog.hide(group.id);
+      this.$mdDialog.hide(this.active.id);
+    })
+    .catch(() => {
+      if (scope && scope.form) {
+        scope.form.password.$setValidity("check", false);
+      }
     });
   }
 }

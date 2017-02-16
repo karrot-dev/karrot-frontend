@@ -5,6 +5,11 @@
     "WARNING":"Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
   },
+  "ACTION_NOTICE": {
+    "TITLE": "Call for collaboration!",
+    "TEXT": "Are you interested in building up a foodsaving project or a foodsharing community? Do you know somebody who is already doing it?",
+    "MAIL_TEXT": "Write us a mail!"
+  },
   "USERDATA": {
     "EMAIL": "Mail",
     "PASSWORD": "Password",
@@ -14,22 +19,29 @@
     "CREATE": "Create",
     "CANCEL": "Cancel",
     "DELETE": "Delete",
-    "JOIN": "Join"
+    "JOIN": "Join",
+    "LEAVE": "Leave"
   },
   "GROUP": {
     "LEAVE": "Leave group...",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?", 
     "EDIT": "Edit group",
+    "CREATE_TITLE": "Create new group",
     "TITLE": "Title of this group",
-    "DESCRIPTION": "Group description, visible for members",
+    "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
     "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
-    "STORES": "Stores"
+    "STORES": "Stores",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
-    "ADDRESS": "Address"
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should regular pickup dates be shown?"
   },
   "USERDETAIL": {
     "EDIT": "Edit user",
@@ -77,14 +89,12 @@
   "GROUPMENU": {
     "JOIN": "Join community"
   },
-  "CREATEGROUP": {
-    "TITLE": "Create Group",
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address"
-  },
   "CREATEPICKUP": {
     "TITLE": "Create Pickup",
+    "SERIES": "Regular",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple dates here.",
     "TIME": "Time",
     "TIME_ERROR": "enter a valid time: [hh:mm]",
     "MAX_COLLECTORS": "Max Slots"
@@ -106,7 +116,8 @@
       "JOIN": "Join",
       "FULL": "Full!",
       "DELETE": "Delete pickup date",
-      "DELETE_TEXT": "Do you really want to delete this pickup date?"
+      "DELETE_TEXT": "Do you really want to delete this pickup date?",
+      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."
@@ -118,5 +129,8 @@
     "SUBMIT": "Get new password",
     "LOGIN": "Back to login page",
     "SUCCESS": "The request was successfully sent. Have a look at your mails!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Add more languages!"
   }
 }

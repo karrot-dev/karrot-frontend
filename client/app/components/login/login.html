@@ -1,36 +1,50 @@
-<div id="loginContent" layout-padding class="md-whiteframe-2dp" ng-class="[{shake: $ctrl.error.wrong}]">
-  <form login-form ng-submit="$ctrl.login()">
-    <h2 translate="LOGIN.TITLE"></h2>
-    <md-card>
-      <md-card-title>
-        <i class="fa fa-exclamation-triangle"></i>
-        <b translate="GLOBAL.WARNING"></b>
-      </md-card-title>
-      <md-card-content>
-        <p translate="GLOBAL.BETA_WARNING"></p>
-      </md-card-content>
-    </md-card>
-    <md-input-container class="md-block">
-      <label translate="USERDATA.EMAIL"></label>
-      <input type="text" name="email" required ng-model="$ctrl.email">
-    </md-input-container>
-    <md-input-container class="md-block">
-      <label translate="USERDATA.PASSWORD"></label>
-      <input type="password" name="password" required ng-model="$ctrl.password">
-      <div ng-messages="$ctrl.error" type="alert">
-        <div ng-message="wrong" translate="LOGIN.WRONG">
-        </div>
-      </div>
-    </md-input-container>
+<md-card layout-align="start center" layout="column" class="md-whiteframe-4dp">
+  <div class="banner" md-colors="::{background: 'primary'}">
+    <div layout="row" layout-align="start center">
+      <i style="padding-right: 10px" class="fa fa-2x fa-comments-o"></i>
+      <h2 translate="ACTION_NOTICE.TITLE"></h2>
+    </div>
+    <p translate="ACTION_NOTICE.TEXT"></p>
+    <md-button href="mailto:foodsaving@yunity.org" style="text-transform:none" class="md-raised">
+      <i class="fa fa-envelope"></i>
+      <span translate="ACTION_NOTICE.MAIL_TEXT"></span>
+    </md-button>
+  </div>
 
-    <md-button class="md-raised md-accent" type="submit">
-      <span translate="LOGIN.SUBMIT"></span>
-    </md-button>
-    <md-button ui-sref="signup">
-      <span translate="LOGIN.SIGNUP"></span>
-    </md-button>
-    <md-button ui-sref="passwordreset">
-      <span translate="LOGIN.FORGOT_PASSWORD"></span>
-    </md-button>
-  </form>
-</div>
+  <div class="content" ng-class="[{shake: $ctrl.error.wrong}]">
+    <form login-form ng-submit="$ctrl.login()">
+      <h2 translate="LOGIN.TITLE"></h2>
+      <md-card>
+        <md-card-title>
+          <i class="fa fa-exclamation-triangle"></i>
+          <b translate="GLOBAL.WARNING"></b>
+        </md-card-title>
+        <md-card-content>
+          <p translate="GLOBAL.BETA_WARNING"></p>
+        </md-card-content>
+      </md-card>
+      <md-input-container class="md-block">
+        <label translate="USERDATA.EMAIL"></label>
+        <input type="text" name="email" required ng-model="$ctrl.email">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label translate="USERDATA.PASSWORD"></label>
+        <input type="password" name="password" required ng-model="$ctrl.password">
+        <div ng-messages="$ctrl.error" type="alert">
+          <div ng-message="wrong" translate="LOGIN.WRONG">
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-button class="md-raised md-accent" type="submit">
+        <span translate="LOGIN.SUBMIT"></span>
+      </md-button>
+      <md-button ui-sref="signup">
+        <span translate="LOGIN.SIGNUP"></span>
+      </md-button>
+      <md-button ui-sref="passwordreset">
+        <span translate="LOGIN.FORGOT_PASSWORD"></span>
+      </md-button>
+    </form>
+  </div>
+</md-card>

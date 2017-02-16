@@ -1,0 +1,86 @@
+<md-toolbar class="md-hue-1">
+  <div class="md-toolbar-tools">
+    <h1 flex>
+      <i class="fa fa-home" aria-hidden="true"></i>&nbsp;
+      {{$ctrl.groupData.name}}
+    </h1>
+    <span>
+      <md-button class="md-icon-button" ui-sref="groupEdit" aria-label="{{ 'GROUP.EDIT' | translate }}">
+        <md-tooltip md-direction="left">
+          <span translate="GROUP.EDIT"></span>
+        </md-tooltip>
+        <i class="fa fa-pencil"></i>
+      </md-button>
+      <md-button class="md-icon-button" ng-click="$ctrl.leaveGroup()"
+                 aria-label="{{ 'GROUP.LEAVE' | translate }}">
+        <md-tooltip md-direction="left">
+          <span translate="GROUP.LEAVE"></span>
+        </md-tooltip>
+        <i class="fa fa-fw fa-sign-out"></i>
+      </md-button>
+    </span>
+  </div>
+</md-toolbar>
+
+<md-content layout-padding>
+  <div ng-if="$ctrl.groupData.address">
+    <i class="fa fa-fw fa-map-marker"></i>
+    {{$ctrl.groupData.address}}
+  </div>
+  <div ng-if="$ctrl.$mdMedia('gt-sm')">
+    <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
+  </div>
+  <md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
+        <span translate="GROUP.PICKUPS"></span>
+      </md-nav-item>
+      <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.stores" name="stores">
+        <span translate="GROUP.STORES"></span>
+      </md-nav-item>
+      <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.description" name="description">
+        <span translate="GROUP.DESCRIPTION"></span>
+      </md-nav-item>
+      <md-nav-item md-nav-sref="group.groupDetail.members" name="members">
+        <span translate="GROUP.MEMBERS"></span> ({{$ctrl.groupData.members.length}})
+      </md-nav-item>
+    </md-nav-bar>
+
+    <ui-view></ui-view>
+  </md-content>
+</md-content>
+
+<!-- confirm to leave group -->
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="confirmLeaveDialog">
+    <md-dialog>
+      <div class="md-whiteframe-10dp" layout-fill>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>
+              <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-sign-out"></i>
+              <span translate="GROUP.LEAVE"></span>
+            </h2>
+          </div>
+        </md-toolbar>
+        <div layout-margin>
+          <div translate="GROUP.LEAVE_TEXT" flex></div>
+          <div layout="row" layout-align="end center">
+            <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+              <md-tooltip>
+                <span translate="BUTTON.CANCEL"></span>
+              </md-tooltip>
+              <i class="fa fa-times"></i>
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+              <md-tooltip>
+                <span translate="BUTTON.LEAVE"></span>
+              </md-tooltip>
+              <i class="fa fa-sign-out"></i>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </md-dialog>
+  </div>
+</div>

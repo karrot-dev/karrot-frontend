@@ -1,11 +1,13 @@
 class StoreListController {
-  constructor(Store, $state, $document, $mdDialog) {
+  constructor(Store, $state, $document, $mdDialog, $mdMedia) {
     "ngInject";
     Object.assign(this, {
       Store,
       $state,
       $document,
-      $mdDialog
+      $mdDialog,
+      $mdMedia,
+      showMap: false
     });
   }
 
@@ -13,6 +15,10 @@ class StoreListController {
     if (changes.groupId && angular.isDefined(changes.groupId.currentValue)) {
       this.Store.listByGroupId(changes.groupId.currentValue).then((data) => this.storeList = data);
     }
+  }
+
+  toggleMap(){
+    this.showMap = !this.showMap;
   }
 
   openCreateStorePanel($event) {

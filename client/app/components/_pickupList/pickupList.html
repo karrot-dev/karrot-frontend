@@ -4,12 +4,12 @@
   <div ng-show="$ctrl.options.showTopbar">
     <h3 class="md-title"><i class="icon fa fa-shopping-basket" aria-hidden="true"></i>  {{$ctrl.options.header}}</h3>
     <div style="display: inline-block">
-      <md-button ng-show="$ctrl.options.showCreateButton" class="small md-primary md-hue-3" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel($event)">
-        <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
+      <md-button aria-label="{{'BUTTON.CREATE' | translate}}" ng-show="$ctrl.options.showCreateButton" class="md-primary" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel($event)">
+      <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
         <span translate="BUTTON.CREATE"></span>
       </md-button>
       <md-menu>
-        <md-button class="small"  ng-click="$mdOpenMenu()">
+        <md-button aria-label="{{'PICKUPLIST.FILTER' | translate}}" class="small"  ng-click="$mdOpenMenu()">
           <span hide-xs translate="PICKUPLIST.FILTER"></span>
           <i class="fa fa-filter" aria-hidden="true"></i>
         </md-button>
@@ -30,7 +30,7 @@
           </md-list>
         </md-menu-content>
       </md-menu>
-      <md-button class="small" ng-click="$ctrl.toggleReversed()">
+      <md-button aria-label="{{'PICKUPLIST.SORT' | translate}}" class="small" ng-click="$ctrl.toggleReversed()">
         <span hide-xs translate="PICKUPLIST.SORT"></span>
         <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.options.reversed , 'fa-angle-up': !$ctrl.options.reversed  }" aria-hidden="true"></i>
       </md-button>
@@ -41,7 +41,7 @@
   <!-- Items -->
   <md-content style="padding: 0">
     <section ng-repeat="pickupDate in $ctrl.groupedPickups | orderBy:'date':$ctrl.options.reversed">
-      <md-subheader ng-show="$ctrl.options.showStickyHeaders" class="md-sticky">{{pickupDate.date| date:'EEEE, dd.MM.yyyy'}}</md-subheader>
+      <md-subheader ng-show="$ctrl.options.showStickyHeaders" class="md-sticky">{{pickupDate.date| date:'fullDate'}}</md-subheader>
       <md-list>
         <pickup-list-item
           ng-repeat="pickup in pickupDate.items| orderBy:['-date']:$ctrl.options.reversed"
@@ -52,7 +52,12 @@
         </pickup-list-item>
       </md-list>
     </section>
-    <md-content ng-if="!$ctrl.groupedPickups.length"  layout-padding>
+
+    <md-content ng-if="!$ctrl.isInitialized" layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate" style="margin: 3em auto"></md-progress-circular>
+    </md-content>
+
+    <md-content ng-if="$ctrl.isInitialized && !$ctrl.groupedPickups.length"  layout-padding>
       <h4 style="margin-bottom: 0"><i class="fa fa-bed"></i> <translate>PICKUPLIST.NONE</translate></h4>
       <small ng-if="!$ctrl.options.showCreateButton" translate="PICKUPLIST.NONE_HINT"></small>
     </md-content>
@@ -63,7 +68,7 @@
     <div class="md-dialog-container" id="confirmDeleteDialog">
       <md-dialog>
         <div class="md-whiteframe-10dp" layout-fill>
-          <md-toolbar class="md-hue-1">
+          <md-toolbar>
             <div class="md-toolbar-tools">
               <h2>
                 <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-trash-o"></i>
@@ -73,14 +78,19 @@
           </md-toolbar>
           <div layout-margin>
             <div translate="PICKUPLIST.ITEM.DELETE_TEXT" flex></div>
+            <div ng-if="$ctrl.pickupToDelete.series">
+              <md-checkbox ng-model="$ctrl.isDeleteSeries">
+                <span translate="PICKUPLIST.ITEM.DELETE_SERIES_TEXT"></span>
+              </md-checkbox>
+            </div>
             <div layout="row" layout-align="end center">
-              <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+              <md-button aria-label="{{'BUTTON.CANCEL' | translate}}" class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
                 <md-tooltip>
                   <span translate="BUTTON.CANCEL"></span>
                 </md-tooltip>
                 <i class="fa fa-times"></i>
               </md-button>
-              <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+              <md-button aria-label="{{'BUTTON.DELETE' | translate}}" class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
                 <md-tooltip>
                   <span translate="BUTTON.DELETE"></span>
                 </md-tooltip>

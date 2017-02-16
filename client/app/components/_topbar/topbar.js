@@ -4,12 +4,14 @@ import topbarComponent from "./topbar.component";
 import groupMenu from "../_groupMenu/groupMenu";
 import languageChooser from "../_languageChooser/languageChooser";
 import Authentication from "../../common/authentication/authentication";
+import logo from "../_logo/logo";
 
 let topbarModule = angular.module("topbar", [
   uiRouter,
   groupMenu,
   languageChooser,
-  Authentication
+  Authentication,
+  logo
 ])
 
 .component("topbar", topbarComponent)

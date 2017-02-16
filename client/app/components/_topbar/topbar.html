@@ -1,12 +1,8 @@
 <md-toolbar class="md-medium-small md-whiteframe-3dp">
   <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
     <span flex="5" hide-xs></span>
-    <a ui-sref="home">
-      <img class="logo" ng-src="{{$ctrl.logo}}" alt="foodsaving logo">
-    </a>
-    <group-menu style="min-width: 50%"></group-menu>
-
-    <span flex></span>
+    <group-menu style="min-width: 50%" flex></group-menu>
+    
     <language-chooser ng-if="!screenIsSmall"></language-chooser>
     <md-button ng-if="!screenIsSmall" class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
       <i class="fa fa-user"></i>
@@ -21,20 +17,21 @@
           <span translate="TOPBAR.LOGOUT"></span>
       </md-tooltip>
     </md-button>
-    
+
     <md-button ng-if="screenIsSmall" aria-label="Navigation" ng-click="$ctrl.toggleRight()" class="md-icon-button">
       <i class="fa fa-fw fa-bars"></i>
     </md-button>
-    
+
     <span flex="5"></span>
   </div>
 </md-toolbar>
+<!--<div ncy-breadcrumb></div>-->
 
 <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
   <md-toolbar class="md-theme-light">
     <h1 class="md-toolbar-tools"><span translate="TOPBAR.GREETING" translate-values='{ username: $ctrl.loggedInUser.display_name}'></span></h1>
   </md-toolbar>
-  <md-content layout-padding>    
+  <md-content layout-padding>
     <md-menu-content width="4">
       <md-menu-item>
         <md-button ng-click="$ctrl.toggleRight()" class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">

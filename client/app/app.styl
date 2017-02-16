@@ -1,18 +1,27 @@
-yunity-orange = #f66c41;
-
 .splash
-  height: 100%
-  width: 100%
-  background-color: yunity-orange
-  padding: 5em 0
+  background-image: url('yunityorg.jpg')
+  background-size: cover
+  min-height 100%
+  > md-toolbar
+    height 42px
+    max-height 42px
+    min-height 42px
+  logo
+    padding-right 10px
+    > img
+      height 60px
+      opacity 0.8
+  @media screen and (max-width: 450px)
+    h1.title
+      font-size 7vw
+  ui-view
+    width 40em
 
-.translucent-1
-  background-color: rgba(255, 255, 255, .1)
 
 // the main layout panel
-.main-panel
-  padding: 16px
-  margin-top: 1em
+.md-whiteframe-2dp
+  padding: 20px
+  margin-top: .8em
 
 .md-dialog-container > md-dialog
   width: 95%
@@ -40,11 +49,11 @@ md-input-container.editable-controls [ng-message]
   opacity 0.8
   color inherit
 
-
-
 .footer
   opacity 0.6
   text-align center
+  margin: 0.5em;
+  font-size: 0.8em;
 
 .footer a
   opacity 0.8

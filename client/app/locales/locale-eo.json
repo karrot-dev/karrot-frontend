@@ -1,0 +1,123 @@
+{
+  "GLOBAL":{
+    "GITHUB_NOTE":"Ellaboro",
+    "DEVMAIL_NOTE":"Skribu retmesaĝon al ni pri eraroj/sugestoj",
+    "WARNING":"Averto",
+    "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)"
+  },
+  "USERDATA": {
+    "EMAIL": "Retadreso",
+    "PASSWORD": "Pasvorto",
+    "USERNAME": "Nomo"
+  },
+  "BUTTON": {
+    "CREATE": "Krei",
+    "CANCEL": "Nuligi",
+    "DELETE": "Forigi",
+    "JOIN": "Ensaluti",
+    "LEAVE": "Forlasi"
+  },
+  "GROUP": {
+    "LEAVE": "Forlasi la grupon…",
+    "EDIT": "Redakti grupon",
+    "TITLE": "Titolo de ĉi tiu grupo",
+    "DESCRIPTION": "Grupa priskribo, videbla por la anoj",
+    "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
+    "PASSWORD": "Entajpi pasvorton ĉi tien se vi volas privatigi la grupon",
+    "PICKUPS": "Kolektoj",
+    "MEMBERS": "Anoj",
+    "STORES": "Vendejoj"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Redakti vendejon",
+    "ADDRESS": "Adreso"
+  },
+  "USERDETAIL": {
+    "EDIT": "Krei uzanton",
+    "DISPLAY_NAME": "Nomo",
+    "EMAIL": "Retadreso",
+    "DESCRIPTION": "Pri vi",
+    "PASSWORD_CHANGE": "Ŝangu vian pasvorton (vi elsalutiĝos)",
+    "PASSWORD": "Entajpu vian pasvorton"
+  },
+  "JOINGROUP": {
+    "NAME": "Nomo",
+    "WHICHGROUP": "Al kiu grupo vi volas aliĝi?",
+    "NUM_MEMBERS": "Anoj",
+    "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribo… ankoraŭ)",
+    "PASSWORD_LABEL": "Entajpu pasvorton por privatan grupon",
+    "PASSWORD_REQUIRED": "Ĉi tiu grupo bezonas pasvorton",
+    "PASSWORD_WRONG": "Vi misentajpis la pasvorton"
+  },
+  "HOME": {
+    "REDIRECT": "Alidirektante vin al via amata grupo"
+  },
+  "TOPBAR": {
+    "LOGOUT": "Elsaluti",
+    "USERPROFILE": "Vizitu vian profilon",
+    "GREETING": "Saluton, {{username}}!"
+  },
+  "LOGIN": {
+    "TITLE": "Ensaluti",
+    "WRONG": "La akreditaĵoj ne estas korektaj. Bonvolu kontroli ilin zorge.",
+    "SUBMIT": "Ensaluti",
+    "SIGNUP": "Aliĝu!",
+    "FORGOT_PASSWORD": "Ĉu vi forgesis vian pasvorton?"
+  },
+  "SIGNUP": {
+    "TITLE": "Registriĝu!",
+    "BACK": "Reen al ensalutpaĝo",
+    "OK": "Aliĝi",
+    "FAILED": "Registriĝo malsukcesis!"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Retpostkontrolo",
+    "SUCCESS": "Via retadreso estis sukcese konfirmita!",
+    "ERROR": "Io misfunkciis. Ĉu eble via retadreso jam estis konfirmita?"
+  },
+  "GROUPMENU": {
+    "JOIN": "Aliĝi al la komunumo"
+  },
+  "CREATEGROUP": {
+    "TITLE": "Krei grupon",
+    "NAME": "Nomo",
+    "DESCRIPTION": "Priskribo",
+    "ADDRESS": "Adreso"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Krei Forkolekton",
+    "TIME": "Tempo",
+    "TIME_ERROR": "Entajpi validan daton: [hh:mm]",
+    "MAX_COLLECTORS": "Maks Spacoj"
+  },
+  "CREATESTORE": {
+    "TITLE": "Krei novan vendejon",
+    "NAME": "Nomo",
+    "DESCRIPTION": "Priskribo",
+    "ADDRESS": "Adreso"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filtrilo",
+    "JOINED": "aliĝita",
+    "OPEN": "malferma",
+    "FULL": "plena",
+    "SORT": "Ordigi",
+    "ITEM": {
+      "LEAVE": "Forlasi",
+      "JOIN": "Aliĝi",
+      "FULL": "Plena!",
+      "DELETE": "Forigu forkolektan daton",
+      "DELETE_TEXT": "Ĉu vi vere volas forigi ĉi tiun forkolektan daton?"
+    },
+    "NONE":"Neniu venonta forkolekto",
+    "NONE_HINT":"Vi povas krei novan forkolekton en la vendeja paĝo."
+  },
+  "PASSSWORDRESET": {
+    "TITLE": "Pasvorta restarigo",
+    "INTRO": "Entajpu vian retadreson kaj ni sendos novan pasvorton al vi (se vi jam registriĝis)",
+    "EMAIL": "Retpostadreso",
+    "SUBMIT": "Ricevi novan pasvorton",
+    "LOGIN": "Reen al ensalutpaĝo",
+    "SUCCESS": "La peto sukcese sendiĝis. Kontrolu vian retposton!"
+  }
+}

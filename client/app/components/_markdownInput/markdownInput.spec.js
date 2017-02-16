@@ -30,5 +30,12 @@ describe("MarkdownInput", () => {
       let $ctrl = $componentController("markdownInput", {});
       expect($ctrl).to.exist;
     });
+
+    it("should toggle preview", () => {
+      let $ctrl = $componentController("markdownInput", {});
+      expect($ctrl.isPreview).to.equal(false);
+      $ctrl.togglePreview();
+      expect($ctrl.isPreview).to.equal(true);
+    });
   });
 });

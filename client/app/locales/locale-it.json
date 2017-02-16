@@ -1,0 +1,130 @@
+{
+  "GLOBAL":{
+    "GITHUB_NOTE":"Sviluppo",
+    "DEVMAIL_NOTE":"scrivici una mail se trovi errori /suggerimenti",
+    "WARNING":"Attenzione",
+    "BETA_WARNING": "Questo sito internet é sotto uno sviluppo attivo e tutto é soggetto a cambiamenti continui . Noi non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)"
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Vi invitiamo a collaborare!",
+    "TEXT": "Sei interessato a costruire un progetto di foodsaving  o una comunità di foodsharing? Conosci qualcuno che lo sta già facendo? ",
+    "MAIL_TEXT": "Scrivici una mail!"
+  },
+  "USERDATA": {
+    "EMAIL": "Mail",
+    "PASSWORD": "Password",
+    "USERNAME": "Nome"
+  },
+  "BUTTON": {
+    "CREATE": "Crea",
+    "CANCEL": "Cancella",
+    "DELETE": "Elimina",
+    "JOIN": "Unisciti"
+  },
+  "GROUP": {
+    "LEAVE": "Lascia il gruppo...",
+    "EDIT": "Modifica gruppo",
+    "TITLE": "Titolo di questo gruppo",
+    "DESCRIPTION": "Descrizione del gruppo, visibile dai membri",
+    "PUBLIC_DESCRIPTION": "Scrivici prima di unirti al gruppo",
+    "PASSWORD": "Metti qui una password se vuoi fare un gruppo privato",
+    "PICKUPS": "Raccogliere",
+    "MEMBERS": "Membri",
+    "STORES": "Negozi"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Modifica negozi",
+    "ADDRESS": "Indirizzo"
+  },
+  "USERDETAIL": {
+    "EDIT": "Modifica utente",
+    "DISPLAY_NAME": "Nome",
+    "EMAIL": "Mail",
+    "DESCRIPTION": "Su di te",
+    "PASSWORD_CHANGE": "Cambia la password (sarai disconnesso)",
+    "PASSWORD": "Immetti la nuova password"
+  },
+  "JOINGROUP": {
+    "NAME": "Nome",
+    "WHICHGROUP": "A che gruppo ti vuoi unire?",
+    "NUM_MEMBERS": "Membri",
+    "NO_PUBLIC_DESCRIPTION": "(Questo grupp non ha una pubblica descrizione... per ora)",
+    "PASSWORD_LABEL": "Immetti la password per un gruppo privato",
+    "PASSWORD_REQUIRED": "Questo gruppo necessita una password",
+    "PASSWORD_WRONG": "Hai digitato la password errata"
+  },
+  "HOME": {
+    "REDIRECT": "Reindirizzati per il tuo gruppo preferito..."
+  },
+  "TOPBAR": {
+    "LOGOUT": "Disconnetti",
+    "USERPROFILE": "Visita il tuo profilo",
+    "GREETING": "Ciao, {{username}}!"
+  },
+  "LOGIN": {
+    "TITLE": "Accesso",
+    "WRONG": "Le seguenti credenziali sono sbagliate. Per favore riguarda accuratamente.",
+    "SUBMIT": "Accesso",
+    "SIGNUP": "Iscriviti!",
+    "FORGOT_PASSWORD": "Dimenticato la password?"
+  },
+  "SIGNUP": {
+    "TITLE": "Iscriviti!",
+    "BACK": "Torna all'accesso",
+    "OK": "Unisciti",
+    "FAILED": "Iscrizione fallita!"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Verifica di mail",
+    "SUCCESS": "Il tuo indirizzo mail é stato verificato con successo!",
+    "ERROR": "Qualcosa non ha funzionato . Forse hai già controllato il tuo indirizzo?"
+  },
+  "GROUPMENU": {
+    "JOIN": "Unisciti alla comunità"
+  },
+  "CREATEGROUP": {
+    "TITLE": "Crea un gruppo",
+    "NAME": "Nome",
+    "DESCRIPTION": "Descrizione",
+    "ADDRESS": "Indirizzo"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Crea raccolta",
+    "TIME": "Tempo",
+    "TIME_ERROR": "Metti una ora valida: [hh:mm]",
+    "MAX_COLLECTORS": "Spazio massimo"
+  },
+  "CREATESTORE": {
+    "TITLE": "Crea un nuovo negozio",
+    "NAME": "Nome",
+    "DESCRIPTION": "Descrizione",
+    "ADDRESS": "Indirizzo"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filtro",
+    "JOINED": "Aggiunto",
+    "OPEN": "aperto",
+    "FULL": "pieno",
+    "SORT": "Selezione",
+    "ITEM": {
+      "LEAVE": "Lascia",
+      "JOIN": "Unisciti",
+      "FULL": "Pieno!",
+      "DELETE": "Elimina raccolta dati",
+      "DELETE_TEXT": "Vuoi davvero eliminare questa raccolta dati?"
+    },
+    "NONE":"Nessun raccolta in vista",
+    "NONE_HINT":"Puoi creare una nuova raccolta sulla pagina del negozio."
+  },
+  "PASSSWORDRESET": {
+    "TITLE": "Password resettata",
+    "INTRO": "Immetti il tuo indirizzo mail e ti manderemo una nuova password (se hai un account registrato)",
+    "EMAIL": "Indirizzo mail",
+    "SUBMIT": "Ottieni una nuova password",
+    "LOGIN": "Torna alla pagina di accesso",
+    "SUCCESS": "La richiesta é stata inviata con successo. Dai un occhio alle tue mail!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Aggiungi altre lingue!"
+  }
+}

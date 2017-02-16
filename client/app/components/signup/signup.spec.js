@@ -65,16 +65,19 @@ describe("Signup", () => {
 
       it("signs user up", () => {
         $httpBackend.expectPOST("/api/users/", signupRequest).respond(200, signupResponse);
+        $httpBackend.expectPOST("/api/auth/", {
+          email: signupRequest.email,
+          password: signupRequest.password
+        }).respond(200);
         let ctrl = $componentController("signup", {});
         Object.assign(ctrl, {
           username: signupRequest.display_name,
           email: signupRequest.email,
-          password: signupRequest.password,
-          passwordrepeat: signupRequest.password
+          password: signupRequest.password
         });
         ctrl.signup();
         $httpBackend.flush();
-        expect($state.go).to.have.been.calledWith("login");
+        expect($state.go).to.have.been.calledWith("home");
       });
     });
   });

@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import createGroupComponent from "./createGroup.component";
-import GroupService from "../../common/group/group";
+import GroupService from "../../../common/group/group";
 
 let createGroupModule = angular.module("createGroup", [
   uiRouter,
@@ -18,7 +18,7 @@ let createGroupModule = angular.module("createGroup", [
       url: "/group/create",
       component: "createGroup",
       ncyBreadcrumb: {
-        label: "{{'CREATEGROUP.TITLE' | translate}}"
+        label: "{{'GROUP.CREATE_TITLE' | translate}}"
       }
     });
   hookProvider.setup("createGroup", { authenticated: true, anonymous: "login" });

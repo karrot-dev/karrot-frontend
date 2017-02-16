@@ -9,7 +9,9 @@ class LanguageChooserController {
         fr: "Français",
         sv: "Svenska",
         es: "Español",
-        eo: "Esperanto"
+        it: "Italiano",
+        eo: "Esperanto",
+        ru: "Русский"
       }
     });
   }

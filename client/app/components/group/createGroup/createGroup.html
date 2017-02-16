@@ -1,0 +1,26 @@
+<div layout="row">
+  <div flex></div>
+  <div class="md-whiteframe-2dp container">
+    <md-toolbar class="md-hue-1">
+      <div class="md-toolbar-tools">
+        <h1 flex>
+          <i class="fa fa-home" aria-hidden="true"></i>&nbsp;
+          <span translate="GROUP.CREATE_TITLE"></span>
+        </h1>
+      </div>
+    </md-toolbar>
+    <md-content>
+      <form name="createGroupForm" ng-submit="createGroupForm.$valid && $ctrl.createGroup()" layout="column">
+        <group-edit-create-form edit-data="$ctrl.groupData"></group-edit-create-form>
+
+        <p>{{ $ctrl.error }}</p>
+        <md-button-container>
+          <md-button class="md-raised md-primary" type="submit" ng-disabled="createGroupForm.$invalid">
+            <span translate="BUTTON.CREATE"></span>
+          </md-button>
+        </md-button-container>
+      </form>
+    </md-content>
+  </div>
+  <div flex></div>
+</div>

@@ -25,7 +25,7 @@
     md-items="item in $ctrl.geoLookup()"
     md-item-text="item.address"
     md-selected-item-change="$ctrl.trySetLocation(item)"
-    md-search-text-change="$ctrl.deleteIfEmpty(text)"
+    md-search-text-change="$ctrl.deleteIfEmpty($ctrl.query)"
     md-delay="500"
     style="padding:0">
     <md-item-template>

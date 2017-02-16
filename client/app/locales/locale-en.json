@@ -19,8 +19,10 @@
     "CREATE": "Create",
     "CANCEL": "Cancel",
     "DELETE": "Delete",
+    "EDIT": "Edit",
     "JOIN": "Join",
-    "LEAVE": "Leave"
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview"
   },
   "GROUP": {
     "LEAVE": "Leave group...",

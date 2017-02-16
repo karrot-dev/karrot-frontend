@@ -3,8 +3,8 @@
     <div class="md-default-theme" translate="{{$ctrl.translationLabel}}"></div>
     <div flex></div>
     <md-button class="preview" ng-click="$ctrl.togglePreview()">
-      <span ng-if="!$ctrl.isPreview">Vorschau</span>
-      <span ng-if="$ctrl.isPreview">Bearbeiten</span>
+      <span ng-if="!$ctrl.isPreview" translate="BUTTON.PREVIEW"></span>
+      <span ng-if="$ctrl.isPreview" translate="BUTTON.EDIT"></span>
     </md-button>
   </div>
   <div ng-if="$ctrl.isPreview" class="textarea-container">

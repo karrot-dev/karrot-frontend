@@ -79,6 +79,11 @@ describe("CreatePickup", () => {
       $httpBackend.flush();
     });
 
+    it("initializes", () => {
+      $ctrl.$onInit();
+      expect($ctrl.days[2]).to.deep.equal({ key: "WE", name: "Wednesday" });
+    });
+
     it("creates regular pickup", () => {
       $ctrl.isSeries = true;
       $ctrl.byDay =  ["MO","TU"];

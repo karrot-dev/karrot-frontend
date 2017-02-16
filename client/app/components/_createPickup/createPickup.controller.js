@@ -1,17 +1,27 @@
 class CreatePickupController {
-  constructor($mdDialog, PickupDate, PickupDateSeries) {
+  constructor($mdDialog, PickupDate, PickupDateSeries, $locale) {
     "ngInject";
     Object.assign(this, {
       $mdDialog,
       PickupDate,
       PickupDateSeries,
+      $locale,
       pickupData: {
         date: new Date(),
         maxCollectors: 2
       },
       isSeries: true,
-      mode: "series"
+      mode: "series",
+      days: {}
     });
+  }
+
+  $onInit() {
+    let keys = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+    for (let i = 0; i < 7; i++) {
+      // let the week begin on Monday, because the FIRSTDAYOFWEEK value is usually set to Sunday
+      this.days[(i + 6) % 7] = { key: keys[i], name: this.$locale.DATETIME_FORMATS.DAY[i] };
+    }
   }
 
   assembleDate(date, time) {

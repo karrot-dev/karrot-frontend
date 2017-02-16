@@ -25,13 +25,7 @@
             </md-tooltip>
           </div>
           <select multiple ng-model="$ctrl.byDay" size="7">
-            <option value="MO" translate="CREATEPICKUP.MONDAY"></option>
-            <option value="TU" translate="CREATEPICKUP.TUESDAY"></option>
-            <option value="WE" translate="CREATEPICKUP.WEDNESDAY"></option>
-            <option value="TH" translate="CREATEPICKUP.THURSDAY"></option>
-            <option value="FR" translate="CREATEPICKUP.FRIDAY"></option>
-            <option value="SA" translate="CREATEPICKUP.SATURDAY"></option>
-            <option value="SU" translate="CREATEPICKUP.SUNDAY"></option>
+            <option ng-repeat="day in $ctrl.days" value="{{day.key}}">{{day.name}}</option>
           </select>
         </div>
 

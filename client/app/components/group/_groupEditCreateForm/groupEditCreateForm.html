@@ -26,7 +26,8 @@
     md-item-text="item.address"
     md-selected-item-change="$ctrl.trySetLocation(item)"
     md-search-text-change="$ctrl.deleteIfEmpty(text)"
-    md-delay="500">
+    md-delay="500"
+    style="padding:0">
     <md-item-template>
       <span md-highlight-text="$ctrl.query">{{item.address}}</span>
     </md-item-template>

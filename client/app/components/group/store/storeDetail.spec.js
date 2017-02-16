@@ -8,6 +8,11 @@ const { module } = angular.mock;
 
 describe("StoreDetail", () => {
   beforeEach(module(StoreDetailModule));
+  beforeEach(module({
+    Geocoding: {
+      lookupAddress: sinon.stub()
+    }
+  }));
   beforeEach(module(GroupComponentModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
@@ -19,7 +24,6 @@ describe("StoreDetail", () => {
     $log = $injector.get("$log");
     $log.reset();
     Geocoding = $injector.get("Geocoding");
-    sinon.stub(Geocoding, "lookupAddress");
     $httpBackend = $injector.get("$httpBackend");
     $state = $injector.get("$state");
     $q = $injector.get("$q");

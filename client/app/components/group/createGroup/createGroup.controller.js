@@ -7,10 +7,9 @@ class CreateGroupController {
       groupData: {}
     });
   }
-
   createGroup() {
     this.GroupService.create(this.groupData).then((data) => {
-      this.$state.go("groupDetail", { groupId: data.id });
+      this.$state.go("group", { groupId: data.id });
     }).catch((error) => {
       this.error = error.data;
     });

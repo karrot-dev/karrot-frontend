@@ -24,6 +24,7 @@
   "GROUP": {
     "LEAVE": "Leave group...",
     "EDIT": "Edit group",
+    "CREATE_TITLE": "Create new group",
     "TITLE": "Title of this group",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
@@ -31,7 +32,9 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
     "STORES": "Stores",
-    "DESCRIPTION": "Description"
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
@@ -82,12 +85,6 @@
   },
   "GROUPMENU": {
     "JOIN": "Join community"
-  },
-  "CREATEGROUP": {
-    "TITLE": "Create Group",
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address"
   },
   "CREATEPICKUP": {
     "TITLE": "Create Pickup",

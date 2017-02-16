@@ -37,7 +37,7 @@ class CreateStoreController {
     this.Geocoding.lookupAddress(this.storeData.address).then((data) => {
       this.storeData.latitude = data.latitude;
       this.storeData.longitude = data.longitude;
-      this.storeData.lookedUpAddress = data.name;
+      this.storeData.lookedUpAddress = data.address;
       this.lookupOngoing = false;
     }).catch(() => {
       // TODO: show that nothing was found

@@ -7,20 +7,8 @@
       </h1>
     </div>
   </md-toolbar>
-  <div layout-padding layout="column">
-    <md-input-container>
-      <label translate="GROUP.TITLE"></label>
-      <input required type="text" ng-model="$ctrl.editData.name"/>
-    </md-input-container>
-
-    <markdown-input translation-label="GROUP.DESCRIPTION_VERBOSE" model="$ctrl.editData.description"></markdown-input>
-    
-    <markdown-input translation-label="GROUP.PUBLIC_DESCRIPTION" model="$ctrl.editData.public_description"></markdown-input>
-
-    <md-input-container>
-      <label translate="GROUP.PASSWORD"></label>
-      <input type="text" ng-model="$ctrl.editData.password"/>
-    </md-input-container>
+  <div layout="column">
+    <group-edit-create-form edit-data="$ctrl.editData"></group-edit-create-form>
 
     <p>{{ $ctrl.error }}</p>
     <div layout="row" layout-align="end start">

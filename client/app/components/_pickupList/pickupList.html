@@ -78,6 +78,11 @@
           </md-toolbar>
           <div layout-margin>
             <div translate="PICKUPLIST.ITEM.DELETE_TEXT" flex></div>
+            <div ng-if="$ctrl.pickupToDelete.series">
+              <md-checkbox ng-model="$ctrl.isDeleteSeries">
+                <span translate="PICKUPLIST.ITEM.DELETE_SERIES_TEXT"></span>
+              </md-checkbox>
+            </div>
             <div layout="row" layout-align="end center">
               <md-button aria-label="{{'BUTTON.CANCEL' | translate}}" class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
                 <md-tooltip>

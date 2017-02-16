@@ -3,13 +3,13 @@ import uiRouter from "angular-ui-router";
 import Authentication from "../../../common/authentication/authentication";
 import groupEditComponent from "./groupEdit.component";
 import GroupService from "../../../common/group/group";
-import markdownInput from "../../_markdownInput/markdownInput";
+import groupEditCreateForm from "../_groupEditCreateForm/groupEditCreateForm";
 
 let groupEditModule = angular.module("groupEdit", [
   uiRouter,
   Authentication,
   GroupService,
-  markdownInput
+  groupEditCreateForm
 ])
 
 .component("groupEdit", groupEditComponent)

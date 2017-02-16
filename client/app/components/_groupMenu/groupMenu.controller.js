@@ -24,7 +24,7 @@ class GroupMenuController {
       targetEvent: $event,
       template: "<md-dialog style='height:80%'><join-group></join-group></md-dialog>"
     }).then((groupId) => {
-      this.$state.go("groupDetail", { groupId });
+      this.$state.go("group", { groupId });
     });
   }
 }

@@ -284,9 +284,26 @@ describe("PickupList", () => {
       sinon.stub($ctrl, "updatePickups");
       $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
       $httpBackend.expectDELETE("/api/pickup-dates/87/").respond();
+      $ctrl.isDeleteSeries = false;
       $ctrl.delete({ id: 87 });
       $httpBackend.flush();
       expect($ctrl.updatePickups).to.have.been.called;
+    });
+
+    it("deletes pickup series", () => {
+      let $q;
+      inject(($injector) => {
+        $q = $injector.get("$q");
+      });
+      sinon.stub($ctrl.$mdDialog, "show");
+      sinon.stub($ctrl, "updatePickups");
+      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
+      $httpBackend.expectDELETE("/api/pickup-date-series/12/").respond();
+      $ctrl.isDeleteSeries = true;
+      $ctrl.delete({ id: 87, series: 12 });
+      $httpBackend.flush();
+      expect($ctrl.updatePickups).to.have.been.called;
+      expect($ctrl.pickupToDelete.id).to.equal(87);
     });
 
     describe("createPickup dialog", () => {

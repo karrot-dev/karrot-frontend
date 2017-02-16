@@ -29,11 +29,6 @@ class PickupDateComService {
       .then((res) => res.data);
   }
 
-  search(query) {
-    return this.$http.get("/api/pickup-dates/", { params: { search: query } })
-      .then((res) => res.data);
-  }
-
   save(pickup) {
     let pickupId = pickup.id;
     return this.$http.patch(`/api/pickup-dates/${pickupId}/`, pickup)

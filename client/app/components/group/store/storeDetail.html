@@ -41,6 +41,9 @@
       <div editable-textarea="$ctrl.storeEdit.description">
         <expandable-panel content="$ctrl.storedata.description" markdown="true" collapse="10"></expandable-panel>
       </div>
+      <h4 ng-if="editableStore.$visible" translate="STOREDETAIL.WEEKS_IN_ADVANCE"></h4>
+      <div editable-text="$ctrl.storeEdit.weeks_in_advance"></div>
+
       <div ng-if="editableStore.$visible" layout="row" layout-align="end start">
         <md-button class="md-icon-button" ng-disabled="editableStore.$waiting" ng-click="$ctrl.reset()">
           <i class="fa fa-times"></i>

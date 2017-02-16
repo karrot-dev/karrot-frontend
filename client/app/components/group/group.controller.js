@@ -3,9 +3,6 @@ class GroupController {
     "ngInject";
     Object.assign(this, {
       $state,
-      error: {
-        leaveGroup: false
-      },
       $mdMedia
     });
   }

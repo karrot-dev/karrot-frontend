@@ -19,10 +19,12 @@
     "CREATE": "Create",
     "CANCEL": "Cancel",
     "DELETE": "Delete",
-    "JOIN": "Join"
+    "JOIN": "Join",
+    "LEAVE": "Leave"
   },
   "GROUP": {
     "LEAVE": "Leave group...",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?", 
     "EDIT": "Edit group",
     "CREATE_TITLE": "Create new group",
     "TITLE": "Title of this group",

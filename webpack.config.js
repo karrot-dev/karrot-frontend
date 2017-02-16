@@ -1,6 +1,7 @@
 let path    = require("path");
 let webpack = require("webpack");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
+let CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   devtool: "sourcemap",
@@ -34,6 +35,10 @@ module.exports = {
       minChunks (module) {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, "client")) === -1;
       }
-    })
+    }),
+
+    new CopyWebpackPlugin([
+      { from: "node_modules/angular-i18n", to: "angular/i18n" }
+    ], {})
   ]
 };

@@ -1,4 +1,4 @@
-<md-menu>
+<md-menu md-position-mode="target bottom" md-offset="0 3">
   <md-button md-menu-origin ng-click="$mdOpenMenu()">
     <i class="fa fa-globe"></i>
     {{ $ctrl.$translate.use() }}
@@ -10,7 +10,7 @@
       </md-button>
     </md-menu-item>
     <md-menu-item>
-      <md-button href="https://www.transifex.com/yunity-1/foodsaving-tool/dashboard/">
+      <md-button aria-label="{{'LANGUAGECHOOSER.ADD_MORE' | translate}}" href="https://www.transifex.com/yunity-1/foodsaving-tool/dashboard/">
         <i class="fa fa-external-link"></i>
         <span translate="LANGUAGECHOOSER.ADD_MORE"></span>
       </md-button>

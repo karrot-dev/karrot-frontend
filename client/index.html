@@ -1,17 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-strict-di ng-cloak class="app">
   <head>
     <meta charset="utf-8">
-    <title>Foodsaving</title>
+    <title ncy-breadcrumb-text="{{ncyBreadcrumbChain}} (Foodsaving)" ncy-breadcrumb-text-separator=" · "></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="description" content="Foodsaving Tool">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="shortcut icon" href="app/icon/carrot_logo.ico">
+    <link rel="icon" type="image/png" href="app/icon/carrot_logo.png" sizes="32x32">
     <base href="/">
+    <style type="text/css">
+    .spinner {
+      margin: 100px auto 0;
+      width: 70px;
+      text-align: center;
+    }
+    .spinner > div {
+      width: 18px;
+      height: 18px;
+      background-color: #333;
+      border-radius: 100%;
+      display: inline-block;
+      -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+      animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+    .spinner .bounce1 {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+    .spinner .bounce2 {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+    @-webkit-keyframes sk-bouncedelay {
+      0%, 80%, 100% { -webkit-transform: scale(0) }
+      40% { -webkit-transform: scale(1.0) }
+    }
+    @keyframes sk-bouncedelay {
+      0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      } 40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+      }
+    }
+     </style>
   </head>
-  <body ng-app="app" ng-strict-di ng-cloak class="app">
-    <ui-view>...</ui-view>
+  <body>
+    <ui-view>
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </ui-view>
   </body>
 </html>

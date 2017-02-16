@@ -27,7 +27,7 @@ class PickupListController {
       },
       reversed: false
     };
-
+    this.isInitialized = false;
     this.options = angular.merge(this.defaultOptions, this.options);
 
     this.Authentication.update().then((data) => {
@@ -43,12 +43,16 @@ class PickupListController {
      * - store (if showDetail == store)
      */
   addPickupInfosAndDisplay(pickups) {
+    let stores = {};
     angular.forEach(pickups, (currentPickup) => {
       currentPickup.isUserMember = currentPickup.collector_ids.indexOf(this.userId) !== -1;
       currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
 
       if (this.options.showDetail === "store") {
-        currentPickup.storePromise = this.Store.get(currentPickup.store);
+        if (angular.isUndefined(stores[currentPickup.store])) {
+          stores[currentPickup.store] = this.Store.get(currentPickup.store);
+        }
+        currentPickup.storePromise = stores[currentPickup.store];
       }
     });
     this.allPickups = pickups;
@@ -69,6 +73,7 @@ class PickupListController {
       }
     });
     this.groupedPickups = this.groupByDate(pickups);
+    this.isInitialized = true;
     return pickups;
   }
 

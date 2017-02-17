@@ -5,8 +5,13 @@
   </md-input-container>
 
   <md-input-container>
-    <label translate="GROUP.DESCRIPTION_VERBOSE"></label>
-    <textarea ng-model="$ctrl.editData.description"></textarea>
+    <label translate="GROUP.PASSWORD"></label>
+    <input type="text" ng-model="$ctrl.editData.password"/>
+  </md-input-container>
+
+  <md-input-container>
+    <label translate="GROUP.TIMEZONE"></label>
+    <input type="text" ng-model="$ctrl.editData.timezone"/>
   </md-input-container>
 
   <md-input-container>
@@ -14,10 +19,7 @@
     <textarea ng-model="$ctrl.editData.public_description"></textarea>
   </md-input-container>
 
-  <md-input-container>
-    <label translate="GROUP.PASSWORD"></label>
-    <input type="text" ng-model="$ctrl.editData.password"/>
-  </md-input-container>
+  <markdown-input translation-label="GROUP.DESCRIPTION_VERBOSE" model="$ctrl.editData.description"></markdown-input>
 
   <md-autocomplete
     placeholder="{{'GROUP.ADDRESS' | translate}}"
@@ -32,6 +34,7 @@
       <span md-highlight-text="$ctrl.query">{{item.address}}</span>
     </md-item-template>
   </md-autocomplete>
+
   <leaflet
     height="200"
     center="$ctrl.mapCenter"
@@ -40,8 +43,4 @@
     class="md-whiteframe-z1">
   </leaflet>
 
-  <md-input-container>
-    <label translate="GROUP.TIMEZONE"></label>
-    <input type="text" ng-model="$ctrl.editData.timezone"/>
-  </md-input-container>
 </div>

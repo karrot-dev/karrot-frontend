@@ -19,7 +19,7 @@
       </span>
     </div>
   </md-toolbar>
-  <md-content>
+  <div class="content">
     <div ng-if="!$ctrl.editEnabled">
       <h3><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $ctrl.userdata.email }}</h3>
       <expandable-panel content="$ctrl.userdata.description" markdown="true" collapse="1000"></expandable-panel>
@@ -60,7 +60,7 @@
       </div>
 
     </form>
-  </md-content>
-</div>          
+  </div>
+</div>
   <div flex></div>
 </div>

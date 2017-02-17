@@ -7,7 +7,7 @@
       </h2>
     </div>
   </md-toolbar>
-  <md-content ng-if="!$ctrl.check" flex style="overflow: auto">
+  <div ng-if="!$ctrl.check" flex style="overflow: auto">
     <md-list style="overflow: visible">
       <md-list-item>
         <span translate="JOINGROUP.NAME"></span>
@@ -37,7 +37,7 @@
         </div>
       </md-list-item>
     </md-list>
-  </md-content>
+  </div>
 
   <md-toolbar ng-if="$ctrl.check">
     <div class="md-toolbar-tools">
@@ -47,7 +47,7 @@
       </h2>
     </div>
   </md-toolbar>
-  <md-content ng-if="$ctrl.check" flex style="overflow: auto">
+  <div ng-if="$ctrl.check" flex style="overflow: auto">
     <form name="form" ng-submit="$ctrl.joinGroup(this)" style="text-align:center">
       <h4 translate="JOINGROUP.PASSWORD_LABEL"></h4>
       <md-input-container>
@@ -64,7 +64,7 @@
         </md-tooltip>
       </md-button>
     </form>
-  </md-content>
+  </div>
 
 
   <md-dialog-actions>

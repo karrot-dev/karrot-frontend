@@ -22,7 +22,7 @@
   </div>
 </md-toolbar>
 
-<md-content layout-padding>
+<div layout-padding>
   <div ng-if="$ctrl.groupData.address">
     <i class="fa fa-fw fa-map-marker"></i>
     {{$ctrl.groupData.address}}
@@ -30,7 +30,7 @@
   <div ng-if="$ctrl.$mdMedia('gt-sm')">
     <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
   </div>
-  <md-content class="md-padding">
+  <div class="md-padding">
     <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
       <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
         <span translate="GROUP.PICKUPS"></span>
@@ -47,8 +47,8 @@
     </md-nav-bar>
 
     <ui-view></ui-view>
-  </md-content>
-</md-content>
+  </div>
+</div>
 
 <!-- confirm to leave group -->
 <div style="visibility: hidden">

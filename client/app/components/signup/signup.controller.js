@@ -1,9 +1,9 @@
 class SignupController {
-  constructor(User, $state) {
+  constructor(User, Authentication, $state) {
     "ngInject";
     Object.assign(this, {
-      name: "signup",
       User,
+      Authentication,
       $state,
       username: "",
       email: "",
@@ -16,17 +16,15 @@ class SignupController {
   }
 
   signup() {
-    // TODO: handle camelcase <-> snakecase conversion elsewhere
-    /* eslint-disable camelcase */
     let user = {
-      display_name: this.username,
+      "display_name": this.username,
       email: this.email,
       password: this.password
     };
-    /* eslint-enable camelcase */
-    this.User.create(user)
-    .then(() => {
-      this.$state.go("login");
+    this.User.create(user).then(() => {
+      this.Authentication.login(this.email, this.password).then(() => {
+        this.$state.go("home");
+      });
     }, (data) => {
       if (data.email) {
         this.email = "";

@@ -15,7 +15,10 @@ let signupModule = angular.module("signup", [
   $stateProvider.state("signup", {
     parent: "splash",
     url: "/signup",
-    component: "signup"
+    component: "signup",
+    ncyBreadcrumb: {
+      label: "{{ 'SIGNUP.TITLE' | translate}}"
+    }
   });
   hookProvider.setup("signup", { authenticated: "home", anonymous: true });
 })

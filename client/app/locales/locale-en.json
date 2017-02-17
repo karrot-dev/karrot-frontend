@@ -3,7 +3,9 @@
     "GITHUB_NOTE":"Development",
     "DEVMAIL_NOTE":"write us a mail for errors/suggestions",
     "WARNING":"Warning",
-    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
+    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
   },
   "ACTION_NOTICE": {
     "TITLE": "Call for collaboration!",
@@ -24,7 +26,7 @@
   },
   "GROUP": {
     "LEAVE": "Leave group...",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?", 
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "EDIT": "Edit group",
     "CREATE_TITLE": "Create new group",
     "TITLE": "Title of this group",

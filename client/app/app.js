@@ -18,6 +18,7 @@ import AppMaterial from "./app.material";
 import AppLocalizeConfig from "./app.localizeConfig";
 import AppLocalizeRun from "./app.localizeRun";
 import AppXEditableConfig from "./app.xeditable";
+import AppHTTPErrorHandler from "./app.HTTPErrorHandler";
 
 // styles
 import "angular-xeditable/dist/css/xeditable.css";
@@ -68,6 +69,7 @@ angular.module("app", [
 .config(AppLocalizeConfig)
 .run(AppLocalizeRun)
 .config(AppMaterial)
+.config(AppHTTPErrorHandler)
 .config((cfpLoadingBarProvider) => {
   "ngInject";
   cfpLoadingBarProvider.includeSpinner = false;

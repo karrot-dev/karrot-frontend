@@ -38,7 +38,8 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([
-      { from: "node_modules/angular-i18n", to: "angular/i18n" }
+      { from: "node_modules/angular-i18n", to: "angular/i18n" },
+      { from: "client/app/icon", to: "app/icon" }
     ], {})
   ]
 };

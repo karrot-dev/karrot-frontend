@@ -14,7 +14,8 @@
     "CREATE": "Skapa",
     "CANCEL": "Avbryt",
     "DELETE": "Radera",
-    "JOIN": "Join"
+    "JOIN": "Join",
+    "LEAVE": "Lämna"
   },
   "GROUP": {
     "LEAVE": "Lämna gruppen...",

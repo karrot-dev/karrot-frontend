@@ -37,9 +37,11 @@ describe("CreateGroup", () => {
     it("creates group", () => {
       let $ctrl = $componentController("createGroup", {});
       $ctrl.groupData.name = "blabla";
+      $ctrl.groupData.timezone = "Europe/Madrid";
       $ctrl.createGroup();
       $httpBackend.expectPOST("/api/groups/", {
-        name: "blabla"
+        name: "blabla",
+        timezone: "Europe/Madrid"
       }).respond(201, { id: 987 });
       $httpBackend.flush();
       expect($state.go).to.have.been.calledWith("group", { groupId: 987 });

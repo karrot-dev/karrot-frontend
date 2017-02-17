@@ -49,3 +49,38 @@
     <ui-view></ui-view>
   </md-content>
 </md-content>
+
+<!-- confirm to leave group -->
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="confirmLeaveDialog">
+    <md-dialog>
+      <div class="md-whiteframe-10dp" layout-fill>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>
+              <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-sign-out"></i>
+              <span translate="GROUP.LEAVE"></span>
+            </h2>
+          </div>
+        </md-toolbar>
+        <div layout-margin>
+          <div translate="GROUP.LEAVE_TEXT" flex></div>
+          <div layout="row" layout-align="end center">
+            <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+              <md-tooltip>
+                <span translate="BUTTON.CANCEL"></span>
+              </md-tooltip>
+              <i class="fa fa-times"></i>
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+              <md-tooltip>
+                <span translate="BUTTON.LEAVE"></span>
+              </md-tooltip>
+              <i class="fa fa-sign-out"></i>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </md-dialog>
+  </div>
+</div>

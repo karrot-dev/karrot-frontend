@@ -5,9 +5,11 @@
   </md-input-container>
 
   <markdown-input translation-label="GROUP.DESCRIPTION_VERBOSE" model="$ctrl.editData.description"></markdown-input>
-  
-  <markdown-input translation-label="GROUP.PUBLIC_DESCRIPTION" model="$ctrl.editData.public_description"></markdown-input>
-  
+
+  <md-input-container>
+    <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
+    <textarea ng-model="$ctrl.editData.public_description"></textarea>
+  </md-input-container>
 
   <md-input-container>
     <label translate="GROUP.PASSWORD"></label>
@@ -27,7 +29,7 @@
       <span md-highlight-text="$ctrl.query">{{item.address}}</span>
     </md-item-template>
   </md-autocomplete>
-  
+
   <leaflet
     height="200"
     center="$ctrl.mapCenter"

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
+set -e
+set -o pipefail
 # settings
 dbname=fstool
 filename=foodsaving-$(date -I).db.enc

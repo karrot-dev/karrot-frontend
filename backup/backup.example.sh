@@ -15,5 +15,5 @@ dropdb $testdb && \
 echo checked decrypting and import into $testdb
 
 # copy to offsite
-scp $filename #offsite location#:backup && \
+rsync -avz $filename #offsite location#:backup/ && \
 echo copied to offsite location

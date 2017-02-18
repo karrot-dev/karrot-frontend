@@ -15,7 +15,10 @@ let loginModule = angular.module("login", [
   $stateProvider.state("login", {
     parent: "splash",
     url: "/login",
-    component: "login"
+    component: "login",
+    ncyBreadcrumb: {
+      label: "{{'LOGIN.TITLE' | translate}}"
+    }
   });
   $urlRouterProvider.otherwise("/login");
   hookProvider.setup("login", { authenticated: "home", anonymous: true });

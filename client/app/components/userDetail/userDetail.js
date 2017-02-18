@@ -1,8 +1,8 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import userDetailComponent from "./userDetail.component";
-import Authentication from "../../common/authentication/authentication";
-import User from "../../common/user/user";
+import Authentication from "../../services/authentication/authentication";
+import User from "../../services/user/user";
 
 let userDetailModule = angular.module("userDetail", [
   uiRouter,

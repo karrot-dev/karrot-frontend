@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
-import storeList from "../../../_storeList/storeList";
+import storeList from "../../_storeList/storeList";
 import storesComponent from "./stores.component";
 
 let storesModule = angular.module("stores", [

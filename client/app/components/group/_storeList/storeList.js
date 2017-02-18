@@ -2,7 +2,7 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import storeListComponent from "./storeList.component";
-import StoreModule from "../../services/store/store";
+import StoreModule from "../../../services/store/store";
 import storeMap from "./_storeMap/storeMap";
 import createStore from "../_createStore/createStore";
 

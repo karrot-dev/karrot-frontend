@@ -12,7 +12,7 @@ import "angular-xeditable";
 import ngLocale from "angular-dynamic-locale";
 
 // config
-import Common from "./common/common";
+import Services from "./services/services";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppLocalizeConfig from "./app.localizeConfig";
@@ -44,7 +44,7 @@ angular.module("app", [
   ngCookies,
   translate,
   translateStorageCookie,
-  Common,
+  Services,
   PageComponents,
   logo
 ]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {

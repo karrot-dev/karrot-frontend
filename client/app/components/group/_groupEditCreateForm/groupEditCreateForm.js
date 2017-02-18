@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import groupEditCreateFormComponent from "./groupEditCreateForm.component";
-import Geocoding from "../../../common/geocoding/geocoding";
+import Geocoding from "../../../services/geocoding/geocoding";
 import markdownInput from "../../_markdownInput/markdownInput";
 import "leaflet";
 import "ui-leaflet";

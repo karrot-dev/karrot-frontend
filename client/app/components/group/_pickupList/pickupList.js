@@ -3,10 +3,10 @@ import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import pickupListComponent from "./pickupList.component";
 import pickupListItemComponent from "./pickupListItem/pickupListItem";
-import createPickup from "../_createPickup/createPickup";
-import StoreModule from "../../common/store/store";
-import AuthenticationModule from "../../common/authentication/authentication";
-import PickupDateModule from "../../common/pickupDate/pickupDate";
+import createPickup from "./_createPickup/createPickup";
+import StoreModule from "../../../services/store/store";
+import AuthenticationModule from "../../../services/authentication/authentication";
+import PickupDateModule from "../../../services/pickupDate/pickupDate";
 
 let pickupListModule = angular.module("pickupList", [
   uiRouter,

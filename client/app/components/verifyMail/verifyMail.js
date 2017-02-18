@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
-import User from "../../common/user/user";
-import Authentication from "../../common/authentication/authentication";
+import User from "../../services/user/user";
+import Authentication from "../../services/authentication/authentication";
 import verifyMailComponent from "./verifyMail.component";
 
 let verifyMailModule = angular.module("verifyMail", [

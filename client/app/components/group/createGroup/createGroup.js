@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import createGroupComponent from "./createGroup.component";
-import GroupService from "../../../common/group/group";
+import GroupService from "../../../services/group/group";
 
 let createGroupModule = angular.module("createGroup", [
   uiRouter,

@@ -30,8 +30,8 @@ let resolveToComponents = (glob = "") => {
   return path.join(root, "app/components", glob); // app/components/{glob}
 };
 
-let resolveToCommon = (glob = "") => {
-  return path.join(root, "app/common", glob); // app/common/{glob}
+let resolveToServices = (glob = "") => {
+  return path.join(root, "app/services", glob); // app/services/{glob}
 };
 
 // map of all paths
@@ -180,7 +180,7 @@ gulp.task("service", () => {
   };
   const name = yargs.argv.name || "serviceGulpTest";
   const generator = "service";
-  const destPath = resolveToCommon(name);
+  const destPath = resolveToServices(name);
 
   return gulp.src(paths.blankTemplates(generator))
     .pipe(template({

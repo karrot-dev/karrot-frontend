@@ -1,6 +1,6 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
-import User from "../../common/user/user";
+import User from "../../services/user/user";
 import passwordresetComponent from "./passwordreset.component";
 
 let passwordresetModule = angular.module("passwordreset", [

@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'foodsaving.conversations',
     'foodsaving.groups',
     'foodsaving.stores',
+    'foodsaving.audit.AuditConfig',
 
     # removed app, it's just here that the migration can run
     'foodsaving.walls',

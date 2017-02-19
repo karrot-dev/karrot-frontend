@@ -9,6 +9,7 @@ from foodsaving.groups.factories import Group
 from foodsaving.stores.factories import Store, PickupDateSeries
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
+from foodsaving.stores.models import Store as StoreModel
 
 
 class TestStoresAPI(APITestCase):
@@ -136,6 +137,7 @@ class TestStoresAPI(APITestCase):
         self.client.force_login(user=self.member)
         response = self.client.delete(self.store_url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(StoreModel.objects.count(), 0)
 
 
 class TestStoreChangesPickupDateSeriesAPI(APITestCase):

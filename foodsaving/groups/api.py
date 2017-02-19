@@ -1,3 +1,4 @@
+from django.dispatch import Signal
 from rest_framework import filters
 from rest_framework import status
 from rest_framework.decorators import detail_route
@@ -9,6 +10,10 @@ from foodsaving.base.permissions import DenyAll
 from foodsaving.groups.filters import GroupsFilter
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
 from foodsaving.groups.models import Group as GroupModel
+
+
+post_group_join = Signal()
+post_group_leave = Signal()
 
 
 class IsMember(BasePermission):
@@ -76,6 +81,7 @@ class GroupViewSet(ModelViewSet):
                 return Response(data='group password wrong', status=status.HTTP_403_FORBIDDEN)
 
         group.members.add(request.user)
+        post_group_join.send(sender=self.__class__, group=group, user=request.user)
         return Response(status=status.HTTP_200_OK)
 
     @detail_route(
@@ -88,4 +94,5 @@ class GroupViewSet(ModelViewSet):
             return Response("User not member of group",
                             status=status.HTTP_400_BAD_REQUEST)
         group.members.remove(request.user)
+        post_group_leave.send(sender=self.__class__, group=group, user=request.user)
         return Response(status=status.HTTP_200_OK)

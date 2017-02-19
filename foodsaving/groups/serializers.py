@@ -1,9 +1,14 @@
 import pytz
+from django.dispatch import Signal
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from config import settings
 from foodsaving.groups.models import Group as GroupModel
+
+
+post_group_create = Signal()
+post_group_modify = Signal()
 
 
 class TimezoneField(serializers.Field):
@@ -48,18 +53,27 @@ class GroupDetailSerializer(serializers.ModelSerializer):
         }
     timezone = TimezoneField()
 
-    def validate(self, data):
-        if 'description' not in data:
-            data['description'] = ''
-        return data
+    def update(self, group, validated_data):
+        user = self.context['request'].user
+
+        # detect which data actually changed
+        changed_data = {}
+        for key, value in validated_data.items():
+            if value != getattr(group, key):
+                # validated_data has internal values
+                # Workaround: use initial_data to get representation
+                changed_data[key] = self.initial_data[key]
+        if changed_data:
+            group = super().update(group, validated_data)
+            post_group_modify.send(sender=self.__class__, group=group, user=user, payload=changed_data)
+        return group
 
     def create(self, validated_data):
-        member_ids = [self.context['request'].user.id, ]
-
+        user = self.context['request'].user
         group = GroupModel.objects.create(**validated_data)
-        group.members = member_ids
+        group.members.add(user)
         group.save()
-
+        post_group_create.send(sender=self.__class__, group=group, user=user, payload=self.initial_data)
         return group
 
 

@@ -1,7 +1,10 @@
+from dateutil.relativedelta import relativedelta
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 from foodsaving.groups.factories import Group as GroupFactory
 from foodsaving.groups.models import Group as GroupModel
+from foodsaving.stores.factories import PickupDate, Store
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 
@@ -140,9 +143,28 @@ class TestGroupsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_leave_group(self):
+        store = Store(group=self.group)
+        pickupdate = PickupDate(
+            store=store,
+            collectors=[self.member, self.user],
+            date=timezone.now() + relativedelta(weeks=1))
+        past_pickupdate = PickupDate(
+            store=store,
+            collectors=[self.member, ],
+            date=timezone.now() - relativedelta(weeks=1)
+        )
+        unrelated_pickupdate = PickupDate(
+            date=timezone.now() + relativedelta(weeks=1),
+            collectors=[self.member, ],
+        )
+        unrelated_pickupdate.store.group.members.add(self.member)
+
         self.client.force_login(user=self.member)
         response = self.client.post('/api/groups/1/leave/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse(pickupdate.collectors.get_queryset().filter(id=self.member.id).exists())
+        self.assertTrue(past_pickupdate.collectors.get_queryset().filter(id=self.member.id).exists())
+        self.assertTrue(unrelated_pickupdate.collectors.get_queryset().filter(id=self.member.id).exists())
 
     def test_leave_group_fails_if_not_logged_in(self):
         response = self.client.post('/api/groups/1/leave/')

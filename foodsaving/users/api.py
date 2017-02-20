@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Q
+from django.dispatch import Signal
+from django.utils import timezone
 from rest_framework import filters
 from rest_framework import status
 from rest_framework import viewsets
@@ -8,6 +10,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from rest_framework.response import Response
 
 from foodsaving.users.serializers import UserSerializer, VerifyMailSerializer
+
+pre_delete_user = Signal(providing_args=['user'])
 
 
 class IsSameUser(BasePermission):
@@ -41,6 +45,24 @@ class UserViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         users_groups = self.request.user.groups.values('id')
         return self.queryset.filter(Q(groups__in=users_groups) | Q(id=self.request.user.id)).distinct()
+
+    def perform_destroy(self, user):
+        """
+        To keep historic pickup infos, don't delete this user, but delete it from the database.
+        Removal from group and future pickups is handled via the signal.
+        """
+        pre_delete_user.send(sender=self.__class__, user=user)
+        user.description = ''
+        user.set_unusable_password()
+        user.mail = None
+        user.is_active = False
+        user.is_staff = False
+        user.activation_key = ''
+        user.key_expires_at = None
+        user.mail_verified = False
+        user.deleted_at = timezone.now()
+        user.deleted = True
+        user.save()
 
     @list_route(
         methods=['POST'],

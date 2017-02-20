@@ -4,6 +4,7 @@ import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import ngCookies from "angular-cookies";
 import ngAnimate from "angular-animate";
+import ngAria from "angular-aria";
 import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
 import "angular-breadcrumb";
@@ -41,6 +42,7 @@ angular.module("app", [
   "ncy-angular-breadcrumb",
   angularLoadingBar,
   ngAnimate,
+  ngAria,
   ngCookies,
   translate,
   translateStorageCookie,

@@ -44,6 +44,11 @@
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
+    "ADDRESS": "Address"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should regular pickup dates be shown?"
   },

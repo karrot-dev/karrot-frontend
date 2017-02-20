@@ -6,8 +6,7 @@
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           {{$ctrl.storedata.name}}
         </h1>
-        <md-button class="md-icon-button" ng-click="editableStore.$show()" ng-show="!editableStore.$visible"
-          aria-label="{{ 'STOREDETAIL.EDIT' | translate }}">
+        <md-button class="md-icon-button" ui-sref="storeEdit({storeId: $ctrl.storedata.id})" aria-label="{{ 'STOREDETAIL.EDIT' | translate }}">
           <md-tooltip md-direction="left">
             <span translate="STOREDETAIL.EDIT"></span>
           </md-tooltip>

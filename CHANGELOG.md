@@ -6,11 +6,40 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [Unreleased]
 ### Added
 
+- Pickup dates can now be created weekly
+- Translations: German, French, Swedish, Spanish, Italian, Russian and Esperanto
+- Show group information before joining
+- Groups can ask for a password
+- Mail verification on sign-up
+- User can change password and mail
+- Users can request a new password via mail
+- "Call for collaboration" on front page
+- Favicon
+- Loading bar to show when server requests are in progress
+- Nice loading dots
+- Automated login after signing up
+
 ### Changed
+
+- Main deployment to foodsaving.world
+- Two-column layout for groups and stores
+- New brown-ish color scheme
+- Dynamic page title
+- Group and store info field (description) supports markdown formatting
+- Groups need a timezone setting (defaults to Europe/Berlin)
 
 ### Removed
 
+- not much
+
 ### Fixed
+
+- Hide map when there is no location
+- Dialog is hidden by map
+- Scrolling issues
+- Less server requests for showing pickup dates
+- many small issues...
+
 
 ## Release 1 - 2016-12-14
 ### Added

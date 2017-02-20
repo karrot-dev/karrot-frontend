@@ -14,13 +14,16 @@
     <textarea ng-model="$ctrl.model"></textarea>
   </div>
   <div class="help" aria-hidden="true">
-    <b>**bold**</b>
-    <i>*italics*</i>
-    <span>~~strike~~</span>
+    <b>**{{"MARKDOWN_INPUT.BOLD" | translate}}**</b>
+    <i>*{{"MARKDOWN_INPUT.ITALIC" | translate}}*</i>
+    <span>~~{{"MARKDOWN_INPUT.STRIKE" | translate}}~~</span>
     <!--<code>`code`</code>
     <code class="preformatted">```preformatted```</code>-->
-    <span class="quote">&gt;quote</span>
+    <span class="quote">&gt;{{"MARKDOWN_INPUT.QUOTE" | translate}}</span>
     <md-button class="md-icon-button" href="https://guides.github.com/features/mastering-markdown/" target="_blank">
+      <md-tooltip md-direction="bottom">
+        <span translate="MARKDOWN_INPUT.HELP"></span>
+      </md-tooltip>
       <i class="fa fa-question-circle"></i>
     </md-button>
   </div>

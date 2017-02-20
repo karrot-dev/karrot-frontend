@@ -134,5 +134,12 @@
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Add more languages!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
   }
 }

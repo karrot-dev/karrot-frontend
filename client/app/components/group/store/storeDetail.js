@@ -4,7 +4,6 @@ import storeDetailComponent from "./storeDetail.component";
 import storeDetailMap from "./_storeDetailMap/storeDetailMap";
 import storeService from "../../../services/store/store";
 import groupService from "../../../services/group/group";
-import Geocoding from "../../../services/geocoding/geocoding";
 import pickupList from "../_pickupList/pickupList";
 import storeEdit from "./storeEdit/storeEdit";
 import storeEditCreateForm from "./_storeEditCreateForm/storeEditCreateForm";
@@ -14,7 +13,6 @@ let storeDetailModule = angular.module("storeDetail", [
   storeDetailMap,
   storeService,
   groupService,
-  Geocoding,
   pickupList,
   storeEdit,
   storeEditCreateForm

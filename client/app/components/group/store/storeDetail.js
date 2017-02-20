@@ -2,10 +2,10 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import storeDetailComponent from "./storeDetail.component";
 import storeDetailMap from "./_storeDetailMap/storeDetailMap";
-import storeService from "../../../common/store/store";
-import groupService from "../../../common/group/group";
-import Geocoding from "../../../common/geocoding/geocoding";
-import pickupList from "../../_pickupList/pickupList";
+import storeService from "../../../services/store/store";
+import groupService from "../../../services/group/group";
+import Geocoding from "../../../services/geocoding/geocoding";
+import pickupList from "../_pickupList/pickupList";
 
 let storeDetailModule = angular.module("storeDetail", [
   uiRouter,

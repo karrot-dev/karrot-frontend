@@ -11,12 +11,11 @@ class GroupMenuController {
     });
   }
 
-  openMenu($mdMenu, $event) {
-    // using $mdMenu service from scope
+  openMenu($mdOpenMenu) {
     this.GroupService.listMy().then((data) => {
       this.groups = data;
     });
-    $mdMenu.open($event);
+    $mdOpenMenu();
   }
 
   openJoinGroupDialog($event) {

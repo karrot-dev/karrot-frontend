@@ -5,7 +5,7 @@ import PickupDate from "./pickupDate/pickupDate";
 import Store from "./store/store";
 import User from "./user/user";
 
-let commonModule = angular.module("app.common", [
+let serviceModule = angular.module("app.services", [
   Authentication,
   Group,
   PickupDate,
@@ -15,4 +15,4 @@ let commonModule = angular.module("app.common", [
 
 .name;
 
-export default commonModule;
+export default serviceModule;

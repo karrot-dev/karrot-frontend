@@ -2,9 +2,10 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import groupComponent from "./group.component";
-import AuthenticationModule from "../../common/authentication/authentication";
-import groupModule from "../../common/group/group";
+import AuthenticationModule from "../../services/authentication/authentication";
+import groupModule from "../../services/group/group";
 import store from "./store/storeDetail";
+import storeList from "./_storeList/storeList";
 import groupDetail from "./groupDetail/groupDetail";
 import groupEdit from "./groupEdit/groupEdit";
 import createGroup from "./createGroup/createGroup";
@@ -17,7 +18,8 @@ let groupPageModule = angular.module("group", [
   store,
   groupDetail,
   groupEdit,
-  createGroup
+  createGroup,
+  storeList
 ])
 
 .config(($stateProvider, hookProvider) => {

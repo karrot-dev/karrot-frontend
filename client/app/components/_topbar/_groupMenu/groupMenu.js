@@ -2,8 +2,8 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import groupMenuComponent from "./groupMenu.component";
-import GroupService from "../../common/group/group";
-import logo from "../_logo/logo";
+import GroupService from "../../../services/group/group";
+import logo from "../../_logo/logo";
 
 let groupMenuModule = angular.module("groupMenu", [
   uiRouter,

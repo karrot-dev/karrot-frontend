@@ -4,6 +4,7 @@ import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import ngCookies from "angular-cookies";
 import ngAnimate from "angular-animate";
+import ngAria from "angular-aria";
 import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
 import "angular-breadcrumb";
@@ -12,7 +13,7 @@ import "angular-xeditable";
 import ngLocale from "angular-dynamic-locale";
 
 // config
-import Common from "./common/common";
+import Services from "./services/services";
 import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppLocalizeConfig from "./app.localizeConfig";
@@ -41,10 +42,11 @@ angular.module("app", [
   "ncy-angular-breadcrumb",
   angularLoadingBar,
   ngAnimate,
+  ngAria,
   ngCookies,
   translate,
   translateStorageCookie,
-  Common,
+  Services,
   PageComponents,
   logo
 ]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {

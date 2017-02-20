@@ -10,7 +10,8 @@ class GeocodingService {
   lookupAddress(address, lang = false) {
     if (!lang) lang = this.$translate.use();
     return this.$http.get("https://nominatim.openstreetmap.org/search", {
-      params: { "accept-language": lang, format: "json", q: address }
+      params: { "accept-language": lang, format: "json", q: address },
+      ignoreLoadingBar: true
     }).then((res) => {
       return res.data.map((p) => {
         return {

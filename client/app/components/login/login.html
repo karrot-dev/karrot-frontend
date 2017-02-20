@@ -25,11 +25,11 @@
       </md-card>
       <md-input-container class="md-block">
         <label translate="USERDATA.EMAIL"></label>
-        <input type="text" name="email" required ng-model="$ctrl.email">
+        <input autocapitalize="off" type="email" name="email" required ng-model="$ctrl.email">
       </md-input-container>
       <md-input-container class="md-block">
         <label translate="USERDATA.PASSWORD"></label>
-        <input type="password" name="password" required ng-model="$ctrl.password">
+        <input autocapitalize="off" type="password" name="password" required ng-model="$ctrl.password">
         <div ng-messages="$ctrl.error" type="alert">
           <div ng-message="wrong" translate="LOGIN.WRONG">
           </div>

@@ -7,16 +7,21 @@ class GroupMenuController {
       $state,
       GroupService,
       groups: [],
-      activeGroup: CurrentGroup.value
+      CurrentGroup
     });
   }
-
-  openMenu($mdMenu, $event) {
-    // using $mdMenu service from scope
+  $onInit() {
     this.GroupService.listMy().then((data) => {
       this.groups = data;
     });
-    $mdMenu.open($event);
+  }
+
+  groupButton() {
+    if (angular.isDefined(this.CurrentGroup.value.id)) {
+      this.$state.go("group", { groupId: this.CurrentGroup.value.id });
+    } else {
+      this.$state.go("home");
+    }
   }
 
   openJoinGroupDialog($event) {

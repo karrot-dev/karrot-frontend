@@ -3,7 +3,14 @@
     "GITHUB_NOTE":"Desarrolo",
     "DEVMAIL_NOTE":"Escribirnos un correo sobre errores/sugerencias",
     "WARNING":"Advertencia",
-    "BETA_WARNING": "Este sitio está en cosntrucción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros)."
+    "BETA_WARNING": "Este sitio está en cosntrucción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Convocatoria a colaborar!",
+    "TEXT": "¿Te interesa crear un projecto de foodsaving o una comunidad de foodsharing? ¿Conoces a alguien que ya lo esté haciendo?",
+    "MAIL_TEXT": "¡Escríbenos un correo!"
   },
   "USERDATA": {
     "EMAIL": "Correo",
@@ -14,24 +21,36 @@
     "CREATE": "Crear",
     "CANCEL": "Cancelar",
     "DELETE": "Eliminar",
+    "EDIT": "Edit",
     "JOIN": "Unirse",
-    "LEAVE": "Abandonar"
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview"
   },
   "GROUP": {
     "LEAVE": "Abandonar grupo...",
     "LEAVE_TEXT": "¿De verdad quiere abandonar este grupo?",
     "EDIT": "Editar grupo",
+    "CREATE_TITLE": "Create new group",
     "TITLE": "Título de este grupo",
-    "DESCRIPTION": "Descripción del grupo, visible para sus miembros",
+    "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
     "PICKUPS": "Recogidas",
     "MEMBERS": "Miembros",
-    "STORES": "Tiendas"
+    "STORES": "Tiendas",
+    "DESCRIPTION": "Descripción",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Editar tienda",
     "ADDRESS": "Dirección"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "USERDETAIL": {
     "EDIT": "Editar usuario",
@@ -79,14 +98,12 @@
   "GROUPMENU": {
     "JOIN": "Unirse a la comunidad"
   },
-  "CREATEGROUP": {
-    "TITLE": "Crear grupo",
-    "NAME": "Nombre",
-    "DESCRIPTION": "Descripción",
-    "ADDRESS": "Dirección"
-  },
   "CREATEPICKUP": {
     "TITLE": "Crear recogida",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Fecha",
     "TIME_ERROR": "introducir fecha válida: [hh:mm]",
     "MAX_COLLECTORS": "Máx ranuras"
@@ -108,7 +125,8 @@
       "JOIN": "Unirse",
       "FULL": "¡Lleno!",
       "DELETE": "Eliminar fecha de recogida",
-      "DELETE_TEXT": "¿De verdad quiere eliminar esta recogida?"
+      "DELETE_TEXT": "¿De verdad quiere eliminar esta recogida?",
+      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
     "NONE":"Ninguna recogida inminente",
     "NONE_HINT":"Puede crear una nueva recogida en la página de la tienda"
@@ -120,5 +138,15 @@
     "SUBMIT": "Conseguir nueva contraseña",
     "LOGIN": "Volver a la página de inicio",
     "SUCCESS": "Se ha enviado la solicitud correctamente. Compruebe su correo electrónico."
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "¡Añadir más idiomas!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
   }
 }

@@ -3,7 +3,9 @@
     "GITHUB_NOTE":"Разработка",
     "DEVMAIL_NOTE":"Напишите нам письмо со своими предложениями / сообщениями об ошибках.",
     "WARNING":"Внимание!",
-    "BETA_WARNING": "Сайт находится в стадии активной разработки и мы не можем гарантировать безопасность и конфиденциальность вводимых вами данных (но приложим к этому все усилия)."
+    "BETA_WARNING": "Сайт находится в стадии активной разработки и мы не можем гарантировать безопасность и конфиденциальность вводимых вами данных (но приложим к этому все усилия).",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
   },
   "ACTION_NOTICE": {
     "TITLE": "Призыв к сотрудничеству",
@@ -19,23 +21,36 @@
     "CREATE": "Создать",
     "CANCEL": "Отмена",
     "DELETE": "Удалить",
-    "JOIN": "Вступить"
+    "EDIT": "Edit",
+    "JOIN": "Вступить",
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview"
   },
   "GROUP": {
     "LEAVE": "Выйти из группы",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "EDIT": "Редактировать группу",
+    "CREATE_TITLE": "Create new group",
     "TITLE": "Заголовок для этой группы",
     "DESCRIPTION_VERBOSE": "Описание группы, которое видят участники",
     "PUBLIC_DESCRIPTION": "Текст, который вы видите перед тем, как вступить в группу",
     "PASSWORD": "Введите пароль, чтобы сделать группу частной",
     "PICKUPS": "Pickups",
     "MEMBERS": "Участники",
-    "STORES": "Базы (магазины, рестораны, пекарни и т. д.)",
-    "DESCRIPTION": "Описание"
+    "STORES": "Точки",
+    "DESCRIPTION": "Описание",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
-    "EDIT": "Редактировать базу",
+    "EDIT": "Внести изменения",
     "ADDRESS": "Адрес"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "USERDETAIL": {
     "EDIT": "Редактировать пользователя",
@@ -70,9 +85,9 @@
     "FORGOT_PASSWORD": "Забыли пароль?"
   },
   "SIGNUP": {
-    "TITLE": "Зарегистрироваться",
+    "TITLE": "Регистрация",
     "BACK": "Назад",
-    "OK": "Войти",
+    "OK": "Зарегистрироваться",
     "FAILED": "Не удалось зарегистрироваться!"
   },
   "VERIFYMAIL": {
@@ -81,22 +96,20 @@
     "ERROR": "Что-то пошло не так. Возможно вы уже подтвердили ваш электронный адрес?"
   },
   "GROUPMENU": {
-    "JOIN": "Вступить в сообщество"
-  },
-  "CREATEGROUP": {
-    "TITLE": "Создать Группу",
-    "NAME": "Имя",
-    "DESCRIPTION": "Описание",
-    "ADDRESS": "Адрес"
+    "JOIN": "Вступить в группу"
   },
   "CREATEPICKUP": {
     "TITLE": "Create Pickup",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Время",
     "TIME_ERROR": "введите правильное время: [час.;мин.]",
     "MAX_COLLECTORS": "Максимальное количество слотов"
   },
   "CREATESTORE": {
-    "TITLE": "Создать новую базу ",
+    "TITLE": "Создать новую точку",
     "NAME": "Название",
     "DESCRIPTION": "Описание",
     "ADDRESS": "Адрес"
@@ -112,7 +125,8 @@
       "JOIN": "Войти",
       "FULL": "Заполнено!",
       "DELETE": "Delete pickup date",
-      "DELETE_TEXT": "Do you really want to delete this pickup date?"
+      "DELETE_TEXT": "Do you really want to delete this pickup date?",
+      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."
@@ -127,5 +141,12 @@
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Добавить язык"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
   }
 }

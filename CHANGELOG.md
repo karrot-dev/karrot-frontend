@@ -6,7 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [Unreleased]
 ### Added
 
-- Pickup dates can now be created weekly
+### Changed
+
+### Removed
+
+### Fixed
+
+
+## [Release 2]
+### Added
+
+- Pickup dates can now be created as weekly series
 - Translations: German, French, Swedish, Spanish, Italian, Russian and Esperanto
 - Show group information before joining
 - Groups can ask for a password
@@ -18,6 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Loading bar to show when server requests are in progress
 - Nice loading dots
 - Automated login after signing up
+- Small popup to inform users about timeouts and server errors
 
 ### Changed
 
@@ -30,7 +41,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
-- not much
+- Inline-editing with angular-xeditable
 
 ### Fixed
 
@@ -38,6 +49,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Dialog is hidden by map
 - Scrolling issues
 - Less server requests for showing pickup dates
+- Disabled auto-capitalization on login page
 - many small issues...
 
 
@@ -51,4 +63,5 @@ After months of planning and programming, the first version of the foodsaving to
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
-[Unreleased]: https://github.com/yunity/foodsaving-frontend/compare/r1...HEAD
+[Unreleased]: https://github.com/yunity/foodsaving-frontend/compare/r2...HEAD
+[Release 2]: https://github.com/yunity/foodsaving-frontend/compare/r1...r2

@@ -3,7 +3,9 @@
     "GITHUB_NOTE":"Sviluppo",
     "DEVMAIL_NOTE":"scrivici una mail se trovi errori /suggerimenti",
     "WARNING":"Attenzione",
-    "BETA_WARNING": "Questo sito internet é sotto uno sviluppo attivo e tutto é soggetto a cambiamenti continui . Noi non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)"
+    "BETA_WARNING": "Questo sito internet é sotto uno sviluppo attivo e tutto é soggetto a cambiamenti continui . Noi non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
   },
   "ACTION_NOTICE": {
     "TITLE": "Vi invitiamo a collaborare!",
@@ -19,22 +21,36 @@
     "CREATE": "Crea",
     "CANCEL": "Cancella",
     "DELETE": "Elimina",
-    "JOIN": "Unisciti"
+    "EDIT": "Edit",
+    "JOIN": "Unisciti",
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview"
   },
   "GROUP": {
     "LEAVE": "Lascia il gruppo...",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "EDIT": "Modifica gruppo",
+    "CREATE_TITLE": "Create new group",
     "TITLE": "Titolo di questo gruppo",
-    "DESCRIPTION": "Descrizione del gruppo, visibile dai membri",
+    "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "PUBLIC_DESCRIPTION": "Scrivici prima di unirti al gruppo",
     "PASSWORD": "Metti qui una password se vuoi fare un gruppo privato",
     "PICKUPS": "Raccogliere",
     "MEMBERS": "Membri",
-    "STORES": "Negozi"
+    "STORES": "Negozi",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Modifica negozi",
     "ADDRESS": "Indirizzo"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "USERDETAIL": {
     "EDIT": "Modifica utente",
@@ -82,14 +98,12 @@
   "GROUPMENU": {
     "JOIN": "Unisciti alla comunità"
   },
-  "CREATEGROUP": {
-    "TITLE": "Crea un gruppo",
-    "NAME": "Nome",
-    "DESCRIPTION": "Descrizione",
-    "ADDRESS": "Indirizzo"
-  },
   "CREATEPICKUP": {
     "TITLE": "Crea raccolta",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Tempo",
     "TIME_ERROR": "Metti una ora valida: [hh:mm]",
     "MAX_COLLECTORS": "Spazio massimo"
@@ -111,7 +125,8 @@
       "JOIN": "Unisciti",
       "FULL": "Pieno!",
       "DELETE": "Elimina raccolta dati",
-      "DELETE_TEXT": "Vuoi davvero eliminare questa raccolta dati?"
+      "DELETE_TEXT": "Vuoi davvero eliminare questa raccolta dati?",
+      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
     "NONE":"Nessun raccolta in vista",
     "NONE_HINT":"Puoi creare una nuova raccolta sulla pagina del negozio."
@@ -126,5 +141,12 @@
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Aggiungi altre lingue!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
   }
 }

@@ -9,7 +9,6 @@ import translate from "angular-translate";
 import translateStorageCookie from "angular-translate-storage-cookie";
 import "angular-breadcrumb";
 import angularLoadingBar from "angular-loading-bar";
-import "angular-xeditable";
 import ngLocale from "angular-dynamic-locale";
 
 // config
@@ -18,11 +17,9 @@ import PageComponents from "./components/pages";
 import AppMaterial from "./app.material";
 import AppLocalizeConfig from "./app.localizeConfig";
 import AppLocalizeRun from "./app.localizeRun";
-import AppXEditableConfig from "./app.xeditable";
 import AppHTTPErrorHandler from "./app.HTTPErrorHandler";
 
 // styles
-import "angular-xeditable/dist/css/xeditable.css";
 import "angular-loading-bar/build/loading-bar.css";
 import "normalize.css";
 import "angular-material/angular-material.css";
@@ -39,7 +36,6 @@ angular.module("app", [
   ngLocale,
   uiRouter,
   ngMaterial,
-  "xeditable",
   "ncy-angular-breadcrumb",
   angularLoadingBar,
   ngAnimate,
@@ -76,7 +72,6 @@ angular.module("app", [
   "ngInject";
   cfpLoadingBarProvider.includeSpinner = false;
 })
-.run(AppXEditableConfig)
 .config(($breadcrumbProvider) => {
   "ngInject";
   $breadcrumbProvider.setOptions({

@@ -17,7 +17,7 @@
     </md-toolbar>
 
     <store-detail-map ng-if="$ctrl.mapData.latitude && $ctrl.mapData.longitude" store-data="$ctrl.mapData"></store-detail-map>
-    <md-content layout-padding>
+    <div layout-padding>
 
       <div ng-hide="editableStore.$visible">
         <p ng-if="$ctrl.storedata.address">
@@ -54,5 +54,5 @@
       </div>
     </form>
     <pickup-list store-id="$ctrl.storedata.id" options="$ctrl.pickupListOptions"></pickup-list>
-  </md-content>
+  </div>
 </div>

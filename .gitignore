@@ -18,4 +18,5 @@ env
 *.pyo
 
 # Backups
+/backup/backup.sh
 /backup/*.db.enc

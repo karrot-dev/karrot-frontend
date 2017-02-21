@@ -12,7 +12,6 @@ Only major features and improvements will be listed here.
 - Comment field for pickup dates (for duration, distribution point, mode of transportation for pickup ...)
 - Feedback for historic pickup dates (e.g. amount of saved food)
 - search-options for storeList / memberList / joinGroup
-- not capitalizing name & password fields
 
 ## [Release 4](https://github.com/yunity/foodsaving-frontend/milestone/9)
 

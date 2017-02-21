@@ -38,6 +38,7 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
     "STORES": "Stores",
+    "HISTORY":"History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group"

@@ -13,7 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 
-## [Release 2]
+## [Release 2] - 2017-02-21
 ### Added
 
 - Pickup dates can now be created as weekly series

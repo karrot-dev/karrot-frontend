@@ -50,7 +50,7 @@
     "NAME": "Name",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should regular pickup dates be shown?"
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "USERDETAIL": {
     "EDIT": "Edit user",
@@ -100,10 +100,10 @@
   },
   "CREATEPICKUP": {
     "TITLE": "Create Pickup",
-    "SERIES": "Regular",
+    "SERIES": "Recurring",
     "SINGLE": "One-time pickup",
     "WEEKDAYS": "Weekdays",
-    "HINT_MULTIPLE": "You can select multiple dates here.",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Time",
     "TIME_ERROR": "enter a valid time: [hh:mm]",
     "MAX_COLLECTORS": "Max Slots"

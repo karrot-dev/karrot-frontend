@@ -4,18 +4,27 @@ function pseudoRandom(seed) {
   return random;
 }
 class ProfilePictureController {
-  constructor($document, $scope, $element) {
+  constructor($document, $scope, $element, User) {
     "ngInject";
     Object.assign(this, {
       $document,
       $scope,
+      User,
+      name: "",
+      picture: null,
       el: $element
     });
   }
   $onInit() {
-    if (this.identicon) {
-      this.generate(pseudoRandom(parseInt(this.identicon)));
-    }
+    this.User.get(this.userId).then( (res) => {
+      this.name = res.display_name;
+      if (res.profile_picture) {
+        // not implemented in the backend yet
+        this.picture = res.profile_picture;
+      } else {
+        this.generate(pseudoRandom(res.id));
+      }
+    });
   }
   generate(seed) {
 
@@ -39,18 +48,23 @@ class ProfilePictureController {
     box.setAttribute("class", "box");
 
     const g = document.createElementNS(svgns, "g");
-    g.setAttribute("transform",
-      "translate(" + -((rows * blockSize - this.size) / 2) + " " + -((rows * blockSize - this.size) /2) +
-      ") rotate("+(90*seed)+" " + rotate + " " + rotate + ")");
+    g.setAttribute(
+        "transform",
+        `translate(${-(rows * blockSize - this.size) / 2} ${-((rows * blockSize - this.size) / 2)}) ` +
+        `rotate(${90 * seed} ${rotate} ${rotate})`
+      );
 
-      // `translate(${-((rows * blockSize - this.size) / 2)} ${(rows * blockSize - this.size) /2}) rotate(60 ${blockSize * rows /2}} ${blockSize * rows / 2})`
     for (let i = 0; i < columns; i++) {
       //noprotect
       for (let j = 0; j < rows; j++) {
         let rect = document.createElementNS(svgns, "rect");
         rect.setAttribute("width", blockSize);
         rect.setAttribute("height", blockSize);
-        rect.setAttribute("fill", "rgba(" + getRandomRange(100, 255, (i+1)*(j+1)*1) + "," +  getRandomRange(100, 255, (i+1)*(j+1)*2) + "," + getRandomRange(100, 255, (i+1)*(j+1)*3) + ",1)");
+        rect.setAttribute("fill", "rgba(" +
+          getRandomRange(100, 255, (i + 1) * (j + 1) * 1) + "," +
+          getRandomRange(100, 255, (i + 1) * (j + 1) * 2) + "," +
+          getRandomRange(100, 255, (i + 1) * (j + 1) * 3) + ",1)"
+        );
         rect.setAttribute("x", i * blockSize);
         rect.setAttribute("y", j * blockSize);
 
@@ -62,12 +76,16 @@ class ProfilePictureController {
     let overlay = document.createElementNS(svgns, "rect");
     overlay.setAttribute("width", this.size);
     overlay.setAttribute("height", this.size);
-    overlay.setAttribute("fill", "rgba(" + getRandomRange(50, 255, 1) + "," +  getRandomRange(50, 255, 2) + "," + getRandomRange(50, 255, 3) + ",0.5)");
+    overlay.setAttribute("fill", "rgba(" +
+      getRandomRange(100, 255, 1) + "," +
+      getRandomRange(100, 255, 2) + "," +
+      getRandomRange(100, 255, 3) + ",0.5)"
+    );
     overlay.setAttribute("x", 0);
     overlay.setAttribute("y", 0);
     box.appendChild(overlay);
 
-    this.el[0].appendChild(box);
+    this.el[0].firstChild.appendChild(box);
 
   }
 }

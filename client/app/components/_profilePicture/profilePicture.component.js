@@ -5,7 +5,6 @@ import "./profilePicture.styl";
 let profilePictureComponent = {
   bindings: {
     userId: "<",
-    identicon: "<",
     size: "<"
   },
   template,

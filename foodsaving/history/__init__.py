@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
 
-class AuditConfig(AppConfig):
-    name = 'foodsaving.audit'
+class HistoryConfig(AppConfig):
+    name = 'foodsaving.history'
 
     def ready(self):
         from . import signals  # noqa: F401

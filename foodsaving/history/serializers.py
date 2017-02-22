@@ -1,15 +1,15 @@
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
-from foodsaving.audit.models import Audit, AuditTypus
+from foodsaving.history.models import History, HistoryTypus
 
 
-class AuditSerializer(serializers.ModelSerializer):
+class HistorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Audit
+        model = History
         fields = ['id', 'date', 'typus', 'group', 'store', 'users', 'payload']
 
     typus = SerializerMethodField()
 
     def get_typus(self, obj):
-        return AuditTypus.name(obj.typus)
+        return HistoryTypus.name(obj.typus)

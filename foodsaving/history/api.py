@@ -2,16 +2,16 @@ from rest_framework import viewsets
 from rest_framework.filters import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 
-from foodsaving.audit.models import Audit
-from foodsaving.audit.serializers import AuditSerializer
+from foodsaving.history.models import History
+from foodsaving.history.serializers import HistorySerializer
 
 
-class AuditViewSet(viewsets.ReadOnlyModelViewSet):
+class HistoryViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    Audit
+    History of user actions
     """
-    serializer_class = AuditSerializer
-    queryset = Audit.objects
+    serializer_class = HistorySerializer
+    queryset = History.objects
     filter_fields = ('group', 'store', 'users')
     filter_backends = (DjangoFilterBackend,)
     permission_classes = (IsAuthenticated,)

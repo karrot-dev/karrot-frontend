@@ -6,7 +6,7 @@ from django_enumfield import enum
 from foodsaving.base.base_models import NicelyFormattedModel
 
 
-class AuditTypus(enum.Enum):
+class HistoryTypus(enum.Enum):
     GROUP_CREATE = 0
     GROUP_MODIFY = 1
     GROUP_JOIN = 2
@@ -25,9 +25,9 @@ class AuditTypus(enum.Enum):
     PICKUP_LEAVE = 15
 
 
-class Audit(NicelyFormattedModel):
+class History(NicelyFormattedModel):
     date = models.DateTimeField(default=timezone.now)
-    typus = enum.EnumField(AuditTypus)
+    typus = enum.EnumField(HistoryTypus)
     group = models.ForeignKey('groups.Group')
     store = models.ForeignKey('stores.Store', null=True)
     users = models.ManyToManyField('users.User')

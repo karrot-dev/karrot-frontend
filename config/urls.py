@@ -18,7 +18,7 @@ from django.contrib import admin
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 
-from foodsaving.audit.api import AuditViewSet
+from foodsaving.history.api import HistoryViewSet
 from foodsaving.userauth.api import AuthViewSet
 from foodsaving.conversations.api import ChatViewSet, ChatMessageViewSet
 from foodsaving.groups.api import GroupViewSet
@@ -45,8 +45,8 @@ router.register(r'pickup-dates', PickupDateViewSet)
 # Store endpoints
 router.register(r'stores', StoreViewSet)
 
-# Audit endpoints
-router.register('audit', AuditViewSet)
+# History endpoints
+router.register('history', HistoryViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),

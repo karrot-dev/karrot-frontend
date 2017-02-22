@@ -29,6 +29,9 @@ class GroupService {
   }
 
   listMy() {
+    if (angular.isUndefined(this.Authentication.data)) {
+      return this.$q.resolve([]);
+    }
     let myUserId = this.Authentication.data.id;
     return this.listByMemberId(myUserId);
   }

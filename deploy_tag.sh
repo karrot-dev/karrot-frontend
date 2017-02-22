@@ -16,7 +16,7 @@ echo "deploying frontend branch [$CIRCLE_TAG] to [$HOST] in [$DIR] dir"
 echo $CIRCLE_TAG > dist/version
 
 # create a downloadable archive too
-(cd dist && tar czf ../archive.tar.gz *)
+(cd dist && tar czf archive.tar.gz *)
 
 # send it all to the host
 rsync -avz --delete dist/ deploy@$HOST:foodsaving-frontend/$DIR/

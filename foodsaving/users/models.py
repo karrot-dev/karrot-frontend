@@ -17,15 +17,16 @@ MAX_DISPLAY_NAME_LENGTH = 80
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, email, password, display_name=None, **extra_fields):
+    def _create_user(self, email, password, display_name=None, is_active=True, **extra_fields):
         """ Creates and saves a User with the given username, email and password.
 
         """
         email = self._validate_email(email)
+        extra_fields['unverified_email'] = email
 
         user = self.model(
             email=email,
-            is_active=True,
+            is_active=is_active,
             display_name=display_name,
             **extra_fields)
         user.set_password(password)
@@ -47,7 +48,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, BaseModel, LocationModel):
-    email = EmailField(max_length=255, unique=True)
+    email = EmailField(unique=True, null=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
     display_name = CharField(max_length=settings.NAME_MAX_LENGTH)
@@ -56,6 +57,10 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     activation_key = CharField(max_length=40, blank=True)
     key_expires_at = DateTimeField(null=True)
     mail_verified = BooleanField(default=False)
+    unverified_email = EmailField(null=True)
+
+    deleted = BooleanField(default=False)
+    deleted_at = DateTimeField(default=None, null=True)
 
     objects = UserManager()
 
@@ -71,6 +76,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         self.mail_verified = True
         self.activation_key = ''
         self.key_expires_at = None
+        self.email = self.unverified_email
         self.save()
 
     def _unverify_mail(self):
@@ -89,7 +95,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         AnymailMessage(
             subject=_('Verify your mail address'),
             body=_('Here is your activation link: {}. It will be valid for 7 days.').format(url),
-            to=[self.email],
+            to=[self.unverified_email],
             from_email=settings.DEFAULT_FROM_EMAIL,
             track_clicks=False,
             track_opens=False

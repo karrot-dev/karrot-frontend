@@ -16,3 +16,7 @@ env
 # Python files
 *.pyc
 *.pyo
+
+# Backups
+/backup/backup.sh
+/backup/*.db.enc

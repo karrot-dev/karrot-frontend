@@ -11,6 +11,8 @@ from foodsaving.groups.filters import GroupsFilter
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
 from foodsaving.groups.models import Group as GroupModel
 
+pre_leave_group = Signal(providing_args=['user', 'group'])
+
 
 post_group_join = Signal()
 post_group_leave = Signal()
@@ -93,6 +95,8 @@ class GroupViewSet(ModelViewSet):
         if not group.members.filter(id=request.user.id).exists():
             return Response("User not member of group",
                             status=status.HTTP_400_BAD_REQUEST)
+
+        pre_leave_group.send(sender=self.__class__, user=request.user, group=group)
         group.members.remove(request.user)
         post_group_leave.send(sender=self.__class__, group=group, user=request.user)
         return Response(status=status.HTTP_200_OK)

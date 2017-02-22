@@ -1,4 +1,5 @@
 from django.db.models import TextField, ManyToManyField, CharField
+
 from foodsaving.base.base_models import BaseModel, LocationModel
 from config import settings
 from timezone_field import TimeZoneField

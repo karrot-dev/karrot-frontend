@@ -11,12 +11,23 @@ class UserSerializer(serializers.ModelSerializer):
         model = get_user_model()
         fields = ['id', 'display_name', 'email', 'password',
                   'address', 'latitude', 'longitude', 'description', 'mail_verified', 'key_expires_at']
-        extra_kwargs = {'password': {'write_only': True},
-                        'description': {'trim_whitespace': False,
-                                        'max_length': settings.DESCRIPTION_MAX_LENGTH},
-                        'mail_verified': {'read_only': True,
-                                          'default': False},
-                        'key_expires_at': {'read_only': True}}
+        extra_kwargs = {
+            'email': {
+                'required': True
+            },
+            'password': {
+                'write_only': True
+            },
+            'description': {
+                'trim_whitespace': False,
+                'max_length': settings.DESCRIPTION_MAX_LENGTH},
+            'mail_verified': {
+                'read_only': True,
+                'default': False},
+            'key_expires_at': {
+                'read_only': True
+            }
+        }
 
     def validate(self, data):
         if 'description' not in data:
@@ -31,6 +42,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, user, validated_data):
         if 'email' in validated_data and validated_data['email'] != user.email:
+            user.unverified_email = validated_data.pop('email')
             user.send_verification_code()
         if 'password' in validated_data:
             user.set_password(validated_data.pop('password'))

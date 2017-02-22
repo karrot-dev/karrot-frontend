@@ -4,6 +4,7 @@ from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from factory import DjangoModelFactory, SubFactory, LazyFunction
 from factory import LazyAttribute
+from factory import post_generation
 
 from foodsaving.groups.factories import Group
 from foodsaving.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
@@ -29,6 +30,14 @@ class PickupDate(DjangoModelFactory):
 
     class Meta:
         model = PickupDateModel
+
+    @post_generation
+    def collectors(self, created, collectors, **kwargs):
+        if not created:
+            return
+        if collectors:
+            for _ in collectors:
+                self.collectors.add(_)
 
     store = SubFactory(Store)
     date = LazyFunction(in_one_day)

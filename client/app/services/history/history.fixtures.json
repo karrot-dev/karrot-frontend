@@ -1,0 +1,42 @@
+[
+  {
+    "id": 3,
+    "date": "2017-02-22T10:04:57.598671Z",
+    "typus": "SERIES_CREATE",
+    "group": 14,
+    "store": 36,
+    "users": [
+      1
+    ],
+    "payload": {
+      "rule": "FREQ=WEEKLY",
+      "store": "36",
+      "start_date": "2017-02-22T10:00:00+01:00"
+    }
+  },
+  {
+    "id": 2,
+    "date": "2017-02-22T10:02:36.636447Z",
+    "typus": "STORE_CREATE",
+    "group": 14,
+    "store": 36,
+    "users": [
+      1
+    ],
+    "payload": {
+      "name": "ALDI Hintertupfingen",
+      "group": "14"
+    }
+  },
+  {
+    "id": 1,
+    "date": "2017-02-22T10:02:28.712082Z",
+    "typus": "GROUP_JOIN",
+    "group": 14,
+    "store": null,
+    "users": [
+      1
+    ],
+    "payload": null
+  }
+]

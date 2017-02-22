@@ -2,6 +2,7 @@ from datetime import timedelta
 
 from dateutil.relativedelta import relativedelta
 from django.contrib.auth import get_user_model
+from django.core import mail
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -79,6 +80,9 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(response.data['email'], self.user_data['email'])
         self.assertAlmostEqual(response.data['latitude'], float(self.user_data['latitude']))
         self.assertEqual(response.data['description'], '')
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[0].to, [self.user_data['email']])
 
     def test_list_users_forbidden(self):
         response = self.client.get(self.url)
@@ -153,12 +157,14 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(response.data, {'key': ['This field is required.']})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_resend_verification_succeds(self):
+    def test_resend_verification_succeeds(self):
         self.client.force_login(user=self.user)
         url = self.url + 'resend_verification/'
         response = self.client.post(url)
-        self.assertEqual(response.data, None)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[0].to, [self.user.email])
 
     def test_resend_verification_fails_if_already_verified(self):
         self.client.force_login(user=self.verified_user)
@@ -177,6 +183,9 @@ class TestUsersAPI(APITestCase):
         response = self.client.post(url, {'email': self.verified_user.email})
         self.assertIsNone(response.data)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'New password')
+        self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
 
     def test_reset_password_fails_if_mail_not_verified(self):
         url = self.url + 'reset_password/'
@@ -303,34 +312,38 @@ class TestChangePassword(APITestCase):
 
 class TestChangeMail(APITestCase):
     @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
+    def setUpTestData(cls):
+        super().setUpTestData()
         cls.verified_user = VerifiedUserFactory()
+        cls.another_user = VerifiedUserFactory()
         cls.url = '/api/users/'
-        cls.data = {'email': faker.email()}
+        cls.user_url = cls.url + str(cls.verified_user.id) + '/'
 
     def test_change_with_patch_succeeds(self):
         self.client.force_login(user=self.verified_user)
         self.assertTrue(self.verified_user.mail_verified)
-        url = self.url + str(self.verified_user.id) + '/'
-        response = self.client.patch(url, self.data, format='json')
-        user = get_user_model().objects.get(id=self.verified_user.id)
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['email'], self.data['email'])
-        self.assertFalse(user.mail_verified)
-
-    def test_change_with_put_succeeds(self):
-        self.client.force_login(user=self.verified_user)
-        self.assertTrue(self.verified_user.mail_verified)
-        url = self.url + str(self.verified_user.id) + '/'
 
         # typical frontend use case of getting, modifying and sending data
-        data = self.client.get(url).data
+        data = self.client.get(self.user_url).data
         data['email'] = faker.email()
-        response = self.client.patch(url, data, format='json')
+        response = self.client.patch(self.user_url, data, format='json')
         user = get_user_model().objects.get(id=self.verified_user.id)
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['email'], data['email'])
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+        self.assertEqual(response.data['email'], self.verified_user.email)
         self.assertFalse(user.mail_verified)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[0].to, [data['email']])
+
+        user.verify_mail()
+        self.assertTrue(user.mail_verified)
+        response = self.client.get(self.user_url)
+        self.assertEqual(response.data['email'], data['email'])
+
+    def test_change_to_existing_mail_fails(self):
+        self.client.force_login(user=self.verified_user)
+        data = {'email': self.another_user.email}
+        response = self.client.patch(self.user_url, data)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(len(mail.outbox), 0)

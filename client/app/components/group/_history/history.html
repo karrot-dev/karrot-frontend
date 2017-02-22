@@ -1,87 +1,18 @@
 <div>
-  <div class="date">
-    Freitag, 3. April
-  </div>
-  <div layout="row">
-    <div flex class="time">
-      17:30
+  <div ng-repeat="entry in $ctrl.list">
+    <div ng-if="$first || $ctrl.list[$index-1].compareDate != entry.compareDate" class="date">
+      {{ entry.date | date:'fullDate' }}
     </div>
-    <div flex class="avatar">
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-    </div>
-    <div flex class="">
-        Lorem Ipsum
-    </div>
-  </div>
-  <div layout="row">
-    <div flex class="time">
-      17:30
-    </div>
-    <div flex class="avatar s2">
-      <div>
-        <a ui-sref="userDetail({id:50})">
-          <profile-picture identicon="134" size="20"></profile-picture>
-          <md-tooltip>
-            Test
-          </md-tooltip>
-        </a>
+    <div layout="row">
+      <div flex class="time">
+        {{ entry.date | date:'shortTime' }}
       </div>
-      <div>
-        <a ui-sref="userDetail({id:50})">
-          <profile-picture identicon="134" size="20"></profile-picture>
-          <md-tooltip>
-            Test
-          </md-tooltip>
-        </a>
+      <div flex class="avatar s{{ entry.users.length }}">
+        <div ng-repeat="id in entry.users"><profile-picture user-id="id" size="20"></profile-picture></div>
       </div>
-    </div>
-    <div flex class="">
-        Lorem Ipsum
-    </div>
-  </div>
-  <div layout="row">
-    <div flex class="time">
-      17:30
-    </div>
-    <div flex class="avatar s4">
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-    </div>
-    <div flex class="">
-        Lorem Ipsum
-    </div>
-  </div>
-  <div class="date">
-    Freitag, 3. April
-  </div>
-  <div layout="row">
-    <div flex class="time">
-      17:30
-    </div>
-    <div flex class="avatar s5">
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-    </div>
-    <div flex class="">
-        Lorem Ipsum
-    </div>
-  </div>
-  <div layout="row">
-    <div flex class="time">
-      17:30
-    </div>
-    <div flex class="avatar s3">
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-      <div><profile-picture identicon="134" size="20"></profile-picture></div>
-    </div>
-    <div flex class="">
-        Lorem Ipsum
+      <div flex class="">
+        <span translate="{{ entry.translate }}" translate-values="{{ entry.payload }}"></span>
+      </div>
     </div>
   </div>
 </div>

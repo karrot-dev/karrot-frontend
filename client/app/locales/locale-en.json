@@ -137,5 +137,10 @@
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Add more languages!"
+  },
+  "HISTORY":{
+    "SERIES_CREATE":"has created a new recurring pick-up",
+    "STORE_CREATE":"has created {{name}}",
+    "GROUP_JOIN":"joined this group"
   }
 }

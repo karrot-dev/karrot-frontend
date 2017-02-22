@@ -12,4 +12,4 @@ fi
 
 echo "deploying frontend branch [$BRANCH] to [$HOST]"
 
-rsync -avz --delete dist/ deploy@$HOST:foodsaving-frontend/$BRANCH/
+ssh deploy@$HOST 'touch /tmp/blaa2'

@@ -19,3 +19,9 @@ deployment:
     branch: [master, production]
     commands:
       - ./deploy.sh
+  release:
+    # e.g. v1.2.3
+    tag: /v[0-9]+(\.[0-9]+)*/
+    owner: yunity
+    commands:
+      - ./deploy_tag.sh

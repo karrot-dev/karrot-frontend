@@ -17,6 +17,7 @@ general:
 deployment:
   dev:
     branch: master
+    owner: yunity
     commands:
       - ./deploy.sh
   release:

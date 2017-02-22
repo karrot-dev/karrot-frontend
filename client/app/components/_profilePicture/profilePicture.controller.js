@@ -1,3 +1,8 @@
+function pseudoRandom(seed) {
+  let random = Math.sin(seed) * 10000;
+  random -= Math.floor(random);
+  return random;
+}
 class ProfilePictureController {
   constructor($document, $scope, $element) {
     "ngInject";
@@ -8,15 +13,14 @@ class ProfilePictureController {
     });
   }
   $onInit() {
-    this.generate();
+    if (this.identicon) {
+      this.generate(pseudoRandom(parseInt(this.identicon)));
+    }
   }
-  generate() {
-    const seed = Math.random();
+  generate(seed) {
 
     function getRandomRange(min, max, add = 1000) {
-      let random = Math.sin(seed * add)*10000;
-      random -= Math.floor(random);
-      return Math.floor(random * (max - min) + min);
+      return Math.floor(pseudoRandom(seed * add) * (max - min) + min);
     }
     const svgns = "http://www.w3.org/2000/svg";
     const box = document.createElementNS(svgns, "svg");

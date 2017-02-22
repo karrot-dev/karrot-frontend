@@ -26,6 +26,9 @@ class HistoryTypus(enum.Enum):
 
 
 class History(NicelyFormattedModel):
+    class Meta:
+        ordering = ['date']
+
     date = models.DateTimeField(default=timezone.now)
     typus = enum.EnumField(HistoryTypus)
     group = models.ForeignKey('groups.Group')

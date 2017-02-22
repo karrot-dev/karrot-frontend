@@ -1,9 +1,16 @@
 {
   "GLOBAL":{
-    "GITHUB_NOTE":"Development",
+    "GITHUB_NOTE":"Entwicklung",
     "DEVMAIL_NOTE":"Schreib uns eine Mail, wenn du Fehler findest oder Anmerkungen hast!",
     "WARNING":"Warnung",
-    "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!"
+    "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
+    "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
+    "SERVER_ERROR": "Der Server gibt einen Fehler zurück."
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Aufruf zur Mitarbeit!",
+    "TEXT": "Planst du ein foodsaving-Projekt oder eine foodsharing community aufzubauen? Oder kennst du Leute, die genau das schon tun?",
+    "MAIL_TEXT": "Schreib uns eine Mail!"
   },
   "USERDATA": {
     "EMAIL": "E-Mail",
@@ -14,29 +21,44 @@
     "CREATE": "Erstellen",
     "CANCEL": "Abbrechen",
     "DELETE": "Löschen",
+    "EDIT": "Bearbeiten",
     "JOIN": "Beitreten",
-    "LEAVE": "Verlassen"
+    "LEAVE": "Verlassen",
+    "PREVIEW": "Vorschau"
   },
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
+    "LEAVE_TEXT": "Bist du sicher, dass du diese Gruppe verlassen möchtest?",
     "EDIT": "Gruppe bearbeiten",
+    "CREATE_TITLE": "Neue Gruppe erstellen",
     "TITLE": "Name der Gruppe",
-    "DESCRIPTION": "Gruppenbeschreibung, nur sichtbar für Mitglieder",
+    "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
     "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
     "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
     "PICKUPS": "Abholungen",
     "MEMBERS": "Mitglieder",
-    "STORES": "Betriebe"
+    "STORES": "Betriebe",
+    "DESCRIPTION": "Beschreibung",
+    "ADDRESS": "Adresse",
+    "TIMEZONE": "Zeitzone der Gruppe"
   },
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
     "ADDRESS": "Adresse"
   },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Beschreibung",
+    "ADDRESS": "Adresse",
+    "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?"
+  },
   "USERDETAIL": {
     "EDIT": "User bearbeiten",
     "DISPLAY_NAME": "Name",
     "EMAIL": "Email",
-    "DESCRIPTION": "Über dich"
+    "DESCRIPTION": "Über dich",
+    "PASSWORD_CHANGE": "Passwort ändern (führt zum Logout)",
+    "PASSWORD": "Neues Passwort eingeben"
   },
   "JOINGROUP": {
     "NAME": "Name",
@@ -53,13 +75,14 @@
   "TOPBAR": {
     "LOGOUT": "Logout",
     "USERPROFILE": "Dein Profil",
-    "GREETING": "Hi, {{username}}!"
+    "GREETING": "Hallo {{username}}!"
   },
   "LOGIN": {
     "TITLE": "Login",
     "WRONG": "Die eingegebenen Zugangsdaten sind falsch. Bitte überprüfe sie noch einmal.",
     "SUBMIT": "Login",
-    "SIGNUP": "Neuanmeldung"
+    "SIGNUP": "Neuanmeldung",
+    "FORGOT_PASSWORD": "Passwort vergessen?"
   },
   "SIGNUP": {
     "TITLE": "Neuanmeldung",
@@ -67,17 +90,20 @@
     "OK": "Beitreten",
     "FAILED": "Accounterstellung fehlgeschlagen!"
   },
+  "VERIFYMAIL": {
+    "TITLE": "Verifizierung der Mailadresse",
+    "SUCCESS": "Deine Mailadresse wurde verifiziert!",
+    "ERROR": "Etwas ging schief. Ist deine Mailadresse vielleicht schon verifiziert?"
+  },
   "GROUPMENU": {
     "JOIN": "Gruppe beitreten"
   },
-  "CREATEGROUP": {
-    "TITLE": "Gruppe erstellen",
-    "NAME": "Name",
-    "DESCRIPTION": "Beschreibung",
-    "ADDRESS": "Adresse"
-  },
   "CREATEPICKUP": {
     "TITLE": "Abholungstermin erstellen",
+    "SERIES": "Wiederkehrende Abholung",
+    "SINGLE": "Einzelne Abholung",
+    "WEEKDAYS": "Wochentage",
+    "HINT_MULTIPLE": "Du kannst mehrere Tage auswählen, z.B. indem du Strg gedrückt hälst.",
     "TIME": "Uhrzeit",
     "TIME_ERROR": "Gib eine gültige Uhrzeit ein [hh:mm]",
     "MAX_COLLECTORS": "Anzahl Abholer"
@@ -99,9 +125,28 @@
       "JOIN": "Abholen",
       "FULL": "belegt",
       "DELETE": "Abholtermin löschen",
-      "DELETE_TEXT": "Willst du diesen Abholtermin wirklich löschen?"
+      "DELETE_TEXT": "Willst du diesen Abholtermin wirklich löschen?",
+      "DELETE_SERIES_TEXT": "Dieser Abholungstermin wiederholt sich. Willst du alle Termine löschen?"
     },
     "NONE":"Es stehen keine Abholungen an.",
     "NONE_HINT":"Auf der Betriebsseite kannst du Abholtermine erstellen."
+  },
+  "PASSSWORDRESET": {
+    "TITLE": "Passwort zurücksetzen",
+    "INTRO": "Gib deine Mailadresse ein, um ein neues Passwort zu erhalten (falls du schon einen Account hast).",
+    "EMAIL": "Emailadresse",
+    "SUBMIT": "Neues Passwort anfordern",
+    "LOGIN": "Zurück zum Login",
+    "SUCCESS": "Deine Anfrage wurde übermittelt. Schau in deinem Postfach nach!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Füge mehr Sprachen hinzu!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "fett",
+    "ITALIC": "kursiv",
+    "STRIKE": "durchgestrichen",
+    "QUOTE": "zitieren",
+    "HELP": "Was ist Markdown?"
   }
 }

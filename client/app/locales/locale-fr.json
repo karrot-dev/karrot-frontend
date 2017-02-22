@@ -1,56 +1,111 @@
 {
+  "GLOBAL":{
+    "GITHUB_NOTE":"Dévéloppement",
+    "DEVMAIL_NOTE":"Écris-nous un mail s'il ya des erreurs/suggestions",
+    "WARNING":"Attention",
+    "BETA_WARNING": "Cette page est dévéloppée continuement et les informations sont régulièrement actualisées. Nous ne pouvons pas garantir la sécurité des données, mais nous faisons tout pour optimiser le niveau de protection !",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Appel à collaborer!",
+    "TEXT": "Es-tu interessé par dévélopper un projet de foodsaving ou une communauté de foodsharing? Connais-tu des gens qui sont déjà devenus actives?",
+    "MAIL_TEXT": "Écris-nous un e-mail!"
+  },
   "USERDATA": {
-    "EMAIL": "Email",
+    "EMAIL": "E-mail",
     "PASSWORD": "Mot de passe",
     "USERNAME": "Nom"
   },
   "BUTTON": {
-    "CREATE": "créer",
+    "CREATE": "Créer",
     "CANCEL": "Annuler",
-    "LEAVE": "Quitter"
+    "DELETE": "Effacer",
+    "EDIT": "Edit",
+    "JOIN": "Rejoindre",
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview"
   },
   "GROUP": {
     "LEAVE": "Quitter le groupe...",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "EDIT": "Traite groupe",
+    "CREATE_TITLE": "Create new group",
+    "TITLE": "Titre du group",
+    "DESCRIPTION_VERBOSE": "Déscription du groupe, accessible pour membres",
+    "PUBLIC_DESCRIPTION": "Texte publiquement accessible (avant de rejoindre le groupe)",
+    "PASSWORD": "Tape ici un mot de passe si tu veux créer un groupe privé.",
     "PICKUPS": "Récoltes",
     "MEMBERS": "Membres",
-    "STORES": "Magasins"
+    "STORES": "Magasins",
+    "DESCRIPTION": "Déscription",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Traiter magasin",
+    "ADDRESS": "Adresse"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
+  },
+  "USERDETAIL": {
+    "EDIT": "Traiter utilisateur",
+    "DISPLAY_NAME": "Nom",
+    "EMAIL": "E-mail",
+    "DESCRIPTION": "Plus d'informations sur toi",
+    "PASSWORD_CHANGE": "Change ton mot de passe (ta session sera terminé)",
+    "PASSWORD": "Tape ton nouveau mot de passe"
   },
   "JOINGROUP": {
     "NAME": "Nom",
-    "WHICHGROUP": "Quel groupe voulez-vous rejoindre ?",
-    "NUM_MEMBERS": "Membres"
+    "WHICHGROUP": "Quel groupe veux-tu rejoindre ?",
+    "NUM_MEMBERS": "Membres",
+    "NO_PUBLIC_DESCRIPTION": "(Ce groupe n'est pas encore défini)",
+    "PASSWORD_LABEL": "Tape le mot de passe pour le groupe privé",
+    "PASSWORD_REQUIRED": "Ce groupe demande un mot de passe",
+    "PASSWORD_WRONG": "Le mot de passe que tu as saisi est incorrecte"
   },
   "HOME": {
     "REDIRECT": "Redirection vers votre groupe préféré..."
   },
   "TOPBAR": {
-    "LOGOUT": "Déconnexion"
+    "LOGOUT": "Déconnexion",
+    "USERPROFILE": "Vois ton profile",
+    "GREETING": "Salut {{username}} !"
   },
   "LOGIN": {
     "TITLE": "Connexion",
-    "WRONG": "Les informations entrées sont fausses. S'il vous plaît vérifiez les attentivement.",
+    "WRONG": "Les informations entrées sont fausses. Vérifie le contenu attentivement s'il te plaît.",
     "SUBMIT": "Connexion",
-    "SIGNUP": "Enregistrez vous !"
+    "SIGNUP": "S'enregistrer",
+    "FORGOT_PASSWORD": "Tu as oublié ton mot de passe?"
   },
   "SIGNUP": {
-    "TITLE": "Enregistrez vous !",
+    "TITLE": "S'enregistrer",
     "BACK": "Retour à la connexion",
     "OK": "Rejoindre",
     "FAILED": "L'enregistrement a échoué !"
   },
+  "VERIFYMAIL": {
+    "TITLE": "Verification d'e-mail",
+    "SUCCESS": "Ton addresse e-mail a été verifié avec succès!",
+    "ERROR": "Il y a une erreur. Peut-être tu as déjà verifié cette addresse e-mail?"
+  },
   "GROUPMENU": {
     "JOIN": "Rejoindre la communauté"
   },
-  "CREATEGROUP": {
-    "TITLE": "Créer un groupe",
-    "NAME": "Nom",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Adresse"
-  },
   "CREATEPICKUP": {
     "TITLE": "Créer une récolte",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Temps",
-    "TIME_ERROR": "Entrez un temps valide : [hh:mm]",
+    "TIME_ERROR": "Entrer le format et les unités horaires valides : [hh:mm]",
     "MAX_COLLECTORS": "Nombre maximum d'emplacements"
   },
   "CREATESTORE": {
@@ -62,13 +117,36 @@
   "PICKUPLIST": {
     "FILTER": "Filtre",
     "JOINED": "Rejoint",
-    "OPEN": "ouvert",
-    "FULL": "complet",
+    "OPEN": "Ouvert",
+    "FULL": "Complet",
     "SORT": "Trier",
     "ITEM": {
       "LEAVE": "Quitter",
       "JOIN": "Rejoindre",
-      "FULL": "Complet !"
-    }
+      "FULL": "Complet",
+      "DELETE": "Efface cette récolte",
+      "DELETE_TEXT": "Tu es sure que tu veux effacer cette récolte?",
+      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
+    },
+    "NONE":"Aucune récoltes à venir",
+    "NONE_HINT":"Tu peux créer un nouveau récolte à la page du magasin."
+  },
+  "PASSSWORDRESET": {
+    "TITLE": "Reset de mot de passe",
+    "INTRO": "Tape ton addresse e-mail pour recevoir un nouveau mot de passe (si tu est client déjà).",
+    "EMAIL": "Addresse e-mail",
+    "SUBMIT": "Demander un nouveau mot de passe",
+    "LOGIN": "Retourner à la page de connexion",
+    "SUCCESS": "Ta demande a été transferée. Regarde dans ta boîte de reception."
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Ajouter des langues!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
   }
 }

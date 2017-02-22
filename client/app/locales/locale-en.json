@@ -3,7 +3,9 @@
     "GITHUB_NOTE":"Development",
     "DEVMAIL_NOTE":"write us a mail for errors/suggestions",
     "WARNING":"Warning",
-    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
+    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
   },
   "ACTION_NOTICE": {
     "TITLE": "Call for collaboration!",
@@ -26,7 +28,7 @@
   },
   "GROUP": {
     "LEAVE": "Leave group...",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?", 
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "EDIT": "Edit group",
     "CREATE_TITLE": "Create new group",
     "TITLE": "Title of this group",
@@ -42,8 +44,13 @@
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
+    "ADDRESS": "Address"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
     "ADDRESS": "Address",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should regular pickup dates be shown?"
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "USERDETAIL": {
     "EDIT": "Edit user",
@@ -93,10 +100,10 @@
   },
   "CREATEPICKUP": {
     "TITLE": "Create Pickup",
-    "SERIES": "Regular",
+    "SERIES": "Recurring",
     "SINGLE": "One-time pickup",
     "WEEKDAYS": "Weekdays",
-    "HINT_MULTIPLE": "You can select multiple dates here.",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Time",
     "TIME_ERROR": "enter a valid time: [hh:mm]",
     "MAX_COLLECTORS": "Max Slots"
@@ -134,5 +141,12 @@
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Add more languages!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
   }
 }

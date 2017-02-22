@@ -3,7 +3,14 @@
     "GITHUB_NOTE":"Ellaboro",
     "DEVMAIL_NOTE":"Skribu retmesaĝon al ni pri eraroj/sugestoj",
     "WARNING":"Averto",
-    "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)"
+    "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Alvoko kunlabori!",
+    "TEXT": "Ĉu vi interesiĝas krei projekton manĝaĵosavan aŭ komunumon manĝaĵokunhavan? Ĉu vi konas iun kiu jam faras ĝin?",
+    "MAIL_TEXT": "Sendu retmesaĝon al ni!"
   },
   "USERDATA": {
     "EMAIL": "Retadreso",
@@ -14,23 +21,36 @@
     "CREATE": "Krei",
     "CANCEL": "Nuligi",
     "DELETE": "Forigi",
+    "EDIT": "Edit",
     "JOIN": "Ensaluti",
-    "LEAVE": "Forlasi"
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview"
   },
   "GROUP": {
     "LEAVE": "Forlasi la grupon…",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "EDIT": "Redakti grupon",
+    "CREATE_TITLE": "Create new group",
     "TITLE": "Titolo de ĉi tiu grupo",
-    "DESCRIPTION": "Grupa priskribo, videbla por la anoj",
+    "DESCRIPTION_VERBOSE": "Grupa preskribo, membrovidebla",
     "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
     "PASSWORD": "Entajpi pasvorton ĉi tien se vi volas privatigi la grupon",
     "PICKUPS": "Kolektoj",
     "MEMBERS": "Anoj",
-    "STORES": "Vendejoj"
+    "STORES": "Vendejoj",
+    "DESCRIPTION": "Priskribo",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Redakti vendejon",
     "ADDRESS": "Adreso"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "USERDETAIL": {
     "EDIT": "Krei uzanton",
@@ -78,17 +98,15 @@
   "GROUPMENU": {
     "JOIN": "Aliĝi al la komunumo"
   },
-  "CREATEGROUP": {
-    "TITLE": "Krei grupon",
-    "NAME": "Nomo",
-    "DESCRIPTION": "Priskribo",
-    "ADDRESS": "Adreso"
-  },
   "CREATEPICKUP": {
     "TITLE": "Krei Forkolekton",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Tempo",
     "TIME_ERROR": "Entajpi validan daton: [hh:mm]",
-    "MAX_COLLECTORS": "Maks Spacoj"
+    "MAX_COLLECTORS": "Maks Lokoj"
   },
   "CREATESTORE": {
     "TITLE": "Krei novan vendejon",
@@ -107,7 +125,8 @@
       "JOIN": "Aliĝi",
       "FULL": "Plena!",
       "DELETE": "Forigu forkolektan daton",
-      "DELETE_TEXT": "Ĉu vi vere volas forigi ĉi tiun forkolektan daton?"
+      "DELETE_TEXT": "Ĉu vi vere volas forigi ĉi tiun forkolektan daton?",
+      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
     "NONE":"Neniu venonta forkolekto",
     "NONE_HINT":"Vi povas krei novan forkolekton en la vendeja paĝo."
@@ -119,5 +138,15 @@
     "SUBMIT": "Ricevi novan pasvorton",
     "LOGIN": "Reen al ensalutpaĝo",
     "SUCCESS": "La peto sukcese sendiĝis. Kontrolu vian retposton!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Aldoni pli da lingvoj!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
   }
 }

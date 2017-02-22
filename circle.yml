@@ -16,7 +16,7 @@ general:
     - dist
 deployment:
   dev:
-    branch: [master, production]
+    branch: master
     commands:
       - ./deploy.sh
   release:

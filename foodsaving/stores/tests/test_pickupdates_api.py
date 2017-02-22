@@ -532,6 +532,12 @@ class TestPickupDatesAPI(APITestCase):
         response = self.client.post(self.join_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
 
+    def test_join_pickup_without_max_collectors_as_member(self):
+        self.client.force_login(user=self.member)
+        p = PickupDate(max_collectors=None, store=self.store)
+        response = self.client.post('/api/pickup-dates/{}/add/'.format(p.id))
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+
     def test_join_past_pickup_fails(self):
         self.client.force_login(user=self.member)
         response = self.client.post(self.past_join_url)

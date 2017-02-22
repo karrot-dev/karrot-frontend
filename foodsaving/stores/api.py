@@ -135,7 +135,7 @@ class PickupDateViewSet(
     @detail_route(methods=['POST'])
     def add(self, request, pk=None):
         pickupdate = self.get_object()
-        if pickupdate.collectors.count() >= pickupdate.max_collectors:
+        if pickupdate.max_collectors and pickupdate.collectors.count() >= pickupdate.max_collectors:
             return Response("Pickup already full",
                             status=status.HTTP_400_BAD_REQUEST)
         pickupdate.collectors.add(request.user)

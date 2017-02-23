@@ -3,11 +3,11 @@ from rest_framework import filters
 from rest_framework import mixins
 from rest_framework import viewsets
 from rest_framework.decorators import detail_route
-from rest_framework.permissions import IsAuthenticated, BasePermission
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
-from foodsaving.stores.permissions import IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate
+from foodsaving.stores.permissions import IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate
 from foodsaving.stores.serializers import StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer, \
     PickupDateJoinSerializer, PickupDateLeaveSerializer
 from foodsaving.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
@@ -89,13 +89,6 @@ class PickupDateSeriesViewSet(
             user=self.request.user,
         )
         super().perform_destroy(series)
-
-
-class IsEmptyPickupDate(BasePermission):
-    message = 'You can only delete empty pickup dates.'
-
-    def has_object_permission(self, request, view, obj):
-        return obj.collectors.count() == 0
 
 
 class PickupDateViewSet(

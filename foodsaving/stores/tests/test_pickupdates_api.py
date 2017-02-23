@@ -414,7 +414,7 @@ class TestPickupDatesAPI(APITestCase):
         self.client.force_login(user=self.user)
         response = self.client.post(self.url, self.pickup_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
-        self.assertEqual(response.data, ['not a member of the group'])
+        self.assertEqual(response.data, {'store': ['You are not member of the store\'s group.']})
 
     def test_create_pickup_as_group_member(self):
         self.client.force_login(user=self.member)

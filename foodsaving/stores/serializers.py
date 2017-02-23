@@ -36,9 +36,12 @@ class PickupDateSerializer(serializers.ModelSerializer):
         read_only=True
     )
 
+    def validate_store(self, store):
+        if not self.context['request'].user.groups.filter(store=store).exists():
+            raise serializers.ValidationError('You are not member of the store\'s group.')
+        return store
+
     def create(self, validated_data):
-        if self.context['request'].user not in validated_data['store'].group.members.all():
-            raise serializers.ValidationError('not a member of the group')
         pickupdate = super().create(validated_data)
         post_pickup_create.send(
             sender=self.__class__,
@@ -106,9 +109,6 @@ class PickupDateLeaveSerializer(serializers.ModelSerializer):
         model = PickupDateModel
         fields = []
 
-    def validate(self, attrs):
-        return attrs
-
     def update(self, pickup_date, validated_data):
         user = self.context['request'].user
         pickup_date.collectors.remove(user)
@@ -159,10 +159,10 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
             )
         return series
 
-    def validate_store(self, store_id):
-        if not self.context['request'].user.groups.filter(store=store_id).all():
+    def validate_store(self, store):
+        if not self.context['request'].user.groups.filter(store=store).exists():
             raise serializers.ValidationError('You are not member of the store\'s group.')
-        return store_id
+        return store
 
     def validate_start_date(self, date):
         date = date.replace(second=0, microsecond=0)

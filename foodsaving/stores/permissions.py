@@ -14,6 +14,13 @@ class IsUpcoming(permissions.BasePermission):
             return obj.date > timezone.now() + timedelta(minutes=1)
 
 
+class IsEmptyPickupDate(permissions.BasePermission):
+    message = 'You can only delete empty pickup dates.'
+
+    def has_object_permission(self, request, view, obj):
+        return obj.collectors.count() == 0
+
+
 class HasJoinedPickupDate(permissions.BasePermission):
     message = 'You have not joined this pickup date.'
 

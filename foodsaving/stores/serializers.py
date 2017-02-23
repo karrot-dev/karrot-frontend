@@ -135,6 +135,9 @@ class StoreSerializer(serializers.ModelSerializer):
         model = StoreModel
         fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude', 'weeks_in_advance']
         extra_kwargs = {
+            'name': {
+                'min_length': 5
+            },
             'description': {
                 'trim_whitespace': False,
                 'max_length': settings.DESCRIPTION_MAX_LENGTH

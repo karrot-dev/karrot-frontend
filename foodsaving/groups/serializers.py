@@ -39,6 +39,9 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             'timezone'
         ]
         extra_kwargs = {
+            'name': {
+                'min_length': 5
+            },
             'members': {
                 'read_only': True
             },

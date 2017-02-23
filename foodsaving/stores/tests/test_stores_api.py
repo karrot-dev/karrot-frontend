@@ -1,5 +1,6 @@
 from itertools import zip_longest
 
+from copy import deepcopy
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
@@ -52,6 +53,13 @@ class TestStoresAPI(APITestCase):
         response = self.client.post(self.url, self.store_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['name'], self.store_data['name'])
+
+    def test_create_store_with_short_name_fails(self):
+        self.client.force_login(user=self.member)
+        data = deepcopy(self.store_data)
+        data['name'] = 's'
+        response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_list_stores(self):
         response = self.client.get(self.url)

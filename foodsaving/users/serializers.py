@@ -29,15 +29,8 @@ class UserSerializer(serializers.ModelSerializer):
             }
         }
 
-    def validate(self, data):
-        if 'description' not in data:
-            data['description'] = ''
-        return data
-
     def create(self, validated_data):
-        user = self.Meta.model.objects.create_user(
-            **{x: validated_data.get(x, None) for x in self.get_fields() if x is not 'id'})
-
+        user = self.Meta.model.objects.create_user(**validated_data)
         return user
 
     def update(self, user, validated_data):

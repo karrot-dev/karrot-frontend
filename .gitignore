@@ -1,6 +1,7 @@
 # Python
 **/__pycache__/
 env
+myvenv
 
 # Project
 /config/local_settings.py

@@ -18,3 +18,4 @@ class Group(DjangoModelFactory):
 
     name = LazyAttribute(lambda x: faker.sentence(nb_words=4))
     description = LazyAttribute(lambda x: faker.name())
+    public_description = LazyAttribute(lambda x: faker.sentence(nb_words=20))

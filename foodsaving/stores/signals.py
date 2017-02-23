@@ -1,7 +1,7 @@
 from django.dispatch import receiver
 from django.utils import timezone
 
-from foodsaving.groups.api import pre_group_leave
+from foodsaving.groups.serializers import pre_group_leave
 from foodsaving.stores.models import PickupDate
 from foodsaving.users.api import pre_user_delete
 

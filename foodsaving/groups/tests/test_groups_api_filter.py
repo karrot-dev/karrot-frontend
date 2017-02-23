@@ -49,7 +49,7 @@ class TestStoresAPIFilter(APITestCase):
         self.assertEqual(response.data[0]['name'], self.group.name)
 
     def test_search_description(self):
-        response = self.client.get(self.url, {'search': self.group.description})
+        response = self.client.get(self.url, {'search': self.group.public_description[:10]})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.data[0]['name'], self.group.name)

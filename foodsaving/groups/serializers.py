@@ -9,6 +9,8 @@ from foodsaving.history.utils import get_changed_data
 
 post_group_create = Signal()
 post_group_modify = Signal()
+post_group_join = Signal()
+pre_group_leave = Signal()
 
 
 class TimezoneField(serializers.Field):
@@ -99,3 +101,34 @@ class GroupPreviewSerializer(serializers.ModelSerializer):
 
     def get_protected(self, group):
         return group.password != ''
+
+
+class GroupJoinSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GroupModel
+        fields = ['password']
+
+    def validate(self, attrs):
+        if self.instance.password != '' and self.instance.password != attrs.get('password'):
+            raise ValidationError('group password wrong')
+        return attrs
+
+    def update(self, instance, validated_data):
+        user = self.context['request'].user
+        instance.members.add(user)
+        instance.save()
+        post_group_join.send(sender=self.__class__, group=instance, user=user)
+        return instance
+
+
+class GroupLeaveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GroupModel
+        fields = []
+
+    def update(self, instance, validated_data):
+        user = self.context['request'].user
+        pre_group_leave.send(sender=self.__class__, group=instance, user=user)
+        instance.members.remove(user)
+        instance.save()
+        return instance

@@ -1,21 +1,15 @@
-from django.dispatch import Signal
 from rest_framework import filters
 from rest_framework import mixins
-from rest_framework import status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, BasePermission
-from rest_framework.response import Response
+from rest_framework.schemas import is_custom_action
 from rest_framework.viewsets import GenericViewSet
 
-from foodsaving.base.permissions import DenyAll
 from foodsaving.groups.filters import GroupsFilter
-from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
+from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer, GroupJoinSerializer, \
+    GroupLeaveSerializer
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.utils.mixins import PartialUpdateModelMixin
-
-pre_group_leave = Signal()
-post_group_join = Signal()
-post_group_leave = Signal()
 
 
 class IsMember(BasePermission):
@@ -25,11 +19,17 @@ class IsMember(BasePermission):
         return request.user in obj.members.all()
 
 
+class IsNotMember(BasePermission):
+    message = 'You are a member.'
+
+    def has_object_permission(self, request, view, obj):
+        return request.user not in obj.members.all()
+
+
 class GroupViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
     PartialUpdateModelMixin,
-    mixins.DestroyModelMixin,
     mixins.ListModelMixin,
     GenericViewSet
 ):
@@ -38,40 +38,37 @@ class GroupViewSet(
 
     # Query parameters
     - `?members` - filter by member user id
-    - `?search` - search in name and description
+    - `?search` - search in name and public description
     - `?include_empty` - set to False to exclude empty groups without members
     """
-    queryset = GroupModel.objects.all()
-    serializer_class = GroupDetailSerializer
-    preview_serializer_class = GroupPreviewSerializer
+    queryset = GroupModel.objects
     filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
     filter_class = GroupsFilter
-    search_fields = ('name', 'description')
+    search_fields = ('name', 'public_description')
 
     def get_serializer_class(self):
-        use_preview_serializer = True
-
         if self.action == 'create':
-            use_preview_serializer = False
-
-        if self.action in ('retrieve', 'update', 'partial_update'):
+            self.serializer_class = GroupDetailSerializer
+        elif self.action in ('retrieve', 'update', 'partial_update'):
+            self.serializer_class = GroupPreviewSerializer
             try:
                 if self.request.user in self.get_object().members.all():
-                    use_preview_serializer = False
+                    self.serializer_class = GroupDetailSerializer
             except AssertionError:
                 # Swagger (using OpenAPI) does not give a pk, therefore
                 # we can't determine if it's legit to return the Detail serializer
                 pass
-
-        if use_preview_serializer:
-            return GroupPreviewSerializer
-        return GroupDetailSerializer
+        elif is_custom_action(self.action):
+            pass
+        else:
+            self.serializer_class = GroupPreviewSerializer
+        return self.serializer_class
 
     def get_permissions(self):
-        if self.action == 'destroy':
-            self.permission_classes = (DenyAll,)
-        elif self.action in ('update', 'partial_update'):
+        if self.action in ('update', 'partial_update'):
             self.permission_classes = (IsMember,)
+        elif is_custom_action(self.action):
+            pass
         else:
             self.permission_classes = (IsAuthenticatedOrReadOnly,)
 
@@ -79,31 +76,16 @@ class GroupViewSet(
 
     @detail_route(
         methods=['POST'],
-        permission_classes=(IsAuthenticated,)
+        permission_classes=(IsAuthenticated, IsNotMember),
+        serializer_class=GroupJoinSerializer
     )
     def join(self, request, pk=None):
-        group = self.get_object()
-        if group.password != '':
-            if 'password' not in request.data:
-                return Response(data='no group password given', status=status.HTTP_403_FORBIDDEN)
-            if group.password != request.data['password']:
-                return Response(data='group password wrong', status=status.HTTP_403_FORBIDDEN)
-
-        group.members.add(request.user)
-        post_group_join.send(sender=self.__class__, group=group, user=request.user)
-        return Response(status=status.HTTP_200_OK)
+        return self.partial_update(request)
 
     @detail_route(
         methods=['POST'],
-        permission_classes=(IsAuthenticated,)
+        permission_classes=(IsAuthenticated, IsMember),
+        serializer_class=GroupLeaveSerializer
     )
     def leave(self, request, pk=None):
-        group = self.get_object()
-        if not group.members.filter(id=request.user.id).exists():
-            return Response("User not member of group",
-                            status=status.HTTP_400_BAD_REQUEST)
-
-        pre_group_leave.send(sender=self.__class__, group=group, user=request.user)
-        group.members.remove(request.user)
-        post_group_leave.send(sender=self.__class__, group=group, user=request.user)
-        return Response(status=status.HTTP_200_OK)
+        return self.partial_update(request)

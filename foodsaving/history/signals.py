@@ -3,7 +3,8 @@ from django.dispatch import receiver
 from foodsaving.history.models import History, HistoryTypus
 from foodsaving.groups.api import post_group_join, post_group_leave
 from foodsaving.groups.serializers import post_group_create, post_group_modify
-from foodsaving.stores.api import post_store_delete, pre_pickup_delete, pre_series_delete
+from foodsaving.stores.api import post_store_delete, pre_pickup_delete, pre_series_delete, post_pickup_join, \
+    post_pickup_leave
 from foodsaving.stores.serializers import post_store_create, post_store_modify, post_pickup_create, \
     post_pickup_modify, post_series_create, post_series_modify
 from foodsaving.stores.models import pickup_done
@@ -36,6 +37,8 @@ for signal, typus in [
     (post_series_create, HistoryTypus.SERIES_CREATE),
     (post_series_modify, HistoryTypus.SERIES_MODIFY),
     (pre_series_delete, HistoryTypus.SERIES_DELETE),
+    (post_pickup_join, HistoryTypus.PICKUP_JOIN),
+    (post_pickup_leave, HistoryTypus.PICKUP_LEAVE)
 ]:
     signal.connect(make_handler(typus=typus), weak=False)
 

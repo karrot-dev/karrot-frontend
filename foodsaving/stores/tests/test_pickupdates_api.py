@@ -480,25 +480,6 @@ class TestPickupDatesAPI(APITestCase):
         response = self.client.patch(self.past_pickup_url, self.pickup_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
 
-    def test_put_pickup(self):
-        response = self.client.put(self.pickup_url, self.pickup_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
-
-    def test_put_pickup_as_user(self):
-        self.client.force_login(user=self.user)
-        response = self.client.put(self.pickup_url, self.pickup_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND, response.data)
-
-    def test_put_pickup_as_group_member(self):
-        self.client.force_login(user=self.member)
-        response = self.client.put(self.pickup_url, self.pickup_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-
-    def test_put_past_pickup_fails(self):
-        self.client.force_login(user=self.member)
-        response = self.client.put(self.past_pickup_url, self.pickup_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
-
     def test_delete_pickup(self):
         response = self.client.delete(self.pickup_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)

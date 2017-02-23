@@ -3,13 +3,15 @@ from django.db.models import Q
 from django.dispatch import Signal
 from django.utils import timezone
 from rest_framework import filters
+from rest_framework import mixins
 from rest_framework import status
-from rest_framework import viewsets
 from rest_framework.decorators import list_route
 from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.users.serializers import UserSerializer, VerifyMailSerializer
+from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 pre_delete_user = Signal(providing_args=['user'])
 
@@ -21,7 +23,14 @@ class IsSameUser(BasePermission):
         return request.user == obj
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    PartialUpdateModelMixin,
+    mixins.DestroyModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
     """
     Users
 

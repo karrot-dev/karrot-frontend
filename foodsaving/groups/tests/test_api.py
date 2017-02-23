@@ -101,23 +101,6 @@ class TestGroupsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
         self.assertEqual(response.data, {'timezone': ['Unknown timezone']})
 
-    def test_put_group(self):
-        url = self.url + str(self.group.id) + '/'
-        response = self.client.put(url, self.group_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_put_group_as_user(self):
-        self.client.force_login(user=self.user)
-        url = self.url + str(self.group.id) + '/'
-        response = self.client.put(url, self.group_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_put_group_as_member(self):
-        self.client.force_login(user=self.member)
-        url = self.url + str(self.group.id) + '/'
-        response = self.client.put(url, self.group_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
     def test_join_group(self):
         self.client.force_login(user=self.user)
         response = self.client.post('/api/groups/1/join/')

@@ -97,20 +97,6 @@ class TestStoresAPI(APITestCase):
         response = self.client.patch(self.store_url, self.store_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_put_store(self):
-        response = self.client.put(self.store_url, self.store_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_put_store_as_user(self):
-        self.client.force_login(user=self.user)
-        response = self.client.put(self.store_url, self.store_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-    def test_put_store_as_group_member(self):
-        self.client.force_login(user=self.member)
-        response = self.client.put(self.store_url, self.store_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
     def test_change_group_as_member_in_one(self):
         self.client.force_login(user=self.member)
         response = self.client.patch(self.store_url, {'group': self.different_group.id}, format='json')

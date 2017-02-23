@@ -81,20 +81,6 @@ class TestConversationsAPI(APITestCase):
         response = self.client.patch(self.conversation_url, self.patch_data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_put_conversation(self):
-        response = self.client.put(self.conversation_url, self.put_data)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_put_conversation_as_user(self):
-        self.client.force_login(user=self.user)
-        response = self.client.put(self.conversation_url, self.put_data)
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-    def test_put_conversation_as_participant(self):
-        self.client.force_login(user=self.participant)
-        response = self.client.put(self.conversation_url, self.put_data)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
     def test_delete_conversation(self):
         response = self.client.delete(self.conversation_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

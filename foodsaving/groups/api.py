@@ -1,15 +1,17 @@
 from django.dispatch import Signal
 from rest_framework import filters
+from rest_framework import mixins
 from rest_framework import status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, BasePermission
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.base.permissions import DenyAll
 from foodsaving.groups.filters import GroupsFilter
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
 from foodsaving.groups.models import Group as GroupModel
+from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 pre_leave_group = Signal(providing_args=['user', 'group'])
 
@@ -25,7 +27,14 @@ class IsMember(BasePermission):
         return request.user in obj.members.all()
 
 
-class GroupViewSet(ModelViewSet):
+class GroupViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    PartialUpdateModelMixin,
+    mixins.DestroyModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
     """
     Groups
 

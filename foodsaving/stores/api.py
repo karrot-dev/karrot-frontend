@@ -5,13 +5,14 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated, BasePermission
 from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
 from foodsaving.stores.permissions import IsUpcoming
 from foodsaving.stores.serializers import StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer
 from foodsaving.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
     PickupDateSeries as PickupDateSeriesModel
-
+from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 pre_pickup_delete = Signal()
 pre_series_delete = Signal()
@@ -20,7 +21,14 @@ post_pickup_join = Signal()
 post_pickup_leave = Signal()
 
 
-class StoreViewSet(viewsets.ModelViewSet):
+class StoreViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    PartialUpdateModelMixin,
+    mixins.DestroyModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
     """
     Stores
 
@@ -55,7 +63,7 @@ class StoreViewSet(viewsets.ModelViewSet):
 class PickupDateSeriesViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
-    mixins.UpdateModelMixin,
+    PartialUpdateModelMixin,
     mixins.ListModelMixin,
     mixins.DestroyModelMixin,
     viewsets.GenericViewSet
@@ -95,10 +103,10 @@ class IsEmptyPickupDate(BasePermission):
 class PickupDateViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
+    PartialUpdateModelMixin,
     mixins.DestroyModelMixin,
-    mixins.UpdateModelMixin,
     mixins.ListModelMixin,
-    viewsets.GenericViewSet
+    GenericViewSet
 ):
     """
     Pickup Dates

@@ -44,6 +44,16 @@ As the foodsaving tool requires relatively recent versions of some packages, usi
 ```sh
 sudo apt-get install git redis-server python3 python3-dev python-virtualenv postgresql postgresql-server-dev-9.4 gcc build-essential g++ libffi-dev libncurses5-dev
 ```
+#### Mac OS
+For Mac OS, you will need homebrew. With homebrew you can install all packages.
+
+```sh
+brew install postgresql
+initdb /usr/local/var/postgres -E utf8
+brew services start postgresql
+brew install redis
+brew services start redis
+```
 
 #### OpenSUSE Leap
 

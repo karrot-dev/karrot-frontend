@@ -19,6 +19,8 @@ class Store(BaseModel, LocationModel):
     description = models.TextField(blank=True)
     weeks_in_advance = models.PositiveIntegerField(default=4)
 
+    deleted = models.BooleanField(default=False)
+
 
 class PickupDateSeriesManager(models.Manager):
     @transaction.atomic

@@ -6,10 +6,9 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 from foodsaving.groups.factories import Group
-from foodsaving.stores.factories import Store, PickupDateSeries
+from foodsaving.stores.factories import Store, PickupDateSeries, PickupDate
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
-from foodsaving.stores.models import Store as StoreModel
 
 
 class TestStoresAPI(APITestCase):
@@ -134,10 +133,20 @@ class TestStoresAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_delete_stores_as_group_member(self):
+        PickupDateSeries(store=self.store)
+        PickupDate(store=self.store)
+
         self.client.force_login(user=self.member)
         response = self.client.delete(self.store_url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertEqual(StoreModel.objects.count(), 0)
+        response = self.client.get(self.url)
+        self.assertEqual(len(response.data), 0)
+
+        # should also delete pickup dates & series
+        response = self.client.get('/api/pickup-dates/')
+        self.assertEqual(len(response.data), 0)
+        response = self.client.get('/api/pickup-date-series/')
+        self.assertEqual(len(response.data), 0)
 
 
 class TestStoreChangesPickupDateSeriesAPI(APITestCase):

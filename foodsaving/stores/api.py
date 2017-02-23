@@ -29,7 +29,7 @@ class StoreViewSet(viewsets.ModelViewSet):
     - `?search` - search in name and description
     """
     serializer_class = StoreSerializer
-    queryset = StoreModel.objects
+    queryset = StoreModel.objects.filter(deleted=False)
     filter_fields = ('group',)
     filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
     search_fields = ('name', 'description')
@@ -39,13 +39,17 @@ class StoreViewSet(viewsets.ModelViewSet):
         return self.queryset.filter(group__members=self.request.user)
 
     def perform_destroy(self, store):
+        store.deleted = True
+        store.save()
         post_store_delete.send(
             sender=self.__class__,
             group=store.group,
             store=store,
             user=self.request.user,
         )
-        super().perform_destroy(store)
+        # implicit action: delete all pickups and series, but don't send out signals for them
+        PickupDateModel.objects.filter(store=store).delete()
+        PickupDateSeriesModel.objects.filter(store=store).delete()
 
 
 class PickupDateSeriesViewSet(

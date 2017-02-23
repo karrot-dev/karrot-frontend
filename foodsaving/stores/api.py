@@ -1,15 +1,15 @@
 from django.dispatch import Signal
 from rest_framework import filters
 from rest_framework import mixins
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated, BasePermission
-from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
-from foodsaving.stores.permissions import IsUpcoming
-from foodsaving.stores.serializers import StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer
+from foodsaving.stores.permissions import IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate
+from foodsaving.stores.serializers import StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer, \
+    PickupDateJoinSerializer, PickupDateLeaveSerializer
 from foodsaving.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
     PickupDateSeries as PickupDateSeriesModel
 from foodsaving.utils.mixins import PartialUpdateModelMixin
@@ -17,8 +17,6 @@ from foodsaving.utils.mixins import PartialUpdateModelMixin
 pre_pickup_delete = Signal()
 pre_series_delete = Signal()
 post_store_delete = Signal()
-post_pickup_join = Signal()
-post_pickup_leave = Signal()
 
 
 class StoreViewSet(
@@ -118,7 +116,7 @@ class PickupDateViewSet(
     - `?date_0=<from_date>`&`date_1=<to_date>` - filter by date, can also either give date_0 or date_1
     """
     serializer_class = PickupDateSerializer
-    queryset = PickupDateModel.objects
+    queryset = PickupDateModel.objects.filter(deleted=False)
     filter_backends = (filters.DjangoFilterBackend,)
     filter_class = PickupDatesFilter
     permission_classes = (IsAuthenticated, IsUpcoming)
@@ -130,7 +128,7 @@ class PickupDateViewSet(
         return super().get_permissions()
 
     def get_queryset(self):
-        return self.queryset.filter(store__group__members=self.request.user).filter(deleted=False)
+        return self.queryset.filter(store__group__members=self.request.user)
 
     def perform_destroy(self, pickup):
         # set deleted flag to make the pickup date invisible
@@ -144,36 +142,18 @@ class PickupDateViewSet(
         )
         pickup.save()
 
-    @detail_route(methods=['POST'])
+    @detail_route(
+        methods=['POST'],
+        permission_classes=(IsAuthenticated, IsUpcoming, HasNotJoinedPickupDate),
+        serializer_class=PickupDateJoinSerializer
+    )
     def add(self, request, pk=None):
-        pickupdate = self.get_object()
-        if pickupdate.max_collectors and pickupdate.collectors.count() >= pickupdate.max_collectors:
-            return Response("Pickup already full",
-                            status=status.HTTP_400_BAD_REQUEST)
-        pickupdate.collectors.add(request.user)
-        s = self.get_serializer_class()
-        post_pickup_join.send(
-            sender=self.__class__,
-            group=pickupdate.store.group,
-            store=pickupdate.store,
-            user=self.request.user
-        )
-        return Response(s(pickupdate).data,
-                        status=status.HTTP_200_OK)
+        return self.partial_update(request)
 
-    @detail_route(methods=['POST'])
+    @detail_route(
+        methods=['POST'],
+        permission_classes=(IsAuthenticated, IsUpcoming, HasJoinedPickupDate),
+        serializer_class=PickupDateLeaveSerializer
+    )
     def remove(self, request, pk=None):
-        pickupdate = self.get_object()
-        if not pickupdate.collectors.filter(id=request.user.id).exists():
-            return Response("User not in pickup date",
-                            status=status.HTTP_400_BAD_REQUEST)
-        pickupdate.collectors.remove(request.user)
-        s = self.get_serializer_class()
-        post_pickup_leave.send(
-            sender=self.__class__,
-            group=pickupdate.store.group,
-            store=pickupdate.store,
-            user=self.request.user
-        )
-        return Response(s(pickupdate).data,
-                        status=status.HTTP_200_OK)
+        return self.partial_update(request)

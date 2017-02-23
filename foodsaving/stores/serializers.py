@@ -14,6 +14,8 @@ from foodsaving.stores.models import Store as StoreModel
 
 post_pickup_create = Signal()
 post_pickup_modify = Signal()
+post_pickup_join = Signal()
+post_pickup_leave = Signal()
 post_series_create = Signal()
 post_series_modify = Signal()
 post_store_create = Signal()
@@ -74,6 +76,49 @@ class PickupDateSerializer(serializers.ModelSerializer):
         if not date > timezone.now() + timedelta(minutes=10):
             raise serializers.ValidationError('The date should be in the future.')
         return date
+
+
+class PickupDateJoinSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PickupDateModel
+        fields = []
+
+    def validate(self, attrs):
+        pickupdate = self.instance
+        if pickupdate.max_collectors and pickupdate.collectors.count() >= pickupdate.max_collectors:
+            raise serializers.ValidationError('Pickup already full')
+        return attrs
+
+    def update(self, pickup_date, validated_data):
+        user = self.context['request'].user
+        pickup_date.collectors.add(user)
+        post_pickup_join.send(
+            sender=self.__class__,
+            group=pickup_date.store.group,
+            store=pickup_date.store,
+            user=user
+        )
+        return pickup_date
+
+
+class PickupDateLeaveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PickupDateModel
+        fields = []
+
+    def validate(self, attrs):
+        return attrs
+
+    def update(self, pickup_date, validated_data):
+        user = self.context['request'].user
+        pickup_date.collectors.remove(user)
+        post_pickup_leave.send(
+            sender=self.__class__,
+            group=pickup_date.store.group,
+            store=pickup_date.store,
+            user=user
+        )
+        return pickup_date
 
 
 class PickupDateSeriesSerializer(serializers.ModelSerializer):

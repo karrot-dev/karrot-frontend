@@ -2,10 +2,9 @@ from django.dispatch import receiver
 
 from foodsaving.history.models import History, HistoryTypus
 from foodsaving.groups.serializers import post_group_create, post_group_modify, post_group_join, pre_group_leave
-from foodsaving.stores.api import post_store_delete, pre_pickup_delete, pre_series_delete, post_pickup_join, \
-    post_pickup_leave
+from foodsaving.stores.api import post_store_delete, pre_pickup_delete, pre_series_delete
 from foodsaving.stores.serializers import post_store_create, post_store_modify, post_pickup_create, \
-    post_pickup_modify, post_series_create, post_series_modify
+    post_pickup_modify, post_series_create, post_series_modify, post_pickup_join, post_pickup_leave
 from foodsaving.stores.models import pickup_done
 
 

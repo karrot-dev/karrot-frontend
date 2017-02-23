@@ -32,10 +32,16 @@ class TestHistoryAPIWithExistingGroup(APITestCase):
 
     def test_modify_group(self):
         self.client.force_login(self.member)
-        self.client.patch(self.group_url, {'name': 'new'})
+        self.client.patch(self.group_url, {'name': 'something new'})
         response = self.client.get(history_url)
         self.assertEqual(response.data[0]['typus'], 'GROUP_MODIFY')
-        self.assertEqual(response.data[0]['payload']['name'], 'new')
+        self.assertEqual(response.data[0]['payload']['name'], 'something new')
+
+    def test_dont_modify_group(self):
+        self.client.force_login(self.member)
+        self.client.patch(self.group_url, {'name': self.group.name})
+        response = self.client.get(history_url)
+        self.assertEqual(len(response.data), 0)
 
     def test_join_group(self):
         user = UserFactory()
@@ -76,6 +82,12 @@ class TestHistoryAPIWithExistingStore(APITestCase):
         self.assertEqual(len(response.data), 1, response.data)
         self.assertEqual(response.data[0]['typus'], 'STORE_MODIFY')
         self.assertEqual(response.data[0]['payload']['name'], 'newnew')
+
+    def test_dont_modify_store(self):
+        self.client.force_login(self.member)
+        self.client.patch(self.store_url, {'name': self.store.name})
+        response = self.client.get(history_url)
+        self.assertEqual(len(response.data), 0)
 
     def test_delete_store(self):
         self.client.force_login(self.member)
@@ -121,6 +133,12 @@ class TestHistoryAPIWithExistingPickups(APITestCase):
         self.assertEqual(response.data[0]['typus'], 'PICKUP_MODIFY')
         self.assertEqual(response.data[0]['payload']['max_collectors'], '11')
 
+    def test_dont_modify_pickup(self):
+        self.client.force_login(self.member)
+        self.client.patch(self.pickup_url, {'date': self.pickup.date})
+        response = self.client.get(history_url)
+        self.assertEqual(len(response.data), 0)
+
     def test_delete_pickup(self):
         self.client.force_login(self.member)
         self.client.delete(self.pickup_url)
@@ -133,6 +151,12 @@ class TestHistoryAPIWithExistingPickups(APITestCase):
         response = self.client.get(history_url)
         self.assertEqual(response.data[0]['typus'], 'SERIES_MODIFY')
         self.assertEqual(response.data[0]['payload']['max_collectors'], '11')
+
+    def test_dont_modify_series(self):
+        self.client.force_login(self.member)
+        self.client.patch(self.series_url, {'rule': self.series.rule})
+        response = self.client.get(history_url)
+        self.assertEqual(len(response.data), 0)
 
     def test_delete_series(self):
         self.client.force_login(self.member)

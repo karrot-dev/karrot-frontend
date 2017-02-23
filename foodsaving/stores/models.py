@@ -97,7 +97,7 @@ class PickupDateManager(models.Manager):
     @transaction.atomic
     def delete_old_pickup_dates(self):
         for _ in self.filter(date__lt=timezone.now()):
-            # TODO find out what we should do with empty pickupdates in the past
+            # move pickup dates into history, also empty ones
             payload = {}
             if _.series:
                 payload['series'] = _.series.id

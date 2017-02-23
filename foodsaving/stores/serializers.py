@@ -7,9 +7,10 @@ from django.utils import timezone
 from rest_framework import serializers
 
 from config import settings
-from foodsaving.stores.models import Store as StoreModel
-from foodsaving.stores.models import PickupDateSeries as PickupDateSeriesModel
+from foodsaving.history.utils import get_changed_data
 from foodsaving.stores.models import PickupDate as PickupDateModel
+from foodsaving.stores.models import PickupDateSeries as PickupDateSeriesModel
+from foodsaving.stores.models import Store as StoreModel
 
 post_pickup_create = Signal()
 post_pickup_modify = Signal()
@@ -47,24 +48,26 @@ class PickupDateSerializer(serializers.ModelSerializer):
         return pickupdate
 
     def update(self, pickupdate, validated_data):
+        selected_validated_data = {}
         for attr in self.Meta.update_fields:
             if attr in validated_data:
-                setattr(pickupdate, attr, validated_data.pop(attr))
+                selected_validated_data[attr] = validated_data[attr]
             if pickupdate.series:
                 if attr == 'max_collectors':
-                    pickupdate.is_max_collectors_changed = True
+                    selected_validated_data['is_max_collectors_changed'] = True
                 elif attr == 'date':
-                    pickupdate.is_date_changed = True
-        pickupdate.save()
+                    selected_validated_data['is_date_changed'] = True
+        changed_data = get_changed_data(pickupdate, selected_validated_data)
+        super().update(pickupdate, selected_validated_data)
 
-        # TODO only send changed data
-        post_pickup_modify.send(
-            sender=self.__class__,
-            group=pickupdate.store.group,
-            store=pickupdate.store,
-            user=self.context['request'].user,
-            payload=self.initial_data
-        )
+        if changed_data:
+            post_pickup_modify.send(
+                sender=self.__class__,
+                group=pickupdate.store.group,
+                store=pickupdate.store,
+                user=self.context['request'].user,
+                payload=changed_data
+            )
         return pickupdate
 
     def validate_date(self, date):
@@ -77,6 +80,7 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = PickupDateSeriesModel
         fields = ['id', 'max_collectors', 'store', 'rule', 'start_date']
+        update_fields = ('max_collectors', 'start_date', 'rule')
 
     def create(self, validated_data):
         series = super().create(validated_data)
@@ -91,20 +95,23 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
         return series
 
     def update(self, series, validated_data):
-        for attr in ('max_collectors', 'start_date', 'rule'):
+        selected_validated_data = {}
+        for attr in self.Meta.update_fields:
             if attr in validated_data:
-                setattr(series, attr, validated_data.get(attr))
-        series.save()
+                selected_validated_data[attr] = validated_data[attr]
+
+        changed_data = get_changed_data(series, selected_validated_data)
+        super().update(series, selected_validated_data)
         series.update_pickup_dates()
 
-        # TODO
-        post_series_modify.send(
-            sender=self.__class__,
-            group=series.store.group,
-            store=series.store,
-            user=self.context['request'].user,
-            payload=self.initial_data
-        )
+        if changed_data:
+            post_series_modify.send(
+                sender=self.__class__,
+                group=series.store.group,
+                store=series.store,
+                user=self.context['request'].user,
+                payload=changed_data
+            )
         return series
 
     def validate_store(self, store_id):
@@ -146,30 +153,23 @@ class StoreSerializer(serializers.ModelSerializer):
         return store
 
     def update(self, store, validated_data):
-        update_generated_pickups = False
-        if 'weeks_in_advance' in validated_data and validated_data['weeks_in_advance'] != store.weeks_in_advance:
-            update_generated_pickups = True
+        changed_data = get_changed_data(store, validated_data)
         store = super().update(store, validated_data)
 
-        if update_generated_pickups:
+        if 'weeks_in_advance' in changed_data:
             with transaction.atomic():
                 for series in store.series.all():
                     series.update_pickup_dates()
 
-        # TODO
-        post_store_modify.send(
-            sender=self.__class__,
-            group=store.group,
-            store=store,
-            user=self.context['request'].user,
-            payload=self.initial_data
-        )
+        if changed_data:
+            post_store_modify.send(
+                sender=self.__class__,
+                group=store.group,
+                store=store,
+                user=self.context['request'].user,
+                payload=self.initial_data
+            )
         return store
-
-    def validate(self, data):
-        if 'description' not in data:
-            data['description'] = ''
-        return data
 
     def validate_group(self, group_id):
         if group_id not in self.context['request'].user.groups.all():

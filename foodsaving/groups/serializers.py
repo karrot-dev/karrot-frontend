@@ -5,7 +5,7 @@ from rest_framework.exceptions import ValidationError
 
 from config import settings
 from foodsaving.groups.models import Group as GroupModel
-
+from foodsaving.history.utils import get_changed_data
 
 post_group_create = Signal()
 post_group_modify = Signal()
@@ -54,18 +54,15 @@ class GroupDetailSerializer(serializers.ModelSerializer):
     timezone = TimezoneField()
 
     def update(self, group, validated_data):
-        user = self.context['request'].user
+        changed_data = get_changed_data(group, validated_data)
+        group = super().update(group, validated_data)
 
-        # detect which data actually changed
-        changed_data = {}
-        for key, value in validated_data.items():
-            if value != getattr(group, key):
-                # validated_data has internal values
-                # Workaround: use initial_data to get representation
-                changed_data[key] = self.initial_data[key]
         if changed_data:
-            group = super().update(group, validated_data)
-            post_group_modify.send(sender=self.__class__, group=group, user=user, payload=changed_data)
+            post_group_modify.send(
+                sender=self.__class__,
+                group=group,
+                user=self.context['request'].user,
+                payload=changed_data)
         return group
 
     def create(self, validated_data):

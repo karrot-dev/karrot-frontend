@@ -5,7 +5,7 @@ import shutil
 import fileinput
 
 from django.conf import settings
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 from urllib.request import urlretrieve
 
@@ -13,6 +13,7 @@ ARCHIVE_URL = 'https://foodsaving.world/archive.tar.gz'
 
 DEST_DIR = os.path.join(settings.BASE_DIR, 'foodsaving/frontend/static')
 INDEX_HTML = os.path.join(DEST_DIR, 'index.html')
+
 
 class Command(BaseCommand):
     help = 'Fetches the latest static frontend'

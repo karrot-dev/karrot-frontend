@@ -13,9 +13,7 @@ from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSer
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
-pre_leave_group = Signal(providing_args=['user', 'group'])
-
-
+pre_group_leave = Signal()
 post_group_join = Signal()
 post_group_leave = Signal()
 
@@ -105,7 +103,7 @@ class GroupViewSet(
             return Response("User not member of group",
                             status=status.HTTP_400_BAD_REQUEST)
 
-        pre_leave_group.send(sender=self.__class__, user=request.user, group=group)
+        pre_group_leave.send(sender=self.__class__, group=group, user=request.user)
         group.members.remove(request.user)
         post_group_leave.send(sender=self.__class__, group=group, user=request.user)
         return Response(status=status.HTTP_200_OK)

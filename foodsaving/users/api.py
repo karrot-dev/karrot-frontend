@@ -13,7 +13,7 @@ from rest_framework.viewsets import GenericViewSet
 from foodsaving.users.serializers import UserSerializer, VerifyMailSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
-pre_delete_user = Signal(providing_args=['user'])
+pre_user_delete = Signal(providing_args=['user'])
 
 
 class IsSameUser(BasePermission):
@@ -60,7 +60,7 @@ class UserViewSet(
         To keep historic pickup infos, don't delete this user, but delete it from the database.
         Removal from group and future pickups is handled via the signal.
         """
-        pre_delete_user.send(sender=self.__class__, user=user)
+        pre_user_delete.send(sender=self.__class__, user=user)
         user.description = ''
         user.set_unusable_password()
         user.mail = None

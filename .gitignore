@@ -21,3 +21,6 @@ myvenv
 # Backups
 /backup/backup.sh
 /backup/*.db.enc
+
+# Static build of frontend (obtained via command)
+foodsaving/frontend/static/*

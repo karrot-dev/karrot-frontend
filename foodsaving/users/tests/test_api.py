@@ -302,7 +302,7 @@ class TestChangeMail(APITestCase):
         cls.url = '/api/users/'
         cls.user_url = cls.url + str(cls.verified_user.id) + '/'
 
-    def test_change_with_patch_succeeds(self):
+    def test_change_succeeds(self):
         self.client.force_login(user=self.verified_user)
         self.assertTrue(self.verified_user.mail_verified)
 
@@ -315,9 +315,11 @@ class TestChangeMail(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(response.data['email'], self.verified_user.email)
         self.assertFalse(user.mail_verified)
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
-        self.assertEqual(mail.outbox[0].to, [data['email']])
+        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(mail.outbox[0].subject, 'Mail has changed')
+        self.assertEqual(mail.outbox[0].to, [user.email])
+        self.assertEqual(mail.outbox[1].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[1].to, [user.unverified_email])
 
         user.verify_mail()
         self.assertTrue(user.mail_verified)

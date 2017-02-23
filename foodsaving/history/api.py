@@ -1,9 +1,22 @@
+from django_filters.rest_framework import filters
+from django_filters.rest_framework import FilterSet
 from rest_framework import viewsets
 from rest_framework.filters import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 
-from foodsaving.history.models import History
+from foodsaving.history.models import History, HistoryTypus
 from foodsaving.history.serializers import HistorySerializer
+
+
+def method(qs, field, value):
+    return qs.filter(**{field: getattr(HistoryTypus, value)})
+
+
+class HistoryFilter(FilterSet):
+    class Meta:
+        model = History
+        fields = ('group', 'store', 'users', 'typus')
+    typus = filters.ChoiceFilter(choices=HistoryTypus.items(), method=method)
 
 
 class HistoryViewSet(viewsets.ReadOnlyModelViewSet):
@@ -12,8 +25,8 @@ class HistoryViewSet(viewsets.ReadOnlyModelViewSet):
     """
     serializer_class = HistorySerializer
     queryset = History.objects
-    filter_fields = ('group', 'store', 'users')
     filter_backends = (DjangoFilterBackend,)
+    filter_class = HistoryFilter
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):

@@ -143,7 +143,7 @@ class PickupDateViewSet(
         post_pickup_join.send(
             sender=self.__class__,
             group=pickupdate.store.group,
-            store=pickupdate,
+            store=pickupdate.store,
             user=self.request.user
         )
         return Response(s(pickupdate).data,
@@ -160,7 +160,7 @@ class PickupDateViewSet(
         post_pickup_leave.send(
             sender=self.__class__,
             group=pickupdate.store.group,
-            store=pickupdate,
+            store=pickupdate.store,
             user=self.request.user
         )
         return Response(s(pickupdate).data,

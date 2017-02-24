@@ -82,16 +82,13 @@ describe("UserDetail", () => {
       $ctrl.userdata = userdata;
       $ctrl.editEnable();
       expect($ctrl.editEnabled).to.be.true;
-      expect($ctrl.saving).to.be.false;
       $ctrl.editData.email = "another@mail.com";
       User.save.withArgs($ctrl.editData).returns($q((resolve) => {
         resolve($ctrl.editData);
       }));
       $ctrl.submitEdit();
-      expect($ctrl.saving).to.be.true;
       $scope.$apply();
       expect($ctrl.editEnabled).to.be.false;
-      expect($ctrl.saving).to.be.false;
     });
 
     context("password change", () => {

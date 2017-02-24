@@ -21,12 +21,10 @@ class UserDetailController {
   editEnable() {
     this.editData = angular.copy(this.userdata);
     this.editEnabled = true;
-    this.saving = false;
   }
 
   submitEdit() {
-    this.saving = true;
-    this.User.save(this.editData).then((data) => {
+    return this.User.save(this.editData).then((data) => {
       this.userdata = data;
       this.stopEdit();
       if (this.isChangePassword) {
@@ -39,7 +37,6 @@ class UserDetailController {
 
   stopEdit() {
     this.editEnabled = false;
-    this.saving = false;
   }
 }
 

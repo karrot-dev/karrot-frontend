@@ -15,7 +15,7 @@
       <span translate="CREATEPICKUP.SINGLE"></span>
     </md-nav-item>
   </md-nav-bar>
-  <form ng-submit='createPickupForm.$valid && $ctrl.createPickup()' name="createPickupForm">
+  <form ng-submit='$ctrl.createPickup()' name="createPickupForm" promise-btn>
     <div layout-padding layout="column">
       <div layout layout-padding>
         <div ng-if="$ctrl.isSeries">

@@ -21,7 +21,7 @@ class SignupController {
       email: this.email,
       password: this.password
     };
-    this.User.create(user).then(() => {
+    return this.User.create(user).then(() => {
       this.Authentication.login(this.email, this.password).then(() => {
         this.$state.go("home");
       });

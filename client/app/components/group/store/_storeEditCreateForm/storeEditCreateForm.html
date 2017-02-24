@@ -1,4 +1,4 @@
-<form name="editForm" ng-submit="editForm.$valid && $ctrl.submit()">
+<form name="editForm" ng-submit="$ctrl.submit()" promise-btn>
   <div layout="column" layout-padding>
     <md-input-container>
       <label translate="STOREEDIT.NAME"></label>
@@ -47,7 +47,7 @@
       <md-button class="md-icon-button" ui-sref="group.store ({'storeId': $ctrl.data.id})" ng-if="!$ctrl.isCreate">
         <i class="fa fa-times"></i>
       </md-button>
-      <md-button type="submit" class="md-raised md-primary" ng-disabled="!editForm.$valid || $ctrl.saving">
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="!editForm.$valid">
         <i class="fa fa-check" ng-if="!$ctrl.isCreate"></i>
         <span ng-if="$ctrl.isCreate" translate="BUTTON.CREATE"></span>
       </md-button>

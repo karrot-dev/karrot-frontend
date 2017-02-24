@@ -123,7 +123,7 @@ class PickupListController {
 
   delete(pickup, $event) {
     this.pickupToDelete = pickup;
-    this.$mdDialog.show({
+    return this.$mdDialog.show({
       contentElement: "#confirmDeleteDialog",
       parent: angular.element(this.$document.body),
       targetEvent: $event
@@ -137,7 +137,6 @@ class PickupListController {
     })
     .then(() => this.updatePickups())
     .catch(() => {});
-
   }
 
   openCreatePickupPanel($event) {

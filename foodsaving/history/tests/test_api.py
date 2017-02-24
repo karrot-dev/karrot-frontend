@@ -196,3 +196,10 @@ class TestHistoryAPIWithDonePickup(APITestCase):
         self.client.force_login(self.member)
         response = self.client.get(history_url)
         self.assertEqual(response.data[0]['typus'], 'PICKUP_DONE')
+
+    def test_filter_pickup_done(self):
+        self.client.force_login(self.member)
+        response = self.client.get(history_url, {'typus': 'PICKUP_DONE'})
+        self.assertEqual(response.data[0]['typus'], 'PICKUP_DONE')
+        response = self.client.get(history_url, {'typus': 'GROUP_JOIN'})
+        self.assertEqual(len(response.data), 0)

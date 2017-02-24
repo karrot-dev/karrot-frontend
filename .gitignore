@@ -1,6 +1,7 @@
 # Python
 **/__pycache__/
 env
+myvenv
 
 # Project
 /config/local_settings.py
@@ -20,3 +21,6 @@ env
 # Backups
 /backup/backup.sh
 /backup/*.db.enc
+
+# Static build of frontend (obtained via command)
+foodsaving/frontend/static/*

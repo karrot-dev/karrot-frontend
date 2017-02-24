@@ -11,7 +11,7 @@ from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSer
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 
 class IsMember(BasePermission):

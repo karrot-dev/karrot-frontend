@@ -8,7 +8,6 @@ from django.http import request
 from django.utils import timezone
 
 from django.core.management.base import BaseCommand
-from django.utils.translation import deactivate
 from rest_framework.test import APIClient
 
 from foodsaving.groups.models import Group
@@ -20,8 +19,15 @@ from foodsaving.utils.tests.fake import faker
 class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('--more', action='store_true', dest='more_data')
+        parser.add_argument('--quick', action='store_true', dest='less_data')
 
     def handle(self, *args, **options):
+        def print(*args):
+            self.stdout.write(' '.join([str(_) for _ in args]))
+
+        def print_success(*args):
+            self.stdout.write(self.style.SUCCESS(' '.join(str(_) for _ in args)))
+
         ######################
         # Setup
         # override the allowed hosts, similar to tests
@@ -31,19 +37,14 @@ class Command(BaseCommand):
         from django.conf import settings
 
         def setup_environment():
-            mail._original_email_backend = settings.EMAIL_BACKEND
+            mail._BLA_original_email_backend = settings.EMAIL_BACKEND
             settings.EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
-            request._original_allowed_hosts = settings.ALLOWED_HOSTS
+            request._BLA_original_allowed_hosts = settings.ALLOWED_HOSTS
             settings.ALLOWED_HOSTS = ['*']
-            mail.outbox = []
-            deactivate()
 
         def teardown_environment():
-            settings.EMAIL_BACKEND = mail._original_email_backend
-            del mail._original_email_backend
-            settings.ALLOWED_HOSTS = request._original_allowed_hosts
-            del request._original_allowed_hosts
-            del mail.outbox
+            settings.EMAIL_BACKEND = mail._BLA_original_email_backend
+            settings.ALLOWED_HOSTS = request._BLA_original_allowed_hosts
 
         setup_environment()
 
@@ -64,10 +65,12 @@ class Command(BaseCommand):
             print('login as', u)
             return u
 
+        password = '123'
+
         def make_user():
             data = c.post('/api/users/', {
                 'email': str(timezone.now().microsecond) + faker.email(),
-                'password': '123',
+                'password': password,
                 'display_name': faker.name(),
                 'description': 'I am a fake user'
             }).data
@@ -185,8 +188,10 @@ class Command(BaseCommand):
         # Sample data
         ######################
 
+        i = 0 if options['more_data'] else 2 if options['less_data'] else 1
+
         # these are our ambassadors / group creators
-        n_groups = 10 if options['more_data'] else 5
+        n_groups = (10, 5, 1)[i]
         for _ in range(n_groups):
             user = make_user()
             users.append(user)
@@ -200,16 +205,16 @@ class Command(BaseCommand):
                 join_pickup(pickup['id'])
 
         # group members
-        min_members = 10 if options['more_data'] else 4
-        max_members = 8 if options['more_data'] else 30
+        min_members = (10, 4, 1)[i]
+        max_members = (30, 8, 2)[i]
+        n_pickups = (4, 3, 2)[i]
         for g in groups:
             for _ in range(random.randint(min_members, max_members)):
                 user = make_user()
                 users.append(user)
                 login_user(user['id'])
                 join_group(g['id'])
-                for p in PickupDate.objects.filter(store__group_id=g['id']).order_by('?')[:4]:
-                    # join 4 pickups dates
+                for p in PickupDate.objects.filter(store__group_id=g['id']).order_by('?')[:n_pickups]:
                     join_pickup(p.id)
 
         # modify
@@ -229,40 +234,42 @@ class Command(BaseCommand):
         o = PickupDate.objects.filter(store__group__members=u).first()
         modify_pickup(o.id)
 
-        # delete
-        u = login_user()
-        o = Store.objects.filter(group__members=u).first()
-        delete_store(o.id)
-
-        u = login_user()
-        o = PickupDateSeries.objects.filter(store__group__members=u).first()
-        delete_series(o.id)
-
-        u = login_user()
-        o = PickupDate.objects.filter(store__group__members=u).first()
-        delete_pickup(o.id)
-
         # leave
-        u = login_user()
-        o = Group.objects.filter(members=u).first()
-        leave_group(o.id)
-
         u = login_user()
         o = PickupDate.objects.filter(collectors=u).first()
         leave_pickup(o.id)
 
         # pickup done
         # This is a hack. We shift the first pickup of a user back by four weeks and call the collector function
-        for _ in range(5):
+        n_done = (5, 3, 1)[i]
+        for _ in range(n_done):
             # login not necessary, but gives us a user object
             u = login_user()
-            p = PickupDate.objects.filter(collectors=u).first()
+            p = PickupDate.objects.filter(store__group__members=u).first()
             join_pickup(p.id)
             p.date = p.date - relativedelta(weeks=4)
             p.save()
             print('picked up some food at', p.date)
         call_command('delete_old_pickup_dates')
 
-        print('Done! Consider using the --more argument next time for more users.')
+        # delete
+        u = login_user()
+        o = PickupDate.objects.filter(store__group__members=u).first()
+        delete_pickup(o.id)
+
+        u = login_user()
+        o = PickupDateSeries.objects.filter(store__group__members=u).first()
+        delete_series(o.id)
+
+        u = login_user()
+        o = Store.objects.filter(group__members=u).first()
+        delete_store(o.id)
+
+        u = login_user()
+        o = Group.objects.filter(members=u).first()
+        leave_group(o.id)
+
+        print_success('Done! You can login with any of those mail addresses and password {}'.format(password))
+        print_success('Consider using the --more argument next time for more users.')
 
         teardown_environment()

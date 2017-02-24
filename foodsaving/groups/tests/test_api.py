@@ -2,9 +2,9 @@ from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
-from foodsaving.groups.factories import Group as GroupFactory
+from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import Group as GroupModel
-from foodsaving.stores.factories import PickupDate, Store
+from foodsaving.stores.factories import PickupDateFactory, StoreFactory
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 
@@ -126,17 +126,17 @@ class TestGroupsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_leave_group(self):
-        store = Store(group=self.group)
-        pickupdate = PickupDate(
+        store = StoreFactory(group=self.group)
+        pickupdate = PickupDateFactory(
             store=store,
             collectors=[self.member, self.user],
             date=timezone.now() + relativedelta(weeks=1))
-        past_pickupdate = PickupDate(
+        past_pickupdate = PickupDateFactory(
             store=store,
             collectors=[self.member, ],
             date=timezone.now() - relativedelta(weeks=1)
         )
-        unrelated_pickupdate = PickupDate(
+        unrelated_pickupdate = PickupDateFactory(
             date=timezone.now() + relativedelta(weeks=1),
             collectors=[self.member, ],
         )

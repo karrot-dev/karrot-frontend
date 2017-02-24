@@ -9,8 +9,8 @@ from django.utils.datetime_safe import datetime
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
-from foodsaving.groups.factories import Group
-from foodsaving.stores.factories import Store, PickupDate, PickupDateSeries
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.users.factories import UserFactory
 
 
@@ -22,8 +22,8 @@ class TestPickupDateSeriesCreationAPI(APITestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.member = UserFactory()
-        cls.group = Group(members=[cls.member, ])
-        cls.store = Store(group=cls.group)
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.store = StoreFactory(group=cls.group)
 
     def test_create_and_get_recurring_series(self):
         url = '/api/pickup-date-series/'
@@ -103,9 +103,9 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         super().setUpClass()
         cls.now = timezone.now()
         cls.member = UserFactory()
-        cls.group = Group(members=[cls.member, ])
-        cls.store = Store(group=cls.group)
-        cls.series = PickupDateSeries(max_collectors=3, store=cls.store)
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.store = StoreFactory(group=cls.group)
+        cls.series = PickupDateSeriesFactory(max_collectors=3, store=cls.store)
         cls.series.update_pickup_dates(start=lambda: cls.now)
 
     def test_change_max_collectors_for_series(self):
@@ -255,7 +255,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
 
     def test_set_invalid_store_fails(self):
-        unrelated_store = Store()
+        unrelated_store = StoreFactory()
 
         self.client.force_login(user=self.member)
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
@@ -318,7 +318,7 @@ class TestPickupDateSeriesAPIAuth(APITestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.url = '/api/pickup-date-series/'
-        cls.series = PickupDateSeries()
+        cls.series = PickupDateSeriesFactory()
         cls.series_url = '/api/pickup-date-series/{}/'.format(cls.series.id)
         cls.non_member = UserFactory()
 
@@ -382,9 +382,9 @@ class TestPickupDatesAPI(APITestCase):
 
         # pickup date for group with one member and one store
         cls.member = UserFactory()
-        cls.group = Group(members=[cls.member, ])
-        cls.store = Store(group=cls.group)
-        cls.pickup = PickupDate(store=cls.store)
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.store = StoreFactory(group=cls.group)
+        cls.pickup = PickupDateFactory(store=cls.store)
         cls.pickup_url = cls.url + str(cls.pickup.id) + '/'
         cls.join_url = cls.pickup_url + 'add/'
         cls.leave_url = cls.pickup_url + 'remove/'
@@ -401,7 +401,7 @@ class TestPickupDatesAPI(APITestCase):
         cls.past_pickup_data = {'date': timezone.now() - relativedelta(days=1),
                                 'max_collectors': 5,
                                 'store': cls.store.id}
-        cls.past_pickup = PickupDate(store=cls.store, date=timezone.now() - relativedelta(days=1))
+        cls.past_pickup = PickupDateFactory(store=cls.store, date=timezone.now() - relativedelta(days=1))
         cls.past_pickup_url = cls.url + str(cls.past_pickup.id) + '/'
         cls.past_join_url = cls.past_pickup_url + 'add/'
         cls.past_leave_url = cls.past_pickup_url + 'remove/'
@@ -515,7 +515,7 @@ class TestPickupDatesAPI(APITestCase):
 
     def test_join_pickup_without_max_collectors_as_member(self):
         self.client.force_login(user=self.member)
-        p = PickupDate(max_collectors=None, store=self.store)
+        p = PickupDateFactory(max_collectors=None, store=self.store)
         response = self.client.post('/api/pickup-dates/{}/add/'.format(p.id))
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
 

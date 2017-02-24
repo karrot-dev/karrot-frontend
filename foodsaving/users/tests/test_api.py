@@ -8,8 +8,8 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from config import settings
-from foodsaving.groups.factories import Group as GroupFactory
-from foodsaving.stores.factories import PickupDate as PickupDateFactory, Store as StoreFactory
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.stores.factories import StoreFactory, PickupDateFactory
 from foodsaving.users.factories import UserFactory, VerifiedUserFactory
 from foodsaving.utils.tests.fake import faker
 

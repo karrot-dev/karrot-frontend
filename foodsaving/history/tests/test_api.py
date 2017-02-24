@@ -4,9 +4,8 @@ from django.utils import timezone
 from rest_framework.test import APITestCase
 
 from foodsaving.users.factories import UserFactory
-from foodsaving.groups.factories import Group as GroupFactory
-from foodsaving.stores.factories import Store as StoreFactory, PickupDate as PickupDateFactory, \
-    PickupDateSeries as PickupDateSeriesFactory
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
 
 history_url = '/api/history/'
 

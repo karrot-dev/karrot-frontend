@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
-from foodsaving.groups.factories import Group
-from foodsaving.stores.factories import Store
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory
 
 
@@ -13,10 +13,10 @@ class TestStoresAPIFilter(APITestCase):
 
         # two groups one store
         cls.member = UserFactory()
-        cls.group = Group(members=[cls.member, ])
-        cls.group2 = Group(members=[cls.member, ])
-        cls.store = Store(group=cls.group)
-        cls.store2 = Store(group=cls.group2)
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.group2 = GroupFactory(members=[cls.member, ])
+        cls.store = StoreFactory(group=cls.group)
+        cls.store2 = StoreFactory(group=cls.group2)
 
     def test_filter_by_group(self):
         self.client.force_login(user=self.member)

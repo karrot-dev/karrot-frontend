@@ -6,8 +6,8 @@ from django.test import TestCase
 from django.utils import timezone
 from datetime import datetime
 
-from foodsaving.groups.factories import Group
-from foodsaving.stores.factories import Store as StoreFactory
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.stores.factories import StoreFactory
 from foodsaving.stores.models import Store, PickupDateSeries, PickupDate
 
 
@@ -15,7 +15,7 @@ class TestStoreModel(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.group = Group()
+        cls.group = GroupFactory()
 
     def test_create_fails_if_name_too_long(self):
         with self.assertRaises(DataError):
@@ -28,7 +28,7 @@ class TestStoreModel(TestCase):
 
     def test_create_store_with_same_name_in_different_groups_works(self):
         Store.objects.create(name='abcdef', group=self.group)
-        Store.objects.create(name='abcdef', group=Group())
+        Store.objects.create(name='abcdef', group=GroupFactory())
 
 
 class TestPickupDateSeriesModel(TestCase):

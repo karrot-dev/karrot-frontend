@@ -3,7 +3,7 @@ from foodsaving.groups.models import Group as GroupModel
 from foodsaving.utils.tests.fake import faker
 
 
-class Group(DjangoModelFactory):
+class GroupFactory(DjangoModelFactory):
 
     class Meta:
         model = GroupModel

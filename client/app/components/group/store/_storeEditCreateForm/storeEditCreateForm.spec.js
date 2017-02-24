@@ -51,6 +51,16 @@ describe("StoreEditCreateForm", () => {
       expect($ctrl.isCreate).to.be.true;
     });
 
+    it("submits data with error", () => {
+      let $ctrl = $componentController("storeEditCreateForm", {});
+      let err = { data: "err" };
+      $ctrl.onSubmit = () => {
+        return { catch: (fn) => fn(err) };
+      };
+      $ctrl.submit();
+      expect($ctrl.error).to.be.equal("err");
+    });
+
     it("does lookup", () => {
       let $ctrl = $componentController("storeEditCreateForm", {});
       $ctrl.query = "arg";

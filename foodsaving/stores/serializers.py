@@ -175,7 +175,7 @@ class StoreSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude', 'weeks_in_advance']
         extra_kwargs = {
             'name': {
-                'min_length': 5
+                'min_length': 3
             },
             'description': {
                 'trim_whitespace': False,

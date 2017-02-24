@@ -1,9 +1,9 @@
-import StoreEditModule from "./storeEdit";
+import StoreCreateModule from "./storeCreate";
 
 const { module } = angular.mock;
 
-describe("StoreEdit", () => {
-  beforeEach(module(StoreEditModule));
+describe("StoreCreate", () => {
+  beforeEach(module(StoreCreateModule));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -15,14 +15,13 @@ describe("StoreEdit", () => {
   });
 
   describe("Module", () => {
-    it("is named storeEdit", () => {
-      expect(StoreEditModule).to.equal("storeEdit");
+    it("is named storeCreate", () => {
+      expect(StoreCreateModule).to.equal("storeCreate");
     });
   });
 
-
   describe("Controller", () => {
-    let $componentController, $state, $httpBackend;
+    let $componentController, $httpBackend, $state;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
@@ -35,16 +34,16 @@ describe("StoreEdit", () => {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("modifies store", () => {
-      let $ctrl = $componentController("storeEdit", {});
-      let storedata = {
-        id: 85,
-        name: "blabla"
+    it("creates store", () => {
+      let $ctrl = $componentController("storeCreate", {});
+      let storeData = {
+        name: "blabla",
+        group: 5
       };
-      $ctrl.submit(storedata);
-      $httpBackend.expectPATCH("/api/stores/85/", storedata).respond(200, storedata);
+      $ctrl.submit(storeData);
+      $httpBackend.expectPOST("/api/stores/", storeData).respond(201, { id: 987 });
       $httpBackend.flush();
-      expect($state.go).to.have.been.called;
+      expect($state.go).to.have.been.calledWith("^.store", { storeId: 987 });
     });
   });
 });

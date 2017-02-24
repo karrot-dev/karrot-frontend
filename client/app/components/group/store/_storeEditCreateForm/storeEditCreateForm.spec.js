@@ -34,19 +34,21 @@ describe("StoreEditCreateForm", () => {
     }));
 
     it("initializes from binding", () => {
-      let $ctrl = $componentController("storeEditCreateForm", {}, { editData: {
+      let $ctrl = $componentController("storeEditCreateForm", {}, { data: {
         latitude: 2, longitude: 3, address: "he"
       } });
       $ctrl.$onInit();
       expect($ctrl.query).to.equal("he");
       expect($ctrl.marker.p.lng).to.equal(3);
+      expect($ctrl.isCreate).to.be.undefined;
     });
 
     it("initializes without binding", () => {
-      let $ctrl = $componentController("storeEditCreateForm", {}, { editData: {} });
+      let $ctrl = $componentController("storeEditCreateForm", {});
       $ctrl.$onInit();
       expect($ctrl.query).to.be.undefined;
       expect($ctrl.marker).to.be.undefined;
+      expect($ctrl.isCreate).to.be.true;
     });
 
     it("does lookup", () => {
@@ -57,16 +59,16 @@ describe("StoreEditCreateForm", () => {
     });
 
     it("doesn't set coords if no value", () => {
-      let $ctrl = $componentController("storeEditCreateForm", {}, { editData: {} });
+      let $ctrl = $componentController("storeEditCreateForm", {}, { data: {} });
       $ctrl.trySetLocation();
-      expect($ctrl.editData.address).to.be.undefined;
+      expect($ctrl.data.address).to.be.undefined;
     });
 
     it("resets coords if text is empty", () => {
       let $ctrl = $componentController("storeEditCreateForm", {});
-      $ctrl.editData = { latitude: 30 };
+      $ctrl.data = { latitude: 30 };
       $ctrl.deleteIfEmpty();
-      expect($ctrl.editData.latitude).to.be.null;
+      expect($ctrl.data.latitude).to.be.null;
     });
   });
 });

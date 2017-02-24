@@ -3,19 +3,17 @@ import uiRouter from "angular-ui-router";
 import storeDetailComponent from "./storeDetail.component";
 import storeDetailMap from "./_storeDetailMap/storeDetailMap";
 import storeService from "../../../services/store/store";
-import groupService from "../../../services/group/group";
 import pickupList from "../_pickupList/pickupList";
 import storeEdit from "./storeEdit/storeEdit";
-import storeEditCreateForm from "./_storeEditCreateForm/storeEditCreateForm";
+import storeCreate from "./storeCreate/storeCreate";
 
 let storeDetailModule = angular.module("storeDetail", [
   uiRouter,
   storeDetailMap,
   storeService,
-  groupService,
   pickupList,
   storeEdit,
-  storeEditCreateForm
+  storeCreate
 ])
 
 .component("storeDetail", storeDetailComponent)

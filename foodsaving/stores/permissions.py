@@ -33,3 +33,12 @@ class HasNotJoinedPickupDate(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         return not obj.collectors.filter(id=request.user.id).exists()
+
+
+class IsNotFull(permissions.BasePermission):
+    message = 'Pickup date is already full.'
+
+    def has_object_permission(self, request, view, obj):
+        if not obj.max_collectors:
+            return True
+        return obj.collectors.count() < obj.max_collectors

@@ -86,12 +86,6 @@ class PickupDateJoinSerializer(serializers.ModelSerializer):
         model = PickupDateModel
         fields = []
 
-    def validate(self, attrs):
-        pickupdate = self.instance
-        if pickupdate.max_collectors and pickupdate.collectors.count() >= pickupdate.max_collectors:
-            raise serializers.ValidationError('Pickup already full')
-        return attrs
-
     def update(self, pickup_date, validated_data):
         user = self.context['request'].user
         pickup_date.collectors.add(user)

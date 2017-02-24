@@ -7,7 +7,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
-from foodsaving.stores.permissions import IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate
+from foodsaving.stores.permissions import IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate, \
+    IsNotFull
 from foodsaving.stores.serializers import StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer, \
     PickupDateJoinSerializer, PickupDateLeaveSerializer
 from foodsaving.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
@@ -137,7 +138,7 @@ class PickupDateViewSet(
 
     @detail_route(
         methods=['POST'],
-        permission_classes=(IsAuthenticated, IsUpcoming, HasNotJoinedPickupDate),
+        permission_classes=(IsAuthenticated, IsUpcoming, HasNotJoinedPickupDate, IsNotFull),
         serializer_class=PickupDateJoinSerializer
     )
     def add(self, request, pk=None):

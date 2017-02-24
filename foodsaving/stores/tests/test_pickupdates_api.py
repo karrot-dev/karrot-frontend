@@ -519,6 +519,17 @@ class TestPickupDatesAPI(APITestCase):
         response = self.client.post('/api/pickup-dates/{}/add/'.format(p.id))
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
 
+    def test_join_full_pickup_fails(self):
+        self.client.force_login(user=self.member)
+        self.pickup.max_collectors = 1
+        self.pickup.save()
+        u2 = UserFactory()
+        self.group.members.add(u2)
+        self.pickup.collectors.add(u2)
+        response = self.client.post(self.join_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+        self.assertEqual(response.data, {'detail': 'Pickup date is already full.'})
+
     def test_join_past_pickup_fails(self):
         self.client.force_login(user=self.member)
         response = self.client.post(self.past_join_url)

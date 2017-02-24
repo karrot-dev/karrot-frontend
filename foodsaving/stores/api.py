@@ -1,3 +1,4 @@
+from django.dispatch import Signal
 from rest_framework import filters
 from rest_framework import mixins
 from rest_framework import viewsets, status
@@ -12,6 +13,13 @@ from foodsaving.stores.models import Store as StoreModel, PickupDate as PickupDa
     PickupDateSeries as PickupDateSeriesModel
 
 
+pre_pickup_delete = Signal()
+pre_series_delete = Signal()
+post_store_delete = Signal()
+post_pickup_join = Signal()
+post_pickup_leave = Signal()
+
+
 class StoreViewSet(viewsets.ModelViewSet):
     """
     Stores
@@ -21,7 +29,7 @@ class StoreViewSet(viewsets.ModelViewSet):
     - `?search` - search in name and description
     """
     serializer_class = StoreSerializer
-    queryset = StoreModel.objects
+    queryset = StoreModel.objects.filter(deleted=False)
     filter_fields = ('group',)
     filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
     search_fields = ('name', 'description')
@@ -29,6 +37,19 @@ class StoreViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(group__members=self.request.user)
+
+    def perform_destroy(self, store):
+        store.deleted = True
+        store.save()
+        post_store_delete.send(
+            sender=self.__class__,
+            group=store.group,
+            store=store,
+            user=self.request.user,
+        )
+        # implicit action: delete all pickups and series, but don't send out signals for them
+        PickupDateModel.objects.filter(store=store).delete()
+        PickupDateSeriesModel.objects.filter(store=store).delete()
 
 
 class PickupDateSeriesViewSet(
@@ -54,19 +75,14 @@ class PickupDateSeriesViewSet(
     def get_queryset(self):
         return self.queryset.filter(store__group__members=self.request.user)
 
-
-class DeleteModelMixin(object):
-    """
-    Deletes a model instance by setting the "deleted" field
-    """
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        self.perform_delete(instance)
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-    def perform_delete(self, instance):
-        instance.deleted = True
-        instance.save()
+    def perform_destroy(self, series):
+        pre_series_delete.send(
+            sender=self.__class__,
+            group=series.store.group,
+            store=series.store,
+            user=self.request.user,
+        )
+        super().perform_destroy(series)
 
 
 class IsEmptyPickupDate(BasePermission):
@@ -77,9 +93,9 @@ class IsEmptyPickupDate(BasePermission):
 
 
 class PickupDateViewSet(
-    DeleteModelMixin,
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
+    mixins.DestroyModelMixin,
     mixins.UpdateModelMixin,
     mixins.ListModelMixin,
     viewsets.GenericViewSet
@@ -108,14 +124,32 @@ class PickupDateViewSet(
     def get_queryset(self):
         return self.queryset.filter(store__group__members=self.request.user).filter(deleted=False)
 
+    def perform_destroy(self, pickup):
+        # set deleted flag to make the pickup date invisible
+        pickup.deleted = True
+
+        pre_pickup_delete.send(
+            sender=self.__class__,
+            group=pickup.store.group,
+            store=pickup.store,
+            user=self.request.user
+        )
+        pickup.save()
+
     @detail_route(methods=['POST'])
     def add(self, request, pk=None):
         pickupdate = self.get_object()
-        if pickupdate.collectors.count() >= pickupdate.max_collectors:
+        if pickupdate.max_collectors and pickupdate.collectors.count() >= pickupdate.max_collectors:
             return Response("Pickup already full",
                             status=status.HTTP_400_BAD_REQUEST)
         pickupdate.collectors.add(request.user)
         s = self.get_serializer_class()
+        post_pickup_join.send(
+            sender=self.__class__,
+            group=pickupdate.store.group,
+            store=pickupdate.store,
+            user=self.request.user
+        )
         return Response(s(pickupdate).data,
                         status=status.HTTP_200_OK)
 
@@ -127,5 +161,11 @@ class PickupDateViewSet(
                             status=status.HTTP_400_BAD_REQUEST)
         pickupdate.collectors.remove(request.user)
         s = self.get_serializer_class()
+        post_pickup_leave.send(
+            sender=self.__class__,
+            group=pickupdate.store.group,
+            store=pickupdate.store,
+            user=self.request.user
+        )
         return Response(s(pickupdate).data,
                         status=status.HTTP_200_OK)

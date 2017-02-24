@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'foodsaving.frontend',
     'foodsaving.users',
     'foodsaving.conversations',
+    'foodsaving.history.HistoryConfig',
     'foodsaving.groups.GroupsConfig',
     'foodsaving.stores.StoresConfig',
 

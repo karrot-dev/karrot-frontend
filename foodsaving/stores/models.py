@@ -4,6 +4,7 @@ import dateutil.rrule
 from dateutil.relativedelta import relativedelta
 from django.db import transaction
 from django.db.models import Count
+from django.dispatch import Signal
 
 from django.utils import timezone
 
@@ -17,6 +18,8 @@ class Store(BaseModel, LocationModel):
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH)
     description = models.TextField(blank=True)
     weeks_in_advance = models.PositiveIntegerField(default=4)
+
+    deleted = models.BooleanField(default=False)
 
 
 class PickupDateSeriesManager(models.Manager):
@@ -87,7 +90,33 @@ class PickupDateSeries(BaseModel):
             pickup.save()
 
 
+pickup_done = Signal()
+
+
+class PickupDateManager(models.Manager):
+    @transaction.atomic
+    def delete_old_pickup_dates(self):
+        for _ in self.filter(date__lt=timezone.now()):
+            # move pickup dates into history, also empty ones
+            payload = {}
+            if _.series:
+                payload['series'] = _.series.id
+            if _.max_collectors:
+                payload['max_collectors'] = _.max_collectors
+            pickup_done.send(
+                sender=PickupDate.__class__,
+                group=_.store.group,
+                store=_.store,
+                users=_.collectors.all(),
+                date=_.date,
+                payload=payload
+            )
+            _.delete()
+
+
 class PickupDate(BaseModel):
+    objects = PickupDateManager()
+
     class Meta:
         ordering = ['date']
 
@@ -104,7 +133,10 @@ class PickupDate(BaseModel):
     )
     date = models.DateTimeField()
 
-    collectors = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    collectors = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='pickup_dates'
+    )
     max_collectors = models.PositiveIntegerField(null=True)
     deleted = models.BooleanField(default=False)
 

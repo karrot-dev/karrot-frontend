@@ -14,6 +14,10 @@ from foodsaving.groups.models import Group as GroupModel
 pre_leave_group = Signal(providing_args=['user', 'group'])
 
 
+post_group_join = Signal()
+post_group_leave = Signal()
+
+
 class IsMember(BasePermission):
     message = 'You are not a member.'
 
@@ -79,6 +83,7 @@ class GroupViewSet(ModelViewSet):
                 return Response(data='group password wrong', status=status.HTTP_403_FORBIDDEN)
 
         group.members.add(request.user)
+        post_group_join.send(sender=self.__class__, group=group, user=request.user)
         return Response(status=status.HTTP_200_OK)
 
     @detail_route(
@@ -93,4 +98,5 @@ class GroupViewSet(ModelViewSet):
 
         pre_leave_group.send(sender=self.__class__, user=request.user, group=group)
         group.members.remove(request.user)
+        post_group_leave.send(sender=self.__class__, group=group, user=request.user)
         return Response(status=status.HTTP_200_OK)

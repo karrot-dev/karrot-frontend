@@ -11,16 +11,18 @@ from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSer
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
+from django.utils.translation import ugettext as _
+
 
 class IsMember(BasePermission):
-    message = 'You are not a member.'
+    message = _('You are not a member of this group.')
 
     def has_object_permission(self, request, view, obj):
         return request.user in obj.members.all()
 
 
 class IsNotMember(BasePermission):
-    message = 'You are a member.'
+    message = _('You are already a member.')
 
     def has_object_permission(self, request, view, obj):
         return request.user not in obj.members.all()

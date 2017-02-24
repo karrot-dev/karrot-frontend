@@ -6,6 +6,7 @@ from rest_framework.exceptions import ValidationError
 from config import settings
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.history.utils import get_changed_data
+from django.utils.translation import ugettext as _
 
 post_group_create = Signal()
 post_group_modify = Signal()
@@ -21,7 +22,7 @@ class TimezoneField(serializers.Field):
         try:
             return pytz.timezone(str(data))
         except pytz.exceptions.UnknownTimeZoneError:
-            raise ValidationError('Unknown timezone')
+            raise ValidationError(_('Unknown timezone'))
 
 
 class GroupDetailSerializer(serializers.ModelSerializer):
@@ -110,7 +111,7 @@ class GroupJoinSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         if self.instance.password != '' and self.instance.password != attrs.get('password'):
-            raise ValidationError('group password wrong')
+            raise ValidationError(_('Group password is wrong'))
         return attrs
 
     def update(self, instance, validated_data):

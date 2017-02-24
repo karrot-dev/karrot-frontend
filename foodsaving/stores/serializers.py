@@ -6,6 +6,8 @@ from django.dispatch import Signal
 from django.utils import timezone
 from rest_framework import serializers
 
+from django.utils.translation import ugettext as _
+
 from config import settings
 from foodsaving.history.utils import get_changed_data
 from foodsaving.stores.models import PickupDate as PickupDateModel
@@ -38,7 +40,7 @@ class PickupDateSerializer(serializers.ModelSerializer):
 
     def validate_store(self, store):
         if not self.context['request'].user.groups.filter(store=store).exists():
-            raise serializers.ValidationError('You are not member of the store\'s group.')
+            raise serializers.ValidationError(_('You are not member of the store\'s group.'))
         return store
 
     def create(self, validated_data):
@@ -77,7 +79,7 @@ class PickupDateSerializer(serializers.ModelSerializer):
 
     def validate_date(self, date):
         if not date > timezone.now() + timedelta(minutes=10):
-            raise serializers.ValidationError('The date should be in the future.')
+            raise serializers.ValidationError(_('The date should be in the future.'))
         return date
 
 
@@ -155,7 +157,7 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
 
     def validate_store(self, store):
         if not self.context['request'].user.groups.filter(store=store).exists():
-            raise serializers.ValidationError('You are not member of the store\'s group.')
+            raise serializers.ValidationError(_('You are not member of the store\'s group.'))
         return store
 
     def validate_start_date(self, date):
@@ -165,7 +167,7 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
     def validate_rule(self, rule_string):
         rrule = dateutil.rrule.rrulestr(rule_string)
         if not isinstance(rrule, dateutil.rrule.rrule):
-            raise serializers.ValidationError('we only handle single rrules')
+            raise serializers.ValidationError(_('Only single recurrence rules are allowed.'))
         return rule_string
 
 
@@ -215,10 +217,10 @@ class StoreSerializer(serializers.ModelSerializer):
 
     def validate_group(self, group_id):
         if group_id not in self.context['request'].user.groups.all():
-            raise serializers.ValidationError('You are not member of the given group.')
+            raise serializers.ValidationError(_('You are not a member of this group.'))
         return group_id
 
     def validate_weeks_in_advance(self, w):
         if w < 1:
-            raise serializers.ValidationError('Set at least one week in advance')
+            raise serializers.ValidationError(_('Set at least one week in advance'))
         return w

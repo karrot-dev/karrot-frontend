@@ -7,7 +7,7 @@ import localeEO from "./locales/locale-eo.json";
 import localeIT from "./locales/locale-it.json";
 import localeRU from "./locales/locale-ru.json";
 
-let AppLocalize = ($translateProvider) => {
+let AppLocalize = ($translateProvider, $httpProvider) => {
   "ngInject";
   $translateProvider
   .useCookieStorage()
@@ -30,6 +30,16 @@ let AppLocalize = ($translateProvider) => {
     "ru_*": "ru"
   })
   .determinePreferredLanguage();
+
+  $httpProvider.interceptors.push(($translate) => {
+    "ngInject";
+    return {
+      "request": (config) => {
+        config.headers["Accept-Language"] = $translate.use();
+        return config;
+      }
+    };
+  });
 };
 
 export default AppLocalize;

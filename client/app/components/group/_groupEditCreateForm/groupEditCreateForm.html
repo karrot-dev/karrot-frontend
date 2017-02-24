@@ -1,46 +1,62 @@
-<div layout="column" layout-padding>
-  <md-input-container>
-    <label translate="GROUP.TITLE"></label>
-    <input required type="text" ng-model="$ctrl.editData.name"/>
-  </md-input-container>
+<form name="groupForm" ng-submit="groupForm.$valid && $ctrl.submit()">
+  <div layout="column" layout-padding>
+    <md-input-container>
+      <label translate="GROUP.TITLE"></label>
+      <input type="text" name="name" ng-model="$ctrl.data.name"
+        required minlength="5" maxlength="80" autocomplete="off"/>
+      <div ng-messages="groupForm.name.$error">
+        <div ng-message="minlength" translate="FORM.MINLENGTH" translate-values="{min:'5'}"></div>
+      </div>
+    </md-input-container>
 
-  <md-input-container>
-    <label translate="GROUP.PASSWORD"></label>
-    <input type="text" ng-model="$ctrl.editData.password"/>
-  </md-input-container>
+    <md-input-container>
+      <label translate="GROUP.PASSWORD"></label>
+      <input type="text" ng-model="$ctrl.data.password"/>
+    </md-input-container>
 
-  <md-input-container>
-    <label translate="GROUP.TIMEZONE"></label>
-    <input type="text" ng-model="$ctrl.editData.timezone"/>
-  </md-input-container>
+    <md-input-container>
+      <label translate="GROUP.TIMEZONE"></label>
+      <input type="text" ng-model="$ctrl.data.timezone"/>
+    </md-input-container>
 
-  <md-input-container>
-    <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
-    <textarea ng-model="$ctrl.editData.public_description"></textarea>
-  </md-input-container>
+    <md-input-container>
+      <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
+      <textarea ng-model="$ctrl.data.public_description"></textarea>
+    </md-input-container>
 
-  <markdown-input translation-label="GROUP.DESCRIPTION_VERBOSE" model="$ctrl.editData.description"></markdown-input>
+    <markdown-input translation-label="GROUP.DESCRIPTION_VERBOSE" model="$ctrl.data.description"></markdown-input>
 
-  <md-autocomplete
-    placeholder="{{'GROUP.ADDRESS' | translate}}"
-    md-search-text="$ctrl.query"
-    md-items="item in $ctrl.geoLookup()"
-    md-item-text="item.address"
-    md-selected-item-change="$ctrl.trySetLocation(item)"
-    md-search-text-change="$ctrl.deleteIfEmpty($ctrl.query)"
-    md-delay="500"
-    style="padding:0">
-    <md-item-template>
-      <span md-highlight-text="$ctrl.query">{{item.address}}</span>
-    </md-item-template>
-  </md-autocomplete>
+    <md-autocomplete
+      placeholder="{{'GROUP.ADDRESS' | translate}}"
+      md-search-text="$ctrl.query"
+      md-items="item in $ctrl.geoLookup()"
+      md-item-text="item.address"
+      md-selected-item-change="$ctrl.trySetLocation(item)"
+      md-search-text-change="$ctrl.deleteIfEmpty($ctrl.query)"
+      md-delay="500"
+      style="padding:0">
+      <md-item-template>
+        <span md-highlight-text="$ctrl.query">{{item.address}}</span>
+      </md-item-template>
+    </md-autocomplete>
 
-  <leaflet
-    height="200"
-    center="$ctrl.mapCenter"
-    defaults="$ctrl.mapDefaults"
-    markers="$ctrl.marker"
-    class="md-whiteframe-z1">
-  </leaflet>
+    <leaflet
+      height="200"
+      center="$ctrl.mapCenter"
+      defaults="$ctrl.mapDefaults"
+      markers="$ctrl.marker"
+      class="md-whiteframe-z1">
+    </leaflet>
+  </div>
 
-</div>
+  <p>{{ $ctrl.error }}</p>
+  <div layout="row" layout-align="end start">
+    <md-button class="md-icon-button" ui-sref="^" ng-if="!$ctrl.isCreate">
+      <i class="fa fa-times"></i>
+    </md-button>
+    <md-button type="submit" class="md-raised md-primary" ng-disabled="!groupForm.$valid || $ctrl.saving">
+      <i class="fa fa-check" ng-if="!$ctrl.isCreate"></i>
+      <span translate="BUTTON.CREATE" ng-if="$ctrl.isCreate"></span>
+    </md-button>
+  </div>
+</form>

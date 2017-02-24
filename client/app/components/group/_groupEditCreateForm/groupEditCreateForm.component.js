@@ -4,7 +4,8 @@ import "./groupEditCreateForm.styl";
 
 let groupEditCreateFormComponent = {
   bindings: {
-    editData: "="
+    data: "<",
+    onSubmit: "&"
   },
   template,
   controller

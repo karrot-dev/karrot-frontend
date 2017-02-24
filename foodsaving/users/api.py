@@ -6,21 +6,15 @@ from rest_framework import filters
 from rest_framework import mixins
 from rest_framework import status
 from rest_framework.decorators import list_route
-from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from foodsaving.users.permissions import IsSameUser, IsNotVerified
 from foodsaving.users.serializers import UserSerializer, VerifyMailSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 pre_user_delete = Signal(providing_args=['user'])
-
-
-class IsSameUser(BasePermission):
-    message = 'You can modify only your own user data.'
-
-    def has_object_permission(self, request, view, obj):
-        return request.user == obj
 
 
 class UserViewSet(
@@ -76,22 +70,18 @@ class UserViewSet(
 
     @list_route(
         methods=['POST'],
-        permission_classes=(IsAuthenticated,)
+        permission_classes=(IsNotVerified, IsAuthenticated),
+        serializer_class=VerifyMailSerializer
     )
     def verify_mail(self, request, pk=None):
         """
         requires "key" parameter
         """
-        if request.user.mail_verified:
-            return Response(data={'error': 'mail is already verified'},
-                            status=status.HTTP_400_BAD_REQUEST)
-        s = VerifyMailSerializer(request.user, request.data)
-        if s.is_valid():
-            s.save()
-            return Response(status=status.HTTP_200_OK)
-        else:
-            return Response(data=s.errors,
-                            status=status.HTTP_400_BAD_REQUEST)
+        self.check_object_permissions(request, request.user)
+        serializer = self.get_serializer(request.user, request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response()
 
     @list_route(
         methods=['POST'],

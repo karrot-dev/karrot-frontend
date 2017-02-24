@@ -147,8 +147,8 @@ class TestUsersAPI(APITestCase):
         self.client.force_login(user=self.verified_user)
         url = self.url + 'verify_mail/'
         response = self.client.post(url, {'key': self.user.activation_key})
-        self.assertEqual(response.data, {'error': 'mail is already verified'})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data, {'detail': 'Mail is already verified.'})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_verify_mail_fails_without_key(self):
         self.client.force_login(user=self.user)

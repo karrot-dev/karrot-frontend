@@ -10,6 +10,7 @@ class CreateGroupController {
   createGroup(data) {
     return this.GroupService.create(data).then((data) => {
       this.$state.go("group", { groupId: data.id });
+      return data;
     });
   }
 }

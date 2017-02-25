@@ -1,10 +1,11 @@
 import jstz from "jstimezonedetect";
 
 class GroupEditCreateFormController {
-  constructor(Geocoding) {
+  constructor(Geocoding, CurrentGroup) {
     "ngInject";
     Object.assign(this, {
       Geocoding,
+      CurrentGroup,
       mapCenter: {},
       mapDefaults: {
         scrollWheelZoom: false,
@@ -31,7 +32,11 @@ class GroupEditCreateFormController {
     // set locals to evaluate against in the parent expression
     // data="parent_submit(data)" takes the locals.data object
     let locals = { data: this.data };
-    this.onSubmit(locals).catch((err) => {
+    this.onSubmit(locals).then((data) => {
+      this.CurrentGroup.set(data);
+      return data;
+    })
+    .catch((err) => {
       Object.assign(this, {
         saving: false,
         error: err.data

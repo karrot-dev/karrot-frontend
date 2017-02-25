@@ -27,10 +27,12 @@ describe("GroupEditCreateForm", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, Geocoding;
+    let $componentController, Geocoding, $q, $rootScope;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       Geocoding = $injector.get("Geocoding");
+      $q = $injector.get("$q");
+      $rootScope = $injector.get("$rootScope");
     }));
 
     it("initializes from binding", () => {
@@ -54,10 +56,9 @@ describe("GroupEditCreateForm", () => {
     it("submits data with error", () => {
       let $ctrl = $componentController("groupEditCreateForm", {});
       let err = { data: "err" };
-      $ctrl.onSubmit = () => {
-        return { catch: (fn) => fn(err) };
-      };
+      $ctrl.onSubmit = () => $q.reject(err);
       $ctrl.submit();
+      $rootScope.$apply();
       expect($ctrl.error).to.be.equal("err");
     });
 

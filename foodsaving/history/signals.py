@@ -45,6 +45,7 @@ for signal, typus in [
 def handle_pickups_done(sender, **kwargs):
     a = History.objects.create(
         typus=HistoryTypus.PICKUP_DONE,
+        date=kwargs.get('date'),
         group=kwargs.get('group'),
         store=kwargs.get('store'),
         payload=kwargs.get('payload'),

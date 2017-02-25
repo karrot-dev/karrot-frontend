@@ -1,3 +1,4 @@
+from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from django.core.management import call_command
 from django.utils import timezone
@@ -208,6 +209,7 @@ class TestHistoryAPIWithDonePickup(APITestCase):
         self.client.force_login(self.member)
         response = self.client.get(history_url)
         self.assertEqual(response.data[0]['typus'], 'PICKUP_DONE')
+        self.assertLess(parse(response.data[0]['date']), timezone.now() - relativedelta(hours=22))
 
     def test_filter_pickup_done(self):
         self.client.force_login(self.member)

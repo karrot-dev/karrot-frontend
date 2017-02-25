@@ -22,6 +22,19 @@ class TestHistoryAPICreateGroup(APITestCase):
         self.assertEqual(response.data[0]['typus'], 'GROUP_CREATE')
 
 
+class TestHistoryAPIOrdering(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.member = UserFactory()
+
+    def test_ordering(self):
+        self.client.force_login(self.member)
+        self.client.post('/api/groups/', {'name': 'Group 1', 'timezone': 'Europe/Berlin'})
+        self.client.post('/api/groups/', {'name': 'Group 2', 'timezone': 'Europe/Berlin'})
+        response = self.client.get(history_url)
+        self.assertEqual(response.data[0]['payload']['name'], 'Group 2')
+
+
 class TestHistoryAPIWithExistingGroup(APITestCase):
     @classmethod
     def setUpTestData(cls):

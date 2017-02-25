@@ -270,7 +270,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
             'rule': 'RRULE:FREQ=WEEKLY;BYDAY=MO\nRRULE:FREQ=MONTHLY'
         })
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
-        self.assertEqual(response.data, {'rule': ['we only handle single rrules']})
+        self.assertEqual(response.data, {'rule': ['Only single recurrence rules are allowed.']})
 
     def test_keep_changes_to_max_collectors(self):
         self.client.force_login(user=self.member)

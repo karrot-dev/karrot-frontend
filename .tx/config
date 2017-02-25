@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+
+[foodsaving-tool.backend]
+file_filter = foodsaving/locale/<lang>/LC_MESSAGES/django.po
+source_file = foodsaving/locale/en/LC_MESSAGES/django.po
+source_lang = en
+type = PO
+

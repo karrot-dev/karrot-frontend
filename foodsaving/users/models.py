@@ -121,7 +121,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
         AnymailMessage(
             subject=_('New password'),
-            body=_('Here is your new temporary password: {}.' +
+            body=_('Here is your new temporary password: {}. ' +
                    'You can use it to login. Please change it soon.').format(new_password),
             to=[self.email],
             from_email=settings.DEFAULT_FROM_EMAIL,

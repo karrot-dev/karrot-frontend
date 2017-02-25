@@ -3,6 +3,7 @@ from django.utils import timezone
 from rest_framework import serializers
 
 from config import settings
+from django.utils.translation import ugettext as _
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -49,9 +50,9 @@ class VerifyMailSerializer(serializers.Serializer):
     def validate_key(self, key):
         user = self.instance
         if user.key_expires_at < timezone.now():
-            raise serializers.ValidationError('Key has expired')
+            raise serializers.ValidationError(_('Key has expired'))
         if key != user.activation_key:
-            raise serializers.ValidationError('Key is invalid')
+            raise serializers.ValidationError(_('Key is invalid'))
         return key
 
     def update(self, user, validated_data):

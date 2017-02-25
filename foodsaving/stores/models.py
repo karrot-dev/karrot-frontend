@@ -23,6 +23,9 @@ class Store(BaseModel, LocationModel):
 
     deleted = models.BooleanField(default=False)
 
+    def __str__(self):
+        return '{} ({})'.format(self.name, self.group)
+
 
 class PickupDateSeriesManager(models.Manager):
     @transaction.atomic
@@ -91,6 +94,9 @@ class PickupDateSeries(BaseModel):
                 pickup.max_collectors = self.max_collectors
             pickup.save()
 
+    def __str__(self):
+        return '{} - {}'.format(self.date, self.store)
+
 
 pickup_done = Signal()
 
@@ -146,3 +152,6 @@ class PickupDate(BaseModel):
     # used when the respective value in the series gets updated
     is_date_changed = models.BooleanField(default=False)
     is_max_collectors_changed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return '{} - {}'.format(self.date, self.store)

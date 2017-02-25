@@ -35,3 +35,6 @@ class History(NicelyFormattedModel):
     store = models.ForeignKey('stores.Store', null=True)
     users = models.ManyToManyField('users.User')
     payload = JSONField(null=True)
+
+    def __str__(self):
+        return '{} - {} ({})'.format(self.date, HistoryTypus.name(self.typus), self.group)

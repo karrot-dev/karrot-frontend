@@ -16,4 +16,3 @@ class PickupDateAdmin(admin.ModelAdmin):
 @admin.register(PickupDateSeries)
 class PickupDateSeriesAdmin(admin.ModelAdmin):
     pass
-

@@ -12,3 +12,6 @@ class Group(BaseModel, LocationModel):
     password = CharField(max_length=255, blank=True)
     public_description = TextField(blank=True)
     timezone = TimeZoneField(default='Europe/Berlin', null=True, blank=True)
+
+    def __str__(self):
+        return '{}'.format(self.name)

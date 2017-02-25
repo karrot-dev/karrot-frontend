@@ -15,4 +15,4 @@ class GroupsFilter(filters.FilterSet):
 
     class Meta:
         model = Group
-        fields = ['members', 'include_empty']
+        fields = ['members', 'include_empty', 'name']

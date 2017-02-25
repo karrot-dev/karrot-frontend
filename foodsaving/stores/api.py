@@ -37,7 +37,7 @@ class StoreViewSet(
     """
     serializer_class = StoreSerializer
     queryset = StoreModel.objects.filter(deleted=False)
-    filter_fields = ('group',)
+    filter_fields = ('group', 'name')
     filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
     search_fields = ('name', 'description')
     permission_classes = (IsAuthenticated,)

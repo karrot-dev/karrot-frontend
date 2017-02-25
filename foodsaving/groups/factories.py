@@ -3,7 +3,7 @@ from foodsaving.groups.models import Group as GroupModel
 from foodsaving.utils.tests.fake import faker
 
 
-class Group(DjangoModelFactory):
+class GroupFactory(DjangoModelFactory):
 
     class Meta:
         model = GroupModel
@@ -18,3 +18,4 @@ class Group(DjangoModelFactory):
 
     name = LazyAttribute(lambda x: faker.sentence(nb_words=4))
     description = LazyAttribute(lambda x: faker.name())
+    public_description = LazyAttribute(lambda x: faker.sentence(nb_words=20))

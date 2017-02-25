@@ -2,9 +2,9 @@ from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
-from foodsaving.groups.factories import Group as GroupFactory
+from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import Group as GroupModel
-from foodsaving.stores.factories import PickupDate, Store
+from foodsaving.stores.factories import PickupDateFactory, StoreFactory
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 
@@ -101,23 +101,6 @@ class TestGroupsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
         self.assertEqual(response.data, {'timezone': ['Unknown timezone']})
 
-    def test_put_group(self):
-        url = self.url + str(self.group.id) + '/'
-        response = self.client.put(url, self.group_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_put_group_as_user(self):
-        self.client.force_login(user=self.user)
-        url = self.url + str(self.group.id) + '/'
-        response = self.client.put(url, self.group_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_put_group_as_member(self):
-        self.client.force_login(user=self.member)
-        url = self.url + str(self.group.id) + '/'
-        response = self.client.put(url, self.group_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
     def test_join_group(self):
         self.client.force_login(user=self.user)
         response = self.client.post('/api/groups/1/join/')
@@ -131,29 +114,29 @@ class TestGroupsAPI(APITestCase):
     def test_join_group_with_password_fails_if_wrong(self):
         self.client.force_login(user=self.user)
         response = self.client.post(self.join_password_url, {"password": "wrong"})
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_join_group_with_password_fails_if_empty(self):
         self.client.force_login(user=self.user)
         response = self.client.post(self.join_password_url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_join_group_fails_if_not_logged_in(self):
         response = self.client.post('/api/groups/1/join/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_leave_group(self):
-        store = Store(group=self.group)
-        pickupdate = PickupDate(
+        store = StoreFactory(group=self.group)
+        pickupdate = PickupDateFactory(
             store=store,
             collectors=[self.member, self.user],
             date=timezone.now() + relativedelta(weeks=1))
-        past_pickupdate = PickupDate(
+        past_pickupdate = PickupDateFactory(
             store=store,
             collectors=[self.member, ],
             date=timezone.now() - relativedelta(weeks=1)
         )
-        unrelated_pickupdate = PickupDate(
+        unrelated_pickupdate = PickupDateFactory(
             date=timezone.now() + relativedelta(weeks=1),
             collectors=[self.member, ],
         )
@@ -173,16 +156,16 @@ class TestGroupsAPI(APITestCase):
     def test_delete_group(self):
         url = self.url + str(self.group.id) + '/'
         response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def test_delete_group_as_user(self):
         self.client.force_login(user=self.user)
         url = self.url + str(self.group.id) + '/'
         response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def test_delete_group_as_member(self):
         self.client.force_login(user=self.member)
         url = self.url + str(self.group.id) + '/'
         response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)

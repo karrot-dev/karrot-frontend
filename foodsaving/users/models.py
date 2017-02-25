@@ -86,6 +86,19 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         self.key_expires_at = timezone.now() + timedelta(days=7)
         self.save()
 
+    def send_mail_change_notification(self):
+        AnymailMessage(
+            subject=_('Mail has changed'),
+            body=_('Your mail address has changed from {} to {}. We assume that everything is alright.').format(
+                self.email,
+                self.unverified_email
+            ),
+            to=[self.email],
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            track_clicks=False,
+            track_opens=False
+        ).send()
+
     def send_verification_code(self):
         self._unverify_mail()
 

@@ -1,12 +1,13 @@
 from itertools import zip_longest
 
+from copy import deepcopy
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
-from foodsaving.groups.factories import Group
-from foodsaving.stores.factories import Store, PickupDateSeries, PickupDate
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.stores.factories import StoreFactory, PickupDateSeriesFactory, PickupDateFactory
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 
@@ -20,8 +21,8 @@ class TestStoresAPI(APITestCase):
         # group with two members and one store
         cls.member = UserFactory()
         cls.member2 = UserFactory()
-        cls.group = Group(members=[cls.member, cls.member2])
-        cls.store = Store(group=cls.group)
+        cls.group = GroupFactory(members=[cls.member, cls.member2])
+        cls.store = StoreFactory(group=cls.group)
         cls.store_url = cls.url + str(cls.store.id) + '/'
 
         # not a member
@@ -36,7 +37,7 @@ class TestStoresAPI(APITestCase):
                           'longitude': faker.longitude()}
 
         # another group
-        cls.different_group = Group(members=[cls.member2, ])
+        cls.different_group = GroupFactory(members=[cls.member2, ])
 
     def test_create_store(self):
         response = self.client.post(self.url, self.store_data, format='json')
@@ -52,6 +53,13 @@ class TestStoresAPI(APITestCase):
         response = self.client.post(self.url, self.store_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['name'], self.store_data['name'])
+
+    def test_create_store_with_short_name_fails(self):
+        self.client.force_login(user=self.member)
+        data = deepcopy(self.store_data)
+        data['name'] = 's'
+        response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_list_stores(self):
         response = self.client.get(self.url)
@@ -97,20 +105,6 @@ class TestStoresAPI(APITestCase):
         response = self.client.patch(self.store_url, self.store_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_put_store(self):
-        response = self.client.put(self.store_url, self.store_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_put_store_as_user(self):
-        self.client.force_login(user=self.user)
-        response = self.client.put(self.store_url, self.store_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-    def test_put_store_as_group_member(self):
-        self.client.force_login(user=self.member)
-        response = self.client.put(self.store_url, self.store_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
     def test_change_group_as_member_in_one(self):
         self.client.force_login(user=self.member)
         response = self.client.patch(self.store_url, {'group': self.different_group.id}, format='json')
@@ -133,8 +127,8 @@ class TestStoresAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_delete_stores_as_group_member(self):
-        PickupDateSeries(store=self.store)
-        PickupDate(store=self.store)
+        PickupDateSeriesFactory(store=self.store)
+        PickupDateFactory(store=self.store)
 
         self.client.force_login(user=self.member)
         response = self.client.delete(self.store_url)
@@ -156,10 +150,10 @@ class TestStoreChangesPickupDateSeriesAPI(APITestCase):
         cls.now = timezone.now()
         cls.url = '/api/stores/'
         cls.member = UserFactory()
-        cls.group = Group(members=[cls.member, ])
-        cls.store = Store(group=cls.group)
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.store = StoreFactory(group=cls.group)
         cls.store_url = cls.url + str(cls.store.id) + '/'
-        cls.series = PickupDateSeries(max_collectors=3, store=cls.store)
+        cls.series = PickupDateSeriesFactory(max_collectors=3, store=cls.store)
         cls.series.update_pickup_dates(start=lambda: cls.now)
 
     def test_reduce_weeks_in_advance(self):

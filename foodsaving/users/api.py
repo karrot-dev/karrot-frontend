@@ -3,25 +3,28 @@ from django.db.models import Q
 from django.dispatch import Signal
 from django.utils import timezone
 from rest_framework import filters
+from rest_framework import mixins
 from rest_framework import status
-from rest_framework import viewsets
 from rest_framework.decorators import list_route
-from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 
+from foodsaving.users.permissions import IsSameUser, IsNotVerified
 from foodsaving.users.serializers import UserSerializer, VerifyMailSerializer
+from foodsaving.utils.mixins import PartialUpdateModelMixin
 
-pre_delete_user = Signal(providing_args=['user'])
-
-
-class IsSameUser(BasePermission):
-    message = 'You can modify only your own user data.'
-
-    def has_object_permission(self, request, view, obj):
-        return request.user == obj
+pre_user_delete = Signal(providing_args=['user'])
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    PartialUpdateModelMixin,
+    mixins.DestroyModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
     """
     Users
 
@@ -51,7 +54,7 @@ class UserViewSet(viewsets.ModelViewSet):
         To keep historic pickup infos, don't delete this user, but delete it from the database.
         Removal from group and future pickups is handled via the signal.
         """
-        pre_delete_user.send(sender=self.__class__, user=user)
+        pre_user_delete.send(sender=self.__class__, user=user)
         user.description = ''
         user.set_unusable_password()
         user.mail = None
@@ -67,22 +70,18 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @list_route(
         methods=['POST'],
-        permission_classes=(IsAuthenticated,)
+        permission_classes=(IsNotVerified, IsAuthenticated),
+        serializer_class=VerifyMailSerializer
     )
     def verify_mail(self, request, pk=None):
         """
         requires "key" parameter
         """
-        if request.user.mail_verified:
-            return Response(data={'error': 'mail is already verified'},
-                            status=status.HTTP_400_BAD_REQUEST)
-        s = VerifyMailSerializer(request.user, request.data)
-        if s.is_valid():
-            s.save()
-            return Response(status=status.HTTP_200_OK)
-        else:
-            return Response(data=s.errors,
-                            status=status.HTTP_400_BAD_REQUEST)
+        self.check_object_permissions(request, request.user)
+        serializer = self.get_serializer(request.user, request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response()
 
     @list_route(
         methods=['POST'],

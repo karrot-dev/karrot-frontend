@@ -1,7 +1,7 @@
 from django.core.management import call_command
 from rest_framework.test import APITestCase
 
-from foodsaving.stores.factories import PickupDateSeries as PickupDateSeriesFactory
+from foodsaving.stores.factories import PickupDateSeriesFactory
 from foodsaving.stores.models import PickupDate
 
 

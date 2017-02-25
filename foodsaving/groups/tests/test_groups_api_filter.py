@@ -1,10 +1,10 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
-from foodsaving.groups.factories import Group
+from foodsaving.groups.factories import GroupFactory
 from foodsaving.users.factories import UserFactory
 
 
-class TestStoresAPIFilter(APITestCase):
+class TestGroupsAPIFilter(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -15,10 +15,10 @@ class TestStoresAPIFilter(APITestCase):
 
         # two groups with different members
         cls.member = UserFactory()
-        cls.group = Group(members=[cls.member, ])
+        cls.group = GroupFactory(members=[cls.member, ])
         cls.member2 = UserFactory()
-        cls.group2 = Group(members=[cls.member2, ])
-        cls.empty_group = Group()
+        cls.group2 = GroupFactory(members=[cls.member2, ])
+        cls.empty_group = GroupFactory()
 
     def test_filter_by_member(self):
         response = self.client.get(self.url, {'members': self.member.id})
@@ -49,7 +49,7 @@ class TestStoresAPIFilter(APITestCase):
         self.assertEqual(response.data[0]['name'], self.group.name)
 
     def test_search_description(self):
-        response = self.client.get(self.url, {'search': self.group.description})
+        response = self.client.get(self.url, {'search': self.group.public_description})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.data[0]['name'], self.group.name)

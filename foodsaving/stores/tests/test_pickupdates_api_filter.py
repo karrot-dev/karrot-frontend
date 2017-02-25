@@ -3,8 +3,8 @@ from datetime import timedelta
 from dateutil.parser import parse
 from rest_framework import status
 from rest_framework.test import APITestCase
-from foodsaving.groups.factories import Group
-from foodsaving.stores.factories import Store, PickupDate, PickupDateSeries
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.stores.models import PickupDate as PickupDateModel
 from foodsaving.users.factories import UserFactory
 
@@ -17,21 +17,21 @@ class TestPickupdatesAPIFilter(APITestCase):
 
         # pickup date for group with one member and one store
         cls.member = UserFactory()
-        cls.group = Group(members=[cls.member, ])
-        cls.store = Store(group=cls.group)
-        cls.pickup = PickupDate(store=cls.store)
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.store = StoreFactory(group=cls.group)
+        cls.pickup = PickupDateFactory(store=cls.store)
 
         # and another store + group + pick-update
-        cls.group2 = Group(members=[cls.member, ])
-        cls.store2 = Store(group=cls.group2)
-        cls.pickup2 = PickupDate(store=cls.store2)
+        cls.group2 = GroupFactory(members=[cls.member, ])
+        cls.store2 = StoreFactory(group=cls.group2)
+        cls.pickup2 = PickupDateFactory(store=cls.store2)
 
         # a pickup date series
-        cls.series = PickupDateSeries(store=cls.store)
+        cls.series = PickupDateSeriesFactory(store=cls.store)
         cls.series.update_pickup_dates()
 
         # another pickup date series
-        cls.series2 = PickupDateSeries(store=cls.store)
+        cls.series2 = PickupDateSeriesFactory(store=cls.store)
         cls.series2.update_pickup_dates()
 
     def test_filter_by_store(self):

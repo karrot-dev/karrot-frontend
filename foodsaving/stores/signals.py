@@ -1,12 +1,12 @@
 from django.dispatch import receiver
 from django.utils import timezone
 
-from foodsaving.groups.api import pre_leave_group
+from foodsaving.groups.serializers import pre_group_leave
 from foodsaving.stores.models import PickupDate
-from foodsaving.users.api import pre_delete_user
+from foodsaving.users.api import pre_user_delete
 
 
-@receiver(pre_leave_group)
+@receiver(pre_group_leave)
 def leave_group_handler(sender, **kwargs):
     group = kwargs.get('group')
     user = kwargs.get('user')
@@ -17,7 +17,7 @@ def leave_group_handler(sender, **kwargs):
         _.collectors.remove(user)
 
 
-@receiver(pre_delete_user)
+@receiver(pre_user_delete)
 def delete_user_handler(sender, **kwargs):
     user = kwargs.get('user')
     for _ in PickupDate.objects. \

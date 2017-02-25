@@ -29,20 +29,14 @@ class UserSerializer(serializers.ModelSerializer):
             }
         }
 
-    def validate(self, data):
-        if 'description' not in data:
-            data['description'] = ''
-        return data
-
     def create(self, validated_data):
-        user = self.Meta.model.objects.create_user(
-            **{x: validated_data.get(x, None) for x in self.get_fields() if x is not 'id'})
-
+        user = self.Meta.model.objects.create_user(**validated_data)
         return user
 
     def update(self, user, validated_data):
         if 'email' in validated_data and validated_data['email'] != user.email:
             user.unverified_email = validated_data.pop('email')
+            user.send_mail_change_notification()
             user.send_verification_code()
         if 'password' in validated_data:
             user.set_password(validated_data.pop('password'))

@@ -14,6 +14,8 @@ from django.db import models
 
 
 class Store(BaseModel, LocationModel):
+    class Meta:
+        unique_together = ('group', 'name')
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE, related_name='store')
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH)
     description = models.TextField(blank=True)

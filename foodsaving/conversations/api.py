@@ -6,11 +6,13 @@ from foodsaving.conversations.models import Conversation as ConversationModel
 from foodsaving.conversations.models import ConversationMessage as MessageModel
 from rest_framework import viewsets, mixins
 
+from foodsaving.utils.mixins import PartialUpdateModelMixin
+
 
 class ChatViewSet(mixins.CreateModelMixin,
                   mixins.ListModelMixin,
                   mixins.RetrieveModelMixin,
-                  mixins.UpdateModelMixin,
+                  PartialUpdateModelMixin,
                   viewsets.GenericViewSet):
     """
     Conversations

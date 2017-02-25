@@ -14,6 +14,8 @@ from foodsaving.stores.models import Store as StoreModel
 
 post_pickup_create = Signal()
 post_pickup_modify = Signal()
+post_pickup_join = Signal()
+post_pickup_leave = Signal()
 post_series_create = Signal()
 post_series_modify = Signal()
 post_store_create = Signal()
@@ -34,9 +36,12 @@ class PickupDateSerializer(serializers.ModelSerializer):
         read_only=True
     )
 
+    def validate_store(self, store):
+        if not self.context['request'].user.groups.filter(store=store).exists():
+            raise serializers.ValidationError('You are not member of the store\'s group.')
+        return store
+
     def create(self, validated_data):
-        if self.context['request'].user not in validated_data['store'].group.members.all():
-            raise serializers.ValidationError('not a member of the group')
         pickupdate = super().create(validated_data)
         post_pickup_create.send(
             sender=self.__class__,
@@ -74,6 +79,40 @@ class PickupDateSerializer(serializers.ModelSerializer):
         if not date > timezone.now() + timedelta(minutes=10):
             raise serializers.ValidationError('The date should be in the future.')
         return date
+
+
+class PickupDateJoinSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PickupDateModel
+        fields = []
+
+    def update(self, pickup_date, validated_data):
+        user = self.context['request'].user
+        pickup_date.collectors.add(user)
+        post_pickup_join.send(
+            sender=self.__class__,
+            group=pickup_date.store.group,
+            store=pickup_date.store,
+            user=user
+        )
+        return pickup_date
+
+
+class PickupDateLeaveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PickupDateModel
+        fields = []
+
+    def update(self, pickup_date, validated_data):
+        user = self.context['request'].user
+        pickup_date.collectors.remove(user)
+        post_pickup_leave.send(
+            sender=self.__class__,
+            group=pickup_date.store.group,
+            store=pickup_date.store,
+            user=user
+        )
+        return pickup_date
 
 
 class PickupDateSeriesSerializer(serializers.ModelSerializer):
@@ -114,10 +153,10 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
             )
         return series
 
-    def validate_store(self, store_id):
-        if not self.context['request'].user.groups.filter(store=store_id).all():
+    def validate_store(self, store):
+        if not self.context['request'].user.groups.filter(store=store).exists():
             raise serializers.ValidationError('You are not member of the store\'s group.')
-        return store_id
+        return store
 
     def validate_start_date(self, date):
         date = date.replace(second=0, microsecond=0)
@@ -135,6 +174,9 @@ class StoreSerializer(serializers.ModelSerializer):
         model = StoreModel
         fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude', 'weeks_in_advance']
         extra_kwargs = {
+            'name': {
+                'min_length': 3
+            },
             'description': {
                 'trim_whitespace': False,
                 'max_length': settings.DESCRIPTION_MAX_LENGTH

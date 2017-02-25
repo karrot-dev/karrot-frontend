@@ -7,12 +7,9 @@ class StoreEditController {
     });
   }
 
-  submit() {
-    this.saving = true;
-    this.Store.save(this.storedata).then((data) => {
+  submit(data) {
+    return this.Store.save(data).then((data) => {
       this.$state.go("group.store", { "storeId": data.id });
-    }).catch((err) => {
-      this.error = err.data;
     });
   }
 }

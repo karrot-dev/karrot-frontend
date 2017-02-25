@@ -26,6 +26,9 @@
     "LEAVE": "Leave",
     "PREVIEW": "Preview"
   },
+  "FORM": {
+    "MINLENGTH": "Please enter more than {{min}} characters."
+  },
   "GROUP": {
     "LEAVE": "Leave group...",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",

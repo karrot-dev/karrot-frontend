@@ -1,9 +1,9 @@
-import CreateGroupModule from "./createGroup";
+import StoreCreateModule from "./storeCreate";
 
 const { module } = angular.mock;
 
-describe("CreateGroup", () => {
-  beforeEach(module(CreateGroupModule));
+describe("StoreCreate", () => {
+  beforeEach(module(StoreCreateModule));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -15,8 +15,8 @@ describe("CreateGroup", () => {
   });
 
   describe("Module", () => {
-    it("is named createGroup", () => {
-      expect(CreateGroupModule).to.equal("createGroup");
+    it("is named storeCreate", () => {
+      expect(StoreCreateModule).to.equal("storeCreate");
     });
   });
 
@@ -34,16 +34,16 @@ describe("CreateGroup", () => {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("creates group", () => {
-      let $ctrl = $componentController("createGroup", {});
-      let groupData = {
+    it("creates store", () => {
+      let $ctrl = $componentController("storeCreate", {});
+      let storeData = {
         name: "blabla",
-        timezone: "Europe/Madrid"
+        group: 5
       };
-      $ctrl.createGroup(groupData);
-      $httpBackend.expectPOST("/api/groups/", groupData).respond(201, { id: 987 });
+      $ctrl.submit(storeData);
+      $httpBackend.expectPOST("/api/stores/", storeData).respond(201, { id: 987 });
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith("group", { groupId: 987 });
+      expect($state.go).to.have.been.calledWith("^.store", { storeId: 987 });
     });
   });
 });

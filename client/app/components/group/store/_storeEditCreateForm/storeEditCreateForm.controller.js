@@ -1,8 +1,9 @@
 class StoreEditCreateFormController {
-  constructor(Geocoding) {
+  constructor(Geocoding, $stateParams) {
     "ngInject";
     Object.assign(this, {
       Geocoding,
+      $stateParams,
       mapCenter: {},
       mapDefaults: {
         scrollWheelZoom: false,
@@ -13,7 +14,29 @@ class StoreEditCreateFormController {
   }
 
   $onInit() {
-    this.trySetLocation(this.editData);
+    if (angular.isUndefined(this.data)) {
+      Object.assign(this, {
+        isCreate: true,
+        data: {
+          group: this.$stateParams.groupId
+        }
+      });
+    } else {
+      this.trySetLocation(this.data);
+    }
+  }
+
+  submit() {
+    this.saving = true;
+    // set locals to evaluate against in the parent expression
+    // data="parent_submit(data)" takes the locals.data object
+    let locals = { data: this.data };
+    this.onSubmit(locals).catch((err) => {
+      Object.assign(this, {
+        saving: false,
+        error: err.data
+      });
+    });
   }
 
   geoLookup() {
@@ -34,11 +57,11 @@ class StoreEditCreateFormController {
     this.mapCenter.zoom = 10;
     this.mapCenter.lat = item.latitude;
     this.mapCenter.lng = item.longitude;
-    Object.assign(this.editData, item);
+    Object.assign(this.data, item);
   }
 
   deleteIfEmpty(text) {
-    if (!text) Object.assign(this.editData, {
+    if (!text) Object.assign(this.data, {
       latitude: null,
       longitude: null,
       address: null

@@ -48,28 +48,4 @@ describe("StoreList", () => {
       expect(angular.toJson($ctrl.storeList)).to.equal(angular.toJson([storeOne]));
     });
   });
-
-  describe("Controller", () => {
-    let $componentController, $q, $mdDialog, $rootScope;
-
-    beforeEach(inject(($injector) => {
-      $componentController = $injector.get("$componentController");
-      $q = $injector.get("$q");
-      $mdDialog = $injector.get("$mdDialog");
-      sinon.stub($mdDialog, "show");
-      $rootScope = $injector.get("$rootScope");
-    }));
-
-    it("opens dialog to create store", () => {
-      // don't load storeList
-      let $ctrl = $componentController("storeList", {}, { storeList: [] });
-      $mdDialog.show.returns($q((resolve) => {
-        resolve({ id: 999 });
-      }));
-      $ctrl.openCreateStorePanel();
-      $rootScope.$apply();
-      expect($mdDialog.show).to.have.been.called;
-      expect($ctrl.storeList).to.deep.equal([{ id: 999 }]);
-    });
-  });
 });

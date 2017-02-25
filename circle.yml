@@ -3,7 +3,6 @@ machine:
     version: 3.4.2
 database:
   override:
-    - psql -c "CREATE DATABASE yunity_database;"
     - cp config/local_settings.py.ci config/local_settings.py
 test:
   override:

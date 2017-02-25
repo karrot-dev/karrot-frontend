@@ -1,9 +1,9 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fstool-db',
+        'NAME': 'fstool',
         'TEST': {
-            'NAME': 'fstool_test'
+            'NAME': 'fstool'
         },
         'USER': 'ubuntu',
     }
@@ -23,12 +23,6 @@ INFLUXDB_TAGS_HOST = ''
 INFLUXDB_TIMEOUT = 2
 INFLUXDB_USE_CELERY = False
 INFLUXDB_USE_THREADING = True
-
-SHELL_PLUS_PRE_IMPORTS = (
-    ('yunity.users.models', ('ProfileVisibility')),
-    ('yunity.utils.tests.mock', ('*')),
-    ('yunity.permissions.lookup', ('*')),
-)
 
 SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
 DEBUG = True

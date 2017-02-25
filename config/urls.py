@@ -1,4 +1,4 @@
-"""yunity URL Configuration
+"""URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -13,16 +13,21 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+from django.conf import settings
 from django.conf.urls import include, url
+
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 
-from yunity.userauth.api import AuthViewSet
-from yunity.conversations.api import ChatViewSet, ChatMessageViewSet
-from yunity.groups.api import GroupViewSet
-from yunity.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet
-from yunity.users.api import UserViewSet
+from foodsaving.history.api import HistoryViewSet
+from foodsaving.userauth.api import AuthViewSet
+from foodsaving.conversations.api import ChatViewSet, ChatMessageViewSet
+from foodsaving.groups.api import GroupViewSet
+from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet
+from foodsaving.users.api import UserViewSet
 
 router = routers.DefaultRouter()
 
@@ -44,6 +49,9 @@ router.register(r'pickup-dates', PickupDateViewSet)
 # Store endpoints
 router.register(r'stores', StoreViewSet)
 
+# History endpoints
+router.register('history', HistoryViewSet)
+
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),
     url(r'^api/', include(chat_router.urls, namespace='api')),
@@ -51,3 +59,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', get_swagger_view()),
 ]
+
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()

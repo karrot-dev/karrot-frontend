@@ -1,7 +1,7 @@
 [run]
-source = yunity
+source = foodsaving
 branch = true
-omit = yunity/resources/*, yunity/tests/*
+omit = foodsaving/resources/*, foodsaving/tests/*
 
 [report]
 precision = 2

@@ -141,6 +141,7 @@
   "HISTORY":{
     "SERIES_CREATE":"has created a new recurring pick-up",
     "STORE_CREATE":"has created {{name}}",
-    "GROUP_JOIN":"joined this group"
+    "GROUP_JOIN":"joined this group",
+    "PICKUP_DONE":"made a pickup at {{storeName}}"
   }
 }

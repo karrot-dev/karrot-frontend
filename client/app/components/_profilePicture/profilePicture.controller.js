@@ -27,12 +27,11 @@ class ProfilePictureController {
     });
   }
   generate(seed) {
-
     function getRandomRange(min, max, add = 1000) {
       return Math.floor(pseudoRandom(seed * add) * (max - min) + min);
     }
     const svgns = "http://www.w3.org/2000/svg";
-    const box = document.createElementNS(svgns, "svg");
+    const box = this.$document[0].createElementNS(svgns, "svg");
 
     const rows = 3;
     const columns = 3;
@@ -47,7 +46,7 @@ class ProfilePictureController {
     box.setAttribute("viewbox", "0 0 100 100");
     box.setAttribute("class", "box");
 
-    const g = document.createElementNS(svgns, "g");
+    const g = this.$document[0].createElementNS(svgns, "g");
     g.setAttribute(
         "transform",
         `translate(${-(rows * blockSize - this.size) / 2} ${-((rows * blockSize - this.size) / 2)}) ` +
@@ -57,7 +56,7 @@ class ProfilePictureController {
     for (let i = 0; i < columns; i++) {
       //noprotect
       for (let j = 0; j < rows; j++) {
-        let rect = document.createElementNS(svgns, "rect");
+        let rect = this.$document[0].createElementNS(svgns, "rect");
         rect.setAttribute("width", blockSize);
         rect.setAttribute("height", blockSize);
         rect.setAttribute("fill", "rgba(" +
@@ -73,7 +72,7 @@ class ProfilePictureController {
     }
     box.appendChild(g);
 
-    let overlay = document.createElementNS(svgns, "rect");
+    let overlay = this.$document[0].createElementNS(svgns, "rect");
     overlay.setAttribute("width", this.size);
     overlay.setAttribute("height", this.size);
     overlay.setAttribute("fill", "rgba(" +

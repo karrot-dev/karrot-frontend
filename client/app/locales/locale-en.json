@@ -24,7 +24,8 @@
     "EDIT": "Edit",
     "JOIN": "Join",
     "LEAVE": "Leave",
-    "PREVIEW": "Preview"
+    "PREVIEW": "Preview",
+    "BACK": "Back"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters."
@@ -47,13 +48,19 @@
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
-    "ADDRESS": "Address"
+    "ADDRESS": "Address",
+    "MANAGE": "Check and manage the pickups"
   },
   "STOREEDIT": {
     "NAME": "Name",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups"
   },
   "USERDETAIL": {
     "EDIT": "Edit user",

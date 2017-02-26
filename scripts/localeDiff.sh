@@ -13,6 +13,6 @@ SCRIPT=$(cat <<-END
 END
 )
 echo $SCRIPT | node | sort > /tmp/locale_current
-grep -REoh "translate=\".*?\"" client | sed 's/translate="\([^"]*\)"/\1/p' | grep -v \{\{ | sort -u  > /tmp/locale_inuse
+grep -REoh "translate=\"[^\"]*?\"" client | sed 's/translate="\([^"]*\)"/\1/p' | grep -v \{\{ | sort -u  > /tmp/locale_inuse
 
 diff /tmp/locale_current /tmp/locale_inuse

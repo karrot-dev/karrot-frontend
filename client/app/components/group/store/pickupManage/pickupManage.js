@@ -26,7 +26,7 @@ let pickupManageModule = angular.module("pickupManage", [
         }
       },
       ncyBreadcrumb: {
-        label: "{{ STORE.PICKUP_MANAGE.TITLE | translate }}"
+        label: "{{ 'PICKUPMANAGE.TITLE' | translate }}"
       }
     });
 })

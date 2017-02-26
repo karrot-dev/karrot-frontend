@@ -7,7 +7,7 @@ class GroupDetailController {
       $document,
       $mdDialog,
       CurrentGroup,
-      groupData: $state.groupData,
+      groupData: CurrentGroup.value,
       $mdMedia
     });
 

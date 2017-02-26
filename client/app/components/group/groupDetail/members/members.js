@@ -1,10 +1,12 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import userList from "./_userList/userList";
+import GroupService from "../../../../services/group/group";
 import membersComponent from "./members.component";
 
 let MembersModule = angular.module("members", [
   uiRouter,
+  GroupService,
   userList
 ])
 

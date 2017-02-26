@@ -2,11 +2,13 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import expandablePanel from "../../../_expandablePanel/expandablePanel";
+import GroupService from "../../../../services/group/group";
 import descriptionComponent from "./description.component";
 
 let descriptionModule = angular.module("description", [
   uiRouter,
   ngMaterial,
+  GroupService,
   expandablePanel
 ])
 

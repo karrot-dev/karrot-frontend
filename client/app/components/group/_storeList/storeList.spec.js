@@ -39,7 +39,7 @@ describe("StoreList", () => {
 
     it("gets store data", () => {
       $httpBackend.expectGET("/api/stores/?group=67").respond([storeOne]);
-      expect($ctrl.storeList).to.be.undefined;
+      expect($ctrl.storeList).to.deep.equal([]);
       $scope.groupId = 67;
       $scope.$apply();
       expect($ctrl.groupId).to.equal(67);

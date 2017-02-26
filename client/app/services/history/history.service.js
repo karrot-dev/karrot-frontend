@@ -1,21 +1,19 @@
-import fixtures from "./history.fixtures.json";
 
 class HistoryService {
-  constructor($q) {
+  constructor($http) {
     "ngInject";
     Object.assign(this, {
-      $q
+      $http
     });
   }
-  get(filter = {}) {
-    let deferred = this.$q.defer();
-
-    deferred.resolve(fixtures.map( (entry) => {
-      entry.date = new Date(entry.date)
-      return entry;
-    }));
-
-    return deferred.promise;
+  get(filter) {
+    return this.$http.get("/api/history/", { params: filter })
+      .then((res) => {
+        return res.data.results.map( (entry) => {
+          entry.date = new Date(entry.date);
+          return entry;
+        });
+      });
   }
 }
 

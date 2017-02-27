@@ -1,6 +1,6 @@
 <div>
-  <div ng-repeat="entry in $ctrl.list">
-    <div ng-if="$first || $ctrl.list[$index-1].compareDate != entry.compareDate" class="date">
+  <div ng-repeat="entry in $ctrl.data">
+    <div ng-if="$first || $ctrl.data[$index-1].compareDate != entry.compareDate" class="date">
       {{ entry.date | date:'fullDate' }}
     </div>
     <div layout="row">

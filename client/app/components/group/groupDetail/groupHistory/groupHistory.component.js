@@ -4,7 +4,9 @@ import "./groupHistory.styl";
 
 let groupHistoryComponent = {
   restrict: "",
-  bindings: {},
+  bindings: {
+    groupHistory: "<"
+  },
   template,
   controller
 };

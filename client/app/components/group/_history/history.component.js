@@ -3,7 +3,9 @@ import controller from "./history.controller";
 import "./history.styl";
 
 let historyComponent = {
-  bindings: {},
+  bindings: {
+    data: "<"
+  },
   template,
   controller
 };

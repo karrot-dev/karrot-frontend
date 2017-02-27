@@ -1,11 +1,13 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import groupHistoryComponent from "./groupHistory.component";
+import historyService from "../../../../services/history/history";
 import history from "../../_history/history";
 
 let groupHistoryModule = angular.module("groupHistory", [
   uiRouter,
-  history
+  history,
+  historyService
 ])
 
 .component("groupHistory", groupHistoryComponent)
@@ -15,7 +17,12 @@ let groupHistoryModule = angular.module("groupHistory", [
   $stateProvider
     .state("group.groupDetail.history", {
       url: "/history",
-      component: "history",
+      component: "groupHistory",
+      resolve: {
+        groupHistory: (History) => {
+          return History.get();
+        }
+      },
       ncyBreadcrumb: {
         label: "{{'GROUP.HISTORY' | translate}}"
       }

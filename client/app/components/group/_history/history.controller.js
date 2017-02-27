@@ -9,7 +9,6 @@ class HistoryController {
   $onInit() {
     this.History.get().then( (res) => {
       this.list = res
-        .sort( (a, b) => a.date < b.date)
         .map( (entry) => {
           entry.translate = "HISTORY." + entry.typus;
           entry.compareDate = entry.date.toISOString().substr(0,10);

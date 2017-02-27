@@ -4,7 +4,12 @@ class LandingPageMapController {
     Object.assign(this, {
       GroupService,
       leafletData,
-      markers: {}
+      markers: {},
+      center: {
+        lat: 50.112371,
+        lng: 8.687439,
+        zoom: 4
+      }
     });
 
     // invalidate Map is needed so that map isn't grey after it's loaded

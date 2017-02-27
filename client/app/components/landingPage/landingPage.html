@@ -19,24 +19,30 @@
         </md-button>
       </div>
     </div>
-    <div layout="column" layout-align="center center" flex="noshrink" layout-margin>
+    <div layout="column" layout-align="center center" flex="noshrink" layout-margin class="content">
       <div layout layout-align="center center">
         <logo></logo>
         <h1 class="title">Foodsaving Worldwide</h1>
       </div>
       <div layout="row">
-        <md-card>
-          <img class="md-card-image" ng-src="{{$ctrl.cartImg}}" alt="statistics">
-          <span class="md-headline">Statistik</span>
-        </md-card>
-        <md-card ui-sref="login">
-          <img class="md-card-image" ng-src="{{$ctrl.bananaImg}}" alt="statistics">
-          <span class="md-headline">Team</span>
-        </md-card>
-        <md-card>
-          <img class="md-card-image" ng-src="{{$ctrl.cherryImg}}" alt="statistics">
-          <span class="md-headline">Login</span>
-        </md-card>
+        <a target="_blank" href="https://blog.foodsaving.world">
+          <md-card>
+            <img class="md-card-image" ng-src="{{$ctrl.cartImg}}" alt="statistics">
+            <span class="md-headline">Blog</span>
+          </md-card>
+        </a>
+        <a>
+          <md-card>
+            <img class="md-card-image" ng-src="{{$ctrl.bananaImg}}" alt="statistics">
+            <span class="md-headline">Team</span>
+          </md-card>          
+        </a>
+        <a ui-sref="login">
+          <md-card>
+            <img class="md-card-image" ng-src="{{$ctrl.cherryImg}}" alt="statistics">
+            <span class="md-headline">Login</span>
+          </md-card>          
+        </a>
       </div>
       <div ng-click="$ctrl.goToMap()" class="nextPage" layout="column" layout-align="center center" flex="noshrink" layout-margin>
         <div style="text-align: center">See our map!</div>

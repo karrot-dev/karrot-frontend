@@ -10,7 +10,7 @@ let landingPageModule = angular.module("landingPage", [
 
 .component("landingPage", landingPageComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("landingPage", {

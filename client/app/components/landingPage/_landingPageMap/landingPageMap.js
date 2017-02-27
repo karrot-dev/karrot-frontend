@@ -1,9 +1,16 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import landingPageMapComponent from "./landingPageMap.component";
+import groupPopup from "./_groupPopup/groupPopup";
+import GroupService from "../../../services/group/group";
+import "leaflet";
+import "ui-leaflet";
 
 let landingPageMapModule = angular.module("landingPageMap", [
-  uiRouter
+  uiRouter,
+  groupPopup,
+  GroupService,
+  "ui-leaflet"
 ])
 
 .component("landingPageMap", landingPageMapComponent)

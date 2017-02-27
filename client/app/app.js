@@ -60,7 +60,7 @@ angular.module("app", [
       url: "",
       template: splashLayout
     });
-  $urlRouterProvider.otherwise("/login");
+  $urlRouterProvider.otherwise("/landingPage");
   $httpProvider.defaults.xsrfCookieName = "csrftoken";
   $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
 })

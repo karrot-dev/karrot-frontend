@@ -7,6 +7,7 @@ import userDetail from "./userDetail/userDetail";
 import verifyMail from "./verifyMail/verifyMail";
 import passwordreset from "./passwordreset/passwordreset";
 import topbar from "./_topbar/topbar";
+import landingPage from "./landingPage/landingPage";
 
 let componentModule = angular.module("app.components", [
   group,
@@ -16,7 +17,8 @@ let componentModule = angular.module("app.components", [
   userDetail,
   verifyMail,
   passwordreset,
-  topbar
+  topbar,
+  landingPage
 ]).name;
 
 export default componentModule;

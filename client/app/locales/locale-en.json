@@ -64,6 +64,9 @@
     "PASSWORD_CHANGE": "Change your password (you will be logged out)",
     "PASSWORD": "Enter your new password"
   },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+  },
   "JOINGROUP": {
     "NAME": "Name",
     "WHICHGROUP": "Which group do you want to join?",

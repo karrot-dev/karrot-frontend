@@ -4,19 +4,20 @@ function pseudoRandom(seed) {
   return random;
 }
 class ProfilePictureController {
-  constructor($document, $scope, $element, User) {
+  constructor($document, $scope, $element, User, $translate) {
     "ngInject";
     Object.assign(this, {
       $document,
       $scope,
       User,
+      $translate,
       name: "",
       picture: null,
       el: $element
     });
   }
   $onInit() {
-    this.User.get(this.userId).then( (res) => {
+    this.User.get(this.userId).then((res) => {
       this.name = res.display_name;
       if (res.profile_picture) {
         // not implemented in the backend yet
@@ -24,6 +25,11 @@ class ProfilePictureController {
       } else {
         this.generate(pseudoRandom(res.id));
       }
+    }).catch(() => {
+      this.$translate("PROFILE.INACCESSIBLE_OR_DELETED").then((text) => {
+        this.name = text;
+      });
+      this.generate(pseudoRandom(this.userId));
     });
   }
   generate(seed) {

@@ -26,9 +26,15 @@ describe("History", () => {
       $componentController = $injector.get("$componentController");
     }));
 
-    it("should exist", () => {
-      let $ctrl = $componentController("history", {});
-      expect($ctrl).to.exist;
+    it("transforms data", () => {
+      let data = [{
+        typus: "GROUP_JOIN",
+        date: new Date("2017-02-20T12:00:20Z")
+      }];
+      let $ctrl = $componentController("history", {}, { data });
+      $ctrl.$onChanges({ data: "is unused" });
+      expect(data[0].translate).to.be.equal("HISTORY.GROUP_JOIN");
+      expect(data[0].compareDate).to.be.equal("2017-02-20");
     });
   });
 });

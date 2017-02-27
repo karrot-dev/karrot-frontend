@@ -1,20 +1,17 @@
 class GroupEditController {
-  constructor($state, GroupService) {
+  constructor($state, GroupService, CurrentGroup) {
     "ngInject";
     Object.assign(this, {
       $state,
       GroupService,
-      editData: angular.copy($state.groupData)
+      data: angular.copy(CurrentGroup.value)
     });
   }
 
-  submit() {
-    this.saving = true;
-    this.GroupService.save(this.editData).then((data) => {
-      this.$state.groupData = data;
+  submit(data) {
+    return this.GroupService.save(data).then((data) => {
       this.$state.go("^");
-    }).catch((err) => {
-      this.error = err.data;
+      return data;
     });
   }
 }

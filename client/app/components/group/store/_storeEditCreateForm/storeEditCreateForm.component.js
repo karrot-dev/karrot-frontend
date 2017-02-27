@@ -4,7 +4,8 @@ import "./storeEditCreateForm.styl";
 
 let storeEditCreateFormComponent = {
   bindings: {
-    editData: "="
+    data: "<",
+    onSubmit: "&"
   },
   template,
   controller

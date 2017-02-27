@@ -6,7 +6,7 @@ class HistoryService {
       $http
     });
   }
-  get(filter) {
+  list(filter) {
     return this.$http.get("/api/history/", { params: filter })
       .then((res) => {
         return res.data.results.map( (entry) => {

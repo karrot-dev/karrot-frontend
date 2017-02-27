@@ -19,8 +19,8 @@ let groupHistoryModule = angular.module("groupHistory", [
       url: "/history",
       component: "groupHistory",
       resolve: {
-        groupHistory: (History) => {
-          return History.get();
+        groupHistory: (HistoryService, $stateParams) => {
+          return HistoryService.list({ group: $stateParams.groupId });
         }
       },
       ncyBreadcrumb: {

@@ -41,6 +41,7 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
     "STORES": "Stores",
+    "HISTORY":"History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group"
@@ -151,5 +152,11 @@
     "STRIKE": "strike",
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
+  },
+  "HISTORY":{
+    "SERIES_CREATE":"has created a new recurring pick-up",
+    "STORE_CREATE":"has created {{name}}",
+    "GROUP_JOIN":"joined this group",
+    "PICKUP_DONE":"made a pickup at {{storeName}}"
   }
 }

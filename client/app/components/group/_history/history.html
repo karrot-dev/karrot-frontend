@@ -1,0 +1,18 @@
+<div>
+  <div ng-repeat="entry in $ctrl.list">
+    <div ng-if="$first || $ctrl.list[$index-1].compareDate != entry.compareDate" class="date">
+      {{ entry.date | date:'fullDate' }}
+    </div>
+    <div layout="row">
+      <div flex class="time">
+        {{ entry.date | date:'shortTime' }}
+      </div>
+      <div flex class="avatar s{{ entry.users.length }}">
+        <div ng-repeat="id in entry.users"><profile-picture user-id="id" size="20"></profile-picture></div>
+      </div>
+      <div flex class="">
+        <span translate="{{ entry.translate }}" translate-values="{{ entry.payload }}"></span>
+      </div>
+    </div>
+  </div>
+</div>

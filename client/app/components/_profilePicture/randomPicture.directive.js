@@ -6,7 +6,7 @@ let randomPictureDirective = ($document) => {
       seed: "<",
       size: "<"
     },
-    template: "<div></div>",
+    template: "",
     link: {
       post: (scope, iElement) => {
         function pseudoRandom(seed) {

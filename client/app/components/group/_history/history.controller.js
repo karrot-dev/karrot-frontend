@@ -5,7 +5,6 @@ class HistoryController {
     });
   }
   $onChanges(changes) {
-    console.log(changes);
     if (changes && changes.data) {
       angular.forEach(this.data, (entry) => {
         entry.translate = "HISTORY." + entry.typus;

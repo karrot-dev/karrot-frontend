@@ -13,9 +13,9 @@ class LandingPageController {
       cartImg
     });
   }
-  
+
   goToMap(){
-    this.$location.hash('map');
+    this.$location.hash("map");
     this.$anchorScroll();
   }
 }

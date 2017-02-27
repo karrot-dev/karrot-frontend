@@ -31,10 +31,12 @@ let groupPageModule = angular.module("group", [
       redirectTo: "group.groupDetail.pickups",
       component: "group",
       resolve: {
-        groupData: ($state, GroupService, CurrentGroup, $stateParams) => {
+        groupData: (CurrentGroup) => {
+          return CurrentGroup.value;
+        },
+        groupDataResolve: ($state, GroupService, CurrentGroup, $stateParams) => {
           return GroupService.get($stateParams.groupId).then((group) => {
             CurrentGroup.set(group);
-            $state.groupData = group;
             return group;
           });
         }

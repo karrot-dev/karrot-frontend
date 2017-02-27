@@ -1,18 +1,18 @@
 class StoreEditController {
-  constructor($state, Store) {
+  constructor($state, Store, CurrentStores) {
     "ngInject";
     Object.assign(this, {
       $state,
-      Store
+      Store,
+      CurrentStores
     });
   }
 
-  submit() {
-    this.saving = true;
-    this.Store.save(this.storedata).then((data) => {
+  submit(data) {
+    return this.Store.save(data).then((data) => {
       this.$state.go("group.store", { "storeId": data.id });
-    }).catch((err) => {
-      this.error = err.data;
+      this.CurrentStores.replaceItem(data);
+      return data;
     });
   }
 }

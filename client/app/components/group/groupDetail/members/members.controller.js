@@ -1,8 +1,8 @@
 class MembersController {
-  constructor($state) {
+  constructor(CurrentGroup) {
     "ngInject";
     Object.assign(this, {
-      groupData: $state.groupData
+      groupData: CurrentGroup.value
     });
   }
 }

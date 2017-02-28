@@ -31,7 +31,7 @@ landing-page
     md-card
       font-family: 'Cabin Sketch', sans-serif !important
       border-radius: 1em
-      padding: 2em
+      padding: 3vw
       background-color: rgba(255, 255, 255, 0.8)
       transition: background-color 0.2s, padding 0.2s
       .md-headline
@@ -39,9 +39,12 @@ landing-page
         width: 100%
         text-align: center
         margin-top: 1em
+      @media screen and (max-width: 500px)
+        .md-headline
+          font-size 20px
     md-card:hover
       background-color: rgba(255, 255, 255, 0.85)
-      padding 1.7em
+      padding 2.7vw
     .nextPage
       opacity: 0.5
       transition: opacity 0.3s, margin 0.5s

@@ -70,12 +70,27 @@ class TestPickupDateSeriesCreationAPI(APITestCase):
 
         url = '/api/pickup-dates/'
         created_pickup_dates = []
+        # do recurrence calculcation in local time to avoid daylight saving time problems
+        tz = self.group.timezone
         dates_list = recurrence.replace(
-            dtstart=timezone.now().astimezone(self.group.timezone).replace(hour=20, minute=0, second=0, microsecond=0)
+            dtstart=timezone.now().astimezone(tz).replace(hour=20, minute=0, second=0, microsecond=0, tzinfo=None)
         ).between(
-            timezone.now(),
-            timezone.now() + relativedelta(weeks=4)
+            timezone.now().astimezone(tz).replace(tzinfo=None),
+            timezone.now().astimezone(tz).replace(tzinfo=None) + relativedelta(weeks=4)
         )
+        dates_list = [tz.localize(d) for d in dates_list]
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        # verify date field
+        for response_data_item, expected_date in zip(response.data, dates_list):
+            self.assertEqual(parse(response_data_item['date']), expected_date, response_data_item['date'])
+
+        # verify non-date fields, don't need parsing
+        for _ in response.data:
+            del _['id']
+            del _['date']
         for _ in dates_list:
             created_pickup_dates.append({
                 'max_collectors': 5,
@@ -83,14 +98,6 @@ class TestPickupDateSeriesCreationAPI(APITestCase):
                 'collector_ids': [],
                 'store': self.store.id
             })
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # test date field:
-        for response_data_item, expected_date in zip(response.data, dates_list):
-            self.assertEqual(parse(response_data_item['date']), expected_date, response_data_item['date'])
-        for _ in response.data:
-            del _['id']
-            del _['date']
         self.assertEqual(response.data, created_pickup_dates)
 
 
@@ -164,7 +171,11 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for response_pickup, old_date in zip_longest(response.data, original_dates):
+            # do calculations in local time to handle daylight saving time shift
+            tz = self.group.timezone
+            old_date = old_date.astimezone(tz).replace(tzinfo=None)
             new_date = old_date + relativedelta(days=5)
+            new_date = tz.localize(new_date)
             self.assertEqual(parse(response_pickup['date']), new_date)
 
     def test_change_start_date_to_past(self):

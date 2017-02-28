@@ -10,7 +10,8 @@ class LandingPageMapController {
         zoom: 4
       },
       defaults: {
-        scrollWheelZoom: false
+        scrollWheelZoom: false,
+        maxZoom: 2
       }
     });
 

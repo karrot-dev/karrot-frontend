@@ -28,24 +28,24 @@
         <a target="_blank" href="https://blog.foodsaving.world">
           <md-card>
             <img class="md-card-image" ng-src="{{$ctrl.cartImg}}" alt="statistics">
-            <span class="md-headline">Blog</span>
+            <span class="md-headline" translate="LANDINGPAGE.BLOG"></span>
           </md-card>
         </a>
         <a>
           <md-card>
             <img class="md-card-image" ng-src="{{$ctrl.bananaImg}}" alt="statistics">
-            <span class="md-headline">Team</span>
-          </md-card>          
+            <span class="md-headline" translate="LANDINGPAGE.TEAM"></span>
+          </md-card>
         </a>
         <a ui-sref="login">
           <md-card>
             <img class="md-card-image" ng-src="{{$ctrl.cherryImg}}" alt="statistics">
-            <span class="md-headline">Login</span>
-          </md-card>          
+            <span class="md-headline" translate="LANDINGPAGE.LOGIN"></span>
+          </md-card>
         </a>
       </div>
       <div ng-click="$ctrl.goToMap()" class="nextPage" layout="column" layout-align="center center" flex="noshrink" layout-margin>
-        <div style="text-align: center">See our map!</div>
+        <div style="text-align: center" translate="LANDINGPAGE.SEE_OUR_MAP"></div>
         <div class="arrow-down"></div>
       </div>
     </div>
@@ -53,7 +53,7 @@
 </div>
 <div id="map">
   <div layout="column" layout-align="center center" flex="noshrink" layout>
-    <h1>Our Groups</h1>
+    <h1 translate="LANDINGPAGE.OUR_GROUPS"></h1>
     <landing-page-map></landing-page-map>
   </div>
 </div>

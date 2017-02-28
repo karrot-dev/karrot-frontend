@@ -12,6 +12,13 @@
     "TEXT": "Are you interested in building up a foodsaving project or a foodsharing community? Do you know somebody who is already doing it?",
     "MAIL_TEXT": "Write us a mail!"
   },
+  "LANDINGPAGE": {
+    "BLOG": "Blog",
+    "TEAM": "Team",
+    "LOGIN": "Login",
+    "SEE_OUR_MAP": "Have a look at our map!",
+    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+  },
   "USERDATA": {
     "EMAIL": "Mail",
     "PASSWORD": "Password",

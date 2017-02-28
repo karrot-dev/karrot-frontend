@@ -1,8 +1,9 @@
 class StoreCreateController {
-  constructor(Store, $state) {
+  constructor(Store, CurrentStores, $state) {
     "ngInject";
     Object.assign(this, {
       Store,
+      CurrentStores,
       $state
     });
   }
@@ -10,6 +11,8 @@ class StoreCreateController {
   submit(data) {
     return this.Store.create(data).then((data) => {
       this.$state.go("^.store", { storeId: data.id });
+      this.CurrentStores.pushItem(data);
+      return data;
     });
   }
 }

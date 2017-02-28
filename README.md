@@ -90,7 +90,7 @@ Change the following values in the dictionary `DATABASES` in the file `local_set
 
 Set your database `PostgreSQL` with the correct name and user.
 
-### Mac OS
+#### Mac OS
 
 First, initialize the database.
 

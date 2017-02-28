@@ -4,6 +4,7 @@ import ngMaterial from "angular-material";
 import groupComponent from "./group.component";
 import AuthenticationModule from "../../services/authentication/authentication";
 import groupModule from "../../services/group/group";
+import storeModule from "../../services/store/store";
 import store from "./store/storeDetail";
 import storeList from "./_storeList/storeList";
 import groupDetail from "./groupDetail/groupDetail";
@@ -19,7 +20,8 @@ let groupPageModule = angular.module("group", [
   groupDetail,
   groupEdit,
   createGroup,
-  storeList
+  storeList,
+  storeModule
 ])
 
 .config(($stateProvider, hookProvider) => {

@@ -11,13 +11,19 @@ export default class CurrentStores {
 
   constructor() {
     Object.assign(this, {
-      list: []
+      list: [],
+      selected: {}
     });
   }
 
   set(list) {
     angular.copy(list, this.list);
     return this.list;
+  }
+
+  setSelected(store) {
+    angular.copy(store, this.selected);
+    return this.selected;
   }
 
   pushItem(item) {

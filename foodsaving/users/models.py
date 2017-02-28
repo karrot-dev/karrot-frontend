@@ -45,7 +45,7 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self, email, password, **extra_fields):
         user = self._create_user(email, password, email, **extra_fields)
-        user.is_staff = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
@@ -54,6 +54,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     email = EmailField(unique=True, null=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
+    is_superuser = BooleanField(default=False)
     display_name = CharField(max_length=settings.NAME_MAX_LENGTH)
     description = TextField(blank=True)
 
@@ -134,8 +135,8 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
     def has_perm(self, perm, obj=None):
         # temporarily only allow access for admins
-        return self.is_staff
+        return self.is_superuser
 
     def has_module_perms(self, app_label):
         # temporarily only allow access for admins
-        return self.is_staff
+        return self.is_superuser

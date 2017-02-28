@@ -170,8 +170,8 @@
     "SERIES_CREATE": "created a new recurring pick-up",
     "SERIES_MODIFY": "changed the settings of a recurring pick-up",
     "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {{storeName}}",
-    "PICKUP_JOIN": "signed up to do a pick-up at {{storeName}}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{storeName}}"
+    "PICKUP_DONE": "did a pick-up at {{store_name}}",
+    "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
   }
 }

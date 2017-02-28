@@ -1,4 +1,4 @@
-<form name="groupForm" ng-submit="groupForm.$valid && $ctrl.submit()">
+<form name="groupForm" ng-submit="$ctrl.submit()" promise-btn>
   <div layout="column" layout-padding>
     <md-input-container>
       <label translate="GROUP.TITLE"></label>
@@ -54,7 +54,7 @@
     <md-button class="md-icon-button" ui-sref="^" ng-if="!$ctrl.isCreate">
       <i class="fa fa-times"></i>
     </md-button>
-    <md-button type="submit" class="md-raised md-primary" ng-disabled="!groupForm.$valid || $ctrl.saving">
+    <md-button type="submit" class="md-raised md-primary" ng-disabled="!groupForm.$valid">
       <i class="fa fa-check" ng-if="!$ctrl.isCreate"></i>
       <span translate="BUTTON.CREATE" ng-if="$ctrl.isCreate"></span>
     </md-button>

@@ -49,7 +49,7 @@ class CreatePickupController {
         store: this.storeId
       });
     }
-    response.then((data) => {
+    return response.then((data) => {
       this.$mdDialog.hide(data);
     });
   }

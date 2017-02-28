@@ -10,6 +10,7 @@ import translateStorageCookie from "angular-translate-storage-cookie";
 import "angular-breadcrumb";
 import angularLoadingBar from "angular-loading-bar";
 import ngLocale from "angular-dynamic-locale";
+import "angular-promise-buttons";
 
 // config
 import Services from "./services/services";
@@ -37,6 +38,7 @@ angular.module("app", [
   uiRouter,
   ngMaterial,
   "ncy-angular-breadcrumb",
+  "angularPromiseButtons",
   angularLoadingBar,
   ngAnimate,
   ngAria,

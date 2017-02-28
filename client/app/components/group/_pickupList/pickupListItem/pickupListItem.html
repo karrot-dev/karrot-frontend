@@ -14,7 +14,7 @@
           {{$ctrl.data.date | date:'fullDate'}}
         </span>
       </span>
-      <md-button ng-if="!$ctrl.showStoreDetail && !$ctrl.collectors.length" class="md-icon-button md-warn" ng-click="$ctrl.onDelete($ctrl.data, $event)" aria-label="{{ 'PICKUPLIST.ITEM.DELETE' | translate }}">
+      <md-button ng-if="!$ctrl.showStoreDetail && !$ctrl.collectors.length" class="md-icon-button md-warn" ng-click="$ctrl.onDelete($ctrl.data, $event)" promise-btn aria-label="{{ 'PICKUPLIST.ITEM.DELETE' | translate }}">
         <md-tooltip>
           <span translate="PICKUPLIST.ITEM.DELETE"></span>
         </md-tooltip>
@@ -29,10 +29,10 @@
       <div class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>
     </div>
   </div>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" ng-show="{{$ctrl.data.isUserMember}}" class="md-accent pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" promise-btn ng-show="{{$ctrl.data.isUserMember}}" class="md-accent pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.LEAVE"></p>
   </md-button>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.JOIN' | translate}}" ng-click="$ctrl.join()" ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-raised md-primary pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.JOIN' | translate}}" ng-click="$ctrl.join()" promise-btn ng-show="{{!$ctrl.data.isUserMember && !$ctrl.data.isFull}}" class="md-raised md-primary pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.JOIN"></p>
   </md-button>
   <md-button aria-label="{{'PICKUPLIST.ITEM.FULL' | translate}}" ng-disabled="true" ng-show="{{!$ctrl.data.isUserMember && $ctrl.data.isFull}}" class="pickupList-pickup-right">

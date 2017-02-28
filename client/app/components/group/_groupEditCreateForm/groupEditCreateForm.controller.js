@@ -28,17 +28,15 @@ class GroupEditCreateFormController {
   }
 
   submit() {
-    this.saving = true;
     // set locals to evaluate against in the parent expression
     // data="parent_submit(data)" takes the locals.data object
     let locals = { data: this.data };
-    this.onSubmit(locals).then((data) => {
+    return this.onSubmit(locals).then((data) => {
       this.CurrentGroup.set(data);
       return data;
     })
     .catch((err) => {
       Object.assign(this, {
-        saving: false,
         error: err.data
       });
     });

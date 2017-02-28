@@ -86,6 +86,33 @@ In development, you can add and override local settings in
 version control. If the file is not present, i.e. in production, nothing
 happens.
 
+Change the following values in the dictionary `DATABASES` in the file `local_settings.py (example)`: `NAME`, `USER` and `PASSWORD`. Change also variables `INFLUXDB_DATABASE` and `DEFAULT_FROM_EMAIL` in `local_settings.py (example)` accordingly.
+
+Set your database `PostgreSQL` with the correct name and user.
+
+#### Mac OS
+
+First, initialize the database.
+
+```sh
+initdb /usr/local/var/postgres
+```
+
+Now, create the user you used in `local_settings.py`.
+
+```sh
+createuser --pwprompt *user_name*
+```
+
+And create the database with the name you used in `local_settings.py`.
+
+```sh
+createdb -O *user_name* -Eutf8 *db_name*
+```
+
+You can run the server with `python manage.py runserver`.
+
+
 ## Migrations
 
 Sometimes you will need to create Django migrations.

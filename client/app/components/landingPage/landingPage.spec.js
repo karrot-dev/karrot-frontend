@@ -21,14 +21,16 @@ describe("LandingPage", () => {
   });
 
   describe("Controller", () => {
-    let $componentController;
+    let $componentController, $location;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
+      $location = $injector.get("$location");
     }));
 
-    it("should exist", () => {
+    it("goes to map", () => {
       let $ctrl = $componentController("landingPage", {});
-      expect($ctrl).to.exist;
+      $ctrl.goToMap();
+      expect($location.hash()).to.equal("map");
     });
   });
 });

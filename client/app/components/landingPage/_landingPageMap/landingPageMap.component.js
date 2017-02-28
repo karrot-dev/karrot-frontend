@@ -3,9 +3,7 @@ import controller from "./landingPageMap.controller";
 import "./landingPageMap.styl";
 
 let landingPageMapComponent = {
-  bindings: {
-    groups: "<"
-  },
+  bindings: {},
   template,
   controller
 };

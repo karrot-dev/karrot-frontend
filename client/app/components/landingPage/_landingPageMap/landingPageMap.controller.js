@@ -5,13 +5,21 @@ class LandingPageMapController {
       GroupService,
       markers: {},
       center: {
-        lat: 50.112371,
+        lat: 30.112371,
         lng: 8.687439,
-        zoom: 4
+        zoom: 2
       },
       defaults: {
         scrollWheelZoom: false,
-        maxZoom: 2
+        maxZoom: 5,
+        tileLayer: "http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",
+        tileLayerOptions: {
+          attribution:
+            "Map tiles by <a href='http://stamen.com'>Stamen Design</a>,\n\ under\n\
+            <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by\n\
+            <a href='http://openstreetmap.org'>OpenStreetMap</a>, under\n\
+            <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>."
+        }
       }
     });
 

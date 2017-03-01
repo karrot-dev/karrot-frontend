@@ -87,4 +87,4 @@ BACKEND=http://localhost:8080/
 Configuration for the [transifex CLI client](https://docs.transifex.com/client/) is in `.tx/config`. After instaling the client, you can use `tx push` and `tx pull` to synchronize the strings with the transifex server.
 # Questions?
 
-Join our [open chatroom on matrix.org](https://riot.im/app/#/room/#foodsaving-tool:matrix.org)!
+Join our #foodsaving-tool [chatroom on slack](https://slackin.yunity.org/)!

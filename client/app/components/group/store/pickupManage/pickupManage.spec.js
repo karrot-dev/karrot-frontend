@@ -30,25 +30,30 @@ describe("PickupManage", () => {
       let $ctrl = $componentController("pickupManage", {});
       Object.assign($ctrl, {
         series: [{
-          "rule": "FREQ=WEEKLY;BYDAY=WE,TH",
-          "start_date": "2017-02-25T19:00:00Z"
+          "rule": {
+            freq: "WEEKLY",
+            byDay: ["WE", "TH"]
+          },
+          "start_date": new Date("2017-02-25T19:00:00Z")
         },
         {
-          "rule": "FREQ=WEEKLY",
-          "start_date": "2017-02-25T19:00:00Z" // Saturday
+          "rule": {
+            freq: "WEEKLY"
+          },
+          "start_date": new Date("2017-02-25T19:00:00Z") // Saturday
         }],
         pickups: [{
-          "date": "2017-02-25T22:49:00Z"
+          "date": new Date("2017-02-25T22:49:00Z")
         },{
-          "date": "2017-02-25T22:49:00Z",
+          "date": new Date("2017-02-25T22:49:00Z"),
           "series": 5
         }]
       });
       $ctrl.$onInit();
       expect($ctrl.dayLookup.SU).to.equal(0);
       expect($ctrl.series[0].start_date.getDate()).to.equal(25);
-      expect($ctrl.series[0].$byDay).to.deep.equal(["WE", "TH"]);
-      expect($ctrl.series[1].$byDay).to.deep.equal(["SA"]);
+      expect($ctrl.series[0].rule.byDay).to.deep.equal(["WE", "TH"]);
+      expect($ctrl.series[1].rule.byDay).to.deep.equal(["SA"]);
       expect($ctrl.series[1].$byDayLong).to.deep.equal(["Saturday"]);
       expect($ctrl.pickups[0].series).to.be.undefined;
     });

@@ -43,22 +43,31 @@ describe("CreatePickup", () => {
   });
 
   describe("Controller", () => {
-    let $ctrl;
+    let $ctrl, PickupDate, PickupDateSeries, $q, $rootScope;
 
-    beforeEach(() => {
-      $ctrl = $componentController("createPickup", {
-      }, {
-        storeId: 2,
-        pickuplistCtrl: {
-          updatePickups: () => {}
-        }
-      });
-    });
+    beforeEach(inject(($injector) => {
+      PickupDate = $injector.get("PickupDate");
+      PickupDateSeries = $injector.get("PickupDateSeries");
+      $q = $injector.get("$q");
+      $rootScope = $injector.get("$rootScope");
+      sinon.stub(PickupDate, "create");
+      sinon.stub(PickupDate, "save");
+      sinon.stub(PickupDateSeries, "create");
+      sinon.stub(PickupDateSeries, "save");
+    }));
 
     it("creates one-time pickup", () => {
-      $ctrl.isSeries = false;
+      $ctrl = $componentController("createPickup", {
+      }, {
+        data: {
+          storeId: 2,
+          series: false
+        }
+      });
+      $ctrl.$onInit();
+      expect($ctrl.isSeries).to.be.false;
       $ctrl.pickupData = {
-        date: "07/14/2016",
+        date: new Date(2016,6,14),
         time: {
           getHours: () => {
             return 15;
@@ -69,25 +78,34 @@ describe("CreatePickup", () => {
         },
         max_collectors: 5 //eslint-disable-line
       };
-      $ctrl.createPickup();
-      let date = new Date(2016, 6, 14, 15, 22, 0);
-      $httpBackend.expectPOST("/api/pickup-dates/", {
-        "max_collectors": 5,
-        date: date.toISOString(),
-        store: 2
-      }).respond(201, "success");
-      $httpBackend.flush();
+      PickupDate.create.withArgs().returns($q.resolve());
+      $ctrl.handleSubmit();
+      $rootScope.$apply();
     });
 
     it("initializes", () => {
+      $ctrl = $componentController("createPickup", {
+      }, {
+        data: {
+          storeId: 2,
+          series: true
+        }
+      });
       $ctrl.$onInit();
       expect($ctrl.days[2]).to.deep.equal({ key: "WE", name: "Wednesday" });
     });
 
     it("creates regular pickup", () => {
-      $ctrl.isSeries = true;
-      $ctrl.byDay =  ["MO","TU"];
-      $ctrl.pickupData = {
+      $ctrl = $componentController("createPickup", {
+      }, {
+        data: {
+          storeId: 2,
+          series: true
+        }
+      });
+      $ctrl.$onInit();
+      expect($ctrl.isSeries).to.be.true;
+      Object.assign($ctrl.pickupData, {
         time: {
           getHours: () => {
             return 15;
@@ -96,23 +114,13 @@ describe("CreatePickup", () => {
             return 22;
           }
         },
-        max_collectors: 5
-      };
-      $ctrl.createPickup();
-
-      let start_date = new Date();
-      start_date.setHours(15);
-      start_date.setMinutes(22);
-      start_date.setSeconds(0);
-      start_date.setMilliseconds(0);
-
-      $httpBackend.expectPOST("/api/pickup-date-series/", {
-        "max_collectors": 5,
-        "start_date": start_date.toISOString(),
-        rule: "FREQ=WEEKLY;BYDAY=MO,TU",
-        store: 2
-      }).respond(201, "success");
-      $httpBackend.flush();
+        max_collectors: 5, //eslint-disable-line
+        rule: {
+          byDay: ["MO","TU"]
+        }
+      });
+      PickupDateSeries.create.withArgs().returns($q.resolve());
+      $ctrl.handleSubmit();
     });
   });
 

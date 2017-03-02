@@ -2,7 +2,7 @@ import PickupDateModule from "./pickupDate";
 
 let { module } = angular.mock;
 
-describe.only("pickupDate service", () => {
+describe("pickupDate service", () => {
   beforeEach(module(PickupDateModule));
 
   let $log;

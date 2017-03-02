@@ -15,18 +15,11 @@ class PickupManageController {
     }
 
     angular.forEach(this.series, (s) => {
-      // parse date
-      s.startDate = new Date(s.start_date);
-      delete s.start_date;
-
-      // parse rule into array
-      if (s.rule.indexOf("BYDAY") >= 0) {
-        s.$byDay = s.rule.split(";").find((e) => e.substr(0, 5) === "BYDAY").substr(6).split(",");
-      } else {
-        s.$byDay = [keys[s.startDate.getDay()]];
+      if (angular.isUndefined(s.rule.byDay)) {
+        s.rule.byDay = [keys[s.startDate.getDay()]];
       }
 
-      s.$byDayLong = s.$byDay.map((d) => this.$locale.DATETIME_FORMATS.DAY[this.dayLookup[d]]);
+      s.$byDayLong = s.rule.byDay.map((d) => this.$locale.DATETIME_FORMATS.DAY[this.dayLookup[d]]);
     });
 
     // select pickups without series

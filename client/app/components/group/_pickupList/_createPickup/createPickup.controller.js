@@ -38,9 +38,12 @@ class CreatePickupController {
     if (this.isSeries) {
       response = this.PickupDateSeries.create({
         "max_collectors": this.pickupData.maxCollectors,
-        "start_date": this.assembleDate(new Date(), this.pickupData.time),
+        startDate: this.assembleDate(new Date(), this.pickupData.time),
         store: this.storeId,
-        rule: `FREQ=WEEKLY;BYDAY=${this.byDay.join()}`
+        rule: {
+          freq: "WEEKLY",
+          byDay: this.byDay
+        }
       });
     } else {
       response = this.PickupDate.create({

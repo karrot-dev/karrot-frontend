@@ -53,10 +53,8 @@ class PickupDateComService {
 
   $parse(external) {
     Object.assign(external, {
-      date: new Date(external.date),
-      maxCollectors: external.max_collectors
+      date: new Date(external.date)
     });
-    delete external.max_collectors;
     return external;
   }
 
@@ -68,10 +66,6 @@ class PickupDateComService {
   }
 
   $serialize(internal) {
-    Object.assign(internal, {
-      "max_collectors": internal.maxCollectors
-    });
-    delete internal.maxCollectors;
     return internal;
   }
 }

@@ -16,8 +16,11 @@
 <md-list>
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SERIES"></span>
+    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: true})">
+      <i class="fa fa-plus-circle"></i>
+    </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="s in $ctrl.series" ng-click="null">
+  <md-list-item ng-repeat="s in $ctrl.series" ng-click="$ctrl.openPanel($event, {series:true, data: s})">
     <div layout-padding layout="row" layout-align="start center">
       <div>
         <i class="fa fa-clock-o"></i>
@@ -31,7 +34,7 @@
       </div>
       <div>
         <i class="fa fa-user"></i>
-        {{ s.max_collectors }}
+        {{ s.maxCollectors }}
       </div>
     </div>
   </md-list-item>
@@ -39,8 +42,11 @@
 
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SINGLE"></span>
+    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: false})">
+      <i class="fa fa-plus-circle"></i>
+    </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="p in $ctrl.pickups" ng-click="null">
+  <md-list-item ng-repeat="p in $ctrl.pickups" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
     <div layout-padding layout="row" layout-align="start center">
       <div>
         <i class="fa fa-clock-o"></i>
@@ -52,7 +58,7 @@
       </div>
       <div>
         <i class="fa fa-user"></i>
-        {{ p.max_collectors }}
+        {{ p.maxCollectors }}
       </div>
     </div>
   </md-list-item>

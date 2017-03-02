@@ -4,7 +4,7 @@ import "./createPickup.styl";
 
 let createPickupComponent = {
   bindings: {
-    storeId: "<"
+    data: "<"
   },
   template,
   controller

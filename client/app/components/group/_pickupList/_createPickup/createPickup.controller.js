@@ -6,51 +6,73 @@ class CreatePickupController {
       PickupDate,
       PickupDateSeries,
       $locale,
-      pickupData: {
-        date: new Date(),
-        maxCollectors: 2
-      },
-      isSeries: true,
-      mode: "series",
-      days: {}
+      isCreate: true,
+      days: {},
+      time: new Date()
     });
   }
 
   $onInit() {
+    Object.assign(this, {
+      isSeries: this.data.series,
+      mode: this.data.series ? "series" : "single"
+    });
+
     let keys = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
     for (let i = 0; i < 7; i++) {
       // let the week begin on Monday, because the FIRSTDAYOFWEEK value is usually set to Sunday
       this.days[(i + 6) % 7] = { key: keys[i], name: this.$locale.DATETIME_FORMATS.DAY[i] };
     }
-  }
 
-  assembleDate(date, time) {
-    let newDate = new Date(date);
-    newDate.setHours(time.getHours());
-    newDate.setMinutes(time.getMinutes());
-    newDate.setSeconds(0);
-    newDate.setMilliseconds(0);
-    return newDate;
-  }
+    // check if we get incoming data
+    if (angular.isDefined(this.data.editData)) {
+      this.isCreate = false;
+      // create a shortcut
+      this.pickupData = this.data.editData;
 
-  createPickup() {
-    let response;
-    if (this.isSeries) {
-      response = this.PickupDateSeries.create({
-        "max_collectors": this.pickupData.maxCollectors,
-        startDate: this.assembleDate(new Date(), this.pickupData.time),
-        store: this.storeId,
-        rule: {
-          freq: "WEEKLY",
-          byDay: this.byDay
+      if (this.data.series) {
+        this.copyTime(this.pickupData.startDate, this.time);
+      } else {
+        this.copyTime(this.pickupData.date, this.time);
+      }
+    // otherwise set default data for creation
+    } else {
+      Object.assign(this, {
+        pickupData: {
+          store: this.data.storeId,
+          date: new Date(),
+          maxCollectors: 2,
+          startDate: new Date(),
+          rule: {
+            freq: "WEEKLY",
+            byDay: [keys[(new Date()).getDay()]]
+          }
         }
       });
+    }
+  }
+
+  copyTime(source, dest) {
+    dest.setHours(source.getHours());
+    dest.setMinutes(source.getMinutes());
+  }
+
+  handleSubmit() {
+    let response;
+    if (this.isSeries) {
+      this.copyTime(this.time, this.pickupData.startDate);
+      if (this.isCreate) {
+        response = this.PickupDateSeries.create(this.pickupData);
+      } else {
+        response = this.PickupDateSeries.save(this.pickupData);
+      }
     } else {
-      response = this.PickupDate.create({
-        "max_collectors": this.pickupData.maxCollectors,
-        date: this.assembleDate(this.pickupData.date, this.pickupData.time),
-        store: this.storeId
-      });
+      this.copyTime(this.time, this.pickupData.date);
+      if (this.isCreate) {
+        response = this.PickupDate.create(this.pickupData);
+      } else {
+        response = this.PickupDate.save(this.pickupData);
+      }
     }
     return response.then((data) => {
       this.$mdDialog.hide(data);

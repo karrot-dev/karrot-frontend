@@ -1,8 +1,11 @@
 class PickupManageController {
-  constructor($locale) {
+  constructor($locale, $mdDialog, $document, $stateParams) {
     "ngInject";
     Object.assign(this, {
       $locale,
+      $mdDialog,
+      $document,
+      $stateParams,
       days: {}
     });
   }
@@ -24,6 +27,41 @@ class PickupManageController {
 
     // select pickups without series
     this.pickups = this.pickups.filter((p) => !p.series);
+  }
+
+  openPanel($event, config) {
+    let DialogController = function (data) {
+      "ngInject";
+      this.data = data;
+    };
+
+    this.$mdDialog.show({
+      parent: this.$document.body,
+      targetEvent: $event,
+      template: "<create-pickup data='$ctrl.data'></create-pickup>",
+      locals: {
+        data: {
+          storeId: this.$stateParams.storeId,
+          series: config.series,
+          editData: angular.copy(config.data)
+        }
+      },
+      controller: DialogController,
+      controllerAs: "$ctrl"
+    }).then((data) => {
+      if (config.data) {
+        // edited, update entry
+        angular.copy(data, config.data);
+      } else {
+        // new entry, add to list
+        if (angular.isUndefined(data.date)) {
+          this.series.push(data);
+        } else {
+          this.pickups.push(data);
+        }
+      }
+      this.$onInit();
+    });
   }
 }
 

@@ -1,11 +1,15 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import ngMaterial from "angular-material";
 import pickupDate from "../../../../services/pickupDate/pickupDate";
 import pickupManageComponent from "./pickupManage.component";
+import createPickup from "../../_pickupList/_createPickup/createPickup";
 
 let pickupManageModule = angular.module("pickupManage", [
   uiRouter,
-  pickupDate
+  ngMaterial,
+  pickupDate,
+  createPickup
 ])
 
 .component("pickupManage", pickupManageComponent)

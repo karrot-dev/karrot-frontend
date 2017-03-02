@@ -120,7 +120,8 @@
     "JOIN": "Join community"
   },
   "CREATEPICKUP": {
-    "TITLE": "Create Pickup",
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
     "SERIES": "Recurring",
     "SINGLE": "One-time pickup",
     "WEEKDAYS": "Weekdays",

@@ -67,7 +67,7 @@ describe("CreatePickup", () => {
             return 22;
           }
         },
-        maxCollectors: 5
+        max_collectors: 5 //eslint-disable-line
       };
       $ctrl.createPickup();
       let date = new Date(2016, 6, 14, 15, 22, 0);
@@ -96,19 +96,19 @@ describe("CreatePickup", () => {
             return 22;
           }
         },
-        maxCollectors: 5
+        max_collectors: 5
       };
       $ctrl.createPickup();
 
-      let startDate = new Date();
-      startDate.setHours(15);
-      startDate.setMinutes(22);
-      startDate.setSeconds(0);
-      startDate.setMilliseconds(0);
+      let start_date = new Date();
+      start_date.setHours(15);
+      start_date.setMinutes(22);
+      start_date.setSeconds(0);
+      start_date.setMilliseconds(0);
 
       $httpBackend.expectPOST("/api/pickup-date-series/", {
         "max_collectors": 5,
-        "start_date": startDate.toISOString(),
+        "start_date": start_date.toISOString(),
         rule: "FREQ=WEEKLY;BYDAY=MO,TU",
         store: 2
       }).respond(201, "success");

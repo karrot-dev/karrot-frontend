@@ -47,11 +47,11 @@
 
       <md-slider-container>
         <label><span translate="CREATEPICKUP.MAX_COLLECTORS"></span>:
-          <md-input-container><input tabindex="-1" name="MaxNoCollectors" ng-model="$ctrl.pickupData.maxCollectors"
+          <md-input-container><input tabindex="-1" name="MaxNoCollectors" ng-model="$ctrl.pickupData.max_collectors"
 -                 type="number" min=1 />
           </md-input-container>
         </label>
-        <md-slider md-discrete ng-model="$ctrl.pickupData.maxCollectors" step=1 min=1 max=9></md-slider>
+        <md-slider md-discrete ng-model="$ctrl.pickupData.max_collectors" step=1 min=1 max=9></md-slider>
       </md-slider-container>
 
       <div ng-if="$ctrl.isCreate" layout="row" layout-align="end center">

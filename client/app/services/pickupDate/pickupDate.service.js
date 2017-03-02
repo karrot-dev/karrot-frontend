@@ -52,17 +52,15 @@ class PickupDateComService {
   // conversion methods for this service
 
   $parse(external) {
-    Object.assign(external, {
-      date: new Date(external.date)
+    let incoming = angular.copy(external);
+    Object.assign(incoming, {
+      date: new Date(incoming.date)
     });
-    return external;
+    return incoming;
   }
 
   $parseList(external) {
-    angular.forEach(external, (entry) => {
-      this.$parse(entry);
-    });
-    return external;
+    return external.map((entry) => this.$parse(entry));
   }
 
   $serialize(internal) {

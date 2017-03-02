@@ -19,7 +19,7 @@ class PickupManageController {
 
     angular.forEach(this.series, (s) => {
       if (angular.isUndefined(s.rule.byDay)) {
-        s.rule.byDay = [keys[s.startDate.getDay()]];
+        s.rule.byDay = [keys[s.start_date.getDay()]];
       }
 
       s.$byDayLong = s.rule.byDay.map((d) => this.$locale.DATETIME_FORMATS.DAY[this.dayLookup[d]]);

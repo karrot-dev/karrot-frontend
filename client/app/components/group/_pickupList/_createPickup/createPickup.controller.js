@@ -31,7 +31,7 @@ class CreatePickupController {
       this.pickupData = this.data.editData;
 
       if (this.data.series) {
-        this.copyTime(this.pickupData.startDate, this.time);
+        this.copyTime(this.pickupData.start_date, this.time);
       } else {
         this.copyTime(this.pickupData.date, this.time);
       }
@@ -41,8 +41,8 @@ class CreatePickupController {
         pickupData: {
           store: this.data.storeId,
           date: new Date(),
-          maxCollectors: 2,
-          startDate: new Date(),
+          "max_collectors": 2,
+          "start_date": new Date(),
           rule: {
             freq: "WEEKLY",
             byDay: [keys[(new Date()).getDay()]]
@@ -60,7 +60,7 @@ class CreatePickupController {
   handleSubmit() {
     let response;
     if (this.isSeries) {
-      this.copyTime(this.time, this.pickupData.startDate);
+      this.copyTime(this.time, this.pickupData.start_date);
       if (this.isCreate) {
         response = this.PickupDateSeries.create(this.pickupData);
       } else {

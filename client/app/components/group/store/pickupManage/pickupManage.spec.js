@@ -46,7 +46,7 @@ describe("PickupManage", () => {
       });
       $ctrl.$onInit();
       expect($ctrl.dayLookup.SU).to.equal(0);
-      expect($ctrl.series[0].startDate.getDate()).to.equal(25);
+      expect($ctrl.series[0].start_date.getDate()).to.equal(25);
       expect($ctrl.series[0].$byDay).to.deep.equal(["WE", "TH"]);
       expect($ctrl.series[1].$byDay).to.deep.equal(["SA"]);
       expect($ctrl.series[1].$byDayLong).to.deep.equal(["Saturday"]);

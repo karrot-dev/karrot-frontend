@@ -37,32 +37,24 @@ class PickupDateSeriesService {
   // conversion methods for this service
 
   $parse(external) {
-    Object.assign(external, {
-      startDate: new Date(external.start_date),
-      rule: this.$parseRule(external.rule),
-      maxCollectors: external.max_collectors
+    let incoming = angular.copy(external);
+    Object.assign(incoming, {
+      start_date: new Date(incoming.start_date), //eslint-disable-line
+      rule: this.$parseRule(incoming.rule)
     });
-    delete external.start_date;
-    delete external.max_collectors;
-    return external;
+    return incoming;
   }
 
   $parseList(external) {
-    angular.forEach(external, (entry) => {
-      this.$parse(entry);
-    });
-    return external;
+    return external.map((entry) => this.$parse(entry));
   }
 
   $serialize(internal) {
-    Object.assign(internal, {
-      rule: this.$serializeRule(internal.rule),
-      "start_date": internal.startDate,
-      "max_collectors": internal.maxCollectors
+    let outgoing = angular.copy(internal);
+    Object.assign(outgoing, {
+      rule: this.$serializeRule(outgoing.rule)
     });
-    delete internal.startDate;
-    delete internal.maxCollectors;
-    return internal;
+    return outgoing;
   }
 
   $parseRule(rule) {

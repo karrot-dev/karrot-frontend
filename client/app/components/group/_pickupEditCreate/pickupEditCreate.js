@@ -1,15 +1,15 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
-import PickupDate from "../../../../services/pickupDate/pickupDate";
-import createPickupComponent from "./createPickup.component";
+import PickupDate from "../../../services/pickupDate/pickupDate";
+import pickupEditCreateComponent from "./pickupEditCreate.component";
 import moment from "moment";
 
-let createPickupModule = angular.module("createPickup", [
+let pickupEditCreateModule = angular.module("pickupEditCreate", [
   uiRouter,
   PickupDate
 ])
 
-.component("createPickup", createPickupComponent)
+.component("pickupEditCreate", pickupEditCreateComponent)
 
 .directive("customFormatHack", () => {
   "ngInject";
@@ -39,4 +39,4 @@ let createPickupModule = angular.module("createPickup", [
 
 .name;
 
-export default createPickupModule;
+export default pickupEditCreateModule;

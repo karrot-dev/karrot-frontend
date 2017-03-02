@@ -1,14 +1,14 @@
-import CreatePickupModule from "./createPickup";
-import CreatePickupController from "./createPickup.controller";
-import CreatePickupComponent from "./createPickup.component";
-import CreatePickupTemplate from "./createPickup.html";
+import pickupEditCreateModule from "./pickupEditCreate";
+import pickupEditCreateController from "./pickupEditCreate.controller";
+import pickupEditCreateComponent from "./pickupEditCreate.component";
+import pickupEditCreateTemplate from "./pickupEditCreate.html";
 
 const { module } = angular.mock;
 
-describe("CreatePickup", () => {
+describe("pickupEditCreate", () => {
   let $componentController, $httpBackend;
 
-  beforeEach(module(CreatePickupModule));
+  beforeEach(module(pickupEditCreateModule));
   beforeEach(() => {
     angular.mock.module(($provide) => {
       $provide.value("$mdDialog", {
@@ -37,8 +37,8 @@ describe("CreatePickup", () => {
   });
 
   describe("Module", () => {
-    it("is named createPickup", () => {
-      expect(CreatePickupModule).to.equal("createPickup");
+    it("is named pickupEditCreate", () => {
+      expect(pickupEditCreateModule).to.equal("pickupEditCreate");
     });
   });
 
@@ -57,7 +57,7 @@ describe("CreatePickup", () => {
     }));
 
     it("creates one-time pickup", () => {
-      $ctrl = $componentController("createPickup", {
+      $ctrl = $componentController("pickupEditCreate", {
       }, {
         data: {
           storeId: 2,
@@ -84,7 +84,7 @@ describe("CreatePickup", () => {
     });
 
     it("initializes", () => {
-      $ctrl = $componentController("createPickup", {
+      $ctrl = $componentController("pickupEditCreate", {
       }, {
         data: {
           storeId: 2,
@@ -96,7 +96,7 @@ describe("CreatePickup", () => {
     });
 
     it("creates regular pickup", () => {
-      $ctrl = $componentController("createPickup", {
+      $ctrl = $componentController("pickupEditCreate", {
       }, {
         data: {
           storeId: 2,
@@ -126,14 +126,14 @@ describe("CreatePickup", () => {
 
   describe("Component", () => {
     // component/directive specs
-    let component = CreatePickupComponent;
+    let component = pickupEditCreateComponent;
 
     it("includes the intended template",() => {
-      expect(component.template).to.equal(CreatePickupTemplate);
+      expect(component.template).to.equal(pickupEditCreateTemplate);
     });
 
     it("invokes the right controller", () => {
-      expect(component.controller).to.equal(CreatePickupController);
+      expect(component.controller).to.equal(pickupEditCreateController);
     });
   });
 });

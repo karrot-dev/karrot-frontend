@@ -306,7 +306,7 @@ describe("PickupList", () => {
       expect($ctrl.pickupToDelete.id).to.equal(87);
     });
 
-    describe("createPickup dialog", () => {
+    describe("pickupEditCreate dialog", () => {
       let $q, $rootScope;
       beforeEach(() => {
         inject(($injector) => {

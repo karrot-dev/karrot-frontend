@@ -16,7 +16,7 @@
       <span translate="CREATEPICKUP.SINGLE"></span>
     </md-nav-item>
   </md-nav-bar>
-  <form ng-submit='$ctrl.handleSubmit()' name="pickupForm" promise-btn>
+  <form ng-submit='$ctrl.handleSubmit()' name="pickupEditCreateForm" promise-btn>
     <div layout-padding layout="column">
       <div layout layout-padding>
         <div ng-if="$ctrl.isSeries">
@@ -39,7 +39,7 @@
           <md-icon class="fa fa-clock-o fa-2x"></md-icon>
           <input ng-model="$ctrl.time" name="time" placeholder="20:00"
                  type="time" custom-format-hack required />
-          <div ng-messages="pickupForm.time.$error" role="alert">
+          <div ng-messages="pickupEditCreateForm.time.$error" role="alert">
             <span ng-message="time" translate="CREATEPICKUP.TIME_ERROR"></span>
           </div>
         </md-input-container>
@@ -58,7 +58,7 @@
         <md-button ng-click="$ctrl.closePanel()">
           <span translate="BUTTON.CANCEL"></span>
         </md-button>
-        <md-button class="md-raised md-primary" type="submit" ng-disabled="createPickupForm.$invalid">
+        <md-button class="md-raised md-primary" type="submit" ng-disabled="pickupEditCreateForm.$invalid">
           <span translate="BUTTON.CREATE"></span>
         </md-button>
       </div>
@@ -66,7 +66,7 @@
         <md-button ng-click="$ctrl.closePanel()">
           <i class="fa fa-times"></i>
         </md-button>
-        <md-button class="md-raised md-primary" type="submit" ng-disabled="createPickupForm.$invalid">
+        <md-button class="md-raised md-primary" type="submit" ng-disabled="pickupEditCreateForm.$invalid">
           <i class="fa fa-check"></i>
         </md-button>
       </div>

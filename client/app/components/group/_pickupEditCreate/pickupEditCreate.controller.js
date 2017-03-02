@@ -1,4 +1,4 @@
-class CreatePickupController {
+class pickupEditCreateController {
   constructor($mdDialog, PickupDate, PickupDateSeries, $locale) {
     "ngInject";
     Object.assign(this, {
@@ -84,4 +84,4 @@ class CreatePickupController {
   }
 }
 
-export default CreatePickupController;
+export default pickupEditCreateController;

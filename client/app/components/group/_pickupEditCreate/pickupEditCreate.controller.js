@@ -1,3 +1,5 @@
+import moment from "moment";
+
 class pickupEditCreateController {
   constructor($mdDialog, PickupDate, PickupDateSeries, $locale) {
     "ngInject";
@@ -8,7 +10,7 @@ class pickupEditCreateController {
       $locale,
       isCreate: true,
       days: {},
-      time: new Date()
+      timeExample: moment(new Date()).format("LT")
     });
   }
 
@@ -30,11 +32,16 @@ class pickupEditCreateController {
       // create a shortcut
       this.pickupData = this.data.editData;
 
+      this.time = new Date();
       if (this.data.series) {
         this.copyTime(this.pickupData.start_date, this.time);
       } else {
         this.copyTime(this.pickupData.date, this.time);
       }
+      this.time = {
+        moment: moment(this.time),
+        text: moment(this.time).format("LT")
+      };
     // otherwise set default data for creation
     } else {
       Object.assign(this, {
@@ -50,6 +57,9 @@ class pickupEditCreateController {
         }
       });
     }
+
+    this.timeChoices = this.getTimeChoices(false);
+    this.allTimeChoices = this.getTimeChoices(true);
   }
 
   copyTime(source, dest) {
@@ -57,17 +67,39 @@ class pickupEditCreateController {
     dest.setMinutes(source.getMinutes());
   }
 
+  timeLookup(text) {
+    if (!text) {
+      return this.timeChoices;
+    } else {
+      return this.allTimeChoices.filter((e) => e.text.startsWith(text));
+    }
+  }
+
+  getTimeChoices(all) {
+    let list = [];
+    for (let h = 0; h < 24; h++) {
+      for (let m = 0; m < 60; m += all ? 1 : 15) {
+        let suggestion = moment().hour(h).minute(m);
+        list.push({
+          moment: suggestion,
+          text: suggestion.format("LT")
+        });
+      }
+    }
+    return list;
+  }
+
   handleSubmit() {
     let response;
     if (this.isSeries) {
-      this.copyTime(this.time, this.pickupData.start_date);
+      this.copyTime(this.time.moment.toDate(), this.pickupData.start_date);
       if (this.isCreate) {
         response = this.PickupDateSeries.create(this.pickupData);
       } else {
         response = this.PickupDateSeries.save(this.pickupData);
       }
     } else {
-      this.copyTime(this.time, this.pickupData.date);
+      this.copyTime(this.time.moment.toDate(), this.pickupData.date);
       if (this.isCreate) {
         response = this.PickupDate.create(this.pickupData);
       } else {

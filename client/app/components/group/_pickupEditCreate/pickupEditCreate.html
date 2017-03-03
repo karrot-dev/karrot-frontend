@@ -34,15 +34,33 @@
           <md-datepicker required ng-model="$ctrl.pickupData.date" md-placeholder="Enter date" md-open-on-focus md-hide-icons="triangle"></md-datepicker>
         </md-input-container>
 
-        <md-input-container>
-          <label translate="CREATEPICKUP.TIME"></label>
-          <md-icon class="fa fa-clock-o fa-2x"></md-icon>
-          <input ng-model="$ctrl.time" name="time" placeholder="20:00"
-                 type="time" local-time-input required />
-          <div ng-messages="pickupEditCreateForm.time.$error" role="alert">
-            <span ng-message="time" translate="CREATEPICKUP.TIME_ERROR"></span>
+        <md-autocomplete
+          required
+          name="time"
+          md-no-cache="true"
+          md-autofocus="true"
+          md-autoselect="true"
+          md-require-match="true"
+          md-min-length="0"
+          md-clear-button="false"
+          md-search-text="text"
+          md-items="time in $ctrl.timeLookup(text)"
+          md-item-text="time.text"
+          md-selected-item="$ctrl.time"
+          md-floating-label="{{ 'CREATEPICKUP.TIME' | translate }}">
+          <md-item-template>
+            <span md-highlight-text="text" md-highlight-flags="^i">{{time.text}}</span>
+          </md-item-template>
+          <md-not-found>
+            <span translate="CREATEPICKUP.TIME_ERROR" translate-values="{ timeExample: $ctrl.timeExample }"></span>
+          </md-not-found>
+          <div ng-messages="pickupEditCreateForm.time.$error" ng-if="pickupEditCreateForm.time.$touched">
+            <div ng-message="required, md-require-match">
+              <span translate="CREATEPICKUP.TIME_ERROR" translate-values="{ timeExample: $ctrl.timeExample }"></span>
+            </div>
           </div>
-        </md-input-container>
+
+        </md-autocomplete>
       </div>
 
       <md-slider-container>

@@ -38,7 +38,7 @@ class PickupManageController {
     this.$mdDialog.show({
       parent: this.$document.body,
       targetEvent: $event,
-      template: "<create-pickup data='$ctrl.data'></create-pickup>",
+      template: "<pickup-edit-create data='$ctrl.data'></pickup-edit-create>",
       locals: {
         data: {
           storeId: this.$stateParams.storeId,

@@ -2,7 +2,6 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import PickupDate from "../../../services/pickupDate/pickupDate";
 import pickupEditCreateComponent from "./pickupEditCreate.component";
-import localTimeInputDirective from "./localTimeInput.directive";
 
 let pickupEditCreateModule = angular.module("pickupEditCreate", [
   uiRouter,
@@ -10,8 +9,6 @@ let pickupEditCreateModule = angular.module("pickupEditCreate", [
 ])
 
 .component("pickupEditCreate", pickupEditCreateComponent)
-
-.directive("localTimeInput", localTimeInputDirective)
 
 .name;
 

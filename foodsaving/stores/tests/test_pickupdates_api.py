@@ -14,6 +14,14 @@ from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupD
 from foodsaving.users.factories import UserFactory
 
 
+def shift_date_in_local_time(old_date, delta, tz):
+    # keeps local time equal, even through daylight saving time transitions
+    # e.g. 20:00 + 1 day is always 20:00 on the next day, even if UTC offset changes
+    old_date = old_date.astimezone(tz).replace(tzinfo=None)
+    new_date = old_date + delta
+    return tz.localize(new_date)
+
+
 class TestPickupDateSeriesCreationAPI(APITestCase):
     """
     This is an integration test for the pickup-date-series API
@@ -70,7 +78,7 @@ class TestPickupDateSeriesCreationAPI(APITestCase):
 
         url = '/api/pickup-dates/'
         created_pickup_dates = []
-        # do recurrence calculcation in local time to avoid daylight saving time problems
+        # do recurrence calculation in local time to avoid daylight saving time problems
         tz = self.group.timezone
         dates_list = recurrence.replace(
             dtstart=timezone.now().astimezone(tz).replace(hour=20, minute=0, second=0, microsecond=0, tzinfo=None)
@@ -149,7 +157,10 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for response_pickup, old_date in zip(response.data, original_dates):
-            self.assertEqual(parse(response_pickup['date']), old_date + relativedelta(hours=2, minutes=20))
+            self.assertEqual(
+                parse(response_pickup['date']),
+                shift_date_in_local_time(old_date, relativedelta(hours=2, minutes=20), self.group.timezone)
+            )
 
     def test_change_start_date_to_future(self):
         self.client.force_login(user=self.member)
@@ -171,12 +182,10 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for response_pickup, old_date in zip_longest(response.data, original_dates):
-            # do calculations in local time to handle daylight saving time shift
-            tz = self.group.timezone
-            old_date = old_date.astimezone(tz).replace(tzinfo=None)
-            new_date = old_date + relativedelta(days=5)
-            new_date = tz.localize(new_date)
-            self.assertEqual(parse(response_pickup['date']), new_date)
+            self.assertEqual(
+                parse(response_pickup['date']),
+                shift_date_in_local_time(old_date, relativedelta(days=5), self.group.timezone)
+            )
 
     def test_change_start_date_to_past(self):
         self.client.force_login(user=self.member)
@@ -197,9 +206,10 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         url = '/api/pickup-dates/'
         response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+
         # shifting 5 days to the past is similar to shifting 2 days to the future
-        new_dates = [_ + relativedelta(days=2) for _ in original_dates if (_ + relativedelta(days=2)) > self.now]
-        for response_pickup, new_date in zip_longest(response.data, new_dates):
+        for response_pickup, old_date in zip_longest(response.data, original_dates):
+            new_date = shift_date_in_local_time(old_date, relativedelta(days=2), self.group.timezone)
             if new_date > self.now + relativedelta(weeks=self.store.weeks_in_advance):
                 # date too far in future
                 self.assertIsNone(response_pickup)

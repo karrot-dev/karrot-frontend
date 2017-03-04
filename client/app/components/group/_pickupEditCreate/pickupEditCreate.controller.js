@@ -29,14 +29,28 @@ class pickupEditCreateController {
     // check if we get incoming data
     if (angular.isDefined(this.data.editData)) {
       this.isCreate = false;
-      // create a shortcut
-      this.pickupData = this.data.editData;
+
+      // shared pickup data
+      // note that we do partial updates on the server, so we don't need to copy *all* values
+      this.pickupData = {
+        id: this.data.editData.id,
+        "max_collectors": this.data.editData.max_collectors,
+        store: this.data.editData.store
+      };
 
       this.time = new Date();
+      // splitted pickup data and copy time to autocomplete input
       if (this.data.series) {
-        this.copyTime(this.pickupData.start_date, this.time);
+        this.seriesData = {
+          "start_date": this.data.editData.start_date,
+          rule: this.data.editData.rule
+        };
+        this.copyTime(this.seriesData.start_date, this.time);
       } else {
-        this.copyTime(this.pickupData.date, this.time);
+        this.singleData = {
+          date: this.data.editData.date
+        };
+        this.copyTime(this.singleData.date, this.time);
       }
       this.time = {
         moment: moment(this.time),
@@ -45,10 +59,15 @@ class pickupEditCreateController {
     // otherwise set default data for creation
     } else {
       Object.assign(this, {
+        // shared data
         pickupData: {
           store: this.data.storeId,
-          date: new Date(),
-          "max_collectors": 2,
+          "max_collectors": 2
+        },
+        singleData: {
+          date: new Date()
+        },
+        seriesData: {
           "start_date": new Date(),
           rule: {
             freq: "WEEKLY",
@@ -57,7 +76,6 @@ class pickupEditCreateController {
         }
       });
     }
-
     this.timeChoices = this.getTimeChoices(false);
     this.allTimeChoices = this.getTimeChoices(true);
   }
@@ -92,18 +110,20 @@ class pickupEditCreateController {
   handleSubmit() {
     let response;
     if (this.isSeries) {
-      this.copyTime(this.time.moment.toDate(), this.pickupData.start_date);
+      this.copyTime(this.time.moment.toDate(), this.seriesData.start_date);
+      let outgoing = angular.merge({}, this.pickupData, this.seriesData);
       if (this.isCreate) {
-        response = this.PickupDateSeries.create(this.pickupData);
+        response = this.PickupDateSeries.create(outgoing);
       } else {
-        response = this.PickupDateSeries.save(this.pickupData);
+        response = this.PickupDateSeries.save(outgoing);
       }
     } else {
-      this.copyTime(this.time.moment.toDate(), this.pickupData.date);
+      this.copyTime(this.time.moment.toDate(), this.singleData.date);
+      let outgoing = angular.merge({}, this.pickupData, this.singleData);
       if (this.isCreate) {
-        response = this.PickupDate.create(this.pickupData);
+        response = this.PickupDate.create(outgoing);
       } else {
-        response = this.PickupDate.save(this.pickupData);
+        response = this.PickupDate.save(outgoing);
       }
     }
     return response.then((data) => {

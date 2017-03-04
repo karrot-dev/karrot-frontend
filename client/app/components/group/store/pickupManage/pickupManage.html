@@ -28,7 +28,7 @@
       </div>
       <div>
         <i class="fa fa-calendar"></i>
-        <span ng-repeat="day in s.$byDayLong">
+        <span ng-repeat="day in $ctrl.getDayNames(s)">
           <span>{{day}}<i ng-hide="$last">, </i></span>
         </span>
       </div>
@@ -46,7 +46,7 @@
       <i class="fa fa-plus-circle"></i>
     </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="p in $ctrl.pickups" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
+  <md-list-item ng-repeat="p in $ctrl.getSinglePickups()" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
     <div layout-padding layout="row" layout-align="start center">
       <div>
         <i class="fa fa-clock-o"></i>

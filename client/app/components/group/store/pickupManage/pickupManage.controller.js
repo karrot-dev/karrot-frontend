@@ -8,25 +8,30 @@ class PickupManageController {
       $stateParams,
       days: {}
     });
+
+    this.keys = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+    this.dayLookup = {};
+    for (let i = 0; i < 7; i++) {
+      this.dayLookup[this.keys[i]] = i;
+    }
   }
 
   $onInit() {
-    let keys = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
-    this.dayLookup = {};
-    for (let i = 0; i < 7; i++) {
-      this.dayLookup[keys[i]] = i;
-    }
-
     angular.forEach(this.series, (s) => {
+      // handle old creation behavior where byDay can be undefined
+      // -> can be removed after a while
       if (angular.isUndefined(s.rule.byDay)) {
-        s.rule.byDay = [keys[s.start_date.getDay()]];
+        s.rule.byDay = [this.keys[s.start_date.getDay()]];
       }
-
-      s.$byDayLong = s.rule.byDay.map((d) => this.$locale.DATETIME_FORMATS.DAY[this.dayLookup[d]]);
     });
+  }
 
-    // select pickups without series
-    this.pickups = this.pickups.filter((p) => !p.series);
+  getDayNames(series) {
+    return series.rule.byDay.map((d) => this.$locale.DATETIME_FORMATS.DAY[this.dayLookup[d]]);
+  }
+
+  getSinglePickups() {
+    return this.pickups.filter((p) => !p.series);
   }
 
   openPanel($event, config) {
@@ -55,12 +60,12 @@ class PickupManageController {
       } else {
         // new entry, add to list
         if (angular.isUndefined(data.date)) {
+          // detected a series through missing date
           this.series.push(data);
         } else {
           this.pickups.push(data);
         }
       }
-      this.$onInit();
     });
   }
 }

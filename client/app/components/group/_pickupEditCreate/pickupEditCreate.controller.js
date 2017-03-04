@@ -10,7 +10,9 @@ class pickupEditCreateController {
       $locale,
       isCreate: true,
       days: {},
-      timeExample: moment(new Date()).format("LT")
+      timeExample: moment(new Date()).format("LT"),
+      timeChoices: this.getTimeChoices(false),
+      allTimeChoices: this.getTimeChoices(true)
     });
   }
 
@@ -73,11 +75,10 @@ class pickupEditCreateController {
             freq: "WEEKLY",
             byDay: [keys[(new Date()).getDay()]]
           }
-        }
+        },
+        time: this.timeChoices[40]
       });
     }
-    this.timeChoices = this.getTimeChoices(false);
-    this.allTimeChoices = this.getTimeChoices(true);
   }
 
   copyTime(source, dest) {

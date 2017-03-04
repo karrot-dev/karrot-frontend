@@ -56,9 +56,25 @@ describe("pickupEditCreate", () => {
       sinon.stub(PickupDateSeries, "save");
     }));
 
+    let mockTime = (hour, minute) => {
+      return {
+        moment: {
+          toDate: () => {
+            return {
+              getHours: () => {
+                return hour;
+              },
+              getMinutes: () => {
+                return minute;
+              }
+            };
+          }
+        }
+      };
+    };
+
     it("creates one-time pickup", () => {
-      $ctrl = $componentController("pickupEditCreate", {
-      }, {
+      $ctrl = $componentController("pickupEditCreate", {}, {
         data: {
           storeId: 2,
           series: false
@@ -68,24 +84,16 @@ describe("pickupEditCreate", () => {
       expect($ctrl.isSeries).to.be.false;
       $ctrl.pickupData = {
         date: new Date(2016,6,14),
-        time: {
-          getHours: () => {
-            return 15;
-          },
-          getMinutes: () => {
-            return 22;
-          }
-        },
         max_collectors: 5 //eslint-disable-line
       };
+      $ctrl.time = mockTime(15, 22);
       PickupDate.create.withArgs().returns($q.resolve());
       $ctrl.handleSubmit();
       $rootScope.$apply();
     });
 
     it("initializes", () => {
-      $ctrl = $componentController("pickupEditCreate", {
-      }, {
+      $ctrl = $componentController("pickupEditCreate", {}, {
         data: {
           storeId: 2,
           series: true
@@ -105,22 +113,17 @@ describe("pickupEditCreate", () => {
       });
       $ctrl.$onInit();
       expect($ctrl.isSeries).to.be.true;
-      Object.assign($ctrl.pickupData, {
-        time: {
-          getHours: () => {
-            return 15;
-          },
-          getMinutes: () => {
-            return 22;
-          }
-        },
+      $ctrl.pickupData = {
+        start_date: new Date(), //eslint-disable-line
         max_collectors: 5, //eslint-disable-line
         rule: {
           byDay: ["MO","TU"]
         }
-      });
+      };
+      $ctrl.time = mockTime(15, 22);
       PickupDateSeries.create.withArgs().returns($q.resolve());
       $ctrl.handleSubmit();
+      $rootScope.$apply();
     });
   });
 

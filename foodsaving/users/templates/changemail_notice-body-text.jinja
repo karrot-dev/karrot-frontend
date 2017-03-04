@@ -1,0 +1,8 @@
+{% trans full_name=user.get_full_name(), url=resolve_front_url('change-email'), new_mail=user.unverified_email %}
+Hello {{ full_name }},
+your email address got changed on foodsaving.world.
+The new email address is {{ new_mail }}.
+
+Yours,
+the foodsaving.world team
+{% endtrans %}

@@ -1,0 +1,12 @@
+{% trans full_name=user.get_full_name(), url=resolve_front_url('verify-email', user.verification_token) %}
+Hello {{ full_name }},
+thank you for signing up to foodsaving.world!
+Please click the following link to confirm your email:
+
+{{ url }}
+
+You can safely ignore this message if you it wasn't you who signed up at our service using this email address.
+
+Yours,
+the foodsaving.world team
+{% endtrans %}

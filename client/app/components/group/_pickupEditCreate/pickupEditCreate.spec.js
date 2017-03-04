@@ -84,6 +84,10 @@ describe("pickupEditCreate", () => {
       });
       $ctrl.$onInit();
       expect($ctrl.days[2]).to.deep.equal({ key: "WE", name: "Wednesday" });
+
+      // assumes that this test is run with the default "en" locale of moment.js
+      expect($ctrl.timeLookup("8:00 PM").length).to.equal(1);
+      expect($ctrl.timeLookup().length).to.equal(96);
     });
 
     it("creates one-time pickup", () => {

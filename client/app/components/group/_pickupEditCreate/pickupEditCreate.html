@@ -25,13 +25,13 @@
               <span translate="CREATEPICKUP.HINT_MULTIPLE"></span>
             </md-tooltip>
           </div>
-          <select multiple ng-model="$ctrl.pickupData.rule.byDay" size="7">
+          <select multiple ng-model="$ctrl.seriesData.rule.byDay" size="7">
             <option ng-repeat="day in $ctrl.days" value="{{day.key}}">{{day.name}}</option>
           </select>
         </div>
 
         <md-input-container ng-if="!$ctrl.isSeries">
-          <md-datepicker required ng-model="$ctrl.pickupData.date" md-placeholder="Enter date" md-open-on-focus md-hide-icons="triangle"></md-datepicker>
+          <md-datepicker required ng-model="$ctrl.singleData.date" md-placeholder="Enter date" md-open-on-focus md-hide-icons="triangle"></md-datepicker>
         </md-input-container>
 
         <md-autocomplete

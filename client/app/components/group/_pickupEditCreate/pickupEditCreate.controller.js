@@ -67,7 +67,7 @@ class pickupEditCreateController {
           "max_collectors": 2
         },
         singleData: {
-          date: new Date()
+          date: moment().add(1, "days").toDate()
         },
         seriesData: {
           "start_date": new Date(),

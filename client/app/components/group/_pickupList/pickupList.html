@@ -48,7 +48,8 @@
           show-detail="$ctrl.options.showDetail"
           on-delete="$ctrl.delete(pickup)"
           parent-ctrl="$ctrl"
-          data="pickup">
+          data="pickup"
+          meta="{isFull: $ctrl.isFull(pickup)}">
         </pickup-list-item>
       </md-list>
     </section>

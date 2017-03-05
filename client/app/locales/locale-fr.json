@@ -4,8 +4,8 @@
     "DEVMAIL_NOTE":"Écris-nous un mail s'il ya des erreurs/suggestions",
     "WARNING":"Attention",
     "BETA_WARNING": "Cette page est dévéloppée continuement et les informations sont régulièrement actualisées. Nous ne pouvons pas garantir la sécurité des données, mais nous faisons tout pour optimiser le niveau de protection !",
-    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
-    "SERVER_ERROR": "Server error"
+    "CONNECTION_INTERRUPTED": "Erreur: connexion interrompu!",
+    "SERVER_ERROR": "Erreur de serveur"
   },
   "ACTION_NOTICE": {
     "TITLE": "Appel à collaborer!",
@@ -21,16 +21,16 @@
     "CREATE": "Créer",
     "CANCEL": "Annuler",
     "DELETE": "Effacer",
-    "EDIT": "Edit",
+    "EDIT": "Traiter",
     "JOIN": "Rejoindre",
-    "LEAVE": "Leave",
-    "PREVIEW": "Preview"
+    "LEAVE": "Quitter",
+    "PREVIEW": "Aperçu"
   },
   "GROUP": {
     "LEAVE": "Quitter le groupe...",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "LEAVE_TEXT": "Es-tu sûr que tu veux quitter ce groupe?",
     "EDIT": "Traite groupe",
-    "CREATE_TITLE": "Create new group",
+    "CREATE_TITLE": "Créer un nouvel groupe",
     "TITLE": "Titre du group",
     "DESCRIPTION_VERBOSE": "Déscription du groupe, accessible pour membres",
     "PUBLIC_DESCRIPTION": "Texte publiquement accessible (avant de rejoindre le groupe)",
@@ -39,18 +39,18 @@
     "MEMBERS": "Membres",
     "STORES": "Magasins",
     "DESCRIPTION": "Déscription",
-    "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group"
+    "ADDRESS": "Addresse",
+    "TIMEZONE": "Fuseau horaire du groupe"
   },
   "STOREDETAIL": {
     "EDIT": "Traiter magasin",
     "ADDRESS": "Adresse"
   },
   "STOREEDIT": {
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
+    "NAME": "Nom",
+    "DESCRIPTION": "Déscription",
+    "ADDRESS": "Addresse",
+    "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?"
   },
   "USERDETAIL": {
     "EDIT": "Traiter utilisateur",
@@ -100,10 +100,10 @@
   },
   "CREATEPICKUP": {
     "TITLE": "Créer une récolte",
-    "SERIES": "Recurring",
-    "SINGLE": "One-time pickup",
-    "WEEKDAYS": "Weekdays",
-    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
+    "SERIES": "Récurrent",
+    "SINGLE": "Individuel",
+    "WEEKDAYS": "Jour du semaine",
+    "HINT_MULTIPLE": "C'est possible de selectionner des jours multiples, p. ex. en maintenant la touche <Ctrl> enfoncée. ",
     "TIME": "Temps",
     "TIME_ERROR": "Entrer le format et les unités horaires valides : [hh:mm]",
     "MAX_COLLECTORS": "Nombre maximum d'emplacements"
@@ -126,7 +126,7 @@
       "FULL": "Complet",
       "DELETE": "Efface cette récolte",
       "DELETE_TEXT": "Tu es sure que tu veux effacer cette récolte?",
-      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
+      "DELETE_SERIES_TEXT": "Cette récolte est recurrente. Effacer toute la serie?"
     },
     "NONE":"Aucune récoltes à venir",
     "NONE_HINT":"Tu peux créer un nouveau récolte à la page du magasin."
@@ -143,10 +143,10 @@
     "ADD_MORE": "Ajouter des langues!"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "ITALIC": "italic",
-    "STRIKE": "strike",
-    "QUOTE": "quote",
-    "HELP": "What is Markdown?"
+    "BOLD": "gras",
+    "ITALIC": "italique",
+    "STRIKE": "barré",
+    "QUOTE": "citation",
+    "HELP": "Markdown c'est quoi?"
   }
 }

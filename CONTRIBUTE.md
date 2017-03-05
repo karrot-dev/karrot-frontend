@@ -15,6 +15,43 @@ The feature will get merged if there is no resistance from the development team.
 * follow the style guide
 * be awesome and passionate
 
+## Development workflow
+
+To fix a bug or to add a new feature, the workflow is roughly the following. First, switch to master, get the lastest version and update your dependencies:
+
+```sh
+git checkout master
+git pull
+npm install
+npm up
+npm prune
+```
+
+Then you are ready to start working. Turn on the development server and open the URL (usually http://localhost:3000). As soon as you change a file in the repository and save it, it will automatically reload the page.
+
+```sh
+npm run dev
+```
+
+If you are finished with your work, you should run the tests and check the code style.
+
+```sh
+npm run test:watch
+npm run lint
+```
+
+You can use `npm run test` to disable the restarting the tests after a file changed. Also, if you use an IDE that supports [code style plugins](#code-style), you can usually skip the `lint` step.
+
+```sh
+git checkout -b newBranchForIssue
+git diff
+git add .
+git commit
+git push
+```
+
+If you now visit github.com/yunity/foodsaving-frontend, there should be a message that you can open a Pull Request for your recently pushed branch
+
 ## Adding features
 
 ### Add components
@@ -53,7 +90,8 @@ Add services by executing `gulp service --name <service>`.
 
 ## Code style
 * use the *.editorconfig* file (for atom: install *editorconfig* module)
-* Use ES6 features (except of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
+* check your code style with `npm run lint`, or better: install an `eslint` plugin in your IDE
+* Use ES6 features (but use `$q` of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
 * Avoid creating directives
 * Avoid global components, import them where needed
 

@@ -131,10 +131,7 @@
     "MAX_COLLECTORS": "Max Slots"
   },
   "CREATESTORE": {
-    "TITLE": "Create a new store",
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address"
+    "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
     "FILTER": "Filter",

@@ -95,7 +95,8 @@ class PickupDateJoinSerializer(serializers.ModelSerializer):
             sender=self.__class__,
             group=pickup_date.store.group,
             store=pickup_date.store,
-            user=user
+            user=user,
+            payload={'store_name': pickup_date.store.name}
         )
         return pickup_date
 
@@ -112,7 +113,8 @@ class PickupDateLeaveSerializer(serializers.ModelSerializer):
             sender=self.__class__,
             group=pickup_date.store.group,
             store=pickup_date.store,
-            user=user
+            user=user,
+            payload={'store_name': pickup_date.store.name}
         )
         return pickup_date
 

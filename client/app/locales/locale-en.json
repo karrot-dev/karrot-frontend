@@ -120,20 +120,18 @@
     "JOIN": "Join community"
   },
   "CREATEPICKUP": {
-    "TITLE": "Create Pickup",
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
     "SERIES": "Recurring",
     "SINGLE": "One-time pickup",
     "WEEKDAYS": "Weekdays",
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Time",
-    "TIME_ERROR": "enter a valid time: [hh:mm]",
+    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
     "MAX_COLLECTORS": "Max Slots"
   },
   "CREATESTORE": {
-    "TITLE": "Create a new store",
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address"
+    "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
     "FILTER": "Filter",
@@ -152,7 +150,7 @@
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."
   },
-  "PASSSWORDRESET": {
+  "PASSWORDRESET": {
     "TITLE": "Password reset",
     "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
     "EMAIL": "Mail address",

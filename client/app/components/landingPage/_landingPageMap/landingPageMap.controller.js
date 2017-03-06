@@ -12,7 +12,7 @@ class LandingPageMapController {
       defaults: {
         scrollWheelZoom: false,
         maxZoom: 5,
-        tileLayer: "http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",
+        tileLayer: "https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg",
         tileLayerOptions: {
           attribution:
             "Map tiles by <a href='http://stamen.com'>Stamen Design</a>,\n\ under\n\

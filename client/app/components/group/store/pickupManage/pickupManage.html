@@ -16,16 +16,19 @@
 <md-list>
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SERIES"></span>
+    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: true})">
+      <i class="fa fa-plus-circle"></i>
+    </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="s in $ctrl.series" ng-click="null">
+  <md-list-item ng-repeat="s in $ctrl.series" ng-click="$ctrl.openPanel($event, {series:true, data: s})">
     <div layout-padding layout="row" layout-align="start center">
       <div>
         <i class="fa fa-clock-o"></i>
-        {{ s.startDate | date:'shortTime' }}
+        {{ s.start_date | date:'shortTime' }}
       </div>
       <div>
         <i class="fa fa-calendar"></i>
-        <span ng-repeat="day in s.$byDayLong">
+        <span ng-repeat="day in $ctrl.getDayNames(s)">
           <span>{{day}}<i ng-hide="$last">, </i></span>
         </span>
       </div>
@@ -39,8 +42,11 @@
 
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SINGLE"></span>
+    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: false})">
+      <i class="fa fa-plus-circle"></i>
+    </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="p in $ctrl.pickups" ng-click="null">
+  <md-list-item ng-repeat="p in $ctrl.getSinglePickups()" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
     <div layout-padding layout="row" layout-align="start center">
       <div>
         <i class="fa fa-clock-o"></i>

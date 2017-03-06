@@ -12,6 +12,13 @@
     "TEXT": "Хотели бы вы запустить фудсейвинг-проект или создать сообщество фудшеринга? Знаете ли вы кого-то, кто уже этим занимается?",
     "MAIL_TEXT": "Напишите нам!"
   },
+  "LANDINGPAGE": {
+    "BLOG": "Blog",
+    "TEAM": "Team",
+    "LOGIN": "Login",
+    "SEE_OUR_MAP": "Have a look at our map!",
+    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+  },
   "USERDATA": {
     "EMAIL": "Электронная почта",
     "PASSWORD": "Пароль",
@@ -24,7 +31,11 @@
     "EDIT": "Edit",
     "JOIN": "Вступить",
     "LEAVE": "Leave",
-    "PREVIEW": "Preview"
+    "PREVIEW": "Preview",
+    "BACK": "Back"
+  },
+  "FORM": {
+    "MINLENGTH": "Please enter more than {{min}} characters."
   },
   "GROUP": {
     "LEAVE": "Выйти из группы",
@@ -38,19 +49,26 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Участники",
     "STORES": "Точки",
+    "HISTORY":"History",
     "DESCRIPTION": "Описание",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group"
   },
   "STOREDETAIL": {
     "EDIT": "Внести изменения",
-    "ADDRESS": "Адрес"
+    "ADDRESS": "Адрес",
+    "MANAGE": "Check and manage the pickups"
   },
   "STOREEDIT": {
     "NAME": "Name",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups"
   },
   "USERDETAIL": {
     "EDIT": "Редактировать пользователя",
@@ -59,6 +77,9 @@
     "DESCRIPTION": "О себе",
     "PASSWORD_CHANGE": "Сменить пароль (выйти из системы) ",
     "PASSWORD": "Введите новый пароль"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
     "NAME": "Имя",
@@ -99,20 +120,18 @@
     "JOIN": "Вступить в группу"
   },
   "CREATEPICKUP": {
-    "TITLE": "Create Pickup",
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
     "SERIES": "Recurring",
     "SINGLE": "One-time pickup",
     "WEEKDAYS": "Weekdays",
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Время",
-    "TIME_ERROR": "введите правильное время: [час.;мин.]",
+    "TIME_ERROR": "введите правильное время: {{timeExample}}",
     "MAX_COLLECTORS": "Максимальное количество слотов"
   },
   "CREATESTORE": {
-    "TITLE": "Создать новую точку",
-    "NAME": "Название",
-    "DESCRIPTION": "Описание",
-    "ADDRESS": "Адрес"
+    "TITLE": "Создать новую точку"
   },
   "PICKUPLIST": {
     "FILTER": "Фильтр",
@@ -131,7 +150,7 @@
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."
   },
-  "PASSSWORDRESET": {
+  "PASSWORDRESET": {
     "TITLE": "Сброс пароля",
     "INTRO": "Введите свой электронный адрес и мы вышлем вам новый пароль (если вы являетесь зарегистрированным пользователем)",
     "EMAIL": "Электронный адрес",
@@ -148,5 +167,23 @@
     "STRIKE": "strike",
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
+  },
+  "HISTORY":{
+    "GROUP_CREATE": "created this group",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
+    "STORE_CREATE":"created store {{name}}",
+    "STORE_MODIFY": "changed the settings of store {{name}}",
+    "STORE_DELETE": "deleted store {{name}}",
+    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_DELETE": "deleted a pick-up",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
+    "PICKUP_DONE": "did a pick-up at {{store_name}}",
+    "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
   }
 }

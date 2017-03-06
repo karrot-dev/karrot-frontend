@@ -10,47 +10,16 @@ if [ "x$BRANCH" = "x" ]; then
   exit 1
 fi
 
-if [ ! -d ${backend_dir} ]; then
-  git clone https://github.com/yunity/foodsaving-backend.git ${backend_dir}
-fi
-
-if [ ! -d ${backend_dir}/env ]; then
-  virtualenv --python=python3 --no-site-packages ${backend_dir}/env
-fi
-
 deploy_dir=$(pwd)
 
-cat <<-CONFIG > ${backend_dir}/config/local_settings.py
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fstool',
-        'USER': 'fstool',
-        'PASSWORD': 'fstool',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
-DEBUG = False
-ALLOWED_HOSTS = ['foodsaving.world', 'mvp-proposal.yunity.org', 'mvp-design.yunity.org']
-HOSTNAME = 'https://foodsaving.world'
-STATIC_ROOT = '${deploy_dir}/${backend_dir}/static/'
+# expects that project is cloned into backend directory
+# manually: git clone https://github.com/yunity/foodsaving-backend.git ${backend_dir}
 
-DEFAULT_FROM_EMAIL = 'mail@foodsaving.world'
-INFLUXDB_HOST = '127.0.0.1'
-INFLUXDB_PORT = '8086'
-INFLUXDB_USER = ''
-INFLUXDB_PASSWORD = ''
-INFLUXDB_DATABASE = 'fstool'
-INFLUXDB_TAGS_HOST = 'yuca'
-INFLUXDB_TIMEOUT = 2
-INFLUXDB_USE_CELERY = False
-INFLUXDB_USE_THREADING = True
+# expects that virtualenv is set up
+# manually: virtualenv --python=python3 --no-site-packages ${backend_dir}/env
 
-from .secrets import *
-CONFIG
-
-createdb fstool || true
+# expects ./config/local_settings.py to exist
+# use local_settings.py.example as template
 
 (
   cd ${backend_dir} && \

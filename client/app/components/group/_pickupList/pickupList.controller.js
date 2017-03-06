@@ -46,8 +46,6 @@ class PickupListController {
     let stores = {};
     angular.forEach(pickups, (currentPickup) => {
       currentPickup.isUserMember = currentPickup.collector_ids.indexOf(this.userId) !== -1;
-      currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
-
       if (this.options.showDetail === "store") {
         if (angular.isUndefined(stores[currentPickup.store])) {
           stores[currentPickup.store] = this.Store.get(currentPickup.store);
@@ -59,6 +57,15 @@ class PickupListController {
     this.filterAndDisplayPickups();
   }
 
+/**
+ * checks if a pickup is already full
+ * @param {Object} pickup - pickup to check
+ * @return true or false
+ */
+  isFull(pickup) {
+    return  !(pickup.collector_ids.length < pickup.max_collectors);
+  }
+
     /*
      * Filters pickups, so that only the ones specified by the criteria in the header menu are shown
      * @return filtered pickups
@@ -67,8 +74,8 @@ class PickupListController {
     let pickups = [];
     angular.forEach(this.allPickups, (currentPickup) => {
       if (currentPickup.isUserMember && this.options.filter.showJoined
-        || currentPickup.isFull && this.options.filter.showFull
-        || !currentPickup.isFull && this.options.filter.showOpen) {
+        || this.isFull(currentPickup) && this.options.filter.showFull
+        || !this.isFull(currentPickup) && this.options.filter.showOpen) {
         pickups.push(currentPickup);
       }
     });
@@ -140,17 +147,20 @@ class PickupListController {
   }
 
   openCreatePickupPanel($event) {
-    let DialogController = function (storeId) {
+    let DialogController = function (data) {
       "ngInject";
-      this.storeId = storeId;
+      this.data = data;
     };
 
     this.$mdDialog.show({
       parent: this.$document.body,
       targetEvent: $event,
-      template: "<create-pickup store-id='$ctrl.storeId'></create-pickup>",
+      template: "<pickup-edit-create data='$ctrl.data'></pickup-edit-create>",
       locals: {
-        storeId: this.storeId
+        data: {
+          storeId: this.storeId,
+          series: false
+        }
       },
       controller: DialogController,
       controllerAs: "$ctrl"

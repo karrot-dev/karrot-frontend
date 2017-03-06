@@ -5,6 +5,12 @@
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         {{$ctrl.storedata.name}}
       </h1>
+      <md-button class="md-icon-button" ui-sref="pickupManage" aria-label="{{ 'STOREDETAIL.MANAGE' | translate }}">
+        <md-tooltip md-direction="left">
+          <span translate="STOREDETAIL.MANAGE"></span>
+        </md-tooltip>
+        <i class="fa fa-clock-o"></i>
+      </md-button>
       <md-button class="md-icon-button" ui-sref="storeEdit({storeId: $ctrl.storedata.id})" aria-label="{{ 'STOREDETAIL.EDIT' | translate }}">
         <md-tooltip md-direction="left">
           <span translate="STOREDETAIL.EDIT"></span>

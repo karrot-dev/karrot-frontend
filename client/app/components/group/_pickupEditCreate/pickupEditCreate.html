@@ -1,0 +1,93 @@
+<div style="width: 100%;">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>
+        <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-shopping-basket"></i>
+        <span ng-if="$ctrl.isCreate" translate="CREATEPICKUP.TITLE"></span>
+        <span ng-if="!$ctrl.isCreate" translate="CREATEPICKUP.TITLE_EDIT"></span>
+      </h2>
+    </div>
+  </md-toolbar>
+  <md-nav-bar ng-if="$ctrl.isCreate" md-selected-nav-item="$ctrl.mode">
+    <md-nav-item md-nav-click="$ctrl.isSeries = true" name="series">
+      <span translate="CREATEPICKUP.SERIES"></span>
+    </md-nav-item>
+    <md-nav-item md-nav-click="$ctrl.isSeries = false" name="single">
+      <span translate="CREATEPICKUP.SINGLE"></span>
+    </md-nav-item>
+  </md-nav-bar>
+  <form ng-submit='$ctrl.handleSubmit()' name="pickupEditCreateForm" promise-btn>
+    <div layout-padding layout="column">
+      <div layout layout-padding>
+        <div ng-if="$ctrl.isSeries">
+          <div translate="CREATEPICKUP.WEEKDAYS">
+            <md-tooltip>
+              <span translate="CREATEPICKUP.HINT_MULTIPLE"></span>
+            </md-tooltip>
+          </div>
+          <select multiple ng-model="$ctrl.seriesData.rule.byDay" size="7">
+            <option ng-repeat="day in $ctrl.days" value="{{day.key}}">{{day.name}}</option>
+          </select>
+        </div>
+
+        <md-input-container ng-if="!$ctrl.isSeries">
+          <md-datepicker required ng-model="$ctrl.singleData.date" md-placeholder="Enter date" md-open-on-focus md-hide-icons="triangle"></md-datepicker>
+        </md-input-container>
+
+        <md-autocomplete
+          required
+          name="time"
+          md-no-cache="true"
+          md-autofocus="true"
+          md-autoselect="true"
+          md-require-match="true"
+          md-min-length="0"
+          md-clear-button="false"
+          md-search-text="text"
+          md-items="time in $ctrl.timeLookup(text)"
+          md-item-text="time.text"
+          md-selected-item="$ctrl.time"
+          md-floating-label="{{ 'CREATEPICKUP.TIME' | translate }}">
+          <md-item-template>
+            <span md-highlight-text="text" md-highlight-flags="^i">{{time.text}}</span>
+          </md-item-template>
+          <md-not-found>
+            <span translate="CREATEPICKUP.TIME_ERROR" translate-values="{ timeExample: $ctrl.timeExample }"></span>
+          </md-not-found>
+          <div ng-messages="pickupEditCreateForm.time.$error" ng-if="pickupEditCreateForm.time.$touched">
+            <div ng-message="required, md-require-match">
+              <span translate="CREATEPICKUP.TIME_ERROR" translate-values="{ timeExample: $ctrl.timeExample }"></span>
+            </div>
+          </div>
+
+        </md-autocomplete>
+      </div>
+
+      <md-slider-container>
+        <label><span translate="CREATEPICKUP.MAX_COLLECTORS"></span>:
+          <md-input-container><input tabindex="-1" name="MaxNoCollectors" ng-model="$ctrl.pickupData.max_collectors"
+-                 type="number" min=1 />
+          </md-input-container>
+        </label>
+        <md-slider md-discrete ng-model="$ctrl.pickupData.max_collectors" step=1 min=1 max=9></md-slider>
+      </md-slider-container>
+
+      <div ng-if="$ctrl.isCreate" layout="row" layout-align="end center">
+        <md-button ng-click="$ctrl.closePanel()">
+          <span translate="BUTTON.CANCEL"></span>
+        </md-button>
+        <md-button class="md-raised md-primary" type="submit" ng-disabled="pickupEditCreateForm.$invalid">
+          <span translate="BUTTON.CREATE"></span>
+        </md-button>
+      </div>
+      <div ng-if="!$ctrl.isCreate" layout="row" layout-align="end center">
+        <md-button ng-click="$ctrl.closePanel()">
+          <i class="fa fa-times"></i>
+        </md-button>
+        <md-button class="md-raised md-primary" type="submit" ng-disabled="pickupEditCreateForm.$invalid">
+          <i class="fa fa-check"></i>
+        </md-button>
+      </div>
+    </div>
+  </form>
+</div>

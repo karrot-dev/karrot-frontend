@@ -30,6 +30,12 @@ describe("CurrentStores service", () => {
     expect(CurrentStores.list).to.deep.equal(newList);
   });
 
+  it("selected can be set", () => {
+    let newstore = { id: 5, name: "my store" };
+    CurrentStores.setSelected(newstore);
+    expect(CurrentStores.selected).to.deep.equal(newstore);
+  });
+
   it("can be pushed", () => {
     let item = { id: 6, name: "my new store" };
     CurrentStores.pushItem(item);

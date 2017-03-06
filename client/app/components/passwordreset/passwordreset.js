@@ -18,7 +18,7 @@ let passwordresetModule = angular.module("passwordreset", [
       url: "/passwordreset",
       component: "passwordreset",
       ncyBreadcrumb: {
-        label: "{{'PASSSWORDRESET.TITLE' | translate}}"
+        label: "{{'PASSWORDRESET.TITLE' | translate}}"
       }
     });
 })

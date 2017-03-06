@@ -12,6 +12,13 @@
     "TEXT": "Planst du ein foodsaving-Projekt oder eine foodsharing community aufzubauen? Oder kennst du Leute, die genau das schon tun?",
     "MAIL_TEXT": "Schreib uns eine Mail!"
   },
+  "LANDINGPAGE": {
+    "BLOG": "Blog",
+    "TEAM": "Team",
+    "LOGIN": "Login",
+    "SEE_OUR_MAP": "Have a look at our map!",
+    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+  },
   "USERDATA": {
     "EMAIL": "E-Mail",
     "PASSWORD": "Passwort",
@@ -24,7 +31,11 @@
     "EDIT": "Bearbeiten",
     "JOIN": "Beitreten",
     "LEAVE": "Verlassen",
-    "PREVIEW": "Vorschau"
+    "PREVIEW": "Vorschau",
+    "BACK": "Back"
+  },
+  "FORM": {
+    "MINLENGTH": "Please enter more than {{min}} characters."
   },
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
@@ -38,19 +49,26 @@
     "PICKUPS": "Abholungen",
     "MEMBERS": "Mitglieder",
     "STORES": "Betriebe",
+    "HISTORY":"History",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "TIMEZONE": "Zeitzone der Gruppe"
   },
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
-    "ADDRESS": "Adresse"
+    "ADDRESS": "Adresse",
+    "MANAGE": "Check and manage the pickups"
   },
   "STOREEDIT": {
     "NAME": "Name",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups"
   },
   "USERDETAIL": {
     "EDIT": "User bearbeiten",
@@ -59,6 +77,9 @@
     "DESCRIPTION": "Über dich",
     "PASSWORD_CHANGE": "Passwort ändern (führt zum Logout)",
     "PASSWORD": "Neues Passwort eingeben"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
     "NAME": "Name",
@@ -99,20 +120,18 @@
     "JOIN": "Gruppe beitreten"
   },
   "CREATEPICKUP": {
-    "TITLE": "Abholungstermin erstellen",
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
     "SERIES": "Wiederkehrende Abholung",
     "SINGLE": "Einzelne Abholung",
     "WEEKDAYS": "Wochentage",
     "HINT_MULTIPLE": "Du kannst mehrere Tage auswählen, z.B. indem du Strg gedrückt hälst.",
     "TIME": "Uhrzeit",
-    "TIME_ERROR": "Gib eine gültige Uhrzeit ein [hh:mm]",
+    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
     "MAX_COLLECTORS": "Anzahl Abholer"
   },
   "CREATESTORE": {
-    "TITLE": "Neuen Betrieb anlegen",
-    "NAME": "Name",
-    "DESCRIPTION": "Beschreibung",
-    "ADDRESS": "Adresse"
+    "TITLE": "Neuen Betrieb anlegen"
   },
   "PICKUPLIST": {
     "FILTER": "Filter",
@@ -131,7 +150,7 @@
     "NONE":"Es stehen keine Abholungen an.",
     "NONE_HINT":"Auf der Betriebsseite kannst du Abholtermine erstellen."
   },
-  "PASSSWORDRESET": {
+  "PASSWORDRESET": {
     "TITLE": "Passwort zurücksetzen",
     "INTRO": "Gib deine Mailadresse ein, um ein neues Passwort zu erhalten (falls du schon einen Account hast).",
     "EMAIL": "Emailadresse",
@@ -148,5 +167,23 @@
     "STRIKE": "durchgestrichen",
     "QUOTE": "zitieren",
     "HELP": "Was ist Markdown?"
+  },
+  "HISTORY":{
+    "GROUP_CREATE": "created this group",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
+    "STORE_CREATE":"created store {{name}}",
+    "STORE_MODIFY": "changed the settings of store {{name}}",
+    "STORE_DELETE": "deleted store {{name}}",
+    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_DELETE": "deleted a pick-up",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
+    "PICKUP_DONE": "did a pick-up at {{store_name}}",
+    "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
   }
 }

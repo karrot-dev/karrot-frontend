@@ -12,6 +12,13 @@
     "TEXT": "Es-tu interessé par dévélopper un projet de foodsaving ou une communauté de foodsharing? Connais-tu des gens qui sont déjà devenus actives?",
     "MAIL_TEXT": "Écris-nous un e-mail!"
   },
+  "LANDINGPAGE": {
+    "BLOG": "Blog",
+    "TEAM": "Team",
+    "LOGIN": "Login",
+    "SEE_OUR_MAP": "Have a look at our map!",
+    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+  },
   "USERDATA": {
     "EMAIL": "E-mail",
     "PASSWORD": "Mot de passe",
@@ -24,7 +31,11 @@
     "EDIT": "Traiter",
     "JOIN": "Rejoindre",
     "LEAVE": "Quitter",
-    "PREVIEW": "Aperçu"
+    "PREVIEW": "Aperçu",
+    "BACK": "Back"
+  },
+  "FORM": {
+    "MINLENGTH": "Please enter more than {{min}} characters."
   },
   "GROUP": {
     "LEAVE": "Quitter le groupe...",
@@ -38,19 +49,26 @@
     "PICKUPS": "Récoltes",
     "MEMBERS": "Membres",
     "STORES": "Magasins",
+    "HISTORY":"History",
     "DESCRIPTION": "Déscription",
     "ADDRESS": "Addresse",
     "TIMEZONE": "Fuseau horaire du groupe"
   },
   "STOREDETAIL": {
     "EDIT": "Traiter magasin",
-    "ADDRESS": "Adresse"
+    "ADDRESS": "Adresse",
+    "MANAGE": "Check and manage the pickups"
   },
   "STOREEDIT": {
     "NAME": "Nom",
     "DESCRIPTION": "Déscription",
     "ADDRESS": "Addresse",
     "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups"
   },
   "USERDETAIL": {
     "EDIT": "Traiter utilisateur",
@@ -59,6 +77,9 @@
     "DESCRIPTION": "Plus d'informations sur toi",
     "PASSWORD_CHANGE": "Change ton mot de passe (ta session sera terminé)",
     "PASSWORD": "Tape ton nouveau mot de passe"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
     "NAME": "Nom",
@@ -99,20 +120,18 @@
     "JOIN": "Rejoindre la communauté"
   },
   "CREATEPICKUP": {
-    "TITLE": "Créer une récolte",
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
     "SERIES": "Récurrent",
     "SINGLE": "Individuel",
     "WEEKDAYS": "Jour du semaine",
     "HINT_MULTIPLE": "C'est possible de selectionner des jours multiples, p. ex. en maintenant la touche <Ctrl> enfoncée. ",
     "TIME": "Temps",
-    "TIME_ERROR": "Entrer le format et les unités horaires valides : [hh:mm]",
+    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
     "MAX_COLLECTORS": "Nombre maximum d'emplacements"
   },
   "CREATESTORE": {
-    "TITLE": "Créer un nouveau magasin",
-    "NAME": "Nom",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Adresse"
+    "TITLE": "Créer un nouveau magasin"
   },
   "PICKUPLIST": {
     "FILTER": "Filtre",
@@ -131,7 +150,7 @@
     "NONE":"Aucune récoltes à venir",
     "NONE_HINT":"Tu peux créer un nouveau récolte à la page du magasin."
   },
-  "PASSSWORDRESET": {
+  "PASSWORDRESET": {
     "TITLE": "Reset de mot de passe",
     "INTRO": "Tape ton addresse e-mail pour recevoir un nouveau mot de passe (si tu est client déjà).",
     "EMAIL": "Addresse e-mail",
@@ -148,5 +167,23 @@
     "STRIKE": "barré",
     "QUOTE": "citation",
     "HELP": "Markdown c'est quoi?"
+  },
+  "HISTORY":{
+    "GROUP_CREATE": "created this group",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
+    "STORE_CREATE":"created store {{name}}",
+    "STORE_MODIFY": "changed the settings of store {{name}}",
+    "STORE_DELETE": "deleted store {{name}}",
+    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_DELETE": "deleted a pick-up",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
+    "PICKUP_DONE": "did a pick-up at {{store_name}}",
+    "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
   }
 }

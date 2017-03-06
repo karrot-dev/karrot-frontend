@@ -127,7 +127,7 @@
     "WEEKDAYS": "Wochentage",
     "HINT_MULTIPLE": "Du kannst mehrere Tage auswählen, z.B. indem du Strg gedrückt hälst.",
     "TIME": "Uhrzeit",
-    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
+    "TIME_ERROR": "Gib eine gültige Uhrzeit ein, z.B. {{timeExample}}",
     "MAX_COLLECTORS": "Anzahl Abholer"
   },
   "CREATESTORE": {

@@ -127,7 +127,7 @@
     "WEEKDAYS": "Semajntagoj",
     "HINT_MULTIPLE": "Vi povas elekti plurajn tagojn ĉi tie, per daŭrpremo de klavo Ctrl-a",
     "TIME": "Tempo",
-    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
+    "TIME_ERROR": "Entajpi validan daton: {{timeExample}}",
     "MAX_COLLECTORS": "Maks Lokoj"
   },
   "CREATESTORE": {

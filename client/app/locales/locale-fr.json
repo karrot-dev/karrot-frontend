@@ -127,7 +127,7 @@
     "WEEKDAYS": "Jour du semaine",
     "HINT_MULTIPLE": "C'est possible de selectionner des jours multiples, p. ex. en maintenant la touche <Ctrl> enfoncée. ",
     "TIME": "Temps",
-    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
+    "TIME_ERROR": "Entrer le format et les unités horaires valides: {{timeExample}}",
     "MAX_COLLECTORS": "Nombre maximum d'emplacements"
   },
   "CREATESTORE": {

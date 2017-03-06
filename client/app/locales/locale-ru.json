@@ -127,7 +127,7 @@
     "WEEKDAYS": "Weekdays",
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Время",
-    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
+    "TIME_ERROR": "введите правильное время: {{timeExample}}",
     "MAX_COLLECTORS": "Максимальное количество слотов"
   },
   "CREATESTORE": {

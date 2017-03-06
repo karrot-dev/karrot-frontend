@@ -127,7 +127,7 @@
     "WEEKDAYS": "Weekdays",
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Fecha",
-    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
+    "TIME_ERROR": "introducir fecha válida: {{timeExample}}",
     "MAX_COLLECTORS": "Máx ranuras"
   },
   "CREATESTORE": {

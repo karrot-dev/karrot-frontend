@@ -76,8 +76,7 @@ describe("PickupList", () => {
     "collector_ids": [],
     "max_collectors": 2,
     "store": 9,
-    "isUserMember": false,
-    "isFull": false
+    "isUserMember": false
   },
   {
     "id": 14,
@@ -88,8 +87,7 @@ describe("PickupList", () => {
     ],
     "max_collectors": 2,
     "store": 9,
-    "isUserMember": true,
-    "isFull": true
+    "isUserMember": true
   },
   {
     "id": 11,
@@ -99,8 +97,7 @@ describe("PickupList", () => {
     ],
     "max_collectors": 3,
     "store": 9,
-    "isUserMember": true,
-    "isFull": false
+    "isUserMember": true
   },
   {
     "id": 5,
@@ -108,8 +105,7 @@ describe("PickupList", () => {
     "collector_ids": [],
     "max_collectors": 5,
     "store": 9,
-    "isUserMember": false,
-    "isFull": false
+    "isUserMember": false
   },
   {
     "id": 4,
@@ -117,8 +113,7 @@ describe("PickupList", () => {
     "collector_ids": [],
     "max_collectors": 2,
     "store": 9,
-    "isUserMember": false,
-    "isFull": false
+    "isUserMember": false
   }];
 
   let fullPickups = [pickupDataInfoAdded[1]];
@@ -132,8 +127,7 @@ describe("PickupList", () => {
         "collector_ids": [],
         "max_collectors": 2,
         "store": 9,
-        "isUserMember": false,
-        "isFull": false
+        "isUserMember": false
       },
       {
         "id": 14,
@@ -144,8 +138,7 @@ describe("PickupList", () => {
         ],
         "max_collectors": 2,
         "store": 9,
-        "isUserMember": true,
-        "isFull": true
+        "isUserMember": true
       }]
     },
     {
@@ -158,8 +151,7 @@ describe("PickupList", () => {
         ],
         "max_collectors": 3,
         "store": 9,
-        "isUserMember": true,
-        "isFull": false
+        "isUserMember": true
       }]
     },
     {
@@ -170,8 +162,7 @@ describe("PickupList", () => {
         "collector_ids": [],
         "max_collectors": 5,
         "store": 9,
-        "isUserMember": false,
-        "isFull": false
+        "isUserMember": false
       }]
     },
     {
@@ -182,8 +173,7 @@ describe("PickupList", () => {
         "collector_ids": [],
         "max_collectors": 2,
         "store": 9,
-        "isUserMember": false,
-        "isFull": false
+        "isUserMember": false
       }]
     }];
 
@@ -245,6 +235,22 @@ describe("PickupList", () => {
 
     it("groupByDate functionality", () => {
       expect($ctrl.groupByDate(pickupDataInfoAdded)).to.deep.equal(pickupDataInfoAddedGrouped);
+    });
+
+    it("isFull functionality", () => {
+      expect($ctrl.isFull({
+        "collector_ids": [1,2,3],
+        "max_collectors": 3
+      })).to.equal.true;
+      expect($ctrl.isFull({
+        "collector_ids": [1,2],
+        "max_collectors": 3
+      })).to.equal.false;
+
+      // can also be unset, then unlimited people can join
+      expect($ctrl.isFull({
+        "collector_ids": [1,2]
+      })).to.equal.false;
     });
   });
 

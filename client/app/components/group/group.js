@@ -10,6 +10,7 @@ import storeList from "./_storeList/storeList";
 import groupDetail from "./groupDetail/groupDetail";
 import groupEdit from "./groupEdit/groupEdit";
 import createGroup from "./createGroup/createGroup";
+import searchBar from "./_searchBar/searchBar";
 
 let groupPageModule = angular.module("group", [
   uiRouter,
@@ -21,7 +22,8 @@ let groupPageModule = angular.module("group", [
   groupEdit,
   createGroup,
   storeList,
-  storeModule
+  storeModule,
+  searchBar
 ])
 
 .config(($stateProvider, hookProvider) => {

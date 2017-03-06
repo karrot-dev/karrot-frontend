@@ -2,7 +2,8 @@ class UserListController {
   constructor(User) {
     "ngInject";
     Object.assign(this, {
-      User
+      User,
+      searchQuery: ""
     });
   }
 

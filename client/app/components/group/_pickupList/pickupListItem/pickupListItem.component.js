@@ -4,7 +4,7 @@ import "./pickupListItem.styl";
 
 let pickupListItemComponent = {
   bindings: {
-    data: "<",              // pickup info, including  .isUserMember etc..
+    data: "<",              // pickup info..
     showDetail: "<",        // same as in pickupList
     onDelete: "&",
     parentCtrl: "<",         // Controller of pickupList

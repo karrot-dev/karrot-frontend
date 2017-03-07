@@ -1,19 +1,17 @@
 # Contribution
 If you want to contribute code to the frontend repository, you should first read through these guidelines.
 
+## General
+* before committing make sure `npm run lint` and `npm test` were successful
+* if you are working on issues create a branch labeled as what your change (in one word)
+* claim in the issue comments when you're working on one, and take part in the discussion
+* be awesome and passionate
+
 ## Development process
 
 If you have an idea about a feature or a change to an existing feature, just open an issue in the frontend repo and describe your idea briefly. Members of the development team will look into it and review the idea. Then write some code and stay in contact with us. If you need additional features in the backend, open an issue there (and reference the main frontend issue).
 
 The feature will get merged if there is no resistance from the development team.
-
-## General
-* before committing make sure `npm run lint` and `npm test` were successful
-* branches and PRs instead of direct commits to master (except it is a small and urgent fix)
-* if you are working on issues create a branch labeled as what your change (in one word) postfixed with `#` and issue number
-* claim in the issue comments when you're working on one, and take part in the discussion
-* follow the style guide
-* be awesome and passionate
 
 ## Development workflow
 
@@ -55,7 +53,8 @@ If you now visit github.com/yunity/foodsaving-frontend, there should be a messag
 ## Adding features
 
 ### Add components
-To add a component(-partial) just execute `gulp component --name <component>`. It will create all necessary files in *client/app/_<component>* (The underscore is there for clarification, that this is not a page component):
+To add a component, just execute `gulp component --name <component>`. It will create all necessary files in `client/app/_<component>`:
+
 ```
 +<component>
 +-<component>.component.js       component configuration
@@ -66,12 +65,7 @@ To add a component(-partial) just execute `gulp component --name <component>`. I
 +-<component>.styl               styles
 ```
 
-To add a component-page, execute `gulp page --name <component>`. In comparison to the above, it adds some default routing configuration.
-
-### Add routes
-Follow *Add components* first to create your page component.
-In the config section you can use the `hookProvider` to create a new hook to handle rerouting.
-The method `hookProvider.setup("targetState", { authenticated: true, anonymous: "login" });` can handle different behaviours for an authenticated ("loggedIn") and anonymous state.
+To add a component that already includes a route definition (URL), execute `gulp page --name <component>`.
 
 ### Add directives
 If you need to add a directive place it as a separate file in your component folder. Name the file like `<component>.<directives name or job>.js`, for example `home.logout.js`. Define it in `<component>.js`, then.
@@ -85,11 +79,11 @@ Add services by executing `gulp service --name <service>`.
 +-<service>.spec.js         tests
 ```
 
-## Naming conventions
-* components, that don't add a route (=partials) should have a "_"-prefix in their folder name
-
 ## Code style
-* use the *.editorconfig* file (for atom: install *editorconfig* module)
+
+Be careful to adapt your coding style to the already existing one. That makes it easier for future contributors to understand and get used to the code. Some helps:
+
+* We use [editorconfig](http://editorconfig.org/). Plugins are available for many editors, e.g. for Atom:`editorconfig`)
 * check your code style with `npm run lint`, or better: install an `eslint` plugin in your IDE
 * Use ES6 features (but use `$q` of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
 * Avoid creating directives
@@ -97,23 +91,41 @@ Add services by executing `gulp service --name <service>`.
 
 ## Strings and translation
 
-If you want to add a message to the user, follow this workflow:
+### Adding new messages
 
-1. in your feature branch, add a new key-value pair in `locale-en.json`
-2. open a Pull Request, get it merged to master
-3. upload `locale-en.json` to our transifex project - you can ask in yunity Slack #foodsaving-tool for help
-4. get it translated - you can ask in yunity Slack #translation
-5. download the resulting `locale-**.json` files and get it merged to master
+If you want to add a message to the user, be sure to make it translatable. You can follow this workflow:
 
-The transifex command line client can help you with steps 3 and 5.
+1. add the message using the `translate` directive, e.g. `<span translate="SOME.MESSAGE"></span>`. Other possibilities can be found in the [angular-translate documentation](https://angular-translate.github.io/docs/#/guide)
+2. add the translation message to the source file: `config/app/locales/locale-en.json`
 
-## How to use what?
+```json
+"SOME": {
+  "MESSAGE": "This is my message to the user"
+}
+```
 
-### Directives
-Use built-in directives, e.g. `ng-click`.
+### Translating and updating
 
-### Controller
-Use controller functions, but keep them simple.
+Use the [transifex command line client](https://docs.transifex.com/client/introduction) to upload the new messages to the translation service and download the translated files after they've been translated in our [transifex project](https://www.transifex.com/yunity-1/foodsaving-tool/dashboard/).
 
-### Services
-A service calls the backend through `$http` and validates data.
+```sh
+# push English source
+tx push -s
+
+# get translated files
+tx pull -a
+```
+
+Now you can commit those files and open a Pull Request in GitHub.
+
+## Used tools and libraries
+
+To make it easier to look for documentation and help on the internet, here's a list of our tools and libraries. It's roughly sorted by importance to developers.
+
+* [AngularJS](https://docs.angularjs.org)
+* User interface library: [Angular Material](https://material.angularjs.org/latest/api/)
+* [Stylus](http://stylus-lang.com/), we use it instead of CSS
+* Test framework: [Mocha](https://mochajs.org/)
+* Assertions for tests: [Chai](http://chaijs.com/)
+* Stubs and mocks for tests: [Sinon](http://sinonjs.org/)
+* Test runner: [Karma](https://karma-runner.github.io/)

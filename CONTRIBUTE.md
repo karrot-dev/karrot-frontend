@@ -46,7 +46,17 @@ git commit
 git push
 ```
 
-If you now visit github.com/yunity/foodsaving-frontend, there should be a message that you can open a Pull Request for your recently pushed branch
+If you now visit github.com/yunity/foodsaving-frontend, there should be a message that you can open a Pull Request for your recently pushed branch.
+
+### Backend connection
+
+Per default, all requests to `/api` are forwarded to the online backend `foodsaving.world/api`.
+To use a [local backend](https://github.com/yunity/foodsaving-backend/), create a file `.env` with content like
+
+```
+BACKEND=http://localhost:8080/
+```
+
 
 ## Adding features
 

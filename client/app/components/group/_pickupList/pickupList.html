@@ -44,7 +44,7 @@
       <md-subheader ng-show="$ctrl.options.showStickyHeaders" class="md-sticky">{{pickupDate.date| date:'fullDate'}}</md-subheader>
       <md-list>
         <pickup-list-item
-          ng-repeat="pickup in pickupDate.items| orderBy:['-date']:$ctrl.options.reversed"
+          ng-repeat="pickup in pickupDate.items | orderBy:'date':$ctrl.options.reversed"
           show-detail="$ctrl.options.showDetail"
           on-delete="$ctrl.delete(pickup)"
           parent-ctrl="$ctrl"

@@ -313,7 +313,7 @@ describe("PickupList", () => {
     });
 
     describe("pickupEditCreate dialog", () => {
-      let $q, $rootScope;
+     /*   let $q, $rootScope;
       beforeEach(() => {
         inject(($injector) => {
           $q = $injector.get("$q");
@@ -321,7 +321,7 @@ describe("PickupList", () => {
         });
       });
 
-/*      it("is called and updates pickup list", () => {
+      it("is called and updates pickup list", () => {
         $ctrl.allPickups = [];
         sinon.stub($ctrl.$mdDialog, "show");
         sinon.stub($ctrl, "updatePickups");
@@ -329,8 +329,8 @@ describe("PickupList", () => {
         $ctrl.openCreatePickupPanel();
         $rootScope.$apply();
         expect($ctrl.updatePickups).to.have.been.called;
-        $httpBackend.flush();*/
-      });
+        $httpBackend.flush();
+      });*/
     });
   });
 });

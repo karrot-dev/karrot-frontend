@@ -2,12 +2,10 @@
 If you want to contribute code to the frontend repository, you should first read through these guidelines.
 
 ## General
-* before committing make sure `npm run lint` and `npm test` were successful
-* if you are working on issues create a branch labeled as what your change (in one word)
-* claim in the issue comments when you're working on one, and take part in the discussion
-* be awesome and passionate
 
-## Development process
+Have a look through the issues. If there's something that is interesting to you, assign it to yourself. Usually you will need additional information, so feel free to comment on the issue before you start writing code. Even better: join our [group chat](slackin.yunity.org) and get in direct contact with us!
+
+## Feature development
 
 If you have an idea about a feature or a change to an existing feature, just open an issue in the frontend repo and describe your idea briefly. Members of the development team will look into it and review the idea. Then write some code and stay in contact with us. If you need additional features in the backend, open an issue there (and reference the main frontend issue).
 

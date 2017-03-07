@@ -8,7 +8,8 @@ class StoreListController {
       $state,
       $document,
       $mdMedia,
-      showMap: false
+      showMap: false,
+      searchQuery: ""
     });
   }
 

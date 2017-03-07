@@ -9,7 +9,7 @@ DATABASES = {
         'USER': 'fstool-user',
         'PASSWORD': 'fstool-pw',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
@@ -38,3 +38,8 @@ DEFAULT_FROM_EMAIL = "your mail domain"
 SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
 DEBUG = True
 HOSTNAME = 'https://localhost:8000'
+
+ALLOWED_HOSTS = [*]
+
+STATIC_ROOT = '${deploy_dir}/${backend_dir}/static/'
+

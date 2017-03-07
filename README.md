@@ -1,24 +1,17 @@
-[![Stories in Ready](https://badge.waffle.io/yunity/foodsaving-frontend.svg?label=ready&title=ready)](http://waffle.io/yunity/foodsaving-frontend)
-[![Stories in Progress](https://badge.waffle.io/yunity/foodsaving-frontend.svg?label=in-progress&title=in-progress)](http://waffle.io/yunity/foodsaving-frontend)
-[![Stories in Progress](https://badge.waffle.io/yunity/foodsaving-frontend.svg?label=needs-approval&title=needs-approval)](http://waffle.io/yunity/foodsaving-frontend)
-
 [![CodeCov](https://codecov.io/github/yunity/foodsaving-frontend/coverage.svg)](https://codecov.io/gh/yunity/foodsaving-frontend)
 [![CircleCI](https://circleci.com/gh/yunity/foodsaving-frontend.svg?style=shield)](https://circleci.com/gh/yunity/foodsaving-frontend)
 [![Known Vulnerabilities](https://snyk.io/test/github/yunity/foodsaving-frontend/e4f6927cccfbde340636d20b863efd508be19ec0/badge.svg)](https://snyk.io/test/github/yunity/foodsaving-frontend/e4f6927cccfbde340636d20b863efd508be19ec0)
 
 
 # foodsaving frontend
-Frontend for the foodsaving tool using AngularJS 1.5 (component-based style).
-Read more about our [contribution guidelines](https://github.com/yunity/foodsaving-frontend/blob/master/CONTRIBUTE.md).
 
-The [backend](https://github.com/yunity/foodsaving-backend) had quite some progress in the last months and is currently in a stable state. If you find a bug or miss something in the API, please file an issue in the backend repository.
-
-We used the [NG6-starter](https://github.com/AngularClass/NG6-starter) kit.
+Welcome to the foodsaving tool frontend repository! This is the browser-side software that powers [foodsaving worldwide](foodsaving.world).
 
 
 ## yunity and foodsaving
-The foodsaving tool will be the first release of the yunity platform.
-The [FSINT team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity provides additional resources to build up foodsaving.
+
+The foodsaving tool is a project of [yunity](yunity.org). 
+The [foodsaving worldwide team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity provides additional resources to build up foodsaving.
 At a later point, more features could be added that support the yunity vision and mission, e.g. multi-sharing communities, item pooling, integrated decision making (syscon).
 
 ## Development goals
@@ -42,7 +35,7 @@ We are using [Transifex](https://www.transifex.com/) to provide the foodsaving t
 
 After selecting your destination language and choosing the resource file, go ahead to start translating!
 
-# Getting started
+# Setup
 
 ## Requirements
 
@@ -53,7 +46,7 @@ After selecting your destination language and choosing the resource file, go ahe
 To clone and install
 
 ```
-git clone
+git clone https://github.com/yunity/foodsaving-frontend.git
 cd foodsaving-frontend
 npm install
 ```
@@ -73,18 +66,9 @@ npm run test
 
 If you want to use an eslint plugin for your editor, please keep in mind that you either have to install all eslint plugins listed in package.json globally or you run `npm install`. Otherwise your eslint plugin may not work.
 
-## Backend
+# Start contributing?
 
-Per default, all requests to `/api` are forwarded to the online backend `foodsaving.world/api`.
-To use a local backend, create a file `.env` with content like
+Be sure to join us in the #foodsaving-tool [chatroom on slack](https://slackin.yunity.org/) and get in contact!
+The most important information are written down in our [contribution guidelines](CONTRIBUTE.md).
 
-```
-BACKEND=http://localhost:8080/
-```
-
-## Transifex integration
-
-Configuration for the [transifex CLI client](https://docs.transifex.com/client/) is in `.tx/config`. After instaling the client, you can use `tx push` and `tx pull` to synchronize the strings with the transifex server.
-# Questions?
-
-Join our #foodsaving-tool [chatroom on slack](https://slackin.yunity.org/)!
+The [backend](https://github.com/yunity/foodsaving-backend) is developed to support this frontend. If you find a bug or miss something in the API, please file an issue in the backend repository.

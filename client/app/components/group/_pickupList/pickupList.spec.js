@@ -311,26 +311,29 @@ describe("PickupList", () => {
       expect($ctrl.updatePickups).to.have.been.called;
       expect($ctrl.pickupToDelete.id).to.equal(87);
     });
+  });
 
-    describe("pickupEditCreate dialog", () => {
-     /*   let $q, $rootScope;
-      beforeEach(() => {
-        inject(($injector) => {
-          $q = $injector.get("$q");
-          $rootScope = $injector.get("$rootScope");
-        });
+  describe("pickupEditCreate dialog", () => {
+    let $q, $rootScope;
+    beforeEach(() => {
+      inject(($injector) => {
+        $q = $injector.get("$q");
+        $rootScope = $injector.get("$rootScope");
       });
+    });
 
-      it("is called and updates pickup list", () => {
-        $ctrl.allPickups = [];
-        sinon.stub($ctrl.$mdDialog, "show");
-        sinon.stub($ctrl, "updatePickups");
-        $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
-        $ctrl.openCreatePickupPanel();
-        $rootScope.$apply();
-        expect($ctrl.updatePickups).to.have.been.called;
-        $httpBackend.flush();
-      });*/
+    it("is called and updates pickup list", () => {
+      let $ctrl = $componentController("pickupList", {}, {
+        options: { filter: {} }
+      });
+      $ctrl.allPickups = [];
+      sinon.stub($ctrl.$mdDialog, "show");
+      $ctrl.$mdDialog.show.returns($q((resolve) => resolve({
+        "collector_ids": []
+      })));
+      $ctrl.openCreatePickupPanel();
+      $rootScope.$apply();
+      expect($ctrl.allPickups).to.deep.equal([{ "collector_ids": [] }]);
     });
   });
 });

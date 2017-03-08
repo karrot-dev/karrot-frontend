@@ -226,32 +226,6 @@ describe("PickupList", () => {
     it("groupByDate functionality", () => {
       expect($ctrl.groupByDate(pickupDataInfoAdded)).to.deep.equal(pickupDataInfoAddedGrouped);
     });
-
-    it("isFull functionality", () => {
-      expect($ctrl.isFull({
-        "collector_ids": [1,2,3],
-        "max_collectors": 3
-      })).to.equal.true;
-      expect($ctrl.isFull({
-        "collector_ids": [1,2],
-        "max_collectors": 3
-      })).to.equal.false;
-
-      // can also be unset, then unlimited people can join
-      expect($ctrl.isFull({
-        "collector_ids": [1,2]
-      })).to.equal.false;
-    });
-
-    it("isUserMember functionality", () => {
-      $ctrl.userId = 1;
-      expect($ctrl.isUserMember({
-        "collector_ids": [1,2,3]
-      })).to.equal.true;
-      expect($ctrl.isUserMember({
-        "collector_ids": [2,3]
-      })).to.equal.false;
-    });
   });
 
   describe("Controller with showDetail = store", () => {
@@ -280,52 +254,86 @@ describe("PickupList", () => {
       expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
       $httpBackend.flush();
     });
-
-    it("deletes pickup", () => {
-      let $q;
-      inject(($injector) => {
-        $q = $injector.get("$q");
-      });
-      sinon.stub($ctrl.$mdDialog, "show");
-      sinon.stub($ctrl, "updatePickups");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
-      $httpBackend.expectDELETE("/api/pickup-dates/87/").respond();
-      $ctrl.isDeleteSeries = false;
-      $ctrl.delete({ id: 87 });
-      $httpBackend.flush();
-      expect($ctrl.updatePickups).to.have.been.called;
-    });
-
-    it("deletes pickup series", () => {
-      let $q;
-      inject(($injector) => {
-        $q = $injector.get("$q");
-      });
-      sinon.stub($ctrl.$mdDialog, "show");
-      sinon.stub($ctrl, "updatePickups");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
-      $httpBackend.expectDELETE("/api/pickup-date-series/12/").respond();
-      $ctrl.isDeleteSeries = true;
-      $ctrl.delete({ id: 87, series: 12 });
-      $httpBackend.flush();
-      expect($ctrl.updatePickups).to.have.been.called;
-      expect($ctrl.pickupToDelete.id).to.equal(87);
-    });
   });
 
-  describe("pickupEditCreate dialog", () => {
-    let $q, $rootScope;
+  describe("controller functions", () => {
+    let $q, $rootScope, $ctrl, PickupDate, PickupDateSeries;
     beforeEach(() => {
       inject(($injector) => {
         $q = $injector.get("$q");
         $rootScope = $injector.get("$rootScope");
+        PickupDate = $injector.get("PickupDate");
+        PickupDateSeries = $injector.get("PickupDateSeries");
+      });
+      $ctrl = $componentController("pickupList", {}, {
+        options: { filter: {} }
       });
     });
 
-    it("is called and updates pickup list", () => {
-      let $ctrl = $componentController("pickupList", {}, {
-        options: { filter: {} }
-      });
+    it("isFull functionality", () => {
+      expect($ctrl.isFull({
+        "collector_ids": [1,2,3],
+        "max_collectors": 3
+      })).to.equal.true;
+      expect($ctrl.isFull({
+        "collector_ids": [1,2],
+        "max_collectors": 3
+      })).to.equal.false;
+
+      // can also be unset, then unlimited people can join
+      expect($ctrl.isFull({
+        "collector_ids": [1,2]
+      })).to.equal.false;
+    });
+
+    it("isUserMember functionality", () => {
+      $ctrl.userId = 1;
+      expect($ctrl.isUserMember({
+        "collector_ids": [1,2,3]
+      })).to.equal.true;
+      expect($ctrl.isUserMember({
+        "collector_ids": [2,3]
+      })).to.equal.false;
+    });
+
+    it("deletes pickup", () => {
+      $ctrl.allPickups = [
+        { id: 54 },
+        { id: 87 }
+      ];
+      sinon.stub($ctrl.$mdDialog, "show");
+      sinon.stub(PickupDate, "delete");
+      $ctrl.$mdDialog.show.returns($q.resolve());
+      PickupDate.delete.returns($q.resolve());
+      $ctrl.isDeleteSeries = false;
+      $ctrl.delete({ id: 87 });
+      $rootScope.$apply();
+      expect(PickupDate.delete).to.have.been.calledWith(87);
+      expect($ctrl.allPickups).to.deep.equal([{ id: 54 }]);
+    });
+
+    it("deletes pickup series", () => {
+      $ctrl.allPickups = [
+        { id: 2, series: 12 },
+        { id: 1, series: 3 },
+        { id: 9 }
+      ];
+      sinon.stub($ctrl.$mdDialog, "show");
+      sinon.stub(PickupDateSeries, "delete");
+      $ctrl.$mdDialog.show.returns($q.resolve());
+      PickupDateSeries.delete.returns($q.resolve());
+      $ctrl.isDeleteSeries = true;
+      $ctrl.delete({ id: 87, series: 12 });
+      $rootScope.$apply();
+      expect($ctrl.pickupToDelete.id).to.equal(87);
+      expect(PickupDateSeries.delete).to.have.been.calledWith(12);
+      expect($ctrl.allPickups).to.deep.equal([
+        { id: 1, series: 3 },
+        { id: 9 }
+      ]);
+    });
+
+    it("pickupEditCreate dialog is called and updates pickup list", () => {
       $ctrl.allPickups = [];
       sinon.stub($ctrl.$mdDialog, "show");
       $ctrl.$mdDialog.show.returns($q((resolve) => resolve({

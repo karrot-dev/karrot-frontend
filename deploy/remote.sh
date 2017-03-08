@@ -3,7 +3,7 @@
 set -e
 
 BRANCH=$1
-backend_dir=foodsaving-backend
+backend_dir=foodsaving-backend-dev
 
 if [ "x$BRANCH" = "x" ]; then
   echo "Please pass branch to deploy as first argument"
@@ -26,8 +26,8 @@ deploy_dir=$(pwd)
   git clean -fd && \
   git checkout $BRANCH && \
   git pull && \
-  env/bin/pip install -r requirements.txt && \
-  env/bin/python manage.py migrate --fake-initial && \
+  env/bin/pip-sync && \
+  env/bin/python manage.py migrate && \
   env/bin/python manage.py check --deploy && \
   env/bin/python manage.py collectstatic --clear --no-input && \
   env/bin/python manage.py compilemessages

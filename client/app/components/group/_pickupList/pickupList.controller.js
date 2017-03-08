@@ -182,8 +182,13 @@ class PickupListController {
       controller: DialogController,
       controllerAs: "$ctrl"
     }).then((data) => {
-      this.allPickups.push(data);
-      this.filterAndDisplayPickups();
+      if (data.start_date) {
+        // workaround: reload complete list if series was created
+        this.updatePickups();
+      } else {
+        this.allPickups.push(data);
+        this.filterAndDisplayPickups();
+      }
     });
   }
 }

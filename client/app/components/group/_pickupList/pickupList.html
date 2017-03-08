@@ -49,7 +49,7 @@
           on-delete="$ctrl.delete(pickup)"
           parent-ctrl="$ctrl"
           data="pickup"
-          meta="{isFull: $ctrl.isFull(pickup)}">
+          meta="{isFull: $ctrl.isFull(pickup), isUserMember: $ctrl.isUserMember(pickup)}">
         </pickup-list-item>
       </md-list>
     </section>

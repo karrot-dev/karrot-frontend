@@ -21,6 +21,12 @@ class AuthenticationService {
       .catch((res) => this.$q.reject(res.data));
   }
 
+  verify(userEmail) {
+    return this.$http.post("/api/users/resend_verification/", { email: userEmail })
+      .then((res) => res.data)
+      .then(() => this.data = "Email Sent");
+  }
+
   logout() {
     return this.$http.post("/api/auth/logout/", {})
       .then(() => this.data = undefined);

@@ -1,0 +1,27 @@
+<div layout="row">
+  <div flex></div>
+
+<div id="notification" class="md-whiteframe-2dp" style="margin: 0; padding: 0">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h1 flex>
+        <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
+        {{ $ctrl.userdata.display_name }}
+      </h1>
+    </div>
+  </md-toolbar>
+  <div class="content">
+      <h3><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $ctrl.userdata.email }}
+      <span ng-show="!$ctrl.isVerified()">
+      <input type="button" id="verify" ng-click="$ctrl.sendVerification($ctrl.userdata.email)" value="Verify"></input>
+      </span>
+      <span ng-show="$ctrl.isVerified()">
+      <span style="float: right;">Verified</span>
+      <i class="fa fa-check-circle fa-2" style ="float: right; color: green;" aria-hidden="true"></i> 
+      </span>
+      </h3>
+  </div>
+</div>
+  <div flex></div>
+  <!--ng-click="$ctrl.sendVerification($ctrl.userdata.email)"-->
+</div>

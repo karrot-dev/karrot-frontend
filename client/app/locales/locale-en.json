@@ -96,7 +96,8 @@
   "TOPBAR": {
     "LOGOUT": "Logout",
     "USERPROFILE": "Visit your profile",
-    "GREETING": "Hi, {{username}}!"
+    "GREETING": "Hi, {{username}}!",
+    "NOTIFICATION": "Notifications"
   },
   "LOGIN": {
     "TITLE": "Login",

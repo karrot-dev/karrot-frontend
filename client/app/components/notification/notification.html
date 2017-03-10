@@ -13,7 +13,7 @@
   <div class="content">
       <h3><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $ctrl.userdata.email }}
       <span ng-show="!$ctrl.isVerified()">
-      <input type="button" id="verify" ng-click="$ctrl.sendVerification($ctrl.userdata.email)" value="Verify"></input>
+      <md-button class="btn1 md-primary" id="verify" ng-click="$ctrl.sendVerification($ctrl.userdata.email)"><span class="btn1-text">Resend Verification</span></md-button>
       </span>
       <span ng-show="$ctrl.isVerified()">
       <span style="float: right;">Verified</span>

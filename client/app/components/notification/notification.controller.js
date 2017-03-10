@@ -21,6 +21,10 @@ class NotificationController {
             .textContent("Verification Email Sent")
             .highlightAction(false));
           return false;
+        }).catch(() => {
+          $mdToast.show($mdToast.simple()
+            .textContent("Email does not Exist")
+            .highlightAction(false));
         });
       } else {
         return true;

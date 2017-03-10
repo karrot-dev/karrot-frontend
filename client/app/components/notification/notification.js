@@ -2,12 +2,10 @@ import angular from "angular";
 import uiRouter from "angular-ui-router";
 import notificationComponent from "./notification.component";
 import Authentication from "../../services/authentication/authentication";
-import User from "../../services/user/user";
 
 let notificationModule = angular.module("notification", [
   uiRouter,
-  Authentication,
-  User
+  Authentication
 ])
 
 .component("notification", notificationComponent)
@@ -17,15 +15,15 @@ let notificationModule = angular.module("notification", [
   $stateProvider
     .state("notification", {
       parent: "main",
-      url: "/notification/user/{id:int}",
+      url: "/notifications",
       component: "notification",
       resolve: {
-        userdata: (User, $stateParams) => {
-          return User.get($stateParams.id).then((user) => user);
+        userdata: (Authentication) => {
+          return Authentication.update().then((user) => user);
         }
       },
       ncyBreadcrumb: {
-        label: "{{$$childHead.$ctrl.userdata.display_name}}"
+        label: "{{'NOTIFICATIONS.TITLE' | translate}}"
       }
     });
   hookProvider.setup("notification", { authenticated: true, anonymous: "login" });

@@ -21,10 +21,9 @@ class AuthenticationService {
       .catch((res) => this.$q.reject(res.data));
   }
 
-  verify(userEmail) {
-    return this.$http.post("/api/users/resend_verification/", { email: userEmail })
-      .then((res) => res.data)
-      .then(() => this.data = "Email Sent");
+  resendVerificationRequest() {
+    return this.$http.post("/api/users/resend_verification/")
+      .then((res) => res.data);
   }
 
   logout() {

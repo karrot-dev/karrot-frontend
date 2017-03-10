@@ -1,5 +1,5 @@
 class NotificationController {
-  constructor(User, Authentication, $state, $injector) {
+  constructor(User, Authentication, $state, $injector, $translate) {
     "ngInject";
     Object.assign(this, {
       User,
@@ -7,28 +7,19 @@ class NotificationController {
       $state,
       $injector
     });
+    this.$translate = $translate;
+    this.$mdToast = this.$injector.get("$mdToast");
   }
 
   isVerified() {
     return this.userdata.mail_verified;
   }
-  sendVerification(email) {
-    const $mdToast = this.$injector.get("$mdToast");
-    this.Authentication.update().then((data) => {
-      if (data.mail_verified === false) {
-        this.Authentication.verify(email).then(() => {
-          $mdToast.show($mdToast.simple()
-            .textContent("Verification Email Sent")
-            .highlightAction(false));
-          return false;
-        }).catch(() => {
-          $mdToast.show($mdToast.simple()
-            .textContent("Email does not Exist")
-            .highlightAction(false));
-        });
-      } else {
-        return true;
-      }
+  sendVerification() {
+    this.Authentication.resendVerificationRequest().then(() => {
+      this.$translate("NOTIFICATIONS.VERIFICATION_EMAIL_SENT").then((message) => {
+        this.$mdToast.showSimple(message);
+      });
+      return false;
     });
   }
 }

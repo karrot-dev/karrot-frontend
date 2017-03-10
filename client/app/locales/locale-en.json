@@ -1,8 +1,8 @@
 {
-  "GLOBAL":{
-    "GITHUB_NOTE":"Development",
-    "DEVMAIL_NOTE":"write us a mail for errors/suggestions",
-    "WARNING":"Warning",
+  "GLOBAL": {
+    "GITHUB_NOTE": "Development",
+    "DEVMAIL_NOTE": "write us a mail for errors/suggestions",
+    "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
     "SERVER_ERROR": "Server error"
@@ -49,7 +49,7 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
     "STORES": "Stores",
-    "HISTORY":"History",
+    "HISTORY": "History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group"
@@ -148,8 +148,8 @@
       "DELETE_TEXT": "Do you really want to delete this pickup date?",
       "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
-    "NONE":"No upcoming pickups",
-    "NONE_HINT":"You can create a new pickup on the store page."
+    "NONE": "No upcoming pickups",
+    "NONE_HINT": "You can create a new pickup on the store page."
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",
@@ -169,12 +169,12 @@
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
-  "HISTORY":{
+  "HISTORY": {
     "GROUP_CREATE": "created this group",
     "GROUP_MODIFY": "changed the settings of this group",
     "GROUP_JOIN": "joined this group",
     "GROUP_LEAVE": "left this group",
-    "STORE_CREATE":"created store {{name}}",
+    "STORE_CREATE": "created store {{name}}",
     "STORE_MODIFY": "changed the settings of store {{name}}",
     "STORE_DELETE": "deleted store {{name}}",
     "PICKUP_CREATE": "created a new one-time pick-up",
@@ -186,5 +186,11 @@
     "PICKUP_DONE": "did a pick-up at {{store_name}}",
     "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "VERIFIED": "Verified",
+    "RESEND_VERIFICATION": "Resend Verification",
+    "VERIFICATION_EMAIL_SENT": "Verification Email Sent"
   }
 }

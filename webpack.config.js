@@ -41,5 +41,8 @@ module.exports = {
       { from: "node_modules/angular-i18n", to: "angular/i18n" },
       { from: "client/app/icon", to: "app/icon" }
     ], {})
-  ]
+  ],
+  node: {
+    fs: "empty"
+  }
 };

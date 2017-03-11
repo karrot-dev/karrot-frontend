@@ -96,8 +96,7 @@
   "TOPBAR": {
     "LOGOUT": "Logout",
     "USERPROFILE": "Visit your profile",
-    "GREETING": "Hi, {{username}}!",
-    "NOTIFICATION": "Notifications"
+    "GREETING": "Hi, {{username}}!"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -189,8 +188,8 @@
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",
-    "VERIFIED": "Verified",
-    "RESEND_VERIFICATION": "Resend Verification",
-    "VERIFICATION_EMAIL_SENT": "Verification Email Sent"
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   }
 }

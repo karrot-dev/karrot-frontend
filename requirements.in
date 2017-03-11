@@ -21,3 +21,4 @@ django-anymail
 sparkpost
 django-influxdb-metrics
 django-timezone-field
+raven

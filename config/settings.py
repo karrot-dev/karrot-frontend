@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'anymail',
     'influxdb_metrics',
     'timezone_field',
+    'raven.contrib.django.raven_compat',
 
     # Application
     'foodsaving',

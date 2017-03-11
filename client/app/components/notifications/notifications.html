@@ -1,0 +1,31 @@
+<div class="md-whiteframe-2dp" style="margin: 0; padding: 0">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h1 flex>
+        <i class="fa fa-bell-o" aria-hidden="true"></i>
+        <span translate="NOTIFICATIONS.TITLE"></span>
+      </h1>
+    </div>
+  </md-toolbar>
+  <div class="content">
+    <md-list>
+      <md-list-item ng-if="!$ctrl.isVerified()">
+        <div layout="column">
+          <span>
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span> {{ $ctrl.userdata.email }}</span>
+          </span>
+          <md-button class="md-accent md-raised" id="verify" ng-click="$ctrl.sendVerification($ctrl.userdata.email)">
+            <span translate="NOTIFICATIONS.RESEND_VERIFICATION"></span>
+          </md-button>
+        </div>
+        <span class="md-secondary">
+          <md-tooltip>
+            <span translate="NOTIFICATIONS.NOT_VERIFIED"></span>
+          </md-tooltip>
+          <i class="fa fa-times" md-colors="::{color: 'warn'}" aria-hidden="true"></i>
+        </span>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>

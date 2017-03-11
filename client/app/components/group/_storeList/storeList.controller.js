@@ -1,10 +1,9 @@
 class StoreListController {
-  constructor(Store, $state, $document, $mdMedia, CurrentStores, $scope) {
+  constructor(Store, $state, $document, $mdMedia, CurrentStores) {
     "ngInject";
     Object.assign(this, {
       Store,
       CurrentStores,
-      $scope,
       storeList: CurrentStores.list,
       $state,
       $document,
@@ -12,16 +11,6 @@ class StoreListController {
       showMap: false,
       searchQuery: ""
     });
-  }
-
-  $onInit() {
-    this.deregister = this.$scope.$watch(() => this.CurrentStores.list, (list) => {
-      this.storeList = angular.copy(list);
-    }, true);
-  }
-
-  $onDestroy() {
-    this.deregister();
   }
 
   $onChanges(changes) {

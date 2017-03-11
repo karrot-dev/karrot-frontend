@@ -1,7 +1,8 @@
 class StoreMapController {
-  constructor() {
+  constructor($scope) {
     "ngInject";
     Object.assign(this, {
+      $scope,
       markers: {},
       bounds: {},
       defaults: {
@@ -10,10 +11,15 @@ class StoreMapController {
     });
   }
 
-  $onChanges(changes) {
-    if (changes.storeList) {
+  $onInit() {
+    // deep watching
+    this.destroy = this.$scope.$watch(() => this.storeList, () => {
       this.update();
-    }
+    }, true);
+  }
+
+  $onDestroy() {
+    this.destroy();
   }
 
   update() {

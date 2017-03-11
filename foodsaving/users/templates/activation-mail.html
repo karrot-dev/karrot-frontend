@@ -1,3 +1,5 @@
+{% load i18n %}
+{% blocktrans with display_name=user.display_name %}
 <html>
   <head>
     <title>WELCOME</title>
@@ -169,7 +171,7 @@
                     <td height="35" class="em_height">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; font-weight:bold; line-height:18px; color:#563b31;">Welcome, &lt;Firstname&gt;</td>
+                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; font-weight:bold; line-height:18px; color:#563b31;">Welcome, {{ display_name }}</td>
                   </tr>
                   <tr>
                     <td height="22" style="font-size:1px; line-height:1px;">&nbsp;</td>
@@ -190,7 +192,11 @@
                     <td valign="top" align="center">
                       <table width="210" border="0" cellspacing="0" cellpadding="0" align="center">
                         <tr>
-                          <td valign="middle" align="center" height="45" bgcolor="#795548" style="font-family:'Open Sans', Arial, sans-serif; font-size:17px; font-weight:bold; color:#ffffff; text-transform:uppercase;">Activation Link</td>
+                          <td valign="middle" align="center" height="45" bgcolor="#795548" style="font-family:'Open Sans', Arial, sans-serif; font-size:17px; font-weight:bold; color:#ffffff; text-transform:uppercase;">
+                              <a href="{{ url }}" target="_blank" style="text-decoration:none; color: white;">
+                                  Activation Link
+                              </a>
+                          </td>
                         </tr>
                       </table>
                     </td>
@@ -262,3 +268,4 @@
     <div style="display:none; white-space:nowrap; font:20px courier; color:#ffffff; background-color:#ffffff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
   </body>
 </html>
+{% endblocktrans %}

@@ -43,6 +43,10 @@ class UserService {
   resetPassword(email) {
     return this.$http.post("/api/users/reset_password/", { email });
   }
+
+  resendVerificationRequest() {
+    return this.$http.post("/api/users/resend_verification/");
+  }
 }
 
 export default UserService;

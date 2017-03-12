@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("ProfilePicture", () => {
   beforeEach(module(ProfilePictureModule));
+  beforeEach(module({ $translate: sinon.mock() }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -41,15 +42,10 @@ describe("ProfilePicture", () => {
     it("invalid user", () => {
       let $ctrl = $componentController("profilePicture", {}, { userId: 666 });
       User.get.withArgs(666).returns($q.reject());
-      //$translate.withArgs("PROFILE.INACCESSIBLE_OR_DELETED").returns($q.resolve("translated string"));
+      $ctrl.$translate.returns($q.resolve("translated string"));
       $ctrl.$onInit();
-      try {
-        $rootScope.$apply();
-      } catch (e) {
-        // TODO: figure out how to test $translate
-      }
-
-      //expect($ctrl.name).to.equal("translated string");
+      $rootScope.$apply();
+      expect($ctrl.name).to.equal("translated string");
     });
 
   });

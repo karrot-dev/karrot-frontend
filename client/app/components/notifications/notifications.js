@@ -1,22 +1,26 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
-import notificationComponent from "./notification.component";
+import ngMaterial from "angular-material";
+import User from "../../services/user/user";
+import notificationsComponent from "./notifications.component";
 import Authentication from "../../services/authentication/authentication";
 
-let notificationModule = angular.module("notification", [
+let notificationsModule = angular.module("notifications", [
   uiRouter,
+  ngMaterial,
+  User,
   Authentication
 ])
 
-.component("notification", notificationComponent)
+.component("notifications", notificationsComponent)
 
 .config(($stateProvider, hookProvider) => {
   "ngInject";
   $stateProvider
-    .state("notification", {
+    .state("notifications", {
       parent: "main",
       url: "/notifications",
-      component: "notification",
+      component: "notifications",
       resolve: {
         userdata: (Authentication) => {
           return Authentication.update().then((user) => user);
@@ -26,9 +30,9 @@ let notificationModule = angular.module("notification", [
         label: "{{'NOTIFICATIONS.TITLE' | translate}}"
       }
     });
-  hookProvider.setup("notification", { authenticated: true, anonymous: "login" });
+  hookProvider.setup("notifications", { authenticated: true, anonymous: "login" });
 })
 
 .name;
 
-export default notificationModule;
+export default notificationsModule;

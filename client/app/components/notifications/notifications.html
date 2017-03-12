@@ -10,15 +10,16 @@
   <div class="content">
     <md-list>
       <md-list-item ng-if="!$ctrl.isVerified()">
-        <div layout="column">
-          <span>
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <span> {{ $ctrl.userdata.email }}</span>
-          </span>
-          <md-button class="md-accent md-raised" id="verify" ng-click="$ctrl.sendVerification($ctrl.userdata.email)">
+        <span>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span> {{ $ctrl.userdata.unverified_email }}</span>
+        </span>
+        <md-button class="md-icon-button md-accent md-raised" ng-click="$ctrl.sendVerification($ctrl.userdata.email)">
+          <md-tooltip>
             <span translate="NOTIFICATIONS.RESEND_VERIFICATION"></span>
-          </md-button>
-        </div>
+          </md-tooltip>
+          <i class="fa fa-repeat" aria-hidden="true"></i>
+        </md-button>
         <span class="md-secondary">
           <md-tooltip>
             <span translate="NOTIFICATIONS.NOT_VERIFIED"></span>

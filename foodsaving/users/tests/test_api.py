@@ -116,8 +116,8 @@ class TestUsersAPI(APITestCase):
         self.client.force_login(user=self.user)
         url = self.url + 'verify_mail/'
         response = self.client.post(url, {'key': self.user.activation_key})
-        self.assertEqual(response.data, None)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, {})
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_verify_mail_fails_if_not_logged_in(self):
         url = self.url + 'verify_mail/'
@@ -161,7 +161,7 @@ class TestUsersAPI(APITestCase):
         self.client.force_login(user=self.user)
         url = self.url + 'resend_verification/'
         response = self.client.post(url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
         self.assertEqual(mail.outbox[0].to, [self.user.email])
@@ -181,7 +181,7 @@ class TestUsersAPI(APITestCase):
     def test_reset_password_succeeds(self):
         url = self.url + 'reset_password/'
         response = self.client.post(url, {'email': self.verified_user.email})
-        self.assertIsNone(response.data)
+        self.assertEqual(response.data, {})
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].subject, 'New password')

@@ -1,10 +1,14 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import ngMaterial from "angular-material";
+import User from "../../services/user/user";
 import notificationsComponent from "./notifications.component";
 import Authentication from "../../services/authentication/authentication";
 
 let notificationsModule = angular.module("notifications", [
   uiRouter,
+  ngMaterial,
+  User,
   Authentication
 ])
 

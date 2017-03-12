@@ -11,6 +11,14 @@
           <span translate="TOPBAR.USERPROFILE"></span>
       </md-tooltip>
     </md-button>
+
+    <md-button ng-if="!screenIsSmall" class="userProfileLink" ui-sref="notification">
+      <i class="fa fa-bell-o"></i>
+      <md-tooltip>
+          <span translate="TOPBAR.NOTIFICATION"></span>
+      </md-tooltip>
+    </md-button>
+
     <md-button ng-if="!screenIsSmall" class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
       <i class="fa fa-fw fa-sign-out"></i>
       <md-tooltip>
@@ -37,6 +45,12 @@
         <md-button ng-click="$ctrl.toggleRight()" class="userProfileLink" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
           <i class="fa fa-user"></i>
           <span translate="TOPBAR.USERPROFILE"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.toggleRight()" class="userProfileLink">
+          <i class="fa fa-envelope-o"></i>
+          <span translate="TOPBAR.NOTIFICATION"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>

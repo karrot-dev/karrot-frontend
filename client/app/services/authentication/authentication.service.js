@@ -21,6 +21,11 @@ class AuthenticationService {
       .catch((res) => this.$q.reject(res.data));
   }
 
+  resendVerificationRequest() {
+    return this.$http.post("/api/users/resend_verification/")
+      .then((res) => res.data);
+  }
+
   logout() {
     return this.$http.post("/api/auth/logout/", {})
       .then(() => this.data = undefined);

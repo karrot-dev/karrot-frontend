@@ -1,5 +1,3 @@
-from itertools import zip_longest
-
 from copy import deepcopy
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
@@ -162,7 +160,6 @@ class TestStoreChangesPickupDateSeriesAPI(APITestCase):
         url = '/api/pickup-dates/'
         response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-        original_dates = [parse(_['date']) for _ in response.data]
 
         response = self.client.patch(self.store_url, {'weeks_in_advance': 2})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
@@ -171,10 +168,8 @@ class TestStoreChangesPickupDateSeriesAPI(APITestCase):
         url = '/api/pickup-dates/'
         response = self.client.get(url, {'series': self.series.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-        new_dates = [_ for _ in original_dates if _ < self.now + relativedelta(weeks=2)]
-        for return_date, new_date in zip_longest(response.data, new_dates):
-            self.assertIsNotNone(return_date)  # would be too far in future
-            self.assertEqual(parse(return_date['date']), new_date)
+        for _ in response.data:
+            self.assertLessEqual(parse(_['date']), self.now + relativedelta(weeks=2, hours=1))
 
     def test_increase_weeks_in_advance(self):
         self.client.force_login(user=self.member)

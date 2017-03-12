@@ -81,7 +81,7 @@ class UserViewSet(
         serializer = self.get_serializer(request.user, request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
-        return Response()
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
 
     @list_route(
         methods=['POST'],
@@ -93,7 +93,7 @@ class UserViewSet(
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'Already verified'})
         request.user.send_verification_code()
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
 
     @list_route(
         methods=['POST']
@@ -118,4 +118,4 @@ class UserViewSet(
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'mail is not verified'})
         user.reset_password()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})

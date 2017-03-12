@@ -4,12 +4,6 @@ const { module } = angular.mock;
 
 describe("GroupEditCreateForm", () => {
   beforeEach(module(GroupEditCreateFormModule));
-  beforeEach(module({
-    Geocoding: {
-      lookupAddress: sinon.stub()
-    }
-  }));
-
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -27,10 +21,9 @@ describe("GroupEditCreateForm", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, Geocoding, $q, $rootScope;
+    let $componentController, $q, $rootScope;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
-      Geocoding = $injector.get("Geocoding");
       $q = $injector.get("$q");
       $rootScope = $injector.get("$rootScope");
     }));
@@ -64,9 +57,10 @@ describe("GroupEditCreateForm", () => {
 
     it("does lookup", () => {
       let $ctrl = $componentController("groupEditCreateForm", {});
+      sinon.stub($ctrl.Geocoding, "lookupAddress");
       $ctrl.query = "arg";
       $ctrl.geoLookup();
-      expect(Geocoding.lookupAddress).to.have.been.calledWith("arg");
+      expect($ctrl.Geocoding.lookupAddress).to.have.been.calledWith("arg");
     });
 
     it("doesn't set coords if no value", () => {

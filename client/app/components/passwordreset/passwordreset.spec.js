@@ -25,18 +25,17 @@ describe("Passwordreset", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, User, $q, $rootScope;
+    let $componentController, $q, $rootScope;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
-      User = $injector.get("User");
-      sinon.stub(User, "resetPassword");
       $q = $injector.get("$q");
       $rootScope = $injector.get("$rootScope");
     }));
 
     it("resets password", () => {
       let $ctrl = $componentController("passwordreset", {});
-      User.resetPassword.returns($q((resolve) => {
+      sinon.stub($ctrl.User, "resetPassword");
+      $ctrl.User.resetPassword.returns($q((resolve) => {
         resolve();
       }));
       $ctrl.doReset();
@@ -46,7 +45,8 @@ describe("Passwordreset", () => {
 
     it("fails resetting password", () => {
       let $ctrl = $componentController("passwordreset", {});
-      User.resetPassword.returns($q((resolve, reject) => {
+      sinon.stub($ctrl.User, "resetPassword");
+      $ctrl.User.resetPassword.returns($q((resolve, reject) => {
         reject({ data: "message" });
       }));
       $ctrl.doReset();

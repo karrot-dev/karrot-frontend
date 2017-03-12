@@ -23,21 +23,14 @@ describe("Home", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $httpBackend, $state, $mdDialog, $q, Authentication;
+    let $componentController, $httpBackend, $q, Authentication;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
+      $q = $injector.get("$q");
 
       Authentication = $injector.get("Authentication");
       Authentication.data = { id: 1 };
-
-      $mdDialog = $injector.get("$mdDialog");
-      sinon.stub($mdDialog, "show");
-
-      $state = $injector.get("$state");
-      sinon.stub($state, "go");
-
-      $q = $injector.get("$q");
     }));
 
     afterEach(() => {
@@ -52,19 +45,24 @@ describe("Home", () => {
 
     it("should redirect user", () => {
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, groupData);
-      $componentController("home", {}).$onInit();
+      let $ctrl = $componentController("home", {});
+      sinon.stub($ctrl.$state, "go");
+      $ctrl.$onInit();
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith("group", { groupId: 50 });
+      expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: 50 });
     });
 
     it("opens join group dialog", () => {
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, {});
-      $mdDialog.show.returns($q((resolve) => {
+      let $ctrl = $componentController("home", {});
+      sinon.stub($ctrl.$state, "go");
+      sinon.stub($ctrl.$mdDialog, "show");
+      $ctrl.$mdDialog.show.returns($q((resolve) => {
         resolve(1337);
       }));
-      $componentController("home", {}).$onInit();
+      $ctrl.$onInit();
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith( "group", { groupId: 1337 } );
+      expect($ctrl.$state.go).to.have.been.calledWith( "group", { groupId: 1337 } );
     });
   });
 });

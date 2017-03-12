@@ -5,19 +5,18 @@ const { module } = angular.mock;
 describe("Topbar", () => {
   beforeEach(module(TopbarModule));
 
-  let $log, $ctrl, Authentication, $q, $rootScope;
+  let $log, $ctrl, $q, $rootScope;
 
   let userData = { id: 5, "display_name": "abc" };
 
   beforeEach(inject(($injector, _$componentController_) => {
     $log = $injector.get("$log");
     $log.reset();
-    Authentication = $injector.get("Authentication");
-    sinon.stub(Authentication, "update");
     $q = $injector.get("$q");
     $rootScope = $injector.get("$rootScope");
     $ctrl = _$componentController_("topbar", {});
-    Authentication.update.returns($q((resolve) => {
+    sinon.stub($ctrl.Authentication, "update");
+    $ctrl.Authentication.update.returns($q((resolve) => {
       resolve(userData);
     }));
   }));
@@ -30,7 +29,7 @@ describe("Topbar", () => {
     it("calls $onInit", () => {
       $ctrl.$onInit();
       $rootScope.$apply();
-      expect(Authentication.update).has.been.called;
+      expect($ctrl.Authentication.update).has.been.called;
       expect($ctrl.loggedInUser).to.deep.equal(userData);
     });
   });

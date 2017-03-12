@@ -35,27 +35,20 @@ describe("StoreDetail", () => {
   });
 
   describe("Routes", () => {
-    context("when logged out", () => {
+    let groupData = {
+      id: 1
+    };
+    let storeData = {
+      id: 25,
+      group: groupData.id
+    };
 
-      describe("storeDetail", () => {
-
-        let groupData = {
-          id: 1
-        };
-        let storeData = {
-          id: 25,
-          group: groupData.id
-        };
-
-        it("should load store information", () => {
-          $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-          $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
-          $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });
-          $httpBackend.flush();
-          expect($state.current.component).to.equal("storeDetail");
-        });
-      });
-
+    it("should load store information", () => {
+      $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
+      $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
+      $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });
+      $httpBackend.flush();
+      expect($state.current.component).to.equal("storeDetail");
     });
   });
 

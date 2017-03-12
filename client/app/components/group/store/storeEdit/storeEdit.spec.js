@@ -22,12 +22,10 @@ describe("StoreEdit", () => {
 
 
   describe("Controller", () => {
-    let $componentController, $state, $httpBackend;
+    let $componentController, $httpBackend;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
-      $state = $injector.get("$state");
-      sinon.stub($state, "go");
     }));
 
     afterEach(() => {
@@ -43,8 +41,9 @@ describe("StoreEdit", () => {
       };
       $ctrl.submit(storedata);
       $httpBackend.expectPATCH("/api/stores/85/", storedata).respond(200, storedata);
+      sinon.stub($ctrl.$state, "go");
       $httpBackend.flush();
-      expect($state.go).to.have.been.called;
+      expect($ctrl.$state.go).to.have.been.called;
     });
   });
 });

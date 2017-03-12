@@ -43,19 +43,11 @@ describe("pickupEditCreate", () => {
   });
 
   describe("Controller", () => {
-    let $ctrl, PickupDate, PickupDateSeries, $q, $rootScope, $mdDialog;
+    let $ctrl, $q, $rootScope;
 
     beforeEach(inject(($injector) => {
-      PickupDate = $injector.get("PickupDate");
-      PickupDateSeries = $injector.get("PickupDateSeries");
       $q = $injector.get("$q");
       $rootScope = $injector.get("$rootScope");
-      $mdDialog = $injector.get("$mdDialog");
-      sinon.stub(PickupDate, "create");
-      sinon.stub(PickupDate, "save");
-      sinon.stub(PickupDateSeries, "create");
-      sinon.stub(PickupDateSeries, "save");
-      sinon.stub($mdDialog, "hide");
     }));
 
     let mockTime = (hour, minute) => {
@@ -97,20 +89,22 @@ describe("pickupEditCreate", () => {
           series: false
         }
       });
+      sinon.stub($ctrl.$mdDialog, "hide");
       $ctrl.$onInit();
       expect($ctrl.isSeries).to.be.false;
       expect($ctrl.isCreate).to.be.true;
       $ctrl.singleData.date = new Date(2016,6,14);
       $ctrl.time = mockTime(15, 22);
-      PickupDate.create.returns($q.resolve());
+      sinon.stub($ctrl.PickupDate, "create");
+      $ctrl.PickupDate.create.returns($q.resolve());
       $ctrl.handleSubmit();
       $rootScope.$apply();
-      expect(PickupDate.create).to.have.been.calledWith({
+      expect($ctrl.PickupDate.create).to.have.been.calledWith({
         date: new Date(2016,6,14,15,22),
         "max_collectors": 2,
         store: 2
       });
-      expect($mdDialog.hide).to.have.been.called;
+      expect($ctrl.$mdDialog.hide).to.have.been.called;
     });
 
     it("creates regular pickup", () => {
@@ -121,18 +115,20 @@ describe("pickupEditCreate", () => {
           series: true
         }
       });
+      sinon.stub($ctrl.$mdDialog, "hide");
       $ctrl.$onInit();
       expect($ctrl.isSeries).to.be.true;
       expect($ctrl.isCreate).to.be.true;
       $ctrl.seriesData.rule.byDay = ["MO","TU"];
       $ctrl.time = mockTime(15, 22);
-      PickupDateSeries.create.returns($q.resolve());
+      sinon.stub($ctrl.PickupDateSeries, "create");
+      $ctrl.PickupDateSeries.create.returns($q.resolve());
       $ctrl.handleSubmit();
       $rootScope.$apply();
       let date = angular.copy($ctrl.seriesData.start_date);
       date.setHours(15);
       date.setMinutes(22);
-      expect(PickupDateSeries.create).to.have.been.calledWith({
+      expect($ctrl.PickupDateSeries.create).to.have.been.calledWith({
         "start_date": date,
         rule: {
           byDay: ["MO", "TU"],
@@ -141,7 +137,7 @@ describe("pickupEditCreate", () => {
         "max_collectors": 2,
         store: 2
       });
-      expect($mdDialog.hide).to.have.been.called;
+      expect($ctrl.$mdDialog.hide).to.have.been.called;
     });
 
     it("edits one-time pickup", () => {
@@ -158,20 +154,22 @@ describe("pickupEditCreate", () => {
           }
         }
       });
+      sinon.stub($ctrl.$mdDialog, "hide");
       $ctrl.$onInit();
       expect($ctrl.isSeries).to.be.false;
       expect($ctrl.isCreate).to.be.false;
       $ctrl.time = mockTime(15, 22);
-      PickupDate.save.returns($q.resolve());
+      sinon.stub($ctrl.PickupDate, "save");
+      $ctrl.PickupDate.save.returns($q.resolve());
       $ctrl.handleSubmit();
       $rootScope.$apply();
-      expect(PickupDate.save).to.have.been.calledWith({
+      expect($ctrl.PickupDate.save).to.have.been.calledWith({
         id: 67,
         date: new Date(2016,2,25,15,22),
         store: 3,
         "max_collectors": 5
       });
-      expect($mdDialog.hide).to.have.been.called;
+      expect($ctrl.$mdDialog.hide).to.have.been.called;
     });
 
     it("edits regular pickup", () => {
@@ -191,15 +189,17 @@ describe("pickupEditCreate", () => {
           }
         }
       });
+      sinon.stub($ctrl.$mdDialog, "hide");
       $ctrl.$onInit();
       expect($ctrl.isSeries).to.be.true;
       expect($ctrl.isCreate).to.be.false;
       $ctrl.seriesData.rule.byDay = ["MO","TU"];
       $ctrl.time = mockTime(15, 22);
-      PickupDateSeries.save.returns($q.resolve());
+      sinon.stub($ctrl.PickupDateSeries, "save");
+      $ctrl.PickupDateSeries.save.returns($q.resolve());
       $ctrl.handleSubmit();
       $rootScope.$apply();
-      expect(PickupDateSeries.save).to.have.been.calledWith({
+      expect($ctrl.PickupDateSeries.save).to.have.been.calledWith({
         id: 67,
         "start_date": new Date(2016,2,25,15,22),
         "max_collectors": 6,
@@ -208,7 +208,7 @@ describe("pickupEditCreate", () => {
         },
         store: 3
       });
-      expect($mdDialog.hide).to.have.been.called;
+      expect($ctrl.$mdDialog.hide).to.have.been.called;
     });
   });
 

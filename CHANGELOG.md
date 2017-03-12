@@ -33,6 +33,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Disable autoformatting features on login and signup page
 - Disable buttons when a request is in progress
 - Mail change now happens after the new mail is verified
+- Fix missing aria-label causing test to fail
 
 
 ## [Release 2] - 2017-02-21

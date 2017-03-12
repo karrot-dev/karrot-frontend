@@ -7,7 +7,7 @@
     </md-button>
     <search-bar search-query="$ctrl.searchQuery"></search-bar>
     <div ng-if="!$ctrl.$mdMedia('gt-sm')" flex></div>
-    <md-button ng-if="!$ctrl.$mdMedia('gt-sm')" class="md-primary" ng-click="$ctrl.toggleMap()">
+    <md-button ng-if="!$ctrl.$mdMedia('gt-sm')" class="md-primary" ng-click="$ctrl.toggleMap()" aria-label="Toggle map" >
       <i style="font-size: 1.2em;" class="fa fa-map" ng-class="$ctrl.showMap ? 'fa-list' : 'fa-map'"></i>
     </md-button>
   </div>

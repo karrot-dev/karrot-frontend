@@ -6,11 +6,34 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [Unreleased]
 ### Added
 
+- Landing page with a map of all groups, new title font (Cabin Sketch)
+- User action history for groups
+- Store management page with overview of all pickup date settings, incl. editing of pickup dates and series
+- Updated locales: German, Esperanto, Spanish, French, Italian, Russian
+- We do regular off-site backups now :)
+
 ### Changed
+
+- Store editing with markdown preview
+- Store create now uses the same form as store editing, incl. nice address input
+- Minimum group & store name length (5 resp. 3 characters)
+- Group names have to be unique, and store names have to be unique within their group
+- Changes to group and store name will do immediate updates throughout the page
 
 ### Removed
 
+- Inline editing. Now all editing happens on separate edit pages with URLs
+
 ### Fixed
+
+- Removed nested scrollbars
+- Translatable markdown help
+- Translated backend error messages
+- Removed unused translation keys
+- Disable autoformatting features on login and signup page
+- Disable buttons when a request is in progress
+- Mail change now happens after the new mail is verified
+- Fix missing aria-label causing test to fail
 
 
 ## [Release 2] - 2017-02-21

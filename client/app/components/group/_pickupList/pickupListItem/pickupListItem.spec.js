@@ -32,9 +32,7 @@ describe("PickupListItem", () => {
       1
     ],
     "max_collectors": 3,
-    "store": 9,
-    "isUserMember": true,
-    "isFull": false
+    "store": 9
   };
 
   let storeData = {

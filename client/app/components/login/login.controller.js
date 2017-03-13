@@ -13,7 +13,7 @@ class LoginController {
 
   login() {
     this.error.wrong = false;
-    this.Authentication.login(this.email, this.password)
+    return this.Authentication.login(this.email, this.password)
     .then(() => {
       this.$state.go("home");
     })

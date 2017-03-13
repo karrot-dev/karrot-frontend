@@ -41,24 +41,10 @@ describe("StoreEdit", () => {
         id: 85,
         name: "blabla"
       };
-      $ctrl.storedata = storedata;
+      $ctrl.submit(storedata);
       $httpBackend.expectPATCH("/api/stores/85/", storedata).respond(200, storedata);
-      $ctrl.submit();
       $httpBackend.flush();
       expect($state.go).to.have.been.called;
-    });
-
-    it("fails to modify store", () => {
-      let $ctrl = $componentController("storeEdit", {});
-      let storedata = {
-        id: 85,
-        name: "blabla"
-      };
-      $ctrl.storedata = storedata;
-      $httpBackend.expectPATCH("/api/stores/85/", storedata).respond(400, "error");
-      $ctrl.submit();
-      $httpBackend.flush();
-      expect($state.go).to.not.have.been.called;
     });
   });
 });

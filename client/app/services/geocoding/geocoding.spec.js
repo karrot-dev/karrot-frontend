@@ -1,5 +1,4 @@
 import GeocodingModule from "./geocoding";
-import translate from "angular-translate";
 
 const { module } = angular.mock;
 
@@ -7,7 +6,6 @@ describe("geocoding", () => {
   let $httpBackend, Geocoding;
   beforeEach(() => {
     module(GeocodingModule);
-    module(translate);
   });
 
   let $log;
@@ -35,9 +33,9 @@ describe("geocoding", () => {
       lon: "2.99",
       display_name: "something" // eslint-disable-line
     }];
-    $httpBackend.expectGET("https://nominatim.openstreetmap.org/search?accept-language=en&format=json&q=enter_some")
+    $httpBackend.expectGET("https://nominatim.openstreetmap.org/search?format=json&q=enter_some")
       .respond(latlonname);
-    expect(Geocoding.lookupAddress("enter_some", "en"))
+    expect(Geocoding.lookupAddress("enter_some"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal([
         {

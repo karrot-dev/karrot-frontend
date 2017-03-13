@@ -3,19 +3,19 @@ import uiRouter from "angular-ui-router";
 import storeDetailComponent from "./storeDetail.component";
 import storeDetailMap from "./_storeDetailMap/storeDetailMap";
 import storeService from "../../../services/store/store";
-import groupService from "../../../services/group/group";
 import pickupList from "../_pickupList/pickupList";
 import storeEdit from "./storeEdit/storeEdit";
-import storeEditCreateForm from "./_storeEditCreateForm/storeEditCreateForm";
+import storeCreate from "./storeCreate/storeCreate";
+import pickupManage from "./pickupManage/pickupManage";
 
 let storeDetailModule = angular.module("storeDetail", [
   uiRouter,
   storeDetailMap,
   storeService,
-  groupService,
   pickupList,
   storeEdit,
-  storeEditCreateForm
+  storeCreate,
+  pickupManage
 ])
 
 .component("storeDetail", storeDetailComponent)
@@ -23,16 +23,26 @@ let storeDetailModule = angular.module("storeDetail", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
+    .state("group.store.storeDetail", {
+      component: "storeDetail",
+      ncyBreadcrumb: {
+        skip: true
+      }
+    })
     .state("group.store", {
       url: "/store/{storeId:int}",
-      component: "storeDetail",
+      redirectTo: "group.store.storeDetail",
+      template: "<ui-view></ui-view>",
       resolve: {
-        storedata: (Store, $stateParams) => {
-          return Store.get($stateParams.storeId);
+        storedata: (Store, CurrentStores, $stateParams) => {
+          return Store.get($stateParams.storeId).then((store) => {
+            return CurrentStores.setSelected(store);
+          });
         }
       },
       ncyBreadcrumb: {
-        label: "{{$$childHead.$ctrl.storedata.name}}"
+        // accesses group controller
+        label: "{{ $ctrl.selectedStore.name }}"
       }
     });
 })

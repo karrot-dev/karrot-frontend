@@ -1,41 +1,56 @@
-<div layout="column" layout-padding>
-  <md-input-container>
-    <label translate="STOREEDIT.NAME"></label>
-    <input required type="text" ng-model="$ctrl.editData.name"/>
-  </md-input-container>
-  
-  <markdown-input translation-label="STOREEDIT.DESCRIPTION" model="$ctrl.editData.description"></markdown-input>
-
-  <md-autocomplete
-    placeholder="{{'STOREEDIT.ADDRESS' | translate}}"
-    md-search-text="$ctrl.query"
-    md-items="item in $ctrl.geoLookup()"
-    md-item-text="item.address"
-    md-selected-item-change="$ctrl.trySetLocation(item)"
-    md-search-text-change="$ctrl.deleteIfEmpty($ctrl.query)"
-    md-delay="500"
-    style="padding:0">
-    <md-item-template>
-      <span md-highlight-text="$ctrl.query">{{item.address}}</span>
-    </md-item-template>
-  </md-autocomplete>
-
-  <leaflet
-    height="200"
-    center="$ctrl.mapCenter"
-    defaults="$ctrl.mapDefaults"
-    markers="$ctrl.marker"
-    class="md-whiteframe-z1">
-  </leaflet>
-
-  <h4 translate="STOREEDIT.WEEKS_IN_ADVANCE"></h4>
-  <md-slider-container>
-    <md-slider flex md-discrete min="1" step="1" max="10" ng-model="$ctrl.editData.weeks_in_advance" aria-label="{{'STOREEDIT.WEEKS_IN_ADVANCE' | translate}}" id="week-slider">
-    </md-slider>
+<form name="editForm" ng-submit="$ctrl.submit()" promise-btn>
+  <div layout="column" layout-padding>
     <md-input-container>
-      <input flex type="number" ng-model="$ctrl.editData.weeks_in_advance" aria-label="{{'STOREEDIT.WEEKS_IN_ADVANCE' | translate}}" aria-controls="week-slider">
+      <label translate="STOREEDIT.NAME"></label>
+      <input type="text" name="name" ng-model="$ctrl.data.name"
+        required minlength="3" maxlength="80" autocomplete="off"/>
+      <div ng-messages="editForm.name.$error">
+        <div ng-message="minlength" translate="FORM.MINLENGTH" translate-values="{min:'3'}"></div>
+      </div>
     </md-input-container>
-  </md-slider-container>
 
-  <div ng-model="$ctrl.editData.weeks_in_advance"></div>
-</div>
+    <markdown-input translation-label="STOREEDIT.DESCRIPTION" model="$ctrl.data.description"></markdown-input>
+
+    <md-autocomplete
+      placeholder="{{'STOREEDIT.ADDRESS' | translate}}"
+      md-search-text="$ctrl.query"
+      md-items="item in $ctrl.geoLookup()"
+      md-item-text="item.address"
+      md-selected-item-change="$ctrl.trySetLocation(item)"
+      md-search-text-change="$ctrl.deleteIfEmpty($ctrl.query)"
+      md-delay="500"
+      style="padding:0">
+      <md-item-template>
+        <span md-highlight-text="$ctrl.query">{{item.address}}</span>
+      </md-item-template>
+    </md-autocomplete>
+
+    <leaflet
+      height="200"
+      center="$ctrl.mapCenter"
+      defaults="$ctrl.mapDefaults"
+      markers="$ctrl.marker"
+      class="md-whiteframe-z1">
+    </leaflet>
+
+    <h4 translate="STOREEDIT.WEEKS_IN_ADVANCE"></h4>
+    <md-slider-container>
+      <md-slider flex md-discrete min="1" step="1" max="10" ng-model="$ctrl.data.weeks_in_advance" aria-label="{{'STOREEDIT.WEEKS_IN_ADVANCE' | translate}}" id="week-slider">
+      </md-slider>
+      <md-input-container>
+        <input flex type="number" ng-model="$ctrl.data.weeks_in_advance" aria-label="{{'STOREEDIT.WEEKS_IN_ADVANCE' | translate}}" aria-controls="week-slider">
+      </md-input-container>
+    </md-slider-container>
+
+    <p>{{ $ctrl.error }}</p>
+    <div layout="row" layout-align="end start">
+      <md-button class="md-icon-button" ui-sref="group.store ({'storeId': $ctrl.data.id})" ng-if="!$ctrl.isCreate">
+        <i class="fa fa-times"></i>
+      </md-button>
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="!editForm.$valid">
+        <i class="fa fa-check" ng-if="!$ctrl.isCreate"></i>
+        <span ng-if="$ctrl.isCreate" translate="BUTTON.CREATE"></span>
+      </md-button>
+    </div>
+  </div>
+</form>

@@ -12,7 +12,7 @@
   </div>
 
   <div class="content" ng-class="[{shake: $ctrl.error.wrong}]">
-    <form login-form ng-submit="$ctrl.login()">
+    <form login-form ng-submit="$ctrl.login()" promise-btn>
       <h2 translate="LOGIN.TITLE"></h2>
       <md-card>
         <md-card-title>
@@ -25,11 +25,11 @@
       </md-card>
       <md-input-container class="md-block">
         <label translate="USERDATA.EMAIL"></label>
-        <input autocapitalize="off" type="email" name="email" required ng-model="$ctrl.email">
+        <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" name="email" required ng-model="$ctrl.email">
       </md-input-container>
       <md-input-container class="md-block">
         <label translate="USERDATA.PASSWORD"></label>
-        <input autocapitalize="off" type="password" name="password" required ng-model="$ctrl.password">
+        <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" name="password" required ng-model="$ctrl.password">
         <div ng-messages="$ctrl.error" type="alert">
           <div ng-message="wrong" translate="LOGIN.WRONG">
           </div>

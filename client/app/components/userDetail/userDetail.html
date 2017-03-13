@@ -25,7 +25,7 @@
       <expandable-panel content="$ctrl.userdata.description" markdown="true" collapse="1000"></expandable-panel>
     </div>
 
-    <form ng-if="$ctrl.editEnabled" name="editUser" ng-submit="editUser.$valid && $ctrl.submitEdit()" layout="column">
+    <form ng-if="$ctrl.editEnabled" name="editUser" ng-submit="$ctrl.submitEdit()" promise-btn layout="column">
       <md-input-container>
         <label translate="USERDETAIL.DISPLAY_NAME"></label>
         <input required type="text" ng-model="$ctrl.editData.display_name"/>
@@ -54,7 +54,7 @@
         <md-button class="md-icon-button" ng-click="$ctrl.stopEdit()">
           <i class="fa fa-times"></i>
         </md-button>
-        <md-button type="submit" class="md-raised md-primary" ng-disabled="!editUser.$valid || $ctrl.saving">
+        <md-button type="submit" class="md-raised md-primary" ng-disabled="!editUser.$valid">
           <i class="fa fa-check"></i>
         </md-button>
       </div>

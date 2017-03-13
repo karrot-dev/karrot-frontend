@@ -1,17 +1,18 @@
 <store-map store-list="$ctrl.storeList" ng-if="$ctrl.$mdMedia('gt-sm')"></store-map>
 <md-list layout-padding>
   <div layout="row">
-    <md-button class="md-primary" aria-label="Create Store" ng-click="$ctrl.openCreateStorePanel($event)">
-      <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
+    <md-button class="md-primary" aria-label="Create Store" ui-sref="group.storeCreate">
+      <i style="font-size: 1.2em;" class="fa fa-plus-circle"></i>
       <span translate="BUTTON.CREATE"></span>
     </md-button>
+    <search-bar search-query="$ctrl.searchQuery"></search-bar>
     <div ng-if="!$ctrl.$mdMedia('gt-sm')" flex></div>
-    <md-button ng-if="!$ctrl.$mdMedia('gt-sm')" class="md-primary" aria-label="Create Store" ng-click="$ctrl.toggleMap()">
-      <i style="font-size: 1.2em;" class="fa fa-map" ng-class="$ctrl.showMap ? 'fa-list' : 'fa-map'" aria-hidden="true"></i>
+    <md-button ng-if="!$ctrl.$mdMedia('gt-sm')" class="md-primary" ng-click="$ctrl.toggleMap()" aria-label="Toggle map" >
+      <i style="font-size: 1.2em;" class="fa fa-map" ng-class="$ctrl.showMap ? 'fa-list' : 'fa-map'"></i>
     </md-button>
   </div>
   <store-map ng-if="$ctrl.showMap" store-list="$ctrl.storeList"></store-map>
-  <md-list-item ng-if="!$ctrl.showMap" ng-repeat="store in $ctrl.storeList" ui-sref-active="highlighted" ui-sref="group.store({ storeId: store.id, groupId: store.group })">
+  <md-list-item ng-if="!$ctrl.showMap" ng-repeat="store in $ctrl.storeList | filter: $ctrl.searchQuery" ui-sref-active="highlighted" ui-sref="group.store({ storeId: store.id, groupId: store.group })">
     <p>{{store.name}}</p>
   </md-list-item>
 </md-list>

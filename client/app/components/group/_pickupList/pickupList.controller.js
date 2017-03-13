@@ -38,16 +38,11 @@ class PickupListController {
 
     /**
      * adds following infos to a list of pickups:
-     * - isUserMember
-     * - isFull
      * - store (if showDetail == store)
      */
   addPickupInfosAndDisplay(pickups) {
     let stores = {};
     angular.forEach(pickups, (currentPickup) => {
-      currentPickup.isUserMember = currentPickup.collector_ids.indexOf(this.userId) !== -1;
-      currentPickup.isFull = !(currentPickup.collector_ids.length < currentPickup.max_collectors);
-
       if (this.options.showDetail === "store") {
         if (angular.isUndefined(stores[currentPickup.store])) {
           stores[currentPickup.store] = this.Store.get(currentPickup.store);
@@ -59,6 +54,24 @@ class PickupListController {
     this.filterAndDisplayPickups();
   }
 
+/**
+ * checks if a pickup is already full
+ * @param {Object} pickup - pickup to check
+ * @return true or false
+ */
+  isFull(pickup) {
+    return  !(pickup.collector_ids.length < pickup.max_collectors);
+  }
+
+/**
+ * checks if user is member of this pickup
+ * @param {Object} pickup - pickup to check
+ * @return true or false
+ */
+  isUserMember(pickup){
+    return pickup.collector_ids.indexOf(this.userId) !== -1;
+  }
+
     /*
      * Filters pickups, so that only the ones specified by the criteria in the header menu are shown
      * @return filtered pickups
@@ -66,9 +79,9 @@ class PickupListController {
   filterAndDisplayPickups() {
     let pickups = [];
     angular.forEach(this.allPickups, (currentPickup) => {
-      if (currentPickup.isUserMember && this.options.filter.showJoined
-        || currentPickup.isFull && this.options.filter.showFull
-        || !currentPickup.isFull && this.options.filter.showOpen) {
+      if (this.isUserMember(currentPickup) && this.options.filter.showJoined
+        || this.isFull(currentPickup) && this.options.filter.showFull
+        || !this.isFull(currentPickup) && this.options.filter.showOpen) {
         pickups.push(currentPickup);
       }
     });
@@ -123,7 +136,7 @@ class PickupListController {
 
   delete(pickup, $event) {
     this.pickupToDelete = pickup;
-    this.$mdDialog.show({
+    return this.$mdDialog.show({
       contentElement: "#confirmDeleteDialog",
       parent: angular.element(this.$document.body),
       targetEvent: $event
@@ -134,29 +147,48 @@ class PickupListController {
       } else {
         return this.PickupDate.delete(pickup.id);
       }
+    }).then(
+    () => {
+      if (this.isDeleteSeries) {
+        this.allPickups = this.allPickups.filter((pickup) => {
+          return pickup.series !== this.pickupToDelete.series;
+        });
+      } else {
+        let index = this.allPickups.indexOf(this.pickupToDelete);
+        this.allPickups.splice(index, 1);
+      }
+      this.filterAndDisplayPickups();
+      this.isDeleteSeries = false;
     })
-    .then(() => this.updatePickups())
     .catch(() => {});
-
   }
 
   openCreatePickupPanel($event) {
-    let DialogController = function (storeId) {
+    let DialogController = function (data) {
       "ngInject";
-      this.storeId = storeId;
+      this.data = data;
     };
 
     this.$mdDialog.show({
       parent: this.$document.body,
       targetEvent: $event,
-      template: "<create-pickup store-id='$ctrl.storeId'></create-pickup>",
+      template: "<pickup-edit-create data='$ctrl.data'></pickup-edit-create>",
       locals: {
-        storeId: this.storeId
+        data: {
+          storeId: this.storeId,
+          series: false
+        }
       },
       controller: DialogController,
       controllerAs: "$ctrl"
-    }).then(() => {
-      this.updatePickups();
+    }).then((data) => {
+      if (data.start_date) {
+        // workaround: reload complete list if series was created
+        this.updatePickups();
+      } else {
+        this.allPickups.push(data);
+        this.filterAndDisplayPickups();
+      }
     });
   }
 }

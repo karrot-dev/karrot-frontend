@@ -36,26 +36,14 @@ describe("CreateGroup", () => {
 
     it("creates group", () => {
       let $ctrl = $componentController("createGroup", {});
-      $ctrl.groupData.name = "blabla";
-      $ctrl.groupData.timezone = "Europe/Madrid";
-      $ctrl.createGroup();
-      $httpBackend.expectPOST("/api/groups/", {
+      let groupData = {
         name: "blabla",
         timezone: "Europe/Madrid"
-      }).respond(201, { id: 987 });
+      };
+      $ctrl.createGroup(groupData);
+      $httpBackend.expectPOST("/api/groups/", groupData).respond(201, { id: 987 });
       $httpBackend.flush();
       expect($state.go).to.have.been.calledWith("group", { groupId: 987 });
-    });
-
-    it("fails to create group", () => {
-      let $ctrl = $componentController("createGroup", {});
-      $ctrl.groupData.name = "blabla";
-      $ctrl.createGroup();
-      $httpBackend.expectPOST("/api/groups/", {
-        name: "blabla"
-      }).respond(400, "message");
-      $httpBackend.flush();
-      expect($ctrl.error).to.equal("message");
     });
   });
 });

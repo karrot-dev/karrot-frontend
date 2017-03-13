@@ -1,23 +1,12 @@
-<form name="editForm" ng-submit="editForm.$valid && $ctrl.submit()">
-  <md-toolbar class="md-hue-1">
-    <div class="md-toolbar-tools">
-      <h1 flex>
-        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;
-        <span translate="STOREDETAIL.EDIT"></span>
-      </h1>
-    </div>
-  </md-toolbar>
-  <div layout="column">
-    <store-edit-create-form edit-data="$ctrl.storedata"></store-edit-create-form>
-
-    <p>{{ $ctrl.error }}</p>
-    <div layout="row" layout-align="end start">
-      <md-button class="md-icon-button" ui-sref="group.store ({'storeId': $ctrl.storedata.id})">
-        <i class="fa fa-times"></i>
-      </md-button>
-      <md-button type="submit" class="md-raised md-primary" ng-disabled="!editForm.$valid || $ctrl.saving">
-        <i class="fa fa-check"></i>
-      </md-button>
-    </div>
+<md-toolbar class="md-hue-1">
+  <div class="md-toolbar-tools">
+    <h1 flex>
+      <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;
+      <span translate="STOREDETAIL.EDIT"></span>
+    </h1>
   </div>
-</form>
+</md-toolbar>
+<store-edit-create-form
+  data="$ctrl.storedata"
+  on-submit="$ctrl.submit(data)">
+</store-edit-create-form>

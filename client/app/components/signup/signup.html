@@ -1,5 +1,5 @@
 <md-card class="md-whiteframe-4dp content" layout-padding>
-  <form signup-form ng-submit="$ctrl.signup()" layout="column">
+  <form signup-form ng-submit="$ctrl.signup()" layout="column" promise-btn>
     <h2 style="padding: .2em;" translate="SIGNUP.TITLE">
     </h2>
 
@@ -15,17 +15,20 @@
 
     <md-input-container flex>
       <label translate="USERDATA.USERNAME"></label>
-      <input required type="text" name="Username" ng-model="$ctrl.username"/>
+      <input required type="text" name="Username" ng-model="$ctrl.username"
+        autocorrect="off" autocapitalize="off" spellcheck="false"/>
     </md-input-container>
 
     <md-input-container flex>
       <label translate="USERDATA.EMAIL"></label>
-      <input required type="email" name="Email" ng-model="$ctrl.email"/>
+      <input required type="email" name="Email" ng-model="$ctrl.email"
+        autocorrect="off" autocapitalize="off" spellcheck="false"/>
     </md-input-container>
 
     <md-input-container flex>
       <label translate="USERDATA.PASSWORD"></label>
-      <input type="password" required name="password" ng-model="$ctrl.password">
+      <input required type="password" name="password" ng-model="$ctrl.password"
+        autocorrect="off" autocapitalize="off" spellcheck="false"/>
     </md-input-container>
 
     <md-button-container flex>

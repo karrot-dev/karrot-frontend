@@ -9,18 +9,7 @@
         </h1>
       </div>
     </md-toolbar>
-    <div>
-      <form name="createGroupForm" ng-submit="createGroupForm.$valid && $ctrl.createGroup()" layout="column">
-        <group-edit-create-form edit-data="$ctrl.groupData"></group-edit-create-form>
-
-        <p>{{ $ctrl.error }}</p>
-        <md-button-container>
-          <md-button class="md-raised md-primary" type="submit" ng-disabled="createGroupForm.$invalid">
-            <span translate="BUTTON.CREATE"></span>
-          </md-button>
-        </md-button-container>
-      </form>
-    </div>
+    <group-edit-create-form on-submit="$ctrl.createGroup(data)"></group-edit-create-form>
   </div>
   <div flex></div>
 </div>

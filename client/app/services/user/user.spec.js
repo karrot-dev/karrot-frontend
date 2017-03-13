@@ -112,4 +112,11 @@ describe("user service", () => {
       .to.be.fulfilled;
     $httpBackend.flush();
   });
+
+  it("sends verification request", () => {
+    $httpBackend.expectPOST("/api/users/resend_verification/").respond(200);
+    expect(User.resendVerificationRequest())
+      .to.be.fulfilled;
+    $httpBackend.flush();
+  });
 });

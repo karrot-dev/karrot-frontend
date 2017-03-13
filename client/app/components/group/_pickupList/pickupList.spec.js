@@ -75,9 +75,7 @@ describe("PickupList", () => {
     "date": "2016-09-16T21:40:00Z",
     "collector_ids": [],
     "max_collectors": 2,
-    "store": 9,
-    "isUserMember": false,
-    "isFull": false
+    "store": 9
   },
   {
     "id": 14,
@@ -87,9 +85,7 @@ describe("PickupList", () => {
       8
     ],
     "max_collectors": 2,
-    "store": 9,
-    "isUserMember": true,
-    "isFull": true
+    "store": 9
   },
   {
     "id": 11,
@@ -98,27 +94,21 @@ describe("PickupList", () => {
       1
     ],
     "max_collectors": 3,
-    "store": 9,
-    "isUserMember": true,
-    "isFull": false
+    "store": 9
   },
   {
     "id": 5,
     "date": "2016-09-18T12:00:18Z",
     "collector_ids": [],
     "max_collectors": 5,
-    "store": 9,
-    "isUserMember": false,
-    "isFull": false
+    "store": 9
   },
   {
     "id": 4,
     "date": "2017-09-22T20:00:05Z",
     "collector_ids": [],
     "max_collectors": 2,
-    "store": 9,
-    "isUserMember": false,
-    "isFull": false
+    "store": 9
   }];
 
   let fullPickups = [pickupDataInfoAdded[1]];
@@ -131,9 +121,7 @@ describe("PickupList", () => {
         "date": "2016-09-16T21:40:00Z",
         "collector_ids": [],
         "max_collectors": 2,
-        "store": 9,
-        "isUserMember": false,
-        "isFull": false
+        "store": 9
       },
       {
         "id": 14,
@@ -143,9 +131,7 @@ describe("PickupList", () => {
           8
         ],
         "max_collectors": 2,
-        "store": 9,
-        "isUserMember": true,
-        "isFull": true
+        "store": 9
       }]
     },
     {
@@ -157,9 +143,7 @@ describe("PickupList", () => {
           1
         ],
         "max_collectors": 3,
-        "store": 9,
-        "isUserMember": true,
-        "isFull": false
+        "store": 9
       }]
     },
     {
@@ -169,9 +153,7 @@ describe("PickupList", () => {
         "date": "2016-09-18T12:00:18Z",
         "collector_ids": [],
         "max_collectors": 5,
-        "store": 9,
-        "isUserMember": false,
-        "isFull": false
+        "store": 9
       }]
     },
     {
@@ -181,9 +163,7 @@ describe("PickupList", () => {
         "date": "2017-09-22T20:00:05Z",
         "collector_ids": [],
         "max_collectors": 2,
-        "store": 9,
-        "isUserMember": false,
-        "isFull": false
+        "store": 9
       }]
     }];
 
@@ -274,56 +254,94 @@ describe("PickupList", () => {
       expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
       $httpBackend.flush();
     });
+  });
 
-    it("deletes pickup", () => {
-      let $q;
+  describe("controller functions", () => {
+    let $q, $rootScope, $ctrl, PickupDate, PickupDateSeries;
+    beforeEach(() => {
       inject(($injector) => {
         $q = $injector.get("$q");
+        $rootScope = $injector.get("$rootScope");
+        PickupDate = $injector.get("PickupDate");
+        PickupDateSeries = $injector.get("PickupDateSeries");
       });
+      $ctrl = $componentController("pickupList", {}, {
+        options: { filter: {} }
+      });
+    });
+
+    it("isFull functionality", () => {
+      expect($ctrl.isFull({
+        "collector_ids": [1,2,3],
+        "max_collectors": 3
+      })).to.equal.true;
+      expect($ctrl.isFull({
+        "collector_ids": [1,2],
+        "max_collectors": 3
+      })).to.equal.false;
+
+      // can also be unset, then unlimited people can join
+      expect($ctrl.isFull({
+        "collector_ids": [1,2]
+      })).to.equal.false;
+    });
+
+    it("isUserMember functionality", () => {
+      $ctrl.userId = 1;
+      expect($ctrl.isUserMember({
+        "collector_ids": [1,2,3]
+      })).to.equal.true;
+      expect($ctrl.isUserMember({
+        "collector_ids": [2,3]
+      })).to.equal.false;
+    });
+
+    it("deletes pickup", () => {
+      $ctrl.allPickups = [
+        { id: 54 },
+        { id: 87 }
+      ];
       sinon.stub($ctrl.$mdDialog, "show");
-      sinon.stub($ctrl, "updatePickups");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
-      $httpBackend.expectDELETE("/api/pickup-dates/87/").respond();
+      sinon.stub(PickupDate, "delete");
+      $ctrl.$mdDialog.show.returns($q.resolve());
+      PickupDate.delete.returns($q.resolve());
       $ctrl.isDeleteSeries = false;
       $ctrl.delete({ id: 87 });
-      $httpBackend.flush();
-      expect($ctrl.updatePickups).to.have.been.called;
+      $rootScope.$apply();
+      expect(PickupDate.delete).to.have.been.calledWith(87);
+      expect($ctrl.allPickups).to.deep.equal([{ id: 54 }]);
     });
 
     it("deletes pickup series", () => {
-      let $q;
-      inject(($injector) => {
-        $q = $injector.get("$q");
-      });
+      $ctrl.allPickups = [
+        { id: 2, series: 12 },
+        { id: 1, series: 3 },
+        { id: 9 }
+      ];
       sinon.stub($ctrl.$mdDialog, "show");
-      sinon.stub($ctrl, "updatePickups");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
-      $httpBackend.expectDELETE("/api/pickup-date-series/12/").respond();
+      sinon.stub(PickupDateSeries, "delete");
+      $ctrl.$mdDialog.show.returns($q.resolve());
+      PickupDateSeries.delete.returns($q.resolve());
       $ctrl.isDeleteSeries = true;
       $ctrl.delete({ id: 87, series: 12 });
-      $httpBackend.flush();
-      expect($ctrl.updatePickups).to.have.been.called;
+      $rootScope.$apply();
       expect($ctrl.pickupToDelete.id).to.equal(87);
+      expect(PickupDateSeries.delete).to.have.been.calledWith(12);
+      expect($ctrl.allPickups).to.deep.equal([
+        { id: 1, series: 3 },
+        { id: 9 }
+      ]);
     });
 
-    describe("createPickup dialog", () => {
-      let $q, $rootScope;
-      beforeEach(() => {
-        inject(($injector) => {
-          $q = $injector.get("$q");
-          $rootScope = $injector.get("$rootScope");
-        });
-      });
-
-      it("is called and updates pickup list", () => {
-        sinon.stub($ctrl.$mdDialog, "show");
-        sinon.stub($ctrl, "updatePickups");
-        $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
-        $ctrl.openCreatePickupPanel();
-        $rootScope.$apply();
-        expect($ctrl.updatePickups).to.have.been.called;
-        $httpBackend.flush();
-      });
+    it("pickupEditCreate dialog is called and updates pickup list", () => {
+      $ctrl.allPickups = [];
+      sinon.stub($ctrl.$mdDialog, "show");
+      $ctrl.$mdDialog.show.returns($q((resolve) => resolve({
+        "collector_ids": []
+      })));
+      $ctrl.openCreatePickupPanel();
+      $rootScope.$apply();
+      expect($ctrl.allPickups).to.deep.equal([{ "collector_ids": [] }]);
     });
   });
 });

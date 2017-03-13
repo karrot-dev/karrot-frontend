@@ -4,13 +4,20 @@
     "DEVMAIL_NOTE":"Skribu retmesaĝon al ni pri eraroj/sugestoj",
     "WARNING":"Averto",
     "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)",
-    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
-    "SERVER_ERROR": "Server error"
+    "CONNECTION_INTERRUPTED": "Eraro: aliro interrompita!",
+    "SERVER_ERROR": "Eraro servila"
   },
   "ACTION_NOTICE": {
     "TITLE": "Alvoko kunlabori!",
     "TEXT": "Ĉu vi interesiĝas krei projekton manĝaĵosavan aŭ komunumon manĝaĵokunhavan? Ĉu vi konas iun kiu jam faras ĝin?",
     "MAIL_TEXT": "Sendu retmesaĝon al ni!"
+  },
+  "LANDINGPAGE": {
+    "BLOG": "Blog",
+    "TEAM": "Team",
+    "LOGIN": "Login",
+    "SEE_OUR_MAP": "Have a look at our map!",
+    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
   },
   "USERDATA": {
     "EMAIL": "Retadreso",
@@ -21,16 +28,20 @@
     "CREATE": "Krei",
     "CANCEL": "Nuligi",
     "DELETE": "Forigi",
-    "EDIT": "Edit",
+    "EDIT": "Redakti",
     "JOIN": "Ensaluti",
-    "LEAVE": "Leave",
-    "PREVIEW": "Preview"
+    "LEAVE": "Eliri",
+    "PREVIEW": "Antaŭvido",
+    "BACK": "Back"
+  },
+  "FORM": {
+    "MINLENGTH": "Please enter more than {{min}} characters."
   },
   "GROUP": {
     "LEAVE": "Forlasi la grupon…",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "LEAVE_TEXT": "Ĉu vi vere volas eliri la grupon?",
     "EDIT": "Redakti grupon",
-    "CREATE_TITLE": "Create new group",
+    "CREATE_TITLE": "Krei novan grupon",
     "TITLE": "Titolo de ĉi tiu grupo",
     "DESCRIPTION_VERBOSE": "Grupa preskribo, membrovidebla",
     "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
@@ -38,19 +49,26 @@
     "PICKUPS": "Kolektoj",
     "MEMBERS": "Anoj",
     "STORES": "Vendejoj",
+    "HISTORY":"History",
     "DESCRIPTION": "Priskribo",
-    "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group"
+    "ADDRESS": "Adreso",
+    "TIMEZONE": "Horzono de la grupo"
   },
   "STOREDETAIL": {
     "EDIT": "Redakti vendejon",
-    "ADDRESS": "Adreso"
+    "ADDRESS": "Adreso",
+    "MANAGE": "Check and manage the pickups"
   },
   "STOREEDIT": {
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
+    "NAME": "Nomo",
+    "DESCRIPTION": "Priskribo",
+    "ADDRESS": "Adreso",
+    "WEEKS_IN_ADVANCE": "Antaŭ kiom da semajnoj devus esti montritaj periodaj forkolektaj rendevuojn?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups"
   },
   "USERDETAIL": {
     "EDIT": "Krei uzanton",
@@ -59,6 +77,9 @@
     "DESCRIPTION": "Pri vi",
     "PASSWORD_CHANGE": "Ŝangu vian pasvorton (vi elsalutiĝos)",
     "PASSWORD": "Entajpu vian pasvorton"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
     "NAME": "Nomo",
@@ -99,20 +120,18 @@
     "JOIN": "Aliĝi al la komunumo"
   },
   "CREATEPICKUP": {
-    "TITLE": "Krei Forkolekton",
-    "SERIES": "Recurring",
-    "SINGLE": "One-time pickup",
-    "WEEKDAYS": "Weekdays",
-    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
+    "SERIES": "Perioda",
+    "SINGLE": "Unufoja forkolekto",
+    "WEEKDAYS": "Semajntagoj",
+    "HINT_MULTIPLE": "Vi povas elekti plurajn tagojn ĉi tie, per daŭrpremo de klavo Ctrl-a",
     "TIME": "Tempo",
-    "TIME_ERROR": "Entajpi validan daton: [hh:mm]",
+    "TIME_ERROR": "Entajpi validan daton: {{timeExample}}",
     "MAX_COLLECTORS": "Maks Lokoj"
   },
   "CREATESTORE": {
-    "TITLE": "Krei novan vendejon",
-    "NAME": "Nomo",
-    "DESCRIPTION": "Priskribo",
-    "ADDRESS": "Adreso"
+    "TITLE": "Krei novan vendejon"
   },
   "PICKUPLIST": {
     "FILTER": "Filtrilo",
@@ -124,14 +143,14 @@
       "LEAVE": "Forlasi",
       "JOIN": "Aliĝi",
       "FULL": "Plena!",
-      "DELETE": "Forigu forkolektan daton",
-      "DELETE_TEXT": "Ĉu vi vere volas forigi ĉi tiun forkolektan daton?",
-      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
+      "DELETE": "Forigu forkolektan rendevuon",
+      "DELETE_TEXT": "Ĉu vi vere volas forigi ĉi tiun forkolektan rendevuon?",
+      "DELETE_SERIES_TEXT": "Ĉi tiu forkolekta rendevuo estas seriero. Ĉu vi ankaŭ forigemas la serion?"
     },
     "NONE":"Neniu venonta forkolekto",
     "NONE_HINT":"Vi povas krei novan forkolekton en la vendeja paĝo."
   },
-  "PASSSWORDRESET": {
+  "PASSWORDRESET": {
     "TITLE": "Pasvorta restarigo",
     "INTRO": "Entajpu vian retadreson kaj ni sendos novan pasvorton al vi (se vi jam registriĝis)",
     "EMAIL": "Retpostadreso",
@@ -143,10 +162,28 @@
     "ADD_MORE": "Aldoni pli da lingvoj!"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "ITALIC": "italic",
-    "STRIKE": "strike",
-    "QUOTE": "quote",
-    "HELP": "What is Markdown?"
+    "BOLD": "grasa",
+    "ITALIC": "kursiva",
+    "STRIKE": "trastreko",
+    "QUOTE": "cito",
+    "HELP": "Kio estas Markdaŭno?"
+  },
+  "HISTORY":{
+    "GROUP_CREATE": "created this group",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
+    "STORE_CREATE":"created store {{name}}",
+    "STORE_MODIFY": "changed the settings of store {{name}}",
+    "STORE_DELETE": "deleted store {{name}}",
+    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_DELETE": "deleted a pick-up",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
+    "PICKUP_DONE": "did a pick-up at {{store_name}}",
+    "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
   }
 }

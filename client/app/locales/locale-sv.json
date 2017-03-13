@@ -112,7 +112,7 @@
     "NONE":"No upcoming pickups",
     "NONE_HINT":"You can create a new pickup on the store page."
   },
-  "PASSSWORDRESET": {
+  "PASSWORDRESET": {
     "TITLE": "Password reset",
     "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
     "EMAIL": "Mail address",

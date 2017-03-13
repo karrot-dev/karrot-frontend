@@ -21,29 +21,46 @@ describe("StoreMap", () => {
   });
 
   describe("Controller", () => {
-    let $rootScope, $compile;
-    beforeEach(inject(($injector) => {
-      $rootScope = $injector.get("$rootScope");
-      $compile = $injector.get("$compile");
+    let $ctrl;
+    beforeEach(inject((_$componentController_) => {
+      $ctrl = _$componentController_("storeMap");
     }));
 
-    it("updates markers", () => {
-      let $scope = $rootScope.$new();
-      $scope.storeList = [];
-      let component = $compile("<store-map store-list='storeList'></store-map>")($scope);
-      let $ctrl = component.isolateScope().$ctrl;
-      expect($ctrl.hasMarkers()).to.be.false;
+    let anotherStore = {
+      id: 98,
+      group: 4,
+      name: "something",
+      latitude: 87, longitude: 66
+    };
 
-      $scope.storeList = [{ id: 99, group: 5, latitude: 1.99, longitude: 2.99, name: "test1" }];
-      $scope.$apply();
-      expect($ctrl.hasMarkers()).to.be.true;
-      expect($ctrl.markers).to.deep.equal({
-        99: {
-          lat: 1.99,
-          lng: 2.99,
-          message: "<a ui-sref='group.store({ storeId: 99, groupId: 5 })'>test1</a>",
-          draggable: false }
+    it("creates markers", () => {
+      expect($ctrl.getMarkers([anotherStore])).to.deep.equal({
+        "98": {
+          lat: 87, lng: 66,
+          message: "<a ui-sref='group.store({ storeId: 98, groupId: 4 })'>something</a>",
+          draggable: false
+        }
       });
     });
+
+    it("skips creating markers if no coordinate is given", () => {
+      expect($ctrl.getMarkers([{ id: 4 }])).to.deep.equal({});
+    });
+
+    it("checks if markers exist", () => {
+      expect($ctrl.hasMarkers()).to.be.false;
+      $ctrl.markers[1] = {};
+      expect($ctrl.hasMarkers()).to.be.true;
+    });
+
+    it("updates markers after adding item to CurrentStores", inject(($rootScope) => {
+      $ctrl.$onInit();
+      expect($ctrl.markers).to.deep.equal({});
+      $ctrl.CurrentStores.pushItem(anotherStore);
+      $rootScope.$apply();
+      expect($ctrl.markers[98].lat).to.equal(87);
+      $ctrl.$onDestroy();
+    }));
+
   });
 });

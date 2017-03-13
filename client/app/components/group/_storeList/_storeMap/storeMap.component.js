@@ -3,9 +3,7 @@ import controller from "./storeMap.controller";
 import "./storeMap.styl";
 
 let storeMapComponent = {
-  bindings: {
-    storeList: "<"
-  },
+  bindings: {},
   template,
   controller
 };

@@ -257,13 +257,11 @@ describe("PickupList", () => {
   });
 
   describe("controller functions", () => {
-    let $q, $rootScope, $ctrl, PickupDate, PickupDateSeries;
+    let $q, $rootScope, $ctrl;
     beforeEach(() => {
       inject(($injector) => {
         $q = $injector.get("$q");
         $rootScope = $injector.get("$rootScope");
-        PickupDate = $injector.get("PickupDate");
-        PickupDateSeries = $injector.get("PickupDateSeries");
       });
       $ctrl = $componentController("pickupList", {}, {
         options: { filter: {} }
@@ -302,13 +300,13 @@ describe("PickupList", () => {
         { id: 87 }
       ];
       sinon.stub($ctrl.$mdDialog, "show");
-      sinon.stub(PickupDate, "delete");
+      sinon.stub($ctrl.PickupDate, "delete");
       $ctrl.$mdDialog.show.returns($q.resolve());
-      PickupDate.delete.returns($q.resolve());
+      $ctrl.PickupDate.delete.returns($q.resolve());
       $ctrl.isDeleteSeries = false;
       $ctrl.delete({ id: 87 });
       $rootScope.$apply();
-      expect(PickupDate.delete).to.have.been.calledWith(87);
+      expect($ctrl.PickupDate.delete).to.have.been.calledWith(87);
       expect($ctrl.allPickups).to.deep.equal([{ id: 54 }]);
     });
 
@@ -319,14 +317,14 @@ describe("PickupList", () => {
         { id: 9 }
       ];
       sinon.stub($ctrl.$mdDialog, "show");
-      sinon.stub(PickupDateSeries, "delete");
+      sinon.stub($ctrl.PickupDateSeries, "delete");
       $ctrl.$mdDialog.show.returns($q.resolve());
-      PickupDateSeries.delete.returns($q.resolve());
+      $ctrl.PickupDateSeries.delete.returns($q.resolve());
       $ctrl.isDeleteSeries = true;
       $ctrl.delete({ id: 87, series: 12 });
       $rootScope.$apply();
       expect($ctrl.pickupToDelete.id).to.equal(87);
-      expect(PickupDateSeries.delete).to.have.been.calledWith(12);
+      expect($ctrl.PickupDateSeries.delete).to.have.been.calledWith(12);
       expect($ctrl.allPickups).to.deep.equal([
         { id: 1, series: 3 },
         { id: 9 }

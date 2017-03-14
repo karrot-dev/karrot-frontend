@@ -21,12 +21,10 @@ describe("GroupEdit", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $state, $httpBackend;
+    let $componentController, $httpBackend;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
-      $state = $injector.get("$state");
-      sinon.stub($state, "go");
     }));
 
     afterEach(() => {
@@ -42,8 +40,9 @@ describe("GroupEdit", () => {
       };
       $ctrl.submit(editData);
       $httpBackend.expectPATCH("/api/groups/85/", editData).respond(200, editData);
+      sinon.stub($ctrl.$state, "go");
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith("^");
+      expect($ctrl.$state.go).to.have.been.calledWith("^");
     });
   });
 });

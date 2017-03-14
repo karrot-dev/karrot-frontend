@@ -21,11 +21,9 @@ describe("PickupManage", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $mdDialog, $q, $rootScope;
+    let $componentController, $q, $rootScope;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
-      $mdDialog = $injector.get("$mdDialog");
-      sinon.stub($mdDialog, "show");
       $q = $injector.get("$q");
       $rootScope = $injector.get("$rootScope");
     }));
@@ -78,7 +76,8 @@ describe("PickupManage", () => {
       let $ctrl = $componentController("pickupManage", {}, {
         series: [], pickups: []
       });
-      $mdDialog.show.returns($q.resolve({ new: "data" }));
+      sinon.stub($ctrl.$mdDialog, "show");
+      $ctrl.$mdDialog.show.returns($q.resolve({ new: "data" }));
       let data = { old: "data" };
       $ctrl.openPanel({}, { data });
       $rootScope.$apply();
@@ -89,7 +88,8 @@ describe("PickupManage", () => {
       let $ctrl = $componentController("pickupManage", {}, {
         series: [], pickups: []
       });
-      $mdDialog.show.returns($q.resolve({ date: "something" }));
+      sinon.stub($ctrl.$mdDialog, "show");
+      $ctrl.$mdDialog.show.returns($q.resolve({ date: "something" }));
       $ctrl.openPanel({}, { series: false });
       $rootScope.$apply();
       expect($ctrl.pickups).to.deep.equal([{ date: "something" }]);
@@ -99,7 +99,8 @@ describe("PickupManage", () => {
       let $ctrl = $componentController("pickupManage", {}, {
         series: [], pickups: []
       });
-      $mdDialog.show.returns($q.resolve({ "start_date": "something" }));
+      sinon.stub($ctrl.$mdDialog, "show");
+      $ctrl.$mdDialog.show.returns($q.resolve({ "start_date": "something" }));
       $ctrl.openPanel({}, { series: true });
       $rootScope.$apply();
       expect($ctrl.series).to.deep.equal([{ "start_date": "something" }]);

@@ -21,12 +21,10 @@ describe("StoreCreate", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $httpBackend, $state;
+    let $componentController, $httpBackend;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
-      $state = $injector.get("$state");
-      sinon.stub($state, "go");
     }));
 
     afterEach(() => {
@@ -42,8 +40,9 @@ describe("StoreCreate", () => {
       };
       $ctrl.submit(storeData);
       $httpBackend.expectPOST("/api/stores/", storeData).respond(201, { id: 987 });
+      sinon.stub($ctrl.$state, "go");
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith("^.store", { storeId: 987 });
+      expect($ctrl.$state.go).to.have.been.calledWith("^.store", { storeId: 987 });
     });
   });
 });

@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("ProfilePicture", () => {
   beforeEach(module(ProfilePictureModule));
+  beforeEach(module({ $translate: sinon.mock() }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -21,18 +22,17 @@ describe("ProfilePicture", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $q, $rootScope, User;
+    let $componentController, $q, $rootScope;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $q = $injector.get("$q");
       $rootScope = $injector.get("$rootScope");
-      User = $injector.get("User");
-      sinon.stub(User, "get");
     }));
 
     it("loads username", () => {
       let $ctrl = $componentController("profilePicture", {}, { userId: 42 });
-      User.get.withArgs(42).returns($q.resolve({ "display_name": "lovely unicorn" }));
+      sinon.stub($ctrl.User, "get");
+      $ctrl.User.get.withArgs(42).returns($q.resolve({ "display_name": "lovely unicorn" }));
       $ctrl.$onInit();
       $rootScope.$apply();
       expect($ctrl.name).to.equal("lovely unicorn");
@@ -40,16 +40,12 @@ describe("ProfilePicture", () => {
 
     it("invalid user", () => {
       let $ctrl = $componentController("profilePicture", {}, { userId: 666 });
-      User.get.withArgs(666).returns($q.reject());
-      //$translate.withArgs("PROFILE.INACCESSIBLE_OR_DELETED").returns($q.resolve("translated string"));
+      sinon.stub($ctrl.User, "get");
+      $ctrl.User.get.withArgs(666).returns($q.reject());
+      $ctrl.$translate.returns($q.resolve("translated string"));
       $ctrl.$onInit();
-      try {
-        $rootScope.$apply();
-      } catch (e) {
-        // TODO: figure out how to test $translate
-      }
-
-      //expect($ctrl.name).to.equal("translated string");
+      $rootScope.$apply();
+      expect($ctrl.name).to.equal("translated string");
     });
 
   });

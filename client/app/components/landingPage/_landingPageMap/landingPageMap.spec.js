@@ -21,18 +21,17 @@ describe("LandingPageMap", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $rootScope, $q, GroupService;
+    let $componentController, $rootScope, $q;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $rootScope = $injector.get("$rootScope");
       $q = $injector.get("$q");
-      GroupService = $injector.get("GroupService");
-      sinon.stub(GroupService, "list");
     }));
 
     it("loads groupdata", () => {
       let $ctrl = $componentController("landingPageMap", {});
-      GroupService.list.returns($q.resolve([{
+      sinon.stub($ctrl.GroupService, "list");
+      $ctrl.GroupService.list.returns($q.resolve([{
         id: 99,
         members: [1,2,3],
         latitude: 52.12,
@@ -40,8 +39,8 @@ describe("LandingPageMap", () => {
       }]));
       $ctrl.$onInit();
       $rootScope.$apply();
-      // TODO: fails for some reason
-      //expect($ctrl.markers[99].latitude).to.equal(52.12);
+      expect($ctrl.markers).to.be.defined;
+      expect($ctrl.markers[99].lat).to.equal(52.12);
     });
   });
 });

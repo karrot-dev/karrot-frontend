@@ -21,12 +21,10 @@ describe("CreateGroup", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $httpBackend, $state;
+    let $componentController, $httpBackend;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
-      $state = $injector.get("$state");
-      sinon.stub($state, "go");
     }));
 
     afterEach(() => {
@@ -42,8 +40,9 @@ describe("CreateGroup", () => {
       };
       $ctrl.createGroup(groupData);
       $httpBackend.expectPOST("/api/groups/", groupData).respond(201, { id: 987 });
+      sinon.stub($ctrl.$state, "go");
       $httpBackend.flush();
-      expect($state.go).to.have.been.calledWith("group", { groupId: 987 });
+      expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: 987 });
     });
   });
 });

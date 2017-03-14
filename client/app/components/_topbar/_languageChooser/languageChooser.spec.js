@@ -26,25 +26,11 @@ describe("LanguageChooser", () => {
       $componentController = $injector.get("$componentController");
     }));
 
-    it("should exist", () => {
+    it("changes language", () => {
       let $ctrl = $componentController("languageChooser", {});
-      expect($ctrl).to.exist;
+      sinon.stub($ctrl.$translate, "use");
+      $ctrl.changeLanguage("de");
+      expect($ctrl.$translate.use).to.have.been.calledWith("de");
     });
-
-    context("stubbed translate", () => {
-      let $translate;
-      beforeEach(inject(($injector) => {
-        $componentController = $injector.get("$componentController");
-        $translate = $injector.get("$translate");
-        sinon.stub($translate, "use");
-      }));
-
-      it("calls use method", () => {
-        let $ctrl = $componentController("languageChooser", {});
-        $ctrl.changeLanguage("de");
-        expect($translate.use).to.have.been.calledWith("de");
-      });
-    });
-
   });
 });

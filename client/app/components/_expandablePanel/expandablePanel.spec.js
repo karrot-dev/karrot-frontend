@@ -48,4 +48,21 @@ describe("ExpandablePanel", () => {
       expect($ctrl.collapsed).to.be.false;
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      scope.data = "some text\nnew line\nanother line";
+      let el = $compile("<expandable-panel content='data' markdown='false' collapse='1'>" +
+        "</expandable-panel>")(scope);
+      scope.$digest();
+      expect(el.html()).to.contain("some text");
+      expect(el.html()).to.contain("md-button");
+    });
+  });
 });

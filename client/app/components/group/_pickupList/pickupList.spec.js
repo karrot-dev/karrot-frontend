@@ -342,4 +342,16 @@ describe("PickupList", () => {
       expect($ctrl.allPickups).to.deep.equal([{ "collector_ids": [] }]);
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<pickup-list></pickup-list>")(scope);
+    });
+  });
 });

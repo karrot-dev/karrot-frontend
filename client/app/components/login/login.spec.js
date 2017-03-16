@@ -1,7 +1,4 @@
 import LoginModule from "./login";
-import LoginController from "./login.controller";
-import LoginComponent from "./login.component";
-import LoginTemplate from "./login.html";
 
 const { module } = angular.mock;
 
@@ -91,14 +88,14 @@ describe("Login", () => {
   });
 
   describe("Component", () => {
-    let component = LoginComponent;
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
 
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(LoginTemplate);
-    });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(LoginController);
+    it("compiles component", () => {
+      $compile("<login></login>")(scope);
     });
   });
 });

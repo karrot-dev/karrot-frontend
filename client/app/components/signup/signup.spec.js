@@ -1,7 +1,4 @@
 import SignupModule from "./signup";
-import SignupController from "./signup.controller";
-import SignupComponent from "./signup.component";
-import SignupTemplate from "./signup.html";
 
 const { module } = angular.mock;
 
@@ -82,20 +79,15 @@ describe("Signup", () => {
     });
   });
 
-  describe("Template", () => {
-
-  });
-
   describe("Component", () => {
-    // component/directive specs
-    let component = SignupComponent;
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
 
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(SignupTemplate);
-    });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(SignupController);
+    it("compiles component", () => {
+      $compile("<signup></signup>")(scope);
     });
   });
 });

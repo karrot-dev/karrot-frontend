@@ -33,4 +33,16 @@ describe("LanguageChooser", () => {
       expect($ctrl.$translate.use).to.have.been.calledWith("de");
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<language-chooser></language-chooser>")(scope);
+    });
+  });
 });

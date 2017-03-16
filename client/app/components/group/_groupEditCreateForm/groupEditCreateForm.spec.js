@@ -77,4 +77,16 @@ describe("GroupEditCreateForm", () => {
     });
 
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-edit-create-form></group-edit-create-form>")(scope);
+    });
+  });
 });

@@ -45,4 +45,16 @@ describe("GroupEdit", () => {
       expect($ctrl.$state.go).to.have.been.calledWith("^");
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-edit></group-edit>")(scope);
+    });
+  });
 });

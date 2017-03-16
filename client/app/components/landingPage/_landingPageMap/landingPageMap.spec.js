@@ -43,4 +43,16 @@ describe("LandingPageMap", () => {
       expect($ctrl.markers[99].lat).to.equal(52.12);
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<landing-page-map></landing-page-map>")(scope);
+    });
+  });
 });

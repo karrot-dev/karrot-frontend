@@ -81,4 +81,16 @@ describe("PickupListItem", () => {
       expect($ctrl.storeData).to.deep.equal(storeData);
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<pickup-list-item></pickup-list-item>")(scope);
+    });
+  });
 });

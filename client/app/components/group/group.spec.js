@@ -33,19 +33,6 @@ describe("Group", () => {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  describe("Component", () => {
-    let component = GroupDetailComponent;
-
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(GroupDetailTemplate);
-    });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(GroupDetailController);
-    });
-
-  });
-
   describe("Controller", () => {
     let $componentController;
 
@@ -71,6 +58,18 @@ describe("Group", () => {
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
       expect($state.current.name).to.equal("group.groupDetail.pickups");
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group></group>")(scope);
     });
   });
 

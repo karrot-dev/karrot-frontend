@@ -67,4 +67,16 @@ describe("GroupMenu", () => {
       expect($ctrl.groups[0]).to.deep.equal({ id: 85 });
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-menu></group-menu>")(scope);
+    });
+  });
 });

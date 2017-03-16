@@ -45,4 +45,16 @@ describe("StoreCreate", () => {
       expect($ctrl.$state.go).to.have.been.calledWith("^.store", { storeId: 987 });
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<store-create></store-create>")(scope);
+    });
+  });
 });

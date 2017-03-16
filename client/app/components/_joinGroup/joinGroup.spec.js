@@ -81,4 +81,16 @@ describe("JoinGroup", () => {
       expect($mdDialog.hide).to.have.been.calledWith(1337);
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<join-group></join-group>")(scope);
+    });
+  });
 });

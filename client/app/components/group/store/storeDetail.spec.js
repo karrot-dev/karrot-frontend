@@ -1,7 +1,4 @@
 import StoreDetailModule from "./storeDetail";
-import StoreDetailController from "./storeDetail.controller";
-import StoreDetailComponent from "./storeDetail.component";
-import StoreDetailTemplate from "./storeDetail.html";
 import GroupComponentModule from "../group";
 
 const { module } = angular.mock;
@@ -53,15 +50,14 @@ describe("StoreDetail", () => {
   });
 
   describe("Component", () => {
-    // component/directive specs
-    let component = StoreDetailComponent;
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
 
-    it("includes the intended template", () => {
-      expect(component.template).to.equal(StoreDetailTemplate);
-    });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(StoreDetailController);
+    it("compiles component", () => {
+      $compile("<store-detail></store-detail>")(scope);
     });
   });
 });

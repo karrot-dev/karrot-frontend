@@ -46,4 +46,16 @@ describe("StoreEdit", () => {
       expect($ctrl.$state.go).to.have.been.called;
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<store-edit></store-edit>")(scope);
+    });
+  });
 });

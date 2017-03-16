@@ -77,4 +77,16 @@ describe("StoreEditCreateForm", () => {
       expect($ctrl.data.latitude).to.be.null;
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<store-edit-create-form></store-edit-create-form>")(scope);
+    });
+  });
 });

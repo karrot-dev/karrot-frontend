@@ -17,7 +17,7 @@
       <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0">
         <div layout="column" flex>
           <div layout>
-            <md-button class="join-group-expand" ng-click="$ctrl.toggle(group)" flex>
+            <md-button class="join-group-expand" ng-click="$ctrl.toggle(group)" aria-label="show details" flex>
               <i class="fa fa-group"></i>
               <span>{{group.name}}</span>
               <i ng-if="group.protected" class="fa fa-lock"></i>
@@ -28,7 +28,7 @@
             <div ng-if="group.public_description">{{group.public_description}}</div>
             <em ng-if="!group.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
             <div layout layout-align="end center">
-              <md-button class="md-raised md-primary" ng-click="$ctrl.toggleCheck()">
+              <md-button class="md-raised md-primary" ng-click="$ctrl.toggleCheck()" aria-label="join group">
                 <span translate="BUTTON.JOIN"></span>
                 <i class="fa fa-arrow-circle-right"></i>
               </md-button>
@@ -68,7 +68,7 @@
 
 
   <md-dialog-actions>
-    <md-button ng-click="$ctrl.$mdDialog.cancel()">
+    <md-button ng-click="$ctrl.$mdDialog.cancel()" aria-label="{{ 'BUTTON.CANCEL' | translate }}">
       <span translate="BUTTON.CANCEL"></span>
     </md-button>
   </md-dialog-actions>

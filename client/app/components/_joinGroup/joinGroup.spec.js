@@ -2,8 +2,9 @@ import JoinGroupModule from "./joinGroup";
 
 const { module } = angular.mock;
 
-describe("JoinGroup", () => {
+describe.only("JoinGroup", () => {
   beforeEach(module(JoinGroupModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -90,6 +91,7 @@ describe("JoinGroup", () => {
     }));
 
     it("compiles component", () => {
+      scope.$ctrl = { groups: [{}] };
       $compile("<join-group></join-group>")(scope);
     });
   });

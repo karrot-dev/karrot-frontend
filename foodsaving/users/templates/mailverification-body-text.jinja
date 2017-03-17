@@ -1,0 +1,10 @@
+{% extends "base-text.jinja" %}
+
+{% block content %}
+{% trans %}Thank you for signing up to foodsaving.world!
+Please click the following link to confirm your email:
+
+{{ url }}
+
+You can safely ignore this message if it wasn't you who signed up at our service using this email address.{% endtrans %}
+{% endblock %}

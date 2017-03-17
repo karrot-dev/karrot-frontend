@@ -1,0 +1,11 @@
+{% extends "base-text.jinja" %}
+
+{% block content %}
+{% trans old_mail=user.email %}Your email address got changed on foodsaving.world.
+The old email address was {{ old_mail }}.
+To verify this email address as your new one, please click the following link:
+
+{{ url }}
+
+You can safely ignore this message if you don't know what all this is about.{% endtrans %}
+{% endblock %}

@@ -1,8 +1,6 @@
-{% load i18n %}
-{% blocktrans with display_name=user.display_name %}
 <html>
   <head>
-    <title>WELCOME</title>
+    <title>{% trans %}WELCOME{% endtrans %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
@@ -141,7 +139,7 @@
             </tr>
             <tr>
               <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; line-height:18px; color:#563b31; text-transform:uppercase; font-weight:bold;" class="em_font">
-                <a href="https://foodsaving.world/" target="_blank" style="text-decoration:none; color:#563b31;">home</a> &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:fstool@yunity.org?Subject=Hello" target="_blank" style="text-decoration:none; color:#563b31;">Contact Us</a>
+                <a href="https://foodsaving.world/" target="_blank" style="text-decoration:none; color:#563b31;">{% trans %}home{% endtrans %}</a> &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:fstool@yunity.org?Subject=Hello" target="_blank" style="text-decoration:none; color:#563b31;">{% trans %}Contact Us{% endtrans %}</a>
               </td>
             </tr>
             <tr>
@@ -171,13 +169,13 @@
                     <td height="35" class="em_height">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; font-weight:bold; line-height:18px; color:#563b31;">Welcome, {{ display_name }}</td>
+                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; font-weight:bold; line-height:18px; color:#563b31;">{% trans display_name=user.display_name %}Welcome, {{ display_name }}{% endtrans %}</td>
                   </tr>
                   <tr>
                     <td height="22" style="font-size:1px; line-height:1px;">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:18px; font-weight:bold; line-height:20px; color:#795548;">Verify your e-mail address to continue!</td>
+                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:18px; font-weight:bold; line-height:20px; color:#795548;">{% trans %}Verify your e-mail address to continue!{% endtrans %}</td>
                   </tr>
                   <tr>
                     <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
@@ -194,7 +192,7 @@
                         <tr>
                           <td valign="middle" align="center" height="45" bgcolor="#795548" style="font-family:'Open Sans', Arial, sans-serif; font-size:17px; font-weight:bold; color:#ffffff; text-transform:uppercase;">
                               <a href="{{ url }}" target="_blank" style="text-decoration:none; color: white;">
-                                  Activation Link
+                                  {% trans %}Activation Link{% endtrans %}
                               </a>
                           </td>
                         </tr>
@@ -205,7 +203,7 @@
                     <td height="34" class="em_height">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; line-height:22px; color:#999999;">The link will be valid for 7 days.<br class="em_hide"/>
+                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; line-height:22px; color:#999999;">{% trans %}The link will be valid for 7 days.{% endtrans %}<br class="em_hide"/>
                       
                     </td>
                   </tr>
@@ -242,7 +240,7 @@
             </tr>
             <tr>
               <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:12px; line-height:18px; color:#848789; text-transform:uppercase;">
-               <span style="text-decoration:underline;"><a href="#" target="_blank" style="text-decoration:underline; color:#848789;">PRIVACY STATEMENT</a></span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style="text-decoration:underline;"><a href="#" target="_blank" style="text-decoration:underline; color:#848789;">TERMS OF SERVICE</a></span><span class="em_hide"> &nbsp;&nbsp; &nbsp;&nbsp; </span>
+               <span style="text-decoration:underline;"><a href="#" target="_blank" style="text-decoration:underline; color:#848789;">{% trans %}PRIVACY STATEMENT{% endtrans %}</a></span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style="text-decoration:underline;"><a href="#" target="_blank" style="text-decoration:underline; color:#848789;">{% trans %}TERMS OF SERVICE{% endtrans %}</a></span><span class="em_hide"> &nbsp;&nbsp; &nbsp;&nbsp; </span>
               </td>
             </tr>
             <tr>
@@ -268,4 +266,3 @@
     <div style="display:none; white-space:nowrap; font:20px courier; color:#ffffff; background-color:#ffffff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
   </body>
 </html>
-{% endblocktrans %}

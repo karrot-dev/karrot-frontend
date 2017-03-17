@@ -9,7 +9,7 @@ class FoodsavingJinja2(Jinja2):
 
 
 def environment(**options):
-    env = Environment(extensions=['jinja2.ext.i18n',], **options)
+    env = Environment(extensions=['jinja2.ext.i18n'], **options)
     env.globals.update({
         'url': reverse,
     })

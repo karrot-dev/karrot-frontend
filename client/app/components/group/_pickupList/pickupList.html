@@ -48,6 +48,8 @@
           show-detail="$ctrl.options.showDetail"
           on-delete="$ctrl.delete(pickup)"
           parent-ctrl="$ctrl"
+          on-join="$ctrl.joinPickup(pickup.id)"
+          on-leave="$ctrl.leavePickup(pickup.id)"
           data="pickup"
           meta="{isFull: $ctrl.isFull(pickup), isUserMember: $ctrl.isUserMember(pickup)}">
         </pickup-list-item>

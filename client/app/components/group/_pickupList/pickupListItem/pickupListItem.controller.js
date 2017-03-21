@@ -17,14 +17,16 @@ class PickupListItemController {
   join() {
     // TODO: error handling
     return this.PickupDate.join(this.data.id).then(() => {
-      this.parentCtrl.updatePickups();
+      this.onJoin({ "pickupId": this.data.id });
+      this.meta.isUserMember = true;
     });
   }
 
   leave() {
     // TODO: error handling
     return this.PickupDate.leave(this.data.id).then(() => {
-      this.parentCtrl.updatePickups();
+      this.onLeave({ "pickupId": this.data.id });
+      this.meta.isUserMember = false;
     });
   }
 

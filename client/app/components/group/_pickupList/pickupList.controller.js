@@ -191,6 +191,23 @@ class PickupListController {
       }
     });
   }
+
+  joinPickup(pickupId) {
+    let pickupToJoin = this.$filter("filter")(this.allPickups, { id: pickupId });
+    if (pickupToJoin && pickupToJoin.length > 0){
+      pickupToJoin[0].collector_ids.push(this.userId);
+    }
+
+  }
+
+  leavePickup(pickupId){
+    let pickupToLeave = this.$filter("filter")(this.allPickups, { id: pickupId });
+    if (pickupToLeave && pickupToLeave.length > 0){
+      let userIndexToDelete = pickupToLeave[0].collector_ids.indexOf(this.userId);
+      pickupToLeave[0].collector_ids.splice(userIndexToDelete,1);
+    }
+
+  }
 }
 
 export default PickupListController;

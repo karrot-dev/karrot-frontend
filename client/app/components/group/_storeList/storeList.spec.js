@@ -23,6 +23,16 @@ describe("StoreList", () => {
     "longitude": null
   };
 
+  let storeTwo = {
+    "id": 2,
+    "name": "Teststore2",
+    "description": "all the good stuff again",
+    "group": 1,
+    "address": null,
+    "latitude": null,
+    "longitude": null
+  };
+
   describe("Component", () => {
     let $scope, $ctrl, $httpBackend;
     beforeEach(inject((_$rootScope_, _$compile_, $injector) => {
@@ -46,6 +56,18 @@ describe("StoreList", () => {
       $httpBackend.flush();
       // avoid comparing the internal $$hashkey value
       expect(angular.toJson($ctrl.storeList)).to.equal(angular.toJson([storeOne]));
+    });
+
+    it("updates list after adding item to CurrentStores", () => {
+      $httpBackend.expectGET("/api/stores/?group=67").respond([storeOne]);
+      expect($ctrl.storeList).to.deep.equal([]);
+      $scope.groupId = 67;
+      $scope.$apply();
+      expect($ctrl.groupId).to.equal(67);
+      $httpBackend.flush();
+      $ctrl.CurrentStores.pushItem(storeTwo);
+      expect($ctrl.storeList.length).to.equal($ctrl.CurrentStores.list.length);
+      expect($ctrl.storeList).to.equal($ctrl.CurrentStores.list);
     });
   });
 });

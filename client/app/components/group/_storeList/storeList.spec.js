@@ -34,13 +34,12 @@ describe("StoreList", () => {
   };
 
   describe("Component", () => {
-    let $scope, $ctrl, $httpBackend, CurrentStores;
+    let $scope, $ctrl, $httpBackend;
     beforeEach(inject((_$rootScope_, _$compile_, $injector) => {
       $scope = _$rootScope_.$new();
       let component = _$compile_("<store-list group-id='groupId'></store-list>")($scope);
       $ctrl = component.isolateScope().$ctrl;
       $httpBackend = $injector.get("$httpBackend");
-      CurrentStores = $injector.get("CurrentStores");
     }));
 
     afterEach(() => {
@@ -66,9 +65,9 @@ describe("StoreList", () => {
       $scope.$apply();
       expect($ctrl.groupId).to.equal(67);
       $httpBackend.flush();
-      CurrentStores.pushItem(storeTwo);
-      expect($ctrl.storeList.length).to.equal(CurrentStores.list.length);
-      expect($ctrl.storeList).to.equal(CurrentStores.list);
+      $ctrl.CurrentStores.pushItem(storeTwo);
+      expect($ctrl.storeList.length).to.equal($ctrl.CurrentStores.list.length);
+      expect($ctrl.storeList).to.equal($ctrl.CurrentStores.list);
     });
   });
 });

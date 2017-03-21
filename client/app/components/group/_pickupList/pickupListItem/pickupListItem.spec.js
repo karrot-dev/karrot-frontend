@@ -48,7 +48,10 @@ describe("PickupListItem", () => {
         data: pickupData,
         parentCtrl: {
           "updatePickups": () => {}
-        }
+        },
+        onJoin: () => {},
+        onLeave: () => {},
+        meta: { isUserMember: true }
       });
       $ctrl.$onInit();
     });

@@ -147,7 +147,11 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
 
         # change times
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        new_startdate = self.series.start_date + relativedelta(hours=2, minutes=20)
+        new_startdate = shift_date_in_local_time(
+            self.series.start_date,
+            relativedelta(hours=2, minutes=20),
+            self.group.timezone
+        )
         response = self.client.patch(url, {'start_date': new_startdate.isoformat()})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(parse(response.data['start_date']), new_startdate)
@@ -172,7 +176,11 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
 
         # change dates
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        new_startdate = self.series.start_date + relativedelta(days=5)
+        new_startdate = shift_date_in_local_time(
+            self.series.start_date,
+            relativedelta(days=5),
+            self.group.timezone
+        )
         response = self.client.patch(url, {'start_date': new_startdate.isoformat()})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(parse(response.data['start_date']), new_startdate)
@@ -197,7 +205,11 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
 
         # change dates
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        new_startdate = self.series.start_date + relativedelta(days=-5)
+        new_startdate = shift_date_in_local_time(
+            self.series.start_date,
+            relativedelta(days=-5),
+            self.group.timezone
+        )
         response = self.client.patch(url, {'start_date': new_startdate.isoformat()})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(parse(response.data['start_date']), new_startdate)

@@ -13,6 +13,6 @@ test:
     - pip install codecov && codecov
 deployment:
   dev:
-    branch: master
+    branch: [master, production]
     commands:
       - ./deploy.sh

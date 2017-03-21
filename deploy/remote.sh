@@ -7,10 +7,16 @@ export LANG=C.UTF-8
 
 BRANCH=$1
 backend_dir=foodsaving-backend-dev
+touch_reload=/tmp/fstool-dev.reload
 
 if [ "x$BRANCH" = "x" ]; then
   echo "Please pass branch to deploy as first argument"
   exit 1
+fi
+
+if [ "x$BRANCH" = "xproduction" ]; then
+  backend_dir=foodsaving-backend
+  touch_reload=/tmp/fstool.reload
 fi
 
 deploy_dir=$(pwd)
@@ -36,4 +42,4 @@ deploy_dir=$(pwd)
   env/bin/python manage.py compilemessages
 )
 
-touch /tmp/fstool.reload
+touch ${touch_reload}

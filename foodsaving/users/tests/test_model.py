@@ -4,6 +4,7 @@ from django.db import IntegrityError
 from django.test import TestCase
 
 from foodsaving.users.factories import UserFactory
+from foodsaving.groups.factories import GroupFactory
 
 
 class TestUserModel(TestCase):
@@ -11,10 +12,12 @@ class TestUserModel(TestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.user = UserFactory()
+        cls.group = GroupFactory(members=[cls.user, ])
         cls.exampleuser = {
             'display_name': 'bla',
             'email': 'user@example.com',
-            'password': 'notsafe'
+            'password': 'notsafe',
+            'current_group': cls.group
         }
 
     def test_create_fails_if_email_is_not_unique(self):

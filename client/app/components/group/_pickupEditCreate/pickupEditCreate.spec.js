@@ -6,6 +6,7 @@ describe("pickupEditCreate", () => {
   let $componentController, $httpBackend;
 
   beforeEach(module(pickupEditCreateModule));
+  beforeEach(module({ translateFilter: (a) => a }));
   beforeEach(() => {
     angular.mock.module(($provide) => {
       $provide.value("$mdDialog", {
@@ -13,7 +14,6 @@ describe("pickupEditCreate", () => {
       });
     });
   });
-  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

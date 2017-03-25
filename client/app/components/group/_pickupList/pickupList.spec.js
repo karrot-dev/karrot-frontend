@@ -7,6 +7,7 @@ describe("PickupList", () => {
 
   beforeEach(() => {
     module(PickupListModule);
+    module({ translateFilter: (a) => a });
     inject(($injector) => {
       $log = $injector.get("$log");
       $log.reset();
@@ -16,7 +17,6 @@ describe("PickupList", () => {
     now = new Date(2016, 8, 1);
     clock = sinon.useFakeTimers(now.getTime());
   });
-  beforeEach(module({ translateFilter: (a) => a }));
 
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
@@ -352,7 +352,7 @@ describe("PickupList", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<pickup-list></pickup-list>")(scope);
+      $compile("<pickup-list options='{}'></pickup-list>")(scope);
     });
   });
 });

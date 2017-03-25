@@ -9,6 +9,8 @@ class pickupEditCreateController {
       PickupDateSeries,
       $locale,
       isCreate: true,
+      isSeries: false,
+      mode: "single",
       days: {},
       timeExample: moment(new Date()).format("LT"),
       timeChoices: this.getTimeChoices(false),
@@ -17,16 +19,20 @@ class pickupEditCreateController {
   }
 
   $onInit() {
-    Object.assign(this, {
-      isSeries: this.data.series,
-      mode: this.data.series ? "series" : "single"
-    });
-
     let keys = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
     for (let i = 0; i < 7; i++) {
       // let the week begin on Monday, because the FIRSTDAYOFWEEK value is usually set to Sunday
       this.days[(i + 6) % 7] = { key: keys[i], name: this.$locale.DATETIME_FORMATS.DAY[i] };
     }
+
+    if (angular.isUndefined(this.data)) {
+      return;
+    }
+
+    Object.assign(this, {
+      isSeries: this.data.series,
+      mode: this.data.series ? "series" : "single"
+    });
 
     // check if we get incoming data
     if (angular.isDefined(this.data.editData)) {

@@ -10,8 +10,10 @@ class PickupListItemController {
 
   $onInit() {
     this.showStoreDetail = this.showDetail === "store";
-    this.setStoreInfo();
-    this.setCollectors();
+    if (angular.isDefined(this.data)) {
+      this.setStoreInfo();
+      this.setCollectors();
+    }
   }
 
   join() {

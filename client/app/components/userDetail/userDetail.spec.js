@@ -8,6 +8,7 @@ describe("UserDetail", () => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

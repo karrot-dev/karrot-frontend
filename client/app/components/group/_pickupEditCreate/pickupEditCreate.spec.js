@@ -13,6 +13,7 @@ describe("pickupEditCreate", () => {
       });
     });
   });
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

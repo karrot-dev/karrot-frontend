@@ -16,6 +16,7 @@ describe("PickupList", () => {
     now = new Date(2016, 8, 1);
     clock = sinon.useFakeTimers(now.getTime());
   });
+  beforeEach(module({ translateFilter: (a) => a }));
 
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();

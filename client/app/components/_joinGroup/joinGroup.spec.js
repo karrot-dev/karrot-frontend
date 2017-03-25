@@ -2,7 +2,7 @@ import JoinGroupModule from "./joinGroup";
 
 const { module } = angular.mock;
 
-describe.only("JoinGroup", () => {
+describe("JoinGroup", () => {
   beforeEach(module(JoinGroupModule));
   beforeEach(module({ translateFilter: (a) => a }));
 

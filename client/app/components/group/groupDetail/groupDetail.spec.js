@@ -9,6 +9,7 @@ describe("GroupDetail", () => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   beforeEach(inject(($injector) => {
     $log = $injector.get("$log");

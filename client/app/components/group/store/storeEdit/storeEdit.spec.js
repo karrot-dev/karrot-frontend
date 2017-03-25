@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("StoreEdit", () => {
   beforeEach(module(StoreEditModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

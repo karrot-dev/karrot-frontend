@@ -10,6 +10,7 @@ describe("StoreDetail", () => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log, $httpBackend, $state;
   beforeEach(inject(($injector) => {

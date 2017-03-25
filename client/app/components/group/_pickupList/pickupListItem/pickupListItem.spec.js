@@ -8,6 +8,7 @@ describe("PickupListItem", () => {
   beforeEach(module(PickupListItemModule));
   beforeEach(module("PickupDate"));
   beforeEach(module("User"));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   beforeEach(inject(($injector) => {
     $log = $injector.get("$log");

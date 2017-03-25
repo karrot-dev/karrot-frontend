@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupMenu", () => {
   beforeEach(module(GroupMenuModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

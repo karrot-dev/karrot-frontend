@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("MarkdownInput", () => {
   beforeEach(module(MarkdownInputModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

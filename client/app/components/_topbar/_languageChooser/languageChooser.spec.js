@@ -4,6 +4,10 @@ const { module } = angular.mock;
 
 describe("LanguageChooser", () => {
   beforeEach(module(LanguageChooserModule));
+  beforeEach(module({
+    $translate: { use: () => {} },
+    translateFilter: (a) => a
+  }));
 
   let $log;
   beforeEach(inject(($injector) => {

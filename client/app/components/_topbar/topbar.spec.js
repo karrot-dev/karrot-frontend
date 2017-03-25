@@ -4,6 +4,10 @@ const { module } = angular.mock;
 
 describe("Topbar", () => {
   beforeEach(module(TopbarModule));
+  beforeEach(module({
+    $translate: { use: () => {} },
+    translateFilter: (a) => a
+  }));
 
   let $log, $ctrl, $q, $rootScope;
 

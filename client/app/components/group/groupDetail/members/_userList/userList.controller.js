@@ -9,7 +9,7 @@ class UserListController {
 
   $onInit() {
     // check if users it's a list of IDs or Users
-    if (angular.isNumber(this.users[0])){
+    if (angular.isDefined(this.users) && this.users.length > 0 && angular.isNumber(this.users[0])){
       this.userData = [];
       this.getUsers();
     } else {

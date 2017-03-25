@@ -1,7 +1,4 @@
 import GroupDetailModule from "./group";
-import GroupDetailController from "./group.controller";
-import GroupDetailComponent from "./group.component";
-import GroupDetailTemplate from "./group.html";
 
 const { module } = angular.mock;
 

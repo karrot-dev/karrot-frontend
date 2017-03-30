@@ -31,7 +31,7 @@
     <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
   </div>
   <div class="md-padding">
-    <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
+    <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="group navigation">
       <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
         <span translate="GROUP.PICKUPS"></span>
       </md-nav-item>
@@ -69,13 +69,15 @@
         <div layout-margin>
           <div translate="GROUP.LEAVE_TEXT" flex></div>
           <div layout="row" layout-align="end center">
-            <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+            <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()"
+              aria-label="{{ 'BUTTON.CANCEL' | translate }}">
               <md-tooltip>
                 <span translate="BUTTON.CANCEL"></span>
               </md-tooltip>
               <i class="fa fa-times"></i>
             </md-button>
-            <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+            <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()"
+              aria-label="{{ 'BUTTON.LEAVE' | translate }}">
               <md-tooltip>
                 <span translate="BUTTON.LEAVE"></span>
               </md-tooltip>

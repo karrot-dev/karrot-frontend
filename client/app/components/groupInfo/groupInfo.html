@@ -29,8 +29,8 @@
         </p>
 
         <p class="md-body">
-          <span ng-if="group.public_description">{{group.public_description}}</span>
-          <em ng-if="!group.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
+          <span ng-if="$ctrl.groupData.public_description">{{$ctrl.groupData.public_description}}</span>
+          <em ng-if="!$ctrl.groupData.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
         </p>
 
         <p ng-if="$ctrl.groupData.protected">

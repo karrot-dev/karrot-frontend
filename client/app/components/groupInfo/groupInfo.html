@@ -1,7 +1,8 @@
 <div class="md-whiteframe-3dp">
   <md-toolbar class="md-hue-1" layout-padding layout="row">
     <h1 class="md-title" flex>
-      <span translate="GROUPINFO.TITLE"></span>
+      <i class="fa fa-group"></i>
+      <span>{{ $ctrl.groupData.name }}</span>
     </h1>
 
     <md-button ng-if="$ctrl.isLoggedIn() && $ctrl.isMember()" class="md-raised" ui-sref="group({groupId:$ctrl.groupData.id})">
@@ -20,7 +21,6 @@
   </md-toolbar>
 
   <div layout-padding>
-    <h2 class="md-headline">{{ $ctrl.groupData.name }}</h2>
     <div layout="row" layout-xs="column">
       <div flex>
         <p class="md-body-2">

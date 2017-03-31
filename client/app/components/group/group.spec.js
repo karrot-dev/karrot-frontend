@@ -9,10 +9,11 @@ describe("Group", () => {
   let $httpBackend, $state;
 
   beforeEach(module(GroupDetailModule));
-  beforeEach(module({ $translate: (a) => a }));
+  beforeEach(module({ $translate: sinon.stub() }));
   beforeEach(module(($stateProvider) => {
     $stateProvider
-      .state("main", { url: "", abstract: true });
+      .state("main", { url: "", abstract: true })
+      .state("groupInfo", { parent: "main", url: "groupInfo" });
   }));
 
   let $log;
@@ -64,9 +65,12 @@ describe("Group", () => {
   describe("Route", () => {
     beforeEach(() => {
       $httpBackend.whenGET("/api/auth/status/").respond({ id: 43 });
+      inject(($translate, $q) => {
+        $translate.returns($q.resolve());
+      });
     });
 
-    it("should load group information & redirect", () => {
+    it("loads group information & redirects to substate", () => {
       let groupData = { id: 12, members: [43] };
       $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $state.go("group", { groupId: groupData.id });
@@ -74,7 +78,7 @@ describe("Group", () => {
       expect($state.current.name).to.equal("group.groupDetail.pickups");
     });
 
-    it.skip("redirects to group info if user is not in group", () => {
+    it("redirects to group info if user is not in group", () => {
       let groupData = { id: 13, members: [234] };
       $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $state.go("group", { groupId: groupData.id });

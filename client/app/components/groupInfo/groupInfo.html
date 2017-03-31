@@ -1,8 +1,22 @@
 <div class="md-whiteframe-3dp">
-  <md-toolbar class="md-hue-1" layout-padding>
-    <h1 class="md-title">
+  <md-toolbar class="md-hue-1" layout-padding layout="row">
+    <h1 class="md-title" flex>
       <span translate="GROUPINFO.TITLE"></span>
     </h1>
+
+    <md-button ng-if="$ctrl.isLoggedIn() && $ctrl.isMember()" class="md-raised" ui-sref="group">
+      <i class="fa fa-check-circle"></i>
+      <md-tooltip>
+        <span translate="GROUPINFO.MEMBER_VIEW"></span>
+      </md-tooltip>
+    </md-button>
+
+    <md-button ng-if="$ctrl.isLoggedIn() && !$ctrl.isMember()" class="md-raised md-accent" ng-click="$ctrl.openJoinGroup($event)">
+      <i class="fa fa-arrow-circle-right"></i>
+      <md-tooltip>
+        <span translate="BUTTON.JOIN"></span>
+      </md-tooltip>
+    </md-button>
   </md-toolbar>
 
   <div layout-padding>

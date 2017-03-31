@@ -91,7 +91,8 @@
     "PASSWORD_WRONG": "You entered the wrong password"
   },
   "GROUPINFO": {
-    "TITLE": "Group information"
+    "TITLE": "Group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "HOME": {
     "REDIRECT": "Redirecting to your beloved group..."

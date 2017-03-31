@@ -1,7 +1,11 @@
 class GroupInfoController {
-  constructor() {
+  constructor(Authentication, $state, $mdDialog, $document) {
     "ngInject";
     Object.assign(this, {
+      Authentication,
+      $state,
+      $mdDialog,
+      $document,
       map: {
         markers: {},
         center: {},
@@ -49,6 +53,24 @@ class GroupInfoController {
       lng,
       zoom: 16
     };
+  }
+
+  isLoggedIn() {
+    return angular.isDefined(this.Authentication.data) && angular.isDefined(this.Authentication.data.id);
+  }
+
+  isMember() {
+    return this.groupData.members.indexOf(this.Authentication.data.id) >= 0;
+  }
+
+  openJoinGroup($event) {
+    this.$mdDialog.show({
+      parent: this.$document.body,
+      targetEvent: $event,
+      template: `<join-group selected-group='${this.groupData.id}'></join-group>`
+    }).then((groupId) => {
+      this.$state.go("group", { groupId });
+    });
   }
 }
 

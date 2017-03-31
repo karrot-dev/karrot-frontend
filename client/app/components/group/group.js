@@ -36,10 +36,15 @@ let groupPageModule = angular.module("group", [
         let GroupService = trans.injector().get("GroupService");
         let $stateParams = trans.injector().get("$stateParams");
         let Authentication = trans.injector().get("Authentication");
+        let $translate = trans.injector().get("$translate");
+        let $mdToast = trans.injector().get("$mdToast");
         return GroupService.get($stateParams.groupId).then((group) => {
           if (group.members.indexOf(Authentication.data.id) >= 0) {
             return "group.groupDetail.pickups";
           } else {
+            $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
+              $mdToast.showSimple(message);
+            });
             // re-uses same groupId state parameter
             return "groupInfo";
           }

@@ -90,6 +90,9 @@
     "PASSWORD_REQUIRED": "This group requires a password",
     "PASSWORD_WRONG": "You entered the wrong password"
   },
+  "GROUPINFO": {
+    "TITLE": "Group information"
+  },
   "HOME": {
     "REDIRECT": "Redirecting to your beloved group..."
   },

@@ -1,0 +1,31 @@
+<div class="md-whiteframe-3dp">
+  <md-toolbar class="md-hue-1" layout-padding>
+    <h1 class="md-title">
+      <span translate="GROUPINFO.TITLE"></span>
+    </h1>
+  </md-toolbar>
+
+  <div layout-padding>
+    <h2 class="md-headline">{{ $ctrl.groupData.name }}</h2>
+    <div layout="row" layout-xs="column">
+      <div flex>
+        <p class="md-body-2">
+          {{ $ctrl.groupData.members.length }}
+          <span translate="JOINGROUP.NUM_MEMBERS"></span>
+        </p>
+
+        <p class="md-body">
+          <span ng-if="group.public_description">{{group.public_description}}</span>
+          <em ng-if="!group.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
+        </p>
+
+        <p ng-if="$ctrl.groupData.protected">
+          <i class="fa fa-lock"></i>
+          <span translate="JOINGROUP.PASSWORD_REQUIRED"></span>
+        </p>
+      </div>
+      <leaflet ng-if="$ctrl.hasMarkers()" defaults="$ctrl.map.defaults" markers="$ctrl.map.markers" center="$ctrl.map.center"
+        height="300px" width="300px"></leaflet>
+    </div>
+  </div>
+</div>

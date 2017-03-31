@@ -32,7 +32,10 @@ let groupInfoModule = angular.module("groupInfo", [
         }
       },
       ncyBreadcrumb: {
-        label: "{{$ctrl.groupData.name}}"
+        // no idea if $resolve is stable API,
+        // but $ctrl.groupData is only available in the child scope
+        // (could be a bug of ncyBreadcrumb)
+        label: "{{ $resolve.groupData.name }}"
       }
     });
 })

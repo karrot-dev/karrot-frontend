@@ -33,7 +33,9 @@ class LandingPageMapController {
           this.markers[group.id] = {
             lat: group.latitude,
             lng: group.longitude,
-            message: `<group-popup name='${group.name}' member-count='${group.members.length}'></group-popup>`
+            message: "<group-popup " +
+                     `id='${group.id}' name='${group.name}'>` +
+                     "</group-popup>"
           };
         }
       });

@@ -1,5 +1,5 @@
 class GroupInfoController {
-  constructor(Authentication, $state, $mdDialog, $document) {
+  constructor(Authentication, $state, $mdDialog, $document, $anchorScroll) {
     "ngInject";
     Object.assign(this, {
       Authentication,
@@ -14,6 +14,8 @@ class GroupInfoController {
         }
       }
     });
+
+    $anchorScroll("top");
   }
 
   $onChanges(changes) {

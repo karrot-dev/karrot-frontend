@@ -4,8 +4,8 @@
       <span translate="GROUPINFO.TITLE"></span>
     </h1>
 
-    <md-button ng-if="$ctrl.isLoggedIn() && $ctrl.isMember()" class="md-raised" ui-sref="group">
-      <i class="fa fa-check-circle"></i>
+    <md-button ng-if="$ctrl.isLoggedIn() && $ctrl.isMember()" class="md-raised" ui-sref="group({groupId:$ctrl.groupData.id})">
+      <i class="fa fa-home"></i>
       <md-tooltip>
         <span translate="GROUPINFO.MEMBER_VIEW"></span>
       </md-tooltip>

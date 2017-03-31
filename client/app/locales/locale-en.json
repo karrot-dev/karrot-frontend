@@ -91,6 +91,7 @@
     "PASSWORD_WRONG": "You entered the wrong password"
   },
   "GROUPINFO": {
+    "META": "Show public group information",
     "TITLE": "Group information",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },

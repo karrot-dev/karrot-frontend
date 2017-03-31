@@ -62,15 +62,23 @@ describe("Group", () => {
 
   describe("Route", () => {
     beforeEach(() => {
-      $httpBackend.expectGET("/api/auth/status/").respond({});
+      $httpBackend.whenGET("/api/auth/status/").respond({ id: 43 });
     });
 
-    let groupData = { id: 12 };
     it("should load group information & redirect", () => {
-      $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
+      let groupData = { id: 12, members: [43] };
+      $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
       expect($state.current.name).to.equal("group.groupDetail.pickups");
+    });
+
+    it.skip("redirects to group info if user is not in group", () => {
+      let groupData = { id: 13, members: [234] };
+      $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
+      $state.go("group", { groupId: groupData.id });
+      $httpBackend.flush();
+      expect($state.current.name).to.equal("groupInfo");
     });
   });
 

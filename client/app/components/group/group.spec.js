@@ -9,6 +9,7 @@ describe("Group", () => {
   let $httpBackend, $state;
 
   beforeEach(module(GroupDetailModule));
+  beforeEach(module({ $translate: (a) => a }));
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });

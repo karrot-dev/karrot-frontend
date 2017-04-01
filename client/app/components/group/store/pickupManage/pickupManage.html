@@ -20,8 +20,12 @@
       <i class="fa fa-plus-circle"></i>
     </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="s in $ctrl.series" ng-click="$ctrl.openPanel($event, {series:true, data: s})">
+  <md-list-item ng-repeat-start="s in $ctrl.series">
     <div layout-padding layout="row" layout-align="start center">
+      <md-button class="md-icon-button" ng-click="$ctrl.toggle(s)">
+        <i ng-if="!s.$expanded" class="fa fa-toggle-down"></i>
+        <i ng-if="s.$expanded" class="fa fa-toggle-up"></i>
+      </md-button>
       <div>
         <i class="fa fa-clock-o"></i>
         {{ s.start_date | date:'shortTime' }}
@@ -37,7 +41,40 @@
         {{ s.max_collectors }}
       </div>
     </div>
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openPanel($event, {series:true, data: s})">
+      <i class="fa fa-pencil"></i>
+    </md-button>
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.delete($event, s)">
+      <i class="fa fa-trash"></i>
+    </md-button>
   </md-list-item>
+  <div ng-repeat-end ng-if="s.$expanded">
+    <md-list-item ng-repeat="p in $ctrl.getPickupsInSeries(s)">
+      <div layout-padding layout="row" layout-align="start center">
+        <div>
+          <i class="fa fa-clock-o"></i>
+          {{ p.date | date:'shortTime' }}
+        </div>
+        <div>
+          <i class="fa fa-calendar"></i>
+          {{ p.date | date:'mediumDate' }}
+        </div>
+        <div>
+          <i class="fa fa-user"></i>
+          <span ng-if="p.collector_ids.length > 0">
+            {{ p.collector_ids.length }} /
+          </span>
+          {{ p.max_collectors }}
+        </div>
+      </div>
+      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openPanel($event, {series:false, data: p})">
+        <i class="fa fa-pencil"></i>
+      </md-button>
+      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.delete($event, p)">
+        <i class="fa fa-trash"></i>
+      </md-button>
+    </md-list-item>
+  </div>
   <md-divider></md-divider>
 
   <md-subheader class="md-no-sticky">
@@ -46,7 +83,7 @@
       <i class="fa fa-plus-circle"></i>
     </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="p in $ctrl.getSinglePickups()" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
+  <md-list-item ng-repeat="p in $ctrl.getSinglePickups()">
     <div layout-padding layout="row" layout-align="start center">
       <div>
         <i class="fa fa-clock-o"></i>
@@ -58,8 +95,17 @@
       </div>
       <div>
         <i class="fa fa-user"></i>
+        <span ng-if="p.collector_ids.length > 0">
+          {{ p.collector_ids.length }} /
+        </span>
         {{ p.max_collectors }}
       </div>
     </div>
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
+      <i class="fa fa-pencil"></i>
+    </md-button>
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.delete($event, p)">
+      <i class="fa fa-trash"></i>
+    </md-button>
   </md-list-item>
 </md-list>

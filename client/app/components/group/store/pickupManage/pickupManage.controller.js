@@ -18,6 +18,9 @@ class PickupManageController {
 
   $onInit() {
     angular.forEach(this.series, (s) => {
+      // expand pickups for series per default
+      s.$expanded = true;
+
       // handle old creation behavior where byDay can be undefined
       // -> can be removed after a while
       if (angular.isUndefined(s.rule.byDay)) {
@@ -32,6 +35,14 @@ class PickupManageController {
 
   getSinglePickups() {
     return this.pickups.filter((p) => !p.series);
+  }
+
+  getPickupsInSeries(series) {
+    return this.pickups.filter((p) => p.series === series.id);
+  }
+
+  toggle(series) {
+    series.$expanded = !series.$expanded;
   }
 
   openPanel($event, config) {
@@ -61,6 +72,7 @@ class PickupManageController {
         // new entry, add to list
         if (angular.isUndefined(data.date)) {
           // detected a series through missing date
+          data.$expanded = true;
           this.series.push(data);
         } else {
           this.pickups.push(data);

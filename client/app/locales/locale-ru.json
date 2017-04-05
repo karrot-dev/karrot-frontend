@@ -96,7 +96,7 @@
   "TOPBAR": {
     "LOGOUT": "Выйти",
     "USERPROFILE": "Мой профиль",
-    "GREETING": "Привет, {{Имя пользователя}}"
+    "GREETING": "Привет, {{username}}"
   },
   "LOGIN": {
     "TITLE": "Войти",

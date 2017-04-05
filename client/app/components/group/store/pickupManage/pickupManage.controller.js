@@ -43,6 +43,26 @@ class PickupManageController {
     return this.pickups.filter((p) => p.series === series.id);
   }
 
+  reloadPickupsInSeries(series) {
+    this.PickupDate.listBySeriesId(series.id).then((pickups) => {
+      this.deletePickupsInSeries(series);
+      angular.forEach(pickups, (p) => {
+        this.pickups.push(p);
+      });
+    });
+  }
+
+  deletePickupsInSeries(series) {
+    angular.forEach(this.getPickupsInSeries(series), (pickup) => {
+      let i = this.pickups.indexOf(pickup);
+      this.pickups.splice(i, 1);
+    });
+  }
+
+  hasCollectors(pickup) {
+    return pickup.collector_ids.length > 0;
+  }
+
   toggle(series) {
     series.$expanded = !series.$expanded;
   }
@@ -67,14 +87,25 @@ class PickupManageController {
       controller: DialogController,
       controllerAs: "$ctrl"
     }).then((data) => {
+      let isSeries = config.series;
+      if (angular.isUndefined(isSeries)) {
+        // detect a series through missing date
+        if (angular.isUndefined(data.date)) {
+          isSeries = true;
+        } else {
+          isSeries = false;
+        }
+      }
+      if (isSeries) {
+        data.$expanded = true;
+        this.reloadPickupsInSeries(data);
+      }
       if (config.data) {
         // edited, update entry
         angular.copy(data, config.data);
       } else {
         // new entry, add to list
-        if (angular.isUndefined(data.date)) {
-          // detected a series through missing date
-          data.$expanded = true;
+        if (isSeries) {
           this.series.push(data);
         } else {
           this.pickups.push(data);
@@ -96,9 +127,9 @@ class PickupManageController {
       }
     }).then(() => {
       if (config.series) {
-        // TODO remove pickups too
         let i = this.series.indexOf(config.data);
         this.series.splice(i, 1);
+        this.deletePickupsInSeries(config.data);
       } else {
         let i = this.pickups.indexOf(config.data);
         this.pickups.splice(i, 1);

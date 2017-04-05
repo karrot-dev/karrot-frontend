@@ -70,7 +70,7 @@
       <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series:false, data: p})">
         <i class="fa fa-pencil"></i>
       </md-button>
-      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
+      <md-button ng-if="!$ctrl.hasCollectors(p)" class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
         <i class="fa fa-trash"></i>
       </md-button>
     </md-list-item>
@@ -104,7 +104,7 @@
     <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series: false, data: p})">
       <i class="fa fa-pencil"></i>
     </md-button>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
+    <md-button ng-if="!$ctrl.hasCollectors(p)" class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
       <i class="fa fa-trash"></i>
     </md-button>
   </md-list-item>

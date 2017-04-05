@@ -79,7 +79,7 @@ describe("PickupManage", () => {
       sinon.stub($ctrl.$mdDialog, "show");
       $ctrl.$mdDialog.show.returns($q.resolve({ new: "data" }));
       let data = { old: "data" };
-      $ctrl.openPanel({}, { data });
+      $ctrl.openEditCreatePanel({}, { data });
       $rootScope.$apply();
       expect(data.new).to.be.equal("data");
     });
@@ -90,7 +90,7 @@ describe("PickupManage", () => {
       });
       sinon.stub($ctrl.$mdDialog, "show");
       $ctrl.$mdDialog.show.returns($q.resolve({ date: "something" }));
-      $ctrl.openPanel({}, { series: false });
+      $ctrl.openEditCreatePanel({}, { series: false });
       $rootScope.$apply();
       expect($ctrl.pickups).to.deep.equal([{ date: "something" }]);
     });
@@ -101,7 +101,7 @@ describe("PickupManage", () => {
       });
       sinon.stub($ctrl.$mdDialog, "show");
       $ctrl.$mdDialog.show.returns($q.resolve({ "start_date": "something" }));
-      $ctrl.openPanel({}, { series: true });
+      $ctrl.openEditCreatePanel({}, { series: true });
       $rootScope.$apply();
       expect($ctrl.series).to.deep.equal([{ "start_date": "something" }]);
     });

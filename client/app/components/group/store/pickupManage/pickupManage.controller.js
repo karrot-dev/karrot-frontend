@@ -1,11 +1,13 @@
 class PickupManageController {
-  constructor($locale, $mdDialog, $document, $stateParams) {
+  constructor($locale, $mdDialog, $document, $stateParams, PickupDate, PickupDateSeries) {
     "ngInject";
     Object.assign(this, {
       $locale,
       $mdDialog,
       $document,
       $stateParams,
+      PickupDate,
+      PickupDateSeries,
       days: {}
     });
 
@@ -45,7 +47,7 @@ class PickupManageController {
     series.$expanded = !series.$expanded;
   }
 
-  openPanel($event, config) {
+  openEditCreatePanel($event, config) {
     let DialogController = function (data) {
       "ngInject";
       this.data = data;
@@ -78,7 +80,30 @@ class PickupManageController {
           this.pickups.push(data);
         }
       }
-    });
+    }).catch(() => {});
+  }
+
+  openDeletePanel($event, config) {
+    return this.$mdDialog.show({
+      contentElement: "#confirmDeleteDialog",
+      parent: angular.element(this.$document.body),
+      targetEvent: $event
+    }).then(() => {
+      if (config.series) {
+        return this.PickupDateSeries.delete(config.data.id);
+      } else {
+        return this.PickupDate.delete(config.data.id);
+      }
+    }).then(() => {
+      if (config.series) {
+        // TODO remove pickups too
+        let i = this.series.indexOf(config.data);
+        this.series.splice(i, 1);
+      } else {
+        let i = this.pickups.indexOf(config.data);
+        this.pickups.splice(i, 1);
+      }
+    }).catch(() => {});
   }
 }
 

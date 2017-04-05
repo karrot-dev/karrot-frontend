@@ -16,7 +16,7 @@
 <md-list>
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SERIES"></span>
-    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: true})">
+    <md-button class="md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series: true})">
       <i class="fa fa-plus-circle"></i>
     </md-button>
   </md-subheader>
@@ -41,10 +41,10 @@
         {{ s.max_collectors }}
       </div>
     </div>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openPanel($event, {series:true, data: s})">
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series:true, data: s})">
       <i class="fa fa-pencil"></i>
     </md-button>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.delete($event, s)">
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:true, data: s})">
       <i class="fa fa-trash"></i>
     </md-button>
   </md-list-item>
@@ -67,10 +67,10 @@
           {{ p.max_collectors }}
         </div>
       </div>
-      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openPanel($event, {series:false, data: p})">
+      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series:false, data: p})">
         <i class="fa fa-pencil"></i>
       </md-button>
-      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.delete($event, p)">
+      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
         <i class="fa fa-trash"></i>
       </md-button>
     </md-list-item>
@@ -79,7 +79,7 @@
 
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SINGLE"></span>
-    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: false})">
+    <md-button class="md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series: false})">
       <i class="fa fa-plus-circle"></i>
     </md-button>
   </md-subheader>
@@ -101,11 +101,47 @@
         {{ p.max_collectors }}
       </div>
     </div>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series: false, data: p})">
       <i class="fa fa-pencil"></i>
     </md-button>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.delete($event, p)">
+    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
       <i class="fa fa-trash"></i>
     </md-button>
   </md-list-item>
 </md-list>
+
+
+<!-- confirm to delete pickup -->
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="confirmDeleteDialog">
+    <md-dialog>
+      <div class="md-whiteframe-10dp" layout-fill>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>
+              <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-trash-o"></i>
+              <span translate="PICKUPLIST.ITEM.DELETE"></span>
+            </h2>
+          </div>
+        </md-toolbar>
+        <div layout-margin>
+          <div translate="PICKUPLIST.ITEM.DELETE_TEXT" flex></div>
+          <div layout="row" layout-align="end center">
+            <md-button aria-label="{{'BUTTON.CANCEL' | translate}}" class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+              <md-tooltip>
+                <span translate="BUTTON.CANCEL"></span>
+              </md-tooltip>
+              <i class="fa fa-times"></i>
+            </md-button>
+            <md-button aria-label="{{'BUTTON.DELETE' | translate}}" class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+              <md-tooltip>
+                <span translate="BUTTON.DELETE"></span>
+              </md-tooltip>
+              <i class="fa fa-trash-o"></i>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </md-dialog>
+  </div>
+</div>

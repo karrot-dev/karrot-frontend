@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'influxdb_metrics',
     'timezone_field',
     'raven.contrib.django.raven_compat',
+    'django_jinja',
 
     # Application
     'foodsaving',
@@ -105,11 +106,15 @@ TEMPLATES = [
         },
     },
     {
-        'BACKEND': 'config.jinja2.FoodsavingJinja2',
-        'DIRS': [
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {'environment': 'config.jinja2.environment',},
+        "BACKEND": "django_jinja.backend.Jinja2",
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "match_extension": ".jinja",
+            "extensions": [
+                "jinja2.ext.i18n",
+            ],
+            "autoescape": True,
+        }
     },
 ]
 

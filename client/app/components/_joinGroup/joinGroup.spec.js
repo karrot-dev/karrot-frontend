@@ -68,6 +68,7 @@ describe("JoinGroup", () => {
       $ctrl.toggleCheck();
       expect($ctrl.check).to.be.true;
     });
+
     it("should join group directly if group is not protected", () => {
       let $ctrl = $componentController("joinGroup", {});
       $ctrl.active = { id: 1337, protected: false };
@@ -79,6 +80,22 @@ describe("JoinGroup", () => {
       expect($ctrl.check).to.be.false;
       // window should get closed
       expect($mdDialog.hide).to.have.been.calledWith(1337);
+    });
+
+    it("selects group if provided", () => {
+      let $ctrl = $componentController("joinGroup", {}, {
+        selectedGroup: 5
+      });
+      sinon.stub($ctrl, "toggleCheck");
+      $httpBackend.expectGET("/api/groups/?include_empty=False").respond(200, [{
+        id: 5,
+        members: [1]
+      }]);
+      $httpBackend.expectGET("/api/auth/status/").respond([]);
+      $ctrl.$onInit();
+      $httpBackend.flush();
+      expect($ctrl.active).to.deep.equal({ id: 5, members: [1] });
+      expect($ctrl.toggleCheck).to.have.been.called;
     });
   });
 });

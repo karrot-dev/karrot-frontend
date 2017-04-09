@@ -19,6 +19,8 @@ class PickupManageController {
   }
 
   $onInit() {
+    this.sortLists();
+
     angular.forEach(this.series, (s) => {
       // expand pickups for series per default
       s.$expanded = true;
@@ -28,6 +30,16 @@ class PickupManageController {
       if (angular.isUndefined(s.rule.byDay)) {
         s.rule.byDay = [this.keys[s.start_date.getDay()]];
       }
+    });
+  }
+
+  sortLists() {
+    this.series.sort((a, b) => {
+      return a.start_date.getHours() * 60 + a.start_date.getMinutes() -
+        (b.start_date.getHours() * 60 + b.start_date.getMinutes());
+    });
+    this.pickups.sort((a, b) => {
+      return a.date - b.date;
     });
   }
 
@@ -120,6 +132,7 @@ class PickupManageController {
           this.pickups.push(data);
         }
       }
+      this.sortLists();
     }).catch(() => {});
   }
 

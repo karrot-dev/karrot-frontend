@@ -76,6 +76,11 @@ class PickupManageController {
     series.$expanded = !series.$expanded;
   }
 
+  isSeries(data) {
+    // detect a series through missing date
+    return angular.isUndefined(data.date);
+  }
+
   openEditCreatePanel($event, config) {
     let DialogController = function (data) {
       "ngInject";
@@ -98,12 +103,7 @@ class PickupManageController {
     }).then((data) => {
       let isSeries = config.series;
       if (angular.isUndefined(isSeries)) {
-        // detect a series through missing date
-        if (angular.isUndefined(data.date)) {
-          isSeries = true;
-        } else {
-          isSeries = false;
-        }
+        isSeries = this.isSeries(data);
       }
       if (isSeries) {
         data.$expanded = true;

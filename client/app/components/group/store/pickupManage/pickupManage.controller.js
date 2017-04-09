@@ -43,6 +43,19 @@ class PickupManageController {
     return this.pickups.filter((p) => p.series === series.id);
   }
 
+  hasSameTime(series, pickup) {
+    return series.start_date.getMinutes() === pickup.date.getMinutes() &&
+      series.start_date.getSeconds() === pickup.date.getSeconds();
+  }
+
+  hasSameMaxCollectors(series, pickup) {
+    return series.max_collectors === pickup.max_collectors;
+  }
+
+  hasCollectors(pickup) {
+    return pickup.collector_ids.length > 0;
+  }
+
   reloadPickupsInSeries(series) {
     this.PickupDate.listBySeriesId(series.id).then((pickups) => {
       this.deletePickupsInSeries(series);
@@ -57,10 +70,6 @@ class PickupManageController {
       let i = this.pickups.indexOf(pickup);
       this.pickups.splice(i, 1);
     });
-  }
-
-  hasCollectors(pickup) {
-    return pickup.collector_ids.length > 0;
   }
 
   toggle(series) {

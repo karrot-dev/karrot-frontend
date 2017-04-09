@@ -23,8 +23,8 @@
   <md-list-item ng-repeat-start="s in $ctrl.series">
     <div layout-padding layout="row" layout-align="start center">
       <md-button class="md-icon-button" ng-click="$ctrl.toggle(s)">
-        <i ng-if="!s.$expanded" class="fa fa-toggle-down"></i>
-        <i ng-if="s.$expanded" class="fa fa-toggle-up"></i>
+        <i ng-if="!s.$expanded" class="fa fa-caret-right fa-2x"></i>
+        <i ng-if="s.$expanded" class="fa fa-caret-down fa-2x"></i>
       </md-button>
       <div>
         <i class="fa fa-clock-o"></i>
@@ -51,17 +51,21 @@
   <div ng-repeat-end ng-if="s.$expanded">
     <md-list-item ng-repeat="p in $ctrl.getPickupsInSeries(s)">
       <div layout-padding layout="row" layout-align="start center">
-        <div>
-          <i class="fa fa-clock-o"></i>
-          {{ p.date | date:'shortTime' }}
+        <div class="list-indent"></div>
+        <div class="md-caption">
+          {{ $index+1 }}.
         </div>
         <div>
           <i class="fa fa-calendar"></i>
           {{ p.date | date:'mediumDate' }}
         </div>
-        <div>
+        <div ng-if="!$ctrl.hasSameTime(s, p)">
+          <i class="fa fa-clock-o"></i>
+          {{ p.date | date:'shortTime' }}
+        </div>
+        <div ng-if="!$ctrl.hasSameMaxCollectors(s, p) || $ctrl.hasCollectors(p)">
           <i class="fa fa-user"></i>
-          <span ng-if="p.collector_ids.length > 0">
+          <span ng-if="$ctrl.hasCollectors(p)">
             {{ p.collector_ids.length }} /
           </span>
           {{ p.max_collectors }}
@@ -86,16 +90,16 @@
   <md-list-item ng-repeat="p in $ctrl.getSinglePickups()">
     <div layout-padding layout="row" layout-align="start center">
       <div>
-        <i class="fa fa-clock-o"></i>
-        {{ p.date | date:'shortTime' }}
-      </div>
-      <div>
         <i class="fa fa-calendar"></i>
         {{ p.date | date:'mediumDate' }}
       </div>
       <div>
+        <i class="fa fa-clock-o"></i>
+        {{ p.date | date:'shortTime' }}
+      </div>
+      <div>
         <i class="fa fa-user"></i>
-        <span ng-if="p.collector_ids.length > 0">
+        <span ng-if="$ctrl.hasCollectors(p)">
           {{ p.collector_ids.length }} /
         </span>
         {{ p.max_collectors }}

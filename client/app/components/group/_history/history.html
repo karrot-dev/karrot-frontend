@@ -1,5 +1,48 @@
 <div>
-  <div ng-repeat="entry in $ctrl.data">
+  <div class="filters">
+      <md-menu-bar>
+        <i class="fa fa-filter" aria-hidden="true"></i>
+        <md-menu>
+          <button ng-click="$mdMenu.open()" translate="HISTORY.STORES"></button>
+          <md-menu-content>
+            <md-menu-item>
+              <md-button ng-click="$ctrl.showAllStores(true)" translate="HISTORY.SELECT_ALL"></md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="$ctrl.showAllStores(false)" translate="HISTORY.SELECT_NONE"></md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="store.selected" ng-repeat="store in $ctrl.stores">{{store.name}}</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+        <md-menu>
+          <button ng-click="$mdMenu.open()">
+            Users
+          </button>
+          <md-menu-content>
+            <md-menu-item>
+              <md-button ng-click="$ctrl.showAllUsers(true)" translate="HISTORY.SELECT_ALL"></md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="$ctrl.showAllUsers(false)" translate="HISTORY.SELECT_NONE"></md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="user.selected" ng-repeat="user in $ctrl.users">{{user.display_name}}</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+        <md-menu>
+          <button ng-click="$mdMenu.open()">
+            Type
+          </button>
+          <md-menu-content>
+            <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="$ctrl.types.groups">{{'HISTORY.TYPES.GROUPS' | translate}}</md-menu-item>
+            <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="$ctrl.types.stores">{{'HISTORY.TYPES.STORES' | translate}}</md-menu-item>
+            <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="$ctrl.types.pickups">{{'HISTORY.TYPES.PICKUPS' | translate}}</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </md-menu-bar>
+  </div>
+  <div ng-repeat="entry in $ctrl.filteredData">
     <div ng-if="$first || $ctrl.data[$index-1].compareDate != entry.compareDate" class="date">
       {{ entry.date | date:'fullDate' }}
     </div>

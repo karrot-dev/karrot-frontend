@@ -11,6 +11,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
+from foodsaving.stores.models import PickupDate
 from foodsaving.users.factories import UserFactory
 
 
@@ -343,6 +344,23 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(parse(response.data['date']), target_date)
+
+    def test_dont_mark_as_changed_if_data_is_equal(self):
+        self.client.force_login(user=self.member)
+        pickup_under_test = self.series.pickup_dates.first()
+        url = '/api/pickup-dates/{}/'.format(pickup_under_test.id)
+
+        # change setting of pickup
+        response = self.client.patch(url, {
+            'date': pickup_under_test.date,
+            'max_collectors': pickup_under_test.max_collectors
+        })
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+
+        pickup_under_test = PickupDate.objects.get(id=pickup_under_test.id)
+
+        self.assertFalse(pickup_under_test.is_max_collectors_changed)
+        self.assertFalse(pickup_under_test.is_date_changed)
 
 
 class TestPickupDateSeriesAPIAuth(APITestCase):

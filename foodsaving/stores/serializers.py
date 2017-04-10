@@ -59,12 +59,18 @@ class PickupDateSerializer(serializers.ModelSerializer):
         for attr in self.Meta.update_fields:
             if attr in validated_data:
                 selected_validated_data[attr] = validated_data[attr]
-            if pickupdate.series:
-                if attr == 'max_collectors':
-                    selected_validated_data['is_max_collectors_changed'] = True
-                elif attr == 'date':
-                    selected_validated_data['is_date_changed'] = True
         changed_data = get_changed_data(pickupdate, selected_validated_data)
+
+        if pickupdate.series:
+            if 'max_collectors' in changed_data:
+                selected_validated_data['is_max_collectors_changed'] = True
+                if not pickupdate.is_max_collectors_changed:
+                    changed_data['is_max_collectors_changed'] = True
+            if 'date' in changed_data:
+                selected_validated_data['is_date_changed'] = True
+                if not pickupdate.is_date_changed:
+                    changed_data['is_date_changed'] = True
+
         super().update(pickupdate, selected_validated_data)
 
         if changed_data:

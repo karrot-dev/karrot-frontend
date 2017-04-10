@@ -78,7 +78,7 @@
     "run-sequence": "^1.2.2",
     "style-loader": "^0.16.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.1.1",
+    "stylus-loader": "^3.0.0",
     "supports-color": "^3.1.2",
     "webpack": "^1.9.5",
     "webpack-dev-middleware": "^1.6.1",

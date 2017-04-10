@@ -68,7 +68,11 @@
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
     "SERIES": "Recurring",
-    "SINGLE": "One-time pickups"
+    "SINGLE": "One-time pickups",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
   },
   "USERDETAIL": {
     "EDIT": "Edit user",

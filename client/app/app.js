@@ -70,6 +70,10 @@ angular.module("app", [
 .run(AppLocalizeRun)
 .config(AppMaterial)
 .config(AppHTTPErrorHandler)
+.config(( $mdGestureProvider ) => {
+  "ngInject";
+  $mdGestureProvider.skipClickHijack();
+})
 .config((cfpLoadingBarProvider) => {
   "ngInject";
   cfpLoadingBarProvider.includeSpinner = false;

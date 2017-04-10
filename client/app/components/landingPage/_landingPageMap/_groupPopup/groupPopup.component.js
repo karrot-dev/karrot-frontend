@@ -5,7 +5,8 @@ import "./groupPopup.styl";
 let groupPopupComponent = {
   bindings: {
     name: "@",
-    memberCount: "@"
+    memberCount: "@",
+    description: "@"
   },
   template,
   controller

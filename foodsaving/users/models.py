@@ -3,7 +3,7 @@ from datetime import timedelta
 from anymail.message import AnymailMessage
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 
-from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField
+from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
 from django.utils import crypto
 from django.utils import timezone
 from django.utils.translation import ugettext as _
@@ -65,6 +65,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
     deleted = BooleanField(default=False)
     deleted_at = DateTimeField(default=None, null=True)
+    current_group = ForeignKey('groups.Group', blank=True, null=True)
 
     objects = UserManager()
 

@@ -74,6 +74,10 @@
     "DATE_TEXT": "Date of pickup",
     "NUMBER_COLLECTORS": "Number of collectors"
   },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+  },
   "USERDETAIL": {
     "EDIT": "Edit user",
     "DISPLAY_NAME": "Name",

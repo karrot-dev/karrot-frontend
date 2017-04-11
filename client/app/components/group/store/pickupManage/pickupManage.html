@@ -189,12 +189,14 @@
           <div class="md-toolbar-tools">
             <h2>
               <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-trash-o"></i>
-              <span translate="PICKUPLIST.ITEM.DELETE"></span>
+              <span ng-if="!$ctrl.deleteSeries" translate="PICKUPLIST.ITEM.DELETE"></span>
+              <span ng-if="$ctrl.deleteSeries" translate="PICKUPDELETE.DELETE_SERIES_TITLE"></span>
             </h2>
           </div>
         </md-toolbar>
         <div layout-margin>
-          <div translate="PICKUPLIST.ITEM.DELETE_TEXT" flex></div>
+          <div ng-if="!$ctrl.deleteSeries" translate="PICKUPLIST.ITEM.DELETE_TEXT"></div>
+          <div ng-if="$ctrl.deleteSeries" translate="PICKUPDELETE.DELETE_SERIES_TEXT"></div>
           <div layout="row" layout-align="end center">
             <md-button aria-label="{{'BUTTON.CANCEL' | translate}}" class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
               <md-tooltip>

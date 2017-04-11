@@ -133,6 +133,7 @@ class PickupManageController {
   }
 
   openDeletePanel($event, config) {
+    this.deleteSeries = config.series;
     return this.$mdDialog.show({
       contentElement: "#confirmDeleteDialog",
       parent: angular.element(this.$document.body),

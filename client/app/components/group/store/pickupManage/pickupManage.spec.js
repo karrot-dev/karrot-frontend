@@ -77,7 +77,7 @@ describe("PickupManage", () => {
         series: [], pickups: []
       });
       sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q.resolve({ new: "data" }));
+      $ctrl.$mdDialog.show.returns($q.resolve({ new: "data", date: "date" }));
       let data = { old: "data" };
       $ctrl.openEditCreatePanel({}, { data });
       $rootScope.$apply();
@@ -100,10 +100,13 @@ describe("PickupManage", () => {
         series: [], pickups: []
       });
       sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q.resolve({ "start_date": "something" }));
+      $ctrl.$mdDialog.show.returns($q.resolve({ "start_date": "something", id: 5 }));
+      sinon.stub($ctrl.PickupDate, "listBySeriesId");
+      $ctrl.PickupDate.listBySeriesId.returns($q.resolve([]));
       $ctrl.openEditCreatePanel({}, { series: true });
       $rootScope.$apply();
-      expect($ctrl.series).to.deep.equal([{ "start_date": "something" }]);
+      expect($ctrl.series).to.deep.equal([{ "start_date": "something", id: 5, $expanded: true }]);
+      expect($ctrl.PickupDate.listBySeriesId).to.have.been.calledWith(5);
     });
   });
 });

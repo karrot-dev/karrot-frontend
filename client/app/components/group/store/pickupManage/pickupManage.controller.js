@@ -113,11 +113,7 @@ class PickupManageController {
       controller: DialogController,
       controllerAs: "$ctrl"
     }).then((data) => {
-      let isSeries = config.series;
-      if (angular.isUndefined(isSeries)) {
-        isSeries = this.isSeries(data);
-      }
-      if (isSeries) {
+      if (this.isSeries(data)) {
         data.$expanded = true;
         this.reloadPickupsInSeries(data);
       }
@@ -126,7 +122,7 @@ class PickupManageController {
         angular.copy(data, config.data);
       } else {
         // new entry, add to list
-        if (isSeries) {
+        if (this.isSeries(data)) {
           this.series.push(data);
         } else {
           this.pickups.push(data);

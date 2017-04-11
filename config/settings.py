@@ -28,18 +28,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.postgres',
 
-    # Django packages
-    'django_extensions',
-    'corsheaders',
-    'rest_framework',
-    'rest_framework_nested',
-    'rest_framework_swagger',
-    'anymail',
-    'influxdb_metrics',
-    'timezone_field',
-    'raven.contrib.django.raven_compat',
-    'django_jinja',
-
     # Application
     'foodsaving',
     'foodsaving.userauth',
@@ -53,6 +41,18 @@ INSTALLED_APPS = (
 
     # removed app, it's just here that the migration can run
     'foodsaving.walls',
+
+    # Django packages
+    'django_extensions',
+    'corsheaders',
+    'rest_framework',
+    'rest_framework_nested',
+    'rest_framework_swagger',
+    'anymail',
+    'influxdb_metrics',
+    'timezone_field',
+    'raven.contrib.django.raven_compat',
+    'django_jinja',
 )
 
 

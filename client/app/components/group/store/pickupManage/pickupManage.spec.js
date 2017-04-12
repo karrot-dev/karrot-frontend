@@ -151,10 +151,11 @@ describe("PickupManage", () => {
       sinon.stub($ctrl.$mdDialog, "show");
       $ctrl.$mdDialog.show.returns($q.resolve({ "start_date": "something", id: 5 }));
       sinon.stub($ctrl.PickupDate, "listBySeriesId");
-      $ctrl.PickupDate.listBySeriesId.returns($q.resolve([]));
+      $ctrl.PickupDate.listBySeriesId.returns($q.resolve([{ id: 6 }]));
       $ctrl.openEditCreatePanel({}, { series: true });
       $rootScope.$apply();
       expect($ctrl.series).to.deep.equal([{ "start_date": "something", id: 5, $expanded: true }]);
+      expect($ctrl.pickups).to.deep.equal([{ id: 6 }]);
       expect($ctrl.PickupDate.listBySeriesId).to.have.been.calledWith(5);
     });
 

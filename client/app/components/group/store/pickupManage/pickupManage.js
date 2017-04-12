@@ -3,12 +3,14 @@ import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import pickupDate from "../../../../services/pickupDate/pickupDate";
 import pickupManageComponent from "./pickupManage.component";
+import pickupManageAction from "./_pickupManageAction/pickupManageAction";
 import pickupEditCreate from "../../_pickupEditCreate/pickupEditCreate";
 
 let pickupManageModule = angular.module("pickupManage", [
   uiRouter,
   ngMaterial,
   pickupDate,
+  pickupManageAction,
   pickupEditCreate
 ])
 

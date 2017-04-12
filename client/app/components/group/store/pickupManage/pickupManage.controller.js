@@ -1,11 +1,12 @@
 class PickupManageController {
-  constructor($locale, $mdDialog, $document, $stateParams, PickupDate, PickupDateSeries) {
+  constructor($locale, $mdDialog, $document, $stateParams, $mdMedia, PickupDate, PickupDateSeries) {
     "ngInject";
     Object.assign(this, {
       $locale,
       $mdDialog,
       $document,
       $stateParams,
+      $mdMedia,
       PickupDate,
       PickupDateSeries,
       days: {}
@@ -41,6 +42,10 @@ class PickupManageController {
     this.pickups.sort((a, b) => {
       return a.date - b.date;
     });
+  }
+
+  isScreenSmall() {
+    return !this.$mdMedia("gt-sm");
   }
 
   getDayNames(series) {

@@ -23,9 +23,10 @@
       </md-tooltip>
     </md-button>
   </md-subheader>
-  <md-list-item ng-repeat-start="s in $ctrl.series">
-    <div layout-padding layout="row" layout-align="start center">
-      <md-button class="md-icon-button" ng-click="$ctrl.toggle(s)">
+  <md-list-item ng-repeat-start="s in $ctrl.series" ng-click="$ctrl.toggle(s)">
+    <div layout="row" layout-margin layout-align="start center"
+      layout-sm="column" layout-align-sm="start start">
+      <md-button class="md-icon-button" ng-if="!$ctrl.isScreenSmall()" ng-click="$ctrl.toggle(s)">
         <i ng-if="!s.$expanded" class="fa fa-caret-right fa-2x"></i>
         <i ng-if="s.$expanded" class="fa fa-caret-down fa-2x"></i>
         <md-tooltip>
@@ -43,7 +44,7 @@
       <div>
         <i class="fa fa-calendar"></i>
         <span ng-repeat="day in $ctrl.getDayNames(s)">
-          <span>{{day}}<i ng-hide="$last">, </i></span>
+          <span>{{day}}<i ng-if="!$last">, </i></span>
         </span>
         <md-tooltip>
           <span translate="CREATEPICKUP.WEEKDAYS"></span>
@@ -57,22 +58,17 @@
         </md-tooltip>
       </div>
     </div>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series:true, data: s})">
-      <i class="fa fa-pencil"></i>
-      <md-tooltip>
-        <span translate="BUTTON.EDIT"></span>
-      </md-tooltip>
-    </md-button>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:true, data: s})">
-      <i class="fa fa-trash"></i>
-      <md-tooltip>
-        <span translate="BUTTON.DELETE"></span>
-      </md-tooltip>
-    </md-button>
+    <pickup-manage-action class="md-secondary"
+      flags="{ isSeries: true, allowDelete: true }"
+      data="s"
+      on-edit="$ctrl.openEditCreatePanel($event, config)"
+      on-delete="$ctrl.openDeletePanel($event, config)"
+      >
+    </pickup-manage-action>
   </md-list-item>
   <div ng-repeat-end ng-if="s.$expanded">
     <md-list-item ng-repeat="p in $ctrl.getPickupsInSeries(s)">
-      <div layout-padding layout="row" layout-align="start center">
+      <div layout="row" layout-margin layout-align="start center">
         <div class="list-indent"></div>
         <div class="md-caption">
           {{ $index+1 }}.
@@ -86,6 +82,7 @@
         </div>
         <div ng-if="!$ctrl.hasSameTime(s, p)">
           <i class="fa fa-clock-o"></i>
+          &nbsp;
           {{ p.date | date:'shortTime' }}
           <md-tooltip>
             <span translate="CREATEPICKUP.TIME"></span>
@@ -107,18 +104,13 @@
           </span>
         </div>
       </div>
-      <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series:false, data: p})">
-        <i class="fa fa-pencil"></i>
-        <md-tooltip>
-          <span translate="BUTTON.EDIT"></span>
-        </md-tooltip>
-      </md-button>
-      <md-button ng-if="!$ctrl.hasCollectors(p)" class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
-        <i class="fa fa-trash"></i>
-        <md-tooltip>
-          <span translate="BUTTON.DELETE"></span>
-        </md-tooltip>
-      </md-button>
+      <pickup-manage-action class="md-secondary"
+        flags="{ isSeries: false, allowDelete: !$ctrl.hasCollectors(p) }"
+        data="p"
+        on-edit="$ctrl.openEditCreatePanel($event, config)"
+        on-delete="$ctrl.openDeletePanel($event, config)"
+        >
+      </pickup-manage-action>
     </md-list-item>
   </div>
   <md-divider></md-divider>
@@ -133,7 +125,7 @@
     </md-button>
   </md-subheader>
   <md-list-item ng-repeat="p in $ctrl.getSinglePickups()">
-    <div layout-padding layout="row" layout-align="start center">
+    <div layout="row" layout-margin layout-align="start center">
       <div>
         <i class="fa fa-calendar"></i>
         {{ p.date | date:'mediumDate' }}
@@ -164,18 +156,13 @@
         </span>
       </div>
     </div>
-    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series: false, data: p})">
-      <i class="fa fa-pencil"></i>
-      <md-tooltip>
-        <span translate="BUTTON.EDIT"></span>
-      </md-tooltip>
-    </md-button>
-    <md-button ng-if="!$ctrl.hasCollectors(p)" class="md-secondary md-icon-button" ng-click="$ctrl.openDeletePanel($event, {series:false, data: p})">
-      <i class="fa fa-trash"></i>
-      <md-tooltip>
-        <span translate="BUTTON.DELETE"></span>
-      </md-tooltip>
-    </md-button>
+    <pickup-manage-action class="md-secondary"
+      flags="{ isSeries: false, allowDelete: !$ctrl.hasCollectors(p) }"
+      data="p"
+      on-edit="$ctrl.openEditCreatePanel($event, config)"
+      on-delete="$ctrl.openDeletePanel($event, config)"
+      >
+    </pickup-manage-action>
   </md-list-item>
 </md-list>
 

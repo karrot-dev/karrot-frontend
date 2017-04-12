@@ -1,4 +1,4 @@
-class HistoryController {
+class ActivityController {
   constructor() {
     "ngInject";
     Object.assign(this, {
@@ -7,7 +7,7 @@ class HistoryController {
   $onChanges(changes) {
     if (changes && changes.data) {
       angular.forEach(this.data, (entry) => {
-        entry.translate = "HISTORY." + entry.typus;
+        entry.translate = "ACTIVITY." + entry.typus;
         entry.compareDate = entry.date.toISOString().substr(0,10);
         return entry;
       });
@@ -15,4 +15,4 @@ class HistoryController {
   }
 }
 
-export default HistoryController;
+export default ActivityController;

@@ -1,9 +1,9 @@
-import GroupHistoryModule from "./groupHistory";
+import GroupActivityModule from "./groupActivity";
 
 const { module } = angular.mock;
 
-describe("GroupHistory", () => {
-  beforeEach(module(GroupHistoryModule));
+describe("GroupActivity", () => {
+  beforeEach(module(GroupActivityModule));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -15,8 +15,8 @@ describe("GroupHistory", () => {
   });
 
   describe("Module", () => {
-    it("is named groupHistory", () => {
-      expect(GroupHistoryModule).to.equal("groupHistory");
+    it("is named groupActivity", () => {
+      expect(GroupActivityModule).to.equal("groupActivity");
     });
   });
 
@@ -27,7 +27,7 @@ describe("GroupHistory", () => {
     }));
 
     it("should exist", () => {
-      let $ctrl = $componentController("groupHistory", {});
+      let $ctrl = $componentController("groupActivity", {});
       expect($ctrl).to.exist;
     });
   });

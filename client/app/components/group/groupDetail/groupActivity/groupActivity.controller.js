@@ -1,4 +1,4 @@
-class GroupHistoryController {
+class GroupActivityController {
   constructor() {
     "ngInject";
     Object.assign(this, {
@@ -6,4 +6,4 @@ class GroupHistoryController {
   }
 }
 
-export default GroupHistoryController;
+export default GroupActivityController;

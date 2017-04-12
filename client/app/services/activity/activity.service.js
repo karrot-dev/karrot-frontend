@@ -1,5 +1,5 @@
 
-class HistoryService {
+class ActivityService {
   constructor($http) {
     "ngInject";
     Object.assign(this, {
@@ -7,7 +7,7 @@ class HistoryService {
     });
   }
   list(filter) {
-    return this.$http.get("/api/history/", { params: filter })
+    return this.$http.get("/api/activity/", { params: filter })
       .then((res) => {
         return res.data.results.map( (entry) => {
           entry.date = new Date(entry.date);
@@ -17,4 +17,4 @@ class HistoryService {
   }
 }
 
-export default HistoryService;
+export default ActivityService;

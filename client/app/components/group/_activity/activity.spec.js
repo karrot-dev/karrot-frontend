@@ -1,9 +1,9 @@
-import HistoryModule from "./history";
+import ActivityModule from "./activity";
 
 const { module } = angular.mock;
 
-describe("History", () => {
-  beforeEach(module(HistoryModule));
+describe("Activity", () => {
+  beforeEach(module(ActivityModule));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -15,8 +15,8 @@ describe("History", () => {
   });
 
   describe("Module", () => {
-    it("is named history", () => {
-      expect(HistoryModule).to.equal("history");
+    it("is named activity", () => {
+      expect(ActivityModule).to.equal("activity");
     });
   });
 
@@ -31,9 +31,9 @@ describe("History", () => {
         typus: "GROUP_JOIN",
         date: new Date("2017-02-20T12:00:20Z")
       }];
-      let $ctrl = $componentController("history", {}, { data });
+      let $ctrl = $componentController("activity", {}, { data });
       $ctrl.$onChanges({ data: "is unused" });
-      expect(data[0].translate).to.be.equal("HISTORY.GROUP_JOIN");
+      expect(data[0].translate).to.be.equal("ACTIVITY.GROUP_JOIN");
       expect(data[0].compareDate).to.be.equal("2017-02-20");
     });
   });

@@ -18,7 +18,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [*]
 
-STATIC_ROOT = '${deploy_dir}/${backend_dir}/static/'
+# needed for deployment
+# STATIC_ROOT = './static/'
 
 
 ######

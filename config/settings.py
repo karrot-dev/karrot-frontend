@@ -167,4 +167,4 @@ NAME_MAX_LENGTH = 80
 try:
     from .local_settings import *
 except ImportError:
-    pass
+    raise Exception("config/local_settings.py is missing! Copy the provided example file and adapt it to your own config.")

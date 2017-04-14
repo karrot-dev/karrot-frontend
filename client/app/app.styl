@@ -13,10 +13,6 @@
         font-size 8vw
 
   min-height 100%
-  > md-toolbar
-    height 42px
-    max-height 42px
-    min-height 42px
   logo
     padding-right 10px
     > img
@@ -37,9 +33,12 @@ input, button, select, textarea
   line-height inherit
 
 // the main layout panel
-.md-whiteframe-2dp
-  padding: 20px
-  margin-top: .8em
+.main-panel
+  width: 100%
+  max-width: 60em
+
+.no-padding
+  padding: 0px
 
 @media screen and (max-width: 600px)
   .md-whiteframe-2dp

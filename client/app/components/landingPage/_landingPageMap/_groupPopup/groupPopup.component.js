@@ -4,6 +4,7 @@ import "./groupPopup.styl";
 
 let groupPopupComponent = {
   bindings: {
+    id: "@",
     name: "@",
     memberCount: "@",
     description: "@"

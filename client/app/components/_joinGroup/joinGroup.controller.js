@@ -21,9 +21,16 @@ class JoinGroupController {
             this.groups.push(curGroup);
           }
         });
+
+        if (this.selectedGroup) {
+          let group = this.groups.find((e) => e.id === this.selectedGroup);
+          this.toggle(group);
+          this.toggleCheck();
+        }
       });
     });
   }
+
   toggle(group) {
     if (this.active && this.active.id === group.id) this.active = null;
     else this.active = group;

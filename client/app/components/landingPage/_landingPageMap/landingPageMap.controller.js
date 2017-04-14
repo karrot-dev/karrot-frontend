@@ -38,7 +38,7 @@ class LandingPageMapController {
             lng: group.longitude,
             message: "<group-popup " +
                      `id='${group.id}' name='${group.name}'>` +
-                     `member-count='${group.members.length}' description='${group.description}` + 
+                     `member-count='${group.members.length}' description='${group.description}` +
                      "</group-popup>"
           };
         }

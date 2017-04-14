@@ -15,7 +15,10 @@ let landingPageModule = angular.module("landingPage", [
   $stateProvider
     .state("landingPage", {
       url: "/landingPage",
-      component: "landingPage"
+      component: "landingPage",
+      ncyBreadcrumb: {
+        label: "Foodsaving Worldwide"
+      }
     });
 })
 

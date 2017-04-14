@@ -5,6 +5,12 @@
     font-family: 'Cabin Sketch', sans-serif
     color: #795548
     font-size: 50px
+    .title
+      font-size: 4em
+      color: rgba(245, 245, 245, 1.0)   
+    @media screen and (max-width: 500px)
+      .title
+        font-size 8vw
 
   min-height 100%
   > md-toolbar
@@ -14,11 +20,7 @@
   logo
     padding-right 10px
     > img
-      height 200px
-      opacity 0.8
-  @media screen and (max-width: 450px)
-    h1.title
-      font-size 7vw
+      height 75px
   ui-view
     width 40em
 
@@ -38,6 +40,10 @@ input, button, select, textarea
 .md-whiteframe-2dp
   padding: 20px
   margin-top: .8em
+
+@media screen and (max-width: 600px)
+  .md-whiteframe-2dp
+    margin-top: 0em
 
 .md-dialog-container > md-dialog
   width: 95%

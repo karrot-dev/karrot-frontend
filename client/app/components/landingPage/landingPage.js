@@ -17,7 +17,7 @@ let landingPageModule = angular.module("landingPage", [
       url: "/landingPage",
       component: "landingPage",
       ncyBreadcrumb: {
-        skip: true
+        label: "Foodsaving Worldwide"
       }
     });
 })

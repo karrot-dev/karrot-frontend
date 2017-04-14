@@ -1,5 +1,7 @@
 <div layout="row">
   <div class="md-title">{{$ctrl.name}}</div>
+  <p><span translate="GROUP.MEMBERS"></span>: {{$ctrl.memberCount}}</p>
+  <p>{{$ctrl.description}}</p>
   <md-button class="md-raised md-primary md-icon-button" ui-sref="groupInfo({groupId:$ctrl.id})" aria-label="{{ 'GROUPINFO.META' | translate }}">
     <i class="fa fa-info-circle"></i>
     <md-tooltip>

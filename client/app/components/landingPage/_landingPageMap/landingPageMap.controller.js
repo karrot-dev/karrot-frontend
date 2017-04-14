@@ -30,11 +30,15 @@ class LandingPageMapController {
     this.GroupService.list().then((allGroups) => {
       angular.forEach(allGroups, (group) => {
         if (group.latitude && group.longitude){
+          group.name = group.name.replace(/["']/g, "");
+          // eslint-disable-line no-use-before-define
+          group.description = group.public_description.replace(/["']/g, "");
           this.markers[group.id] = {
             lat: group.latitude,
             lng: group.longitude,
             message: "<group-popup " +
                      `id='${group.id}' name='${group.name}'>` +
+                     `member-count='${group.members.length}' description='${group.description}` + 
                      "</group-popup>"
           };
         }

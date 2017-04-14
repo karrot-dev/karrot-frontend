@@ -29,7 +29,16 @@ import "./app.styl";
 
 import breadcrumbTemplate from "./templates/breadcrumbs.html";
 
+// sentry configuration
+import Raven from "raven-js";
+import RavenAngularJS from "raven-js/plugins/angular";
+Raven
+  .config("sentry DSN")
+  .addPlugin(RavenAngularJS, angular)
+  .install();
+
 angular.module("app", [
+  "ngRaven",
   ngLocale,
   uiRouter,
   ngMaterial,

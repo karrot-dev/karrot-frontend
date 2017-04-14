@@ -17,7 +17,6 @@ let landingPageModule = angular.module("landingPage", [
       url: "/landingPage",
       component: "landingPage",
       ncyBreadcrumb: {
-        // accesses group controller
         label: "Foodsaving Worldwide"
       }
     });

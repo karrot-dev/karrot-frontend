@@ -1,24 +1,18 @@
-from django.core.management import call_command
 from django.test import TestCase
-from django.utils.six import StringIO
 
 from ..commands.makemessages import Command as MakeMessagesCommand
 
 
 class CustomMakeMessagesTest(TestCase):
-    def test_makemessages(self):
-        out = StringIO()
-        locales = ['de']
+    def test_update_options(self):
         options = {
-            'locale': locales,
-            'stdout': out,
+            'locale': [],
         }
 
-        call_command('makemessages', **options)
+        modified_options = MakeMessagesCommand.update_options(**options)
+        self.assertIn('jinja', modified_options['extensions'])
+        self.assertIn('en', modified_options['locale'])
 
-        output_messages = [MakeMessagesCommand.CUSTOM_SUCCESS_MESSAGE, 'processing locale en']
-        for locale in locales:
-            output_messages.append('processing locale %s' % locale)
-
-        for message in output_messages:
-            self.assertIn(message, out.getvalue())
+        options['extensions'] = ['py']
+        modified_options_with_initial_extension = MakeMessagesCommand.update_options(**options)
+        self.assertIn('jinja', modified_options_with_initial_extension['extensions'])

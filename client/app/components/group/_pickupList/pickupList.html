@@ -39,7 +39,7 @@
 
 
   <!-- Items -->
-  <div style="padding: 0">
+  <div class="no-padding">
     <section ng-repeat="pickupDate in $ctrl.groupedPickups | orderBy:'date':$ctrl.options.reversed">
       <md-subheader ng-show="$ctrl.options.showStickyHeaders" class="md-sticky">{{pickupDate.date| date:'fullDate'}}</md-subheader>
       <md-list>

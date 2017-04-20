@@ -16,50 +16,190 @@
 <md-list>
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SERIES"></span>
-    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: true})">
+    <md-button class="md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series: true})">
       <i class="fa fa-plus-circle"></i>
+      <md-tooltip>
+        <span translate="BUTTON.CREATE"></span>
+      </md-tooltip>
     </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="s in $ctrl.series" ng-click="$ctrl.openPanel($event, {series:true, data: s})">
-    <div layout-padding layout="row" layout-align="start center">
+  <md-list-item ng-repeat-start="s in $ctrl.series" ng-click="$ctrl.toggle(s)">
+    <div layout="row" layout-margin layout-align="start center"
+      layout-sm="column" layout-align-sm="start start">
+      <md-button class="md-icon-button" ng-if="!$ctrl.isScreenSmall()" ng-click="$ctrl.toggle(s)">
+        <i ng-if="!s.$expanded" class="fa fa-caret-right fa-2x"></i>
+        <i ng-if="s.$expanded" class="fa fa-caret-down fa-2x"></i>
+        <md-tooltip>
+          <span ng-if="!s.$expanded" translate="PICKUPMANAGE.SHOW_SERIES_DETAILS"></span>
+          <span ng-if="s.$expanded" translate="PICKUPMANAGE.HIDE_SERIES_DETAILS"></span>
+        </md-tooltip>
+      </md-button>
       <div>
         <i class="fa fa-clock-o"></i>
         {{ s.start_date | date:'shortTime' }}
+        <md-tooltip>
+          <span translate="CREATEPICKUP.TIME"></span>
+        </md-tooltip>
       </div>
       <div>
         <i class="fa fa-calendar"></i>
         <span ng-repeat="day in $ctrl.getDayNames(s)">
-          <span>{{day}}<i ng-hide="$last">, </i></span>
+          <span>{{day}}<i ng-if="!$last">, </i></span>
         </span>
+        <md-tooltip>
+          <span translate="CREATEPICKUP.WEEKDAYS"></span>
+        </md-tooltip>
       </div>
       <div>
         <i class="fa fa-user"></i>
         {{ s.max_collectors }}
+        <md-tooltip>
+          <span translate="CREATEPICKUP.MAX_COLLECTORS"></span>
+        </md-tooltip>
       </div>
     </div>
+    <pickup-manage-action class="md-secondary"
+      flags="{ isSeries: true, allowDelete: true }"
+      data="s"
+      on-edit="$ctrl.openEditCreatePanel($event, config)"
+      on-delete="$ctrl.openDeletePanel($event, config)"
+      >
+    </pickup-manage-action>
   </md-list-item>
+  <div ng-repeat-end ng-if="s.$expanded">
+    <md-list-item ng-repeat="p in $ctrl.getPickupsInSeries(s)">
+      <div layout="row" layout-margin layout-align="start center">
+        <div class="list-indent"></div>
+        <div class="md-caption">
+          {{ $index+1 }}.
+        </div>
+        <div>
+          <i class="fa fa-calendar"></i>
+          {{ p.date | date:'mediumDate' }}
+          <md-tooltip>
+            <span translate="PICKUPMANAGE.DATE_TEXT"></span>
+          </md-tooltip>
+        </div>
+        <div ng-if="!$ctrl.hasSameTime(s, p)">
+          <i class="fa fa-clock-o"></i>
+          &nbsp;
+          {{ p.date | date:'shortTime' }}
+          <md-tooltip>
+            <span translate="CREATEPICKUP.TIME"></span>
+          </md-tooltip>
+        </div>
+        <div ng-if="!$ctrl.hasSameMaxCollectors(s, p) || $ctrl.hasCollectors(p)">
+          <i class="fa fa-user"></i>
+          <span ng-if="$ctrl.hasCollectors(p)">
+            {{ p.collector_ids.length }} /
+            <md-tooltip>
+              <span translate="PICKUPMANAGE.NUMBER_COLLECTORS"></span>
+            </md-tooltip>
+          </span>
+          <span>
+            {{ p.max_collectors }}
+            <md-tooltip>
+              <span translate="CREATEPICKUP.MAX_COLLECTORS"></span>
+            </md-tooltip>
+          </span>
+        </div>
+      </div>
+      <pickup-manage-action class="md-secondary"
+        flags="{ isSeries: false, allowDelete: !$ctrl.hasCollectors(p) }"
+        data="p"
+        on-edit="$ctrl.openEditCreatePanel($event, config)"
+        on-delete="$ctrl.openDeletePanel($event, config)"
+        >
+      </pickup-manage-action>
+    </md-list-item>
+  </div>
   <md-divider></md-divider>
 
   <md-subheader class="md-no-sticky">
     <span translate="PICKUPMANAGE.SINGLE"></span>
-    <md-button class="md-icon-button" ng-click="$ctrl.openPanel($event, {series: false})">
+    <md-button class="md-icon-button" ng-click="$ctrl.openEditCreatePanel($event, {series: false})">
       <i class="fa fa-plus-circle"></i>
+      <md-tooltip>
+        <span translate="BUTTON.CREATE"></span>
+      </md-tooltip>
     </md-button>
   </md-subheader>
-  <md-list-item ng-repeat="p in $ctrl.getSinglePickups()" ng-click="$ctrl.openPanel($event, {series: false, data: p})">
-    <div layout-padding layout="row" layout-align="start center">
-      <div>
-        <i class="fa fa-clock-o"></i>
-        {{ p.date | date:'shortTime' }}
-      </div>
+  <md-list-item ng-repeat="p in $ctrl.getSinglePickups()">
+    <div layout="row" layout-margin layout-align="start center">
       <div>
         <i class="fa fa-calendar"></i>
         {{ p.date | date:'mediumDate' }}
+        <md-tooltip>
+          <span translate="PICKUPMANAGE.DATE_TEXT"></span>
+        </md-tooltip>
+      </div>
+      <div>
+        <i class="fa fa-clock-o"></i>
+        {{ p.date | date:'shortTime' }}
+        <md-tooltip>
+          <span translate="CREATEPICKUP.TIME"></span>
+        </md-tooltip>
       </div>
       <div>
         <i class="fa fa-user"></i>
-        {{ p.max_collectors }}
+        <span ng-if="$ctrl.hasCollectors(p)">
+          {{ p.collector_ids.length }} /
+          <md-tooltip>
+            <span translate="PICKUPMANAGE.NUMBER_COLLECTORS"></span>
+          </md-tooltip>
+        </span>
+        <span>
+          {{ p.max_collectors }}
+          <md-tooltip>
+            <span translate="CREATEPICKUP.MAX_COLLECTORS"></span>
+          </md-tooltip>
+        </span>
       </div>
     </div>
+    <pickup-manage-action class="md-secondary"
+      flags="{ isSeries: false, allowDelete: !$ctrl.hasCollectors(p) }"
+      data="p"
+      on-edit="$ctrl.openEditCreatePanel($event, config)"
+      on-delete="$ctrl.openDeletePanel($event, config)"
+      >
+    </pickup-manage-action>
   </md-list-item>
 </md-list>
+
+
+<!-- confirm to delete pickup -->
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="confirmDeleteDialog">
+    <md-dialog>
+      <div class="md-whiteframe-10dp" layout-fill>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>
+              <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-trash-o"></i>
+              <span ng-if="!$ctrl.deleteSeries" translate="PICKUPLIST.ITEM.DELETE"></span>
+              <span ng-if="$ctrl.deleteSeries" translate="PICKUPDELETE.DELETE_SERIES_TITLE"></span>
+            </h2>
+          </div>
+        </md-toolbar>
+        <div layout-margin>
+          <div ng-if="!$ctrl.deleteSeries" translate="PICKUPLIST.ITEM.DELETE_TEXT"></div>
+          <div ng-if="$ctrl.deleteSeries" translate="PICKUPDELETE.DELETE_SERIES_TEXT"></div>
+          <div layout="row" layout-align="end center">
+            <md-button aria-label="{{'BUTTON.CANCEL' | translate}}" class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()">
+              <md-tooltip>
+                <span translate="BUTTON.CANCEL"></span>
+              </md-tooltip>
+              <i class="fa fa-times"></i>
+            </md-button>
+            <md-button aria-label="{{'BUTTON.DELETE' | translate}}" class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()">
+              <md-tooltip>
+                <span translate="BUTTON.DELETE"></span>
+              </md-tooltip>
+              <i class="fa fa-trash-o"></i>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </md-dialog>
+  </div>
+</div>

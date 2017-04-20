@@ -1,7 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
-    "DEVMAIL_NOTE": "write us a mail for errors/suggestions",
+    "DEVMAIL_NOTE": "Write us a mail for suggestions and error reports",
     "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
@@ -40,6 +40,7 @@
   "GROUP": {
     "LEAVE": "Leave group...",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Edit group",
     "CREATE_TITLE": "Create new group",
     "TITLE": "Title of this group",
@@ -68,7 +69,15 @@
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
     "SERIES": "Recurring",
-    "SINGLE": "One-time pickups"
+    "SINGLE": "One-time pickups",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
     "EDIT": "Edit user",
@@ -89,6 +98,10 @@
     "PASSWORD_LABEL": "Enter password for private group",
     "PASSWORD_REQUIRED": "This group requires a password",
     "PASSWORD_WRONG": "You entered the wrong password"
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "HOME": {
     "REDIRECT": "Redirecting to your beloved group..."

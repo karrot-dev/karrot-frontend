@@ -32,6 +32,12 @@ describe("Topbar", () => {
       expect($ctrl.Authentication.update).has.been.called;
       expect($ctrl.loggedInUser).to.deep.equal(userData);
     });
+
+    it("checks auth status", () => {
+      expect($ctrl.isLoggedIn()).to.be.false;
+      $ctrl.Authentication.data = { id: 456 };
+      expect($ctrl.isLoggedIn()).to.be.true;
+    });
   });
 
   describe("View", () => {
@@ -48,9 +54,10 @@ describe("Topbar", () => {
 
     it("toggles Right Sidenav", () => {
       $ctrl.$onInit();
-      expect($mdSidenav("right").isOpen()).to.eq(false);
+      $rootScope.$apply();
+      expect($mdSidenav("right").isOpen()).to.be.false;
       $ctrl.toggleRight();
-      expect($mdSidenav("right").isOpen()).to.eq(true);
+      expect($mdSidenav("right").isOpen()).to.be.true;
     });
   });
 });

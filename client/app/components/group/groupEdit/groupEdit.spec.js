@@ -1,9 +1,11 @@
 import GroupEditModule from "./groupEdit";
+import User from "../../../services/user/user";
 
 const { module } = angular.mock;
 
 describe("GroupEdit", () => {
   beforeEach(module(GroupEditModule));
+  beforeEach(module(User));
 
   let $log;
   beforeEach(inject(($injector) => {

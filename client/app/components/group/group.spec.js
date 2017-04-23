@@ -2,6 +2,7 @@ import GroupDetailModule from "./group";
 import GroupDetailController from "./group.controller";
 import GroupDetailComponent from "./group.component";
 import GroupDetailTemplate from "./group.html";
+import CurrentGroup from "../../services/group/group";
 
 const { module } = angular.mock;
 
@@ -9,6 +10,7 @@ describe("Group", () => {
   let $httpBackend, $state;
 
   beforeEach(module(GroupDetailModule));
+  beforeEach(module(CurrentGroup));
   beforeEach(module({ $translate: sinon.stub() }));
   beforeEach(module(($stateProvider) => {
     $stateProvider
@@ -65,8 +67,10 @@ describe("Group", () => {
   describe("Route", () => {
     beforeEach(() => {
       $httpBackend.whenGET("/api/auth/status/").respond({ id: 43 });
-      inject(($translate, $q) => {
+      inject(($translate, $q, $injector) => {
         $translate.returns($q.resolve());
+        let CurrentGroup = $injector.get("CurrentGroup");
+        sinon.stub(CurrentGroup, "set");
       });
     });
 

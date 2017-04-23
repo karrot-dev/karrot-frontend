@@ -1,9 +1,11 @@
 import GroupMenuModule from "./groupMenu";
+import User from "../../../services/user/user";
 
 const { module } = angular.mock;
 
 describe("GroupMenu", () => {
   beforeEach(module(GroupMenuModule));
+  beforeEach(module(User));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -43,8 +45,10 @@ describe("GroupMenu", () => {
     it("goes to group", () => {
       let $ctrl = $componentController("groupMenu", {});
       sinon.stub($ctrl.$state, "go");
+      sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
       $ctrl.CurrentGroup.set({ id: 84 });
       $ctrl.groupButton();
+      expect($ctrl.CurrentGroup.persistCurrentGroup).to.have.been.called;
       expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: 84 });
     });
 

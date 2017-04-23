@@ -30,7 +30,6 @@ describe("Home", () => {
       $q = $injector.get("$q");
 
       Authentication = $injector.get("Authentication");
-      Authentication.data = { id: 1 };
     }));
 
     afterEach(() => {
@@ -43,7 +42,16 @@ describe("Home", () => {
       { id: 99 }
     ];
 
-    it("should redirect user", () => {
+    it("should redirect user to current group when possible", () => {
+      Authentication.data = { current_group: 3 };
+      let $ctrl = $componentController("home", {});
+      sinon.stub($ctrl.$state, "go");
+      $ctrl.$onInit();
+      expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: Authentication.data.current_group });
+    });
+
+    it("should redirect user to first group if current group is null", () => {
+      Authentication.data = { id: 1, current_group: null };
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, groupData);
       let $ctrl = $componentController("home", {});
       sinon.stub($ctrl.$state, "go");
@@ -53,7 +61,8 @@ describe("Home", () => {
     });
 
     it("opens join group dialog", () => {
-      $httpBackend.expectGET("/api/groups/?members=1").respond(200, {});
+      Authentication.data = { id: 1, current_group: null };
+      $httpBackend.expectGET("/api/groups/?members=1").respond(200, []);
       let $ctrl = $componentController("home", {});
       sinon.stub($ctrl.$state, "go");
       sinon.stub($ctrl.$mdDialog, "show");

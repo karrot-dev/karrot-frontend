@@ -2,6 +2,7 @@ from datetime import timedelta
 
 from anymail.message import AnymailMessage
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.template.loader import render_to_string
 
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
 from django.utils import crypto
@@ -92,12 +93,13 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         self.save()
 
     def send_mail_change_notification(self):
+        context = {
+            'user': self,
+        }
+
         AnymailMessage(
-            subject=_('Mail has changed'),
-            body=_('Your mail address has changed from {} to {}. We assume that everything is alright.').format(
-                self.email,
-                self.unverified_email
-            ),
+            subject=render_to_string('changemail_notice-subject.jinja').replace('\n', ''),
+            body=render_to_string('changemail_notice-body-text.jinja', context),
             to=[self.email],
             from_email=settings.DEFAULT_FROM_EMAIL,
             track_clicks=False,
@@ -110,9 +112,14 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         url = '{hostname}/#!/verify-mail?key={key}'.format(hostname=settings.HOSTNAME,
                                                            key=self.activation_key)
 
+        context = {
+            'user': self,
+            'url': url,
+        }
+
         AnymailMessage(
-            subject=_('Verify your mail address'),
-            body=_('Here is your activation link: {}. It will be valid for 7 days.').format(url),
+            subject=render_to_string('mailverification-subject.jinja').replace('\n', ''),
+            body=render_to_string('activation-mail-html.jinja', context),
             to=[self.unverified_email],
             from_email=settings.DEFAULT_FROM_EMAIL,
             track_clicks=False,

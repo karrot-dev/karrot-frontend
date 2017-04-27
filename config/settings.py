@@ -28,17 +28,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.postgres',
 
-    # Django packages
-    'django_extensions',
-    'corsheaders',
-    'rest_framework',
-    'rest_framework_nested',
-    'rest_framework_swagger',
-    'anymail',
-    'influxdb_metrics',
-    'timezone_field',
-    'raven.contrib.django.raven_compat',
-
     # Application
     'foodsaving',
     'foodsaving.userauth',
@@ -52,6 +41,18 @@ INSTALLED_APPS = (
 
     # removed app, it's just here that the migration can run
     'foodsaving.walls',
+
+    # Django packages
+    'django_extensions',
+    'corsheaders',
+    'rest_framework',
+    'rest_framework_nested',
+    'rest_framework_swagger',
+    'anymail',
+    'influxdb_metrics',
+    'timezone_field',
+    'raven.contrib.django.raven_compat',
+    'django_jinja',
 )
 
 
@@ -91,7 +92,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
         ],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -103,6 +104,17 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+    },
+    {
+        "BACKEND": "django_jinja.backend.Jinja2",
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "match_extension": ".jinja",
+            "extensions": [
+                "jinja2.ext.i18n",
+            ],
+            "autoescape": True,
+        }
     },
 ]
 

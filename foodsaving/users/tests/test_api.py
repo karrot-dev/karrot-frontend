@@ -81,7 +81,7 @@ class TestUsersAPI(APITestCase):
         self.assertAlmostEqual(response.data['latitude'], float(self.user_data['latitude']))
         self.assertEqual(response.data['description'], '')
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[0].subject, 'Verify your email address')
         self.assertEqual(mail.outbox[0].to, [self.user_data['email']])
 
     def test_list_users_forbidden(self):
@@ -163,7 +163,7 @@ class TestUsersAPI(APITestCase):
         response = self.client.post(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[0].subject, 'Verify your email address')
         self.assertEqual(mail.outbox[0].to, [self.user.email])
 
     def test_resend_verification_fails_if_already_verified(self):
@@ -316,9 +316,9 @@ class TestChangeMail(APITestCase):
         self.assertEqual(response.data['email'], self.verified_user.email)
         self.assertFalse(user.mail_verified)
         self.assertEqual(len(mail.outbox), 2)
-        self.assertEqual(mail.outbox[0].subject, 'Mail has changed')
+        self.assertEqual(mail.outbox[0].subject, 'Your email address changed!')
         self.assertEqual(mail.outbox[0].to, [user.email])
-        self.assertEqual(mail.outbox[1].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[1].subject, 'Verify your email address')
         self.assertEqual(mail.outbox[1].to, [user.unverified_email])
 
         user.verify_mail()

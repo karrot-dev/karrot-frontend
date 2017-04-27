@@ -9,7 +9,7 @@ argon2-cffi==16.3.0       # via django
 billiard==3.5.0.2         # via celery
 celery==4.0.2             # via django-influxdb-metrics
 cffi==1.10.0              # via argon2-cffi
-contextlib2==0.5.4        # via raven
+contextlib2==0.5.5        # via raven
 coreapi==2.3.0            # via django-rest-swagger, openapi-codec
 coreschema==0.0.4         # via coreapi
 coverage==4.3.4
@@ -20,7 +20,7 @@ django-enumfield==1.3b2
 django-extensions==1.7.8
 django-filter==1.0.2
 django-influxdb-metrics==1.3.1
-django-redis==4.7.0
+django-redis==4.8.0
 django-rest-swagger==2.1.2
 django-timezone-field==2.0
 django[argon2]==1.11
@@ -30,7 +30,7 @@ factory-boy==2.8.1
 Faker==0.7.11             # via factory-boy
 flake8==3.3.0
 hiredis==0.2.0
-influxdb==4.0.0           # via django-influxdb-metrics
+influxdb==4.1.0           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
 jinja2==2.9.6             # via coreschema
 kombu==4.0.2              # via celery
@@ -38,7 +38,7 @@ markdown==2.6.8
 MarkupSafe==1.0           # via jinja2
 mccabe==0.6.1             # via flake8
 openapi-codec==1.3.1      # via django-rest-swagger
-psutil==5.2.1             # via python-server-metrics
+psutil==5.2.2             # via python-server-metrics
 psycopg2==2.7.1
 pycodestyle==2.3.1        # via flake8
 pycparser==2.17           # via cffi

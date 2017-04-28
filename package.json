@@ -80,7 +80,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.1",
     "supports-color": "^3.1.2",
-    "webpack": "^1.9.5",
+    "webpack": "^2.3.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0",
     "yargs": "^7.0.1"

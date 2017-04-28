@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
     "DEVMAIL_NOTE": "Write us a mail for suggestions and error reports",
     "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",

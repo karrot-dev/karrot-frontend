@@ -113,9 +113,6 @@ class UserViewSet(
         except get_user_model().DoesNotExist:
             # don't leak valid mail addresses
             return Response(status=status.HTTP_204_NO_CONTENT)
-        if not user.mail_verified:
-            # I think we can leave this in here, unverified addresses are not so useful to spammers
-            return Response(status=status.HTTP_400_BAD_REQUEST,
-                            data={'error': 'mail is not verified'})
+
         user.reset_password()
         return Response(status=status.HTTP_204_NO_CONTENT, data={})

@@ -187,12 +187,6 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(mail.outbox[0].subject, 'New password')
         self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
 
-    def test_reset_password_fails_if_mail_not_verified(self):
-        url = self.url + 'reset_password/'
-        response = self.client.post(url, {'email': self.user.email})
-        self.assertEqual(response.data, {'error': 'mail is not verified'})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
     def test_reset_password_fails_if_wrong_mail(self):
         url = self.url + 'reset_password/'
         response = self.client.post(url, {'email': 'wrong@example.com'})

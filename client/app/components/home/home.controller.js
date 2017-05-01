@@ -13,8 +13,7 @@ class HomeController {
   $onInit() {
     if (this.Authentication.data.current_group !== null) {
       this.$state.go("group", { groupId: this.Authentication.data.current_group });
-    }
-    else {
+    } else {
       this.GroupService.listMy().then((data) => {
         if (data.length > 0) {
           this.$state.go("group", { groupId: data[0].id });

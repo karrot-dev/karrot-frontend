@@ -64,7 +64,7 @@ describe("CurrentGroup service", () => {
     stub.restore();
     let user = {
       id: Authentication.data.id,
-      current_group: 4
+      current_group: 4              //eslint-disable-line
     };
     $httpBackend.expectPATCH(`/api/users/${user.id}/`, user).respond(200, {});
     CurrentGroup.persistCurrentGroup(user.current_group);

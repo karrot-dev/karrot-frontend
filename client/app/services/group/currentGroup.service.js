@@ -31,7 +31,7 @@ export default class CurrentGroup {
   persistCurrentGroup(groupId) {
     let user = {
       id: this.Authentication.data.id,
-      current_group: groupId
+      current_group: groupId            //eslint-disable-line
     };
     this.User.save(user);
   }

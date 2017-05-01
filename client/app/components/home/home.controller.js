@@ -11,10 +11,6 @@ class HomeController {
   }
 
   $onInit() {
-    if (angular.isUndefined(this.Authentication.data)) {
-      this.Authentication.update();
-    }
-
     if (this.Authentication.data.current_group !== null) {
       this.$state.go("group", { groupId: this.Authentication.data.current_group });
     }

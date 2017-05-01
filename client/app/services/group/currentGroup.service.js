@@ -20,19 +20,11 @@ export default class CurrentGroup {
 
   set(value) {
     angular.copy(value, this.value);
-    if (angular.isUndefined(this.Authentication.data)) {
-      this.Authentication.update();
-    }
-
     this.persistCurrentGroup(value.id);
   }
 
   clear() {
     angular.copy({}, this.value);
-    if (angular.isUndefined(this.Authentication.data)) {
-      this.Authentication.update();
-    }
-
     this.persistCurrentGroup(null);
   }
 

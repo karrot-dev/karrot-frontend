@@ -2,7 +2,6 @@ import GroupDetailModule from "./group";
 import GroupDetailController from "./group.controller";
 import GroupDetailComponent from "./group.component";
 import GroupDetailTemplate from "./group.html";
-import CurrentGroup from "../../services/group/group";
 
 const { module } = angular.mock;
 
@@ -10,7 +9,6 @@ describe("Group", () => {
   let $httpBackend, $state;
 
   beforeEach(module(GroupDetailModule));
-  beforeEach(module(CurrentGroup));
   beforeEach(module({ $translate: sinon.stub() }));
   beforeEach(module(($stateProvider) => {
     $stateProvider

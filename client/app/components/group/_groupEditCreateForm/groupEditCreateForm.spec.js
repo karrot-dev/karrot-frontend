@@ -1,11 +1,9 @@
 import GroupEditCreateFormModule from "./groupEditCreateForm";
-import User from "../../../services/user/user";
 
 const { module } = angular.mock;
 
 describe("GroupEditCreateForm", () => {
   beforeEach(module(GroupEditCreateFormModule));
-  beforeEach(module(User));
 
   let $log;
   beforeEach(inject(($injector) => {

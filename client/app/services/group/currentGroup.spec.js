@@ -1,11 +1,9 @@
 import GroupModule from "./group";
-import UserModule from "../user/user";
 
 const { module } = angular.mock;
 
 describe("CurrentGroup service", () => {
   beforeEach(module(GroupModule));
-  beforeEach(module(UserModule));
 
   let $log;
   beforeEach(inject(($injector) => {

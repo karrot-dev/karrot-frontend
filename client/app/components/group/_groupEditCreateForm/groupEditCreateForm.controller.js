@@ -56,14 +56,13 @@ class GroupEditCreateFormController {
 
   trySetLocation(item) {
     if (!item || !item.address ) return;
-    this.marker = {
-      p: {
-        lat: item.latitude,
-        lng: item.longitude,
-        message: item.address,
-        draggable: true
-      }
-    };
+    if (!this.marker || !this.marker.p) this.marker = { p: {} };
+    angular.copy({
+      lat: item.latitude,
+      lng: item.longitude,
+      message: item.address,
+      draggable: true
+    }, this.marker.p);
     this.query = item.address;
     this.mapCenter.zoom = 10;
     this.mapCenter.lat = item.latitude;

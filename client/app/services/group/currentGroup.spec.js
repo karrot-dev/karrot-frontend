@@ -14,7 +14,7 @@ describe("CurrentGroup service", () => {
     $log.assertEmpty();
   });
 
-  let CurrentGroup, Authentication, $httpBackend, stub;
+  let CurrentGroup, Authentication, $httpBackend;
 
   beforeEach(inject(($injector) => {
     CurrentGroup = $injector.get("CurrentGroup");
@@ -22,7 +22,7 @@ describe("CurrentGroup service", () => {
     $httpBackend = $injector.get("$httpBackend");
 
     Authentication.data = { id: 1 };
-    stub = sinon.stub(CurrentGroup, "persistCurrentGroup");
+    sinon.stub(CurrentGroup, "persistCurrentGroup");
   }));
 
   afterEach(() => {
@@ -42,26 +42,26 @@ describe("CurrentGroup service", () => {
       including: ["lists", "of", "stuff"]
     };
     CurrentGroup.set(newGroup);
-    assert(stub.withArgs(newGroup.id).calledOnce);
+    expect(CurrentGroup.persistCurrentGroup).to.have.been.calledWith(newGroup.id).calledOnce;
     expect(CurrentGroup.value).to.deep.equal(newGroup);
   });
 
   it("can be cleared", () => {
     CurrentGroup.set({ some: "data" });
     CurrentGroup.clear();
-    assert(stub.calledTwice);
+    expect(CurrentGroup.persistCurrentGroup).to.have.been.calledTwice;
     expect(CurrentGroup.value).to.deep.equal({});
   });
 
   it("copies properties from group during set", () => {
     let value = CurrentGroup.value;
     CurrentGroup.set({ some: "data" });
-    assert(stub.calledOnce);
+    expect(CurrentGroup.persistCurrentGroup).to.have.been.calledOnce;
     expect(CurrentGroup.value).to.equal(value);
   });
 
   it("can persist current group", () => {
-    stub.restore();
+    CurrentGroup.persistCurrentGroup.restore();
     let user = {
       id: Authentication.data.id,
       current_group: 4              //eslint-disable-line

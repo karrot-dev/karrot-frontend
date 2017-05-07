@@ -16,10 +16,9 @@ DATABASES = {
 SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
 DEBUG = True
 
-ALLOWED_HOSTS = [*]
-
 # needed for deployment
 # STATIC_ROOT = './static/'
+# ALLOWED_HOSTS = ['*']
 
 
 ######

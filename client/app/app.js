@@ -29,10 +29,6 @@ import "./app.styl";
 
 import breadcrumbTemplate from "./templates/breadcrumbs.html";
 
-import mainLayout from "./layouts/main.html";
-import splashLayout from "./layouts/splash.html";
-import logo from "./components/_logo/logo";
-
 angular.module("app", [
   ngLocale,
   uiRouter,
@@ -46,22 +42,10 @@ angular.module("app", [
   translate,
   translateStorageCookie,
   Services,
-  PageComponents,
-  logo
+  PageComponents
 ]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {
   "ngInject";
   $locationProvider.html5Mode(false).hashPrefix("!");
-  $stateProvider
-    .state("main", {
-      abstract: true,
-      url: "",
-      template: mainLayout
-    })
-    .state("splash", {
-      abstract: true,
-      url: "",
-      template: splashLayout
-    });
   $urlRouterProvider.otherwise("/landingPage");
   $httpProvider.defaults.xsrfCookieName = "csrftoken";
   $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";

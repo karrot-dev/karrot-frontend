@@ -1,24 +1,6 @@
-.splash
-  background-image: url('yunityorg.jpg')
-  background-size: cover
-  h1
-    font-family: 'Cabin Sketch', sans-serif
-    color: #795548
-    font-size: 50px
-    .title
-      font-size: 4em
-      color: rgba(245, 245, 245, 1.0)   
-    @media screen and (max-width: 500px)
-      .title
-        font-size 8vw
-
-  min-height 100%
-  logo
-    padding-right 10px
-    > img
-      height 75px
-  ui-view
-    width 40em
+// Global style file
+// This file should only contain styles that apply to index.html
+// In some cases, it can also contain global overrides
 
 body > md-content
   height 100%
@@ -31,39 +13,6 @@ input, button, select, textarea
   font-family inherit
   font-size inherit
   line-height inherit
-
-// the main layout panel
-.main-panel
-  width: 100%
-  max-width: 60em
-
-.no-padding
-  padding: 0px
-
-@media screen and (max-width: 600px)
-  .md-whiteframe-2dp
-    margin-top: 0em
-
-.md-dialog-container > md-dialog
-  width: 95%
-  max-width: 40em
-
-.multiline
-  white-space: pre;
-
-.footer
-  opacity 0.6
-  text-align center
-  margin: 0.5em;
-  font-size: 0.8em;
-
-.footer a
-  opacity 0.8
-  text-decoration: none;
-  font-weight: 500;
-
-.footer a:hover
-  opacity 1.0
 
 // Fix: leaflet controls should be below md-dialog
 .leaflet-control-container

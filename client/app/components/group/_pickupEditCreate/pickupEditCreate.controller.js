@@ -137,4 +137,14 @@ class pickupEditCreateController {
   }
 }
 
+  noPastDateCalender() {
+  this.myDate = new Date();
+
+  this.minDate = new Date(
+    this.myDate.getFullYear(),
+    this.myDate.getMonth(),
+    this.myDate.getDate()
+  );
+  }
+
 export default pickupEditCreateController;

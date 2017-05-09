@@ -31,7 +31,8 @@
         </div>
 
         <md-input-container ng-if="!$ctrl.isSeries">
-          <md-datepicker required ng-model="$ctrl.singleData.date" md-placeholder="Enter date" md-open-on-focus md-hide-icons="triangle"></md-datepicker>
+          <md-datepicker required ng-model="$ctrl.singleData.date" md-placeholder="Enter date"
+           md-min-date="$ctrl.minDate" md-open-on-focus md-hide-icons="triangle"></md-datepicker>
         </md-input-container>
 
         <md-autocomplete

@@ -28,7 +28,6 @@ module.exports = {
         ]
       },
       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader?name=fonts/[name].[ext]" },
-      { test: /\.json$/, loader: "json-loader" },
       { test: /\.(png|jpg|jpeg)$/, loader: "file-loader?name=images/[hash].[ext]" },
       { test: /\.svgimage$/, loader: "file-loader?name=images/[hash].svg" }
     ]

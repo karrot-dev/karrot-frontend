@@ -171,6 +171,11 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/api-auth/login/'
 LOGOUT_URL = '/api-auth/logout/'
 
+
+SILENCED_SYSTEM_CHECKS = [
+    'urls.W005', # we don't need to reverse backend URLs
+]
+
 DESCRIPTION_MAX_LENGTH = 100000
 NAME_MAX_LENGTH = 80
 

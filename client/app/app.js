@@ -58,6 +58,11 @@ angular.module("app", [
   "ngInject";
   cfpLoadingBarProvider.includeSpinner = false;
 })
+.config(($mdAriaProvider) => {
+  "ngInject";
+  // Globally disables all ARIA warnings.
+  $mdAriaProvider.disableWarnings();
+})
 .config(($breadcrumbProvider) => {
   "ngInject";
   $breadcrumbProvider.setOptions({

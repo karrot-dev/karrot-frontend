@@ -7,9 +7,21 @@ module.exports = {
   devtool: "sourcemap",
   entry: {},
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: "ng-annotate-loader!babel-loader" },
-      { test: /\.html$/, loader: "raw-loader" },
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: [/app\/lib/, /node_modules/],
+        use: [
+          { loader: "ng-annotate-loader" },
+          { loader: "babel-loader" }
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          { loader: "raw-loader" }
+        ]
+      },
       {
         test: /\.styl$/,
         use: [
@@ -27,9 +39,24 @@ module.exports = {
           { loader: "postcss-loader", options: { sourceMap: true } }
         ]
       },
-      { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader?name=fonts/[name].[ext]" },
-      { test: /\.(png|jpg|jpeg)$/, loader: "file-loader?name=images/[hash].[ext]" },
-      { test: /\.svgimage$/, loader: "file-loader?name=images/[hash].svg" }
+      {
+        test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          { loader: "file-loader", options: { name: "fonts/[name].[ext]" } }
+        ]
+      },
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        use: [
+          { loader: "file-loader", options: { name: "images/[hash].[ext]" } }
+        ]
+      },
+      {
+        test: /\.svgimage$/,
+        use: [
+          { loader: "file-loader", options: { name: "images/[hash].svg" } }
+        ]
+      }
     ]
   },
   plugins: [

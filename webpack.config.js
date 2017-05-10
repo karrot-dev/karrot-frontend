@@ -8,14 +8,29 @@ module.exports = {
   entry: {},
   module: {
     loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: "ng-annotate-loader!babel-loader" },
-       { test: /\.html$/, loader: "raw-loader" },
-       { test: /\.styl$/, loader: "style-loader!css-loader?importLoaders=1!postcss-loader!stylus-loader" },
-       { test: /\.css$/, loader: "style-loader!css-loader!postcss-loader" },
-       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader?name=fonts/[name].[ext]" },
-       { test: /\.json$/, loader: "json-loader" },
-       { test: /\.(png|jpg|jpeg)$/, loader: "file-loader?name=images/[hash].[ext]" },
-       { test: /\.svgimage$/, loader: "file-loader?name=images/[hash].svg" }
+      { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: "ng-annotate-loader!babel-loader" },
+      { test: /\.html$/, loader: "raw-loader" },
+      {
+        test: /\.styl$/,
+        use: [
+          { loader: "style-loader", options: { sourceMap: true } },
+          { loader: "css-loader", options: { sourceMap: true, importLoaders: true } },
+          { loader: "postcss-loader", options: { sourceMap: true } },
+          { loader: "stylus-loader", options: { sourceMap: true } }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader", options: { sourceMap: true } },
+          { loader: "css-loader", options: { sourceMap: true } },
+          { loader: "postcss-loader", options: { sourceMap: true } }
+        ]
+      },
+      { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader?name=fonts/[name].[ext]" },
+      { test: /\.json$/, loader: "json-loader" },
+      { test: /\.(png|jpg|jpeg)$/, loader: "file-loader?name=images/[hash].[ext]" },
+      { test: /\.svgimage$/, loader: "file-loader?name=images/[hash].svg" }
     ]
   },
   plugins: [

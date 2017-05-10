@@ -32,7 +32,7 @@ module.exports = function (config) {
     webpack: {
       devtool: "inline-source-map",
       module: {
-        loaders: require("./webpack.config.js").module.loaders
+        rules: require("./webpack.config.js").module.rules
       }
     },
 

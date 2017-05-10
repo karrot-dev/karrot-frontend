@@ -7,15 +7,56 @@ module.exports = {
   devtool: "sourcemap",
   entry: {},
   module: {
-    loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: "ng-annotate!babel" },
-       { test: /\.html$/, loader: "raw" },
-       { test: /\.styl$/, loader: "style!css?importLoaders=1!postcss!stylus" },
-       { test: /\.css$/, loader: "style!css!postcss" },
-       { test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file?name=fonts/[name].[ext]" },
-       { test: /\.json$/, loader: "json" },
-       { test: /\.(png|jpg|jpeg)$/, loader: "file?name=images/[hash].[ext]" },
-       { test: /\.svgimage$/, loader: "file?name=images/[hash].svg" }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: [/app\/lib/, /node_modules/],
+        use: [
+          { loader: "ng-annotate-loader" },
+          { loader: "babel-loader" }
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          { loader: "raw-loader" }
+        ]
+      },
+      {
+        test: /\.styl$/,
+        use: [
+          { loader: "style-loader", options: { sourceMap: true } },
+          { loader: "css-loader", options: { sourceMap: true, importLoaders: true } },
+          { loader: "postcss-loader", options: { sourceMap: true } },
+          { loader: "stylus-loader", options: { sourceMap: true } }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader", options: { sourceMap: true } },
+          { loader: "css-loader", options: { sourceMap: true } },
+          { loader: "postcss-loader", options: { sourceMap: true } }
+        ]
+      },
+      {
+        test: /\.(ttf|eot|svg|otf|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          { loader: "file-loader", options: { name: "fonts/[name].[ext]" } }
+        ]
+      },
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        use: [
+          { loader: "file-loader", options: { name: "images/[hash].[ext]" } }
+        ]
+      },
+      {
+        test: /\.svgimage$/,
+        use: [
+          { loader: "file-loader", options: { name: "images/[hash].svg" } }
+        ]
+      }
     ]
   },
   plugins: [

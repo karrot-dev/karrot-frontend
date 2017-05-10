@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import markdownInputComponent from "./markdownInput.component";
 
 let markdownInputModule = angular.module("markdownInput", [

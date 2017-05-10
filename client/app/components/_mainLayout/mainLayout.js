@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import mainLayoutComponent from "./mainLayout.component";
 import topbar from "../_topbar/topbar";
 

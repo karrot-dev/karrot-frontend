@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import groupEditCreateFormComponent from "./groupEditCreateForm.component";
 import GroupService from "../../../services/group/group";
 import Geocoding from "../../../services/geocoding/geocoding";

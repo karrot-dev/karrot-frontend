@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import Authentication from "../../services/authentication/authentication";
 import <%= name %>Component from "./<%= name %>.component";
 

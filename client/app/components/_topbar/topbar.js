@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import topbarComponent from "./topbar.component";
 import groupMenu from "./_groupMenu/groupMenu";
 import languageChooser from "./_languageChooser/languageChooser";

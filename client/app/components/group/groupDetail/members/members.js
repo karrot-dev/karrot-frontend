@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import userList from "./_userList/userList";
 import GroupService from "../../../../services/group/group";
 import membersComponent from "./members.component";

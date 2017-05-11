@@ -39,7 +39,7 @@ describe("PickupListItem", () => {
     "id": 9
   };
 
-  describe("Controller with date detail", () => {
+  describe("Controller", () => {
     let $ctrl;
 
     beforeEach(() => {
@@ -56,6 +56,13 @@ describe("PickupListItem", () => {
       $ctrl.$onInit();
     });
 
+    it("gets store data", () => {
+      $ctrl.CurrentStores.set([{ id: 5 }]);
+      $ctrl.data = { store: 5 };
+      $ctrl.$onInit();
+      expect($ctrl.storeData).to.deep.equal({ id: 5 });
+    });
+
     it("test join and leave function", () => {
       $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/remove/").respond("");
@@ -65,21 +72,4 @@ describe("PickupListItem", () => {
     });
   });
 
-  describe("Controller with store detail", () => {
-    let $ctrl;
-
-    beforeEach(() => {
-      $ctrl = $componentController("pickupListItem", {
-      }, {
-        data: pickupData,
-        showDetail: "store"
-      });
-    });
-
-    it("gets store data", () => {
-      $ctrl.$onInit();
-      inject(($rootScope) => $rootScope.$apply());
-      expect($ctrl.storeData).to.deep.equal(storeData);
-    });
-  });
 });

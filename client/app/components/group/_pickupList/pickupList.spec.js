@@ -113,65 +113,6 @@ describe("PickupList", () => {
 
   let fullPickups = [pickupDataInfoAdded[1]];
 
-  let pickupDataInfoAddedGrouped = [
-    {
-      "date": "2016-09-16",
-      "items": [{
-        "id": 15,
-        "date": "2016-09-16T21:40:00Z",
-        "collector_ids": [],
-        "max_collectors": 2,
-        "store": 9
-      },
-      {
-        "id": 14,
-        "date": "2016-09-16T01:00:00Z",
-        "collector_ids": [
-          1,
-          8
-        ],
-        "max_collectors": 2,
-        "store": 9
-      }]
-    },
-    {
-      "date": "2016-09-17",
-      "items": [{
-        "id": 11,
-        "date": "2016-09-17T16:00:00Z",
-        "collector_ids": [
-          1
-        ],
-        "max_collectors": 3,
-        "store": 9
-      }]
-    },
-    {
-      "date": "2016-09-18",
-      "items": [{
-        "id": 5,
-        "date": "2016-09-18T12:00:18Z",
-        "collector_ids": [],
-        "max_collectors": 5,
-        "store": 9
-      }]
-    },
-    {
-      "date": "2017-09-22",
-      "items": [{
-        "id": 4,
-        "date": "2017-09-22T20:00:05Z",
-        "collector_ids": [],
-        "max_collectors": 2,
-        "store": 9
-      }]
-    }];
-
-  let storeData = {
-    "id": 9,
-    "name": "REWE Neuried"
-  };
-
   describe("Controller with showDetail = date (default)", () => {
     let $ctrl;
 
@@ -185,73 +126,22 @@ describe("PickupList", () => {
       });
       $ctrl.$onInit();
 
-      $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
     });
-
-    afterEach(() => {
-      $httpBackend.flush();
-    });
-
 
     it("bindings", () => {
       expect($ctrl.storeId).to.equal(9);
       expect($ctrl.options.header).to.equal("My amazing Pickups");
+      $httpBackend.flush();
     });
 
-    it("automatic update", () => {
-      $httpBackend.expectGET("/api/auth/status/").respond(authData);
+    it("updates pickup dates on init", () => {
       $httpBackend.expectGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
+      $ctrl.$onInit();
+      $httpBackend.flush();
     });
 
 
-    it("addPickupInfo functionality", () => {
-      $ctrl.userId = 1;
-      $ctrl.addPickupInfosAndDisplay(pickupData);
-      let updatedData = $ctrl.allPickups;
-      expect(updatedData).to.deep.equal(pickupDataInfoAdded);
-      expect(updatedData[0].store).to.deep.equal(9);
-    });
-
-    it("filter functionality", () => {
-      $ctrl.allPickups = pickupDataInfoAdded;
-      $ctrl.options.filter = {
-        showJoined: false,
-        showOpen: false,
-        showFull: true
-      };
-      expect($ctrl.filterAndDisplayPickups()).to.deep.equal(fullPickups);
-    });
-
-    it("groupByDate functionality", () => {
-      expect($ctrl.groupByDate(pickupDataInfoAdded)).to.deep.equal(pickupDataInfoAddedGrouped);
-    });
-
-    it("joins pickup date", () => {
-      $ctrl.userId = 456;
-      $ctrl.allPickups = [
-        { id: 2, "collector_ids": [] },
-        { id: 5, "collector_ids": [99] }
-      ];
-      $ctrl.joinPickup(5);
-      expect($ctrl.allPickups).to.deep.equal([
-        { id: 2, "collector_ids": [] },
-        { id: 5, "collector_ids": [99, 456] }
-      ]);
-    });
-
-    it("leaves pickup date", () => {
-      $ctrl.userId = 97;
-      $ctrl.allPickups = [
-        { id: 2, "collector_ids": [] },
-        { id: 5, "collector_ids": [95, 96, 97, 99] }
-      ];
-      $ctrl.leavePickup(5);
-      expect($ctrl.allPickups).to.deep.equal([
-        { id: 2, "collector_ids": [] },
-        { id: 5, "collector_ids": [95, 96, 99] }
-      ]);
-    });
   });
 
   describe("Controller with showDetail = store", () => {
@@ -268,17 +158,7 @@ describe("PickupList", () => {
       });
       $ctrl.$onInit();
 
-      $httpBackend.whenGET("/api/auth/status/").respond(authData);
       $httpBackend.whenGET(`/api/pickup-dates/?date_0=${now.toISOString()}&store=9`).respond(pickupData);
-      $httpBackend.whenGET("/api/stores/9/").respond(storeData);
-    });
-
-    it("addPickupInfo get Store Info functionality", () => {
-      $ctrl.userId = 1;
-      $ctrl.addPickupInfosAndDisplay(pickupData);
-      let updatedData = $ctrl.allPickups;
-      expect(updatedData[0].storePromise).to.eventually.deep.equal(storeData);
-      $httpBackend.flush();
     });
   });
 
@@ -292,6 +172,42 @@ describe("PickupList", () => {
       $ctrl = $componentController("pickupList", {}, {
         options: { filter: {} }
       });
+
+      $ctrl.Authentication.data = { id: 666 };
+    });
+
+    it("filters pickups", () => {
+      $ctrl.allPickups = pickupDataInfoAdded;
+      $ctrl.options.filter = {
+        showJoined: false,
+        showOpen: false,
+        showFull: true
+      };
+      expect($ctrl.getPickups()).to.deep.equal(fullPickups);
+    });
+
+    it("joins pickup date", () => {
+      $ctrl.allPickups = [
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [99] }
+      ];
+      $ctrl.joinPickup(5);
+      expect($ctrl.allPickups).to.deep.equal([
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [99, 666] }
+      ]);
+    });
+
+    it("leaves pickup date", () => {
+      $ctrl.allPickups = [
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [95, 96, 666, 99] }
+      ];
+      $ctrl.leavePickup(5);
+      expect($ctrl.allPickups).to.deep.equal([
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [95, 96, 99] }
+      ]);
     });
 
     it("isFull functionality", () => {
@@ -311,9 +227,8 @@ describe("PickupList", () => {
     });
 
     it("isUserMember functionality", () => {
-      $ctrl.userId = 1;
       expect($ctrl.isUserMember({
-        "collector_ids": [1,2,3]
+        "collector_ids": [1,2,666]
       })).to.equal.true;
       expect($ctrl.isUserMember({
         "collector_ids": [2,3]

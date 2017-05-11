@@ -20,11 +20,6 @@ export default class CurrentUsers {
     return this.list;
   }
 
-  pushItem(item) {
-    this.list.push(item);
-    return item;
-  }
-
   clear() {
     angular.copy([], this.list);
   }

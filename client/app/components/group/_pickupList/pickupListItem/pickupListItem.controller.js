@@ -1,15 +1,16 @@
 class PickupListItemController {
-  constructor(PickupDate, CurrentUsers) {
+  constructor(PickupDate, CurrentUsers, CurrentStores) {
     "ngInject";
     Object.assign(this, {
       PickupDate,
-      CurrentUsers
+      CurrentUsers,
+      CurrentStores
     });
   }
 
   $onInit() {
     this.showStoreDetail = this.showDetail === "store";
-    this.setStoreInfo();
+    this.storeData = this.CurrentStores.get(this.data.store);
   }
 
   join() {
@@ -26,14 +27,6 @@ class PickupListItemController {
       this.onLeave({ "pickupId": this.data.id });
       this.meta.isUserMember = false;
     });
-  }
-
-  setStoreInfo(){
-    if (this.showStoreDetail) {
-      this.data.storePromise.then((storeData) => {
-        this.storeData = storeData;
-      });
-    }
   }
 
 }

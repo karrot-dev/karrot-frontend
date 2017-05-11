@@ -1,13 +1,14 @@
+import moment from "moment";
+
 class PickupListController {
 
-  constructor(Authentication, PickupDate, PickupDateSeries, Store, $filter, $mdDialog, $document) {
+  constructor(Authentication, PickupDate, PickupDateSeries, Store, $mdDialog, $document) {
     "ngInject";
     Object.assign(this, {
       Authentication,
       PickupDate,
       PickupDateSeries,
       Store,
-      $filter,
       $mdDialog,
       $document
     });
@@ -82,7 +83,7 @@ class PickupListController {
   }
 
   onDifferentDay(a, b) {
-    return this.$filter("date")(a.date, "yyyy-MM-dd", "") !== this.$filter("date")(b.date, "yyyy-MM-dd", "");
+    return !moment(a.date).isSame(b.date, "day");
   }
 
   toggleReversed() {

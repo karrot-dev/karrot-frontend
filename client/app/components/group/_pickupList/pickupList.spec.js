@@ -24,11 +24,6 @@ describe("PickupList", () => {
     clock.restore();
   });
 
-  let authData = {
-    "id": 1,
-    "display_name": "Lars"
-  };
-
   let pickupData = [{
     "id": 15,
     "date": "2016-09-16T21:40:00Z",
@@ -70,48 +65,7 @@ describe("PickupList", () => {
     "store": 9
   }];
 
-  let pickupDataInfoAdded = [{
-    "id": 15,
-    "date": "2016-09-16T21:40:00Z",
-    "collector_ids": [],
-    "max_collectors": 2,
-    "store": 9
-  },
-  {
-    "id": 14,
-    "date": "2016-09-16T01:00:00Z",
-    "collector_ids": [
-      1,
-      8
-    ],
-    "max_collectors": 2,
-    "store": 9
-  },
-  {
-    "id": 11,
-    "date": "2016-09-17T16:00:00Z",
-    "collector_ids": [
-      1
-    ],
-    "max_collectors": 3,
-    "store": 9
-  },
-  {
-    "id": 5,
-    "date": "2016-09-18T12:00:18Z",
-    "collector_ids": [],
-    "max_collectors": 5,
-    "store": 9
-  },
-  {
-    "id": 4,
-    "date": "2017-09-22T20:00:05Z",
-    "collector_ids": [],
-    "max_collectors": 2,
-    "store": 9
-  }];
-
-  let fullPickups = [pickupDataInfoAdded[1]];
+  let fullPickups = [pickupData[1]];
 
   describe("Controller with showDetail = date (default)", () => {
     let $ctrl;
@@ -176,8 +130,24 @@ describe("PickupList", () => {
       $ctrl.Authentication.data = { id: 666 };
     });
 
+    it("gets user id", () => {
+      expect($ctrl.getUserId()).to.equal(666);
+    });
+
+    it("checks if date header should be shown", () => {
+      expect($ctrl.showDateHeaderBefore(0, [])).to.be.true;
+      expect($ctrl.showDateHeaderBefore(1, [
+        { date: new Date("2017-05-10T11:42:33+00:00") },
+        { date: new Date("2017-05-11T11:42:33+00:00") }
+      ])).to.be.true;
+      expect($ctrl.showDateHeaderBefore(1, [
+        { date: new Date("2017-05-11T12:42:33+00:00") },
+        { date: new Date("2017-05-11T11:42:33+00:00") }
+      ])).to.be.false;
+    });
+
     it("filters pickups", () => {
-      $ctrl.allPickups = pickupDataInfoAdded;
+      $ctrl.allPickups = pickupData;
       $ctrl.options.filter = {
         showJoined: false,
         showOpen: false,

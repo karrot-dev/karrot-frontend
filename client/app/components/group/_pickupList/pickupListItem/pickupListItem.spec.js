@@ -57,7 +57,6 @@ describe("PickupListItem", () => {
     });
 
     it("test join and leave function", () => {
-      $httpBackend.expectGET("/api/users/1/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/remove/").respond("");
       $ctrl.join();
@@ -75,12 +74,11 @@ describe("PickupListItem", () => {
         data: pickupData,
         showDetail: "store"
       });
-      $ctrl.$onInit();
     });
 
     it("gets store data", () => {
-      $httpBackend.expectGET("/api/users/1/").respond("");
-      $httpBackend.flush();
+      $ctrl.$onInit();
+      inject(($rootScope) => $rootScope.$apply());
       expect($ctrl.storeData).to.deep.equal(storeData);
     });
   });

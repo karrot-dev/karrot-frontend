@@ -7,7 +7,6 @@ let pickupListItemComponent = {
     data: "<",              // pickup info..
     showDetail: "<",        // same as in pickupList
     onDelete: "&",
-    parentCtrl: "<",         // Controller of pickupList
     meta: "<",   //metadata for pickup including .isFull
     onJoin: "&",
     onLeave: "&"

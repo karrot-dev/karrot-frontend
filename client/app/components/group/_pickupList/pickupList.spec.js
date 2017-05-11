@@ -226,6 +226,32 @@ describe("PickupList", () => {
     it("groupByDate functionality", () => {
       expect($ctrl.groupByDate(pickupDataInfoAdded)).to.deep.equal(pickupDataInfoAddedGrouped);
     });
+
+    it("joins pickup date", () => {
+      $ctrl.userId = 456;
+      $ctrl.allPickups = [
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [99] }
+      ];
+      $ctrl.joinPickup(5);
+      expect($ctrl.allPickups).to.deep.equal([
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [99, 456] }
+      ]);
+    });
+
+    it("leaves pickup date", () => {
+      $ctrl.userId = 97;
+      $ctrl.allPickups = [
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [95, 96, 97, 99] }
+      ];
+      $ctrl.leavePickup(5);
+      expect($ctrl.allPickups).to.deep.equal([
+        { id: 2, "collector_ids": [] },
+        { id: 5, "collector_ids": [95, 96, 99] }
+      ]);
+    });
   });
 
   describe("Controller with showDetail = store", () => {

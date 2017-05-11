@@ -17,15 +17,15 @@
           <md-list>
             <md-list-item>
               <p translate="PICKUPLIST.JOINED"></p>
-              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showJoined" ng-change="$ctrl.filterAndDisplayPickups()"></md-checkbox>
+              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showJoined"></md-checkbox>
             </md-list-item>
             <md-list-item>
               <p translate="PICKUPLIST.OPEN"></p>
-              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showOpen" ng-change="$ctrl.filterAndDisplayPickups()"></md-checkbox>
+              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showOpen"></md-checkbox>
             </md-list-item>
             <md-list-item>
               <p translate="PICKUPLIST.FULL"></p>
-              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showFull" ng-change="$ctrl.filterAndDisplayPickups()"></md-checkbox>
+              <md-checkbox class="md-secondary" ng-model="$ctrl.options.filter.showFull"></md-checkbox>
             </md-list-item>
           </md-list>
         </md-menu-content>
@@ -39,26 +39,30 @@
 
 
   <!-- Items -->
-  <div style="padding: 0">
-    <section ng-repeat="pickupDate in $ctrl.groupedPickups | orderBy:'date':$ctrl.options.reversed">
-      <md-subheader ng-show="$ctrl.options.showStickyHeaders" class="md-sticky">{{pickupDate.date| date:'fullDate'}}</md-subheader>
-      <md-list>
-        <pickup-list-item
-          ng-repeat="pickup in pickupDate.items | orderBy:'date':$ctrl.options.reversed"
-          show-detail="$ctrl.options.showDetail"
-          on-delete="$ctrl.delete(pickup)"
-          parent-ctrl="$ctrl"
-          data="pickup"
-          meta="{isFull: $ctrl.isFull(pickup), isUserMember: $ctrl.isUserMember(pickup)}">
-        </pickup-list-item>
-      </md-list>
-    </section>
+  <div class="no-padding">
+    <md-list ng-if="$ctrl.isInitialized">
+      <md-subheader
+        ng-repeat-start="pickup in (pickups = $ctrl.getPickups()) | orderBy:'date':$ctrl.options.reversed"
+        ng-show="$ctrl.options.showStickyHeaders && $ctrl.showDateHeaderBefore($index, pickups)"
+        class="md-sticky">
+        {{pickup.date| date:'fullDate'}}
+      </md-subheader>
+      <pickup-list-item
+        ng-repeat-end
+        show-detail="$ctrl.options.showDetail"
+        on-delete="$ctrl.delete(pickup)"
+        on-join="$ctrl.joinPickup(pickup.id)"
+        on-leave="$ctrl.leavePickup(pickup.id)"
+        data="pickup"
+        meta="{isFull: $ctrl.isFull(pickup), isUserMember: $ctrl.isUserMember(pickup)}">
+      </pickup-list-item>
+    </md-list>
 
     <div ng-if="!$ctrl.isInitialized" layout="row" layout-sm="column" layout-align="space-around">
       <md-progress-circular md-mode="indeterminate" style="margin: 3em auto"></md-progress-circular>
     </div>
 
-    <div ng-if="$ctrl.isInitialized && !$ctrl.groupedPickups.length"  layout-padding>
+    <div ng-if="$ctrl.isInitialized && !$ctrl.getPickups().length"  layout-padding>
       <h4 style="margin-bottom: 0"><i class="fa fa-bed"></i> <span translate="PICKUPLIST.NONE"></span></h4>
       <small ng-if="!$ctrl.options.showCreateButton" translate="PICKUPLIST.NONE_HINT"></small>
     </div>

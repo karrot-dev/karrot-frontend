@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import groupHistoryComponent from "./groupHistory.component";
 import historyService from "../../../../services/history/history";
 import history from "../../_history/history";

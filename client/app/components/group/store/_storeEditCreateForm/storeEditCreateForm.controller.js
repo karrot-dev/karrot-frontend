@@ -5,29 +5,13 @@ class StoreEditCreateFormController {
       CurrentGroup,
       Geocoding,
       $stateParams,
+      $scope,
       mapCenter: {},
       mapDefaults: {
         scrollWheelZoom: false,
         zoomControl: true,
         dragging: true
       }
-    });
-
-    $scope.mapController = this;
-    $scope.$on("leafletDirectiveMap.click", (event, e) => {
-      let item = {
-        latitude: e.leafletEvent.latlng.lat,
-        longitude: e.leafletEvent.latlng.lng
-      };
-      $scope.mapController.marker = {
-        p: {
-          lat: item.latitude,
-          lng: item.longitude,
-          message: item.address,
-          draggable: false
-        }
-      };
-      Object.assign($scope.mapController.data, item);
     });
   }
 
@@ -47,9 +31,24 @@ class StoreEditCreateFormController {
     } else {
       this.trySetLocation(this.data);
     }
+
+    this.$scope.$on("leafletDirectiveMap.click", (event, e) => {
+      let item = {
+        latitude: e.leafletEvent.latlng.lat,
+        longitude: e.leafletEvent.latlng.lng
+      };
+      this.setMarker(item);
+    });
   }
 
   submit() {
+    // update data if marker has been dragged around
+    if (this.marker) {
+      Object.assign(this.data, {
+        latitude: this.marker.p.lat,
+        longitude: this.marker.p.lng
+      });
+    }
     // set locals to evaluate against in the parent expression
     // data="parent_submit(data)" takes the locals.data object
     let locals = { data: this.data };
@@ -64,16 +63,19 @@ class StoreEditCreateFormController {
     return this.Geocoding.lookupAddress(this.query);
   }
 
+  setMarker(item) {
+    if (!this.marker || !this.marker.p) this.marker = { p: {} };
+    angular.copy({
+      lat: item.latitude,
+      lng: item.longitude,
+      message: item.address,
+      draggable: true
+    }, this.marker.p);
+  }
+
   trySetLocation(item) {
     if (!item || !item.address ) return;
-    this.marker = {
-      p: {
-        lat: item.latitude,
-        lng: item.longitude,
-        message: item.address,
-        draggable: false
-      }
-    };
+    this.setMarker(item);
     this.query = item.address;
     this.mapCenter.zoom = 15;
     this.mapCenter.lat = item.latitude;
@@ -81,16 +83,18 @@ class StoreEditCreateFormController {
     Object.assign(this.data, item);
   }
 
-  updateAndDeleteIfEmpty(text) {
+  updateOrDeleteIfEmpty(text) {
+    this.data.address = text;
     if (!text) {
       Object.assign(this.data, {
         latitude: null,
-        longitude: null
+        longitude: null,
+        address: null
       });
-    } else {
-      this.data.address = text;
     }
   }
+
+
 }
 
 export default StoreEditCreateFormController;

@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import userListComponent from "./userList.component";
 import User from "../../../../../services/user/user.js";
 

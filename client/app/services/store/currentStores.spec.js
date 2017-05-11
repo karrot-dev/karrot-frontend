@@ -61,4 +61,10 @@ describe("CurrentStores service", () => {
     expect(CurrentStores.list).to.equal(list);
   });
 
+  it("gets store by id", () => {
+    CurrentStores.list = [{ id: 42 }];
+    expect(CurrentStores.get(42)).to.deep.equal({ id: 42 });
+  });
+
+
 });

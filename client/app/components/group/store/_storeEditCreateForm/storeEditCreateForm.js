@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import storeEditCreateFormComponent from "./storeEditCreateForm.component";
 import Geocoding from "../../../../services/geocoding/geocoding";
 import StoreService from "../../../../services/store/store";

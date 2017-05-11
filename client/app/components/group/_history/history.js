@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import historyComponent from "./history.component";
 import profilePicture from "../../_profilePicture/profilePicture";
 

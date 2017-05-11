@@ -3,7 +3,9 @@ import controller from "./joinGroup.controller";
 import "./joinGroup.styl";
 
 let joinGroupComponent = {
-  bindings: {},
+  bindings: {
+    selectedGroup: "<"
+  },
   template,
   controller
 };

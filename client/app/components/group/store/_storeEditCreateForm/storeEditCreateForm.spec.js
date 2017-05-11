@@ -73,7 +73,7 @@ describe("StoreEditCreateForm", () => {
     it("resets coords if text is empty", () => {
       let $ctrl = $componentController("storeEditCreateForm", {});
       $ctrl.data = { latitude: 30 };
-      $ctrl.deleteIfEmpty();
+      $ctrl.updateOrDeleteIfEmpty();
       expect($ctrl.data.latitude).to.be.null;
     });
 

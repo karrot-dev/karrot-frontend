@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
 import groupComponent from "./group.component";
 import AuthenticationModule from "../../services/authentication/authentication";
@@ -32,13 +32,30 @@ let groupPageModule = angular.module("group", [
     .state("group", {
       parent: "main",
       url: "/group/{groupId:int}",
-      redirectTo: "group.groupDetail.pickups",
+      redirectTo: (trans) => {
+        let GroupService = trans.injector().get("GroupService");
+        let $stateParams = trans.injector().get("$stateParams");
+        let Authentication = trans.injector().get("Authentication");
+        let $translate = trans.injector().get("$translate");
+        let $mdToast = trans.injector().get("$mdToast");
+        return GroupService.get($stateParams.groupId).then((group) => {
+          if (group.members.indexOf(Authentication.data.id) >= 0) {
+            return "group.groupDetail.pickups";
+          } else {
+            $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
+              $mdToast.showSimple(message);
+            });
+            // re-uses same groupId state parameter
+            return "groupInfo";
+          }
+        });
+      },
       component: "group",
       resolve: {
         groupData: (CurrentGroup) => {
           return CurrentGroup.value;
         },
-        groupDataResolve: ($state, GroupService, CurrentGroup, $stateParams) => {
+        groupDataResolve: (GroupService, CurrentGroup, $stateParams) => {
           return GroupService.get($stateParams.groupId).then((group) => {
             CurrentGroup.set(group);
             return group;

@@ -8,13 +8,9 @@ class TopbarController {
       $scope.screenIsSmall = !big;
     });
 
-    this.toggleRight = () => {
-      $mdSidenav("right")
-        .toggle();
-    };
-
     Object.assign(this, {
-      Authentication
+      Authentication,
+      $mdSidenav
     });
   }
 
@@ -22,6 +18,14 @@ class TopbarController {
     this.Authentication.update().then((data) => {
       this.loggedInUser = data;
     });
+  }
+
+  toggleRight() {
+    this.$mdSidenav("right").toggle();
+  }
+
+  isLoggedIn() {
+    return angular.isDefined(this.Authentication.data);
   }
 }
 

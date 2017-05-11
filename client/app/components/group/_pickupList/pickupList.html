@@ -39,7 +39,7 @@
 
 
   <!-- Items -->
-  <div style="padding: 0">
+  <div class="no-padding">
     <md-list ng-if="$ctrl.isInitialized">
       <md-subheader
         ng-repeat-start="pickup in (pickups = $ctrl.getPickups()) | orderBy:'date':$ctrl.options.reversed"

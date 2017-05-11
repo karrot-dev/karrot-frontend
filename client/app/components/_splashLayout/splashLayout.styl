@@ -1,0 +1,19 @@
+.splash
+  background-image: url('yunityorg.jpg')
+  background-size: cover
+  h1
+    font-family: 'Cabin Sketch', sans-serif
+    color: #795548
+    font-size: 50px
+
+  min-height 100%
+  logo
+    padding-right 10px
+    > img
+      height 200px
+      opacity 0.8
+  @media screen and (max-width: 450px)
+    h1.title
+      font-size 7vw
+  ui-view
+    width 40em

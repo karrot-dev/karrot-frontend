@@ -90,7 +90,7 @@ class pickupEditCreateController {
     if (!text) {
       return this.timeChoices;
     } else {
-      return this.allTimeChoices.filter((e) => e.text.startsWith(text));
+      return this.allTimeChoices.filter((e) => e.text.includes(text));
     }
   }
 

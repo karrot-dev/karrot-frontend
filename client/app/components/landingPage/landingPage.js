@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import landingPageComponent from "./landingPage.component";
 import landingPageMap from "./_landingPageMap/landingPageMap";
 
@@ -15,7 +15,10 @@ let landingPageModule = angular.module("landingPage", [
   $stateProvider
     .state("landingPage", {
       url: "/landingPage",
-      component: "landingPage"
+      component: "landingPage",
+      ncyBreadcrumb: {
+        label: "Foodsaving Worldwide"
+      }
     });
 })
 

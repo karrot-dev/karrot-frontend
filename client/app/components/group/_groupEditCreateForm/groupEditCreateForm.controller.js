@@ -10,7 +10,7 @@ class GroupEditCreateFormController {
       mapDefaults: {
         scrollWheelZoom: false,
         zoomControl: false,
-        dragging: false
+        dragging: true
       }
     });
   }
@@ -28,6 +28,14 @@ class GroupEditCreateFormController {
   }
 
   submit() {
+    // update data if marker has been dragged around
+    if (this.marker) {
+      Object.assign(this.data, {
+        latitude: this.marker.p.lat,
+        longitude: this.marker.p.lng
+      });
+    }
+
     // set locals to evaluate against in the parent expression
     // data="parent_submit(data)" takes the locals.data object
     let locals = { data: this.data };
@@ -48,14 +56,13 @@ class GroupEditCreateFormController {
 
   trySetLocation(item) {
     if (!item || !item.address ) return;
-    this.marker = {
-      p: {
-        lat: item.latitude,
-        lng: item.longitude,
-        message: item.address,
-        draggable: false
-      }
-    };
+    if (!this.marker || !this.marker.p) this.marker = { p: {} };
+    angular.copy({
+      lat: item.latitude,
+      lng: item.longitude,
+      message: item.address,
+      draggable: true
+    }, this.marker.p);
     this.query = item.address;
     this.mapCenter.zoom = 10;
     this.mapCenter.lat = item.latitude;

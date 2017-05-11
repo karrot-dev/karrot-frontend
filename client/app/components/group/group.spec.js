@@ -56,9 +56,20 @@ describe("Group", () => {
       sinon.stub($state, "go");
     }));
 
-    it("should exist", () => {
+    it("loads users and stores on init", () => {
       let $ctrl = $componentController("group", {});
-      expect($ctrl).to.exist;
+      sinon.stub($ctrl.User, "list");
+      sinon.stub($ctrl.CurrentUsers, "set");
+      sinon.stub($ctrl.Store, "listByGroupId");
+      sinon.stub($ctrl.CurrentStores, "set");
+      inject(($rootScope, $q) => {
+        $ctrl.User.list.returns($q.resolve([{ id: 5 }]));
+        $ctrl.Store.listByGroupId.returns($q.resolve([{ id: 97 }]));
+        $ctrl.$onInit();
+        $rootScope.$apply();
+      });
+      expect($ctrl.CurrentUsers.set).to.have.been.calledWith([{ id: 5 }]);
+      expect($ctrl.CurrentStores.set).to.have.been.calledWith([{ id: 97 }]);
     });
   });
 

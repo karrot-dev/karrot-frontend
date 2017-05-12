@@ -213,7 +213,7 @@ class StoreSerializer(serializers.ModelSerializer):
                 group=store.group,
                 store=store,
                 user=self.context['request'].user,
-                payload=self.initial_data
+                payload=changed_data
             )
         return store
 

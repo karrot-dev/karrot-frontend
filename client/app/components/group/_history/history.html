@@ -3,7 +3,7 @@
     <div ng-if="$first || $ctrl.data[$index-1].compareDate != entry.compareDate" class="date">
       {{ entry.date | date:'fullDate' }}
     </div>
-    <div layout="row">
+    <div layout="row" ng-click="$ctrl.openHistoryDetail($event, entry)">
       <div flex class="time">
         {{ entry.date | date:'shortTime' }}
       </div>

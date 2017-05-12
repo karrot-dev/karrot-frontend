@@ -1,7 +1,9 @@
 class HistoryController {
-  constructor() {
+  constructor($mdDialog, $document) {
     "ngInject";
     Object.assign(this, {
+      $mdDialog,
+      $document
     });
   }
   $onChanges(changes) {
@@ -12,6 +14,24 @@ class HistoryController {
         return entry;
       });
     }
+  }
+
+  openHistoryDetail($event, item) {
+    let DialogController = function (data) {
+      "ngInject";
+      this.data = data;
+    };
+
+    this.$mdDialog.show({
+      parent: this.$document.body,
+      targetEvent: $event,
+      template: "<history-detail data='$ctrl.data'></history-detail>",
+      locals: {
+        data: item
+      },
+      controller: DialogController,
+      controllerAs: "$ctrl"
+    });
   }
 }
 

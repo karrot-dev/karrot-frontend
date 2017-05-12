@@ -7,14 +7,17 @@ class HistoryController {
     });
   }
 
-  $onChanges(changes) {
-    if (changes && changes.data) {
-      angular.forEach(this.data.results, (entry) => {
-        entry.translate = "HISTORY." + entry.typus;
-        entry.compareDate = entry.date.toISOString().substr(0,10);
-        return entry;
-      });
-    }
+  getTranslateKey(entry) {
+    return "HISTORY." + entry.typus;
+  }
+
+  showDateSubheader(index, array) {
+    if (index === 0) return true;
+    return this.onDifferentDay(array[index], array[index - 1]);
+  }
+
+  onDifferentDay(a, b) {
+    return a.date.toISOString().substr(0,10) !== b.date.toISOString().substr(0,10);
   }
 
   loadMore() {

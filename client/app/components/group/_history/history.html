@@ -1,6 +1,6 @@
 <div>
   <div ng-repeat="entry in $ctrl.data.results">
-    <div ng-if="$first || $ctrl.data.results[$index-1].compareDate != entry.compareDate" class="date">
+    <div ng-if="$ctrl.showDateSubheader($index, $ctrl.data.results)" class="date">
       {{ entry.date | date:'fullDate' }}
     </div>
     <div layout="row" ng-click="$ctrl.openHistoryDetail($event, entry)">
@@ -11,7 +11,7 @@
         <div ng-repeat="id in entry.users"><profile-picture user-id="id" size="20"></profile-picture></div>
       </div>
       <div flex class="description">
-        <span translate="{{ entry.translate }}" translate-values="{{ entry.payload }}"></span>
+        <span translate="{{ $ctrl.getTranslateKey(entry) }}" translate-values="{{ entry.payload }}"></span>
       </div>
     </div>
   </div>

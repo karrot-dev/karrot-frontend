@@ -8,13 +8,17 @@ class HistoryService {
   }
 
   processResponse(res, _this) {
-    return {
-      next: () => {
+    let getNext = undefined;
+    if (res.data.next) {
+      getNext = () => {
         let url = res.data.next.substr(res.data.next.indexOf("/api"));
         return _this.$http.get(url).then((res) => {
           return _this.processResponse(res, _this);
         });
-      },
+      };
+    }
+    return {
+      next: getNext,
       results: res.data.results.map((entry) => {
         entry.date = new Date(entry.date);
         return entry;

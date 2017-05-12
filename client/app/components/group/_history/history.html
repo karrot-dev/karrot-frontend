@@ -15,7 +15,8 @@
       </div>
     </div>
   </div>
-  <md-button ng-click="$ctrl.loadMore()">
-    Load more
+  <md-button ng-disabled="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()">
+    <span ng-if="$ctrl.hasMore()" translate="HISTORY.LOAD_MORE"></span>
+    <span ng-if="!$ctrl.hasMore()" translate="HISTORY.ALL_LOADED"></span>
   </md-button>
 </div>

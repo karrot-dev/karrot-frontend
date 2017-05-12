@@ -30,6 +30,10 @@ class HistoryController {
     });
   }
 
+  hasMore() {
+    return angular.isDefined(this.data.next);
+  }
+
   openHistoryDetail($event, item) {
     let DialogController = function (data) {
       "ngInject";

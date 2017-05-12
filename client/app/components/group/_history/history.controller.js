@@ -6,14 +6,25 @@ class HistoryController {
       $document
     });
   }
+
   $onChanges(changes) {
     if (changes && changes.data) {
-      angular.forEach(this.data, (entry) => {
+      angular.forEach(this.data.results, (entry) => {
         entry.translate = "HISTORY." + entry.typus;
         entry.compareDate = entry.date.toISOString().substr(0,10);
         return entry;
       });
     }
+  }
+
+  loadMore() {
+    return this.data.next().then((data) => {
+      angular.forEach(data.results, (e) => {
+        this.data.results.push(e);
+      });
+      this.data.next = data.next;
+      return data;
+    });
   }
 
   openHistoryDetail($event, item) {

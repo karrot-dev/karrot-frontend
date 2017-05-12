@@ -1,6 +1,6 @@
 <div>
-  <div ng-repeat="entry in $ctrl.data">
-    <div ng-if="$first || $ctrl.data[$index-1].compareDate != entry.compareDate" class="date">
+  <div ng-repeat="entry in $ctrl.data.results">
+    <div ng-if="$first || $ctrl.data.results[$index-1].compareDate != entry.compareDate" class="date">
       {{ entry.date | date:'fullDate' }}
     </div>
     <div layout="row" ng-click="$ctrl.openHistoryDetail($event, entry)">
@@ -15,4 +15,7 @@
       </div>
     </div>
   </div>
+  <md-button ng-click="$ctrl.loadMore()">
+    Load more
+  </md-button>
 </div>

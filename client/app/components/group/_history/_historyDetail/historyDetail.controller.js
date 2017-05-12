@@ -1,8 +1,13 @@
 class HistoryDetailController {
-  constructor() {
+  constructor($mdDialog) {
     "ngInject";
     Object.assign(this, {
+      $mdDialog
     });
+  }
+
+  closePanel() {
+    this.$mdDialog.cancel();
   }
 }
 

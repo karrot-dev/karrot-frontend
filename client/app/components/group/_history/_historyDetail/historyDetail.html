@@ -1,1 +1,16 @@
-{{ $ctrl.data.payload | json }}
+<md-list>
+  <md-list-item ng-repeat="(key, value) in $ctrl.data.payload" layout-padding>
+    <div>
+      {{ key }}
+    </div>
+    <div>
+      {{ value }}
+    </div>
+  </md-list-item>
+</md-list>
+
+<div layout="row" layout-align="end center">
+  <md-button class="md-raised md-primary" ng-click="$ctrl.closePanel()">
+    <i class="fa fa-times"></i>
+  </md-button>
+</div>

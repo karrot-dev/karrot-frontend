@@ -1,7 +1,7 @@
 <div>
   <div ng-repeat="entry in $ctrl.data">
     <div ng-if="$first || $ctrl.data[$index-1].compareDate != entry.compareDate" class="date">
-      {{ entry.date | date:'fullDate' }}
+      {{entry.status}}{{ entry.date | date:'fullDate' }}
     </div>
     <div layout="row">
       <div flex class="time">

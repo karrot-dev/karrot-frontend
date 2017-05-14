@@ -36,17 +36,26 @@ describe("history", () => {
     "payload": {}
   }];
 
-  it("lists history by group", () => {
+  let processedResult = resultData.map((e) => {
+    e.date = new Date(e.date);
+    return e;
+  });
+
+  it("lists history by group and gets another page", () => {
     $httpBackend.expectGET("/api/history/?group=5").respond({
-      // pagination header
-      "count": 1404,
       "next": "https://foodsaving.world/api/history/?limit=50&offset=50&group=5",
-      "previous": null,
       "results": resultData
     });
-    expect(HistoryService.list({ group: 5 })).to.be.fulfilled
-      .and.to.have.property("results")
-      .and.to.have.property("next");
+    $httpBackend.expectGET("/api/history/?limit=50&offset=50&group=5").respond({
+      "next": "https://foodsaving.world/api/history/?limit=50&offset=100&group=5",
+      "results": resultData
+    });
+    HistoryService.list({ group: 5 }).then((data) => {
+      expect(data.results).to.deep.equal(processedResult);
+      data.next().then((data) => {
+        expect(data.results).to.deep.equal(processedResult);
+      });
+    });
     $httpBackend.flush();
   });
 

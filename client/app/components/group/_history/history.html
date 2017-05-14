@@ -1,22 +1,29 @@
-<div>
-  <div ng-repeat="entry in $ctrl.data.results">
-    <div ng-if="$ctrl.showDateSubheader($index, $ctrl.data.results)" class="date">
-      {{ entry.date | date:'fullDate' }}
-    </div>
-    <div layout="row" ng-click="$ctrl.openHistoryDetail($event, entry)">
-      <div flex class="time">
+<md-list>
+  <md-subheader
+    ng-repeat-start="entry in $ctrl.data.results"
+    ng-show="$ctrl.showDateSubheader($index, $ctrl.data.results)">
+    {{ entry.date | date:'fullDate' }}
+  </md-subheader>
+  <md-list-item ng-repeat-end>
+    <div layout="row" layout-padding>
+      <div class="md-caption">
         {{ entry.date | date:'shortTime' }}
       </div>
-      <div flex class="avatar s{{ entry.users.length }}">
-        <div ng-repeat="id in entry.users"><profile-picture user-id="id" size="20"></profile-picture></div>
+      <div class="avatar s{{ entry.users.length }}">
+        <div ng-repeat="id in entry.users">
+          <profile-picture user-id="id" size="20"></profile-picture>
+        </div>
       </div>
-      <div flex class="description">
+      <div>
         <span translate="{{ $ctrl.getTranslateKey(entry) }}" translate-values="{{ entry.payload }}"></span>
       </div>
+      <div class="md-secondary md-icon-button" ng-click="$ctrl.openHistoryDetail($event, entry)">
+        <i class="fa fa-info"></i>
+      </div>
     </div>
-  </div>
-  <md-button ng-disabled="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()">
-    <span ng-if="$ctrl.hasMore()" translate="HISTORY.LOAD_MORE"></span>
-    <span ng-if="!$ctrl.hasMore()" translate="HISTORY.ALL_LOADED"></span>
-  </md-button>
-</div>
+  </md-list-item>
+</md-list>
+<md-button ng-disabled="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()">
+  <span ng-if="$ctrl.hasMore()" translate="HISTORY.LOAD_MORE"></span>
+  <span ng-if="!$ctrl.hasMore()" translate="HISTORY.ALL_LOADED"></span>
+</md-button>

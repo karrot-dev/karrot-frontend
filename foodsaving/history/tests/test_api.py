@@ -97,11 +97,15 @@ class TestHistoryAPIWithExistingStore(PaginatedResponseTestCase):
 
     def test_modify_store(self):
         self.client.force_login(self.member)
-        self.client.patch(self.store_url, {'name': 'newnew'})
+        self.client.patch(self.store_url, {
+            'name': 'newnew',  # new value
+            'description': self.store.description  # no change
+        })
         response = self.get_results(history_url)
         self.assertEqual(len(response.data), 1, response.data)
         self.assertEqual(response.data[0]['typus'], 'STORE_MODIFY')
         self.assertEqual(response.data[0]['payload']['name'], 'newnew')
+        self.assertEqual(len(response.data[0]['payload']), 1)
 
     def test_dont_modify_store(self):
         self.client.force_login(self.member)

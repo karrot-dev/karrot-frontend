@@ -7,13 +7,13 @@ class HistoryService {
     });
   }
 
-  processResponse(res, _this) {
+  processResponse(res) {
     let getNext = undefined;
     if (res.data.next) {
       getNext = () => {
         let url = res.data.next.substr(res.data.next.indexOf("/api"));
-        return _this.$http.get(url).then((res) => {
-          return _this.processResponse(res, _this);
+        return this.$http.get(url).then((res) => {
+          return this.processResponse.bind(this)(res);
         });
       };
     }
@@ -28,7 +28,8 @@ class HistoryService {
 
   list(filter) {
     return this.$http.get("/api/history/", { params: filter })
-      .then((res) => this.processResponse(res, this));
+      // to support recursive promise callback calls, we need to bind 'this'
+      .then((res) => this.processResponse.bind(this)(res));
   }
 }
 

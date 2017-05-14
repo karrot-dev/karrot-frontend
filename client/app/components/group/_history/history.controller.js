@@ -11,7 +11,7 @@ class HistoryController {
     return "HISTORY." + entry.typus;
   }
 
-  showDateSubheader(index, array) {
+  showDateHeaderBefore(index, array) {
     if (index === 0) return true;
     return this.onDifferentDay(array[index], array[index - 1]);
   }

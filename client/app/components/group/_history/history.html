@@ -1,7 +1,7 @@
 <md-list>
   <md-subheader
     ng-repeat-start="entry in $ctrl.data.results"
-    ng-show="$ctrl.showDateSubheader($index, $ctrl.data.results)">
+    ng-show="$ctrl.showDateHeaderBefore($index, $ctrl.data.results)">
     {{ entry.date | date:'fullDate' }}
   </md-subheader>
   <md-list-item ng-repeat-end>

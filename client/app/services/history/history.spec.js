@@ -44,7 +44,9 @@ describe("history", () => {
       "previous": null,
       "results": resultData
     });
-    expect(HistoryService.list({ group: 5 })).to.be.fulfilled;
+    expect(HistoryService.list({ group: 5 })).to.be.fulfilled
+      .and.to.have.property("results")
+      .and.to.have.property("next");
     $httpBackend.flush();
   });
 

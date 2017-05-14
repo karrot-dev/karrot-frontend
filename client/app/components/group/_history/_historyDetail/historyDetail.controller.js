@@ -5,10 +5,6 @@ class HistoryDetailController {
       $mdDialog
     });
   }
-
-  closePanel() {
-    this.$mdDialog.cancel();
-  }
 }
 
 export default HistoryDetailController;

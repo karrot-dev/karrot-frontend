@@ -96,7 +96,7 @@ class PickupDateJoinSerializer(serializers.ModelSerializer):
             group=pickup_date.store.group,
             store=pickup_date.store,
             user=user,
-            payload={'store_name': pickup_date.store.name}
+            payload=PickupDateSerializer(instance=pickup_date).data
         )
         return pickup_date
 
@@ -114,7 +114,7 @@ class PickupDateLeaveSerializer(serializers.ModelSerializer):
             group=pickup_date.store.group,
             store=pickup_date.store,
             user=user,
-            payload={'store_name': pickup_date.store.name}
+            payload=PickupDateSerializer(instance=pickup_date).data
         )
         return pickup_date
 

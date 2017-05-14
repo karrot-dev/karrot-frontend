@@ -107,7 +107,6 @@ class PickupDateManager(models.Manager):
         for _ in self.filter(date__lt=timezone.now()):
             # move pickup dates into history, also empty ones
             payload = {}
-            payload['store_name'] = _.store.name
             if _.series:
                 payload['series'] = _.series.id
             if _.max_collectors:

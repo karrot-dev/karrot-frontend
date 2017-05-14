@@ -1,14 +1,29 @@
 class HistoryController {
-  constructor($mdDialog, $document) {
+  constructor($mdDialog, $document, CurrentStores) {
     "ngInject";
     Object.assign(this, {
       $mdDialog,
-      $document
+      $document,
+      CurrentStores
     });
   }
 
   getTranslateKey(entry) {
     return "HISTORY." + entry.typus;
+  }
+
+  getTranslateValues(entry) {
+    let values = {};
+    if (entry.store) {
+      let store = this.CurrentStores.get(entry.store);
+      if (angular.isDefined(store)) {
+        Object.assign(values, {
+          "store_name": store.name,
+          name: store.name
+        });
+      }
+    }
+    return values;
   }
 
   showDateHeaderBefore(index, array) {

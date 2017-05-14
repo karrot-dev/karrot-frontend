@@ -31,6 +31,19 @@ describe("History", () => {
       expect($ctrl.getTranslateKey({ typus: "GROUP_JOIN" })).to.deep.equal("HISTORY.GROUP_JOIN");
     });
 
+    it("retrieves store name", () => {
+      let $ctrl = $componentController("history", {});
+      $ctrl.CurrentStores.set([{
+        id: 5,
+        name: "Joe's Store"
+      }]);
+      expect($ctrl.getTranslateValues({ store: 5 })).to.deep.equal({
+        "store_name": "Joe's Store",
+        name: "Joe's Store"
+      });
+    });
+
+
     it("checks if date header should be shown", () => {
       let $ctrl = $componentController("history", {});
       expect($ctrl.showDateHeaderBefore(0, [])).to.be.true;

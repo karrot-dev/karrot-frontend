@@ -15,7 +15,9 @@
         </div>
       </div>
       <div>
-        <span translate="{{ $ctrl.getTranslateKey(entry) }}" translate-values="{{ entry.payload }}"></span>
+        <span
+        translate="{{ $ctrl.getTranslateKey(entry) }}"
+        translate-values="{{ $ctrl.getTranslateValues(entry) }}"></span>
       </div>
       <div class="md-secondary md-icon-button" ng-click="$ctrl.openHistoryDetail($event, entry)">
         <i class="fa fa-info"></i>

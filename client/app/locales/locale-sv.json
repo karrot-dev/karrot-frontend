@@ -1,8 +1,9 @@
 {
-  "GLOBAL":{
-    "GITHUB_NOTE":"Utveckling",
-    "DEVMAIL_NOTE":"srkiv ett mejl till oss om problem / förslag",
-    "WARNING":"Varning",
+  "GLOBAL": {
+    "GITHUB_NOTE": "Utveckling",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "DEVMAIL_NOTE": "Write us a mail for suggestions and error reports",
+    "WARNING": "Varning",
     "BETA_WARNING": "Denna website är under aktiv utveckling och allt kan ändras. Vi kan inte garantera integriteten på din data, men vi kommer att göra så gott vi kan.",
     "CONNECTION_INTERRUPTED": "Fel: förbindelsen avbröts!",
     "SERVER_ERROR": "Server fel"
@@ -40,6 +41,7 @@
   "GROUP": {
     "LEAVE": "Lämna gruppen...",
     "LEAVE_TEXT": "Är du säker på att du vill lämna denna gruppen?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Redigera gruppen",
     "CREATE_TITLE": "Skapa ny grupp",
     "TITLE": "Gruppens namn",
@@ -49,7 +51,7 @@
     "PICKUPS": "Upphämtningar",
     "MEMBERS": "Medlemmar",
     "STORES": "Butiker",
-    "HISTORY":"Historik",
+    "HISTORY": "Historik",
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Address",
     "TIMEZONE": "Gruppens tidszon"
@@ -68,7 +70,15 @@
   "PICKUPMANAGE": {
     "TITLE": "Hantera upphämtningar",
     "SERIES": "Återkommande",
-    "SINGLE": "Engångs upphämtning"
+    "SINGLE": "Engångs upphämtning",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
     "EDIT": "Redigera användare",
@@ -89,6 +99,10 @@
     "PASSWORD_LABEL": "Ange lösenordet för den privata gruppen",
     "PASSWORD_REQUIRED": "Denna grupp kräver ett lösenord",
     "PASSWORD_WRONG": "Lösenordet som du angav är fel"
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "HOME": {
     "REDIRECT": "Omdirigerar till din grupp..."
@@ -147,8 +161,8 @@
       "DELETE_TEXT": "Vill du verkligen ta bort denna upphämtningen?",
       "DELETE_SERIES_TEXT": "Denna upphämtningen ingår i en serie, vill du ta bort hela serien?"
     },
-    "NONE":"Inga bokade upphämtningar",
-    "NONE_HINT":"Du kan boka en ny upphämtning på butik sidan."
+    "NONE": "Inga bokade upphämtningar",
+    "NONE_HINT": "Du kan boka en ny upphämtning på butik sidan."
   },
   "PASSWORDRESET": {
     "TITLE": "Återställ lösenordet",
@@ -168,12 +182,12 @@
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
-  "HISTORY":{
+  "HISTORY": {
     "GROUP_CREATE": "skapade gruppen",
     "GROUP_MODIFY": "ändrade inställningar för gruppen",
     "GROUP_JOIN": "gick med i gruppen",
     "GROUP_LEAVE": "Lämnade gruppen",
-    "STORE_CREATE":"skapade butiken {{name}}",
+    "STORE_CREATE": "skapade butiken {{name}}",
     "STORE_MODIFY": "ändrade inställningen för butiken {{name}}",
     "STORE_DELETE": "tog bort butiken {{name}}",
     "PICKUP_CREATE": "skapade en upphämtning",
@@ -185,5 +199,11 @@
     "PICKUP_DONE": "hämtade på {{store_name}}",
     "PICKUP_JOIN": "anmällde sig till en upphämtning på {{store_name}}",
     "PICKUP_LEAVE": "avanmällde sig från en hämtning på {{store_name}}"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   }
 }

@@ -1,8 +1,9 @@
 {
-  "GLOBAL":{
-    "GITHUB_NOTE":"Entwicklung",
-    "DEVMAIL_NOTE":"Schreib uns eine Mail, wenn du Fehler findest oder Anmerkungen hast!",
-    "WARNING":"Warnung",
+  "GLOBAL": {
+    "GITHUB_NOTE": "Entwicklung",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "DEVMAIL_NOTE": "Write us a mail for suggestions and error reports",
+    "WARNING": "Warnung",
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
     "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
     "SERVER_ERROR": "Der Server gibt einen Fehler zurück."
@@ -40,6 +41,7 @@
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
     "LEAVE_TEXT": "Bist du sicher, dass du diese Gruppe verlassen möchtest?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Gruppe bearbeiten",
     "CREATE_TITLE": "Neue Gruppe erstellen",
     "TITLE": "Name der Gruppe",
@@ -49,7 +51,7 @@
     "PICKUPS": "Abholungen",
     "MEMBERS": "Mitglieder",
     "STORES": "Betriebe",
-    "HISTORY":"History",
+    "HISTORY": "History",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "TIMEZONE": "Zeitzone der Gruppe"
@@ -68,7 +70,15 @@
   "PICKUPMANAGE": {
     "TITLE": "Abholzeiten-Editor",
     "SERIES": "Regelmäßige Abholungen",
-    "SINGLE": "Einmalige Abholungen"
+    "SINGLE": "Einmalige Abholungen",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
     "EDIT": "User bearbeiten",
@@ -89,6 +99,10 @@
     "PASSWORD_LABEL": "Gib das Passwort für diese geschlossene Gruppe ein.",
     "PASSWORD_REQUIRED": "Diese Gruppe verlangt ein Passwort.",
     "PASSWORD_WRONG": "Das von dir eingegebene Passwort ist falsch."
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "HOME": {
     "REDIRECT": "Umleitung zu deiner Gruppe..."
@@ -147,8 +161,8 @@
       "DELETE_TEXT": "Willst du diesen Abholtermin wirklich löschen?",
       "DELETE_SERIES_TEXT": "Dieser Abholungstermin wiederholt sich. Willst du alle Termine löschen?"
     },
-    "NONE":"Es stehen keine Abholungen an.",
-    "NONE_HINT":"Auf der Betriebsseite kannst du Abholtermine erstellen."
+    "NONE": "Es stehen keine Abholungen an.",
+    "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen."
   },
   "PASSWORDRESET": {
     "TITLE": "Passwort zurücksetzen",
@@ -168,12 +182,12 @@
     "QUOTE": "zitieren",
     "HELP": "Was ist Markdown?"
   },
-  "HISTORY":{
+  "HISTORY": {
     "GROUP_CREATE": "hat diese Gruppe erstellt",
     "GROUP_MODIFY": "hat die Eigenschaften dieser Gruppe geändert",
     "GROUP_JOIN": "ist dieser Gruppe beigetreten",
     "GROUP_LEAVE": "hat diese Gruppe verlassen",
-    "STORE_CREATE":"hat den Betrieb {{name}} erstellt",
+    "STORE_CREATE": "hat den Betrieb {{name}} erstellt",
     "STORE_MODIFY": "hat die Eigenschaften von Betrieb {{name}} geändert",
     "STORE_DELETE": "hat Betrieb {{name}} gelöscht",
     "PICKUP_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
@@ -185,5 +199,11 @@
     "PICKUP_DONE": "haben bei {{store_name}} abgeholt",
     "PICKUP_JOIN": "hat sich gemeldet, um bei {{store_name}} abzuholen",
     "PICKUP_LEAVE": "ist von dem Abholtermin bei {{store_name}} zurückgetreten"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   }
 }

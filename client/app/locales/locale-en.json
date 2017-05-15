@@ -36,7 +36,8 @@
     "BACK": "Back"
   },
   "FORM": {
-    "MINLENGTH": "Please enter more than {{min}} characters."
+    "MINLENGTH": "Please enter more than {{min}} characters.",
+    "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
     "LEAVE": "Leave group...",

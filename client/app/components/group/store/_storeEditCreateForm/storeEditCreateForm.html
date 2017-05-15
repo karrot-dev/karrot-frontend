@@ -3,9 +3,10 @@
     <md-input-container>
       <label translate="STOREEDIT.NAME"></label>
       <input type="text" name="name" ng-model="$ctrl.data.name"
-        required minlength="3" maxlength="80" autocomplete="off"/>
+        required minlength="3" maxlength="80" autocomplete="off" storename-Validator/>
       <div ng-messages="editForm.name.$error">
         <div ng-message="minlength" translate="FORM.MINLENGTH" translate-values="{min:'3'}"></div>
+        <div ng-message="unique" translate="FORM.UNIQUE"></div>
       </div>
     </md-input-container>
 

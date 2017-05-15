@@ -18,6 +18,25 @@ let storeEditCreateFormModule = angular.module("storeEditCreateForm", [
 
 .component("storeEditCreateForm", storeEditCreateFormComponent)
 
+.directive("storenameValidator", [StoreService, "$q", (StoreService, $q) => {
+  return {
+    require: "ngModel",
+    link: (scope, element, attrs, ngModel) => {
+      ngModel.$asyncValidators.unique = (viewValue) => {
+        let groupId = scope.$ctrl.data.group;
+        let storeId = scope.$ctrl.data.id;
+        return StoreService.listStoresInGroupByName(groupId, viewValue)
+        .then((response) => {
+          if (response.length === 1 && response[0].id !== storeId) {
+            return $q.reject();
+          }
+          return true;
+        });
+      };
+    }
+  };
+}])
+
 .name;
 
 export default storeEditCreateFormModule;

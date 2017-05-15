@@ -22,30 +22,17 @@ describe("ProfilePicture", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $q, $rootScope;
+    let $componentController;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
-      $q = $injector.get("$q");
-      $rootScope = $injector.get("$rootScope");
     }));
 
-    it("loads username", () => {
+    it("loads user", () => {
       let $ctrl = $componentController("profilePicture", {}, { userId: 42 });
-      sinon.stub($ctrl.User, "get");
-      $ctrl.User.get.withArgs(42).returns($q.resolve({ "display_name": "lovely unicorn" }));
-      $ctrl.$onInit();
-      $rootScope.$apply();
-      expect($ctrl.name).to.equal("lovely unicorn");
-    });
-
-    it("invalid user", () => {
-      let $ctrl = $componentController("profilePicture", {}, { userId: 666 });
-      sinon.stub($ctrl.User, "get");
-      $ctrl.User.get.withArgs(666).returns($q.reject());
-      $ctrl.$translate.returns($q.resolve("translated string"));
-      $ctrl.$onInit();
-      $rootScope.$apply();
-      expect($ctrl.name).to.equal("translated string");
+      sinon.stub($ctrl.CurrentUsers, "get");
+      $ctrl.CurrentUsers.get.returns({ "display_name": "Jojo" });
+      expect($ctrl.getUser()).to.deep.equal({ "display_name": "Jojo" });
+      expect($ctrl.CurrentUsers.get).has.been.calledWith(42);
     });
 
   });

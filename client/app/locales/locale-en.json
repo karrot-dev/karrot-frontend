@@ -198,7 +198,9 @@
     "SERIES_DELETE": "deleted a recurring pick-up",
     "PICKUP_DONE": "did a pick-up at {{store_name}}",
     "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}",
+    "LOAD_MORE": "load more ...",
+    "ALL_LOADED": "All entries loaded."
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",

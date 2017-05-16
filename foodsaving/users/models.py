@@ -3,6 +3,7 @@ from datetime import timedelta
 from anymail.message import AnymailMessage
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.template.loader import render_to_string
+from django.conf.global_settings import LANGUAGES
 
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
 from django.utils import crypto
@@ -58,6 +59,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     is_superuser = BooleanField(default=False)
     display_name = CharField(max_length=settings.NAME_MAX_LENGTH)
     description = TextField(blank=True)
+    language = CharField(max_length=7, choices=LANGUAGES, default='en-us')
 
     activation_key = CharField(max_length=40, blank=True)
     key_expires_at = DateTimeField(null=True)

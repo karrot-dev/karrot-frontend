@@ -59,7 +59,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     is_superuser = BooleanField(default=False)
     display_name = CharField(max_length=settings.NAME_MAX_LENGTH)
     description = TextField(blank=True)
-    language = CharField(max_length=7, choices=LANGUAGES, default='en-us')
+    language = CharField(max_length=7, choices=LANGUAGES, default='en')
 
     activation_key = CharField(max_length=40, blank=True)
     key_expires_at = DateTimeField(null=True)

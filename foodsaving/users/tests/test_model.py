@@ -5,7 +5,6 @@ from django.test import TestCase
 
 from foodsaving.users.factories import UserFactory
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.users.models import User
 
 
 class TestUserModel(TestCase):
@@ -38,6 +37,6 @@ class TestUserModel(TestCase):
 
     def test_create_fails_if_default_language_is_not_set(self):
         default_language = get_user_model().objects.create_user(**self.exampleuser).language
-        self.assertEqual(default_language, 'en-us')
+        self.assertEqual(default_language, 'en')
 
 

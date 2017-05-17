@@ -38,6 +38,6 @@ class TestUserModel(TestCase):
 
     def test_create_fails_if_default_language_is_not_set(self):
         default_language = get_user_model().objects.create_user(**self.exampleuser).language
-        self.assertTrue(default_language, 'en-us')
+        self.assertEqual(default_language, 'en-us')
 
 

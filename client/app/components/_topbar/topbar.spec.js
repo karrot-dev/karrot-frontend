@@ -4,6 +4,9 @@ const { module } = angular.mock;
 
 describe("Topbar", () => {
   beforeEach(module(TopbarModule));
+  module(($stateProvider) => {
+    $stateProvider.state("home", { url: "/" });
+  });
 
   let $log, $ctrl, $q, $rootScope;
 
@@ -37,6 +40,21 @@ describe("Topbar", () => {
       expect($ctrl.isLoggedIn()).to.be.false;
       $ctrl.Authentication.data = { id: 456 };
       expect($ctrl.isLoggedIn()).to.be.true;
+    });
+
+    it("should redirect to login page after logout", () => {
+      let $state;
+      inject((_$state_) => {
+        $state = _$state_;
+      });
+      sinon.stub($state, "go");
+      sinon.stub($ctrl.Authentication, "logout");
+      $ctrl.Authentication.logout.returns($q((resolve) => {
+        resolve(undefined);
+      }));
+      $ctrl.logOut();
+      $rootScope.$apply();
+      expect($state.go).to.have.been.calledWith("login");
     });
   });
 

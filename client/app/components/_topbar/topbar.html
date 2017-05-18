@@ -65,7 +65,7 @@
         </md-tooltip>
       </md-button>
 
-      <md-button class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
+      <md-button ng-click="$ctrl.logOut()" class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}">
         <i class="fa fa-fw fa-sign-out"></i>
         <md-tooltip>
             <span translate="TOPBAR.LOGOUT"></span>
@@ -132,7 +132,7 @@
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button ng-click="$ctrl.toggleRight()" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" logout>
+        <md-button ng-click="$ctrl.logOut()" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}">
           <i class="fa fa-fw fa-sign-out"></i>
           <span translate="TOPBAR.LOGOUT"></span>
         </md-button>

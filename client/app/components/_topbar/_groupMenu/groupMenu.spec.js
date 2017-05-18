@@ -68,5 +68,23 @@ describe("GroupMenu", () => {
       expect($ctrl.GroupService.listMy).to.have.been.called;
       expect($ctrl.groups[0]).to.deep.equal({ id: 85 });
     });
+
+    it("gets group name from CurrentGroup", () => {
+      let $ctrl = $componentController("groupMenu", {});
+      $ctrl.CurrentGroup.value = { name: "my group" };
+      expect($ctrl.getGroupName()).to.equal("my group");
+    });
+
+    it("gets group name via Authentication.current_group", () => {
+      let $ctrl = $componentController("groupMenu", {});
+      $ctrl.Authentication.data = { "current_group": 5 };
+      $ctrl.groups = [{ id: 5, name: "my group 5" }];
+      expect($ctrl.getGroupName()).to.equal("my group 5");
+    });
+
+    it("can't get group name", () => {
+      let $ctrl = $componentController("groupMenu", {});
+      expect($ctrl.getGroupName()).to.be.undefined;
+    });
   });
 });

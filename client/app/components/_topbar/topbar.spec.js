@@ -4,6 +4,9 @@ const { module } = angular.mock;
 
 describe("Topbar", () => {
   beforeEach(module(TopbarModule));
+  module(($stateProvider) => {
+    $stateProvider.state("home", { url: "/" });
+  });
 
   let $log, $ctrl, $q, $rootScope;
 
@@ -32,6 +35,27 @@ describe("Topbar", () => {
       expect($ctrl.Authentication.update).has.been.called;
       expect($ctrl.loggedInUser).to.deep.equal(userData);
     });
+
+    it("checks auth status", () => {
+      expect($ctrl.isLoggedIn()).to.be.false;
+      $ctrl.Authentication.data = { id: 456 };
+      expect($ctrl.isLoggedIn()).to.be.true;
+    });
+
+    it("should redirect to login page after logout", () => {
+      let $state;
+      inject((_$state_) => {
+        $state = _$state_;
+      });
+      sinon.stub($state, "go");
+      sinon.stub($ctrl.Authentication, "logout");
+      $ctrl.Authentication.logout.returns($q((resolve) => {
+        resolve(undefined);
+      }));
+      $ctrl.logOut();
+      $rootScope.$apply();
+      expect($state.go).to.have.been.calledWith("login");
+    });
   });
 
   describe("View", () => {
@@ -48,9 +72,10 @@ describe("Topbar", () => {
 
     it("toggles Right Sidenav", () => {
       $ctrl.$onInit();
-      expect($mdSidenav("right").isOpen()).to.eq(false);
+      $rootScope.$apply();
+      expect($mdSidenav("right").isOpen()).to.be.false;
       $ctrl.toggleRight();
-      expect($mdSidenav("right").isOpen()).to.eq(true);
+      expect($mdSidenav("right").isOpen()).to.be.true;
     });
   });
 });

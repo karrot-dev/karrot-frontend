@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import User from "../../services/user/user";
 import Authentication from "../../services/authentication/authentication";
 import verifyMailComponent from "./verifyMail.component";

@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import storeDetailComponent from "./storeDetail.component";
 import storeDetailMap from "./_storeDetailMap/storeDetailMap";
 import storeService from "../../../services/store/store";

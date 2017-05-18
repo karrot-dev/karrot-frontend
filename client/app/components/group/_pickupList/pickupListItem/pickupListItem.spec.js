@@ -39,7 +39,7 @@ describe("PickupListItem", () => {
     "id": 9
   };
 
-  describe("Controller with date detail", () => {
+  describe("Controller", () => {
     let $ctrl;
 
     beforeEach(() => {
@@ -48,13 +48,22 @@ describe("PickupListItem", () => {
         data: pickupData,
         parentCtrl: {
           "updatePickups": () => {}
-        }
+        },
+        onJoin: () => {},
+        onLeave: () => {},
+        meta: { isUserMember: true }
       });
       $ctrl.$onInit();
     });
 
+    it("gets store data", () => {
+      $ctrl.CurrentStores.set([{ id: 5 }]);
+      $ctrl.data = { store: 5 };
+      $ctrl.$onInit();
+      expect($ctrl.storeData).to.deep.equal({ id: 5 });
+    });
+
     it("test join and leave function", () => {
-      $httpBackend.expectGET("/api/users/1/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/remove/").respond("");
       $ctrl.join();
@@ -63,22 +72,4 @@ describe("PickupListItem", () => {
     });
   });
 
-  describe("Controller with store detail", () => {
-    let $ctrl;
-
-    beforeEach(() => {
-      $ctrl = $componentController("pickupListItem", {
-      }, {
-        data: pickupData,
-        showDetail: "store"
-      });
-      $ctrl.$onInit();
-    });
-
-    it("gets store data", () => {
-      $httpBackend.expectGET("/api/users/1/").respond("");
-      $httpBackend.flush();
-      expect($ctrl.storeData).to.deep.equal(storeData);
-    });
-  });
 });

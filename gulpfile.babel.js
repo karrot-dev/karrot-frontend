@@ -6,6 +6,7 @@ import path     from "path";
 import rename   from "gulp-rename";
 import template from "gulp-template";
 import eslint   from "gulp-eslint";
+import stylint  from "gulp-stylint";
 import yargs    from "yargs";
 import gutil    from "gulp-util";
 import serve    from "browser-sync";
@@ -77,7 +78,21 @@ gulp.task("webpack", ["clean"], (cb) => {
   });
 });
 
-gulp.task("lint", () => {
+gulp.task("lint", ["eslint", "stylint"]);
+
+gulp.task("stylint", () => {
+  return gulp.src([
+    "**/*.styl",
+    "!node_modules/**",
+    "!dist/**",
+    "!generator/**"
+  ])
+    .pipe(stylint({ config: ".stylintrc" }))
+    .pipe(stylint.reporter())
+    .pipe(stylint.reporter("fail"));
+});
+
+gulp.task("eslint", () => {
   return gulp.src([
     "**/*.js",
     "!node_modules/**",

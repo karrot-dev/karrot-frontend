@@ -33,6 +33,8 @@ describe("LandingPageMap", () => {
       sinon.stub($ctrl.GroupService, "list");
       $ctrl.GroupService.list.returns($q.resolve([{
         id: 99,
+        name: "testgroup",
+        public_description: "testgroup", // eslint-disable-line
         members: [1,2,3],
         latitude: 52.12,
         longitude: 23.1

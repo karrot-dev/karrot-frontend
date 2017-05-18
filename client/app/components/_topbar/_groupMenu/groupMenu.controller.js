@@ -1,5 +1,5 @@
 class GroupMenuController {
-  constructor($document, $mdDialog, $state, GroupService, CurrentGroup) {
+  constructor($document, $mdDialog, $state, GroupService, CurrentGroup, Authentication) {
     "ngInject";
     Object.assign(this, {
       $document,
@@ -7,13 +7,27 @@ class GroupMenuController {
       $state,
       GroupService,
       groups: [],
-      CurrentGroup
+      CurrentGroup,
+      Authentication
     });
   }
   $onInit() {
     this.GroupService.listMy().then((data) => {
       this.groups = data;
     });
+  }
+
+  getGroupName() {
+    if (angular.isDefined(this.CurrentGroup.value.name)) {
+      return this.CurrentGroup.value.name;
+    }
+    let candidate = this.groups.find((e) => {
+      return e.id === this.Authentication.data.current_group;
+    });
+    if (candidate) {
+      return candidate.name;
+    }
+    return undefined;
   }
 
   groupButton() {

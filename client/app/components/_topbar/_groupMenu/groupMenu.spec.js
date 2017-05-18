@@ -43,8 +43,10 @@ describe("GroupMenu", () => {
     it("goes to group", () => {
       let $ctrl = $componentController("groupMenu", {});
       sinon.stub($ctrl.$state, "go");
+      sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
       $ctrl.CurrentGroup.set({ id: 84 });
       $ctrl.groupButton();
+      expect($ctrl.CurrentGroup.persistCurrentGroup).to.have.been.called;
       expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: 84 });
     });
 

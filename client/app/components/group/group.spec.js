@@ -76,8 +76,9 @@ describe("Group", () => {
   describe("Route", () => {
     beforeEach(() => {
       $httpBackend.whenGET("/api/auth/status/").respond({ id: 43 });
-      inject(($translate, $q) => {
+      inject(($translate, $q, CurrentGroup) => {
         $translate.returns($q.resolve());
+        sinon.stub(CurrentGroup, "set");
       });
     });
 

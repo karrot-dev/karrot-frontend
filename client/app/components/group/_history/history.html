@@ -11,7 +11,7 @@
           <md-button ng-click="$ctrl.showAllStores(false)" translate="HISTORY.SELECT_NONE"></md-button>
         </md-menu-item>
         <md-menu-divider></md-menu-divider>
-        <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="store.selected" ng-repeat="store in $ctrl.stores">{{store.name}}</md-menu-item>
+        <md-menu-item type="checkbox" ng-model="store._selected" ng-repeat="store in $ctrl.getStores()">{{store.name}}</md-menu-item>
       </md-menu-content>
     </md-menu>
     <md-menu>
@@ -26,7 +26,7 @@
           <md-button ng-click="$ctrl.showAllUsers(false)" translate="HISTORY.SELECT_NONE"></md-button>
         </md-menu-item>
         <md-menu-divider></md-menu-divider>
-        <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="user.selected" ng-repeat="user in $ctrl.users">{{user.display_name}}</md-menu-item>
+        <md-menu-item type="checkbox" ng-model="user._selected" ng-repeat="user in $ctrl.getUsers()">{{user.display_name}}</md-menu-item>
       </md-menu-content>
     </md-menu>
     <md-menu>
@@ -34,9 +34,9 @@
         Type
       </button>
       <md-menu-content>
-        <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="$ctrl.types.groups">{{'HISTORY.TYPES.GROUPS' | translate}}</md-menu-item>
-        <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="$ctrl.types.stores">{{'HISTORY.TYPES.STORES' | translate}}</md-menu-item>
-        <md-menu-item type="checkbox" ng-click="$ctrl.update()" ng-model="$ctrl.types.pickups">{{'HISTORY.TYPES.PICKUPS' | translate}}</md-menu-item>
+        <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">{{'HISTORY.TYPES.GROUPS' | translate}}</md-menu-item>
+        <md-menu-item type="checkbox" ng-model="$ctrl.types.stores">{{'HISTORY.TYPES.STORES' | translate}}</md-menu-item>
+        <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">{{'HISTORY.TYPES.PICKUPS' | translate}}</md-menu-item>
       </md-menu-content>
     </md-menu>
   </md-menu-bar>
@@ -44,7 +44,7 @@
 
 <md-list>
   <md-subheader
-    ng-repeat-start="entry in $ctrl.data.results"
+    ng-repeat-start="entry in $ctrl.getHistoryItems()"
     ng-show="$ctrl.showDateHeaderBefore($index, $ctrl.data.results)">
     {{ entry.date | date:'fullDate' }}
   </md-subheader>

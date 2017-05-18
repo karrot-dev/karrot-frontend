@@ -1,113 +1,22 @@
 class HistoryController {
-  $onInit(){
-    this.getAllStores();
-    this.getAllUsers();
-    this.updateFilteredData();
-  }
-
-  update(){
-    this.updateFilteredData();
-  }
-
-  updateFilteredData(){
-    this.filteredData = [];
-    angular.forEach(this.data, (currentHistoryItem) => {
-      if (this.showItem(currentHistoryItem)){
-        this.filteredData.push(currentHistoryItem);
-      }
-    });
-  }
-
-  _showItemByStore(item){
-    return !(angular.isDefined(item.store)
-            && angular.isDefined(this.stores[item.store])
-            && !this.stores[item.store].selected);
-  }
-  _showItemByUser(item){
-    if (item.users.length > 0){
-      let atLeastOneUserSelected = false;
-      angular.forEach(item.users, (user) => {
-        if (angular.isUndefined(this.users[user]) || this.users[user].selected){
-          atLeastOneUserSelected = true;
-        }
-      });
-      return atLeastOneUserSelected;
-    }
-  }
-  _showItemByType(item){
-    if ((item.typus.includes("PICKUP") || item.typus.includes("SERIES")) && !this.types.pickups){
-      return false;
-    }
-    if (item.typus.includes("GROUP") && !this.types.groups){
-      return false;
-    }
-    if (item.typus.includes("STORE") && !this.types.stores){
-      return false;
-    }
-    return true;
-  }
-
-  showItem(item){
-    return this._showItemByStore(item) && this._showItemByUser(item) && this._showItemByType(item);
-  }
-
-  showAllStores(bool){
-    angular.forEach(this.stores, (store) => {
-      store.selected = bool;
-    });
-    this.updateFilteredData();
-  }
-
-  getAllStores(){
-    let stores = {};
-    angular.forEach(this.data, (currentHistoryItem) => {
-      if (angular.isUndefined(stores[currentHistoryItem.store])) {
-        this.Store.get(currentHistoryItem.store).then((data) => {
-          data.selected = true;
-          this.stores[currentHistoryItem.store] = data;
-        });
-      }
-    });
-  }
-
-  showAllUsers(bool){
-    angular.forEach(this.users, (user) => {
-      user.selected = bool;
-    });
-    this.updateFilteredData();
-  }
-
-  getAllUsers(){
-    let users = {};
-    angular.forEach(this.data, (currentHistoryItem) => {
-      angular.forEach(currentHistoryItem.users, (user) => {
-        if (angular.isUndefined(users[user])) {
-          this.User.get(user).then((data) => {
-            data.selected = true;
-            this.users[user] = data;
-          });
-        }
-      });
-    });
-  }
-
-  constructor($mdDialog, $document, CurrentStores, Store, User) {
+  constructor($mdDialog, $document, CurrentStores, CurrentUsers) {
     "ngInject";
     Object.assign(this, {
       $mdDialog,
       $document,
       CurrentStores,
-      Store,
-      User,
-      stores: {},
-      users: {},
+      CurrentUsers,
       types: {
         groups: true,
         stores: true,
         pickups: true
-      },
-      filteredData: []
+      }
     });
+  }
+
+  $onInit() {
+    this.showAllUsers(true);
+    this.showAllStores(true);
   }
 
   getTranslateKey(entry) {
@@ -149,6 +58,77 @@ class HistoryController {
 
   hasMore() {
     return angular.isDefined(this.data.next);
+  }
+
+  getStores() {
+    return this.CurrentStores.list.filter((store) => {
+      return angular.isDefined(this.data.results.find((history) => {
+        return history.store === store.id;
+      }));
+    }).map((store) => {
+      if (angular.isUndefined(store._selected)) {
+        store._selected = true;
+      }
+      return store;
+    });
+  }
+
+  getUsers() {
+    return this.CurrentUsers.list.filter((user) => {
+      return angular.isDefined(this.data.results.find((history) => {
+        return history.users.indexOf(user.id) >= 0;
+      }));
+    }).map((user) => {
+      if (angular.isUndefined(user._selected)) {
+        user._selected = true;
+      }
+      return user;
+    });
+  }
+
+  showAllStores(bool) {
+    angular.forEach(this.getStores(), (store) => {
+      store._selected = bool;
+    });
+  }
+
+  showAllUsers(bool) {
+    angular.forEach(this.getUsers(), (store) => {
+      store._selected = bool;
+    });
+  }
+
+  getHistoryItems() {
+    return this.data.results.filter((item) => {
+      return this._showItemByStore(item) && this._showItemByUser(item) && this._showItemByType(item);
+    });
+  }
+
+  _showItemByStore(item) {
+    return angular.isDefined(item.store)
+      && this.getStores().findIndex((store) => store.id === item.store && store._selected) >= 0;
+  }
+
+  _showItemByUser(item) {
+    if (item.users.length > 0) {
+      for (let historyUser of item.users) {
+        if (this.getUsers().findIndex((user) => user.id === historyUser && user._selected) >= 0)
+          return true;
+      }
+    }
+    return false;
+  }
+  _showItemByType(item) {
+    if ((item.typus.includes("PICKUP") || item.typus.includes("SERIES")) && !this.types.pickups){
+      return false;
+    }
+    if (item.typus.includes("GROUP") && !this.types.groups){
+      return false;
+    }
+    if (item.typus.includes("STORE") && !this.types.stores){
+      return false;
+    }
+    return true;
   }
 
   openHistoryDetail($event, item) {

@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
     "FACEBOOK_NOTE": "Join our Facebook Group!",
-    "DEVMAIL_NOTE": "Write us a mail for suggestions and error reports",
+    "DEVMAIL_NOTE": "srkiv ett mejl till oss om problem / förslag",
     "WARNING": "Varning",
     "BETA_WARNING": "Denna website är under aktiv utveckling och allt kan ändras. Vi kan inte garantera integriteten på din data, men vi kommer att göra så gott vi kan.",
     "CONNECTION_INTERRUPTED": "Fel: förbindelsen avbröts!",

@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Разработка",
     "FACEBOOK_NOTE": "Join our Facebook Group!",
-    "DEVMAIL_NOTE": "Write us a mail for suggestions and error reports",
+    "DEVMAIL_NOTE": "Напишите нам письмо со своими предложениями / сообщениями об ошибках.",
     "WARNING": "Внимание!",
     "BETA_WARNING": "Сайт находится в стадии активной разработки и мы не можем гарантировать безопасность и конфиденциальность вводимых вами данных (но приложим к этому все усилия).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",

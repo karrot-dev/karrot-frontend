@@ -3,13 +3,15 @@ import uiRouter from "@uirouter/angularjs";
 import historyComponent from "./history.component";
 import profilePicture from "../../_profilePicture/profilePicture";
 import historyDetail from "./_historyDetail/historyDetail";
-import StoreService from "../../../services/store/store";
+import StoreModule from "../../../services/store/store";
+import UserModule from "../../../services/user/user";
 
 let historyModule = angular.module("history", [
   uiRouter,
   profilePicture,
   historyDetail,
-  StoreService
+  StoreModule,
+  UserModule
 ])
 
 .component("history", historyComponent)

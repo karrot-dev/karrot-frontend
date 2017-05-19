@@ -96,6 +96,97 @@ describe("History", () => {
       });
     });
 
+    it("loads stores", () => {
+      let $ctrl = $componentController("history", {}, { data: {
+        results: [{ store: 5 }]
+      } });
+      $ctrl.CurrentStores.set([{ id: 5 }]);
+      expect($ctrl.getStores()).to.deep.equal([{ id: 5 }]);
+    });
+
+    it("loads users", () => {
+      let $ctrl = $componentController("history", {}, { data: {
+        results: [{ users: [66] }]
+      } });
+      $ctrl.CurrentUsers.set([{ id: 66 }]);
+      expect($ctrl.getUsers()).to.deep.equal([{ id: 66 }]);
+    });
+
+    it("filters users", () => {
+      let $ctrl = $componentController("history", {}, { data: {
+        results: [{ users: [66] }]
+      } });
+      $ctrl.CurrentUsers.set([{ id: 66, "display_name": "Lars" }]);
+      $ctrl.userQuery = "la";
+      expect($ctrl.getUsers()).to.deep.equal([{ id: 66, "display_name": "Lars" }]);
+
+      $ctrl.userQuery = "Bla";
+      expect($ctrl.getUsers()).to.deep.equal([]);
+    });
+
+    it("returns undefined as true", () => {
+      let $ctrl = $componentController("history", {});
+      expect($ctrl._undefinedAsTrue(undefined)).to.be.true;
+      expect($ctrl._undefinedAsTrue(true)).to.be.true;
+      expect($ctrl._undefinedAsTrue(false)).to.be.false;
+      expect($ctrl._undefinedAsTrue(null)).to.be.false;
+    });
+
+    it("shows all/no stores", () => {
+      let $ctrl = $componentController("history", {});
+      $ctrl.CurrentStores.set([{ id: 5 }]);
+      $ctrl.showAllStores(true);
+      expect($ctrl.selectedStores(5)()).to.be.true;
+
+      $ctrl.showAllStores(false);
+      expect($ctrl.selectedStores(5)()).to.be.false;
+    });
+
+    it("shows all/no users", () => {
+      let $ctrl = $componentController("history", {});
+      $ctrl.CurrentUsers.set([{ id: 66 }]);
+      $ctrl.showAllUsers(true);
+      expect($ctrl.selectedUsers(66)()).to.be.true;
+
+      $ctrl.showAllUsers(false);
+      expect($ctrl.selectedUsers(66)()).to.be.false;
+    });
+
+    describe("it gets and filters history", () => {
+      let $ctrl;
+      beforeEach(() => {
+        $ctrl = $componentController("history", {}, { data: {
+          results: [{ id: 1, store: 5, users: [66], typus: "GROUP_JOIN" }]
+        } });
+        $ctrl.CurrentStores.set([{ id: 5 }]);
+        $ctrl.CurrentUsers.set([{ id: 66 }]);
+        $ctrl.showAllStores(true);
+        $ctrl.showAllUsers(true);
+      });
+
+      it("shows all history", () => {
+        expect($ctrl._showItemByStore($ctrl.data.results[0])).to.be.true;
+        expect($ctrl._showItemByUser($ctrl.data.results[0])).to.be.true;
+        expect($ctrl._showItemByType($ctrl.data.results[0])).to.be.true;
+        expect($ctrl.getHistoryItems()).to.deep.equal([{ id: 1, store: 5, users: [66], typus: "GROUP_JOIN" }]);
+      });
+
+      it("filters by store", () => {
+        $ctrl.selectedStores(5)(false);
+        expect($ctrl.getHistoryItems()).to.deep.equal([]);
+      });
+
+      it("filters by user", () => {
+        $ctrl.selectedUsers(66)(false);
+        expect($ctrl.getHistoryItems()).to.deep.equal([]);
+      });
+
+      it("filters by typus", () => {
+        $ctrl.types.groups = false;
+        expect($ctrl.getHistoryItems()).to.deep.equal([]);
+      });
+    });
+
     it("opens history detail dialog", () => {
       let $ctrl = $componentController("history", {});
       inject(($q, $rootScope) => {

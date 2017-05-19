@@ -9,12 +9,12 @@
 */
 export default class CurrentGroup {
 
-  constructor(User, Authentication) {
+  constructor(User, SessionUser) {
     "ngInject";
     Object.assign(this, {
       value: {},
       User,
-      Authentication
+      SessionUser
     });
   }
 
@@ -29,11 +29,12 @@ export default class CurrentGroup {
   }
 
   persistCurrentGroup(groupId) {
-    let user = {
-      id: this.Authentication.data.id,
-      current_group: groupId            //eslint-disable-line
-    };
-    this.User.save(user);
+    this.SessionUser.loaded.then((user) => {
+      this.User.save({
+        id: user.id,
+        current_group: groupId  //eslint-disable-line
+      });
+    });
   }
 
 }

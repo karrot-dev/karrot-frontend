@@ -14,14 +14,13 @@ describe("CurrentGroup service", () => {
     $log.assertEmpty();
   });
 
-  let CurrentGroup, Authentication, $httpBackend;
+  let CurrentGroup, SessionUser, $httpBackend;
 
   beforeEach(inject(($injector) => {
     CurrentGroup = $injector.get("CurrentGroup");
-    Authentication = $injector.get("Authentication");
+    SessionUser = $injector.get("SessionUser");
     $httpBackend = $injector.get("$httpBackend");
 
-    Authentication.data = { id: 1 };
     sinon.stub(CurrentGroup, "persistCurrentGroup");
   }));
 
@@ -62,8 +61,9 @@ describe("CurrentGroup service", () => {
 
   it("can persist current group", () => {
     CurrentGroup.persistCurrentGroup.restore();
+    SessionUser.set({ id: 1 });
     let user = {
-      id: Authentication.data.id,
+      id: 1,
       current_group: 4              //eslint-disable-line
     };
     $httpBackend.expectPATCH(`/api/users/${user.id}/`, user).respond(200, {});

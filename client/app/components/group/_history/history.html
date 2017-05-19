@@ -2,13 +2,19 @@
   <md-menu-bar>
     <i class="fa fa-filter" aria-hidden="true"></i>
     <md-menu>
-      <button ng-click="$mdMenu.open()" translate="HISTORY.STORES"></button>
+      <button ng-click="$mdMenu.open()">
+        <span translate="HISTORY.STORES"></span>
+      </button>
       <md-menu-content>
         <md-menu-item>
-          <md-button ng-click="$ctrl.showAllStores(true)" translate="HISTORY.SELECT_ALL"></md-button>
+          <md-button ng-click="$ctrl.showAllStores(true)">
+            <span translate="HISTORY.SELECT_ALL"></span>
+          </md-button>
         </md-menu-item>
         <md-menu-item>
-          <md-button ng-click="$ctrl.showAllStores(false)" translate="HISTORY.SELECT_NONE"></md-button>
+          <md-button ng-click="$ctrl.showAllStores(false)">
+            <span translate="HISTORY.SELECT_NONE"></span>
+          </md-button>
         </md-menu-item>
         <md-menu-divider></md-menu-divider>
         <md-menu-item type="checkbox" ng-model="$ctrl.selectedStores[store.id]" ng-repeat="store in $ctrl.getStores()">{{store.name}}</md-menu-item>
@@ -16,14 +22,18 @@
     </md-menu>
     <md-menu>
       <button ng-click="$mdMenu.open()">
-        Users
+        <span translate="HISTORY.USERS"></span>
       </button>
       <md-menu-content>
         <md-menu-item>
-          <md-button ng-click="$ctrl.showAllUsers(true)" translate="HISTORY.SELECT_ALL"></md-button>
+          <md-button ng-click="$ctrl.showAllUsers(true)">
+            <span translate="HISTORY.SELECT_ALL"></span>
+          </md-button>
         </md-menu-item>
         <md-menu-item>
-          <md-button ng-click="$ctrl.showAllUsers(false)" translate="HISTORY.SELECT_NONE"></md-button>
+          <md-button ng-click="$ctrl.showAllUsers(false)">
+            <span translate="HISTORY.SELECT_NONE"></span>
+          </md-button>
         </md-menu-item>
         <md-menu-divider></md-menu-divider>
         <md-menu-item type="checkbox" ng-model="$ctrl.selectedUsers[user.id]" ng-repeat="user in $ctrl.getUsers()">{{user.display_name}}</md-menu-item>
@@ -31,12 +41,20 @@
     </md-menu>
     <md-menu>
       <button ng-click="$mdMenu.open()">
-        Type
+        <span translate="HISTORY.TYPE"></span>
       </button>
       <md-menu-content>
-        <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">{{'HISTORY.TYPES.GROUPS' | translate}}</md-menu-item>
-        <md-menu-item type="checkbox" ng-model="$ctrl.types.stores">{{'HISTORY.TYPES.STORES' | translate}}</md-menu-item>
-        <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">{{'HISTORY.TYPES.PICKUPS' | translate}}</md-menu-item>
+        <!-- we can't use the preferred translate directive here,
+            since md-menu-item does some transformation -->
+        <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
+          {{ "HISTORY.TYPES.GROUPS" | translate }}
+        </md-menu-item>
+        <md-menu-item type="checkbox" ng-model="$ctrl.types.stores">
+          {{ "HISTORY.TYPES.STORES" | translate }}
+        </md-menu-item>
+        <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">
+          {{ "HISTORY.TYPES.PICKUPS" | translate }}
+        </md-menu-item>
       </md-menu-content>
     </md-menu>
   </md-menu-bar>

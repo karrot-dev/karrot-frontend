@@ -145,6 +145,10 @@ class HistoryController {
     return true;
   }
 
+  hasPayload(entry) {
+    return Object.keys(entry.payload).length > 0;
+  }
+
   openHistoryDetail($event, item) {
     let DialogController = function (data) {
       "ngInject";

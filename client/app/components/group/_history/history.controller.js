@@ -10,13 +10,15 @@ class HistoryController {
         groups: true,
         stores: true,
         pickups: true
-      }
+      },
+      selectedStores: [],
+      selectedUsers: []
     });
   }
 
   $onInit() {
-    this.showAllUsers(true);
     this.showAllStores(true);
+    this.showAllUsers(true);
   }
 
   getTranslateKey(entry) {
@@ -65,11 +67,6 @@ class HistoryController {
       return angular.isDefined(this.data.results.find((history) => {
         return history.store === store.id;
       }));
-    }).map((store) => {
-      if (angular.isUndefined(store._selected)) {
-        store._selected = true;
-      }
-      return store;
     });
   }
 
@@ -78,24 +75,19 @@ class HistoryController {
       return angular.isDefined(this.data.results.find((history) => {
         return history.users.indexOf(user.id) >= 0;
       }));
-    }).map((user) => {
-      if (angular.isUndefined(user._selected)) {
-        user._selected = true;
-      }
-      return user;
     });
   }
 
   showAllStores(bool) {
-    angular.forEach(this.getStores(), (store) => {
-      store._selected = bool;
-    });
+    for (let store of this.CurrentStores.list) {
+      this.selectedStores[store.id] = bool;
+    }
   }
 
   showAllUsers(bool) {
-    angular.forEach(this.getUsers(), (store) => {
-      store._selected = bool;
-    });
+    for (let user of this.CurrentUsers.list) {
+      this.selectedUsers[user.id] = bool;
+    }
   }
 
   getHistoryItems() {
@@ -105,27 +97,26 @@ class HistoryController {
   }
 
   _showItemByStore(item) {
-    return angular.isDefined(item.store)
-      && this.getStores().findIndex((store) => store.id === item.store && store._selected) >= 0;
+    return angular.isDefined(item.store) && this.selectedStores[item.store];
   }
 
   _showItemByUser(item) {
     if (item.users.length > 0) {
-      for (let historyUser of item.users) {
-        if (this.getUsers().findIndex((user) => user.id === historyUser && user._selected) >= 0)
+      for (let id of item.users) {
+        if (this.selectedUsers[id])
           return true;
       }
     }
     return false;
   }
   _showItemByType(item) {
-    if ((item.typus.includes("PICKUP") || item.typus.includes("SERIES")) && !this.types.pickups){
+    if ((item.typus.startsWith("PICKUP_") || item.typus.startsWith("SERIES_")) && !this.types.pickups){
       return false;
     }
-    if (item.typus.includes("GROUP") && !this.types.groups){
+    if (item.typus.startsWith("GROUP_") && !this.types.groups){
       return false;
     }
-    if (item.typus.includes("STORE") && !this.types.stores){
+    if (item.typus.startsWith("STORE_") && !this.types.stores){
       return false;
     }
     return true;

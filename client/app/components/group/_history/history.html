@@ -11,7 +11,7 @@
           <md-button ng-click="$ctrl.showAllStores(false)" translate="HISTORY.SELECT_NONE"></md-button>
         </md-menu-item>
         <md-menu-divider></md-menu-divider>
-        <md-menu-item type="checkbox" ng-model="store._selected" ng-repeat="store in $ctrl.getStores()">{{store.name}}</md-menu-item>
+        <md-menu-item type="checkbox" ng-model="$ctrl.selectedStores[store.id]" ng-repeat="store in $ctrl.getStores()">{{store.name}}</md-menu-item>
       </md-menu-content>
     </md-menu>
     <md-menu>
@@ -26,7 +26,7 @@
           <md-button ng-click="$ctrl.showAllUsers(false)" translate="HISTORY.SELECT_NONE"></md-button>
         </md-menu-item>
         <md-menu-divider></md-menu-divider>
-        <md-menu-item type="checkbox" ng-model="user._selected" ng-repeat="user in $ctrl.getUsers()">{{user.display_name}}</md-menu-item>
+        <md-menu-item type="checkbox" ng-model="$ctrl.selectedUsers[user.id]" ng-repeat="user in $ctrl.getUsers()">{{user.display_name}}</md-menu-item>
       </md-menu-content>
     </md-menu>
     <md-menu>

@@ -11,14 +11,9 @@ class HistoryController {
         stores: true,
         pickups: true
       },
-      selectedStores: [],
-      selectedUsers: []
+      _selectedStores: [],
+      _selectedUsers: []
     });
-  }
-
-  $onInit() {
-    this.showAllStores(true);
-    this.showAllUsers(true);
   }
 
   getTranslateKey(entry) {
@@ -78,15 +73,37 @@ class HistoryController {
     });
   }
 
+  _undefinedAsTrue(bool) {
+    return bool || angular.isUndefined(bool);
+  }
+
+  selectedUsers(id) {
+    return (bool) => {
+      if (angular.isDefined(bool)) {
+        this._selectedUsers[id] = bool;
+      }
+      return this._undefinedAsTrue(this._selectedUsers[id]);
+    };
+  }
+
+  selectedStores(id) {
+    return (bool) => {
+      if (angular.isDefined(bool)) {
+        this._selectedStores[id] = bool;
+      }
+      return this._undefinedAsTrue(this._selectedStores[id]);
+    };
+  }
+
   showAllStores(bool) {
     for (let store of this.CurrentStores.list) {
-      this.selectedStores[store.id] = bool;
+      this.selectedStores(store.id)(bool);
     }
   }
 
   showAllUsers(bool) {
     for (let user of this.CurrentUsers.list) {
-      this.selectedUsers[user.id] = bool;
+      this.selectedUsers(user.id)(bool);
     }
   }
 
@@ -97,19 +114,21 @@ class HistoryController {
   }
 
   _showItemByStore(item) {
-    return angular.isDefined(item.store) && this.selectedStores[item.store];
+    // show items if they aren't associated with a store or have been selected
+    return item.store === null || this.selectedStores(item.store)();
   }
 
   _showItemByUser(item) {
-    if (item.users.length > 0) {
-      for (let id of item.users) {
-        if (this.selectedUsers[id])
-          return true;
+    // needs to have at least one selected user
+    for (let id of item.users) {
+      if (this.selectedUsers(id)()){
+        return true;
       }
     }
     return false;
   }
   _showItemByType(item) {
+    // filter out disabled types
     if ((item.typus.startsWith("PICKUP_") || item.typus.startsWith("SERIES_")) && !this.types.pickups){
       return false;
     }

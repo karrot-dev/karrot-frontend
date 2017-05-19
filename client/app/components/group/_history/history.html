@@ -1,64 +1,81 @@
-<div class="filters">
-  <md-menu-bar>
-    <i class="fa fa-filter" aria-hidden="true"></i>
-    <md-menu>
-      <button ng-click="$mdMenu.open()">
-        <span translate="HISTORY.STORES"></span>
-      </button>
-      <md-menu-content>
-        <md-menu-item>
-          <md-button ng-click="$ctrl.showAllStores(true)">
-            <span translate="HISTORY.SELECT_ALL"></span>
-          </md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-button ng-click="$ctrl.showAllStores(false)">
-            <span translate="HISTORY.SELECT_NONE"></span>
-          </md-button>
-        </md-menu-item>
-        <md-menu-divider></md-menu-divider>
-        <md-menu-item type="checkbox" ng-model="$ctrl.selectedStores[store.id]" ng-repeat="store in $ctrl.getStores()">{{store.name}}</md-menu-item>
-      </md-menu-content>
-    </md-menu>
-    <md-menu>
-      <button ng-click="$mdMenu.open()">
-        <span translate="HISTORY.USERS"></span>
-      </button>
-      <md-menu-content>
-        <md-menu-item>
-          <md-button ng-click="$ctrl.showAllUsers(true)">
-            <span translate="HISTORY.SELECT_ALL"></span>
-          </md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-button ng-click="$ctrl.showAllUsers(false)">
-            <span translate="HISTORY.SELECT_NONE"></span>
-          </md-button>
-        </md-menu-item>
-        <md-menu-divider></md-menu-divider>
-        <md-menu-item type="checkbox" ng-model="$ctrl.selectedUsers[user.id]" ng-repeat="user in $ctrl.getUsers()">{{user.display_name}}</md-menu-item>
-      </md-menu-content>
-    </md-menu>
-    <md-menu>
-      <button ng-click="$mdMenu.open()">
-        <span translate="HISTORY.TYPE"></span>
-      </button>
-      <md-menu-content>
-        <!-- we can't use the preferred translate directive here,
-            since md-menu-item does some transformation -->
-        <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
-          {{ "HISTORY.TYPES.GROUPS" | translate }}
-        </md-menu-item>
-        <md-menu-item type="checkbox" ng-model="$ctrl.types.stores">
-          {{ "HISTORY.TYPES.STORES" | translate }}
-        </md-menu-item>
-        <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">
-          {{ "HISTORY.TYPES.PICKUPS" | translate }}
-        </md-menu-item>
-      </md-menu-content>
-    </md-menu>
-  </md-menu-bar>
-</div>
+<md-menu-bar>
+  <i class="fa fa-filter" aria-hidden="true"></i>
+  <md-menu layout="row">
+    <button ng-click="$mdMenu.open()">
+      <span translate="HISTORY.STORES"></span>
+    </button>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllStores(true)">
+          <span translate="HISTORY.SELECT_ALL"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllStores(false)">
+          <span translate="HISTORY.SELECT_NONE"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-divider></md-menu-divider>
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
+        <!-- duplicate from the Types menu for easier access -->
+        {{ "HISTORY.TYPES.GROUPS" | translate }}
+      </md-menu-item>
+      <md-menu-divider></md-menu-divider>
+      <md-menu-item type="checkbox"
+        ng-model="$ctrl.selectedStores(store.id)"
+        ng-model-options="{ getterSetter: true }"
+        ng-repeat="store in $ctrl.getStores()">
+        {{store.name}}
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <md-menu>
+    <button ng-click="$mdMenu.open()">
+      <span translate="HISTORY.USERS"></span>
+    </button>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllUsers(true)">
+          <span translate="HISTORY.SELECT_ALL"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllUsers(false)">
+          <span translate="HISTORY.SELECT_NONE"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-divider></md-menu-divider>
+      <md-menu-item type="checkbox"
+        ng-model="$ctrl.selectedUsers(user.id)"
+        ng-model-options="{ getterSetter: true }"
+        ng-repeat="user in $ctrl.getUsers()">
+        {{user.display_name}}
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <md-menu>
+    <button ng-click="$mdMenu.open()">
+      <span translate="HISTORY.TYPE"></span>
+    </button>
+    <md-menu-content>
+      <!-- we can't use the preferred translate directive here,
+          since md-menu-item does some transformation -->
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
+        {{ "HISTORY.TYPES.GROUPS" | translate }}
+      </md-menu-item>
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.stores">
+        {{ "HISTORY.TYPES.STORES" | translate }}
+      </md-menu-item>
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">
+        {{ "HISTORY.TYPES.PICKUPS" | translate }}
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <span flex></span>
+  <span class="md-caption">
+    {{ $ctrl.getHistoryItems().length }} / {{ $ctrl.data.results.length }}
+  </span>
+</md-menu-bar>
 
 <md-list>
   <md-subheader

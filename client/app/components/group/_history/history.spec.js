@@ -112,33 +112,32 @@ describe("History", () => {
       expect($ctrl.getUsers()).to.deep.equal([{ id: 66 }]);
     });
 
+    it("returns undefined as true", () => {
+      let $ctrl = $componentController("history", {});
+      expect($ctrl._undefinedAsTrue(undefined)).to.be.true;
+      expect($ctrl._undefinedAsTrue(true)).to.be.true;
+      expect($ctrl._undefinedAsTrue(false)).to.be.false;
+      expect($ctrl._undefinedAsTrue(null)).to.be.false;
+    });
+
     it("shows all/no stores", () => {
       let $ctrl = $componentController("history", {});
       $ctrl.CurrentStores.set([{ id: 5 }]);
       $ctrl.showAllStores(true);
-      expect($ctrl.selectedStores[5]).to.be.true;
+      expect($ctrl.selectedStores(5)()).to.be.true;
 
       $ctrl.showAllStores(false);
-      expect($ctrl.selectedStores[5]).to.be.false;
+      expect($ctrl.selectedStores(5)()).to.be.false;
     });
 
     it("shows all/no users", () => {
       let $ctrl = $componentController("history", {});
       $ctrl.CurrentUsers.set([{ id: 66 }]);
       $ctrl.showAllUsers(true);
-      expect($ctrl.selectedUsers[66]).to.be.true;
+      expect($ctrl.selectedUsers(66)()).to.be.true;
 
       $ctrl.showAllUsers(false);
-      expect($ctrl.selectedUsers[66]).to.be.false;
-    });
-
-    it("initializes", () => {
-      let $ctrl = $componentController("history", {});
-      sinon.stub($ctrl, "showAllStores");
-      sinon.stub($ctrl, "showAllUsers");
-      $ctrl.$onInit();
-      expect($ctrl.showAllStores).to.have.been.calledWith(true);
-      expect($ctrl.showAllUsers).to.have.been.calledWith(true);
+      expect($ctrl.selectedUsers(66)()).to.be.false;
     });
 
     describe("it gets and filters history", () => {
@@ -161,12 +160,12 @@ describe("History", () => {
       });
 
       it("filters by store", () => {
-        $ctrl.selectedStores[5] = false;
+        $ctrl.selectedStores(5)(false);
         expect($ctrl.getHistoryItems()).to.deep.equal([]);
       });
 
       it("filters by user", () => {
-        $ctrl.selectedUsers[66] = false;
+        $ctrl.selectedUsers(66)(false);
         expect($ctrl.getHistoryItems()).to.deep.equal([]);
       });
 

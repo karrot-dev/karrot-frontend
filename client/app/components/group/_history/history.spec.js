@@ -112,6 +112,18 @@ describe("History", () => {
       expect($ctrl.getUsers()).to.deep.equal([{ id: 66 }]);
     });
 
+    it("filters users", () => {
+      let $ctrl = $componentController("history", {}, { data: {
+        results: [{ users: [66] }]
+      } });
+      $ctrl.CurrentUsers.set([{ id: 66, "display_name": "Lars" }]);
+      $ctrl.userQuery = "la";
+      expect($ctrl.getUsers()).to.deep.equal([{ id: 66, "display_name": "Lars" }]);
+
+      $ctrl.userQuery = "Bla";
+      expect($ctrl.getUsers()).to.deep.equal([]);
+    });
+
     it("returns undefined as true", () => {
       let $ctrl = $componentController("history", {});
       expect($ctrl._undefinedAsTrue(undefined)).to.be.true;

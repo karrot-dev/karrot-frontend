@@ -12,7 +12,8 @@ class HistoryController {
         pickups: true
       },
       _selectedStores: [],
-      _selectedUsers: []
+      _selectedUsers: [],
+      userQuery: ""
     });
   }
 
@@ -67,9 +68,12 @@ class HistoryController {
 
   getUsers() {
     return this.CurrentUsers.list.filter((user) => {
-      return angular.isDefined(this.data.results.find((history) => {
+      if (this.userQuery !== "" && !user.display_name.toLowerCase().includes(this.userQuery.toLowerCase())) {
+        return false;
+      }
+      return this.data.results.findIndex((history) => {
         return history.users.indexOf(user.id) >= 0;
-      }));
+      }) >= 0;
     });
   }
 

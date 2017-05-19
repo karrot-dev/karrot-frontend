@@ -1,6 +1,6 @@
 <md-menu-bar>
   <i class="fa fa-filter" aria-hidden="true"></i>
-  <md-menu layout="row">
+  <md-menu>
     <button ng-click="$mdMenu.open()">
       <span translate="HISTORY.STORES"></span>
     </button>
@@ -45,6 +45,12 @@
         </md-button>
       </md-menu-item>
       <md-menu-divider></md-menu-divider>
+      <md-menu-item>
+        <md-input-container>
+          <md-icon md-font-icon="fa fa-search"></md-icon>
+          <input type="text" name="userquery" ng-model="$ctrl.userQuery"></input>
+        </md-input-container>
+      </md-menu-item>
       <md-menu-item type="checkbox"
         ng-model="$ctrl.selectedUsers(user.id)"
         ng-model-options="{ getterSetter: true }"
@@ -71,7 +77,6 @@
       </md-menu-item>
     </md-menu-content>
   </md-menu>
-  <span flex></span>
   <span class="md-caption">
     {{ $ctrl.getHistoryItems().length }} / {{ $ctrl.data.results.length }}
   </span>

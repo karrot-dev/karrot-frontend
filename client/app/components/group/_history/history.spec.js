@@ -132,14 +132,26 @@ describe("History", () => {
       expect($ctrl.selectedUsers[66]).to.be.false;
     });
 
-    it("it gets and filters history", () => {
-      let $ctrl = $componentController("history", {}, { data: {
-        results: [{ id: 1, store: 5, users: [66], typus: "GROUP_JOIN" }]
-      } });
-      $ctrl.CurrentStores.set([{ id: 5 }]);
-      $ctrl.CurrentUsers.set([{ id: 66 }]);
-      $ctrl.showAllStores(true);
-      $ctrl.showAllUsers(true);
+    it("initializes", () => {
+      let $ctrl = $componentController("history", {});
+      sinon.stub($ctrl, "showAllStores");
+      sinon.stub($ctrl, "showAllUsers");
+      $ctrl.$onInit();
+      expect($ctrl.showAllStores).to.have.been.calledWith(true);
+      expect($ctrl.showAllUsers).to.have.been.calledWith(true);
+    });
+
+    describe("it gets and filters history", () => {
+      let $ctrl;
+      beforeEach(() => {
+        $ctrl = $componentController("history", {}, { data: {
+          results: [{ id: 1, store: 5, users: [66], typus: "GROUP_JOIN" }]
+        } });
+        $ctrl.CurrentStores.set([{ id: 5 }]);
+        $ctrl.CurrentUsers.set([{ id: 66 }]);
+        $ctrl.showAllStores(true);
+        $ctrl.showAllUsers(true);
+      });
 
       it("shows all history", () => {
         expect($ctrl._showItemByStore($ctrl.data.results[0])).to.be.true;

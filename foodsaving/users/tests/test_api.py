@@ -164,8 +164,9 @@ class TestUsersAPI(APITestCase):
         response = self.client.post(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Verify your email address')
+        self.assertEqual(mail.outbox[0].subject, 'Please verify your email')
         self.assertEqual(mail.outbox[0].to, [self.user.email])
+        self.assertNotIn('Thank you for signing up', mail.outbox[0].body)
 
     def test_resend_verification_fails_if_already_verified(self):
         self.client.force_login(user=self.verified_user)
@@ -313,8 +314,9 @@ class TestChangeMail(APITestCase):
         self.assertEqual(len(mail.outbox), 2)
         self.assertEqual(mail.outbox[0].subject, 'Your email address changed!')
         self.assertEqual(mail.outbox[0].to, [user.email])
-        self.assertEqual(mail.outbox[1].subject, 'Verify your email address')
+        self.assertEqual(mail.outbox[1].subject, 'Please verify your email')
         self.assertEqual(mail.outbox[1].to, [user.unverified_email])
+        self.assertNotIn('Thank you for signing up', mail.outbox[1].body)
 
         user.verify_mail()
         self.assertTrue(user.mail_verified)

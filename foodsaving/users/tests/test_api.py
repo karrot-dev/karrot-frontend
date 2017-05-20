@@ -83,6 +83,7 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].subject, 'Verify your email address')
         self.assertEqual(mail.outbox[0].to, [self.user_data['email']])
+        self.assertIn('Thank you for signing up', mail.outbox[0].body)
 
     def test_list_users_forbidden(self):
         response = self.client.get(self.url)

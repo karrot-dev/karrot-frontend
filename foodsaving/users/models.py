@@ -119,7 +119,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
         AnymailMessage(
             subject=render_to_string('mailverification-subject.jinja').replace('\n', ''),
-            body=render_to_string('activation-mail-html.jinja', context),
+            body=render_to_string('mailverification-body-text.jinja', context),
             to=[self.unverified_email],
             from_email=settings.DEFAULT_FROM_EMAIL,
             track_clicks=False,

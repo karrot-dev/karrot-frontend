@@ -92,7 +92,7 @@ class UserViewSet(
         if request.user.mail_verified:
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'Already verified'})
-        request.user.send_verification_code()
+        request.user.send_new_verification_code()
         return Response(status=status.HTTP_204_NO_CONTENT, data={})
 
     @list_route(

@@ -103,7 +103,10 @@
         translate="{{ $ctrl.getTranslateKey(entry) }}"
         translate-values="{{ $ctrl.getTranslateValues(entry) }}"></span>
       </div>
-      <div class="md-secondary md-icon-button" ng-click="$ctrl.openHistoryDetail($event, entry)">
+      <div class="md-secondary md-icon-button"
+        ng-if="$ctrl.hasPayload(entry)"
+        ng-click="$ctrl.openHistoryDetail($event, entry)"
+        >
         <i class="fa fa-info"></i>
       </div>
     </div>

@@ -10,92 +10,90 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-20 20:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Tilmann Becker <tilmann.becker+github@gmail.com>, 2017\n"
-"Language-Team: German (https://www.transifex.com/yunity-1/teams/68631/de/)\n"
+"Language-Team: Chinese (https://www.transifex.com/yunity-1/teams/68631/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:222
 msgid "You are not a member of this group."
-msgstr "Du bist kein Mitglied dieser Gruppe."
+msgstr ""
 
 #: foodsaving/groups/api.py:25
 msgid "You are already a member."
-msgstr "Du bist bereits Mitglied."
+msgstr ""
 
 #: foodsaving/groups/serializers.py:25
 msgid "Unknown timezone"
-msgstr "Unbekannte Zeitzone"
+msgstr ""
 
 #: foodsaving/groups/serializers.py:114
 msgid "Group password is wrong"
-msgstr "Falsches Gruppenpasswort."
+msgstr ""
 
 #: foodsaving/stores/permissions.py:9
 msgid "The pickup date is in the past."
-msgstr "Der Abholtermin liegt in der Vergangenheit."
+msgstr ""
 
 #: foodsaving/stores/permissions.py:19
 msgid "You can only delete empty pickup dates."
-msgstr "Du kannst nur leere Abholtermine löschen."
+msgstr ""
 
 #: foodsaving/stores/permissions.py:26
 msgid "You have not joined this pickup date."
-msgstr "Du holst bei diesem Abholtermin nicht ab."
+msgstr ""
 
 #: foodsaving/stores/permissions.py:33
 msgid "You have already joined this pickup date."
-msgstr "Du holst bereits bei diesem Abholtermin ab."
+msgstr ""
 
 #: foodsaving/stores/permissions.py:40
 msgid "Pickup date is already full."
-msgstr "Dieser Abholtermin ist bereits voll."
+msgstr ""
 
 #: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:162
 msgid "You are not member of the store's group."
-msgstr "Du bist kein Mitglied der Gruppe dieses Betriebs."
+msgstr ""
 
 #: foodsaving/stores/serializers.py:82
 msgid "The date should be in the future."
-msgstr "Der Abholtermin muss in der Zukunft liegen."
+msgstr ""
 
 #: foodsaving/stores/serializers.py:172
 msgid "Only single recurrence rules are allowed."
-msgstr "Nur einfache Wiederholungsregeln sind erlaubt."
+msgstr ""
 
 #: foodsaving/stores/serializers.py:227
 msgid "Set at least one week in advance"
-msgstr "Mindestens eine Woche im Voraus einstellen."
+msgstr ""
 
 #: foodsaving/users/models.py:155
 msgid "New password"
-msgstr "Neues Passwort"
+msgstr ""
 
 #: foodsaving/users/models.py:156
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
 msgstr ""
-"Hier ist dein neues Zufalls-Passwort: {}. Melde dich damit an und ändere es."
 
 #: foodsaving/users/permissions.py:6
 msgid "You can modify only your own user data."
-msgstr "Du kannst nur deine eigenen Nutzerdaten ändern."
+msgstr ""
 
 #: foodsaving/users/permissions.py:13
 msgid "Mail is already verified."
-msgstr "Diese E-Mail-Adresse ist bereits bestätigt."
+msgstr ""
 
 #: foodsaving/users/serializers.py:57
 msgid "Key has expired"
-msgstr "Bestätigungsschlüssel ist verfallen."
+msgstr ""
 
 #: foodsaving/users/serializers.py:59
 msgid "Key is invalid"
-msgstr "Bestätigungsschlüssel ist ungültig."
+msgstr ""
 
 #: foodsaving/users/templates/accountdelete_request-subject.jinja:1
 msgid "Request to delete your account"

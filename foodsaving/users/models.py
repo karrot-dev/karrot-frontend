@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
             **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
-        user.send_verification_code()
+        user.send_welcome_mail()
         return user
 
     def _validate_email(self, email):
@@ -107,7 +107,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
             track_opens=False
         ).send()
 
-    def send_verification_code(self):
+    def send_welcome_mail(self):
         self._unverify_mail()
 
         url = '{hostname}/#!/verify-mail?key={key}'.format(hostname=settings.HOSTNAME,
@@ -120,7 +120,27 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
         AnymailMessage(
             subject=render_to_string('mailverification-subject.jinja').replace('\n', ''),
-            body=render_to_string('activation-mail-html.jinja', context),
+            body=render_to_string('mailverification-body-text.jinja', context),
+            to=[self.unverified_email],
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            track_clicks=False,
+            track_opens=False
+        ).send()
+
+    def send_new_verification_code(self):
+        self._unverify_mail()
+
+        url = '{hostname}/#!/verify-mail?key={key}'.format(hostname=settings.HOSTNAME,
+                                                           key=self.activation_key)
+
+        context = {
+            'user': self,
+            'url': url,
+        }
+
+        AnymailMessage(
+            subject=render_to_string('send_new_verification_code-subject.jinja').replace('\n', ''),
+            body=render_to_string('send_new_verification_code-body-text.jinja', context),
             to=[self.unverified_email],
             from_email=settings.DEFAULT_FROM_EMAIL,
             track_clicks=False,

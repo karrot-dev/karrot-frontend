@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-11 03:04+0000\n"
+"POT-Creation-Date: 2017-05-20 20:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,11 +69,11 @@ msgstr ""
 msgid "Set at least one week in advance"
 msgstr ""
 
-#: foodsaving/users/models.py:134
+#: foodsaving/users/models.py:155
 msgid "New password"
 msgstr ""
 
-#: foodsaving/users/models.py:135
+#: foodsaving/users/models.py:156
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
@@ -87,11 +87,11 @@ msgstr ""
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/users/serializers.py:56
+#: foodsaving/users/serializers.py:57
 msgid "Key has expired"
 msgstr ""
 
-#: foodsaving/users/serializers.py:58
+#: foodsaving/users/serializers.py:59
 msgid "Key is invalid"
 msgstr ""
 
@@ -105,43 +105,6 @@ msgstr ""
 
 #: foodsaving/users/templates/accountdelete_success-subject.jinja:1
 msgid "Your account was deleted"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:3
-msgid "WELCOME"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:142
-msgid "home"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:142
-msgid "Contact Us"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:172
-#, python-format
-msgid "Welcome, %(display_name)s"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:178
-msgid "Verify your e-mail address to continue!"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:195
-msgid "Activation Link"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:206
-msgid "The link will be valid for 7 days."
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:243
-msgid "PRIVACY STATEMENT"
-msgstr ""
-
-#: foodsaving/users/templates/activation-mail-html.jinja:243
-msgid "TERMS OF SERVICE"
 msgstr ""
 
 #: foodsaving/users/templates/base-text.jinja:1
@@ -185,6 +148,43 @@ msgstr ""
 msgid "Please verify your new email address"
 msgstr ""
 
+#: foodsaving/users/templates/mailverification-body-html.jinja:3
+msgid "WELCOME"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:142
+msgid "home"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:142
+msgid "Contact Us"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:172
+#, python-format
+msgid "Welcome, %(display_name)s"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:178
+msgid "Verify your e-mail address to continue!"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:195
+msgid "Activation Link"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:206
+msgid "The link will be valid for 7 days."
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:243
+msgid "PRIVACY STATEMENT"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:243
+msgid "TERMS OF SERVICE"
+msgstr ""
+
 #: foodsaving/users/templates/mailverification-body-text.jinja:4
 #, python-format
 msgid ""
@@ -226,7 +226,7 @@ msgstr ""
 msgid "New password set!"
 msgstr ""
 
-#: foodsaving/users/templates/resendverification-body-text.jinja:4
+#: foodsaving/users/templates/send_new_verification_code-body-text.jinja:4
 #, python-format
 msgid ""
 "Here you have the link again to confirm your email:\n"
@@ -236,6 +236,6 @@ msgid ""
 "You can ignore this message if you did not request it."
 msgstr ""
 
-#: foodsaving/users/templates/resendverification-subject.jinja:1
+#: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
 msgid "Please verify your email"
 msgstr ""

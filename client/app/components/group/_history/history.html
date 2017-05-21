@@ -1,18 +1,118 @@
-<div>
-  <div ng-repeat="entry in $ctrl.data">
-    <div ng-if="$first || $ctrl.data[$index-1].compareDate != entry.compareDate" class="date">
-      {{ entry.date | date:'fullDate' }}
-    </div>
-    <div layout="row">
-      <div flex class="time">
+<md-menu-bar>
+  <i class="fa fa-filter" aria-hidden="true"></i>
+  <md-menu>
+    <button ng-click="$mdMenu.open()">
+      <span translate="HISTORY.STORES"></span>
+    </button>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllStores(true)">
+          <span translate="HISTORY.SELECT_ALL"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllStores(false)">
+          <span translate="HISTORY.SELECT_NONE"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-divider></md-menu-divider>
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
+        <!-- duplicate from the Types menu for easier access -->
+        {{ "HISTORY.TYPES.GROUPS" | translate }}
+      </md-menu-item>
+      <md-menu-divider></md-menu-divider>
+      <md-menu-item type="checkbox"
+        ng-model="$ctrl.selectedStores(store.id)"
+        ng-model-options="{ getterSetter: true }"
+        ng-repeat="store in $ctrl.getStores()">
+        {{store.name}}
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <md-menu>
+    <button ng-click="$mdMenu.open()">
+      <span translate="HISTORY.USERS"></span>
+    </button>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllUsers(true)">
+          <span translate="HISTORY.SELECT_ALL"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="$ctrl.showAllUsers(false)">
+          <span translate="HISTORY.SELECT_NONE"></span>
+        </md-button>
+      </md-menu-item>
+      <md-menu-divider></md-menu-divider>
+      <md-menu-item>
+        <md-input-container>
+          <md-icon md-font-icon="fa fa-search"></md-icon>
+          <input type="text" name="userquery" ng-model="$ctrl.userQuery"></input>
+        </md-input-container>
+      </md-menu-item>
+      <md-menu-item type="checkbox"
+        ng-model="$ctrl.selectedUsers(user.id)"
+        ng-model-options="{ getterSetter: true }"
+        ng-repeat="user in $ctrl.getUsers()">
+        {{user.display_name}}
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <md-menu>
+    <button ng-click="$mdMenu.open()">
+      <span translate="HISTORY.TYPE"></span>
+    </button>
+    <md-menu-content>
+      <!-- we can't use the preferred translate directive here,
+          since md-menu-item does some transformation -->
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
+        {{ "HISTORY.TYPES.GROUPS" | translate }}
+      </md-menu-item>
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.stores">
+        {{ "HISTORY.TYPES.STORES" | translate }}
+      </md-menu-item>
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">
+        {{ "HISTORY.TYPES.PICKUPS" | translate }}
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <span class="md-caption">
+    {{ $ctrl.getHistoryItems().length }} / {{ $ctrl.data.results.length }}
+  </span>
+</md-menu-bar>
+
+<md-list>
+  <md-subheader
+    ng-repeat-start="entry in $ctrl.getHistoryItems()"
+    ng-show="$ctrl.showDateHeaderBefore($index, $ctrl.data.results)">
+    {{ entry.date | date:'fullDate' }}
+  </md-subheader>
+  <md-list-item ng-repeat-end>
+    <div layout="row" layout-padding>
+      <div class="md-caption">
         {{ entry.date | date:'shortTime' }}
       </div>
-      <div flex class="avatar s{{ entry.users.length }}">
-        <div ng-repeat="id in entry.users"><profile-picture user-id="id" size="20"></profile-picture></div>
+      <div class="avatar s{{ entry.users.length }}">
+        <div ng-repeat="id in entry.users">
+          <profile-picture user-id="id" size="20"></profile-picture>
+        </div>
       </div>
-      <div flex class="description">
-        <span translate="{{ entry.translate }}" translate-values="{{ entry.payload }}"></span>
+      <div>
+        <span
+        translate="{{ $ctrl.getTranslateKey(entry) }}"
+        translate-values="{{ $ctrl.getTranslateValues(entry) }}"></span>
+      </div>
+      <div class="md-secondary md-icon-button"
+        ng-if="$ctrl.hasPayload(entry)"
+        ng-click="$ctrl.openHistoryDetail($event, entry)"
+        >
+        <i class="fa fa-info"></i>
       </div>
     </div>
-  </div>
-</div>
+  </md-list-item>
+</md-list>
+<md-button ng-disabled="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()">
+  <span ng-if="$ctrl.hasMore()" translate="HISTORY.LOAD_MORE"></span>
+  <span ng-if="!$ctrl.hasMore()" translate="HISTORY.ALL_LOADED"></span>
+</md-button>

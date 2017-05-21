@@ -9,18 +9,32 @@
 */
 export default class CurrentGroup {
 
-  constructor() {
+  constructor(User, SessionUser) {
+    "ngInject";
     Object.assign(this, {
-      value: {}
+      value: {},
+      User,
+      SessionUser
     });
   }
 
   set(value) {
     angular.copy(value, this.value);
+    this.persistCurrentGroup(value.id);
   }
 
   clear() {
     angular.copy({}, this.value);
+    this.persistCurrentGroup(null);
+  }
+
+  persistCurrentGroup(groupId) {
+    this.SessionUser.loaded.then((user) => {
+      this.User.save({
+        id: user.id,
+        current_group: groupId  //eslint-disable-line
+      });
+    });
   }
 
 }

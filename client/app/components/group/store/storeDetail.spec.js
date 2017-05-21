@@ -44,6 +44,11 @@ describe("StoreDetail", () => {
     };
 
     it("should load store information", () => {
+      inject((CurrentGroup) => {
+        // We don't want the side effects of the "group" state persisting the group
+        // It would be better to stub the whole "group" state, but I don't know how
+        sinon.stub(CurrentGroup, "set");
+      });
       $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
       $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });

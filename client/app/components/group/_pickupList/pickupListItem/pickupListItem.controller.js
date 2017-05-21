@@ -1,45 +1,32 @@
 class PickupListItemController {
-  constructor(PickupDate, User) {
+  constructor(PickupDate, CurrentUsers, CurrentStores) {
     "ngInject";
     Object.assign(this, {
       PickupDate,
-      User,
-      collectors: []
+      CurrentUsers,
+      CurrentStores
     });
   }
 
   $onInit() {
     this.showStoreDetail = this.showDetail === "store";
-    this.setStoreInfo();
-    this.setCollectors();
+    this.storeData = this.CurrentStores.get(this.data.store);
   }
 
   join() {
     // TODO: error handling
     return this.PickupDate.join(this.data.id).then(() => {
-      this.parentCtrl.updatePickups();
+      this.onJoin({ "pickupId": this.data.id });
+      this.meta.isUserMember = true;
     });
   }
 
   leave() {
     // TODO: error handling
     return this.PickupDate.leave(this.data.id).then(() => {
-      this.parentCtrl.updatePickups();
+      this.onLeave({ "pickupId": this.data.id });
+      this.meta.isUserMember = false;
     });
-  }
-
-  setCollectors(){
-    angular.forEach(this.data.collector_ids, (userID) => {
-      this.User.get(userID).then((data) => this.collectors.push(data));
-    });
-  }
-
-  setStoreInfo(){
-    if (this.showStoreDetail) {
-      this.data.storePromise.then((storeData) => {
-        this.storeData = storeData;
-      });
-    }
   }
 
 }

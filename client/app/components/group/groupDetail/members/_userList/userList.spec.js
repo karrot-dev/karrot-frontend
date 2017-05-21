@@ -1,7 +1,7 @@
 import UserListModule from "./userList";
 
 describe("UserList", () => {
-  let $componentController, $httpBackend;
+  let $ctrl;
 
   let { module } = angular.mock;
 
@@ -17,46 +17,30 @@ describe("UserList", () => {
   });
 
   beforeEach(inject(($injector) => {
-    $httpBackend = $injector.get("$httpBackend");
-    $componentController = $injector.get("$componentController");
+    let $componentController = $injector.get("$componentController");
+    $ctrl = $componentController("userList", { }, { users: [1] });
+    $ctrl.CurrentUsers.set([userOne]);
   }));
-
-  afterEach(() => {
-    $httpBackend.verifyNoOutstandingExpectation();
-    $httpBackend.verifyNoOutstandingRequest();
-  });
 
   let userOne = {
     "id": 1,
-    "name": "Testuser1",
-    "description": "all the good stuff",
-    "group": 1,
-    "address": null,
-    "latitude": null,
-    "longitude": null
+    "display_name": "Testuser1"
   };
 
   describe("Controller", () => {
-    it("check binding of complete users",() => {
-      let $ctrl = $componentController("userList", {
-      }, {
-        users: [userOne]
-      });
-      $ctrl.$onInit();
-
-      expect($ctrl.userData).to.deep.equal([userOne]);
+    it("loads users",() => {
+      expect($ctrl.getUsers()).to.deep.equal([userOne]);
     });
 
-
-    it("maps users-array",() => {
-      let $ctrl = $componentController("userList", {
-      }, {
-        users: [1]
-      });
-      $ctrl.$onInit();
-
-      $httpBackend.expectGET("/api/users/1/").respond(userOne);
-      $httpBackend.flush();
+    it("loads and filters users",() => {
+      $ctrl.searchQuery = "";
+      expect($ctrl.getUsers()).to.deep.equal([userOne]);
+      $ctrl.searchQuery = "TEST";
+      expect($ctrl.getUsers()).to.deep.equal([userOne]);
+      $ctrl.searchQuery = "test";
+      expect($ctrl.getUsers()).to.deep.equal([userOne]);
+      $ctrl.searchQuery = "else";
+      expect($ctrl.getUsers()).to.deep.equal([]);
     });
   });
 });

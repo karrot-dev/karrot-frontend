@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import loginComponent from "./login.component";
 import ngMessages from "angular-messages";
 import Authentication from "../../services/authentication/authentication";

@@ -41,4 +41,8 @@ export default class CurrentStores {
     angular.copy([], this.list);
   }
 
+  get(id) {
+    return this.list.find((e) => e.id === id);
+  }
+
 }

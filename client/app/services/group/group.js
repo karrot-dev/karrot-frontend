@@ -1,9 +1,11 @@
 import GroupService from "./groupService.service";
 import CurrentGroup from "./currentGroup.service";
 import Authentication from "../authentication/authentication";
+import User from "../user/user";
 
 let groupServiceModule = angular.module("GroupService", [
-  Authentication
+  Authentication,
+  User
 ])
 
 .service("GroupService", GroupService)

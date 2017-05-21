@@ -1,6 +1,6 @@
 <search-bar search-query="$ctrl.searchQuery"></search-bar>
 <md-list layout-padding>
-  <md-list-item ng-repeat="user in $ctrl.userData | filter: $ctrl.searchQuery" ui-sref="userDetail({ id: {{user.id}} })">
-    <p>{{user.display_name}}</p>
+  <md-list-item ng-repeat="user in $ctrl.getUsers()" ui-sref="userDetail({ id: {{user.id}} })">
+    <p>{{ user.display_name }}</p>
   </md-list-item>
 </md-list>

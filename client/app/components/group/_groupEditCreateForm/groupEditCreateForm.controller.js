@@ -1,15 +1,16 @@
 import jstz from "jstimezonedetect";
 
 class GroupEditCreateFormController {
-  constructor(Geocoding, CurrentGroup) {
+  constructor(Geocoding, CurrentGroup, $scope) {
     "ngInject";
     Object.assign(this, {
       Geocoding,
       CurrentGroup,
+      $scope,
       mapCenter: {},
       mapDefaults: {
         scrollWheelZoom: false,
-        zoomControl: false,
+        zoomControl: true,
         dragging: true
       }
     });
@@ -25,6 +26,14 @@ class GroupEditCreateFormController {
     } else {
       this.trySetLocation(this.data);
     }
+
+    this.$scope.$on("leafletDirectiveMap.click", (event, e) => {
+      let item = {
+        latitude: e.leafletEvent.latlng.lat,
+        longitude: e.leafletEvent.latlng.lng
+      };
+      this.setMarker(item);
+    });
   }
 
   submit() {
@@ -54,16 +63,19 @@ class GroupEditCreateFormController {
     return this.Geocoding.lookupAddress(this.query);
   }
 
+  setMarker(item) {
+    if (!this.marker || !this.marker.p) this.marker = { p: {} };
+    angular.copy({
+      lat: item.latitude,
+      lng: item.longitude,
+      message: item.address,
+      draggable: true
+    }, this.marker.p);
+  }
+
   trySetLocation(item) {
     if (!item || !item.address ) return;
-    this.marker = {
-      p: {
-        lat: item.latitude,
-        lng: item.longitude,
-        message: item.address,
-        draggable: true
-      }
-    };
+    this.setMarker(item);
     this.query = item.address;
     this.mapCenter.zoom = 10;
     this.mapCenter.lat = item.latitude;
@@ -71,12 +83,15 @@ class GroupEditCreateFormController {
     Object.assign(this.data, item);
   }
 
-  deleteIfEmpty(text) {
-    if (!text) Object.assign(this.data, {
-      latitude: null,
-      longitude: null,
-      address: null
-    });
+  updateOrDeleteIfEmpty(text) {
+    this.data.address = text;
+    if (!text) {
+      Object.assign(this.data, {
+        latitude: null,
+        longitude: null,
+        address: null
+      });
+    }
   }
 }
 

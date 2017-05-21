@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
 import groupComponent from "./group.component";
 import AuthenticationModule from "../../services/authentication/authentication";

@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import landingPageMapComponent from "./landingPageMap.component";
 import groupPopup from "./_groupPopup/groupPopup";
 import GroupService from "../../../services/group/group";

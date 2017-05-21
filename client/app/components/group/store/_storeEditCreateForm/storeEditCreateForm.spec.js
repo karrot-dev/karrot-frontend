@@ -73,8 +73,19 @@ describe("StoreEditCreateForm", () => {
     it("resets coords if text is empty", () => {
       let $ctrl = $componentController("storeEditCreateForm", {});
       $ctrl.data = { latitude: 30 };
-      $ctrl.deleteIfEmpty();
+      $ctrl.updateOrDeleteIfEmpty();
       expect($ctrl.data.latitude).to.be.null;
+    });
+
+    it("does not replace reference to marker", () => {
+      let $ctrl = $componentController("storeEditCreateForm", {}, { data: {} });
+      $ctrl.marker = { p: { lat: 12.34 } };
+      let leafletMarker = $ctrl.marker.p;
+      expect(leafletMarker.lat).to.equal(12.34);
+      $ctrl.trySetLocation({
+        address: "a", latitude: 99.99, longitude: 88.88
+      });
+      expect(leafletMarker.lat).to.equal(99.99);
     });
   });
 

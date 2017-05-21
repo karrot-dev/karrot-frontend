@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import landingPageComponent from "./landingPage.component";
 import landingPageMap from "./_landingPageMap/landingPageMap";
 

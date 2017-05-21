@@ -18,7 +18,8 @@ let storeEditCreateFormModule = angular.module("storeEditCreateForm", [
 
 .component("storeEditCreateForm", storeEditCreateFormComponent)
 
-.directive("storenameValidator", [StoreService, "$q", (StoreService, $q) => {
+.directive("storenameValidator", (StoreService, $q) => {
+  "ngInject";
   return {
     require: "ngModel",
     link: (scope, element, attrs, ngModel) => {
@@ -35,7 +36,7 @@ let storeEditCreateFormModule = angular.module("storeEditCreateForm", [
       };
     }
   };
-}])
+})
 
 .name;
 

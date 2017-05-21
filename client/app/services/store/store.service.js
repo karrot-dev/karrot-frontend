@@ -24,8 +24,8 @@ class StoreComService {
       .then((res) => res.data);
   }
 
-  listStoresInGroupByName(store,name) {
-    return this.$http.get("/api/stores/", { params: { store, name } })
+  listStoresInGroupByName(group,name) {
+    return this.$http.get("/api/stores/", { params: { group, name } })
     .then((res) => res.data);
   }
 

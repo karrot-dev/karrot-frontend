@@ -81,7 +81,7 @@ describe("group service", () => {
   });
 
   it("filters groups by name", () => {
-    $httpBackend.expectGET("/api/groups/?name=Foodsharing%20Darmstadt").respond(groupData);
+    $httpBackend.expectGET("/api/groups/?name=Foodsharing+Darmstadt").respond(groupData);
     expect(GroupService.listByGroupName("Foodsharing Darmstadt"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(groupData);

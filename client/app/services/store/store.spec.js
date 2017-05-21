@@ -84,7 +84,7 @@ describe("store service", () => {
   });
 
   it("filters stores by group and name", () => {
-    $httpBackend.expectGET("/api/stores/?group=1&name=Rewe%20Center").respond(storeData);
+    $httpBackend.expectGET("/api/stores/?group=1&name=Rewe+Center").respond(storeData);
     expect(Store.listStoresInGroupByName(1,"Rewe Center"))
       .to.be.fulfilled.and
       .to.eventually.deep.equal(storeData);

@@ -18,7 +18,8 @@ let groupEditCreateFormModule = angular.module("groupEditCreateForm", [
 
 .component("groupEditCreateForm", groupEditCreateFormComponent)
 
-.directive("groupnameValidator", [GroupService, "$q", (GroupService, $q) => {
+.directive("groupnameValidator", (GroupService, $q) => {
+  "ngInject";
   return {
     require: "ngModel",
     link: (scope, element, attrs, ngModel) => {
@@ -34,7 +35,7 @@ let groupEditCreateFormModule = angular.module("groupEditCreateForm", [
       };
     }
   };
-}])
+})
 
 .name;
 

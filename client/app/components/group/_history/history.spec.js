@@ -160,8 +160,6 @@ describe("History", () => {
         } });
         $ctrl.CurrentStores.set([{ id: 5 }]);
         $ctrl.CurrentUsers.set([{ id: 66 }]);
-        $ctrl.showAllStores(true);
-        $ctrl.showAllUsers(true);
       });
 
       it("shows all history", () => {
@@ -185,6 +183,14 @@ describe("History", () => {
         $ctrl.types.groups = false;
         expect($ctrl.getHistoryItems()).to.deep.equal([]);
       });
+    });
+
+    it("shows empty pickups", () => {
+      let $ctrl = $componentController("history", {}, { data: {
+        results: [{ id: 1, store: 5, users: [], typus: "PICKUP_DONE" }]
+      } });
+      $ctrl.CurrentStores.set([{ id: 5 }]);
+      expect($ctrl.getHistoryItems()).to.deep.equal([{ id: 1, store: 5, users: [], typus: "PICKUP_DONE" }]);
     });
 
     it("gets payload status", () => {

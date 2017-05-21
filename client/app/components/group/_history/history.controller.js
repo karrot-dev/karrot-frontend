@@ -123,6 +123,10 @@ class HistoryController {
   }
 
   _showItemByUser(item) {
+    // show empty pickups
+    if (item.users.length === 0) {
+      return true;
+    }
     // needs to have at least one selected user
     for (let id of item.users) {
       if (this.selectedUsers(id)()){

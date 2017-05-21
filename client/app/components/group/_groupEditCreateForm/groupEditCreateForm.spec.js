@@ -75,7 +75,7 @@ describe("GroupEditCreateForm", () => {
       $ctrl.updateOrDeleteIfEmpty();
       expect($ctrl.data.latitude).to.be.null;
     });
-    
+
     it("does not replace reference to marker", () => {
       let $ctrl = $componentController("groupEditCreateForm", {}, { data: {} });
       $ctrl.marker = { p: { lat: 12.34 } };

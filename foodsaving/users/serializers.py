@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = get_user_model()
         fields = ['id', 'display_name', 'email', 'unverified_email', 'password',
                   'address', 'latitude', 'longitude', 'description', 'mail_verified',
-                  'key_expires_at', 'current_group']
+                  'key_expires_at', 'current_group', 'language']
         extra_kwargs = {
             'email': {
                 'required': True
@@ -45,6 +45,8 @@ class UserSerializer(serializers.ModelSerializer):
             user.send_new_verification_code()
         if 'password' in validated_data:
             user.set_password(validated_data.pop('password'))
+        if 'language' in validated_data and validated_data['language'] != user.language:
+            user.language = validated_data.pop('language')
         return super().update(user, validated_data)
 
 

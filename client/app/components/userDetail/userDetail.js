@@ -12,7 +12,7 @@ let userDetailModule = angular.module("userDetail", [
 
 .component("userDetail", userDetailComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("userDetail", {
@@ -24,11 +24,13 @@ let userDetailModule = angular.module("userDetail", [
           return User.get($stateParams.id).then((user) => user);
         }
       },
+      data: {
+        authRequired: true
+      },
       ncyBreadcrumb: {
         label: "{{$$childHead.$ctrl.userdata.display_name}}"
       }
     });
-  hookProvider.setup("userDetail", { authenticated: true, anonymous: "login" });
 })
 
 .name;

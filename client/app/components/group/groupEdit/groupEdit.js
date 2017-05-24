@@ -14,7 +14,7 @@ let groupEditModule = angular.module("groupEdit", [
 
 .component("groupEdit", groupEditComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("groupEdit", {
@@ -25,7 +25,6 @@ let groupEditModule = angular.module("groupEdit", [
         label: "{{'GROUP.EDIT' | translate}}"
       }
     });
-  hookProvider.setup("groupEdit", { authenticated: true, anonymous: "login" });
 })
 
 .name;

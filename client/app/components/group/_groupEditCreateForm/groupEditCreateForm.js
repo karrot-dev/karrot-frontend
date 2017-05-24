@@ -18,6 +18,25 @@ let groupEditCreateFormModule = angular.module("groupEditCreateForm", [
 
 .component("groupEditCreateForm", groupEditCreateFormComponent)
 
+.directive("groupnameValidator", (GroupService, $q) => {
+  "ngInject";
+  return {
+    require: "ngModel",
+    link: (scope, element, attrs, ngModel) => {
+      let groupId = scope.$ctrl.data.id;
+      ngModel.$asyncValidators.unique = (viewValue) => {
+        return GroupService.listByGroupName(viewValue)
+        .then((response) => {
+          if (response.length === 1 && groupId !== response[0].id) {
+            return $q.reject();
+          }
+          return true;
+        });
+      };
+    }
+  };
+})
+
 .name;
 
 export default groupEditCreateFormModule;

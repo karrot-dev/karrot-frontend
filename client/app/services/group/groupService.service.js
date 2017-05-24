@@ -28,6 +28,11 @@ class GroupService {
       .then((res) => res.data);
   }
 
+  listByGroupName(groupName) {
+    return this.$http.get("/api/groups/", { params: { name: groupName } })
+      .then((res) => res.data);
+  }
+
   listMy() {
     if (angular.isUndefined(this.Authentication.data)) {
       return this.$q.resolve([]);

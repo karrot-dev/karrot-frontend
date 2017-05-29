@@ -196,6 +196,7 @@ describe("History", () => {
     it("gets payload status", () => {
       let $ctrl = $componentController("history", {});
       expect($ctrl.hasPayload({ payload: {} })).to.be.false;
+      expect($ctrl.hasPayload({})).to.be.false;
       expect($ctrl.hasPayload({ payload: { some: "value" } })).to.be.true;
     });
 

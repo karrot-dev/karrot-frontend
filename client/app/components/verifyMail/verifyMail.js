@@ -28,6 +28,9 @@ let verifyMailModule = angular.module("verifyMail", [
           .then(() => false)
           .catch((err) => err);
         }
+      },
+      ncyBreadcrumb: {
+        label: "{{'VERIFYMAIL.TITLE' | translate}}"
       }
     });
   hookProvider.setup("verifyMail", { authenticated: true, anonymous: "login" });

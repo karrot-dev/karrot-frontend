@@ -1,8 +1,9 @@
 class VerifyMailController {
   mailIsDifferent(user) {
-    return angular.isDefined(user.unverified_email)
-      && user.unverified_email !== null
-      && user.email !== user.unverified_email;
+    if (angular.isString(user.unverified_email)) {
+      return user.email !== user.unverified_email;
+    }
+    return false;
   }
 }
 

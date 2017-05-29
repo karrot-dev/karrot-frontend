@@ -150,7 +150,7 @@ class HistoryController {
   }
 
   hasPayload(entry) {
-    return angular.isDefined(entry.payload) && Object.keys(entry.payload).length > 0;
+    return angular.isObject(entry.payload) && Object.keys(entry.payload).length > 0;
   }
 
   openHistoryDetail($event, item) {

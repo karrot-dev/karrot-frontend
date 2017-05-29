@@ -5,7 +5,7 @@ import "./verifyMail.styl";
 let verifyMailComponent = {
   restrict: "",
   bindings: {
-    email: "<",
+    user: "<",
     error: "<"
   },
   template,

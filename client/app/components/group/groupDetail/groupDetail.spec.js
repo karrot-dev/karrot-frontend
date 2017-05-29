@@ -48,7 +48,7 @@ describe("GroupDetail", () => {
       let groupData = { id: 9834 };
       sinon.stub($ctrl.$mdDialog, "show");
       sinon.stub($ctrl.$state, "go");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
+      $ctrl.$mdDialog.show.returns($q.resolve());
       Authentication.data = { id: 1 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
       sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
@@ -66,7 +66,7 @@ describe("GroupDetail", () => {
       let groupData = { id: 98238 };
       sinon.stub($ctrl.$state, "go");
       sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
+      $ctrl.$mdDialog.show.returns($q.resolve());
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(400);
       Object.assign($ctrl, { groupData });
       $ctrl.leaveGroup();

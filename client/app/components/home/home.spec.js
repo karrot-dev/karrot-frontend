@@ -66,9 +66,7 @@ describe("Home", () => {
       let $ctrl = $componentController("home", {});
       sinon.stub($ctrl.$state, "go");
       sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q((resolve) => {
-        resolve(1337);
-      }));
+      $ctrl.$mdDialog.show.returns($q.resolve(1337));
       $ctrl.$onInit();
       $httpBackend.flush();
       expect($ctrl.$state.go).to.have.been.calledWith( "group", { groupId: 1337 } );

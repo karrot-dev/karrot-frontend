@@ -20,14 +20,17 @@ let verifyMailModule = angular.module("verifyMail", [
       url: "/verify-mail?key",
       component: "verifyMail",
       resolve: {
-        email: (Authentication) => {
-          return Authentication.update().then((data) => data.email);
+        user: (Authentication) => {
+          return Authentication.update();
         },
         error: (User, $stateParams) => {
           return User.verifyMail($stateParams.key)
           .then(() => false)
           .catch((err) => err);
         }
+      },
+      ncyBreadcrumb: {
+        label: "{{'VERIFYMAIL.TITLE' | translate}}"
       }
     });
   hookProvider.setup("verifyMail", { authenticated: true, anonymous: "login" });

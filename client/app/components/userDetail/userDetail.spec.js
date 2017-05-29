@@ -56,9 +56,7 @@ describe("UserDetail", () => {
     }));
 
     it("makes page non-editable", () => {
-      $ctrl.Authentication.update.returns($q((resolve) => {
-        resolve({ id: 2 });
-      }));
+      $ctrl.Authentication.update.returns($q.resolve({ id: 2 }));
       $ctrl.$onChanges({ userdata: { currentValue: { id: 666 } } });
       expect($ctrl.editable).to.be.undefined;
       $scope.$apply();
@@ -66,9 +64,7 @@ describe("UserDetail", () => {
     });
 
     it("makes page editable", () => {
-      $ctrl.Authentication.update.returns($q((resolve) => {
-        resolve({ id: 666 });
-      }));
+      $ctrl.Authentication.update.returns($q.resolve({ id: 666 }));
       $ctrl.$onChanges({ userdata: { currentValue: { id: 666 } } });
       expect($ctrl.editable).to.be.undefined;
       $scope.$apply();
@@ -81,9 +77,7 @@ describe("UserDetail", () => {
       $ctrl.editEnable();
       expect($ctrl.editEnabled).to.be.true;
       $ctrl.editData.email = "another@mail.com";
-      $ctrl.User.save.withArgs($ctrl.editData).returns($q((resolve) => {
-        resolve($ctrl.editData);
-      }));
+      $ctrl.User.save.withArgs($ctrl.editData).returns($q.resolve($ctrl.editData));
       $ctrl.submitEdit();
       $scope.$apply();
       expect($ctrl.editEnabled).to.be.false;
@@ -99,9 +93,7 @@ describe("UserDetail", () => {
       });
       it("goes to login when password is changed", () => {
         $ctrl.isChangePassword = true;
-        $ctrl.User.save.returns($q((resolve) => {
-          resolve();
-        }));
+        $ctrl.User.save.returns($q.resolve());
         $ctrl.submitEdit();
         $scope.$apply();
         expect($ctrl.$state.go).to.have.been.calledWith("login");
@@ -109,9 +101,7 @@ describe("UserDetail", () => {
 
       it("does not go to login when password is not changed", () => {
         $ctrl.isChangePassword = false;
-        $ctrl.User.save.returns($q((resolve) => {
-          resolve();
-        }));
+        $ctrl.User.save.returns($q.resolve());
         $ctrl.submitEdit();
         $scope.$apply();
         expect($ctrl.$state.go).to.not.have.been.called;
@@ -119,12 +109,31 @@ describe("UserDetail", () => {
 
       it("does not go to login when request fails", () => {
         $ctrl.isChangePassword = true;
-        $ctrl.User.save.returns($q((resolve, reject) => {
-          reject({ data: "error" });
-        }));
+        $ctrl.User.save.returns($q.reject({ data: "error" }));
         $ctrl.submitEdit();
         $scope.$apply();
         expect($ctrl.$state.go).to.not.have.been.called;
+      });
+
+      it("checks if mail changed", () => {
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de",
+          "unverified_email": "lars@l.de"
+        })).to.be.true;
+
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de",
+          "unverified_email": "l@l.de"
+        })).to.be.false;
+
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de",
+          "unverified_email": null
+        })).to.be.false;
+
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de"
+        })).to.be.false;
       });
     });
 

@@ -74,9 +74,7 @@ describe("GroupInfo", () => {
       inject(($q, $rootScope) => {
         sinon.stub($ctrl.$mdDialog, "show");
         sinon.stub($ctrl.$state, "go");
-        $ctrl.$mdDialog.show.returns($q((resolve) => {
-          resolve(1337);
-        }));
+        $ctrl.$mdDialog.show.returns($q.resolve(1337));
         $ctrl.openJoinGroup();
         $rootScope.$apply();
         expect($ctrl.$state.go).to.have.been.calledWith( "group", { groupId: 1337 } );

@@ -1,7 +1,7 @@
 import PickupListItemModule from "./pickupListItem";
 
 describe("PickupListItem", () => {
-  let $log, $componentController, $httpBackend, $q;
+  let $log, $componentController, $httpBackend;
 
   let { module } = angular.mock;
 
@@ -14,9 +14,6 @@ describe("PickupListItem", () => {
     $log.reset();
     $httpBackend = $injector.get("$httpBackend");
     $componentController = $injector.get("$componentController");
-    $q = $injector.get("$q");
-
-    pickupData.storePromise = $q((resolve) => resolve(storeData));
   }));
 
   afterEach(() => {
@@ -33,10 +30,6 @@ describe("PickupListItem", () => {
     ],
     "max_collectors": 3,
     "store": 9
-  };
-
-  let storeData = {
-    "id": 9
   };
 
   describe("Controller", () => {

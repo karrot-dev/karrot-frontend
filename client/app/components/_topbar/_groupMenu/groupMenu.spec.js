@@ -32,9 +32,7 @@ describe("GroupMenu", () => {
       let $ctrl = $componentController("groupMenu", {});
       sinon.stub($ctrl.$mdDialog, "show");
       sinon.stub($ctrl.$state, "go");
-      $ctrl.$mdDialog.show.returns($q((resolve) => {
-        resolve(1337);
-      }));
+      $ctrl.$mdDialog.show.returns($q.resolve(1337));
       $ctrl.openJoinGroupDialog();
       $rootScope.$apply();
       expect($ctrl.$state.go).to.have.been.calledWith( "group", { groupId: 1337 } );
@@ -60,9 +58,7 @@ describe("GroupMenu", () => {
     it("gets data on init", () => {
       let $ctrl = $componentController("groupMenu", {});
       sinon.stub($ctrl.GroupService, "listMy");
-      $ctrl.GroupService.listMy.returns($q((resolve) => {
-        resolve([{ id: 85 }]);
-      }));
+      $ctrl.GroupService.listMy.returns($q.resolve([{ id: 85 }]));
       $ctrl.$onInit();
       $rootScope.$apply();
       expect($ctrl.GroupService.listMy).to.have.been.called;

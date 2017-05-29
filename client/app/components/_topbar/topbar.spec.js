@@ -19,9 +19,7 @@ describe("Topbar", () => {
     $rootScope = $injector.get("$rootScope");
     $ctrl = _$componentController_("topbar", {});
     sinon.stub($ctrl.Authentication, "update");
-    $ctrl.Authentication.update.returns($q((resolve) => {
-      resolve(userData);
-    }));
+    $ctrl.Authentication.update.returns($q.resolve(userData));
   }));
 
   describe("Controller", () => {
@@ -49,9 +47,7 @@ describe("Topbar", () => {
       });
       sinon.stub($state, "go");
       sinon.stub($ctrl.Authentication, "logout");
-      $ctrl.Authentication.logout.returns($q((resolve) => {
-        resolve(undefined);
-      }));
+      $ctrl.Authentication.logout.returns($q.resolve(undefined));
       $ctrl.logOut();
       $rootScope.$apply();
       expect($state.go).to.have.been.calledWith("login");

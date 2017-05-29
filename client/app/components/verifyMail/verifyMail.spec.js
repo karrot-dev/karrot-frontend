@@ -25,9 +25,7 @@ describe("VerifyMail", () => {
     Authentication = $injector.get("Authentication");
     sinon.stub(Authentication, "update");
     $q = $injector.get("$q");
-    Authentication.update.returns($q((resolve) => {
-      resolve({ email: "user@example.com" });
-    }));
+    Authentication.update.returns($q.resolve({ email: "user@example.com" }));
     User = $injector.get("User");
     sinon.stub(User, "verifyMail");
   }));
@@ -40,9 +38,7 @@ describe("VerifyMail", () => {
 
   describe("Route", () => {
     it("goes to state", () => {
-      User.verifyMail.withArgs("abc").returns($q((resolve) => {
-        resolve();
-      }));
+      User.verifyMail.withArgs("abc").returns($q.resolve());
       $state.go("verifyMail", { key: "abc" });
       $rootScope.$apply();
       expect($state.current.component).to.equal("verifyMail");
@@ -54,9 +50,7 @@ describe("VerifyMail", () => {
     });
 
     it("sets error on reject", () => {
-      User.verifyMail.withArgs("abc").returns($q((resolve, reject) => {
-        reject({ error: "wontfix" });
-      }));
+      User.verifyMail.withArgs("abc").returns($q.reject({ error: "wontfix" }));
       $state.go("verifyMail", { key: "abc" });
       $rootScope.$apply();
       expect($state.current.component).to.equal("verifyMail");

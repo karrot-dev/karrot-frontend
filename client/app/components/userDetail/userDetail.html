@@ -20,7 +20,12 @@
     <div layout-padding>
       <div ng-if="!$ctrl.editEnabled">
         <h3 layout-padding>
-          <i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $ctrl.userdata.email }}
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          {{ $ctrl.userdata.email }}
+          <span ng-if="$ctrl.mailIsDifferent($ctrl.userdata)">
+            <md-icon md-font-icon="fa fa-arrow-right"></md-icon>
+            <a ui-sref="notifications">{{ $ctrl.userdata.unverified_email }}</a>
+          </span>
         </h3>
         <expandable-panel content="$ctrl.userdata.description" markdown="true" collapse="1000"></expandable-panel>
       </div>

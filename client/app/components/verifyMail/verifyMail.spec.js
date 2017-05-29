@@ -43,7 +43,7 @@ describe("VerifyMail", () => {
       $rootScope.$apply();
       expect($state.current.component).to.equal("verifyMail");
       inject(($injector) => {
-        expect($injector.invoke($state.current.resolve.email)).to.eventually.equal("user@example.com");
+        expect($injector.invoke($state.current.resolve.user)).to.eventually.deep.equal({ email: "user@example.com" });
         expect($injector.invoke($state.current.resolve.error)).to.eventually.be.false;
       });
       $rootScope.$apply();
@@ -55,10 +55,38 @@ describe("VerifyMail", () => {
       $rootScope.$apply();
       expect($state.current.component).to.equal("verifyMail");
       inject(($injector) => {
-        expect($injector.invoke($state.current.resolve.email)).to.eventually.equal("user@example.com");
+        expect($injector.invoke($state.current.resolve.user)).to.eventually.deep.equal({ email: "user@example.com" });
         expect($injector.invoke($state.current.resolve.error)).to.eventually.deep.equal({ error: "wontfix" });
       });
       $rootScope.$apply();
+    });
+  });
+
+  describe("Controller", () => {
+    let $ctrl;
+    beforeEach(inject((_$componentController_) => {
+      $ctrl = _$componentController_("verifyMail", { });
+    }));
+
+    it("checks if mail changed", () => {
+      expect($ctrl.mailIsDifferent({
+        email: "l@l.de",
+        "unverified_email": "lars@l.de"
+      })).to.be.true;
+
+      expect($ctrl.mailIsDifferent({
+        email: "l@l.de",
+        "unverified_email": "l@l.de"
+      })).to.be.false;
+
+      expect($ctrl.mailIsDifferent({
+        email: "l@l.de",
+        "unverified_email": null
+      })).to.be.false;
+
+      expect($ctrl.mailIsDifferent({
+        email: "l@l.de"
+      })).to.be.false;
     });
   });
 });

@@ -114,6 +114,27 @@ describe("UserDetail", () => {
         $scope.$apply();
         expect($ctrl.$state.go).to.not.have.been.called;
       });
+
+      it("checks if mail changed", () => {
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de",
+          "unverified_email": "lars@l.de"
+        })).to.be.true;
+
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de",
+          "unverified_email": "l@l.de"
+        })).to.be.false;
+
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de",
+          "unverified_email": null
+        })).to.be.false;
+
+        expect($ctrl.mailIsDifferent({
+          email: "l@l.de"
+        })).to.be.false;
+      });
     });
 
   });

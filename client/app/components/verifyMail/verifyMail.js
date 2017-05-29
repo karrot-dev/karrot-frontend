@@ -20,8 +20,8 @@ let verifyMailModule = angular.module("verifyMail", [
       url: "/verify-mail?key",
       component: "verifyMail",
       resolve: {
-        email: (Authentication) => {
-          return Authentication.update().then((data) => data.email);
+        user: (Authentication) => {
+          return Authentication.update();
         },
         error: (User, $stateParams) => {
           return User.verifyMail($stateParams.key)

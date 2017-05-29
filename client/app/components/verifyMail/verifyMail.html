@@ -1,5 +1,13 @@
 <h1 translate="VERIFYMAIL.TITLE"></h1>
-{{ $ctrl.email }}
+<div>
+  <span>
+    {{ $ctrl.user.email  }}
+  </span>
+  <span ng-if="$ctrl.mailIsDifferent($ctrl.user)">
+    <md-icon md-font-icon="fa fa-arrow-right"></md-icon>
+    {{ $ctrl.user.unverified_email }}
+  </span>
+<div>
 <div ng-switch="$ctrl.error">
   <div ng-switch-when="false">
     <h4 translate="VERIFYMAIL.SUCCESS"></h4>

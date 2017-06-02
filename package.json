@@ -42,7 +42,7 @@
     "babel-register": "^6.7.2",
     "babel-runtime": "^6.6.1",
     "browser-sync": "^2.11.1",
-    "chai": "^3.4.0",
+    "chai": "^4.0.1",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.28.0",
     "del": "^2.2.0",

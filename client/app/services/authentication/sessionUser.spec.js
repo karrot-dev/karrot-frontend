@@ -66,4 +66,10 @@ describe("SessionUser service", () => {
     });
   });
 
+  it("returns login status", () => {
+    expect(SessionUser.isLoggedIn()).to.be.false;
+    SessionUser.value = { id: 5 };
+    expect(SessionUser.isLoggedIn()).to.be.true;
+  });
+
 });

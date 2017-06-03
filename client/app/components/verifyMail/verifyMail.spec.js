@@ -2,7 +2,7 @@ import VerifyMailModule from "./verifyMail";
 
 const { module } = angular.mock;
 
-describe("VerifyMail", () => {
+describe.only("VerifyMail", () => {
   beforeEach(module(VerifyMailModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
@@ -22,10 +22,9 @@ describe("VerifyMail", () => {
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get("$rootScope");
     $state = $injector.get("$state");
-    Authentication = $injector.get("Authentication");
-    sinon.stub(Authentication, "update");
     $q = $injector.get("$q");
-    Authentication.update.returns($q.resolve({ email: "user@example.com" }));
+    Authentication = $injector.get("Authentication");
+    sinon.stub(Authentication, "update").returns($q.resolve({ email: "user@example.com" }));
     User = $injector.get("User");
     sinon.stub(User, "verifyMail");
   }));
@@ -38,55 +37,40 @@ describe("VerifyMail", () => {
 
   describe("Route", () => {
     it("goes to state", () => {
-      User.verifyMail.withArgs("abc").returns($q.resolve());
-      $state.go("verifyMail", { key: "abc" });
+      $state.go("verifyMail");
       $rootScope.$apply();
       expect($state.current.component).to.equal("verifyMail");
-      inject(($injector) => {
-        expect($injector.invoke($state.current.resolve.user)).to.eventually.deep.equal({ email: "user@example.com" });
-        expect($injector.invoke($state.current.resolve.error)).to.eventually.be.false;
-      });
-      $rootScope.$apply();
-    });
-
-    it("sets error on reject", () => {
-      User.verifyMail.withArgs("abc").returns($q.reject({ error: "wontfix" }));
-      $state.go("verifyMail", { key: "abc" });
-      $rootScope.$apply();
-      expect($state.current.component).to.equal("verifyMail");
-      inject(($injector) => {
-        expect($injector.invoke($state.current.resolve.user)).to.eventually.deep.equal({ email: "user@example.com" });
-        expect($injector.invoke($state.current.resolve.error)).to.eventually.deep.equal({ error: "wontfix" });
-      });
-      $rootScope.$apply();
     });
   });
 
   describe("Controller", () => {
     let $ctrl;
-    beforeEach(inject((_$componentController_) => {
+    beforeEach(inject((_$componentController_, $stateParams) => {
       $ctrl = _$componentController_("verifyMail", { });
+      $stateParams.key = "abc";
     }));
 
-    it("checks if mail changed", () => {
-      expect($ctrl.mailIsDifferent({
-        email: "l@l.de",
-        "unverified_email": "lars@l.de"
-      })).to.be.true;
+    it("loads verification status", () => {
+      $ctrl.User.verifyMail.returns($q.resolve());
+      $ctrl.$onInit();
+      $rootScope.$apply();
+      expect($ctrl.User.verifyMail).to.have.been.calledWith("abc");
+      expect($ctrl.error).to.be.false;
+    });
 
-      expect($ctrl.mailIsDifferent({
-        email: "l@l.de",
-        "unverified_email": "l@l.de"
-      })).to.be.false;
+    it("loads verification status with error", () => {
+      $ctrl.User.verifyMail.returns($q.reject({ error: "wontfix" }));
+      $ctrl.$onInit();
+      $rootScope.$apply();
+      expect($ctrl.User.verifyMail).to.have.been.calledWith("abc");
+      expect($ctrl.error).to.deep.equal({ error: "wontfix" });
+    });
 
-      expect($ctrl.mailIsDifferent({
-        email: "l@l.de",
-        "unverified_email": null
-      })).to.be.false;
-
-      expect($ctrl.mailIsDifferent({
-        email: "l@l.de"
-      })).to.be.false;
+    it("loads user data", () => {
+      $ctrl.loadUser();
+      expect($ctrl.Authentication.update).to.have.been.called;
+      $rootScope.$apply();
+      expect($ctrl.user).to.deep.equal({ email: "user@example.com" });
     });
   });
 });

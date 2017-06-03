@@ -22,7 +22,8 @@ class HistoryService {
       results: res.data.results.map((entry) => {
         entry.date = new Date(entry.date);
         return entry;
-      })
+      }),
+      count: res.data.count
     };
   }
 

@@ -34,13 +34,13 @@ describe("GroupDetail", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $q, Authentication;
+    let $componentController, $q, SessionUser;
 
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $q = $injector.get("$q");
 
-      Authentication = $injector.get("Authentication");
+      SessionUser = $injector.get("SessionUser");
     }));
 
     it("should be able to leave a group", () => {
@@ -49,7 +49,7 @@ describe("GroupDetail", () => {
       sinon.stub($ctrl.$mdDialog, "show");
       sinon.stub($ctrl.$state, "go");
       $ctrl.$mdDialog.show.returns($q.resolve());
-      Authentication.data = { id: 1 };
+      SessionUser.value = { id: 1 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
       sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
       $ctrl.CurrentGroup.set({ id: groupData.id });

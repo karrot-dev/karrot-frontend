@@ -1,5 +1,5 @@
 <md-toolbar class="md-medium-small md-whiteframe-3dp">
-  <div ng-if="!$ctrl.isLoggedIn()" class="md-toolbar-tools" layout="row">
+  <div ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-toolbar-tools" layout="row">
     <md-button class="md-icon-button" ui-sref="landingPage">
       <i class="fa fa-home"></i>
       <md-tooltip>
@@ -44,15 +44,15 @@
     </div>
   </div>
 
-  <div ng-if="$ctrl.isLoggedIn()" class="md-toolbar-tools" layout="row" layout-align="space-between center">
+  <div ng-if="$ctrl.SessionUser.isLoggedIn()" class="md-toolbar-tools" layout="row" layout-align="space-between center">
     <span flex="5" hide-xs></span>
     <group-menu style="min-width: 50%" flex></group-menu>
 
     <div ng-if="!screenIsSmall" layout="row">
       <language-chooser></language-chooser>
-      <md-button class="no-transform" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
+      <md-button class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
         <i class="fa fa-user"></i>
-        {{ $ctrl.loggedInUser.display_name }}
+        {{ $ctrl.SessionUser.value.display_name }}
         <md-tooltip>
             <span translate="TOPBAR.USERPROFILE"></span>
         </md-tooltip>
@@ -83,7 +83,7 @@
 <!--<div ncy-breadcrumb></div>-->
 
 <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-  <div ng-if="!$ctrl.isLoggedIn()" layout-padding>
+  <div ng-if="!$ctrl.SessionUser.isLoggedIn()" layout-padding>
     <md-menu-content width="4">
       <md-menu-item>
         <md-button href="https://github.com/yunity/foodsaving-frontend">
@@ -113,14 +113,14 @@
     </md-menu-content>
   </div>
 
-  <md-toolbar ng-if="$ctrl.isLoggedIn()" class="md-theme-light">
-    <h1 class="md-toolbar-tools"><span translate="TOPBAR.GREETING" translate-values='{ username: $ctrl.loggedInUser.display_name}'></span></h1>
+  <md-toolbar ng-if="$ctrl.SessionUser.isLoggedIn()" class="md-theme-light">
+    <h1 class="md-toolbar-tools"><span translate="TOPBAR.GREETING" translate-values='{ username: $ctrl.SessionUser.value.display_name}'></span></h1>
   </md-toolbar>
 
-  <div ng-if="$ctrl.isLoggedIn()" layout-padding>
+  <div ng-if="$ctrl.SessionUser.isLoggedIn()" layout-padding>
     <md-menu-content width="4">
       <md-menu-item>
-        <md-button ng-click="$ctrl.toggleRight()" class="no-transform" ui-sref="userDetail({id: $ctrl.loggedInUser.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
+        <md-button ng-click="$ctrl.toggleRight()" class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
           <i class="fa fa-user"></i>
           <span translate="TOPBAR.USERPROFILE"></span>
         </md-button>

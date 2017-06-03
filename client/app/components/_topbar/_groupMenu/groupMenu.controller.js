@@ -1,5 +1,5 @@
 class GroupMenuController {
-  constructor($document, $mdDialog, $state, GroupService, CurrentGroup, Authentication) {
+  constructor($document, $mdDialog, $state, GroupService, CurrentGroup, SessionUser) {
     "ngInject";
     Object.assign(this, {
       $document,
@@ -8,7 +8,7 @@ class GroupMenuController {
       GroupService,
       groups: [],
       CurrentGroup,
-      Authentication
+      SessionUser
     });
   }
   $onInit() {
@@ -22,7 +22,7 @@ class GroupMenuController {
       return this.CurrentGroup.value.name;
     }
     let candidate = this.groups.find((e) => {
-      return e.id === this.Authentication.data.current_group;
+      return e.id === this.SessionUser.value.current_group;
     });
     if (candidate) {
       return candidate.name;

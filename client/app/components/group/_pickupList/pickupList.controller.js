@@ -2,10 +2,10 @@ import moment from "moment";
 
 class PickupListController {
 
-  constructor(Authentication, PickupDate, PickupDateSeries, Store, $mdDialog, $document) {
+  constructor(SessionUser, PickupDate, PickupDateSeries, Store, $mdDialog, $document) {
     "ngInject";
     Object.assign(this, {
-      Authentication,
+      SessionUser,
       PickupDate,
       PickupDateSeries,
       Store,
@@ -47,10 +47,6 @@ class PickupListController {
     });
   }
 
-  getUserId() {
-    return this.Authentication.data.id;
-  }
-
 /**
  * checks if a pickup is already full
  * @param {Object} pickup - pickup to check
@@ -66,7 +62,7 @@ class PickupListController {
  * @return true or false
  */
   isUserMember(pickup){
-    return pickup.collector_ids.indexOf(this.getUserId()) !== -1;
+    return pickup.collector_ids.indexOf(this.SessionUser.value.id) !== -1;
   }
 
   getPickups() {
@@ -147,12 +143,12 @@ class PickupListController {
   }
 
   joinPickup(pickupId) {
-    this.allPickups.find((e) => e.id === pickupId).collector_ids.push(this.getUserId());
+    this.allPickups.find((e) => e.id === pickupId).collector_ids.push(this.SessionUser.value.id);
   }
 
   leavePickup(pickupId){
     let pickupToLeave = this.allPickups.find((e) => e.id === pickupId);
-    let userIndexToDelete = pickupToLeave.collector_ids.indexOf(this.getUserId());
+    let userIndexToDelete = pickupToLeave.collector_ids.indexOf(this.SessionUser.value.id);
     pickupToLeave.collector_ids.splice(userIndexToDelete,1);
   }
 }

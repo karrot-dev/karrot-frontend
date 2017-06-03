@@ -71,9 +71,9 @@ describe("GroupMenu", () => {
       expect($ctrl.getGroupName()).to.equal("my group");
     });
 
-    it("gets group name via Authentication.current_group", () => {
+    it("gets group name via SessionUser", () => {
       let $ctrl = $componentController("groupMenu", {});
-      $ctrl.Authentication.data = { "current_group": 5 };
+      $ctrl.SessionUser.value = { "current_group": 5 };
       $ctrl.groups = [{ id: 5, name: "my group 5" }];
       expect($ctrl.getGroupName()).to.equal("my group 5");
     });

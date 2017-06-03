@@ -1,10 +1,10 @@
 class GroupService {
 
-  constructor($q, $http, Authentication) {
+  constructor($q, $http, SessionUser) {
     "ngInject";
     this.$q = $q;
     this.$http = $http;
-    this.Authentication = Authentication;
+    this.SessionUser = SessionUser;
   }
 
   create(group) {
@@ -34,11 +34,10 @@ class GroupService {
   }
 
   listMy() {
-    if (angular.isUndefined(this.Authentication.data)) {
+    if (!this.SessionUser.isLoggedIn()) {
       return this.$q.resolve([]);
     }
-    let myUserId = this.Authentication.data.id;
-    return this.listByMemberId(myUserId);
+    return this.listByMemberId(this.SessionUser.value.id);
   }
 
   search(query) {

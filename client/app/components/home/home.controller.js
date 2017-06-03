@@ -1,18 +1,18 @@
 class HomeController {
-  constructor($state, $document, $mdDialog, GroupService, Authentication) {
+  constructor($state, $document, $mdDialog, GroupService, SessionUser) {
     "ngInject";
     Object.assign(this, {
       $state,
       $document,
       $mdDialog,
       GroupService,
-      Authentication
+      SessionUser
     });
   }
 
   $onInit() {
-    if (this.Authentication.data.current_group !== null) {
-      this.$state.go("group", { groupId: this.Authentication.data.current_group });
+    if (this.SessionUser.value.current_group !== null) {
+      this.$state.go("group", { groupId: this.SessionUser.value.current_group });
     } else {
       this.GroupService.listMy().then((data) => {
         if (data.length > 0) {

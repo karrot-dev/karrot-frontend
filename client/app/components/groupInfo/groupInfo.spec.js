@@ -55,14 +55,8 @@ describe("GroupInfo", () => {
       expect($ctrl.hasMarkers()).to.be.true;
     });
 
-    it("checks if user is logged in", () => {
-      expect($ctrl.isLoggedIn()).to.be.false;
-      $ctrl.Authentication.data = { id: 5 };
-      expect($ctrl.isLoggedIn()).to.be.true;
-    });
-
     it("checks if user is member of group", () => {
-      $ctrl.Authentication.data = { id: 5 };
+      $ctrl.SessionUser.value = { id: 5 };
       $ctrl.groupData = { members: [] };
       expect($ctrl.isMember()).to.be.false;
       $ctrl.groupData.members = [5];

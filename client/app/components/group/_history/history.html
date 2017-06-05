@@ -112,7 +112,12 @@
     </div>
   </md-list-item>
 </md-list>
-<md-button ng-disabled="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()">
-  <span ng-if="$ctrl.hasMore()" translate="HISTORY.LOAD_MORE"></span>
-  <span ng-if="!$ctrl.hasMore()" translate="HISTORY.ALL_LOADED"></span>
-</md-button>
+<div>
+  <md-button ng-disabled="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()">
+    <span ng-if="$ctrl.hasMore()" translate="HISTORY.LOAD_MORE"></span>
+    <span ng-if="!$ctrl.hasMore()" translate="HISTORY.ALL_LOADED"></span>
+  </md-button>
+  <span class="md-caption">
+    {{ $ctrl.data.results.length }} / {{ $ctrl.data.count }}
+  </span>
+</div>

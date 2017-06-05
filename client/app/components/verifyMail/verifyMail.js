@@ -19,16 +19,6 @@ let verifyMailModule = angular.module("verifyMail", [
       parent: "main",
       url: "/verify-mail?key",
       component: "verifyMail",
-      resolve: {
-        user: (Authentication) => {
-          return Authentication.update();
-        },
-        error: (User, $stateParams) => {
-          return User.verifyMail($stateParams.key)
-          .then(() => false)
-          .catch((err) => err);
-        }
-      },
       ncyBreadcrumb: {
         label: "{{'VERIFYMAIL.TITLE' | translate}}"
       }

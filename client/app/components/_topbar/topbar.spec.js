@@ -31,13 +31,6 @@ describe("Topbar", () => {
       $ctrl.$onInit();
       $rootScope.$apply();
       expect($ctrl.Authentication.update).has.been.called;
-      expect($ctrl.loggedInUser).to.deep.equal(userData);
-    });
-
-    it("checks auth status", () => {
-      expect($ctrl.isLoggedIn()).to.be.false;
-      $ctrl.Authentication.data = { id: 456 };
-      expect($ctrl.isLoggedIn()).to.be.true;
     });
 
     it("should redirect to login page after logout", () => {

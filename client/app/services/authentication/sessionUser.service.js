@@ -37,4 +37,8 @@ export default class sessionUser {
     angular.copy({}, this.value);
   }
 
+  isLoggedIn() {
+    return angular.isDefined(this.value.id);
+  }
+
 }

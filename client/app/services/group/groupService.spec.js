@@ -124,18 +124,15 @@ describe("group service", () => {
   });
 
   context("auth interaction", () => {
-    let Authentication;
-    beforeEach(inject((_Authentication_) => {
-      Authentication = _Authentication_;
-    }));
-
     it("filters my groups", () => {
-      Authentication.data = { id: 2 };
-      $httpBackend.expectGET("/api/groups/?members=2").respond(groupData);
-      expect(GroupService.listMy())
-        .to.be.fulfilled.and
-        .to.eventually.deep.equal(groupData);
-      $httpBackend.flush();
+      inject((SessionUser) => {
+        SessionUser.value = { id: 2 };
+        $httpBackend.expectGET("/api/groups/?members=2").respond(groupData);
+        expect(GroupService.listMy())
+          .to.be.fulfilled.and
+          .to.eventually.deep.equal(groupData);
+        $httpBackend.flush();
+      });
     });
   });
 });

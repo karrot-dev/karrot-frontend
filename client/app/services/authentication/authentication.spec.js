@@ -70,30 +70,6 @@ describe("authentication", () => {
       $httpBackend.flush();
     });
 
-    context("auth data cache", () => {
-      it("on login", () => {
-        $httpBackend.expectPOST("/api/auth/").respond(loginData);
-        Authentication.login("", "");
-        $httpBackend.flush();
-        expect(Authentication.data).to.deep.equal(loginData);
-      });
-
-      it("on update", () => {
-        $httpBackend.expectGET("/api/auth/status/").respond(loginData);
-        Authentication.update();
-        $httpBackend.flush();
-        expect(Authentication.data).to.deep.equal(loginData);
-      });
-
-      it("undefined on logout", () => {
-        Authentication.data = { some: "data" };
-        $httpBackend.expectPOST("/api/auth/logout/").respond(loginData);
-        Authentication.logout();
-        $httpBackend.flush();
-        expect(Authentication.data).to.be.undefined;
-      });
-    });
-
     afterEach(() => {
       $httpBackend.verifyNoOutstandingExpectation();
       $httpBackend.verifyNoOutstandingRequest();

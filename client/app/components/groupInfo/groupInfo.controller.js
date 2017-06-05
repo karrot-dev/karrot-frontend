@@ -1,8 +1,8 @@
 class GroupInfoController {
-  constructor(Authentication, $state, $mdDialog, $document, $anchorScroll) {
+  constructor(SessionUser, $state, $mdDialog, $document, $anchorScroll) {
     "ngInject";
     Object.assign(this, {
-      Authentication,
+      SessionUser,
       $state,
       $mdDialog,
       $document,
@@ -57,12 +57,8 @@ class GroupInfoController {
     };
   }
 
-  isLoggedIn() {
-    return angular.isDefined(this.Authentication.data) && angular.isDefined(this.Authentication.data.id);
-  }
-
   isMember() {
-    return this.groupData.members.indexOf(this.Authentication.data.id) >= 0;
+    return this.groupData.members.indexOf(this.SessionUser.value.id) >= 0;
   }
 
   openJoinGroup($event) {

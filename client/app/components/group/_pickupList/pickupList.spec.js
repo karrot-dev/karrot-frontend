@@ -127,11 +127,7 @@ describe("PickupList", () => {
         options: { filter: {} }
       });
 
-      $ctrl.Authentication.data = { id: 666 };
-    });
-
-    it("gets user id", () => {
-      expect($ctrl.getUserId()).to.equal(666);
+      $ctrl.SessionUser.value = { id: 666 };
     });
 
     it("checks if date header should be shown", () => {

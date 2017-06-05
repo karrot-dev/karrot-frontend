@@ -2,7 +2,7 @@ import VerifyMailModule from "./verifyMail";
 
 const { module } = angular.mock;
 
-describe.only("VerifyMail", () => {
+describe("VerifyMail", () => {
   beforeEach(module(VerifyMailModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider

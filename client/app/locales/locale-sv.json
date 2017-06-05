@@ -59,7 +59,8 @@
   "STOREDETAIL": {
     "EDIT": "Redigera butik",
     "ADDRESS": "Adress",
-    "MANAGE": "Hantera upphämtningarna"
+    "MANAGE": "Hantera upphämtningarna",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
   },
   "STOREEDIT": {
     "NAME": "Namn",

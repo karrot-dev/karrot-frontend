@@ -18,7 +18,10 @@ let storePickupsModule = angular.module("storePickups", [
     .state("storePickups", {
       parent: "group.store.storeDetail",
       url: "/pickups",
-      component: "storePickups"
+      component: "storePickups",
+      ncyBreadcrumb: {
+        label: "{{'GROUP.PICKUPS' | translate}}"
+      }
     });
   hookProvider.setup("storePickups", { authenticated: true, anonymous: "login" });
 })

@@ -59,7 +59,8 @@
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
     "ADDRESS": "Adresse",
-    "MANAGE": "Abholzeiten prüfen und ändern"
+    "MANAGE": "Abholzeiten prüfen und ändern",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
   },
   "STOREEDIT": {
     "NAME": "Name",

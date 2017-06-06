@@ -59,7 +59,8 @@
   "STOREDETAIL": {
     "EDIT": "Editar tienda",
     "ADDRESS": "Dirección",
-    "MANAGE": "Check and manage the pickups"
+    "MANAGE": "Check and manage the pickups",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
   },
   "STOREEDIT": {
     "NAME": "Nombre",

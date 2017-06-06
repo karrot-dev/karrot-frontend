@@ -4,9 +4,9 @@
   <div ng-show="$ctrl.options.showTopbar">
     <h3 class="md-title"><i class="icon fa fa-shopping-basket" aria-hidden="true"></i>  {{$ctrl.options.header}}</h3>
     <div style="display: inline-block">
-      <md-button aria-label="{{'BUTTON.CREATE' | translate}}" ng-show="$ctrl.options.showCreateButton" class="md-primary" aria-label="Create Pickup" ng-click="$ctrl.openCreatePickupPanel($event)">
-      <i style="font-size: 1.2em;" class="fa fa-plus-circle" aria-hidden="true"></i>
-        <span translate="BUTTON.CREATE"></span>
+      <md-button aria-label="{{'STOREDETAIL.MANAGE_PICKUP_DATES' | translate}}" ng-show="$ctrl.options.showCreateButton" class="md-primary" aria-label="Check and manage the pickups" ui-sref="pickupManage">
+      <i style="font-size: 1.2em;" class="fa fa-clock-o" aria-hidden="true"></i>
+        <span translate="STOREDETAIL.MANAGE_PICKUP_DATES"></span>
       </md-button>
       <md-menu>
         <md-button aria-label="{{'PICKUPLIST.FILTER' | translate}}" class="small" ng-click="$mdMenu.open($event)">
@@ -50,7 +50,6 @@
       <pickup-list-item
         ng-repeat-end
         show-detail="$ctrl.options.showDetail"
-        on-delete="$ctrl.delete(pickup)"
         on-join="$ctrl.joinPickup(pickup.id)"
         on-leave="$ctrl.leavePickup(pickup.id)"
         data="pickup"

@@ -33,7 +33,7 @@ let storeDetailModule = angular.module("storeDetail", [
     })
     .state("group.store", {
       url: "/store/{storeId:int}",
-      redirectTo: "group.store.storeDetail.pickups",
+      redirectTo: "storePickups",
       template: "<ui-view></ui-view>",
       resolve: {
         storedata: (Store, CurrentStores, $stateParams) => {

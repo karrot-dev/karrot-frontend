@@ -1,21 +1,23 @@
 .expandablePanelSlider
-  text-align: center
-  position: relative
-  border-top: 1px solid #ccc
+  text-align center
+  position relative
+  border-top 1px solid #ccc
 
-.expandablePanelSlider button
-  position: absolute
-  top: -1em
+  button
+    position absolute
+    top -1em
+
+  .content
+      overflow hidden
+      transition max-height 1s
 
 .expandablePanelSlider:before
-  display: block
-  content: ""
-  position: relative
-  top: -1em
-  height: 1em
-  background-image: linear-gradient(0deg, #eee 0%, rgba(0,0,0,0) 100%)
-  opacity: 1
+  display block
+  content ""
+  position relative
+  top -1em
+  height 1em
+  background-image linear-gradient(0, #eee 0, rgba(0, 0, 0, 0) 100%)
+  opacity 1
 
-.content
-  overflow: hidden
-  transition: max-height 1s
+  

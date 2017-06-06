@@ -32,7 +32,7 @@
 	"stackedProperties": "never",
 	"trailingWhitespace": "never",
 	"universal": false,
-	"valid": true,
+	"valid": false,
 	"zeroUnits": "never",
 	"zIndexNormalize": false
 }

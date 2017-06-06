@@ -4,7 +4,8 @@ let randomPictureDirective = ($document) => {
     restrict: "EA",
     scope: {
       seed: "<",
-      size: "<"
+      size: "<",
+      name: "<"
     },
     template: "",
     link: {
@@ -71,6 +72,22 @@ let randomPictureDirective = ($document) => {
         overlay.setAttribute("x", 0);
         overlay.setAttribute("y", 0);
         box.appendChild(overlay);
+
+        if (angular.isDefined(scope.name)){
+          let name = scope.name.substring(0, 2).toUpperCase();
+
+          let initials = $document[0].createTextNode(name);
+          let textOverlay = $document[0].createElementNS(svgns, "text");
+          textOverlay.setAttribute("width", size);
+          textOverlay.setAttribute("height", size);
+          textOverlay.setAttribute("fill", "rgba(0,0,0,1)");
+          textOverlay.setAttribute("font-size", 12);
+          textOverlay.setAttribute("text-anchor", "middle");
+          textOverlay.setAttribute("x", 10);
+          textOverlay.setAttribute("y", 15);
+          textOverlay.appendChild(initials);
+          box.appendChild(textOverlay);
+        }
 
         iElement.append(box);
 

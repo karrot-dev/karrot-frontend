@@ -59,7 +59,8 @@
   "STOREDETAIL": {
     "EDIT": "Traiter magasin",
     "ADDRESS": "Adresse",
-    "MANAGE": "Check and manage the pickups"
+    "MANAGE": "Check and manage the pickups",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
   },
   "STOREEDIT": {
     "NAME": "Nom",

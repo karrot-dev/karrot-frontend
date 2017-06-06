@@ -1,20 +1,18 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import Authentication from "../../../../services/authentication/authentication";
 import historyService from "../../../../services/history/history";
 import history from "../../_history/history";
 import storeHistoryComponent from "./storeHistory.component";
 
 let storeHistoryModule = angular.module("storeHistory", [
   uiRouter,
-  Authentication,
   historyService,
   history
 ])
 
 .component("storeHistory", storeHistoryComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("storeHistory", {
@@ -30,7 +28,6 @@ let storeHistoryModule = angular.module("storeHistory", [
         label: "{{'GROUP.HISTORY' | translate}}"
       }
     });
-  hookProvider.setup("storeHistory", { authenticated: true, anonymous: "login" });
 })
 
 .name;

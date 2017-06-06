@@ -1,18 +1,16 @@
 class StoreDetailController {
-  constructor(Store, $scope) {
+  constructor(Store, $scope, $state) {
     "ngInject";
     Object.assign(this, {
-      Store,
-      $scope,
-      pickupListOptions: {
-        showCreateButton: true,
-        filter: {
-          showJoined: true,
-          showOpen: true,
-          showFull: true
-        }
-      }
+      Store, // needed?
+      $scope, // needed?
+      $state
     });
+  }
+
+  $onInit() {
+    // set currentNavItem on redirect
+    this.currentNavItem = this.$state.current.name;
   }
 }
 

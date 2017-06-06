@@ -4,7 +4,8 @@ import "./history.styl";
 
 let historyComponent = {
   bindings: {
-    data: "<"
+    data: "<",
+    options: "<"
   },
   template,
   controller

@@ -1,6 +1,6 @@
 <md-menu-bar>
   <i class="fa fa-filter" aria-hidden="true"></i>
-  <md-menu>
+  <md-menu ng-if="$ctrl.options.usage !== 'store'">
     <button ng-click="$mdMenu.open()">
       <span translate="HISTORY.STORES"></span>
     </button>
@@ -66,10 +66,12 @@
     <md-menu-content>
       <!-- we can't use the preferred translate directive here,
           since md-menu-item does some transformation -->
-      <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.groups"
+        ng-if="$ctrl.options.usage !== 'store'">
         {{ "HISTORY.TYPES.GROUPS" | translate }}
       </md-menu-item>
-      <md-menu-item type="checkbox" ng-model="$ctrl.types.stores">
+      <md-menu-item type="checkbox" ng-model="$ctrl.types.stores"
+        ng-if="$ctrl.options.usage !== 'store'">
         {{ "HISTORY.TYPES.STORES" | translate }}
       </md-menu-item>
       <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">

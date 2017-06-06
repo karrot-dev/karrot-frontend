@@ -21,6 +21,16 @@ class pickupEditCreateController {
       isSeries: this.data.series,
       mode: this.data.series ? "series" : "single"
     });
+    
+     setMiniDate() {
+       myDate = new Date();
+
+       this.minDate = new Date(
+       this.myDate.getFullYear(),
+       this.myDate.getMonth(),
+       this.myDate.getDate()
+       );
+     }
 
     let keys = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
     for (let i = 0; i < 7; i++) {

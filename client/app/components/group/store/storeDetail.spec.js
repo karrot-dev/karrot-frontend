@@ -2,6 +2,7 @@ import StoreDetailModule from "./storeDetail";
 import StoreDetailController from "./storeDetail.controller";
 import StoreDetailComponent from "./storeDetail.component";
 import StoreDetailTemplate from "./storeDetail.html";
+import StorePickupsModule from "./storePickups/storePickups";
 import GroupComponentModule from "../group";
 
 const { module } = angular.mock;
@@ -9,6 +10,7 @@ const { module } = angular.mock;
 describe("StoreDetail", () => {
   beforeEach(module(StoreDetailModule));
   beforeEach(module(GroupComponentModule));
+  beforeEach(module(StorePickupsModule));  // to test redirection
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });
@@ -51,9 +53,11 @@ describe("StoreDetail", () => {
       });
       $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
-      $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });
+      expect(
+        $state.go("group.store", { storeId: storeData.id, groupId: groupData.id })
+      ).to.eventually.be.fulfilled;
       $httpBackend.flush();
-      expect($state.current.component).to.equal("storeDetail");
+      expect($state.current.component).to.equal("storePickups");
     });
   });
 

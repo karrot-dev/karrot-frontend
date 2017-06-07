@@ -1,12 +1,12 @@
-class GroupHistoryController {
+class StoreHistoryController {
   constructor() {
     "ngInject";
     Object.assign(this, {
       options: {
-        usage: "group"
+        usage: "store"
       }
     });
   }
 }
 
-export default GroupHistoryController;
+export default StoreHistoryController;

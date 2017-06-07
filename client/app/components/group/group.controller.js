@@ -1,5 +1,5 @@
 class GroupController {
-  constructor($state, $mdMedia, $stateParams, Store, CurrentStores, User, CurrentUsers) {
+  constructor($state, $mdMedia, $stateParams, Store, CurrentStores, User, CurrentUsers, CurrentGroup) {
     "ngInject";
     Object.assign(this, {
       $state,
@@ -9,9 +9,11 @@ class GroupController {
       CurrentUsers,
       Store,
       CurrentStores,
-      // for breadcrumb service in store
-      // breadcrumb has only access to topmost controller, so we need to save it here
-      selectedStore: CurrentStores.selected
+
+      // for breadcrumb service
+      // we need to give it the data where it looks, which also sometimes happens in this controller
+      selectedStore: CurrentStores.selected,
+      CurrentGroup
     });
   }
 

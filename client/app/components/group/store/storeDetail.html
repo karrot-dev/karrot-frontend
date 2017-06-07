@@ -26,6 +26,18 @@
     <div>
       <expandable-panel content="$ctrl.storedata.description" markdown="true" collapse="10"></expandable-panel>
     </div>
-    <pickup-list store-id="$ctrl.storedata.id" options="$ctrl.pickupListOptions"></pickup-list>
+
+    <div class="md-padding">
+      <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem">
+        <md-nav-item md-nav-sref="storePickups" name="storePickups">
+          <span translate="GROUP.PICKUPS"></span>
+        </md-nav-item>
+        <md-nav-item md-nav-sref="storeHistory" name="storeHistory">
+          <span translate="GROUP.HISTORY"></span>
+        </md-nav-item>
+      </md-nav-bar>
+
+      <ui-view></ui-view>
+    </div>
   </div>
 </div>

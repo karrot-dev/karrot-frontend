@@ -45,7 +45,7 @@ angular.module("app", [
   PageComponents
 ]).config(($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) => {
   "ngInject";
-  $locationProvider.html5Mode(false).hashPrefix("!");
+  $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise("/landingPage");
   $httpProvider.defaults.xsrfCookieName = "csrftoken";
   $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";

@@ -39,9 +39,10 @@ HOSTNAME = 'https://localhost:8000'  # for constructing the frontend URL
 
 ######
 # InfluxDB config for statistics reporting
-# Can have invalid values for local development, does not complain if the server doesn't exist
+# Disabled by default
 ######
 
+INFLUXDB_DISABLED = True
 INFLUXDB_HOST = '127.0.0.1'
 INFLUXDB_PORT = '8086'
 INFLUXDB_USER = ''

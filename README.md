@@ -5,12 +5,12 @@
 
 # foodsaving frontend
 
-Welcome to the foodsaving tool frontend repository! This is the browser-side software that powers [foodsaving worldwide](foodsaving.world).
+Welcome to the foodsaving tool frontend repository! This is the browser-side software that powers [foodsaving worldwide](https://foodsaving.world).
 
 
 ## yunity and foodsaving
 
-The foodsaving tool is a project of [yunity](yunity.org). 
+The foodsaving tool is a project of [yunity](https://yunity.org). 
 The [foodsaving worldwide team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity provides additional resources to build up foodsaving.
 At a later point, more features could be added that support the yunity vision and mission, e.g. multi-sharing communities, item pooling, integrated decision making (syscon).
 

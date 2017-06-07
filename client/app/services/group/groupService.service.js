@@ -1,10 +1,10 @@
 class GroupService {
 
-  constructor($q, $http, Authentication) {
+  constructor($q, $http, SessionUser) {
     "ngInject";
     this.$q = $q;
     this.$http = $http;
-    this.Authentication = Authentication;
+    this.SessionUser = SessionUser;
   }
 
   create(group) {
@@ -28,12 +28,16 @@ class GroupService {
       .then((res) => res.data);
   }
 
+  listByGroupName(groupName) {
+    return this.$http.get("/api/groups/", { params: { name: groupName } })
+      .then((res) => res.data);
+  }
+
   listMy() {
-    if (angular.isUndefined(this.Authentication.data)) {
+    if (!this.SessionUser.isLoggedIn()) {
       return this.$q.resolve([]);
     }
-    let myUserId = this.Authentication.data.id;
-    return this.listByMemberId(myUserId);
+    return this.listByMemberId(this.SessionUser.value.id);
   }
 
   search(query) {

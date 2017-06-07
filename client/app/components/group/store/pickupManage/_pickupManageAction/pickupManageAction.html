@@ -1,0 +1,37 @@
+<div ng-if="!$ctrl.isScreenSmall()">
+  <md-button class="md-icon-button" ng-click="$ctrl.triggerEdit($event)">
+    <i class="fa fa-pencil"></i>
+    <md-tooltip>
+      <span translate="BUTTON.EDIT"></span>
+    </md-tooltip>
+  </md-button>
+  <md-button class="md-icon-button" ng-if="$ctrl.flags.allowDelete" ng-click="$ctrl.triggerDelete($event)">
+    <i class="fa fa-trash"></i>
+    <md-tooltip>
+      <span translate="BUTTON.DELETE"></span>
+    </md-tooltip>
+  </md-button>
+</div>
+
+<md-menu ng-if="$ctrl.isScreenSmall()">
+  <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
+    <i class="fa fa-ellipsis-h"></i>
+    <md-tooltip>
+      <span translate="BUTTON.EDIT"></span>
+    </md-tooltip>
+  </md-button>
+  <md-menu-content>
+    <md-menu-item>
+      <md-button ng-click="$ctrl.triggerEdit($event)">
+        <i class="fa fa-pencil"></i>
+        <span translate="BUTTON.EDIT"></span>
+      </md-button>
+    </md-menu-item>
+    <md-menu-item ng-if="$ctrl.flags.allowDelete">
+      <md-button ng-click="$ctrl.triggerDelete($event)">
+        <i class="fa fa-trash"></i>
+        <span translate="BUTTON.DELETE"></span>
+     </md-button>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>

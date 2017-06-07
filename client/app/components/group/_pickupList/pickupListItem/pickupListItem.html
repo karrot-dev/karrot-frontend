@@ -14,29 +14,21 @@
           {{$ctrl.data.date | date:'fullDate'}}
         </span>
       </span>
-      <md-button ng-if="!$ctrl.showStoreDetail && !$ctrl.collectors.length" class="md-icon-button md-warn" ng-click="$ctrl.onDelete($ctrl.data, $event)" promise-btn aria-label="{{ 'PICKUPLIST.ITEM.DELETE' | translate }}">
-        <md-tooltip>
-          <span translate="PICKUPLIST.ITEM.DELETE"></span>
-        </md-tooltip>
-        <i class="fa fa-trash-o"></i>
-      </md-button>
     </span>
     <div class="pickupList-pickup-people">
-      <a class="pickuplist-pickup-person" ng-repeat="collector in $ctrl.collectors" ui-sref="userDetail({ id: {{collector.id}} })">
-        <!--<img class="pickupList-pickup-img" src="assets/images/user.png"/>-->
-        <span>{{collector.display_name}}{{$last ? '' : ', '}}</span>
+      <a class="pickuplist-pickup-person" ng-repeat="id in $ctrl.data.collector_ids" ui-sref="userDetail({ id })">
+        <span>{{ $ctrl.CurrentUsers.get(id).display_name }}{{$last ? '' : ', '}}</span>
       </a>
       <div class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>
     </div>
   </div>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" promise-btn ng-show="{{$ctrl.meta.isUserMember}}" class="md-accent pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" promise-btn ng-if="$ctrl.meta.isUserMember" class="md-accent pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.LEAVE"></p>
   </md-button>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.JOIN' | translate}}" ng-click="$ctrl.join()" promise-btn ng-show="{{!$ctrl.meta.isUserMember && !$ctrl.meta.isFull}}" class="md-raised md-primary pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.JOIN' | translate}}" ng-click="$ctrl.join()" promise-btn ng-if="!$ctrl.meta.isUserMember && !$ctrl.meta.isFull" class="md-raised md-primary pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.JOIN"></p>
   </md-button>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.FULL' | translate}}" ng-disabled="true" ng-show="{{!$ctrl.meta.isUserMember && $ctrl.meta.isFull}}" class="pickupList-pickup-right">
+  <md-button aria-label="{{'PICKUPLIST.ITEM.FULL' | translate}}" ng-disabled="true" ng-if="!$ctrl.meta.isUserMember && $ctrl.meta.isFull" class="pickupList-pickup-right">
     <p translate="PICKUPLIST.ITEM.FULL"></p>
   </md-button>
 </md-list-item>
-

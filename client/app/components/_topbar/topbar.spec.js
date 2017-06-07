@@ -4,6 +4,9 @@ const { module } = angular.mock;
 
 describe("Topbar", () => {
   beforeEach(module(TopbarModule));
+  module(($stateProvider) => {
+    $stateProvider.state("home", { url: "/" });
+  });
   beforeEach(module({
     $translate: { use: () => {} },
     translateFilter: (a) => a
@@ -20,9 +23,7 @@ describe("Topbar", () => {
     $rootScope = $injector.get("$rootScope");
     $ctrl = _$componentController_("topbar", {});
     sinon.stub($ctrl.Authentication, "update");
-    $ctrl.Authentication.update.returns($q((resolve) => {
-      resolve(userData);
-    }));
+    $ctrl.Authentication.update.returns($q.resolve(userData));
   }));
 
   describe("Controller", () => {
@@ -34,7 +35,19 @@ describe("Topbar", () => {
       $ctrl.$onInit();
       $rootScope.$apply();
       expect($ctrl.Authentication.update).has.been.called;
-      expect($ctrl.loggedInUser).to.deep.equal(userData);
+    });
+
+    it("should redirect to login page after logout", () => {
+      let $state;
+      inject((_$state_) => {
+        $state = _$state_;
+      });
+      sinon.stub($state, "go");
+      sinon.stub($ctrl.Authentication, "logout");
+      $ctrl.Authentication.logout.returns($q.resolve(undefined));
+      $ctrl.logOut();
+      $rootScope.$apply();
+      expect($state.go).to.have.been.calledWith("login");
     });
   });
 
@@ -52,9 +65,10 @@ describe("Topbar", () => {
 
     it("toggles Right Sidenav", () => {
       $ctrl.$onInit();
-      expect($mdSidenav("right").isOpen()).to.eq(false);
+      $rootScope.$apply();
+      expect($mdSidenav("right").isOpen()).to.be.false;
       $ctrl.toggleRight();
-      expect($mdSidenav("right").isOpen()).to.eq(true);
+      expect($mdSidenav("right").isOpen()).to.be.true;
     });
   });
 });

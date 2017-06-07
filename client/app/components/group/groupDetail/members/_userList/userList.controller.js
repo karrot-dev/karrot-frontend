@@ -1,8 +1,8 @@
 class UserListController {
-  constructor(User) {
+  constructor(CurrentUsers) {
     "ngInject";
     Object.assign(this, {
-      User,
+      CurrentUsers,
       searchQuery: ""
     });
   }
@@ -21,8 +21,14 @@ class UserListController {
    * gets all users in this.users id-array, and saves the result in userData
    */
   getUsers(){
-    angular.forEach(this.users, (userID) => {
-      this.User.get(userID).then((data) => this.userData.push(data));
+    return this.users.map((id) => {
+      return this.CurrentUsers.get(id);
+    }).filter((e) => {
+      if (angular.isDefined(e)) {
+        if (this.searchQuery === "") return true;
+        return e.display_name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0;
+      }
+      return false;
     });
   }
 }

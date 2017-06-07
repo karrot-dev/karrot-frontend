@@ -29,6 +29,11 @@ class PickupDateComService {
       .then((res) => this.$parseList(res.data));
   }
 
+  listBySeriesId(seriesId) {
+    return this.$http.get("/api/pickup-dates/", { params: { series: seriesId, "date_0": new Date() } })
+      .then((res) => this.$parseList(res.data));
+  }
+
   save(pickup) {
     let pickupId = pickup.id;
     return this.$http.patch(`/api/pickup-dates/${pickupId}/`, this.$serialize(pickup))

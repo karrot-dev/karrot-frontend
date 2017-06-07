@@ -1,0 +1,20 @@
+$headlineBrown = #795548
+
+.splash
+  background-image url('yunityorg.jpg')
+  background-size cover
+  min-height 100%
+  h1
+    font-family "Cabin Sketch", sans-serif
+    color $headlineBrown
+    font-size 50px
+  logo
+    padding-right 10px
+    > img
+      height 200px
+      opacity 0.8
+  @media screen and (max-width: 450px)
+    h1.title
+      font-size 7vw
+  ui-view
+    width 40em

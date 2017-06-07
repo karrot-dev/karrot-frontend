@@ -1,0 +1,45 @@
+<div class="md-whiteframe-3dp">
+  <md-toolbar class="md-hue-1" layout-padding layout="row">
+    <h1 class="md-title" flex>
+      <i class="fa fa-group"></i>
+      <span>{{ $ctrl.groupData.name }}</span>
+    </h1>
+
+    <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && $ctrl.isMember()" class="md-raised" ui-sref="group({groupId:$ctrl.groupData.id})">
+      <i class="fa fa-home"></i>
+      <md-tooltip>
+        <span translate="GROUPINFO.MEMBER_VIEW"></span>
+      </md-tooltip>
+    </md-button>
+
+    <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && !$ctrl.isMember()" class="md-raised md-accent" ng-click="$ctrl.openJoinGroup($event)">
+      <i class="fa fa-arrow-circle-right"></i>
+      <md-tooltip>
+        <span translate="BUTTON.JOIN"></span>
+      </md-tooltip>
+    </md-button>
+  </md-toolbar>
+
+  <div layout-padding>
+    <div layout="row" layout-xs="column">
+      <div flex>
+        <p class="md-body-2">
+          {{ $ctrl.groupData.members.length }}
+          <span translate="JOINGROUP.NUM_MEMBERS"></span>
+        </p>
+
+        <p class="md-body">
+          <span ng-if="$ctrl.groupData.public_description">{{$ctrl.groupData.public_description}}</span>
+          <em ng-if="!$ctrl.groupData.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
+        </p>
+
+        <p ng-if="$ctrl.groupData.protected">
+          <i class="fa fa-lock"></i>
+          <span translate="JOINGROUP.PASSWORD_REQUIRED"></span>
+        </p>
+      </div>
+      <leaflet ng-if="$ctrl.hasMarkers()" defaults="$ctrl.map.defaults" markers="$ctrl.map.markers" center="$ctrl.map.center"
+        height="300px" width="300px"></leaflet>
+    </div>
+  </div>
+</div>

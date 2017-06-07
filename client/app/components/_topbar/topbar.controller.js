@@ -1,5 +1,5 @@
 class TopbarController {
-  constructor(Authentication, $mdMedia, $scope, $mdSidenav) {
+  constructor(Authentication, SessionUser, $state, $mdMedia, $scope, $mdSidenav) {
     "ngInject";
     $scope.screenIsSmall = !$mdMedia("gt-sm");
     $scope.$watch(() => {
@@ -8,20 +8,29 @@ class TopbarController {
       $scope.screenIsSmall = !big;
     });
 
-    this.toggleRight = () => {
-      $mdSidenav("right")
-        .toggle();
-    };
-
     Object.assign(this, {
-      Authentication
+      Authentication,
+      SessionUser,
+      $state,
+      $mdSidenav
     });
   }
 
   $onInit() {
-    this.Authentication.update().then((data) => {
-      this.loggedInUser = data;
-    });
+    this.Authentication.update();
+  }
+
+  toggleRight() {
+    this.$mdSidenav("right").toggle();
+  }
+
+  logOut(){
+    this.Authentication.logout()
+      .then(() => {
+        this.$state.go("login");
+      }, () => {
+        //Logout failed!
+      });
   }
 }
 

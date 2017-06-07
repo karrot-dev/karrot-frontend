@@ -1,4 +1,13 @@
-<a ui-sref="userDetail({id:$ctrl.userId})">
-  <random-picture seed="$ctrl.userId" size="$ctrl.size"></random-picture>
-  <md-tooltip>{{ $ctrl.name }}</md-tooltip>
+<a ng-if="$ctrl.getUser()" ui-sref="userDetail({id:$ctrl.userId})">
+  <random-picture name="$ctrl.getUser().display_name" seed="$ctrl.userId" size="$ctrl.size"></random-picture>
+  <md-tooltip>
+    {{ $ctrl.getUser().display_name }}
+  </md-tooltip>
 </a>
+
+<span ng-if="!$ctrl.getUser()">
+  <span>?</span>
+  <md-tooltip>
+    <span translate="PROFILE.INACCESSIBLE_OR_DELETED"></span>
+  </md-tooltip>
+</span>

@@ -1,8 +1,9 @@
 {
-  "GLOBAL":{
-    "GITHUB_NOTE":"Разработка",
-    "DEVMAIL_NOTE":"Напишите нам письмо со своими предложениями / сообщениями об ошибках.",
-    "WARNING":"Внимание!",
+  "GLOBAL": {
+    "GITHUB_NOTE": "Разработка",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "DEVMAIL_NOTE": "Напишите нам письмо со своими предложениями / сообщениями об ошибках.",
+    "WARNING": "Внимание!",
     "BETA_WARNING": "Сайт находится в стадии активной разработки и мы не можем гарантировать безопасность и конфиденциальность вводимых вами данных (но приложим к этому все усилия).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
     "SERVER_ERROR": "Server error"
@@ -40,6 +41,7 @@
   "GROUP": {
     "LEAVE": "Выйти из группы",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Редактировать группу",
     "CREATE_TITLE": "Create new group",
     "TITLE": "Заголовок для этой группы",
@@ -49,7 +51,7 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Участники",
     "STORES": "Точки",
-    "HISTORY":"History",
+    "HISTORY": "History",
     "DESCRIPTION": "Описание",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group"
@@ -57,7 +59,8 @@
   "STOREDETAIL": {
     "EDIT": "Внести изменения",
     "ADDRESS": "Адрес",
-    "MANAGE": "Check and manage the pickups"
+    "MANAGE": "Check and manage the pickups",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
   },
   "STOREEDIT": {
     "NAME": "Name",
@@ -68,7 +71,15 @@
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
     "SERIES": "Recurring",
-    "SINGLE": "One-time pickups"
+    "SINGLE": "One-time pickups",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
     "EDIT": "Редактировать пользователя",
@@ -90,13 +101,17 @@
     "PASSWORD_REQUIRED": "Для входа в эту группу требуется ввести пароль",
     "PASSWORD_WRONG": "Вы ввели неправильный пароль"
   },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+  },
   "HOME": {
     "REDIRECT": "Перенаправление в выбранную группу..."
   },
   "TOPBAR": {
     "LOGOUT": "Выйти",
     "USERPROFILE": "Мой профиль",
-    "GREETING": "Привет, {{Имя пользователя}}"
+    "GREETING": "Привет, {{username}}"
   },
   "LOGIN": {
     "TITLE": "Войти",
@@ -147,8 +162,8 @@
       "DELETE_TEXT": "Do you really want to delete this pickup date?",
       "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
-    "NONE":"No upcoming pickups",
-    "NONE_HINT":"You can create a new pickup on the store page."
+    "NONE": "No upcoming pickups",
+    "NONE_HINT": "You can create a new pickup on the store page."
   },
   "PASSWORDRESET": {
     "TITLE": "Сброс пароля",
@@ -168,12 +183,12 @@
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
-  "HISTORY":{
+  "HISTORY": {
     "GROUP_CREATE": "created this group",
     "GROUP_MODIFY": "changed the settings of this group",
     "GROUP_JOIN": "joined this group",
     "GROUP_LEAVE": "left this group",
-    "STORE_CREATE":"created store {{name}}",
+    "STORE_CREATE": "created store {{name}}",
     "STORE_MODIFY": "changed the settings of store {{name}}",
     "STORE_DELETE": "deleted store {{name}}",
     "PICKUP_CREATE": "created a new one-time pick-up",
@@ -185,5 +200,11 @@
     "PICKUP_DONE": "did a pick-up at {{store_name}}",
     "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   }
 }

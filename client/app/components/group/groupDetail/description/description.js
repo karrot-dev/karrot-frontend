@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
 import expandablePanel from "../../../_expandablePanel/expandablePanel";
 import GroupService from "../../../../services/group/group";

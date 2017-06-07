@@ -1,4 +1,8 @@
 import StoreDetailModule from "./storeDetail";
+import StoreDetailController from "./storeDetail.controller";
+import StoreDetailComponent from "./storeDetail.component";
+import StoreDetailTemplate from "./storeDetail.html";
+import StorePickupsModule from "./storePickups/storePickups";
 import GroupComponentModule from "../group";
 
 const { module } = angular.mock;
@@ -6,6 +10,7 @@ const { module } = angular.mock;
 describe("StoreDetail", () => {
   beforeEach(module(StoreDetailModule));
   beforeEach(module(GroupComponentModule));
+  beforeEach(module(StorePickupsModule));  // to test redirection
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true });
@@ -42,11 +47,18 @@ describe("StoreDetail", () => {
     };
 
     it("should load store information", () => {
+      inject((CurrentGroup) => {
+        // We don't want the side effects of the "group" state persisting the group
+        // It would be better to stub the whole "group" state, but I don't know how
+        sinon.stub(CurrentGroup, "set");
+      });
       $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
-      $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });
+      expect(
+        $state.go("group.store", { storeId: storeData.id, groupId: groupData.id })
+      ).to.eventually.be.fulfilled;
       $httpBackend.flush();
-      expect($state.current.component).to.equal("storeDetail");
+      expect($state.current.component).to.equal("storePickups");
     });
   });
 

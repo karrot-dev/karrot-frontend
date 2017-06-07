@@ -23,14 +23,13 @@ describe("Home", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $httpBackend, $q, Authentication;
+    let $componentController, $httpBackend, $q, SessionUser;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
       $q = $injector.get("$q");
 
-      Authentication = $injector.get("Authentication");
-      Authentication.data = { id: 1 };
+      SessionUser = $injector.get("SessionUser");
     }));
 
     afterEach(() => {
@@ -43,7 +42,16 @@ describe("Home", () => {
       { id: 99 }
     ];
 
-    it("should redirect user", () => {
+    it("should redirect user to current group when possible", () => {
+      SessionUser.value = { current_group: 3 };                       //eslint-disable-line
+      let $ctrl = $componentController("home", {});
+      sinon.stub($ctrl.$state, "go");
+      $ctrl.$onInit();
+      expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: SessionUser.value.current_group });
+    });
+
+    it("should redirect user to first group if current group is null", () => {
+      SessionUser.value = { id: 1, current_group: null };             //eslint-disable-line
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, groupData);
       let $ctrl = $componentController("home", {});
       sinon.stub($ctrl.$state, "go");
@@ -53,13 +61,12 @@ describe("Home", () => {
     });
 
     it("opens join group dialog", () => {
-      $httpBackend.expectGET("/api/groups/?members=1").respond(200, {});
+      SessionUser.value = { id: 1, current_group: null };             //eslint-disable-line
+      $httpBackend.expectGET("/api/groups/?members=1").respond(200, []);
       let $ctrl = $componentController("home", {});
       sinon.stub($ctrl.$state, "go");
       sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q((resolve) => {
-        resolve(1337);
-      }));
+      $ctrl.$mdDialog.show.returns($q.resolve(1337));
       $ctrl.$onInit();
       $httpBackend.flush();
       expect($ctrl.$state.go).to.have.been.calledWith( "group", { groupId: 1337 } );

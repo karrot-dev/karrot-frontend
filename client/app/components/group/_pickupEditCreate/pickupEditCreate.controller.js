@@ -19,6 +19,12 @@ class pickupEditCreateController {
   }
 
   $onInit() {
+    Object.assign(this, {
+      isSeries: this.data.series,
+      mode: this.data.series ? "series" : "single",
+      minPickupDate: moment().toDate() // Setting today's date as minimum pickup date.
+    });
+
     let keys = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
     for (let i = 0; i < 7; i++) {
       // let the week begin on Monday, because the FIRSTDAYOFWEEK value is usually set to Sunday
@@ -96,7 +102,7 @@ class pickupEditCreateController {
     if (!text) {
       return this.timeChoices;
     } else {
-      return this.allTimeChoices.filter((e) => e.text.startsWith(text));
+      return this.allTimeChoices.filter((e) => e.text.includes(text));
     }
   }
 

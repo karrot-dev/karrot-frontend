@@ -4,7 +4,7 @@
     ng-click="$ctrl.groupButton()"
     id="group-menu-active-group">
     <logo></logo>
-    <span style="text-overflow: ellipsis">{{$ctrl.CurrentGroup.value.name || "Please choose a group..."}}</span>
+    <span style="text-overflow: ellipsis">{{ $ctrl.getGroupName() || "Please choose a group..."}}</span>
   </md-button>
   <md-menu md-position-mode="target bottom">
     <span>

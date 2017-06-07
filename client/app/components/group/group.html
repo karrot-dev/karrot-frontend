@@ -3,7 +3,7 @@
 
   <!-- Stores Sidenav -->
   <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav" style="margin-right: 1em">
-    <div class="md-whiteframe-2dp" style="padding: 0">
+    <div class="md-whiteframe-2dp no-padding">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
           <h3 translate="GROUP.STORES"></h3>
@@ -16,7 +16,7 @@
   </span>
 
   <!-- Main Window -->
-  <div class="md-whiteframe-2dp" style="padding: 0; width: 100%; max-width: 60em;">
+  <div class="md-whiteframe-2dp no-padding main-panel">
       <ui-view></ui-view>
   </div>
 

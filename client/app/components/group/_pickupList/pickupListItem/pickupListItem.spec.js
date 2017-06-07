@@ -1,7 +1,7 @@
 import PickupListItemModule from "./pickupListItem";
 
 describe("PickupListItem", () => {
-  let $log, $componentController, $httpBackend, $q;
+  let $log, $componentController, $httpBackend;
 
   let { module } = angular.mock;
 
@@ -15,9 +15,6 @@ describe("PickupListItem", () => {
     $log.reset();
     $httpBackend = $injector.get("$httpBackend");
     $componentController = $injector.get("$componentController");
-    $q = $injector.get("$q");
-
-    pickupData.storePromise = $q((resolve) => resolve(storeData));
   }));
 
   afterEach(() => {
@@ -36,11 +33,7 @@ describe("PickupListItem", () => {
     "store": 9
   };
 
-  let storeData = {
-    "id": 9
-  };
-
-  describe("Controller with date detail", () => {
+  describe("Controller", () => {
     let $ctrl;
 
     beforeEach(() => {
@@ -49,13 +42,22 @@ describe("PickupListItem", () => {
         data: pickupData,
         parentCtrl: {
           "updatePickups": () => {}
-        }
+        },
+        onJoin: () => {},
+        onLeave: () => {},
+        meta: { isUserMember: true }
       });
       $ctrl.$onInit();
     });
 
+    it("gets store data", () => {
+      $ctrl.CurrentStores.set([{ id: 5 }]);
+      $ctrl.data = { store: 5 };
+      $ctrl.$onInit();
+      expect($ctrl.storeData).to.deep.equal({ id: 5 });
+    });
+
     it("test join and leave function", () => {
-      $httpBackend.expectGET("/api/users/1/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/add/").respond("");
       $httpBackend.expectPOST("/api/pickup-dates/11/remove/").respond("");
       $ctrl.join();

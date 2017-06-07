@@ -35,9 +35,7 @@ describe("Passwordreset", () => {
     it("resets password", () => {
       let $ctrl = $componentController("passwordreset", {});
       sinon.stub($ctrl.User, "resetPassword");
-      $ctrl.User.resetPassword.returns($q((resolve) => {
-        resolve();
-      }));
+      $ctrl.User.resetPassword.returns($q.resolve());
       $ctrl.doReset();
       $rootScope.$apply();
       expect($ctrl.successful).to.be.true;
@@ -46,9 +44,7 @@ describe("Passwordreset", () => {
     it("fails resetting password", () => {
       let $ctrl = $componentController("passwordreset", {});
       sinon.stub($ctrl.User, "resetPassword");
-      $ctrl.User.resetPassword.returns($q((resolve, reject) => {
-        reject({ data: "message" });
-      }));
+      $ctrl.User.resetPassword.returns($q.reject({ data: "message" }));
       $ctrl.doReset();
       $rootScope.$apply();
       expect($ctrl.error).to.equal("message");

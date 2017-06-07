@@ -1,13 +1,14 @@
+import moment from "moment";
+
 class PickupListController {
 
-  constructor(Authentication, PickupDate, PickupDateSeries, Store, $filter, $mdDialog, $document) {
+  constructor(SessionUser, PickupDate, PickupDateSeries, Store, $mdDialog, $document) {
     "ngInject";
     Object.assign(this, {
-      Authentication,
+      SessionUser,
       PickupDate,
       PickupDateSeries,
       Store,
-      $filter,
       $mdDialog,
       $document
     });
@@ -30,28 +31,20 @@ class PickupListController {
     this.isInitialized = false;
     this.options = angular.merge(this.defaultOptions, this.options);
 
-    this.Authentication.update().then((data) => {
-      this.userId = data.id;
-      this.updatePickups();
-    });
+    this.updatePickups();
   }
 
-    /**
-     * adds following infos to a list of pickups:
-     * - store (if showDetail == store)
-     */
-  addPickupInfosAndDisplay(pickups) {
-    let stores = {};
-    angular.forEach(pickups, (currentPickup) => {
-      if (this.options.showDetail === "store") {
-        if (angular.isUndefined(stores[currentPickup.store])) {
-          stores[currentPickup.store] = this.Store.get(currentPickup.store);
-        }
-        currentPickup.storePromise = stores[currentPickup.store];
-      }
+  updatePickups() {
+    let promise = {};
+    if (angular.isDefined(this.groupId)) {
+      promise = this.PickupDate.listByGroupId(this.groupId);
+    } else if (angular.isDefined(this.storeId)) {
+      promise = this.PickupDate.listByStoreId(this.storeId);
+    }
+    promise.then((data) => {
+      this.allPickups = data;
+      this.isInitialized = true;
     });
-    this.allPickups = pickups;
-    this.filterAndDisplayPickups();
   }
 
 /**
@@ -69,69 +62,28 @@ class PickupListController {
  * @return true or false
  */
   isUserMember(pickup){
-    return pickup.collector_ids.indexOf(this.userId) !== -1;
+    return pickup.collector_ids.indexOf(this.SessionUser.value.id) !== -1;
   }
 
-    /*
-     * Filters pickups, so that only the ones specified by the criteria in the header menu are shown
-     * @return filtered pickups
-     */
-  filterAndDisplayPickups() {
-    let pickups = [];
-    angular.forEach(this.allPickups, (currentPickup) => {
-      if (this.isUserMember(currentPickup) && this.options.filter.showJoined
-        || this.isFull(currentPickup) && this.options.filter.showFull
-        || !this.isFull(currentPickup) && this.options.filter.showOpen) {
-        pickups.push(currentPickup);
-      }
+  getPickups() {
+    return this.allPickups.filter((currentPickup) => {
+      return this.options.filter.showJoined && this.isUserMember(currentPickup)
+        || this.options.filter.showFull && this.isFull(currentPickup)
+        || this.options.filter.showOpen && !this.isFull(currentPickup);
     });
-    this.groupedPickups = this.groupByDate(pickups);
-    this.isInitialized = true;
-    return pickups;
   }
 
-  /*
-   * groups pickups by date
-   * @return array with items like: {"date": "yyyy-MM-dd", "items", [pickups]}
-   */
-  groupByDate(arr){
-    let getArrayItem = (date, arr) => {
-      for (let i = 0; i < arr.length; i++){
-        if (arr[i].date === date){
-          return arr[i];
-        }
-      }
-      return undefined;
-    };
+  showDateHeaderBefore($index, pickups) {
+    if ($index === 0) return true;
+    return this.onDifferentDay(pickups[$index], pickups[$index - 1]);
+  }
 
-    let retArr = [];
-    angular.forEach(arr, (pickup) => {
-      let pickupDay = this.$filter("date")(pickup.date, "yyyy-MM-dd", "");
-      let arrayItem = getArrayItem(pickupDay, retArr);
-      if (angular.isDefined(arrayItem)){
-        arrayItem.items.push(pickup);
-      } else {
-        retArr.push({ "date": pickupDay, "items": [pickup] });
-      }
-    });
-    return retArr;
+  onDifferentDay(a, b) {
+    return !moment(a.date).isSame(b.date, "day");
   }
 
   toggleReversed() {
     this.options.reversed = !this.options.reversed;
-  }
-
-    /**
-     * update function that should be called every time something is changed in the list
-     */
-  updatePickups() {
-    let promise = {};
-    if (angular.isDefined(this.groupId)) {
-      promise = this.PickupDate.listByGroupId(this.groupId);
-    } else if (angular.isDefined(this.storeId)) {
-      promise = this.PickupDate.listByStoreId(this.storeId);
-    }
-    promise.then((data) => this.addPickupInfosAndDisplay(data));
   }
 
   delete(pickup, $event) {
@@ -157,7 +109,6 @@ class PickupListController {
         let index = this.allPickups.indexOf(this.pickupToDelete);
         this.allPickups.splice(index, 1);
       }
-      this.filterAndDisplayPickups();
       this.isDeleteSeries = false;
     })
     .catch(() => {});
@@ -187,9 +138,18 @@ class PickupListController {
         this.updatePickups();
       } else {
         this.allPickups.push(data);
-        this.filterAndDisplayPickups();
       }
     });
+  }
+
+  joinPickup(pickupId) {
+    this.allPickups.find((e) => e.id === pickupId).collector_ids.push(this.SessionUser.value.id);
+  }
+
+  leavePickup(pickupId){
+    let pickupToLeave = this.allPickups.find((e) => e.id === pickupId);
+    let userIndexToDelete = pickupToLeave.collector_ids.indexOf(this.SessionUser.value.id);
+    pickupToLeave.collector_ids.splice(userIndexToDelete,1);
   }
 }
 

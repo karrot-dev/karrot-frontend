@@ -1,12 +1,12 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
 import groupDetailComponent from "./groupDetail.component";
 import description from "./description/description";
 import members from "./members/members";
 import pickups from "./pickups/pickups";
 import stores from "./stores/stores";
-import history from "./groupHistory/groupHistory";
+import groupHistory from "./groupHistory/groupHistory";
 import expandablePanel from "../../_expandablePanel/expandablePanel";
 import GroupService from "../../../services/group/group";
 
@@ -17,7 +17,7 @@ let groupDetailModule = angular.module("groupDetail", [
   members,
   pickups,
   stores,
-  history,
+  groupHistory,
   expandablePanel,
   GroupService
 ])

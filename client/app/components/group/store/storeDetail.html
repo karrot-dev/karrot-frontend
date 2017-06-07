@@ -5,12 +5,6 @@
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         {{$ctrl.storedata.name}}
       </h1>
-      <md-button class="md-icon-button" ui-sref="pickupManage" aria-label="{{ 'STOREDETAIL.MANAGE' | translate }}">
-        <md-tooltip md-direction="left">
-          <span translate="STOREDETAIL.MANAGE"></span>
-        </md-tooltip>
-        <i class="fa fa-clock-o"></i>
-      </md-button>
       <md-button class="md-icon-button" ui-sref="storeEdit({storeId: $ctrl.storedata.id})" aria-label="{{ 'STOREDETAIL.EDIT' | translate }}">
         <md-tooltip md-direction="left">
           <span translate="STOREDETAIL.EDIT"></span>
@@ -32,6 +26,18 @@
     <div>
       <expandable-panel content="$ctrl.storedata.description" markdown="true" collapse="10"></expandable-panel>
     </div>
-    <pickup-list store-id="$ctrl.storedata.id" options="$ctrl.pickupListOptions"></pickup-list>
+
+    <div class="md-padding">
+      <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem">
+        <md-nav-item md-nav-sref="storePickups" name="storePickups">
+          <span translate="GROUP.PICKUPS"></span>
+        </md-nav-item>
+        <md-nav-item md-nav-sref="storeHistory" name="storeHistory">
+          <span translate="GROUP.HISTORY"></span>
+        </md-nav-item>
+      </md-nav-bar>
+
+      <ui-view></ui-view>
+    </div>
   </div>
 </div>

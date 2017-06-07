@@ -1,23 +1,24 @@
 {
-  "GLOBAL":{
-    "GITHUB_NOTE":"Desarrolo",
-    "DEVMAIL_NOTE":"Escribirnos un correo sobre errores/sugerencias",
-    "WARNING":"Advertencia",
-    "BETA_WARNING": "Este sitio está en cosntrucción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
-    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
-    "SERVER_ERROR": "Server error"
+  "GLOBAL": {
+    "GITHUB_NOTE": "Desarrollo",
+    "FACEBOOK_NOTE": "Únete a nuestro grupo de Facebook",
+    "DEVMAIL_NOTE": "Escríbenos un email para sugerencias y avisarnos de errores",
+    "WARNING": "Advertencia",
+    "BETA_WARNING": "Este sitio está en construcción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
+    "CONNECTION_INTERRUPTED": "Error: conexión interrumpida",
+    "SERVER_ERROR": "Error del servidor"
   },
   "ACTION_NOTICE": {
-    "TITLE": "Convocatoria a colaborar!",
+    "TITLE": "Convocatoria para colaborar!",
     "TEXT": "¿Te interesa crear un projecto de foodsaving o una comunidad de foodsharing? ¿Conoces a alguien que ya lo esté haciendo?",
     "MAIL_TEXT": "¡Escríbenos un correo!"
   },
   "LANDINGPAGE": {
     "BLOG": "Blog",
-    "TEAM": "Team",
-    "LOGIN": "Login",
-    "SEE_OUR_MAP": "Have a look at our map!",
-    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+    "TEAM": "Equipo",
+    "LOGIN": "Entra",
+    "SEE_OUR_MAP": "Échale un vistazo a nuestro mapa",
+    "OUR_GROUPS": "Grupos en Foodsaving world"
   },
   "USERDATA": {
     "EMAIL": "Correo",
@@ -28,10 +29,10 @@
     "CREATE": "Crear",
     "CANCEL": "Cancelar",
     "DELETE": "Eliminar",
-    "EDIT": "Edit",
+    "EDIT": "Editar",
     "JOIN": "Unirse",
-    "LEAVE": "Leave",
-    "PREVIEW": "Preview",
+    "LEAVE": "Salir",
+    "PREVIEW": "Vista previa",
     "BACK": "Back"
   },
   "FORM": {
@@ -40,8 +41,9 @@
   "GROUP": {
     "LEAVE": "Abandonar grupo...",
     "LEAVE_TEXT": "¿De verdad quiere abandonar este grupo?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Editar grupo",
-    "CREATE_TITLE": "Create new group",
+    "CREATE_TITLE": "Crear un grupo nuevo",
     "TITLE": "Título de este grupo",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
@@ -49,26 +51,35 @@
     "PICKUPS": "Recogidas",
     "MEMBERS": "Miembros",
     "STORES": "Tiendas",
-    "HISTORY":"History",
+    "HISTORY": "Historia",
     "DESCRIPTION": "Descripción",
-    "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group"
+    "ADDRESS": "Dirección",
+    "TIMEZONE": "Zona horaria del grupo"
   },
   "STOREDETAIL": {
     "EDIT": "Editar tienda",
     "ADDRESS": "Dirección",
-    "MANAGE": "Check and manage the pickups"
+    "MANAGE": "Check and manage the pickups",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
   },
   "STOREEDIT": {
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address",
+    "NAME": "Nombre",
+    "DESCRIPTION": "Descripción",
+    "ADDRESS": "Dirección",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
     "SERIES": "Recurring",
-    "SINGLE": "One-time pickups"
+    "SINGLE": "One-time pickups",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
     "EDIT": "Editar usuario",
@@ -89,6 +100,10 @@
     "PASSWORD_LABEL": "Introducir contraseña para grupo privado",
     "PASSWORD_REQUIRED": "Este grupo requiere contraseña",
     "PASSWORD_WRONG": "Contraseña errónea"
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "HOME": {
     "REDIRECT": "Redirigiendole a su amado grupo"
@@ -147,8 +162,8 @@
       "DELETE_TEXT": "¿De verdad quiere eliminar esta recogida?",
       "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },
-    "NONE":"Ninguna recogida inminente",
-    "NONE_HINT":"Puede crear una nueva recogida en la página de la tienda"
+    "NONE": "Ninguna recogida inminente",
+    "NONE_HINT": "Puede crear una nueva recogida en la página de la tienda"
   },
   "PASSWORDRESET": {
     "TITLE": "Resetear contraseña",
@@ -162,18 +177,18 @@
     "ADD_MORE": "¡Añadir más idiomas!"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "ITALIC": "italic",
+    "BOLD": "negrita",
+    "ITALIC": "cursiva",
     "STRIKE": "strike",
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
-  "HISTORY":{
-    "GROUP_CREATE": "created this group",
-    "GROUP_MODIFY": "changed the settings of this group",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
-    "STORE_CREATE":"created store {{name}}",
+  "HISTORY": {
+    "GROUP_CREATE": "creó este grupo",
+    "GROUP_MODIFY": "cambió los ajustes de este grupo",
+    "GROUP_JOIN": "se unió a este grupo",
+    "GROUP_LEAVE": "se fue de este grupo",
+    "STORE_CREATE": "creó la tienda {{name}}",
     "STORE_MODIFY": "changed the settings of store {{name}}",
     "STORE_DELETE": "deleted store {{name}}",
     "PICKUP_CREATE": "created a new one-time pick-up",
@@ -185,5 +200,11 @@
     "PICKUP_DONE": "did a pick-up at {{store_name}}",
     "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   }
 }

@@ -1,22 +1,27 @@
 class HomeController {
-  constructor($state, $document, $mdDialog, GroupService) {
+  constructor($state, $document, $mdDialog, GroupService, SessionUser) {
     "ngInject";
     Object.assign(this, {
       $state,
       $document,
       $mdDialog,
-      GroupService
+      GroupService,
+      SessionUser
     });
   }
 
   $onInit() {
-    this.GroupService.listMy().then((data) => {
-      if (data.length > 0) {
-        this.$state.go("group", { groupId: data[0].id });
-      } else {
-        this.openJoinGroupDialog();
-      }
-    });
+    if (this.SessionUser.value.current_group !== null) {
+      this.$state.go("group", { groupId: this.SessionUser.value.current_group });
+    } else {
+      this.GroupService.listMy().then((data) => {
+        if (data.length > 0) {
+          this.$state.go("group", { groupId: data[0].id });
+        } else {
+          this.openJoinGroupDialog();
+        }
+      });
+    }
   }
 
   openJoinGroupDialog($event) {

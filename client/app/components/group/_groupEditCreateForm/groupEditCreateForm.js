@@ -1,5 +1,5 @@
 import angular from "angular";
-import uiRouter from "angular-ui-router";
+import uiRouter from "@uirouter/angularjs";
 import groupEditCreateFormComponent from "./groupEditCreateForm.component";
 import GroupService from "../../../services/group/group";
 import Geocoding from "../../../services/geocoding/geocoding";
@@ -17,6 +17,25 @@ let groupEditCreateFormModule = angular.module("groupEditCreateForm", [
 ])
 
 .component("groupEditCreateForm", groupEditCreateFormComponent)
+
+.directive("groupnameValidator", (GroupService, $q) => {
+  "ngInject";
+  return {
+    require: "ngModel",
+    link: (scope, element, attrs, ngModel) => {
+      let groupId = scope.$ctrl.data.id;
+      ngModel.$asyncValidators.unique = (viewValue) => {
+        return GroupService.listByGroupName(viewValue)
+        .then((response) => {
+          if (response.length === 1 && groupId !== response[0].id) {
+            return $q.reject();
+          }
+          return true;
+        });
+      };
+    }
+  };
+})
 
 .name;
 

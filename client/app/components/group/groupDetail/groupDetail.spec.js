@@ -35,11 +35,13 @@ describe("GroupDetail", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $q;
+    let $componentController, $q, SessionUser;
 
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $q = $injector.get("$q");
+
+      SessionUser = $injector.get("SessionUser");
     }));
 
     it("should be able to leave a group", () => {
@@ -47,8 +49,10 @@ describe("GroupDetail", () => {
       let groupData = { id: 9834 };
       sinon.stub($ctrl.$mdDialog, "show");
       sinon.stub($ctrl.$state, "go");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
+      $ctrl.$mdDialog.show.returns($q.resolve());
+      SessionUser.value = { id: 1 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
+      sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
       $ctrl.CurrentGroup.set({ id: groupData.id });
       expect($ctrl.CurrentGroup.value).to.deep.equal({ id: groupData.id });
       Object.assign($ctrl, { groupData });
@@ -63,7 +67,7 @@ describe("GroupDetail", () => {
       let groupData = { id: 98238 };
       sinon.stub($ctrl.$state, "go");
       sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q((resolve) => resolve()));
+      $ctrl.$mdDialog.show.returns($q.resolve());
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(400);
       Object.assign($ctrl, { groupData });
       $ctrl.leaveGroup();

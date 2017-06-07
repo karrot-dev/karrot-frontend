@@ -38,6 +38,13 @@ class UserDetailController {
   stopEdit() {
     this.editEnabled = false;
   }
+
+  mailIsDifferent(user) {
+    if (angular.isString(user.unverified_email)) {
+      return user.email !== user.unverified_email;
+    }
+    return false;
+  }
 }
 
 export default UserDetailController;

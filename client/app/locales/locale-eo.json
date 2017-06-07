@@ -1,8 +1,9 @@
 {
-  "GLOBAL":{
-    "GITHUB_NOTE":"Ellaboro",
-    "DEVMAIL_NOTE":"Skribu retmesaĝon al ni pri eraroj/sugestoj",
-    "WARNING":"Averto",
+  "GLOBAL": {
+    "GITHUB_NOTE": "Ellaboro",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "DEVMAIL_NOTE": "Skribu retmesaĝon al ni pri eraroj/sugestoj",
+    "WARNING": "Averto",
     "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)",
     "CONNECTION_INTERRUPTED": "Eraro: aliro interrompita!",
     "SERVER_ERROR": "Eraro servila"
@@ -40,6 +41,7 @@
   "GROUP": {
     "LEAVE": "Forlasi la grupon…",
     "LEAVE_TEXT": "Ĉu vi vere volas eliri la grupon?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Redakti grupon",
     "CREATE_TITLE": "Krei novan grupon",
     "TITLE": "Titolo de ĉi tiu grupo",
@@ -49,7 +51,7 @@
     "PICKUPS": "Kolektoj",
     "MEMBERS": "Anoj",
     "STORES": "Vendejoj",
-    "HISTORY":"History",
+    "HISTORY": "History",
     "DESCRIPTION": "Priskribo",
     "ADDRESS": "Adreso",
     "TIMEZONE": "Horzono de la grupo"
@@ -57,7 +59,8 @@
   "STOREDETAIL": {
     "EDIT": "Redakti vendejon",
     "ADDRESS": "Adreso",
-    "MANAGE": "Check and manage the pickups"
+    "MANAGE": "Check and manage the pickups",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
   },
   "STOREEDIT": {
     "NAME": "Nomo",
@@ -68,7 +71,15 @@
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
     "SERIES": "Recurring",
-    "SINGLE": "One-time pickups"
+    "SINGLE": "One-time pickups",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
     "EDIT": "Krei uzanton",
@@ -89,6 +100,10 @@
     "PASSWORD_LABEL": "Entajpu pasvorton por privatan grupon",
     "PASSWORD_REQUIRED": "Ĉi tiu grupo bezonas pasvorton",
     "PASSWORD_WRONG": "Vi misentajpis la pasvorton"
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "HOME": {
     "REDIRECT": "Alidirektante vin al via amata grupo"
@@ -147,8 +162,8 @@
       "DELETE_TEXT": "Ĉu vi vere volas forigi ĉi tiun forkolektan rendevuon?",
       "DELETE_SERIES_TEXT": "Ĉi tiu forkolekta rendevuo estas seriero. Ĉu vi ankaŭ forigemas la serion?"
     },
-    "NONE":"Neniu venonta forkolekto",
-    "NONE_HINT":"Vi povas krei novan forkolekton en la vendeja paĝo."
+    "NONE": "Neniu venonta forkolekto",
+    "NONE_HINT": "Vi povas krei novan forkolekton en la vendeja paĝo."
   },
   "PASSWORDRESET": {
     "TITLE": "Pasvorta restarigo",
@@ -168,12 +183,12 @@
     "QUOTE": "cito",
     "HELP": "Kio estas Markdaŭno?"
   },
-  "HISTORY":{
+  "HISTORY": {
     "GROUP_CREATE": "created this group",
     "GROUP_MODIFY": "changed the settings of this group",
     "GROUP_JOIN": "joined this group",
     "GROUP_LEAVE": "left this group",
-    "STORE_CREATE":"created store {{name}}",
+    "STORE_CREATE": "created store {{name}}",
     "STORE_MODIFY": "changed the settings of store {{name}}",
     "STORE_DELETE": "deleted store {{name}}",
     "PICKUP_CREATE": "created a new one-time pick-up",
@@ -185,5 +200,11 @@
     "PICKUP_DONE": "did a pick-up at {{store_name}}",
     "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   }
 }

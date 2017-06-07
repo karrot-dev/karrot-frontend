@@ -1,9 +1,24 @@
 {
-  "GLOBAL":{
-    "GITHUB_NOTE":"Utveckling",
-    "DEVMAIL_NOTE":"write us a mail for errors/suggestions",
-    "WARNING":"Varning",
-    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best)."
+  "GLOBAL": {
+    "GITHUB_NOTE": "Utveckling",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "DEVMAIL_NOTE": "srkiv ett mejl till oss om problem / förslag",
+    "WARNING": "Varning",
+    "BETA_WARNING": "Denna website är under aktiv utveckling och allt kan ändras. Vi kan inte garantera integriteten på din data, men vi kommer att göra så gott vi kan.",
+    "CONNECTION_INTERRUPTED": "Fel: förbindelsen avbröts!",
+    "SERVER_ERROR": "Server fel"
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Ring för samarbete!\n",
+    "TEXT": "Är du intresserad av att bygga upp foodsaving projektet eller foodsharing communityt eller vet du någon som redan gör det?",
+    "MAIL_TEXT": "Skicka oss ett mejl!"
+  },
+  "LANDINGPAGE": {
+    "BLOG": "Blogg",
+    "TEAM": "Team",
+    "LOGIN": "Logga in",
+    "SEE_OUR_MAP": "Ta en titt på vår karta!",
+    "OUR_GROUPS": "Gupper på Foodsaving Worldwide"
   },
   "USERDATA": {
     "EMAIL": "Mejl",
@@ -14,43 +29,84 @@
     "CREATE": "Skapa",
     "CANCEL": "Avbryt",
     "DELETE": "Radera",
-    "JOIN": "Join",
-    "LEAVE": "Lämna"
+    "EDIT": "Ändra",
+    "JOIN": "Gå med",
+    "LEAVE": "Lämna",
+    "PREVIEW": "Förhandsvisning",
+    "BACK": "Tillbacks"
+  },
+  "FORM": {
+    "MINLENGTH": "Ange mer än {{min}} boxtäver."
   },
   "GROUP": {
     "LEAVE": "Lämna gruppen...",
+    "LEAVE_TEXT": "Är du säker på att du vill lämna denna gruppen?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Redigera gruppen",
-    "TITLE": "Title of this group",
-    "DESCRIPTION": "Group description, visible for members",
-    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
-    "PASSWORD": "Enter a password here if you want to make the group private",
-    "PICKUPS": "Pickups",
+    "CREATE_TITLE": "Skapa ny grupp",
+    "TITLE": "Gruppens namn",
+    "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
+    "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
+    "PASSWORD": "Ange ett lösenord för att göra gruppen privat",
+    "PICKUPS": "Upphämtningar",
     "MEMBERS": "Medlemmar",
-    "STORES": "Butiker"
+    "STORES": "Butiker",
+    "HISTORY": "Historik",
+    "DESCRIPTION": "Beskrivning",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Gruppens tidszon"
   },
   "STOREDETAIL": {
     "EDIT": "Redigera butik",
-    "ADDRESS": "Address"
+    "ADDRESS": "Adress",
+    "MANAGE": "Hantera upphämtningarna",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
+  },
+  "STOREEDIT": {
+    "NAME": "Namn",
+    "DESCRIPTION": "Beskrivning",
+    "ADDRESS": "Adress",
+    "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande upphämtningar synas?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Hantera upphämtningar",
+    "SERIES": "Återkommande",
+    "SINGLE": "Engångs upphämtning",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
     "EDIT": "Redigera användare",
     "DISPLAY_NAME": "Namn",
     "EMAIL": "Mejl",
-    "DESCRIPTION": "Om dig",
-    "PASSWORD_CHANGE": "Change your password (you will be logged out)",
-    "PASSWORD": "Enter your new password"
+    "DESCRIPTION": "Beskriv dig själv",
+    "PASSWORD_CHANGE": "Ändra lösenord (du kommer att bli utloggad)",
+    "PASSWORD": "Ange ditt nya lösenord"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(Användaren är oåtkomlig eller borttagen)"
   },
   "JOINGROUP": {
     "NAME": "Namn",
     "WHICHGROUP": "Vilken grupp vill du gå med i?",
     "NUM_MEMBERS": "Medlemmar",
-    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
-    "PASSWORD_LABEL": "Enter password for private group",
-    "PASSWORD_REQUIRED": "This group requires a password",
-    "PASSWORD_WRONG": "You entered the wrong password"
+    "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
+    "PASSWORD_LABEL": "Ange lösenordet för den privata gruppen",
+    "PASSWORD_REQUIRED": "Denna grupp kräver ett lösenord",
+    "PASSWORD_WRONG": "Lösenordet som du angav är fel"
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "HOME": {
-    "REDIRECT": "Redirecting to your beloved group..."
+    "REDIRECT": "Omdirigerar till din grupp..."
   },
   "TOPBAR": {
     "LOGOUT": "Logga ut",
@@ -58,66 +114,97 @@
     "GREETING": "Hej, {{username}}"
   },
   "LOGIN": {
-    "TITLE": "Login",
-    "WRONG": "The given credentials are wrong. Please check them carefully.",
-    "SUBMIT": "Login",
-    "SIGNUP": "Sign up!",
-    "FORGOT_PASSWORD": "Forgot your password?"
+    "TITLE": "Logga in",
+    "WRONG": "Login eller lösenord fel. Kontrollera om de är korrekta.",
+    "SUBMIT": "Logga in",
+    "SIGNUP": "Gå med!",
+    "FORGOT_PASSWORD": "Glömt lösenordet?"
   },
   "SIGNUP": {
-    "TITLE": "Sign Up!",
-    "BACK": "Back to Login",
-    "OK": "Join",
-    "FAILED": "Sign up failed!"
+    "TITLE": "Gå med!",
+    "BACK": "Tillbacks till logga in",
+    "OK": "gå med",
+    "FAILED": "Du lyckades inte gå med!"
   },
   "VERIFYMAIL": {
-    "TITLE": "Mail verification",
-    "SUCCESS": "Your mail address was successfully verified!",
-    "ERROR": "Something went wrong. Perhaps you already verified your address?"
+    "TITLE": "Mejl verifiering",
+    "SUCCESS": "Din mejladress har verifierats!",
+    "ERROR": "Något gick fel, du har kanske redan verifierat din mejl adress?"
   },
   "GROUPMENU": {
-    "JOIN": "Join community"
-  },
-  "CREATEGROUP": {
-    "TITLE": "Create Group",
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address"
+    "JOIN": "Gå med i en grupp"
   },
   "CREATEPICKUP": {
-    "TITLE": "Create Pickup",
-    "TIME": "Time",
-    "TIME_ERROR": "enter a valid time: [hh:mm]",
+    "TITLE": "Skapa upphämtningar",
+    "TITLE_EDIT": "Ändra upphämtning",
+    "SERIES": "Återkommande",
+    "SINGLE": "Engångs upphämtning",
+    "WEEKDAYS": "Helg",
+    "HINT_MULTIPLE": "Du kan välja flera dagar genom att hålla ner CTRL tangenten.",
+    "TIME": "Tid",
+    "TIME_ERROR": "Ange tiden korrekt, tex. {{timeExample}}",
     "MAX_COLLECTORS": "Max Slots"
   },
   "CREATESTORE": {
-    "TITLE": "Create a new store",
-    "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address"
+    "TITLE": "Skapa ny butik"
   },
   "PICKUPLIST": {
     "FILTER": "Filter",
-    "JOINED": "joined",
-    "OPEN": "open",
+    "JOINED": "gått med",
+    "OPEN": "öppen",
     "FULL": "full",
-    "SORT": "Sort",
+    "SORT": "Sortera",
     "ITEM": {
-      "LEAVE": "Leave",
-      "JOIN": "Join",
+      "LEAVE": "Lämna",
+      "JOIN": "Gå med",
       "FULL": "Full!",
-      "DELETE": "Delete pickup date",
-      "DELETE_TEXT": "Do you really want to delete this pickup date?"
+      "DELETE": "Ta bort upphämtning",
+      "DELETE_TEXT": "Vill du verkligen ta bort denna upphämtningen?",
+      "DELETE_SERIES_TEXT": "Denna upphämtningen ingår i en serie, vill du ta bort hela serien?"
     },
-    "NONE":"No upcoming pickups",
-    "NONE_HINT":"You can create a new pickup on the store page."
+    "NONE": "Inga bokade upphämtningar",
+    "NONE_HINT": "Du kan boka en ny upphämtning på butik sidan."
   },
   "PASSWORDRESET": {
-    "TITLE": "Password reset",
-    "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
-    "EMAIL": "Mail address",
-    "SUBMIT": "Get new password",
-    "LOGIN": "Back to login page",
-    "SUCCESS": "The request was successfully sent. Have a look at your mails!"
+    "TITLE": "Återställ lösenordet",
+    "INTRO": "Ange den mejl adress som du vill att vi skall skicka lösenordet till (om du har ett registrerat konto hos oss).",
+    "EMAIL": "Mejl adress",
+    "SUBMIT": "Skicka",
+    "LOGIN": "Tillbacks till logga in sidan",
+    "SUCCESS": "Vi lyckades skicka, kolla din mejl!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Lägg till mer språk!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "skapade gruppen",
+    "GROUP_MODIFY": "ändrade inställningar för gruppen",
+    "GROUP_JOIN": "gick med i gruppen",
+    "GROUP_LEAVE": "Lämnade gruppen",
+    "STORE_CREATE": "skapade butiken {{name}}",
+    "STORE_MODIFY": "ändrade inställningen för butiken {{name}}",
+    "STORE_DELETE": "tog bort butiken {{name}}",
+    "PICKUP_CREATE": "skapade en upphämtning",
+    "PICKUP_MODIFY": "ändrade inställningarna för en upphämtninng",
+    "PICKUP_DELETE": "tog bort en upphämtning",
+    "SERIES_CREATE": "skapade en återkommande upphämtning",
+    "SERIES_MODIFY": "ändrade inställningarna för en återkommande upphämtning",
+    "SERIES_DELETE": "tog bort en återkommande upphämtning",
+    "PICKUP_DONE": "hämtade på {{store_name}}",
+    "PICKUP_JOIN": "anmällde sig till en upphämtning på {{store_name}}",
+    "PICKUP_LEAVE": "avanmällde sig från en hämtning på {{store_name}}"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   }
 }

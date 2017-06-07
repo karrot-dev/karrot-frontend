@@ -9,6 +9,9 @@ import passwordreset from "./passwordreset/passwordreset";
 import topbar from "./_topbar/topbar";
 import landingPage from "./landingPage/landingPage";
 import notifications from "./notifications/notifications";
+import groupInfo from "./groupInfo/groupInfo";
+import mainLayout from "./_mainLayout/mainLayout";
+import splashLayout from "./_splashLayout/splashLayout";
 
 let componentModule = angular.module("app.components", [
   group,
@@ -20,7 +23,10 @@ let componentModule = angular.module("app.components", [
   passwordreset,
   topbar,
   landingPage,
-  notifications
+  notifications,
+  groupInfo,
+  mainLayout,
+  splashLayout
 ]).name;
 
 export default componentModule;

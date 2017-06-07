@@ -36,7 +36,8 @@
     "BACK": "Tillbacks"
   },
   "FORM": {
-    "MINLENGTH": "Ange mer än {{min}} boxtäver."
+    "MINLENGTH": "Ange mer än {{min}} boxtäver.",
+    "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
     "LEAVE": "Lämna gruppen...",
@@ -199,7 +200,19 @@
     "SERIES_DELETE": "tog bort en återkommande upphämtning",
     "PICKUP_DONE": "hämtade på {{store_name}}",
     "PICKUP_JOIN": "anmällde sig till en upphämtning på {{store_name}}",
-    "PICKUP_LEAVE": "avanmällde sig från en hämtning på {{store_name}}"
+    "PICKUP_LEAVE": "avanmällde sig från en hämtning på {{store_name}}",
+    "LOAD_MORE": "load more ...",
+    "ALL_LOADED": "All entries loaded.",
+    "STORES": "Stores",
+    "USERS": "Users",
+    "TYPE": "Type",
+    "SELECT_ALL": "Select all",
+    "SELECT_NONE": "Select none",
+    "TYPES": {
+      "GROUPS": "Group related",
+      "STORES": "Store related",
+      "PICKUPS": "Pick-up related"
+    }
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",

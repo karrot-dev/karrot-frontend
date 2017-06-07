@@ -36,7 +36,8 @@
     "BACK": "Back"
   },
   "FORM": {
-    "MINLENGTH": "Bitte gib mehr als {{min}} Zeichen ein."
+    "MINLENGTH": "Bitte gib mehr als {{min}} Zeichen ein.",
+    "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
@@ -199,7 +200,19 @@
     "SERIES_DELETE": "hat einen regelmäßigen Abholtermin gelöscht",
     "PICKUP_DONE": "haben bei {{store_name}} abgeholt",
     "PICKUP_JOIN": "hat sich gemeldet, um bei {{store_name}} abzuholen",
-    "PICKUP_LEAVE": "ist von dem Abholtermin bei {{store_name}} zurückgetreten"
+    "PICKUP_LEAVE": "ist von dem Abholtermin bei {{store_name}} zurückgetreten",
+    "LOAD_MORE": "load more ...",
+    "ALL_LOADED": "All entries loaded.",
+    "STORES": "Stores",
+    "USERS": "Users",
+    "TYPE": "Type",
+    "SELECT_ALL": "Select all",
+    "SELECT_NONE": "Select none",
+    "TYPES": {
+      "GROUPS": "Group related",
+      "STORES": "Store related",
+      "PICKUPS": "Pick-up related"
+    }
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",

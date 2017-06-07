@@ -26,6 +26,7 @@ let storeDetailModule = angular.module("storeDetail", [
   "ngInject";
   $stateProvider
     .state("group.store.storeDetail", {
+      abstract: true,
       component: "storeDetail",
       ncyBreadcrumb: {
         skip: true

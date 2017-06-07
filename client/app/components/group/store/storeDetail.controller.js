@@ -1,9 +1,7 @@
 class StoreDetailController {
-  constructor(Store, $scope, $state, CurrentStores, CurrentGroup) {
+  constructor($state, CurrentStores, CurrentGroup) {
     "ngInject";
     Object.assign(this, {
-      Store, // needed?
-      $scope, // needed?
       $state,
       selectedStore: CurrentStores.selected,  // for breadcrumb
       CurrentGroup // for group breadcrumb

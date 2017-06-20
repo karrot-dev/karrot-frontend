@@ -81,7 +81,7 @@
     "stylint": "^1.5.9",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "supports-color": "^3.1.2",
+    "supports-color": "^4.0.0",
     "webpack": "^2.5.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0",

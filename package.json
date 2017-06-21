@@ -4,6 +4,7 @@
   "description": "Tool to support foodsaving groups worldwide",
   "main": "index.js",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.4",
     "angular": "^1.6.0",
     "angular-animate": "^1.6.0",
     "angular-aria": "^1.6.2",
@@ -17,7 +18,6 @@
     "angular-promise-buttons": "^0.1.18",
     "angular-sanitize": "^1.6.0",
     "angular-translate-storage-cookie": "^2.13.0",
-    "@uirouter/angularjs": "^1.0.0-beta.1",
     "copy-webpack-plugin": "^4.0.1",
     "font-awesome": "^4.6.3",
     "jstimezonedetect": "^1.0.6",
@@ -32,8 +32,8 @@
   "devDependencies": {
     "angular-mocks": "^1.6.0",
     "angular-translate": "^2.12.1",
-    "babel-core": "^6.7.7",
-    "babel-loader": "^7.0.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
     "babel-plugin-istanbul": "^4.0.0",
     "babel-plugin-transform-runtime": "^6.7.5",
     "babel-polyfill": "^6.7.4",
@@ -48,7 +48,7 @@
     "del": "^3.0.0",
     "eslint": "^3.18.0",
     "eslint-config-angular": "^0.5.0",
-    "eslint-plugin-angular": "^2.2.0",
+    "eslint-plugin-angular": "^2.5.0",
     "file-loader": "^0.11.1",
     "fs-walk": "0.0.1",
     "gulp": "^3.9.0",
@@ -74,7 +74,7 @@
     "mocha": "^3.0.1",
     "ng-annotate-loader": "0.6.1",
     "node-libs-browser": "^2.0.0",
-    "postcss-loader": "^2.0.3",
+    "postcss-loader": "^2.0.6",
     "raw-loader": "^0.5.1",
     "run-sequence": "^1.2.2",
     "style-loader": "^0.18.0",
@@ -85,7 +85,7 @@
     "webpack": "^3.0.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0",
-    "yargs": "^8.0.1"
+    "yargs": "^8.0.2"
   },
   "scripts": {
     "build": "NODE_ENV=production gulp webpack",

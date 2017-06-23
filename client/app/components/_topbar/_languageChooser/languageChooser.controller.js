@@ -11,7 +11,8 @@ class LanguageChooserController {
         es: "Español",
         it: "Italiano",
         eo: "Esperanto",
-        ru: "Русский"
+        ru: "Русский",
+        zh: "中文"
       }
     });
   }

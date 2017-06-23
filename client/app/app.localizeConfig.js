@@ -24,15 +24,15 @@ let AppLocalize = ($translateProvider, $httpProvider) => {
   .translations("zh", localeZH)
   .fallbackLanguage("en")
   .registerAvailableLanguageKeys(["en", "de", "fr", "sv", "eo", "es", "it", "ru", "zh"], {
-    "en_*": "en",
-    "de_*": "de",
-    "fr_*": "fr",
+    "en*": "en",
+    "de*": "de",
+    "fr*": "fr",
     "sv": "sv",
     "eo": "eo",
-    "es_*": "es",
-    "it_*": "it",
-    "ru_*": "ru",
-    "zh_*": "zh",
+    "es*": "es",
+    "it*": "it",
+    "ru*": "ru",
+    "zh*": "zh",
     "*": "en" // non-mapped language code get served in English
   })
   .determinePreferredLanguage();

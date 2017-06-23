@@ -6,6 +6,7 @@ import localeES from "./locales/locale-es.json";
 import localeEO from "./locales/locale-eo.json";
 import localeIT from "./locales/locale-it.json";
 import localeRU from "./locales/locale-ru.json";
+import localeZH from "./locales/locale-zh.json";
 
 let AppLocalize = ($translateProvider, $httpProvider) => {
   "ngInject";
@@ -20,14 +21,19 @@ let AppLocalize = ($translateProvider, $httpProvider) => {
   .translations("es", localeES)
   .translations("it", localeIT)
   .translations("ru", localeRU)
+  .translations("zh", localeZH)
   .fallbackLanguage("en")
-  .registerAvailableLanguageKeys(["en", "de", "fr", "sv", "eo", "es", "it", "ru"], {
+  .registerAvailableLanguageKeys(["en", "de", "fr", "sv", "eo", "es", "it", "ru", "zh"], {
     "en_*": "en",
     "de_*": "de",
     "fr_*": "fr",
+    "sv": "sv",
+    "eo": "eo",
     "es_*": "es",
     "it_*": "it",
-    "ru_*": "ru"
+    "ru_*": "ru",
+    "zh_*": "zh",
+    "*": "en" // non-mapped language code get served in English
   })
   .determinePreferredLanguage();
 

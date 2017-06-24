@@ -4,15 +4,17 @@
     {{ $ctrl.$translate.use() }}
   </md-button>
   <md-menu-content>
-    <md-menu-item ng-repeat="(langKey, name) in $ctrl.providedLangs">
-      <md-button ng-click="$ctrl.changeLanguage(langKey)" md-menu-align-target>
-        <strong>{{ name }}</strong>
+    <md-menu-item ng-repeat="lang in $ctrl.sortedLanguages">
+      <md-button ng-click="$ctrl.changeLanguage(lang.key)" md-menu-align-target layout="column">
+        <strong>{{ lang.name }}</strong>
+        <span class="md-caption">({{ lang.completed }}%)</span>
+        <md-progress-linear ng-show="lang.completed < 100" md-mode="determinate" value="{{ lang.completed }}"></md-progress-linear>
       </md-button>
     </md-menu-item>
     <md-menu-item>
       <md-button aria-label="{{'LANGUAGECHOOSER.ADD_MORE' | translate}}" href="https://www.transifex.com/yunity-1/foodsaving-tool/dashboard/">
         <i class="fa fa-external-link"></i>
-        <span translate="LANGUAGECHOOSER.ADD_MORE"></span>
+        <span translate="LANGUAGECHOOSER.ADD_MORE" class="md-caption"></span>
       </md-button>
     </md-menu-item>
   </md-menu-content>

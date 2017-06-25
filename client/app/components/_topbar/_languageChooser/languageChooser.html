@@ -3,7 +3,7 @@
     <i class="fa fa-globe"></i>
     {{ $ctrl.$translate.use() }}
   </md-button>
-  <md-menu-content>
+  <md-menu-content class="long-content">
     <md-menu-item ng-repeat="lang in $ctrl.sortedLanguages">
       <md-button ng-click="$ctrl.changeLanguage(lang.key)" md-menu-align-target layout="column">
         <strong>{{ lang.name }}</strong>

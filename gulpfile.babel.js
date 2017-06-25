@@ -89,7 +89,7 @@ gulp.task("stylint", () => {
   ])
     .pipe(stylint({ config: ".stylintrc" }))
     .pipe(stylint.reporter())
-    .pipe(stylint.reporter("fail"));
+    .pipe(stylint.reporter("fail", { failOnWarning: true }));
 });
 
 gulp.task("eslint", () => {

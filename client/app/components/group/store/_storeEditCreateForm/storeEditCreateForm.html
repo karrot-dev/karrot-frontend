@@ -34,8 +34,8 @@
       class="md-whiteframe-z1">
     </leaflet>
 
-    <h4 translate="STOREEDIT.WEEKS_IN_ADVANCE"></h4>
-    <md-slider-container>
+    <h4 ng-if="!$ctrl.isCreate" translate="STOREEDIT.WEEKS_IN_ADVANCE"></h4>
+    <md-slider-container ng-if="!$ctrl.isCreate">
       <md-slider flex md-discrete min="1" step="1" max="10" ng-model="$ctrl.data.weeks_in_advance" aria-label="{{'STOREEDIT.WEEKS_IN_ADVANCE' | translate}}" id="week-slider">
       </md-slider>
       <md-input-container>

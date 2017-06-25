@@ -33,7 +33,7 @@ import breadcrumbTemplate from "./templates/breadcrumbs.html";
 import Raven from "raven-js";
 import RavenAngularJS from "raven-js/plugins/angular";
 Raven
-  .config("sentry DSN")
+  .config("https://83881366d48140a0a1b6500bfa5a1fc2@sentry.io/158450")
   .addPlugin(RavenAngularJS, angular)
   .install();
 

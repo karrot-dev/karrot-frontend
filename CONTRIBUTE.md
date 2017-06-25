@@ -121,7 +121,11 @@ Use the [transifex command line client](https://docs.transifex.com/client/introd
 tx push -s
 
 # get translated files
-tx pull -a
+npm run update_i18n
+
+# (it will run the following commands:)
+# tx pull -a
+# curl https://www.transifex.com/api/2/project/foodsaving-tool/resource/frontend/stats/
 ```
 
 Now you can commit those files and open a Pull Request in GitHub.

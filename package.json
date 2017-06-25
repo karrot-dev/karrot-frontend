@@ -92,7 +92,8 @@
     "dev": "test -f .env && env $(cat .env) gulp || gulp",
     "lint": "gulp lint",
     "test": "karma start",
-    "test:watch": "karma start --no-single-run --auto-watch"
+    "test:watch": "karma start --no-single-run --auto-watch",
+    "update_i18n": "python update_i18n.py"
   },
   "keywords": [
     "yunity",

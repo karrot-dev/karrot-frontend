@@ -28,7 +28,7 @@ class LanguageChooserController {
       };
     });
     this.sortedLanguages.sort((a, b) => {
-      if (a.completed !== b.completed) 
+      if (a.completed !== b.completed)
         return b.completed - a.completed  ;
       return a.name.localeCompare(b.name);
     });

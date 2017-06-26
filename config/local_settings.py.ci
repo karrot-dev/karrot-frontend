@@ -3,7 +3,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'fstool_e2etest',
         'TEST': {
-            'NAME': 'circle_test'
+            'NAME': 'will_be_created'
         },
         'USER': 'ubuntu',
     }

@@ -18,7 +18,7 @@ import webpackHotMiddelware from "webpack-hot-middleware";
 import colorsSupported      from "supports-color";
 import historyApiFallback   from "connect-history-api-fallback";
 
-const BACKEND = process.env.BACKEND || "https://foodsaving.world/";
+const BACKEND = process.env.BACKEND || "https://dev.foodsaving.world/";
 
 let root = "client";
 

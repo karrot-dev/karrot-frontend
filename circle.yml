@@ -11,6 +11,7 @@ test:
   post:
     - coverage html -d $CIRCLE_ARTIFACTS
     - pip install codecov && codecov
+    - if [ $CIRCLE_BRANCH ]; then bash trigger_e2e_build.sh; fi
 deployment:
   dev:
     branch: [master, production]

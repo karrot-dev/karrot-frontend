@@ -2,6 +2,7 @@ from itertools import zip_longest
 
 import dateutil.rrule
 from dateutil.relativedelta import relativedelta
+from django.contrib.postgres.fields import JSONField
 from django.db import transaction
 from django.db.models import Count
 from django.dispatch import Signal
@@ -153,5 +154,24 @@ class PickupDate(BaseModel):
     is_date_changed = models.BooleanField(default=False)
     is_max_collectors_changed = models.BooleanField(default=False)
 
+    notifications_sent = JSONField(default=dict)
+
     def __str__(self):
         return '{} - {}'.format(self.date, self.store)
+
+    def send_notification_pickup_upcoming(self):
+        if self.notifications_sent.get('upcoming'):
+            return
+        if self.store.group.slack_webhook != '':
+            import requests
+            message = 'Volunteers needed! Open food pickup at *{}* upcoming in two hours! '.format(self.store.name) + \
+                      '<https://foodsaving.world/#!/group/{}/store/{}/pickups|Click here> '.format(self.store.group.id,
+                                                                                                   self.store.id) + \
+                      'and join the pickup for some omnomnom!'
+            r = requests.post(self.store.group.slack_webhook, json={
+                'text': message,
+                'username': self.store.group.name,
+                'icon_url': 'https://foodsaving.world/app/icon/carrot_logo.png'
+            })
+            self.notifications_sent['upcoming'] = {'status': r.status_code, 'text': r.text}
+            self.save()

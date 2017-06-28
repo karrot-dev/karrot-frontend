@@ -1,23 +1,25 @@
 <div class="md-whiteframe-3dp">
-  <md-toolbar class="md-hue-1" layout-padding layout="row">
-    <h1 class="md-title" flex>
-      <i class="fa fa-group"></i>
-      <span>{{ $ctrl.groupData.name }}</span>
-    </h1>
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h1 class="md-title" flex>
+        <i class="fa fa-group"></i>
+        <span>{{ $ctrl.groupData.name }}</span>
+      </h1>
 
-    <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && $ctrl.isMember()" class="md-raised" ui-sref="group({groupId:$ctrl.groupData.id})">
-      <i class="fa fa-home"></i>
-      <md-tooltip>
-        <span translate="GROUPINFO.MEMBER_VIEW"></span>
-      </md-tooltip>
-    </md-button>
+      <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && $ctrl.isMember()" class="md-raised" ui-sref="group({groupId:$ctrl.groupData.id})">
+        <i class="fa fa-home"></i>
+        <md-tooltip>
+          <span translate="GROUPINFO.MEMBER_VIEW"></span>
+        </md-tooltip>
+      </md-button>
 
-    <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && !$ctrl.isMember()" class="md-raised md-accent" ng-click="$ctrl.openJoinGroup($event)">
-      <i class="fa fa-arrow-circle-right"></i>
-      <md-tooltip>
-        <span translate="BUTTON.JOIN"></span>
-      </md-tooltip>
-    </md-button>
+      <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && !$ctrl.isMember()" class="md-raised md-accent" ng-click="$ctrl.openJoinGroup($event)">
+        <i class="fa fa-arrow-circle-right"></i>
+        <md-tooltip>
+          <span translate="BUTTON.JOIN"></span>
+        </md-tooltip>
+      </md-button>
+    </div>
   </md-toolbar>
 
   <div layout-padding>

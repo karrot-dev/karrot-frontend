@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupPopup", () => {
   beforeEach(module(GroupPopupModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

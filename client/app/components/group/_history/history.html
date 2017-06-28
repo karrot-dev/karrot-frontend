@@ -6,12 +6,14 @@
     </button>
     <md-menu-content>
       <md-menu-item>
-        <md-button ng-click="$ctrl.showAllStores(true)">
+        <md-button ng-click="$ctrl.showAllStores(true)"
+              aria-label="{{ 'HISTORY.SELECT_ALL' | translate }}">
           <span translate="HISTORY.SELECT_ALL"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button ng-click="$ctrl.showAllStores(false)">
+        <md-button ng-click="$ctrl.showAllStores(false)"
+              aria-label="{{ 'HISTORY.SELECT_NONE' | translate }}">
           <span translate="HISTORY.SELECT_NONE"></span>
         </md-button>
       </md-menu-item>
@@ -35,12 +37,14 @@
     </button>
     <md-menu-content>
       <md-menu-item>
-        <md-button ng-click="$ctrl.showAllUsers(true)">
+        <md-button ng-click="$ctrl.showAllUsers(true)"
+              aria-label="{{ 'HISTORY.SELECT_ALL' | translate }}">
           <span translate="HISTORY.SELECT_ALL"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button ng-click="$ctrl.showAllUsers(false)">
+        <md-button ng-click="$ctrl.showAllUsers(false)"
+              aria-label="{{ 'HISTORY.SELECT_NONE' | translate }}">
           <span translate="HISTORY.SELECT_NONE"></span>
         </md-button>
       </md-menu-item>
@@ -48,7 +52,7 @@
       <md-menu-item>
         <md-input-container>
           <md-icon md-font-icon="fa fa-search"></md-icon>
-          <input type="text" name="userquery" ng-model="$ctrl.userQuery"></input>
+          <input type="text" name="userquery" aria-label="search" ng-model="$ctrl.userQuery"></input>
         </md-input-container>
       </md-menu-item>
       <md-menu-item type="checkbox"
@@ -115,9 +119,13 @@
   </md-list-item>
 </md-list>
 <div>
-  <md-button ng-disabled="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()">
-    <span ng-if="$ctrl.hasMore()" translate="HISTORY.LOAD_MORE"></span>
-    <span ng-if="!$ctrl.hasMore()" translate="HISTORY.ALL_LOADED"></span>
+  <md-button ng-if="$ctrl.hasMore()" ng-click="$ctrl.loadMore()"
+              aria-label="{{ 'HISTORY.LOAD_MORE' | translate }}">
+    <span translate="HISTORY.LOAD_MORE"></span>
+  </md-button>
+  <md-button ng-if="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()" ng-disabled="true"
+              aria-label="{{ 'HISTORY.ALL_LOADED' | translate }}">
+    <span translate="HISTORY.ALL_LOADED"></span>
   </md-button>
   <span class="md-caption">
     {{ $ctrl.data.results.length }} / {{ $ctrl.data.count }}

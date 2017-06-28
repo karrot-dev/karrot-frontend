@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("History", () => {
   beforeEach(module(HistoryModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

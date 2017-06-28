@@ -218,7 +218,11 @@ describe("pickupEditCreate", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<pickup-edit-create></pickup-edit-create>")(scope);
+      scope.data = {
+        "series": true
+      };
+      $compile("<pickup-edit-create data='data'></pickup-edit-create>")(scope);
+      scope.$digest();
     });
   });
 });

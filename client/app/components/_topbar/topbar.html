@@ -66,7 +66,7 @@
       </md-button>
 
       <md-button ng-click="$ctrl.logOut()" class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}">
-        <i class="fa fa-fw fa-sign-out"></i>
+        <i class="fa fa-sign-out"></i>
         <md-tooltip>
             <span translate="TOPBAR.LOGOUT"></span>
         </md-tooltip>
@@ -87,7 +87,7 @@
     <md-menu-content width="4">
       <md-menu-item>
         <md-button href="https://github.com/yunity/foodsaving-frontend">
-          <i class="fa fa-github"></i>
+          <i class="fa fa-fw fa-github"></i>
           Github
           <md-tooltip>
             <span translate="GLOBAL.GITHUB_NOTE"></span>
@@ -96,7 +96,7 @@
       </md-menu-item>
       <md-menu-item>
         <md-button class="no-transform" ng-href="mailto:fstool@yunity.org">
-          <i class="fa fa-envelope"></i>
+          <i class="fa fa-fw fa-envelope"></i>
           fstool@yunity.org
           <md-tooltip>
             <span translate="GLOBAL.DEVMAIL_NOTE"></span>
@@ -121,19 +121,19 @@
     <md-menu-content width="4">
       <md-menu-item>
         <md-button ng-click="$ctrl.toggleRight()" class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-fw fa-user"></i>
           <span translate="TOPBAR.USERPROFILE"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
         <md-button ng-click="$ctrl.toggleRight()" class="no-transform" ui-sref="notifications">
-          <i class="fa fa-bell-o"></i>
+          <i class="fa fa-fw fa-bell-o"></i>
           <span translate="NOTIFICATIONS.TITLE"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
         <md-button ng-click="$ctrl.logOut()" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}">
-          <i class="fa fa-fw fa-sign-out"></i>
+          <i class="fa fa-fw fa-fw fa-sign-out"></i>
           <span translate="TOPBAR.LOGOUT"></span>
         </md-button>
       </md-menu-item>

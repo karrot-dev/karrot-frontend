@@ -6,8 +6,7 @@ let groupPopupComponent = {
   bindings: {
     id: "@",
     name: "@",
-    memberCount: "@",
-    description: "@"
+    memberCount: "@"
   },
   template,
   controller

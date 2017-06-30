@@ -34,7 +34,7 @@ class TestNotifications(APITestCase):
         self.pickup.notify_upcoming()
         self.assertEqual(len(responses.calls), 1)
         self.assertEqual(self.pickup.notifications_sent['upcoming'], {'status': 200, 'data': {'some': 'data'}})
-        self.assertTrue('Food pickup at' in json.loads(responses.calls[0].request.body)['text'])
+        self.assertTrue('Food pickup at' in json.loads(responses.calls[0].request.body.decode('utf8'))['text'])
 
         # should not send a second notification
         self.pickup.notify_upcoming()

@@ -1,6 +1,8 @@
 machine:
   python:
-    version: 3.4.2
+    version: 3.5.3  # same as on production server
+  services:
+    - redis
 database:
   override:
     - cp config/local_settings.py.ci config/local_settings.py

@@ -1,6 +1,6 @@
 machine:
   python:
-    version: 3.5.3
+    version: 3.5.3  # same as on production server
 database:
   override:
     - cp config/local_settings.py.ci config/local_settings.py

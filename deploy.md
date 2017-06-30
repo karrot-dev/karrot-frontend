@@ -1,7 +1,7 @@
 to build pip dependencies:
 
 ```
-sudo apt-get install postgresql-server-dev-9.4 python3-dev dev
+sudo apt-get install postgresql-server-dev-9.6 python3-dev dev
 ```
 
 Create db user with permissions:
@@ -14,7 +14,7 @@ sudo -u postgres psql
 ```
 
 Give deploy user postgres permissions
-in `/etc/postgresql/9.4/main/pg_hba.conf`:
+in `/etc/postgresql/9.6/main/pg_hba.conf`:
 
 ```
 local	all		deploy					peer
@@ -84,7 +84,7 @@ map $http_upgrade $connection_upgrade {
 
 server {
 
-    server_name fstool.yunity.org;
+    server_name foodsaving.world;
 
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
@@ -124,4 +124,36 @@ symlink it to sites-enabled:
 ```
 cd /etc/nginx/sites-enabled
 ln -s ../sites-available/fstool .
+```
+
+Clone the backend repo to `/home/deploy/foodsaving-backend` and create the virtualenv:
+
+```
+git clone https://github.com/yunity/foodsaving-backend.git
+virtualenv --python=python3 --no-site-packages foodsaving-backend/env
+```
+
+Install `pip-tools`, to allow the deploy script to run `pip-sync`
+
+```
+cd foodsaving-backend
+source env/bin/activate
+pip install pip-tools
+
+# Now you can run pip-sync
+```
+
+Fix a package problem in Debian (pkg-resources is separated from setuptools)
+
+```
+source env/bin/activate
+pip uninstall setuptools && pip install -U setuptools
+
+# Now you can try python manage.py runserver for testing
+```
+
+For running the backend in production, do
+
+```
+systemctl start uwsgi
 ```

@@ -1,11 +1,13 @@
 from itertools import zip_longest
 
 import dateutil.rrule
+import requests
 from dateutil.relativedelta import relativedelta
 from django.contrib.postgres.fields import JSONField
 from django.db import transaction
 from django.db.models import Count
 from django.dispatch import Signal
+from django.template.loader import render_to_string
 
 from django.utils import timezone
 
@@ -21,6 +23,7 @@ class Store(BaseModel, LocationModel):
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH)
     description = models.TextField(blank=True)
     weeks_in_advance = models.PositiveIntegerField(default=4)
+    upcoming_notification_hours = models.PositiveIntegerField(default=4)
 
     deleted = models.BooleanField(default=False)
 
@@ -159,19 +162,18 @@ class PickupDate(BaseModel):
     def __str__(self):
         return '{} - {}'.format(self.date, self.store)
 
-    def send_notification_pickup_upcoming(self):
-        if self.notifications_sent.get('upcoming'):
-            return
-        if self.store.group.slack_webhook != '':
-            import requests
-            message = 'Volunteers needed! Open food pickup at *{}* upcoming in two hours! '.format(self.store.name) + \
-                      '<https://foodsaving.world/#!/group/{}/store/{}/pickups|Click here> '.format(self.store.group.id,
-                                                                                                   self.store.id) + \
-                      'and join the pickup for some omnomnom!'
+    def notify_upcoming(self):
+        if 'upcoming' not in self.notifications_sent and self.store.group.slack_webhook != '':
+            context = {
+                'store_name': self.store.name,
+                'number_of_hours': self.store.upcoming_notification_hours,
+                'store_page_url': 'https://foodsaving.world/#!/group/{}/store/{}/pickups'  # TODO replace absolute url
+                .format(self.store.group.id, self.store.id)
+            }
             r = requests.post(self.store.group.slack_webhook, json={
-                'text': message,
+                'text': render_to_string('upcoming_pickup_slack.jinja', context),
                 'username': self.store.group.name,
                 'icon_url': 'https://foodsaving.world/app/icon/carrot_logo.png'
             })
-            self.notifications_sent['upcoming'] = {'status': r.status_code, 'text': r.text}
+            self.notifications_sent['upcoming'] = {'status': r.status_code, 'data': r.json()}
             self.save()

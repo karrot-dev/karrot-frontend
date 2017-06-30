@@ -11,7 +11,7 @@ class GroupManager(models.Manager):
     @transaction.atomic
     def send_all_notifications(self):
         for g in self.all():
-            g.send_upcoming_notifications()
+            g.send_notifications()
 
 
 class Group(BaseModel, LocationModel):
@@ -28,7 +28,9 @@ class Group(BaseModel, LocationModel):
     def __str__(self):
         return '{}'.format(self.name)
 
-    def send_upcoming_notifications(self):
+    def send_notifications(self):
         for s in self.store.all():
-            for p in s.pickup_dates.filter(date__gt=timezone.now() - relativedelta(hours=2)):
-                p.send_notification_pickup_upcoming()
+            for p in s.pickup_dates.filter(
+                date__gt=timezone.now() - relativedelta(hours=s.upcoming_notification_hours)
+            ):
+                p.notify_upcoming()

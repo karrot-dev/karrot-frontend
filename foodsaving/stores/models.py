@@ -167,13 +167,15 @@ class PickupDate(BaseModel):
             context = {
                 'store_name': self.store.name,
                 'number_of_hours': self.store.upcoming_notification_hours,
-                'store_page_url': 'https://foodsaving.world/#!/group/{}/store/{}/pickups'  # TODO replace absolute url
-                .format(self.store.group.id, self.store.id)
+                'store_page_url': '{hostname}/#!/group/{groupid}/store/{storeid}/pickups'
+                .format(hostname=settings.HOSTNAME,
+                        groupid=self.store.group.id,
+                        storeid=self.store.id)
             }
             r = requests.post(self.store.group.slack_webhook, json={
                 'text': render_to_string('upcoming_pickup_slack.jinja', context),
                 'username': self.store.group.name,
-                'icon_url': 'https://foodsaving.world/app/icon/carrot_logo.png'
+                'icon_url': '{hostname}/app/icon/carrot_logo.png'.format(hostname=settings.HOSTNAME)
             })
             self.notifications_sent['upcoming'] = {'status': r.status_code, 'data': r.text}
             self.save()

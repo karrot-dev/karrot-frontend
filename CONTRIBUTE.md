@@ -19,8 +19,6 @@ To fix a bug or to add a new feature, the workflow is roughly the following. Fir
 git checkout master
 git pull
 npm install
-npm up
-npm prune
 ```
 
 Then you are ready to start working. Turn on the development server and open the URL (usually http://localhost:3000). As soon as you change a file in the repository and save it, it will automatically reload the page.
@@ -141,3 +139,4 @@ To make it easier to look for documentation and help on the internet, here's a l
 * Assertions for tests: [Chai](http://chaijs.com/)
 * Stubs and mocks for tests: [Sinon](http://sinonjs.org/)
 * Test runner: [Karma](https://karma-runner.github.io/)
+

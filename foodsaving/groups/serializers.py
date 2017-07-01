@@ -39,7 +39,8 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             'latitude',
             'longitude',
             'password',
-            'timezone'
+            'timezone',
+            'slack_webhook'
         ]
         extra_kwargs = {
             'name': {

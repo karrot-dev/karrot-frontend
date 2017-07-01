@@ -97,11 +97,15 @@ class TestHistoryAPIWithExistingStore(PaginatedResponseTestCase):
 
     def test_modify_store(self):
         self.client.force_login(self.member)
-        self.client.patch(self.store_url, {'name': 'newnew'})
+        self.client.patch(self.store_url, {
+            'name': 'newnew',  # new value
+            'description': self.store.description  # no change
+        })
         response = self.get_results(history_url)
         self.assertEqual(len(response.data), 1, response.data)
         self.assertEqual(response.data[0]['typus'], 'STORE_MODIFY')
         self.assertEqual(response.data[0]['payload']['name'], 'newnew')
+        self.assertEqual(len(response.data[0]['payload']), 1)
 
     def test_dont_modify_store(self):
         self.client.force_login(self.member)
@@ -189,6 +193,7 @@ class TestHistoryAPIWithExistingPickups(PaginatedResponseTestCase):
         self.client.post(self.pickup_url + 'add/')
         response = self.get_results(history_url)
         self.assertEqual(response.data[0]['typus'], 'PICKUP_JOIN')
+        self.assertEqual(parse(response.data[0]['payload']['date']), self.pickup.date)
 
     def test_leave_pickup(self):
         self.client.force_login(self.member)
@@ -196,6 +201,7 @@ class TestHistoryAPIWithExistingPickups(PaginatedResponseTestCase):
         self.client.post(self.pickup_url + 'remove/')
         response = self.get_results(history_url)
         self.assertEqual(response.data[0]['typus'], 'PICKUP_LEAVE')
+        self.assertEqual(parse(response.data[0]['payload']['date']), self.pickup.date)
 
 
 class TestHistoryAPIWithDonePickup(PaginatedResponseTestCase):

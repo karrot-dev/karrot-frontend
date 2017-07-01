@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-24 04:39+0000\n"
+"POT-Creation-Date: 2017-05-20 20:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:220
+#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:222
 msgid "You are not a member of this group."
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Pickup date is already full."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:160
+#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:162
 msgid "You are not member of the store's group."
 msgstr ""
 
@@ -61,37 +61,19 @@ msgstr ""
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:170
+#: foodsaving/stores/serializers.py:172
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:225
+#: foodsaving/stores/serializers.py:227
 msgid "Set at least one week in advance"
 msgstr ""
 
-#: foodsaving/users/models.py:91
-msgid "Mail has changed"
-msgstr ""
-
-#: foodsaving/users/models.py:92
-msgid ""
-"Your mail address has changed from {} to {}. We assume that everything is "
-"alright."
-msgstr ""
-
-#: foodsaving/users/models.py:109
-msgid "Verify your mail address"
-msgstr ""
-
-#: foodsaving/users/models.py:110
-msgid "Here is your activation link: {}. It will be valid for 7 days."
-msgstr ""
-
-#: foodsaving/users/models.py:123
+#: foodsaving/users/models.py:155
 msgid "New password"
 msgstr ""
 
-#: foodsaving/users/models.py:124
+#: foodsaving/users/models.py:156
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
@@ -105,10 +87,155 @@ msgstr ""
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/users/serializers.py:53
+#: foodsaving/users/serializers.py:57
 msgid "Key has expired"
 msgstr ""
 
-#: foodsaving/users/serializers.py:55
+#: foodsaving/users/serializers.py:59
 msgid "Key is invalid"
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_request-subject.jinja:1
+msgid "Request to delete your account"
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_success-body-text.jinja:4
+msgid "Your account on foodsaving.world was successfully deleted."
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_success-subject.jinja:1
+msgid "Your account was deleted"
+msgstr ""
+
+#: foodsaving/users/templates/base-text.jinja:1
+#, python-format
+msgid "Hello %(full_name)s,"
+msgstr ""
+
+#: foodsaving/users/templates/base-text.jinja:3
+msgid ""
+"Yours,\n"
+"the foodsaving.world team"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_notice-body-text.jinja:4
+#, python-format
+msgid ""
+"Your email address got changed on foodsaving.world.\n"
+"The new email address is %(new_mail)s."
+msgstr ""
+
+#: foodsaving/users/templates/changemail_notice-subject.jinja:1
+msgid ""
+"\n"
+"Your email address changed!\n"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_success-body-text.jinja:4
+#, python-format
+msgid ""
+"Your email address got changed on foodsaving.world.\n"
+"The old email address was %(old_mail)s.\n"
+"To verify this email address as your new one, please click the following "
+"link:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"You can safely ignore this message if you don't know what all this is about."
+msgstr ""
+
+#: foodsaving/users/templates/changemail_success-subject.jinja:1
+msgid "Please verify your new email address"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:3
+msgid "WELCOME"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:142
+msgid "home"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:142
+msgid "Contact Us"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:172
+#, python-format
+msgid "Welcome, %(display_name)s"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:178
+msgid "Verify your e-mail address to continue!"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:195
+msgid "Activation Link"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:206
+msgid "The link will be valid for 7 days."
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:243
+msgid "PRIVACY STATEMENT"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-html.jinja:243
+msgid "TERMS OF SERVICE"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-body-text.jinja:4
+#, python-format
+msgid ""
+"Thank you for signing up to foodsaving.world!\n"
+"Please click the following link to confirm your email:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"You can safely ignore this message if it wasn't you who signed up at our "
+"service using this email address."
+msgstr ""
+
+#: foodsaving/users/templates/mailverification-subject.jinja:1
+msgid "Verify your email address"
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_request-body-text.jinja:4
+#, python-format
+msgid ""
+"Did you forget your password? No problem!\n"
+"Click this link to change it:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"You can ignore this message if you did not request it."
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_request-subject.jinja:1
+msgid ""
+"\n"
+"Forgot your password?\n"
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_success-body-text.jinja:4
+msgid "Your password has been successfully changed!"
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_success-subject.jinja:1
+msgid "New password set!"
+msgstr ""
+
+#: foodsaving/users/templates/send_new_verification_code-body-text.jinja:4
+#, python-format
+msgid ""
+"Here you have the link again to confirm your email:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"You can ignore this message if you did not request it."
+msgstr ""
+
+#: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
+msgid "Please verify your email"
 msgstr ""

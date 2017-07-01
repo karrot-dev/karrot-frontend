@@ -1,6 +1,8 @@
 machine:
   python:
-    version: 3.4.2
+    version: 3.5.3  # same as on production server
+  services:
+    - redis
 database:
   override:
     - cp config/local_settings.py.ci config/local_settings.py
@@ -11,6 +13,7 @@ test:
   post:
     - coverage html -d $CIRCLE_ARTIFACTS
     - pip install codecov && codecov
+    - if [ $CIRCLE_BRANCH ]; then bash trigger_e2e_build.sh; fi
 deployment:
   dev:
     branch: [master, production]

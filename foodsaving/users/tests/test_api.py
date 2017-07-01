@@ -81,8 +81,9 @@ class TestUsersAPI(APITestCase):
         self.assertAlmostEqual(response.data['latitude'], float(self.user_data['latitude']))
         self.assertEqual(response.data['description'], '')
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[0].subject, 'Verify your email address')
         self.assertEqual(mail.outbox[0].to, [self.user_data['email']])
+        self.assertIn('Thank you for signing up', mail.outbox[0].body)
 
     def test_list_users_forbidden(self):
         response = self.client.get(self.url)
@@ -163,8 +164,9 @@ class TestUsersAPI(APITestCase):
         response = self.client.post(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[0].subject, 'Please verify your email')
         self.assertEqual(mail.outbox[0].to, [self.user.email])
+        self.assertNotIn('Thank you for signing up', mail.outbox[0].body)
 
     def test_resend_verification_fails_if_already_verified(self):
         self.client.force_login(user=self.verified_user)
@@ -186,12 +188,6 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].subject, 'New password')
         self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
-
-    def test_reset_password_fails_if_mail_not_verified(self):
-        url = self.url + 'reset_password/'
-        response = self.client.post(url, {'email': self.user.email})
-        self.assertEqual(response.data, {'error': 'mail is not verified'})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_reset_password_fails_if_wrong_mail(self):
         url = self.url + 'reset_password/'
@@ -316,10 +312,11 @@ class TestChangeMail(APITestCase):
         self.assertEqual(response.data['email'], self.verified_user.email)
         self.assertFalse(user.mail_verified)
         self.assertEqual(len(mail.outbox), 2)
-        self.assertEqual(mail.outbox[0].subject, 'Mail has changed')
+        self.assertEqual(mail.outbox[0].subject, 'Your email address changed!')
         self.assertEqual(mail.outbox[0].to, [user.email])
-        self.assertEqual(mail.outbox[1].subject, 'Verify your mail address')
+        self.assertEqual(mail.outbox[1].subject, 'Please verify your email')
         self.assertEqual(mail.outbox[1].to, [user.unverified_email])
+        self.assertNotIn('Thank you for signing up', mail.outbox[1].body)
 
         user.verify_mail()
         self.assertTrue(user.mail_verified)

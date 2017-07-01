@@ -6,6 +6,7 @@ django-enumfield==1.3b2
 django-extensions
 django-redis
 django-rest-swagger
+django-jinja
 djangorestframework
 drf-nested-routers
 factory-boy
@@ -22,3 +23,4 @@ sparkpost
 django-influxdb-metrics
 django-timezone-field
 raven
+responses

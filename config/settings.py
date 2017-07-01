@@ -28,17 +28,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.postgres',
 
-    # Django packages
-    'django_extensions',
-    'corsheaders',
-    'rest_framework',
-    'rest_framework_nested',
-    'rest_framework_swagger',
-    'anymail',
-    'influxdb_metrics',
-    'timezone_field',
-    'raven.contrib.django.raven_compat',
-
     # Application
     'foodsaving',
     'foodsaving.userauth',
@@ -52,6 +41,18 @@ INSTALLED_APPS = (
 
     # removed app, it's just here that the migration can run
     'foodsaving.walls',
+
+    # Django packages
+    'django_extensions',
+    'corsheaders',
+    'rest_framework',
+    'rest_framework_nested',
+    'rest_framework_swagger',
+    'anymail',
+    'influxdb_metrics',
+    'timezone_field',
+    'raven.contrib.django.raven_compat',
+    'django_jinja',
 )
 
 
@@ -87,6 +88,17 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
+    {
+        "BACKEND": "django_jinja.backend.Jinja2",
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "match_extension": ".jinja",
+            "extensions": [
+                "jinja2.ext.i18n",
+            ],
+            "autoescape": True,
+        }
+    },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
@@ -159,6 +171,11 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/api-auth/login/'
 LOGOUT_URL = '/api-auth/logout/'
 
+
+SILENCED_SYSTEM_CHECKS = [
+    'urls.W005', # we don't need to reverse backend URLs
+]
+
 DESCRIPTION_MAX_LENGTH = 100000
 NAME_MAX_LENGTH = 80
 
@@ -167,4 +184,4 @@ NAME_MAX_LENGTH = 80
 try:
     from .local_settings import *
 except ImportError:
-    pass
+    raise Exception("config/local_settings.py is missing! Copy the provided example file and adapt it to your own config.")

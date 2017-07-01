@@ -228,5 +228,33 @@ class TestHistoryAPIWithDonePickup(PaginatedResponseTestCase):
         self.client.force_login(self.member)
         response = self.get_results(history_url, {'typus': 'PICKUP_DONE'})
         self.assertEqual(response.data[0]['typus'], 'PICKUP_DONE')
-        response = self.get_results(history_url, {'typus': 'GROUP_JOIN'})
+        response = self.get_results(history_url, {'typus': 'GROUP_JOIN'})  # unrelated event should give no result
+        self.assertEqual(len(response.data), 0)
+
+
+class TestHistoryAPIWithMissedPickup(PaginatedResponseTestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.member = UserFactory()
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.store = StoreFactory(group=cls.group)
+        cls.pickup = PickupDateFactory(
+            store=cls.store,
+            date=timezone.now() - relativedelta(days=1)
+        )
+        cls.pickup_url = '/api/pickup-dates/{}/'.format(cls.pickup.id)
+        # No one who joined the pickup
+        call_command('delete_old_pickup_dates')
+
+    def test_pickup_done(self):
+        self.client.force_login(self.member)
+        response = self.get_results(history_url)
+        self.assertEqual(response.data[0]['typus'], 'PICKUP_MISSED')
+        self.assertLess(parse(response.data[0]['date']), timezone.now() - relativedelta(hours=22))
+
+    def test_filter_pickup_done(self):
+        self.client.force_login(self.member)
+        response = self.get_results(history_url, {'typus': 'PICKUP_MISSED'})
+        self.assertEqual(response.data[0]['typus'], 'PICKUP_MISSED')
+        response = self.get_results(history_url, {'typus': 'GROUP_JOIN'})  # unrelated event should give no result
         self.assertEqual(len(response.data), 0)

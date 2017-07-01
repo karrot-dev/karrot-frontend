@@ -5,7 +5,7 @@ from foodsaving.groups.serializers import post_group_create, post_group_modify, 
 from foodsaving.stores.api import post_store_delete, pre_pickup_delete, pre_series_delete
 from foodsaving.stores.serializers import post_store_create, post_store_modify, post_pickup_create, \
     post_pickup_modify, post_series_create, post_series_modify, post_pickup_join, post_pickup_leave
-from foodsaving.stores.models import pickup_done
+from foodsaving.stores.models import pickup_done, pickup_missed
 
 
 def make_handler(typus):
@@ -36,7 +36,7 @@ for signal, typus in [
     (post_series_modify, HistoryTypus.SERIES_MODIFY),
     (pre_series_delete, HistoryTypus.SERIES_DELETE),
     (post_pickup_join, HistoryTypus.PICKUP_JOIN),
-    (post_pickup_leave, HistoryTypus.PICKUP_LEAVE)
+    (post_pickup_leave, HistoryTypus.PICKUP_LEAVE),
 ]:
     signal.connect(make_handler(typus=typus), weak=False)
 
@@ -51,4 +51,16 @@ def handle_pickups_done(sender, **kwargs):
         payload=kwargs.get('payload'),
     )
     a.users.set(kwargs.get('users'))
+    a.save()
+
+
+@receiver(pickup_missed)
+def handle_pickups_missed(sender, **kwargs):
+    a = History.objects.create(
+        typus=HistoryTypus.PICKUP_MISSED,
+        date=kwargs.get('date'),
+        group=kwargs.get('group'),
+        store=kwargs.get('store'),
+        payload=kwargs.get('payload'),
+    )
     a.save()

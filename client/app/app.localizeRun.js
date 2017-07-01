@@ -3,6 +3,9 @@ import moment from "moment";
 let AppLocalize = (tmhDynamicLocale, $document, $rootScope, $translate, $mdDateLocale, $filter, $locale) => {
   "ngInject";
   let localize = (event, data) => {
+    if (!data.language) {
+      return;
+    }
     // sets "lang" attribute to html
     $document[0].documentElement.setAttribute("lang", data.language);
 

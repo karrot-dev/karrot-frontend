@@ -26,14 +26,14 @@ class TestNotifications(APITestCase):
 
     @responses.activate
     def test_send_upcoming_notification(self):
-        responses.add(responses.POST, 'https://example.com/test', json={'some': 'data'})
+        responses.add(responses.POST, 'https://example.com/test', body='ok')
         self.pickup.date = timezone.now() + relativedelta(hours=1)
         self.pickup.save()
         self.group.slack_webhook = 'https://example.com/test'
         self.group.save()
         self.pickup.notify_upcoming()
         self.assertEqual(len(responses.calls), 1)
-        self.assertEqual(self.pickup.notifications_sent['upcoming'], {'status': 200, 'data': {'some': 'data'}})
+        self.assertEqual(self.pickup.notifications_sent['upcoming'], {'status': 200, 'data': 'ok'})
         self.assertTrue('Food pickup at' in json.loads(responses.calls[0].request.body.decode('utf8'))['text'])
 
         # should not send a second notification

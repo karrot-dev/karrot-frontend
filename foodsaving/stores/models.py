@@ -175,5 +175,5 @@ class PickupDate(BaseModel):
                 'username': self.store.group.name,
                 'icon_url': 'https://foodsaving.world/app/icon/carrot_logo.png'
             })
-            self.notifications_sent['upcoming'] = {'status': r.status_code, 'data': r.json()}
+            self.notifications_sent['upcoming'] = {'status': r.status_code, 'data': r.text}
             self.save()

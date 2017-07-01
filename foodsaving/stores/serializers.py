@@ -182,7 +182,9 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = StoreModel
-        fields = ['id', 'name', 'description', 'group', 'address', 'latitude', 'longitude', 'weeks_in_advance']
+        fields = ['id', 'name', 'description', 'group',
+                  'address', 'latitude', 'longitude',
+                  'weeks_in_advance', 'upcoming_notification_hours']
         extra_kwargs = {
             'name': {
                 'min_length': 3

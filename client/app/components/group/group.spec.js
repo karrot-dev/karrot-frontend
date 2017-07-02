@@ -85,9 +85,11 @@ describe("Group", () => {
 
   describe("Component", () => {
     let $compile, scope;
-    beforeEach(inject(($rootScope, $injector) => {
+    beforeEach(inject(($rootScope, $injector, User, Store, $q) => {
       $compile = $injector.get("$compile");
       scope = $rootScope.$new();
+      sinon.stub(User, "list").returns($q.resolve([]));
+      sinon.stub(Store, "listByGroupId").returns($q.resolve([]));
     }));
 
     it("compiles component", () => {

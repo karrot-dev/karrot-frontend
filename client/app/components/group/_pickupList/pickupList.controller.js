@@ -35,7 +35,7 @@ class PickupListController {
   }
 
   updatePickups() {
-    let promise = {};
+    let promise;
     if (angular.isDefined(this.groupId)) {
       promise = this.PickupDate.listByGroupId(this.groupId);
     } else if (angular.isDefined(this.storeId)) {

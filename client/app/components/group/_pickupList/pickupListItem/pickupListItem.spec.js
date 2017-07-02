@@ -77,12 +77,6 @@ describe("PickupListItem", () => {
       });
       $ctrl.$onInit();
     });
-
-    it("gets store data", () => {
-      $httpBackend.expectGET("/api/users/1/").respond("");
-      $httpBackend.flush();
-      expect($ctrl.storeData).to.deep.equal(storeData);
-    });
   });
 
   describe("Component", () => {
@@ -93,7 +87,7 @@ describe("PickupListItem", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<pickup-list-item></pickup-list-item>")(scope);
+      $compile("<pickup-list-item data='{store:{}}'></pickup-list-item>")(scope);
     });
   });
 });

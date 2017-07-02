@@ -82,7 +82,10 @@ describe("VerifyMail", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<verify-mail></verify-mail>")(scope);
+      inject((User) => {
+        User.verifyMail.returns($q.resolve());
+        $compile("<verify-mail></verify-mail>")(scope);
+      });
     });
   });
 });

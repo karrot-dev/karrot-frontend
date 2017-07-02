@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupHistory", () => {
   beforeEach(module(GroupHistoryModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

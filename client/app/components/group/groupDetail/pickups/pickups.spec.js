@@ -35,9 +35,10 @@ describe("Pickups", () => {
 
   describe("Component", () => {
     let $compile, scope;
-    beforeEach(inject(($rootScope, $injector) => {
+    beforeEach(inject(($rootScope, $injector, $stateParams) => {
       $compile = $injector.get("$compile");
       scope = $rootScope.$new();
+      $stateParams.groupId = 5;
     }));
 
     it("compiles component", () => {

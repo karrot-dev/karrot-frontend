@@ -257,7 +257,10 @@ describe("PickupList", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<pickup-list options='{}'></pickup-list>")(scope);
+      inject((PickupDate, $q) => {
+        sinon.stub(PickupDate, "listByGroupId").returns($q.resolve([]));
+      });
+      $compile("<pickup-list options='{}' group-id='5'></pickup-list>")(scope);
     });
   });
 });

@@ -31,15 +31,6 @@ class pickupEditCreateController {
       this.days[(i + 6) % 7] = { key: keys[i], name: this.$locale.DATETIME_FORMATS.DAY[i] };
     }
 
-    if (angular.isUndefined(this.data)) {
-      return;
-    }
-
-    Object.assign(this, {
-      isSeries: this.data.series,
-      mode: this.data.series ? "series" : "single"
-    });
-
     // check if we get incoming data
     if (angular.isDefined(this.data.editData)) {
       this.isCreate = false;

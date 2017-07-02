@@ -1,0 +1,22 @@
+group-popup
+  overflow-x scroll
+  .md-title
+    overflow hidden
+    text-overflow ellipsis
+  .group-description
+    max-height 2em
+    overflow hidden
+    text-overflow ellipsis
+    position relative
+    transition max-height 0.5s ease-in-out 0s
+    padding-bottom 2em
+  .group-description:before
+    background linear-gradient(transparent 0, white)
+    content ""
+    width 100%
+    height 100%
+    position absolute
+    left 0
+    top 0
+  .group-description:hover
+    max-height 10em

@@ -1,5 +1,5 @@
 class TopbarController {
-  constructor(Authentication, SessionUser, $state, $mdMedia, $scope, $mdSidenav) {
+  constructor(Authentication, SessionUser, $window, $mdMedia, $scope, $mdSidenav) {
     "ngInject";
     $scope.screenIsSmall = !$mdMedia("gt-sm");
     $scope.$watch(() => {
@@ -11,8 +11,8 @@ class TopbarController {
     Object.assign(this, {
       Authentication,
       SessionUser,
-      $state,
-      $mdSidenav
+      $mdSidenav,
+      reloadPage: () => $window.location.reload()  // makes it easier to stub
     });
   }
 
@@ -27,7 +27,7 @@ class TopbarController {
   logOut(){
     this.Authentication.logout()
       .then(() => {
-        this.$state.go("login");
+        this.reloadPage();
       }, () => {
         //Logout failed!
       });

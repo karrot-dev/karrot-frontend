@@ -36,7 +36,8 @@
     "BACK": "Back"
   },
   "FORM": {
-    "MINLENGTH": "Please enter more than {{min}} characters."
+    "MINLENGTH": "Please enter more than {{min}} characters.",
+    "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
     "LEAVE": "Lascia il gruppo...",
@@ -199,7 +200,19 @@
     "SERIES_DELETE": "deleted a recurring pick-up",
     "PICKUP_DONE": "did a pick-up at {{store_name}}",
     "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}"
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}",
+    "LOAD_MORE": "load more ...",
+    "ALL_LOADED": "All entries loaded.",
+    "STORES": "Stores",
+    "USERS": "Users",
+    "TYPE": "Type",
+    "SELECT_ALL": "Select all",
+    "SELECT_NONE": "Select none",
+    "TYPES": {
+      "GROUPS": "Group related",
+      "STORES": "Store related",
+      "PICKUPS": "Pick-up related"
+    }
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",

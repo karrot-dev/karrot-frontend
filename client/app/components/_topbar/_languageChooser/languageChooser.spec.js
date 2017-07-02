@@ -30,6 +30,12 @@ describe("LanguageChooser", () => {
       $componentController = $injector.get("$componentController");
     }));
 
+    it("initializes", () => {
+      let $ctrl = $componentController("languageChooser", {});
+      $ctrl.$onInit();
+      expect($ctrl.sortedLanguages).to.be.defined;
+    });
+
     it("changes language", () => {
       let $ctrl = $componentController("languageChooser", {});
       sinon.stub($ctrl.$translate, "use");

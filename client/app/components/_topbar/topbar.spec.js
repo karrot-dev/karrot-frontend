@@ -36,19 +36,6 @@ describe("Topbar", () => {
       $rootScope.$apply();
       expect($ctrl.Authentication.update).has.been.called;
     });
-
-    it("should redirect to login page after logout", () => {
-      let $state;
-      inject((_$state_) => {
-        $state = _$state_;
-      });
-      sinon.stub($state, "go");
-      sinon.stub($ctrl.Authentication, "logout");
-      $ctrl.Authentication.logout.returns($q.resolve(undefined));
-      $ctrl.logOut();
-      $rootScope.$apply();
-      expect($state.go).to.have.been.calledWith("login");
-    });
   });
 
   describe("View", () => {
@@ -69,6 +56,22 @@ describe("Topbar", () => {
       expect($mdSidenav("right").isOpen()).to.be.false;
       $ctrl.toggleRight();
       expect($mdSidenav("right").isOpen()).to.be.true;
+    });
+  });
+});
+
+describe("Logout", () => {
+  beforeEach(module(TopbarModule));
+
+  it("should reload whole page", () => {
+    inject(($componentController, $q, $rootScope) => {
+      let $ctrl = $componentController("topbar", {});
+      sinon.stub($ctrl, "reloadPage");
+      sinon.stub($ctrl.Authentication, "logout");
+      $ctrl.Authentication.logout.returns($q.resolve(undefined));
+      $ctrl.logOut();
+      $rootScope.$apply();
+      expect($ctrl.reloadPage).to.have.been.called;
     });
   });
 });

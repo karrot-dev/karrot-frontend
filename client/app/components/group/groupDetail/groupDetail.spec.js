@@ -9,6 +9,10 @@ describe("GroupDetail", () => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
+  beforeEach(module({ translateFilter: (a) => a }));
+  beforeEach(module(($mdAriaProvider) => {
+    $mdAriaProvider.disableWarnings();
+  }));
 
   beforeEach(inject(($injector) => {
     $log = $injector.get("$log");
@@ -81,6 +85,18 @@ describe("GroupDetail", () => {
       $ctrl.groupData = groupData;
       $ctrl.$onInit();
       expect($ctrl.currentNavItem).to.equal("pickups");
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-detail></group-detail>")(scope);
     });
   });
 });

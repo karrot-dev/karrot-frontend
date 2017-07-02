@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupHistory", () => {
   beforeEach(module(GroupHistoryModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -29,6 +30,18 @@ describe("GroupHistory", () => {
     it("should exist", () => {
       let $ctrl = $componentController("groupHistory", {});
       expect($ctrl).to.exist;
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-history></group-history>")(scope);
     });
   });
 });

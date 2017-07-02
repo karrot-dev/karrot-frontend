@@ -37,10 +37,10 @@ let randomPictureDirective = ($document) => {
 
         const g = $document[0].createElementNS(svgns, "g");
         g.setAttribute(
-            "transform",
-            `translate(${-(rows * blockSize - size) / 2} ${-((rows * blockSize - size) / 2)}) ` +
+          "transform",
+          `translate(${-(rows * blockSize - size) / 2} ${-((rows * blockSize - size) / 2)}) ` +
             `rotate(${90 * seed} ${rotate} ${rotate})`
-          );
+        );
 
         for (let i = 0; i < columns; i++) {
           //noprotect

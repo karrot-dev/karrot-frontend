@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("JoinGroup", () => {
   beforeEach(module(JoinGroupModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -96,6 +97,19 @@ describe("JoinGroup", () => {
       $httpBackend.flush();
       expect($ctrl.active).to.deep.equal({ id: 5, members: [1] });
       expect($ctrl.toggleCheck).to.have.been.called;
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      scope.$ctrl = { groups: [{}] };
+      $compile("<join-group></join-group>")(scope);
     });
   });
 });

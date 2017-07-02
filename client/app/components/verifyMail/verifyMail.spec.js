@@ -73,4 +73,19 @@ describe("VerifyMail", () => {
       expect($ctrl.user).to.deep.equal({ email: "user@example.com" });
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      inject((User) => {
+        User.verifyMail.returns($q.resolve());
+        $compile("<verify-mail></verify-mail>")(scope);
+      });
+    });
+  });
 });

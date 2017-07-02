@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("StoreEdit", () => {
   beforeEach(module(StoreEditModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -44,6 +45,18 @@ describe("StoreEdit", () => {
       sinon.stub($ctrl.$state, "go");
       $httpBackend.flush();
       expect($ctrl.$state.go).to.have.been.called;
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<store-edit></store-edit>")(scope);
     });
   });
 });

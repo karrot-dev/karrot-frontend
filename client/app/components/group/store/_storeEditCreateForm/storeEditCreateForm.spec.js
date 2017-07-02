@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("StoreEditCreateForm", () => {
   beforeEach(module(StoreEditCreateFormModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -106,7 +107,7 @@ describe("StoreEditCreateForm", () => {
         $q = $injector.get("$q");
         StoreService = $injector.get("StoreService");
         el = angular.element(
-        "<input type='text' name='name' ng-model='$ctrl.data.name' storename-Validator/>"
+          "<input type='text' name='name' ng-model='$ctrl.data.name' storename-Validator/>"
         );
         $compile(el)(scope);
       });
@@ -145,4 +146,15 @@ describe("StoreEditCreateForm", () => {
     });
   });
 
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<store-edit-create-form></store-edit-create-form>")(scope);
+    });
+  });
 });

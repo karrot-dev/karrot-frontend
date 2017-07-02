@@ -7,6 +7,7 @@ describe("PickupList", () => {
 
   beforeEach(() => {
     module(PickupListModule);
+    module({ translateFilter: (a) => a });
     inject(($injector) => {
       $log = $injector.get("$log");
       $log.reset();
@@ -245,6 +246,21 @@ describe("PickupList", () => {
       $ctrl.openCreatePickupPanel();
       $rootScope.$apply();
       expect($ctrl.allPickups).to.deep.equal([{ "collector_ids": [] }]);
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      inject((PickupDate, $q) => {
+        sinon.stub(PickupDate, "listByGroupId").returns($q.resolve([]));
+      });
+      $compile("<pickup-list options='{}' group-id='5'></pickup-list>")(scope);
     });
   });
 });

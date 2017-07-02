@@ -7,7 +7,7 @@ let AppMaterial = ($mdThemingProvider) => {
     .accentPalette("deep-orange")
     .warnPalette("indigo")
     .backgroundPalette("grey")
-    ;
+  ;
 
 };
 

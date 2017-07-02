@@ -46,4 +46,16 @@ describe("StoreDetailMap", () => {
       });
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<store-detail-map></store-detail-map>")(scope);
+    });
+  });
 });

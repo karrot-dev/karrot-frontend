@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupPopup", () => {
   beforeEach(module(GroupPopupModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -29,6 +30,18 @@ describe("GroupPopup", () => {
     it("should exist", () => {
       let $ctrl = $componentController("groupPopup", {});
       expect($ctrl).to.exist;
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-popup></group-popup>")(scope);
     });
   });
 });

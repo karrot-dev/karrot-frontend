@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupEditCreateForm", () => {
   beforeEach(module(GroupEditCreateFormModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -103,7 +104,7 @@ describe("GroupEditCreateForm", () => {
         $q = $injector.get("$q");
         GroupService = $injector.get("GroupService");
         el = angular.element(
-        "<input type='text' name='name' ng-model='$ctrl.data.name' groupname-Validator/>"
+          "<input type='text' name='name' ng-model='$ctrl.data.name' groupname-Validator/>"
         );
         $compile(el)(scope);
       });
@@ -142,4 +143,15 @@ describe("GroupEditCreateForm", () => {
     });
   });
 
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-edit-create-form></group-edit-create-form>")(scope);
+    });
+  });
 });

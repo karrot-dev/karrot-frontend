@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("MarkdownInput", () => {
   beforeEach(module(MarkdownInputModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -36,6 +37,18 @@ describe("MarkdownInput", () => {
       expect($ctrl.isPreview).to.equal(false);
       $ctrl.togglePreview();
       expect($ctrl.isPreview).to.equal(true);
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<markdown-input></markdown-input>")(scope);
     });
   });
 });

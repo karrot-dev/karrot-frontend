@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupMenu", () => {
   beforeEach(module(GroupMenuModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -81,6 +82,18 @@ describe("GroupMenu", () => {
     it("can't get group name", () => {
       let $ctrl = $componentController("groupMenu", {});
       expect($ctrl.getGroupName()).to.be.undefined;
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-menu></group-menu>")(scope);
     });
   });
 });

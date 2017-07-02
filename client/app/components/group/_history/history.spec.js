@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("History", () => {
   beforeEach(module(HistoryModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -210,6 +211,18 @@ describe("History", () => {
         $rootScope.$apply();
       });
       expect($ctrl.$mdDialog.show).to.have.been.called;
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<history></history>")(scope);
     });
   });
 });

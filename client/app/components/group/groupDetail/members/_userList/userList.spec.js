@@ -43,4 +43,16 @@ describe("UserList", () => {
       expect($ctrl.getUsers()).to.deep.equal([]);
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<user-list></user-list>")(scope);
+    });
+  });
 });

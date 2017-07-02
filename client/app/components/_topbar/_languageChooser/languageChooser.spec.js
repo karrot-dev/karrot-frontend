@@ -4,6 +4,10 @@ const { module } = angular.mock;
 
 describe("LanguageChooser", () => {
   beforeEach(module(LanguageChooserModule));
+  beforeEach(module({
+    $translate: { use: () => {} },
+    translateFilter: (a) => a
+  }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -37,6 +41,18 @@ describe("LanguageChooser", () => {
       sinon.stub($ctrl.$translate, "use");
       $ctrl.changeLanguage("de");
       expect($ctrl.$translate.use).to.have.been.calledWith("de");
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<language-chooser></language-chooser>")(scope);
     });
   });
 });

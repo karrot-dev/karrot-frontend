@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("GroupEdit", () => {
   beforeEach(module(GroupEditModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -43,6 +44,18 @@ describe("GroupEdit", () => {
       sinon.stub($ctrl.$state, "go");
       $httpBackend.flush();
       expect($ctrl.$state.go).to.have.been.calledWith("^");
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<group-edit></group-edit>")(scope);
     });
   });
 });

@@ -1,7 +1,4 @@
 import pickupEditCreateModule from "./pickupEditCreate";
-import pickupEditCreateController from "./pickupEditCreate.controller";
-import pickupEditCreateComponent from "./pickupEditCreate.component";
-import pickupEditCreateTemplate from "./pickupEditCreate.html";
 
 const { module } = angular.mock;
 
@@ -9,6 +6,7 @@ describe("pickupEditCreate", () => {
   let $componentController, $httpBackend;
 
   beforeEach(module(pickupEditCreateModule));
+  beforeEach(module({ translateFilter: (a) => a }));
   beforeEach(() => {
     angular.mock.module(($provide) => {
       $provide.value("$mdDialog", {
@@ -213,15 +211,18 @@ describe("pickupEditCreate", () => {
   });
 
   describe("Component", () => {
-    // component/directive specs
-    let component = pickupEditCreateComponent;
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
 
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(pickupEditCreateTemplate);
-    });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(pickupEditCreateController);
+    it("compiles component", () => {
+      scope.data = {
+        "series": true
+      };
+      $compile("<pickup-edit-create data='data'></pickup-edit-create>")(scope);
+      scope.$digest();
     });
   });
 });

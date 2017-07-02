@@ -4,6 +4,16 @@ const { module } = angular.mock;
 
 describe("PickupManage", () => {
   beforeEach(module(PickupManageModule));
+  beforeEach(module({ translateFilter: (a) => a }));
+  beforeEach(module(($stateProvider) => {
+    // fake state hierarchy for ui-sref='^'
+    $stateProvider
+    .state("parent", { url: "/" })
+    .state("parent.child", { url: "/child" });
+  }));
+  beforeEach(module(($mdAriaProvider) => {
+    $mdAriaProvider.disableWarnings();
+  }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -208,6 +218,22 @@ describe("PickupManage", () => {
       $ctrl.$mdDialog.show.returns($q.reject());
       $ctrl.openDeletePanel({}, {});
       $rootScope.$apply();
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector, $state) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+      $state.go("parent.child");
+      $rootScope.$apply();
+    }));
+
+    it("compiles component", () => {
+      scope.series = [];
+      scope.pickups = [];
+      $compile("<pickup-manage series='series' pickups='pickups'></pickup-manage>")(scope);
     });
   });
 });

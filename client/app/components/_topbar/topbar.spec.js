@@ -7,6 +7,10 @@ describe("Topbar", () => {
   module(($stateProvider) => {
     $stateProvider.state("home", { url: "/" });
   });
+  beforeEach(module({
+    $translate: { use: () => {} },
+    translateFilter: (a) => a
+  }));
 
   let $log, $ctrl, $q, $rootScope;
 

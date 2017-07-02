@@ -1,7 +1,4 @@
 import GroupDetailModule from "./group";
-import GroupDetailController from "./group.controller";
-import GroupDetailComponent from "./group.component";
-import GroupDetailTemplate from "./group.html";
 
 const { module } = angular.mock;
 
@@ -33,19 +30,6 @@ describe("Group", () => {
   afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
-  });
-
-  describe("Component", () => {
-    let component = GroupDetailComponent;
-
-    it("includes the intended template",() => {
-      expect(component.template).to.equal(GroupDetailTemplate);
-    });
-
-    it("invokes the right controller", () => {
-      expect(component.controller).to.equal(GroupDetailController);
-    });
-
   });
 
   describe("Controller", () => {
@@ -96,6 +80,20 @@ describe("Group", () => {
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
       expect($state.current.name).to.equal("groupInfo");
+    });
+  });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector, User, Store, $q) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+      sinon.stub(User, "list").returns($q.resolve([]));
+      sinon.stub(Store, "listByGroupId").returns($q.resolve([]));
+    }));
+
+    it("compiles component", () => {
+      $compile("<group></group>")(scope);
     });
   });
 

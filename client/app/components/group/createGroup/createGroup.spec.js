@@ -45,4 +45,16 @@ describe("CreateGroup", () => {
       expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: 987 });
     });
   });
+
+  describe("Component", () => {
+    let $compile, scope;
+    beforeEach(inject(($rootScope, $injector) => {
+      $compile = $injector.get("$compile");
+      scope = $rootScope.$new();
+    }));
+
+    it("compiles component", () => {
+      $compile("<create-group></create-group>")(scope);
+    });
+  });
 });

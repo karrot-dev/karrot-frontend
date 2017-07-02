@@ -23,6 +23,7 @@ class HistoryTypus(enum.Enum):
     PICKUP_DONE = 13
     PICKUP_JOIN = 14
     PICKUP_LEAVE = 15
+    PICKUP_MISSED = 16
 
 
 class History(NicelyFormattedModel):

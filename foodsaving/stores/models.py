@@ -103,6 +103,7 @@ class PickupDateSeries(BaseModel):
 
 
 pickup_done = Signal()
+pickup_missed = Signal()
 
 
 class PickupDateManager(models.Manager):
@@ -115,14 +116,23 @@ class PickupDateManager(models.Manager):
                 payload['series'] = _.series.id
             if _.max_collectors:
                 payload['max_collectors'] = _.max_collectors
-            pickup_done.send(
-                sender=PickupDate.__class__,
-                group=_.store.group,
-                store=_.store,
-                users=_.collectors.all(),
-                date=_.date,
-                payload=payload
-            )
+            if _.collectors.count() == 0:
+                pickup_missed.send(
+                    sender=PickupDate.__class__,
+                    group=_.store.group,
+                    store=_.store,
+                    date=_.date,
+                    payload=payload
+                )
+            else:
+                pickup_done.send(
+                    sender=PickupDate.__class__,
+                    group=_.store.group,
+                    store=_.store,
+                    users=_.collectors.all(),
+                    date=_.date,
+                    payload=payload
+                )
             _.delete()
 
 

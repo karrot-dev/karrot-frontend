@@ -47,20 +47,20 @@ class PickupListController {
     });
   }
 
-/**
- * checks if a pickup is already full
- * @param {Object} pickup - pickup to check
- * @return true or false
- */
+  /**
+   * checks if a pickup is already full
+   * @param {Object} pickup - pickup to check
+   * @return true or false
+   */
   isFull(pickup) {
     return  !(pickup.collector_ids.length < pickup.max_collectors);
   }
 
-/**
- * checks if user is member of this pickup
- * @param {Object} pickup - pickup to check
- * @return true or false
- */
+  /**
+   * checks if user is member of this pickup
+   * @param {Object} pickup - pickup to check
+   * @return true or false
+   */
   isUserMember(pickup){
     return pickup.collector_ids.indexOf(this.SessionUser.value.id) !== -1;
   }
@@ -100,17 +100,17 @@ class PickupListController {
         return this.PickupDate.delete(pickup.id);
       }
     }).then(
-    () => {
-      if (this.isDeleteSeries) {
-        this.allPickups = this.allPickups.filter((pickup) => {
-          return pickup.series !== this.pickupToDelete.series;
-        });
-      } else {
-        let index = this.allPickups.indexOf(this.pickupToDelete);
-        this.allPickups.splice(index, 1);
-      }
-      this.isDeleteSeries = false;
-    })
+      () => {
+        if (this.isDeleteSeries) {
+          this.allPickups = this.allPickups.filter((pickup) => {
+            return pickup.series !== this.pickupToDelete.series;
+          });
+        } else {
+          let index = this.allPickups.indexOf(this.pickupToDelete);
+          this.allPickups.splice(index, 1);
+        }
+        this.isDeleteSeries = false;
+      })
     .catch(() => {});
   }
 

@@ -104,7 +104,7 @@ describe("GroupEditCreateForm", () => {
         $q = $injector.get("$q");
         GroupService = $injector.get("GroupService");
         el = angular.element(
-        "<input type='text' name='name' ng-model='$ctrl.data.name' groupname-Validator/>"
+          "<input type='text' name='name' ng-model='$ctrl.data.name' groupname-Validator/>"
         );
         $compile(el)(scope);
       });

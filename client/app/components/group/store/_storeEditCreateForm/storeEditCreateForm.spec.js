@@ -107,7 +107,7 @@ describe("StoreEditCreateForm", () => {
         $q = $injector.get("$q");
         StoreService = $injector.get("StoreService");
         el = angular.element(
-        "<input type='text' name='name' ng-model='$ctrl.data.name' storename-Validator/>"
+          "<input type='text' name='name' ng-model='$ctrl.data.name' storename-Validator/>"
         );
         $compile(el)(scope);
       });

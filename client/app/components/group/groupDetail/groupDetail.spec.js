@@ -10,6 +10,9 @@ describe("GroupDetail", () => {
       .state("main", { url: "", abstract: true });
   }));
   beforeEach(module({ translateFilter: (a) => a }));
+  beforeEach(module(($mdAriaProvider) => {
+    $mdAriaProvider.disableWarnings();
+  }));
 
   beforeEach(inject(($injector) => {
     $log = $injector.get("$log");

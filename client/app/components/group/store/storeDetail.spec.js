@@ -1,7 +1,4 @@
 import StoreDetailModule from "./storeDetail";
-import StoreDetailController from "./storeDetail.controller";
-import StoreDetailComponent from "./storeDetail.component";
-import StoreDetailTemplate from "./storeDetail.html";
 import StorePickupsModule from "./storePickups/storePickups";
 import GroupComponentModule from "../group";
 
@@ -16,6 +13,9 @@ describe("StoreDetail", () => {
       .state("main", { url: "", abstract: true });
   }));
   beforeEach(module({ translateFilter: (a) => a }));
+  beforeEach(module(($mdAriaProvider) => {
+    $mdAriaProvider.disableWarnings();
+  }));
 
   let $log, $httpBackend, $state;
   beforeEach(inject(($injector) => {

@@ -11,6 +11,9 @@ describe("PickupManage", () => {
     .state("parent", { url: "/" })
     .state("parent.child", { url: "/child" });
   }));
+  beforeEach(module(($mdAriaProvider) => {
+    $mdAriaProvider.disableWarnings();
+  }));
 
   let $log;
   beforeEach(inject(($injector) => {

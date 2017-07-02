@@ -9,8 +9,6 @@ class pickupEditCreateController {
       PickupDateSeries,
       $locale,
       isCreate: true,
-      isSeries: false,
-      mode: "single",
       days: {},
       timeExample: moment(new Date()).format("LT"),
       timeChoices: this.getTimeChoices(false),

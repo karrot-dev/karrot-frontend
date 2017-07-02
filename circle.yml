@@ -2,16 +2,22 @@ machine:
   node:
     version: 8.2.0
 dependencies:
+  pre:
+    - npm install -g npm@5
+    - npm install -g greenkeeper-lockfile@1
   post:
     - npm run lint
     - npm run build
 test:
+  pre:
+    - greenkeeper-lockfile-update
   override:
     - NODE_ENV=test npm test -- --reporters junit,coverage
     - mv TESTS*.xml $CIRCLE_TEST_REPORTS/
   post:
     - bash <(curl -s https://codecov.io/bash)
     - if [ $CIRCLE_BRANCH ]; then bash trigger_e2e_build.sh; fi
+    - greenkeeper-lockfile-upload
 general:
   artifacts:
     - dist

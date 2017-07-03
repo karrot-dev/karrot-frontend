@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-20 20:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ShangKuan Liang-chih <shangkuanlc@gmail.com>, 2017\n"
 "Language-Team: Chinese (https://www.transifex.com/yunity-1/teams/68631/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,104 +20,106 @@ msgstr ""
 
 #: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:222
 msgid "You are not a member of this group."
-msgstr ""
+msgstr "你並不是此社團的成員。"
 
 #: foodsaving/groups/api.py:25
 msgid "You are already a member."
-msgstr ""
+msgstr "你已經加入為成員了。"
 
 #: foodsaving/groups/serializers.py:25
 msgid "Unknown timezone"
-msgstr ""
+msgstr "未知的時區"
 
 #: foodsaving/groups/serializers.py:114
 msgid "Group password is wrong"
-msgstr ""
+msgstr "社團密碼錯誤"
 
 #: foodsaving/stores/permissions.py:9
 msgid "The pickup date is in the past."
-msgstr ""
+msgstr "開放外帶日期已過"
 
 #: foodsaving/stores/permissions.py:19
 msgid "You can only delete empty pickup dates."
-msgstr ""
+msgstr "你只能刪除空白的開放外帶日期。"
 
 #: foodsaving/stores/permissions.py:26
 msgid "You have not joined this pickup date."
-msgstr ""
+msgstr "你還沒有加入此開放外帶日期。"
 
 #: foodsaving/stores/permissions.py:33
 msgid "You have already joined this pickup date."
-msgstr ""
+msgstr "你已經加入此開放外帶日期。"
 
 #: foodsaving/stores/permissions.py:40
 msgid "Pickup date is already full."
-msgstr ""
+msgstr "開放外帶日期已滿。"
 
 #: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:162
 msgid "You are not member of the store's group."
-msgstr ""
+msgstr "你不是此店面社團的成員。"
 
 #: foodsaving/stores/serializers.py:82
 msgid "The date should be in the future."
-msgstr ""
+msgstr "日期應該設定在未來。"
 
 #: foodsaving/stores/serializers.py:172
 msgid "Only single recurrence rules are allowed."
-msgstr ""
+msgstr "只允許有一次循環出現。"
 
 #: foodsaving/stores/serializers.py:227
 msgid "Set at least one week in advance"
-msgstr ""
+msgstr "至少要在一週前設立"
 
 #: foodsaving/users/models.py:155
 msgid "New password"
-msgstr ""
+msgstr "新密碼"
 
 #: foodsaving/users/models.py:156
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
-msgstr ""
+msgstr "這是你新的暫時密碼：{}。你可以使用它登入。請盡快更換。"
 
 #: foodsaving/users/permissions.py:6
 msgid "You can modify only your own user data."
-msgstr ""
+msgstr "你只能修改自己的使用者資料。"
 
 #: foodsaving/users/permissions.py:13
 msgid "Mail is already verified."
-msgstr ""
+msgstr "郵箱已經認證。"
 
 #: foodsaving/users/serializers.py:57
 msgid "Key has expired"
-msgstr ""
+msgstr "金鑰已過期"
 
 #: foodsaving/users/serializers.py:59
 msgid "Key is invalid"
-msgstr ""
+msgstr "金鑰無效"
 
 #: foodsaving/users/templates/accountdelete_request-subject.jinja:1
 msgid "Request to delete your account"
-msgstr ""
+msgstr "要求刪除你的帳戶"
 
 #: foodsaving/users/templates/accountdelete_success-body-text.jinja:4
 msgid "Your account on foodsaving.world was successfully deleted."
-msgstr ""
+msgstr "你在foodsaving.world的帳戶已成功刪除"
 
 #: foodsaving/users/templates/accountdelete_success-subject.jinja:1
 msgid "Your account was deleted"
-msgstr ""
+msgstr "你的帳戶已刪除"
 
 #: foodsaving/users/templates/base-text.jinja:1
 #, python-format
 msgid "Hello %(full_name)s,"
-msgstr ""
+msgstr "哈囉%(full_name)s："
 
 #: foodsaving/users/templates/base-text.jinja:3
 msgid ""
 "Yours,\n"
 "the foodsaving.world team"
 msgstr ""
+"祝好，\n"
+"foodsaving.world團隊"
 
 #: foodsaving/users/templates/changemail_notice-body-text.jinja:4
 #, python-format
@@ -124,12 +127,16 @@ msgid ""
 "Your email address got changed on foodsaving.world.\n"
 "The new email address is %(new_mail)s."
 msgstr ""
+"你在foodsaving.world上的電子郵件地址已經更改。\n"
+"新的電子郵件地址為%(new_mail)s。"
 
 #: foodsaving/users/templates/changemail_notice-subject.jinja:1
 msgid ""
 "\n"
 "Your email address changed!\n"
 msgstr ""
+"\n"
+"你的電子郵件地址已更改！\n"
 
 #: foodsaving/users/templates/changemail_success-body-text.jinja:4
 #, python-format
@@ -142,47 +149,54 @@ msgid ""
 "\n"
 "You can safely ignore this message if you don't know what all this is about."
 msgstr ""
+"你在foodsaving.world上的電子郵件地址已經被更改。\n"
+"原本的電子郵件地址為%(old_mail)s。\n"
+"要認證新的電子郵件地址，請點擊下列連結：\n"
+"\n"
+"%(url)s\n"
+"\n"
+"如果你不知道為何你會收到此訊息，你可以忽略這則訊息。"
 
 #: foodsaving/users/templates/changemail_success-subject.jinja:1
 msgid "Please verify your new email address"
-msgstr ""
+msgstr "請認證新的電子郵件地址"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:3
 msgid "WELCOME"
-msgstr ""
+msgstr "歡迎"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:142
 msgid "home"
-msgstr ""
+msgstr "首頁"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:142
 msgid "Contact Us"
-msgstr ""
+msgstr "聯絡我們"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:172
 #, python-format
 msgid "Welcome, %(display_name)s"
-msgstr ""
+msgstr "歡迎，%(display_name)s"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:178
 msgid "Verify your e-mail address to continue!"
-msgstr ""
+msgstr "認證你的電子郵件地址，以繼續後續步驟！"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:195
 msgid "Activation Link"
-msgstr ""
+msgstr "啟動連結"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:206
 msgid "The link will be valid for 7 days."
-msgstr ""
+msgstr "連結7日內有效。"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:243
 msgid "PRIVACY STATEMENT"
-msgstr ""
+msgstr "隱私權聲明"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:243
 msgid "TERMS OF SERVICE"
-msgstr ""
+msgstr "使用條款"
 
 #: foodsaving/users/templates/mailverification-body-text.jinja:4
 #, python-format
@@ -194,10 +208,16 @@ msgid ""
 "\n"
 "You can safely ignore this message if it wasn't you who signed up at our service using this email address."
 msgstr ""
+"感謝你註冊foodsaving.world！\n"
+"請點擊下列連結來確認你的電子郵件：\n"
+"\n"
+"%(url)s\n"
+"\n"
+"如果你不知道為何會收到這則訊息，你可以直接忽略這則訊息。"
 
 #: foodsaving/users/templates/mailverification-subject.jinja:1
 msgid "Verify your email address"
-msgstr ""
+msgstr "認證你的電子郵件地址"
 
 #: foodsaving/users/templates/passwordreset_request-body-text.jinja:4
 #, python-format
@@ -209,20 +229,28 @@ msgid ""
 "\n"
 "You can ignore this message if you did not request it."
 msgstr ""
+"你忘記密碼了嗎？沒問題！\n"
+"點擊此連結來變更密碼：\n"
+"\n"
+"%(url)s\n"
+"\n"
+"如果你沒有申請密碼變更，你可以直接忽略這則訊息。"
 
 #: foodsaving/users/templates/passwordreset_request-subject.jinja:1
 msgid ""
 "\n"
 "Forgot your password?\n"
 msgstr ""
+"\n"
+"忘記你的密碼？\n"
 
 #: foodsaving/users/templates/passwordreset_success-body-text.jinja:4
 msgid "Your password has been successfully changed!"
-msgstr ""
+msgstr "你的密碼已經成功變更！"
 
 #: foodsaving/users/templates/passwordreset_success-subject.jinja:1
 msgid "New password set!"
-msgstr ""
+msgstr "新密碼已設定！"
 
 #: foodsaving/users/templates/send_new_verification_code-body-text.jinja:4
 #, python-format
@@ -233,7 +261,12 @@ msgid ""
 "\n"
 "You can ignore this message if you did not request it."
 msgstr ""
+"此為你可以確認電子郵件的連結：\n"
+"\n"
+"%(url)s\n"
+"\n"
+"如果你沒有申請確認電子郵件，你可以忽略這則訊息。"
 
 #: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
 msgid "Please verify your email"
-msgstr ""
+msgstr "請認證你的電子信箱"

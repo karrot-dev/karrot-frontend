@@ -199,6 +199,7 @@
     "SERIES_MODIFY": "ändrade inställningarna för en återkommande upphämtning",
     "SERIES_DELETE": "tog bort en återkommande upphämtning",
     "PICKUP_DONE": "hämtade på {{store_name}}",
+    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
     "PICKUP_JOIN": "anmällde sig till en upphämtning på {{store_name}}",
     "PICKUP_LEAVE": "avanmällde sig från en hämtning på {{store_name}}",
     "LOAD_MORE": "load more ...",

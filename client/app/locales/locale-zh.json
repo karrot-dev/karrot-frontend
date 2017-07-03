@@ -199,6 +199,7 @@
     "SERIES_MODIFY": "變更循環出現的開放外帶設定",
     "SERIES_DELETE": "刪除循環出現的開放外帶",
     "PICKUP_DONE": "在{{store_name}}拿取開放外帶",
+    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
     "PICKUP_JOIN": "在{{store_name}}之中登記一份外帶",
     "PICKUP_LEAVE": "從在{{store_name}}進行一次外帶返回",
     "LOAD_MORE": "載入更多...",

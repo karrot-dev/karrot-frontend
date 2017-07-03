@@ -19,6 +19,7 @@ import AppMaterial from "./app.material";
 import AppLocalizeConfig from "./app.localizeConfig";
 import AppLocalizeRun from "./app.localizeRun";
 import AppHTTPErrorHandler from "./app.HTTPErrorHandler";
+import AppAuthRequired from "./app.authRequired";
 
 // styles
 import "angular-loading-bar/build/loading-bar.css";
@@ -63,6 +64,7 @@ angular.module("app", [
 .run(AppLocalizeRun)
 .config(AppMaterial)
 .config(AppHTTPErrorHandler)
+.config(AppAuthRequired)
 .config(( $mdGestureProvider ) => {
   "ngInject";
   $mdGestureProvider.skipClickHijack();

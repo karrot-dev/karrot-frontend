@@ -26,7 +26,7 @@ let groupPageModule = angular.module("group", [
   searchBar
 ])
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("group", {
@@ -62,11 +62,13 @@ let groupPageModule = angular.module("group", [
           });
         }
       },
+      data: {
+        authRequired: true
+      },
       ncyBreadcrumb: {
         label: "{{$ctrl.CurrentGroup.value.name}}"
       }
     });
-  hookProvider.setup("group", { authenticated: true, anonymous: "login" });
 })
 
 .component("group", groupComponent)

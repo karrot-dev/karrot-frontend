@@ -10,18 +10,20 @@ let createGroupModule = angular.module("createGroup", [
 
 .component("createGroup", createGroupComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("createGroup", {
       parent: "main",
       url: "/group/create",
       component: "createGroup",
+      data: {
+        authRequired: true
+      },
       ncyBreadcrumb: {
         label: "{{'GROUP.CREATE_TITLE' | translate}}"
       }
     });
-  hookProvider.setup("createGroup", { authenticated: true, anonymous: "login" });
 })
 
 .name;

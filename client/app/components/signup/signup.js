@@ -10,7 +10,7 @@ let signupModule = angular.module("signup", [
   User
 ])
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider.state("signup", {
     parent: "splash",
@@ -20,7 +20,6 @@ let signupModule = angular.module("signup", [
       label: "{{ 'SIGNUP.TITLE' | translate}}"
     }
   });
-  hookProvider.setup("signup", { authenticated: "home", anonymous: true });
 })
 
 .component("signup", signupComponent)

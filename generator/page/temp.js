@@ -10,14 +10,16 @@ let <%= name %>Module = angular.module("<%= name %>", [
 
 .component("<%= name %>", <%= name %>Component)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("<%= name %>", {
       url: "/<%= name %>",
-      component: "<%= name %>"
+      component: "<%= name %>",
+      data: {
+        authRequired: true
+      },
     });
-  hookProvider.setup("<%= name %>", { authenticated: true, anonymous: "login" });
 })
 
 .name;

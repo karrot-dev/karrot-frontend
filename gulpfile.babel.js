@@ -152,6 +152,9 @@ gulp.task("serve", () => {
 gulp.task("watch", ["serve"]);
 
 gulp.task("component", () => {
+  const dash = (val) => {
+    return val.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase());
+  };
   const cap = (val) => {
     return val.charAt(0).toUpperCase() + val.slice(1);
   };
@@ -162,6 +165,7 @@ gulp.task("component", () => {
   return gulp.src(paths.blankTemplates(temp))
     .pipe(template({
       name,
+      dashedName: dash(name),
       upCaseName: cap(name)
     }))
     .pipe(rename((path) => {
@@ -171,6 +175,9 @@ gulp.task("component", () => {
 });
 
 gulp.task("page", () => {
+  const dash = (val) => {
+    return val.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase());
+  };
   const cap = (val) => {
     return val.charAt(0).toUpperCase() + val.slice(1);
   };
@@ -181,6 +188,7 @@ gulp.task("page", () => {
   return gulp.src(paths.blankTemplates(generator))
     .pipe(template({
       name,
+      dashedName: dash(name),
       upCaseName: cap(name)
     }))
     .pipe(rename((path) => {

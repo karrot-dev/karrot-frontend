@@ -10,8 +10,10 @@ describe("StoreDetail", () => {
   beforeEach(module(StorePickupsModule));  // to test redirection
   beforeEach(module(($stateProvider) => {
     $stateProvider
-      .state("main", { url: "", abstract: true });
+      .state("main", { url: "", abstract: true })
+      .state("landingPage", { url: "landingPage" });
   }));
+  beforeEach(module({ $translate: sinon.stub() }));
   beforeEach(module({ translateFilter: (a) => a }));
   beforeEach(module(($mdAriaProvider) => {
     $mdAriaProvider.disableWarnings();
@@ -37,7 +39,12 @@ describe("StoreDetail", () => {
     });
   });
 
-  describe("Routes", () => {
+  describe.only("Routes", () => {
+    beforeEach(() => {
+      inject(($translate, $q) => {
+        $translate.returns($q.resolve());
+      });
+    });
     let groupData = {
       id: 1
     };
@@ -52,6 +59,8 @@ describe("StoreDetail", () => {
         // It would be better to stub the whole "group" state, but I don't know how
         sinon.stub(CurrentGroup, "set");
       });
+      // redirectTo does an additional request
+      $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
       $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
       expect(
@@ -59,6 +68,13 @@ describe("StoreDetail", () => {
       ).to.eventually.be.fulfilled;
       $httpBackend.flush();
       expect($state.current.component).to.equal("storePickups");
+    });
+
+    it("redirects to landing page if store not found", () => {
+      $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(404);
+      $state.go("group.store", { storeId: storeData.id, groupId: groupData.id });
+      $httpBackend.flush();
+      expect($state.current.name).to.equal("landingPage");
     });
   });
 

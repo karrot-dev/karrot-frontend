@@ -11,7 +11,7 @@ describe("Group", () => {
     $stateProvider
       .state("main", { url: "", abstract: true })
       .state("groupInfo", { parent: "main", url: "groupInfo" })
-      .state("landingPage", { parent: "main", url: "landingPage" });
+      .state("landingPage", { url: "landingPage" });
   }));
 
   let $log;
@@ -62,7 +62,7 @@ describe("Group", () => {
     beforeEach(() => {
       inject(($translate, $q, CurrentGroup, SessionUser) => {
         $translate.returns($q.resolve());
-        sinon.stub(CurrentGroup, "set");
+        sinon.stub(CurrentGroup, "persistCurrentGroup");
         SessionUser.set({ id: 43 });
       });
     });

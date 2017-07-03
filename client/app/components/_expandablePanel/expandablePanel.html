@@ -1,4 +1,4 @@
-<div class="expandablePanel" ng-class="{collapsed: $ctrl.collapsed}">
+<div ng-class="{collapsed: $ctrl.collapsed}">
   <div class="content" ng-style="$ctrl.contentStyle">
     <div ng-if="$ctrl.markdown" ng-bind-html="$ctrl.parsed"></div>
     <div ng-if="!$ctrl.markdown">{{$ctrl.content}}</div>

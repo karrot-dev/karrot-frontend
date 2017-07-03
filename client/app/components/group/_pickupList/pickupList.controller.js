@@ -114,7 +114,7 @@ class PickupListController {
     .catch(() => {});
   }
 
-  openCreatePickupPanel($event) {
+  openEditPickupPanel($event, pickup) {
     let DialogController = function (data) {
       "ngInject";
       this.data = data;
@@ -127,19 +127,15 @@ class PickupListController {
       locals: {
         data: {
           storeId: this.storeId,
-          series: false
+          series: false,
+          editData: angular.copy(pickup)
         }
       },
       controller: DialogController,
       controllerAs: "$ctrl"
-    }).then((data) => {
-      if (data.start_date) {
-        // workaround: reload complete list if series was created
-        this.updatePickups();
-      } else {
-        this.allPickups.push(data);
-      }
-    });
+    }).then((response) => {
+      angular.copy(response, pickup);
+    }).catch();
   }
 
   joinPickup(pickupId) {

@@ -242,10 +242,14 @@ describe("PickupList", () => {
     it("pickupEditCreate dialog is called and updates pickup list", () => {
       $ctrl.allPickups = [];
       sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q.resolve({ "collector_ids": [] }));
-      $ctrl.openCreatePickupPanel();
+      let pickup = { id: 5, comment: "bla" };
+      $ctrl.allPickups = [pickup];
+      $ctrl.$mdDialog.show.returns($q.resolve({ id: 5, comment: "har" }));
+      $ctrl.openEditPickupPanel({}, pickup);
       $rootScope.$apply();
-      expect($ctrl.allPickups).to.deep.equal([{ "collector_ids": [] }]);
+      expect($ctrl.allPickups).to.deep.equal([{ id: 5, comment: "har" }]);
+      // should keep reference and replace content via angular.copy
+      expect(pickup).to.deep.equal({ id: 5, comment: "har" });
     });
   });
 

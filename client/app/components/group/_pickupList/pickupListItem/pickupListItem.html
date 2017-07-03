@@ -1,6 +1,6 @@
 <md-list-item class="md-3-line">
   <div flex>
-    <div class="timedetail">
+    <div layout="row" layout-align="start center" layout-padding>
       <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
       <span>
         <span ng-if="$ctrl.showStoreDetail">
@@ -13,8 +13,15 @@
           {{$ctrl.data.date | date:'fullDate'}}
         </span>
       </span>
+      <span flex></span>
+      <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
+        <md-icon md-font-icon="fa fa-pencil"></md-icon>
+        <tooltip>
+          <span translate="BUTTON.EDIT"></span>
+        </tooltip>
+      </md-button>
     </div>
-    <div ng-if="$ctrl.data.comment !== ''" class="md-caption comment">
+    <div ng-if="$ctrl.data.comment !== ''" class="md-caption">
       {{ $ctrl.data.comment }}
     </div>
     <div layout="row" layout-xs="column" layout-align="start center">

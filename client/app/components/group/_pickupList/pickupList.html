@@ -52,6 +52,7 @@
         show-detail="$ctrl.options.showDetail"
         on-join="$ctrl.joinPickup(pickup.id)"
         on-leave="$ctrl.leavePickup(pickup.id)"
+        on-edit="$ctrl.openEditPickupPanel($event, pickup)"
         data="pickup"
         meta="{isFull: $ctrl.isFull(pickup), isUserMember: $ctrl.isUserMember(pickup)}">
       </pickup-list-item>

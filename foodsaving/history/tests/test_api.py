@@ -258,3 +258,17 @@ class TestHistoryAPIWithMissedPickup(PaginatedResponseTestCase):
         self.assertEqual(response.data[0]['typus'], 'PICKUP_MISSED')
         response = self.get_results(history_url, {'typus': 'GROUP_JOIN'})  # unrelated event should give no result
         self.assertEqual(len(response.data), 0)
+
+
+class TestHistoryAPIDateFiltering(PaginatedResponseTestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.member = UserFactory()
+
+    def test_filter_by_date(self):
+        self.client.force_login(self.member)
+        self.client.post('/api/groups/', {'name': 'xyzabc', 'timezone': 'Europe/Berlin'})
+        response = self.get_results(history_url, data={'date_1': timezone.now()})
+        self.assertEqual(len(response.data), 1)
+        response = self.get_results(history_url, data={'date_0': timezone.now()})
+        self.assertEqual(len(response.data), 0)

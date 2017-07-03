@@ -1,23 +1,11 @@
-from django_filters.rest_framework import filters
-from django_filters.rest_framework import FilterSet
 from rest_framework import viewsets
 from rest_framework.filters import DjangoFilterBackend
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
 
-from foodsaving.history.models import History, HistoryTypus
+from foodsaving.history.filters import HistoryFilter
+from foodsaving.history.models import History
 from foodsaving.history.serializers import HistorySerializer
-
-
-def filter_history_typus(qs, field, value):
-    return qs.filter(**{field: getattr(HistoryTypus, value)})
-
-
-class HistoryFilter(FilterSet):
-    class Meta:
-        model = History
-        fields = ('group', 'store', 'users', 'typus')
-    typus = filters.ChoiceFilter(choices=HistoryTypus.items(), method=filter_history_typus)
 
 
 class HistoryPagination(LimitOffsetPagination):

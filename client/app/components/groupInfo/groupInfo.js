@@ -1,9 +1,9 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
-import Authentication from "../../services/authentication/authentication";
+import Authentication from "services/authentication/authentication";
 import groupInfoComponent from "./groupInfo.component";
-import groupModule from "../../services/group/group";
+import groupModule from "services/group/group";
 import "angular-simple-logger";
 import "leaflet";
 import "ui-leaflet";

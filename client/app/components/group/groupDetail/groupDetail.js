@@ -7,8 +7,8 @@ import members from "./members/members";
 import pickups from "./pickups/pickups";
 import stores from "./stores/stores";
 import groupHistory from "./groupHistory/groupHistory";
-import expandablePanel from "../../_expandablePanel/expandablePanel";
-import GroupService from "../../../services/group/group";
+import expandablePanel from "components/_expandablePanel/expandablePanel";
+import GroupService from "services/group/group";
 
 let groupDetailModule = angular.module("groupDetail", [
   uiRouter,

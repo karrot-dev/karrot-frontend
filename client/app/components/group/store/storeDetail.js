@@ -2,7 +2,7 @@ import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import storeDetailComponent from "./storeDetail.component";
 import storeDetailMap from "./_storeDetailMap/storeDetailMap";
-import storeService from "../../../services/store/store";
+import storeService from "services/store/store";
 import storeEdit from "./storeEdit/storeEdit";
 import storeCreate from "./storeCreate/storeCreate";
 import pickupManage from "./pickupManage/pickupManage";

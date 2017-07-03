@@ -1,6 +1,6 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import storeService from "../../../../services/store/store";
+import storeService from "services/store/store";
 import storeCreateComponent from "./storeCreate.component";
 import storeEditCreateForm from "../_storeEditCreateForm/storeEditCreateForm";
 

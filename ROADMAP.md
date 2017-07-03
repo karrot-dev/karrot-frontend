@@ -51,3 +51,4 @@ Rough ideas, have been mentioned by someone.
 - Native App for Android and iOS
 - DevOps: deploying Pull-Request branches to some subdomain
 - Make foodsaving tool into a multisharing platform
+- Set up a legal entity for foodsaving.world, add terms of service

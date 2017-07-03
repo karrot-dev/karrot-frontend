@@ -1,6 +1,5 @@
-<md-list-item class="md-3-line">
-  <div flex>
-    <div layout="row" layout-align="start center" layout-padding>
+<div layout="row" style="width: 100%">
+    <div flex class="content">
       <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
       <span>
         <span ng-if="$ctrl.showStoreDetail">
@@ -12,24 +11,24 @@
         <span ng-if="!$ctrl.showStoreDetail">
           {{$ctrl.data.date | date:'fullDate'}}
         </span>
+        <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
+          <md-icon md-font-icon="fa fa-pencil"></md-icon>
+          <md-tooltip>
+            <span translate="BUTTON.EDIT"></span>
+          </md-tooltip>
+        </md-button>
       </span>
-      <span flex></span>
-      <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
-        <md-icon md-font-icon="fa fa-pencil"></md-icon>
-        <tooltip>
-          <span translate="BUTTON.EDIT"></span>
-        </tooltip>
-      </md-button>
+      <div ng-if="$ctrl.data.comment !== ''" class="md-caption">
+        {{ $ctrl.data.comment }}
+      </div>
+      <div class="people">
+        <md-button ng-repeat="id in $ctrl.data.collector_ids" ui-sref="userDetail({ id })">
+          {{ $ctrl.CurrentUsers.get(id).display_name }}
+        </md-button>
+        <div class="md-caption counter">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>        
+      </div>
     </div>
-    <div ng-if="$ctrl.data.comment !== ''" class="md-caption">
-      {{ $ctrl.data.comment }}
-    </div>
-    <div layout="row" layout-xs="column" layout-align="start center">
-      <md-button ng-repeat="id in $ctrl.data.collector_ids" ui-sref="userDetail({ id })">
-        {{ $ctrl.CurrentUsers.get(id).display_name }}
-      </md-button>
-      <span class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</span>
-      <span flex></span>
+    <div class="tools">      
       <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" promise-btn ng-if="$ctrl.meta.isUserMember" class="md-accent">
         <span translate="PICKUPLIST.ITEM.LEAVE"></span>
       </md-button>
@@ -41,4 +40,3 @@
       </md-button>
     </div>
   </div>
-</md-list-item>

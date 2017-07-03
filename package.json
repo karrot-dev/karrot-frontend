@@ -1,6 +1,6 @@
 {
   "name": "foodsaving-frontend",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "description": "Tool to support foodsaving groups worldwide",
   "main": "index.js",
   "dependencies": {

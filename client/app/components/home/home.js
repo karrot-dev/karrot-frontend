@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import homeComponent from "./home.component";
-import GroupService from "../../services/group/group";
+import GroupService from "services/group/group";
 import joinGroup from "../_joinGroup/joinGroup";
 
 let homeModule = angular.module("home", [

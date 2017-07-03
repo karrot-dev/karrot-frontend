@@ -1,6 +1,6 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import StoreService from "../../../../services/store/store";
+import StoreService from "services/store/store";
 import "angular-simple-logger";
 import "leaflet";
 import "ui-leaflet";

@@ -1,6 +1,6 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import historyService from "../../../../services/history/history";
+import historyService from "services/history/history";
 import history from "../../_history/history";
 import storeHistoryComponent from "./storeHistory.component";
 

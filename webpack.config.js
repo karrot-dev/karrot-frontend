@@ -6,6 +6,9 @@ let CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   devtool: "sourcemap",
   entry: {},
+  resolve: {
+    modules: [path.resolve(__dirname, "client/app"), "node_modules"]
+  },
   module: {
     rules: [
       {

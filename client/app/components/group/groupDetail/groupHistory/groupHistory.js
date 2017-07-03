@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import groupHistoryComponent from "./groupHistory.component";
-import historyService from "../../../../services/history/history";
+import historyService from "services/history/history";
 import history from "../../_history/history";
 
 let groupHistoryModule = angular.module("groupHistory", [

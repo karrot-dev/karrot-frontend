@@ -1,3 +1,5 @@
+let webpackConfig = require("./webpack.config.js");
+
 module.exports = function (config) {
   config.set({
     // base path used to resolve all patterns
@@ -31,8 +33,9 @@ module.exports = function (config) {
 
     webpack: {
       devtool: "inline-source-map",
+      resolve: webpackConfig.resolve,
       module: {
-        rules: require("./webpack.config.js").module.rules
+        rules: webpackConfig.module.rules
       }
     },
 

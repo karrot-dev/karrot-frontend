@@ -1,7 +1,7 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import splashLayoutComponent from "./splashLayout.component";
-import logo from "../_logo/logo";
+import logo from "components/_logo/logo";
 
 let splashLayoutModule = angular.module("splashLayout", [
   uiRouter,

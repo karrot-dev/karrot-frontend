@@ -1,8 +1,8 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import signupComponent from "./signup.component";
-import Authentication from "../../services/authentication/authentication";
-import User from "../../services/user/user";
+import Authentication from "services/authentication/authentication";
+import User from "services/user/user";
 
 let signupModule = angular.module("signup", [
   uiRouter,

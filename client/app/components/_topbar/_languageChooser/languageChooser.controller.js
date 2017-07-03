@@ -1,4 +1,4 @@
-import frontendStatus from "../../../locales/status-frontend.json";
+import frontendStatus from "locales/status-frontend.json";
 
 class LanguageChooserController {
   constructor($translate) {

@@ -6,7 +6,8 @@
     "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
-    "SERVER_ERROR": "Server error"
+    "SERVER_ERROR": "Server error",
+    "NOT_FOUND": "Not found"
   },
   "ACTION_NOTICE": {
     "TITLE": "Call for collaboration!",

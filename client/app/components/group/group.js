@@ -48,6 +48,14 @@ let groupPageModule = angular.module("group", [
             // re-uses same groupId state parameter
             return "groupInfo";
           }
+        }).catch((response) => {
+          if (response.status === 404) {
+            $translate("GLOBAL.NOT_FOUND").then((message) => {
+              $mdToast.showSimple(message);
+            });
+            return "landingPage";
+          }
+          throw response;
         });
       },
       component: "group",

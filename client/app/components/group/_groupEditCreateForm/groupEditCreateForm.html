@@ -15,10 +15,13 @@
       <input type="text" ng-model="$ctrl.data.password"/>
     </md-input-container>
 
-    <md-input-container>
-      <label translate="GROUP.TIMEZONE"></label>
-      <input type="text" ng-model="$ctrl.data.timezone"/>
-    </md-input-container>
+    <md-autocomplete required
+      md-selected-item="$ctrl.data.timezone"
+      md-floating-label="{{ 'GROUP.TIMEZONE' | translate }}"
+      md-search-text="tzsearch"
+      md-items="tz in $ctrl.filterTimezones(tzsearch)">
+      <span md-highlight-text="tzsearch">{{tz}}</span>
+    </md-autocomplete>
 
     <md-input-container>
       <label translate="GROUP.PUBLIC_DESCRIPTION"></label>

@@ -134,3 +134,11 @@ class GroupLeaveSerializer(serializers.ModelSerializer):
         instance.members.remove(user)
         instance.save()
         return instance
+
+
+class TimezonesSerializer(serializers.Serializer):
+    all_timezones = serializers.ListField(
+        child=serializers.CharField(),
+        read_only=True
+    )
+

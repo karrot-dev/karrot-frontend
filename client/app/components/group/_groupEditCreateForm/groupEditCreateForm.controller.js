@@ -1,18 +1,20 @@
 import jstz from "jstimezonedetect";
 
 class GroupEditCreateFormController {
-  constructor(Geocoding, CurrentGroup, $scope) {
+  constructor(Geocoding, CurrentGroup, GroupService, $scope) {
     "ngInject";
     Object.assign(this, {
       Geocoding,
       CurrentGroup,
+      GroupService,
       $scope,
       mapCenter: {},
       mapDefaults: {
         scrollWheelZoom: false,
         zoomControl: true,
         dragging: true
-      }
+      },
+      allTimezones: []
     });
   }
   $onInit() {
@@ -26,6 +28,10 @@ class GroupEditCreateFormController {
     } else {
       this.trySetLocation(this.data);
     }
+
+    this.GroupService.timezones().then((response) => {
+      this.allTimezones = response.all_timezones;
+    });
 
     this.$scope.$on("leafletDirectiveMap.click", (event, e) => {
       let item = {
@@ -92,6 +98,10 @@ class GroupEditCreateFormController {
         address: null
       });
     }
+  }
+
+  filterTimezones(search) {
+    return this.allTimezones.filter((tz) => tz.toLowerCase().includes(search.toLowerCase()));
   }
 }
 

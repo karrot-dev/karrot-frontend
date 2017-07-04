@@ -22,7 +22,9 @@
        </md-button>
      </md-menu-item>
      <md-menu-item>
-       <md-button aria-label="{{ 'GROUPMENU.JOIN' | translate }}" class="group-menu-join-button" ng-click="$ctrl.openJoinGroupDialog($event)">
+       <md-button aria-label="{{ 'GROUPMENU.JOIN' | translate }}"
+        class="group-menu-join-button"
+        ui-sref="groupList">
          <i class="fa fa-plus"></i>
          <span translate="GROUPMENU.JOIN"></span>
        </md-button>

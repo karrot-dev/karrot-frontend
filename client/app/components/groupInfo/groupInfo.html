@@ -2,7 +2,12 @@
   <md-toolbar class="md-hue-1">
     <div class="md-toolbar-tools">
       <h1 class="md-title" flex>
-        <i class="fa fa-group"></i>
+        <md-button ui-sref="groupList" class="md-icon-button">
+          <md-icon md-font-icon="fa fa-group"></md-icon>
+          <md-tooltip>
+            <span translate="JOINGROUP.ALL_GROUPS"></span>
+          </md-tooltip>
+        </md-button>
         <span>{{ $ctrl.groupData.name }}</span>
       </h1>
 
@@ -10,13 +15,6 @@
         <i class="fa fa-home"></i>
         <md-tooltip>
           <span translate="GROUPINFO.MEMBER_VIEW"></span>
-        </md-tooltip>
-      </md-button>
-
-      <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && !$ctrl.isMember()" class="md-raised md-accent" ng-click="$ctrl.openJoinGroup($event)">
-        <i class="fa fa-arrow-circle-right"></i>
-        <md-tooltip>
-          <span translate="BUTTON.JOIN"></span>
         </md-tooltip>
       </md-button>
     </div>
@@ -31,7 +29,12 @@
         </p>
 
         <p class="md-body">
-          <span ng-if="$ctrl.groupData.public_description">{{$ctrl.groupData.public_description}}</span>
+          <expandable-panel
+            ng-if="$ctrl.groupData.public_description"
+            content="$ctrl.groupData.public_description"
+            markdown="true"
+            collapse="300">
+          </expandable-panel>
           <em ng-if="!$ctrl.groupData.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
         </p>
 
@@ -43,5 +46,24 @@
       <leaflet ng-if="$ctrl.hasMarkers()" defaults="$ctrl.map.defaults" markers="$ctrl.map.markers" center="$ctrl.map.center"
         height="300px" width="300px"></leaflet>
     </div>
+
+    <md-divider></md-divider>
+
+    <a ng-if="$ctrl.SessionUser.isLoggedIn() && $ctrl.isMember()"
+      ui-sref="group({groupId:$ctrl.groupData.id})">
+      <i class="fa fa-home"></i>
+      <span translate="GROUPINFO.MEMBER_VIEW"></span>
+    </a>
+
+    <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && !$ctrl.isMember()"
+      class="md-accent"
+      ng-click="$ctrl.openJoinGroup($event)">
+      <i class="fa fa-arrow-circle-right"></i>
+      <span translate="BUTTON.JOIN"></span>
+    </md-button>
+
+    <a ng-if="!$ctrl.SessionUser.isLoggedIn()" ui-sref="login">
+      <span translate="JOINGROUP.SIGNUP_OR_LOGIN"></span>
+    </a>
   </div>
 </div>

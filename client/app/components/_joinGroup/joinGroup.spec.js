@@ -35,68 +35,36 @@ describe("JoinGroup", () => {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("joins group", () => {
-      let $ctrl = $componentController("joinGroup", {});
+    it("joins group with password", () => {
+      let $ctrl = $componentController("joinGroup", {}, { group: { id: 1337, protected: true } });
+      $httpBackend.expectPOST("/api/groups/1337/join/", { password: "pwbla" }).respond();
       $ctrl.$onInit();
-      $httpBackend.expectGET("/api/groups/?include_empty=False").respond([]);
-      $ctrl.active = { id: 1337 };
+      $ctrl.password = "pwbla";
       let response = $ctrl.joinGroup();
-      $httpBackend.expectPOST("/api/groups/1337/join/").respond();
-      $httpBackend.expectGET("/api/auth/status/").respond([]);
       $httpBackend.flush();
       expect($mdDialog.hide).to.have.been.calledWith(1337);
       // check if we get a Promise back
       expect(response.then).to.exist;
     });
 
-    it("should change active group", () => {
-      let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = { id: 1337 };
-      $ctrl.toggle({ id: 5555 });
-      expect($ctrl.active.id).to.equal(5555);
-    });
-
-    it("should close on click on active group", () => {
-      let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = { id: 1337 };
-      $ctrl.toggle({ id: 1337 });
-      expect($ctrl.active).to.be.null;
-    });
-
-    it("should toggle check if group is protected", () => {
-      let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = { id: 1337, protected: true };
-      $ctrl.toggleCheck();
-      expect($ctrl.check).to.be.true;
-    });
-
-    it("should join group directly if group is not protected", () => {
-      let $ctrl = $componentController("joinGroup", {});
-      $ctrl.active = { id: 1337, protected: false };
-      $ctrl.toggleCheck();
+    it("joins group without password directly", () => {
+      let $ctrl = $componentController("joinGroup", {}, { group: { id: 1337, protected: false } });
       $httpBackend.expectPOST("/api/groups/1337/join/").respond();
+      $ctrl.$onInit();
       $httpBackend.flush();
-
-      // dont go to check
-      expect($ctrl.check).to.be.false;
-      // window should get closed
       expect($mdDialog.hide).to.have.been.calledWith(1337);
     });
 
-    it("selects group if provided", () => {
-      let $ctrl = $componentController("joinGroup", {}, {
-        selectedGroup: 5
-      });
-      sinon.stub($ctrl, "toggleCheck");
-      $httpBackend.expectGET("/api/groups/?include_empty=False").respond(200, [{
-        id: 5,
-        members: [1]
-      }]);
-      $httpBackend.expectGET("/api/auth/status/").respond([]);
+    it("shows error if password is wrong", () => {
+      let $ctrl = $componentController("joinGroup", {}, { group: { id: 1337, protected: true } });
+      $httpBackend.expectPOST("/api/groups/1337/join/", { password: "wrong" }).respond(400, "err");
       $ctrl.$onInit();
+      $ctrl.password = "wrong";
+      let $setValidity = sinon.stub();
+      $ctrl.joinGroup({ form: { password: { $setValidity } } });
       $httpBackend.flush();
-      expect($ctrl.active).to.deep.equal({ id: 5, members: [1] });
-      expect($ctrl.toggleCheck).to.have.been.called;
+      expect($mdDialog.hide).to.not.have.been.called;
+      expect($setValidity).to.have.been.calledWith("check", false);
     });
   });
 
@@ -108,8 +76,7 @@ describe("JoinGroup", () => {
     }));
 
     it("compiles component", () => {
-      scope.$ctrl = { groups: [{}] };
-      $compile("<join-group></join-group>")(scope);
+      $compile("<join-group group='{protected: true}'></join-group>")(scope);
     });
   });
 });

@@ -23,12 +23,10 @@ describe("Home", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $httpBackend, $q, SessionUser;
+    let $componentController, $httpBackend, SessionUser;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
-      $q = $injector.get("$q");
-
       SessionUser = $injector.get("SessionUser");
     }));
 
@@ -60,16 +58,14 @@ describe("Home", () => {
       expect($ctrl.$state.go).to.have.been.calledWith("group", { groupId: 50 });
     });
 
-    it("opens join group dialog", () => {
+    it("redirects to group list if user is in no group", () => {
       SessionUser.value = { id: 1, current_group: null };             //eslint-disable-line
       $httpBackend.expectGET("/api/groups/?members=1").respond(200, []);
       let $ctrl = $componentController("home", {});
       sinon.stub($ctrl.$state, "go");
-      sinon.stub($ctrl.$mdDialog, "show");
-      $ctrl.$mdDialog.show.returns($q.resolve(1337));
       $ctrl.$onInit();
       $httpBackend.flush();
-      expect($ctrl.$state.go).to.have.been.calledWith( "group", { groupId: 1337 } );
+      expect($ctrl.$state.go).to.have.been.calledWith("groupList");
     });
   });
 

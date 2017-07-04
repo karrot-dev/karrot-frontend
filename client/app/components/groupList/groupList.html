@@ -1,0 +1,28 @@
+<div class="md-whiteframe-3dp">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h1 class="md-title" flex>
+        <md-button class="md-icon-button">
+          <md-icon md-font-icon="fa fa-group"></md-icon>
+        </md-button>
+        <span translate="JOINGROUP.WHICHGROUP"></span>
+      </h1>
+    </div>
+  </md-toolbar>
+
+  <md-list>
+    <md-list-item>
+      <span translate="JOINGROUP.NAME"></span>
+      <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item ng-repeat="group in $ctrl.groups"
+      ui-sref="groupInfo({groupId: group.id})">
+      <span>
+        <md-icon md-font-icon="fa fa-group"></md-icon>
+        <span flex>{{group.name}}</span>
+      </span>
+      <span class="md-secondary">{{group.members.length}}</span>
+    </md-list-item>
+  </md-list>
+</div>

@@ -6,7 +6,7 @@ let pickupListItemComponent = {
   bindings: {
     data: "<",              // pickup info..
     showDetail: "<",        // same as in pickupList
-    onDelete: "&",
+    onEdit: "&",
     meta: "<",   //metadata for pickup including .isFull
     onJoin: "&",
     onLeave: "&"

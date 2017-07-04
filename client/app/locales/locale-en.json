@@ -144,7 +144,8 @@
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Time",
     "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
-    "MAX_COLLECTORS": "Max Slots"
+    "MAX_COLLECTORS": "Max Slots",
+    "COMMENT": "Additional information"
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"

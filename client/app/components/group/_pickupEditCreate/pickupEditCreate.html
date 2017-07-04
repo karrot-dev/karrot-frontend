@@ -18,7 +18,7 @@
   </md-nav-bar>
   <form ng-submit='$ctrl.handleSubmit()' name="pickupEditCreateForm" promise-btn>
     <div layout-padding layout="column">
-      <div layout layout-padding>
+      <div layout="row" layout-xs="column" layout-padding>
         <div ng-if="$ctrl.isSeries">
           <div translate="CREATEPICKUP.WEEKDAYS">
             <md-tooltip>
@@ -63,14 +63,22 @@
         </md-autocomplete>
       </div>
 
-      <md-slider-container>
-        <label><span translate="CREATEPICKUP.MAX_COLLECTORS"></span>:
-          <md-input-container><input tabindex="-1" name="MaxNoCollectors" ng-model="$ctrl.pickupData.max_collectors"
--                 type="number" min=1 />
-          </md-input-container>
-        </label>
-        <md-slider md-discrete ng-model="$ctrl.pickupData.max_collectors" step=1 min=1 max=9></md-slider>
-      </md-slider-container>
+      <div layout="row">
+        <md-slider-container flex>
+          <label translate="CREATEPICKUP.MAX_COLLECTORS"></label>
+          <md-slider flex md-discrete ng-model="$ctrl.pickupData.max_collectors" step=1 min=1 max=9></md-slider>
+        </md-slider-container>
+        <md-input-container>
+          <input tabindex="-1" name="MaxNoCollectors" ng-model="$ctrl.pickupData.max_collectors"
+-                 type="number" min=1 style="width:3em">
+          </input>
+        </md-input-container>
+      </div>
+
+      <md-input-container>
+        <label translate="CREATEPICKUP.COMMENT"></label>
+        <input ng-model="$ctrl.pickupData.comment"></input>
+      </md-input-container>
 
       <div ng-if="$ctrl.isCreate" layout="row" layout-align="end center">
         <md-button ng-click="$ctrl.closePanel()">

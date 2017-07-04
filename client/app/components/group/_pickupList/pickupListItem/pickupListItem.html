@@ -1,34 +1,42 @@
-<md-list-item layout="row" layout-align="end stretch" class="md-2-line pickupList-pickup">
-  <div flex class="pickupList-pickup-left">
-    <span class="pickupList-pickup-info-container">
+<div layout="row" style="width: 100%">
+    <div flex class="content">
       <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
-      <span class="pickupList-pickup-info">
+      <span>
         <span ng-if="$ctrl.showStoreDetail">
-          <i ng-if="!$ctrl.storeData" class="fa fa-spinner"></i>
-          <a ng-if="$ctrl.storeData"
-             ui-sref="group.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
+          <md-button
+            ui-sref="group.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
             {{$ctrl.storeData.name}}
-          </a>
+          </md-button>
         </span>
         <span ng-if="!$ctrl.showStoreDetail">
           {{$ctrl.data.date | date:'fullDate'}}
         </span>
+        <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
+          <md-icon md-font-icon="fa fa-pencil"></md-icon>
+          <md-tooltip>
+            <span translate="BUTTON.EDIT"></span>
+          </md-tooltip>
+        </md-button>
       </span>
-    </span>
-    <div class="pickupList-pickup-people">
-      <a class="pickuplist-pickup-person" ng-repeat="id in $ctrl.data.collector_ids" ui-sref="userDetail({ id })">
-        <span>{{ $ctrl.CurrentUsers.get(id).display_name }}{{$last ? '' : ', '}}</span>
-      </a>
-      <div class="md-caption">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>
+      <div ng-if="$ctrl.data.comment !== ''" class="md-caption">
+        {{ $ctrl.data.comment }}
+      </div>
+      <div class="people">
+        <md-button ng-repeat="id in $ctrl.data.collector_ids" ui-sref="userDetail({ id })">
+          {{ $ctrl.CurrentUsers.get(id).display_name }}
+        </md-button>
+        <div class="md-caption counter">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>        
+      </div>
+    </div>
+    <div class="tools">      
+      <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" promise-btn ng-if="$ctrl.meta.isUserMember" class="md-accent">
+        <span translate="PICKUPLIST.ITEM.LEAVE"></span>
+      </md-button>
+      <md-button aria-label="{{'PICKUPLIST.ITEM.JOIN' | translate}}" ng-click="$ctrl.join()" promise-btn ng-if="!$ctrl.meta.isUserMember && !$ctrl.meta.isFull" class="md-raised md-primary">
+        <span translate="PICKUPLIST.ITEM.JOIN"></span>
+      </md-button>
+      <md-button aria-label="{{'PICKUPLIST.ITEM.FULL' | translate}}" ng-disabled="true" ng-if="!$ctrl.meta.isUserMember && $ctrl.meta.isFull">
+        <span translate="PICKUPLIST.ITEM.FULL"></span>
+      </md-button>
     </div>
   </div>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.LEAVE' | translate}}" ng-click="$ctrl.leave()" promise-btn ng-if="$ctrl.meta.isUserMember" class="md-accent pickupList-pickup-right">
-    <p translate="PICKUPLIST.ITEM.LEAVE"></p>
-  </md-button>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.JOIN' | translate}}" ng-click="$ctrl.join()" promise-btn ng-if="!$ctrl.meta.isUserMember && !$ctrl.meta.isFull" class="md-raised md-primary pickupList-pickup-right">
-    <p translate="PICKUPLIST.ITEM.JOIN"></p>
-  </md-button>
-  <md-button aria-label="{{'PICKUPLIST.ITEM.FULL' | translate}}" ng-disabled="true" ng-if="!$ctrl.meta.isUserMember && $ctrl.meta.isFull" class="pickupList-pickup-right">
-    <p translate="PICKUPLIST.ITEM.FULL"></p>
-  </md-button>
-</md-list-item>

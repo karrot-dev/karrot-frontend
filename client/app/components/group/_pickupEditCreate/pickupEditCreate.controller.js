@@ -38,7 +38,8 @@ class pickupEditCreateController {
       this.pickupData = {
         id: this.data.editData.id,
         "max_collectors": this.data.editData.max_collectors,
-        store: this.data.editData.store
+        store: this.data.editData.store,
+        comment: this.data.editData.comment
       };
 
       this.time = new Date();

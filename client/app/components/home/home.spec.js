@@ -23,12 +23,10 @@ describe("Home", () => {
   });
 
   describe("Controller", () => {
-    let $componentController, $httpBackend, $q, SessionUser;
+    let $componentController, $httpBackend, SessionUser;
     beforeEach(inject(($injector) => {
       $componentController = $injector.get("$componentController");
       $httpBackend = $injector.get("$httpBackend");
-      $q = $injector.get("$q");
-
       SessionUser = $injector.get("SessionUser");
     }));
 

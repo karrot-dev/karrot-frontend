@@ -4,7 +4,7 @@ import "./joinGroup.styl";
 
 let joinGroupComponent = {
   bindings: {
-    selectedGroup: "<"
+    group: "<"
   },
   template,
   controller

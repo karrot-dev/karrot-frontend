@@ -1,53 +1,13 @@
 <div layout="column" style="height: 100%">
-  <md-toolbar ng-if="!$ctrl.check">
+  <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>
         <i style="font-size: 1.2em; margin-right: 1em;" class="fa fa-group"></i>
-        <span translate="JOINGROUP.WHICHGROUP"></span>
+        <span>{{$ctrl.group.name}}</span>
       </h2>
     </div>
   </md-toolbar>
-  <div ng-if="!$ctrl.check" flex style="overflow: auto">
-    <md-list style="overflow: visible">
-      <md-list-item>
-        <span translate="JOINGROUP.NAME"></span>
-        <span translate="JOINGROUP.NUM_MEMBERS" class="md-secondary"></span>
-      </md-list-item>
-      <md-divider></md-divider>
-      <md-list-item ng-repeat="group in $ctrl.groups" ng-if="group.members.length>0">
-        <div layout="column" flex>
-          <div layout>
-            <md-button class="join-group-expand" ng-click="$ctrl.toggle(group)" aria-label="show details" flex>
-              <i class="fa fa-group"></i>
-              <span>{{group.name}}</span>
-              <i ng-if="group.protected" class="fa fa-lock"></i>
-            </md-button>
-            <span class="md-secondary">{{group.members.length}}</span>
-          </div>
-          <div ng-if="$ctrl.active && $ctrl.active.id == group.id" class="description">
-            <div ng-if="group.public_description">{{group.public_description}}</div>
-            <em ng-if="!group.public_description" translate="JOINGROUP.NO_PUBLIC_DESCRIPTION"></em>
-            <div layout layout-align="end center">
-              <md-button class="md-raised md-primary" ng-click="$ctrl.toggleCheck()" aria-label="join group">
-                <span translate="BUTTON.JOIN"></span>
-                <i class="fa fa-arrow-circle-right"></i>
-              </md-button>
-            </div>
-          </div>
-        </div>
-      </md-list-item>
-    </md-list>
-  </div>
-
-  <md-toolbar ng-if="$ctrl.check">
-    <div class="md-toolbar-tools">
-      <h2>
-        <i style="font-size: 1.2em; margin-right: 1em;" class="fa fa-group"></i>
-        <span>{{$ctrl.active.name}}</span>
-      </h2>
-    </div>
-  </md-toolbar>
-  <div ng-if="$ctrl.check" flex style="overflow: auto">
+  <div ng-if="$ctrl.group.protected" flex style="overflow: auto">
     <form name="form" ng-submit="$ctrl.joinGroup(this)" promise-btn style="text-align:center">
       <h4 translate="JOINGROUP.PASSWORD_LABEL"></h4>
       <md-input-container>
@@ -65,6 +25,10 @@
       </md-button>
     </form>
   </div>
+  <md-progress-circular
+    md-mode="indeterminate"
+    ng-if="!$ctrl.group.protected">
+  </md-progress-circular>
 
 
   <md-dialog-actions>

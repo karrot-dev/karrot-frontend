@@ -65,7 +65,12 @@ class GroupInfoController {
     this.$mdDialog.show({
       parent: this.$document.body,
       targetEvent: $event,
-      template: `<join-group selected-group='${this.groupData.id}'></join-group>`
+      template: "<join-group group='group'></join-group>",
+      locals: { group: this.groupData },
+      controller: ($scope, group) => {
+        "ngInject";
+        $scope.group = group;
+      }
     }).then((groupId) => {
       this.$state.go("group", { groupId });
     });

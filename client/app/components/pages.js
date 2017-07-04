@@ -10,6 +10,7 @@ import topbar from "./_topbar/topbar";
 import landingPage from "./landingPage/landingPage";
 import notifications from "./notifications/notifications";
 import groupInfo from "./groupInfo/groupInfo";
+import groupList from "./groupList/groupList";
 import mainLayout from "./_mainLayout/mainLayout";
 import splashLayout from "./_splashLayout/splashLayout";
 
@@ -25,6 +26,7 @@ let componentModule = angular.module("app.components", [
   landingPage,
   notifications,
   groupInfo,
+  groupList,
   mainLayout,
   splashLayout
 ]).name;

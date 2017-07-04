@@ -23,15 +23,18 @@
       <span md-highlight-text="tzsearch">{{tz}}</span>
     </md-autocomplete>
 
-    <md-input-container>
-      <label translate="GROUP.PUBLIC_DESCRIPTION"></label>
-      <textarea ng-model="$ctrl.data.public_description"></textarea>
-    </md-input-container>
+    <markdown-input
+      translation-label="GROUP.PUBLIC_DESCRIPTION"
+      model="$ctrl.data.public_description">
+    </markdown-input>
 
-    <markdown-input translation-label="GROUP.DESCRIPTION_VERBOSE" model="$ctrl.data.description"></markdown-input>
+    <markdown-input
+      translation-label="GROUP.DESCRIPTION_VERBOSE"
+      model="$ctrl.data.description">
+    </markdown-input>
 
     <md-autocomplete
-      placeholder="{{'GROUP.ADDRESS' | translate}}"
+      md-floating-label="{{'GROUP.ADDRESS' | translate}}"
       md-search-text="$ctrl.query"
       md-items="item in $ctrl.geoLookup()"
       md-item-text="item.address"

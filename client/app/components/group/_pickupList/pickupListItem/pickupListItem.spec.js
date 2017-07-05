@@ -52,7 +52,7 @@ describe("PickupListItem", () => {
 
     it("gets store data", () => {
       $ctrl.CurrentStores.set([{ id: 5 }]);
-      $ctrl.data = { store: 5, collector_ids: [] };
+      $ctrl.data = { store: 5, "collector_ids": [] };
       $ctrl.$onInit();
       expect($ctrl.storeData).to.deep.equal({ id: 5 });
     });

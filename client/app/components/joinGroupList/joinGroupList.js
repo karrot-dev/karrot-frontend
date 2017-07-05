@@ -15,13 +15,11 @@ let joinGroupListModule = angular.module("joinGroupList", [
   $stateProvider
     .state("joinGroupList", {
       parent: "main",
-      url: "/joinGroupList",
+      url: "/join-group",
       component: "joinGroupList",
       resolve: {
         groups: (GroupService) => {
-          return GroupService.list().then((allGroups) => {
-            return allGroups;
-          });
+          return GroupService.list();
         }
       },
       ncyBreadcrumb: {

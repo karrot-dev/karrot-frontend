@@ -7,7 +7,10 @@ class JoinGroupListController {
   }
 
   $onInit(){
-    let sortedGroups = this.groups.sort((a,b) => b.members.length - a.members.length);
+    let sortedGroups = [];
+    if (angular.isDefined(this.groups)){
+      sortedGroups = this.groups.sort((a,b) => b.members.length - a.members.length);
+    }
     this.Authentication.update().then((data) => {
       let groupsUserIsMember = [];
       angular.forEach(sortedGroups, (curGroup) => {

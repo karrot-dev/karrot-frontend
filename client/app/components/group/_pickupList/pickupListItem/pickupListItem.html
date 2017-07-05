@@ -1,24 +1,26 @@
 <div layout="row" style="width: 100%">
     <div flex class="content" ng-class="{empty: $ctrl.isEmpty}">
-      <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
-      <span>
-        <span ng-if="$ctrl.showStoreDetail">
-          <md-button
-            ui-sref="group.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
-            {{$ctrl.storeData.name}}
+      <div class="title">
+        <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
+        <span>
+          <span ng-if="$ctrl.showStoreDetail">
+            <md-button
+              ui-sref="group.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
+              {{$ctrl.storeData.name}}
+            </md-button>
+          </span>
+          <span ng-if="!$ctrl.showStoreDetail">
+            {{$ctrl.data.date | date:'fullDate'}}
+          </span>
+          <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
+            <md-icon md-font-icon="fa fa-pencil"></md-icon>
+            <md-tooltip>
+              <span translate="BUTTON.EDIT"></span>
+            </md-tooltip>
           </md-button>
         </span>
-        <span ng-if="!$ctrl.showStoreDetail">
-          {{$ctrl.data.date | date:'fullDate'}}
-        </span>
-        <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
-          <md-icon md-font-icon="fa fa-pencil"></md-icon>
-          <md-tooltip>
-            <span translate="BUTTON.EDIT"></span>
-          </md-tooltip>
-        </md-button>
-      </span>
-      <div ng-if="$ctrl.data.comment !== ''" class="md-caption">
+      </div>
+      <div ng-if="$ctrl.data.comment !== ''" class="md-caption comment">
         {{ $ctrl.data.comment }}
       </div>
       <div class="people">

@@ -1,0 +1,18 @@
+<div class="md-whiteframe-3dp main-panel">
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h1 class="md-title" flex>
+        <md-button class="md-icon-button">
+          <md-icon md-font-icon="fa fa-group"></md-icon>
+        </md-button>
+        <span translate="JOINGROUP.WHICHGROUP"></span>
+      </h1>
+    </div>
+  </md-toolbar>
+  
+  <div ng-if="!$ctrl.groupsUserIsMemberOf" layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate" style="margin: 3em auto"></md-progress-circular>
+  </div>
+  
+  <group-list ng-if="$ctrl.groupsUserIsMemberOf" groups="$ctrl.groupsUserIsMemberOf"></group-list>
+</div>

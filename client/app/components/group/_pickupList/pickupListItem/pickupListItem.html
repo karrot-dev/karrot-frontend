@@ -22,10 +22,10 @@
         {{ $ctrl.data.comment }}
       </div>
       <div class="people">
-        <md-button ng-repeat="id in $ctrl.data.collector_ids" ui-sref="userDetail({ id })">
-          {{ $ctrl.CurrentUsers.get(id).display_name }}
-        </md-button>
-        <div class="md-caption counter">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>        
+        <profile-picture ng-repeat="userId in $ctrl.data.collector_ids" user-id="userId" size="20"></profile-picture>
+        <div class="md-caption counter">
+          ({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})
+        </div>        
       </div>
     </div>
     <div class="tools">      

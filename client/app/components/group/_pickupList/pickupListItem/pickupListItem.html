@@ -1,5 +1,5 @@
-<div layout="row" style="width: 100%">
-    <div flex class="content" ng-class="{empty: $ctrl.isEmpty}">
+<div layout="row" style="width: 100%" ng-class="{empty: $ctrl.isEmpty, yours: $ctrl.meta.isUserMember}">
+    <div flex class="content">
       <div class="title">
         <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
         <span>

@@ -1,4 +1,18 @@
 $lightRed = #FFF5F5
+$lightGreen = #F0FFF0
+$lighterGreen = #F8FFF8
+
+
+pickup-list-item > div.empty
+  background repeating-linear-gradient(
+    135deg,
+    white,
+    white 15px,
+    $lightRed 15px,
+    $lightRed 30px
+  )
+pickup-list-item > div.yours
+  background linear-gradient(to right, $lightGreen, $lighterGreen)
 
 pickup-list-item > div
   border 2px solid rgba(0, 0, 0, .1)
@@ -13,9 +27,11 @@ pickup-list-item > div
     .title
       span
         display inline-block
-      button
+      .md-button
+        line-height 30px
         min-height 30px
         height 30px
+      button
         min-width 30px
         width 30px
         margin 0
@@ -27,15 +43,6 @@ pickup-list-item > div
       height 20px
       vertical-align top
       line-height 20px
-  .content.empty
-      background repeating-linear-gradient(
-        135deg,
-        white,
-        white 15px,
-        $lightRed 15px,
-        $lightRed 30px
-      )
-
   .tools
     .md-button
       height 100%

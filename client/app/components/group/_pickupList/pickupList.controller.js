@@ -2,7 +2,7 @@ import moment from "moment";
 
 class PickupListController {
 
-  constructor(SessionUser, PickupDate, PickupDateSeries, Store, $mdDialog, $document) {
+  constructor(SessionUser, PickupDate, PickupDateSeries, Store, $mdDialog, $document, $mdMedia) {
     "ngInject";
     Object.assign(this, {
       SessionUser,
@@ -10,7 +10,8 @@ class PickupListController {
       PickupDateSeries,
       Store,
       $mdDialog,
-      $document
+      $document,
+      $mdMedia
     });
   }
 

@@ -23,7 +23,7 @@ We want to work on this in mid-term future. We need to think about it more befor
 
 [View issues](https://github.com/yunity/foodsaving-frontend/milestone/9)
 
-## Discussion (lesser priority)
+## Discussion (lower priority)
 
 Quite a bit in the future (~1 year), haven't been discussed very much. If one of those is more important to you than those in "Current discussion", please contact us!
 

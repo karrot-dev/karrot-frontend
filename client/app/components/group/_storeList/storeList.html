@@ -1,13 +1,13 @@
 <store-map store-list="$ctrl.storeList" ng-if="$ctrl.$mdMedia('gt-sm')"></store-map>
-<md-list layout-padding>
+<md-list>
   <div layout="row">
     <md-button class="md-primary" aria-label="Create Store" ui-sref="group.storeCreate">
       <i style="font-size: 1.2em;" class="fa fa-plus-circle"></i>
       <span translate="BUTTON.CREATE"></span>
     </md-button>
-    <search-bar search-query="$ctrl.searchQuery"></search-bar>
+    <search-bar ng-hide="$ctrl.showMap" search-query="$ctrl.searchQuery"></search-bar>
     <div ng-if="!$ctrl.$mdMedia('gt-sm')" flex></div>
-    <md-button ng-if="!$ctrl.$mdMedia('gt-sm')" class="md-primary" ng-click="$ctrl.toggleMap()" aria-label="Toggle map" >
+    <md-button ng-if="!$ctrl.$mdMedia('gt-sm')" class="md-primary md-icon-button" ng-click="$ctrl.toggleMap()" aria-label="Toggle map">
       <i style="font-size: 1.2em;" class="fa fa-map" ng-class="$ctrl.showMap ? 'fa-list' : 'fa-map'"></i>
     </md-button>
   </div>

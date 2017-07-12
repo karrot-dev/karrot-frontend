@@ -9,7 +9,7 @@
         <span translate="STOREDETAIL.MANAGE_PICKUP_DATES"></span>
       </md-button>
       <md-menu>
-        <md-button aria-label="{{'PICKUPLIST.FILTER' | translate}}" class="small" ng-click="$mdMenu.open($event)">
+        <md-button aria-label="{{'PICKUPLIST.FILTER' | translate}}"  ng-class="{'md-icon-button': !$ctrl.$mdMedia('gt-xs'), 'small': $ctrl.$mdMedia('gt-xs')}" ng-click="$mdMenu.open($event)">
           <span hide-xs translate="PICKUPLIST.FILTER"></span>
           <i class="fa fa-filter" aria-hidden="true"></i>
         </md-button>
@@ -30,7 +30,7 @@
           </md-list>
         </md-menu-content>
       </md-menu>
-      <md-button aria-label="{{'PICKUPLIST.SORT' | translate}}" class="small" ng-click="$ctrl.toggleReversed()">
+      <md-button aria-label="{{'PICKUPLIST.SORT' | translate}}" ng-class="{'md-icon-button': !$ctrl.$mdMedia('gt-xs'), 'small': $ctrl.$mdMedia('gt-xs')}" ng-click="$ctrl.toggleReversed()">
         <span hide-xs translate="PICKUPLIST.SORT"></span>
         <i class="fa" ng-class="{ 'fa-angle-down': $ctrl.options.reversed , 'fa-angle-up': !$ctrl.options.reversed  }" aria-hidden="true"></i>
       </md-button>

@@ -42,6 +42,14 @@ describe("authentication", () => {
       $httpBackend.flush();
     });
 
+    it("update with raw option returns unprocessed error", () => {
+      $httpBackend.expectGET("/api/auth/status/").respond(401, failLogin);
+      expect(Authentication.update(true))
+        .to.be.rejected.and
+        .to.eventually.be.an("object").that.has.any.key({ "status": 401 });
+      $httpBackend.flush();
+    });
+
     it("allows authenticated user", () => {
       $httpBackend.expectGET("/api/auth/status/").respond(loginData);
       expect(Authentication.update())

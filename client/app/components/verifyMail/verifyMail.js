@@ -12,7 +12,7 @@ let verifyMailModule = angular.module("verifyMail", [
 
 .component("verifyMail", verifyMailComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("verifyMail", {
@@ -21,9 +21,11 @@ let verifyMailModule = angular.module("verifyMail", [
       component: "verifyMail",
       ncyBreadcrumb: {
         label: "{{'VERIFYMAIL.TITLE' | translate}}"
+      },
+      data: {
+        authRequired: true
       }
     });
-  hookProvider.setup("verifyMail", { authenticated: true, anonymous: "login" });
 })
 
 .name;

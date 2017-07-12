@@ -26,7 +26,7 @@ let groupPageModule = angular.module("group", [
   searchBar
 ])
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("group", {
@@ -34,12 +34,18 @@ let groupPageModule = angular.module("group", [
       url: "/group/{groupId:int}",
       redirectTo: (trans) => {
         let GroupService = trans.injector().get("GroupService");
+        let CurrentGroup = trans.injector().get("CurrentGroup");
         let $stateParams = trans.injector().get("$stateParams");
         let SessionUser = trans.injector().get("SessionUser");
         let $translate = trans.injector().get("$translate");
         let $mdToast = trans.injector().get("$mdToast");
-        return GroupService.get($stateParams.groupId).then((group) => {
-          if (group.members.indexOf(SessionUser.value.id) >= 0) {
+        return GroupService.get($stateParams.groupId)
+        .then((group) => {
+          CurrentGroup.set(group);
+          return SessionUser.loaded;
+        })
+        .then((user) => {
+          if (CurrentGroup.value.members.indexOf(user.id) >= 0) {
             return "group.groupDetail.pickups";
           } else {
             $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
@@ -48,25 +54,30 @@ let groupPageModule = angular.module("group", [
             // re-uses same groupId state parameter
             return "groupInfo";
           }
+        })
+        .catch((response) => {
+          if (response.status === 404) {
+            $translate("GLOBAL.NOT_FOUND").then((message) => {
+              $mdToast.showSimple(message);
+            });
+            return "landingPage";
+          }
         });
+
       },
       component: "group",
       resolve: {
         groupData: (CurrentGroup) => {
           return CurrentGroup.value;
-        },
-        groupDataResolve: (GroupService, CurrentGroup, $stateParams) => {
-          return GroupService.get($stateParams.groupId).then((group) => {
-            CurrentGroup.set(group);
-            return group;
-          });
         }
+      },
+      data: {
+        authRequired: true
       },
       ncyBreadcrumb: {
         label: "{{$ctrl.CurrentGroup.value.name}}"
       }
     });
-  hookProvider.setup("group", { authenticated: true, anonymous: "login" });
 })
 
 .component("group", groupComponent)

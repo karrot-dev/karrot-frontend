@@ -10,7 +10,7 @@ let loginModule = angular.module("login", [
   Authentication
 ])
 
-.config(($stateProvider, $urlRouterProvider, hookProvider) => {
+.config(($stateProvider, $urlRouterProvider) => {
   "ngInject";
   $stateProvider.state("login", {
     parent: "splash",
@@ -21,7 +21,6 @@ let loginModule = angular.module("login", [
     }
   });
   $urlRouterProvider.otherwise("/login");
-  hookProvider.setup("login", { authenticated: "home", anonymous: true });
 })
 
 .component("login", loginComponent)

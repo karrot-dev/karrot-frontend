@@ -14,11 +14,14 @@ class AuthenticationService {
       .catch((res) => this.$q.reject(res.data));
   }
 
-  update() {
+  update(raw) {
     return this.$http.get("/api/auth/status/")
       .then((res) => res.data)
       .then((data) => this.SessionUser.set(data))
-      .catch((res) => this.$q.reject(res.data));
+      .catch((res) => {
+        if (raw) return this.$q.reject(res);
+        return this.$q.reject(res.data);
+      });
   }
 
   logout() {

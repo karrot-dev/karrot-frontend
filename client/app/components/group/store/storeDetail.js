@@ -34,13 +34,31 @@ let storeDetailModule = angular.module("storeDetail", [
     })
     .state("group.store", {
       url: "/store/{storeId:int}",
-      redirectTo: "storePickups",
+      redirectTo: (trans) => {
+        let Store = trans.injector().get("Store");
+        let $stateParams = trans.injector().get("$stateParams");
+        return Store.get($stateParams.storeId)
+        .then(() => {
+          return "storePickups";
+        })
+        .catch((response) => {
+          let $translate = trans.injector().get("$translate");
+          let $mdToast = trans.injector().get("$mdToast");
+          if (response.status === 404) {
+            $translate("GLOBAL.NOT_FOUND").then((message) => {
+              $mdToast.showSimple(message);
+            });
+            return "landingPage";
+          }
+          throw response;
+        });
+      },
       template: "<ui-view></ui-view>",
       resolve: {
-        storedata: (Store, CurrentStores, $stateParams) => {
-          return Store.get($stateParams.storeId).then((store) => {
-            return CurrentStores.setSelected(store);
-          });
+        storedata: (CurrentStores, $stateParams) => {
+          return CurrentStores.setSelected(
+            CurrentStores.get($stateParams.storeId)
+          );
         }
       },
       ncyBreadcrumb: {

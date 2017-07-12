@@ -14,7 +14,7 @@ let notificationsModule = angular.module("notifications", [
 
 .component("notifications", notificationsComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("notifications", {
@@ -26,11 +26,13 @@ let notificationsModule = angular.module("notifications", [
           return Authentication.update().then((user) => user);
         }
       },
+      data: {
+        authRequired: true
+      },
       ncyBreadcrumb: {
         label: "{{'NOTIFICATIONS.TITLE' | translate}}"
       }
     });
-  hookProvider.setup("notifications", { authenticated: true, anonymous: "login" });
 })
 
 .name;

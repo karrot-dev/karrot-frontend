@@ -10,7 +10,8 @@ describe("Group", () => {
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true })
-      .state("groupInfo", { parent: "main", url: "groupInfo" });
+      .state("groupInfo", { parent: "main", url: "groupInfo" })
+      .state("landingPage", { url: "landingPage" });
   }));
 
   let $log;
@@ -59,10 +60,10 @@ describe("Group", () => {
 
   describe("Route", () => {
     beforeEach(() => {
-      $httpBackend.whenGET("/api/auth/status/").respond({ id: 43 });
-      inject(($translate, $q, CurrentGroup) => {
+      inject(($translate, $q, CurrentGroup, SessionUser) => {
         $translate.returns($q.resolve());
-        sinon.stub(CurrentGroup, "set");
+        sinon.stub(CurrentGroup, "persistCurrentGroup");
+        SessionUser.set({ id: 43 });
       });
     });
 
@@ -80,6 +81,13 @@ describe("Group", () => {
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
       expect($state.current.name).to.equal("groupInfo");
+    });
+
+    it("redirects to landing page if group not found", () => {
+      $httpBackend.whenGET("/api/groups/666/").respond(404);
+      $state.go("group", { groupId: 666 });
+      $httpBackend.flush();
+      expect($state.current.name).to.equal("landingPage");
     });
   });
 

@@ -10,15 +10,17 @@ let homeModule = angular.module("home", [
   joinGroup
 ])
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("home", {
       parent: "main",
       url: "/",
-      component: "home"
+      component: "home",
+      data: {
+        authRequired: true
+      }
     });
-  hookProvider.setup("home", { authenticated: true, anonymous: "login" });
 })
 
 .component("home", homeComponent)

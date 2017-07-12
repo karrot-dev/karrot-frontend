@@ -39,7 +39,6 @@ describe("UserDetail", () => {
     });
 
     it("provides state", () => {
-      $httpBackend.expectGET("/api/auth/status/").respond( { id: 99 });
       $httpBackend.expectGET("/api/users/5/").respond( { id: 5 });
       $state.go("userDetail", { id: 5 });
       $httpBackend.flush();

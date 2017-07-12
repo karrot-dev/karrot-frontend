@@ -37,7 +37,7 @@
   },
   "FORM": {
     "MINLENGTH": "Bitte gib mehr als {{min}} Zeichen ein.",
-    "UNIQUE": "Name already exists, please choose another."
+    "UNIQUE": "Der Name existiert bereits, bitte wähle einen anderen."
   },
   "GROUP": {
     "LEAVE": "Gruppe verlassen",
@@ -61,7 +61,7 @@
     "EDIT": "Betrieb bearbeiten",
     "ADDRESS": "Adresse",
     "MANAGE": "Abholzeiten prüfen und ändern",
-    "MANAGE_PICKUP_DATES": "Manage pickup dates"
+    "MANAGE_PICKUP_DATES": "Abholzeiten bearbeiten"
   },
   "STOREEDIT": {
     "NAME": "Name",

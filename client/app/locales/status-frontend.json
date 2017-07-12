@@ -22,15 +22,15 @@
     "untranslated_words": 628
   },
   "de": {
-    "completed": "91%",
-    "last_commiter": "tilmann",
-    "last_update": "2017-07-03 05:55:56",
+    "completed": "93%",
+    "last_commiter": "peter_alexander",
+    "last_update": "2017-07-03 17:16:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 147,
-    "translated_words": 594,
-    "untranslated_entities": 13,
-    "untranslated_words": 34
+    "translated_entities": 149,
+    "translated_words": 603,
+    "untranslated_entities": 11,
+    "untranslated_words": 25
   },
   "en": {
     "completed": "100%",

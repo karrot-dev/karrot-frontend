@@ -50,7 +50,7 @@ describe("AuthRequired", () => {
   });
 
   it("goes to authed state on non-401", () => {
-    $httpBackend.expectGET("/api/auth/status/").respond(404);
+    $httpBackend.expectGET("/api/auth/status/").respond(-1);
     $state.go("authNeeded");
     $httpBackend.flush();
     expect($state.current.name).to.equal("authNeeded");

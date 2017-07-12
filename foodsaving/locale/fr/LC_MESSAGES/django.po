@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-20 20:12+0000\n"
+"POT-Creation-Date: 2017-07-03 05:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: djahnie <hopefullyunique@gmx.de>, 2017\n"
+"Last-Translator: Janina Abels <hopefullyunique@gmx.de>, 2017\n"
 "Language-Team: French (https://www.transifex.com/yunity-1/teams/68631/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:222
+#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:230
 msgid "You are not a member of this group."
 msgstr "Tu n'est pas membre de ce groupe."
 
@@ -30,7 +30,7 @@ msgstr "Tu est déjà membre du groupe."
 msgid "Unknown timezone"
 msgstr "Fuseau horaire inconnu"
 
-#: foodsaving/groups/serializers.py:114
+#: foodsaving/groups/serializers.py:115
 msgid "Group password is wrong"
 msgstr "Le mot de passe du groupe privé est incorrect."
 
@@ -54,27 +54,34 @@ msgstr "Tu as rejoint cette récolte déjà."
 msgid "Pickup date is already full."
 msgstr "Cette récolte est pleine."
 
-#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:162
+#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:168
 msgid "You are not member of the store's group."
 msgstr "Tu n'est pas membre du groupe du magasin."
 
-#: foodsaving/stores/serializers.py:82
+#: foodsaving/stores/serializers.py:88
 msgid "The date should be in the future."
 msgstr "La date doit être dans le futur."
 
-#: foodsaving/stores/serializers.py:172
+#: foodsaving/stores/serializers.py:178
 msgid "Only single recurrence rules are allowed."
 msgstr "Seulement des règles de recurrence individuelles sont permises."
 
-#: foodsaving/stores/serializers.py:227
+#: foodsaving/stores/serializers.py:235
 msgid "Set at least one week in advance"
 msgstr "Une semaine en avance est minimum!"
 
-#: foodsaving/users/models.py:155
+#: foodsaving/stores/templates/upcoming_pickup_slack.jinja:1
+#, python-format
+msgid ""
+"Food pickup at *%(store_name)s* in %(number_of_hours)s hours! "
+"<%(store_page_url)s|Click here> and save the food!"
+msgstr ""
+
+#: foodsaving/users/models.py:156
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: foodsaving/users/models.py:156
+#: foodsaving/users/models.py:157
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
@@ -90,11 +97,11 @@ msgstr "Tu ne peux traîter que les données de toi-même."
 msgid "Mail is already verified."
 msgstr "Adresse mail est déjà verifiée."
 
-#: foodsaving/users/serializers.py:57
+#: foodsaving/users/serializers.py:59
 msgid "Key has expired"
 msgstr "Clé expirée"
 
-#: foodsaving/users/serializers.py:59
+#: foodsaving/users/serializers.py:61
 msgid "Key is invalid"
 msgstr "Clé invalide"
 

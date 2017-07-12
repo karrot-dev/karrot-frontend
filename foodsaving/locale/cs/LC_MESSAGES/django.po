@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-20 20:12+0000\n"
+"POT-Creation-Date: 2017-07-03 05:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Czech (https://www.transifex.com/yunity-1/teams/68631/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:222
+#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:230
 msgid "You are not a member of this group."
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Unknown timezone"
 msgstr ""
 
-#: foodsaving/groups/serializers.py:114
+#: foodsaving/groups/serializers.py:115
 msgid "Group password is wrong"
 msgstr ""
 
@@ -53,27 +53,34 @@ msgstr ""
 msgid "Pickup date is already full."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:162
+#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:168
 msgid "You are not member of the store's group."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:82
+#: foodsaving/stores/serializers.py:88
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:172
+#: foodsaving/stores/serializers.py:178
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:227
+#: foodsaving/stores/serializers.py:235
 msgid "Set at least one week in advance"
 msgstr ""
 
-#: foodsaving/users/models.py:155
-msgid "New password"
+#: foodsaving/stores/templates/upcoming_pickup_slack.jinja:1
+#, python-format
+msgid ""
+"Food pickup at *%(store_name)s* in %(number_of_hours)s hours! "
+"<%(store_page_url)s|Click here> and save the food!"
 msgstr ""
 
 #: foodsaving/users/models.py:156
+msgid "New password"
+msgstr ""
+
+#: foodsaving/users/models.py:157
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
@@ -87,11 +94,11 @@ msgstr ""
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/users/serializers.py:57
+#: foodsaving/users/serializers.py:59
 msgid "Key has expired"
 msgstr ""
 
-#: foodsaving/users/serializers.py:59
+#: foodsaving/users/serializers.py:61
 msgid "Key is invalid"
 msgstr ""
 

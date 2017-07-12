@@ -1,19 +1,58 @@
-pickup-list-item > div
-  border 2px solid rgba(0, 0, 0, .1)
-  border-radius 5px
-  margin-bottom 1em
-  .content
-    padding 0 0 5px 8px
-    .people .counter
-      margin 8px
-      display inline-block
+$lightRed = #FFF5F5
+$lightGreen = #F0FFF0
+$lighterGreen = #F8FFF8
 
-  .tools
+
+pickup-list-item
+  > div.empty
+    background repeating-linear-gradient(
+      135deg,
+      white,
+      white 15px,
+      $lightRed 15px,
+      $lightRed 30px
+    )
+  > div.yours
+    background linear-gradient(to right, $lightGreen, $lighterGreen)
+
+  > div
+    border 2px solid rgba(0, 0, 0, .1)
+    border-radius 5px
+    margin-bottom 0.6em
+    .content
+      padding 0 0 4px 8px
+      overflow-x auto
+      a
+        margin 0
+        min-width 30px
+      .title
+        span
+          display inline-block
+        .md-button
+          line-height 30px
+          min-height 30px
+          height 30px
+        button
+          min-width 30px
+          width 30px
+          margin 0
+          padding 0
+      .comment
+        margin-bottom 6px
+      .people .counter
+        display inline-block
+        height 20px
+        vertical-align top
+        line-height 20px
+    .tools
+      .md-button
+        height 100%
+        margin 0
+        min-width 65px
+        white-space initial
+        max-width 100px
+        line-height 1.5
+
     .md-button
-      height 100%
-      margin 0
-      min-width 65px
-
-  .md-button
-    text-transform none
+      text-transform none
     

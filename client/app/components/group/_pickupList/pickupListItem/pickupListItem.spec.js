@@ -52,7 +52,7 @@ describe("PickupListItem", () => {
 
     it("gets store data", () => {
       $ctrl.CurrentStores.set([{ id: 5 }]);
-      $ctrl.data = { store: 5 };
+      $ctrl.data = { store: 5, "collector_ids": [] };
       $ctrl.$onInit();
       expect($ctrl.storeData).to.deep.equal({ id: 5 });
     });
@@ -87,7 +87,7 @@ describe("PickupListItem", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<pickup-list-item data='{store:{}}'></pickup-list-item>")(scope);
+      $compile("<pickup-list-item data='{store:{}, collector_ids:[]}'></pickup-list-item>")(scope);
     });
   });
 });

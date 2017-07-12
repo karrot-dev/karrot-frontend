@@ -1,31 +1,33 @@
-<div layout="row" style="width: 100%">
+<div layout="row" style="width: 100%" ng-class="{empty: $ctrl.isEmpty, yours: $ctrl.meta.isUserMember}">
     <div flex class="content">
-      <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
-      <span>
-        <span ng-if="$ctrl.showStoreDetail">
-          <md-button
-            ui-sref="group.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
-            {{$ctrl.storeData.name}}
+      <div class="title">
+        <span class="md-title">{{$ctrl.data.date| date:'shortTime'}}</span>
+        <span>
+          <span ng-if="$ctrl.showStoreDetail">
+            <md-button
+              ui-sref="group.store({ storeId: $ctrl.storeData.id, groupId: $ctrl.storeData.group })">
+              {{$ctrl.storeData.name}}
+            </md-button>
+          </span>
+          <span ng-if="!$ctrl.showStoreDetail">
+            {{$ctrl.data.date | date:'fullDate'}}
+          </span>
+          <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
+            <md-icon md-font-icon="fa fa-pencil"></md-icon>
+            <md-tooltip>
+              <span translate="BUTTON.EDIT"></span>
+            </md-tooltip>
           </md-button>
         </span>
-        <span ng-if="!$ctrl.showStoreDetail">
-          {{$ctrl.data.date | date:'fullDate'}}
-        </span>
-        <md-button ng-if="!$ctrl.showStoreDetail" class="md-icon-button" ng-click="$ctrl.onEdit({$event})">
-          <md-icon md-font-icon="fa fa-pencil"></md-icon>
-          <md-tooltip>
-            <span translate="BUTTON.EDIT"></span>
-          </md-tooltip>
-        </md-button>
-      </span>
-      <div ng-if="$ctrl.data.comment !== ''" class="md-caption">
+      </div>
+      <div ng-if="$ctrl.data.comment !== ''" class="md-caption comment">
         {{ $ctrl.data.comment }}
       </div>
       <div class="people">
-        <md-button ng-repeat="id in $ctrl.data.collector_ids" ui-sref="userDetail({ id })">
-          {{ $ctrl.CurrentUsers.get(id).display_name }}
-        </md-button>
-        <div class="md-caption counter">({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})</div>        
+        <profile-picture ng-repeat="userId in $ctrl.data.collector_ids" user-id="userId" size="20"></profile-picture>
+        <div class="md-caption counter">
+          ({{$ctrl.data.collector_ids.length}}/{{$ctrl.data.max_collectors}})
+        </div>        
       </div>
     </div>
     <div class="tools">      

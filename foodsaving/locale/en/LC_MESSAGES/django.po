@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-12 08:36+0000\n"
+"POT-Creation-Date: 2017-07-17 18:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,21 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: foodsaving/base/templates/base-text.jinja:1
+#, python-format
+msgid "Hello %(full_name)s,"
+msgstr ""
+
+#: foodsaving/base/templates/base-text.jinja:2
+msgid "Hello,"
+msgstr ""
+
+#: foodsaving/base/templates/base-text.jinja:5
+msgid ""
+"Yours,\n"
+"the foodsaving.world team"
+msgstr ""
 
 #: foodsaving/groups/api.py:20 foodsaving/stores/serializers.py:234
 msgid "You are not a member of this group."
@@ -25,12 +40,30 @@ msgstr ""
 msgid "You are already a member."
 msgstr ""
 
-#: foodsaving/groups/serializers.py:25
+#: foodsaving/groups/serializers.py:20
 msgid "Unknown timezone"
 msgstr ""
 
-#: foodsaving/groups/serializers.py:115
+#: foodsaving/groups/serializers.py:110
 msgid "Group password is wrong"
+msgstr ""
+
+#: foodsaving/invitations/serializers.py:25 foodsaving/users/serializers.py:59
+msgid "Key has expired"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation-body-text.jinja:4
+#, python-format
+msgid ""
+"%(inviter_name)s invited you (%(email)s) to join the \"%(group_name)s\" "
+"community on foodsaving.world.\n"
+"\n"
+"If you'd like to join, please go to %(invite_url)s"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation-subject.jinja:1
+#, python-format
+msgid "Invitation to join %(group_name)s"
 msgstr ""
 
 #: foodsaving/stores/permissions.py:9
@@ -94,10 +127,6 @@ msgstr ""
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/users/serializers.py:59
-msgid "Key has expired"
-msgstr ""
-
 #: foodsaving/users/serializers.py:61
 msgid "Key is invalid"
 msgstr ""
@@ -112,17 +141,6 @@ msgstr ""
 
 #: foodsaving/users/templates/accountdelete_success-subject.jinja:1
 msgid "Your account was deleted"
-msgstr ""
-
-#: foodsaving/users/templates/base-text.jinja:1
-#, python-format
-msgid "Hello %(full_name)s,"
-msgstr ""
-
-#: foodsaving/users/templates/base-text.jinja:3
-msgid ""
-"Yours,\n"
-"the foodsaving.world team"
 msgstr ""
 
 #: foodsaving/users/templates/changemail_notice-body-text.jinja:4

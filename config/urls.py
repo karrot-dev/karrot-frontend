@@ -23,6 +23,7 @@ from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 
 from foodsaving.history.api import HistoryViewSet
+from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
 from foodsaving.userauth.api import AuthViewSet
 from foodsaving.conversations.api import ChatViewSet, ChatMessageViewSet
 from foodsaving.groups.api import GroupViewSet
@@ -51,6 +52,10 @@ router.register(r'stores', StoreViewSet)
 
 # History endpoints
 router.register('history', HistoryViewSet)
+
+# Invitation endpoints
+router.register('invitations', InvitationsViewSet)
+router.register('invitations', InvitationAcceptViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),

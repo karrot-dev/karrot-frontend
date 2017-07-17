@@ -8,13 +8,13 @@ from foodsaving.invitations.models import Invitation
 class InvitationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invitation
-        fields = ['id', 'email', 'group', 'inviter', 'expires_at']
+        fields = ['id', 'email', 'group', 'invited_by', 'expires_at']
         extra_kwargs = {
-            'inviter': {'read_only': True}
+            'invited_by': {'read_only': True}
         }
 
     def create(self, validated_data):
-        validated_data['inviter'] = self.context['request'].user
+        validated_data['invited_by'] = self.context['request'].user
         return self.Meta.model.objects.create_and_send(**validated_data)
 
 

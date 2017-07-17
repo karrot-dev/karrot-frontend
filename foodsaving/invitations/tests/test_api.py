@@ -22,6 +22,7 @@ class TestInvitationAPI(APITestCase):
         response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
         self.assertEqual(response.data['email'], 'please@join.com')
         self.assertEqual(response.data['group'], self.group.id)
+        self.assertEqual(response.data['invited_by'], self.member.id)
         self.assertNotIn('token', response.data)
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn('?invite=', mail.outbox[0].body)

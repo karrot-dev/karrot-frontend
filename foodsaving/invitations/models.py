@@ -36,7 +36,7 @@ def get_default_expiry_date():
 class Invitation(BaseModel):
     token = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(unique=True)
-    inviter = models.ForeignKey(get_user_model())
+    invited_by = models.ForeignKey(get_user_model())
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE)
     expires_at = models.DateTimeField(default=get_default_expiry_date)
 
@@ -52,7 +52,7 @@ class Invitation(BaseModel):
             'group_name': self.group.name,
             'invite_url': invite_url,
             'email': self.email,
-            'inviter_name': self.inviter.display_name,
+            'invited_by_name': self.invited_by.display_name,
         }
 
         AnymailMessage(
@@ -69,7 +69,7 @@ class Invitation(BaseModel):
             sender=self.__class__,
             token=self.token,
             email=self.email,
-            inviter=self.inviter,
+            invited_by=self.invited_by,
             accepted_user=user,
             group=self.group
         )
@@ -79,4 +79,4 @@ class Invitation(BaseModel):
         return self.expires_at <= timezone.now()
 
     def __str__(self):
-        return "Invite to {0} by {1}".format(self.group.name, self.inviter.display_name)
+        return "Invite to {0} by {1}".format(self.group.name, self.invited_by.display_name)

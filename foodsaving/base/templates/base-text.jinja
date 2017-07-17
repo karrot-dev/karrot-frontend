@@ -1,0 +1,6 @@
+{% if user %}{% trans full_name=user.get_full_name() %}Hello {{ full_name }},{% endtrans %}
+{% else %}{% trans %}Hello,{% endtrans %}
+{% endif %}
+{% block content %}{% endblock %}
+{% trans %}Yours,
+the foodsaving.world team{% endtrans %}

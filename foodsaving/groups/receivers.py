@@ -14,7 +14,6 @@ def delete_user_handler(sender, **kwargs):
 
 @receiver(invitation_accepted)
 def handle_invitation_accepted(sender, **kwargs):
-    # TODO add invited_by to group membership
     group = kwargs.get('group')
     user = kwargs.get('accepted_user')
     group.members.add(user)

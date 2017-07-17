@@ -13,7 +13,6 @@ from foodsaving.invitations.serializers import InvitationSerializer, InvitationA
 class InvitationsViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
-    mixins.DestroyModelMixin,
     mixins.ListModelMixin,
     GenericViewSet
 ):

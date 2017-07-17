@@ -1,11 +1,6 @@
-from django.dispatch import receiver
+from django.dispatch import Signal
 
-from foodsaving.groups.models import Group
-from foodsaving.users.api import pre_user_delete
-
-
-@receiver(pre_user_delete)
-def delete_user_handler(sender, **kwargs):
-    user = kwargs.get('user')
-    for _ in Group.objects.filter(members__in=[user, ]):
-        _.members.remove(user)
+post_group_join = Signal()
+pre_group_leave = Signal()
+post_group_modify = Signal()
+post_group_create = Signal()

@@ -8,7 +8,7 @@ from foodsaving.users.factories import UserFactory
 base_url = '/api/invitations/'
 
 
-class TestInvitationAPI(APITestCase):
+class TestInvitationAPIIntegration(APITestCase):
     @classmethod
     def setUpTestData(cls):
         cls.member = UserFactory()
@@ -32,3 +32,36 @@ class TestInvitationAPI(APITestCase):
         response = self.client.post(base_url + token + '/accept/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn(self.non_member, self.group.members.all())
+
+
+class TestInvitationAPI(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.member = UserFactory()
+        cls.member2 = UserFactory()
+        cls.group = GroupFactory(members=[cls.member, cls.member2])
+        cls.non_member = UserFactory()
+
+    def test_list_invitations(self):
+        self.client.force_login(self.member)
+        self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
+
+        # not logged in
+        self.client.logout()
+        response = self.client.get(base_url)
+        self.assertEqual(len(response.data), 0)
+
+        # user not in group
+        self.client.force_login(self.non_member)
+        response = self.client.get(base_url)
+        self.assertEqual(len(response.data), 0)
+
+        # user in group
+        self.client.force_login(self.member)
+        response = self.client.get(base_url)
+        self.assertEqual(len(response.data), 1)
+
+        # another user in group
+        self.client.force_login(self.member2)
+        response = self.client.get(base_url)
+        self.assertEqual(len(response.data), 1)

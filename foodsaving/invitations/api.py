@@ -3,11 +3,16 @@ from rest_framework import mixins
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.throttling import UserRateThrottle
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.invitations.models import Invitation
 from foodsaving.invitations.permissions import UserInGroup
 from foodsaving.invitations.serializers import InvitationSerializer, InvitationAcceptSerializer
+
+
+class InvitesPerDayThrottle(UserRateThrottle):
+    rate = '50/day'
 
 
 class InvitationsViewSet(
@@ -21,13 +26,19 @@ class InvitationsViewSet(
     """
     queryset = Invitation.objects
     serializer_class = InvitationSerializer
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('group', )
-    permission_classes = (UserInGroup,)
+    permission_classes = (UserInGroup, )
+    throttle_classes = ()
 
     def get_queryset(self):
         users_groups = self.request.user.groups.values('id')
         return self.queryset.filter(group__in=users_groups)
+
+    def get_throttles(self):
+        if self.action == 'create':
+            self.throttle_classes = (InvitesPerDayThrottle, )
+        return super().get_throttles()
 
 
 class InvitationAcceptViewSet(GenericViewSet):

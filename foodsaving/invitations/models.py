@@ -34,9 +34,11 @@ def get_default_expiry_date():
 
 
 class Invitation(BaseModel):
+    class Meta:
+        unique_together = ('email', 'group')
     token = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
-    email = models.EmailField(unique=True)
-    invited_by = models.ForeignKey(get_user_model())
+    email = models.EmailField()
+    invited_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE)
     expires_at = models.DateTimeField(default=get_default_expiry_date)
 

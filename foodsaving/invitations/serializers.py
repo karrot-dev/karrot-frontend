@@ -13,6 +13,11 @@ class InvitationSerializer(serializers.ModelSerializer):
             'invited_by': {'read_only': True}
         }
 
+    def validate(self, attrs):
+        if attrs['group'].members.filter(email=attrs['email']).exists():
+            raise serializers.ValidationError(_('User is already member of group'))
+        return attrs
+
     def create(self, validated_data):
         validated_data['invited_by'] = self.context['request'].user
         return self.Meta.model.objects.create_and_send(**validated_data)

@@ -34,6 +34,49 @@ class TestInvitationAPIIntegration(APITestCase):
         self.assertIn(self.non_member, self.group.members.all())
 
 
+class TestInviteCreate(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.member = UserFactory()
+        cls.member2 = UserFactory()
+        cls.group = GroupFactory(members=[cls.member, cls.member2])
+        cls.group2 = GroupFactory(members=[cls.member, ])
+
+    def test_invite_same_mail_twice(self):
+        self.client.force_login(self.member)
+        response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_invite_same_mail_to_different_groups(self):
+        self.client.force_login(self.member)
+        response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group2.id})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_invite_existing_user_but_not_member(self):
+        self.client.force_login(self.member)
+        response = self.client.post(base_url, {'email': self.member2.email, 'group': self.group2.id})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_invite_existing_member(self):
+        self.client.force_login(self.member)
+        response = self.client.post(base_url, {'email': self.member2.email, 'group': self.group.id})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_invite_to_invalid_group(self):
+        self.client.force_login(self.member)
+        response = self.client.post(base_url, {'email': 'please@join.com', 'group': 345236})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_invite_with_invalid_email(self):
+        self.client.force_login(self.member)
+        response = self.client.post(base_url, {'email': 'pleasehä', 'group': self.group.id})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
 class TestInvitationAPI(APITestCase):
     @classmethod
     def setUpTestData(cls):

@@ -1,10 +1,12 @@
 class SignupController {
-  constructor(User, Authentication, $state) {
+  constructor(User, Authentication, $state, $stateParams, Invitation) {
     "ngInject";
     Object.assign(this, {
       User,
       Authentication,
       $state,
+      $stateParams,
+      Invitation,
       username: "",
       email: "",
       password: "",
@@ -22,7 +24,15 @@ class SignupController {
       password: this.password
     };
     return this.User.create(user).then(() => {
-      this.Authentication.login(this.email, this.password).then(() => {
+      this.Authentication.login(this.email, this.password)
+      .then((user) => {
+        if (this.$stateParams.invite) {
+          console.log("invited");
+          return this.Invitation.accept(this.$stateParams.invite).then(() => user);
+        }
+        return user;
+      })
+      .then(() => {
         this.$state.go("home");
       });
     }, (data) => {

@@ -19,19 +19,29 @@ class TestInvitationAPIIntegration(APITestCase):
         self.assertIn(self.member, self.group.members.all())
         self.assertNotIn(self.non_member, self.group.members.all())
         self.client.force_login(self.member)
+
+        # invite somebody via email
         response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
         self.assertEqual(response.data['email'], 'please@join.com')
         self.assertEqual(response.data['group'], self.group.id)
         self.assertEqual(response.data['invited_by'], self.member.id)
         self.assertNotIn('token', response.data)
+
+        # check if email has been sent
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn('?invite=', mail.outbox[0].body)
         token = mail.outbox[0].body.split('?invite=')[1].split('\n')[0]
 
+        # accept the invite
         self.client.force_login(self.non_member)
         response = self.client.post(base_url + token + '/accept/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn(self.non_member, self.group.members.all())
+
+        # check if current_group is set to invited group
+        response = self.client.get('/api/auth/status/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['current_group'], self.group.id)
 
 
 class TestInviteCreate(APITestCase):

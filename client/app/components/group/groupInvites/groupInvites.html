@@ -1,0 +1,22 @@
+<div layout-padding>
+  <form ng-submit="$ctrl.sendInvite()" promise-btn>
+    <md-input-container>
+      <input ng-model="$ctrl.email" type="email" required name="email"
+        autocorrect="off" autocapitalize="off" spellcheck="false">
+      </input>
+      <label>
+        Invite your friends
+      </label>
+    </md-input-container>
+
+    <md-button type="submit">
+      Create Invite
+    </md-button>
+  </form>
+
+  <md-list>
+    <md-list-item ng-repeat="invite in $ctrl.groupInvitations">
+      {{ invite.email }}
+    </md-list-item>
+  </md-list>
+</div>

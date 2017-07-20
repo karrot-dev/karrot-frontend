@@ -30,6 +30,7 @@ drf-nested-routers==0.90.0
 factory-boy==2.8.1
 faker==0.7.17             # via factory-boy
 flake8==3.3.0
+furl==1.0.0
 hiredis==0.2.0
 idna==2.5                 # via requests
 influxdb==4.1.1           # via django-influxdb-metrics
@@ -39,6 +40,7 @@ markdown==2.6.8
 markupsafe==1.0           # via jinja2
 mccabe==0.6.1             # via flake8
 openapi-codec==1.3.1      # via django-rest-swagger
+orderedmultidict==0.7.11  # via furl
 psutil==5.2.2             # via python-server-metrics
 psycopg2==2.7.1
 pycodestyle==2.3.1        # via flake8
@@ -52,7 +54,7 @@ redis==2.10.5
 requests==2.18.1          # via coreapi, django-anymail, influxdb, responses, sparkpost
 responses==0.5.1
 simplejson==3.11.1        # via django-rest-swagger
-six==1.10.0               # via argon2-cffi, django-anymail, django-extensions, faker, influxdb, python-dateutil, responses, tld
+six==1.10.0               # via argon2-cffi, django-anymail, django-extensions, faker, furl, influxdb, orderedmultidict, python-dateutil, responses, tld
 sparkpost==1.3.5
 tld==0.7.9                # via django-influxdb-metrics
 uritemplate==3.0.0        # via coreapi

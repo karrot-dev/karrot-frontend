@@ -7,6 +7,7 @@ from django.db import models
 from django.db.models import Q
 from django.template.loader import render_to_string
 from django.utils import timezone
+from furl import furl
 
 from config import settings
 from foodsaving.base.base_models import BaseModel
@@ -44,11 +45,12 @@ class Invitation(BaseModel):
 
     objects = InvitationManager()
 
-    def send_mail(self):
-        invite_url = '{hostname}/#!/signup?invite={token}'.format(
-            hostname=settings.HOSTNAME,
-            token=self.token
-        )
+    def get_email_body(self):
+        invite_url = furl('{hostname}/#!/signup'.format(hostname=settings.HOSTNAME))
+        invite_url.fragment.args = {
+            'invite': self.token,
+            'email': self.email
+        }
 
         context = {
             'group_name': self.group.name,
@@ -57,9 +59,12 @@ class Invitation(BaseModel):
             'invited_by_name': self.invited_by.display_name,
         }
 
+        return render_to_string('emailinvitation-body-text.jinja', context)
+
+    def send_mail(self):
         AnymailMessage(
             subject=render_to_string('emailinvitation-subject.jinja').replace('\n', ''),
-            body=render_to_string('emailinvitation-body-text.jinja', context),
+            body=self.get_email_body(),
             to=[self.email],
             from_email=settings.DEFAULT_FROM_EMAIL,
             track_clicks=False,

@@ -1,4 +1,7 @@
+import re
+
 from django.core import mail
+from furl import furl
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -30,7 +33,9 @@ class TestInvitationAPIIntegration(APITestCase):
         # check if email has been sent
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn('?invite=', mail.outbox[0].body)
-        token = mail.outbox[0].body.split('?invite=')[1].split('\n')[0]
+        token = furl(
+            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+        ).fragment.args['invite']
 
         # accept the invite
         self.client.force_login(self.non_member)

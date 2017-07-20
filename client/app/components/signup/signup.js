@@ -16,7 +16,7 @@ let signupModule = angular.module("signup", [
   "ngInject";
   $stateProvider.state("signup", {
     parent: "splash",
-    url: "/signup?invite",
+    url: "/signup?invite&email",
     component: "signup",
     redirectTo: (trans) => {
       let Authentication = trans.injector().get("Authentication");

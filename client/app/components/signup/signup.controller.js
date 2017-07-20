@@ -8,7 +8,7 @@ class SignupController {
       $stateParams,
       Invitation,
       username: "",
-      email: "",
+      email: $stateParams.email ? $stateParams.email : "",
       password: "",
       error: {
         failed: false,

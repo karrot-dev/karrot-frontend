@@ -1,4 +1,3 @@
-from django.utils import timezone
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
 
@@ -26,7 +25,7 @@ class InvitationSerializer(serializers.ModelSerializer):
 class InvitationAcceptSerializer(serializers.Serializer):
     def validate(self, attrs):
         invitation = self.instance
-        if invitation.expires_at < timezone.now():
+        if invitation.expired():
             raise serializers.ValidationError(_('Key has expired'))
         return attrs
 

@@ -42,14 +42,14 @@ class TestInviteCreate(APITestCase):
         cls.group = GroupFactory(members=[cls.member, cls.member2])
         cls.group2 = GroupFactory(members=[cls.member, ])
 
-    def test_invite_same_mail_twice(self):
+    def test_invite_same_email_twice(self):
         self.client.force_login(self.member)
         response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_invite_same_mail_to_different_groups(self):
+    def test_invite_same_email_to_different_groups(self):
         self.client.force_login(self.member)
         response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

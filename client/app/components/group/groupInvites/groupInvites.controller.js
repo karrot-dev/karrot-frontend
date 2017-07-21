@@ -13,11 +13,13 @@ class GroupInvitesController {
     // I decided against using a directive to add this validator 
     // because our code is barely using any custom directives so far
     this.$scope.$watch("inviteForm.email", (form) => {
-      form.$validators.unique = (modelValue, viewValue) => {
-        let value = modelValue || viewValue;
-        return this.groupInvitations.findIndex((e) => value === e.email) < 0;
-      };
+      form.$validators.unique = this.isEMailNotInvitedYet;
     });
+  }
+
+  isEMailNotInvitedYet(modelValue, viewValue) {
+    let value = modelValue || viewValue;
+    return this.groupInvitations.findIndex((e) => value === e.email) < 0;
   }
 
   sendInvite() {

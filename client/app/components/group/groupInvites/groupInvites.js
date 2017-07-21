@@ -1,9 +1,11 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import groupInvitesComponent from "./groupInvites.component";
+import InvitationService from "services/invitation/invitation";
 
 let groupInvitesModule = angular.module("groupInvites", [
-  uiRouter
+  uiRouter,
+  InvitationService
 ])
 
 .component("groupInvites", groupInvitesComponent)

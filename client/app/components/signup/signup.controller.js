@@ -27,7 +27,6 @@ class SignupController {
       this.Authentication.login(this.email, this.password)
       .then((user) => {
         if (this.$stateParams.invite) {
-          console.log("invited");
           return this.Invitation.accept(this.$stateParams.invite).then(() => user);
         }
         return user;

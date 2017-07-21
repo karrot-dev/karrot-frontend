@@ -31,9 +31,7 @@ let signupModule = angular.module("signup", [
         }
         return "home";
       })
-      .catch(() => {
-        console.log("bla");
-      });
+      .catch();
     },
     ncyBreadcrumb: {
       label: "{{ 'SIGNUP.TITLE' | translate}}"

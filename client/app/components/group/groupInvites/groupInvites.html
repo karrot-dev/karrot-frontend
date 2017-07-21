@@ -1,19 +1,26 @@
 <div layout-padding>
-  <form ng-submit="$ctrl.sendInvite()" promise-btn>
+  <form name="inviteForm" ng-submit="$ctrl.sendInvite()" promise-btn>
     <md-input-container>
       <input ng-model="$ctrl.email" type="email" required name="email"
         autocorrect="off" autocapitalize="off" spellcheck="false">
       </input>
       <label>
-        Invite your friends
+        <span translate="GROUP.INVITE_EMAIL"></span>
       </label>
+      <div ng-messages="inviteForm.email.$error">
+        <div ng-message="unique" translate="GROUP.ALREADY_INVITED"></div>
+      </div>
     </md-input-container>
 
-    <md-button type="submit">
-      Create Invite
+    <md-button 
+      type="submit"
+      class="md-primary md-raised"
+      ng-disabled="!inviteForm.$valid">
+     <span translate="GROUP.INVITE_SEND"></span>
     </md-button>
   </form>
 
+  <h4 translate="GROUP.INVITED_LIST"></h4>
   <md-list>
     <md-list-item ng-repeat="invite in $ctrl.groupInvitations">
       {{ invite.email }}

@@ -55,7 +55,11 @@
     "HISTORY": "History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group"
+    "TIMEZONE": "Time zone of group",
+    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_SEND": "Send invite",
+    "INVITED_LIST": "Invites have already been sent out to these e-mail addresses:",
+    "ALREADY_INVITED": "An invite has already been sent to this e-mail address"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

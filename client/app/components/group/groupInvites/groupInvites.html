@@ -1,5 +1,23 @@
+<md-toolbar class="md-hue-1">
+  <div class="md-toolbar-tools">
+    <h1 flex>
+      <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;
+      <span translate="GROUP.INVITE_TITLE"></span>
+    </h1>
+    <md-button class="md-icon-button" ui-sref="^">
+      <i class="fa fa-arrow-left"></i>
+      <md-tooltip md-direction="left">
+        <span translate="BUTTON.BACK"></span>
+      </md-tooltip>
+    </md-button>
+  </div>
+</md-toolbar>
 <div layout-padding>
-  <form name="inviteForm" ng-submit="$ctrl.sendInvite()" promise-btn>
+  <form
+    name="inviteForm"
+    ng-submit="$ctrl.sendInvite()"
+    promise-btn
+    >
     <md-input-container>
       <input ng-model="$ctrl.email" type="email" required name="email"
         autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -14,9 +32,13 @@
 
     <md-button 
       type="submit"
-      class="md-primary md-raised"
-      ng-disabled="!inviteForm.$valid">
-     <span translate="GROUP.INVITE_SEND"></span>
+      class="md-primary md-icon-button"
+      ng-disabled="!inviteForm.$valid"
+      >
+      <md-icon md-font-icon="fa fa-paper-plane"></md-icon>
+      <md-tooltip>
+        <span translate="GROUP.INVITE_SEND"></span>
+      </md-tooltip>
     </md-button>
   </form>
 

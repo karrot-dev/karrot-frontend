@@ -19,7 +19,7 @@ let groupInvitesModule = angular.module("groupInvites", [
         groupInvitations: (Invitation, $stateParams) => Invitation.listByGroupId($stateParams.groupId)
       },
       ncyBreadcrumb: {
-        label: "{{'GROUP.INVITE' | translate}}"
+        label: "{{'GROUP.INVITE_TITLE' | translate}}"
       }
     });
 })

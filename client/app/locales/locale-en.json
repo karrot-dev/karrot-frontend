@@ -59,7 +59,8 @@
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invite",
     "INVITED_LIST": "Invites have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invite has already been sent to this e-mail address"
+    "ALREADY_INVITED": "An invite has already been sent to this e-mail address",
+    "INVITE_TITLE": "Invite users to your group"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

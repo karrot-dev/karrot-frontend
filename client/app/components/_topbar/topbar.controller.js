@@ -20,8 +20,8 @@ class TopbarController {
     this.Authentication.update();
   }
 
-  toggleRight() {
-    this.$mdSidenav("right").toggle();
+  toggleLeft() {
+    this.$mdSidenav("left").toggle();
   }
 
   logOut(){

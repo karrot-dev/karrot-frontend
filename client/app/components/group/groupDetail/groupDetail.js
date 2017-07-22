@@ -5,7 +5,6 @@ import groupDetailComponent from "./groupDetail.component";
 import description from "./description/description";
 import members from "./members/members";
 import pickups from "./pickups/pickups";
-import stores from "./stores/stores";
 import groupHistory from "./groupHistory/groupHistory";
 import expandablePanel from "components/_expandablePanel/expandablePanel";
 import GroupService from "services/group/group";
@@ -16,7 +15,6 @@ let groupDetailModule = angular.module("groupDetail", [
   description,
   members,
   pickups,
-  stores,
   groupHistory,
   expandablePanel,
   GroupService

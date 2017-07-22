@@ -33,7 +33,8 @@
     "JOIN": "Join",
     "LEAVE": "Leave",
     "PREVIEW": "Preview",
-    "BACK": "Back"
+    "BACK": "Back",
+    "MORE_OPTIONS": "More Options"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",

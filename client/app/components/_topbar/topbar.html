@@ -1,5 +1,5 @@
-<md-toolbar class="md-medium-small md-whiteframe-3dp">
-  <div ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-toolbar-tools" layout="row">
+<md-toolbar ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp">
+  <div class="md-toolbar-tools" layout="row">
     <md-button class="md-icon-button" ui-sref="landingPage">
       <i class="fa fa-home"></i>
       <md-tooltip>
@@ -43,8 +43,10 @@
       </md-button>
     </div>
   </div>
+</md-toolbar>
 
-  <div ng-if="$ctrl.SessionUser.isLoggedIn()" class="md-toolbar-tools" layout="row" layout-align="space-between center">
+<md-toolbar ng-if="$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp logged-in">
+  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
     <span flex="5" hide-xs></span>
     
     <md-button ng-if="screenIsSmall" aria-label="Navigation" ng-click="$ctrl.toggleLeft()" class="md-icon-button">
@@ -79,11 +81,11 @@
     </div>
 
     <span flex="5"></span>
-  </div>
+  </div>  
 </md-toolbar>
 <!--<div ncy-breadcrumb></div>-->
 
-<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" style="z-index: 100">
   <div ng-if="!$ctrl.SessionUser.isLoggedIn()" layout-padding>
     <md-menu-content width="4">
       <md-menu-item>

@@ -14,7 +14,18 @@ export default class CurrentGroup {
     Object.assign(this, {
       value: {},
       User,
-      SessionUser
+      SessionUser,
+      map: {
+        showOverview: () => {
+          return -1;
+        },
+        showLatLngZ: () => {
+          return -1;
+        },
+        update: () => {
+          return -1;
+        }
+      }
     });
   }
 

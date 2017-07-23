@@ -55,7 +55,8 @@
     "HISTORY": "History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group"
+    "TIMEZONE": "Time zone of group",
+    "MAP": "Map"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

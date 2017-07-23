@@ -16,7 +16,7 @@ class HomeController {
         if (data.length > 0) {
           this.$state.go("group", { groupId: data[0].id });
         } else {
-          this.$state.go("groupList");
+          this.$state.go("joinGroupList");
         }
       });
     }

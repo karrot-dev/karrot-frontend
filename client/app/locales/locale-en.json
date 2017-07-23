@@ -34,7 +34,7 @@
     "LEAVE": "Leave",
     "PREVIEW": "Preview",
     "BACK": "Back",
-    "MORE_OPTIONS": "More Options"
+    "MORE_OPTIONS": "More options"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",

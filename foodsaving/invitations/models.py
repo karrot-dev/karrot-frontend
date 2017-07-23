@@ -16,6 +16,7 @@ from foodsaving.invitations.signals import invitation_accepted
 
 class InvitationManager(models.Manager):
     def create_and_send(self, **kwargs):
+        self.delete_expired_invitations()
         invitation = self.create(**kwargs)
         invitation.send_mail()
         return invitation

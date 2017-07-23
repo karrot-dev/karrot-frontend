@@ -15,7 +15,7 @@ class MapPickerController {
   }
 
   $onInit() {
-    if (angular.isUndefined(this.data)) {
+    if (angular.isUndefined(this.data) || angular.isUndefined(this.data.latitude)) {
       Object.assign(this, {
         isCreate: true,
         mapCenter: {

@@ -49,21 +49,23 @@
 
     <md-divider></md-divider>
 
-    <a ng-if="$ctrl.SessionUser.isLoggedIn() && $ctrl.isMember()"
-      ui-sref="group({groupId:$ctrl.groupData.id})">
-      <i class="fa fa-home"></i>
-      <span translate="GROUPINFO.MEMBER_VIEW"></span>
-    </a>
+    <div layout-align="end" layout="row">
+      <a ng-if="$ctrl.SessionUser.isLoggedIn() && $ctrl.isMember()"
+        ui-sref="group({groupId:$ctrl.groupData.id})">
+        <i class="fa fa-home"></i>
+        <span translate="GROUPINFO.MEMBER_VIEW"></span>
+      </a>
 
-    <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && !$ctrl.isMember()"
-      class="md-accent"
-      ng-click="$ctrl.openJoinGroup($event)">
-      <i class="fa fa-arrow-circle-right"></i>
-      <span translate="BUTTON.JOIN"></span>
-    </md-button>
+      <md-button ng-if="$ctrl.SessionUser.isLoggedIn() && !$ctrl.isMember()"
+        class="md-accent"
+        ng-click="$ctrl.openJoinGroup($event)">
+        <i class="fa fa-arrow-circle-right"></i>
+        <span translate="BUTTON.JOIN"></span>
+      </md-button>
 
-    <a ng-if="!$ctrl.SessionUser.isLoggedIn()" ui-sref="login">
-      <span translate="JOINGROUP.SIGNUP_OR_LOGIN"></span>
-    </a>
+      <a ng-if="!$ctrl.SessionUser.isLoggedIn()" ui-sref="login">
+        <span translate="JOINGROUP.SIGNUP_OR_LOGIN"></span>
+      </a>
+    </div>
   </div>
 </div>

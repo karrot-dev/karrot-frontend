@@ -1,0 +1,98 @@
+<span  ng-if="$ctrl.$mdMedia('gt-sm')">
+  <md-button class="md-icon-button"
+    ui-sref="groupInfo({groupId:$ctrl.groupData.id})"
+    aria-label="{{ 'GROUPINFO.META' | translate }}">
+    <md-tooltip>
+      <span translate="GROUPINFO.META"></span>
+    </md-tooltip>
+    <i class="fa fa-info-circle"></i>
+  </md-button>
+
+  <md-button class="md-icon-button"
+    ui-sref="groupEdit"
+    aria-label="{{ 'GROUP.EDIT' | translate }}">
+    <md-tooltip md-direction="bottom">
+      <span translate="GROUP.EDIT"></span>
+    </md-tooltip>
+    <i class="fa fa-pencil"></i>
+  </md-button>
+
+  <md-button class="md-icon-button"
+    ng-click="$ctrl.leaveGroup()"
+    aria-label="{{ 'GROUP.LEAVE' | translate }}">
+    <md-tooltip md-direction="bottom">
+      <span translate="GROUP.LEAVE"></span>
+    </md-tooltip>
+    <i class="fa fa-fw fa-sign-out"></i>
+  </md-button>
+</span>
+
+<span  ng-if="!($ctrl.$mdMedia('gt-sm'))">
+  <md-button class="md-icon-button"
+    ui-sref="groupEdit"
+    aria-label="{{ 'GROUP.EDIT' | translate }}">
+    <md-tooltip md-direction="bottom">
+      <span translate="GROUP.EDIT"></span>
+    </md-tooltip>
+    <i class="fa fa-pencil"></i>
+  </md-button>
+  <md-menu>
+    <md-button ng-click="$mdMenu.open($event)" class="md-icon-button" aria-label="{{'BUTTON.MORE_OPTIONS' | translate}}">
+      <md-tooltip md-direction="bottom">
+        <span translate="BUTTON.MORE_OPTIONS"></span>
+      </md-tooltip>
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    </md-button>
+    <md-menu-content>
+      <md-menu-item>
+          <md-button ui-sref="groupInfo({groupId:$ctrl.groupData.id})" aria-label="{{ 'GROUPINFO.META' | translate }}">
+            <i class="fa fa-info-circle fa-fw"></i>
+            <span translate="GROUPINFO.META"></span>
+          </md-button>
+      </md-menu-item>
+      <md-menu-item>
+          <md-button ng-click="$ctrl.leaveGroup()" aria-label="{{ 'GROUP.LEAVE' | translate }}">
+            <i class="fa fa-sign-out fa-fw"></i>
+            <span translate="GROUP.LEAVE"></span>
+          </md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+</span>
+
+<!-- confirm to leave group -->
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="confirmLeaveDialog">
+    <md-dialog>
+      <div class="md-whiteframe-10dp" layout-fill>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>
+              <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-sign-out"></i>
+              <span translate="GROUP.LEAVE"></span>
+            </h2>
+          </div>
+        </md-toolbar>
+        <div layout-margin>
+          <div translate="GROUP.LEAVE_TEXT" flex></div>
+          <div layout="row" layout-align="end center">
+            <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()"
+              aria-label="{{ 'BUTTON.CANCEL' | translate }}">
+              <md-tooltip>
+                <span translate="BUTTON.CANCEL"></span>
+              </md-tooltip>
+              <i class="fa fa-times"></i>
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()"
+              aria-label="{{ 'BUTTON.LEAVE' | translate }}">
+              <md-tooltip>
+                <span translate="BUTTON.LEAVE"></span>
+              </md-tooltip>
+              <i class="fa fa-sign-out"></i>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </md-dialog>
+  </div>
+</div>

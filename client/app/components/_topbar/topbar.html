@@ -1,5 +1,5 @@
-<md-toolbar class="md-medium-small md-whiteframe-3dp">
-  <div ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-toolbar-tools" layout="row">
+<md-toolbar ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp">
+  <div class="md-toolbar-tools" layout="row">
     <md-button class="md-icon-button" ui-sref="landingPage">
       <i class="fa fa-home"></i>
       <md-tooltip>
@@ -38,14 +38,21 @@
 
     <div ng-if="screenIsSmall" layout="row" flex>
       <span flex></span>
-      <md-button aria-label="Navigation" ng-click="$ctrl.toggleRight()" class="md-icon-button">
+      <md-button aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
         <i class="fa fa-fw fa-bars"></i>
       </md-button>
     </div>
   </div>
+</md-toolbar>
 
-  <div ng-if="$ctrl.SessionUser.isLoggedIn()" class="md-toolbar-tools" layout="row" layout-align="space-between center">
+<md-toolbar ng-if="$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp logged-in">
+  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
     <span flex="5" hide-xs></span>
+    
+    <md-button ng-if="screenIsSmall" aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
+      <i class="fa fa-fw fa-bars"></i>
+    </md-button>
+    
     <group-menu style="min-width: 50%" flex></group-menu>
 
     <div ng-if="!screenIsSmall" layout="row">
@@ -73,16 +80,12 @@
       </md-button>
     </div>
 
-    <md-button ng-if="screenIsSmall" aria-label="Navigation" ng-click="$ctrl.toggleRight()" class="md-icon-button">
-      <i class="fa fa-fw fa-bars"></i>
-    </md-button>
-
     <span flex="5"></span>
-  </div>
+  </div>  
 </md-toolbar>
 <!--<div ncy-breadcrumb></div>-->
 
-<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" style="z-index: 100">
   <div ng-if="!$ctrl.SessionUser.isLoggedIn()" layout-padding>
     <md-menu-content width="4">
       <md-menu-item>
@@ -106,7 +109,7 @@
       <language-chooser></language-chooser>
       <hr style="padding:0">
       <md-menu-item>
-        <md-button ng-click="$ctrl.toggleRight()" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" ui-sref="login">
+        <md-button aria-label="{{ 'TOPBAR.LOGOUT' | translate }}" ui-sref="login">
           <span translate="LOGIN.TITLE"></span>
         </md-button>
       </md-menu-item>
@@ -120,13 +123,13 @@
   <div ng-if="$ctrl.SessionUser.isLoggedIn()" layout-padding>
     <md-menu-content width="4">
       <md-menu-item>
-        <md-button ng-click="$ctrl.toggleRight()" class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
+        <md-button class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
           <i class="fa fa-fw fa-user"></i>
           <span translate="TOPBAR.USERPROFILE"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button ng-click="$ctrl.toggleRight()" class="no-transform" ui-sref="notifications">
+        <md-button class="no-transform" ui-sref="notifications">
           <i class="fa fa-fw fa-bell-o"></i>
           <span translate="NOTIFICATIONS.TITLE"></span>
         </md-button>
@@ -139,6 +142,9 @@
       </md-menu-item>
     </md-menu-content>
     <hr style="padding:0">
+    <h3 translate="GROUP.STORES" style="margin-bottom:0"></h3>
+    <store-list group-id="$ctrl.groupData.id" style="padding: 0"></store-list>
+    <hr style="padding:0"> 
     <language-chooser></language-chooser>
   </div>
 </md-sidenav>

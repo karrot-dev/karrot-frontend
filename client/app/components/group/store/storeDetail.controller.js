@@ -1,10 +1,11 @@
 class StoreDetailController {
-  constructor($state, CurrentStores, CurrentGroup, $timeout) {
+  constructor($state, CurrentStores, CurrentGroup, $mdMedia, $timeout) {
     "ngInject";
     Object.assign(this, {
       $state,
       selectedStore: CurrentStores.selected,  // for breadcrumb
       CurrentGroup, // for group breadcrumb
+      $mdMedia,
       $timeout
     });
   }
@@ -13,7 +14,7 @@ class StoreDetailController {
     // set navbar selection on page load
     this.currentNavItem = this.$state.current.name;
     this.$timeout(() => {
-      this.CurrentGroup.map.showLatLngZ(this.selectedStore.latitude, this.selectedStore.longitude, 15);
+      this.CurrentGroup.map.showLatLngZ(this.selectedStore.latitude, this.selectedStore.longitude, 13);
     }, 1000);
   }
 }

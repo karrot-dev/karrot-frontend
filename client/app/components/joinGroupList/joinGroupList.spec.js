@@ -26,9 +26,32 @@ describe("JoinGroupList", () => {
       $componentController = $injector.get("$componentController");
     }));
 
-    it("should exist", () => {
+    it("checks if user is member", () => {
       let $ctrl = $componentController("joinGroupList", {});
-      expect($ctrl).to.exist;
+      expect($ctrl.isNotMember({
+        members: [5]
+      })).to.be.true;
+
+      $ctrl.SessionUser.set({ id: 5 });
+      expect($ctrl.isNotMember({
+        members: []
+      })).to.be.true;
+      expect($ctrl.isNotMember({
+        members: [5]
+      })).to.be.false;
+    });
+
+    it("sorts by member count", () => {
+      let $ctrl = $componentController("joinGroupList", {});
+      expect($ctrl.highestMemberCountFirst({ members: [1,2] }, { members: [] }) < 0).to.be.true;
+    });
+
+    it("filters and sorts groups on init", () => {
+      let $ctrl = $componentController("joinGroupList", {});
+      $ctrl.$onInit();
+
+      $ctrl = $componentController("joinGroupList", {}, { groups: [{ members: [3] }] });
+      $ctrl.$onInit();
     });
   });
 

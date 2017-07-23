@@ -1,16 +1,20 @@
 class GroupMapController {
-  constructor($scope, CurrentGroup, CurrentStores, $timeout) {
+  constructor($scope, CurrentGroup, CurrentStores, CurrentUsers, $timeout) {
     "ngInject";
     Object.assign(this, {
       $scope,
       CurrentGroup,
       CurrentStores,
+      CurrentUsers,
       $timeout,
       markers: {},
       bounds: {},
       center: {},
       defaults: {
         scrollWheelZoom: false
+      },
+      options: {
+        showUsers: false
       }
     });
   }
@@ -29,6 +33,9 @@ class GroupMapController {
       },
       update: () => {
         this.update();
+      },
+      showUsers: (bool = true) => {
+        this.showUsers(bool);
       }
     };
   }
@@ -36,7 +43,8 @@ class GroupMapController {
   $onDestroy() {
     this.destroy();
   }
-  recenter(){
+
+  reCenter(){
     if (this.hasMarkers()){
       if (angular.isDefined(this.center.lat) && this.center.lat !== 0){
         this.showLatLngZ(this.center.lat, this.center.lng, this.center.zoom);
@@ -67,9 +75,20 @@ class GroupMapController {
     };
   }
 
+  getUsers(userIdArray){
+    return userIdArray.map((id) => {
+      return this.CurrentUsers.get(id);
+    });
+  }
+
+  showUsers(bool){
+    this.options.showUsers = bool;
+    this.update();
+  }
+
   update() {
     this.markers = this.getMarkers(this.CurrentStores.list);
-    this.recenter();
+    this.reCenter();
   }
 
   hasMarkers() {
@@ -87,6 +106,20 @@ class GroupMapController {
         draggable: false
       };
     });
+
+    if (this.options.showUsers){
+      let allUsers = this.getUsers(this.CurrentGroup.value.members);
+      angular.forEach(allUsers, (e) => {
+        if (!e.latitude || !e.longitude) return;
+        markers["user_" + e.id] = {
+          lat: e.latitude,
+          lng: e.longitude,
+          message: `<a ui-sref='userDetail({ id: ${e.id} })'>${e.display_name}</a>`,
+          draggable: false
+        };
+      });
+    }
+
     return markers;
   }
 }

@@ -2,7 +2,7 @@
   <div flex></div>
 
   <!-- Stores Sidenav -->
-  <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav" style="margin-right: 1em">
+  <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav" style="margin-right: 2em">
     <div class="md-whiteframe-2dp no-padding" style="margin-bottom: 1em">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
@@ -13,6 +13,8 @@
         <group-map></group-map>
       </div>
       <md-button ng-click="$ctrl.CurrentGroup.map.showOverview()">Overview</md-button>
+      <md-button ng-click="$ctrl.CurrentGroup.map.showUsers(true)">Show users</md-button>
+      <md-button ng-click="$ctrl.CurrentGroup.map.showUsers(false)">Hide stores</md-button>
     </div>
     <div class="md-whiteframe-2dp no-padding">
       <md-toolbar class="md-hue-1">

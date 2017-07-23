@@ -23,7 +23,8 @@
   "USERDATA": {
     "EMAIL": "Mail",
     "PASSWORD": "Password",
-    "USERNAME": "Name"
+    "USERNAME": "Name",
+    "WHERE_FROM": "Where you are from (not required)"
   },
   "BUTTON": {
     "CREATE": "Create",

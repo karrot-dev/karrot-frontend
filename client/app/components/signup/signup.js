@@ -26,12 +26,13 @@ let signupModule = angular.module("signup", [
       .then(() => {
         if ($stateParams.invite) {
           return Invitation.accept($stateParams.invite)
-          .then(() => "home")
-          .catch(() => "home");
+          .then(() => "home");
         }
         return "home";
       })
-      .catch();
+      .catch(() => {
+        return;
+      });
     },
     ncyBreadcrumb: {
       label: "{{ 'SIGNUP.TITLE' | translate}}"

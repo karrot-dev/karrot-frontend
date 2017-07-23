@@ -8,11 +8,6 @@
         <span translate="JOINGROUP.WHICHGROUP"></span>
       </h1>
     </div>
-  </md-toolbar>
-  
-  <div ng-if="!$ctrl.groupsUserIsMemberOf" layout="row" layout-sm="column" layout-align="space-around">
-    <md-progress-circular md-mode="indeterminate" style="margin: 3em auto"></md-progress-circular>
-  </div>
-  
-  <group-list ng-if="$ctrl.groupsUserIsMemberOf" groups="$ctrl.groupsUserIsMemberOf"></group-list>
+  </md-toolbar>  
+  <group-list groups="$ctrl.sortedGroups"></group-list>
 </div>

@@ -65,7 +65,7 @@ describe("Home", () => {
       sinon.stub($ctrl.$state, "go");
       $ctrl.$onInit();
       $httpBackend.flush();
-      expect($ctrl.$state.go).to.have.been.calledWith("groupList");
+      expect($ctrl.$state.go).to.have.been.calledWith("joinGroupList");
     });
   });
 

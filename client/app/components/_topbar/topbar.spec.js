@@ -50,11 +50,11 @@ describe("Topbar", () => {
       $rootScope.$apply();
     }));
 
-    it("toggles Sidenav", () => {
+    it("opens Sidenav", () => {
       $ctrl.$onInit();
       $rootScope.$apply();
       expect($mdSidenav("left").isOpen()).to.be.false;
-      $ctrl.toggleLeft();
+      $ctrl.openSidenav();
       expect($mdSidenav("left").isOpen()).to.be.true;
     });
   });

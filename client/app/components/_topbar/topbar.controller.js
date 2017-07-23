@@ -12,6 +12,7 @@ class TopbarController {
       Authentication,
       SessionUser,
       $mdSidenav,
+      $scope,
       reloadPage: () => $window.location.reload()  // makes it easier to stub
     });
   }
@@ -20,8 +21,12 @@ class TopbarController {
     this.Authentication.update();
   }
 
-  toggleLeft() {
-    this.$mdSidenav("left").toggle();
+  openSidenav() {
+    this.$mdSidenav("left").open();
+    this.destorySidenavListener = this.$scope.$on("$locationChangeStart", () => {
+      this.$mdSidenav("left").close();
+      this.destorySidenavListener();
+    });
   }
 
   logOut(){

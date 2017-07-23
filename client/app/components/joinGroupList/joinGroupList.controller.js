@@ -1,25 +1,26 @@
 class JoinGroupListController {
-  constructor(Authentication) {
+  constructor(SessionUser) {
     "ngInject";
     Object.assign(this, {
-      Authentication
+      SessionUser,
+      sortedGroups: []
     });
   }
 
-  $onInit(){
-    let sortedGroups = [];
+  $onInit() {
     if (angular.isDefined(this.groups)){
-      sortedGroups = this.groups.sort((a,b) => b.members.length - a.members.length);
+      this.sortedGroups = this.groups
+      .filter(this.isNotMember.bind(this))
+      .sort(this.highestMemberCountFirst);
     }
-    this.Authentication.update().then((data) => {
-      let groupsUserIsMember = [];
-      angular.forEach(sortedGroups, (curGroup) => {
-        if (curGroup.members.indexOf(data.id) === -1){
-          groupsUserIsMember.push(curGroup);
-        }
-      });
-      this.groupsUserIsMemberOf = groupsUserIsMember;
-    });
+  }
+
+  isNotMember(group) {
+    return this.SessionUser.isLoggedIn() ? group.members.indexOf(this.SessionUser.value.id) < 0 : true;
+  }
+
+  highestMemberCountFirst(a, b) {
+    return b.members.length - a.members.length;
   }
 }
 

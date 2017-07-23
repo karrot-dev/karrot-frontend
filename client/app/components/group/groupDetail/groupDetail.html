@@ -4,43 +4,7 @@
       <i class="fa fa-home" aria-hidden="true"></i>&nbsp;
       {{$ctrl.groupData.name}}
     </h1>
-    <span>
-      <md-button class="md-icon-button"
-        ui-sref="groupInfo({groupId:$ctrl.groupData.id})"
-        aria-label="{{ 'GROUPINFO.META' | translate }}">
-        <md-tooltip>
-          <span translate="GROUPINFO.META"></span>
-        </md-tooltip>
-        <i class="fa fa-info-circle"></i>
-      </md-button>
-
-      <md-button class="md-icon-button"
-        ui-sref="groupInvites"
-        aria-label="{{ 'GROUP.INVITE_TITLE' | translate }}">
-        <md-tooltip>
-          <span translate="GROUP.INVITE_TITLE"></span>
-        </md-tooltip>
-        <i class="fa fa-user-plus"></i>
-      </md-button>
-
-      <md-button class="md-icon-button"
-        ui-sref="groupEdit"
-        aria-label="{{ 'GROUP.EDIT' | translate }}">
-        <md-tooltip md-direction="left">
-          <span translate="GROUP.EDIT"></span>
-        </md-tooltip>
-        <i class="fa fa-pencil"></i>
-      </md-button>
-
-      <md-button class="md-icon-button"
-        ng-click="$ctrl.leaveGroup()"
-        aria-label="{{ 'GROUP.LEAVE' | translate }}">
-        <md-tooltip md-direction="left">
-          <span translate="GROUP.LEAVE"></span>
-        </md-tooltip>
-        <i class="fa fa-fw fa-sign-out"></i>
-      </md-button>
-    </span>
+    <group-options group-data="$ctrl.groupData"></group-options>
   </div>
 </md-toolbar>
 
@@ -57,9 +21,6 @@
       <md-nav-item md-nav-sref="group.groupDetail.pickups" name="pickups">
         <span translate="GROUP.PICKUPS"></span>
       </md-nav-item>
-      <md-nav-item ng-if="!$ctrl.$mdMedia('gt-sm')" md-nav-sref="group.groupDetail.stores" name="stores">
-        <span translate="GROUP.STORES"></span>
-      </md-nav-item>
       <md-nav-item md-nav-sref="group.groupDetail.history" name="history">
         <span translate="GROUP.HISTORY"></span>
       </md-nav-item>
@@ -72,42 +33,5 @@
     </md-nav-bar>
 
     <ui-view></ui-view>
-  </div>
-</div>
-
-<!-- confirm to leave group -->
-<div style="visibility: hidden">
-  <div class="md-dialog-container" id="confirmLeaveDialog">
-    <md-dialog>
-      <div class="md-whiteframe-10dp" layout-fill>
-        <md-toolbar>
-          <div class="md-toolbar-tools">
-            <h2>
-              <i style="font-size: 1.5em; margin-right: 1em;" class="fa fa-sign-out"></i>
-              <span translate="GROUP.LEAVE"></span>
-            </h2>
-          </div>
-        </md-toolbar>
-        <div layout-margin>
-          <div translate="GROUP.LEAVE_TEXT" flex></div>
-          <div layout="row" layout-align="end center">
-            <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()"
-              aria-label="{{ 'BUTTON.CANCEL' | translate }}">
-              <md-tooltip>
-                <span translate="BUTTON.CANCEL"></span>
-              </md-tooltip>
-              <i class="fa fa-times"></i>
-            </md-button>
-            <md-button class="md-raised md-primary" ng-click="$ctrl.$mdDialog.hide()"
-              aria-label="{{ 'BUTTON.LEAVE' | translate }}">
-              <md-tooltip>
-                <span translate="BUTTON.LEAVE"></span>
-              </md-tooltip>
-              <i class="fa fa-sign-out"></i>
-            </md-button>
-          </div>
-        </div>
-      </div>
-    </md-dialog>
   </div>
 </div>

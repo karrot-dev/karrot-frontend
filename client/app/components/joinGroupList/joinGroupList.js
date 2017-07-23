@@ -10,7 +10,7 @@ let joinGroupListModule = angular.module("joinGroupList", [
 
 .component("joinGroupList", joinGroupListComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("joinGroupList", {
@@ -26,7 +26,6 @@ let joinGroupListModule = angular.module("joinGroupList", [
         label: "{{ 'JOINGROUP.WHICHGROUP' | translate }}"
       }
     });
-  hookProvider.setup("joinGroupList", { authenticated: true, anonymous: "login" });
 })
 
 .name;

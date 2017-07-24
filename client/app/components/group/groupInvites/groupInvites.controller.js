@@ -1,10 +1,11 @@
 class GroupInvitesController {
-  constructor(Invitation, $stateParams, $scope) {
+  constructor(Invitation, $stateParams, $scope, $q) {
     "ngInject";
     Object.assign(this, {
       Invitation,
       $stateParams,
       $scope,
+      $q,
       groupInvitations: []
     });
   }
@@ -29,6 +30,10 @@ class GroupInvitesController {
     })
     .then((invite) => {
       this.groupInvitations.unshift(invite);
+    })
+    .catch((error) => {
+      this.error = error;
+      return this.$q.reject(error);
     });
   }
 }

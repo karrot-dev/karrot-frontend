@@ -40,6 +40,8 @@
         <span translate="GROUP.INVITE_SEND"></span>
       </md-tooltip>
     </md-button>
+
+    <p ng-if="$ctrl.error">{{ $ctrl.error.data}}</p>
   </form>
 
   <h4 translate="GROUP.INVITED_LIST"></h4>

@@ -43,10 +43,23 @@ describe("GroupInvites", () => {
         $ctrl.email = "invite@me.com";
         $ctrl.$stateParams.groupId = 5;
         sinon.stub($ctrl.Invitation, "create").returns($q.resolve(inviteResult));
-        $ctrl.sendInvite();
+        expect($ctrl.sendInvite()).to.eventually.be.fulfilled;
         $rootScope.$apply();
         expect($ctrl.Invitation.create).to.have.been.called;
         expect($ctrl.groupInvitations).to.deep.equal([inviteResult]);
+      });
+    });
+
+    it("sets error message", () => {
+      inject(($q, $rootScope) => {
+        let $ctrl = $componentController("groupInvites", {});
+        $ctrl.email = "invite@me.com";
+        $ctrl.$stateParams.groupId = 5;
+        sinon.stub($ctrl.Invitation, "create").returns($q.reject("err_uargh"));
+        expect($ctrl.sendInvite()).to.eventually.be.rejected;
+        $rootScope.$apply();
+        expect($ctrl.groupInvitations).to.deep.equal([]);
+        expect($ctrl.error).to.equal("err_uargh");
       });
     });
 

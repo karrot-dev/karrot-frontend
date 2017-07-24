@@ -9,6 +9,7 @@ import store from "./store/storeDetail";
 import storeList from "./_storeList/storeList";
 import groupDetail from "./groupDetail/groupDetail";
 import groupEdit from "./groupEdit/groupEdit";
+import groupInvites from "./groupInvites/groupInvites";
 import createGroup from "./createGroup/createGroup";
 import searchBar from "./_searchBar/searchBar";
 import groupMap from "./_groupMap/groupMap";
@@ -21,6 +22,7 @@ let groupPageModule = angular.module("group", [
   store,
   groupDetail,
   groupEdit,
+  groupInvites,
   createGroup,
   storeList,
   storeModule,

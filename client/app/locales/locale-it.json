@@ -33,7 +33,8 @@
     "JOIN": "Unisciti",
     "LEAVE": "Leave",
     "PREVIEW": "Preview",
-    "BACK": "Back"
+    "BACK": "Back",
+    "MORE_OPTIONS": "More options"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
@@ -55,7 +56,12 @@
     "HISTORY": "History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group"
+    "TIMEZONE": "Time zone of group",
+    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_SEND": "Send invitation",
+    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITE_TITLE": "Invite users to your group"
   },
   "STOREDETAIL": {
     "EDIT": "Modifica negozi",
@@ -100,7 +106,9 @@
     "NO_PUBLIC_DESCRIPTION": "(Questo grupp non ha una pubblica descrizione... per ora)",
     "PASSWORD_LABEL": "Immetti la password per un gruppo privato",
     "PASSWORD_REQUIRED": "Questo gruppo necessita una password",
-    "PASSWORD_WRONG": "Hai digitato la password errata"
+    "PASSWORD_WRONG": "Hai digitato la password errata",
+    "ALL_GROUPS": "All groups",
+    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!"
   },
   "GROUPINFO": {
     "META": "Show public group information",
@@ -144,7 +152,8 @@
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Tempo",
     "TIME_ERROR": "Metti una ora valida: {{timeExample}}",
-    "MAX_COLLECTORS": "Spazio massimo"
+    "MAX_COLLECTORS": "Spazio massimo",
+    "COMMENT": "Additional information"
   },
   "CREATESTORE": {
     "TITLE": "Crea un nuovo negozio"

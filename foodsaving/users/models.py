@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from anymail.message import AnymailMessage
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db import transaction
+from django.db import transaction, IntegrityError
 from django.template.loader import render_to_string
 
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
@@ -27,6 +27,9 @@ class UserManager(BaseUserManager):
         email = self._validate_email(email)
         extra_fields['unverified_email'] = email
 
+        if self.filter(email__iexact=email).exists():
+            raise IntegrityError('email must be unique')
+
         user = self.model(
             email=email,
             is_active=is_active,
@@ -39,7 +42,7 @@ class UserManager(BaseUserManager):
 
     def _validate_email(self, email):
         if email is None:
-            raise ValueError('The given email must be set')
+            raise ValueError('The email field must be set')
         return self.normalize_email(email)
 
     def create_user(self, email=None, password=None, display_name=None,

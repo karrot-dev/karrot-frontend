@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.history.models import History
 from foodsaving.invitations.models import Invitation
 from foodsaving.users.factories import UserFactory
 
@@ -54,25 +55,6 @@ class TestInvitationAPIIntegration(APITestCase):
         response = self.client.get('/api/auth/status/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['current_group'], self.group.id)
-
-    def test_accept_invite_with_expired_invitation(self):
-        self.client.force_login(self.member)
-        response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
-
-        # make invitation expire
-        i = Invitation.objects.get(id=response.data['id'])
-        i.expires_at = timezone.now() - relativedelta(days=1)
-        i.save()
-
-        token = furl(
-            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
-        ).fragment.args['invite']
-
-        # accept the invite
-        self.client.force_login(self.non_member)
-        response = self.client.post(base_url + token + '/accept/')
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-        self.assertEqual(self.group.members.count(), 1)
 
 
 class TestInviteCreate(APITestCase):
@@ -171,3 +153,63 @@ class TestInvitationAPI(APITestCase):
         self.client.force_login(self.member2)
         response = self.client.get(base_url)
         self.assertEqual(len(response.data), 1)
+
+
+class TestInvitationAcceptAPI(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.member = UserFactory()
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.non_member = UserFactory()
+
+        # effectively disable throttling
+        from foodsaving.invitations.api import InvitesPerDayThrottle
+        InvitesPerDayThrottle.rate = '1000/day'
+
+    def test_accept_invite_with_expired_invitation(self):
+        self.client.force_login(self.member)
+        response = self.client.post(base_url, {'email': 'please@join.com', 'group': self.group.id})
+
+        # make invitation expire
+        i = Invitation.objects.get(id=response.data['id'])
+        i.expires_at = timezone.now() - relativedelta(days=1)
+        i.save()
+
+        token = furl(
+            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+        ).fragment.args['invite']
+
+        # accept the invite
+        self.client.force_login(self.non_member)
+        response = self.client.post(base_url + token + '/accept/')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(self.group.members.count(), 1)
+
+    def test_accept_invite_when_already_in_group(self):
+        self.client.force_login(self.member)
+        self.client.post(base_url, {'email': 'someother@mail.com', 'group': self.group.id})
+
+        token = furl(
+            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+        ).fragment.args['invite']
+
+        # accidentally accept the invite even though you are already in the group
+        response = self.client.post(base_url + token + '/accept/')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(self.group.members.count(), 1)
+
+        # should not add any history
+        self.assertEqual(History.objects.count(), 0)
+
+    def test_accept_invite_when_signed_out(self):
+        self.client.force_login(self.member)
+        self.client.post(base_url, {'email': 'someother@mail.com', 'group': self.group.id})
+
+        token = furl(
+            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+        ).fragment.args['invite']
+
+        self.client.logout()
+        response = self.client.post(base_url + token + '/accept/')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+

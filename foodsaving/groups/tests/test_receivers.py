@@ -31,4 +31,3 @@ class TestInvitationReceiver(TestCase):
         self.assertEqual(h.payload['invited_by'], self.invited_by.id)
         self.assertEqual(h.payload['invited_at'], self.invited_at.isoformat())
         self.assertEqual(h.payload['invited_via'], 'e-mail')
-

@@ -12,9 +12,6 @@ class GroupMapController {
       center: {},
       defaults: {
         scrollWheelZoom: false
-      },
-      options: {
-        showUsers: false
       }
     });
   }
@@ -34,8 +31,9 @@ class GroupMapController {
       update: () => {
         this.update();
       },
-      showUsers: (bool = true) => {
-        this.showUsers(bool);
+      options: {
+        showStores: true,
+        showUsers: false
       }
     };
   }
@@ -81,11 +79,6 @@ class GroupMapController {
     });
   }
 
-  showUsers(bool){
-    this.options.showUsers = bool;
-    this.update();
-  }
-
   update() {
     this.markers = this.getMarkers(this.CurrentStores.list);
     this.reCenter();
@@ -97,17 +90,19 @@ class GroupMapController {
 
   getMarkers(fromArray) {
     let markers = {};
-    angular.forEach(fromArray, (e) => {
-      if (!e.latitude || !e.longitude) return;
-      markers["store_" + e.id] = {
-        lat: e.latitude,
-        lng: e.longitude,
-        message: `<a ui-sref='group.store({ storeId: ${e.id}, groupId: ${e.group} })'>${e.name}</a>`,
-        draggable: false
-      };
-    });
+    if (this.CurrentGroup.map.options.showStores){
+      angular.forEach(fromArray, (e) => {
+        if (!e.latitude || !e.longitude) return;
+        markers["store_" + e.id] = {
+          lat: e.latitude,
+          lng: e.longitude,
+          message: `<a ui-sref='group.store({ storeId: ${e.id}, groupId: ${e.group} })'>${e.name}</a>`,
+          draggable: false
+        };
+      });
+    }
 
-    if (this.options.showUsers){
+    if (this.CurrentGroup.map.options.showUsers){
       let allUsers = this.getUsers(this.CurrentGroup.value.members);
       angular.forEach(allUsers, (e) => {
         if (!e.latitude || !e.longitude) return;

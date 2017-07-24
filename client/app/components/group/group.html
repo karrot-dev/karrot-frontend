@@ -6,15 +6,39 @@
     <div class="md-whiteframe-2dp no-padding" style="margin-bottom: 1em">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
-          <h3 translate="GROUP.MAP"></h3>
+          <h3 translate="GROUP.MAP" flex></h3>
+          <md-button ng-click="$ctrl.CurrentGroup.map.showOverview()"
+                     class="md-icon-button">
+              <i class="fa fa-bullseye"></i>
+          </md-button>
+          <md-button class="md-icon-button"
+            ng-click="$ctrl.CurrentGroup.map.options.showStores = !$ctrl.CurrentGroup.map.options.showStores; $ctrl.CurrentGroup.map.update();">
+              <span class="fa-stack" ng-if="!$ctrl.CurrentGroup.map.options.showStores">
+                <i class="fa fa-shopping-cart fa-stack-1x"></i>
+                <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
+              </span>
+              <span class="fa-stack" ng-if="$ctrl.CurrentGroup.map.options.showStores">
+                <i class="fa fa-shopping-cart fa-stack-1x"></i>
+                <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
+              </span>
+          </md-button>
+          <md-button class="md-icon-button"
+            ng-click="$ctrl.CurrentGroup.map.options.showUsers = !$ctrl.CurrentGroup.map.options.showUsers; $ctrl.CurrentGroup.map.update();">
+              <span class="fa-stack" ng-if="!$ctrl.CurrentGroup.map.options.showUsers">
+                <i class="fa fa-user fa-stack-1x"></i>
+                <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
+              </span>
+              <span class="fa-stack" ng-if="$ctrl.CurrentGroup.map.options.showUsers">
+                <i class="fa fa-user fa-stack-1x"></i>
+                <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
+              </span>
+          </md-button>
         </div>
       </md-toolbar>
       <div>
         <group-map></group-map>
       </div>
-      <md-button ng-click="$ctrl.CurrentGroup.map.showOverview()">Overview</md-button>
-      <md-button ng-click="$ctrl.CurrentGroup.map.showUsers(true)">Show users</md-button>
-      <md-button ng-click="$ctrl.CurrentGroup.map.showUsers(false)">Hide stores</md-button>
+      
     </div>
     <div class="md-whiteframe-2dp no-padding">
       <md-toolbar class="md-hue-1">

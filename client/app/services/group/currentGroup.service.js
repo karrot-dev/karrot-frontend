@@ -24,6 +24,10 @@ export default class CurrentGroup {
         },
         update: () => {
           return -1;
+        },
+        options: {
+          showStores: true,
+          showUsers: false
         }
       }
     });

@@ -5,4 +5,4 @@ class HistoryConfig(AppConfig):
     name = 'foodsaving.history'
 
     def ready(self):
-        from . import signals  # noqa: F401
+        from . import receivers  # noqa: F401

@@ -8,7 +8,6 @@ from rest_framework.throttling import UserRateThrottle
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.invitations.models import Invitation
-from foodsaving.invitations.permissions import UserInGroup
 from foodsaving.invitations.serializers import InvitationSerializer, InvitationAcceptSerializer
 
 
@@ -29,7 +28,7 @@ class InvitationsViewSet(
     serializer_class = InvitationSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('group', )
-    permission_classes = (UserInGroup, )
+    permission_classes = (IsAuthenticated, )
     throttle_classes = ()
 
     def get_queryset(self):

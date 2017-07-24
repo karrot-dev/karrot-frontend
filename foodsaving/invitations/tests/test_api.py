@@ -155,7 +155,7 @@ class TestInvitationAPI(APITestCase):
         # not logged in
         self.client.logout()
         response = self.client.get(base_url)
-        self.assertEqual(len(response.data), 0)
+        self.assertTrue(status.is_client_error(response.status_code))
 
         # user not in group
         self.client.force_login(self.non_member)

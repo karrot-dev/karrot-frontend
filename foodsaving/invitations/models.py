@@ -88,8 +88,5 @@ class Invitation(BaseModel):
         )
         self.delete()
 
-    def expired(self):
-        return self.expires_at <= timezone.now()
-
     def __str__(self):
         return "Invite to {0} by {1}".format(self.group.name, self.invited_by.display_name)

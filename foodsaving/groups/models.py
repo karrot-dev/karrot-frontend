@@ -36,10 +36,10 @@ class Group(BaseModel, LocationModel):
             ):
                 p.notify_upcoming()
 
-    def add_member(self, user):
+    def add_member(self, user, history_payload=None):
         self.members.add(user)
         self.save()  # FIXME save shouldn't be necessary
-        post_group_join.send(sender=self.__class__, group=self, user=user)
+        post_group_join.send(sender=self.__class__, group=self, user=user, payload=history_payload)
 
     def remove_member(self, user):
         pre_group_leave.send(sender=self.__class__, group=self, user=user)

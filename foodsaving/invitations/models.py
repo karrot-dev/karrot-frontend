@@ -81,6 +81,7 @@ class Invitation(BaseModel):
             sender=self.__class__,
             token=self.token,
             email=self.email,
+            invited_at=self.created_at,
             invited_by=self.invited_by,
             accepted_user=user,
             group=self.group

@@ -4,16 +4,15 @@ import dateutil.rrule
 import requests
 from dateutil.relativedelta import relativedelta
 from django.contrib.postgres.fields import JSONField
+from django.db import models
 from django.db import transaction
 from django.db.models import Count
-from django.dispatch import Signal
 from django.template.loader import render_to_string
-
 from django.utils import timezone
 
 from config import settings
 from foodsaving.base.base_models import BaseModel, LocationModel
-from django.db import models
+from foodsaving.stores.signals import pickup_done, pickup_missed
 
 
 class Store(BaseModel, LocationModel):
@@ -104,10 +103,6 @@ class PickupDateSeries(BaseModel):
 
     def __str__(self):
         return '{} - {}'.format(self.date, self.store)
-
-
-pickup_done = Signal()
-pickup_missed = Signal()
 
 
 class PickupDateManager(models.Manager):

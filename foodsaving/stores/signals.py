@@ -1,26 +1,12 @@
-from django.dispatch import receiver
-from django.utils import timezone
+from django.dispatch import Signal
 
-from foodsaving.groups.signals import pre_group_leave
-from foodsaving.stores.models import PickupDate
-from foodsaving.users.api import pre_user_delete
-
-
-@receiver(pre_group_leave)
-def leave_group_handler(sender, **kwargs):
-    group = kwargs.get('group')
-    user = kwargs.get('user')
-    for _ in PickupDate.objects. \
-            filter(date__gte=timezone.now()). \
-            filter(collectors__in=[user, ]). \
-            filter(store__group=group):
-        _.collectors.remove(user)
-
-
-@receiver(pre_user_delete)
-def delete_user_handler(sender, **kwargs):
-    user = kwargs.get('user')
-    for _ in PickupDate.objects. \
-            filter(date__gte=timezone.now()). \
-            filter(collectors__in=[user, ]):
-        _.collectors.remove(user)
+post_pickup_create = Signal()
+post_pickup_modify = Signal()
+post_pickup_join = Signal()
+post_pickup_leave = Signal()
+post_series_create = Signal()
+post_series_modify = Signal()
+post_store_create = Signal()
+post_store_modify = Signal()
+pickup_done = Signal()
+pickup_missed = Signal()

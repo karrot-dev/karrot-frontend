@@ -9,6 +9,15 @@
   </md-button>
 
   <md-button class="md-icon-button"
+    ui-sref="groupInvites"
+    aria-label="{{ 'GROUP.INVITE_TITLE' | translate }}">
+    <md-tooltip>
+      <span translate="GROUP.INVITE_TITLE"></span>
+    </md-tooltip>
+    <i class="fa fa-user-plus"></i>
+  </md-button>
+
+  <md-button class="md-icon-button"
     ui-sref="groupEdit"
     aria-label="{{ 'GROUP.EDIT' | translate }}">
     <md-tooltip md-direction="bottom">

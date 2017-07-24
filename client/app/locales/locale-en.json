@@ -58,12 +58,18 @@
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group",
-    "MAP": "Map",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
     "INVITE_TITLE": "Invite users to your group"
+  },
+  "GROUPMAP": {
+    "TITLE": "Map",
+    "SHOW_USERS": "Show users",
+    "HIDE_USERS": "Hide users",
+    "SHOW_STORES": "Show stores",
+    "HIDE_STORES": "Hide stores"    
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

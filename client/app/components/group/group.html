@@ -6,14 +6,20 @@
     <div class="md-whiteframe-2dp no-padding" style="margin-bottom: 1em">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools">
-          <h3 translate="GROUP.MAP" flex></h3>
+          <h3 translate="GROUPMAP.TITLE" flex></h3>
           <md-button ng-click="$ctrl.CurrentGroup.map.showOverview()"
                      class="md-icon-button">
               <i class="fa fa-bullseye"></i>
           </md-button>
           <md-button class="md-icon-button"
             ng-click="$ctrl.CurrentGroup.map.options.showStores = !$ctrl.CurrentGroup.map.options.showStores; $ctrl.CurrentGroup.map.update();">
-              <span class="fa-stack" ng-if="!$ctrl.CurrentGroup.map.options.showStores">
+            <md-tooltip ng-if="$ctrl.CurrentGroup.map.options.showStores">
+              <span translate="GROUPMAP.HIDE_STORES"></span>
+            </md-tooltip>
+            <md-tooltip ng-if="!$ctrl.CurrentGroup.map.options.showStores">
+              <span translate="GROUPMAP.SHOW_STORES"></span>
+            </md-tooltip>
+            <span class="fa-stack" ng-if="!$ctrl.CurrentGroup.map.options.showStores">
                 <i class="fa fa-shopping-cart fa-stack-1x"></i>
                 <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
               </span>
@@ -24,14 +30,20 @@
           </md-button>
           <md-button class="md-icon-button"
             ng-click="$ctrl.CurrentGroup.map.options.showUsers = !$ctrl.CurrentGroup.map.options.showUsers; $ctrl.CurrentGroup.map.update();">
-              <span class="fa-stack" ng-if="!$ctrl.CurrentGroup.map.options.showUsers">
-                <i class="fa fa-user fa-stack-1x"></i>
-                <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
-              </span>
-              <span class="fa-stack" ng-if="$ctrl.CurrentGroup.map.options.showUsers">
-                <i class="fa fa-user fa-stack-1x"></i>
-                <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
-              </span>
+            <md-tooltip ng-if="$ctrl.CurrentGroup.map.options.showUsers">
+              <span translate="GROUPMAP.HIDE_USERS"></span>
+            </md-tooltip>
+            <md-tooltip ng-if="!$ctrl.CurrentGroup.map.options.showUsers">
+              <span translate="GROUPMAP.SHOW_USERS"></span>
+            </md-tooltip>
+            <span class="fa-stack" ng-if="!$ctrl.CurrentGroup.map.options.showUsers">
+              <i class="fa fa-user fa-stack-1x"></i>
+              <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
+            </span>
+            <span class="fa-stack" ng-if="$ctrl.CurrentGroup.map.options.showUsers">
+              <i class="fa fa-user fa-stack-1x"></i>
+              <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
+            </span>
           </md-button>
         </div>
       </md-toolbar>

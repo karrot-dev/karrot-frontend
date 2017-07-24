@@ -16,15 +16,9 @@ export default class CurrentGroup {
       User,
       SessionUser,
       map: {
-        showOverview: () => {
-          return -1;
-        },
-        showLatLngZ: () => {
-          return -1;
-        },
-        update: () => {
-          return -1;
-        },
+        showOverview: () => {},
+        showLatLngZ: () => {},
+        update: () => {},
         options: {
           showStores: true,
           showUsers: false

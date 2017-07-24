@@ -54,7 +54,7 @@ class GroupMapController {
 
   showOverview(){
     if (this.hasMarkers()){
-      let bounds = new L.latLngBounds(Object.values(this.markers)).pad(0.2); // eslint-disable-line
+      let bounds = new L.latLngBounds(Object.values(this.markers)).pad(0.15); // eslint-disable-line
       this.bounds = {
         northEast: bounds._northEast,
         southWest: bounds._southWest,
@@ -97,7 +97,13 @@ class GroupMapController {
           lat: e.latitude,
           lng: e.longitude,
           message: `<a ui-sref='group.store({ storeId: ${e.id}, groupId: ${e.group} })'>${e.name}</a>`,
-          draggable: false
+          draggable: false,
+          icon: {
+            type: "awesomeMarker",
+            icon: "shopping-cart",
+            prefix: "fa",
+            markerColor: "darkblue"
+          }
         };
       });
     }
@@ -110,7 +116,13 @@ class GroupMapController {
           lat: e.latitude,
           lng: e.longitude,
           message: `<a ui-sref='userDetail({ id: ${e.id} })'>${e.display_name}</a>`,
-          draggable: false
+          draggable: false,
+          icon: {
+            type: "awesomeMarker",
+            icon: "user",
+            prefix: "fa",
+            markerColor: "green"
+          }
         };
       });
     }

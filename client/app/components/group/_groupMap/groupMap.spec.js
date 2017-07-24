@@ -36,6 +36,12 @@ describe("GroupMap", () => {
     it("creates markers", () => {
       expect($ctrl.getMarkers([anotherStore])).to.deep.equal({
         "store_98": {
+          icon: {
+            icon: "shopping-cart",
+            markerColor: "darkblue",
+            prefix: "fa",
+            type: "awesomeMarker"
+          },
           lat: 87, lng: 66,
           message: "<a ui-sref='group.store({ storeId: 98, groupId: 4 })'>something</a>",
           draggable: false

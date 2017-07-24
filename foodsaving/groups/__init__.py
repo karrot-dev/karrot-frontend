@@ -5,4 +5,4 @@ class GroupsConfig(AppConfig):
     name = 'foodsaving.groups'
 
     def ready(self):
-        from . import signals  # noqa: F401
+        from . import receivers  # noqa: F401

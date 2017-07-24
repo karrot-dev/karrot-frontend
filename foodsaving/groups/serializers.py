@@ -1,17 +1,12 @@
 import pytz
-from django.dispatch import Signal
+from django.utils.translation import ugettext as _
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from config import settings
 from foodsaving.groups.models import Group as GroupModel
+from foodsaving.groups.signals import post_group_modify, post_group_create
 from foodsaving.history.utils import get_changed_data
-from django.utils.translation import ugettext as _
-
-post_group_create = Signal()
-post_group_modify = Signal()
-post_group_join = Signal()
-pre_group_leave = Signal()
 
 
 class TimezoneField(serializers.Field):
@@ -117,9 +112,7 @@ class GroupJoinSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         user = self.context['request'].user
-        instance.members.add(user)
-        instance.save()
-        post_group_join.send(sender=self.__class__, group=instance, user=user)
+        instance.add_member(user)
         return instance
 
 
@@ -130,9 +123,7 @@ class GroupLeaveSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         user = self.context['request'].user
-        pre_group_leave.send(sender=self.__class__, group=instance, user=user)
-        instance.members.remove(user)
-        instance.save()
+        instance.remove_member(user)
         return instance
 
 

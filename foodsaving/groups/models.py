@@ -1,10 +1,11 @@
 from dateutil.relativedelta import relativedelta
 from django.db import models, transaction
 from django.utils import timezone
-
-from foodsaving.base.base_models import BaseModel, LocationModel
-from config import settings
 from timezone_field import TimeZoneField
+
+from config import settings
+from foodsaving.base.base_models import BaseModel, LocationModel
+from foodsaving.groups.signals import post_group_join, pre_group_leave
 
 
 class GroupManager(models.Manager):
@@ -34,3 +35,13 @@ class Group(BaseModel, LocationModel):
                 date__gt=timezone.now() - relativedelta(hours=s.upcoming_notification_hours)
             ):
                 p.notify_upcoming()
+
+    def add_member(self, user, history_payload=None):
+        self.members.add(user)
+        self.save()  # FIXME save shouldn't be necessary
+        post_group_join.send(sender=self.__class__, group=self, user=user, payload=history_payload)
+
+    def remove_member(self, user):
+        pre_group_leave.send(sender=self.__class__, group=self, user=user)
+        self.members.remove(user)
+        self.save()  # FIXME save shouldn't be necessary

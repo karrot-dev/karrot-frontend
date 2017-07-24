@@ -5,4 +5,4 @@ class StoresConfig(AppConfig):
     name = 'foodsaving.stores'
 
     def ready(self):
-        from . import signals  # noqa: F401
+        from . import receivers  # noqa: F401

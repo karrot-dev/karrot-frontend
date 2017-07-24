@@ -2,26 +2,17 @@ from datetime import timedelta
 
 import dateutil.rrule
 from django.db import transaction
-from django.dispatch import Signal
 from django.utils import timezone
-from rest_framework import serializers
-
 from django.utils.translation import ugettext as _
+from rest_framework import serializers
 
 from config import settings
 from foodsaving.history.utils import get_changed_data
 from foodsaving.stores.models import PickupDate as PickupDateModel
 from foodsaving.stores.models import PickupDateSeries as PickupDateSeriesModel
 from foodsaving.stores.models import Store as StoreModel
-
-post_pickup_create = Signal()
-post_pickup_modify = Signal()
-post_pickup_join = Signal()
-post_pickup_leave = Signal()
-post_series_create = Signal()
-post_series_modify = Signal()
-post_store_create = Signal()
-post_store_modify = Signal()
+from foodsaving.stores.signals import post_pickup_create, post_pickup_modify, post_pickup_join, post_pickup_leave, \
+    post_series_create, post_series_modify, post_store_create, post_store_modify
 
 
 class PickupDateSerializer(serializers.ModelSerializer):

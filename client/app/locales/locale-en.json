@@ -57,7 +57,7 @@
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group",
-    "MAP": "Map"
+    "MAP": "Map",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",

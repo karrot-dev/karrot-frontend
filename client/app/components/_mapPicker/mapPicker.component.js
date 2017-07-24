@@ -5,7 +5,7 @@ import "./mapPicker.styl";
 let mapPickerComponent = {
   bindings: {
     placeholder: "@",
-    data: "<" // item with latitude, longitude and address
+    data: "=" // item with latitude, longitude and address
   },
   template,
   controller

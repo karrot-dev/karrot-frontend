@@ -21,7 +21,6 @@ describe("StoreEditCreateForm", () => {
     });
   });
 
-
   describe("Controller", () => {
     let $componentController, $q, $rootScope;
     beforeEach(inject(($injector) => {
@@ -35,16 +34,12 @@ describe("StoreEditCreateForm", () => {
         latitude: 2, longitude: 3, address: "he"
       } });
       $ctrl.$onInit();
-      expect($ctrl.query).to.equal("he");
-      expect($ctrl.marker.p.lng).to.equal(3);
       expect($ctrl.isCreate).to.be.undefined;
     });
 
     it("initializes without binding", () => {
       let $ctrl = $componentController("storeEditCreateForm", {});
       $ctrl.$onInit();
-      expect($ctrl.query).to.be.undefined;
-      expect($ctrl.marker).to.be.undefined;
       expect($ctrl.isCreate).to.be.true;
     });
 
@@ -55,38 +50,6 @@ describe("StoreEditCreateForm", () => {
       $ctrl.submit();
       $rootScope.$apply();
       expect($ctrl.error).to.be.equal("err");
-    });
-
-    it("does lookup", () => {
-      let $ctrl = $componentController("storeEditCreateForm", {});
-      sinon.stub($ctrl.Geocoding, "lookupAddress");
-      $ctrl.query = "arg";
-      $ctrl.geoLookup();
-      expect($ctrl.Geocoding.lookupAddress).to.have.been.calledWith("arg");
-    });
-
-    it("doesn't set coords if no value", () => {
-      let $ctrl = $componentController("storeEditCreateForm", {}, { data: {} });
-      $ctrl.trySetLocation();
-      expect($ctrl.data.address).to.be.undefined;
-    });
-
-    it("resets coords if text is empty", () => {
-      let $ctrl = $componentController("storeEditCreateForm", {});
-      $ctrl.data = { latitude: 30 };
-      $ctrl.updateOrDeleteIfEmpty();
-      expect($ctrl.data.latitude).to.be.null;
-    });
-
-    it("does not replace reference to marker", () => {
-      let $ctrl = $componentController("storeEditCreateForm", {}, { data: {} });
-      $ctrl.marker = { p: { lat: 12.34 } };
-      let leafletMarker = $ctrl.marker.p;
-      expect(leafletMarker.lat).to.equal(12.34);
-      $ctrl.trySetLocation({
-        address: "a", latitude: 99.99, longitude: 88.88
-      });
-      expect(leafletMarker.lat).to.equal(99.99);
     });
   });
 

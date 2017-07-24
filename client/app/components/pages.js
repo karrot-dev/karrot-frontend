@@ -11,6 +11,7 @@ import landingPage from "./landingPage/landingPage";
 import notifications from "./notifications/notifications";
 import groupInfo from "./groupInfo/groupInfo";
 import groupList from "./_groupList/groupList";
+import mapPicker from "./_mapPicker/mapPicker";
 import joinGroupList from "./joinGroupList/joinGroupList";
 import mainLayout from "./_mainLayout/mainLayout";
 import splashLayout from "./_splashLayout/splashLayout";
@@ -28,6 +29,7 @@ let componentModule = angular.module("app.components", [
   notifications,
   groupInfo,
   groupList,
+  mapPicker,
   joinGroupList,
   mainLayout,
   splashLayout

@@ -5,8 +5,24 @@ class UserDetailController {
       User,
       Authentication,
       $state,
-      editEnabled: false
+      markers: {},
+      center: {},
+      editEnabled: false,
+      isLocated: false
     });
+  }
+
+  $onInit(){
+    this.updateMap();
+  }
+
+  updateMap(){
+    if (angular.isDefined(this.userdata)
+            && this.userdata.latitude !== null
+            && this.userdata.longitude !== null){
+      this.setMarker(this.userdata.latitude, this.userdata.longitude, 14);
+      this.isLocated = true;
+    }
   }
 
   $onChanges(changes) {
@@ -26,6 +42,7 @@ class UserDetailController {
   submitEdit() {
     return this.User.save(this.editData).then((data) => {
       this.userdata = data;
+      this.updateMap();
       this.stopEdit();
       if (this.isChangePassword) {
         this.$state.go("login");
@@ -44,6 +61,22 @@ class UserDetailController {
       return user.email !== user.unverified_email;
     }
     return false;
+  }
+
+  setMarker(lat, lng, message) {
+    this.markers = {
+      pin: {
+        lat,
+        lng,
+        draggable: false,
+        message
+      }
+    };
+    this.center = {
+      lat,
+      lng,
+      zoom: 16
+    };
   }
 }
 

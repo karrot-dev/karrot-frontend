@@ -54,6 +54,12 @@
     </md-button>
     <md-menu-content>
       <md-menu-item>
+          <md-button ui-sref="groupInvites" aria-label="{{ 'GROUP.INVITE_TITLE' | translate }}">
+            <i class="fa fa-user-plus fa-fw"></i>
+            <span translate="GROUP.INVITE_TITLE"></span>
+          </md-button>
+      </md-menu-item>
+      <md-menu-item>
           <md-button ui-sref="groupInfo({groupId:$ctrl.groupData.id})" aria-label="{{ 'GROUPINFO.META' | translate }}">
             <i class="fa fa-info-circle fa-fw"></i>
             <span translate="GROUPINFO.META"></span>

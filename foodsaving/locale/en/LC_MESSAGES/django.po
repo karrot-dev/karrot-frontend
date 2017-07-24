@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 18:48+0000\n"
+"POT-Creation-Date: 2017-07-24 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,8 @@ msgid ""
 "the foodsaving.world team"
 msgstr ""
 
-#: foodsaving/groups/api.py:20 foodsaving/stores/serializers.py:234
+#: foodsaving/groups/api.py:20 foodsaving/invitations/serializers.py:25
+#: foodsaving/stores/serializers.py:234
 msgid "You are not a member of this group."
 msgstr ""
 
@@ -48,8 +49,8 @@ msgstr ""
 msgid "Group password is wrong"
 msgstr ""
 
-#: foodsaving/invitations/serializers.py:25 foodsaving/users/serializers.py:59
-msgid "Key has expired"
+#: foodsaving/invitations/serializers.py:30
+msgid "User is already member of group"
 msgstr ""
 
 #: foodsaving/invitations/templates/emailinvitation-body-text.jinja:4
@@ -58,7 +59,7 @@ msgid ""
 "%(invited_by_name)s invited you (%(email)s) to join the \"%(group_name)s\" "
 "community on foodsaving.world.\n"
 "\n"
-"If you'd like to join, please go to %(invite_url)s"
+"If you'd like to join, please go to %(url)s"
 msgstr ""
 
 #: foodsaving/invitations/templates/emailinvitation-subject.jinja:1
@@ -125,6 +126,10 @@ msgstr ""
 
 #: foodsaving/users/permissions.py:13
 msgid "Mail is already verified."
+msgstr ""
+
+#: foodsaving/users/serializers.py:59
+msgid "Key has expired"
 msgstr ""
 
 #: foodsaving/users/serializers.py:61

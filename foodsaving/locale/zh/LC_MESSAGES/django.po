@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-20 20:12+0000\n"
+"POT-Creation-Date: 2017-07-24 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: ShangKuan Liang-chih <shangkuanlc@gmail.com>, 2017\n"
 "Language-Team: Chinese (https://www.transifex.com/yunity-1/teams/68631/zh/)\n"
@@ -18,21 +18,56 @@ msgstr ""
 "Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:222
+#: foodsaving/base/templates/base-text.jinja:1
+#, python-format
+msgid "Hello %(full_name)s,"
+msgstr "哈囉%(full_name)s："
+
+#: foodsaving/base/templates/base-text.jinja:2
+msgid "Hello,"
+msgstr ""
+
+#: foodsaving/base/templates/base-text.jinja:5
+msgid ""
+"Yours,\n"
+"the foodsaving.world team"
+msgstr ""
+"祝好，\n"
+"foodsaving.world團隊"
+
+#: foodsaving/groups/api.py:20 foodsaving/invitations/serializers.py:25
+#: foodsaving/stores/serializers.py:234
 msgid "You are not a member of this group."
 msgstr "你並不是此社團的成員。"
 
-#: foodsaving/groups/api.py:25
+#: foodsaving/groups/api.py:27
 msgid "You are already a member."
 msgstr "你已經加入為成員了。"
 
-#: foodsaving/groups/serializers.py:25
+#: foodsaving/groups/serializers.py:20
 msgid "Unknown timezone"
 msgstr "未知的時區"
 
-#: foodsaving/groups/serializers.py:114
+#: foodsaving/groups/serializers.py:110
 msgid "Group password is wrong"
 msgstr "社團密碼錯誤"
+
+#: foodsaving/invitations/serializers.py:30
+msgid "User is already member of group"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation-body-text.jinja:4
+#, python-format
+msgid ""
+"%(invited_by_name)s invited you (%(email)s) to join the \"%(group_name)s\" community on foodsaving.world.\n"
+"\n"
+"If you'd like to join, please go to %(url)s"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation-subject.jinja:1
+#, python-format
+msgid "Invitation to join %(group_name)s"
+msgstr ""
 
 #: foodsaving/stores/permissions.py:9
 msgid "The pickup date is in the past."
@@ -54,27 +89,34 @@ msgstr "你已經加入此開放外帶日期。"
 msgid "Pickup date is already full."
 msgstr "開放外帶日期已滿。"
 
-#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:162
+#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:172
 msgid "You are not member of the store's group."
 msgstr "你不是此店面社團的成員。"
 
-#: foodsaving/stores/serializers.py:82
+#: foodsaving/stores/serializers.py:92
 msgid "The date should be in the future."
 msgstr "日期應該設定在未來。"
 
-#: foodsaving/stores/serializers.py:172
+#: foodsaving/stores/serializers.py:182
 msgid "Only single recurrence rules are allowed."
 msgstr "只允許有一次循環出現。"
 
-#: foodsaving/stores/serializers.py:227
+#: foodsaving/stores/serializers.py:239
 msgid "Set at least one week in advance"
 msgstr "至少要在一週前設立"
 
-#: foodsaving/users/models.py:155
+#: foodsaving/stores/templates/upcoming_pickup_slack.jinja:1
+#, python-format
+msgid ""
+"Food pickup at *%(store_name)s* in %(number_of_hours)s hours! "
+"<%(store_page_url)s|Click here> and save the food!"
+msgstr ""
+
+#: foodsaving/users/models.py:156
 msgid "New password"
 msgstr "新密碼"
 
-#: foodsaving/users/models.py:156
+#: foodsaving/users/models.py:157
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."
@@ -88,11 +130,11 @@ msgstr "你只能修改自己的使用者資料。"
 msgid "Mail is already verified."
 msgstr "郵箱已經認證。"
 
-#: foodsaving/users/serializers.py:57
+#: foodsaving/users/serializers.py:59
 msgid "Key has expired"
 msgstr "金鑰已過期"
 
-#: foodsaving/users/serializers.py:59
+#: foodsaving/users/serializers.py:61
 msgid "Key is invalid"
 msgstr "金鑰無效"
 
@@ -107,19 +149,6 @@ msgstr "你在foodsaving.world的帳戶已成功刪除"
 #: foodsaving/users/templates/accountdelete_success-subject.jinja:1
 msgid "Your account was deleted"
 msgstr "你的帳戶已刪除"
-
-#: foodsaving/users/templates/base-text.jinja:1
-#, python-format
-msgid "Hello %(full_name)s,"
-msgstr "哈囉%(full_name)s："
-
-#: foodsaving/users/templates/base-text.jinja:3
-msgid ""
-"Yours,\n"
-"the foodsaving.world team"
-msgstr ""
-"祝好，\n"
-"foodsaving.world團隊"
 
 #: foodsaving/users/templates/changemail_notice-body-text.jinja:4
 #, python-format

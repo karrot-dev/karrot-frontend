@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-03 05:56+0000\n"
+"POT-Creation-Date: 2017-07-24 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Carlos Pesquera Alonso <fydus@hotmail.com>, 2017\n"
 "Language-Team: Esperanto (https://www.transifex.com/yunity-1/teams/68631/eo/)\n"
@@ -18,21 +18,54 @@ msgstr ""
 "Language: eo\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: foodsaving/groups/api.py:18 foodsaving/stores/serializers.py:230
+#: foodsaving/base/templates/base-text.jinja:1
+#, python-format
+msgid "Hello %(full_name)s,"
+msgstr ""
+
+#: foodsaving/base/templates/base-text.jinja:2
+msgid "Hello,"
+msgstr ""
+
+#: foodsaving/base/templates/base-text.jinja:5
+msgid ""
+"Yours,\n"
+"the foodsaving.world team"
+msgstr ""
+
+#: foodsaving/groups/api.py:20 foodsaving/invitations/serializers.py:25
+#: foodsaving/stores/serializers.py:234
 msgid "You are not a member of this group."
 msgstr "Vi ne membras en ĉi tiu grupo"
 
-#: foodsaving/groups/api.py:25
+#: foodsaving/groups/api.py:27
 msgid "You are already a member."
 msgstr "Vi jam estas membro"
 
-#: foodsaving/groups/serializers.py:25
+#: foodsaving/groups/serializers.py:20
 msgid "Unknown timezone"
 msgstr "Nekonata horzono"
 
-#: foodsaving/groups/serializers.py:115
+#: foodsaving/groups/serializers.py:110
 msgid "Group password is wrong"
 msgstr "Grupa pasvorto malĝustas"
+
+#: foodsaving/invitations/serializers.py:30
+msgid "User is already member of group"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation-body-text.jinja:4
+#, python-format
+msgid ""
+"%(invited_by_name)s invited you (%(email)s) to join the \"%(group_name)s\" community on foodsaving.world.\n"
+"\n"
+"If you'd like to join, please go to %(url)s"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation-subject.jinja:1
+#, python-format
+msgid "Invitation to join %(group_name)s"
+msgstr ""
 
 #: foodsaving/stores/permissions.py:9
 msgid "The pickup date is in the past."
@@ -54,19 +87,19 @@ msgstr "Vi jam aliĝis ĉi tiun forkolektan rendevuon."
 msgid "Pickup date is already full."
 msgstr "Forkolektan rendevuon jam plenas."
 
-#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:168
+#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:172
 msgid "You are not member of the store's group."
 msgstr "Vi ne estas membro de ĉi tiu vendeja grupo."
 
-#: foodsaving/stores/serializers.py:88
+#: foodsaving/stores/serializers.py:92
 msgid "The date should be in the future."
 msgstr "La rendevuo devas esti estontece."
 
-#: foodsaving/stores/serializers.py:178
+#: foodsaving/stores/serializers.py:182
 msgid "Only single recurrence rules are allowed."
 msgstr "Nur unuperiodaj reguloj estas permesitaj."
 
-#: foodsaving/stores/serializers.py:235
+#: foodsaving/stores/serializers.py:239
 msgid "Set at least one week in advance"
 msgstr "Fiksu ĝin almenaŭ antaŭ unu semajnon"
 
@@ -115,17 +148,6 @@ msgstr ""
 
 #: foodsaving/users/templates/accountdelete_success-subject.jinja:1
 msgid "Your account was deleted"
-msgstr ""
-
-#: foodsaving/users/templates/base-text.jinja:1
-#, python-format
-msgid "Hello %(full_name)s,"
-msgstr ""
-
-#: foodsaving/users/templates/base-text.jinja:3
-msgid ""
-"Yours,\n"
-"the foodsaving.world team"
 msgstr ""
 
 #: foodsaving/users/templates/changemail_notice-body-text.jinja:4

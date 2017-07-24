@@ -40,13 +40,11 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, user, validated_data):
         if 'email' in validated_data and validated_data['email'] != user.email:
-            user.unverified_email = validated_data.pop('email')
-            user.send_mail_change_notification()
-            user.send_new_verification_code()
+            user.update_email(validated_data.pop('email'))
         if 'password' in validated_data:
             user.set_password(validated_data.pop('password'))
         if 'language' in validated_data and validated_data['language'] != user.language:
-            user.language = validated_data.pop('language')
+            user.update_language(validated_data.pop('language'))
         return super().update(user, validated_data)
 
 

@@ -1,8 +1,12 @@
+from unittest.mock import MagicMock
+
+from anymail.exceptions import AnymailAPIError
 from django.contrib.auth import get_user_model
 from django.db import DataError
 from django.db import IntegrityError
 from django.test import TestCase
 
+from foodsaving.users import models
 from foodsaving.users.factories import UserFactory
 from foodsaving.groups.factories import GroupFactory
 
@@ -38,5 +42,29 @@ class TestUserModel(TestCase):
     def test_create_fails_if_default_language_is_not_set(self):
         default_language = get_user_model().objects.create_user(**self.exampleuser).language
         self.assertEqual(default_language, 'en')
+
+
+class TestSendMail(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.mail_class = models.AnymailMessage
+        cls._original_send = cls.mail_class.send
+        cls.mail_class.send = MagicMock(side_effect=AnymailAPIError())
+
+    @classmethod
+    def tearDownClass(cls):
+        super().tearDownClass()
+        cls.mail_class.send = cls._original_send
+
+    def test_send_to_fake_email(self):
+        with self.assertRaises(AnymailAPIError):
+            get_user_model().objects.create_user(
+                email='shabab@test.com',
+                password='123',
+                display_name='lalala'
+            )
+        self.assertEqual(get_user_model().objects.count(), 0)
+
 
 

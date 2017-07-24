@@ -71,9 +71,8 @@ class TestInvitationAPIIntegration(APITestCase):
         # accept the invite
         self.client.force_login(self.non_member)
         response = self.client.post(base_url + token + '/accept/')
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertEqual(response.data['non_field_errors'], ['Key has expired'])
-        self.assertNotIn(self.non_member, self.group.members.all())
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(self.group.members.count(), 1)
 
 
 class TestInviteCreate(APITestCase):

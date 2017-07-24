@@ -1,3 +1,4 @@
+from django.utils import timezone
 from rest_framework import filters
 from rest_framework import mixins
 from rest_framework.decorators import detail_route
@@ -33,7 +34,7 @@ class InvitationsViewSet(
 
     def get_queryset(self):
         users_groups = self.request.user.groups.values('id')
-        return self.queryset.filter(group__in=users_groups)
+        return self.queryset.filter(group__in=users_groups, expires_at__gte=timezone.now())
 
     def get_throttles(self):
         if self.action == 'create':
@@ -46,6 +47,9 @@ class InvitationAcceptViewSet(GenericViewSet):
     serializer_class = InvitationAcceptSerializer
     permission_classes = (IsAuthenticated,)
     lookup_field = 'token'
+
+    def get_queryset(self):
+        return self.queryset.filter(expires_at__gte=timezone.now())
 
     @detail_route(methods=['POST'])
     def accept(self, request, **kwargs):

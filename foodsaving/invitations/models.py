@@ -16,7 +16,11 @@ from foodsaving.invitations.signals import invitation_accepted
 
 class InvitationManager(models.Manager):
     def create_and_send(self, **kwargs):
+        # Delete all expired invitations before creating new ones.
+        # Makes re-sending invitations after experiation possible and saves us from running a periodic cleanup command
+        # I wonder if this is a sane decision.
         self.delete_expired_invitations()
+
         invitation = self.create(**kwargs)
         invitation.send_mail()
         return invitation

@@ -36,12 +36,6 @@ class InvitationSerializer(serializers.ModelSerializer):
 
 
 class InvitationAcceptSerializer(serializers.Serializer):
-    def validate(self, attrs):
-        invitation = self.instance
-        if invitation.expired():
-            raise serializers.ValidationError(_('Key has expired'))
-        return attrs
-
     def update(self, invitation, validated_data):
         invitation.accept(self.context['request'].user)
         return invitation

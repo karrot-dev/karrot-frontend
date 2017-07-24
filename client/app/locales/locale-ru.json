@@ -33,7 +33,8 @@
     "JOIN": "Вступить",
     "LEAVE": "Leave",
     "PREVIEW": "Preview",
-    "BACK": "Back"
+    "BACK": "Back",
+    "MORE_OPTIONS": "More options"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
@@ -55,7 +56,12 @@
     "HISTORY": "History",
     "DESCRIPTION": "Описание",
     "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group"
+    "TIMEZONE": "Time zone of group",
+    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_SEND": "Send invitation",
+    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITE_TITLE": "Invite users to your group"
   },
   "STOREDETAIL": {
     "EDIT": "Внести изменения",
@@ -100,7 +106,9 @@
     "NO_PUBLIC_DESCRIPTION": "(У этой группы пока нет описания)",
     "PASSWORD_LABEL": "Введите пароль частной группы",
     "PASSWORD_REQUIRED": "Для входа в эту группу требуется ввести пароль",
-    "PASSWORD_WRONG": "Вы ввели неправильный пароль"
+    "PASSWORD_WRONG": "Вы ввели неправильный пароль",
+    "ALL_GROUPS": "All groups",
+    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!"
   },
   "GROUPINFO": {
     "META": "Show public group information",
@@ -144,7 +152,8 @@
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Время",
     "TIME_ERROR": "введите правильное время: {{timeExample}}",
-    "MAX_COLLECTORS": "Максимальное количество слотов"
+    "MAX_COLLECTORS": "Максимальное количество слотов",
+    "COMMENT": "Additional information"
   },
   "CREATESTORE": {
     "TITLE": "Создать новую точку"

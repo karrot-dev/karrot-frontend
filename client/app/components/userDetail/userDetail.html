@@ -27,6 +27,7 @@
           </span>
         </h3>
         <expandable-panel content="$ctrl.userdata.description" markdown="true" collapse="1000"></expandable-panel>
+        <leaflet ng-if="$ctrl.isLocated" markers="$ctrl.markers" center="$ctrl.center"></leaflet>
       </div>
 
       <form ng-if="$ctrl.editEnabled" name="editUser" ng-submit="$ctrl.submitEdit()" promise-btn layout="column">
@@ -52,6 +53,8 @@
           <label translate="USERDETAIL.DESCRIPTION"></label>
           <textarea ng-model="$ctrl.editData.description"></textarea>
         </md-input-container>
+        
+        <map-picker data="$ctrl.editData" placeholder="USERDATA.WHERE_FROM"></map-picker>
 
         <p>{{ $ctrl.error }}</p>
         <div layout="row" layout-align="end start">

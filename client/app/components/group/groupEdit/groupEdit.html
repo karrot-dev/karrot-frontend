@@ -4,9 +4,14 @@
       <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;
       <span translate="GROUP.EDIT"></span>
     </h1>
+    <md-button class="md-icon-button" ui-sref="^">
+      <i class="fa fa-arrow-left"></i>
+      <md-tooltip md-direction="left">
+        <span translate="BUTTON.BACK"></span>
+      </md-tooltip>
+    </md-button>
   </div>
 </md-toolbar>
-<div layout="column">
 <group-edit-create-form
   data="$ctrl.data"
   on-submit="$ctrl.submit(data)">

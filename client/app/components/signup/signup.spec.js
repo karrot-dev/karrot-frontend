@@ -35,10 +35,10 @@ describe("Signup", () => {
 
     let $httpBackend, $state;
     beforeEach(() => {
-      inject((_$httpBackend_, _$state_) => {
+      inject((_$httpBackend_, _$state_, $q) => {
         $httpBackend = _$httpBackend_;
         $state = _$state_;
-        sinon.stub($state, "go");
+        sinon.stub($state, "go").returns($q.resolve());
       });
     });
 
@@ -93,6 +93,16 @@ describe("Signup", () => {
         $rootScope.$apply();
         expect(ctrl.Invitation.accept).to.have.been.calledWith("mytoken");
         expect($state.go).to.have.been.calledWith("home");
+      });
+    });
+
+    it("prefills e-mail from url", () => {
+      inject((Authentication, Invitation, $state, $q, $rootScope, $stateParams) => {
+        expect($state.href("signup", { email: "la@la.com" })).to.equal("#!/signup?email=la%40la.com");
+        $stateParams.email = "la@la.com";
+
+        let ctrl = $componentController("signup", {});
+        expect(ctrl.email).to.equal("la@la.com");
       });
     });
   });

@@ -12,7 +12,7 @@ class GroupDetailController {
   $onInit() {
     // set currentNavItem on redirect
     this.currentNavItem = this.$state.current.name.replace("group.groupDetail.", "");
-    this.CurrentGroup.map.showOverview();
+    this.CurrentGroup.map.overview = true;
   }
 }
 

@@ -9,47 +9,52 @@ class GroupMapController {
       $timeout,
       markers: {},
       bounds: {},
-      center: {},
       defaults: {
         scrollWheelZoom: false
-      }
+      },
+      watchers: []
     });
   }
 
   $onInit() {
-    // deep watching
-    this.destroy = this.$scope.$watch(() => this.CurrentStores.list, () => {
-      this.$timeout(() => this.update(), 200);
+    // deep watch stores
+    let watcher = this.$scope.$watch(() => this.CurrentStores.list, () => {
+      this.update();
     }, true);
-    this.CurrentGroup.map = {
-      showOverview: () => {
-        this.showOverview();
-      },
-      showLatLngZ: (lat, lng, z = 15) => {
-        this.showLatLngZ(lat, lng, z);
-      },
-      update: () => {
-        this.update();
-      },
-      options: {
-        showStores: true,
-        showUsers: false
-      }
-    };
+    this.watchers.push(watcher);
+
+    // deep watch options
+    watcher = this.$scope.$watch(() => this.CurrentGroup.map.options, () => {
+      this.update();
+    }, true);
+    this.watchers.push(watcher);
+
+    // deep watch center (only needed for updating overview)
+    watcher = this.$scope.$watch(() => this.CurrentGroup.map.center, () => {
+      this.CurrentGroup.map.overview = this.CurrentGroup.map.center.lat === this.CurrentGroup.value.latitude
+              && this.CurrentGroup.map.center.lng === this.CurrentGroup.value.longitude;
+    }, true);
+    this.watchers.push(watcher);
+
+    // watch overview
+    watcher = this.$scope.$watch(() => this.CurrentGroup.map.overview, (changes) => {
+      if (changes) this.showOverview();
+    });
+    this.watchers.push(watcher);
+
+    if (this.CurrentGroup.map.center.lat === 0.0){
+      this.CurrentGroup.map.center = {
+        lat: this.CurrentGroup.value.latitude,
+        lng: this.CurrentGroup.value.longitude,
+        zoom: 12
+      };
+    }
   }
 
   $onDestroy() {
-    this.destroy();
-  }
-
-  reCenter(){
-    if (this.hasMarkers()){
-      if (angular.isDefined(this.center.lat) && this.center.lat !== 0){
-        this.showLatLngZ(this.center.lat, this.center.lng, this.center.zoom);
-      } else {
-        this.showOverview();
-      }
-    }
+    angular.forEach(this.watchers, (watcher) => {
+      watcher();
+    });
   }
 
   showOverview(){
@@ -65,14 +70,6 @@ class GroupMapController {
     }
   }
 
-  showLatLngZ(lat, lng, z = 15){
-    this.center = {
-      lat,
-      lng,
-      zoom: z
-    };
-  }
-
   getUsers(userIdArray){
     return userIdArray.map((id) => {
       return this.CurrentUsers.get(id);
@@ -81,7 +78,7 @@ class GroupMapController {
 
   update() {
     this.markers = this.getMarkers(this.CurrentStores.list);
-    this.reCenter();
+    if (this.CurrentGroup.map.overview) this.showOverview();
   }
 
   hasMarkers() {

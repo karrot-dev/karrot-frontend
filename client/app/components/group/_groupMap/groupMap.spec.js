@@ -63,7 +63,6 @@ describe("GroupMap", () => {
       $ctrl.$onInit();
       expect($ctrl.markers).to.deep.equal({});
       $ctrl.CurrentStores.pushItem(anotherStore);
-      $ctrl.update();
       $rootScope.$apply();
       expect($ctrl.markers.store_98.lat).to.equal(87);
       $ctrl.$onDestroy();

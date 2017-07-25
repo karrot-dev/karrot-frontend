@@ -16,9 +16,12 @@ export default class CurrentGroup {
       User,
       SessionUser,
       map: {
-        showOverview: () => {},
-        showLatLngZ: () => {},
-        update: () => {},
+        overview: true,
+        center: {
+          lat: 0.0,
+          lng: 0.0,
+          zoom: 15
+        },
         options: {
           showStores: true,
           showUsers: false

@@ -149,7 +149,7 @@ describe("pickupEditCreate", () => {
             date,
             "max_collectors": 5,
             store: 3,
-            comment: ""
+            description: ""
           }
         }
       });
@@ -167,7 +167,7 @@ describe("pickupEditCreate", () => {
         date: new Date(2016,2,25,15,22),
         store: 3,
         "max_collectors": 5,
-        comment: ""
+        description: ""
       });
       expect($ctrl.$mdDialog.hide).to.have.been.called;
     });
@@ -186,7 +186,7 @@ describe("pickupEditCreate", () => {
               byDay: ["MO"]
             },
             store: 3,
-            comment: ""
+            description: ""
           }
         }
       });
@@ -208,7 +208,7 @@ describe("pickupEditCreate", () => {
           byDay: ["MO", "TU"]
         },
         store: 3,
-        comment: ""
+        description: ""
       });
       expect($ctrl.$mdDialog.hide).to.have.been.called;
     });

@@ -93,7 +93,7 @@ class GroupMapController {
         markers["store_" + e.id] = {
           lat: e.latitude,
           lng: e.longitude,
-          message: `<a ui-sref='group.store({ storeId: ${e.id}, groupId: ${e.group} })'>${e.name}</a>`,
+          message: `<md-button ui-sref='group.store({ storeId: ${e.id}, groupId: ${e.group} })'>${e.name}</md-button>`,
           draggable: false,
           icon: {
             type: "awesomeMarker",
@@ -112,7 +112,7 @@ class GroupMapController {
         markers["user_" + e.id] = {
           lat: e.latitude,
           lng: e.longitude,
-          message: `<a ui-sref='userDetail({ id: ${e.id} })'>${e.display_name}</a>`,
+          message: `<md-button ui-sref='userDetail({ id: ${e.id} })'>${e.display_name}</md-button>`,
           draggable: false,
           icon: {
             type: "awesomeMarker",

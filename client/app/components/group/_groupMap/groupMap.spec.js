@@ -43,7 +43,7 @@ describe("GroupMap", () => {
             type: "awesomeMarker"
           },
           lat: 87, lng: 66,
-          message: "<a ui-sref='group.store({ storeId: 98, groupId: 4 })'>something</a>",
+          message: "<md-button ui-sref='group.store({ storeId: 98, groupId: 4 })'>something</md-button>",
           draggable: false
         }
       });

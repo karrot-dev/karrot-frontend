@@ -52,8 +52,8 @@ class GroupMapController {
   }
 
   $onDestroy() {
-    angular.forEach(this.watchers, (watcher) => {
-      watcher();
+    angular.forEach(this.watchers, (deregister) => {
+      deregister();
     });
   }
 

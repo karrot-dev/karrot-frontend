@@ -20,8 +20,8 @@
           </md-button>
         </span>
       </div>
-      <div ng-if="$ctrl.data.comment !== ''" class="md-caption comment">
-        {{ $ctrl.data.comment }}
+      <div ng-if="$ctrl.data.description !== ''" class="md-caption description">
+        {{ $ctrl.data.description }}
       </div>
       <div class="people">
         <profile-picture ng-repeat="userId in $ctrl.data.collector_ids" user-id="userId" size="20"></profile-picture>

@@ -12,6 +12,7 @@ import groupEdit from "./groupEdit/groupEdit";
 import groupInvites from "./groupInvites/groupInvites";
 import createGroup from "./createGroup/createGroup";
 import searchBar from "./_searchBar/searchBar";
+import groupMap from "./_groupMap/groupMap";
 
 let groupPageModule = angular.module("group", [
   uiRouter,
@@ -25,7 +26,8 @@ let groupPageModule = angular.module("group", [
   createGroup,
   storeList,
   storeModule,
-  searchBar
+  searchBar,
+  groupMap
 ])
 
 .config(($stateProvider, hookProvider) => {

@@ -19,6 +19,7 @@
     "angular-sanitize": "^1.6.5",
     "angular-translate-storage-cookie": "^2.15.2",
     "copy-webpack-plugin": "^4.0.1",
+    "drmonty-leaflet-awesome-markers": "^2.0.2",
     "font-awesome": "^4.6.3",
     "jstimezonedetect": "^1.0.6",
     "markdown-it": "^8.2.1",

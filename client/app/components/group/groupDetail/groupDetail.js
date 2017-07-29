@@ -3,6 +3,7 @@ import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
 import groupDetailComponent from "./groupDetail.component";
 import groupOptions from "./_groupOptions/groupOptions";
+import groupModule from "services/group/group";
 import description from "./description/description";
 import members from "./members/members";
 import pickups from "./pickups/pickups";
@@ -13,6 +14,7 @@ let groupDetailModule = angular.module("groupDetail", [
   uiRouter,
   ngMaterial,
   groupOptions,
+  groupModule,
   description,
   members,
   pickups,

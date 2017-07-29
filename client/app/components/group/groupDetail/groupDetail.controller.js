@@ -4,13 +4,15 @@ class GroupDetailController {
     Object.assign(this, {
       groupData: CurrentGroup.value,
       $state,
-      $mdMedia
+      $mdMedia,
+      CurrentGroup
     });
   }
 
   $onInit() {
     // set currentNavItem on redirect
     this.currentNavItem = this.$state.current.name.replace("group.groupDetail.", "");
+    this.CurrentGroup.map.overview = true;
   }
 }
 

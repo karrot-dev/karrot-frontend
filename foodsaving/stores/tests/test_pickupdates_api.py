@@ -59,7 +59,7 @@ class TestPickupDateSeriesCreationAPI(APITestCase):
             'max_collectors': 5,
             'store': self.store.id,
             'rule': str(recurrence),
-            'comment': ''
+            'description': ''
         }
         self.assertEqual(response.data, expected_series_data)
 
@@ -107,7 +107,7 @@ class TestPickupDateSeriesCreationAPI(APITestCase):
                 'series': series_id,
                 'collector_ids': [],
                 'store': self.store.id,
-                'comment': ''
+                'description': ''
             })
         self.assertEqual(response.data, created_pickup_dates)
 
@@ -347,15 +347,15 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(parse(response.data['date']), target_date)
 
-    def test_keep_changes_to_comment(self):
+    def test_keep_changes_to_description(self):
         self.client.force_login(user=self.member)
         pickup_under_test = self.series.pickup_dates.first()
         url = '/api/pickup-dates/{}/'.format(pickup_under_test.id)
 
         # change setting of pickup
-        response = self.client.patch(url, {'comment': 'asdf'})
+        response = self.client.patch(url, {'description': 'asdf'})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-        self.assertEqual(response.data['comment'], 'asdf')
+        self.assertEqual(response.data['description'], 'asdf')
 
         # run regular update command of series
         self.series.update_pickup_dates()
@@ -364,7 +364,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         url = '/api/pickup-dates/{}/'.format(pickup_under_test.id)
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-        self.assertEqual(response.data['comment'], 'asdf')
+        self.assertEqual(response.data['description'], 'asdf')
 
     def test_dont_mark_as_changed_if_data_is_equal(self):
         self.client.force_login(user=self.member)

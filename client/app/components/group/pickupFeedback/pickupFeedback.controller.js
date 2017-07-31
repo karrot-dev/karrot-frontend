@@ -27,18 +27,18 @@ class PickupFeedbackController {
   setFeedbackImages(){ // eslint-disable-line
     this.amountImages = [];
     let amount = this.data.amount;
-    while (amount > 0.15){
-      if (amount > 6.0) {
+    while (amount >= 0.15){
+      if (amount >= 6.0) {
         this.amountImages.push(bagImg);
         amount -= 6.0;
         continue;
       }
-      if (amount > 1.0 && Math.random() < 0.7) {
+      if (amount >= 1.0 && Math.random() < 0.7) {
         this.amountImages.push(milkImg);
         amount -= 1.0;
         continue;
       }
-      if (amount > 0.5 && Math.random() < 0.9) {
+      if (amount >= 0.5 && Math.random() < 0.9) {
         if (Math.random() > 0.9) {
           this.amountImages.push(flourGuyImg);
         } else {

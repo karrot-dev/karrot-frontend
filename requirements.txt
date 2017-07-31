@@ -13,7 +13,7 @@ cookies==2.2.1            # via responses
 coreapi==2.3.1            # via django-rest-swagger, openapi-codec
 coreschema==0.0.4         # via coreapi
 coverage==4.4.1
-django-anymail==0.11
+django-anymail==0.11.1
 django-cors-headers==2.1.0
 django-crispy-forms==1.6.1
 django-enumfield==1.3b2

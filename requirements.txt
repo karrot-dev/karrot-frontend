@@ -29,7 +29,7 @@ djangorestframework==3.6.3
 drf-nested-routers==0.90.0
 factory-boy==2.9.0
 faker==0.7.18             # via factory-boy
-flake8==3.3.0
+flake8==3.4.1
 furl==1.0.0
 hiredis==0.2.0
 idna==2.5                 # via requests

@@ -13,6 +13,7 @@ import groupInvites from "./groupInvites/groupInvites";
 import createGroup from "./createGroup/createGroup";
 import searchBar from "./_searchBar/searchBar";
 import pickupFeedback from "./pickupFeedback/pickupFeedback";
+import groupMap from "./_groupMap/groupMap";
 
 let groupPageModule = angular.module("group", [
   uiRouter,
@@ -27,7 +28,8 @@ let groupPageModule = angular.module("group", [
   storeList,
   storeModule,
   searchBar,
-  pickupFeedback
+  pickupFeedback,
+  groupMap
 ])
 
 .config(($stateProvider, hookProvider) => {

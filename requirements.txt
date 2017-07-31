@@ -51,7 +51,7 @@ python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2017.2
 raven==6.1.0
 redis==2.10.5
-requests==2.18.1          # via coreapi, django-anymail, influxdb, responses, sparkpost
+requests==2.18.2          # via coreapi, django-anymail, influxdb, responses, sparkpost
 responses==0.5.1
 simplejson==3.11.1        # via django-rest-swagger
 six==1.10.0               # via argon2-cffi, django-anymail, django-extensions, faker, furl, influxdb, orderedmultidict, python-dateutil, responses, tld

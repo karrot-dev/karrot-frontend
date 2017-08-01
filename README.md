@@ -2,7 +2,11 @@
 
 # foodsaving-backend
 
-## Getting started
+## Getting started with Docker
+
+You can automate your setup with [Docker](https://www.docker.com/what-docker). You find all information how to set up your computer in foodsaving-backend/Dockerfile.
+
+## Getting started without Docker
 ### Install requirements
 
 - python3.5 or greater/virtualenv

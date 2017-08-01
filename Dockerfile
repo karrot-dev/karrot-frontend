@@ -1,20 +1,3 @@
-# Build this container:
-#       docker build -t backend .
-
-# Run this container, including your most recent source code changes:
-#       docker run -it -p 8000:8000 -v $PWD/foodsaving:/foodsaving-backend/foodsaving backend
-# Note 1: This assumes that your terminal's working directory is in the
-# foodsaving-backend directory, i.e. the directory you cloned from Github.
-# Note 2: Only changes you make in the "foodsaving" directory are included.
-
-# Once in the container, you can
-#   Populate your database with test data:
-#       python manage.py create_sample_data
-#   With this data, you can log in as one of the printed e-mail addresses with password 123
-
-#   Run the server with
-#       python manage.py runserver 0.0.0.0:8000
-
 
 FROM ubuntu:16.04
 

@@ -1,21 +1,20 @@
 <div layout="row" layout-nowrap id="group-menu-container">
   <md-button
-    aria-label="{{$ctrl.CurrentGroup.value.name || 'Please choose a group...'}}"
+    aria-label="{{ $ctrl.getGroupName() }}"
     ng-click="$ctrl.groupButton()"
     id="group-menu-active-group">
     <logo></logo>
-    <span style="text-overflow: ellipsis">{{ $ctrl.getGroupName() || "Please choose a group..."}}</span>
+    <span style="text-overflow: ellipsis">{{ $ctrl.getGroupName() }}</span>
   </md-button>
   <md-menu md-position-mode="target bottom">
     <span>
-      <a ng-click="$mdMenu.open($event)" class="md-button" id="group-menu-group-picker">
+      <a ng-click="$ctrl.open($mdMenu, $event)" class="md-button" id="group-menu-group-picker">
         <i class="fa fa-caret-down md-caption"></i>
         <div md-menu-origin class="aligner"></div>
       </a>
     </span>
    <md-menu-content>
-     <md-menu-item ng-repeat="groupitem in $ctrl.groups"
-                   ng-if="groupitem.id !== $ctrl.CurrentGroup.value.id">
+     <md-menu-item ng-repeat="groupitem in $ctrl.getGroups() track by groupitem.id">
        <md-button ui-sref="group({ groupId: groupitem.id })" aria-label="{{groupitem.name}}">
          <i class="fa fa-circle-o"> </i>
          {{ groupitem.name }}

@@ -24,10 +24,13 @@ describe("CurrentStores service", () => {
     expect(CurrentStores.list).to.deep.equal([]);
   });
 
-  it("can be set", () => {
-    let newList = [{ id: 5, name: "my store" }];
+  it("can be set and gets sorted", () => {
+    let newList = [{ id: 5, name: "my store" }, { id: 6, name: "a store" }];
     CurrentStores.set(newList);
-    expect(CurrentStores.list).to.deep.equal(newList);
+    expect(CurrentStores.list).to.deep.equal([
+      { id: 6, name: "a store" },
+      { id: 5, name: "my store" }
+    ]);
   });
 
   it("selected can be set", () => {
@@ -36,28 +39,35 @@ describe("CurrentStores service", () => {
     expect(CurrentStores.selected).to.deep.equal(newstore);
   });
 
-  it("can be pushed", () => {
+  it("can be pushed and gets sorted", () => {
+    CurrentStores.list = [{ id: 99, name: "a store" }];
     let item = { id: 6, name: "my new store" };
     CurrentStores.pushItem(item);
-    expect(CurrentStores.list).to.deep.equal([item]);
+    expect(CurrentStores.list).to.deep.equal([
+      { id: 99, name: "a store" },
+      { id: 6, name: "my new store" }
+    ]);
   });
 
-  it("can be replaced", () => {
-    CurrentStores.set([{ id: 6, name: "my new store" }]);
+  it("can be replaced and gets sorted", () => {
+    CurrentStores.list = [{ id: 99, name: "a store" }, { id: 6, name: "my new store" }];
     let item = { id: 6, name: "changed the name" };
     CurrentStores.replaceItem(item);
-    expect(CurrentStores.list).to.deep.equal([item]);
+    expect(CurrentStores.list).to.deep.equal([
+      { id: 99, name: "a store" },
+      { id: 6, name: "changed the name" }
+    ]);
   });
 
   it("can be cleared", () => {
-    CurrentStores.set([{ some: "data" }]);
+    CurrentStores.list = [{ name: "data" }];
     CurrentStores.clear();
     expect(CurrentStores.list).to.deep.equal([]);
   });
 
   it("copies properties from stores during set", () => {
     let list = CurrentStores.list;
-    CurrentStores.set([{ some: "data" }]);
+    CurrentStores.set([{ name: "data" }]);
     expect(CurrentStores.list).to.equal(list);
   });
 
@@ -65,6 +75,4 @@ describe("CurrentStores service", () => {
     CurrentStores.list = [{ id: 42 }];
     expect(CurrentStores.get(42)).to.deep.equal({ id: 42 });
   });
-
-
 });

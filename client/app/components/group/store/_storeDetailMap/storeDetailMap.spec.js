@@ -45,6 +45,13 @@ describe("StoreDetailMap", () => {
         pin: { lat: 1.99, lng: 2.99, message: "test1", draggable: false }
       });
     });
+
+    it("checks if marker exists", inject(($componentController) => {
+      let $ctrl = $componentController("storeDetailMap", {});
+      expect($ctrl.hasMarker()).to.be.false;
+      $ctrl.markers[1] = {};
+      expect($ctrl.hasMarker()).to.be.true;
+    }));
   });
 
   describe("Component", () => {

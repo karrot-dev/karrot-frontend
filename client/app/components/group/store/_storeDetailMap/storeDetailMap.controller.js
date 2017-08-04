@@ -17,12 +17,16 @@ class StoreDetailMapController {
   }
 
   updateWith(storeData) {
-    if (storeData.latitude && storeData.longitude && storeData.address) {
+    if (storeData.latitude && storeData.longitude) {
       this.setMarker(
         storeData.latitude,
         storeData.longitude,
         storeData.address);
     }
+  }
+
+  hasMarker() {
+    return Object.keys(this.markers).length > 0;
   }
 
   setMarker(lat, lng, message) {

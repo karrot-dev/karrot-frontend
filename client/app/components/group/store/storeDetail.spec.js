@@ -70,7 +70,9 @@ describe("StoreDetail", () => {
     }));
 
     it("compiles component", () => {
+      $httpBackend.expectGET("/api/stores/").respond([]);
       $compile("<store-detail></store-detail>")(scope);
+      $httpBackend.flush();
     });
   });
 });

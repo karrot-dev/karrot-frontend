@@ -1,16 +1,19 @@
-<md-list>
+<div>
   <div layout="row">
     <md-button class="md-primary" aria-label="Create Store" ui-sref="group.storeCreate">
-      <i style="font-size: 1.2em;" class="fa fa-plus-circle"></i>
-      <span translate="BUTTON.CREATE"></span>
+      <md-icon style="font-size: 1.2em;" md-font-icon="fa fa-plus-circle"></md-icon>
+      <span ng-if="$ctrl.$mdMedia('gt-sm')" translate="BUTTON.CREATE"></span>
     </md-button>
-    <search-bar ng-hide="$ctrl.showMap" search-query="$ctrl.searchQuery"></search-bar>
+    <search-bar ng-hide="$ctrl.showMap || $ctrl.storeList.length < 1" search-query="$ctrl.searchQuery"></search-bar>
     <div ng-if="!$ctrl.$mdMedia('gt-sm')" flex></div>
-    <md-button ng-if="!$ctrl.$mdMedia('gt-sm')" class="md-primary md-icon-button" ng-click="$ctrl.toggleMap()" aria-label="Toggle map">
-      <i style="font-size: 1.2em;" class="fa fa-map" ng-class="$ctrl.showMap ? 'fa-list' : 'fa-map'"></i>
+    <md-button ng-if="!$ctrl.$mdMedia('gt-sm') && $ctrl.storeList.length > 0" class="md-primary md-icon-button" ng-click="$ctrl.toggleMap()" aria-label="Toggle map">
+      <md-icon style="font-size: 1.2em;" ng-if="!$ctrl.showMap" md-font-icon="fa fa-map"></md-icon>
+      <md-icon style="font-size: 1.2em;" ng-if="$ctrl.showMap" md-font-icon="fa fa-list"></md-icon>
     </md-button>
   </div>
   <store-map ng-if="$ctrl.showMap"></store-map>
+</div>
+<md-list>
   <md-list-item ng-if="!$ctrl.showMap" ng-repeat="store in $ctrl.storeList | filter: $ctrl.searchQuery" ui-sref-active="highlighted" ui-sref="group.store({ storeId: store.id, groupId: store.group })">
     <p>{{store.name}}</p>
   </md-list-item>

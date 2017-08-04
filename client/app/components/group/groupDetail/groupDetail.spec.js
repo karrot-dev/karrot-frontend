@@ -24,6 +24,7 @@ describe("GroupDetail", () => {
 
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
+    $httpBackend.whenGET("/api/stores/").respond([]);
   }));
 
   afterEach(() => {
@@ -50,6 +51,7 @@ describe("GroupDetail", () => {
       $ctrl.$state.current.name = "group.groupDetail.pickups";
       $ctrl.groupData = groupData;
       $ctrl.$onInit();
+      $httpBackend.flush();
       expect($ctrl.currentNavItem).to.equal("pickups");
     });
   });
@@ -63,6 +65,7 @@ describe("GroupDetail", () => {
 
     it("compiles component", () => {
       $compile("<group-detail></group-detail>")(scope);
+      $httpBackend.flush();
     });
   });
 });

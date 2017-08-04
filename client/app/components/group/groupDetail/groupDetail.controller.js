@@ -5,11 +5,10 @@ class GroupDetailController {
       groupData: CurrentGroup.value,
       $state,
       $mdMedia,
-      GroupService,
       CurrentGroup,
-      Conversation,
-      conversation: null,
-      newMessageContent: ""
+      Store,
+      $stateParams,
+      CurrentStores
     });
   }
 

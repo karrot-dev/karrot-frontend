@@ -3,6 +3,6 @@
 </md-button>
 <div ng-class="$ctrl.showSearch ? 'search-shown' : 'search-not-shown'" class="search">
   <md-input-container md-no-float class="md-block" style="margin: 0">
-    <input id="search-bar" ng-model="$ctrl.searchQuery" ng-blur="$ctrl.searchEntryDone()" placeholder="Search">
+    <input id="search-bar" ng-model="$ctrl.searchQuery" ng-blur="$ctrl.searchEntryDone()" placeholder="{{ 'BUTTON.SEARCH' | translate }}">
   </md-input-container>
 </div>

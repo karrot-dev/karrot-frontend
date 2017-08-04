@@ -17,6 +17,17 @@ class GroupMenuController {
     });
   }
 
+  open($mdMenu, $event) {
+    this.GroupService.listMy().then((data) => {
+      this.groups = data;
+    });
+    $mdMenu.open($event);
+  }
+
+  getGroups() {
+    return this.groups.filter((el) => el.id !== this.CurrentGroup.value.id);
+  }
+
   getGroupName() {
     if (angular.isDefined(this.CurrentGroup.value.name)) {
       return this.CurrentGroup.value.name;

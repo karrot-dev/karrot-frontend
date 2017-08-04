@@ -1,5 +1,12 @@
 <md-toolbar ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp">
   <div class="md-toolbar-tools" layout="row">
+    <md-button
+      ng-if="screenIsSmall"
+      aria-label="Navigation"
+      ng-click="$ctrl.openSidenav()"
+      class="md-icon-button">
+      <i class="fa fa-fw fa-bars"></i>
+    </md-button>
     <md-button class="md-icon-button" ui-sref="landingPage">
       <i class="fa fa-home"></i>
       <md-tooltip>
@@ -31,15 +38,8 @@
         </md-tooltip>
       </md-button>
       <span flex></span>
-      <md-button ui-sref="login">
+      <md-button ng-hide="'login' | isState" ui-sref="login">
         <span translate="LOGIN.TITLE"></span>
-      </md-button>
-    </div>
-
-    <div ng-if="screenIsSmall" layout="row" flex>
-      <span flex></span>
-      <md-button aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
-        <i class="fa fa-fw fa-bars"></i>
       </md-button>
     </div>
   </div>

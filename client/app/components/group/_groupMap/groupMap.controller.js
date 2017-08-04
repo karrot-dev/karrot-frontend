@@ -17,30 +17,28 @@ class GroupMapController {
   }
 
   $onInit() {
-    // deep watch stores
-    let watcher = this.$scope.$watch(() => this.CurrentStores.list, () => {
-      this.update();
-    }, true);
-    this.watchers.push(watcher);
+    this.watchers = [
+      // deep watch stores
+      this.$scope.$watch(() => this.CurrentStores.list, () => {
+        this.update();
+      }, true),
 
-    // deep watch options
-    watcher = this.$scope.$watch(() => this.CurrentGroup.map.options, () => {
-      this.update();
-    }, true);
-    this.watchers.push(watcher);
+      // deep watch options
+      this.$scope.$watch(() => this.CurrentGroup.map.options, () => {
+        this.update();
+      }, true),
 
-    // deep watch center (only needed for updating overview)
-    watcher = this.$scope.$watch(() => this.CurrentGroup.map.center, () => {
-      this.CurrentGroup.map.overview = this.CurrentGroup.map.center.lat === this.CurrentGroup.value.latitude
-              && this.CurrentGroup.map.center.lng === this.CurrentGroup.value.longitude;
-    }, true);
-    this.watchers.push(watcher);
+      // deep watch center (only needed for updating overview)
+      this.$scope.$watch(() => this.CurrentGroup.map.center, () => {
+        this.CurrentGroup.map.overview = this.CurrentGroup.map.center.lat === this.CurrentGroup.value.latitude
+                && this.CurrentGroup.map.center.lng === this.CurrentGroup.value.longitude;
+      }, true),
 
-    // watch overview
-    watcher = this.$scope.$watch(() => this.CurrentGroup.map.overview, (changes) => {
-      if (changes) this.showOverview();
-    });
-    this.watchers.push(watcher);
+      // watch overview
+      this.$scope.$watch(() => this.CurrentGroup.map.overview, (changes) => {
+        if (changes) this.showOverview();
+      })
+    ];
 
     if (this.CurrentGroup.map.center.lat === 0.0){
       this.CurrentGroup.map.center = {

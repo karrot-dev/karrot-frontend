@@ -36,7 +36,8 @@
     "PREVIEW": "Preview",
     "BACK": "Back",
     "MORE_OPTIONS": "More options",
-    "SUBMIT": "Submit"
+    "SUBMIT": "Submit",
+    "SEARCH": "Search"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",

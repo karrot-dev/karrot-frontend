@@ -1,62 +1,86 @@
 import TopbarModule from "./topbar";
 
+// needed to load ngMaterial-mock, which provides the $material service
+import "angular-material/angular-material-mocks";
+
 const { module } = angular.mock;
 
 describe("Topbar", () => {
   beforeEach(module(TopbarModule));
-  module(($stateProvider) => {
+  beforeEach(module("ngMaterial-mock"));
+  beforeEach(module(($stateProvider) => {
     $stateProvider.state("home", { url: "/" });
-  });
+  }));
   beforeEach(module({
     $translate: { use: () => {} },
     translateFilter: (a) => a
   }));
 
-  let $log, $ctrl, $q, $rootScope;
+  let $log;
 
   let userData = { id: 5, "display_name": "abc" };
 
-  beforeEach(inject(($injector, _$componentController_) => {
+  beforeEach(inject(($injector) => {
     $log = $injector.get("$log");
     $log.reset();
-    $q = $injector.get("$q");
-    $rootScope = $injector.get("$rootScope");
-    $ctrl = _$componentController_("topbar", {});
-    sinon.stub($ctrl.Authentication, "update");
-    $ctrl.Authentication.update.returns($q.resolve(userData));
   }));
 
-  describe("Controller", () => {
-    afterEach(() => {
-      $log.assertEmpty();
-    });
+  afterEach(() => {
+    $log.assertEmpty();
+  });
 
-    it("calls $onInit", () => {
+  describe("Controller", () => {
+    let $ctrl;
+
+    beforeEach(inject(($componentController, $q) => {
+      $ctrl = $componentController("topbar", {});
+      sinon.stub($ctrl.Authentication, "update");
+      $ctrl.Authentication.update.returns($q.resolve(userData));
+    }));
+
+    it("calls $onInit", inject(($rootScope) => {
       $ctrl.$onInit();
       $rootScope.$apply();
       expect($ctrl.Authentication.update).has.been.called;
-    });
+    }));
   });
 
-  describe("View", () => {
-    let $mdSidenav, $compile, scope;
+  describe("Component", () => {
+    let el, $ctrl;
 
-    beforeEach(inject(($injector) => {
-      $mdSidenav = $injector.get("$mdSidenav");
-      $compile = $injector.get("$compile");
-      scope = $rootScope.$new();
-      $compile("<topbar></topbar>")(scope);
-      scope.$apply();
+    beforeEach(inject((Authentication, $q, $rootScope, $compile) => {
+      sinon.stub(Authentication, "update");
+      Authentication.update.returns($q.resolve(userData));
+      el = $compile("<topbar></topbar>")($rootScope);
+      $ctrl = el.controller("topbar");
       $rootScope.$apply();
     }));
 
     it("opens Sidenav", () => {
-      $ctrl.$onInit();
-      $rootScope.$apply();
-      expect($mdSidenav("left").isOpen()).to.be.false;
+      expect($ctrl.$mdSidenav("left").isOpen()).to.be.false;
       $ctrl.openSidenav();
-      expect($mdSidenav("left").isOpen()).to.be.true;
+      expect($ctrl.$mdSidenav("left").isOpen()).to.be.true;
     });
+
+    it("closes sidenav on location change", inject(($location, $rootScope, $material) => {
+      expect($ctrl.openSidenav()).to.eventually.be.fulfilled;
+      $material.flushInterimElement();  // pretend to run the ngMaterial animations
+      expect($ctrl.$mdSidenav("left").isOpen()).to.be.true;
+
+      $location.url("new");
+      $rootScope.$apply();
+      expect($ctrl.$mdSidenav("left").isOpen()).to.be.false;
+    }));
+
+    it("closes sidenav on language change", inject(($rootScope, $material) => {
+      expect($ctrl.openSidenav()).to.eventually.be.fulfilled;
+      $material.flushInterimElement();  // pretend to run the ngMaterial animations
+      expect($ctrl.$mdSidenav("left").isOpen()).to.be.true;
+
+      $rootScope.$emit("$translateChangeSuccess");
+      $rootScope.$apply();
+      expect($ctrl.$mdSidenav("left").isOpen()).to.be.false;
+    }));
   });
 });
 

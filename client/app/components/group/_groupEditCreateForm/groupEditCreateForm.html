@@ -33,27 +33,7 @@
       model="$ctrl.data.description">
     </markdown-input>
 
-    <md-autocomplete
-      md-floating-label="{{'GROUP.ADDRESS' | translate}}"
-      md-search-text="$ctrl.query"
-      md-items="item in $ctrl.geoLookup()"
-      md-item-text="item.address"
-      md-selected-item-change="$ctrl.trySetLocation(item)"
-      md-search-text-change="$ctrl.updateOrDeleteIfEmpty($ctrl.query)"
-      md-delay="500"
-      style="padding:0">
-      <md-item-template>
-        <span md-highlight-text="$ctrl.query">{{item.address}}</span>
-      </md-item-template>
-    </md-autocomplete>
-
-    <leaflet
-      height="200"
-      center="$ctrl.mapCenter"
-      defaults="$ctrl.mapDefaults"
-      markers="$ctrl.marker"
-      class="md-whiteframe-z1">
-    </leaflet>
+    <map-picker data="$ctrl.data" placeholder="GROUP.ADDRESS"></map-picker>
   </div>
 
   <p>{{ $ctrl.error }}</p>

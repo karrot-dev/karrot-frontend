@@ -1,19 +1,12 @@
 import jstz from "jstimezonedetect";
 
 class GroupEditCreateFormController {
-  constructor(Geocoding, CurrentGroup, GroupService, $scope) {
+  constructor(CurrentGroup, GroupService, $scope) {
     "ngInject";
     Object.assign(this, {
-      Geocoding,
       CurrentGroup,
       GroupService,
       $scope,
-      mapCenter: {},
-      mapDefaults: {
-        scrollWheelZoom: false,
-        zoomControl: true,
-        dragging: true
-      },
       allTimezones: []
     });
   }
@@ -25,20 +18,10 @@ class GroupEditCreateFormController {
           timezone: jstz.determine().name()
         }
       });
-    } else {
-      this.trySetLocation(this.data);
     }
 
     this.GroupService.timezones().then((response) => {
       this.allTimezones = response.all_timezones;
-    });
-
-    this.$scope.$on("leafletDirectiveMap.click", (event, e) => {
-      let item = {
-        latitude: e.leafletEvent.latlng.lat,
-        longitude: e.leafletEvent.latlng.lng
-      };
-      this.setMarker(item);
     });
   }
 
@@ -63,41 +46,6 @@ class GroupEditCreateFormController {
         error: err.data
       });
     });
-  }
-
-  geoLookup() {
-    return this.Geocoding.lookupAddress(this.query);
-  }
-
-  setMarker(item) {
-    if (!this.marker || !this.marker.p) this.marker = { p: {} };
-    angular.copy({
-      lat: item.latitude,
-      lng: item.longitude,
-      message: item.address,
-      draggable: true
-    }, this.marker.p);
-  }
-
-  trySetLocation(item) {
-    if (!item || !item.address ) return;
-    this.setMarker(item);
-    this.query = item.address;
-    this.mapCenter.zoom = 10;
-    this.mapCenter.lat = item.latitude;
-    this.mapCenter.lng = item.longitude;
-    Object.assign(this.data, item);
-  }
-
-  updateOrDeleteIfEmpty(text) {
-    this.data.address = text;
-    if (!text) {
-      Object.assign(this.data, {
-        latitude: null,
-        longitude: null,
-        address: null
-      });
-    }
   }
 
   filterTimezones(search) {

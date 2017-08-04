@@ -1,5 +1,5 @@
 class TopbarController {
-  constructor(Authentication, SessionUser, $window, $mdMedia, $scope, $mdSidenav) {
+  constructor(Authentication, SessionUser, $window, $mdMedia, $scope, $rootScope, $mdSidenav) {
     "ngInject";
     $scope.screenIsSmall = !$mdMedia("gt-sm");
     $scope.$watch(() => {
@@ -13,6 +13,7 @@ class TopbarController {
       SessionUser,
       $mdSidenav,
       $scope,
+      $rootScope,
       reloadPage: () => $window.location.reload()  // makes it easier to stub
     });
   }
@@ -22,11 +23,17 @@ class TopbarController {
   }
 
   openSidenav() {
-    this.$mdSidenav("left").open();
-    this.destorySidenavListener = this.$scope.$on("$locationChangeStart", () => {
-      this.$mdSidenav("left").close();
-      this.destorySidenavListener();
-    });
+    this.listeners = [];
+    this.$mdSidenav("left").onClose(() => this.listeners.map((deregister) => deregister()));
+    return this.$mdSidenav("left")
+      .open()
+      .then(() => {
+        let close = () => this.$mdSidenav("left").close();
+        this.listeners = [
+          this.$scope.$on("$locationChangeStart", close),
+          this.$rootScope.$on("$translateChangeSuccess", close)
+        ];
+      });
   }
 
   logOut(){

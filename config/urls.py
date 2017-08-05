@@ -25,7 +25,6 @@ from rest_framework_swagger.views import get_swagger_view
 from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
 from foodsaving.userauth.api import AuthViewSet
-from foodsaving.conversations.api import ChatViewSet, ChatMessageViewSet
 from foodsaving.groups.api import GroupViewSet
 from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet
 from foodsaving.users.api import UserViewSet
@@ -37,11 +36,6 @@ router.register(r'auth', AuthViewSet, base_name='auth')
 
 # User endpoints
 router.register(r'users', UserViewSet)
-
-# Chat endpoints
-router.register(r'conversations', ChatViewSet)
-chat_router = routers.NestedSimpleRouter(router, r'conversations', lookup='conversations')
-chat_router.register(r'messages', ChatMessageViewSet, base_name='conversations-messages')
 
 # pickup date endpoints
 router.register(r'pickup-date-series', PickupDateSeriesViewSet)
@@ -59,7 +53,6 @@ router.register('invitations', InvitationAcceptViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api')),
-    url(r'^api/', include(chat_router.urls, namespace='api')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', get_swagger_view()),

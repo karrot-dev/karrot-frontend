@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Foodsaving Dev Chat</title>
+      <style type="text/css">
+          [v-cloak] {
+          display: none;
+        }
+          .conversation {
+              border: 1px solid red;
+              margin: 10px;
+              padding: 10px;
+          }
+      </style>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+        <div>connected: {{ connected }}</div>
+        <div v-for="c in conversations" class="conversation">
+            {{ c.id }}
+            <ul>
+                <li v-for="m in c.messages">
+                    {{ m.author }} : {{ m.content }}
+                </li>
+            </ul>
+        </div>
+    </div>
+  </body>
+</html>

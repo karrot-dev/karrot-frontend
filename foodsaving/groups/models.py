@@ -7,6 +7,8 @@ from config import settings
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.groups.signals import post_group_join, pre_group_leave
 
+from foodsaving.conversations.models import HasConversationModel
+
 
 class GroupManager(models.Manager):
     @transaction.atomic
@@ -15,7 +17,7 @@ class GroupManager(models.Manager):
             g.send_notifications()
 
 
-class Group(BaseModel, LocationModel):
+class Group(BaseModel, LocationModel, HasConversationModel):
     objects = GroupManager()
 
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH, unique=True)

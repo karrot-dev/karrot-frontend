@@ -1,8 +1,11 @@
+from django.db.models.signals import m2m_changed
 from django.dispatch import receiver
 
+from foodsaving.conversations.models import Conversation
 from foodsaving.groups.models import Group
 from foodsaving.invitations.signals import invitation_accepted
 from foodsaving.users.api import pre_user_delete
+from foodsaving.users.models import User
 
 
 @receiver(pre_user_delete)
@@ -21,3 +24,24 @@ def handle_invitation_accepted(sender, **kwargs):
         'invited_at': kwargs['invited_at'].isoformat(),
         'invited_via': 'e-mail'
     })
+
+
+@receiver(m2m_changed, sender='groups.Group_members')
+def group_membership_change(**kwargs):
+    action = kwargs.get('action')
+    group = kwargs.get('instance')
+    user_ids = kwargs.get('pk_set')
+
+    if action == 'post_add':
+        if not group.conversation:
+            group.conversation = Conversation.objects.create()
+            group.save()
+        for id in user_ids:
+            user = User.objects.get(pk=id)
+            group.conversation.join(user)
+
+    elif action == 'pre_remove':
+        if group.conversation:
+            for id in user_ids:
+                user = User.objects.get(pk=id)
+                group.conversation.leave(user)

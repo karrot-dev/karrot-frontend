@@ -33,8 +33,9 @@ INSTALLED_APPS = (
     'foodsaving.userauth',
     'foodsaving.base',
     'foodsaving.frontend',
+    'foodsaving.frontendchat',
     'foodsaving.users.UsersConfig',
-    'foodsaving.conversations',
+    'foodsaving.conversations.ConversationsConfig',
     'foodsaving.history.HistoryConfig',
     'foodsaving.groups.GroupsConfig',
     'foodsaving.stores.StoresConfig',
@@ -185,7 +186,7 @@ CHANNEL_LAYERS = {
         "CONFIG": {
             "hosts": [("localhost", 6379)],
         },
-        "ROUTING": "config.routing.channel_routing",
+        "ROUTING": "foodsaving.conversations.routing.channel_routing",
     },
 }
 

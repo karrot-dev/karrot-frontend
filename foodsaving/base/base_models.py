@@ -1,6 +1,8 @@
 from django.db.models import Model, AutoField, Field, DateTimeField, TextField, FloatField
-from django.db.models.fields.related import RelatedField
+from django.db.models.fields.related import RelatedField, ForeignKey
 from django.utils import timezone
+
+# from foodsaving.conversations.models import Conversation
 
 
 class NicelyFormattedModel(Model):

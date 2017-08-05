@@ -32,7 +32,7 @@ let groupPageModule = angular.module("group", [
   groupMap
 ])
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("group", {
@@ -40,12 +40,14 @@ let groupPageModule = angular.module("group", [
       url: "/group/{groupId:int}",
       redirectTo: (trans) => {
         let GroupService = trans.injector().get("GroupService");
+        let CurrentGroup = trans.injector().get("CurrentGroup");
         let $stateParams = trans.injector().get("$stateParams");
         let SessionUser = trans.injector().get("SessionUser");
         let $translate = trans.injector().get("$translate");
         let $mdToast = trans.injector().get("$mdToast");
         return GroupService.get($stateParams.groupId).then((group) => {
           if (group.members.indexOf(SessionUser.value.id) >= 0) {
+            CurrentGroup.set(group);
             return "group.groupDetail.pickups";
           } else {
             $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
@@ -60,19 +62,12 @@ let groupPageModule = angular.module("group", [
       resolve: {
         groupData: (CurrentGroup) => {
           return CurrentGroup.value;
-        },
-        groupDataResolve: (GroupService, CurrentGroup, $stateParams) => {
-          return GroupService.get($stateParams.groupId).then((group) => {
-            CurrentGroup.set(group);
-            return group;
-          });
         }
       },
       ncyBreadcrumb: {
         label: "{{$ctrl.CurrentGroup.value.name}}"
       }
     });
-  hookProvider.setup("group", { authenticated: true, anonymous: "login" });
 })
 
 .component("group", groupComponent)

@@ -1,21 +1,33 @@
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import ForeignKey, TextField, ManyToManyField, DateTimeField, Model
-from django.utils import timezone
+from django.db import models
+from django.db.models import ForeignKey, TextField, ManyToManyField
 
 from config import settings
 from foodsaving.base.base_models import BaseModel
-from django.db import models
+
+
+class ConversationManager(models.Manager):
+    @classmethod
+    def get_for_target(self, target):
+        return Conversation.objects.filter(target_id=target.id,
+                                           target_type=ContentType.objects.get_for_model(target)).first()
+
+    @classmethod
+    def get_or_create_for_target(self, target):
+        return Conversation.objects.get_for_target(target) or Conversation.objects.create(target=target)
 
 
 class Conversation(BaseModel):
     """A conversation between one or more users."""
 
+    objects = ConversationManager()
+
     participants = ManyToManyField(settings.AUTH_USER_MODEL, through='ConversationParticipant')
 
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
-    object_id = models.PositiveIntegerField(null=True)
-    content_object = GenericForeignKey('content_type', 'object_id')
+    target_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
+    target_id = models.PositiveIntegerField(null=True)
+    target = GenericForeignKey('target_type', 'target_id')
 
     def join(self, user):
         if not self.conversationparticipant_set.filter(user=user).exists():
@@ -42,23 +54,8 @@ class ConversationParticipant(BaseModel):
 
 
 class ConversationMessage(BaseModel):
-    """A messae in the conversation by a particular user."""
+    """A message in the conversation by a particular user."""
     author = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     conversation = ForeignKey(Conversation, related_name='messages', on_delete=models.CASCADE)
 
     content = TextField()
-
-
-class ConversationReplyChannel(BaseModel):
-    """Each channels connection has a reply channel that lets us send messages to it, we store them in the DB."""
-    user = ForeignKey(settings.AUTH_USER_MODEL)
-    reply_channel = TextField()
-    lastseen_at = DateTimeField(default=timezone.now, null=True)
-
-
-class HasConversationModel(Model):
-    """Inherit a model from this if you want it to have conversations associated with it."""
-    class Meta:
-        abstract = True
-
-    conversation = ForeignKey('conversations.Conversation', null=True)

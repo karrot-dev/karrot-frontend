@@ -18,11 +18,9 @@ class Command(BaseCommand):
 
             # ensure we have a conversation
 
-            if not group.conversation:
-                group.conversation = Conversation.objects.create()
-                group.save()
+            conversation = Conversation.objects.get_or_create_for_target(group)
 
             # ensure the members are synced
 
-            group.conversation.sync_users(group.members.all())
+            conversation.sync_users(group.members.all())
 

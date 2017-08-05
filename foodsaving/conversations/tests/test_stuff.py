@@ -11,5 +11,5 @@ class TestGroupModel(TestCase):
         super().setUpClass()
 
     def test_create_fails_if_name_too_long(self):
-        with self.assertRaises(DataError):
+        with self.assertRaises(TypeError):
             Conversation.objects.create(name='a' * 81)

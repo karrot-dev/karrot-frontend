@@ -7,7 +7,6 @@ django-extensions
 django-redis
 django-rest-swagger
 django-jinja
-django-polymorphic
 djangorestframework
 drf-nested-routers
 factory-boy

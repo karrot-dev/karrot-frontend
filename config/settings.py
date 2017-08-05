@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'timezone_field',
     'raven.contrib.django.raven_compat',
     'django_jinja',
+    'channels',
 )
 
 
@@ -177,6 +178,17 @@ SILENCED_SYSTEM_CHECKS = [
 
 DESCRIPTION_MAX_LENGTH = 100000
 NAME_MAX_LENGTH = 80
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+        "ROUTING": "config.routing.channel_routing",
+    },
+}
+
 
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control

@@ -16,12 +16,8 @@ export default class CurrentGroup {
       User,
       SessionUser,
       map: {
-        overview: true,
-        center: {
-          lat: 0.0,
-          lng: 0.0,
-          zoom: 15
-        },
+        overview: 1,
+        center: undefined,
         options: {
           showStores: true,
           showUsers: false
@@ -38,6 +34,15 @@ export default class CurrentGroup {
   clear() {
     angular.copy({}, this.value);
     this.persistCurrentGroup(null);
+  }
+
+  setMapOverview() {
+    this.map.overview++;  // a truthy, changing value to trigger the watch in groupMap
+  }
+
+  setMapCenter(center) {
+    this.map.overview = 0;
+    this.map.center = angular.copy(center);  // trigger watch in groupMap
   }
 
   persistCurrentGroup(groupId) {

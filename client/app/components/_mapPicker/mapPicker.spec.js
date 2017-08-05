@@ -34,7 +34,6 @@ describe("MapPicker", () => {
       $ctrl.$onInit();
       expect($ctrl.query).to.equal("he");
       expect($ctrl.marker.p.lng).to.equal(3);
-      expect($ctrl.isCreate).to.be.undefined;
     });
 
     it("initializes without binding", () => {
@@ -42,7 +41,6 @@ describe("MapPicker", () => {
       $ctrl.$onInit();
       expect($ctrl.query).to.be.undefined;
       expect($ctrl.marker).to.be.undefined;
-      expect($ctrl.isCreate).to.be.true;
     });
 
     it("does lookup", () => {

@@ -20,8 +20,9 @@ let storeEditModule = angular.module("storeEdit", [
       url: "/store/{storeId:int}/edit",
       component: "storeEdit",
       resolve: {
-        storedata: (Store, $stateParams) => {
-          return Store.get($stateParams.storeId);
+        storedata: (Store, $stateParams, $state) => {
+          return Store.get($stateParams.storeId)
+            .catch(() => $state.go("login"));
         }
       },
       ncyBreadcrumb: {

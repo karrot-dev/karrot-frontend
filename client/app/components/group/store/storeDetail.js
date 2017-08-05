@@ -37,10 +37,11 @@ let storeDetailModule = angular.module("storeDetail", [
       redirectTo: "storePickups",
       template: "<ui-view></ui-view>",
       resolve: {
-        storedata: (Store, CurrentStores, $stateParams) => {
+        storedata: (Store, CurrentStores, $stateParams, $state) => {
           return Store.get($stateParams.storeId).then((store) => {
             return CurrentStores.setSelected(store);
-          });
+          })
+            .catch(() => $state.go("login"));
         }
       },
       ncyBreadcrumb: {

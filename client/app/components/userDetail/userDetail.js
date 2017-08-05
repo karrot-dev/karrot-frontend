@@ -22,8 +22,9 @@ let userDetailModule = angular.module("userDetail", [
       url: "/user/{id:int}",
       component: "userDetail",
       resolve: {
-        userdata: (User, $stateParams) => {
-          return User.get($stateParams.id).then((user) => user);
+        userdata: (User, $stateParams, $state) => {
+          return User.get($stateParams.id).then((user) => user)
+            .catch(() => $state.go("login"));
         }
       },
       ncyBreadcrumb: {

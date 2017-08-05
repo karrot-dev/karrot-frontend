@@ -20,8 +20,9 @@ let storeHistoryModule = angular.module("storeHistory", [
       url: "/history",
       component: "storeHistory",
       resolve: {
-        storeHistory: (HistoryService, $stateParams) => {
-          return HistoryService.list({ store: $stateParams.storeId });
+        storeHistory: (HistoryService, $stateParams, $state) => {
+          return HistoryService.list({ store: $stateParams.storeId })
+            .catch(() => $state.go("login"));
         }
       },
       ncyBreadcrumb: {

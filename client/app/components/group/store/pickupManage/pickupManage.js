@@ -24,8 +24,9 @@ let pickupManageModule = angular.module("pickupManage", [
       parent: "group.store",
       component: "pickupManage",
       resolve: {
-        series: (PickupDateSeries, $stateParams) => {
-          return PickupDateSeries.listByStoreId($stateParams.storeId);
+        series: (PickupDateSeries, $stateParams, $state) => {
+          return PickupDateSeries.listByStoreId($stateParams.storeId)
+            .catch(() => $state.go("login"));  // one time is enough
         },
         pickups: (PickupDate, $stateParams) => {
           return PickupDate.listByStoreId($stateParams.storeId);

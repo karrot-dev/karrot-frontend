@@ -20,7 +20,7 @@ class PickupFeedbackController {
     });
   }
 
-  getHight(data){
+  isHigherImg(data){
     return data === bagImg;
   }
 
@@ -54,6 +54,7 @@ class PickupFeedbackController {
       }
       amount -= 0.15;
     }
+    return amount;
   }
 }
 

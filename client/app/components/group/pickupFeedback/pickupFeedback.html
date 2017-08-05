@@ -19,7 +19,7 @@
   
   <h4 translate="PICKUP_FEEDBACK.AMOUNT"></h4>
   <div class="amount-images">
-    <img ng-repeat="imgSrc in $ctrl.amountImages track by $index" ng-class="{'high': $ctrl.getHight(imgSrc)}" ng-src="{{imgSrc}}">
+    <img ng-repeat="imgSrc in $ctrl.amountImages track by $index" ng-class="{'high': $ctrl.isHigherImg(imgSrc)}" ng-src="{{imgSrc}}">
   </div>
   <div layout="row" class="pickup-amount">
     <md-slider-container flex>

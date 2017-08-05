@@ -1,4 +1,6 @@
 import PickupFeedbackModule from "./pickupFeedback";
+import bagImg from "./bag.png";
+import flourImg from "./flour.png";
 
 const { module } = angular.mock;
 
@@ -33,9 +35,19 @@ describe("PickupFeedback", () => {
       $componentController = $injector.get("$componentController");
     }));
 
-    it("should exist", () => {
+    it("images should differ less than 0.15kg", () => {
       let $ctrl = $componentController("pickupFeedback", {});
       expect($ctrl).to.exist;
+      $ctrl.data.amount = 50;
+      let remainingAmount = $ctrl.setFeedbackImages();
+      expect(remainingAmount).to.be.below(0.15);
+    });
+
+    it("should say bagImg is higher than others", () => {
+      let $ctrl = $componentController("pickupFeedback", {});
+      expect($ctrl).to.exist;
+      expect($ctrl.isHigherImg(flourImg)).to.be.false;
+      expect($ctrl.isHigherImg(bagImg)).to.be.true;
     });
   });
 

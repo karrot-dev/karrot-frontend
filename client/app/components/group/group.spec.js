@@ -66,13 +66,14 @@ describe("Group", () => {
       });
     });
 
-    it("loads group information & redirects to substate", () => {
+    it("loads group information & redirects to substate", inject((SessionUser) => {
+      SessionUser.set({ id: 43 });
       let groupData = { id: 12, members: [43] };
       $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
       expect($state.current.name).to.equal("group.groupDetail.pickups");
-    });
+    }));
 
     it("redirects to group info if user is not in group", () => {
       let groupData = { id: 13, members: [234] };

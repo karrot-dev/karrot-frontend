@@ -91,7 +91,9 @@ class GroupMapController {
         markers["store_" + e.id] = {
           lat: e.latitude,
           lng: e.longitude,
-          message: `<md-button ui-sref='group.store({ storeId: ${e.id}, groupId: ${e.group} })'>${e.name}</md-button>`,
+          // workaround: use <a> instead of <md-button> since the latter causes an excess of digest iterations
+          // if it doesn't fit on the leaflet
+          message: `<a ui-sref='group.store({ storeId: ${e.id}, groupId: ${e.group} })'>${e.name}</a>`,
           draggable: false,
           opacity: selected ? 1 : 0.5,
           icon: {
@@ -111,7 +113,7 @@ class GroupMapController {
         markers["user_" + e.id] = {
           lat: e.latitude,
           lng: e.longitude,
-          message: `<md-button ui-sref='userDetail({ id: ${e.id} })'>${e.display_name}</md-button>`,
+          message: `<a ui-sref='userDetail({ id: ${e.id} })'>${e.display_name}</a>`,
           draggable: false,
           icon: {
             type: "awesomeMarker",

@@ -4,6 +4,7 @@ const { module } = angular.mock;
 
 describe("SearchBar", () => {
   beforeEach(module(SearchBarModule));
+  beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
   beforeEach(inject(($injector) => {

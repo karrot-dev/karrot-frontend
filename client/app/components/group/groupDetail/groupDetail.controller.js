@@ -21,6 +21,9 @@ class GroupDetailController {
     this.Store.listByGroupId(this.$stateParams.groupId).then((data) => {
       this.CurrentStores.set(data);
     });
+
+    // clear selected store
+    this.CurrentStores.setSelected({});
   }
 }
 

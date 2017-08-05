@@ -81,14 +81,16 @@ describe("GroupMap", () => {
       $timeout.flush();
       expect($ctrl.bounds.northEast.lat).to.equal(87);
 
-      // drag map away
-      $ctrl.center = { lat: 0, lng: 0 };
+      // drag map away - note this doesn't interact with leaflet since we use $componentController
+      // should probably $compile instead
+      $ctrl.bounds = {};
       $rootScope.$apply();
 
       // switch back to overview
       sinon.spy($ctrl, "showOverview");
       $ctrl.CurrentGroup.setMapOverview();
       $rootScope.$apply();
+      $timeout.flush();
       expect($ctrl.bounds.northEast.lat).to.equal(87);
       expect($ctrl.markers.store_98.opacity).to.equal(1);
       expect($ctrl.showOverview).to.have.been.called;

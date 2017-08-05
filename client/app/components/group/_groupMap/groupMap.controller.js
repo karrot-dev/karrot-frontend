@@ -39,7 +39,7 @@ class GroupMapController {
 
       // watch overview
       this.$scope.$watch(() => this.CurrentGroup.map.overview, (overview) => {
-        if (overview) this.showOverview();
+        if (overview) this.update();
       })
     ];
   }
@@ -83,11 +83,11 @@ class GroupMapController {
     *  If a store is selected (via CurrentStores.selected), it reduces the opacity of the other store's markers
     */
     let markers = {};
+    let storeSelected = Object.keys(this.CurrentStores.selected).length > 0;
     if (this.CurrentGroup.map.options.showStores) {
       angular.forEach(this.CurrentStores.list, (e) => {
         if (!e.latitude || !e.longitude) return;
-        let selected = Object.keys(this.CurrentStores.selected).length < 1 ?  true :
-          this.CurrentStores.selected.id === e.id;
+        let selected = storeSelected ? this.CurrentStores.selected.id === e.id : true;
         markers["store_" + e.id] = {
           lat: e.latitude,
           lng: e.longitude,
@@ -115,6 +115,7 @@ class GroupMapController {
           lng: e.longitude,
           message: `<a ui-sref='userDetail({ id: ${e.id} })'>${e.display_name}</a>`,
           draggable: false,
+          opacity: storeSelected ? 0.5 : 1,
           icon: {
             type: "awesomeMarker",
             icon: "user",

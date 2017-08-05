@@ -21,6 +21,9 @@ class ConversationManager(models.Manager):
 class Conversation(BaseModel):
     """A conversation between one or more users."""
 
+    class Meta:
+        unique_together = ('target_type', 'target_id')
+
     objects = ConversationManager()
 
     participants = ManyToManyField(settings.AUTH_USER_MODEL, through='ConversationParticipant')
@@ -40,10 +43,10 @@ class Conversation(BaseModel):
         """Pass in a set of users and we ensure the Conversation will end up with the right participants."""
         existing_users = self.participants.all()
         for user in desired_users:
-            if not user in existing_users:
+            if user not in existing_users:
                 self.join(user)
         for user in existing_users:
-            if not user in desired_users:
+            if user not in desired_users:
                 self.leave(user)
 
 
@@ -59,3 +62,11 @@ class ConversationMessage(BaseModel):
     conversation = ForeignKey(Conversation, related_name='messages', on_delete=models.CASCADE)
 
     content = TextField()
+
+
+class ConversationMixin(object):
+    # TODO: including this should automatically wireup a signal to create/destroy with target
+
+    @property
+    def conversation(self):
+        return Conversation.objects.get_or_create_for_target(self)

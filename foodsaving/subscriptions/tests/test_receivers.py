@@ -1,16 +1,11 @@
-from channels import Group
 from channels.test import ChannelTestCase, WSClient
-from dateutil.relativedelta import relativedelta
-from django.utils import timezone
 
 from foodsaving.conversations.factories import ConversationFactory
 from foodsaving.conversations.models import ConversationMessage
-from foodsaving.subscriptions.models import ChannelSubscription
 from foodsaving.users.factories import UserFactory
 
 
 class ReceiverTests(ChannelTestCase):
-
     def test_receives_messages(self):
         client = WSClient()
         user = UserFactory()
@@ -61,5 +56,3 @@ class ReceiverTests(ChannelTestCase):
                 'id': conversation.id
             }
         })
-
-

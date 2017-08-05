@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from foodsaving.conversations.models import Conversation, ConversationParticipant
+from foodsaving.conversations.models import Conversation
 from foodsaving.groups.models import Group
 
 
@@ -15,7 +15,6 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS(' '.join(str(_) for _ in args)))
 
         for group in Group.objects.all():
-
             # ensure we have a conversation
 
             conversation = Conversation.objects.get_or_create_for_target(group)
@@ -23,4 +22,3 @@ class Command(BaseCommand):
             # ensure the members are synced
 
             conversation.sync_users(group.members.all())
-

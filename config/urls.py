@@ -22,6 +22,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 
+from foodsaving.conversations.api import ConversationViewSet, ConversationMessageViewSet
 from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
 from foodsaving.userauth.api import AuthViewSet
@@ -40,6 +41,11 @@ router.register(r'users', UserViewSet)
 # pickup date endpoints
 router.register(r'pickup-date-series', PickupDateSeriesViewSet)
 router.register(r'pickup-dates', PickupDateViewSet)
+
+# Conversation endpoints
+
+router.register(r'conversations', ConversationViewSet)
+router.register(r'messages', ConversationMessageViewSet)
 
 # Store endpoints
 router.register(r'stores', StoreViewSet)

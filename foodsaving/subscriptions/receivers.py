@@ -1,8 +1,8 @@
+import json
+
+from channels import Channel
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
-
-from channels import Channel, Group as ChannelGroup
-import json
 
 from foodsaving.conversations.models import ConversationParticipant, ConversationMessage
 from foodsaving.subscriptions.models import ChannelSubscription

@@ -7,7 +7,6 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestConversationSyncReceiver(TestCase):
-
     def test_creates_conversation(self):
         group = GroupFactory()
         conversation = self.get_conversation_for_group(group)
@@ -34,4 +33,5 @@ class TestConversationSyncReceiver(TestCase):
         self.assertIsNone(self.get_conversation_for_group(group))
 
     def get_conversation_for_group(self, group):
-        return Conversation.objects.filter(target_id=group.id, target_type=ContentType.objects.get_for_model(group)).first()
+        return Conversation.objects.filter(target_id=group.id,
+                                           target_type=ContentType.objects.get_for_model(group)).first()

@@ -5,6 +5,7 @@ from timezone_field import TimeZoneField
 
 from config import settings
 from foodsaving.base.base_models import BaseModel, LocationModel
+from foodsaving.conversations.models import ConversationMixin
 from foodsaving.groups.signals import post_group_join, pre_group_leave
 
 
@@ -15,7 +16,7 @@ class GroupManager(models.Manager):
             g.send_notifications()
 
 
-class Group(BaseModel, LocationModel):
+class Group(BaseModel, LocationModel, ConversationMixin):
     objects = GroupManager()
 
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH, unique=True)

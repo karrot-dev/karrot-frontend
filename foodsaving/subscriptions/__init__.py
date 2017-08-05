@@ -5,4 +5,4 @@ class SubscriptionsConfig(AppConfig):
     name = 'foodsaving.subscriptions'
 
     def ready(self):
-        from . import consumers, receivers # noqa: F401
+        from . import consumers, receivers  # noqa: F401

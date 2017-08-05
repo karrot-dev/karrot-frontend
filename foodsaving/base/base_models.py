@@ -1,12 +1,9 @@
 from django.db.models import Model, AutoField, Field, DateTimeField, TextField, FloatField
-from django.db.models.fields.related import RelatedField, ForeignKey
+from django.db.models.fields.related import RelatedField
 from django.utils import timezone
-
-# from foodsaving.conversations.models import Conversation
 
 
 class NicelyFormattedModel(Model):
-
     class Meta:
         abstract = True
 
@@ -32,7 +29,6 @@ class NicelyFormattedModel(Model):
 
 
 class BaseModel(NicelyFormattedModel):
-
     class Meta:
         abstract = True
 

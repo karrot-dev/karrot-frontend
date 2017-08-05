@@ -1,4 +1,4 @@
-from channels import Group, Channel
+from channels import Channel
 from channels.test import ChannelTestCase, WSClient
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone

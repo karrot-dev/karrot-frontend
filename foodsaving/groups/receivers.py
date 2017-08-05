@@ -33,6 +33,7 @@ def group_created(**kwargs):
     conversation = Conversation.objects.get_or_create_for_target(group)
     conversation.sync_users(group.members.all())
 
+
 @receiver(pre_delete, sender=Group)
 def group_deleted(**kwargs):
     """Delete the conversation when the group is deleted."""
@@ -40,6 +41,7 @@ def group_deleted(**kwargs):
     conversation = Conversation.objects.get_for_target(group)
     if conversation:
         conversation.delete()
+
 
 @receiver(m2m_changed, sender='groups.Group_members')
 def group_membership_change(**kwargs):

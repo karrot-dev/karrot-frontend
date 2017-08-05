@@ -1,5 +1,3 @@
-from django.db import DataError
-from django.db import IntegrityError
 from django.test import TestCase
 
 from foodsaving.conversations.models import Conversation

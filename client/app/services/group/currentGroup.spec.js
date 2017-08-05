@@ -71,4 +71,33 @@ describe("CurrentGroup service", () => {
     $httpBackend.flush();
   });
 
+  it("sets map overview mode", inject(($rootScope) => {
+    // default is true
+    expect(CurrentGroup.map.overview).to.be.truthy;
+
+    // does it trigger a watch?
+    let stub = sinon.stub();
+    let deregister = $rootScope.$watch(() => CurrentGroup.map.overview, stub);
+    CurrentGroup.setMapOverview();
+    $rootScope.$apply();
+
+    expect(CurrentGroup.map.overview).to.be.truthy;
+    expect(stub).to.have.been.calledWith(2);
+    deregister();
+  }));
+
+  it("sets map center", inject(($rootScope) => {
+    // does it trigger a watch?
+    let stub = sinon.stub();
+    let deregister = $rootScope.$watch(() => CurrentGroup.map.center, stub);
+    let center = { lat: 1, lng: 2, zoom: 15 };
+    CurrentGroup.setMapCenter(center);
+    $rootScope.$apply();
+
+    expect(CurrentGroup.map.overview).to.be.falsy;
+    expect(CurrentGroup.map.center).to.deep.equal(center);
+    expect(stub).to.have.been.calledWith(center);
+    deregister();
+  }));
+
 });

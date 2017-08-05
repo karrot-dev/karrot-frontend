@@ -15,11 +15,11 @@ class StoreDetailController {
   $onInit() {
     // set navbar selection on page load
     this.currentNavItem = this.$state.current.name;
-    this.CurrentGroup.map.center = {
+    this.CurrentGroup.setMapCenter({
       lat: this.selectedStore.latitude,
       lng: this.selectedStore.longitude,
-      zoom: 13
-    };
+      zoom: 15
+    });
 
     // refresh all stores, maybe other users added/changed them
     this.Store.listByGroupId(this.$stateParams.groupId).then((data) => {

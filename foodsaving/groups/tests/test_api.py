@@ -103,7 +103,7 @@ class TestGroupsAPI(APITestCase):
 
     def test_join_group(self):
         self.client.force_login(user=self.user)
-        response = self.client.post('/api/groups/1/join/')
+        response = self.client.post('/api/groups/{}/join/'.format(self.group.id))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_join_group_with_password(self):
@@ -122,7 +122,7 @@ class TestGroupsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_join_group_fails_if_not_logged_in(self):
-        response = self.client.post('/api/groups/1/join/')
+        response = self.client.post('/api/groups/{}/join/'.format(self.group.id))
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_leave_group(self):
@@ -143,14 +143,14 @@ class TestGroupsAPI(APITestCase):
         unrelated_pickupdate.store.group.members.add(self.member)
 
         self.client.force_login(user=self.member)
-        response = self.client.post('/api/groups/1/leave/')
+        response = self.client.post('/api/groups/{}/leave/'.format(self.group.id))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertFalse(pickupdate.collectors.get_queryset().filter(id=self.member.id).exists())
         self.assertTrue(past_pickupdate.collectors.get_queryset().filter(id=self.member.id).exists())
         self.assertTrue(unrelated_pickupdate.collectors.get_queryset().filter(id=self.member.id).exists())
 
     def test_leave_group_fails_if_not_logged_in(self):
-        response = self.client.post('/api/groups/1/leave/')
+        response = self.client.post('/api/groups/{}/leave/'.format(self.group.id))
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_delete_group(self):

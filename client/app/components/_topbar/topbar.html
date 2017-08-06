@@ -52,6 +52,13 @@
     <md-button ng-if="screenIsSmall" aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
       <i class="fa fa-fw fa-bars"></i>
     </md-button>
+
+    <md-button hide-xs class="md-icon-button" ui-sref="landingPage">
+      <i class="fa fa-home"></i>
+      <md-tooltip>
+        Foodsaving Worldwide
+      </md-tooltip>
+    </md-button>
     
     <group-menu style="min-width: 50%" flex></group-menu>
 
@@ -89,21 +96,21 @@
   <div ng-if="!$ctrl.SessionUser.isLoggedIn()" layout-padding>
     <md-menu-content width="4">
       <md-menu-item>
+        <md-button class="no-transform" ui-sref="landingPage">
+          <i class="fa fa-home"></i>
+          Foodsaving Worldwide
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
         <md-button href="https://github.com/yunity/foodsaving-frontend">
           <i class="fa fa-fw fa-github"></i>
           Github
-          <md-tooltip>
-            <span translate="GLOBAL.GITHUB_NOTE"></span>
-          </md-tooltip>
         </md-button>
       </md-menu-item>
       <md-menu-item>
         <md-button class="no-transform" ng-href="mailto:fstool@yunity.org">
           <i class="fa fa-fw fa-envelope"></i>
           fstool@yunity.org
-          <md-tooltip>
-            <span translate="GLOBAL.DEVMAIL_NOTE"></span>
-          </md-tooltip>
         </md-button>
       </md-menu-item>
       <language-chooser></language-chooser>
@@ -122,6 +129,12 @@
 
   <div ng-if="$ctrl.SessionUser.isLoggedIn()" layout-padding>
     <md-menu-content width="4">
+      <md-menu-item>
+        <md-button class="no-transform" ui-sref="landingPage">
+          <i class="fa fa-home"></i>
+          Foodsaving Worldwide
+        </md-button>
+      </md-menu-item>
       <md-menu-item>
         <md-button class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
           <i class="fa fa-fw fa-user"></i>

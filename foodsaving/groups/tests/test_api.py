@@ -2,6 +2,7 @@ from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
+
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.stores.factories import PickupDateFactory, StoreFactory

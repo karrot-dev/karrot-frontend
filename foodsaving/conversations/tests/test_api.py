@@ -19,7 +19,7 @@ class TestConversationsAPI(APITestCase):
         cls.conversation1.sync_users([
             cls.participant1, cls.participant2, cls.participant3
         ])
-        cls.conversation1.messages.create(author=cls.participant1,content='hello')
+        cls.conversation1.messages.create(author=cls.participant1, content='hello')
         cls.conversation2 = ConversationFactory()  # conversation noone is in
 
     def test_get_messages(self):

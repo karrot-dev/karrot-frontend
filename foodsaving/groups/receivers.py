@@ -1,7 +1,7 @@
 from django.db.models.signals import m2m_changed, post_save, pre_delete
 from django.dispatch import receiver
 
-from foodsaving.conversations.models import Conversation
+from foodsaving.conversations.models import Conversation, ConversationParticipant
 from foodsaving.groups.models import Group
 from foodsaving.invitations.signals import invitation_accepted
 from foodsaving.users.api import pre_user_delete
@@ -60,5 +60,4 @@ def group_membership_change(**kwargs):
     elif action == 'pre_remove':
         conversation = Conversation.objects.get_for_target(group)
         if conversation:
-            for user in User.objects.filter(pk__in=user_ids):
-                conversation.leave(user)
+            ConversationParticipant.objects.filter(conversation=conversation, user__id__in=user_ids).delete()

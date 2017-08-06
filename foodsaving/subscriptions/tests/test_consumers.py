@@ -16,6 +16,13 @@ class ConsumerTests(ChannelTestCase):
         client.send_and_consume('websocket.connect', path='/')
         self.assertEqual(ChannelSubscription.objects.filter(user=user).count(), 1, 'Did not add subscription')
 
+    def test_accepts_anonymous_connections(self):
+        client = WSClient()
+        qs = ChannelSubscription.objects
+        original_count = qs.count()
+        client.send_and_consume('websocket.connect', path='/')
+        self.assertEqual(qs.count(), original_count)
+
     def test_saves_reply_channel(self):
         client = WSClient()
         user = UserFactory()

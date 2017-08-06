@@ -12,9 +12,6 @@ class Command(BaseCommand):
         def print(*args):
             self.stdout.write(' '.join([str(_) for _ in args]))
 
-        def print_success(*args):
-            self.stdout.write(self.style.SUCCESS(' '.join(str(_) for _ in args)))
-
         ChannelSubscription.objects.filter(lastseen_at__lt=timezone.now() - relativedelta(minutes=5)).delete()
 
         print('done')

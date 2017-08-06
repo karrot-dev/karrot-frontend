@@ -16,12 +16,20 @@ class PickupFeedbackController {
       data: {
         amount: 0,
         comment: ""
+      },
+      images: {
+        bag: bagImg,
+        milk: milkImg,
+        flour: flourImg,
+        flourGuy: flourGuyImg,
+        apple: appleImg,
+        appleGuy: appleGuyImg
       }
     });
   }
 
   isHigherImg(data){
-    return data === bagImg;
+    return data === this.images.bag;
   }
 
   setFeedbackImages(){ // eslint-disable-line
@@ -29,28 +37,28 @@ class PickupFeedbackController {
     let amount = this.data.amount;
     while (amount >= 0.15){
       if (amount >= 6.0) {
-        this.amountImages.push(bagImg);
+        this.amountImages.push(this.images.bag);
         amount -= 6.0;
         continue;
       }
       if (amount >= 1.0 && Math.random() < 0.7) {
-        this.amountImages.push(milkImg);
+        this.amountImages.push(this.images.milk);
         amount -= 1.0;
         continue;
       }
       if (amount >= 0.5 && Math.random() < 0.9) {
         if (Math.random() > 0.9) {
-          this.amountImages.push(flourGuyImg);
+          this.amountImages.push(this.images.flourGuy);
         } else {
-          this.amountImages.push(flourImg);
+          this.amountImages.push(this.images.flour);
         }
         amount -= 0.5;
         continue;
       }
       if (Math.random() > 0.9) {
-        this.amountImages.push(appleGuyImg);
+        this.amountImages.push(this.images.appleGuy);
       } else {
-        this.amountImages.push(appleImg);
+        this.amountImages.push(this.images.apple);
       }
       amount -= 0.15;
     }

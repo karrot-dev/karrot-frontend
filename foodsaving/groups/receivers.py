@@ -30,6 +30,7 @@ def handle_invitation_accepted(sender, **kwargs):
 def group_created(**kwargs):
     """Ensure every group has a conversation."""
     group = kwargs.get('instance')
+    # TODO: limit this to only run on creation
     conversation = Conversation.objects.get_or_create_for_target(group)
     conversation.sync_users(group.members.all())
 

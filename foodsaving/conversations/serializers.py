@@ -12,6 +12,10 @@ class ConversationSerializer(serializers.ModelSerializer):
             'created_at'
         ]
 
+    def retrieve(self, validated_data):
+        user = self.context['request'].user
+        return ConversationMessage.objects.create(author=user, **validated_data)
+
 
 class ConversationMessageSerializer(serializers.ModelSerializer):
     class Meta:

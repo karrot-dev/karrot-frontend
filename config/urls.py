@@ -15,19 +15,17 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import include, url
-
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 
-from foodsaving.conversations.api import ConversationViewSet, ConversationMessageViewSet
+from foodsaving.conversations.api import ConversationMessageViewSet
+from foodsaving.groups.api import GroupViewSet
 from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
-from foodsaving.userauth.api import AuthViewSet
-from foodsaving.groups.api import GroupViewSet
 from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet
+from foodsaving.userauth.api import AuthViewSet
 from foodsaving.users.api import UserViewSet
 
 router = routers.DefaultRouter()
@@ -42,9 +40,7 @@ router.register(r'users', UserViewSet)
 router.register(r'pickup-date-series', PickupDateSeriesViewSet)
 router.register(r'pickup-dates', PickupDateViewSet)
 
-# Conversation endpoints
-
-router.register(r'conversations', ConversationViewSet)
+# Message endpoints
 router.register(r'messages', ConversationMessageViewSet)
 
 # Store endpoints

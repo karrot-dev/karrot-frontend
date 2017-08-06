@@ -24,3 +24,8 @@ myvenv
 
 # Static build of frontend (obtained via command)
 foodsaving/frontend/static/*
+
+# pytest related tmp dirs
+.cache
+.testmondata
+.tmontmp

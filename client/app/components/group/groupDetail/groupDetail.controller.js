@@ -5,10 +5,11 @@ class GroupDetailController {
       groupData: CurrentGroup.value,
       $state,
       $mdMedia,
+      GroupService,
       CurrentGroup,
-      Store,
-      $stateParams,
-      CurrentStores
+      Conversation,
+      conversation: null,
+      newMessageContent: ""
     });
   }
 
@@ -25,6 +26,7 @@ class GroupDetailController {
     // clear selected store
     this.CurrentStores.setSelected({});
   }
+
 }
 
 export default GroupDetailController;

@@ -63,7 +63,7 @@ pytz==2017.2
 raven==6.1.0
 redis==2.10.5
 requests==2.18.3          # via coreapi, django-anymail, influxdb, responses, sparkpost
-responses==0.6.0
+responses==0.6.1
 simplejson==3.11.1        # via django-rest-swagger
 six==1.10.0               # via argon2-cffi, asgi-redis, asgiref, autobahn, automat, django-anymail, django-extensions, faker, furl, influxdb, orderedmultidict, python-dateutil, responses, tld, txaio
 sparkpost==1.3.5

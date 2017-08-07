@@ -75,6 +75,7 @@
     "karma-webpack": "^2.0.0",
     "lodash": "^4.11.1",
     "mocha": "^3.0.1",
+    "mock-socket": "^7.0.0",
     "ng-annotate-loader": "0.6.1",
     "node-libs-browser": "^2.0.0",
     "postcss-loader": "^2.0.6",

@@ -8,6 +8,9 @@ class SocketService {
     this.$q = $q;
     this.$log = $log;
     this.subscribers = [];
+    this.options = {
+      reconnectInterval: 500
+    };
   }
 
   /* Subscribe to receive all websocket messages
@@ -28,9 +31,7 @@ class SocketService {
     this.socket = new ReconnectingWebSocket(
       "ws://" + window.location.host + "/api/ws",
       undefined,
-      {
-        reconnectInterval: 500
-      }
+      this.options
     );
     this.socket.addEventListener("open", () => {
       this.$log.info("socket opened!");

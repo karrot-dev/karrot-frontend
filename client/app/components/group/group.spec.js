@@ -78,13 +78,14 @@ describe("Group", () => {
       expect($state.current.name).to.equal("group.groupDetail.pickups");
     }));
 
-    it("redirects to group info if user is not in group", () => {
+    it("redirects to group info if user is not in group", inject((SessionUser) => {
+      SessionUser.set({ id: 43 });
       let groupData = { id: 13, members: [234] };
       $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
       expect($state.current.name).to.equal("groupInfo");
-    });
+    }));
   });
 
   describe("Component", () => {

@@ -46,19 +46,24 @@ describe("StoreDetail", () => {
       group: groupData.id
     };
 
-    it("should load store information", () => {
-      inject((CurrentGroup) => {
-        // We don't want the side effects of the "group" state persisting the group
+    it("should load store and group information", () => {
+      inject((CurrentGroup, GroupService, Store, $q, CurrentStores) => {
+        // We don't want the side effects of the "group" state, which sets the current group
         // It would be better to stub the whole "group" state, but I don't know how
-        sinon.stub(CurrentGroup, "set");
+        sinon.stub(CurrentGroup, "set").returns($q.resolve(groupData));
+        sinon.stub(GroupService, "get").returns($q.resolve(groupData));
+        sinon.stub(Store, "get").returns($q.resolve(storeData));
+        expect(
+          $state.go("group.store", { storeId: storeData.id, groupId: groupData.id })
+        ).to.eventually.be.fulfilled;
+        inject(($rootScope) => $rootScope.$apply());
+        expect($state.current.component).to.equal("storePickups");
+        expect(CurrentGroup.set).to.have.been.calledWith(groupData);
+        expect(GroupService.get).to.have.been.calledWith(groupData.id);
+        expect(Store.get).to.have.been.calledWith(storeData.id);
+        expect(CurrentStores.selected).to.deep.equal(storeData);
       });
-      $httpBackend.expectGET(`/api/groups/${groupData.id}/`).respond(groupData);
-      $httpBackend.expectGET(`/api/stores/${storeData.id}/`).respond(storeData);
-      expect(
-        $state.go("group.store", { storeId: storeData.id, groupId: groupData.id })
-      ).to.eventually.be.fulfilled;
-      $httpBackend.flush();
-      expect($state.current.component).to.equal("storePickups");
+
     });
   });
 

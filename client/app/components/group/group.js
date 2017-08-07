@@ -60,7 +60,10 @@ let groupPageModule = angular.module("group", [
       },
       component: "group",
       resolve: {
-        groupData: (CurrentGroup) => {
+        groupData: (CurrentGroup, GroupService, $stateParams) => {
+          if (CurrentGroup.value.id !== $stateParams.groupId) {
+            return GroupService.get($stateParams.groupId).then((group) => CurrentGroup.set(group));
+          }
           return CurrentGroup.value;
         }
       },

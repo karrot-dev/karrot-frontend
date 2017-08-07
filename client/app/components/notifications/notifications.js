@@ -4,6 +4,7 @@ import ngMaterial from "angular-material";
 import User from "services/user/user";
 import notificationsComponent from "./notifications.component";
 import Authentication from "services/authentication/authentication";
+import { loggedInOrRedirectToLogin } from "services/authentication/snippets";
 
 let notificationsModule = angular.module("notifications", [
   uiRouter,
@@ -14,7 +15,7 @@ let notificationsModule = angular.module("notifications", [
 
 .component("notifications", notificationsComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("notifications", {
@@ -22,15 +23,13 @@ let notificationsModule = angular.module("notifications", [
       url: "/notifications",
       component: "notifications",
       resolve: {
-        userdata: (Authentication) => {
-          return Authentication.update().then((user) => user);
-        }
+        loggedInOrRedirectToLogin,
+        userdata: (SessionUser) => SessionUser.loaded
       },
       ncyBreadcrumb: {
         label: "{{'NOTIFICATIONS.TITLE' | translate}}"
       }
     });
-  hookProvider.setup("notifications", { authenticated: true, anonymous: "login" });
 })
 
 .name;

@@ -14,7 +14,7 @@ let userDetailModule = angular.module("userDetail", [
 
 .component("userDetail", userDetailComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("userDetail", {
@@ -23,7 +23,7 @@ let userDetailModule = angular.module("userDetail", [
       component: "userDetail",
       resolve: {
         userdata: (User, $stateParams, $state) => {
-          return User.get($stateParams.id).then((user) => user)
+          return User.get($stateParams.id)
             .catch(() => $state.go("login"));
         }
       },
@@ -31,7 +31,6 @@ let userDetailModule = angular.module("userDetail", [
         label: "{{$$childHead.$ctrl.userdata.display_name}}"
       }
     });
-  hookProvider.setup("userDetail", { authenticated: true, anonymous: "login" });
 })
 
 .name;

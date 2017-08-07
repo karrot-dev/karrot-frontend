@@ -3,6 +3,7 @@ import uiRouter from "@uirouter/angularjs";
 import homeComponent from "./home.component";
 import GroupService from "services/group/group";
 import joinGroup from "../_joinGroup/joinGroup";
+import { loggedInOrRedirectToLogin } from "services/authentication/snippets";
 
 let homeModule = angular.module("home", [
   uiRouter,
@@ -10,15 +11,17 @@ let homeModule = angular.module("home", [
   joinGroup
 ])
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("home", {
       parent: "main",
       url: "/",
-      component: "home"
+      component: "home",
+      resolve: {
+        loggedInOrRedirectToLogin
+      }
     });
-  hookProvider.setup("home", { authenticated: true, anonymous: "login" });
 })
 
 .component("home", homeComponent)

@@ -1,18 +1,17 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import User from "services/user/user";
-import Authentication from "services/authentication/authentication";
 import verifyMailComponent from "./verifyMail.component";
+import { loggedInOrRedirectToLogin } from "services/authentication/snippets";
 
 let verifyMailModule = angular.module("verifyMail", [
   uiRouter,
-  User,
-  Authentication
+  User
 ])
 
 .component("verifyMail", verifyMailComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("verifyMail", {
@@ -21,9 +20,11 @@ let verifyMailModule = angular.module("verifyMail", [
       component: "verifyMail",
       ncyBreadcrumb: {
         label: "{{'VERIFYMAIL.TITLE' | translate}}"
+      },
+      resolve: {
+        loggedInOrRedirectToLogin
       }
     });
-  hookProvider.setup("verifyMail", { authenticated: true, anonymous: "login" });
 })
 
 .name;

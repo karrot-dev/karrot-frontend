@@ -2,6 +2,7 @@ import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import createGroupComponent from "./createGroup.component";
 import GroupService from "services/group/group";
+import { loggedInOrRedirectToLogin } from "services/authentication/snippets";
 
 let createGroupModule = angular.module("createGroup", [
   uiRouter,
@@ -10,7 +11,7 @@ let createGroupModule = angular.module("createGroup", [
 
 .component("createGroup", createGroupComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("createGroup", {
@@ -19,9 +20,11 @@ let createGroupModule = angular.module("createGroup", [
       component: "createGroup",
       ncyBreadcrumb: {
         label: "{{'GROUP.CREATE_TITLE' | translate}}"
+      },
+      resolve: {
+        loggedInOrRedirectToLogin
       }
     });
-  hookProvider.setup("createGroup", { authenticated: true, anonymous: "login" });
 })
 
 .name;

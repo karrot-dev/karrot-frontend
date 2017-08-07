@@ -30,12 +30,20 @@ export default class sessionUser {
   set(value) {
     angular.copy(value, this.value);
     this.deferred.resolve(this.value);
+
+    // in case the old promise has already been resolved or rejected, 
+    // replaces the promise with an updated one
+    this.loaded = this.$q.resolve(this.value);
     return this.value;
   }
 
   clear() {
     angular.copy({}, this.value);
     this.deferred.reject(this.value);
+
+    // in case the old promise has already been resolved or rejected, 
+    // replaces the promise with an updated one
+    this.loaded = this.$q.reject(this.value);
     return this.value;
   }
 

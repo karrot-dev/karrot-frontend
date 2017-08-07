@@ -6,7 +6,10 @@ describe("Group", () => {
   let $httpBackend, $state;
 
   beforeEach(module(GroupDetailModule));
-  beforeEach(module({ $translate: sinon.stub() }));
+  beforeEach(module({
+    $translate: sinon.stub(),
+    translateFilter: (a) => a
+  }));
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true })

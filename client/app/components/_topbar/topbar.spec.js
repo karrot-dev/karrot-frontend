@@ -11,6 +11,9 @@ describe("Topbar", () => {
   beforeEach(module(($stateProvider) => {
     $stateProvider.state("home", { url: "/" });
   }));
+  beforeEach(module(($mdAriaProvider) => {
+    $mdAriaProvider.disableWarnings();
+  }));
   beforeEach(module({
     $translate: { use: () => {} },
     translateFilter: (a) => a

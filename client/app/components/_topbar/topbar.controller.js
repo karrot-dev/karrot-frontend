@@ -18,10 +18,6 @@ class TopbarController {
     });
   }
 
-  $onInit() {
-    this.Authentication.update();
-  }
-
   openSidenav() {
     this.listeners = [];
     this.$mdSidenav("left").onClose(() => this.listeners.map((deregister) => deregister()));

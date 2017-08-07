@@ -3,6 +3,7 @@ import uiRouter from "@uirouter/angularjs";
 import loginComponent from "./login.component";
 import ngMessages from "angular-messages";
 import Authentication from "services/authentication/authentication";
+import { loggedOutOrRedirectToHome } from "services/authentication/snippets";
 
 let loginModule = angular.module("login", [
   uiRouter,
@@ -10,7 +11,7 @@ let loginModule = angular.module("login", [
   Authentication
 ])
 
-.config(($stateProvider, $urlRouterProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider.state("login", {
     parent: "splash",
@@ -18,10 +19,12 @@ let loginModule = angular.module("login", [
     component: "login",
     ncyBreadcrumb: {
       label: "{{'LOGIN.TITLE' | translate}}"
+    },
+    resolve: {
+      loggedOutOrRedirectToHome
     }
   });
-  $urlRouterProvider.otherwise("/login");
-  hookProvider.setup("login", { authenticated: "home", anonymous: true });
+
 })
 
 .component("login", loginComponent)

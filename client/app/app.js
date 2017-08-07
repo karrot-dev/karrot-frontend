@@ -11,7 +11,6 @@ import "angular-breadcrumb";
 import angularLoadingBar from "angular-loading-bar";
 import ngLocale from "angular-dynamic-locale";
 import "angular-promise-buttons";
-import { AuthCheckConfig } from "./app.authCheck";
 
 // config
 import Services from "./services/services";
@@ -64,7 +63,6 @@ angular.module("app", [
 .run(AppLocalizeRun)
 .config(AppMaterial)
 .config(AppHTTPErrorHandler)
-.config(AuthCheckConfig)
 .config(( $mdGestureProvider ) => {
   "ngInject";
   $mdGestureProvider.skipClickHijack();
@@ -77,6 +75,11 @@ angular.module("app", [
   "ngInject";
   // Globally disables all ARIA warnings.
   $mdAriaProvider.disableWarnings();
+})
+.run((Authentication) => {
+  "ngInject";
+  // get and set session user
+  Authentication.update();
 })
 .config(($breadcrumbProvider) => {
   "ngInject";

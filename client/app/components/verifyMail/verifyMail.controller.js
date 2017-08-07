@@ -1,9 +1,9 @@
 class VerifyMailController {
-  constructor(User, Authentication, $stateParams) {
+  constructor(User, SessionUser, $stateParams) {
     "ngInject";
     Object.assign(this, {
       User,
-      Authentication,
+      SessionUser,
       $stateParams
     });
   }
@@ -21,7 +21,7 @@ class VerifyMailController {
   }
 
   loadUser() {
-    this.Authentication.update().then((user) => this.user = user);
+    this.SessionUser.loaded.then((user) => this.user = user);
   }
 }
 

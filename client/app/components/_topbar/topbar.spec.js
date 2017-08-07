@@ -32,22 +32,6 @@ describe("Topbar", () => {
     $log.assertEmpty();
   });
 
-  describe("Controller", () => {
-    let $ctrl;
-
-    beforeEach(inject(($componentController, $q) => {
-      $ctrl = $componentController("topbar", {});
-      sinon.stub($ctrl.Authentication, "update");
-      $ctrl.Authentication.update.returns($q.resolve(userData));
-    }));
-
-    it("calls $onInit", inject(($rootScope) => {
-      $ctrl.$onInit();
-      $rootScope.$apply();
-      expect($ctrl.Authentication.update).has.been.called;
-    }));
-  });
-
   describe("Component", () => {
     let el, $ctrl;
 

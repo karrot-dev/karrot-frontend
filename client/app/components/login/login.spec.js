@@ -2,7 +2,7 @@ import LoginModule from "./login";
 
 const { module } = angular.mock;
 
-describe("Login", () => {
+describe.only("Login", () => {
   beforeEach(() => {
     module(LoginModule);
     module(($stateProvider) => {
@@ -63,10 +63,10 @@ describe("Login", () => {
         let email = "example@example.com";
         let password = "correctPassword";
         $httpBackend.expectPOST("/api/auth/", { email, password }).respond(200, loginData);
-        $httpBackend.expectGET("/api/auth/status/").respond(200, loginData);
         let ctrl = $componentController("login", {});
         Object.assign(ctrl, { email, password });
-        ctrl.login();
+
+        expect(ctrl.login().catch()).to.eventually.have.been.fulfilled;
         $httpBackend.flush();
         expect($state.go).to.have.been.calledWith("home");
       });
@@ -75,10 +75,10 @@ describe("Login", () => {
         let email = "example@example.com";
         let password = "wrongPassword";
         $httpBackend.expectPOST("/api/auth/", { email, password }).respond(400);
-        $httpBackend.expectGET("/api/auth/status/").respond(200, loginData);
         let ctrl = $componentController("login", {});
         Object.assign(ctrl, { email, password });
-        ctrl.login();
+
+        expect(ctrl.login().catch()).to.eventually.have.been.fulfilled;
         $httpBackend.flush();
         expect($state.go).to.not.have.been.called;
         expect(ctrl.password).to.equal("");

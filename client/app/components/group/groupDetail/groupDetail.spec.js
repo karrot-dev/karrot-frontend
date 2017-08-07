@@ -3,7 +3,16 @@ import GroupDetailModule from "./groupDetail";
 const { module } = angular.mock;
 
 describe("GroupDetail", () => {
-  let $httpBackend, $log;
+  let $httpBackend, $q, $log;
+  beforeEach(() => {
+    module(($provide) => {
+      $provide.value("Conversation", {
+        subscribe() {
+          return $q((resolve) => resolve({ unsubscribe() {} }));
+        }
+      });
+    });
+  });
   beforeEach(module(GroupDetailModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
@@ -15,6 +24,7 @@ describe("GroupDetail", () => {
   }));
 
   beforeEach(inject(($injector) => {
+    $q = $injector.get("$q");
     $log = $injector.get("$log");
     $log.reset();
   }));
@@ -46,6 +56,7 @@ describe("GroupDetail", () => {
     }));
 
     it("highlights correct tab", () => {
+      $httpBackend.expectGET("/api/groups/667/conversation/").respond({ id: 1 });
       let groupData = { id: 667, name: "blarb" };
       let $ctrl = $componentController("groupDetail", {});
       $ctrl.$state.current.name = "group.groupDetail.pickups";

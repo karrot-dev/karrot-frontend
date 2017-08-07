@@ -47,7 +47,8 @@ let storeDetailModule = angular.module("storeDetail", [
       ncyBreadcrumb: {
         // accesses group or storeDetail controller, depending on the child state
         label: "{{ $ctrl.selectedStore.name }}"
-      }
+      },
+      authCheck: "group"
     });
 })
 

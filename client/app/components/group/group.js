@@ -38,42 +38,43 @@ let groupPageModule = angular.module("group", [
     .state("group", {
       parent: "main",
       url: "/group/{groupId:int}",
-      redirectTo: (trans) => {
-        let GroupService = trans.injector().get("GroupService");
-        let CurrentGroup = trans.injector().get("CurrentGroup");
-        let $stateParams = trans.injector().get("$stateParams");
-        let SessionUser = trans.injector().get("SessionUser");
-        return GroupService.get($stateParams.groupId).then((group) =>
-          SessionUser.loaded.then((user) => {
-            if (group.members.indexOf(user.id) >= 0) {
-              CurrentGroup.set(group);
-              return "group.groupDetail.pickups";
-            } else {
-              let $translate = trans.injector().get("$translate");
-              let $mdToast = trans.injector().get("$mdToast");
-              $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
-                $mdToast.showSimple(message);
-              });
-              // re-uses same groupId state parameter
-              return "groupInfo";
-            }
-          })
-        );
-      },
+      redirectTo: "group.groupDetail.pickups",
       component: "group",
       resolve: {
-        groupData: (CurrentGroup, GroupService, $stateParams) => {
-          if (CurrentGroup.value.id !== $stateParams.groupId) {
-            return GroupService.get($stateParams.groupId).then((group) => CurrentGroup.set(group));
-          }
+        groupData: (CurrentGroup) => {
+          "ngInject";
           return CurrentGroup.value;
         }
       },
       ncyBreadcrumb: {
         label: "{{$ctrl.CurrentGroup.value.name}}"
       },
-      data: {
-        authCheck: true
+      authCheck: {
+        success: ($state, trans, user) => {
+          console.log("success callback");
+          // is user member of this group? if not, show a little message and redirect to groupInfo page
+          let GroupService = trans.injector().get("GroupService");
+          let CurrentGroup = trans.injector().get("CurrentGroup");
+          let $stateParams = trans.injector().get("$stateParams");
+
+          return GroupService.get($stateParams.groupId).then((group) => {
+            if (group.members.indexOf(user.id) >= 0) {
+              CurrentGroup.set(group);
+              return;
+            } else {
+              let $translate = trans.injector().get("$translate");
+              let $mdToast = trans.injector().get("$mdToast");
+              $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
+                $mdToast.showSimple(message);
+              });
+              // uses same groupId state parameter
+              return $state.target("groupInfo", trans.params(), trans.options());
+            }
+          });
+        },
+        failure: ($state, trans) => {
+          return $state.target("groupInfo", trans.params(), trans.options());
+        }
       }
     });
 })

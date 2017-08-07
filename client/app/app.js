@@ -11,7 +11,7 @@ import "angular-breadcrumb";
 import angularLoadingBar from "angular-loading-bar";
 import ngLocale from "angular-dynamic-locale";
 import "angular-promise-buttons";
-import AppAuthCheck from "./app.authCheck";
+import { AuthCheckConfig } from "./app.authCheck";
 
 // config
 import Services from "./services/services";
@@ -64,7 +64,7 @@ angular.module("app", [
 .run(AppLocalizeRun)
 .config(AppMaterial)
 .config(AppHTTPErrorHandler)
-.config(AppAuthCheck)
+.config(AuthCheckConfig)
 .config(( $mdGestureProvider ) => {
   "ngInject";
   $mdGestureProvider.skipClickHijack();

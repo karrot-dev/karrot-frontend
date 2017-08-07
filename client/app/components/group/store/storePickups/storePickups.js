@@ -19,7 +19,8 @@ let storePickupsModule = angular.module("storePickups", [
       component: "storePickups",
       ncyBreadcrumb: {
         label: "{{'GROUP.PICKUPS' | translate}}"
-      }
+      },
+      authCheck: "group"
     });
 })
 

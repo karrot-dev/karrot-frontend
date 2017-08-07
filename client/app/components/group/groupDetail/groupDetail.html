@@ -13,6 +13,17 @@
     <i class="fa fa-fw fa-map-marker"></i>
     {{$ctrl.groupData.address}}
   </div>
+  <div ng-if="$ctrl.conversation">
+    <h2>conversation goes here</h2>
+    <ul>
+      <li ng-repeat="message in $ctrl.conversation.messages">
+        {{ message.author }}: {{ message.content }}
+      </li>
+    </ul>
+    <form ng-submit="$ctrl.sendMessage()">
+      <input type="text" ng-model="$ctrl.newMessageContent">
+    </form>
+  </div>
   <div ng-if="$ctrl.$mdMedia('gt-sm')">
     <expandable-panel content="$ctrl.groupData.description" markdown="true" collapse="10"></expandable-panel>
   </div>

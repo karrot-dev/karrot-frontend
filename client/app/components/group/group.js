@@ -43,20 +43,22 @@ let groupPageModule = angular.module("group", [
         let CurrentGroup = trans.injector().get("CurrentGroup");
         let $stateParams = trans.injector().get("$stateParams");
         let SessionUser = trans.injector().get("SessionUser");
-        let $translate = trans.injector().get("$translate");
-        let $mdToast = trans.injector().get("$mdToast");
-        return GroupService.get($stateParams.groupId).then((group) => {
-          if (group.members.indexOf(SessionUser.value.id) >= 0) {
-            CurrentGroup.set(group);
-            return "group.groupDetail.pickups";
-          } else {
-            $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
-              $mdToast.showSimple(message);
-            });
-            // re-uses same groupId state parameter
-            return "groupInfo";
-          }
-        });
+        return GroupService.get($stateParams.groupId).then((group) =>
+          SessionUser.loaded.then((user) => {
+            if (group.members.indexOf(user.id) >= 0) {
+              CurrentGroup.set(group);
+              return "group.groupDetail.pickups";
+            } else {
+              let $translate = trans.injector().get("$translate");
+              let $mdToast = trans.injector().get("$mdToast");
+              $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
+                $mdToast.showSimple(message);
+              });
+              // re-uses same groupId state parameter
+              return "groupInfo";
+            }
+          })
+        );
       },
       component: "group",
       resolve: {
@@ -69,6 +71,9 @@ let groupPageModule = angular.module("group", [
       },
       ncyBreadcrumb: {
         label: "{{$ctrl.CurrentGroup.value.name}}"
+      },
+      data: {
+        authCheck: true
       }
     });
 })

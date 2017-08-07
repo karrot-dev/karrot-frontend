@@ -47,11 +47,16 @@ describe("SessionUser service", () => {
     });
   });
 
-  it("can be cleared", () => {
+  it("can be cleared", inject(($q, $rootScope) => {
     SessionUser.set({ some: "data" });
+
+    let spy = sinon.spy();
+    SessionUser.loaded.catch(spy);
     SessionUser.clear();
+    $rootScope.$apply();
     expect(SessionUser.value).to.deep.equal({});
-  });
+    expect(spy).to.have.been.calledWith({});
+  }));
 
   it("keeps data reference through promise callback", () => {
     // ensures that you can bind the value from `then` and

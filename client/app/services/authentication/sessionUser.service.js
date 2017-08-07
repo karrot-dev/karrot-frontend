@@ -7,7 +7,7 @@
     `this.user = SessionUser.value`
 
   Use the `loaded` promise to run code when Authentication data
-  has been loaded from the backend.
+  has been loaded from the backend. It will get rejected when the user is not signed in.
 
     SessionUser.loaded.then((userData) => {
       // do something with userData
@@ -35,6 +35,8 @@ export default class sessionUser {
 
   clear() {
     angular.copy({}, this.value);
+    this.deferred.reject(this.value);
+    return this.value;
   }
 
   isLoggedIn() {

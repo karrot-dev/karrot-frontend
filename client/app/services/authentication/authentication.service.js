@@ -11,14 +11,21 @@ class AuthenticationService {
     return this.$http.post("/api/auth/", { email, password })
       .then((res) => res.data)
       .then((data) => this.SessionUser.set(data))
-      .catch((res) => this.$q.reject(res.data));
+      .catch((res) => {
+        this.SessionUser.clear();
+        return this.$q.reject(res.data);
+      });
   }
 
-  update() {
+  update(raw) {
     return this.$http.get("/api/auth/status/")
       .then((res) => res.data)
       .then((data) => this.SessionUser.set(data))
-      .catch((res) => this.$q.reject(res.data));
+      .catch((res) => {
+        this.SessionUser.clear();
+        if (raw) return this.$q.reject(res);
+        return this.$q.reject(res.data);
+      });
   }
 
   logout() {

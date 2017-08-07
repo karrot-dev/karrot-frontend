@@ -17,13 +17,12 @@ class AuthenticationService {
       });
   }
 
-  update(raw) {
+  update() {
     return this.$http.get("/api/auth/status/")
       .then((res) => res.data)
       .then((data) => this.SessionUser.set(data))
       .catch((res) => {
         this.SessionUser.clear();
-        if (raw) return this.$q.reject(res);
         return this.$q.reject(res.data);
       });
   }

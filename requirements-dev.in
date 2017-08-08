@@ -1,6 +1,2 @@
 ipython
-pytest
-pytest-django
-pytest-testmon
-pytest-watch
 tblib

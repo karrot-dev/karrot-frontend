@@ -47,6 +47,11 @@ class TestConversationsAPI(APITestCase):
         response = self.client.get('/api/messages/?conversation={}'.format(self.conversation3.id), format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
+    def test_same_error_if_conversation_does_not_exist_as_if_you_are_just_not_in_it(self):
+        self.client.force_login(user=self.participant1)
+        response = self.client.get('/api/messages/?conversation={}'.format(982398723), format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
     def test_create_message(self):
         conversation = ConversationFactory()
         conversation.join(self.participant1)

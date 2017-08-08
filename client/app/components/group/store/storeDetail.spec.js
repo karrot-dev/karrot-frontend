@@ -54,7 +54,7 @@ describe("StoreDetail", () => {
         sinon.stub(Authentication, "update").returns($q.resolve({ id: 43 }));
         $rootScope.$apply();
         expect(
-          $state.go("group.store", { storeId: storeData.id, groupId: groupData.id }).catch((e)=>console.log(e))
+          $state.go("group.store", { storeId: storeData.id, groupId: groupData.id })
         ).to.eventually.be.fulfilled;
         $httpBackend.flush();
         expect($state.current.component).to.equal("storePickups");

@@ -52,7 +52,28 @@ describe("socket.service", () => {
         expect($log.info.logs.pop()[0]).to.equal("socket opened!");
         expect(messages.length).to.equal(1);
         expect(messages).to.deep.equal([{ content: "woo" }]);
-        $log.info.logs.length = 0;
+        done();
+      }, 100);
+    });
+
+    it("can subscribe and unsubscribe", () => {
+      let subscriber = () => {};
+      let unsubscribe = Socket.subscribe(subscriber);
+      expect(Socket.subscribers).to.include(subscriber);
+      unsubscribe();
+      expect(Socket.subscribers).to.not.include(subscriber);
+    });
+
+    it("errors if message is not json format", (done) => {
+      mockServer.on("connection", () => {
+        mockServer.send("I am not json");
+      });
+      Socket.connect();
+      // eslint-disable-next-line angular/timeout-service
+      setTimeout(() => {
+        expect($log.info.logs.pop()[0]).to.equal("socket opened!");
+        expect($log.error.logs.pop()[0]).to.equal("websocket message was not json");
+        expect(messages.length).to.equal(0);
         done();
       }, 100);
     });

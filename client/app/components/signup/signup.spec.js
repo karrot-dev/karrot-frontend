@@ -121,8 +121,9 @@ describe("Signup", () => {
 
     it("accepts invite and redirects to home if logged in", () => {
       inject((Authentication, Invitation, $q, $rootScope, $state) => {
-        sinon.stub(Authentication, "update").returns($q.resolve());
+        sinon.stub(Authentication, "update").returns($q.resolve({ id: 1 }));
         sinon.stub(Invitation, "accept").returns($q.resolve());
+
         expect($state.go("signup", { invite: "mytoken" })).to.eventually.be.fulfilled;
         $rootScope.$apply();
         expect(Invitation.accept).to.have.been.calledWith("mytoken");
@@ -132,8 +133,9 @@ describe("Signup", () => {
 
     it("without invite just go to home", () => {
       inject((Authentication, Invitation, $q, $rootScope, $state) => {
-        sinon.stub(Authentication, "update").returns($q.resolve());
+        sinon.stub(Authentication, "update").returns($q.resolve({ id: 1 }));
         sinon.stub(Invitation, "accept");
+
         expect($state.go("signup")).to.eventually.be.fulfilled;
         $rootScope.$apply();
         expect(Invitation.accept).to.not.have.been.called;

@@ -1,9 +1,9 @@
 class UserDetailController {
-  constructor(User, SessionUser, $state) {
+  constructor(User, Authentication, $state) {
     "ngInject";
     Object.assign(this, {
       User,
-      SessionUser,
+      Authentication,
       $state,
       markers: {},
       center: {},
@@ -27,7 +27,7 @@ class UserDetailController {
 
   $onChanges(changes) {
     if (changes.userdata && changes.userdata.currentValue) {
-      this.SessionUser.loaded.then((data) => {
+      this.Authentication.update().then((data) => {
         // check if the user can edit his own page
         this.editable = data.id === changes.userdata.currentValue.id;
       });

@@ -14,11 +14,10 @@ describe("CurrentGroup service", () => {
     $log.assertEmpty();
   });
 
-  let CurrentGroup, SessionUser, $httpBackend;
+  let CurrentGroup, $httpBackend;
 
   beforeEach(inject(($injector) => {
     CurrentGroup = $injector.get("CurrentGroup");
-    SessionUser = $injector.get("SessionUser");
     $httpBackend = $injector.get("$httpBackend");
 
     sinon.stub(CurrentGroup, "persistCurrentGroup");
@@ -59,9 +58,9 @@ describe("CurrentGroup service", () => {
     expect(CurrentGroup.value).to.equal(value);
   });
 
-  it("can persist current group", () => {
+  it("can persist current group", inject(($q) => {
     CurrentGroup.persistCurrentGroup.restore();
-    SessionUser.set({ id: 1 });
+    sinon.stub(CurrentGroup.Authentication, "update").returns($q.resolve({ id: 1 }));
     let user = {
       id: 1,
       current_group: 4              //eslint-disable-line
@@ -69,7 +68,7 @@ describe("CurrentGroup service", () => {
     $httpBackend.expectPATCH(`/api/users/${user.id}/`, user).respond(200, {});
     CurrentGroup.persistCurrentGroup(user.current_group);
     $httpBackend.flush();
-  });
+  }));
 
   it("sets map overview mode", inject(($rootScope) => {
     // default is true

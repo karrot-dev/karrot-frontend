@@ -5,45 +5,24 @@
   controller and it will keep updated. e.g.:
 
     `this.user = SessionUser.value`
-
-  Use the `loaded` promise to run code when Authentication data
-  has been loaded from the backend. It will get rejected when the user is not signed in.
-
-    SessionUser.loaded.then((userData) => {
-      // do something with userData
-    });
-
 */
 
 export default class sessionUser {
 
-  constructor($q) {
+  constructor() {
     "ngInject";
-    this.deferred = $q.defer(); // eslint-disable-line
     Object.assign(this, {
-      $q,
-      value: {},
-      loaded: this.deferred.promise
+      value: {}
     });
   }
 
   set(value) {
     angular.copy(value, this.value);
-    this.deferred.resolve(this.value);
-
-    // in case the old promise has already been resolved or rejected, 
-    // replaces the promise with an updated one
-    this.loaded = this.$q.resolve(this.value);
     return this.value;
   }
 
   clear() {
     angular.copy({}, this.value);
-    this.deferred.reject(this.value);
-
-    // in case the old promise has already been resolved or rejected, 
-    // replaces the promise with an updated one
-    this.loaded = this.$q.reject(this.value);
     return this.value;
   }
 

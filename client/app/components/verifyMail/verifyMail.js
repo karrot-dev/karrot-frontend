@@ -2,11 +2,13 @@ import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import User from "services/user/user";
 import verifyMailComponent from "./verifyMail.component";
+import Authentication from "services/authentication/authentication";
 import { loggedInOrRedirectToLogin } from "services/authentication/snippets";
 
 let verifyMailModule = angular.module("verifyMail", [
   uiRouter,
-  User
+  User,
+  Authentication
 ])
 
 .component("verifyMail", verifyMailComponent)

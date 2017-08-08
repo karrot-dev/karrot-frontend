@@ -9,12 +9,12 @@
 */
 export default class CurrentGroup {
 
-  constructor(User, SessionUser) {
+  constructor(User, Authentication) {
     "ngInject";
     Object.assign(this, {
       value: {},
       User,
-      SessionUser,
+      Authentication,
       map: {
         overview: 1,
         center: undefined,
@@ -46,7 +46,7 @@ export default class CurrentGroup {
   }
 
   persistCurrentGroup(groupId) {
-    this.SessionUser.loaded.then((user) => {
+    this.Authentication.update().then((user) => {
       this.User.save({
         id: user.id,
         current_group: groupId  //eslint-disable-line

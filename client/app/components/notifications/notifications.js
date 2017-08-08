@@ -24,7 +24,7 @@ let notificationsModule = angular.module("notifications", [
       component: "notifications",
       resolve: {
         loggedInOrRedirectToLogin,
-        userdata: (SessionUser) => SessionUser.loaded
+        userdata: (Authentication) => Authentication.update()
       },
       ncyBreadcrumb: {
         label: "{{'NOTIFICATIONS.TITLE' | translate}}"

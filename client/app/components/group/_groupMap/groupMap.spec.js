@@ -115,6 +115,9 @@ describe("GroupMap", () => {
     }));
 
     it("shows user markers", inject(($rootScope, $timeout) => {
+      // avoid the side effects of persisting the group after CurrentGroup.set()
+      sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
+
       $ctrl.$onInit();
       expect($ctrl.markers).to.deep.equal({});
       $ctrl.CurrentUsers.set([{ id: 5, latitude: 33, longitude: 44 }, { id: 999, latitude: 33, longitude: 44 }]);

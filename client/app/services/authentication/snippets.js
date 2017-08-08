@@ -1,6 +1,6 @@
-export function loggedInOrRedirectToLogin (SessionUser, $state, $translate, $mdToast, $q) {
+export function loggedInOrRedirectToLogin (Authentication, $state, $translate, $mdToast, $q) {
   "ngInject";
-  return SessionUser.loaded
+  return Authentication.update()
   .catch(() => {
     $translate("GLOBAL.NOT_LOGGED_IN").then((message) => {
       $mdToast.showSimple(message);
@@ -9,9 +9,9 @@ export function loggedInOrRedirectToLogin (SessionUser, $state, $translate, $mdT
   });
 }
 
-export function loggedOutOrRedirectToHome (SessionUser, $state, $q) {
+export function loggedOutOrRedirectToHome (Authentication, $state, $q) {
   "ngInject";
-  return SessionUser.loaded
+  return Authentication.update()
   .then(() => $q.reject($state.go("home")))
   .catch(() => $q.resolve());
 }

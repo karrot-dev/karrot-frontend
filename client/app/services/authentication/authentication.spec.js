@@ -22,6 +22,11 @@ describe("authentication", () => {
     Authentication = _Authentication_;
   }));
 
+  afterEach(() => {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
   let loginData = {
     "id": 7,
     "display_name": "asdflo",
@@ -68,11 +73,6 @@ describe("authentication", () => {
       $httpBackend.expectPOST("/api/auth/logout/").respond(200);
       expect(Authentication.logout()).to.be.fulfilled;
       $httpBackend.flush();
-    });
-
-    afterEach(() => {
-      $httpBackend.verifyNoOutstandingExpectation();
-      $httpBackend.verifyNoOutstandingRequest();
     });
   });
 

@@ -33,7 +33,6 @@ INSTALLED_APPS = (
     'foodsaving.base',
     'foodsaving.subscriptions.SubscriptionsConfig',
     'foodsaving.frontend',
-    'foodsaving.frontendchat',
     'foodsaving.users.UsersConfig',
     'foodsaving.conversations',
     'foodsaving.history.HistoryConfig',

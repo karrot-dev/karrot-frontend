@@ -98,4 +98,23 @@ describe("Login", () => {
       $compile("<login></login>")(scope);
     });
   });
+
+  describe("Route", () => {
+    it("stays on route if logged out", inject((Authentication, $q, $rootScope, $state) => {
+      sinon.stub(Authentication, "update").returns($q.reject());
+      $state.go("login");
+      $rootScope.$apply();
+      expect($state.current.name).to.equal("login");
+    }));
+
+    it("redirects to home if logged in", inject((Authentication, $q, $rootScope, $state) => {
+      // ignore error log
+      $state.defaultErrorHandler(() => {});
+
+      sinon.stub(Authentication, "update").returns($q.resolve({ id: 1 }));
+      $state.go("login");
+      $rootScope.$apply();
+      expect($state.current.name).to.equal("home");
+    }));
+  });
 });

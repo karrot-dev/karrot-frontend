@@ -46,7 +46,7 @@ class SocketService {
         data = angular.fromJson(event.data);
       } catch (err) {
         this.$log.error("websocket message was not json", event.data);
-        throw err;
+        return;
       }
       this.subscribers.forEach((fn) => fn(data));
     });

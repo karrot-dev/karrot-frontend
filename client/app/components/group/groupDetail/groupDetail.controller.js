@@ -25,7 +25,6 @@ class GroupDetailController {
     // clear selected store
     this.CurrentStores.setSelected({});
   }
-
 }
 
 export default GroupDetailController;

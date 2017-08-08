@@ -19,10 +19,10 @@ let signupModule = angular.module("signup", [
     url: "/signup?invite&email",
     component: "signup",
     redirectTo: (trans) => {
-      let SessionUser = trans.injector().get("SessionUser");
+      let Authentication = trans.injector().get("Authentication");
       let $stateParams = trans.injector().get("$stateParams");
       let Invitation = trans.injector().get("Invitation");
-      return SessionUser.loaded
+      return Authentication.update()
       .then(() => {
         if ($stateParams.invite) {
           return Invitation.accept($stateParams.invite)

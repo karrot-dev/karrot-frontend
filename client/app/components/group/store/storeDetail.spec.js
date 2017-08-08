@@ -43,19 +43,18 @@ describe("StoreDetail", () => {
 
   describe("Routes", () => {
     it("should load store and group information", () => {
-      inject((CurrentGroup, GroupService, Store, $q, CurrentStores, $rootScope, SessionUser, $translate) => {
+      inject((CurrentGroup, GroupService, Store, $q, CurrentStores, $rootScope, Authentication, $translate) => {
         $translate.returns($q.resolve());
-        SessionUser.set({ id: 43 });
         let groupData = { id: 12, members: [43] };
         let storeData = { id: 25, group: groupData.id };
 
         $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
         sinon.stub(CurrentGroup, "set").returns($q.resolve(groupData));
         sinon.stub(Store, "get").returns($q.resolve(storeData));
-        SessionUser.set({ id: 43 });
+        sinon.stub(Authentication, "update").returns($q.resolve({ id: 43 }));
         $rootScope.$apply();
         expect(
-          $state.go("group.store", { storeId: storeData.id, groupId: groupData.id })
+          $state.go("group.store", { storeId: storeData.id, groupId: groupData.id }).catch((e)=>console.log(e))
         ).to.eventually.be.fulfilled;
         $httpBackend.flush();
         expect($state.current.component).to.equal("storePickups");

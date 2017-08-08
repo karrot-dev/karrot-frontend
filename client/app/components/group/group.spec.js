@@ -69,21 +69,35 @@ describe("Group", () => {
       });
     });
 
-    it("loads group information & redirects to substate", inject((SessionUser) => {
-      SessionUser.set({ id: 43 });
+    it("loads group information & redirects to substate", inject((Authentication, $q) => {
+      sinon.stub(Authentication, "update").returns($q.resolve({ id: 43 }));
       let groupData = { id: 12, members: [43] };
       $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
-      $state.go("group", { groupId: groupData.id });
+      expect($state.go("group", { groupId: groupData.id })).to.be.fulfilled;
       $httpBackend.flush();
       expect($state.current.name).to.equal("group.groupDetail.pickups");
     }));
 
-    it("redirects to group info if user is not in group", inject((SessionUser) => {
-      SessionUser.set({ id: 43 });
+    it("redirects to groupInfo if user is not in group", inject((Authentication, $q) => {
+      // ignore error log
+      $state.defaultErrorHandler(() => {});
+
+      sinon.stub(Authentication, "update").returns($q.resolve({ id: 43 }));
       let groupData = { id: 13, members: [234] };
       $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
       $state.go("group", { groupId: groupData.id });
       $httpBackend.flush();
+      expect($state.current.name).to.equal("groupInfo");
+    }));
+
+    it("redirects to groupInfo if logged out", inject((Authentication, $q, $rootScope, $timeout) => {
+      // ignore error log
+      $state.defaultErrorHandler(() => {});
+
+      sinon.stub(Authentication, "update").returns($q.reject());
+      $state.go("group", { groupId: 13 });
+      $rootScope.$apply();
+      $timeout.flush();
       expect($state.current.name).to.equal("groupInfo");
     }));
   });

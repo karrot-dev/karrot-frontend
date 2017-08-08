@@ -76,11 +76,6 @@ angular.module("app", [
   // Globally disables all ARIA warnings.
   $mdAriaProvider.disableWarnings();
 })
-.run((Authentication) => {
-  "ngInject";
-  // get and set session user
-  Authentication.update();
-})
 .config(($breadcrumbProvider) => {
   "ngInject";
   $breadcrumbProvider.setOptions({

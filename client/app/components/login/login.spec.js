@@ -2,7 +2,7 @@ import LoginModule from "./login";
 
 const { module } = angular.mock;
 
-describe.only("Login", () => {
+describe("Login", () => {
   beforeEach(() => {
     module(LoginModule);
     module(($stateProvider) => {

@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
 
 from foodsaving.conversations.models import Conversation, ConversationMessage
@@ -46,7 +47,7 @@ class CreateConversationMessageSerializer(serializers.ModelSerializer):
 
     def validate_conversation(self, conversation):
         if self.context['request'].user not in conversation.participants.all():
-            raise serializers.ValidationError("You are not in this conversation")
+            raise serializers.ValidationError(_('You are not in this conversation'))
         return conversation
 
     def create(self, validated_data):

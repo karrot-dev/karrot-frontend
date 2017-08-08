@@ -44,6 +44,11 @@ class CreateConversationMessageSerializer(serializers.ModelSerializer):
             }
         }
 
+    def validate_conversation(self, conversation):
+        if self.context['request'].user not in conversation.participants.all():
+            raise serializers.ValidationError("You are not in this conversation")
+        return conversation
+
     def create(self, validated_data):
         user = self.context['request'].user
         return ConversationMessage.objects.create(author=user, **validated_data)

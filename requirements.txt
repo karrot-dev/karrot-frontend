@@ -56,7 +56,7 @@ psutil==5.2.2             # via python-server-metrics
 psycopg2==2.7.3
 pycodestyle==2.3.1        # via flake8
 pycparser==2.18           # via cffi
-pyflakes==1.5.0           # via flake8
+pyflakes==1.6.0           # via flake8
 python-dateutil==2.6.1    # via faker, influxdb
 python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2017.2

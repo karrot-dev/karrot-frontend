@@ -17,7 +17,7 @@ class IsConversationParticipant(BasePermission):
 
         # if they specify a conversation, check they are in it
         if conversation_id:
-            conversation = Conversation.objects.filter(pk=conversation_id).first() # Conversation or None
+            conversation = Conversation.objects.filter(pk=conversation_id).first()  # Conversation or None
             if not conversation:
                 return False
             return request.user in conversation.participants.all()

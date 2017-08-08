@@ -1,5 +1,12 @@
 import ReconnectingWebSocket from "reconnecting-websocket";
 
+export const WEBSOCKET_ENDPOINT = [
+  window.location.protocol.replace(/^http/, "ws"),
+  "//",
+  window.location.host,
+  "/api/ws"
+].join("");
+
 class SocketService {
 
   constructor($q, $log) {
@@ -29,10 +36,7 @@ class SocketService {
   connect() {
     if (this.socket) return;
     this.socket = new ReconnectingWebSocket(
-      "ws://" + window.location.host + "/api/ws",
-      undefined,
-      this.options
-    );
+      WEBSOCKET_ENDPOINT, undefined, this.options);
     this.socket.addEventListener("open", () => {
       this.$log.info("socket opened!");
     });

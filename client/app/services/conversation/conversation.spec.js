@@ -4,7 +4,7 @@ const { module } = angular.mock;
 
 import { Server } from "mock-socket";
 
-describe("conversation service", () => {
+describe("conversation.service", () => {
   beforeEach(module(ConversationModule));
 
   let $log;

@@ -15,6 +15,5 @@ ptyprocess==0.5.2         # via pexpect
 pygments==2.2.0           # via ipython
 simplegeneric==0.8.1      # via ipython
 six==1.10.0               # via prompt-toolkit, traitlets
-tblib==1.3.2
 traitlets==4.3.2          # via ipython
 wcwidth==0.1.7            # via prompt-toolkit

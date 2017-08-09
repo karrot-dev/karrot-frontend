@@ -18,16 +18,15 @@ At a later point, more features could be added that support the yunity vision an
 
 Our current development goals are prioritized and written down in our [elaborate roadmap](ROADMAP.md).
 
-We are keeping the features down to a minimum (check out [that meeting's notes](https://yunity.atlassian.net/wiki/display/YUN/2016-09-13+-+Narrowing+down+features)), in order to progressively build up a useful tool.
+We are keeping the features down to a minimum, in order to progressively build up a useful tool.
 
 ## Releases
 
 Look into our [change log file](CHANGELOG.md) for a quick overview of past versions and recent changes.
 
 ### Potential users
-In future, we want our feature requests to come directly from foodsaving communities, to fulfill their needs and desires.
 
-We don't have testing communities yet: we are in touch with [existing foodsaving networks](https://yunity.atlassian.net/wiki/display/YUN/Existing+initiatives) who have shown interest in testing the tool once it presents sufficient features for them.
+Have a look [on the live site](https://foodsaving.world) for all groups that have registered so far. Not all of them are using the app right now, but we have received feature requests from them.
 
 ## Translation
 

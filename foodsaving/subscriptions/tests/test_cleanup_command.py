@@ -2,7 +2,6 @@ from dateutil.relativedelta import relativedelta
 from django.core.management import call_command
 from django.test import TestCase
 from django.utils import timezone
-from six import StringIO
 
 from foodsaving.subscriptions.models import ChannelSubscription
 from foodsaving.users.factories import UserFactory
@@ -13,11 +12,6 @@ class CleanupChannelCommandTests(TestCase):
     def setUpTestData(cls):
         cls.user = UserFactory()
         cls.subscription = ChannelSubscription.objects.create(user=cls.user, reply_channel='foo')
-
-    def test_prints_done_when_finished(self):
-        out = StringIO()
-        call_command('cleanup_channel_subscriptions', stdout=out)
-        self.assertIn('done', out.getvalue())
 
     def test_keeps_recent_entries(self):
         self.set_lastseen_ago_in_minutes(3)

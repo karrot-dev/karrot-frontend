@@ -26,11 +26,14 @@ And the nginx one in `/etc/nginx/sites-available/`.
 
 ## Useful commands on server
 
-Start 3 workers:
+Start the service:
 ```
+systemctl start foodsaving-world-channels-daphne.server
 ```
 
-Watch logs for a service
+Note: it will start 3 workers if they are not already running (will not stop them though if you stop daphne).
+
+Watch logs for a service:
 
 ```
 journalctl -f -u foodsaving-world-channels-daphne.service

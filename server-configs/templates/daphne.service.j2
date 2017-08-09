@@ -1,0 +1,21 @@
+[Unit]
+Description=Daphne Web Server
+After=network.target
+
+Requires={{ name }}-worker@1.service
+Requires={{ name }}-worker@2.service
+Requires={{ name }}-worker@3.service
+
+[Service]
+Type=simple
+User={{ user }}
+Group={{ group }}
+WorkingDirectory=/var/www/{{ name }}/www
+ExecStart=/var/www/{{ name }}/www/env/bin/daphne \
+	-u /tmp/{{ name }}.daphne.sock \
+	--root-path=/var/www/{{ name }}/www \
+	config.asgi:channel_layer
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

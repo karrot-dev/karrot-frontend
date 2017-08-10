@@ -54,3 +54,13 @@ Watch all related logs:
 ```
 journalctl -f -u 'foodsaving-world-channels-*'
 ```
+
+## Deployment script
+
+In order to allow a deployment user e.g. `deploy` to restart the workers, you
+can configure a sudoers file like this:
+
+```
+# /etc/sudoers.d/deploy_foodsaving_world
+%deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart foodsaving-world-channels.target
+```

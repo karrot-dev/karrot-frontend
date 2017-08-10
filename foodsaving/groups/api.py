@@ -1,4 +1,5 @@
 import pytz
+from django.utils.translation import ugettext_lazy as _
 from rest_framework import filters
 from rest_framework import mixins
 from rest_framework.decorators import detail_route, list_route
@@ -7,13 +8,12 @@ from rest_framework.response import Response
 from rest_framework.schemas import is_custom_action
 from rest_framework.viewsets import GenericViewSet
 
+from foodsaving.conversations.api import RetrieveConversationMixin
 from foodsaving.groups.filters import GroupsFilter
+from foodsaving.groups.models import Group as GroupModel
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer, GroupJoinSerializer, \
     GroupLeaveSerializer, TimezonesSerializer
-from foodsaving.groups.models import Group as GroupModel
 from foodsaving.utils.mixins import PartialUpdateModelMixin
-
-from django.utils.translation import ugettext_lazy as _
 
 
 class IsMember(BasePermission):
@@ -35,6 +35,7 @@ class GroupViewSet(
     mixins.RetrieveModelMixin,
     PartialUpdateModelMixin,
     mixins.ListModelMixin,
+    RetrieveConversationMixin,
     GenericViewSet
 ):
     """
@@ -103,3 +104,9 @@ class GroupViewSet(
         return Response(self.get_serializer(
             {'all_timezones': pytz.all_timezones}
         ).data)
+
+    @detail_route(
+        permission_classes=(IsAuthenticated, IsMember)
+    )
+    def conversation(self, request, pk=None):
+        return self.retrieve_conversation(request, pk)

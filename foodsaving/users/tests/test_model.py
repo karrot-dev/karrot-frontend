@@ -79,7 +79,7 @@ class TestSendMail(TestCase):
                 password='123',
                 display_name='lalala'
             )
-        self.assertEqual(get_user_model().objects.count(), 0)
+        self.assertEqual(get_user_model().objects.filter(email='shabab@test.com').count(), 0)
 
 
 

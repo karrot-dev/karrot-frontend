@@ -22,6 +22,7 @@ class TimezoneField(serializers.Field):
 
 class GroupDetailSerializer(serializers.ModelSerializer):
     "use this also for creating and updating a group"
+
     class Meta:
         model = GroupModel
         fields = [
@@ -53,6 +54,7 @@ class GroupDetailSerializer(serializers.ModelSerializer):
                 'max_length': 255
             }
         }
+
     timezone = TimezoneField()
 
     def update(self, group, validated_data):
@@ -81,6 +83,7 @@ class GroupPreviewSerializer(serializers.ModelSerializer):
     Public information for all visitors
     should be readonly
     """
+
     class Meta:
         model = GroupModel
         fields = [
@@ -132,4 +135,3 @@ class TimezonesSerializer(serializers.Serializer):
         child=serializers.CharField(),
         read_only=True
     )
-

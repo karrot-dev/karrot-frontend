@@ -2,5 +2,6 @@
   "name": "foodsaving-world-channels",
   "domain" : "channels.foodsaving.world",
   "user": "foodsaving-world",
-  "group": "foodsaving-world"
+  "group": "foodsaving-world",
+  "frontend": "master"
 }

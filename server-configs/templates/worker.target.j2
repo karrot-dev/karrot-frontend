@@ -1,0 +1,10 @@
+[Unit]
+Description=Django Worker
+Requires={{ name }}-daphne.service
+
+Wants={{ name }}-worker@1.service
+Wants={{ name }}-worker@2.service
+Wants={{ name }}-worker@3.service
+
+[Install]
+WantedBy=multi-user.target

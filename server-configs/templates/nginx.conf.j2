@@ -13,7 +13,7 @@ server {
     ssl_certificate /var/www/{{ name }}/cert/fullchain.pem;
     ssl_certificate_key /var/www/{{ name }}/cert/key.pem;
 
-    root /home/deploy/foodsaving-frontend/release;
+    root /home/deploy/foodsaving-frontend/{{ frontend }};
 
     location / {
         try_files $uri /index.html;

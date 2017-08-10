@@ -36,15 +36,21 @@ for name in $names; do
 
     mkdir -p "$dest/$name/systemd"
 
-    # daphne
+    # daphne service
 
     jinja2 templates/daphne.service.j2 \
         "$name.json" --format json \
         > "$dest/$name/systemd/$name-daphne.service"
 
-    # worker
+    # worker target
 
-    jinja2 templates/worker.service.j2 \
+    jinja2 templates/worker.target.j2 \
+        "$name.json" --format json \
+        > "$dest/$name/systemd/$name-worker.target"
+
+    # worker service
+
+    jinja2 templates/worker@.service.j2 \
         "$name.json" --format json \
         > "$dest/$name/systemd/$name-worker@.service"
 

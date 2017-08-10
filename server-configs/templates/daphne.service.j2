@@ -2,10 +2,6 @@
 Description=Daphne Web Server
 After=network.target
 
-Requires={{ name }}-worker@1.service
-Requires={{ name }}-worker@2.service
-Requires={{ name }}-worker@3.service
-
 [Service]
 Type=simple
 User={{ user }}

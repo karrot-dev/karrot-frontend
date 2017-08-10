@@ -1,6 +1,7 @@
 [Unit]
 Description=Django Worker
 After=network.target
+PartOf={{ name }}-worker.target
 
 [Service]
 Type=simple
@@ -9,6 +10,3 @@ Group={{ group }}
 WorkingDirectory=/var/www/{{ name }}/www
 ExecStart=/var/www/{{ name }}/www/env/bin/python manage.py runworker
 Restart=always
-
-[Install]
-WantedBy=multi-user.target

@@ -31,9 +31,19 @@ Start the service:
 systemctl start foodsaving-world-channels-daphne.server
 ```
 
-Note: it will start 3 workers if they are not already running (will not stop them though if you stop daphne).
+Start the workers:
 
-Watch logs for a service:
+```
+systemctl start foodsaving-world-channels-worker.target
+```
+
+Restart the workers:
+
+```
+systemctl restart foodsaving-world-channels-worker.target
+```
+
+Watch the daphne logs:
 
 ```
 journalctl -f -u foodsaving-world-channels-daphne.service

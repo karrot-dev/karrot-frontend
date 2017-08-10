@@ -45,18 +45,23 @@ let groupPageModule = angular.module("group", [
         let SessionUser = trans.injector().get("SessionUser");
         let $translate = trans.injector().get("$translate");
         let $mdToast = trans.injector().get("$mdToast");
-        return GroupService.get($stateParams.groupId).then((group) => {
-          if (group.members.indexOf(SessionUser.value.id) >= 0) {
-            CurrentGroup.set(group);
-            return "group.groupDetail.pickups";
-          } else {
-            $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
-              $mdToast.showSimple(message);
-            });
-            // re-uses same groupId state parameter
-            return "groupInfo";
-          }
-        });
+        let $state = trans.injector().get("$state");
+        return GroupService.get($stateParams.groupId)
+          .then((group) => {
+            if (group.members.indexOf(SessionUser.value.id) >= 0) {
+              CurrentGroup.set(group);
+              return "group.groupDetail.pickups";
+            } else {
+              $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
+                $mdToast.showSimple(message);
+              });
+              // re-uses same groupId state parameter
+              return "groupInfo";
+            }
+          })
+          .catch(() => {
+            $state.go("notFound");
+          });
       },
       component: "group",
       resolve: {

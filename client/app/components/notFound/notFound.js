@@ -1,16 +1,14 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import Authentication from "../../services/authentication/authentication";
 import notFoundComponent from "./notFound.component";
 
 let notFoundModule = angular.module("notFound", [
-  uiRouter,
-  Authentication
+  uiRouter
 ])
 
 .component("notFound", notFoundComponent)
 
-.config(($stateProvider, hookProvider) => {
+.config(($stateProvider) => {
   "ngInject";
   $stateProvider
     .state("notFound", {
@@ -18,7 +16,6 @@ let notFoundModule = angular.module("notFound", [
       url: "/not-found",
       component: "notFound"
     });
-  hookProvider.setup("notFound", { authenticated: true, anonymous: "login" });
 })
 
 .name;

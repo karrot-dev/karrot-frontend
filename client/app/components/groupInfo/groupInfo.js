@@ -27,8 +27,12 @@ let groupInfoModule = angular.module("groupInfo", [
       url: "/group-info/{groupId:int}",
       component: "groupInfo",
       resolve: {
-        groupData: (GroupService, $stateParams) => {
-          return GroupService.get($stateParams.groupId);
+        groupData: (GroupService, $stateParams, $state) => {
+          return GroupService.get($stateParams.groupId)
+            .catch((error) => {
+              if (error.status === 403) $state.go("login");
+              $state.go("notFound");
+            });
         }
       },
       ncyBreadcrumb: {

@@ -6,7 +6,9 @@ describe("UserDetail", () => {
   beforeEach(module(UserDetailModule));
   beforeEach(module(($stateProvider) => {
     $stateProvider
-      .state("main", { url: "", abstract: true });
+      .state("main", { url: "", abstract: true })
+      .state("login", { url: "login" })
+      .state("notFound", { url: "not-found" });
   }));
   beforeEach(module({ translateFilter: (a) => a }));
 
@@ -43,6 +45,21 @@ describe("UserDetail", () => {
       $httpBackend.expectGET("/api/users/5/").respond( { id: 5 });
       $state.go("userDetail", { id: 5 });
       $httpBackend.flush();
+    });
+
+    it("redirects to login when not authed", () => {
+      $httpBackend.expectGET("/api/auth/status/").respond(403, { error: "not logged in" });
+      $state.go("userDetail", { id: 5 });
+      $httpBackend.flush();
+      expect($state.current.name).to.equal("login");
+    });
+
+    it("redirects to notFound correctly", () => {
+      $httpBackend.expectGET("/api/auth/status/").respond( { id: 99 });
+      $httpBackend.expectGET("/api/users/5/").respond(404, { error: "not found" });
+      $state.go("userDetail", { id: 5 });
+      $httpBackend.flush();
+      expect($state.current.name).to.equal("notFound");
     });
   });
 

@@ -1,57 +1,63 @@
-from django.db.models import Max
-from rest_framework.permissions import IsAuthenticated
-from foodsaving.conversations.serializers import ConversationSerializer, MessageSerializer, \
-    ConversationUpdateSerializer
-from foodsaving.conversations.models import Conversation as ConversationModel
-from foodsaving.conversations.models import ConversationMessage as MessageModel
-from rest_framework import viewsets, mixins
+from django.utils.translation import ugettext_lazy as _
+from rest_framework import mixins
+from rest_framework.permissions import IsAuthenticated, BasePermission
+from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 
-from foodsaving.utils.mixins import PartialUpdateModelMixin
+from foodsaving.conversations.models import Conversation, ConversationMessage
+from foodsaving.conversations.serializers import ConversationSerializer, ConversationMessageSerializer, \
+    CreateConversationMessageSerializer
 
 
-class ChatViewSet(mixins.CreateModelMixin,
-                  mixins.ListModelMixin,
-                  mixins.RetrieveModelMixin,
-                  PartialUpdateModelMixin,
-                  viewsets.GenericViewSet):
+class IsConversationParticipant(BasePermission):
+    message = _('You are not in this conversation')
+
+    def has_permission(self, request, view):
+        conversation_id = request.GET.get('conversation', None)
+
+        # if they specify a conversation, check they are in it
+        if conversation_id:
+            conversation = Conversation.objects.filter(pk=conversation_id).first()  # Conversation or None
+            if not conversation:
+                return False
+            return request.user in conversation.participants.all()
+
+        # otherwise it is fine (messages will be filtered for the users conversations)
+        return True
+
+
+class ConversationMessageViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
     """
-    Conversations
-
-    # Query parameters
-    - `?participants` - filter by participant user id
+    ConversationMessages
     """
-    queryset = ConversationModel.objects
-    serializer_class = ConversationSerializer
-    permission_classes = (IsAuthenticated,)
-    filter_fields = ('participants',)
 
-    def get_queryset(self):
-        return self.queryset.filter(participants__id__in=[self.request.user.id]) \
-            .annotate(latest_message_time=Max('messages__created_at')) \
-            .order_by('-latest_message_time')
+    # TODO: sort by newest first (reverse id)
+    # TODO: limit to 50 or so
+    # TODO: to load older messages add "before" that does a "where id < before"
+
+    queryset = ConversationMessage.objects
+    serializer_class = ConversationMessageSerializer
+    permission_classes = (IsAuthenticated, IsConversationParticipant)
+    filter_fields = ('conversation',)
 
     def get_serializer_class(self):
-        serializer_class = self.serializer_class
-        if self.action in ('update', 'partial_update'):
-            serializer_class = ConversationUpdateSerializer
-        return serializer_class
-
-
-class ChatMessageViewSet(mixins.CreateModelMixin,
-                         mixins.ListModelMixin,
-                         viewsets.GenericViewSet):
-    """
-    Conversation Message
-    """
-    queryset = MessageModel.objects
-    serializer_class = MessageSerializer
-    permission_classes = (IsAuthenticated,)
+        if self.action == 'create':
+            return CreateConversationMessageSerializer
+        return self.serializer_class
 
     def get_queryset(self):
-        chat_id = self.kwargs.get('conversations_pk')
-        return self.queryset.filter(in_conversation=chat_id)
+        return self.queryset.filter(conversation__participants=self.request.user)
 
-    def create(self, request, *args, **kwargs):
-        # chat_pk isn't available in the serializer, so insert it here
-        request.data['in_conversation_id'] = kwargs.pop('conversations_pk')
-        return super().create(request, *args, **kwargs)
+
+class RetrieveConversationMixin(object):
+    """Retrieve a conversation instance."""
+
+    def retrieve_conversation(self, request, *args, **kwargs):
+        target = self.get_object()
+        conversation = Conversation.objects.get_or_create_for_target(target)
+        serializer = ConversationSerializer(conversation)
+        return Response(serializer.data)

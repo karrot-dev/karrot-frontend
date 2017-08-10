@@ -1,6 +1,5 @@
 [Unit]
 Description=Django Worker
-Requires={{ name }}-daphne.service
 {% for n in range(workers) %}
 Wants={{ name }}-worker@{{ n+1 }}.service{% endfor %}
 

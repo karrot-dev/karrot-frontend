@@ -18,25 +18,23 @@ To fix a bug or to add a new feature, the workflow is roughly the following. Fir
 ```sh
 git checkout master
 git pull
-npm install
-npm up
-npm prune
+yarn
 ```
 
 Then you are ready to start working. Turn on the development server and open the URL (usually http://localhost:3000). As soon as you change a file in the repository and save it, it will automatically reload the page.
 
 ```sh
-npm run dev
+yarn run dev
 ```
 
 If you are finished with your work, you should run the tests and check the code style.
 
 ```sh
-npm run test:watch
-npm run lint
+yarn run test:watch
+yarn run lint
 ```
 
-You can use `npm run test` to disable the restarting the tests after a file changed. Also, if you use an IDE that supports [code style plugins](#code-style), you can usually skip the `lint` step.
+You can use `yarn run test` to disable the restarting the tests after a file changed. Also, if you use an IDE that supports [code style plugins](#code-style), you can usually skip the `lint` step.
 
 ```sh
 git checkout -b newBranchForIssue
@@ -92,7 +90,7 @@ Add services by executing `gulp service --name <service>`.
 Be careful to adapt your coding style to the already existing one. That makes it easier for future contributors to understand and get used to the code. Some helps:
 
 * We use [editorconfig](http://editorconfig.org/). Plugins are available for many editors, e.g. for Atom:`editorconfig`)
-* check your code style with `npm run lint`, or better: install an `eslint` plugin in your IDE
+* check your code style with `yarn run lint`, or better: install an `eslint` plugin in your IDE
 * Use ES6 features (but use `$q` of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
 * Avoid creating directives
 * Avoid global components, import them where needed
@@ -121,7 +119,7 @@ Use the [transifex command line client](https://docs.transifex.com/client/introd
 tx push -s
 
 # get translated files
-npm run update_i18n
+yarn run update_i18n
 
 # (it will run the following commands:)
 # tx pull -a

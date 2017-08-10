@@ -1,18 +1,24 @@
 machine:
   node:
     version: 8.2.0
+  environment:
+    # from https://circleci.com/docs/1.0/yarn/
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 dependencies:
   pre:
-    - npm install -g npm@5
-    - npm install -g greenkeeper-lockfile@1
+    - yarn global add greenkeeper-lockfile@1
+  override:
+   - yarn
   post:
-    - npm run lint
-    - npm run build
+    - yarn run lint
+    - yarn run build
+  cache_directories:
+    - ~/.cache/yarn
 test:
   pre:
     - greenkeeper-lockfile-update
   override:
-    - NODE_ENV=test npm test -- --reporters junit,coverage
+    - NODE_ENV=test yarn test -- --reporters junit,coverage
     - mv TESTS*.xml $CIRCLE_TEST_REPORTS/
   post:
     - bash <(curl -s https://codecov.io/bash)

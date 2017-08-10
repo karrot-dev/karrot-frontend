@@ -48,3 +48,9 @@ Watch the daphne logs:
 ```
 journalctl -f -u foodsaving-world-channels-daphne.service
 ```
+
+Watch all related logs:
+
+```
+journalctl -f -u 'foodsaving-world-channels-*'
+```

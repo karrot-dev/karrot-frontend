@@ -16,8 +16,7 @@ fi
 if [ "x$BRANCH" = "xproduction" ]; then
   name=foodsaving-world
 else
-  # TODO: change to "foodsaving-world-dev" when ready
-  name=foodsaving-world-channels
+  name=foodsaving-world-dev
 fi
 
 function restart-workers() {
@@ -40,7 +39,7 @@ fi
 # Ensure we have the virtualenv setup
 
 if [ ! -d "$virtualenv_dir" ]; then
-  virtualenv --python=python3 --no-site-packages "$virtualenv_dir"
+  virtualenv --no-setuptools --python=python3 --no-site-packages "$virtualenv_dir"
 fi
 
 # TODO: ensure ownership is "foodsaving-world" (or maybe "foodsaving-world-dev")
@@ -48,17 +47,13 @@ fi
 # TODO: add the migration once it's the main dev deploy
 #env/bin/python manage.py migrate && \
 
-# TODO: use pip-sync instead of pip install
-# I changed it from pip-sync to pip install because of
-# https://github.com/jazzband/pip-tools/issues/389
-# but would be nice to get back to pip-sync
-
 (
   cd ${backend_dir} && \
   git clean -fd && \
   git checkout $BRANCH && \
   git pull && \
-  env/bin/pip install -r requirements.txt && \
+  env/bin/pip install setuptools pip-tools && \
+  env/bin/pip-sync && \
   env/bin/python manage.py check --deploy && \
   env/bin/python manage.py collectstatic --clear --no-input && \
   env/bin/python manage.py compilemessages

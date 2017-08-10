@@ -247,5 +247,12 @@
     "NOT_VERIFIED": "Not verified",
     "RESEND_VERIFICATION": "Resend verification",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+  },
+  "NOT_FOUND": {
+    "TITLE": "Page not found",
+    "HEADER": "Ooooooops!",
+    "SUBHEADER": "404 - Page not found",
+    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
+    "HOME": "Take me home"
   }
 }

@@ -1,7 +1,7 @@
-# Start with the regular settings
-
-# Speeds up test execution.
+# These settings may speed up test execution, depending on your machine
 # See https://brobin.me/blog/2016/08/7-ways-to-speed-up-your-django-test-suite/
+
+# Usage: ./manage.py test --settings=config.test_settings
 
 # noinspection PyUnresolvedReferences
 from .settings import *  # noqa: F401,F403

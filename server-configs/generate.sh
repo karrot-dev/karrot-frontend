@@ -18,8 +18,8 @@ mkdir -p "$dest"
 for name in $names; do
     echo "generating configs for $name"
 
-    if [ -d "$name" ]; then
-        rm -r "$dest/$name"
+    if [ -d "$dest/$name" ]; then
+        rm -r "${dest:?}/$name"
     fi
 
     # nginx

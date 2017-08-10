@@ -1,10 +1,8 @@
 [Unit]
 Description=Django Worker
 Requires={{ name }}-daphne.service
-
-Wants={{ name }}-worker@1.service
-Wants={{ name }}-worker@2.service
-Wants={{ name }}-worker@3.service
+{% for n in range(workers) %}
+Wants={{ name }}-worker@{{ n+1 }}.service{% endfor %}
 
 [Install]
 WantedBy=multi-user.target

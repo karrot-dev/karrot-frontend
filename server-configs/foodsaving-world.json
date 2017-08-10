@@ -3,5 +3,6 @@
   "domain" : "foodsaving.world",
   "user": "foodsaving-world",
   "group": "foodsaving-world",
-  "frontend": "release"
+  "frontend": "release",
+  "workers": 4
 }

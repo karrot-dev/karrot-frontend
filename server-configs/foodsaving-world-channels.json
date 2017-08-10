@@ -3,5 +3,6 @@
   "domain" : "channels.foodsaving.world",
   "user": "foodsaving-world",
   "group": "foodsaving-world",
-  "frontend": "master"
+  "frontend": "master",
+  "workers": 2
 }

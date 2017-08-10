@@ -26,33 +26,35 @@ And the nginx one in `/etc/nginx/sites-available/`.
 
 ## Useful commands on server
 
+I use `foodsaving-world-dev` here, but for production replace with just `foodsaving-world`.
+
 Start the service:
 ```
-systemctl start foodsaving-world-channels-daphne.server
+systemctl start foodsaving-world-dev-daphne.service
 ```
 
 Start the workers:
 
 ```
-systemctl start foodsaving-world-channels-worker.target
+systemctl start foodsaving-world-dev-worker.target
 ```
 
 Restart the workers:
 
 ```
-systemctl restart foodsaving-world-channels-worker.target
+systemctl restart foodsaving-world-dev-worker.target
 ```
 
 Watch the daphne logs:
 
 ```
-journalctl -f -u foodsaving-world-channels-daphne.service
+journalctl -f -u foodsaving-world-dev-daphne.service
 ```
 
 Watch all related logs:
 
 ```
-journalctl -f -u 'foodsaving-world-channels-*'
+journalctl -f -u 'foodsaving-world-dev-*'
 ```
 
 ## Deployment script
@@ -62,5 +64,5 @@ can configure a sudoers file like this:
 
 ```
 # /etc/sudoers.d/deploy_foodsaving_world
-%deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart foodsaving-world-channels.target
+%deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart foodsaving-world-dev.target
 ```

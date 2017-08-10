@@ -8,7 +8,7 @@ User={{ user }}
 Group={{ group }}
 WorkingDirectory=/var/www/{{ name }}/www
 ExecStart=/var/www/{{ name }}/www/env/bin/daphne \
-	-u /tmp/{{ name }}.daphne.sock \
+	-u /tmp/{{ name }}.sock \
 	--root-path=/var/www/{{ name }}/www \
 	config.asgi:channel_layer
 Restart=always

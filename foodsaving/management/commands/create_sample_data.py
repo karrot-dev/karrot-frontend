@@ -250,7 +250,7 @@ class Command(BaseCommand):
             p.date = p.date - relativedelta(weeks=4)
             p.save()
             print('picked up some food at', p.date)
-        call_command('delete_old_pickup_dates')
+        call_command('process_finished_pickup_dates')
 
         # delete
         u = login_user()

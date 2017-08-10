@@ -107,10 +107,17 @@ class PickupDateSeries(BaseModel):
 
 class PickupDateManager(models.Manager):
     @transaction.atomic
-    def delete_old_pickup_dates(self):
-        for _ in self.filter(date__lt=timezone.now()):
-            # move pickup dates into history, also empty ones
+    def process_finished_pickup_dates(self):
+        """find all pickup dates that are in the past and didn't get processed yet
+
+        if they have at least one collector: send out the pickup_done signal
+        else send out pickup_missed
+
+        currently only used by the history component
+        """
+        for _ in self.filter(done_and_processed=False, date__lt=timezone.now()):
             payload = {}
+            payload['pickup_date'] = _.id
             if _.series:
                 payload['series'] = _.series.id
             if _.max_collectors:
@@ -132,7 +139,8 @@ class PickupDateManager(models.Manager):
                     date=_.date,
                     payload=payload
                 )
-            _.delete()
+            _.done_and_processed = True
+            _.save()
 
 
 class PickupDate(BaseModel):
@@ -167,6 +175,10 @@ class PickupDate(BaseModel):
     is_date_changed = models.BooleanField(default=False)
     is_max_collectors_changed = models.BooleanField(default=False)
     is_description_changed = models.BooleanField(default=False)
+
+    # internal value to find out if this has been processed
+    # e.g. logged to history as PICKUP_DONE or PICKUP_MISSED
+    done_and_processed = models.BooleanField(default=False)
 
     notifications_sent = JSONField(default=dict)
 

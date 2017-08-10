@@ -8,14 +8,13 @@ from foodsaving.stores.factories import PickupDateFactory
 from foodsaving.stores.models import PickupDate
 
 
-class TestDeleteOldPickupDatesCommand(APITestCase):
+class TestProcessFinishedPickupDatesCommand(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.series = PickupDateFactory(date=timezone.now() - relativedelta(weeks=1))
+        cls.pickup = PickupDateFactory(date=timezone.now() - relativedelta(weeks=1))
 
     def test_run_command(self):
-        # remember to also call this regularly on the server, e.g. via cron-job
-        call_command('delete_old_pickup_dates')
-        self.assertEqual(PickupDate.objects.count(), 0)
+        call_command('process_finished_pickup_dates')
+        self.assertEqual(PickupDate.objects.count(), 1)
         self.assertEqual(History.objects.count(), 1)

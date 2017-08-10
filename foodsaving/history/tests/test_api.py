@@ -216,7 +216,7 @@ class TestHistoryAPIWithDonePickup(PaginatedResponseTestCase):
         )
         cls.pickup_url = '/api/pickup-dates/{}/'.format(cls.pickup.id)
         cls.pickup.collectors.add(cls.member)
-        call_command('delete_old_pickup_dates')
+        call_command('process_finished_pickup_dates')
 
     def test_pickup_done(self):
         self.client.force_login(self.member)
@@ -244,7 +244,7 @@ class TestHistoryAPIWithMissedPickup(PaginatedResponseTestCase):
         )
         cls.pickup_url = '/api/pickup-dates/{}/'.format(cls.pickup.id)
         # No one who joined the pickup
-        call_command('delete_old_pickup_dates')
+        call_command('process_finished_pickup_dates')
 
     def test_pickup_done(self):
         self.client.force_login(self.member)

@@ -38,32 +38,32 @@ After selecting your destination language and choosing the resource file, go ahe
 
 ## Requirements
 
-- nodejs and npm
-- gulp `npm install -g gulp`
-- chrome or chromium (for testing)
+- [Node.js](https://nodejs.org/) and [yarn](https://yarnpkg.com/en/docs/install)
+- gulp (`yarn global add gulp`)
+- chrome or [chromium](https://www.chromium.org/) (for testing)
 
-To clone and install
+To clone and install:
 
 ```
 git clone https://github.com/yunity/foodsaving-frontend.git
 cd foodsaving-frontend
-npm install
+yarn
 ```
 
-To run the local dev server
+To run the local dev server:
 
 ```
-npm run dev
+yarn run dev
 ```
 
-To lint and run the tests
+To lint and run the tests:
 
 ```
-npm run lint
-npm run test
+yarn run lint
+yarn run test
 ```
 
-If you want to use an eslint plugin for your editor, please keep in mind that you either have to install all eslint plugins listed in package.json globally or you run `npm install`. Otherwise your eslint plugin may not work.
+If you want to use an eslint plugin for your editor, please keep in mind that you either have to install all eslint plugins listed in package.json globally or you run `yarn install`. Otherwise your eslint plugin may not work.
 
 # Start contributing?
 

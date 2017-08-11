@@ -14,6 +14,7 @@ import createGroup from "./createGroup/createGroup";
 import searchBar from "./_searchBar/searchBar";
 import pickupFeedback from "./pickupFeedback/pickupFeedback";
 import groupMap from "./_groupMap/groupMap";
+import beMemberOrRedirect from "./group.beMemberOrRedirect";
 
 let groupPageModule = angular.module("group", [
   uiRouter,
@@ -38,37 +39,12 @@ let groupPageModule = angular.module("group", [
     .state("group", {
       parent: "main",
       url: "/group/{groupId:int}",
-      redirectTo: (trans) => {
-        let GroupService = trans.injector().get("GroupService");
-        let CurrentGroup = trans.injector().get("CurrentGroup");
-        let $stateParams = trans.injector().get("$stateParams");
-        let SessionUser = trans.injector().get("SessionUser");
-        let $translate = trans.injector().get("$translate");
-        let $mdToast = trans.injector().get("$mdToast");
-        let $state = trans.injector().get("$state");
-        return GroupService.get($stateParams.groupId)
-          .then((group) => {
-            if (group.members.indexOf(SessionUser.value.id) >= 0) {
-              CurrentGroup.set(group);
-              return "group.groupDetail.pickups";
-            } else {
-              $translate("GROUP.NONMEMBER_REDIRECT").then((message) => {
-                $mdToast.showSimple(message);
-              });
-              // re-uses same groupId state parameter
-              return "groupInfo";
-            }
-          })
-          .catch(() => {
-            $state.go("notFound");
-          });
-      },
+      redirectTo: "group.groupDetail.pickups",
       component: "group",
       resolve: {
-        groupData: (CurrentGroup, GroupService, $stateParams) => {
-          if (CurrentGroup.value.id !== $stateParams.groupId) {
-            return GroupService.get($stateParams.groupId).then((group) => CurrentGroup.set(group));
-          }
+        beMemberOrRedirect,
+        groupData: (CurrentGroup) => {
+          "ngInject";
           return CurrentGroup.value;
         }
       },

@@ -22,12 +22,6 @@ describe("SessionUser service", () => {
 
   it("starts with an empty empty", () => {
     expect(SessionUser.value).to.deep.equal({});
-    inject(($q, $rootScope) => {
-      let spy = sinon.spy();
-      SessionUser.loaded.then(spy);
-      $rootScope.$apply();
-      expect(spy).to.not.have.been.called;
-    });
   });
 
   it("can be set", () => {
@@ -37,14 +31,8 @@ describe("SessionUser service", () => {
       go: "here",
       including: ["lists", "of", "stuff"]
     };
-    inject(($q, $rootScope) => {
-      let spy = sinon.spy();
-      SessionUser.loaded.then(spy);
-      SessionUser.set(user);
-      $rootScope.$apply();
-      expect(SessionUser.value).to.deep.equal(user);
-      expect(spy).to.have.been.calledWith(user);
-    });
+    SessionUser.set(user);
+    expect(SessionUser.value).to.deep.equal(user);
   });
 
   it("can be cleared", () => {
@@ -54,16 +42,14 @@ describe("SessionUser service", () => {
   });
 
   it("keeps data reference through promise callback", () => {
-    // ensures that you can bind the value from `then` and
-    // it keeps updated on subsequent calls to `set` and `clear`
-    inject(($q, $rootScope) => {
-      let data = {};
-      SessionUser.loaded.then((d) => data = d);
-      SessionUser.set({ id: 5 });
-      $rootScope.$apply();
-      SessionUser.set({ id: 6 });
-      expect(data.id).to.equal(6);
-    });
+    // ensures that you can bind the value and
+    // keeps it updated on subsequent calls to `set` and `clear`
+    SessionUser.set({ id: 5 });
+
+    let data = {};
+    data = SessionUser.value;
+    SessionUser.set({ id: 6 });
+    expect(data.id).to.equal(6);
   });
 
   it("returns login status", () => {

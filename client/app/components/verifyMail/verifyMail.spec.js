@@ -8,6 +8,10 @@ describe("VerifyMail", () => {
     $stateProvider
       .state("main", { url: "", abstract: true });
   }));
+  beforeEach(module({
+    $translate: sinon.stub(),
+    $mdToast: { showSimple: sinon.stub() }
+  }));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -18,13 +22,12 @@ describe("VerifyMail", () => {
     $log.assertEmpty();
   });
 
-  let $state, $rootScope, Authentication, $q, User;
-  beforeEach(inject(($injector) => {
+  let $state, $rootScope, $q, User;
+  beforeEach(inject(($injector, Authentication) => {
     $rootScope = $injector.get("$rootScope");
     $state = $injector.get("$state");
     $q = $injector.get("$q");
-    Authentication = $injector.get("Authentication");
-    sinon.stub(Authentication, "update").returns($q.resolve({ email: "user@example.com" }));
+    sinon.stub(Authentication, "update").returns($q.resolve({ id: 1, email: "user@example.com" }));
     User = $injector.get("User");
     sinon.stub(User, "verifyMail");
   }));
@@ -36,11 +39,11 @@ describe("VerifyMail", () => {
   });
 
   describe("Route", () => {
-    it("goes to state", () => {
-      $state.go("verifyMail");
+    it("goes to state", inject(() => {
+      expect($state.go("verifyMail")).to.eventually.be.fulfilled;
       $rootScope.$apply();
       expect($state.current.component).to.equal("verifyMail");
-    });
+    }));
   });
 
   describe("Controller", () => {
@@ -68,9 +71,8 @@ describe("VerifyMail", () => {
 
     it("loads user data", () => {
       $ctrl.loadUser();
-      expect($ctrl.Authentication.update).to.have.been.called;
       $rootScope.$apply();
-      expect($ctrl.user).to.deep.equal({ email: "user@example.com" });
+      expect($ctrl.user).to.deep.equal({ id: 1, email: "user@example.com" });
     });
   });
 

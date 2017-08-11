@@ -10,9 +10,13 @@ describe("StoreDetail", () => {
   beforeEach(module(StorePickupsModule));  // to test redirection
   beforeEach(module(($stateProvider) => {
     $stateProvider
-      .state("main", { url: "", abstract: true });
+      .state("main", { url: "", abstract: true })
+      .state("groupInfo", { url: "g" });
   }));
-  beforeEach(module({ translateFilter: (a) => a }));
+  beforeEach(module({
+    $translate: sinon.stub(),
+    translateFilter: (a) => a
+  }));
   beforeEach(module(($mdAriaProvider) => {
     $mdAriaProvider.disableWarnings();
   }));
@@ -38,28 +42,23 @@ describe("StoreDetail", () => {
   });
 
   describe("Routes", () => {
-    let groupData = {
-      id: 1
-    };
-    let storeData = {
-      id: 25,
-      group: groupData.id
-    };
-
     it("should load store and group information", () => {
-      inject((CurrentGroup, GroupService, Store, $q, CurrentStores) => {
-        // We don't want the side effects of the "group" state, which sets the current group
-        // It would be better to stub the whole "group" state, but I don't know how
+      inject((CurrentGroup, GroupService, Store, $q, CurrentStores, $rootScope, Authentication, $translate) => {
+        $translate.returns($q.resolve());
+        let groupData = { id: 12, members: [43] };
+        let storeData = { id: 25, group: groupData.id };
+
+        $httpBackend.whenGET(`/api/groups/${groupData.id}/`).respond(groupData);
         sinon.stub(CurrentGroup, "set").returns($q.resolve(groupData));
-        sinon.stub(GroupService, "get").returns($q.resolve(groupData));
         sinon.stub(Store, "get").returns($q.resolve(storeData));
+        sinon.stub(Authentication, "update").returns($q.resolve({ id: 43 }));
+        $rootScope.$apply();
         expect(
           $state.go("group.store", { storeId: storeData.id, groupId: groupData.id })
         ).to.eventually.be.fulfilled;
-        inject(($rootScope) => $rootScope.$apply());
+        $httpBackend.flush();
         expect($state.current.component).to.equal("storePickups");
         expect(CurrentGroup.set).to.have.been.calledWith(groupData);
-        expect(GroupService.get).to.have.been.calledWith(groupData.id);
         expect(Store.get).to.have.been.calledWith(storeData.id);
         expect(CurrentStores.selected).to.deep.equal(storeData);
       });

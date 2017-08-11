@@ -65,6 +65,12 @@ class GroupService {
     return this.$http.get("/api/groups/timezones/")
       .then((res) => res.data);
   }
+
+  conversation(groupId) {
+    return this.$http.get(`/api/groups/${groupId}/conversation/`)
+      .then((res) => res.data);
+  }
+
 }
 
 export default GroupService;

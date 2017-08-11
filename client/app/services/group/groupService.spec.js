@@ -38,6 +38,10 @@ describe("group service", () => {
     "name": "Foodsharing Mannheim"
   };
 
+  let conversationData = {
+    "id": 1
+  };
+
   beforeEach(inject(($injector) => {
     $httpBackend = $injector.get("$httpBackend");
     GroupService = $injector.get("GroupService");
@@ -120,6 +124,12 @@ describe("group service", () => {
   it("leaves a group", () => {
     $httpBackend.expectPOST("/api/groups/1/leave/", {}).respond(200);
     expect(GroupService.leave(1)).to.be.fulfilled;
+    $httpBackend.flush();
+  });
+
+  it("can get the conversation info", () => {
+    $httpBackend.expectGET("/api/groups/1/conversation/").respond(conversationData);
+    expect(GroupService.conversation(1)).to.be.fulfilled;
     $httpBackend.flush();
   });
 

@@ -41,21 +41,19 @@ describe("UserDetail", () => {
     });
 
     it("provides state", () => {
-      $httpBackend.expectGET("/api/auth/status/").respond( { id: 99 });
       $httpBackend.expectGET("/api/users/5/").respond( { id: 5 });
       $state.go("userDetail", { id: 5 });
       $httpBackend.flush();
     });
 
     it("redirects to login when not authed", () => {
-      $httpBackend.expectGET("/api/auth/status/").respond(403, { error: "not logged in" });
+      $httpBackend.expectGET("/api/users/5/").respond(403, { error: "not authed" });
       $state.go("userDetail", { id: 5 });
       $httpBackend.flush();
       expect($state.current.name).to.equal("login");
     });
 
     it("redirects to notFound correctly", () => {
-      $httpBackend.expectGET("/api/auth/status/").respond( { id: 99 });
       $httpBackend.expectGET("/api/users/5/").respond(404, { error: "not found" });
       $state.go("userDetail", { id: 5 });
       $httpBackend.flush();
@@ -65,26 +63,24 @@ describe("UserDetail", () => {
 
   describe("Controller", () => {
     let $ctrl, $q, $scope;
-    beforeEach(inject(($injector, _$componentController_) => {
+    beforeEach(inject(($injector, _$componentController_, Authentication) => {
       $q = $injector.get("$q");
       $scope = $injector.get("$rootScope").$new();
       $ctrl = _$componentController_("userDetail", { $scope });
-      sinon.stub($ctrl.Authentication, "update");
       sinon.stub($ctrl.User, "save");
+      sinon.stub(Authentication, "update").returns($q.resolve({ id: 666 }));
     }));
 
     it("makes page non-editable", () => {
-      $ctrl.Authentication.update.returns($q.resolve({ id: 2 }));
-      $ctrl.$onChanges({ userdata: { currentValue: { id: 666 } } });
       expect($ctrl.editable).to.be.undefined;
+      $ctrl.$onChanges({ userdata: { currentValue: { id: 100 } } });
       $scope.$apply();
       expect($ctrl.editable).to.be.false;
     });
 
     it("makes page editable", () => {
-      $ctrl.Authentication.update.returns($q.resolve({ id: 666 }));
-      $ctrl.$onChanges({ userdata: { currentValue: { id: 666 } } });
       expect($ctrl.editable).to.be.undefined;
+      $ctrl.$onChanges({ userdata: { currentValue: { id: 666 } } });
       $scope.$apply();
       expect($ctrl.editable).to.be.true;
     });

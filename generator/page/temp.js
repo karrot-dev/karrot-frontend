@@ -1,11 +1,9 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import Authentication from "../../services/authentication/authentication";
 import <%= name %>Component from "./<%= name %>.component";
 
 let <%= name %>Module = angular.module("<%= name %>", [
   uiRouter,
-  Authentication
 ])
 
 .component("<%= name %>", <%= name %>Component)
@@ -17,7 +15,6 @@ let <%= name %>Module = angular.module("<%= name %>", [
       url: "/<%= name %>",
       component: "<%= name %>"
     });
-  hookProvider.setup("<%= name %>", { authenticated: true, anonymous: "login" });
 })
 
 .name;

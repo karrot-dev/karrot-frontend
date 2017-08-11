@@ -54,13 +54,16 @@ describe("GroupOptions", () => {
 
     it("should be able to leave a group", () => {
       let $ctrl = $componentController("groupOptions", {});
+
+      // avoid the side effects of persisting the group after CurrentGroup.set()
+      sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
+
       let groupData = { id: 9834 };
       sinon.stub($ctrl.$mdDialog, "show");
       sinon.stub($ctrl.$state, "go");
       $ctrl.$mdDialog.show.returns($q.resolve());
       SessionUser.value = { id: 1 };
       $httpBackend.expectPOST(`/api/groups/${groupData.id}/leave/`).respond(200);
-      sinon.stub($ctrl.CurrentGroup, "persistCurrentGroup");
       $ctrl.CurrentGroup.set({ id: groupData.id });
       expect($ctrl.CurrentGroup.value).to.deep.equal({ id: groupData.id });
       Object.assign($ctrl, { groupData });

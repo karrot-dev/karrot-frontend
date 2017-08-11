@@ -63,10 +63,10 @@ describe("Login", () => {
         let email = "example@example.com";
         let password = "correctPassword";
         $httpBackend.expectPOST("/api/auth/", { email, password }).respond(200, loginData);
-        $httpBackend.expectGET("/api/auth/status/").respond(200, loginData);
         let ctrl = $componentController("login", {});
         Object.assign(ctrl, { email, password });
-        ctrl.login();
+
+        expect(ctrl.login().catch()).to.eventually.have.been.fulfilled;
         $httpBackend.flush();
         expect($state.go).to.have.been.calledWith("home");
       });
@@ -75,10 +75,10 @@ describe("Login", () => {
         let email = "example@example.com";
         let password = "wrongPassword";
         $httpBackend.expectPOST("/api/auth/", { email, password }).respond(400);
-        $httpBackend.expectGET("/api/auth/status/").respond(200, loginData);
         let ctrl = $componentController("login", {});
         Object.assign(ctrl, { email, password });
-        ctrl.login();
+
+        expect(ctrl.login().catch()).to.eventually.have.been.fulfilled;
         $httpBackend.flush();
         expect($state.go).to.not.have.been.called;
         expect(ctrl.password).to.equal("");
@@ -97,5 +97,24 @@ describe("Login", () => {
     it("compiles component", () => {
       $compile("<login></login>")(scope);
     });
+  });
+
+  describe("Route", () => {
+    it("stays on route if logged out", inject((Authentication, $q, $rootScope, $state) => {
+      sinon.stub(Authentication, "update").returns($q.reject());
+      $state.go("login");
+      $rootScope.$apply();
+      expect($state.current.name).to.equal("login");
+    }));
+
+    it("redirects to home if logged in", inject((Authentication, $q, $rootScope, $state) => {
+      // ignore error log
+      $state.defaultErrorHandler(() => {});
+
+      sinon.stub(Authentication, "update").returns($q.resolve({ id: 1 }));
+      $state.go("login");
+      $rootScope.$apply();
+      expect($state.current.name).to.equal("home");
+    }));
   });
 });

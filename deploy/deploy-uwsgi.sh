@@ -19,8 +19,6 @@ if [ "x$BRANCH" = "xproduction" ]; then
   touch_reload=/tmp/fstool.reload
 fi
 
-deploy_dir=$(pwd)
-
 # expects that project is cloned into backend directory
 # manually: git clone https://github.com/yunity/foodsaving-backend.git ${backend_dir}
 
@@ -33,7 +31,7 @@ deploy_dir=$(pwd)
 (
   cd ${backend_dir} && \
   git clean -fd && \
-  git checkout $BRANCH && \
+  git checkout "$BRANCH" && \
   git pull && \
   env/bin/pip-sync && \
   env/bin/python manage.py migrate && \

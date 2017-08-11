@@ -50,7 +50,7 @@ fi
 (
   cd ${backend_dir} && \
   git clean -fd && \
-  git checkout $BRANCH && \
+  git checkout "$BRANCH" && \
   git pull && \
   env/bin/pip install setuptools pip-tools && \
   env/bin/pip-sync && \

@@ -6,11 +6,16 @@ HOST=yuca.yunity.org
 
 BRANCH=$CIRCLE_BRANCH
 
-if [ "x$BRANCH" = "x" ]; then
+if [ -z "$BRANCH" ]; then
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
 fi
 
 echo "deploying branch [$BRANCH] to [$HOST]"
 
-scp deploy/remote.sh deploy@$HOST:deploy.sh
-ssh deploy@$HOST ./deploy.sh $BRANCH
+if [ "$BRANCH" = "production" ]; then
+  scp deploy/deploy-uwsgi.sh deploy@$HOST:deploy-wsgi.sh
+  ssh deploy@$HOST ./deploy-wsgi.sh $BRANCH
+else
+  scp deploy/deploy-systemd.sh deploy@$HOST:deploy-systemd.sh
+  ssh deploy@$HOST ./deploy-systemd.sh $BRANCH
+fi

@@ -22,29 +22,42 @@ It also loads group data into the CurrentGroup service, which persists it for th
 
 export default (
   Authentication, GroupService, $stateParams,
-  CurrentGroup, $translate, $mdToast, $state, $q, $timeout
+  CurrentGroup, $translate, $mdToast, $state, $q
 ) => {
   "ngInject";
   return Authentication.update()
   .then((user) => {
-    return GroupService.get($stateParams.groupId).then((group) => {
-      if (group.members.indexOf(user.id) >= 0) {
-        CurrentGroup.set(group);
+    return GroupService.get($stateParams.groupId)
+      .then((group) => {
+        if (group.members.indexOf(user.id) >= 0) {
+          CurrentGroup.set(group);
 
-      } else {
-        $translate("GROUP.NONMEMBER_REDIRECT").then((message) =>
-          $mdToast.showSimple(message)
-        );
-        $state.go("groupInfo", $stateParams);
-        return $q.reject("reason");
-      }
-    });
+        } else {
+          $translate("GROUP.NONMEMBER_REDIRECT").then((message) =>
+            $mdToast.showSimple(message)
+          );
+          return $q.reject({ error: "not_a_member" });
+        }
+      })
+      .catch((error) => {
+        if (error.error !== "not_a_member"){
+          return $q.reject({ error: "not_found" });
+        }
+        return $q.reject(error);
+      });
   })
-  .catch(() => {
+  .catch(({ error }) => {
+    if (error === "not_found"){
+      $state.go("notFound");
+      return;
+    } else if (error === "not_a_member"){
+      $state.go("groupInfo", $stateParams);
+      return;
+    }
     $translate("GLOBAL.NOT_LOGGED_IN").then((message) => {
       $mdToast.showSimple(message);
     });
-    $timeout(() => $state.go("groupInfo", $stateParams));
-    return $q.reject("reason");
+    $state.go("login");
+    return;
   });
 };

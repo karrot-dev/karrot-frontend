@@ -1,0 +1,30 @@
+not-found
+  .panel-content
+    position relative
+    min-height 70vh
+    img
+      transform scaleX(-1)
+      display block
+      @media (max-width: 40em)
+        width 100%
+      @media (min-width: 40em)
+        width 70%
+        position absolute
+        right 1em
+        bottom 0.5em
+    .text-content
+      display block
+      @media (min-width: 40em)
+        position absolute
+        left 2em
+        top 5px
+        z-index 3
+      h1, h2
+        font-family "Cabin Sketch", sans-serif
+      h1
+        font-size 3em
+      @media (min-width: 50em)
+        h1
+          font-size 5em
+        h2
+          font-size 2em

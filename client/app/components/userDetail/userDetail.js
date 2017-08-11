@@ -24,7 +24,11 @@ let userDetailModule = angular.module("userDetail", [
       resolve: {
         userdata: (User, $stateParams, $state) => {
           return User.get($stateParams.id)
-            .catch(() => $state.go("login"));
+            .catch((error) => {
+              if (error.status === 403){
+                $state.go("login");
+              } else $state.go("notFound");
+            });
         }
       },
       ncyBreadcrumb: {

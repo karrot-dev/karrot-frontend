@@ -15,6 +15,7 @@ import mapPicker from "./_mapPicker/mapPicker";
 import joinGroupList from "./joinGroupList/joinGroupList";
 import mainLayout from "./_mainLayout/mainLayout";
 import splashLayout from "./_splashLayout/splashLayout";
+import notFound from "./notFound/notFound";
 
 let componentModule = angular.module("app.components", [
   group,
@@ -32,7 +33,8 @@ let componentModule = angular.module("app.components", [
   mapPicker,
   joinGroupList,
   mainLayout,
-  splashLayout
+  splashLayout,
+  notFound
 ]).name;
 
 export default componentModule;

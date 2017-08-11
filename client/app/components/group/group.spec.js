@@ -13,7 +13,9 @@ describe("Group", () => {
   beforeEach(module(($stateProvider) => {
     $stateProvider
       .state("main", { url: "", abstract: true })
-      .state("groupInfo", { parent: "main", url: "groupInfo" });
+      .state("groupInfo", { parent: "main", url: "groupInfo" })
+      .state("login", { url: "login" })
+      .state("notFound", { url: "not-found" });
   }));
 
   let $log;
@@ -90,16 +92,19 @@ describe("Group", () => {
       expect($state.current.name).to.equal("groupInfo");
     }));
 
-    it("redirects to groupInfo if logged out", inject((Authentication, $q, $rootScope, $timeout) => {
-      // ignore error log
-      $state.defaultErrorHandler(() => {});
-
-      sinon.stub(Authentication, "update").returns($q.reject());
+    it("redirects to login if logged out", () => {
+      $httpBackend.expectGET("/api/auth/status/").respond(403, { error: "not_authed" });
       $state.go("group", { groupId: 13 });
-      $rootScope.$apply();
-      $timeout.flush();
-      expect($state.current.name).to.equal("groupInfo");
-    }));
+      $httpBackend.flush();
+      expect($state.current.name).to.equal("login");
+    });
+
+    it("redirects to notFound correctly", () => {
+      $httpBackend.whenGET("/api/groups/12/").respond(404, {  });
+      $state.go("group", { groupId: 12 });
+      $httpBackend.flush();
+      expect($state.current.name).to.equal("notFound");
+    });
   });
 
   describe("Component", () => {

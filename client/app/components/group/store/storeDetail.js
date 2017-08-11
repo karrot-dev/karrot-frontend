@@ -41,7 +41,10 @@ let storeDetailModule = angular.module("storeDetail", [
           return Store.get($stateParams.storeId).then((store) => {
             return CurrentStores.setSelected(store);
           })
-            .catch(() => $state.go("login"));
+            .catch((error) => {
+              if (error.status === 403) $state.go("login");
+              $state.go("notFound");
+            });
         }
       },
       ncyBreadcrumb: {

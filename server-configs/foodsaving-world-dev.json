@@ -1,0 +1,8 @@
+{
+  "name": "foodsaving-world-dev",
+  "domain" : "dev.foodsaving.world",
+  "user": "foodsaving-world",
+  "group": "foodsaving-world",
+  "frontend": "master",
+  "workers": 3
+}

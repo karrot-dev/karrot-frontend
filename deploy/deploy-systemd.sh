@@ -8,12 +8,12 @@ export LANG=C.UTF-8
 BRANCH=$1
 name=
 
-if [ "x$BRANCH" = "x" ]; then
+if [ -z "$BRANCH" ]; then
   echo "Please pass branch to deploy as first argument"
   exit 1
 fi
 
-if [ "x$BRANCH" = "xproduction" ]; then
+if [ "$BRANCH" = "production" ]; then
   name=foodsaving-world
 else
   name=foodsaving-world-dev

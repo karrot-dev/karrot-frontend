@@ -9,12 +9,12 @@ BRANCH=$1
 backend_dir=foodsaving-backend-dev
 touch_reload=/tmp/fstool-dev.reload
 
-if [ "x$BRANCH" = "x" ]; then
+if [ -z "$BRANCH" ]; then
   echo "Please pass branch to deploy as first argument"
   exit 1
 fi
 
-if [ "x$BRANCH" = "xproduction" ]; then
+if [ "$BRANCH" = "production" ]; then
   backend_dir=foodsaving-backend
   touch_reload=/tmp/fstool.reload
 fi

@@ -64,5 +64,6 @@ can configure a sudoers file like this:
 
 ```
 # /etc/sudoers.d/deploy_foodsaving_world
-%deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart foodsaving-world-dev.target
+%deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart foodsaving-world-dev-worker.target
+%deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart foodsaving-world-worker.target
 ```

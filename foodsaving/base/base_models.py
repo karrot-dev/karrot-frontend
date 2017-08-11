@@ -4,7 +4,6 @@ from django.utils import timezone
 
 
 class NicelyFormattedModel(Model):
-
     class Meta:
         abstract = True
 
@@ -30,7 +29,6 @@ class NicelyFormattedModel(Model):
 
 
 class BaseModel(NicelyFormattedModel):
-
     class Meta:
         abstract = True
 

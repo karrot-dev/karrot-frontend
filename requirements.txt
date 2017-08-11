@@ -9,7 +9,7 @@ asgi-redis==1.4.2
 asgiref==1.1.2            # via asgi-redis, channels, daphne
 attrs==17.2.0             # via automat
 autobahn==17.7.1          # via daphne
-Automat==0.6.0            # via twisted
+automat==0.6.0            # via twisted
 certifi==2017.7.27.1      # via requests
 cffi==1.10.0              # via argon2-cffi
 channels==1.1.6

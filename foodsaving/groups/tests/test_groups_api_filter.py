@@ -1,5 +1,6 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
+
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.users.factories import UserFactory
 
@@ -34,13 +35,18 @@ class TestGroupsAPIFilter(APITestCase):
     def test_dont_include_empty(self):
         response = self.client.get(self.url, {'include_empty': False})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 2)
-        self.assertFalse(self.empty_group.id in [_['id'] for _ in response.data])
+        group_ids = [_['id'] for _ in response.data]
+        self.assertIn(self.group.id, group_ids)
+        self.assertIn(self.group2.id, group_ids)
+        self.assertNotIn(self.empty_group.id, group_ids)
 
     def test_include_empty(self):
         response = self.client.get(self.url, {'include_empty': True})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 3)
+        group_ids = [_['id'] for _ in response.data]
+        self.assertIn(self.group.id, group_ids)
+        self.assertIn(self.group2.id, group_ids)
+        self.assertIn(self.empty_group.id, group_ids)
 
     def test_search_name(self):
         response = self.client.get(self.url, {'search': self.group.name})

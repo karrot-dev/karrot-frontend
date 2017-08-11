@@ -44,9 +44,6 @@ fi
 
 # TODO: ensure ownership is "foodsaving-world" (or maybe "foodsaving-world-dev")
 
-# TODO: add the migration once it's the main dev deploy
-#env/bin/python manage.py migrate && \
-
 (
   cd ${backend_dir} && \
   git clean -fd && \
@@ -55,6 +52,7 @@ fi
   env/bin/pip install setuptools pip-tools && \
   env/bin/pip-sync && \
   env/bin/python manage.py check --deploy && \
+  env/bin/python manage.py migrate && \
   env/bin/python manage.py collectstatic --clear --no-input && \
   env/bin/python manage.py compilemessages
 )

@@ -9,17 +9,15 @@ BRANCH=$1
 backend_dir=foodsaving-backend-dev
 touch_reload=/tmp/fstool-dev.reload
 
-if [ "x$BRANCH" = "x" ]; then
+if [ -z "$BRANCH" ]; then
   echo "Please pass branch to deploy as first argument"
   exit 1
 fi
 
-if [ "x$BRANCH" = "xproduction" ]; then
+if [ "$BRANCH" = "production" ]; then
   backend_dir=foodsaving-backend
   touch_reload=/tmp/fstool.reload
 fi
-
-deploy_dir=$(pwd)
 
 # expects that project is cloned into backend directory
 # manually: git clone https://github.com/yunity/foodsaving-backend.git ${backend_dir}
@@ -33,7 +31,7 @@ deploy_dir=$(pwd)
 (
   cd ${backend_dir} && \
   git clean -fd && \
-  git checkout $BRANCH && \
+  git checkout "$BRANCH" && \
   git pull && \
   env/bin/pip-sync && \
   env/bin/python manage.py migrate && \

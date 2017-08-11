@@ -46,11 +46,11 @@ export default (
         return $q.reject(error);
       });
   })
-  .catch((error) => {
-    if (error.error === "not_found"){
+  .catch(({ error }) => {
+    if (error === "not_found"){
       $state.go("notFound");
       return;
-    } else if (error.error === "not_a_member"){
+    } else if (error === "not_a_member"){
       $state.go("groupInfo", $stateParams);
       return;
     }

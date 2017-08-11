@@ -29,8 +29,7 @@ let groupInfoModule = angular.module("groupInfo", [
       resolve: {
         groupData: (GroupService, $stateParams, $state) => {
           return GroupService.get($stateParams.groupId)
-            .catch((error) => {
-              if (error.status === 403) $state.go("login");
+            .catch(() => {
               $state.go("notFound");
             });
         }

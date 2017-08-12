@@ -18,15 +18,10 @@ class ChatController {
 
   $onInit() {
     this.GroupService.conversation(this.groupData.id).then(({ id }) => {
-      console.log('init!', id); // eslint-disable-line
       this.Conversation.subscribe(id).then((val) => {
         this.conversation = val;
       });
     });
-  }
-
-  $onUpdate() {
-    console.log('update!'); // eslint-disable-line
   }
 
   $onDestroy() {

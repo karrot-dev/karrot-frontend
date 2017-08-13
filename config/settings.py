@@ -117,10 +117,12 @@ TEMPLATES = [
     },
 ]
 
+REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
+
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/0",
+        "LOCATION": "redis://{}:6379/0".format(REDIS_HOST),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -181,7 +183,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("localhost", 6379)],
+            "hosts": [(REDIS_HOST, 6379)],
         },
         "ROUTING": "foodsaving.subscriptions.routing.channel_routing",
     },

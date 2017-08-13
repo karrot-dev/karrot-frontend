@@ -41,10 +41,13 @@ class Command(BaseCommand):
             settings.EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
             request._BLA_original_allowed_hosts = settings.ALLOWED_HOSTS
             settings.ALLOWED_HOSTS = ['*']
+            request._BLAH_original_influxdb_disable = settings.INFLUXDB_DISABLED
+            settings.INFLUXDB_DISABLED = True
 
         def teardown_environment():
             settings.EMAIL_BACKEND = mail._BLA_original_email_backend
             settings.ALLOWED_HOSTS = request._BLA_original_allowed_hosts
+            settings.INFLUXDB_DISABLED = request._BLAH_original_influxdb_disable = settings.INFLUXDB_DISABLED
 
         setup_environment()
 

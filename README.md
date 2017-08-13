@@ -1,7 +1,7 @@
+# foodsaving-backend
+
 [![CircleCI](https://circleci.com/gh/yunity/foodsaving-backend.svg?style=svg)](https://circleci.com/gh/yunity/foodsaving-backend)
 [![codecov](https://codecov.io/gh/yunity/foodsaving-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/yunity/foodsaving-backend)
-
-# foodsaving-backend
 
 ## Getting started with Docker
 

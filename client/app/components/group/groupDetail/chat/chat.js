@@ -12,20 +12,6 @@ let chatModule = angular.module("chat", [
 
 .component("chat", chatComponent)
 
-.directive("chatScrollBottom", () => {
-  return {
-    scope: {
-      chatScrollBottom: "="
-    },
-    link: (scope, elements) => {
-      let el = elements[0];
-      scope.$watchCollection("chatScrollBottom", (newValue) => {
-        if (newValue) el.scrollTop = el.scrollHeight;
-      });
-    }
-  };
-})
-
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider

@@ -15,6 +15,7 @@ import mapPicker from "./_mapPicker/mapPicker";
 import joinGroupList from "./joinGroupList/joinGroupList";
 import mainLayout from "./_mainLayout/mainLayout";
 import splashLayout from "./_splashLayout/splashLayout";
+import chatFloater from "./_chatFloater/chatFloater";
 import notFound from "./notFound/notFound";
 
 let componentModule = angular.module("app.components", [
@@ -34,7 +35,8 @@ let componentModule = angular.module("app.components", [
   joinGroupList,
   mainLayout,
   splashLayout,
-  notFound
+  notFound,
+  chatFloater
 ]).name;
 
 export default componentModule;

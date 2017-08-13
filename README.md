@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/yunity/yunity-core/tree/master.svg?style=svg)](https://circleci.com/gh/yunity/yunity-core/tree/master)
+[![CircleCI](https://circleci.com/gh/yunity/foodsaving-backend.svg?style=svg)](https://circleci.com/gh/yunity/foodsaving-backend)
 
 # foodsaving-backend
 

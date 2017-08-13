@@ -9,7 +9,7 @@ There are 3 approaches to getting your developer environment setup:
 
 1. [single docker container](#getting-started-with-docker) - includes backend, postgres, and redis in one container
 2. [local install](#local-install) - install everything on your system ([Arch](#arch-linux), [Ubuntu](#ubuntu-or-debian), [Debian](#ubuntu-or-debian), [macOS](#mac-os), [OpenSUSE Leap](#opensuse-leap))
-3. [docker-compose setup](#docker-compose) - includes frontend, mail catcher, etc
+3. [docker-compose setup](#docker-compose) - includes backend, frontend, mail catcher, postgres, redis, etc..
 
 ## Getting started with Docker
 

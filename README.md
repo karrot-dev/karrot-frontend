@@ -22,25 +22,21 @@ docker build -t backend .
 Run this container, including your most recent source code changes:
 
 ```sh
-docker run -it -p 8000:8000 -v $PWD/foodsaving:/foodsaving-backend/foodsaving backend
+docker run -d -p 8000:8000 -v $PWD/foodsaving:/foodsaving-backend/foodsaving backend
 ```
 
 Note 1: This assumes that your terminal's working directory is in the foodsaving-backend directory, i.e. the directory you cloned from Github.
 Note 2: Only changes you make in the "foodsaving" directory are included.
 
-Once in the container, you can Populate your database with test data:
+The test data are automatically created in the container. You can see log-in details after running this command:
 
 ```sh
-python manage.py create_sample_data
+docker logs -f <container_id_or_name>
 ```
 
 With this data, you can log in as one of the printed e-mail addresses with password 123
 
-Run the server with
-
-```sh
-python manage.py runserver 0.0.0.0:8000
-```
+The server is already running in Docker container.
 
 ## Local install
 ### Install requirements

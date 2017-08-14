@@ -15,7 +15,8 @@
     "MAIL_TEXT": "Write us a mail!"
   },
   "CHAT": {
-    "TITLE": "Chat"
+    "TITLE": "Chat",
+    "NEW_MESSAGE": "New Message"
   },
   "LANDINGPAGE": {
     "BLOG": "Blog",

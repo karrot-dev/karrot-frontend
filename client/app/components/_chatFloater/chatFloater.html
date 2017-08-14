@@ -27,7 +27,7 @@
   <div class="chat-options" layout="row" ng-if="!$ctrl.isHidden">
     <form ng-submit="$ctrl.sendMessage()" autocomplete="off" flex>
       <md-input-container md-no-float>
-        <input placeholder="New Message..." type="text" ng-model="$ctrl.newMessageBody" autofocus />
+        <input placeholder="{{'CHAT.NEW_MESSAGE' | translate}}" type="text" ng-model="$ctrl.newMessageBody" autofocus />
       </md-input-container>      
     </form>
     <md-button class="md-icon-button"

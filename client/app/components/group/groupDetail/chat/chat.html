@@ -1,5 +1,7 @@
-<form ng-submit="$ctrl.sendMessage()" autocomplete="off">
-  <input type="text" ng-model="$ctrl.newMessageBody"></input>
+<form class="md-whiteframe-1dp" ng-submit="$ctrl.sendMessage()" autocomplete="off">
+  <markdown-input translation-label="CHAT.NEW_MESSAGE" model="$ctrl.newMessageBody"></markdown-input>
+  <md-button class="md-raised md-primary" type="submit" translate="BUTTON.SUBMIT"></md-button>
+  <div class="fin"></div>
 </form>
 
 <div class="chat-messages"

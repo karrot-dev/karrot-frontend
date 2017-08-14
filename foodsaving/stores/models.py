@@ -74,32 +74,43 @@ class PickupDateSeries(BaseModel):
         return [tz.localize(d) for d in dates]
 
     def update_pickup_dates(self, start=timezone.now):
-        # shifting period start time into the future avoids pickup dates which are only valid for a short time
+        """
+        synchronizes the pickup dates with the series
+
+        changes to the series fields are also made to the pickup dates, except for
+        - the field on the pickup date has been modified
+        - users have joined the pickup date
+        """
+
+        # shift start time slightly into future to avoid pickup dates which are only valid for very short time
         start_date = start() + relativedelta(minutes=5)
+
         for pickup, new_date in zip_longest(
             self.pickup_dates.filter(date__gte=start_date),
             self.get_dates_for_rule(start_date=start_date)
         ):
             if not pickup:
-                pickup = PickupDate.objects.create(
+                # does not yet exist
+                PickupDate.objects.create(
                     date=new_date,
                     max_collectors=self.max_collectors,
                     series=self,
                     store=self.store,
                     description=self.description
                 )
-            if not new_date:
-                # only delete pickup dates when they are empty
-                if pickup.collectors.count() <= 0:
+            elif pickup.collectors.count() < 1:
+                # only modify pickups when nobody has joined
+                if not new_date:
+                    # series changed and now this pickup should not exist anymore
                     pickup.delete()
-                    continue
-            if new_date and not pickup.is_date_changed:
-                pickup.date = new_date
-            if not pickup.is_max_collectors_changed:
-                pickup.max_collectors = self.max_collectors
-            if not pickup.is_description_changed:
-                pickup.description = self.description
-            pickup.save()
+                else:
+                    if not pickup.is_date_changed:
+                        pickup.date = new_date
+                    if not pickup.is_max_collectors_changed:
+                        pickup.max_collectors = self.max_collectors
+                    if not pickup.is_description_changed:
+                        pickup.description = self.description
+                    pickup.save()
 
     def __str__(self):
         return '{} - {}'.format(self.date, self.store)

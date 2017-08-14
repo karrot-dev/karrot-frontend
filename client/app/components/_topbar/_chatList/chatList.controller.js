@@ -24,8 +24,8 @@ class ChatListController {
     $mdMenu.open($event);
   }
 
-  openChat(group){
-    console.log(group);
+  openChat(){
+    return;
   }
 }
 

@@ -1,0 +1,9 @@
+<div class="md-whiteframe-1dp" layout-padding>
+  <div>
+    <a class="md-mini" ui-sref="userDetail({id: $ctrl.message.user.id})">{{ $ctrl.message.user.display_name }}</a>
+    <span>{{ $ctrl.message.created_at | date:'medium' }}</span>
+  </div>
+  <div>
+    <expandable-panel content="$ctrl.message.content" markdown="true" collapse="10"></expandable-panel>
+  </div>
+</div>

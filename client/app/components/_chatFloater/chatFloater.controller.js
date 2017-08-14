@@ -6,7 +6,8 @@ class ChatFloaterController {
       Conversation,
       GroupService,
       conversation: null,
-      newMessageBody: ""
+      newMessageBody: "",
+      isHidden: true
     });
   }
 

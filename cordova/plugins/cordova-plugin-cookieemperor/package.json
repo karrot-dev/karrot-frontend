@@ -1,0 +1,26 @@
+{
+  "name": "cordova-plugin-cookieemperor",
+  "version": "1.0.0",
+  "description": "Cordova webkit browser cookie manipulation, XWalk solution",
+  "cordova": {
+    "id": "cordova-plugin-cookieemperor",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RTK/cordova-cookie-emperor"
+  },
+  "keywords": [
+    "cordova",
+    "cookies",
+    "cookie",
+    "manipulate",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Rouven Kruse",
+  "license": "MIT"
+}

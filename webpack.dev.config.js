@@ -9,6 +9,9 @@ config.output = {
 };
 
 config.plugins = config.plugins.concat([
+  new webpack.DefinePlugin({
+    CORDOVA: false
+  }),
 
   // Adds webpack HMR support. It act's like livereload,
   // reloading page after webpack rebuilt modules.

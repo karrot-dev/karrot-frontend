@@ -1,5 +1,9 @@
 {
   "env": {
     "node": false
+  },
+  "globals": {
+    "CORDOVA": true,
+    "CORDOVA_BACKEND": true
   }
 }

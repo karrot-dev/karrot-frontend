@@ -40,7 +40,7 @@ faker==0.7.18             # via factory-boy
 flake8==3.4.1
 furl==1.0.0
 hiredis==0.2.0
-hyperlink==17.3.0         # via twisted
+hyperlink==17.3.1         # via twisted
 idna==2.6                 # via requests
 incremental==17.5.0       # via twisted
 influxdb==4.1.1           # via django-influxdb-metrics

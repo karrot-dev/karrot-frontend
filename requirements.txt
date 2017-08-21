@@ -61,7 +61,7 @@ python-dateutil==2.6.1    # via faker, influxdb
 python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2017.2
 raven==6.1.0
-redis==2.10.5
+redis==2.10.6
 requests==2.18.3          # via coreapi, django-anymail, influxdb, responses, sparkpost
 responses==0.7.0
 simplejson==3.11.1        # via django-rest-swagger

@@ -46,7 +46,7 @@ incremental==17.5.0       # via twisted
 influxdb==4.1.1           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
 jinja2==2.9.6             # via coreschema, django-jinja
-markdown==2.6.8
+markdown==2.6.9
 markupsafe==1.0           # via jinja2
 mccabe==0.6.1             # via flake8
 msgpack-python==0.4.8     # via asgi-redis

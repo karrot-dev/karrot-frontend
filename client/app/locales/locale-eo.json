@@ -53,7 +53,7 @@
     "PICKUPS": "Kolektoj",
     "MEMBERS": "Anoj",
     "STORES": "Vendejoj",
-    "HISTORY": "History",
+    "ACTIVITY": "Activity",
     "DESCRIPTION": "Priskribo",
     "ADDRESS": "Adreso",
     "TIMEZONE": "Horzono de la grupo",
@@ -193,7 +193,7 @@
     "QUOTE": "cito",
     "HELP": "Kio estas Markdaŭno?"
   },
-  "HISTORY": {
+  "ACTIVITY": {
     "GROUP_CREATE": "created this group",
     "GROUP_MODIFY": "changed the settings of this group",
     "GROUP_JOIN": "joined this group",

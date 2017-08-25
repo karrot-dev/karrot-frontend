@@ -6,7 +6,7 @@ import storeService from "services/store/store";
 import storeEdit from "./storeEdit/storeEdit";
 import storeCreate from "./storeCreate/storeCreate";
 import pickupManage from "./pickupManage/pickupManage";
-import storeHistory from "./storeHistory/storeHistory";
+import storeActivity from "./storeActivity/storeActivity";
 import storePickups from "./storePickups/storePickups";
 
 let storeDetailModule = angular.module("storeDetail", [
@@ -16,7 +16,7 @@ let storeDetailModule = angular.module("storeDetail", [
   storeEdit,
   storeCreate,
   pickupManage,
-  storeHistory,
+  storeActivity,
   storePickups
 ])
 

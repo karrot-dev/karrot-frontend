@@ -53,7 +53,7 @@
     "PICKUPS": "Pickups",
     "MEMBERS": "Участники",
     "STORES": "Точки",
-    "HISTORY": "History",
+    "ACTIVITY": "Activity",
     "DESCRIPTION": "Описание",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group",
@@ -193,7 +193,7 @@
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
-  "HISTORY": {
+  "ACTIVITY": {
     "GROUP_CREATE": "created this group",
     "GROUP_MODIFY": "changed the settings of this group",
     "GROUP_JOIN": "joined this group",

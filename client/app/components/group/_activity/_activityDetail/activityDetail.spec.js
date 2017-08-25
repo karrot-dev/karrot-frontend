@@ -1,9 +1,9 @@
-import StoreHistoryModule from "./storeHistory";
+import ActivityDetailModule from "./activityDetail";
 
 const { module } = angular.mock;
 
-describe("StoreHistory", () => {
-  beforeEach(module(StoreHistoryModule));
+describe("ActivityDetail", () => {
+  beforeEach(module(ActivityDetailModule));
 
   let $log;
   beforeEach(inject(($injector) => {
@@ -15,8 +15,8 @@ describe("StoreHistory", () => {
   });
 
   describe("Module", () => {
-    it("is named storeHistory", () => {
-      expect(StoreHistoryModule).to.equal("storeHistory");
+    it("is named activityDetail", () => {
+      expect(ActivityDetailModule).to.equal("activityDetail");
     });
   });
 
@@ -27,7 +27,7 @@ describe("StoreHistory", () => {
     }));
 
     it("should exist", () => {
-      let $ctrl = $componentController("storeHistory", {});
+      let $ctrl = $componentController("activityDetail", {});
       expect($ctrl).to.exist;
     });
   });

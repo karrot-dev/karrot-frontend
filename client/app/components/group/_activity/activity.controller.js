@@ -1,4 +1,4 @@
-class HistoryController {
+class ActivityController {
   constructor($mdDialog, $document, CurrentStores, CurrentUsers) {
     "ngInject";
     Object.assign(this, {
@@ -18,7 +18,7 @@ class HistoryController {
   }
 
   getTranslateKey(entry) {
-    return "HISTORY." + entry.typus;
+    return "ACTIVITY." + entry.typus;
   }
 
   getTranslateValues(entry) {
@@ -60,8 +60,8 @@ class HistoryController {
 
   getStores() {
     return this.CurrentStores.list.filter((store) => {
-      return angular.isDefined(this.data.results.find((history) => {
-        return history.store === store.id;
+      return angular.isDefined(this.data.results.find((activity) => {
+        return activity.store === store.id;
       }));
     });
   }
@@ -71,8 +71,8 @@ class HistoryController {
       if (this.userQuery !== "" && !user.display_name.toLowerCase().includes(this.userQuery.toLowerCase())) {
         return false;
       }
-      return this.data.results.findIndex((history) => {
-        return history.users.indexOf(user.id) >= 0;
+      return this.data.results.findIndex((activity) => {
+        return activity.users.indexOf(user.id) >= 0;
       }) >= 0;
     });
   }
@@ -111,7 +111,7 @@ class HistoryController {
     }
   }
 
-  getHistoryItems() {
+  getActivityItems() {
     return this.data.results.filter((item) => {
       return this._showItemByStore(item) && this._showItemByUser(item) && this._showItemByType(item);
     });
@@ -153,7 +153,7 @@ class HistoryController {
     return angular.isObject(entry.payload) && Object.keys(entry.payload).length > 0;
   }
 
-  openHistoryDetail($event, item) {
+  openActivityDetail($event, item) {
     let DialogController = function (data) {
       "ngInject";
       this.data = data;
@@ -162,7 +162,7 @@ class HistoryController {
     this.$mdDialog.show({
       parent: this.$document.body,
       targetEvent: $event,
-      template: "<history-detail data='$ctrl.data'></history-detail>",
+      template: "<activity-detail data='$ctrl.data'></activity-detail>",
       locals: {
         data: item
       },
@@ -172,4 +172,4 @@ class HistoryController {
   }
 }
 
-export default HistoryController;
+export default ActivityController;

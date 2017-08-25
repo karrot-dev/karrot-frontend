@@ -1,9 +1,9 @@
-import GroupHistoryModule from "./groupHistory";
+import GroupActivityModule from "./groupActivity";
 
 const { module } = angular.mock;
 
-describe("GroupHistory", () => {
-  beforeEach(module(GroupHistoryModule));
+describe("GroupActivity", () => {
+  beforeEach(module(GroupActivityModule));
   beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
@@ -16,8 +16,8 @@ describe("GroupHistory", () => {
   });
 
   describe("Module", () => {
-    it("is named groupHistory", () => {
-      expect(GroupHistoryModule).to.equal("groupHistory");
+    it("is named groupActivity", () => {
+      expect(GroupActivityModule).to.equal("groupActivity");
     });
   });
 
@@ -28,7 +28,7 @@ describe("GroupHistory", () => {
     }));
 
     it("should exist", () => {
-      let $ctrl = $componentController("groupHistory", {});
+      let $ctrl = $componentController("groupActivity", {});
       expect($ctrl).to.exist;
     });
   });
@@ -41,7 +41,7 @@ describe("GroupHistory", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<group-history></group-history>")(scope);
+      $compile("<group-activity></group-activity>")(scope);
     });
   });
 });

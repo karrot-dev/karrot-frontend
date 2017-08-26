@@ -21,4 +21,8 @@ describe("screenSize", () => {
     expect(ScreenSize.isGtSm()).to.equal($window.innerWidth >= 960);
   });
 
+  it("evaluates whether a screen is small or larger", () => {
+    expect(ScreenSize.isGtXs()).to.equal($window.innerWidth >= 600);
+  });
+
 });

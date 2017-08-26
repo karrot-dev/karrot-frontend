@@ -4,11 +4,11 @@
       <i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;
       <span translate="PICKUP_FEEDBACK.TITLE"></span>
     </h1>
-  </div>    
+  </div>
 </md-toolbar>
 <div>
   <div style="margin-bottom: 4.5em" layout="row" class="image-and-text">
-    <div ng-if="$ctrl.$mdMedia('gt-xs')" class="image-and-text-left">
+    <div ng-if="$ctrl.ScreenSize.isGtXs()" class="image-and-text-left">
       <img style="width: 100%" ng-src="{{$ctrl.cartImg}}">
     </div>
     <div flex  class="image-and-text-right">
@@ -16,7 +16,7 @@
       <p translate="PICKUP_FEEDBACK.SUBTITLE"></p>
     </div>
   </div>
-  
+
   <h4 translate="PICKUP_FEEDBACK.AMOUNT"></h4>
   <div class="amount-images">
     <img ng-repeat="imgSrc in $ctrl.amountImages track by $index" ng-class="{'high': $ctrl.isHigherImg(imgSrc)}" ng-src="{{imgSrc}}">
@@ -28,13 +28,13 @@
     </md-slider-container>
     <md-input-container>
       <input type="number"  aria-label="amount" ng-change="$ctrl.setFeedbackImages()" ng-model="$ctrl.data.amount" aria-controls="amount-slider">
-    </md-input-container> 
+    </md-input-container>
   </div>
-  
+
   <h4 translate="PICKUP_FEEDBACK.COMMENT"></h4>
   <md-input-container class="md-block">
     <textarea ng-model="$ctrl.data.comment" md-maxlength="150" rows="1" placeholder="{{'PICKUP_FEEDBACK.COMMENT_PLACEHOLDER' | translate}}" md-select-on-focus></textarea>
   </md-input-container>
-  
+
   <md-button aria-label="{{ 'BUTTON.SUBMIT' | translate }}" class="md-raised md-primary" translate="BUTTON.SUBMIT"></md-button>
 </div>

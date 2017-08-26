@@ -7,11 +7,11 @@ import appleImg from "./apple.png";
 import appleGuyImg from "./appleGuy.png";
 
 class PickupFeedbackController {
-  constructor($mdMedia) {
+  constructor(ScreenSize) {
     "ngInject";
     Object.assign(this, {
       cartImg,
-      $mdMedia,
+      ScreenSize,
       amountImages: [],
       data: {
         amount: 0,

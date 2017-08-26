@@ -5,13 +5,15 @@ import pickupDate from "services/pickupDate/pickupDate";
 import pickupManageComponent from "./pickupManage.component";
 import pickupManageAction from "./_pickupManageAction/pickupManageAction";
 import pickupEditCreate from "../../_pickupEditCreate/pickupEditCreate";
+import ScreenSizeModule from "services/screenSize/screenSize";
 
 let pickupManageModule = angular.module("pickupManage", [
   uiRouter,
   ngMaterial,
   pickupDate,
   pickupManageAction,
-  pickupEditCreate
+  pickupEditCreate,
+  ScreenSizeModule
 ])
 
 .component("pickupManage", pickupManageComponent)

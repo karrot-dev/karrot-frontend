@@ -1,9 +1,9 @@
 class GroupController {
-  constructor($state, $mdMedia, $stateParams, Store, CurrentStores, User, CurrentUsers, CurrentGroup) {
+  constructor($state, ScreenSize, $stateParams, Store, CurrentStores, User, CurrentUsers, CurrentGroup) {
     "ngInject";
     Object.assign(this, {
       $state,
-      $mdMedia,
+      ScreenSize,
       $stateParams,
       User,
       CurrentUsers,

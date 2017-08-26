@@ -9,6 +9,7 @@ import members from "./members/members";
 import pickups from "./pickups/pickups";
 import groupHistory from "./groupHistory/groupHistory";
 import expandablePanel from "components/_expandablePanel/expandablePanel";
+import ScreenSizeModule from "services/screenSize/screenSize";
 
 let groupDetailModule = angular.module("groupDetail", [
   uiRouter,
@@ -19,7 +20,8 @@ let groupDetailModule = angular.module("groupDetail", [
   members,
   pickups,
   groupHistory,
-  expandablePanel
+  expandablePanel,
+  ScreenSizeModule
 ])
 
 .component("groupDetail", groupDetailComponent)

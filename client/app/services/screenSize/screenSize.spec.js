@@ -1,4 +1,3 @@
-import ngMaterial from "angular-material";
 import ScreenSizeModule from "./screenSize";
 
 const { module } = angular.mock;
@@ -6,7 +5,6 @@ const { module } = angular.mock;
 describe("screenSize", () => {
   let $log, ScreenSize, $window;
   beforeEach(() => {
-    module(ngMaterial);
     module(ScreenSizeModule);
     inject(($injector) => {
       $log = $injector.get("$log");

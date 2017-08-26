@@ -1,4 +1,4 @@
-<div ng-if="!$ctrl.isScreenSmall()">
+<div ng-if="$ctrl.ScreenSize.isMediumOrLarger()">
   <md-button class="md-icon-button" ng-click="$ctrl.triggerEdit($event)">
     <i class="fa fa-pencil"></i>
     <md-tooltip>
@@ -13,7 +13,7 @@
   </md-button>
 </div>
 
-<md-menu ng-if="$ctrl.isScreenSmall()">
+<md-menu ng-if="!$ctrl.ScreenSize.isMediumOrLarger()">
   <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
     <i class="fa fa-ellipsis-h"></i>
     <md-tooltip>

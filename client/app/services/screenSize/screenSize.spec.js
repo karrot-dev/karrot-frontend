@@ -18,7 +18,7 @@ describe("screenSize", () => {
   });
 
   it("evaluates whether a screen is medium or larger", () => {
-    expect(ScreenSize.isMediumOrLarger()).to.equal($window.innerWidth >= 960);
+    expect(ScreenSize.isGtSm()).to.equal($window.innerWidth >= 960);
   });
 
 });

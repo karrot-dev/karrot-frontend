@@ -1,16 +1,11 @@
 class TopbarController {
-  constructor(Authentication, SessionUser, $window, $mdMedia, $scope, $rootScope, $mdSidenav) {
+  constructor(Authentication, SessionUser, $window, ScreenSize, $scope, $rootScope, $mdSidenav) {
     "ngInject";
-    $scope.screenIsSmall = !$mdMedia("gt-sm");
-    $scope.$watch(() => {
-      return $mdMedia("gt-sm");
-    }, (big) => {
-      $scope.screenIsSmall = !big;
-    });
 
     Object.assign(this, {
       Authentication,
       SessionUser,
+      ScreenSize,
       $mdSidenav,
       $scope,
       $rootScope,

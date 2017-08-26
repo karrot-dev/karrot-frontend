@@ -1,5 +1,5 @@
 class GroupOptionsController {
-  constructor(GroupService, CurrentGroup, $state, $document, $mdDialog, $mdMedia, $mdMenu) {
+  constructor(GroupService, CurrentGroup, $state, $document, $mdDialog, ScreenSize, $mdMenu) {
     "ngInject";
     Object.assign(this, {
       GroupService,
@@ -7,7 +7,7 @@ class GroupOptionsController {
       $state,
       $document,
       $mdDialog,
-      $mdMedia,
+      ScreenSize,
       $mdMenu
     });
   }

@@ -8,6 +8,7 @@ import storeCreate from "./storeCreate/storeCreate";
 import pickupManage from "./pickupManage/pickupManage";
 import storeHistory from "./storeHistory/storeHistory";
 import storePickups from "./storePickups/storePickups";
+import ScreenSizeModule from "services/screenSize/screenSize";
 
 let storeDetailModule = angular.module("storeDetail", [
   uiRouter,
@@ -17,7 +18,8 @@ let storeDetailModule = angular.module("storeDetail", [
   storeCreate,
   pickupManage,
   storeHistory,
-  storePickups
+  storePickups,
+  ScreenSizeModule
 ])
 
 .component("storeDetail", storeDetailComponent)

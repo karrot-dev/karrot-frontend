@@ -6,7 +6,7 @@ class ScreenSizeService {
     });
   }
 
-  isMediumOrLarger() {
+  isGtSm() {
     return this.$mdMedia("gt-sm");
   }
 }

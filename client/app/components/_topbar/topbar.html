@@ -1,7 +1,7 @@
 <md-toolbar ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp">
   <div class="md-toolbar-tools" layout="row">
     <md-button
-      ng-if="!$ctrl.ScreenSize.isMediumOrLarger()"
+      ng-if="!$ctrl.ScreenSize.isGtSm()"
       aria-label="Navigation"
       ng-click="$ctrl.openSidenav()"
       class="md-icon-button">
@@ -14,7 +14,7 @@
       </md-tooltip>
     </md-button>
 
-    <div ng-if="$ctrl.ScreenSize.isMediumOrLarger()" layout="row" flex>
+    <div ng-if="$ctrl.ScreenSize.isGtSm()" layout="row" flex>
       <language-chooser></language-chooser>
       <md-button href="https://github.com/yunity/foodsaving-frontend">
         <i class="fa fa-github"></i>
@@ -49,7 +49,7 @@
   <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
     <span flex="5" hide-xs></span>
 
-    <md-button ng-if="!$ctrl.ScreenSize.isMediumOrLarger()" aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
+    <md-button ng-if="!$ctrl.ScreenSize.isGtSm()" aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
       <i class="fa fa-fw fa-bars"></i>
     </md-button>
 
@@ -62,7 +62,7 @@
 
     <group-menu style="min-width: 50%" flex></group-menu>
 
-    <div ng-if="$ctrl.ScreenSize.isMediumOrLarger()" layout="row">
+    <div ng-if="$ctrl.ScreenSize.isGtSm()" layout="row">
       <language-chooser></language-chooser>
       <md-button class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
         <i class="fa fa-user"></i>

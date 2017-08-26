@@ -9,6 +9,10 @@ class ScreenSizeService {
   isGtSm() {
     return this.$mdMedia("gt-sm");
   }
+
+  isGtXs() {
+    return this.$mdMedia("gt-xs");
+  }
 }
 
 export default ScreenSizeService;

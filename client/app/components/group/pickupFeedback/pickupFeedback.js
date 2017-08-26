@@ -2,10 +2,12 @@ import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
 import pickupFeedbackComponent from "./pickupFeedback.component";
+import ScreenSizeModule from "services/screenSize/screenSize";
 
 let pickupFeedbackModule = angular.module("pickupFeedback", [
   uiRouter,
-  ngMaterial
+  ngMaterial,
+  ScreenSizeModule
 ])
 
 .component("pickupFeedback", pickupFeedbackComponent)

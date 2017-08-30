@@ -3,7 +3,7 @@ from django.db import models, transaction
 from django.utils import timezone
 from timezone_field import TimeZoneField
 
-from config import settings
+from django.conf import settings
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.conversations.models import ConversationMixin
 from foodsaving.groups.signals import post_group_join, pre_group_leave

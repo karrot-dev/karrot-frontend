@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from django.utils import timezone
 from furl import furl
 
-from config import settings
+from django.conf import settings
 from foodsaving.base.base_models import BaseModel
 from foodsaving.invitations.signals import invitation_accepted
 

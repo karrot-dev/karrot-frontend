@@ -1,7 +1,7 @@
 from django.db.models import ForeignKey, TextField, DateTimeField
 from django.utils import timezone
 
-from config import settings
+from django.conf import settings
 from foodsaving.base.base_models import BaseModel
 
 

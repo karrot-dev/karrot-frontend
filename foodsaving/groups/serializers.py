@@ -3,7 +3,7 @@ from django.utils.translation import ugettext as _
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from config import settings
+from django.conf import settings
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.groups.signals import post_group_modify, post_group_create
 from foodsaving.history.utils import get_changed_data

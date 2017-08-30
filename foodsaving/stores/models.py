@@ -10,7 +10,7 @@ from django.db.models import Count
 from django.template.loader import render_to_string
 from django.utils import timezone
 
-from config import settings
+from django.conf import settings
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.stores.signals import pickup_done, pickup_missed
 

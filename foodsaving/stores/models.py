@@ -222,7 +222,7 @@ class PickupDate(BaseModel):
             self.save()
 
     def is_upcoming(self):
-        return self.date > timezone.now() + relativedelta(minutes=1)
+        return self.date > timezone.now()
 
     def is_full(self):
         if not self.max_collectors:

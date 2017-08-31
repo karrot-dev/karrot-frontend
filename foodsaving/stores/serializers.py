@@ -249,6 +249,8 @@ class FeedbackSerializer(serializers.ModelSerializer):
         group = about.store.group
         if not group.is_member(user):
             raise serializers.ValidationError(_('You are not member of the store\'s group.'))
+        if about.is_upcoming():
+            raise serializers.ValidationError(_('The pickup is not done yet'))
         if not about.is_collector(user):
             raise serializers.ValidationError(_('You aren\'t assigned to the pickup.'))
         return about

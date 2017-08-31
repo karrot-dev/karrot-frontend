@@ -7,13 +7,16 @@ import appleImg from "./apple.png";
 import appleGuyImg from "./appleGuy.png";
 
 class PickupFeedbackController {
-  constructor(ScreenSize, $stateParams, Feedback, CurrentUsers) {
+  constructor(ScreenSize, $stateParams, Feedback, CurrentUsers, CurrentStores, SessionUser, $http) {
     "ngInject";
     Object.assign(this, {
       cartImg,
       ScreenSize,
       Feedback,
       CurrentUsers,
+      CurrentStores,
+      SessionUser,
+      $http,
       $stateParams,
       amountImages: [],
       data: {
@@ -21,6 +24,8 @@ class PickupFeedbackController {
         comment: ""
       },
       status: {},
+      allFeedback: [],
+      donePickups: [],
       images: {
         bag: bagImg,
         milk: milkImg,
@@ -33,7 +38,33 @@ class PickupFeedbackController {
   }
 
   $onInit() {
-    this.Feedback.list().then((data) => this.allFeedback = data);
+    // get ALL feedback
+    // TODO: get only for group and paginate
+    this.Feedback.list()
+      .then((data) => this.allFeedback = data);
+
+
+    // load done pickups
+    // TODO: move into pickup service
+    this.pickupsLoading = true;
+    this.$http.get("/api/pickup-dates/", { params: { group: this.$stateParams.groupId, "date_1": new Date() } })
+      .then((res) => res.data)
+      .then((data) => this.donePickups = data)
+      .finally(() => this.pickupsLoading = false);
+  }
+
+  getAvailablePickups() {
+    // returns done pickups where the user has been a collector and hasn't given feedback yet
+    return this.donePickups
+      .filter((p) => p.collector_ids.includes(this.SessionUser.value.id))
+      .filter((p) => {
+        return this.allFeedback.findIndex((f) => f.about === p.id && f.given_by === this.SessionUser.value.id) < 0;
+      });
+  }
+
+  getGroupFeedback() {
+    // returns feedback of pickups in the group
+    return this.allFeedback.filter((f) => this.donePickups.findIndex((p) => p.id === f.about) > -1);
   }
 
   isHigherImg(data){

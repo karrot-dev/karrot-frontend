@@ -29,6 +29,7 @@ class FeedbackTest(APITestCase):
 
         # transforms the member into a collector
         cls.past_pickup.collectors.add(cls.collector)
+        cls.pickup.collectors.add(cls.collector)
 
         # create a feedback data for POST method
         cls.feedback_post = {
@@ -163,5 +164,5 @@ class FeedbackTest(APITestCase):
         Collector is NOT allowed to leave feedback for future pickup
         """
         self.client.force_login(user=self.collector)
-        response = self.client.post(self.url, self.future_feedback_post, format='json')
+        response = self.client.post(self.url, self.future_feedback_post)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)

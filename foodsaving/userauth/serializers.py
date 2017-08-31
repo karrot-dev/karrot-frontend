@@ -10,9 +10,6 @@ class AuthLoginSerializer(serializers.Serializer):
         credentials = {'email': attrs.get('email'), 'password': attrs.get('password')}
         user = authenticate(**credentials)
         if user:
-            if not user.is_active:
-                msg = 'User account is disabled'
-                raise serializers.ValidationError(msg)
             login(self.context['request'], user)
         else:
             msg = 'Unable to login with provided credentials.'

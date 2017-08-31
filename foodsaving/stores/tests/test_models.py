@@ -7,8 +7,9 @@ from django.utils import timezone
 from datetime import datetime
 
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.stores.factories import StoreFactory
-from foodsaving.stores.models import Store, PickupDateSeries, PickupDate
+from foodsaving.stores.factories import StoreFactory, PickupDateFactory
+from foodsaving.stores.models import Store, PickupDateSeries, PickupDate, Feedback
+from foodsaving.users.factories import UserFactory
 
 
 class TestStoreModel(TestCase):
@@ -29,6 +30,28 @@ class TestStoreModel(TestCase):
     def test_create_store_with_same_name_in_different_groups_works(self):
         Store.objects.create(name='abcdef', group=self.group)
         Store.objects.create(name='abcdef', group=GroupFactory())
+
+
+class TestFeedbackModel(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.pickup = PickupDateFactory()
+        cls.user = UserFactory()
+
+    def test_weight_is_negative_fails(self):
+        with self.assertRaises(IntegrityError):
+            Feedback.objects.create(weight=-1, about=self.pickup, given_by=self.user, comment="soup")
+
+    def test_weight_is_null_passes(self):
+        Feedback.objects.create(about=self.pickup, given_by=self.user, comment="soup")
+
+    def test_comment_is_null_passes(self):
+        Feedback.objects.create(about=self.pickup, given_by=self.user, weight=1)
+
+    def test_create_fails_if_comment_too_long(self):
+        with self.assertRaises(DataError):
+            Feedback.objects.create(comment='a' * 100001, about=self.pickup, given_by=self.user, weight=1)
 
 
 class TestPickupDateSeriesModel(TestCase):

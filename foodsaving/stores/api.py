@@ -7,12 +7,19 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
-from foodsaving.stores.permissions import IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate, \
-    IsNotFull
-from foodsaving.stores.serializers import StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer, \
-    PickupDateJoinSerializer, PickupDateLeaveSerializer
-from foodsaving.stores.models import Store as StoreModel, PickupDate as PickupDateModel, \
-    PickupDateSeries as PickupDateSeriesModel
+from foodsaving.stores.permissions import (
+    IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate,
+    IsNotFull)
+from foodsaving.stores.serializers import (
+    StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer,
+    PickupDateJoinSerializer, PickupDateLeaveSerializer, FeedbackSerializer)
+from foodsaving.stores.models import (
+    Store as StoreModel,
+    PickupDate as PickupDateModel,
+    PickupDateSeries as PickupDateSeriesModel,
+    Feedback as FeedbackModel
+)
+
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 pre_pickup_delete = Signal()
@@ -59,6 +66,20 @@ class StoreViewSet(
         PickupDateSeriesModel.objects.filter(store=store).delete()
 
 
+class FeedbackViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
+    serializer_class = FeedbackSerializer
+    queryset = FeedbackModel.objects.all()
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return self.queryset.filter(about__store__group__members=self.request.user)
+
+
 class PickupDateSeriesViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
@@ -67,12 +88,7 @@ class PickupDateSeriesViewSet(
     mixins.DestroyModelMixin,
     viewsets.GenericViewSet
 ):
-    """
-    Pickup Date Series
 
-    # Query parameters
-    - `?store` - filter by store id
-    """
     serializer_class = PickupDateSeriesSerializer
     queryset = PickupDateSeriesModel.objects
     filter_backends = (filters.DjangoFilterBackend,)

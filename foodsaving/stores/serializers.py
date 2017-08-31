@@ -8,9 +8,12 @@ from rest_framework import serializers
 
 from django.conf import settings
 from foodsaving.history.utils import get_changed_data
-from foodsaving.stores.models import PickupDate as PickupDateModel
-from foodsaving.stores.models import PickupDateSeries as PickupDateSeriesModel
-from foodsaving.stores.models import Store as StoreModel
+from foodsaving.stores.models import (
+    PickupDate as PickupDateModel,
+    Feedback as FeedbackModel,
+    PickupDateSeries as PickupDateSeriesModel,
+    Store as StoreModel,
+)
 from foodsaving.stores.signals import post_pickup_create, post_pickup_modify, post_pickup_join, post_pickup_leave, \
     post_series_create, post_series_modify, post_store_create, post_store_modify
 
@@ -229,3 +232,24 @@ class StoreSerializer(serializers.ModelSerializer):
         if w < 1:
             raise serializers.ValidationError(_('Set at least one week in advance'))
         return w
+
+
+class FeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FeedbackModel
+        fields = ['id', 'weight', 'comment', 'about', 'given_by']
+        read_only_fields = ('given_by',)
+
+    # Tilmanns code (is it to save a user_id of the logged-in user?)
+    def create(self, validated_data):
+        validated_data['given_by'] = self.context['request'].user
+        return super().create(validated_data)
+
+    def validate_about(self, about):
+        user = self.context['request'].user
+        group = about.store.group
+        if not group.is_member(user):
+            raise serializers.ValidationError(_('You are not member of the store\'s group.'))
+        if not about.is_collector(user):
+            raise serializers.ValidationError(_('You aren\'t assign to the pickup.'))
+        return about

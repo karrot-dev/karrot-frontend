@@ -21,14 +21,31 @@ def logger_warning_mock():
 @contextmanager
 def fcm_reload_without_config():
     from django.conf import settings
-    original = settings.FCM_SERVER_KEY
-    try:
+    if not hasattr(settings, 'FCM_SERVER_KEY'):
+        reload(foodsaving.subscriptions.fcm)
+        yield
+    else:
+        original = settings.FCM_SERVER_KEY
         del settings.FCM_SERVER_KEY
         reload(foodsaving.subscriptions.fcm)
         yield
-    finally:
         settings.FCM_SERVER_KEY = original
         reload(foodsaving.subscriptions.fcm)
+
+
+@contextmanager
+def fake_fcm_key():
+    from django.conf import settings
+    original = None
+    if hasattr(settings, 'FCM_SERVER_KEY'):
+        original = settings.FCM_SERVER_KEY
+    settings.FCM_SERVER_KEY = 'abc'
+    reload(foodsaving.subscriptions.fcm)
+    yield
+    del settings.FCM_SERVER_KEY
+    if original:
+        settings.FCM_SERVER_KEY = original
+    reload(foodsaving.subscriptions.fcm)
 
 
 @requests_mock.Mocker()
@@ -38,25 +55,26 @@ class FCMTests(TestCase):
         notify_multiple_devices(registration_ids=['mytoken'])
 
     def test_removes_invalid_subscriptions(self, m):
-        m.post('https://fcm.googleapis.com/fcm/send', json={
-            'results': [
-                {
-                    # not an error
-                },
-                {
-                    'error': 'InvalidRegistration'
-                }
-            ]
-        })
-        user = UserFactory()
-        valid_token = faker.uuid4()
-        invalid_token = faker.uuid4()
-        PushSubscription.objects.create(user=user, token=valid_token)
-        PushSubscription.objects.create(user=user, token=invalid_token)
-        result = notify_multiple_devices(registration_ids=[valid_token, invalid_token])
-        self.assertIsNotNone(result)
-        self.assertEqual(PushSubscription.objects.filter(token=valid_token).count(), 1)
-        self.assertEqual(PushSubscription.objects.filter(token=invalid_token).count(), 0)
+        with fake_fcm_key():
+            m.post('https://fcm.googleapis.com/fcm/send', json={
+                'results': [
+                    {
+                        # not an error
+                    },
+                    {
+                        'error': 'InvalidRegistration'
+                    }
+                ]
+            })
+            user = UserFactory()
+            valid_token = faker.uuid4()
+            invalid_token = faker.uuid4()
+            PushSubscription.objects.create(user=user, token=valid_token)
+            PushSubscription.objects.create(user=user, token=invalid_token)
+            result = notify_multiple_devices(registration_ids=[valid_token, invalid_token])
+            self.assertIsNotNone(result)
+            self.assertEqual(PushSubscription.objects.filter(token=valid_token).count(), 1)
+            self.assertEqual(PushSubscription.objects.filter(token=invalid_token).count(), 0)
 
     def test_continues_if_config_not_present(self, m):
         with logger_warning_mock() as warning_mock:

@@ -6,9 +6,9 @@ from django.db import DataError
 from django.db import IntegrityError
 from django.test import TestCase
 
+from foodsaving.groups.factories import GroupFactory
 from foodsaving.users import models
 from foodsaving.users.factories import UserFactory
-from foodsaving.groups.factories import GroupFactory
 from foodsaving.utils.tests.fake import faker
 
 
@@ -64,11 +64,6 @@ class TestUserModel(TestCase):
         get_user_model().objects.create_superuser(email, 'letmein')
         self.assertEqual(get_user_model().objects.filter(email=email).count(), 1)
 
-    def test_create_superuser(self):
-        email = faker.email()
-        get_user_model().objects.create_superuser(email, 'letmein')
-        self.assertEqual(get_user_model().objects.filter(email=email).count(), 1)
-
     def test_create_user_without_specify_email(self):
         with self.assertRaisesMessage(ValueError, 'The email field must be set'):
             get_user_model().objects.create_user(None, 'foo')
@@ -113,6 +108,3 @@ class TestSendMail(TestCase):
                 display_name='lalala'
             )
         self.assertEqual(get_user_model().objects.filter(email='shabab@test.com').count(), 0)
-
-
-

@@ -56,13 +56,15 @@ psutil==5.2.2             # via python-server-metrics
 psycopg2==2.7.3.1
 pycodestyle==2.3.1        # via flake8
 pycparser==2.18           # via cffi
-pyflakes==1.6.0           # via flake8
+pyfcm==1.4.2
+pyflakes==1.5.0           # via flake8
 python-dateutil==2.6.1    # via faker, influxdb
 python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2017.2
 raven==6.1.0
 redis==2.10.6
-requests==2.18.4          # via coreapi, django-anymail, influxdb, responses, sparkpost
+requests-toolbelt==0.8.0  # via pyfcm
+requests==2.18.4          # via coreapi, django-anymail, influxdb, pyfcm, requests-toolbelt, responses, sparkpost
 responses==0.7.0
 simplejson==3.11.1        # via django-rest-swagger
 six==1.10.0               # via argon2-cffi, asgi-redis, asgiref, autobahn, automat, django-anymail, django-extensions, faker, furl, influxdb, orderedmultidict, python-dateutil, responses, tld, txaio
@@ -73,6 +75,3 @@ txaio==2.8.1              # via autobahn
 uritemplate==3.0.0        # via coreapi
 urllib3==1.22             # via requests
 zope.interface==4.4.2     # via twisted
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools                # via zope.interface

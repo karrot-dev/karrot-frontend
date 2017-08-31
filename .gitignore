@@ -13,6 +13,7 @@ myvenv
 
 # IDE
 /.idea
+*.iml
 
 # Python files
 *.pyc

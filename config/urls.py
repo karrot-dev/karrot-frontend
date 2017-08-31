@@ -25,6 +25,7 @@ from foodsaving.groups.api import GroupViewSet
 from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
 from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet, FeedbackViewSet
+from foodsaving.subscriptions.api import PushSubscriptionViewSet
 from foodsaving.userauth.api import AuthViewSet
 from foodsaving.users.api import UserViewSet
 
@@ -42,6 +43,9 @@ router.register(r'pickup-dates', PickupDateViewSet)
 
 # Message endpoints
 router.register(r'messages', ConversationMessageViewSet)
+
+# Subscription endpoints
+router.register(r'subscriptions/push', PushSubscriptionViewSet)
 
 # Store endpoints
 router.register(r'stores', StoreViewSet)

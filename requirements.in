@@ -27,3 +27,4 @@ responses
 furl
 channels
 asgi_redis
+pyfcm

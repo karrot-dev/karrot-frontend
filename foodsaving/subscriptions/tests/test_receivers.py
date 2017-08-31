@@ -1,8 +1,14 @@
+import json
+
+import requests_mock
 from channels.test import ChannelTestCase, WSClient
+from pyfcm.baseapi import BaseAPI as FCMAPI
 
 from foodsaving.conversations.factories import ConversationFactory
 from foodsaving.conversations.models import ConversationMessage
+from foodsaving.subscriptions.models import PushSubscriptionPlatform, PushSubscription
 from foodsaving.users.factories import UserFactory
+from foodsaving.utils.tests.fake import faker
 
 
 class ReceiverTests(ChannelTestCase):
@@ -56,3 +62,34 @@ class ReceiverTests(ChannelTestCase):
                 'id': conversation.id
             }
         })
+
+    @requests_mock.Mocker()
+    def test_sends_to_push_subscribers(self, m):
+
+        def check_json_data(request):
+            data = json.loads(request.body.decode('utf-8'))
+            self.assertEqual(data['notification']['title'], content)
+            self.assertEqual(data['to'], token)
+            return True
+
+        m.post(FCMAPI.FCM_END_POINT, json={}, additional_matcher=check_json_data)
+
+        user = UserFactory()
+        author = UserFactory()
+
+        token = faker.uuid4()
+        content = 'woo'
+
+        # join a conversation
+        conversation = ConversationFactory()
+        conversation.join(user)
+        conversation.join(author)
+
+        # add a push subscriber
+        PushSubscription.objects.create(user=user, token=token, platform=PushSubscriptionPlatform.ANDROID)
+
+        # add a message to the conversation
+        ConversationMessage.objects.create(conversation=conversation, content=content, author=author)
+
+        # we can't check it was received but the check_json_data above will at least check it sent the right info
+

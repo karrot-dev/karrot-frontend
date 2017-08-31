@@ -53,6 +53,13 @@ INFLUXDB_TIMEOUT = 2
 INFLUXDB_USE_CELERY = False
 INFLUXDB_USE_THREADING = True
 
+######
+# Firebase Cloud Messaging config
+# For sending push messages
+# Get one from https://console.firebase.google.com
+######
+
+FCM_SERVER_KEY = 'your server key'
 
 #######
 # Sentry.io config for error reporting

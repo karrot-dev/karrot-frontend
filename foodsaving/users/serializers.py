@@ -1,13 +1,11 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.utils import timezone
-from rest_framework import serializers
-
-from django.conf import settings
 from django.utils.translation import ugettext as _
+from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = get_user_model()
         fields = ['id', 'display_name', 'email', 'unverified_email', 'password',

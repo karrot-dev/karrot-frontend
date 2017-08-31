@@ -6,6 +6,9 @@ machine:
 database:
   override:
     - cp config/local_settings.py.ci config/local_settings.py
+dependencies:
+  post:
+    - pip install -r requirements-dev.txt
 test:
   override:
     - coverage run manage.py test

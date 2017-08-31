@@ -47,6 +47,30 @@ describe("PickupFeedback", () => {
       expect($ctrl.isHigherImg($ctrl.images.flour)).to.be.false;
       expect($ctrl.isHigherImg($ctrl.images.bag)).to.be.true;
     });
+
+    it("creates feedback", inject(($q, $rootScope) => {
+      let $ctrl = $componentController("pickupFeedback", {});
+      sinon.stub($ctrl.Feedback, "create").returns($q.resolve({ weight: 1 }));
+      $ctrl.create();
+      expect($ctrl.status.creating).to.be.true;
+      expect($ctrl.status.created).to.be.false;
+      $rootScope.$apply();
+      expect($ctrl.status.creating).to.be.false;
+      expect($ctrl.status.created).to.be.true;
+      expect($ctrl.status.returned).to.deep.equal({ weight: 1 });
+    }));
+
+    it("fails to create feedback", inject(($q, $rootScope) => {
+      let $ctrl = $componentController("pickupFeedback", {});
+      sinon.stub($ctrl.Feedback, "create").returns($q.reject({ data: "error" }));
+      $ctrl.create();
+      expect($ctrl.status.creating).to.be.true;
+      expect($ctrl.status.created).to.be.false;
+      $rootScope.$apply();
+      expect($ctrl.status.creating).to.be.false;
+      expect($ctrl.status.created).to.be.false;
+      expect($ctrl.status.error).to.equal("error");
+    }));
   });
 
   describe("Component", () => {

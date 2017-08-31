@@ -32,7 +32,6 @@ class FeedbackTest(APITestCase):
 
         # create a feedback data for POST method
         cls.feedback_post = {
-            'given_by': cls.collector.id,
             'about': cls.past_pickup.id,
             'weight': 2,
             'comment': 'asfjk'
@@ -40,7 +39,6 @@ class FeedbackTest(APITestCase):
 
         # create a feedback to future pickup
         cls.future_feedback_post = {
-            'given_by': cls.collector.id,
             'about': cls.pickup.id,
             'weight': 2,
             'comment': 'asfjk'

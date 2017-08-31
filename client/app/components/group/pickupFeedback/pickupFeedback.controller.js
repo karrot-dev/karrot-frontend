@@ -7,16 +7,20 @@ import appleImg from "./apple.png";
 import appleGuyImg from "./appleGuy.png";
 
 class PickupFeedbackController {
-  constructor(ScreenSize) {
+  constructor(ScreenSize, $stateParams, Feedback, CurrentUsers) {
     "ngInject";
     Object.assign(this, {
       cartImg,
       ScreenSize,
+      Feedback,
+      CurrentUsers,
+      $stateParams,
       amountImages: [],
       data: {
-        amount: 0,
+        amount: 1,
         comment: ""
       },
+      status: {},
       images: {
         bag: bagImg,
         milk: milkImg,
@@ -26,6 +30,10 @@ class PickupFeedbackController {
         appleGuy: appleGuyImg
       }
     });
+  }
+
+  $onInit() {
+    this.Feedback.list().then((data) => this.allFeedback = data);
   }
 
   isHigherImg(data){
@@ -63,6 +71,37 @@ class PickupFeedbackController {
       amount -= 0.15;
     }
     return amount;
+  }
+
+  create() {
+    const input = {
+      about: this.$stateParams.pickupId,
+      weight: this.data.amount,
+      comment: this.data.comment
+    };
+
+    Object.assign(this.status, {
+      creating: true,
+      created: false,
+      error: undefined,
+      returned: undefined
+    });
+
+    this.Feedback.create(input)
+    .then((data) => {
+      Object.assign(this.status, {
+        creating: false,
+        created: true,
+        returned: data
+      });
+    })
+    .catch((err) => {
+      Object.assign(this.status, {
+        creating: false,
+        created: false,
+        error: err.data
+      });
+    });
   }
 }
 

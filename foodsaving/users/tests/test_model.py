@@ -9,6 +9,7 @@ from django.test import TestCase
 from foodsaving.users import models
 from foodsaving.users.factories import UserFactory
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.utils.tests.fake import faker
 
 
 class TestUserModel(TestCase):
@@ -57,6 +58,38 @@ class TestUserModel(TestCase):
                 password='123'
             )
         self.assertEqual(get_user_model().objects.count(), start + 1)
+
+    def test_create_superuser(self):
+        email = faker.email()
+        get_user_model().objects.create_superuser(email, 'letmein')
+        self.assertEqual(get_user_model().objects.filter(email=email).count(), 1)
+
+    def test_create_superuser(self):
+        email = faker.email()
+        get_user_model().objects.create_superuser(email, 'letmein')
+        self.assertEqual(get_user_model().objects.filter(email=email).count(), 1)
+
+    def test_create_user_without_specify_email(self):
+        with self.assertRaisesMessage(ValueError, 'The email field must be set'):
+            get_user_model().objects.create_user(None, 'foo')
+
+    def test_get_short_name(self):
+        user = UserFactory()
+        self.assertEqual(user.get_short_name(), user.display_name)
+
+    def test_superusers_have_all_perms(self):
+        email = faker.email()
+        superuser = get_user_model().objects.create_superuser(email, 'foo')
+        self.assertTrue(superuser.has_perm('eating horses'))
+        self.assertTrue(superuser.has_perm('eating this specific horse', 'I am a kind and gentle horse'))
+        self.assertTrue(superuser.has_module_perms('lunar'))
+
+    def test_normal_users_have_no_perms(self):
+        email = faker.email()
+        user = get_user_model().objects.create_user(email, 'foo', display_name='I am normal')
+        self.assertFalse(user.has_perm('eating horses'))
+        self.assertFalse(user.has_perm('eating this specific horse', 'I am a kind and gentle horse'))
+        self.assertFalse(user.has_module_perms('lunar'))
 
 
 class TestSendMail(TestCase):

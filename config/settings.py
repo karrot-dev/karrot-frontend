@@ -71,7 +71,6 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE_CLASSES = (
     'influxdb_metrics.middleware.InfluxDBRequestMiddleware',
-    'foodsaving.utils.session.RealtimeClientMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

@@ -27,7 +27,7 @@ class FeedbackTest(APITestCase):
         # past pickup date
         cls.past_pickup = PickupDateFactory(store=cls.store, date=timezone.now() - relativedelta(days=1))
 
-        # transforms the menber into a collector
+        # transforms the member into a collector
         cls.past_pickup.collectors.add(cls.collector)
 
         # create a feedback data for POST method

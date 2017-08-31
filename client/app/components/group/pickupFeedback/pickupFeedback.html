@@ -2,13 +2,35 @@
   <div class="md-toolbar-tools">
     <h1 flex>
       <i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;
-      <span translate="PICKUP_FEEDBACK.TITLE"></span>
+      <span translate="PICKUP_FEEDBACK.TITLE"></span> (Beta dev-interface)
     </h1>
   </div>
 </md-toolbar>
 
 <div>
-  <div ng-if="!$ctrl.status.created">
+  <div ng-if="!$ctrl.$stateParams.pickupId">
+    <h4>Choose your pick-up</h4>
+    <md-list>
+      <md-list-item ng-repeat="p in $ctrl.getAvailablePickups()" ui-sref="group.pickupFeedback({pickupId:p.id})">
+        {{ $ctrl.CurrentStores.get(p.store).name }} at {{ p.date | date:'mediumDate' }}
+      </md-list-item>
+    </md-list>
+
+    <md-progress-circular
+      md-mode="indeterminate"
+      ng-if="$ctrl.pickupsLoading">
+    </md-progress-circular>
+
+    <div ng-if="!$ctrl.pickupsLoading && $ctrl.getAvailablePickups().length < 1">
+      No pick-ups available!
+    </div>
+  </div>
+
+  <md-button ng-if="$ctrl.$stateParams.pickupId" class="md-accent" ui-sref="group.pickupFeedbackSelect">
+    Go back to pickup selection
+  </md-button>
+
+  <div ng-if="$ctrl.$stateParams.pickupId && !$ctrl.status.created">
     <div style="margin-bottom: 4.5em" layout="row" class="image-and-text">
       <div ng-if="$ctrl.ScreenSize.isGtXs()" class="image-and-text-left">
         <img style="width: 100%" ng-src="{{$ctrl.cartImg}}">
@@ -62,7 +84,7 @@
 </div>
 
 
-<md-toolbar class="md-hue-1" ng-if="$ctrl.allFeedback">
+<md-toolbar class="md-hue-1" ng-if="$ctrl.getGroupFeedback().length > 0">
   <div class="md-toolbar-tools">
     <h1 flex>
       <i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;
@@ -72,8 +94,8 @@
 </md-toolbar>
 
 <div>
-  <md-list ng-if="$ctrl.allFeedback">
-    <md-list-item ng-repeat="f in $ctrl.allFeedback" class="md-2-line">
+  <md-list>
+    <md-list-item ng-repeat="f in $ctrl.getGroupFeedback()" class="md-2-line">
       <div class="md-list-item-text" layout="column">
         <p>
           Feedback {{ f.id }} given by {{ $ctrl.CurrentUsers.get(f.given_by).display_name }} about pick-up date ID {{ f.about }}

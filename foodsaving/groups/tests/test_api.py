@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.groups.models import Group as GroupModel
+from foodsaving.groups.models import Group as GroupModel, GroupMembership
 from foodsaving.stores.factories import PickupDateFactory, StoreFactory
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
@@ -147,7 +147,7 @@ class TestGroupsAPI(APITestCase):
             date=timezone.now() + relativedelta(weeks=1),
             collectors=[self.member, ],
         )
-        unrelated_pickupdate.store.group.members.add(self.member)
+        GroupMembership.objects.create(group=unrelated_pickupdate.store.group, user=self.member)
 
         self.client.force_login(user=self.member)
         response = self.client.post('/api/groups/{}/leave/'.format(self.group.id))

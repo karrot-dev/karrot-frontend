@@ -13,9 +13,4 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='group',
-            name='members',
-            field=models.ManyToManyField(related_name='groups', to=settings.AUTH_USER_MODEL),
-        ),
     ]

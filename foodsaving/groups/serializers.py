@@ -3,8 +3,8 @@ from django.utils.translation import ugettext as _
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
+from foodsaving.groups.models import Group as GroupModel, GroupMembership
 from django.conf import settings
-from foodsaving.groups.models import Group as GroupModel
 from foodsaving.groups.signals import post_group_modify, post_group_create
 from foodsaving.history.utils import get_changed_data
 
@@ -72,7 +72,7 @@ class GroupDetailSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = self.context['request'].user
         group = GroupModel.objects.create(**validated_data)
-        group.members.add(user)
+        GroupMembership.objects.create(group=group, user=user)
         group.save()
         post_group_create.send(sender=self.__class__, group=group, user=user, payload=self.initial_data)
         return group

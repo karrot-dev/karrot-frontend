@@ -1,5 +1,5 @@
 from factory import DjangoModelFactory, post_generation, LazyAttribute
-from foodsaving.groups.models import Group as GroupModel
+from foodsaving.groups.models import Group as GroupModel, GroupMembership
 from foodsaving.utils.tests.fake import faker
 
 
@@ -14,7 +14,7 @@ class GroupFactory(DjangoModelFactory):
             return
         if members:
             for member in members:
-                self.members.add(member)
+                GroupMembership.objects.create(group=self, user=member)
 
     name = LazyAttribute(lambda x: faker.sentence(nb_words=4))
     description = LazyAttribute(lambda x: faker.name())

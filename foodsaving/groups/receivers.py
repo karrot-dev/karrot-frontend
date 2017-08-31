@@ -1,18 +1,17 @@
-from django.db.models.signals import m2m_changed, post_save, pre_delete
+from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 
 from foodsaving.conversations.models import Conversation, ConversationParticipant
-from foodsaving.groups.models import Group
+from foodsaving.groups.models import Group, GroupMembership
 from foodsaving.invitations.signals import invitation_accepted
 from foodsaving.users.api import pre_user_delete
-from foodsaving.users.models import User
 
 
 @receiver(pre_user_delete)
 def delete_user_handler(sender, **kwargs):
     user = kwargs.get('user')
     for _ in Group.objects.filter(members__in=[user, ]):
-        _.members.remove(user)
+        GroupMembership.objects.filter(group=_, user=user).delete()
 
 
 @receiver(invitation_accepted)
@@ -44,20 +43,20 @@ def group_deleted(**kwargs):
         conversation.delete()
 
 
-@receiver(m2m_changed, sender='groups.Group_members')
-def group_membership_change(**kwargs):
-    """Keep the conversation participants up to date with the group members."""
+@receiver(post_save, sender=GroupMembership)
+def group_member_added(sender, instance, **kwargs):
+    """When a user is removed from a conversation we will notify them."""
+    group = instance.group
+    user = instance.user
+    conversation = Conversation.objects.get_or_create_for_target(group)
+    conversation.join(user)
 
-    action = kwargs.get('action')
-    group = kwargs.get('instance')
-    user_ids = kwargs.get('pk_set')
 
-    if action == 'post_add':
-        conversation = Conversation.objects.get_or_create_for_target(group)
-        for user in User.objects.filter(pk__in=user_ids):
-            conversation.join(user)
-
-    elif action == 'pre_remove':
-        conversation = Conversation.objects.get_for_target(group)
-        if conversation:
-            ConversationParticipant.objects.filter(conversation=conversation, user__id__in=user_ids).delete()
+@receiver(pre_delete, sender=GroupMembership)
+def group_member_removed(sender, instance, **kwargs):
+    """When a user is removed from a conversation we will notify them."""
+    group = instance.group
+    user = instance.user
+    conversation = Conversation.objects.get_for_target(group)
+    if conversation:
+        ConversationParticipant.objects.filter(conversation=conversation, user=user).delete()

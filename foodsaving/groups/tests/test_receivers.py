@@ -4,6 +4,7 @@ from django.utils import timezone
 
 from foodsaving.conversations.models import Conversation
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.groups.models import GroupMembership
 from foodsaving.groups.receivers import handle_invitation_accepted
 from foodsaving.history.models import History
 from foodsaving.users.factories import UserFactory
@@ -59,14 +60,14 @@ class TestConversationReceiver(TestCase):
     def test_adds_participant(self):
         group = GroupFactory()
         user = UserFactory()
-        group.members.add(user)
+        GroupMembership.objects.create(group=group, user=user)
         conversation = self.get_conversation_for_group(group)
         self.assertIn(user, conversation.participants.all(), 'Conversation did not have user in')
 
     def test_removes_participant(self):
         user = UserFactory()
         group = GroupFactory(members=[user])
-        group.members.remove(user)
+        GroupMembership.objects.filter(group=group, user=user).delete()
         conversation = self.get_conversation_for_group(group)
         self.assertNotIn(user, conversation.participants.all(), 'Conversation still had user in')
 

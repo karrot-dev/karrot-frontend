@@ -10,6 +10,7 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.groups.models import GroupMembership
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.stores.models import PickupDate
 from foodsaving.users.factories import UserFactory
@@ -621,7 +622,7 @@ class TestPickupDatesAPI(APITestCase):
         self.pickup.max_collectors = 1
         self.pickup.save()
         u2 = UserFactory()
-        self.group.members.add(u2)
+        GroupMembership.objects.create(group=self.group, user=u2)
         self.pickup.collectors.add(u2)
         response = self.client.post(self.join_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)

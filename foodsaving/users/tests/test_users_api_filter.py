@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.groups.models import GroupMembership
 from foodsaving.users.factories import UserFactory
 
 
@@ -14,7 +15,8 @@ class TestStoresAPIFilter(APITestCase):
         cls.user = UserFactory()
         cls.user2 = UserFactory()
         cls.group = GroupFactory()
-        cls.group.members.add(cls.user, cls.user2)
+        GroupMembership.objects.create(group=cls.group, user=cls.user)
+        GroupMembership.objects.create(group=cls.group, user=cls.user2)
 
     def test_search_display_name(self):
         self.client.force_login(user=self.user2)

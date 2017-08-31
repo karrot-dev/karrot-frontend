@@ -1,6 +1,7 @@
 from django.contrib import auth
 from rest_framework import status
 from rest_framework.test import APITestCase
+
 from foodsaving.users.factories import UserFactory
 
 
@@ -36,6 +37,7 @@ class TestUserAuthAPI(APITestCase):
     def test_login_as_disabled_user_fails(self):
         data = {'email': self.disabled_user.email, 'password': self.disabled_user.display_name}
         response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.data['non_field_errors'], ['User account is disabled', ])
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         user = auth.get_user(self.client)
         self.assertFalse(user.is_authenticated())

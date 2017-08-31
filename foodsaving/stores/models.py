@@ -213,3 +213,17 @@ class PickupDate(BaseModel):
             })
             self.notifications_sent['upcoming'] = {'status': r.status_code, 'data': r.text}
             self.save()
+
+    def is_upcoming(self):
+        return self.date > timezone.now() + relativedelta(minutes=1)
+
+    def is_full(self):
+        if not self.max_collectors:
+            return False
+        return self.collectors.count() >= self.max_collectors
+
+    def is_collector(self, user):
+        return self.collectors.filter(id=user.id).exists()
+
+    def is_empty(self):
+        return self.collectors.count() == 0

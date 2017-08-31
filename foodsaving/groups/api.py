@@ -20,14 +20,14 @@ class IsMember(BasePermission):
     message = _('You are not a member of this group.')
 
     def has_object_permission(self, request, view, obj):
-        return request.user in obj.members.all()
+        return obj.is_member(request.user)
 
 
 class IsNotMember(BasePermission):
     message = _('You are already a member.')
 
     def has_object_permission(self, request, view, obj):
-        return request.user not in obj.members.all()
+        return not obj.is_member(request.user)
 
 
 class GroupViewSet(

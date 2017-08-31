@@ -45,6 +45,9 @@ class Group(BaseModel, LocationModel, ConversationMixin):
         pre_group_leave.send(sender=self.__class__, group=self, user=user)
         GroupMembership.objects.filter(group=self, user=user).delete()
 
+    def is_member(self, user):
+        return not user.is_anonymous() and GroupMembership.objects.filter(group=self, user=user).exists()
+
 
 class GroupMembership(BaseModel):
     group = models.ForeignKey(Group, on_delete=models.DO_NOTHING)
@@ -53,3 +56,4 @@ class GroupMembership(BaseModel):
     class Meta:
         db_table = 'groups_group_members'
         unique_together = (('group', 'user'),)
+

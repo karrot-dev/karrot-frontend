@@ -17,7 +17,7 @@ class InvitesPerDayThrottle(UserRateThrottle):
 
 class NotInGroup(BasePermission):
     def has_object_permission(self, request, view, obj):
-        return obj.group not in request.user.groups.all()
+        return not obj.group.is_member(request.user)
 
 
 class InvitationsViewSet(

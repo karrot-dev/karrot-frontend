@@ -159,7 +159,7 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
         return series
 
     def validate_store(self, store):
-        if not self.context['request'].user.groups.filter(store=store).exists():
+        if not store.group.is_member(self.context['request'].user):
             raise serializers.ValidationError(_('You are not member of the store\'s group.'))
         return store
 
@@ -220,10 +220,10 @@ class StoreSerializer(serializers.ModelSerializer):
             )
         return store
 
-    def validate_group(self, group_id):
-        if group_id not in self.context['request'].user.groups.all():
+    def validate_group(self, group):
+        if not group.is_member(self.context['request'].user):
             raise serializers.ValidationError(_('You are not a member of this group.'))
-        return group_id
+        return group
 
     def validate_weeks_in_advance(self, w):
         if w < 1:

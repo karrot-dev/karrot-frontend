@@ -85,7 +85,7 @@ class FeedbackTest(APITestCase):
         self.client.force_login(user=self.member)
         response = self.client.post(self.url, self.feedback_post, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
-        self.assertEqual(response.data, {'about': ['You aren\'t assign to the pickup.']})
+        self.assertEqual(response.data, {'about': ['You aren\'t assigned to the pickup.']})
 
     def test_create_feedback_works_as_collector(self):
         """

@@ -240,7 +240,6 @@ class FeedbackSerializer(serializers.ModelSerializer):
         fields = ['id', 'weight', 'comment', 'about', 'given_by']
         read_only_fields = ('given_by',)
 
-    # Tilmanns code (is it to save a user_id of the logged-in user?)
     def create(self, validated_data):
         validated_data['given_by'] = self.context['request'].user
         return super().create(validated_data)
@@ -251,5 +250,5 @@ class FeedbackSerializer(serializers.ModelSerializer):
         if not group.is_member(user):
             raise serializers.ValidationError(_('You are not member of the store\'s group.'))
         if not about.is_collector(user):
-            raise serializers.ValidationError(_('You aren\'t assign to the pickup.'))
+            raise serializers.ValidationError(_('You aren\'t assigned to the pickup.'))
         return about

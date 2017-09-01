@@ -53,7 +53,7 @@
     "PICKUPS": "Upphämtningar",
     "MEMBERS": "Medlemmar",
     "STORES": "Butiker",
-    "HISTORY": "Historik",
+    "ACTIVITY": "Aktivitet",
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Address",
     "TIMEZONE": "Gruppens tidszon",
@@ -193,7 +193,7 @@
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
-  "HISTORY": {
+  "ACTIVITY": {
     "GROUP_CREATE": "skapade gruppen",
     "GROUP_MODIFY": "ändrade inställningar för gruppen",
     "GROUP_JOIN": "gick med i gruppen",

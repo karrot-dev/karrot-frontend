@@ -2,25 +2,25 @@
   <i class="fa fa-filter" aria-hidden="true"></i>
   <md-menu ng-if="$ctrl.options.usage !== 'store'">
     <button ng-click="$mdMenu.open()">
-      <span translate="HISTORY.STORES"></span>
+      <span translate="ACTIVITY.STORES"></span>
     </button>
     <md-menu-content>
       <md-menu-item>
         <md-button ng-click="$ctrl.showAllStores(true)"
-              aria-label="{{ 'HISTORY.SELECT_ALL' | translate }}">
-          <span translate="HISTORY.SELECT_ALL"></span>
+              aria-label="{{ 'ACTIVITY.SELECT_ALL' | translate }}">
+          <span translate="ACTIVITY.SELECT_ALL"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
         <md-button ng-click="$ctrl.showAllStores(false)"
-              aria-label="{{ 'HISTORY.SELECT_NONE' | translate }}">
-          <span translate="HISTORY.SELECT_NONE"></span>
+              aria-label="{{ 'ACTIVITY.SELECT_NONE' | translate }}">
+          <span translate="ACTIVITY.SELECT_NONE"></span>
         </md-button>
       </md-menu-item>
       <md-menu-divider></md-menu-divider>
       <md-menu-item type="checkbox" ng-model="$ctrl.types.groups">
         <!-- duplicate from the Types menu for easier access -->
-        {{ "HISTORY.TYPES.GROUPS" | translate }}
+        {{ "ACTIVITY.TYPES.GROUPS" | translate }}
       </md-menu-item>
       <md-menu-divider></md-menu-divider>
       <md-menu-item type="checkbox"
@@ -33,19 +33,19 @@
   </md-menu>
   <md-menu>
     <button ng-click="$mdMenu.open()">
-      <span translate="HISTORY.USERS"></span>
+      <span translate="ACTIVITY.USERS"></span>
     </button>
     <md-menu-content>
       <md-menu-item>
         <md-button ng-click="$ctrl.showAllUsers(true)"
-              aria-label="{{ 'HISTORY.SELECT_ALL' | translate }}">
-          <span translate="HISTORY.SELECT_ALL"></span>
+              aria-label="{{ 'ACTIVITY.SELECT_ALL' | translate }}">
+          <span translate="ACTIVITY.SELECT_ALL"></span>
         </md-button>
       </md-menu-item>
       <md-menu-item>
         <md-button ng-click="$ctrl.showAllUsers(false)"
-              aria-label="{{ 'HISTORY.SELECT_NONE' | translate }}">
-          <span translate="HISTORY.SELECT_NONE"></span>
+              aria-label="{{ 'ACTIVITY.SELECT_NONE' | translate }}">
+          <span translate="ACTIVITY.SELECT_NONE"></span>
         </md-button>
       </md-menu-item>
       <md-menu-divider></md-menu-divider>
@@ -65,32 +65,32 @@
   </md-menu>
   <md-menu>
     <button ng-click="$mdMenu.open()">
-      <span translate="HISTORY.TYPE"></span>
+      <span translate="ACTIVITY.TYPE"></span>
     </button>
     <md-menu-content>
       <!-- we can't use the preferred translate directive here,
           since md-menu-item does some transformation -->
       <md-menu-item type="checkbox" ng-model="$ctrl.types.groups"
         ng-if="$ctrl.options.usage !== 'store'">
-        {{ "HISTORY.TYPES.GROUPS" | translate }}
+        {{ "ACTIVITY.TYPES.GROUPS" | translate }}
       </md-menu-item>
       <md-menu-item type="checkbox" ng-model="$ctrl.types.stores"
         ng-if="$ctrl.options.usage !== 'store'">
-        {{ "HISTORY.TYPES.STORES" | translate }}
+        {{ "ACTIVITY.TYPES.STORES" | translate }}
       </md-menu-item>
       <md-menu-item type="checkbox" ng-model="$ctrl.types.pickups">
-        {{ "HISTORY.TYPES.PICKUPS" | translate }}
+        {{ "ACTIVITY.TYPES.PICKUPS" | translate }}
       </md-menu-item>
     </md-menu-content>
   </md-menu>
   <span class="md-caption">
-    {{ $ctrl.getHistoryItems().length }} / {{ $ctrl.data.results.length }}
+    {{ $ctrl.getActivityItems().length }} / {{ $ctrl.data.results.length }}
   </span>
 </md-menu-bar>
 
 <md-list>
   <md-subheader
-    ng-repeat-start="entry in $ctrl.getHistoryItems()"
+    ng-repeat-start="entry in $ctrl.getActivityItems()"
     ng-show="$ctrl.showDateHeaderBefore($index, $ctrl.data.results)">
     {{ entry.date | date:'fullDate' }}
   </md-subheader>
@@ -111,7 +111,7 @@
       </div>
       <div class="md-secondary md-icon-button"
         ng-if="$ctrl.hasPayload(entry)"
-        ng-click="$ctrl.openHistoryDetail($event, entry)"
+        ng-click="$ctrl.openActivityDetail($event, entry)"
         >
         <i class="fa fa-info"></i>
       </div>
@@ -120,12 +120,12 @@
 </md-list>
 <div>
   <md-button ng-if="$ctrl.hasMore()" ng-click="$ctrl.loadMore()"
-              aria-label="{{ 'HISTORY.LOAD_MORE' | translate }}">
-    <span translate="HISTORY.LOAD_MORE"></span>
+              aria-label="{{ 'ACTIVITY.LOAD_MORE' | translate }}">
+    <span translate="ACTIVITY.LOAD_MORE"></span>
   </md-button>
   <md-button ng-if="!$ctrl.hasMore()" ng-click="$ctrl.loadMore()" ng-disabled="true"
-              aria-label="{{ 'HISTORY.ALL_LOADED' | translate }}">
-    <span translate="HISTORY.ALL_LOADED"></span>
+              aria-label="{{ 'ACTIVITY.ALL_LOADED' | translate }}">
+    <span translate="ACTIVITY.ALL_LOADED"></span>
   </md-button>
   <span class="md-caption">
     {{ $ctrl.data.results.length }} / {{ $ctrl.data.count }}

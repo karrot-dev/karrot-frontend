@@ -1,9 +1,9 @@
-import HistoryModule from "./history";
+import ActivityModule from "./activity";
 
 const { module } = angular.mock;
 
-describe("History", () => {
-  beforeEach(module(HistoryModule));
+describe("Activity", () => {
+  beforeEach(module(ActivityModule));
   beforeEach(module({ translateFilter: (a) => a }));
 
   let $log;
@@ -16,8 +16,8 @@ describe("History", () => {
   });
 
   describe("Module", () => {
-    it("is named history", () => {
-      expect(HistoryModule).to.equal("history");
+    it("is named activity", () => {
+      expect(ActivityModule).to.equal("activity");
     });
   });
 
@@ -28,12 +28,12 @@ describe("History", () => {
     }));
 
     it("builds translate key", () => {
-      let $ctrl = $componentController("history", {});
-      expect($ctrl.getTranslateKey({ typus: "GROUP_JOIN" })).to.deep.equal("HISTORY.GROUP_JOIN");
+      let $ctrl = $componentController("activity", {});
+      expect($ctrl.getTranslateKey({ typus: "GROUP_JOIN" })).to.deep.equal("ACTIVITY.GROUP_JOIN");
     });
 
     it("retrieves store name", () => {
-      let $ctrl = $componentController("history", {});
+      let $ctrl = $componentController("activity", {});
       $ctrl.CurrentStores.set([{
         id: 5,
         name: "Joe's Store"
@@ -46,7 +46,7 @@ describe("History", () => {
 
 
     it("checks if date header should be shown", () => {
-      let $ctrl = $componentController("history", {});
+      let $ctrl = $componentController("activity", {});
       expect($ctrl.showDateHeaderBefore(0, [])).to.be.true;
       expect($ctrl.showDateHeaderBefore(1, [
         { date: new Date("2017-05-10T11:42:33+00:00") },
@@ -59,7 +59,7 @@ describe("History", () => {
     });
 
     it("checks if there is more data", () => {
-      let $ctrl = $componentController("history", {}, { data: {} });
+      let $ctrl = $componentController("activity", {}, { data: {} });
       $ctrl.data.next = undefined;
       expect($ctrl.hasMore()).to.be.false;
       $ctrl.data.next = () => {};
@@ -67,7 +67,7 @@ describe("History", () => {
     });
 
     it("loads more data", () => {
-      let $ctrl = $componentController("history", {}, { data: {
+      let $ctrl = $componentController("activity", {}, { data: {
         next: sinon.stub(),
         results: []
       } });
@@ -98,7 +98,7 @@ describe("History", () => {
     });
 
     it("loads stores", () => {
-      let $ctrl = $componentController("history", {}, { data: {
+      let $ctrl = $componentController("activity", {}, { data: {
         results: [{ store: 5 }]
       } });
       $ctrl.CurrentStores.set([{ id: 5 }]);
@@ -106,7 +106,7 @@ describe("History", () => {
     });
 
     it("loads users", () => {
-      let $ctrl = $componentController("history", {}, { data: {
+      let $ctrl = $componentController("activity", {}, { data: {
         results: [{ users: [66] }]
       } });
       $ctrl.CurrentUsers.set([{ id: 66 }]);
@@ -114,7 +114,7 @@ describe("History", () => {
     });
 
     it("filters users", () => {
-      let $ctrl = $componentController("history", {}, { data: {
+      let $ctrl = $componentController("activity", {}, { data: {
         results: [{ users: [66] }]
       } });
       $ctrl.CurrentUsers.set([{ id: 66, "display_name": "Lars" }]);
@@ -126,7 +126,7 @@ describe("History", () => {
     });
 
     it("returns undefined as true", () => {
-      let $ctrl = $componentController("history", {});
+      let $ctrl = $componentController("activity", {});
       expect($ctrl._undefinedAsTrue(undefined)).to.be.true;
       expect($ctrl._undefinedAsTrue(true)).to.be.true;
       expect($ctrl._undefinedAsTrue(false)).to.be.false;
@@ -134,7 +134,7 @@ describe("History", () => {
     });
 
     it("shows all/no stores", () => {
-      let $ctrl = $componentController("history", {});
+      let $ctrl = $componentController("activity", {});
       $ctrl.CurrentStores.set([{ id: 5 }]);
       $ctrl.showAllStores(true);
       expect($ctrl.selectedStores(5)()).to.be.true;
@@ -144,7 +144,7 @@ describe("History", () => {
     });
 
     it("shows all/no users", () => {
-      let $ctrl = $componentController("history", {});
+      let $ctrl = $componentController("activity", {});
       $ctrl.CurrentUsers.set([{ id: 66 }]);
       $ctrl.showAllUsers(true);
       expect($ctrl.selectedUsers(66)()).to.be.true;
@@ -153,61 +153,61 @@ describe("History", () => {
       expect($ctrl.selectedUsers(66)()).to.be.false;
     });
 
-    describe("it gets and filters history", () => {
+    describe("it gets and filters activity", () => {
       let $ctrl;
       beforeEach(() => {
-        $ctrl = $componentController("history", {}, { data: {
+        $ctrl = $componentController("activity", {}, { data: {
           results: [{ id: 1, store: 5, users: [66], typus: "GROUP_JOIN" }]
         } });
         $ctrl.CurrentStores.set([{ id: 5 }]);
         $ctrl.CurrentUsers.set([{ id: 66 }]);
       });
 
-      it("shows all history", () => {
+      it("shows all activity", () => {
         expect($ctrl._showItemByStore($ctrl.data.results[0])).to.be.true;
         expect($ctrl._showItemByUser($ctrl.data.results[0])).to.be.true;
         expect($ctrl._showItemByType($ctrl.data.results[0])).to.be.true;
-        expect($ctrl.getHistoryItems()).to.deep.equal([{ id: 1, store: 5, users: [66], typus: "GROUP_JOIN" }]);
+        expect($ctrl.getActivityItems()).to.deep.equal([{ id: 1, store: 5, users: [66], typus: "GROUP_JOIN" }]);
       });
 
       it("filters by store", () => {
         $ctrl.selectedStores(5)(false);
-        expect($ctrl.getHistoryItems()).to.deep.equal([]);
+        expect($ctrl.getActivityItems()).to.deep.equal([]);
       });
 
       it("filters by user", () => {
         $ctrl.selectedUsers(66)(false);
-        expect($ctrl.getHistoryItems()).to.deep.equal([]);
+        expect($ctrl.getActivityItems()).to.deep.equal([]);
       });
 
       it("filters by typus", () => {
         $ctrl.types.groups = false;
-        expect($ctrl.getHistoryItems()).to.deep.equal([]);
+        expect($ctrl.getActivityItems()).to.deep.equal([]);
       });
     });
 
     it("shows empty pickups", () => {
-      let $ctrl = $componentController("history", {}, { data: {
+      let $ctrl = $componentController("activity", {}, { data: {
         results: [{ id: 1, store: 5, users: [], typus: "PICKUP_DONE" }]
       } });
       $ctrl.CurrentStores.set([{ id: 5 }]);
-      expect($ctrl.getHistoryItems()).to.deep.equal([{ id: 1, store: 5, users: [], typus: "PICKUP_DONE" }]);
+      expect($ctrl.getActivityItems()).to.deep.equal([{ id: 1, store: 5, users: [], typus: "PICKUP_DONE" }]);
     });
 
     it("gets payload status", () => {
-      let $ctrl = $componentController("history", {});
+      let $ctrl = $componentController("activity", {});
       expect($ctrl.hasPayload({ payload: {} })).to.be.false;
       expect($ctrl.hasPayload({ payload: null })).to.be.false;
       expect($ctrl.hasPayload({})).to.be.false;
       expect($ctrl.hasPayload({ payload: { some: "value" } })).to.be.true;
     });
 
-    it("opens history detail dialog", () => {
-      let $ctrl = $componentController("history", {});
+    it("opens activity detail dialog", () => {
+      let $ctrl = $componentController("activity", {});
       inject(($q, $rootScope) => {
         sinon.stub($ctrl.$mdDialog, "show");
         $ctrl.$mdDialog.show.returns($q.resolve());
-        $ctrl.openHistoryDetail();
+        $ctrl.openActivityDetail();
         $rootScope.$apply();
       });
       expect($ctrl.$mdDialog.show).to.have.been.called;
@@ -222,7 +222,7 @@ describe("History", () => {
     }));
 
     it("compiles component", () => {
-      $compile("<history></history>")(scope);
+      $compile("<activity></activity>")(scope);
     });
   });
 });

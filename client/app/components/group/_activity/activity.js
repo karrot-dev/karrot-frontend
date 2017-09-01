@@ -1,22 +1,22 @@
 import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
-import historyComponent from "./history.component";
+import activityComponent from "./activity.component";
 import profilePicture from "components/_profilePicture/profilePicture";
-import historyDetail from "./_historyDetail/historyDetail";
+import activityDetail from "./_activityDetail/activityDetail";
 import StoreModule from "services/store/store";
 import UserModule from "services/user/user";
 
-let historyModule = angular.module("history", [
+let activityModule = angular.module("activity", [
   uiRouter,
   profilePicture,
-  historyDetail,
+  activityDetail,
   StoreModule,
   UserModule
 ])
 
-.component("history", historyComponent)
+.component("activity", activityComponent)
 
 
 .name;
 
-export default historyModule;
+export default activityModule;

@@ -53,7 +53,7 @@
     "PICKUPS": "Abholungen",
     "MEMBERS": "Mitglieder",
     "STORES": "Betriebe",
-    "HISTORY": "History",
+    "ACTIVITY": "Aktivität",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "TIMEZONE": "Zeitzone der Gruppe",
@@ -193,7 +193,7 @@
     "QUOTE": "zitieren",
     "HELP": "Was ist Markdown?"
   },
-  "HISTORY": {
+  "ACTIVITY": {
     "GROUP_CREATE": "hat diese Gruppe erstellt",
     "GROUP_MODIFY": "hat die Eigenschaften dieser Gruppe geändert",
     "GROUP_JOIN": "ist dieser Gruppe beigetreten",

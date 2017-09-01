@@ -53,7 +53,7 @@
     "PICKUPS": "開放外帶",
     "MEMBERS": "成員",
     "STORES": "店面",
-    "HISTORY": "歷史",
+    "ACTIVITY": "活动",
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
     "TIMEZONE": "社團時區",
@@ -193,7 +193,7 @@
     "QUOTE": "引用",
     "HELP": "什麼是Markdown語法？"
   },
-  "HISTORY": {
+  "ACTIVITY": {
     "GROUP_CREATE": "創建此社團",
     "GROUP_MODIFY": "變更此社團的設定",
     "GROUP_JOIN": "加入此社團",

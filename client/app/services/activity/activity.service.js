@@ -1,5 +1,5 @@
 
-class HistoryService {
+class ActivityService {
   constructor($http) {
     "ngInject";
     Object.assign(this, {
@@ -34,4 +34,4 @@ class HistoryService {
   }
 }
 
-export default HistoryService;
+export default ActivityService;

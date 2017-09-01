@@ -1,4 +1,4 @@
-class HistoryDetailController {
+class ActivityDetailController {
   constructor($mdDialog) {
     "ngInject";
     Object.assign(this, {
@@ -7,4 +7,4 @@ class HistoryDetailController {
   }
 }
 
-export default HistoryDetailController;
+export default ActivityDetailController;

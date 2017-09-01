@@ -107,7 +107,7 @@ class GroupMapController {
     }
 
     if (this.CurrentGroup.map.options.showUsers) {
-      let groupMembers = this.CurrentUsers.list.filter((u) => this.CurrentGroup.value.members.indexOf(u.id) > -1);
+      let groupMembers = this.CurrentUsers.list.filter((u) => this.CurrentGroup.value.members.includes(u.id));
       angular.forEach(groupMembers, (e) => {
         if (!e.latitude || !e.longitude) return;
         markers["user_" + e.id] = {

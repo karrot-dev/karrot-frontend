@@ -13,7 +13,7 @@ class UserListController {
     }).filter((e) => {
       if (angular.isDefined(e)) {
         if (this.searchQuery === "") return true;
-        return e.display_name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0;
+        return e.display_name.toLowerCase().includes(this.searchQuery.toLowerCase());
       }
       return false;
     });

@@ -58,7 +58,7 @@ class GroupInfoController {
   }
 
   isMember() {
-    return this.groupData.members.indexOf(this.SessionUser.value.id) >= 0;
+    return this.groupData.members.includes(this.SessionUser.value.id);
   }
 
   openJoinGroup($event) {

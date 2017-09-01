@@ -72,7 +72,7 @@ class HistoryController {
         return false;
       }
       return this.data.results.findIndex((history) => {
-        return history.users.indexOf(user.id) >= 0;
+        return history.users.includes(user.id);
       }) >= 0;
     });
   }

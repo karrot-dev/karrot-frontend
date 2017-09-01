@@ -41,6 +41,7 @@ Rough ideas, have been mentioned by someone.
 
 - Public landing page for groups (improvement of groupInfo page)
 - Add "to do" events (generalized from pickup date)
+- Make stores groupable in custom categories, offer different colored map markers per category and history filter options
 - Sharing of things: text+image with a tag system
 - Trustworthiness rating for users
 - Undo functionality for changes

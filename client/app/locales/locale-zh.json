@@ -1,10 +1,10 @@
 {
   "GLOBAL": {
-    "GITHUB_NOTE": "開發",
+    "GITHUB_NOTE": "開發\n",
     "FACEBOOK_NOTE": "加入我們的臉書社團！",
     "DEVMAIL_NOTE": "寄信給我們回報錯誤或提供建議",
     "WARNING": "警告",
-    "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們亮力而為)。",
+    "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
     "SERVER_ERROR": "伺服器錯誤"
   },
@@ -34,7 +34,7 @@
     "LEAVE": "離開",
     "PREVIEW": "預覽",
     "BACK": "退回",
-    "MORE_OPTIONS": "More options"
+    "MORE_OPTIONS": "更多選項"
   },
   "FORM": {
     "MINLENGTH": "請輸入超過{{min}}字數",
@@ -57,11 +57,11 @@
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
     "TIMEZONE": "社團時區",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
-    "INVITE_TITLE": "Invite users to your group"
+    "INVITE_EMAIL": "輸入電子郵件位址",
+    "INVITE_SEND": "寄發 邀請",
+    "INVITED_LIST": "邀請已被寄送至下列這些電子郵件位址：",
+    "ALREADY_INVITED": "邀請 已被寄送至下列這個電子郵件位址：",
+    "INVITE_TITLE": "邀請使用者到你的社團"
   },
   "STOREDETAIL": {
     "EDIT": "編輯店面",
@@ -107,8 +107,8 @@
     "PASSWORD_LABEL": "輸入私密社團的密碼",
     "PASSWORD_REQUIRED": "此社團需要密碼",
     "PASSWORD_WRONG": "你輸入了錯誤的密碼",
-    "ALL_GROUPS": "All groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!"
+    "ALL_GROUPS": "所有社團",
+    "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！"
   },
   "GROUPINFO": {
     "META": "顯示公開的社團資訊",
@@ -153,7 +153,7 @@
     "TIME": "時間",
     "TIME_ERROR": "輸入有效的時間，例如{{timeExample}}",
     "MAX_COLLECTORS": "最大值",
-    "COMMENT": "Additional information"
+    "COMMENT": "更多資訊"
   },
   "CREATESTORE": {
     "TITLE": "創建新店面"
@@ -208,7 +208,7 @@
     "SERIES_MODIFY": "變更循環出現的開放外帶設定",
     "SERIES_DELETE": "刪除循環出現的開放外帶",
     "PICKUP_DONE": "在{{store_name}}拿取開放外帶",
-    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
+    "PICKUP_MISSED": "錯過了在  {{store_name}} 的外帶！",
     "PICKUP_JOIN": "在{{store_name}}之中登記一份外帶",
     "PICKUP_LEAVE": "從在{{store_name}}進行一次外帶返回",
     "LOAD_MORE": "載入更多...",

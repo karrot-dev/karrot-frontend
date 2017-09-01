@@ -166,3 +166,4 @@ class FeedbackTest(APITestCase):
         self.client.force_login(user=self.collector)
         response = self.client.post(self.url, self.future_feedback_post)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+        self.assertEqual(response.data, {'about': ['The pickup is not done yet']})

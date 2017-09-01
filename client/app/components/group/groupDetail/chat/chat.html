@@ -1,0 +1,9 @@
+<div class="chat-messages"
+     chat-scroll-bottom="$ctrl.conversation.messages">
+  <div ng-repeat="message in $ctrl.conversation.messages">
+    <strong>{{ message.user.display_name }}</strong>&nbsp;{{ message.content }}
+  </div>
+</div>
+<form ng-submit="$ctrl.sendMessage()" autocomplete="off">
+  <input type="text" ng-model="$ctrl.newMessageBody"></input>
+</form>

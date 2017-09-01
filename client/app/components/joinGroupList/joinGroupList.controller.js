@@ -16,7 +16,7 @@ class JoinGroupListController {
   }
 
   isNotMember(group) {
-    return this.SessionUser.isLoggedIn() ? group.members.indexOf(this.SessionUser.value.id) < 0 : true;
+    return this.SessionUser.isLoggedIn() ? !group.members.includes(this.SessionUser.value.id) : true;
   }
 
   highestMemberCountFirst(a, b) {

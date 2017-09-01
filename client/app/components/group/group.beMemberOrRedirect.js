@@ -29,7 +29,7 @@ export default (
   .then((user) => {
     return GroupService.get($stateParams.groupId)
       .then((group) => {
-        if (group.members.indexOf(user.id) >= 0) {
+        if (group.members.includes(user.id)) {
           CurrentGroup.set(group);
 
         } else {

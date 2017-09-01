@@ -63,7 +63,7 @@ class PickupListController {
    * @return true or false
    */
   isUserMember(pickup){
-    return pickup.collector_ids.indexOf(this.SessionUser.value.id) !== -1;
+    return pickup.collector_ids.includes(this.SessionUser.value.id);
   }
 
   getPickups() {

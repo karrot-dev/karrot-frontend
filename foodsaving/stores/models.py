@@ -34,7 +34,7 @@ class Feedback(BaseModel):
     given_by = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='feedback')
     about = models.ForeignKey('PickupDate')
     weight = models.PositiveIntegerField(blank=True, null=True)
-    comment = models.CharField(max_length=settings.DESCRIPTION_MAX_LENGTH)
+    comment = models.CharField(max_length=settings.DESCRIPTION_MAX_LENGTH, blank=True)
 
 
 class PickupDateSeriesManager(models.Manager):

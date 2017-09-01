@@ -6,6 +6,7 @@ import chatList from "./_chatList/chatList";
 import languageChooser from "./_languageChooser/languageChooser";
 import Authentication from "services/authentication/authentication";
 import logo from "components/_logo/logo";
+import ScreenSizeModule from "services/screenSize/screenSize";
 
 let topbarModule = angular.module("topbar", [
   uiRouter,
@@ -13,7 +14,8 @@ let topbarModule = angular.module("topbar", [
   languageChooser,
   Authentication,
   logo,
-  chatList
+  chatList,
+  ScreenSizeModule
 ])
 
 .component("topbar", topbarComponent)

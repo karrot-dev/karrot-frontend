@@ -31,6 +31,7 @@ Quite a bit in the future (~1 year), haven't been discussed very much. If one of
 - Statistics similar to foodsharing.de: total amount of  saved food per person, per group, per store https://github.com/yunity/foodsaving-frontend/issues/355
 - Locations for public food distribution https://github.com/yunity/foodsaving-frontend/issues/354
 - Food baskets for person-to-person food exchange
+- Set up a legal entity for foodsaving.world, add terms of service https://github.com/yunity/foodsaving-frontend/issues/606
 
 [View issues](https://github.com/yunity/foodsaving-frontend/milestone/10)
 
@@ -51,4 +52,3 @@ Rough ideas, have been mentioned by someone.
 - Native App for Android and iOS
 - DevOps: deploying Pull-Request branches to some subdomain
 - Make foodsaving tool into a multisharing platform
-- Set up a legal entity for foodsaving.world, add terms of service

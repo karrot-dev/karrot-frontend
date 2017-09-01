@@ -1,4 +1,4 @@
-<span  ng-if="$ctrl.$mdMedia('gt-sm')">
+<span  ng-if="$ctrl.ScreenSize.isGtSm()">
   <md-button class="md-icon-button"
     ui-sref="groupInfo({groupId:$ctrl.groupData.id})"
     aria-label="{{ 'GROUPINFO.META' | translate }}">
@@ -36,7 +36,7 @@
   </md-button>
 </span>
 
-<span  ng-if="!($ctrl.$mdMedia('gt-sm'))">
+<span  ng-if="!$ctrl.ScreenSize.isGtSm()">
   <md-button class="md-icon-button"
     ui-sref="groupEdit"
     aria-label="{{ 'GROUP.EDIT' | translate }}">

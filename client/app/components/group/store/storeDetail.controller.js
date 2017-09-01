@@ -1,5 +1,5 @@
 class StoreDetailController {
-  constructor($state, $stateParams, CurrentStores, Store, CurrentGroup, $mdMedia) {
+  constructor($state, $stateParams, CurrentStores, Store, CurrentGroup, ScreenSize) {
     "ngInject";
     Object.assign(this, {
       $state,
@@ -8,7 +8,7 @@ class StoreDetailController {
       CurrentStores,
       selectedStore: CurrentStores.selected,  // for breadcrumb
       CurrentGroup, // for group breadcrumb
-      $mdMedia
+      ScreenSize
     });
   }
 

@@ -5,6 +5,7 @@ import PickupDate from "./pickupDate/pickupDate";
 import Store from "./store/store";
 import User from "./user/user";
 import Conversation from "./conversation/conversation";
+import ScreenSize from "./screenSize/screenSize";
 
 let serviceModule = angular.module("app.services", [
   Authentication,
@@ -12,7 +13,8 @@ let serviceModule = angular.module("app.services", [
   PickupDate,
   Store,
   User,
-  Conversation
+  Conversation,
+  ScreenSize
 ])
 
 .name;

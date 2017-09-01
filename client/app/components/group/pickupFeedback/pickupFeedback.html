@@ -2,39 +2,106 @@
   <div class="md-toolbar-tools">
     <h1 flex>
       <i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;
-      <span translate="PICKUP_FEEDBACK.TITLE"></span>
+      <span translate="PICKUP_FEEDBACK.TITLE"></span> (Beta dev-interface)
     </h1>
-  </div>    
+  </div>
 </md-toolbar>
+
 <div>
-  <div style="margin-bottom: 4.5em" layout="row" class="image-and-text">
-    <div ng-if="$ctrl.$mdMedia('gt-xs')" class="image-and-text-left">
-      <img style="width: 100%" ng-src="{{$ctrl.cartImg}}">
+  <div ng-if="!$ctrl.$stateParams.pickupId">
+    <h4>Choose your pick-up</h4>
+    <md-list>
+      <md-list-item ng-repeat="p in $ctrl.getAvailablePickups()" ui-sref="group.pickupFeedback({pickupId:p.id})">
+        {{ $ctrl.CurrentStores.get(p.store).name }} at {{ p.date | date:'mediumDate' }}
+      </md-list-item>
+    </md-list>
+
+    <md-progress-circular
+      md-mode="indeterminate"
+      ng-if="$ctrl.pickupsLoading">
+    </md-progress-circular>
+
+    <div ng-if="!$ctrl.pickupsLoading && $ctrl.getAvailablePickups().length < 1">
+      No pick-ups available!
     </div>
-    <div flex  class="image-and-text-right">
-      <h1 translate="PICKUP_FEEDBACK.HEADER"></h1>
-      <p translate="PICKUP_FEEDBACK.SUBTITLE"></p>
+  </div>
+
+  <md-button ng-if="$ctrl.$stateParams.pickupId" class="md-accent" ui-sref="group.pickupFeedbackSelect">
+    Go back to pickup selection
+  </md-button>
+
+  <div ng-if="$ctrl.$stateParams.pickupId && !$ctrl.status.created">
+    <div style="margin-bottom: 4.5em" layout="row" class="image-and-text">
+      <div ng-if="$ctrl.ScreenSize.isGtXs()" class="image-and-text-left">
+        <img style="width: 100%" ng-src="{{$ctrl.cartImg}}">
+      </div>
+      <div flex  class="image-and-text-right">
+        <h1 translate="PICKUP_FEEDBACK.HEADER"></h1>
+        <p translate="PICKUP_FEEDBACK.SUBTITLE"></p>
+      </div>
     </div>
+
+    <h4 translate="PICKUP_FEEDBACK.AMOUNT"></h4>
+    <div class="amount-images">
+      <img ng-repeat="imgSrc in $ctrl.amountImages track by $index" ng-class="{'high': $ctrl.isHigherImg(imgSrc)}" ng-src="{{imgSrc}}">
+    </div>
+    <div layout="row" class="pickup-amount">
+      <md-slider-container flex>
+        <md-slider flex min="0" max="20" step="0.5"  ng-change="$ctrl.setFeedbackImages()" aria-label="amount" ng-model="$ctrl.data.amount" id="amount-slider">
+        </md-slider>
+      </md-slider-container>
+      <md-input-container>
+        <input type="number"  aria-label="amount" ng-change="$ctrl.setFeedbackImages()" ng-model="$ctrl.data.amount" aria-controls="amount-slider">
+      </md-input-container>
+    </div>
+
+    <h4 translate="PICKUP_FEEDBACK.COMMENT"></h4>
+    <md-input-container class="md-block">
+      <textarea ng-model="$ctrl.data.comment" md-maxlength="150" rows="1" placeholder="{{'PICKUP_FEEDBACK.COMMENT_PLACEHOLDER' | translate}}" md-select-on-focus></textarea>
+    </md-input-container>
+
+    <md-button aria-label="{{ 'BUTTON.SUBMIT' | translate }}" class="md-raised md-primary" translate="BUTTON.SUBMIT" ng-click="$ctrl.create()"></md-button>
   </div>
-  
-  <h4 translate="PICKUP_FEEDBACK.AMOUNT"></h4>
-  <div class="amount-images">
-    <img ng-repeat="imgSrc in $ctrl.amountImages track by $index" ng-class="{'high': $ctrl.isHigherImg(imgSrc)}" ng-src="{{imgSrc}}">
+
+  <md-progress-circular
+    md-mode="indeterminate"
+    ng-if="$ctrl.status.creating">
+  </md-progress-circular>
+
+  <div ng-if="$ctrl.status.error">
+    <h4>Error</h4>
+    <p style="white-space: pre-wrap">
+{{ $ctrl.status.error | json }}
+    </p>
   </div>
-  <div layout="row" class="pickup-amount">
-    <md-slider-container flex>
-      <md-slider flex min="0" max="20" step="0.5"  ng-change="$ctrl.setFeedbackImages()" aria-label="amount" ng-model="$ctrl.data.amount" id="amount-slider">
-      </md-slider>
-    </md-slider-container>
-    <md-input-container>
-      <input type="number"  aria-label="amount" ng-change="$ctrl.setFeedbackImages()" ng-model="$ctrl.data.amount" aria-controls="amount-slider">
-    </md-input-container> 
+
+  <div ng-if="$ctrl.status.returned">
+    <h4>Feedback created successfully!</h4>
+    <p style="white-space: pre-wrap">
+{{ $ctrl.status.returned | json }}
+    </p>
   </div>
-  
-  <h4 translate="PICKUP_FEEDBACK.COMMENT"></h4>
-  <md-input-container class="md-block">
-    <textarea ng-model="$ctrl.data.comment" md-maxlength="150" rows="1" placeholder="{{'PICKUP_FEEDBACK.COMMENT_PLACEHOLDER' | translate}}" md-select-on-focus></textarea>
-  </md-input-container>
-  
-  <md-button aria-label="{{ 'BUTTON.SUBMIT' | translate }}" class="md-raised md-primary" translate="BUTTON.SUBMIT"></md-button>
+</div>
+
+
+<md-toolbar class="md-hue-1" ng-if="$ctrl.getGroupFeedback().length > 0">
+  <div class="md-toolbar-tools">
+    <h1 flex>
+      <i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;
+      <span>List of all feedback</span>
+    </h1>
+  </div>
+</md-toolbar>
+
+<div>
+  <md-list>
+    <md-list-item ng-repeat="f in $ctrl.getGroupFeedback()" class="md-2-line">
+      <div class="md-list-item-text" layout="column">
+        <p>
+          Feedback {{ f.id }} given by {{ $ctrl.CurrentUsers.get(f.given_by).display_name }} about pick-up date ID {{ f.about }}
+        </p>
+        <p>Weight {{ f.weight }}kg, Comment: {{ f.comment }}</p>
+      </div>
+    </md-list-item>
+  </md-list>
 </div>

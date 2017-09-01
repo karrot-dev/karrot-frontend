@@ -2,7 +2,7 @@ import moment from "moment";
 
 class PickupListController {
 
-  constructor(SessionUser, PickupDate, PickupDateSeries, Store, $mdDialog, $document, $mdMedia) {
+  constructor(SessionUser, PickupDate, PickupDateSeries, Store, $mdDialog, $document, ScreenSize) {
     "ngInject";
     Object.assign(this, {
       SessionUser,
@@ -11,7 +11,7 @@ class PickupListController {
       Store,
       $mdDialog,
       $document,
-      $mdMedia
+      ScreenSize
     });
   }
 

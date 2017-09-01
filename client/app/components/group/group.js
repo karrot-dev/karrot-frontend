@@ -15,6 +15,7 @@ import searchBar from "./_searchBar/searchBar";
 import pickupFeedback from "./pickupFeedback/pickupFeedback";
 import groupMap from "./_groupMap/groupMap";
 import beMemberOrRedirect from "./group.beMemberOrRedirect";
+import ScreenSizeModule from "services/screenSize/screenSize";
 
 let groupPageModule = angular.module("group", [
   uiRouter,
@@ -30,7 +31,8 @@ let groupPageModule = angular.module("group", [
   storeModule,
   searchBar,
   pickupFeedback,
-  groupMap
+  groupMap,
+  ScreenSizeModule
 ])
 
 .config(($stateProvider) => {

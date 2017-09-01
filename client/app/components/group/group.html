@@ -2,7 +2,7 @@
   <div flex></div>
 
   <!-- Stores Sidenav -->
-  <span ng-if="$ctrl.$mdMedia('gt-sm')" id="group-detail-sidenav" style="margin-right: 2em">
+  <span ng-if="$ctrl.ScreenSize.isGtSm()" id="group-detail-sidenav" style="margin-right: 2em">
     <div class="md-whiteframe-2dp no-padding" style="margin-bottom: 1em">
       <md-toolbar class="md-hue-1">
         <div class="md-toolbar-tools group-map-toolbar">
@@ -50,7 +50,7 @@
       <div>
         <group-map></group-map>
       </div>
-      
+
     </div>
     <div class="md-whiteframe-2dp no-padding">
       <md-toolbar class="md-hue-1">

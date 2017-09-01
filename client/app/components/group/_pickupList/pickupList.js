@@ -7,6 +7,7 @@ import pickupEditCreate from "../_pickupEditCreate/pickupEditCreate";
 import StoreModule from "services/store/store";
 import AuthenticationModule from "services/authentication/authentication";
 import PickupDateModule from "services/pickupDate/pickupDate";
+import ScreenSizeModule from "services/screenSize/screenSize";
 
 let pickupListModule = angular.module("pickupList", [
   uiRouter,
@@ -15,7 +16,8 @@ let pickupListModule = angular.module("pickupList", [
   pickupEditCreate,
   AuthenticationModule,
   StoreModule,
-  PickupDateModule
+  PickupDateModule,
+  ScreenSizeModule
 ])
 
 .component("pickupList", pickupListComponent)

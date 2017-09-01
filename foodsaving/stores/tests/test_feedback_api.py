@@ -78,7 +78,7 @@ class FeedbackTest(APITestCase):
 
     def test_create_feedback_fails_as_non_collector(self):
         """
-        Group Member is not allowed to give feedback when he is not assiged to the
+        Group Member is not allowed to give feedback when he is not assigned to the
         Pickup.
         """
         self.client.force_login(user=self.member)
@@ -88,11 +88,29 @@ class FeedbackTest(APITestCase):
 
     def test_create_feedback_works_as_collector(self):
         """
-        Member is allowed to give feedback when he is assiged to the Pickup.
+        Member is allowed to give feedback when he is assigned to the Pickup.
         """
         self.client.force_login(user=self.collector)
         response = self.client.post(self.url, self.feedback_post, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)
+
+    def test_create_feedback_without_weight(self):
+        """
+        Weight field can be empty
+        """
+        self.client.force_login(user=self.collector)
+        response = self.client.post(self.url, {k: v for (k, v) in self.feedback_post.items() if k is not 'weight'})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)
+        self.assertIsNone(response.data['weight'])
+
+    def test_create_feedback_without_comment(self):
+        """
+        Comment field can be empty
+        """
+        self.client.force_login(user=self.collector)
+        response = self.client.post(self.url, {k: v for (k, v) in self.feedback_post.items() if k is not 'comment'})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)
+        self.assertEqual(response.data['comment'], '')
 
     def test_list_feedback_fails_as_non_user(self):
         """

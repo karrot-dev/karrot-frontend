@@ -19,30 +19,28 @@ def logger_warning_mock():
 
 
 @contextmanager
-def fcm_reload_without_config():
+def override_fcm_key(key=None):
     from django.conf import settings
-    if not hasattr(settings, 'FCM_SERVER_KEY'):
-        reload(foodsaving.subscriptions.fcm)
-        yield
-    else:
-        original = settings.FCM_SERVER_KEY
-        del settings.FCM_SERVER_KEY
-        reload(foodsaving.subscriptions.fcm)
-        yield
-        settings.FCM_SERVER_KEY = original
-        reload(foodsaving.subscriptions.fcm)
 
-
-@contextmanager
-def fake_fcm_key():
-    from django.conf import settings
+    # make sure to back up original key if present
     original = None
     if hasattr(settings, 'FCM_SERVER_KEY'):
         original = settings.FCM_SERVER_KEY
-    settings.FCM_SERVER_KEY = 'abc'
+
+    if not key:
+        # remove original key if it exists
+        if hasattr(settings, 'FCM_SERVER_KEY'):
+            del settings.FCM_SERVER_KEY
+    else:
+        # or override original key
+        settings.FCM_SERVER_KEY = key
     reload(foodsaving.subscriptions.fcm)
     yield
-    del settings.FCM_SERVER_KEY
+
+    if hasattr(settings, 'FCM_SERVER_KEY'):
+        del settings.FCM_SERVER_KEY
+
+    # restore original key
     if original:
         settings.FCM_SERVER_KEY = original
     reload(foodsaving.subscriptions.fcm)
@@ -55,7 +53,7 @@ class FCMTests(TestCase):
         notify_multiple_devices(registration_ids=['mytoken'])
 
     def test_removes_invalid_subscriptions(self, m):
-        with fake_fcm_key():
+        with override_fcm_key('something'):
             m.post('https://fcm.googleapis.com/fcm/send', json={
                 'results': [
                     {
@@ -78,7 +76,7 @@ class FCMTests(TestCase):
 
     def test_continues_if_config_not_present(self, m):
         with logger_warning_mock() as warning_mock:
-            with fcm_reload_without_config():
+            with override_fcm_key():
                 warning_mock.assert_called_with(
                     'Please configure FCM_SERVER_KEY in your settings to use want to use push messaging')
                 result = notify_multiple_devices(registration_ids=['mytoken'])

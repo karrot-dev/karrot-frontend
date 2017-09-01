@@ -9,6 +9,9 @@ config.output = {
 };
 
 config.plugins = config.plugins.concat([
+  new webpack.DefinePlugin({
+    CORDOVA: false
+  }),
 
   // Reduces bundles total size
   new webpack.optimize.UglifyJsPlugin({

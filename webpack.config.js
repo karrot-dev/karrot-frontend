@@ -26,6 +26,12 @@ module.exports = {
         ]
       },
       {
+        test: /\.ejs$/,
+        use: [
+          { loader: "ejs-loader" }
+        ]
+      },
+      {
         test: /\.styl$/,
         use: [
           { loader: "style-loader", options: { sourceMap: true } },
@@ -63,11 +69,8 @@ module.exports = {
     ]
   },
   plugins: [
-    // Injects bundles in your index.html instead of wiring all manually.
-    // It also adds hash to all injected assets so we don't have problems
-    // with cache purging during deployment.
     new HtmlWebpackPlugin({
-      template: "client/index.html",
+      template: "client/index.ejs",
       inject: "body",
       hash: true
     }),

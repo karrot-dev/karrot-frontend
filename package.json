@@ -20,6 +20,7 @@
     "angular-translate-storage-cookie": "^2.15.2",
     "copy-webpack-plugin": "^4.0.1",
     "drmonty-leaflet-awesome-markers": "^2.0.2",
+    "ejs-loader": "^0.3.0",
     "font-awesome": "^4.6.3",
     "jstimezonedetect": "^1.0.6",
     "markdown-it": "^8.2.1",
@@ -28,8 +29,8 @@
     "normalize.css": "^7.0.0",
     "notosans-fontface": "^1.0.1",
     "raven-js": "^3.16.1",
-    "typeface-cabin-sketch": "0.0.35",
     "reconnecting-websocket": "^3.0.7",
+    "typeface-cabin-sketch": "0.0.35",
     "ui-leaflet": "^2.0.0"
   },
   "devDependencies": {
@@ -47,6 +48,7 @@
     "browser-sync": "^2.11.1",
     "chai": "^4.0.1",
     "connect-history-api-fallback": "^1.1.0",
+    "cordova": "^7.0.1",
     "css-loader": "^0.28.0",
     "del": "^3.0.0",
     "eslint": "^4.1.0",
@@ -93,6 +95,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production gulp webpack",
+    "build:cordova": "NODE_ENV=production gulp cordova",
     "dev": "test -f .env && env $(cat .env) gulp || gulp",
     "lint": "gulp lint",
     "test": "karma start",

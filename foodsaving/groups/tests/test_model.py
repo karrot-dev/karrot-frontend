@@ -2,7 +2,10 @@ from django.db import DataError
 from django.db import IntegrityError
 from django.test import TestCase
 
-from foodsaving.groups.models import Group
+from foodsaving.groups import roles
+from foodsaving.groups.factories import GroupFactory
+from foodsaving.groups.models import Group, GroupMembership
+from foodsaving.users.factories import UserFactory
 
 
 class TestGroupModel(TestCase):
@@ -18,3 +21,9 @@ class TestGroupModel(TestCase):
         Group.objects.create(name='abcdef')
         with self.assertRaises(IntegrityError):
             Group.objects.create(name='abcdef')
+
+    def test_roles_initialized(self):
+        user = UserFactory()
+        group = GroupFactory(members=[user])
+        membership = GroupMembership.objects.filter(user=user, group=group).first()
+        self.assertIn(roles.GROUP_MEMBERSHIP_MANAGER, membership.roles)

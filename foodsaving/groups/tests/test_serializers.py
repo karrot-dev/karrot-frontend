@@ -12,11 +12,13 @@ class TestGroupSerializer(TestCase):
 
     def test_detail(self):
         serializer = GroupDetailSerializer(self.group)
-        self.assertEqual(len(serializer.data.keys()), 11)
+        self.assertEqual(len(serializer.data.keys()), 12)
         self.assertEqual(serializer.data['id'], self.group.id)
         self.assertEqual(serializer.data['name'], self.group.name)
         self.assertEqual(serializer.data['description'], self.group.description)
         self.assertEqual(serializer.data['members'],
+                         [_.id for _ in self.group.members.all()])
+        self.assertEqual(list(serializer.data['memberships'].keys()),
                          [_.id for _ in self.group.members.all()])
 
     def test_preview(self):

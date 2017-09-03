@@ -9,10 +9,11 @@ from rest_framework.schemas import is_custom_action
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.conversations.api import RetrieveConversationMixin
+from foodsaving.groups import roles
 from foodsaving.groups.filters import GroupsFilter
 from foodsaving.groups.models import Group as GroupModel
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer, GroupJoinSerializer, \
-    GroupLeaveSerializer, TimezonesSerializer
+    GroupLeaveSerializer, TimezonesSerializer, GroupMembershipUpdateSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 
@@ -28,6 +29,13 @@ class IsNotMember(BasePermission):
 
     def has_object_permission(self, request, view, obj):
         return not obj.is_member(request.user)
+
+
+class CanUpdateMemberships(BasePermission):
+    message = _('You do not have permission to update memberships.')
+
+    def has_object_permission(self, request, view, obj):
+        return obj.is_member_with_role(request.user, roles.GROUP_MEMBERSHIP_MANAGER)
 
 
 class GroupViewSet(
@@ -110,3 +118,11 @@ class GroupViewSet(
     )
     def conversation(self, request, pk=None):
         return self.retrieve_conversation(request, pk)
+
+    @detail_route(
+        methods=['PATCH'],
+        permission_classes=(IsAuthenticated, CanUpdateMemberships),
+        serializer_class=GroupMembershipUpdateSerializer
+    )
+    def memberships(self, request, pk=None):
+        return self.partial_update(request)

@@ -3,6 +3,7 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+from foodsaving.groups import roles
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import Group as GroupModel, GroupMembership
 from foodsaving.stores.factories import PickupDateFactory, StoreFactory
@@ -176,3 +177,35 @@ class TestGroupsAPI(APITestCase):
         url = self.url + str(self.group.id) + '/'
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+class TestGroupMembershipsAPI(APITestCase):
+    def setUp(self):
+        self.admin = UserFactory()  # has membership management rights
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.admin, self.member])
+        self.membership = GroupMembership.objects.filter(group=self.group, user=self.member).first()
+
+    def test_add_role(self):
+        self.client.force_login(user=self.admin)
+        role = roles.GROUP_MEMBERSHIP_MANAGER
+        self.assertNotIn(role, self.membership.roles)
+        data = {'user': self.member.id, 'add_roles': [role]}
+        response = self.client.patch('/api/groups/{}/memberships/'.format(self.group.id), data)
+        self.assertIn(role, response.data['roles'])
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.membership.refresh_from_db()
+        self.assertIn(role, self.membership.roles)
+
+    def test_remove_role(self):
+        self.client.force_login(user=self.admin)
+        role = roles.GROUP_MEMBERSHIP_MANAGER
+        self.membership.roles.append(role)
+        self.membership.save()
+        self.assertIn(role, self.membership.roles)
+        data = {'user': self.member.id, 'remove_roles': [role]}
+        response = self.client.patch('/api/groups/{}/memberships/'.format(self.group.id), data)
+        self.assertNotIn(role, response.data['roles'])
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.membership.refresh_from_db()
+        self.assertNotIn(role, self.membership.roles)

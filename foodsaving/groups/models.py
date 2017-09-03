@@ -1,9 +1,11 @@
 from dateutil.relativedelta import relativedelta
+from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.db import models, transaction
+from django.db.models import TextField
 from django.utils import timezone
 from timezone_field import TimeZoneField
 
-from django.conf import settings
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.conversations.models import ConversationMixin
 from foodsaving.groups.signals import post_group_join, pre_group_leave
@@ -48,12 +50,16 @@ class Group(BaseModel, LocationModel, ConversationMixin):
     def is_member(self, user):
         return not user.is_anonymous() and GroupMembership.objects.filter(group=self, user=user).exists()
 
+    def is_member_with_role(self, user, role_name):
+        return not user.is_anonymous() and GroupMembership.objects.filter(group=self, user=user,
+                                                                          roles__contains=[role_name]).exists()
+
 
 class GroupMembership(BaseModel):
     group = models.ForeignKey(Group, on_delete=models.DO_NOTHING)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
+    roles = ArrayField(TextField(), default=list)
 
     class Meta:
         db_table = 'groups_group_members'
         unique_together = (('group', 'user'),)
-

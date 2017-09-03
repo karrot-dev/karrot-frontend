@@ -190,8 +190,7 @@ class TestGroupMembershipsAPI(APITestCase):
         self.client.force_login(user=self.admin)
         role = roles.GROUP_MEMBERSHIP_MANAGER
         self.assertNotIn(role, self.membership.roles)
-        data = {'user': self.member.id, 'add_roles': [role]}
-        response = self.client.patch('/api/groups/{}/memberships/'.format(self.group.id), data)
+        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
         self.assertIn(role, response.data['roles'])
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.membership.refresh_from_db()
@@ -203,8 +202,7 @@ class TestGroupMembershipsAPI(APITestCase):
         self.membership.roles.append(role)
         self.membership.save()
         self.assertIn(role, self.membership.roles)
-        data = {'user': self.member.id, 'remove_roles': [role]}
-        response = self.client.patch('/api/groups/{}/memberships/'.format(self.group.id), data)
+        response = self.client.delete('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
         self.assertNotIn(role, response.data['roles'])
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.membership.refresh_from_db()

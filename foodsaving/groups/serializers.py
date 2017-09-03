@@ -160,63 +160,36 @@ class TimezonesSerializer(serializers.Serializer):
     )
 
 
-class GroupMembershipUpdateSerializer(serializers.ModelSerializer):
-    """
-    Handle modifications to group memberships.
+class EmptySerializer(serializers.Serializer):
+    pass
 
-    It's a bit of a hack, as it's used in the context of the Group viewsets, so self.instance is a Group, but
-    we define a GroupMembership ModelSerializer here. It works on the basis that so long as it doesn't go down
-    certain code paths it will never know it has a Group instance instead of a GroupMembership one... shhhhhhhhhhh.
-    """
 
-    class Meta:
-        model = GroupMembership
-        fields = [
-            # used to find the correct membership within the group
-            'user',
-
-            # modifications that we want to make to the membership
-            'add_roles', 'remove_roles',
-
-            # information to return
-            *GroupMembershipInfoSerializer.Meta.fields
-        ]
-        extra_kwargs = GroupMembershipInfoSerializer.Meta.extra_kwargs
-
-    user = serializers.IntegerField(default=0)
-
-    add_roles = serializers.ListField(
-        child=serializers.ChoiceField(
-            choices=(roles.GROUP_MEMBERSHIP_MANAGER,)
-        ),
-        default=list
+class GroupMembershipAddRoleSerializer(serializers.Serializer):
+    role_name = serializers.ChoiceField(
+        choices=(roles.GROUP_MEMBERSHIP_MANAGER,),
+        required=True,
+        write_only=True
     )
 
-    remove_roles = serializers.ListField(
-        child=serializers.CharField(),
-        default=list
+    def update(self, instance, validated_data):
+        role = validated_data['role_name']
+        if role not in instance.roles:
+            instance.roles.append(role)
+
+        instance.save()
+        return instance
+
+
+class GroupMembershipRemoveRoleSerializer(serializers.Serializer):
+    role_name = serializers.CharField(
+        required=True,
+        write_only=True
     )
 
-    roles = serializers.ListField(child=serializers.CharField(), default=list, read_only=True)
+    def update(self, instance, validated_data):
+        role = validated_data['role_name']
+        while role in instance.roles:
+            instance.roles.remove(role)
 
-    def validate_user(self, value):
-        group = self.instance
-        if not GroupMembership.objects.filter(group=group, user_id=value).exists():
-            raise ValidationError(_('User is not in group'))
-        return value
-
-    def update(self, group, validated_data):
-        user_id = validated_data['user']
-        membership = GroupMembership.objects.filter(group=group, user_id=user_id).first()
-
-        for role in validated_data.get('add_roles', []):
-            if role not in membership.roles:
-                membership.roles.append(role)
-
-        for role in validated_data.get('remove_roles', []):
-            while role in membership.roles:
-                membership.roles.remove(role)
-
-        membership.save()
-
-        return GroupMembershipInfoSerializer(membership).data
+        instance.save()
+        return instance

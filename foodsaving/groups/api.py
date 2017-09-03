@@ -11,9 +11,10 @@ from rest_framework.viewsets import GenericViewSet
 from foodsaving.conversations.api import RetrieveConversationMixin
 from foodsaving.groups import roles
 from foodsaving.groups.filters import GroupsFilter
-from foodsaving.groups.models import Group as GroupModel
+from foodsaving.groups.models import Group as GroupModel, GroupMembership
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer, GroupJoinSerializer, \
-    GroupLeaveSerializer, TimezonesSerializer, GroupMembershipUpdateSerializer
+    GroupLeaveSerializer, TimezonesSerializer, EmptySerializer, \
+    GroupMembershipAddRoleSerializer, GroupMembershipRemoveRoleSerializer, GroupMembershipInfoSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 
@@ -120,9 +121,19 @@ class GroupViewSet(
         return self.retrieve_conversation(request, pk)
 
     @detail_route(
-        methods=['PATCH'],
-        permission_classes=(IsAuthenticated, CanUpdateMemberships),
-        serializer_class=GroupMembershipUpdateSerializer
+        methods=['POST', 'DELETE'],
+        url_name='user-roles',
+        url_path='users/(?P<user_id>[^/.]+)/roles/(?P<role_name>[^/.]+)',
+        serializer_class=EmptySerializer
     )
-    def memberships(self, request, pk=None):
-        return self.partial_update(request)
+    def modify_user_roles(self, request, pk, user_id, role_name):
+        instance = GroupMembership.objects.filter(group=pk, user=user_id).first()
+        if request.method == 'POST':
+            serializer_class = GroupMembershipAddRoleSerializer
+        elif request.method == 'DELETE':
+            serializer_class = GroupMembershipRemoveRoleSerializer
+        serializer = serializer_class(instance, data={'role_name': role_name}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        return Response(GroupMembershipInfoSerializer(instance).data)

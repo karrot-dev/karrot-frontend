@@ -16,10 +16,10 @@ class TestGroupSerializer(TestCase):
         self.assertEqual(serializer.data['id'], self.group.id)
         self.assertEqual(serializer.data['name'], self.group.name)
         self.assertEqual(serializer.data['description'], self.group.description)
-        self.assertEqual(serializer.data['members'],
-                         [_.id for _ in self.group.members.all()])
-        self.assertEqual(list(serializer.data['memberships'].keys()),
-                         [_.id for _ in self.group.members.all()])
+        self.assertEqual(sorted(serializer.data['members']),
+                         sorted([_.id for _ in self.group.members.all()]))
+        self.assertEqual(sorted(list(serializer.data['memberships'].keys())),
+                         sorted([_.id for _ in self.group.members.all()]))
 
     def test_preview(self):
         serializer = GroupPreviewSerializer(self.group)

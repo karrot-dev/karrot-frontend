@@ -61,6 +61,9 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             'members': {
                 'read_only': True
             },
+            'memberships': {
+                'read_only': True
+            },
             'description': {
                 'trim_whitespace': False,
                 'max_length': settings.DESCRIPTION_MAX_LENGTH

@@ -1,10 +1,10 @@
 class GroupDetailController {
-  constructor(CurrentGroup, $state, $mdMedia, Store, $stateParams, CurrentStores) {
+  constructor(CurrentGroup, $state, ScreenSize, Store, $stateParams, CurrentStores) {
     "ngInject";
     Object.assign(this, {
       groupData: CurrentGroup.value,
       $state,
-      $mdMedia,
+      ScreenSize,
       CurrentGroup,
       Store,
       $stateParams,

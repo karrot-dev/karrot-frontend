@@ -2,11 +2,11 @@
   <div layout="row">
     <md-button class="md-primary" aria-label="Create Store" ui-sref="group.storeCreate">
       <md-icon style="font-size: 1.2em;" md-font-icon="fa fa-plus-circle"></md-icon>
-      <span ng-if="$ctrl.$mdMedia('gt-sm')" translate="BUTTON.CREATE"></span>
+      <span ng-if="$ctrl.ScreenSize.isGtSm()" translate="BUTTON.CREATE"></span>
     </md-button>
     <search-bar ng-hide="$ctrl.showMap || $ctrl.storeList.length < 1" search-query="$ctrl.searchQuery"></search-bar>
-    <div ng-if="!$ctrl.$mdMedia('gt-sm')" flex></div>
-    <md-button ng-if="!$ctrl.$mdMedia('gt-sm') && $ctrl.storeList.length > 0" class="md-primary md-icon-button" ng-click="$ctrl.toggleMap()" aria-label="Toggle map">
+    <div ng-if="!$ctrl.ScreenSize.isGtSm()" flex></div>
+    <md-button ng-if="!$ctrl.ScreenSize.isGtSm() && $ctrl.storeList.length > 0" class="md-primary md-icon-button" ng-click="$ctrl.toggleMap()" aria-label="Toggle map">
       <md-icon style="font-size: 1.2em;" ng-if="!$ctrl.showMap" md-font-icon="fa fa-map"></md-icon>
       <md-icon style="font-size: 1.2em;" ng-if="$ctrl.showMap" md-font-icon="fa fa-list"></md-icon>
     </md-button>

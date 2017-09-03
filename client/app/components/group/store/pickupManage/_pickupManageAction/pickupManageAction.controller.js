@@ -1,13 +1,9 @@
 class PickupManageActionController {
-  constructor($mdMedia) {
+  constructor(ScreenSize) {
     "ngInject";
     Object.assign(this, {
-      $mdMedia
+      ScreenSize
     });
-  }
-
-  isScreenSmall() {
-    return !this.$mdMedia("gt-sm");
   }
 
   triggerEdit($event) {

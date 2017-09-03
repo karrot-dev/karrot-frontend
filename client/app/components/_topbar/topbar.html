@@ -1,7 +1,7 @@
 <md-toolbar ng-if="!$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp">
   <div class="md-toolbar-tools" layout="row">
     <md-button
-      ng-if="screenIsSmall"
+      ng-if="!$ctrl.ScreenSize.isGtSm()"
       aria-label="Navigation"
       ng-click="$ctrl.openSidenav()"
       class="md-icon-button">
@@ -14,7 +14,7 @@
       </md-tooltip>
     </md-button>
 
-    <div ng-if="!screenIsSmall" layout="row" flex>
+    <div ng-if="$ctrl.ScreenSize.isGtSm()" layout="row" flex>
       <language-chooser></language-chooser>
       <md-button href="https://github.com/yunity/foodsaving-frontend">
         <i class="fa fa-github"></i>
@@ -48,8 +48,8 @@
 <md-toolbar ng-if="$ctrl.SessionUser.isLoggedIn()" class="md-medium-small md-whiteframe-3dp logged-in">
   <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
     <span flex="5" hide-xs></span>
-    
-    <md-button ng-if="screenIsSmall" aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
+
+    <md-button ng-if="!$ctrl.ScreenSize.isGtSm()" aria-label="Navigation" ng-click="$ctrl.openSidenav()" class="md-icon-button">
       <i class="fa fa-fw fa-bars"></i>
     </md-button>
 
@@ -59,10 +59,10 @@
         Foodsaving Worldwide
       </md-tooltip>
     </md-button>
-    
+
     <group-menu style="min-width: 50%" flex></group-menu>
 
-    <div ng-if="!screenIsSmall" layout="row">
+    <div ng-if="$ctrl.ScreenSize.isGtSm()" layout="row">
       
       <md-button class="no-transform" ui-sref="notifications">
         <i class="fa fa-bell-o"></i>
@@ -90,7 +90,7 @@
     </div>
 
     <span flex="5"></span>
-  </div>  
+  </div>
 </md-toolbar>
 <!--<div ncy-breadcrumb></div>-->
 
@@ -159,7 +159,7 @@
     <hr style="padding:0">
     <h3 translate="GROUP.STORES" style="margin-bottom:0"></h3>
     <store-list group-id="$ctrl.groupData.id" style="padding: 0"></store-list>
-    <hr style="padding:0"> 
+    <hr style="padding:0">
     <language-chooser></language-chooser>
   </div>
 </md-sidenav>

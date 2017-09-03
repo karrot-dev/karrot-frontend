@@ -1,5 +1,5 @@
 class StoreListController {
-  constructor(Store, $state, $document, $mdMedia, CurrentStores) {
+  constructor(Store, $state, $document, ScreenSize, CurrentStores) {
     "ngInject";
     Object.assign(this, {
       Store,
@@ -7,7 +7,7 @@ class StoreListController {
       storeList: CurrentStores.list,
       $state,
       $document,
-      $mdMedia,
+      ScreenSize,
       showMap: false,
       searchQuery: ""
     });

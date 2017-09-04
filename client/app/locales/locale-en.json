@@ -14,8 +14,8 @@
     "TEXT": "Are you interested in building up a foodsaving project or a foodsharing community? Do you know somebody who is already doing it?",
     "MAIL_TEXT": "Write us a mail!"
   },
-  "CHAT": {
-    "TITLE": "Chat",
+  "WALL": {
+    "TITLE": "Wall",
     "NEW_MESSAGE": "New Message"
   },
   "LANDINGPAGE": {

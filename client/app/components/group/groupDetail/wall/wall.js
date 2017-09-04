@@ -2,26 +2,26 @@ import angular from "angular";
 import uiRouter from "@uirouter/angularjs";
 import ngMaterial from "angular-material";
 import GroupService from "services/group/group";
-import chatComponent from "./chat.component";
+import wallComponent from "./wall.component";
 import wallpost from "./_wallpost/wallpost";
 
-let chatModule = angular.module("chat", [
+let wallModule = angular.module("wall", [
   uiRouter,
   ngMaterial,
   GroupService,
   wallpost
 ])
 
-.component("chat", chatComponent)
+.component("wall", wallComponent)
 
-.directive("chatScrollTop", () => {
+.directive("wallScrollTop", () => {
   return {
     scope: {
-      chatScrollTop: "="
+      wallScrollTop: "="
     },
     link: (scope, elements) => {
       let el = elements[0];
-      scope.$watchCollection("chatScrollTop", (newValue) => {
+      scope.$watchCollection("wallScrollTop", (newValue) => {
         if (newValue) el.scrollTop = 0;
       });
     }
@@ -37,9 +37,9 @@ let chatModule = angular.module("chat", [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state("group.groupDetail.chat", {
-      url: "/chat",
-      component: "chat",
+    .state("group.groupDetail.wall", {
+      url: "/wall",
+      component: "wall",
       ncyBreadcrumb: {
         label: "{{'GROUP.CHAT' | translate}}"
       }
@@ -48,4 +48,4 @@ let chatModule = angular.module("chat", [
 
 .name;
 
-export default chatModule;
+export default wallModule;

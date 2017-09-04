@@ -1,4 +1,4 @@
-class ChatController {
+class WallController {
 
   constructor(GroupService, CurrentGroup, Conversation) {
     "ngInject";
@@ -33,4 +33,4 @@ class ChatController {
 
 }
 
-export default ChatController;
+export default WallController;

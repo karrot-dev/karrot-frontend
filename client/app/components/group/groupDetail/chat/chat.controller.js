@@ -7,7 +7,10 @@ class ChatController {
       Conversation,
       GroupService,
       conversation: null,
-      newMessageBody: ""
+      newMessageBody: "",
+      mdinputOptions: {
+        showSubmit: true
+      }
     });
   }
 

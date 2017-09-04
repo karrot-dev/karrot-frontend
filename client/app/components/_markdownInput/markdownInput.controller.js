@@ -6,8 +6,20 @@ class MarkdownInputController {
     });
   }
 
+  $onInit(){
+    let options = {
+      showSubmit: false
+    };
+    this.options = angular.extend(options, this.options);
+  }
+
   togglePreview(){
     this.isPreview = !this.isPreview;
+  }
+
+  submit() {
+    let locals = { data: this.model };
+    return this.onSubmit(locals);
   }
 }
 

@@ -123,7 +123,7 @@ class GroupViewSet(
         return self.retrieve_conversation(request, pk)
 
     @detail_route(
-        methods=['POST', 'DELETE'],
+        methods=['PUT', 'DELETE'],
         permission_classes=(IsAuthenticated, CanUpdateMemberships),
         url_name='user-roles',
         url_path='users/(?P<user_id>[^/.]+)/roles/(?P<role_name>[^/.]+)',
@@ -133,7 +133,8 @@ class GroupViewSet(
         """add (POST) or remove (DELETE) a membership role"""
         instance = get_object_or_404(GroupMembership.objects, group=pk, user=user_id)
         self.check_object_permissions(request, instance)
-        if request.method == 'POST':
+        serializer_class = None
+        if request.method == 'PUT':
             serializer_class = GroupMembershipAddRoleSerializer
         elif request.method == 'DELETE':
             serializer_class = GroupMembershipRemoveRoleSerializer

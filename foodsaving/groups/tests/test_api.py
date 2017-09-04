@@ -190,7 +190,7 @@ class TestGroupMembershipsAPI(APITestCase):
         self.client.force_login(user=self.admin)
         role = roles.GROUP_MEMBERSHIP_MANAGER
         self.assertNotIn(role, self.membership.roles)
-        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
+        response = self.client.put('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
         self.assertIn(role, response.data['roles'])
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.membership.refresh_from_db()
@@ -212,7 +212,7 @@ class TestGroupMembershipsAPI(APITestCase):
         self.client.force_login(user=self.admin)
         role = roles.GROUP_MEMBERSHIP_MANAGER
         self.assertNotIn(role, self.membership.roles)
-        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(99999, self.member.id, role))
+        response = self.client.put('/api/groups/{}/users/{}/roles/{}/'.format(99999, self.member.id, role))
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         self.membership.refresh_from_db()
         self.assertNotIn(role, self.membership.roles)
@@ -221,15 +221,15 @@ class TestGroupMembershipsAPI(APITestCase):
         self.client.force_login(user=self.admin)
         role = roles.GROUP_MEMBERSHIP_MANAGER
         self.assertNotIn(role, self.membership.roles)
-        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, 99999, role))
+        response = self.client.put('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, 99999, role))
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         self.membership.refresh_from_db()
         self.assertNotIn(role, self.membership.roles)
 
     def test_add_invalid_role_fails(self):
         self.client.force_login(user=self.admin)
-        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'
-                                    .format(self.group.id, self.member.id, 'does not exist'))
+        response = self.client.put('/api/groups/{}/users/{}/roles/{}/'
+                                   .format(self.group.id, self.member.id, 'does not exist'))
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.membership.refresh_from_db()
         self.assertNotIn('does not exist', self.membership.roles)
@@ -238,7 +238,7 @@ class TestGroupMembershipsAPI(APITestCase):
         self.client.force_login(user=self.member)
         role = roles.GROUP_MEMBERSHIP_MANAGER
         self.assertNotIn(role, self.membership.roles)
-        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
+        response = self.client.put('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.membership.refresh_from_db()
         self.assertNotIn(role, self.membership.roles)
@@ -266,7 +266,7 @@ class TestDefaultGroupMembership(APITestCase):
 
         # creator makes another person admin and drops own rights
         GroupModel.objects.get(id=group_id).add_member(self.member)
-        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.member.id, role))
+        response = self.client.put('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.member.id, role))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.client.delete('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.creator.id, role))
         membership.refresh_from_db()

@@ -173,8 +173,7 @@ class GroupMembershipAddRoleSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         role = validated_data['role_name']
-        if role not in instance.roles:
-            instance.roles.append(role)
+        instance.add_roles([role])
         instance.save()
         return instance
 
@@ -187,7 +186,6 @@ class GroupMembershipRemoveRoleSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         role = validated_data['role_name']
-        while role in instance.roles:
-            instance.roles.remove(role)
+        instance.remove_roles([role])
         instance.save()
         return instance

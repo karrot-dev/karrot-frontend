@@ -63,3 +63,13 @@ class GroupMembership(BaseModel):
     class Meta:
         db_table = 'groups_group_members'
         unique_together = (('group', 'user'),)
+
+    def add_roles(self, roles):
+        for role in roles:
+            if role not in self.roles:
+                self.roles.append(role)
+
+    def remove_roles(self, roles):
+        for role in roles:
+            while role in self.roles:
+                self.roles.remove(role)

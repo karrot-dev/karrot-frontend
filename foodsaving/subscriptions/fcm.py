@@ -12,7 +12,7 @@ fcm = None
 if hasattr(settings, 'FCM_SERVER_KEY'):
     fcm = FCMNotification(api_key=settings.FCM_SERVER_KEY)
 else:
-    logger.warning('Please configure FCM_SERVER_KEY in your settings to use want to use push messaging')
+    logger.warning('Please configure FCM_SERVER_KEY in your settings to use push messaging')
 
 
 def notify_multiple_devices(**kwargs):

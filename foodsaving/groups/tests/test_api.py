@@ -184,7 +184,7 @@ class TestGroupMembershipsAPI(APITestCase):
         self.admin = UserFactory()  # has membership management rights
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.admin, self.member])
-        self.membership = GroupMembership.objects.filter(group=self.group, user=self.member).first()
+        self.membership = GroupMembership.objects.get(group=self.group, user=self.member)
 
     def test_add_role(self):
         self.client.force_login(user=self.admin)
@@ -207,3 +207,67 @@ class TestGroupMembershipsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.membership.refresh_from_db()
         self.assertNotIn(role, self.membership.roles)
+
+    def test_add_role_for_invalid_group_fails(self):
+        self.client.force_login(user=self.admin)
+        role = roles.GROUP_MEMBERSHIP_MANAGER
+        self.assertNotIn(role, self.membership.roles)
+        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(99999, self.member.id, role))
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.membership.refresh_from_db()
+        self.assertNotIn(role, self.membership.roles)
+
+    def test_add_role_for_invalid_user_fails(self):
+        self.client.force_login(user=self.admin)
+        role = roles.GROUP_MEMBERSHIP_MANAGER
+        self.assertNotIn(role, self.membership.roles)
+        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, 99999, role))
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.membership.refresh_from_db()
+        self.assertNotIn(role, self.membership.roles)
+
+    def test_add_invalid_role_fails(self):
+        self.client.force_login(user=self.admin)
+        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'
+                                    .format(self.group.id, self.member.id, 'does not exist'))
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.membership.refresh_from_db()
+        self.assertNotIn('does not exist', self.membership.roles)
+
+    def test_add_role_as_non_admin_fails(self):
+        self.client.force_login(user=self.member)
+        role = roles.GROUP_MEMBERSHIP_MANAGER
+        self.assertNotIn(role, self.membership.roles)
+        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.membership.refresh_from_db()
+        self.assertNotIn(role, self.membership.roles)
+
+
+class TestDefaultGroupMembership(APITestCase):
+    def setUp(self):
+        self.creator = UserFactory()
+        self.member = UserFactory()
+
+    def test_group_creator_is_initial_membership_manager(self):
+        self.client.force_login(user=self.creator)
+        response = self.client.post('/api/groups/', {'name': faker.name(), 'timezone': 'Europe/Berlin'})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        group_id = response.data['id']
+
+        membership = GroupMembership.objects.get(group=group_id, user=self.creator)
+        role = roles.GROUP_MEMBERSHIP_MANAGER
+        self.assertIn(role, membership.roles)
+
+        # can't drop management rights as only admin
+        self.client.delete('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.creator.id, role))
+        membership.refresh_from_db()
+        self.assertIn(role, membership.roles)
+
+        # creator makes another person admin and drops own rights
+        GroupModel.objects.get(id=group_id).add_member(self.member)
+        response = self.client.post('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.member.id, role))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.client.delete('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.creator.id, role))
+        membership.refresh_from_db()
+        self.assertNotIn(role, membership.roles)

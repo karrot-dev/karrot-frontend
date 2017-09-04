@@ -76,9 +76,6 @@ def initialize_group(sender, instance, **kwargs):
     if sender is Group:
         group = instance
     elif sender is GroupMembership:
-        created = kwargs.get('created')
-        if not created:
-            return
         group = instance.group
 
     memberships = GroupMembership.objects.filter(group=group)

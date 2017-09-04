@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from rest_framework import filters
 from rest_framework import mixins
 from rest_framework.decorators import detail_route, list_route
+from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, BasePermission
 from rest_framework.response import Response
 from rest_framework.schemas import is_custom_action
@@ -36,7 +37,8 @@ class CanUpdateMemberships(BasePermission):
     message = _('You do not have permission to update memberships.')
 
     def has_object_permission(self, request, view, obj):
-        return obj.is_member_with_role(request.user, roles.GROUP_MEMBERSHIP_MANAGER)
+        # we get a membership object
+        return obj.group.is_member_with_role(request.user, roles.GROUP_MEMBERSHIP_MANAGER)
 
 
 class GroupViewSet(
@@ -122,13 +124,15 @@ class GroupViewSet(
 
     @detail_route(
         methods=['POST', 'DELETE'],
+        permission_classes=(IsAuthenticated, CanUpdateMemberships),
         url_name='user-roles',
         url_path='users/(?P<user_id>[^/.]+)/roles/(?P<role_name>[^/.]+)',
         serializer_class=EmptySerializer  # for Swagger
     )
     def modify_user_roles(self, request, pk, user_id, role_name):
         """add (POST) or remove (DELETE) a membership role"""
-        instance = GroupMembership.objects.filter(group=pk, user=user_id).first()
+        instance = get_object_or_404(GroupMembership.objects, group=pk, user=user_id)
+        self.check_object_permissions(request, instance)
         if request.method == 'POST':
             serializer_class = GroupMembershipAddRoleSerializer
         elif request.method == 'DELETE':

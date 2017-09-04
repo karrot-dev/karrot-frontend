@@ -127,6 +127,7 @@ class GroupViewSet(
         serializer_class=EmptySerializer
     )
     def modify_user_roles(self, request, pk, user_id, role_name):
+        """add (POST) or remove (DELETE) a membership role"""
         instance = GroupMembership.objects.filter(group=pk, user=user_id).first()
         if request.method == 'POST':
             serializer_class = GroupMembershipAddRoleSerializer

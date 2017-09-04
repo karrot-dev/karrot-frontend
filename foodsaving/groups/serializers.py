@@ -175,7 +175,6 @@ class GroupMembershipAddRoleSerializer(serializers.Serializer):
         role = validated_data['role_name']
         if role not in instance.roles:
             instance.roles.append(role)
-
         instance.save()
         return instance
 
@@ -190,6 +189,5 @@ class GroupMembershipRemoveRoleSerializer(serializers.Serializer):
         role = validated_data['role_name']
         while role in instance.roles:
             instance.roles.remove(role)
-
         instance.save()
         return instance

@@ -124,7 +124,7 @@ class GroupViewSet(
         methods=['POST', 'DELETE'],
         url_name='user-roles',
         url_path='users/(?P<user_id>[^/.]+)/roles/(?P<role_name>[^/.]+)',
-        serializer_class=EmptySerializer
+        serializer_class=EmptySerializer  # for Swagger
     )
     def modify_user_roles(self, request, pk, user_id, role_name):
         """add (POST) or remove (DELETE) a membership role"""

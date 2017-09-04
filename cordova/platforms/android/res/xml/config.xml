@@ -7,6 +7,10 @@
     <feature name="CookieEmperor">
         <param name="android-package" value="de.rouvenkruse.cordova.plugins.cookieemperor.CookieEmperor" />
     </feature>
+    <feature name="FCMPlugin">
+        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>FoodsavingWorld</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

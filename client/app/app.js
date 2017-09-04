@@ -19,7 +19,7 @@ import AppMaterial from "./app.material";
 import AppLocalizeConfig from "./app.localizeConfig";
 import AppLocalizeRun from "./app.localizeRun";
 import AppHTTPErrorHandler from "./app.HTTPErrorHandler";
-import CordovaConfig from "./app.cordova";
+import { CordovaConfig, CordovaRun } from "./app.cordova";
 
 // styles
 import "angular-loading-bar/build/loading-bar.css";
@@ -65,6 +65,7 @@ angular.module("app", [
 .config(AppMaterial)
 .config(AppHTTPErrorHandler)
 .config(CordovaConfig)
+.run(CordovaRun)
 .config(( $mdGestureProvider ) => {
   "ngInject";
   $mdGestureProvider.skipClickHijack();

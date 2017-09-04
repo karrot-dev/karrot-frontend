@@ -20,6 +20,9 @@
             "XWALK_MODE": "embedded",
             "XWALK_MULTIPLEAPK": "true",
             "PACKAGE_NAME": "world.foodsaving"
+        },
+        "cordova-plugin-fcm": {
+            "PACKAGE_NAME": "world.foodsaving"
         }
     },
     "dependent_plugins": {}

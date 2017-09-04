@@ -40,7 +40,28 @@
 
 */
 
-export default ($httpProvider) => {
+export const CordovaRun = ($window, $http, $log) => {
+  "ngInject";
+  if (CORDOVA) {
+    $log.info("doing CordovaRun!!!");
+    let token;
+    const receiveToken = (val) => {
+      if (val && val !== token) {
+        token = val;
+        $log.info("got fcm token!", token);
+        $http.post("/api/subscriptions/push/", {
+          token, platform: "android"
+        }).then((res) => {
+          $log.info("saved token!", res.data);
+        });
+      }
+    };
+    $window.FCMPlugin.onTokenRefresh(receiveToken);
+    $window.FCMPlugin.getToken(receiveToken);
+  }
+};
+
+export const CordovaConfig = ($httpProvider) => {
   "ngInject";
 
   if (CORDOVA) {

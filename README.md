@@ -31,7 +31,7 @@ Note 2: Only changes you make in the "foodsaving" directory are included.
 The test data are automatically created in the container. You can see log-in details after running this command:
 
 ```sh
-docker logs -f <container_id_or_name>
+docker logs -f CONTAINER
 ```
 
 With this data, you can log in as one of the printed e-mail addresses with password 123

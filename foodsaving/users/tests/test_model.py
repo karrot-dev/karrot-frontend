@@ -44,21 +44,6 @@ class TestUserModel(TestCase):
         default_language = get_user_model().objects.create_user(**self.exampleuser).language
         self.assertEqual(default_language, 'en')
 
-    def test_create_user_with_case_sensitive_email_address(self):
-        start = get_user_model().objects.count()
-        get_user_model().objects.create_user(
-            display_name='a',
-            email='fancy@example.com',
-            password='123'
-        )
-        with self.assertRaises(IntegrityError):
-            get_user_model().objects.create_user(
-                display_name='a',
-                email='Fancy@example.com',
-                password='123'
-            )
-        self.assertEqual(get_user_model().objects.count(), start + 1)
-
     def test_create_superuser(self):
         email = faker.email()
         get_user_model().objects.create_superuser(email, 'letmein')

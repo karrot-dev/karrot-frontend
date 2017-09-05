@@ -1,13 +1,13 @@
 from datetime import timedelta
 
 from dateutil.relativedelta import relativedelta
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core import mail
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from django.conf import settings
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory
 from foodsaving.users.factories import UserFactory, VerifiedUserFactory
@@ -250,6 +250,30 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
 
+class TestCreateUsersAPIErrors(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = UserFactory()
+        cls.url = '/api/users/'
+
+    def test_create_user_with_similar_cased_email_fails(self):
+        response = self.client.post(self.url, {
+            'email': 'fancy@example.com',
+            'password': faker.name(),
+            'display_name': faker.name()
+        })
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        response = self.client.post(self.url, {
+            'email': 'Fancy@example.com',
+            'password': faker.name(),
+            'display_name': faker.name()
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+        self.assertEqual(response.data['email'], ['Similar e-mail exists: fancy@example.com'])
+
+
 class TestChangePassword(APITestCase):
     @classmethod
     def setUpClass(cls):
@@ -279,7 +303,7 @@ class TestChangePassword(APITestCase):
         data = self.client.get(url).data
         data['password'] = 'really_new_shiny'
         response = self.client.patch(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
 
         # logged out
         response = self.client.patch(url, self.data, format='json')
@@ -329,3 +353,20 @@ class TestChangeMail(APITestCase):
         response = self.client.patch(self.user_url, data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(len(mail.outbox), 0)
+
+    def test_change_to_existing_similar_mail_fails(self):
+        self.client.force_login(user=self.verified_user)
+        similar_mail = self.another_user.email[0].swapcase() + self.another_user.email[1:]
+        data = {'email': similar_mail}
+        response = self.client.patch(self.user_url, data)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['email'], ['Similar e-mail exists: ' + self.another_user.email])
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_change_to_similar_mail_succeeds(self):
+        self.client.force_login(user=self.verified_user)
+        similar_mail = self.verified_user.email[0].swapcase() + self.verified_user.email[1:]
+        data = {'email': similar_mail}
+        response = self.client.patch(self.user_url, data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(mail.outbox), 2)

@@ -32,6 +32,15 @@ class UserSerializer(serializers.ModelSerializer):
             }
         }
 
+    def validate_email(self, email):
+        action = self.context['view'].action
+        user = self.context['request'].user
+        similar = self.Meta.model.objects.filter_by_similar_email(email)
+        if (action == 'create' and similar.exists())\
+                or (action == 'partial_update' and similar.exclude(id=user.id).exists()):
+            raise serializers.ValidationError(_('Similar e-mail exists: ') + similar.first().email)
+        return email
+
     def create(self, validated_data):
         user = self.Meta.model.objects.create_user(**validated_data)
         return user

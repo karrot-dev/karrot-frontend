@@ -1,9 +1,13 @@
-<div layout-padding>
-  <div>
-    <profile-picture user-id="$ctrl.message.user.id" size="25"></profile-picture>
-    <span>{{ $ctrl.message.created_at | date:'medium' }}</span>
+<div class="md-whiteframe-1dp whiteframe">
+  <div layout="row" class="w-header">
+    <div class="w-icon">
+      <profile-picture user-id="$ctrl.message.user.id" size="34"></profile-picture>
+    </div>
+    <div flex class="w-desc" layout-padding>
+      <span>{{ $ctrl.message.created_at | date:'short' }}</span>      
+    </div>
   </div>
-  <div>
+  <div layout-padding class="w-content">
     <expandable-panel content="$ctrl.message.content" markdown="true" collapse="10"></expandable-panel>
   </div>
 </div>

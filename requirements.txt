@@ -32,16 +32,18 @@ django-jinja==2.4.0
 django-redis==4.8.0
 django-rest-swagger==2.1.2
 django-timezone-field==2.0
-django[argon2]==1.11.4
+django[argon2]==1.11.5
 djangorestframework==3.6.4
+dnspython==1.15.0         # via email-validator
 drf-nested-routers==0.90.0
+email-validator==1.0.2    # via faker
 factory-boy==2.9.2
-faker==0.8.1             # via factory-boy
+faker==0.8.3              # via factory-boy
 flake8==3.4.1
 furl==1.0.1
 hiredis==0.2.0
 hyperlink==17.3.1         # via twisted
-idna==2.6                 # via requests
+idna==2.6                 # via email-validator, requests
 incremental==17.5.0       # via twisted
 influxdb==4.1.1           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
@@ -57,7 +59,7 @@ psycopg2==2.7.3.1
 pycodestyle==2.3.1        # via flake8
 pycparser==2.18           # via cffi
 pyfcm==1.4.2
-pyflakes==1.6.0           # via flake8
+pyflakes==1.5.0           # via flake8
 python-dateutil==2.6.1    # via faker, influxdb
 python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2017.2

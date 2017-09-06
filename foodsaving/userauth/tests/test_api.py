@@ -9,13 +9,21 @@ class TestUserAuthAPI(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = UserFactory()
+        cls.user = UserFactory(email='user98@example.com')
         cls.disabled_user = UserFactory(is_active=False)
         cls.url = '/api/auth/'
 
     def test_login(self):
         data = {'email': self.user.email, 'password': self.user.display_name}
         response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['email'], self.user.email)
+        user = auth.get_user(self.client)
+        self.assertTrue(user.is_authenticated())
+
+    def test_login_with_similar_email_succeeds(self):
+        data = {'email': 'User98@example.com', 'password': self.user.display_name}
+        response = self.client.post(self.url, data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['email'], self.user.email)
         user = auth.get_user(self.client)

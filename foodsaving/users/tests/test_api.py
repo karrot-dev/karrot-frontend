@@ -14,52 +14,12 @@ from foodsaving.users.factories import UserFactory, VerifiedUserFactory
 from foodsaving.utils.tests.fake import faker
 
 
-class TestUserDeleteAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.group = GroupFactory(members=[cls.user, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickupdate = PickupDateFactory(
-            store=cls.store,
-            date=timezone.now() + relativedelta(days=1),
-            collectors=[cls.user, ])
-        cls.past_pickupdate = PickupDateFactory(
-            store=cls.store,
-            date=timezone.now() - relativedelta(days=1),
-            collectors=[cls.user, ]
-        )
-        cls.url = '/api/users/{}/'.format(cls.user.id)
-
-    def test_delete_user(self):
-        self.assertEqual(self.group.members.count(), 1)
-        self.assertEqual(self.pickupdate.collectors.count(), 1)
-        self.assertEqual(self.past_pickupdate.collectors.count(), 1)
-
-        self.client.force_login(self.user)
-        response = self.client.delete(self.url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-        self.assertFalse(self.group.members.get_queryset().filter(id=self.user.id).exists())
-        self.assertFalse(self.pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
-        self.assertTrue(self.past_pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
-
-        # delete another user
-        u2 = UserFactory()
-        self.client.force_login(u2)
-        url = '/api/users/{}/'.format(u2.id)
-        response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-
 class TestUsersAPI(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.user = UserFactory()
         cls.user2 = UserFactory()
-        cls.verified_user = VerifiedUserFactory()
         cls.url = '/api/users/'
         cls.user_data = {
             'email': faker.email(),
@@ -113,73 +73,6 @@ class TestUsersAPI(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
-    def test_verify_mail_succeeds(self):
-        self.client.force_login(user=self.user)
-        url = self.url + 'verify_mail/'
-        response = self.client.post(url, {'key': self.user.activation_key})
-        self.assertEqual(response.data, {})
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-    def test_verify_mail_fails_if_not_logged_in(self):
-        url = self.url + 'verify_mail/'
-        response = self.client.post(url, {'key': self.user.activation_key})
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_verify_mail_fails_with_wrong_key(self):
-        self.client.force_login(user=self.user)
-        url = self.url + 'verify_mail/'
-        response = self.client.post(url, {'key': 'w' * 40})
-        self.assertEqual(response.data, {'key': ['Key is invalid']})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    def test_verify_mail_fails_if_key_too_old(self):
-        self.client.force_login(user=self.user)
-        url = self.url + 'verify_mail/'
-        backup = self.user.key_expires_at
-        self.user.key_expires_at = timezone.now() - timedelta(days=1)
-        self.user.save()
-        response = self.client.post(url, {'key': self.user.activation_key})
-        self.assertEqual(response.data, {'key': ['Key has expired']})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.user.key_expires_at = backup
-        self.user.save()
-
-    def test_verify_mail_fails_if_already_verified(self):
-        self.client.force_login(user=self.verified_user)
-        url = self.url + 'verify_mail/'
-        response = self.client.post(url, {'key': self.user.activation_key})
-        self.assertEqual(response.data, {'detail': 'Mail is already verified.'})
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_verify_mail_fails_without_key(self):
-        self.client.force_login(user=self.user)
-        url = self.url + 'verify_mail/'
-        response = self.client.post(url)
-        self.assertEqual(response.data, {'key': ['This field is required.']})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    def test_resend_verification_succeeds(self):
-        self.client.force_login(user=self.user)
-        url = self.url + 'resend_verification/'
-        response = self.client.post(url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Please verify your email')
-        self.assertEqual(mail.outbox[0].to, [self.user.email])
-        self.assertNotIn('Thank you for signing up', mail.outbox[0].body)
-
-    def test_resend_verification_fails_if_already_verified(self):
-        self.client.force_login(user=self.verified_user)
-        url = self.url + 'resend_verification/'
-        response = self.client.post(url)
-        self.assertEqual(response.data, {'error': 'Already verified'})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    def test_resend_verification_fails_if_not_logged_in(self):
-        url = self.url + 'resend_verification/'
-        response = self.client.post(url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
     def test_patch_user_forbidden(self):
         url = self.url + str(self.user.id) + '/'
         response = self.client.patch(url, self.user_data, format='json')
@@ -210,6 +103,46 @@ class TestUsersAPI(APITestCase):
         response = self.client.patch(url, {'description': 'ab' * settings.DESCRIPTION_MAX_LENGTH}, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
+
+class TestUserDeleteAPI(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = UserFactory()
+        cls.user2 = UserFactory()
+        cls.group = GroupFactory(members=[cls.user, cls.user2])
+        cls.store = StoreFactory(group=cls.group)
+        cls.pickupdate = PickupDateFactory(
+            store=cls.store,
+            date=timezone.now() + relativedelta(days=1),
+            collectors=[cls.user, ])
+        cls.past_pickupdate = PickupDateFactory(
+            store=cls.store,
+            date=timezone.now() - relativedelta(days=1),
+            collectors=[cls.user, ]
+        )
+        cls.url = '/api/users/'
+
+    def test_delete_self(self):
+        self.assertEqual(self.pickupdate.collectors.count(), 1)
+        self.assertEqual(self.past_pickupdate.collectors.count(), 1)
+
+        self.client.force_login(self.user)
+        url = self.url + str(self.user.id) + '/'
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT, response.data)
+
+        self.assertFalse(self.group.members.get_queryset().filter(id=self.user.id).exists())
+        self.assertFalse(self.pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
+        self.assertTrue(self.past_pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
+
+        # delete another user
+        u2 = UserFactory()
+        self.client.force_login(u2)
+        url = '/api/users/{}/'.format(u2.id)
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
     def test_remove_user_forbidden(self):
         url = self.url + str(self.user.id) + '/'
         response = self.client.delete(url)
@@ -221,14 +154,8 @@ class TestUsersAPI(APITestCase):
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_remove_self_allowed(self):
-        self.client.force_login(user=self.user)
-        url = self.url + str(self.user.id) + '/'
-        response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
-
-class TestCreateUsersAPIErrors(APITestCase):
+class TestCreateUserErrors(APITestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -383,3 +310,78 @@ class TestPasswordReset(APITestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
 
+
+class TestEMailVerification(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = UserFactory()
+        cls.verified_user = VerifiedUserFactory()
+        cls.url = '/api/users/verify_mail/'
+
+    def test_verify_mail_succeeds(self):
+        self.client.force_login(user=self.user)
+        response = self.client.post(self.url, {'key': self.user.activation_key})
+        self.assertEqual(response.data, {})
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_verify_mail_fails_if_not_logged_in(self):
+        response = self.client.post(self.url, {'key': self.user.activation_key})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_verify_mail_fails_with_wrong_key(self):
+        self.client.force_login(user=self.user)
+        response = self.client.post(self.url, {'key': 'w' * 40})
+        self.assertEqual(response.data, {'key': ['Key is invalid']})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_verify_mail_fails_if_key_too_old(self):
+        self.client.force_login(user=self.user)
+        backup = self.user.key_expires_at
+        self.user.key_expires_at = timezone.now() - timedelta(days=1)
+        self.user.save()
+        response = self.client.post(self.url, {'key': self.user.activation_key})
+        self.assertEqual(response.data, {'key': ['Key has expired']})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.user.key_expires_at = backup
+        self.user.save()
+
+    def test_verify_mail_fails_if_already_verified(self):
+        self.client.force_login(user=self.verified_user)
+        response = self.client.post(self.url, {'key': self.user.activation_key})
+        self.assertEqual(response.data, {'detail': 'Mail is already verified.'})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_verify_mail_fails_without_key(self):
+        self.client.force_login(user=self.user)
+        response = self.client.post(self.url)
+        self.assertEqual(response.data, {'key': ['This field is required.']})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
+class TestResendEMailVerificationKey(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = UserFactory()
+        cls.verified_user = VerifiedUserFactory()
+        cls.url = '/api/users/resend_verification/'
+
+    def test_resend_verification_succeeds(self):
+        self.client.force_login(user=self.user)
+        response = self.client.post(self.url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Please verify your email')
+        self.assertEqual(mail.outbox[0].to, [self.user.email])
+        self.assertNotIn('Thank you for signing up', mail.outbox[0].body)
+
+    def test_resend_verification_fails_if_already_verified(self):
+        self.client.force_login(user=self.verified_user)
+        response = self.client.post(self.url)
+        self.assertEqual(response.data, {'error': 'Already verified'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_resend_verification_fails_if_not_logged_in(self):
+        response = self.client.post(self.url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

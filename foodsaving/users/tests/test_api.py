@@ -180,28 +180,6 @@ class TestUsersAPI(APITestCase):
         response = self.client.post(url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_reset_password_succeeds(self):
-        url = self.url + 'reset_password/'
-        response = self.client.post(url, {'email': self.verified_user.email})
-        self.assertEqual(response.data, {})
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'New password')
-        self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
-
-    def test_reset_password_fails_if_wrong_mail(self):
-        url = self.url + 'reset_password/'
-        response = self.client.post(url, {'email': 'wrong@example.com'})
-        self.assertIsNone(response.data)
-        # don't leak out validity of mail addresses, therefore return success
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-    def test_reset_password_fails_if_no_email(self):
-        url = self.url + 'reset_password/'
-        response = self.client.post(url)
-        self.assertEqual(response.data, {'error': 'mail address is not provided'})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
     def test_patch_user_forbidden(self):
         url = self.url + str(self.user.id) + '/'
         response = self.client.patch(url, self.user_data, format='json')
@@ -370,3 +348,39 @@ class TestChangeMail(APITestCase):
         response = self.client.patch(self.user_url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(mail.outbox), 2)
+
+
+class TestPasswordReset(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.verified_user = VerifiedUserFactory(email='reset_test@example.com')
+        cls.url = '/api/users/reset_password/'
+
+    def test_reset_password_succeeds(self):
+        response = self.client.post(self.url, {'email': self.verified_user.email})
+        self.assertEqual(response.data, {})
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'New password')
+        self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
+
+    def test_reset_password_fails_if_wrong_mail(self):
+        response = self.client.post(self.url, {'email': 'wrong@example.com'})
+        self.assertIsNone(response.data)
+        # don't leak out validity of mail addresses, therefore return success
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_reset_password_fails_if_no_email(self):
+        response = self.client.post(self.url)
+        self.assertEqual(response.data, {'error': 'mail address is not provided'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_reset_password_with_similar_email_succeeds(self):
+        response = self.client.post(self.url, {'email': 'RESET_test@example.com'})
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
+

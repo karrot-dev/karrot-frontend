@@ -109,7 +109,7 @@ class UserViewSet(
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'error': 'mail address is not provided'})
         try:
-            user = get_user_model().objects.get(email=request_email)
+            user = get_user_model().objects.get(email__iexact=request_email)
         except get_user_model().DoesNotExist:
             # don't leak valid mail addresses
             return Response(status=status.HTTP_204_NO_CONTENT)

@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
             display_name=display_name,
             **extra_fields)
         user.set_password(password)
-        user.save(using=self._db)
+        user.save()
         user._send_welcome_mail()
         return user
 
@@ -59,7 +59,7 @@ class UserManager(BaseUserManager):
         user = self._create_user(email, password, email, **extra_fields)
         user.is_superuser = True
         user.is_staff = True
-        user.save(using=self._db)
+        user.save()
         return user
 
 

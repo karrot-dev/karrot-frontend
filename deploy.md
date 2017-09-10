@@ -38,7 +38,7 @@ create /etc/uwsgi/apps-available/fstool.ini
 
 ```
 [uwsgi]
-project = foodsaving-backend
+project = karrot-backend
 base = /home/deploy
 
 chdir = %(base)/%(project)
@@ -126,17 +126,17 @@ cd /etc/nginx/sites-enabled
 ln -s ../sites-available/fstool .
 ```
 
-Clone the backend repo to `/home/deploy/foodsaving-backend` and create the virtualenv:
+Clone the backend repo to `/home/deploy/karrot-backend` and create the virtualenv:
 
 ```
-git clone https://github.com/yunity/foodsaving-backend.git
-virtualenv --python=python3 --no-site-packages foodsaving-backend/env
+git clone https://github.com/yunity/karrot-backend.git
+virtualenv --python=python3 --no-site-packages karrot-backend/env
 ```
 
 Install `pip-tools`, to allow the deploy script to run `pip-sync`
 
 ```
-cd foodsaving-backend
+cd karrot-backend
 source env/bin/activate
 pip install pip-tools
 

@@ -32,7 +32,7 @@ if [ ! -d "$backend_dir" ]; then
   mkdir -p "$backend_dir"
   (
     cd "$backend_dir" && \
-    git clone https://github.com/yunity/foodsaving-backend.git .
+    git clone https://github.com/yunity/karrot-backend.git .
   )
 fi
 

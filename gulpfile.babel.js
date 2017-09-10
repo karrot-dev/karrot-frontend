@@ -120,7 +120,7 @@ gulp.task("serve", () => {
     open: false,
     server: { baseDir: root },
     middleware: [
-      // to foodsaving-backend
+      // to karrot-backend
       proxy("/api", {
         target: BACKEND,
         changeOrigin: true,

@@ -3,22 +3,20 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/yunity/foodsaving-frontend/e4f6927cccfbde340636d20b863efd508be19ec0/badge.svg)](https://snyk.io/test/github/yunity/foodsaving-frontend/e4f6927cccfbde340636d20b863efd508be19ec0)
 
 
-# foodsaving frontend
+# karrot frontend
 
-Welcome to the foodsaving tool frontend repository! This is the browser-side software that powers [foodsaving worldwide](https://foodsaving.world).
+Welcome to _karrot_! _karrot_ is a software to support foodsaving groups worldwide. This is the frontend repository, i.e. the browser-side software that powers [foodsaving worldwide](https://foodsaving.world). 
 
 
-## yunity and foodsaving
+## foodsaving worldwide
 
-The foodsaving tool is a project of [yunity](https://yunity.org). 
-The [foodsaving worldwide team](https://yunity.atlassian.net/wiki/display/FSINT/) within yunity provides additional resources to build up foodsaving.
-At a later point, more features could be added that support the yunity vision and mission, e.g. multi-sharing communities, item pooling, integrated decision making (syscon).
+The [foodsaving worldwide team](https://yunity.atlassian.net/wiki/display/FSINT/) provides additional resources to build up foodsaving.
 
 ## Development goals
 
 Our current development goals are prioritized and written down in our [elaborate roadmap](ROADMAP.md).
 
-We are keeping the features down to a minimum, in order to progressively build up a useful tool.
+We are keeping the features down to a minimum, in order to progressively build up a useful software.
 
 ## Releases
 
@@ -30,7 +28,7 @@ Have a look [on the live site](https://foodsaving.world) for all groups that hav
 
 ## Translation
 
-We are using [Transifex](https://www.transifex.com/) to provide the foodsaving tool in many languages. To help us with translation, please [create an account](http://transifex.com/signup) and [apply for foodsaving tool group](https://www.transifex.com/yunity-1/foodsaving-tool/frontend/).
+We are using [Transifex](https://www.transifex.com/) to provide _karrot_ in many languages. To help us with translation, please [create an account](http://transifex.com/signup) and [apply for the _karrot_ group](https://www.transifex.com/yunity-1/foodsaving-tool/frontend/).
 
 After selecting your destination language and choosing the resource file, go ahead to start translating!
 
@@ -45,8 +43,8 @@ After selecting your destination language and choosing the resource file, go ahe
 To clone and install:
 
 ```
-git clone https://github.com/yunity/foodsaving-frontend.git
-cd foodsaving-frontend
+git clone https://github.com/yunity/karrot-frontend.git
+cd karrot-frontend
 yarn
 ```
 
@@ -67,7 +65,7 @@ If you want to use an eslint plugin for your editor, please keep in mind that yo
 
 # Start contributing?
 
-Be sure to join us in the #foodsaving-tool [chatroom on slack](https://slackin.yunity.org/) and get in contact!
+Be sure to join us in the #karrot-dev [chatroom on slack](https://slackin.yunity.org/) and get in contact!
 The most important information are written down in our [contribution guidelines](CONTRIBUTE.md).
 
-The [backend](https://github.com/yunity/foodsaving-backend) is developed to support this frontend. If you find a bug or miss something in the API, please file an issue in the backend repository.
+The [backend](https://github.com/yunity/karrot-backend) is developed to support this frontend. If you find a bug or miss something in the API, please file an issue in the backend repository.

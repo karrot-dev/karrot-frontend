@@ -1,5 +1,5 @@
 {
-  "name": "foodsaving-frontend",
+  "name": "karrot-frontend",
   "version": "3.0.0",
   "description": "Tool to support foodsaving groups worldwide",
   "main": "index.js",
@@ -100,13 +100,12 @@
     "update_i18n": "python update_i18n.py"
   },
   "keywords": [
-    "yunity",
     "foodsharing",
     "foodsaving"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunity/foodsaving-frontend.git"
+    "url": "https://github.com/yunity/karrot-frontend.git"
   },
   "author": "yunity",
   "license": "MIT"

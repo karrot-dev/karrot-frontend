@@ -44,12 +44,12 @@ git commit
 git push
 ```
 
-If you now visit github.com/yunity/foodsaving-frontend, there should be a message that you can open a Pull Request for your recently pushed branch.
+If you now visit github.com/yunity/karrot-frontend, there should be a message that you can open a Pull Request for your recently pushed branch.
 
 ### Backend connection
 
 Per default, all requests to `/api` are forwarded to the online backend `foodsaving.world/api`.
-To use a [local backend](https://github.com/yunity/foodsaving-backend/), create a file `.env` with content like
+To use a [local backend](https://github.com/yunity/karrot-backend/), create a file `.env` with content like
 
 ```
 BACKEND=http://localhost:8080/
@@ -91,7 +91,7 @@ Be careful to adapt your coding style to the already existing one. That makes it
 
 * We use [editorconfig](http://editorconfig.org/). Plugins are available for many editors, e.g. for Atom:`editorconfig`)
 * check your code style with `yarn run lint`, or better: install an `eslint` plugin in your IDE
-* Use ES6 features (but use `$q` of `Promise`, see here: https://github.com/yunity/foodsaving-frontend/issues/45)
+* Use ES6 features (but use `$q` of `Promise`, see here: https://github.com/yunity/karrot-frontend/issues/45)
 * Avoid creating directives
 * Avoid global components, import them where needed
 
@@ -112,7 +112,7 @@ If you want to add a message to the user, be sure to make it translatable. You c
 
 ### Translating and updating
 
-Use the [transifex command line client](https://docs.transifex.com/client/introduction) to upload the new messages to the translation service and download the translated files after they've been translated in our [transifex project](https://www.transifex.com/yunity-1/foodsaving-tool/dashboard/).
+Use the [transifex command line client](https://docs.transifex.com/client/introduction) to upload the new messages to the translation service and download the translated files after they've been translated in our [transifex project](https://www.transifex.com/yunity-1/karrot/dashboard/).
 
 ```sh
 # push English source

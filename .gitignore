@@ -12,5 +12,5 @@ nbproject/
 .vscode
 .idea/
 
-# To do: commit again after npm has been fixed
 package-lock.json
+cordova

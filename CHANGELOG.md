@@ -1,5 +1,5 @@
 # Change Log
-All notable changes to the foodsaving tool will be documented in this file.
+All notable changes to _karrot_ will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
@@ -104,13 +104,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## Release 1 - 2016-12-14
 ### Added
 
-After months of planning and programming, the first version of the foodsaving tool is ready!
+After months of planning and programming, the first version of ~the foodsaving tool~ _karrot_ is ready!
 
 - **user**: sign-up with name, password and email address
 - **group**: create a group, add yourself to a group, leave a group, set up name and description
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
-[Unreleased]: https://github.com/yunity/foodsaving-frontend/compare/v3.0.0...HEAD
-[Release 3]: https://github.com/yunity/foodsaving-frontend/compare/r2...v3.0.0
-[Release 2]: https://github.com/yunity/foodsaving-frontend/compare/r1...r2
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v3.0.0...HEAD
+[Release 3]: https://github.com/yunity/karrot-frontend/compare/r2...v3.0.0
+[Release 2]: https://github.com/yunity/karrot-frontend/compare/r1...r2

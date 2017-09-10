@@ -2,9 +2,8 @@
 host = https://www.transifex.com
 minimum_perc = 30
 
-[foodsaving-tool.frontend]
+[karrot.frontend]
 file_filter = client/app/locales/locale-<lang>.json
 source_file = client/app/locales/locale-en.json
 source_lang = en
 type = KEYVALUEJSON
-

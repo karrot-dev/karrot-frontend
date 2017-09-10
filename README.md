@@ -1,9 +1,9 @@
-# foodsaving-backend
+# karrot-backend
 
 Django API server for the _karrot_ frontend 
 
-[![CircleCI](https://circleci.com/gh/yunity/foodsaving-backend.svg?style=svg)](https://circleci.com/gh/yunity/foodsaving-backend)
-[![codecov](https://codecov.io/gh/yunity/foodsaving-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/yunity/foodsaving-backend)
+[![CircleCI](https://circleci.com/gh/yunity/karrot-backend.svg?style=svg)](https://circleci.com/gh/yunity/karrot-backend)
+[![codecov](https://codecov.io/gh/yunity/karrot-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/yunity/karrot-backend)
 
 There are 3 approaches to getting your developer environment setup:
 
@@ -22,10 +22,10 @@ docker build -t backend .
 Run this container, including your most recent source code changes:
 
 ```sh
-docker run -d -p 8000:8000 -v $PWD/foodsaving:/foodsaving-backend/foodsaving backend
+docker run -d -p 8000:8000 -v $PWD/foodsaving:/karrot-backend/foodsaving backend
 ```
 
-Note 1: This assumes that your terminal's working directory is in the foodsaving-backend directory, i.e. the directory you cloned from Github.
+Note 1: This assumes that your terminal's working directory is in the karrot-backend directory, i.e. the directory you cloned from Github.
 Note 2: Only changes you make in the "foodsaving" directory are included.
 
 The test data are automatically created in the container. You can see log-in details after running this command:
@@ -164,7 +164,7 @@ source env/bin/activate
 ./manage.py migrate
 ```
 
-# Contributing to foodsaving-backend
+# Contributing to karrot-backend
 
 To contribute, please get in contact with us. We want to follow a pull request / code review cycle as soon as possible but in our early design stages we prefer to work in teams at the same desk.
 We use

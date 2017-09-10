@@ -1,6 +1,6 @@
 # foodsaving-backend
 
-Django server for the foodsaving tool API
+Django API server for the _karrot_ frontend 
 
 [![CircleCI](https://circleci.com/gh/yunity/foodsaving-backend.svg?style=svg)](https://circleci.com/gh/yunity/foodsaving-backend)
 [![codecov](https://codecov.io/gh/yunity/foodsaving-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/yunity/foodsaving-backend)
@@ -75,7 +75,7 @@ sudo systemctl enable redis.service
 ```
 
 #### Ubuntu or Debian
-As the foodsaving tool requires relatively recent versions of some packages, using Ubuntu 15.10 or greater is required.
+As _karrot_ requires relatively recent versions of some packages, using Ubuntu 15.10 or greater is required.
 
 ```sh
 sudo apt-get install git redis-server python3 python3-dev python-virtualenv postgresql postgresql-server-dev-9.4 gcc build-essential g++ libffi-dev libncurses5-dev
@@ -181,7 +181,7 @@ You can execute `flake8` in the repository root to check your code.
 Code will only be accepted into `master` if it passes the PEP8 test.
 
 ## Using the API
-A live instance of the foodsaving tool is running at https://foodsaving.world/. Use https://foodsaving.world/api/ for a browseable API and for API requests.
+A live instance of _karrot_ is running at https://foodsaving.world/. Use https://foodsaving.world/api/ for a browseable API and for API requests.
 
 A session is identified via the sessionid cookie. Additionally, a csrftoken cookie is set with each POST request (initially for the login). To issue any other POST request than a login, you need to provide the contents of the csrftoken cookie in the X-CSRFToken header field. The session cookie is automatically appended to each request by the browser.
 For more detailled notes on how to implement this in javascript, see https://docs.djangoproject.com/en/1.9/ref/csrf/

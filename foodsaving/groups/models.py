@@ -33,11 +33,14 @@ class Group(BaseModel, LocationModel, ConversationMixin):
         return '{}'.format(self.name)
 
     def send_notifications(self):
-        for s in self.store.all():
-            for p in s.pickup_dates.filter(
-                    date__gt=timezone.now() - relativedelta(hours=s.upcoming_notification_hours)
-            ):
-                p.notify_upcoming()
+        if self.slack_webhook.startswith('https://hooks.slack.com/services/'):
+            for s in self.store.all():
+                # get all pick-ups within the notification range
+                for p in s.pickup_dates.filter(
+                        date__lt=timezone.now() + relativedelta(hours=s.upcoming_notification_hours),
+                        date__gt=timezone.now()
+                ):
+                    p.notify_upcoming_via_slack()
 
     def add_member(self, user, history_payload=None):
         GroupMembership.objects.create(group=self, user=user)

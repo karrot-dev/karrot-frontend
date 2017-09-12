@@ -3,6 +3,7 @@ from itertools import zip_longest
 import dateutil.rrule
 import requests
 from dateutil.relativedelta import relativedelta
+from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.db import transaction
@@ -10,7 +11,6 @@ from django.db.models import Count
 from django.template.loader import render_to_string
 from django.utils import timezone
 
-from django.conf import settings
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.stores.signals import pickup_done, pickup_missed
 
@@ -203,20 +203,26 @@ class PickupDate(BaseModel):
     def __str__(self):
         return '{} - {}'.format(self.date, self.store)
 
-    def notify_upcoming(self):
-        if 'upcoming' not in self.notifications_sent and self.store.group.slack_webhook != '':
-            context = {
-                'store_name': self.store.name,
-                'number_of_hours': self.store.upcoming_notification_hours,
-                'store_page_url': '{hostname}/#!/group/{groupid}/store/{storeid}/pickups'
+    def notify_upcoming_via_slack(self):
+        if 'upcoming' not in self.notifications_sent:
+            store_page_url = '{hostname}/#!/group/{groupid}/store/{storeid}/pickups'\
                 .format(hostname=settings.HOSTNAME,
                         groupid=self.store.group.id,
                         storeid=self.store.id)
-            }
             r = requests.post(self.store.group.slack_webhook, json={
-                'text': render_to_string('upcoming_pickup_slack.jinja', context),
                 'username': self.store.group.name,
-                'icon_url': '{hostname}/app/icon/carrot_logo.png'.format(hostname=settings.HOSTNAME)
+                'icon_url': '{hostname}/app/icon/carrot_logo.png'.format(hostname=settings.HOSTNAME),
+                'attachments': [
+                    {
+                        'title': self.store.name,
+                        'title_link': store_page_url,
+                        'text': render_to_string('upcoming_pickup_slack.jinja', {
+                            'number_of_hours': self.store.upcoming_notification_hours,
+                            'store_page_url': store_page_url
+                        }),
+                        'color': 'warning'
+                    }
+                ]
             })
             self.notifications_sent['upcoming'] = {'status': r.status_code, 'data': r.text}
             self.save()

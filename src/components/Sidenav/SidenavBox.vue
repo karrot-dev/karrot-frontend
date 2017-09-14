@@ -28,7 +28,7 @@ export default {
   .toolbar
     border-radius 7px 7px 0 0
     background-color $primary
-    padding .6em
+    padding .1em .6em
     color white
     .name
       margin auto 0

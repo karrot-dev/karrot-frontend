@@ -26,7 +26,7 @@ export default {
 <style scoped lang="stylus">
   .sidenav
     width 22%
-    min-width 20em
+    min-width 15em
   .main
     width 60%
     padding-top: 1em

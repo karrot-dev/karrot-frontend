@@ -12,12 +12,7 @@
       </q-btn>
       <q-btn flat>
         <q-icon size="1em" name="fa-user" />
-        <!-- Direct child of target -->
         <q-popover fit ref="popover">
-          <!--
-            The DOM element(s) that make up the popup,
-            in this case a list:
-          -->
           <q-list item-separator link>
             <q-item @click="doSomething(), $refs.popover.close()">
               <q-icon size="1em" name="fa-user fa-fw" />
@@ -58,6 +53,6 @@ export default {
   width 100%
   height: 42px
   .logo
-    margin-left .5em
+    margin-left 2em
     height 36px
 </style>

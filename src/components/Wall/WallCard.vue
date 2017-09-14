@@ -1,11 +1,19 @@
 <template>
-  <div class="wrapper">
-    <div class="notices">
-      Icon
+  <div class="wall-card-wrapper">
+    <div class="row justify-between">
+      <div class="icon">
+        <slot name="icon"/>
+      </div>
+      <div class="title">
+        <slot name="header"/>
+      </div>
+      <div class="time">
+        <slot name="time"/>
+      </div>
     </div>
     <hr/>
     <div>
-      <h3>Wall</h3>
+      <slot>Actual Content...</slot>
     </div>
   </div>
 </template>
@@ -19,7 +27,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .wrapper
+  .wall-card-wrapper
     padding 0.5em
     border 1px solid grey
+    border-radius 7px
+    .icon
+      height 32px
+      width 40px
+      overflow hidden
 </style>

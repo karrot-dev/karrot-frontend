@@ -2,7 +2,12 @@
   <SidenavBox>
     <div slot="name">Group</div>
     <div slot="tools">
-      <q-btn small flat>Extra Options</q-btn>
+      <q-btn flat>
+        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        <q-popover fit ref="popover">
+          <GroupOptions/>
+        </q-popover>
+      </q-btn>
     </div>
     <div>
       <q-list highlight no-border>
@@ -15,12 +20,13 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem } from 'quasar'
+import { QBtn, QList, QItem, QPopover } from 'quasar'
 import SidenavBox from './SidenavBox.vue'
+import GroupOptions from './GroupOptions.vue'
 
 export default {
   components: {
-    SidenavBox, QBtn, QList, QItem
+    SidenavBox, GroupOptions, QBtn, QList, QItem, QPopover
   }
 }
 </script>

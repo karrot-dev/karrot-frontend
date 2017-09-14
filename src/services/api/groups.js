@@ -10,7 +10,6 @@ export default {
   },
 
   async list () {
-    await delay(1000)
     return (await axios.get('/api/groups/')).data
   },
 
@@ -23,33 +22,27 @@ export default {
   },
 
   async search (query) {
-    return axios.get('/api/groups/', { params: { search: query } })
+    return (await axios.get('/api/groups/', { params: { search: query } })).data
   },
 
   async save (group) {
     let groupId = group.id
-    return axios.patch(`/api/groups/${groupId}/`, group)
+    return (await axios.patch(`/api/groups/${groupId}/`, group)).data
   },
 
   async join (groupId, data) {
-    return axios.post(`/api/groups/${groupId}/join/`, data)
+    return (await axios.post(`/api/groups/${groupId}/join/`, data)).data
   },
 
   async leave (groupId) {
-    return axios.post(`/api/groups/${groupId}/leave/`, {})
+    return (await axios.post(`/api/groups/${groupId}/leave/`, {})).data
   },
 
   async timezones () {
-    return axios.get('/api/groups/timezones/')
+    return (await axios.get('/api/groups/timezones/')).data
   },
 
   async conversation (groupId) {
-    return axios.get(`/api/groups/${groupId}/conversation/`)
+    return (await axios.get(`/api/groups/${groupId}/conversation/`)).data
   }
-}
-
-function delay (ms) {
-  return new Promise(resolve => {
-    setTimeout(resolve, ms)
-  })
 }

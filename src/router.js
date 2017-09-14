@@ -1,12 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-Vue.use(VueRouter)
+import Home from '@/components/Home.vue'
+import Error404 from '@/components/Error404.vue'
 
-function load (component) {
-  // '@' is aliased to src/components
-  return () => import(`@/${component}.vue`)
-}
+Vue.use(VueRouter)
 
 export default new VueRouter({
   /*
@@ -22,9 +20,9 @@ export default new VueRouter({
    */
 
   routes: [
-    { path: '/', component: load('Hello') },
+    { path: '/', component: Home },
 
     // Always leave this last one
-    { path: '*', component: load('Error404') } // Not found
+    { path: '*', component: Error404 } // Not found
   ]
 })

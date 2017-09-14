@@ -1,9 +1,9 @@
 import groups from '@/services/api/groups'
 
 export const types = {
-  REQUEST_GROUPS: '[GROUPS] REQUEST',
-  RECEIVE_GROUPS: '[GROUPS] RECEIVE',
-  RECEIVE_GROUPS_ERROR: '[GROUPS] RECEIVE ERROR'
+  REQUEST_GROUPS: 'Request Groups',
+  RECEIVE_GROUPS: 'Receive Groups',
+  RECEIVE_GROUPS_ERROR: 'Receive Groups Error'
 }
 
 export const state = {

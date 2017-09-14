@@ -2,13 +2,16 @@ import auth from '@/services/api/auth'
 
 export const types = {
 
-  REQUEST_LOGIN: '[AUTH] LOGIN REQUEST',
-  RECEIVE_LOGIN_SUCCESS: '[AUTH] LOGIN SUCCESS',
-  RECEIVE_LOGIN_FAILURE: '[AUTH] LOGIN FAILURE',
+  REQUEST_STATUS: 'Request Status',
+  RECEIVE_LOGIN_STATUS: 'Receive Status',
 
-  REQUEST_LOGOUT: '[AUTH] LOGOUT REQUEST',
-  RECEIVE_LOGOUT_SUCCESS: '[AUTH] LOGOUT SUCCESS',
-  RECEIVE_LOGOUT_FAILURE: '[AUTH] LOGOUT FAILURE'
+  REQUEST_LOGIN: 'Login Request',
+  RECEIVE_LOGIN_SUCCESS: 'Login Success',
+  RECEIVE_LOGIN_FAILURE: 'Login Error',
+
+  REQUEST_LOGOUT: 'Logout Request',
+  RECEIVE_LOGOUT_SUCCESS: 'Logout Success',
+  RECEIVE_LOGOUT_FAILURE: 'Logout Failure'
 }
 
 export const state = {
@@ -21,6 +24,17 @@ export const getters = {
 }
 
 export const actions = {
+
+  async check ({ commit }) {
+    commit(types.REQUEST_STATUS)
+    try {
+      commit(types.RECEIVE_LOGIN_STATUS, {user: await auth.status()})
+    }
+    catch (error) {
+      // ignore
+    }
+  },
+
   async login ({ commit }, data) {
     commit(types.REQUEST_LOGIN)
     try {
@@ -43,6 +57,13 @@ export const actions = {
 }
 
 export const mutations = {
+
+  // Check
+
+  [types.RECEIVE_LOGIN_STATUS] (state, { user }) {
+    state.user = user
+    state.error = null
+  },
 
   // Login
 

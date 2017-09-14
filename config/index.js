@@ -48,6 +48,7 @@ module.exports = {
       '/api': {
         target: BACKEND,
         changeOrigin: true,
+        ws: true,
         onProxyReq: (proxyReq) => {
           if (/^https:/.test(BACKEND)) {
             // For secure backends we must set the referer to make django happy

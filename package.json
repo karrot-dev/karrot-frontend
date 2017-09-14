@@ -18,6 +18,7 @@
     "camelcase": "^4.1.0",
     "quasar-extras": "0.x",
     "quasar-framework": "^0.14.1",
+    "reconnecting-websocket": "^3.2.1",
     "vue": "~2.3.4",
     "vue-router": "^2.7.0",
     "vuex": "^2.4.0"

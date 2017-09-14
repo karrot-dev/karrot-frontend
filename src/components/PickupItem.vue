@@ -8,10 +8,12 @@
           <slot>
             Date or Store slot
           </slot>
-          <p>{{ pickup.description }}</p>
+        </div>
+        <div class="people" v-if="pickup.description">
+          {{ pickup.description }}
         </div>
         <div class="people">
-          List of people who joined goes here...
+          <ProfilesInline :users="pickup.collector_ids"/>
         </div>
       </div>
       <div>
@@ -30,7 +32,8 @@
 </template>
 
 <script>
-import { QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon } from 'quasar'
+import { QCard, QCardMain, QBtn } from 'quasar'
+import ProfilesInline from './ProfilesInline.vue'
 
 export default {
   props: {
@@ -39,7 +42,7 @@ export default {
     }
   },
   components: {
-    QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon
+    QCard, QCardMain, QBtn, ProfilesInline
   },
   methods: {
     join (event) {
@@ -61,10 +64,9 @@ $lighterGreen = #F8FFF8
   width 100%
   .padding
     padding 1em
-    h5, p
+    h5
       display inline
-    p 
-      margin-left .5em
+      margin-right .5em
   .people
     padding: .3em
 .content.isEmpty

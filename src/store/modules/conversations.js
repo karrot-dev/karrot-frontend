@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import messages from '@/services/api/messages'
 
-const REVERSE = false
+const REVERSE = true
 
 export const types = {
   SUBSCRIBE: 'Subscribe',

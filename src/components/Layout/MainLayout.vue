@@ -29,6 +29,7 @@ export default {
     min-width 20em
   .main
     width 60%
+    padding-top: 1em
   .content
     margin-bottom 1em
 </style>

@@ -25,5 +25,6 @@ export default {
 <style scoped lang="stylus">
   .footer
     width: 95%
+    max-width: 75em
     margin: 0 auto
 </style>

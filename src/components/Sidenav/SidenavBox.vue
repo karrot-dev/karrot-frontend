@@ -24,9 +24,9 @@ export default {
   width 100%
   margin .6em
   border 1px solid grey
-  border-radius 10px
+  border-radius 7px
   .toolbar
-    border-radius 10px 10px 0 0
+    border-radius 7px 7px 0 0
     background-color $primary
     padding .6em
     color white

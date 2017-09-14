@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import MainLayout from './MainLayout.vue'
 import Topbar from './Topbar.vue'
 import Footer from './Footer.vue'
+import Wall from '../Wall/Wall.vue'
 import SidenavMap from '../Sidenav/SidenavMap.vue'
 import SidenavGroup from '../Sidenav/SidenavGroup.vue'
 import SidenavStores from '../Sidenav/SidenavStores.vue'
@@ -16,14 +17,14 @@ const mainLayoutTemplate = `
       <SidenavStores/>
     </template>
     <div>
-      Content
+      <Wall/>
     </div>
   </MainLayout>
 </div>'`
 
 storiesOf('Layout', module)
   .add('MainLayout with Sidenav', () => ({
-    components: { MainLayout, SidenavMap, SidenavGroup, SidenavStores },
+    components: { MainLayout, SidenavMap, SidenavGroup, SidenavStores, Wall },
     template: mainLayoutTemplate
   }))
   .add('Topbar', () => ({

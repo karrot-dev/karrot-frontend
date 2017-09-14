@@ -3,5 +3,7 @@
 node_modules/
 dist/
 npm-debug.log*
+yarn-error.log
 cordova/platforms
 cordova/plugins
+.idea

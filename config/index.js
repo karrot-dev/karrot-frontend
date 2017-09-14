@@ -1,5 +1,7 @@
 var path = require('path')
 
+const BACKEND = 'https://dev.foodsaving.world/'
+
 module.exports = {
   // Webpack aliases
   aliases: {
@@ -44,8 +46,17 @@ module.exports = {
     // https://github.com/chimurai/http-proxy-middleware
     proxyTable: {
       '/api': {
-        target: 'https://dev.foodsaving.world/',
-        changeOrigin: true
+        target: BACKEND,
+        changeOrigin: true,
+        onProxyReq: (proxyReq) => {
+          if (/^https:/.test(BACKEND)) {
+            // For secure backends we must set the referer to make django happy
+            // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226
+            // If the backend tries to use this referer for anything useful it will break
+            // as it is a blatant lie, but I don't think it does...
+            proxyReq.setHeader("referer", BACKEND);
+          }
+        }
       }
     }
   }

@@ -2,7 +2,7 @@
   <SidenavBox>
     <div slot="name">Group</div>
     <div slot="tools">
-      <q-btn flat>Extra Options</q-btn>
+      <q-btn small flat>Extra Options</q-btn>
     </div>
     <div>
       <q-list highlight no-border>

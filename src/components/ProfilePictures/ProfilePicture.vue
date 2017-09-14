@@ -26,7 +26,7 @@ export default {
       required: true
     },
     size: {
-      default: 30
+      default: 20
     }
   },
   components: {

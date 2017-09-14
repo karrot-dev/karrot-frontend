@@ -2,7 +2,7 @@
   <SidenavBox>
     <div slot="name">Stores</div>
     <div slot="tools">
-      <q-btn flat>Create</q-btn>
+      <q-btn small flat>Create</q-btn>
     </div>
     <div>
       <q-list highlight no-border>

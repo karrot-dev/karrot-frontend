@@ -7,10 +7,14 @@ const template = `
 <div>
   <div style="padding: 1em">
     Not quite ready yet.
-    <h5> ToDos: </h5>
+    <h5>ToDos</h5>
     <ul>
       <li>Link to user page</li>
       <li>Translate</li>
+    </ul>
+    <h5>Vars for ProfilePictures</h5>
+    <ul>
+      <li>Size: in px</li>
     </ul>
   </div>
 </div>`

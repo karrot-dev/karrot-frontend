@@ -2,9 +2,9 @@
   <SidenavBox>
     <div slot="name">Map</div>
     <div slot="tools">
-      <q-btn flat>Overview</q-btn>
-      <q-btn flat>Stores</q-btn>
-      <q-btn flat>Users</q-btn>
+      <q-btn small flat>Overview</q-btn>
+      <q-btn small flat>Stores</q-btn>
+      <q-btn small flat>Users</q-btn>
     </div>
     <div>This would be where leaflet goes...</div>
   </SidenavBox>

@@ -33,7 +33,7 @@
 
 <script>
 import { QCard, QCardMain, QBtn } from 'quasar'
-import ProfilesInline from './ProfilesInline.vue'
+import ProfilesInline from '../ProfilePictures/ProfilesInline.vue'
 
 export default {
   props: {

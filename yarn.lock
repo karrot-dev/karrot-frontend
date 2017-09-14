@@ -5119,6 +5119,10 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
+reconnecting-websocket@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/reconnecting-websocket/-/reconnecting-websocket-3.2.1.tgz#c309d07f23191f85988e99d87a5c9966545a1631"
+
 reduce-css-calc@^1.2.6:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/reduce-css-calc/-/reduce-css-calc-1.3.0.tgz#747c914e049614a4c9cfbba629871ad1d2927716"

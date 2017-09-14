@@ -4,12 +4,14 @@ import ngMaterial from "angular-material";
 import GroupService from "services/group/group";
 import wallComponent from "./wall.component";
 import wallpost from "./_wallpost/wallpost";
+import wallJoined from "./_wallJoined/wallJoined";
 
 let wallModule = angular.module("wall", [
   uiRouter,
   ngMaterial,
   GroupService,
-  wallpost
+  wallpost,
+  wallJoined
 ])
 
 .component("wall", wallComponent)
@@ -40,6 +42,12 @@ let wallModule = angular.module("wall", [
     .state("group.groupDetail.wall", {
       url: "/wall",
       component: "wall",
+      resolve: {
+        groupHistory: (HistoryService, $stateParams, $state) => {
+          return HistoryService.list({ group: $stateParams.groupId })
+            .catch(() => $state.go("login"));
+        }
+      },
       ncyBreadcrumb: {
         label: "{{'GROUP.CHAT' | translate}}"
       }

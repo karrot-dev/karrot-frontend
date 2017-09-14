@@ -23,6 +23,8 @@ class WallController {
     this.GroupService.conversation(this.groupData.id).then(({ id }) => {
       this.Conversation.subscribe(id).then((val) => {
         this.conversation = val;
+        console.log(this.groupHistory.results);
+        console.log(this.conversation);
       });
     });
   }

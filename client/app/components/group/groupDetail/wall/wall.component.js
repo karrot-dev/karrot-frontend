@@ -4,7 +4,9 @@ import "./wall.styl";
 
 let wallComponent = {
   restrict: "",
-  bindings: {},
+  bindings: {
+    groupHistory: "<"
+  },
   template,
   controller
 };

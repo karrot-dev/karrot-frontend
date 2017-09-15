@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper row">
     <div class="amount">
-      {{amount}}kg
+      {{amount}}<span>kg</span>
     </div>
     <img v-for="(photoSrc, idx) in photosArray" :src="photoSrc" :key="idx"/>
   </div>
@@ -70,6 +70,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .wrapper
   img, .amount
     font-family Verdana, Geneva, Tahoma, sans-serif
@@ -80,6 +81,11 @@ export default {
     padding 0 10px
     margin-right 1em
     font-size: 40px
+    color $tertiary
+    background-color $primary
+    font-family 'Cabin Sketch'
+    span
+      margin-left 7px
   img
     height 60px
 </style>

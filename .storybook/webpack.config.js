@@ -4,6 +4,9 @@ const merge = require('webpack-merge')
 module.exports = (baseConfig, env) => {
   const storybookConfig = genDefaultConfig(baseConfig, env)
   const quasarConfig = require('../build/webpack.dev.conf.js')
+
+  /* when building with storybook we do not want to extract css as we normally do in production */
+  process.env.DISABLE_EXTRACT_CSS = true
   const quasarBasePlugins = require('../build/webpack.base.conf.js').plugins
 
   // use Quasar config as default

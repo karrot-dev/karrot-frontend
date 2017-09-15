@@ -7,6 +7,7 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - run: sudo apt install -y rsync
       - checkout
 
       - restore_cache:

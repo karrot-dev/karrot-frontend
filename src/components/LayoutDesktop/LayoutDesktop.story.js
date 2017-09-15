@@ -7,13 +7,13 @@ import Wall from '../Wall/Wall.vue'
 import SidenavMap from '../Sidenav/SidenavMap.vue'
 import SidenavGroup from '../Sidenav/SidenavGroup.vue'
 import SidenavStores from '../Sidenav/SidenavStores.vue'
-import { storesMock } from '../mockdata.js'
+import { storesMock, usersMock } from '../mockdata.js'
 
 const mainLayoutTemplate = `
 <div id="q-app">
   <MainLayout>
     <template slot="sidenav">      
-      <SidenavMap/>
+      <SidenavMap :stores="stores" :users="users"/>
       <SidenavGroup/>
       <SidenavStores :stores="stores"/>
     </template>
@@ -29,7 +29,8 @@ storiesOf('Layout (Desktop)', module)
     template: mainLayoutTemplate,
     data () {
       return {
-        stores: storesMock
+        stores: storesMock,
+        users: usersMock
       }
     }
   }))

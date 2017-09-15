@@ -4,7 +4,7 @@
         <ProfilePicture :user="message.user"/>
       </template>
       <template slot="header">
-        ...wrote a message
+        wrote a message
       </template>
       <template slot="time">
         {{ message.created_at }}

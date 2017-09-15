@@ -6,10 +6,10 @@
   </div>-->
   <v-map :zoom="zoom" :bounds="bounds" :center="center">
     <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
-    <v-marker v-if="options.showStores" v-for="marker in storeMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
+    <v-marker v-if="showStores" v-for="marker in storeMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
       <v-popup :content="marker.popupcontent"></v-popup>
     </v-marker>
-    <v-marker v-if="options.showUsers" v-for="marker in userMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
+    <v-marker v-if="showUsers" v-for="marker in userMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
       <v-popup :content="marker.popupcontent"></v-popup>
     </v-marker>
   </v-map>
@@ -49,13 +49,8 @@ export default {
   props: {
     users: { required: false, default: [] },
     stores: { required: false, default: [] },
-    options: {
-      required: false,
-      default: {
-        showUsers: true,
-        showStores: true
-      }
-    }
+    showUsers: { required: false, default: true },
+    showStores: { required: false, default: true }
   },
   computed: {
     storeMarkers () {

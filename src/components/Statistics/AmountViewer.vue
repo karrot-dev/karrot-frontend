@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper row">
     <div class="amount">
-      <h3>{{amount}}kg</h3>
+      {{amount}}kg
     </div>
     <img v-for="(photoSrc, idx) in photosArray" :src="photoSrc" :key="idx"/>
   </div>
@@ -76,9 +76,10 @@ export default {
   .amount
     border 1px solid grey
     border-radius 5px
-    height 90px
-    padding 0 .7em
+    height 60px
+    padding 0 10px
     margin-right 1em
+    font-size: 40px
   img
-    height 90px
+    height 60px
 </style>

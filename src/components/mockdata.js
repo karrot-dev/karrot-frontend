@@ -29,3 +29,7 @@ export const messagesMock = [
   { 'id': 8, 'author': 4, 'content': 'oh let me try something :)', 'conversation': 1, 'created_at': '2017-08-11T15:52:33.424731Z' },
   { 'id': 9, 'author': 2, 'content': 'I dont think we need to implement another UI, this is fine right? ', 'conversation': 1, 'created_at': '2017- 08 - 11T15: 52:39.970329Z' }
 ]
+
+export const feedbackMock = [
+  { 'id': 1, 'given_by': { 'id': 1, 'display_name': 'Mira Bellenbaum', 'email': 'l@l.de', 'unverified_email': 'l@l.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8990022441358, 'longitude': 8.66415739059448, 'description': 'This is me!', 'mail_verified': false, 'key_expires_at': '2017-08-02T21:22:54.730980Z', 'current_group': 1, 'language': 'en' }, 'comment': 'All worked out perfectly!', 'weight': 2.5, 'about': 1, 'created_at': '2017-08-11T15:43:37.419305Z' }
+]

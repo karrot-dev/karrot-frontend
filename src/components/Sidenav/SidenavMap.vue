@@ -88,14 +88,16 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+
 .tools
   .fa.fa-bot-right
     left 5px
     top 5px
   .fa.fa-check
-    color green
+    color $positive
   .fa.fa-times
-    color darkred
+    color $negative
 .map
   height: 260px
 </style>

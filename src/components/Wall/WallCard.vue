@@ -35,7 +35,7 @@ export default {
     border-radius 5px 5px 0 0
     height 34px
     padding 0
-    background-color $secondary
+    background-color $tertiary
     color $primary
   .title, .time
     margin auto 0

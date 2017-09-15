@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import groups from '@/services/api/groups'
+import log from '@/services/log'
 
 export const types = {
 
@@ -88,7 +89,7 @@ export const actions = {
 export const mutations = {
   [types.REQUEST_GROUP] (state) {},
   [types.RECEIVE_GROUP] (state, { group }) {
-    console.log('receive group!', group)
+    log.debug('receive group!', group)
     let idx = state.entries.findIndex(g => g.id === group.id)
     if (idx !== -1) {
       Vue.set(state.entries, idx, { ...state.entries[idx], ...group })

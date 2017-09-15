@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import pickups from '@/services/api/pickups'
+import log from '@/services/log'
 
 export const types = {
 
@@ -96,7 +97,7 @@ export const actions = {
 export const mutations = {
   [types.REQUEST_ITEM] (state) {},
   [types.RECEIVE_ITEM] (state, { pickup }) {
-    console.log('receive group!', pickup)
+    log.debug('receive pickup!', pickup)
     let idx = state.entries.findIndex(g => g.id === pickup.id)
     if (idx !== -1) {
       Vue.set(state.entries, idx, { ...state.entries[idx], ...pickup })

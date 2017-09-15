@@ -40,6 +40,7 @@
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
 import store from '@/store'
+import log from '@/services/log'
 
 export default {
   data () {
@@ -49,7 +50,6 @@ export default {
   },
   watch: {
     groupId (val) {
-      console.log('updated group!', val)
       this.fetchListByGroupId({ groupId: val })
     }
   },
@@ -97,11 +97,11 @@ export default {
       this.subscribe({ conversationId: 1 })
     },
     joinDo (groupId) {
-      console.log('joining', groupId)
+      log.debug('joining', groupId)
       this.join({ groupId })
     },
     leaveDo (groupId) {
-      console.log('leaving', groupId)
+      log.debug('leaving', groupId)
       this.leave({ groupId })
     },
     select (groupId) {

@@ -2,6 +2,7 @@ import ReconnectingWebsocket from 'reconnecting-websocket'
 
 import store from '@/store'
 import { types } from '@/store/modules/auth'
+import log from '@/services/log'
 
 export const WEBSOCKET_ENDPOINT = [
   window.location.protocol.replace(/^http/, 'ws'),
@@ -22,11 +23,11 @@ const socket = {
     ws = new ReconnectingWebsocket(WEBSOCKET_ENDPOINT, undefined, options)
 
     ws.addEventListener('open', () => {
-      console.info('socket opened!')
+      log.debug('socket opened!')
     })
 
     ws.addEventListener('close', () => {
-      console.log('socket closed!')
+      log.debug('socket closed!')
     })
 
     ws.addEventListener('message', (event) => {
@@ -35,7 +36,7 @@ const socket = {
         data = JSON.parse(event.data)
       }
       catch (err) {
-        console.error('socket message was not json', event.data)
+        log.error('socket message was not json', event.data)
         return
       }
       receiveMessage(data)

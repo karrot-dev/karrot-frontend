@@ -47,20 +47,29 @@
       </q-btn>
       -->
     </div>
-    <div>This would be where leaflet goes...</div>
+    <div>
+      <GroupMap class="map" :users="users" :stores="stores"/>
+    </div>
   </SidenavBox>
 </template>
 
 <script>
 import { QBtn } from 'quasar'
 import SidenavBox from './SidenavBox.vue'
+import GroupMap from '../Map/GroupMap.vue'
 
 export default {
   components: {
-    SidenavBox, QBtn
+    SidenavBox, QBtn, GroupMap
+  },
+  props: {
+    stores: { required: false },
+    users: { required: false }
   }
 }
 </script>
 
 <style scoped lang="stylus">
+.map
+  height: 260px
 </style>

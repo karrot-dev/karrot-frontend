@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/vue'
 
 import ProfilesInline from './ProfilesInline.vue'
 import ProfilePicture from './ProfilePicture.vue'
+import { usersMock } from '../mockdata.js'
 
 const template = `
 <div>
@@ -22,45 +23,14 @@ const template = `
 storiesOf('Profile Pictures', module)
   .add('Overview', () => ({
     components: { ProfilesInline },
-    template: template,
-    data () {
-      return {
-        users: [
-          {
-            id: 5,
-            display_name: 'Max Mustermann'
-          },
-          {
-            id: 6,
-            display_name: 'Mira Bellenbaum'
-          }
-        ]
-      }
-    }
+    template: template
   }))
   .add('Profiles Inline', () => ({
     components: { ProfilesInline },
     template: '<div><ProfilesInline :users="users"/></div>',
     data () {
       return {
-        users: [
-          {
-            id: 5,
-            display_name: 'Max Mustermann'
-          },
-          {
-            id: 6,
-            display_name: 'Mira Bellenbaum'
-          },
-          {
-            id: 7,
-            display_name: 'Mona Mohnblume'
-          },
-          {
-            id: 8,
-            display_name: 'Carla Carlson'
-          }
-        ]
+        users: usersMock
       }
     }
   }))

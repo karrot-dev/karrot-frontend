@@ -4,6 +4,7 @@ import SidenavBox from './SidenavBox.vue'
 import SidenavMap from './SidenavMap.vue'
 import SidenavGroup from './SidenavGroup.vue'
 import SidenavStores from './SidenavStores.vue'
+import { storesMock, usersMock } from '../mockdata.js'
 
 storiesOf('Sidenav Boxes', module)
   .add('Default', () => ({
@@ -13,7 +14,13 @@ storiesOf('Sidenav Boxes', module)
 
   .add('Map', () => ({
     components: { SidenavMap },
-    template: '<div id="q-app"><SidenavMap></SidenavMap></div>'
+    template: '<div id="q-app"><SidenavMap :stores="stores" :users="users"></SidenavMap></div>',
+    data () {
+      return {
+        stores: storesMock,
+        users: usersMock
+      }
+    }
   }))
 
   .add('Group', () => ({
@@ -23,5 +30,10 @@ storiesOf('Sidenav Boxes', module)
 
   .add('Stores', () => ({
     components: { SidenavStores },
-    template: '<div id="q-app"><SidenavStores></SidenavStores></div>'
+    template: '<div id="q-app"><SidenavStores :stores="stores"></SidenavStores></div>',
+    data () {
+      return {
+        stores: storesMock
+      }
+    }
   }))

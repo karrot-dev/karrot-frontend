@@ -9,9 +9,7 @@
     </div>
     <div>
       <q-list highlight no-border>
-        <q-item>Store 1</q-item>
-        <q-item>Store 2</q-item>
-        <q-item>Store 3</q-item>
+        <q-item v-for="store in stores" :key="store.id">{{ store.name }}</q-item>
       </q-list>
     </div>
   </SidenavBox>
@@ -22,6 +20,9 @@ import { QBtn, QList, QItem, QIcon } from 'quasar'
 import SidenavBox from './SidenavBox.vue'
 
 export default {
+  props: {
+    stores: { required: true }
+  },
   components: {
     SidenavBox, QBtn, QList, QItem, QIcon
   }

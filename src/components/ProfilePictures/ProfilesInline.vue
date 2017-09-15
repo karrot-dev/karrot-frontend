@@ -3,7 +3,8 @@
     <ProfilePicture
       v-for="user in users"
       :key="user.id"
-      :user="user"/>
+      :user="user"
+      class="profilePic"/>
   </div>
 </template>
 
@@ -23,4 +24,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.profilePic
+  margin-right .5em
 </style>

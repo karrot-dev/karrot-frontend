@@ -19,7 +19,7 @@ export const pickupsMock = [
 ]
 
 export const messagesMock = [
-  { 'id': 1, 'author': 1, 'content': 'first messsage', 'conversation': 1, 'created_at': '2017-08-11T15:43:37.419305Z' },
+  { 'id': 1, 'author': { 'id': 1, 'display_name': 'Mira Bellenbaum', 'email': 'l@l.de', 'unverified_email': 'l@l.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8990022441358, 'longitude': 8.66415739059448, 'description': 'This is me!', 'mail_verified': false, 'key_expires_at': '2017-08-02T21:22:54.730980Z', 'current_group': 1, 'language': 'en' }, 'content': 'first messsage', 'conversation': 1, 'created_at': '2017-08-11T15:43:37.419305Z' },
   { 'id': 2, 'author': 2, 'content': 'second messsage', 'conversation': 1, 'created_at': '2017-08-11T15:47:06.887669Z' },
   { 'id': 3, 'author': 2, 'content': 'first messsage', 'conversation': 1, 'created_at': '2017-08-11T15:47:58.078165Z' },
   { 'id': 4, 'author': 2, 'content': 'welcome to fs chat', 'conversation': 1, 'created_at': '2017-08-11T15:49:27.465728Z' },

@@ -38,5 +38,4 @@ export default {
 <style scoped lang="stylus">
   .wrapper
     display inline-block
-    margin .2em
 </style>

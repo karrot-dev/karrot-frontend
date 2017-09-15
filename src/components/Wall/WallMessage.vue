@@ -1,7 +1,7 @@
 <template>
     <WallCard>
       <template slot="icon">
-        <ProfilePicture :user="message.user"/>
+        <ProfilePicture :user="message.author" :size="32"/>
       </template>
       <template slot="header">
         wrote a message

@@ -4,7 +4,7 @@
       v-bind:class="{ isUserMember: pickup.isUserMember }">
       <div class="column padding">
         <div>
-          <h5>{{ pickup.date }}</h5>
+          <span class="featured-text">{{ pickup.date }}</span>
           <slot>
             Date or Store slot
           </slot>
@@ -62,9 +62,11 @@ $lighterGreen = #F8FFF8
 
 .content
   width 100%
+  font-size: .8em
   .padding
     padding 1em
-    h5
+    .featured-text
+      font-size 1.5em
       display inline
       margin-right .5em
   .people

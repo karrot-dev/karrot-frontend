@@ -83,9 +83,6 @@
     "webpack-hot-middleware": "^2.18.2",
     "webpack-merge": "^4.1.0"
   },
-  "resolutions": {
-    "vue": "2.3.4"
-  },
   "jest": {
     "moduleNameMapper": {
       "@/components/(.*)$": "<rootDir>/src/components/$1.vue",

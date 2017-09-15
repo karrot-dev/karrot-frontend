@@ -23,6 +23,7 @@
     "quasar-framework": "^0.14.1",
     "reconnecting-websocket": "^3.2.1",
     "vue": "~2.3.4",
+    "vue-i18n": "^7.2.0",
     "vue-router": "^2.7.0",
     "vue2-leaflet": "^0.0.53",
     "vuex": "^2.4.0"

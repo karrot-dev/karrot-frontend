@@ -42,8 +42,7 @@ module.exports = {
         include: projectRoot,
         exclude: /node_modules/,
         options: {
-          formatter: require('eslint-friendly-formatter'),
-          fix: true
+          formatter: require('eslint-friendly-formatter')
         }
       },
       {
@@ -59,7 +58,7 @@ module.exports = {
           postcss: cssUtils.postcss,
           loaders: merge({js: 'babel-loader'}, cssUtils.styleLoaders({
             sourceMap: useCssSourceMap,
-            extract: env.prod
+            extract: env.prod && !process.env.DISABLE_EXTRACT_CSS
           }))
         }
       },

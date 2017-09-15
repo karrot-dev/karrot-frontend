@@ -8,3 +8,4 @@ cordova/platforms
 cordova/plugins
 .idea
 nbproject/
+storybook-static

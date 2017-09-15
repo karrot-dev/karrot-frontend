@@ -1,9 +1,15 @@
 <template>
   <div>
     <h1>Home page!</h1>
+    <p>{{ $t('GLOBAL.DEVMAIL_NOTE') }}</p>
+    <select v-model="locale">
+      <option v-for="locale in locales" :value="locale.locale">
+        {{ locale.name }}
+      </option>
+    </select>
     <button @click="foo()">foo</button>
-    <button v-if="isLoggedIn" @click="logoutDo()">logout</button>
-    <button v-else @click="loginDo()">login</button>
+    <button v-if="isLoggedIn" @click="logoutDo()">{{ $t('TOPBAR.LOGOUT') }}</button>
+    <button v-else @click="loginDo()">{{ $t('LOGIN.SUBMIT') }}</button>
     <pre v-if="!isLoggedIn">NOT LOGGED IN</pre>
     <pre v-if="isLoggedIn">user: {{ user }}</pre>
     <div v-if="isFetching">Loading!</div>
@@ -41,11 +47,13 @@
 import { mapState, mapGetters, mapActions } from 'vuex'
 import store from '@/store'
 import log from '@/services/log'
+import { locales } from '@/i18n'
 
 export default {
   data () {
     return {
-      groupId: null
+      groupId: null,
+      locales
     }
   },
   watch: {
@@ -65,7 +73,15 @@ export default {
       isLoggedIn: 'auth/isLoggedIn',
       userId: 'auth/userId'
     }),
-    conversation: () => store.getters['conversations/getById'](1)
+    conversation: () => store.getters['conversations/getById'](1),
+    locale: {
+      get () {
+        return store.state.i18n.locale
+      },
+      set (locale) {
+        this.setLocale({ locale })
+      }
+    }
   },
   methods: {
     ...mapActions({
@@ -79,7 +95,8 @@ export default {
       leave: 'groups/leave',
       fetchListByGroupId: 'pickups/fetchListByGroupId',
       joinPickup: 'pickups/join',
-      leavePickup: 'pickups/leave'
+      leavePickup: 'pickups/leave',
+      setLocale: 'i18n/setLocale'
     }),
     isGroupMember (groupId, userId) {
       return store.getters['groups/isMember'](groupId, userId)

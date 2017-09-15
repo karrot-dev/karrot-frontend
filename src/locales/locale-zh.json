@@ -1,0 +1,233 @@
+{
+  "GLOBAL": {
+    "GITHUB_NOTE": "開發\n",
+    "FACEBOOK_NOTE": "加入我們的臉書社團！",
+    "DEVMAIL_NOTE": "寄信給我們回報錯誤或提供建議",
+    "WARNING": "警告",
+    "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
+    "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
+    "SERVER_ERROR": "伺服器錯誤"
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "邀請您參與合作！",
+    "TEXT": "您是否有興趣建立foodsaving的專案或對foodsharing有興趣的社群？您知道有哪些人已經開始做了嗎？",
+    "MAIL_TEXT": "寫封信給我們！"
+  },
+  "LANDINGPAGE": {
+    "BLOG": "部落格",
+    "TEAM": "團隊",
+    "LOGIN": "登入",
+    "SEE_OUR_MAP": "看看我們的地圖！",
+    "OUR_GROUPS": "全世界的Foodsaving社團"
+  },
+  "USERDATA": {
+    "EMAIL": "電子信箱",
+    "PASSWORD": "密碼",
+    "USERNAME": "名稱"
+  },
+  "BUTTON": {
+    "CREATE": "創建",
+    "CANCEL": "取消",
+    "DELETE": "刪除",
+    "EDIT": "編輯",
+    "JOIN": "加入",
+    "LEAVE": "離開",
+    "PREVIEW": "預覽",
+    "BACK": "退回",
+    "MORE_OPTIONS": "更多選項"
+  },
+  "FORM": {
+    "MINLENGTH": "請輸入超過{{min}}字數",
+    "UNIQUE": "名稱已存在，請選另外的名稱"
+  },
+  "GROUP": {
+    "LEAVE": "離開社團...",
+    "LEAVE_TEXT": "您是否確定要離開這個社團？",
+    "NONMEMBER_REDIRECT": "您並非此社團的成員。",
+    "EDIT": "編輯社團",
+    "CREATE_TITLE": "創建新社團",
+    "TITLE": "社團名稱",
+    "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
+    "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
+    "PASSWORD": "如果想設定為私密社團，請在此輸入密碼",
+    "PICKUPS": "開放外帶",
+    "MEMBERS": "成員",
+    "STORES": "店面",
+    "HISTORY": "歷史",
+    "DESCRIPTION": "敘述",
+    "ADDRESS": "地址",
+    "TIMEZONE": "社團時區",
+    "INVITE_EMAIL": "輸入電子郵件位址",
+    "INVITE_SEND": "寄發 邀請",
+    "INVITED_LIST": "邀請已被寄送至下列這些電子郵件位址：",
+    "ALREADY_INVITED": "邀請 已被寄送至下列這個電子郵件位址：",
+    "INVITE_TITLE": "邀請使用者到你的社團"
+  },
+  "STOREDETAIL": {
+    "EDIT": "編輯店面",
+    "ADDRESS": "地址",
+    "MANAGE": "檢查與管理外帶品",
+    "MANAGE_PICKUP_DATES": "管理開放外帶日期"
+  },
+  "STOREEDIT": {
+    "NAME": "名稱",
+    "DESCRIPTION": "敘述",
+    "ADDRESS": "地址",
+    "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放外帶的日期？"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "管理開放外帶\n",
+    "SERIES": "循環出現",
+    "SINGLE": "一次性開放外帶",
+    "SHOW_SERIES_DETAILS": "顯示一系列的開放外帶日期",
+    "HIDE_SERIES_DETAILS": "隱藏一系列的開放外帶日期",
+    "DATE_TEXT": "開放外帶日期",
+    "NUMBER_COLLECTORS": "收集者數量"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "刪除循環出現的開放外帶日期",
+    "DELETE_SERIES_TEXT": "你真的想要刪除這個循環出現的開放外帶日期？這也將會刪除所有屬於這個循環出現開放外帶日期的一次性的開放外帶日期(除非人們在刪除前就已經加入的日期將會保留)。"
+  },
+  "USERDETAIL": {
+    "EDIT": "編輯使用者",
+    "DISPLAY_NAME": "名稱",
+    "EMAIL": "電郵",
+    "DESCRIPTION": "關於你",
+    "PASSWORD_CHANGE": "更改你的密碼 (你將會被登出)",
+    "PASSWORD": "輸入你的新密碼"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(使用者無法登入或遭到刪除)"
+  },
+  "JOINGROUP": {
+    "NAME": "名稱",
+    "WHICHGROUP": "你想要加入哪一個社團？",
+    "NUM_MEMBERS": "成員",
+    "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
+    "PASSWORD_LABEL": "輸入私密社團的密碼",
+    "PASSWORD_REQUIRED": "此社團需要密碼",
+    "PASSWORD_WRONG": "你輸入了錯誤的密碼",
+    "ALL_GROUPS": "所有社團",
+    "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！"
+  },
+  "GROUPINFO": {
+    "META": "顯示公開的社團資訊",
+    "MEMBER_VIEW": "你是社團成員之一。點擊這裡來切換成全螢幕。"
+  },
+  "HOME": {
+    "REDIRECT": "重新導向到你最愛的社團..."
+  },
+  "TOPBAR": {
+    "LOGOUT": "登出",
+    "USERPROFILE": "進入你的個人資料頁",
+    "GREETING": "嗨，{{username}}！"
+  },
+  "LOGIN": {
+    "TITLE": "登入",
+    "WRONG": "所提供的資訊有誤。請仔細檢查。",
+    "SUBMIT": "登入",
+    "SIGNUP": "註冊！",
+    "FORGOT_PASSWORD": "忘記你的密碼？"
+  },
+  "SIGNUP": {
+    "TITLE": "註冊！",
+    "BACK": "回到登入",
+    "OK": "加入",
+    "FAILED": "註冊失敗！"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "電子郵件認證",
+    "SUCCESS": "你的電子郵件信箱已經被成功認證了！",
+    "ERROR": "出錯了。或許你已經認證過了你的地址？"
+  },
+  "GROUPMENU": {
+    "JOIN": "加入社群"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "創建開放外帶",
+    "TITLE_EDIT": "編輯開放外帶",
+    "SERIES": "循環出現",
+    "SINGLE": "一次性開放外帶",
+    "WEEKDAYS": "週間日",
+    "HINT_MULTIPLE": "你可以透過長按Ctrl鈕一次選取多個日子。",
+    "TIME": "時間",
+    "TIME_ERROR": "輸入有效的時間，例如{{timeExample}}",
+    "MAX_COLLECTORS": "最大值",
+    "COMMENT": "更多資訊"
+  },
+  "CREATESTORE": {
+    "TITLE": "創建新店面"
+  },
+  "PICKUPLIST": {
+    "FILTER": "過濾器",
+    "JOINED": "已加入",
+    "OPEN": "開放",
+    "FULL": "滿額",
+    "SORT": "分類",
+    "ITEM": {
+      "LEAVE": "離開",
+      "JOIN": "加入",
+      "FULL": "滿額！",
+      "DELETE": "刪除開放外帶日期",
+      "DELETE_TEXT": "你真的想要刪除這個開放外帶日期？",
+      "DELETE_SERIES_TEXT": "此開放外帶日期是屬於一個系列，也要刪除系列？"
+    },
+    "NONE": "沒有後續的開放外帶",
+    "NONE_HINT": "你可以在店面頁創建新的開放外帶"
+  },
+  "PASSWORDRESET": {
+    "TITLE": "重新設定密碼",
+    "INTRO": "輸入你的電子郵件，我們會送給你新密碼(前提是你已經有註冊帳號了)",
+    "EMAIL": "電子郵件信箱",
+    "SUBMIT": "申請新密碼",
+    "LOGIN": "回到登入頁",
+    "SUCCESS": "申請成功送出。請收信！"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "增加更多語言！"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "粗體",
+    "ITALIC": "斜體",
+    "STRIKE": "刪除線",
+    "QUOTE": "引用",
+    "HELP": "什麼是Markdown語法？"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "創建此社團",
+    "GROUP_MODIFY": "變更此社團的設定",
+    "GROUP_JOIN": "加入此社團",
+    "GROUP_LEAVE": "離開此社團",
+    "STORE_CREATE": "創建店面{{name}}",
+    "STORE_MODIFY": "變更店面{{name}}設定",
+    "STORE_DELETE": "刪除店面{{name}}",
+    "PICKUP_CREATE": "創建新的一次性開放外帶",
+    "PICKUP_MODIFY": "變更開放外帶的設定",
+    "PICKUP_DELETE": "刪除開放外帶",
+    "SERIES_CREATE": "創建新的循環出現開放外帶",
+    "SERIES_MODIFY": "變更循環出現的開放外帶設定",
+    "SERIES_DELETE": "刪除循環出現的開放外帶",
+    "PICKUP_DONE": "在{{store_name}}拿取開放外帶",
+    "PICKUP_MISSED": "錯過了在  {{store_name}} 的外帶！",
+    "PICKUP_JOIN": "在{{store_name}}之中登記一份外帶",
+    "PICKUP_LEAVE": "從在{{store_name}}進行一次外帶返回",
+    "LOAD_MORE": "載入更多...",
+    "ALL_LOADED": "所有輸入都已載入。",
+    "STORES": "店面",
+    "USERS": "使用者",
+    "TYPE": "類型",
+    "SELECT_ALL": "選擇所有",
+    "SELECT_NONE": "取消選擇",
+    "TYPES": {
+      "GROUPS": "相關社團",
+      "STORES": "相關店面",
+      "PICKUPS": "相關外帶"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "通知",
+    "NOT_VERIFIED": "尚未認證",
+    "RESEND_VERIFICATION": "重新寄送認證",
+    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。"
+  }
+}

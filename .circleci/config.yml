@@ -33,6 +33,10 @@ jobs:
       - run: yarn build
       - run: yarn build-storybook
 
+      - add_ssh_keys:
+          fingerprints:
+            - "24:36:d0:af:0c:5b:43:0f:2b:17:7e:a6:79:72:fd:6a"
+
       - deploy:
           name: Maybe Deploy
           command: |

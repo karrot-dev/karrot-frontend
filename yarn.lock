@@ -3937,6 +3937,14 @@ jest-jasmine2@^21.1.0:
     jest-snapshot "^21.1.0"
     p-cancelable "^0.3.0"
 
+jest-junit@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/jest-junit/-/jest-junit-3.0.0.tgz#2148cc0f844d53f1712ad72d18b4ddff22b93ecc"
+  dependencies:
+    mkdirp "^0.5.1"
+    strip-ansi "^4.0.0"
+    xml "^1.0.1"
+
 jest-matcher-utils@^21.1.0:
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-21.1.0.tgz#b02e237b287c58915ce9a5bf3c7138dba95125a7"
@@ -6970,6 +6978,10 @@ xml-char-classes@^1.0.0:
 xml-name-validator@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-2.0.1.tgz#4d8b8f1eccd3419aa362061becef515e1e559635"
+
+xml@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
 
 xtend@^4.0.0, xtend@^4.0.1:
   version "4.0.1"

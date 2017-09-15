@@ -15,8 +15,8 @@ dependencies:
     - ~/.cache/yarn
 test:
   override:
-    - NODE_ENV=test yarn test -- --reporters junit,coverage
-    - mv TESTS*.xml $CIRCLE_TEST_REPORTS/
+    - NODE_ENV=test yarn test --ci --testResultsProcessor="jest-junit"
+    - mv junit.xml $CIRCLE_TEST_REPORTS/
   post:
     - bash <(curl -s https://codecov.io/bash)
 general:

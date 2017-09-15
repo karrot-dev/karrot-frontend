@@ -12,6 +12,8 @@ if [ -z "$REF" ] || [ -z "$DIR" ]; then
   exit 1
 fi
 
+ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+
 echo "deploying frontend branch [$REF] to [$HOST] in [$DIR] dir"
 
 echo "$REF" > dist/version

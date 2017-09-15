@@ -1,4 +1,3 @@
-import './components/Basic.story.js'
 import './components/Pickups/PickupItem.story.js'
 import './components/Pickups/PickupList.story.js'
 import './components/ProfilePictures/ProfilePictures.story.js'

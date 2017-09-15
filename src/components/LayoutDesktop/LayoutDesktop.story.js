@@ -22,7 +22,7 @@ const mainLayoutTemplate = `
   </MainLayout>
 </div>'`
 
-storiesOf('Layout', module)
+storiesOf('Layout (Desktop)', module)
   .add('MainLayout with Sidenav', () => ({
     components: { MainLayout, SidenavMap, SidenavGroup, SidenavStores, Wall },
     template: mainLayoutTemplate

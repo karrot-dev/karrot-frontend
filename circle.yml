@@ -1,0 +1,37 @@
+machine:
+  node:
+    version: 8.2.0
+  environment:
+    # from https://circleci.com/docs/1.0/yarn/
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+dependencies:
+  override:
+   - yarn
+  post:
+    - yarn run lint
+    - yarn run build
+    - yarn run build-storybook
+  cache_directories:
+    - ~/.cache/yarn
+test:
+  override:
+    - NODE_ENV=test yarn test -- --reporters junit,coverage
+    - mv TESTS*.xml $CIRCLE_TEST_REPORTS/
+  post:
+    - bash <(curl -s https://codecov.io/bash)
+general:
+  artifacts:
+    - dist
+    - storybook-static
+deployment:
+  dev:
+    branch: quasar
+    owner: yunity
+    commands:
+      - ./deploy.sh
+  release:
+    # e.g. v1.2.3
+    tag: /v[0-9]+(\.[0-9]+)*/
+    owner: yunity
+    commands:
+      - ./deploy.sh

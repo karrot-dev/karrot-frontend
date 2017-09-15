@@ -21,7 +21,8 @@ export const state = {
 }
 
 export const getters = {
-  isLoggedIn: state => !!state.user
+  isLoggedIn: state => !!state.user,
+  userId: state => state.user && state.user.id
 }
 
 export const actions = {

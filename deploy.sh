@@ -4,16 +4,11 @@ set -e
 
 HOST=yuca.yunity.org
 
-if [ ! -z "$CIRCLE_TAG" ]; then
-  REF="${CIRCLE_TAG}"
-  DIR="release"
-elif [ ! -z "$CIRCLE_BRANCH" ]; then
-  REF="${CIRCLE_BRANCH}"
-  DIR="${CIRCLE_BRANCH}"
-fi
+REF=$1
+DIR=$2
 
-if [ -z "$REF" ]; then
-  echo "Error! CIRCLE_TAG/CIRCLE_BRANCH was not set"
+if [ -z "$REF" ] || [ -z "$DIR" ]; then
+  echo "Usage: <ref> <dir>"
   exit 1
 fi
 

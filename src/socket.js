@@ -18,7 +18,7 @@ let ws
 
 const socket = {
   connect () {
-    if (socket) return
+    if (ws) return
     ws = new ReconnectingWebsocket(WEBSOCKET_ENDPOINT, undefined, options)
 
     ws.addEventListener('open', () => {
@@ -56,7 +56,6 @@ export function receiveMessage ({ topic, payload }) {
 }
 
 store.subscribe(mutation => {
-  console.log('mutation!', mutation)
   switch (mutation.type) {
     case `auth/${types.RECEIVE_LOGIN_STATUS}`:
     case `auth/${types.RECEIVE_LOGIN_SUCCESS}`:

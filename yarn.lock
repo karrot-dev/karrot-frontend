@@ -6763,15 +6763,7 @@ vue2-leaflet@^0.0.53:
     leaflet "^1.2.0"
     vue "^2.0.0-rc.8"
 
-vue@^2.0.0-rc.8:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.4.tgz#ea9550b96a71465fd2b8b17b61673b3561861789"
-
-vue@^2.4.2:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.3.tgz#55fee0ec509cf2e10aa73b34b15219e92a9ab9ea"
-
-vue@~2.3.4:
+vue@2.3.4, vue@^2.0.0-rc.8, vue@^2.4.2, vue@~2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.4.tgz#5ec3b87a191da8090bbef56b7cfabd4158038171"
 

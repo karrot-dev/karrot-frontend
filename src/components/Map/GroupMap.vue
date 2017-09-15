@@ -6,10 +6,10 @@
   </div>-->
   <v-map :zoom="zoom" :bounds="bounds" :center="center">
     <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
-    <v-marker v-if="showStores" v-for="marker in storeMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
+    <v-marker v-for="marker in storeMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
       <v-popup :content="marker.popupcontent"></v-popup>
     </v-marker>
-    <v-marker v-if="showUsers" v-for="marker in userMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
+    <v-marker v-for="marker in userMarkers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
       <v-popup :content="marker.popupcontent"></v-popup>
     </v-marker>
   </v-map>
@@ -55,6 +55,7 @@ export default {
   computed: {
     storeMarkers () {
       let markers = []
+      if (!this.showStores) return markers
       for (let store of this.stores) {
         markers.push({
           latLng: L.latLng(store.latitude, store.longitude),
@@ -71,6 +72,7 @@ export default {
     },
     userMarkers () {
       let markers = []
+      if (!this.showUsers) return markers
       for (let user of this.users) {
         markers.push({
           latLng: L.latLng(user.latitude, user.longitude),

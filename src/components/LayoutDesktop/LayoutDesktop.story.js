@@ -7,6 +7,7 @@ import Wall from '../Wall/Wall.vue'
 import SidenavMap from '../Sidenav/SidenavMap.vue'
 import SidenavGroup from '../Sidenav/SidenavGroup.vue'
 import SidenavStores from '../Sidenav/SidenavStores.vue'
+import { storesMock } from '../mockdata.js'
 
 const mainLayoutTemplate = `
 <div id="q-app">
@@ -14,7 +15,7 @@ const mainLayoutTemplate = `
     <template slot="sidenav">      
       <SidenavMap/>
       <SidenavGroup/>
-      <SidenavStores/>
+      <SidenavStores :stores="stores"/>
     </template>
     <div>
       <Wall/>
@@ -25,7 +26,12 @@ const mainLayoutTemplate = `
 storiesOf('Layout (Desktop)', module)
   .add('MainLayout with Sidenav', () => ({
     components: { MainLayout, SidenavMap, SidenavGroup, SidenavStores, Wall },
-    template: mainLayoutTemplate
+    template: mainLayoutTemplate,
+    data () {
+      return {
+        stores: storesMock
+      }
+    }
   }))
   .add('Topbar', () => ({
     components: { Topbar },

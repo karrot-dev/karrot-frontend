@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import Wall from './Wall.vue'
 import WallCard from './WallCard.vue'
 import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
+import { messagesMock } from '../mockdata.js'
 
 const wallCard = `
 <div id="q-app" style="padding: 2em">
@@ -18,7 +19,12 @@ const wallCard = `
 storiesOf('Wall', module)
   .add('Wall', () => ({
     components: { Wall },
-    template: '<div id="q-app><Wall/></div>'
+    template: '<div id="q-app" style="padding: 2em"><Wall :messages="messages"/></div>',
+    data () {
+      return {
+        messages: messagesMock
+      }
+    }
   }))
   .add('WallCard', () => ({
     components: { WallCard, ProfilePicture },

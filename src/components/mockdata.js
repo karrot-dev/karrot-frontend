@@ -17,3 +17,15 @@ export const pickupsMock = [
   { 'id': 873, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 18, 'max_collectors': 4, 'collector_ids': [1, 2, 3, 4], 'description': 'This Pickup is very Fun!', isFull: true, isUserMember: false },
   { 'id': 874, 'date': '2017-08-13T08:00:00Z', 'series': 16, 'store': 13, 'max_collectors': 2, 'collector_ids': [], 'description': '', isFull: false, isUserMember: true }
 ]
+
+export const messagesMock = [
+  { 'id': 1, 'author': 1, 'content': 'first messsage', 'conversation': 1, 'created_at': '2017-08-11T15:43:37.419305Z' },
+  { 'id': 2, 'author': 2, 'content': 'second messsage', 'conversation': 1, 'created_at': '2017-08-11T15:47:06.887669Z' },
+  { 'id': 3, 'author': 2, 'content': 'first messsage', 'conversation': 1, 'created_at': '2017-08-11T15:47:58.078165Z' },
+  { 'id': 4, 'author': 2, 'content': 'welcome to fs chat', 'conversation': 1, 'created_at': '2017-08-11T15:49:27.465728Z' },
+  { 'id': 5, 'author': 3, 'content': 'heyo!', 'conversation': 1, 'created_at': '2017-08-11T15:51:58.770775Z' },
+  { 'id': 6, 'author': 2, 'content': 'you made it!', 'conversation': 1, 'created_at': '2017-08-11T15:52:12.571024Z' },
+  { 'id': 7, 'author': 4, 'content': 'amazing!', 'conversation': 1, 'created_at': '2017-08-11T15:52:24.410671Z' },
+  { 'id': 8, 'author': 4, 'content': 'oh let me try something :)', 'conversation': 1, 'created_at': '2017-08-11T15:52:33.424731Z' },
+  { 'id': 9, 'author': 2, 'content': 'I dont think we need to implement another UI, this is fine right? ', 'conversation': 1, 'created_at': '2017- 08 - 11T15: 52:39.970329Z' }
+]

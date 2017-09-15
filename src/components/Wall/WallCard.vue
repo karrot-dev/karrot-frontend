@@ -31,6 +31,7 @@ export default {
     padding 0.5em
     border 1px solid grey
     border-radius 7px
+    margin-bottom 1em
     .icon
       height 32px
       width 40px

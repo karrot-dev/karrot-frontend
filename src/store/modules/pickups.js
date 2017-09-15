@@ -32,8 +32,7 @@ export const getters = {
       return true
     }
     return false
-  },
-  getByGroup: state => groupId => state.entries.filter(pickup => pickup.group === groupId)
+  }
 }
 
 export const actions = {

@@ -1,4 +1,4 @@
-import camelCase from 'camelcase'
+import camelCase from 'camel-case'
 
 export function camelizeKeys (val) {
   if (isObject(val)) {

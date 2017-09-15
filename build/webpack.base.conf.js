@@ -42,8 +42,7 @@ module.exports = {
         include: projectRoot,
         exclude: /node_modules/,
         options: {
-          formatter: require('eslint-friendly-formatter'),
-          fix: true
+          formatter: require('eslint-friendly-formatter')
         }
       },
       {

@@ -92,6 +92,8 @@
     "transform": {
       "^.+\\.js$": "babel-jest",
       ".*\\.(vue)$": "jest-vue-preprocessor"
-    }
+    },
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }

@@ -23,6 +23,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn test --ci --testResultsProcessor="jest-junit"
+      - run: bash <(curl -s https://codecov.io/bash)
 
       - store_test_results:
           path: junit.xml
@@ -30,7 +31,6 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn build-storybook
-      - run: bash <(curl -s https://codecov.io/bash)
 
       - deploy:
           name: Maybe Deploy

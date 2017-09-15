@@ -45,6 +45,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapGetterMethods } from '@/store/helpers'
 import store from '@/store'
 import log from '@/services/log'
 import { locales } from '@/i18n'
@@ -98,12 +99,10 @@ export default {
       leavePickup: 'pickups/leave',
       setLocale: 'i18n/setLocale'
     }),
-    isGroupMember (groupId, userId) {
-      return store.getters['groups/isMember'](groupId, userId)
-    },
-    isPickupCollector (pickupId, userId) {
-      return store.getters['pickups/isCollector'](pickupId, userId)
-    },
+    ...mapGetterMethods({
+      isGroupMember: 'groups/isMember',
+      isPickupCollector: 'pickups/isCollector'
+    }),
     loginDo () {
       this.login({ email: 'foo@foo.com', password: 'foofoo' })
     },

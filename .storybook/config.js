@@ -14,7 +14,7 @@ Vue.use(Vuex) // Install Vuex
 require('quasar-extras/roboto-font')
 import 'quasar-extras/material-icons'
 // import 'quasar-extras/ionicons'
-// import 'quasar-extras/fontawesome'
+import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
 

@@ -7,3 +7,4 @@ yarn-error.log
 cordova/platforms
 cordova/plugins
 .idea
+nbproject/

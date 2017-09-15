@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
-    <div> Amount Picker </div>
-    <img v-for="(photoSrc, idx) in photosArray" :src="appleImg" :key="idx"/>
+    <AmountViewer :amount="selectedValue"/>
     <div>
       <q-slider
         v-model="selectedValue"
@@ -17,23 +16,19 @@
 
 <script>
 import { QSlider } from 'quasar'
-import appleImg from '@/assets/feedback/apple.png'
+import AmountViewer from './AmountViewer.vue'
 
 export default {
   data () {
     return {
-      selectedValue: 3.0,
-      photosArray: [1, 2],
-      appleImg
+      selectedValue: 3.0
     }
   },
   components: {
-    QSlider
+    QSlider, AmountViewer
   }
 }
 </script>
 
 <style scoped lang="stylus">
-img
-  height: 90px
 </style>

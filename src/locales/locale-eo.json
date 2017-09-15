@@ -1,0 +1,233 @@
+{
+  "GLOBAL": {
+    "GITHUB_NOTE": "Ellaboro",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "DEVMAIL_NOTE": "Skribu retmesaĝon al ni pri eraroj/sugestoj",
+    "WARNING": "Averto",
+    "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)",
+    "CONNECTION_INTERRUPTED": "Eraro: aliro interrompita!",
+    "SERVER_ERROR": "Eraro servila"
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Alvoko kunlabori!",
+    "TEXT": "Ĉu vi interesiĝas krei projekton manĝaĵosavan aŭ komunumon manĝaĵokunhavan? Ĉu vi konas iun kiu jam faras ĝin?",
+    "MAIL_TEXT": "Sendu retmesaĝon al ni!"
+  },
+  "LANDINGPAGE": {
+    "BLOG": "Blog",
+    "TEAM": "Team",
+    "LOGIN": "Login",
+    "SEE_OUR_MAP": "Have a look at our map!",
+    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+  },
+  "USERDATA": {
+    "EMAIL": "Retadreso",
+    "PASSWORD": "Pasvorto",
+    "USERNAME": "Nomo"
+  },
+  "BUTTON": {
+    "CREATE": "Krei",
+    "CANCEL": "Nuligi",
+    "DELETE": "Forigi",
+    "EDIT": "Redakti",
+    "JOIN": "Ensaluti",
+    "LEAVE": "Eliri",
+    "PREVIEW": "Antaŭvido",
+    "BACK": "Back",
+    "MORE_OPTIONS": "More options"
+  },
+  "FORM": {
+    "MINLENGTH": "Please enter more than {{min}} characters.",
+    "UNIQUE": "Name already exists, please choose another."
+  },
+  "GROUP": {
+    "LEAVE": "Forlasi la grupon…",
+    "LEAVE_TEXT": "Ĉu vi vere volas eliri la grupon?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "EDIT": "Redakti grupon",
+    "CREATE_TITLE": "Krei novan grupon",
+    "TITLE": "Titolo de ĉi tiu grupo",
+    "DESCRIPTION_VERBOSE": "Grupa preskribo, membrovidebla",
+    "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
+    "PASSWORD": "Entajpi pasvorton ĉi tien se vi volas privatigi la grupon",
+    "PICKUPS": "Kolektoj",
+    "MEMBERS": "Anoj",
+    "STORES": "Vendejoj",
+    "HISTORY": "History",
+    "DESCRIPTION": "Priskribo",
+    "ADDRESS": "Adreso",
+    "TIMEZONE": "Horzono de la grupo",
+    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_SEND": "Send invitation",
+    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITE_TITLE": "Invite users to your group"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Redakti vendejon",
+    "ADDRESS": "Adreso",
+    "MANAGE": "Check and manage the pickups",
+    "MANAGE_PICKUP_DATES": "Manage pickup dates"
+  },
+  "STOREEDIT": {
+    "NAME": "Nomo",
+    "DESCRIPTION": "Priskribo",
+    "ADDRESS": "Adreso",
+    "WEEKS_IN_ADVANCE": "Antaŭ kiom da semajnoj devus esti montritaj periodaj forkolektaj rendevuojn?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+  },
+  "USERDETAIL": {
+    "EDIT": "Krei uzanton",
+    "DISPLAY_NAME": "Nomo",
+    "EMAIL": "Retadreso",
+    "DESCRIPTION": "Pri vi",
+    "PASSWORD_CHANGE": "Ŝangu vian pasvorton (vi elsalutiĝos)",
+    "PASSWORD": "Entajpu vian pasvorton"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+  },
+  "JOINGROUP": {
+    "NAME": "Nomo",
+    "WHICHGROUP": "Al kiu grupo vi volas aliĝi?",
+    "NUM_MEMBERS": "Anoj",
+    "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribo… ankoraŭ)",
+    "PASSWORD_LABEL": "Entajpu pasvorton por privatan grupon",
+    "PASSWORD_REQUIRED": "Ĉi tiu grupo bezonas pasvorton",
+    "PASSWORD_WRONG": "Vi misentajpis la pasvorton",
+    "ALL_GROUPS": "All groups",
+    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!"
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+  },
+  "HOME": {
+    "REDIRECT": "Alidirektante vin al via amata grupo"
+  },
+  "TOPBAR": {
+    "LOGOUT": "Elsaluti",
+    "USERPROFILE": "Vizitu vian profilon",
+    "GREETING": "Saluton, {{username}}!"
+  },
+  "LOGIN": {
+    "TITLE": "Ensaluti",
+    "WRONG": "La akreditaĵoj ne estas korektaj. Bonvolu kontroli ilin zorge.",
+    "SUBMIT": "Ensaluti",
+    "SIGNUP": "Aliĝu!",
+    "FORGOT_PASSWORD": "Ĉu vi forgesis vian pasvorton?"
+  },
+  "SIGNUP": {
+    "TITLE": "Registriĝu!",
+    "BACK": "Reen al ensalutpaĝo",
+    "OK": "Aliĝi",
+    "FAILED": "Registriĝo malsukcesis!"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Retpostkontrolo",
+    "SUCCESS": "Via retadreso estis sukcese konfirmita!",
+    "ERROR": "Io misfunkciis. Ĉu eble via retadreso jam estis konfirmita?"
+  },
+  "GROUPMENU": {
+    "JOIN": "Aliĝi al la komunumo"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
+    "SERIES": "Perioda",
+    "SINGLE": "Unufoja forkolekto",
+    "WEEKDAYS": "Semajntagoj",
+    "HINT_MULTIPLE": "Vi povas elekti plurajn tagojn ĉi tie, per daŭrpremo de klavo Ctrl-a",
+    "TIME": "Tempo",
+    "TIME_ERROR": "Entajpi validan daton: {{timeExample}}",
+    "MAX_COLLECTORS": "Maks Lokoj",
+    "COMMENT": "Additional information"
+  },
+  "CREATESTORE": {
+    "TITLE": "Krei novan vendejon"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filtrilo",
+    "JOINED": "aliĝita",
+    "OPEN": "malferma",
+    "FULL": "plena",
+    "SORT": "Ordigi",
+    "ITEM": {
+      "LEAVE": "Forlasi",
+      "JOIN": "Aliĝi",
+      "FULL": "Plena!",
+      "DELETE": "Forigu forkolektan rendevuon",
+      "DELETE_TEXT": "Ĉu vi vere volas forigi ĉi tiun forkolektan rendevuon?",
+      "DELETE_SERIES_TEXT": "Ĉi tiu forkolekta rendevuo estas seriero. Ĉu vi ankaŭ forigemas la serion?"
+    },
+    "NONE": "Neniu venonta forkolekto",
+    "NONE_HINT": "Vi povas krei novan forkolekton en la vendeja paĝo."
+  },
+  "PASSWORDRESET": {
+    "TITLE": "Pasvorta restarigo",
+    "INTRO": "Entajpu vian retadreson kaj ni sendos novan pasvorton al vi (se vi jam registriĝis)",
+    "EMAIL": "Retpostadreso",
+    "SUBMIT": "Ricevi novan pasvorton",
+    "LOGIN": "Reen al ensalutpaĝo",
+    "SUCCESS": "La peto sukcese sendiĝis. Kontrolu vian retposton!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Aldoni pli da lingvoj!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "grasa",
+    "ITALIC": "kursiva",
+    "STRIKE": "trastreko",
+    "QUOTE": "cito",
+    "HELP": "Kio estas Markdaŭno?"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "created this group",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
+    "STORE_CREATE": "created store {{name}}",
+    "STORE_MODIFY": "changed the settings of store {{name}}",
+    "STORE_DELETE": "deleted store {{name}}",
+    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_DELETE": "deleted a pick-up",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
+    "PICKUP_DONE": "did a pick-up at {{store_name}}",
+    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
+    "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}",
+    "LOAD_MORE": "load more ...",
+    "ALL_LOADED": "All entries loaded.",
+    "STORES": "Stores",
+    "USERS": "Users",
+    "TYPE": "Type",
+    "SELECT_ALL": "Select all",
+    "SELECT_NONE": "Select none",
+    "TYPES": {
+      "GROUPS": "Group related",
+      "STORES": "Store related",
+      "PICKUPS": "Pick-up related"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+  }
+}

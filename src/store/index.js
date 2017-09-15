@@ -4,6 +4,7 @@ import * as auth from './modules/auth'
 import * as conversations from './modules/conversations'
 import * as groups from './modules/groups'
 import * as pickups from './modules/pickups'
+import * as i18n from './modules/i18n'
 
 Vue.use(Vuex)
 
@@ -11,7 +12,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 const options = ({
   modules: {
-    auth, conversations, groups, pickups
+    auth, conversations, groups, pickups, i18n
   },
   strict: debug
 })

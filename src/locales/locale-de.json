@@ -1,0 +1,233 @@
+{
+  "GLOBAL": {
+    "GITHUB_NOTE": "Entwicklung",
+    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "DEVMAIL_NOTE": "Schreib uns eine Mail, wenn du Fehler findest oder Anmerkungen hast!",
+    "WARNING": "Warnung",
+    "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
+    "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
+    "SERVER_ERROR": "Der Server gibt einen Fehler zurück."
+  },
+  "ACTION_NOTICE": {
+    "TITLE": "Aufruf zur Mitarbeit!",
+    "TEXT": "Planst du ein foodsaving-Projekt oder eine foodsharing community aufzubauen? Oder kennst du Leute, die genau das schon tun?",
+    "MAIL_TEXT": "Schreib uns eine Mail!"
+  },
+  "LANDINGPAGE": {
+    "BLOG": "Blog",
+    "TEAM": "Team",
+    "LOGIN": "Login",
+    "SEE_OUR_MAP": "Have a look at our map!",
+    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+  },
+  "USERDATA": {
+    "EMAIL": "E-Mail",
+    "PASSWORD": "Passwort",
+    "USERNAME": "Name"
+  },
+  "BUTTON": {
+    "CREATE": "Erstellen",
+    "CANCEL": "Abbrechen",
+    "DELETE": "Löschen",
+    "EDIT": "Bearbeiten",
+    "JOIN": "Beitreten",
+    "LEAVE": "Verlassen",
+    "PREVIEW": "Vorschau",
+    "BACK": "Back",
+    "MORE_OPTIONS": "More options"
+  },
+  "FORM": {
+    "MINLENGTH": "Bitte gib mehr als {{min}} Zeichen ein.",
+    "UNIQUE": "Der Name existiert bereits, bitte wähle einen anderen."
+  },
+  "GROUP": {
+    "LEAVE": "Gruppe verlassen",
+    "LEAVE_TEXT": "Bist du sicher, dass du diese Gruppe verlassen möchtest?",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "EDIT": "Gruppe bearbeiten",
+    "CREATE_TITLE": "Neue Gruppe erstellen",
+    "TITLE": "Name der Gruppe",
+    "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
+    "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
+    "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
+    "PICKUPS": "Abholungen",
+    "MEMBERS": "Mitglieder",
+    "STORES": "Betriebe",
+    "HISTORY": "History",
+    "DESCRIPTION": "Beschreibung",
+    "ADDRESS": "Adresse",
+    "TIMEZONE": "Zeitzone der Gruppe",
+    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_SEND": "Send invitation",
+    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITE_TITLE": "Invite users to your group"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Betrieb bearbeiten",
+    "ADDRESS": "Adresse",
+    "MANAGE": "Abholzeiten prüfen und ändern",
+    "MANAGE_PICKUP_DATES": "Abholzeiten bearbeiten"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Beschreibung",
+    "ADDRESS": "Adresse",
+    "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Abholzeiten-Editor",
+    "SERIES": "Regelmäßige Abholungen",
+    "SINGLE": "Einmalige Abholungen",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+  },
+  "USERDETAIL": {
+    "EDIT": "User bearbeiten",
+    "DISPLAY_NAME": "Name",
+    "EMAIL": "Email",
+    "DESCRIPTION": "Über dich",
+    "PASSWORD_CHANGE": "Passwort ändern (führt zum Logout)",
+    "PASSWORD": "Neues Passwort eingeben"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User nicht verfügbar oder gelöscht)"
+  },
+  "JOINGROUP": {
+    "NAME": "Name",
+    "WHICHGROUP": "Welcher Gruppe möchtest du beitreten?",
+    "NUM_MEMBERS": "Mitglieder",
+    "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
+    "PASSWORD_LABEL": "Gib das Passwort für diese geschlossene Gruppe ein.",
+    "PASSWORD_REQUIRED": "Diese Gruppe verlangt ein Passwort.",
+    "PASSWORD_WRONG": "Das von dir eingegebene Passwort ist falsch.",
+    "ALL_GROUPS": "All groups",
+    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!"
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+  },
+  "HOME": {
+    "REDIRECT": "Umleitung zu deiner Gruppe..."
+  },
+  "TOPBAR": {
+    "LOGOUT": "Logout",
+    "USERPROFILE": "Dein Profil",
+    "GREETING": "Hallo {{username}}!"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "WRONG": "Die eingegebenen Zugangsdaten sind falsch. Bitte überprüfe sie noch einmal.",
+    "SUBMIT": "Login",
+    "SIGNUP": "Neuanmeldung",
+    "FORGOT_PASSWORD": "Passwort vergessen?"
+  },
+  "SIGNUP": {
+    "TITLE": "Neuanmeldung",
+    "BACK": "Zurück zum Login",
+    "OK": "Beitreten",
+    "FAILED": "Accounterstellung fehlgeschlagen!"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Verifizierung der Mailadresse",
+    "SUCCESS": "Deine Mailadresse wurde verifiziert!",
+    "ERROR": "Etwas ging schief. Ist deine Mailadresse vielleicht schon verifiziert?"
+  },
+  "GROUPMENU": {
+    "JOIN": "Gruppe beitreten"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
+    "SERIES": "Wiederkehrende Abholung",
+    "SINGLE": "Einzelne Abholung",
+    "WEEKDAYS": "Wochentage",
+    "HINT_MULTIPLE": "Du kannst mehrere Tage auswählen, z.B. indem du Strg gedrückt hälst.",
+    "TIME": "Uhrzeit",
+    "TIME_ERROR": "Gib eine gültige Uhrzeit ein, z.B. {{timeExample}}",
+    "MAX_COLLECTORS": "Anzahl Abholer",
+    "COMMENT": "Additional information"
+  },
+  "CREATESTORE": {
+    "TITLE": "Neuen Betrieb anlegen"
+  },
+  "PICKUPLIST": {
+    "FILTER": "Filter",
+    "JOINED": "eingetragen",
+    "OPEN": "offen",
+    "FULL": "belegt",
+    "SORT": "Sortieren",
+    "ITEM": {
+      "LEAVE": "Nicht mehr abholen",
+      "JOIN": "Abholen",
+      "FULL": "belegt",
+      "DELETE": "Abholtermin löschen",
+      "DELETE_TEXT": "Willst du diesen Abholtermin wirklich löschen?",
+      "DELETE_SERIES_TEXT": "Dieser Abholungstermin wiederholt sich. Willst du alle Termine löschen?"
+    },
+    "NONE": "Es stehen keine Abholungen an.",
+    "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen."
+  },
+  "PASSWORDRESET": {
+    "TITLE": "Passwort zurücksetzen",
+    "INTRO": "Gib deine Mailadresse ein, um ein neues Passwort zu erhalten (falls du schon einen Account hast).",
+    "EMAIL": "Emailadresse",
+    "SUBMIT": "Neues Passwort anfordern",
+    "LOGIN": "Zurück zum Login",
+    "SUCCESS": "Deine Anfrage wurde übermittelt. Schau in deinem Postfach nach!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Füge mehr Sprachen hinzu!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "fett",
+    "ITALIC": "kursiv",
+    "STRIKE": "durchgestrichen",
+    "QUOTE": "zitieren",
+    "HELP": "Was ist Markdown?"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "hat diese Gruppe erstellt",
+    "GROUP_MODIFY": "hat die Eigenschaften dieser Gruppe geändert",
+    "GROUP_JOIN": "ist dieser Gruppe beigetreten",
+    "GROUP_LEAVE": "hat diese Gruppe verlassen",
+    "STORE_CREATE": "hat den Betrieb {{name}} erstellt",
+    "STORE_MODIFY": "hat die Eigenschaften von Betrieb {{name}} geändert",
+    "STORE_DELETE": "hat Betrieb {{name}} gelöscht",
+    "PICKUP_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
+    "PICKUP_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
+    "PICKUP_DELETE": "hat einen Abholtermin gelöscht",
+    "SERIES_CREATE": "hat einen neuen regelmäßigen Abholtermin erstellt",
+    "SERIES_MODIFY": "hat die Eigenschaften eines regelmäßigen Abholtermins geändert",
+    "SERIES_DELETE": "hat einen regelmäßigen Abholtermin gelöscht",
+    "PICKUP_DONE": "haben bei {{store_name}} abgeholt",
+    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
+    "PICKUP_JOIN": "hat sich gemeldet, um bei {{store_name}} abzuholen",
+    "PICKUP_LEAVE": "ist von dem Abholtermin bei {{store_name}} zurückgetreten",
+    "LOAD_MORE": "load more ...",
+    "ALL_LOADED": "All entries loaded.",
+    "STORES": "Stores",
+    "USERS": "Users",
+    "TYPE": "Type",
+    "SELECT_ALL": "Select all",
+    "SELECT_NONE": "Select none",
+    "TYPES": {
+      "GROUPS": "Group related",
+      "STORES": "Store related",
+      "PICKUPS": "Pick-up related"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "RESEND_VERIFICATION": "Resend verification",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+  }
+}

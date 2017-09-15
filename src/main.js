@@ -16,6 +16,7 @@ import Quasar from 'quasar'
 import router from './router'
 import store from './store'
 import './socket'
+import i18n from './i18n'
 import log from '@/services/log'
 
 Vue.config.productionTip = false
@@ -39,6 +40,7 @@ Quasar.start(() => {
     el: '#q-app',
     router,
     store,
+    i18n,
     render: h => h(require('./App'))
   })
 })

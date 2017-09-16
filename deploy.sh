@@ -31,12 +31,6 @@ ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
 echo "deploying frontend branch [$REF] to [$HOST] in [$DIR] dir"
 
-echo "$REF" > dist/version
-echo "$REF" > storybook-static/version
-
-echo "$COMMIT_SHA" > dist/.commit
-echo "$COMMIT_SHA" > storybook-static/.commit
-
 about_json=$(printf '{
     "commitSHA": "%s",
     "commitSHAShort": "%s",

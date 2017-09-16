@@ -20,11 +20,11 @@
               <i class="fa-user fa-fw on-left"/>
               View Profile
             </q-item>
-            <q-item @click="doSomething(), $refs.popover.close()">              
+            <q-item @click="doSomething(), $refs.popover.close()">
               <q-icon size="1em" name="fa-cog fa-fw" />
               Settings
             </q-item>
-            <q-item @click="doSomething(), $refs.popover.close()">
+            <q-item @click="logout(), $refs.popover.close()">
               <q-icon size="1em" name="fa-sign-out fa-fw" />
               Logout
             </q-item>
@@ -39,10 +39,16 @@
 import { QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb
+  },
+  methods: {
+    ...mapActions({
+      logout: 'auth/logout'
+    })
   }
 }
 </script>

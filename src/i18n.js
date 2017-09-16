@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import store from '@/store'
 
 Vue.use(VueI18n)
 
@@ -13,21 +14,6 @@ export const messages = {
   ru: require('@/locales/locale-ru.json'),
   sv: require('@/locales/locale-sv.json'),
   zh: require('@/locales/locale-zh.json')
-}
-
-export const DEFAULT_LOCALE = 'en'
-
-export function detectLocale () {
-  // Based on https://angular-translate.github.io/docs/#/guide/07_multi-language#multi-language_determining-preferred-language-automatically
-  let val =
-    navigator.languages[0] ||
-    navigator.language ||
-    navigator.browserLanguage ||
-    navigator.systemLanguage ||
-    navigator.userLanguage
-  if (val) {
-    return val.replace(/-.*$/, '')
-  }
 }
 
 export const locales = [
@@ -61,10 +47,13 @@ const dateTimeFormats = {
 }
 
 const i18n = new VueI18n({
-  locale: detectLocale() || DEFAULT_LOCALE,
   messages,
   dateTimeFormats
 })
+
+store.watch(state => state.i18n.locale, locale => {
+  i18n.locale = locale
+}, { immediate: true })
 
 export default i18n
 

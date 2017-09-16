@@ -1,4 +1,17 @@
-import i18n from '@/i18n'
+export const DEFAULT_LOCALE = 'en'
+
+export function detectLocale () {
+  // Based on https://angular-translate.github.io/docs/#/guide/07_multi-language#multi-language_determining-preferred-language-automatically
+  let val =
+    navigator.languages[0] ||
+    navigator.language ||
+    navigator.browserLanguage ||
+    navigator.systemLanguage ||
+    navigator.userLanguage
+  if (val) {
+    return val.replace(/-.*$/, '')
+  }
+}
 
 export const types = {
   REQUEST_LOCALE: 'Request Locale',
@@ -6,14 +19,13 @@ export const types = {
 }
 
 export const state = {
-  locale: i18n.locale
+  locale: detectLocale() || DEFAULT_LOCALE
 }
 
 export const actions = {
 
   async setLocale ({ commit }, { locale }) {
     commit(types.REQUEST_LOCALE)
-    i18n.locale = locale
     commit(types.RECEIVE_LOCALE, { locale })
   }
 

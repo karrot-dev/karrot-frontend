@@ -54,7 +54,7 @@ export default {
   computed: {
     storeMarkers () {
       if (!this.showStores) return []
-      return this.stores.map(store => {
+      return this.stores.filter(hasLocation).map(store => {
         return {
           latLng: L.latLng(store.latitude, store.longitude),
           id: 'store_' + store.id,
@@ -69,7 +69,7 @@ export default {
     },
     userMarkers () {
       if (!this.showUsers) return []
-      return this.users.map(user => {
+      return this.users.filter(hasLocation).map(user => {
         return {
           latLng: L.latLng(user.latitude, user.longitude),
           id: 'user_' + user.id,
@@ -92,6 +92,10 @@ export default {
       }
     }
   }
+}
+
+export function hasLocation (item) {
+  return item.latitude && item.longitude
 }
 </script>
 

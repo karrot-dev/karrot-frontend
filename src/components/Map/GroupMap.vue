@@ -53,10 +53,9 @@ export default {
   },
   computed: {
     storeMarkers () {
-      let markers = []
-      if (!this.showStores) return markers
-      for (let store of this.stores) {
-        markers.push({
+      if (!this.showStores) return []
+      return this.stores.map(store => {
+        return {
           latLng: L.latLng(store.latitude, store.longitude),
           id: 'store_' + store.id,
           icon: L.AwesomeMarkers.icon({
@@ -65,15 +64,13 @@ export default {
             prefix: 'fa'
           }),
           popupcontent: `<a href="https://foodsaving.world">${store.name}</a>`
-        })
-      }
-      return markers
+        }
+      })
     },
     userMarkers () {
-      let markers = []
-      if (!this.showUsers) return markers
-      for (let user of this.users) {
-        markers.push({
+      if (!this.showUsers) return []
+      return this.users.map(user => {
+        return {
           latLng: L.latLng(user.latitude, user.longitude),
           id: 'user_' + user.id,
           icon: L.AwesomeMarkers.icon({
@@ -82,9 +79,8 @@ export default {
             prefix: 'fa'
           }),
           popupcontent: `<a href="https://foodsaving.world">${user.displayName}</a>`
-        })
-      }
-      return markers
+        }
+      })
     },
     bounds () {
       let markers = [...this.storeMarkers, ...this.userMarkers]

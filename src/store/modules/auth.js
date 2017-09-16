@@ -1,6 +1,10 @@
 import auth from '@/services/api/auth'
+import router from '@/router'
 
 export const types = {
+
+  SET_REDIRECT_TO: 'Set RedirectTo',
+  CLEAR_REDIRECT_TO: 'Clear RedirectTo',
 
   REQUEST_STATUS: 'Request Status',
   RECEIVE_LOGIN_STATUS: 'Receive Status',
@@ -17,17 +21,23 @@ export const types = {
 
 export const state = {
   user: null,
-  error: null
+  error: null,
+  redirectTo: null
 }
 
 export const getters = {
   isLoggedIn: state => !!state.user,
   user: state => state.user,
   userId: state => state.user && state.user.id,
-  error: state => state.error
+  error: state => state.error,
+  redirectTo: state => state.redirectTo
 }
 
 export const actions = {
+
+  setRedirectTo ({ commit }, redirectTo) {
+    commit(types.SET_REDIRECT_TO, { redirectTo })
+  },
 
   async check ({ commit }) {
     commit(types.REQUEST_STATUS)
@@ -39,10 +49,12 @@ export const actions = {
     }
   },
 
-  async login ({ commit }, data) {
+  async login ({ commit, state }, data) {
     commit(types.REQUEST_LOGIN)
     try {
       commit(types.RECEIVE_LOGIN_SUCCESS, { user: await auth.login(data) })
+      router.push(state.redirectTo || { name: 'index' })
+      commit(types.CLEAR_REDIRECT_TO)
     }
     catch (error) {
       commit(types.RECEIVE_LOGIN_ERROR, { error })
@@ -53,6 +65,7 @@ export const actions = {
     commit(types.REQUEST_LOGOUT)
     try {
       commit(types.RECEIVE_LOGOUT_SUCCESS, { user: await auth.logout() })
+      router.push({ name: 'login' })
     }
     catch (error) {
       commit(types.RECEIVE_LOGOUT_ERROR, { error })
@@ -61,6 +74,14 @@ export const actions = {
 }
 
 export const mutations = {
+
+  // Redirect
+  [types.SET_REDIRECT_TO] (state, { redirectTo }) {
+    state.redirectTo = redirectTo
+  },
+  [types.CLEAR_REDIRECT_TO] (state) {
+    state.redirectTo = null
+  },
 
   // Check
 

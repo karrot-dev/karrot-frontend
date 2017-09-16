@@ -10,9 +10,32 @@ import GroupDetailContainer from '@/components/GroupDetailContainer.vue'
 import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
 import Signup from '@/pages/Signup.vue'
+import { getter } from '@/store/helpers'
 
 Vue.use(VueRouter)
 Vue.use(Meta)
+
+let isLoggedIn = getter('auth/isLoggedIn')
+
+export const protectRoute = (to, from, next) => {
+  if (isLoggedIn()) {
+    next()
+  }
+  else {
+    let { name, params } = to
+    store.dispatch('auth/setRedirectTo', { name, params })
+    next({ name: 'login' })
+  }
+}
+
+export const redirectIfLoggedIn = (to, from, next) => {
+  if (isLoggedIn()) {
+    next({ name: 'index' })
+  }
+  else {
+    next()
+  }
+}
 
 const router = new VueRouter({
   /*
@@ -28,9 +51,9 @@ const router = new VueRouter({
    */
   linkActiveClass: 'TEST',
   routes: [
-    { path: '/', component: Home },
-    { path: '/group/:groupId', component: GroupDetailContainer },
-    { name: 'login', path: '/login', component: Login },
+    { name: 'index', path: '/', component: Home, beforeEnter: protectRoute },
+    { name: 'group', path: '/group/:groupId', component: GroupDetailContainer, beforeEnter: protectRoute },
+    { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
     { name: 'signup', path: '/signup', component: Signup },
 
     // Always leave this last one

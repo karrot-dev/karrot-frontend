@@ -7,6 +7,7 @@ import * as groups from './modules/groups'
 import * as stores from './modules/stores'
 import * as pickups from './modules/pickups'
 import * as i18n from './modules/i18n'
+import * as sidenav from './modules/sidenav'
 
 Vue.use(Vuex)
 
@@ -19,7 +20,8 @@ const options = ({
     groups,
     stores,
     pickups,
-    i18n
+    i18n,
+    sidenav
   },
   plugins: [createPersistedState({
     paths: ['i18n.locale']

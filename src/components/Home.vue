@@ -9,7 +9,6 @@
     </select>
     <button @click="foo()">foo</button>
     <button v-if="isLoggedIn" @click="logoutDo()">{{ $t('TOPBAR.LOGOUT') }}</button>
-    <button v-else @click="loginDo()">{{ $t('LOGIN.SUBMIT') }}</button>
     <pre v-if="!isLoggedIn">NOT LOGGED IN</pre>
     <pre v-if="isLoggedIn">user: {{ user }}</pre>
     <div v-if="isFetching">Loading!</div>
@@ -87,7 +86,6 @@ export default {
       fetchGroups: 'groups/fetchGroups',
       groups: 'groups/join',
       check: 'auth/check',
-      login: 'auth/login',
       logout: 'auth/logout',
       subscribe: 'conversations/subscribe',
       join: 'groups/join',
@@ -101,9 +99,6 @@ export default {
       isGroupMember: 'groups/isMember',
       isPickupCollector: 'pickups/isCollector'
     }),
-    loginDo () {
-      this.login({ email: 'foo@foo.com', password: 'foofoo' })
-    },
     logoutDo () {
       this.logout()
     },

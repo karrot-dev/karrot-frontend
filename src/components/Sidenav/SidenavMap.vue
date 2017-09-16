@@ -11,5 +11,5 @@ export default connect({
     toggleStores: 'sidenav/toggleMapStores',
     toggleUsers: 'sidenav/toggleMapUsers'
   }
-})('sidenavMap', SidenavMapUI)
+})('SidenavMap', SidenavMapUI)
 </script>

@@ -41,7 +41,7 @@ export default {
     return {
       zoom: 13,
       center: L.latLng(49.9105778076202, 8.65834236145019),
-      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       bounds: L.latLngBounds()
     }

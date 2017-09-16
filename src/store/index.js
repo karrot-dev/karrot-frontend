@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 import * as auth from './modules/auth'
 import * as conversations from './modules/conversations'
 import * as groups from './modules/groups'
@@ -20,6 +21,9 @@ const options = ({
     pickups,
     i18n
   },
+  plugins: [createPersistedState({
+    paths: ['i18n.locale']
+  })],
   strict: debug
 })
 

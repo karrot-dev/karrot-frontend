@@ -27,7 +27,8 @@
     "vue-meta": "^1.2.0",
     "vue-router": "^2.7.0",
     "vue2-leaflet": "^0.0.53",
-    "vuex": "^2.4.0"
+    "vuex": "^2.4.0",
+    "vuex-persistedstate": "^2.0.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.6",

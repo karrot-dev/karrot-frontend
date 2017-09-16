@@ -94,7 +94,7 @@ export default {
   }
 }
 
-export function hasLocation (item) {
+function hasLocation (item) {
   return item.latitude && item.longitude
 }
 </script>

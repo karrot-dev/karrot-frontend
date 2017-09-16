@@ -90,7 +90,12 @@ export default {
   },
   watch: {
     storeMarkers (v) {
-      this.bounds = L.latLngBounds(v.map((o) => o.latLng)).pad(0.2)
+      if (v.length > 0) {
+        this.bounds = L.latLngBounds(v.map((o) => o.latLng)).pad(0.2)
+      }
+      else {
+        this.bounds = L.latLngBounds()
+      }
     }
   }
 }

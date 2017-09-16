@@ -69,6 +69,7 @@ export default {
       userId: 'auth/userId',
       groups: 'groups/list',
       isFetching: 'groups/isFetching',
+      error: 'groups/error',
       pickups: 'pickups/list'
     }),
     conversation: () => store.getters['conversations/getById'](1),

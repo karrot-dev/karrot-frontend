@@ -34,7 +34,9 @@ import 'quasar-extras/material-icons'
 import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
-Quasar.start(() => {
+Quasar.start(async () => {
+  await store.dispatch('auth/check').catch(() => {})
+
   /* eslint-disable no-new */
   new Vue({
     el: '#q-app',

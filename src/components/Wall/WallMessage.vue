@@ -7,7 +7,7 @@
         wrote a message
       </template>
       <template slot="time">
-        {{  $d(message.createdAt, 'long')  }}
+        {{  $d(new Date(message.createdAt), 'long')  }}
       </template>
       <div> {{ message.content }} </div>
     </WallCard>

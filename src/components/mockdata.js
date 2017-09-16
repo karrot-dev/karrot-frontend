@@ -16,7 +16,10 @@ export const storesMock = [
 export const pickupsMock = [
   { 'id': 873, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 18, 'maxCollectors': 4, 'collectorIds': [1, 2, 3, 4], 'description': 'This Pickup is very Fun!', isFull: true, isUserMember: false },
   { 'id': 874, 'date': '2017-08-13T08:00:00Z', 'series': 16, 'store': 13, 'maxCollectors': 2, 'collectorIds': [], 'description': '', isFull: false, isUserMember: true }
-]
+].map(e => {
+  e.date = new Date(e.date)
+  return e
+})
 
 export const messagesMock = [
   { 'id': 1, 'author': 1, 'content': 'first messsage', 'conversation': 1, 'createdAt': '2017-08-11T15:43:37.419305Z' },
@@ -30,6 +33,7 @@ export const messagesMock = [
   { 'id': 9, 'author': 2, 'content': 'I dont think we need to implement another UI, this is fine right? ', 'conversation': 1, 'createdAt': '2017-08-11T15:52:39.970329Z' }
 ].map(e => {
   e.author = usersMock.find(u => u.id === e.author)
+  e.createdAt = new Date(e.createdAt)
   return e
 })
 
@@ -37,5 +41,6 @@ export const feedbackMock = [
   { 'id': 1, 'givenBy': 1, 'comment': 'All worked out perfectly!', 'weight': 2.5, 'about': 1, 'createdAt': '2017-08-11T15:43:37.419305Z' }
 ].map(e => {
   e.givenBy = usersMock.find(u => u.id === e.givenBy)
+  e.createdAt = new Date(e.createdAt)
   return e
 })

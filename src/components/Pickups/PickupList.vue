@@ -12,7 +12,7 @@
                   @join="join"
                   :pickup="pickup"
                   :key="pickup.id">
-        <q-btn v-if="options.showStore" href="google.de">Store</q-btn>
+        {{ $d(pickup.date, 'dateShort') }}
       </PickupItem>
     </div>
   </div>

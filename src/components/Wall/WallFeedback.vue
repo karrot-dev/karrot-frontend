@@ -7,22 +7,24 @@
       </template>
       <template slot="header">
         <div><ProfilePicture :user="feedback.given_by"/></div>
-        <div>wrote a message</div>
+        <div>picked up food</div>
       </template>
       <template slot="time">
         {{ feedback.created_at }}
       </template>
-      <div> {{ feedback.comment }} </div>
+      <AmountBox :amount="feedback.weight"/>
+      <div class="comment"> {{ feedback.comment }} </div>
     </WallCard>
 </template>
 
 <script>
 import WallCard from './WallCard.vue'
+import AmountBox from '../Statistics/AmountBox'
 import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
 
 export default {
   components: {
-    WallCard, ProfilePicture
+    WallCard, ProfilePicture, AmountBox
   },
   props: {
     feedback: { required: true }
@@ -46,4 +48,8 @@ export default {
 .header div
   display inline-block
   vertical-align middle
+.comment
+  display inline-block
+  vertical-align middle
+  margin-left .6em
 </style>

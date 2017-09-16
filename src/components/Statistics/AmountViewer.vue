@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper row">
-    <div class="amount">
-      {{amount}}<span>kg</span>
-    </div>
+    <AmountBox class="amount" :amount="amount"/>
     <img v-for="(photoSrc, idx) in photosArray" :src="photoSrc" :key="idx"/>
   </div>
 </template>
@@ -16,7 +14,10 @@ import flourImg from '@/assets/feedback/flour.png'
 import flourGuyImg from '@/assets/feedback/flourGuy.png'
 import milkImg from '@/assets/feedback/milk.png'
 
+import AmountBox from './AmountBox'
+
 export default {
+  components: { AmountBox },
   data () {
     return {
       selectedValue: 3.0,
@@ -72,20 +73,8 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .wrapper
-  img, .amount
-    font-family Verdana, Geneva, Tahoma, sans-serif
   .amount
-    border 1px solid grey
-    border-radius 5px
-    height 60px
-    padding 0 10px
-    margin-right 1em
-    font-size: 40px
-    color $tertiary
-    background-color $primary
-    font-family 'Cabin Sketch'
-    span
-      margin-left 7px
+    margin-right .6em
   img
     height 60px
 </style>

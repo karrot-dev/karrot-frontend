@@ -5,6 +5,7 @@ import SidenavMap from './SidenavMap.vue'
 import SidenavGroup from './SidenavGroup.vue'
 import SidenavStores from './SidenavStores.vue'
 import { storesMock, usersMock } from '../mockdata.js'
+import i18n from '@/i18n'
 
 storiesOf('Sidenav Boxes', module)
   .add('Default', () => ({
@@ -20,12 +21,14 @@ storiesOf('Sidenav Boxes', module)
         stores: storesMock,
         users: usersMock
       }
-    }
+    },
+    i18n
   }))
 
   .add('Group', () => ({
     components: { SidenavGroup },
-    template: '<div id="q-app"><SidenavGroup></SidenavGroup></div>'
+    template: '<div id="q-app"><SidenavGroup></SidenavGroup></div>',
+    i18n
   }))
 
   .add('Stores', () => ({
@@ -35,5 +38,6 @@ storiesOf('Sidenav Boxes', module)
       return {
         stores: storesMock
       }
-    }
+    },
+    i18n
   }))

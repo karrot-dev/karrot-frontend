@@ -3,9 +3,9 @@
     <div class="topbar">
       <h4 class="md-title">
         <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
-        Pickups
+        {{$t("GROUP.PICKUPS")}}
       </h4>
-      <q-btn v-if="options.showCreate">Manage Pickups</q-btn>
+      <q-btn v-if="options.showCreate">{{$t("STOREDETAIL.MANAGE")}}</q-btn>
     </div>
     <div>
       <PickupItem v-for="pickup in pickups"

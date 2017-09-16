@@ -18,13 +18,13 @@
       </div>
       <div>
         <q-btn v-if="!pickup.isUserMember && !pickup.isFull" @click="join" class="join full-height">
-          &nbsp;Join
+          &nbsp;{{ $t("PICKUPLIST.ITEM.JOIN") }}
         </q-btn>
         <q-btn v-if="pickup.isFull && !pickup.isUserMember" class="q-btn-flat full disabled full-height">
-          &nbsp;Full
+          &nbsp;{{ $t("PICKUPLIST.ITEM.FULL") }}
         </q-btn>
         <q-btn v-if="pickup.isUserMember" @click="leave" class="q-btn-flat leave full-height">
-          &nbsp;Leave
+          &nbsp;{{ $t("PICKUPLIST.ITEM.LEAVE") }}
         </q-btn>
       </div>
     </q-card-main>

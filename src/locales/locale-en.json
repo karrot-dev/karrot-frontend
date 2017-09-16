@@ -69,6 +69,7 @@
   },
   "GROUPMAP": {
     "TITLE": "Map",
+    "SHOW_OVERVIEW": "Show overview",
     "SHOW_USERS": "Show users",
     "HIDE_USERS": "Hide users",
     "SHOW_STORES": "Show stores",

@@ -1,17 +1,14 @@
 <template>
   <SidenavBox>
-    <div slot="name">Map</div>
+    <div slot="name">{{$t("GROUPMAP.TITLE")}}</div>
     <div slot="tools" class="tools">
       <q-btn flat>
-          <i class="fa fa-bullseye"></i>
+        <i class="fa fa-bullseye"></i>
+        <q-tooltip>
+          <span>{{$t("GROUP.STORES")}}</span>
+        </q-tooltip>
       </q-btn>
       <q-btn flat @click="showStores = !showStores">
-        <!--<q-tooltip v-if="!showStores">
-          <span translate="GROUPMAP.HIDE_STORES"></span>
-        </q-tooltip>
-        <q-tooltip v-if="showStores">
-          <span translate="GROUPMAP.SHOW_STORES"></span>
-        </q-tooltip>-->
         <span class="fa-stack" v-if="!showStores">
           <i class="fa fa-shopping-cart fa-stack-1x"></i>
           <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
@@ -20,15 +17,15 @@
           <i class="fa fa-shopping-cart fa-stack-1x"></i>
           <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
         </span>
+        <q-tooltip v-if="!showStores">
+          <span>{{$t("GROUPMAP.SHOW_STORES")}}</span>
+        </q-tooltip>
+        <q-tooltip v-if="showStores">
+          <span>{{$t("GROUPMAP.HIDE_STORES")}}</span>
+        </q-tooltip>
       </q-btn>
 
       <q-btn flat @click="showUsers = !showUsers">
-        <!--<q-tooltip v-if="$ctrl.CurrentGroup.map.options.showUsers">
-          <span translate="GROUPMAP.HIDE_USERS"></span>
-        </q-tooltip>
-        <q-tooltip v-if="!$ctrl.CurrentGroup.map.options.showUsers">
-          <span translate="GROUPMAP.SHOW_USERS"></span>
-        </q-tooltip>-->
         <span class="fa-stack" v-if="!showUsers">
           <i class="fa fa-user fa-stack-1x"></i>
           <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
@@ -37,6 +34,12 @@
           <i class="fa fa-user fa-stack-1x"></i>
           <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
         </span>
+        <q-tooltip v-if="!showUsers">
+          <span>{{$t("GROUPMAP.SHOW_USERS")}}</span>
+        </q-tooltip>
+        <q-tooltip v-if="showUsers">
+          <span>{{$t("GROUPMAP.HIDE_USERS")}}</span>
+        </q-tooltip>
       </q-btn>
       <!--
       <q-btn 
@@ -66,13 +69,13 @@
 </template>
 
 <script>
-import { QBtn } from 'quasar'
+import { QBtn, QTooltip } from 'quasar'
 import SidenavBox from './SidenavBox.vue'
 import GroupMap from '../Map/GroupMap.vue'
 
 export default {
   components: {
-    SidenavBox, QBtn, GroupMap
+    SidenavBox, QBtn, QTooltip, GroupMap
   },
   props: {
     stores: { required: false },

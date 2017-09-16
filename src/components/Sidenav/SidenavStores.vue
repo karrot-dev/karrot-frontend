@@ -1,10 +1,10 @@
 <template>
   <SidenavBox>
-    <div slot="name">Stores</div>
+    <div slot="name">{{$t("GROUP.STORES")}}</div>
     <div slot="tools">
       <q-btn small flat>            
         <q-icon size="1em" name="fa-plus-circle" />
-        Create
+        {{$t("BUTTON.CREATE")}}
       </q-btn>
     </div>
     <div>

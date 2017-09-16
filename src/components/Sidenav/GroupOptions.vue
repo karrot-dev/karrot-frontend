@@ -2,19 +2,19 @@
   <q-list item-separator link>
     <q-item @click="doSomething(), $refs.popover.close()">
       <q-icon size="1em" name="fa-pencil fa-fw" />
-      Edit Group
+      {{$t("GROUP.EDIT")}}
     </q-item>
     <q-item @click="doSomething(), $refs.popover.close()">              
       <q-icon size="1em" name="fa-user-plus fa-fw" />
-      Invite someone
+      {{$t("GROUP.INVITE_TITLE")}}
     </q-item>
     <q-item @click="doSomething(), $refs.popover.close()">
       <q-icon size="1em" name="fa-info-circle fa-fw" />
-      Show public group info
+      {{$t("GROUPINFO.META")}}
     </q-item>
     <q-item @click="doSomething(), $refs.popover.close()">
       <q-icon size="1em" name="fa-sign-out fa-fw" />
-      Leave Group
+      {{$t("GROUP.LEAVE")}}
     </q-item>
   </q-list>
 </template>

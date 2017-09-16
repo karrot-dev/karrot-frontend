@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import PickupItem from './PickupItem.vue'
+import i18n from '@/i18n'
 
 storiesOf('PickupItem', module)
   .add('Join', () => ({
@@ -19,7 +20,8 @@ storiesOf('PickupItem', module)
     },
     methods: {
       join: action('join')
-    }
+    },
+    i18n
   }))
   .add('Full', () => ({
     components: { PickupItem },
@@ -33,7 +35,8 @@ storiesOf('PickupItem', module)
           isUserMember: false
         }
       }
-    }
+    },
+    i18n
   }))
   .add('Leave', () => ({
     components: { PickupItem },
@@ -50,5 +53,6 @@ storiesOf('PickupItem', module)
     },
     methods: {
       leave: action('leave')
-    }
+    },
+    i18n
   }))

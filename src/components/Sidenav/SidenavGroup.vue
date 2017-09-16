@@ -1,6 +1,6 @@
 <template>
   <SidenavBox>
-    <div slot="name">Group</div>
+    <div slot="name">{{ $t("GROUP.TITLE")}}</div>
     <div slot="tools">
       <q-btn flat>
         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
@@ -11,9 +11,10 @@
     </div>
     <div>
       <q-list highlight no-border>
-        <q-item>Detail</q-item>
-        <q-item>Pickups (Do we need that still?)</q-item>
-        <q-item>History</q-item>
+        <q-item>{{ $t("GROUP.DESCRIPTION")}}</q-item>
+        <q-item>{{ $t("GROUP.PICKUPS")}} (Do we need that still?)</q-item>
+        <q-item>{{ $t("GROUP.MEMBERS")}} (Number here later)</q-item>
+        <q-item>{{ $t("GROUP.HISTORY")}}</q-item>
       </q-list>
     </div>
   </SidenavBox>

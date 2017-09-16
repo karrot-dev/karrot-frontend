@@ -17,11 +17,11 @@
         </div>
         <div class="white-box">
           <q-field icon="fa-lock">
-            <q-input v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
+            <router-link :to="{ name: 'forgotPassword' }"><q-input v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/></router-link>
           </q-field>
         </div>
         <div class="actions">
-          <q-btn flat>{{ $t('SIGNUP.BACK') }}</q-btn>
+          <router-link :to="{ name: 'login' }"><q-btn flat>{{ $t('SIGNUP.BACK') }}</q-btn></router-link>
           <q-btn class="submit shadow-4">{{ $t('SIGNUP.OK') }}</q-btn>
         </div>
         <div style="clear: both"/>

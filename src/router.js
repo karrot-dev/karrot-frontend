@@ -5,6 +5,8 @@ import Meta from 'vue-meta'
 import Home from '@/components/Home.vue'
 import GroupDetailContainer from '@/components/GroupDetailContainer.vue'
 import Error404 from '@/components/Error404.vue'
+import Login from '@/pages/Login.vue'
+import Signup from '@/pages/Signup.vue'
 
 Vue.use(VueRouter)
 Vue.use(Meta)
@@ -21,10 +23,12 @@ export default new VueRouter({
    * If switching back to default "hash" mode, don't forget to set the
    * build publicPath back to '' so Cordova builds work again.
    */
-
+  linkActiveClass: 'TEST',
   routes: [
     { path: '/', component: Home },
     { path: '/group/:groupId', component: GroupDetailContainer },
+    { name: 'login', path: '/login', component: Login },
+    { name: 'signup', path: '/signup', component: Signup },
 
     // Always leave this last one
     { path: '*', component: Error404 } // Not found

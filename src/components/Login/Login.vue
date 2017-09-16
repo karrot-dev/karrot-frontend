@@ -17,7 +17,7 @@
         </div>
         <div class="actions">
           <q-btn flat>{{ $t('LOGIN.FORGOT_PASSWORD') }}</q-btn>
-          <q-btn flat>{{ $t('LOGIN.SIGNUP') }}</q-btn>
+          <router-link :to="{ name: 'signup' }"><q-btn flat>{{ $t('LOGIN.SIGNUP') }}</q-btn></router-link>
           <q-btn class="submit shadow-4">{{ $t('LOGIN.SUBMIT') }}</q-btn>
         </div>
         <div style="clear: both"/>

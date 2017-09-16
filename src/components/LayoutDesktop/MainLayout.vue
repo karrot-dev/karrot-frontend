@@ -2,7 +2,7 @@
   <div>
     <Topbar/>
     <div class="content row justify-around ">
-      <div class="sidenav">
+      <div class="sidenav" v-if="$slots['sidenav']">
         <slot name="sidenav"/>
       </div>
       <div class="main">
@@ -32,4 +32,5 @@ export default {
     padding-top: 1em
   .content
     margin-bottom 1em
+    min-height 90vh
 </style>

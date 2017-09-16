@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import messages from '@/services/api/messages'
-import { watchGetter } from '@/store/helpers'
+import { getter } from '@/store/helpers'
 
 const REVERSE = true
 
@@ -22,10 +22,12 @@ export const state = {
   messagesMeta: {}
 }
 
+const getAuthor = getter('users/get')
+
 export const getters = {
   getConversationById: state => id => state.conversations[id],
   getMessagesById: state => id => (state.messages[id] || []).map(m => {
-    const author = watchGetter('users/get', m.author)()
+    const author = getAuthor(m.author)
     return { ...m, author }
   })
 }

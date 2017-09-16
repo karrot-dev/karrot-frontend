@@ -35,11 +35,21 @@ import loginImage from '@/assets/people/cherry.png'
 export default {
   components: { QField, QInput, QBtn },
   data () {
-    return {
-      loginImage,
-      isShaking: false,
-      email: '',
-      password: ''
+    if (process.env.NODE_ENV !== 'production') {
+      return {
+        loginImage,
+        isShaking: false,
+        email: 'foo@foo.com',
+        password: 'foofoo'
+      }
+    }
+    else {
+      return {
+        loginImage,
+        isShaking: false,
+        email: '',
+        password: ''
+      }
     }
   },
   props: {

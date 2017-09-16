@@ -5,18 +5,18 @@
         <slot>Content</slot>
       </div>
     </div>
-    <Footer class="footer"/>
-    <Topbar class="topbar"/>
+    <KFooter class="KFooter"/>
+    <KTopbar class="KTopbar"/>
   </div>
 </template>
 
 <script>
 
-import Topbar from './Topbar.vue'
-import Footer from './Footer.vue'
+import KTopbar from './KTopbar.vue'
+import KFooter from './KFooter.vue'
 
 export default {
-  components: {Topbar, Footer}
+  components: {KTopbar, KFooter}
 }
 </script>
 
@@ -25,7 +25,7 @@ export default {
     position relative
     height: 100%
     width: 100%
-    .footer
+    .KFooter
       position fixed
       bottom 0.3em
       right 0

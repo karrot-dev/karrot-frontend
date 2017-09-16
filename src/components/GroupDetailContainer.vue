@@ -14,8 +14,6 @@
 
 <script>
 import MainLayout from '@/components/LayoutDesktop/MainLayout.vue'
-import Topbar from '@/components/LayoutDesktop/Topbar.vue'
-import Footer from '@/components/LayoutDesktop/Footer.vue'
 import Wall from '@/components/Wall/Wall.vue'
 import SidenavMap from '@/components/Sidenav/SidenavMap.vue'
 import SidenavGroup from '@/components/Sidenav/SidenavGroup.vue'
@@ -29,7 +27,7 @@ import { mapGetterMethods } from '@/store/helpers'
 
 export default {
   components: {
-    MainLayout, Topbar, Footer, Wall, SidenavMap, SidenavGroup, SidenavStores
+    MainLayout, Wall, SidenavMap, SidenavGroup, SidenavStores
   },
   watch: {
     groupId (groupId) {

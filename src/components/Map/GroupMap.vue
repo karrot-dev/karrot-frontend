@@ -46,8 +46,8 @@ export default {
     }
   },
   props: {
-    users: { required: false, default: [] },
-    stores: { required: false, default: [] },
+    users: { required: false, default: () => [] },
+    stores: { required: false, default: () => [] },
     showUsers: { required: false, default: true },
     showStores: { required: false, default: true }
   },

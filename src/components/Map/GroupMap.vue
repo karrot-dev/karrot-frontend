@@ -42,8 +42,7 @@ export default {
       zoom: 13,
       center: L.latLng(49.9105778076202, 8.65834236145019),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      bounds: L.latLngBounds()
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }
   },
   props: {
@@ -86,15 +85,13 @@ export default {
         })
       }
       return markers
-    }
-  },
-  watch: {
-    storeMarkers (v) {
-      if (v.length > 0) {
-        this.bounds = L.latLngBounds(v.map((o) => o.latLng)).pad(0.2)
+    },
+    bounds () {
+      if (this.storeMarkers.length > 0) {
+        return L.latLngBounds(this.storeMarkers.map(m => m.latLng)).pad(0.2)
       }
       else {
-        this.bounds = L.latLngBounds()
+        return L.latLngBounds()
       }
     }
   }

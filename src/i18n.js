@@ -28,22 +28,24 @@ export const locales = [
   { locale: 'zh', name: '中文' }
 ]
 
-const dateTimeFormats = {
-  'en-US': {
-    short: {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    },
-    long: {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      weekday: 'long',
-      hour: 'numeric',
-      minute: 'numeric'
-    }
+const defaultDateTimeFormat = {
+  short: {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  },
+  long: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
   }
+}
+
+let dateTimeFormats = {}
+for (const locale of locales) {
+  dateTimeFormats[locale.locale] = defaultDateTimeFormat
 }
 
 const i18n = new VueI18n({

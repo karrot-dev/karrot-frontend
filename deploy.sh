@@ -31,7 +31,7 @@ if [ "$REF" == "$dev_deployment_branch" ]; then
     URL="https://karrot-dev.foodsaving.world"
     STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
 
-    COMMIT_URL="$CIRCLE_REPOSITORY_URL/commit/$CIRCLE_SHA1"
+    COMMIT_URL="https://github.com/yunity/karrot-frontend/tree/$CIRCLE_SHA1"
     SHORT_SHA=$(git rev-parse --short HEAD)
 
     ATTACHMENT_TEXT=":banana: <$URL|Visit the site>\n:books: <$STORYBOOK_URL|Visit the storybook>"

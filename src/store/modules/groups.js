@@ -35,6 +35,9 @@ export const getters = {
       return true
     }
     return false
+  },
+  get: state => (groupId) => {
+    return state.entries.find(group => group.id === groupId) || { name: 'NOT FOUND' }
   }
 }
 
@@ -93,6 +96,9 @@ export const mutations = {
     let idx = state.entries.findIndex(g => g.id === group.id)
     if (idx !== -1) {
       Vue.set(state.entries, idx, { ...state.entries[idx], ...group })
+    }
+    else {
+      state.entries.push(group)
     }
   },
   [types.RECEIVE_GROUP_ERROR] (state, { error }) {},

@@ -9,3 +9,4 @@ cordova/plugins
 .idea
 nbproject/
 storybook-static
+coverage/

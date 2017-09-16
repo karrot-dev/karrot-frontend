@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 
 import MainLayout from './MainLayout.vue'
-import Topbar from './Topbar.vue'
-import Footer from './Footer.vue'
+import KTopbar from './KTopbar.vue'
+import KFooter from './KFooter.vue'
 import Wall from '../Wall/Wall.vue'
 import SidenavMap from '../Sidenav/SidenavMap.vue'
 import SidenavGroup from '../Sidenav/SidenavGroup.vue'
@@ -36,11 +36,11 @@ storiesOf('Layout (Desktop)', module)
     },
     i18n
   }))
-  .add('Topbar', () => ({
-    components: { Topbar },
-    template: '<div id="q-app"><Topbar/></div>'
+  .add('KTopbar', () => ({
+    components: { KTopbar },
+    template: '<div id="q-app"><KTopbar/></div>'
   }))
-  .add('Footer', () => ({
-    components: { Footer },
-    template: '<div id="q-app"><Footer/></div>'
+  .add('KFooter', () => ({
+    components: { KFooter },
+    template: '<div id="q-app"><KFooter/></div>'
   }))

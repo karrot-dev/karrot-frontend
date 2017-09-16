@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Topbar/>
+    <KTopbar/>
     <div class="content row justify-around ">
       <div class="sidenav" v-if="$slots['sidenav']">
         <slot name="sidenav"/>
@@ -9,17 +9,17 @@
         <slot>Content</slot>
       </div>
     </div>
-    <Footer/>
+    <KFooter/>
   </div>
 </template>
 
 <script>
 
-import Topbar from './Topbar.vue'
-import Footer from './Footer.vue'
+import KTopbar from './KTopbar.vue'
+import KFooter from './KFooter.vue'
 
 export default {
-  components: {Topbar, Footer}
+  components: {KTopbar, KFooter}
 }
 </script>
 

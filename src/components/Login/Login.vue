@@ -7,12 +7,12 @@
       <div class="content" v-bind:class="{ shake: error }">
         <div class="white-box">
           <q-field icon="fa-envelope">
-            <q-input :error="currentError.type == 'email'" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
+            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="currentError.type == 'email'" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
           </q-field>
         </div>
         <div class="white-box">
           <q-field icon="fa-lock">
-            <q-input :error="currentError.type == 'password'" v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
+            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="currentError.type == 'password'" v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
           </q-field>
         </div>
         <div class="error" v-if="currentError.type">

@@ -30,7 +30,7 @@ export default {
   },
   metaInfo () {
     return {
-      title: 'test' // '$t("LOGIN.TITLE")'
+      title: this.$t('LOGIN.TITLE')
     }
   }
 }

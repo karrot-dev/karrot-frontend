@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Meta from 'vue-meta'
+import { sync } from 'vuex-router-sync'
+
+import store from '@/store'
 
 import Home from '@/components/Home.vue'
 import GroupDetailContainer from '@/components/GroupDetailContainer.vue'
@@ -11,7 +14,7 @@ import Signup from '@/pages/Signup.vue'
 Vue.use(VueRouter)
 Vue.use(Meta)
 
-export default new VueRouter({
+const router = new VueRouter({
   /*
    * NOTE! VueRouter "history" mode DOESN'T works for Cordova builds,
    * it is only to be used only for websites.
@@ -34,3 +37,7 @@ export default new VueRouter({
     { path: '*', component: Error404 } // Not found
   ]
 })
+
+sync(store, router)
+
+export default router

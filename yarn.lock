@@ -6814,6 +6814,10 @@ vuex-persistedstate@^2.0.0:
     lodash.merge "^4.6.0"
     object-path "^0.11.2"
 
+vuex-router-sync@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.3.1.tgz#962b342e54226ed887c5aa5b2dbced67c5621922"
+
 vuex@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-2.4.0.tgz#e1d0430646282b40007fdd06ec6ae88a9f5a1e14"

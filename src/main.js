@@ -35,7 +35,7 @@ import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
 Quasar.start(async () => {
-  await store.dispatch('auth/check').catch(() => {})
+  await store.dispatch('auth/check')
 
   /* eslint-disable no-new */
   new Vue({

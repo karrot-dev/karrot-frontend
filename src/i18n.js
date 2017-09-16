@@ -15,6 +15,21 @@ export const messages = {
   zh: require('@/locales/locale-zh.json')
 }
 
+export const DEFAULT_LOCALE = 'en'
+
+export function detectLocale () {
+  // Based on https://angular-translate.github.io/docs/#/guide/07_multi-language#multi-language_determining-preferred-language-automatically
+  let val =
+    navigator.languages[0] ||
+    navigator.language ||
+    navigator.browserLanguage ||
+    navigator.systemLanguage ||
+    navigator.userLanguage
+  if (val) {
+    return val.replace(/-.*$/, '')
+  }
+}
+
 export const locales = [
   { locale: 'de', name: 'Deutsch' },
   { locale: 'en', name: 'English' },
@@ -28,7 +43,7 @@ export const locales = [
 ]
 
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: detectLocale() || DEFAULT_LOCALE,
   messages
 })
 

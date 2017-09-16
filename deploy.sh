@@ -28,22 +28,26 @@ dev_deployment_branch="quasar"
 if [ "$REF" == "$dev_deployment_branch" ]; then
   if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 
+    URL="https://karrot-dev.foodsaving.world"
+    STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
+
+    COMMIT_URL="$CIRCLE_REPOSITORY_URL/commit/$CIRCLE_SHA1"
+    SHORT_SHA=$(git rev-parse --short HEAD)
+
+    ATTACHMENT_TEXT=":banana: <$URL|Visit the site>\n:books: <$STORYBOOK_URL|Visit the storybook>"
+    ATTACHMENT_FOOTER="Using git ref $REF, commit <$COMMIT_URL|$SHORT_SHA>"
+
     payload=$(printf '{
-      "channel": "#karrot-git",
+        "channel": "#karrot-git",
         "username": "deploy",
-        "text": "Successful deploy of *karrot-dev* from %s",
-        "icon_emoji": ":sparkles:",
+        "text": ":sparkles: Successful deploy of *karrot-dev*",
         "attachments": [
           {
-            "title": "karrot-dev.foodsaving.world",
-            "title_link": "https://karrot-dev.foodsaving.world"
-          },
-          {
-            "title": "karrot-storybook-dev.foodsaving.world",
-            "title_link": "https://karrot-storybook-dev.foodsaving.world"
+            "text": "%s",
+            "footer": "%s"
           }
         ]
-      }' "$dev_deployment_branch")
+      }' "$ATTACHMENT_TEXT" "$ATTACHMENT_FOOTER")
 
     curl -X POST --data-urlencode "payload=$payload" "$SLACK_WEBHOOK_URL"
 

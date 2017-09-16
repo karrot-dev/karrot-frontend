@@ -53,19 +53,14 @@ export default {
   },
   methods: {
     ...mapActions({
-      selectGroup: 'groups/selectGroup',
-      login: 'auth/login'
+      selectGroup: 'groups/selectGroup'
     }),
     ...mapGetterMethods({
       getGroup: 'groups/get',
       getMessagesByConversationId: 'conversations/getMessagesById'
-    }),
-    loginDo () {
-      this.login({ email: 'foo@foo.com', password: 'foofoo' })
-    }
+    })
   },
   mounted () {
-    this.loginDo()
     this.selectGroup({ groupId: this.groupId })
   },
   metaInfo () {

@@ -42,6 +42,24 @@ export const locales = [
   { locale: 'zh', name: '中文' }
 ]
 
+const dateTimeFormats = {
+  'de-DE': {
+    short: {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    },
+    long: {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      weekday: 'long',
+      hour: 'numeric',
+      minute: 'numeric'
+    }
+  }
+}
+
 const i18n = new VueI18n({
   locale: detectLocale() || DEFAULT_LOCALE,
   messages

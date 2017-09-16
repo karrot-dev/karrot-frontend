@@ -10,7 +10,7 @@
         <div>picked up food</div>
       </template>
       <template slot="time">
-        {{ feedback.created_at }}
+        {{ $d(new Date(feedback.created_at), 'short') }}
       </template>
       <AmountBox :amount="feedback.weight"/>
       <div class="comment"> {{ feedback.comment }} </div>

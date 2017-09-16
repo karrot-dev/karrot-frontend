@@ -6,6 +6,7 @@ import WallMessage from './WallMessage.vue'
 import WallFeedback from './WallFeedback.vue'
 import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
 import { messagesMock, pickupsMock, feedbackMock } from '../mockdata.js'
+import i18n from '@/i18n'
 
 storiesOf('Wall', module)
   .add('Wall', () => ({
@@ -16,7 +17,8 @@ storiesOf('Wall', module)
         messages: messagesMock,
         emptyPickups: pickupsMock
       }
-    }
+    },
+    i18n
   }))
   .add('WallCard', () => ({
     components: { WallCard, ProfilePicture },
@@ -28,7 +30,8 @@ storiesOf('Wall', module)
           display_name: 'Lars Wolf'
         }
       }
-    }
+    },
+    i18n
   }))
 
   .add('WallMessage', () => ({
@@ -38,7 +41,8 @@ storiesOf('Wall', module)
       return {
         message: messagesMock[0]
       }
-    }
+    },
+    i18n
   }))
 
   .add('WallFeedback', () => ({
@@ -48,5 +52,6 @@ storiesOf('Wall', module)
       return {
         feedback: feedbackMock[0]
       }
-    }
+    },
+    i18n
   }))

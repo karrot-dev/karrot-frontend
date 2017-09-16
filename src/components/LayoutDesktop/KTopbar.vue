@@ -17,7 +17,7 @@
         <q-popover fit ref="popover">
           <q-list item-separator link>
             <q-item @click="doSomething(), $refs.popover.close()">
-              <q-icon size="1em" name="fa-user fa-fw" />
+              <i class="fa-user fa-fw on-left"/>
               View Profile
             </q-item>
             <q-item @click="doSomething(), $refs.popover.close()">              

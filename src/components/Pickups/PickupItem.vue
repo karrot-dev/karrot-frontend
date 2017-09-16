@@ -4,10 +4,8 @@
       v-bind:class="{ isUserMember: pickup.isUserMember }">
       <div class="column padding">
         <div>
-          <span class="featured-text">{{ pickup.date }}</span>
-          <slot>
-            Date or Store slot
-          </slot>
+          <span class="featured-text">{{ $d(new Date(pickup.date), 'timeShort') }}</span>
+          <slot>Date or Time Slot</slot>
         </div>
         <div class="people" v-if="pickup.description">
           {{ pickup.description }}

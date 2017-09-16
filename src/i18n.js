@@ -29,7 +29,11 @@ export const locales = [
 ]
 
 const defaultDateTimeFormat = {
-  short: {
+  timeShort: {
+    hour: 'numeric',
+    minute: 'numeric'
+  },
+  dateShort: {
     year: 'numeric',
     month: 'long',
     day: 'numeric'

@@ -11,7 +11,7 @@ storiesOf('PickupItem', module)
     data () {
       return {
         pickup: {
-          date: '12:00',
+          date: new Date(),
           description: 'This is the description',
           isFull: false,
           isUserMember: false
@@ -29,7 +29,7 @@ storiesOf('PickupItem', module)
     data () {
       return {
         pickup: {
-          date: '00:00',
+          date: new Date(),
           description: '',
           isFull: true,
           isUserMember: false
@@ -44,7 +44,7 @@ storiesOf('PickupItem', module)
     data () {
       return {
         pickup: {
-          date: '05:30 PM',
+          date: new Date(),
           description: '',
           isFull: false,
           isUserMember: true

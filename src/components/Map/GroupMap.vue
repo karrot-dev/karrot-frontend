@@ -87,8 +87,9 @@ export default {
       return markers
     },
     bounds () {
-      if (this.storeMarkers.length > 0) {
-        return L.latLngBounds(this.storeMarkers.map(m => m.latLng)).pad(0.2)
+      let markers = [...this.storeMarkers, ...this.userMarkers]
+      if (markers.length > 0) {
+        return L.latLngBounds(markers.map(m => m.latLng)).pad(0.2)
       }
       else {
         return L.latLngBounds()

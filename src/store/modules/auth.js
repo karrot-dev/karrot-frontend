@@ -22,6 +22,7 @@ export const state = {
 
 export const getters = {
   isLoggedIn: state => !!state.user,
+  user: state => state.user,
   userId: state => state.user && state.user.id
 }
 

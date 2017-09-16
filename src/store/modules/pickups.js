@@ -27,6 +27,7 @@ export const state = {
 }
 
 export const getters = {
+  list: state => state.entries,
   isCollector: state => (pickupId, userId) => {
     let pickup = state.entries.find(pickup => pickup.id === pickupId)
     if (pickup && pickup.collectorIds.indexOf(userId) !== -1) {

@@ -32,6 +32,9 @@ export const state = {
 }
 
 export const getters = {
+  list: state => state.entries,
+  isFetching: state => state.isFetching,
+  error: state => state.error,
   isMember: state => (groupId, userId) => {
     let group = state.entries.find(group => group.id === groupId)
     if (group && group.members.indexOf(userId) !== -1) {

@@ -24,7 +24,6 @@ import SidenavStores from '@/components/Sidenav/SidenavStores.vue'
 import { usersMock, messagesMock } from '@/components/mockdata.js'
 
 import {
-  mapState,
   mapGetters,
   mapActions
 } from 'vuex'
@@ -53,17 +52,15 @@ export default {
     myGroup () {
       return this.getGroup(this.groupId)
     },
-    ...mapState({
-      user: state => state.auth.user,
-      isFetching: state => state.groups.isFetching,
-      error: state => state.groups.error,
-      pickups: state => state.pickups.entries,
-      stores: state => state.stores.entries
-    }),
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
+      user: 'auth/user',
       userId: 'auth/userId',
-      storesWithLocation: 'stores/withLocation'
+      storesWithLocation: 'stores/withLocation',
+      isFetching: 'groups/isFetching',
+      error: 'groups/error',
+      pickups: 'pickups/list',
+      stores: 'stores/list'
     })
   },
   methods: {

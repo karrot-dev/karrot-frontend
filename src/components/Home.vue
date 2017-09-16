@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { mapGetterMethods } from '@/store/helpers'
 import store from '@/store'
 import log from '@/services/log'
@@ -63,16 +63,13 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      user: state => state.auth.user,
-      groups: state => state.groups.entries,
-      isFetching: state => state.groups.isFetching,
-      error: state => state.groups.error,
-      pickups: state => state.pickups.entries
-    }),
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
-      userId: 'auth/userId'
+      user: 'auth/user',
+      userId: 'auth/userId',
+      groups: 'groups/list',
+      isFetching: 'groups/isFetching',
+      pickups: 'pickups/list'
     }),
     conversation: () => store.getters['conversations/getById'](1),
     locale: {

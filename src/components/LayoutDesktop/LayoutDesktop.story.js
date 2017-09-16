@@ -8,6 +8,7 @@ import SidenavMap from '../Sidenav/SidenavMap.vue'
 import SidenavGroup from '../Sidenav/SidenavGroup.vue'
 import SidenavStores from '../Sidenav/SidenavStores.vue'
 import { storesMock, usersMock } from '../mockdata.js'
+import i18n from '@/i18n'
 
 const mainLayoutTemplate = `
 <div id="q-app">
@@ -32,7 +33,8 @@ storiesOf('Layout (Desktop)', module)
         stores: storesMock,
         users: usersMock
       }
-    }
+    },
+    i18n
   }))
   .add('Topbar', () => ({
     components: { Topbar },

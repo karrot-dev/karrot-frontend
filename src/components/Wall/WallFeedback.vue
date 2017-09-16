@@ -37,7 +37,7 @@ export default {
   height 32px
   width 32px
   background-color $primary
-  color $secondary
+  color $tertiary
   .fa
     line-height 32px
     vertical-align middle

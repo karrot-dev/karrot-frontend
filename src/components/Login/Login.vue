@@ -53,7 +53,7 @@ export default {
   h4
     color $primary
 .content
-  border-radius 5px
+  border-radius $borderRadius
   width 100%
   min-height 5em
   background-color $primary
@@ -61,7 +61,7 @@ export default {
   padding 1em 1em
   .white-box
     background-color white
-    border-radius 2px
+    border-radius $borderRadiusSmall
     padding .1em 1em
     margin-bottom .5em
     .q-field

@@ -1,10 +1,10 @@
 <template>
   <MainLayout>
-    <template slot="sidenav">
-      <SidenavMap :stores="storesWithLocation" :users="users"/>
+    <div slot="sidenav">
+      <SidenavMap :stores="storesWithLocation" :users="usersWithLocation"/>
       <SidenavGroup/>
       <SidenavStores :stores="stores"/>
-    </template>
+    </div>
     <div>
       <h2>{{ myGroup.name }}</h2>
       <Wall :messages="messages" :emptyPickups="emptyPickups" />
@@ -21,8 +21,6 @@ import SidenavMap from '@/components/Sidenav/SidenavMap.vue'
 import SidenavGroup from '@/components/Sidenav/SidenavGroup.vue'
 import SidenavStores from '@/components/Sidenav/SidenavStores.vue'
 
-import { usersMock, messagesMock } from '@/components/mockdata.js'
-
 import {
   mapGetters,
   mapActions
@@ -32,13 +30,6 @@ import { mapGetterMethods } from '@/store/helpers'
 export default {
   components: {
     MainLayout, Topbar, Footer, Wall, SidenavMap, SidenavGroup, SidenavStores
-  },
-  data () {
-    return {
-      users: usersMock,
-      messages: messagesMock,
-      emptyPickups: this.pickups
-    }
   },
   watch: {
     groupId (groupId) {
@@ -52,46 +43,31 @@ export default {
     myGroup () {
       return this.getGroup(this.groupId)
     },
+    messages () {
+      return this.getMessagesByConversationId(this.myGroup.conversationId)
+    },
     ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
-      user: 'auth/user',
-      userId: 'auth/userId',
       storesWithLocation: 'stores/withLocation',
-      isFetching: 'groups/isFetching',
-      error: 'groups/error',
-      pickups: 'pickups/list',
-      stores: 'stores/list'
+      emptyPickups: 'pickups/listEmpty',
+      stores: 'stores/list',
+      usersWithLocation: 'users/withLocation'
     })
   },
   methods: {
     ...mapActions({
       selectGroup: 'groups/selectGroup',
-      check: 'auth/check',
-      login: 'auth/login',
-      logout: 'auth/logout',
-      join: 'groups/join',
-      leave: 'groups/leave',
-      joinPickup: 'pickups/join',
-      leavePickup: 'pickups/leave'
+      login: 'auth/login'
     }),
     ...mapGetterMethods({
-      isGroupMember: 'groups/isMember',
-      isPickupCollector: 'pickups/isCollector',
-      getGroup: 'groups/get'
+      getGroup: 'groups/get',
+      getMessagesByConversationId: 'conversations/getMessagesById'
     }),
     loginDo () {
       this.login({ email: 'foo@foo.com', password: 'foofoo' })
-    },
-    joinPickupDo (pickupId) {
-      this.joinPickup({ pickupId })
-    },
-    leavePickupDo (pickupId) {
-      this.leavePickup({ pickupId })
     }
   },
   mounted () {
     this.loginDo()
-    this.check()
     this.selectGroup({ groupId: this.groupId })
   },
   metaInfo () {

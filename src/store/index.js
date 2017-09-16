@@ -5,6 +5,7 @@ import * as auth from './modules/auth'
 import * as conversations from './modules/conversations'
 import * as groups from './modules/groups'
 import * as stores from './modules/stores'
+import * as users from './modules/users'
 import * as pickups from './modules/pickups'
 import * as i18n from './modules/i18n'
 import * as sidenav from './modules/sidenav'
@@ -19,6 +20,7 @@ const options = ({
     conversations,
     groups,
     stores,
+    users,
     pickups,
     i18n,
     sidenav

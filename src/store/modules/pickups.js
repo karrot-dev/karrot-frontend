@@ -34,7 +34,8 @@ export const getters = {
       return true
     }
     return false
-  }
+  },
+  listEmpty: state => state.entries.filter(e => e.collectorIds.length < 1)
 }
 
 export const actions = {

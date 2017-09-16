@@ -5,8 +5,8 @@ export default {
     return (await axios.post('/api/stores/', data)).data
   },
 
-  async get (groupId) {
-    return (await axios.get(`/api/stores/${groupId}/`)).data
+  async get (id) {
+    return (await axios.get(`/api/stores/${id}/`)).data
   },
 
   async list () {
@@ -25,12 +25,11 @@ export default {
     return (await axios.get('/api/stores/', { params: { search: query } })).data
   },
 
-  async save (store) {
-    let storeId = store.id
-    return (await axios.patch(`/api/stores/${storeId}/`, store)).data
+  async save (obj) {
+    return (await axios.patch(`/api/stores/${obj.id}/`, obj)).data
   },
 
-  delete (storeId) {
-    return axios.delete(`/api/stores/${storeId}/`)
+  delete (id) {
+    return axios.delete(`/api/stores/${id}/`)
   }
 }

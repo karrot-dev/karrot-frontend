@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import messages from '@/services/api/messages'
+import { watchGetter } from '@/store/helpers'
 
 const REVERSE = true
 
@@ -10,15 +11,23 @@ export const types = {
   REQUEST_MESSAGES: 'Request Messages',
   RECEIVE_MESSAGES: 'Receive Messages',
   RECEIVE_MESSAGES_ERROR: 'Receive Messages Error',
-  RECEIVE_MESSAGE: 'Receive Message'
+
+  RECEIVE_MESSAGE: 'Receive Message',
+  RECEIVE_CONVERSATION: 'Receive Conversation'
 }
 
 export const state = {
-  conversations: {}
+  conversations: {},
+  messages: {},
+  messagesMeta: {}
 }
 
 export const getters = {
-  getById: state => id => state.conversations[id]
+  getConversationById: state => id => state.conversations[id],
+  getMessagesById: state => id => (state.messages[id] || []).map(m => {
+    const author = watchGetter('users/get', m.author)()
+    return { ...m, author }
+  })
 }
 
 export const actions = {
@@ -50,43 +59,51 @@ export const actions = {
 export const mutations = {
 
   [types.SUBSCRIBE] (state, { conversationId }) {
-    update(conversationId, { isFetching: false, messages: [], error: null })
+    if (!state.messages[conversationId]) {
+      Vue.set(state.messages, conversationId, [])
+    }
+    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: false, error: null })
   },
   [types.UNSUBSCRIBE] (state, { conversationId }) {
     Vue.delete(state.conversations, conversationId)
+    Vue.delete(state.messages, conversationId)
+    Vue.delete(state.messagesMeta, conversationId)
   },
 
   [types.REQUEST_MESSAGES] (state, { conversationId }) {
-    update(conversationId, { isFetching: true, messages: [], error: null })
+    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: true, error: null })
   },
   [types.RECEIVE_MESSAGES] (state, { conversationId, messages }) {
-    update(conversationId, { isFetching: false })
-    maybeAddMessages(conversationId, messages)
+    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: false })
+    if (!state.messages[conversationId]) {
+      Vue.set(state.messages, conversationId, [])
+    }
+    maybeAddMessages(state, conversationId, messages)
   },
   [types.RECEIVE_MESSAGES_ERROR] (state, { conversationId, error }) {
-    update(conversationId, { isFetching: false, error })
+    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: false, error })
+  },
+
+  [types.RECEIVE_CONVERSATION] (state, { conversation }) {
+    Vue.set(state.conversations, conversation.id, conversation)
   },
 
   [types.RECEIVE_MESSAGE] (state, { message }) {
     let { conversation: { id: conversationId } = {} } = message
-    maybeAddMessages(conversationId, [message])
+    maybeAddMessages(state, conversationId, [message])
   }
 
 }
 
-function update (conversationId, data) {
-  Vue.set(state.conversations, conversationId, { ...state.conversations[conversationId], ...data })
-}
-
-function maybeAddMessages (conversationId, messages) {
-  let conversation = state.conversations[conversationId]
-  if (conversation) {
+function maybeAddMessages (state, conversationId, messages) {
+  let convMessages = state.messages[conversationId]
+  if (convMessages) {
     if (REVERSE) {
       messages.reverse()
-      conversation.messages.splice(0, 0, ...messages)
+      convMessages.splice(0, 0, ...messages)
     }
     else {
-      conversation.messages.push(...messages)
+      convMessages.push(...messages)
     }
   }
 }

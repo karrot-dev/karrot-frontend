@@ -37,7 +37,7 @@ jobs:
           name: Maybe Deploy
           command: |
             if [ "${CIRCLE_BRANCH}" == "quasar" ]; then
-              ./deploy.sh "${CIRCLE_BRANCH}" release
+              ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
             elif [ ! -z "${CIRCLE_TAG}" ]; then
-              ./deploy.sh "${CIRCLE_TAG}" "${CIRCLE_TAG}"
+              ./deploy.sh "${CIRCLE_TAG}" release
             fi

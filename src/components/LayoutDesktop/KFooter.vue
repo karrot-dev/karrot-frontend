@@ -29,8 +29,10 @@ export default {
     try {
       // about.json exists on deployment
       const about = await misc.about()
-      this.releaseLink = `https://github.com/yunity/karrot-frontend/tree/${about.commitSHA}`
-      this.releaseName = 'development'
+      if (about.env === 'development') {
+        this.releaseLink = `https://github.com/yunity/karrot-frontend/tree/${about.commitSHA}`
+        this.releaseName = 'development'
+      }
     } catch (e) {
       if (DEV) {
         // local development

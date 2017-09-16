@@ -2,23 +2,23 @@
   <div>
       <div class="header">
         <img :src="loginImage"></img>
-        <h4>Login</h4>
+        <h4>{{ $t('LOGIN.TITLE') }}</h4>
       </div>
       <div class="content">
         <div class="white-box">
           <q-field icon="fa-envelope">
-            <q-input v-model="email" float-label="Email"/>
+            <q-input v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
           </q-field>
         </div>
         <div class="white-box">
           <q-field icon="fa-lock">
-            <q-input v-model="password" type="password" float-label="Password"/>
+            <q-input v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
           </q-field>
         </div>
         <div class="actions">
-          <q-btn flat>Forgot your password</q-btn>
-          <q-btn flat>Signup</q-btn>
-          <q-btn class="submit shadow-4">Login</q-btn>
+          <q-btn flat>{{ $t('LOGIN.FORGOT_PASSWORD') }}</q-btn>
+          <q-btn flat>{{ $t('LOGIN.SIGNUP') }}</q-btn>
+          <q-btn class="submit shadow-4">{{ $t('LOGIN.SUBMIT') }}</q-btn>
         </div>
         <div style="clear: both"/>
       </div>

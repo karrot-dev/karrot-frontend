@@ -28,7 +28,7 @@ export const locales = [
 ]
 
 const i18n = new VueI18n({
-  locale: 'de',
+  locale: 'en',
   messages
 })
 

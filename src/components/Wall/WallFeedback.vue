@@ -48,12 +48,8 @@ export default {
 .header div
   display inline-block
   vertical-align middle
-<<<<<<< HEAD
 .comment
   display inline-block
   vertical-align middle
   margin-left .6em
 </style>
-=======
-</style>
->>>>>>> camelize

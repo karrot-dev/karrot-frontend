@@ -22,6 +22,10 @@ export const state = {
   locale: detectLocale() || DEFAULT_LOCALE
 }
 
+export const getters = {
+  getLocale: state => state.locale
+}
+
 export const actions = {
 
   async setLocale ({ commit }, { locale }) {

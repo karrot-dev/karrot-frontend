@@ -9,8 +9,8 @@
     <KTopbar class="KTopbar"/>
   </div>-->
   <div class="background">
-    <q-layout class="wrapper" ref="layout" view="hHr LpR lFf" :right-breakpoint="1100">
-      <KTopbar name="header"/>
+    <q-layout class="wrapper" ref="layout" view="hHr LpR lFf">
+      <KTopbar slot="header"/>
 
       <div class="slotContent">
         <slot>Content</slot>

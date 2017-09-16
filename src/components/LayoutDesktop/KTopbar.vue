@@ -1,5 +1,6 @@
 <template>
   <div class="row justify-between toolbar">
+    <slot name="left"/>
     <div class="logo">
       <KarrotLogo/>
     </div>

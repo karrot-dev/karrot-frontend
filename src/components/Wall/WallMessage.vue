@@ -7,7 +7,7 @@
         wrote a message
       </template>
       <template slot="time">
-        {{ message.created_at }}
+        {{ message.createdAt }}
       </template>
       <div> {{ message.content }} </div>
     </WallCard>

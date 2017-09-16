@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
     <a v-if="user">
-      <RandomPicture :name="user.display_name" :seed="user.id" :size="size"></RandomPicture>
+      <RandomPicture :name="user.displayName" :seed="user.id" :size="size"></RandomPicture>
       <q-tooltip>
-        {{ user.display_name }}
+        {{ user.displayName }}
       </q-tooltip>
     </a>
 

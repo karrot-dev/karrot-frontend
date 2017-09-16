@@ -27,7 +27,7 @@ storiesOf('Wall', module)
       return {
         user: {
           id: 5,
-          display_name: 'Lars Wolf'
+          displayName: 'Lars Wolf'
         }
       }
     },

@@ -26,8 +26,8 @@ export default {
         .then(d => {
           const list = d.map(e => {
             return {
-              label: e.display_name,
-              value: e.display_name,
+              label: e.displayName,
+              value: e.displayName,
               obj: e
             }
           })

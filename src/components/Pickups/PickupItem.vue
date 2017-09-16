@@ -13,7 +13,7 @@
           {{ pickup.description }}
         </div>
         <div class="people">
-          <ProfilesInline :users="pickup.collector_ids"/>
+          <ProfilesInline :users="pickup.collectorIds"/>
         </div>
       </div>
       <div>

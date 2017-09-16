@@ -6,11 +6,11 @@
         </div>
       </template>
       <template slot="header">
-        <div><ProfilePicture :user="feedback.given_by"/></div>
+        <div><ProfilePicture :user="feedback.givenBy"/></div>
         <div>picked up food</div>
       </template>
       <template slot="time">
-        {{ $d(new Date(feedback.created_at), 'short') }}
+        {{ $d(new Date(feedback.createdAt), 'short') }}
       </template>
       <AmountBox :amount="feedback.weight"/>
       <div class="comment"> {{ feedback.comment }} </div>
@@ -48,8 +48,12 @@ export default {
 .header div
   display inline-block
   vertical-align middle
+<<<<<<< HEAD
 .comment
   display inline-block
   vertical-align middle
   margin-left .6em
 </style>
+=======
+</style>
+>>>>>>> camelize

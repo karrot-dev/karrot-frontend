@@ -4,40 +4,43 @@ import SidenavBox from './SidenavBox.vue'
 import SidenavMap from './SidenavMapUI.vue'
 import SidenavGroup from './SidenavGroup.vue'
 import SidenavStores from './SidenavStores.vue'
-import { storesMock, usersMock } from '../mockdata.js'
+import { storesMock as stores, usersMock as users } from '../mockdata.js'
 import i18n from '@/i18n'
 
 storiesOf('Sidenav Boxes', module)
-  .add('Default', () => ({
-    components: { SidenavBox },
-    template: '<div id="q-app"><SidenavBox></SidenavBox></div>'
-  }))
+  .add('Default', () => SidenavBox)
 
   .add('Map', () => ({
-    components: { SidenavMap },
-    template: '<div id="q-app"><SidenavMap :stores="stores" :users="users"></SidenavMap></div>',
     data () {
       return {
-        stores: storesMock,
-        users: usersMock
+        showStores: true,
+        showUsers: true
       }
+    },
+    methods: {
+      toggleStores () {
+        this.showStores = !this.showStores
+      },
+      toggleUsers () {
+        this.showUsers = !this.showUsers
+      }
+    },
+    render (h) {
+      let { showStores, showUsers, toggleUsers, toggleStores } = this
+      return h(SidenavMap, {
+        props: { stores, users, showStores, showUsers },
+        on: { toggleStores, toggleUsers }
+      })
     },
     i18n
   }))
 
   .add('Group', () => ({
-    components: { SidenavGroup },
-    template: '<div id="q-app"><SidenavGroup></SidenavGroup></div>',
+    render: h => h(SidenavGroup),
     i18n
   }))
 
   .add('Stores', () => ({
-    components: { SidenavStores },
-    template: '<div id="q-app"><SidenavStores :stores="stores"></SidenavStores></div>',
-    data () {
-      return {
-        stores: storesMock
-      }
-    },
+    render: h => h(SidenavStores, { props: { stores } }),
     i18n
   }))

@@ -13,3 +13,22 @@ export function mapGetterMethods (mapping) {
 
   return methods
 }
+
+/**
+ * Create a function that refers to a getter that you can use in `store.watch()`
+ *
+ * @param getterName namespaced getter name
+ * @param args will be passed to the getter if it is a function
+ * @returns {function()}
+ */
+export function watchGetter (getterName, ...args) {
+  return () => {
+    let getter = store.getters[getterName]
+    if (typeof getter === 'function') {
+      return getter(...args)
+    }
+    else {
+      return getter
+    }
+  }
+}

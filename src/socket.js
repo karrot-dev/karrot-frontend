@@ -1,8 +1,8 @@
 import ReconnectingWebsocket from 'reconnecting-websocket'
 
 import store from '@/store'
-import { types } from '@/store/modules/auth'
 import log from '@/services/log'
+import { watchGetter } from '@/store/helpers'
 
 export const WEBSOCKET_ENDPOINT = [
   window.location.protocol.replace(/^http/, 'ws'),
@@ -56,16 +56,11 @@ export function receiveMessage ({ topic, payload }) {
   }
 }
 
-store.subscribe(mutation => {
-  switch (mutation.type) {
-    case `auth/${types.RECEIVE_LOGIN_STATUS}`:
-    case `auth/${types.RECEIVE_LOGIN_SUCCESS}`:
-      socket.connect()
-      break
-    case `auth/${types.RECEIVE_LOGIN_FAILURE}`:
-    case `auth/${types.RECEIVE_LOGIN_STATUS_ERROR}`:
-    case `auth/${types.RECEIVE_LOGOUT_SUCCESS}`:
-      socket.disconnect()
-      break
+store.watch(watchGetter('auth/isLoggedIn'), isLoggedIn => {
+  if (isLoggedIn) {
+    socket.connect()
   }
-})
+  else {
+    socket.disconnect()
+  }
+}, { immediate: true })

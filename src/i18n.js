@@ -55,7 +55,8 @@ for (const locale of locales) {
 
 const i18n = new VueI18n({
   messages,
-  dateTimeFormats
+  dateTimeFormats,
+  fallbackLocale: 'en'
 })
 
 store.watch(watchGetter('i18n/getLocale'), locale => {

@@ -43,7 +43,7 @@ export const locales = [
 ]
 
 const dateTimeFormats = {
-  'de-DE': {
+  'en-US': {
     short: {
       year: 'numeric',
       month: 'long',
@@ -62,7 +62,8 @@ const dateTimeFormats = {
 
 const i18n = new VueI18n({
   locale: detectLocale() || DEFAULT_LOCALE,
-  messages
+  messages,
+  dateTimeFormats
 })
 
 export default i18n

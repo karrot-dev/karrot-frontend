@@ -41,7 +41,7 @@ if [ "$REF" == "$dev_deployment_branch" ]; then
     URL="https://karrot-dev.foodsaving.world"
     STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
 
-    COMMIT_MESSAGE=$(git log -1 --pretty=%s)
+    COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 
     ATTACHMENT_TEXT=":banana: <$URL|Visit the site>\n:books: <$STORYBOOK_URL|Visit the storybook>"
     ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
@@ -49,7 +49,7 @@ if [ "$REF" == "$dev_deployment_branch" ]; then
     payload=$(printf '{
         "channel": "#karrot-git",
         "username": "deploy",
-        "text": ":sparkles: Successful deploy of *karrot-dev*",
+        "text": ":sparkles: Successful deployment of *karrot-dev*",
         "attachments": [
           {
             "text": "%s",

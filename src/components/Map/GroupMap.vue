@@ -65,7 +65,7 @@ export default {
             markerColor: 'blue',
             prefix: 'fa'
           }),
-          popupcontent: '<a href="https://foodsaving.world">go somewhere</a>'
+          popupcontent: `<a href="https://foodsaving.world">${store.name}</a>`
         })
       }
       return markers
@@ -82,15 +82,16 @@ export default {
             markerColor: 'green',
             prefix: 'fa'
           }),
-          popupcontent: '<a href="https://foodsaving.world">go somewhere</a>'
+          popupcontent: `<a href="https://foodsaving.world">${user.displayName}</a>`
         })
       }
       return markers
     }
   },
-  mounted () {
-    let bounds = new L.latLngBounds(this.storeMarkers.map((o) => o.latLng)).pad(0.2) //eslint-disable-line
-    this.bounds = bounds
+  watch: {
+    storeMarkers (v) {
+      this.bounds = L.latLngBounds(v.map((o) => o.latLng)).pad(0.2)
+    }
   }
 }
 </script>

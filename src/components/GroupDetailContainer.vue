@@ -1,7 +1,7 @@
 <template>
   <MainLayout>
     <template slot="sidenav">
-      <SidenavMap :stores="stores" :users="users"/>
+      <SidenavMap :stores="storesWithLocation" :users="users"/>
       <SidenavGroup/>
       <SidenavStores :stores="stores"/>
     </template>
@@ -21,7 +21,7 @@ import SidenavMap from '@/components/Sidenav/SidenavMap.vue'
 import SidenavGroup from '@/components/Sidenav/SidenavGroup.vue'
 import SidenavStores from '@/components/Sidenav/SidenavStores.vue'
 
-import { storesMock, usersMock, messagesMock, pickupsMock } from '@/components/mockdata.js'
+import { usersMock, messagesMock } from '@/components/mockdata.js'
 
 import {
   mapState,
@@ -36,15 +36,14 @@ export default {
   },
   data () {
     return {
-      stores: storesMock,
       users: usersMock,
       messages: messagesMock,
-      emptyPickups: pickupsMock
+      emptyPickups: this.pickups
     }
   },
   watch: {
-    groupId (val) {
-      this.fetchPickupListByGroupId({ groupId: val })
+    groupId (groupId) {
+      this.selectGroup({ groupId })
     }
   },
   computed: {
@@ -58,23 +57,23 @@ export default {
       user: state => state.auth.user,
       isFetching: state => state.groups.isFetching,
       error: state => state.groups.error,
-      pickups: state => state.pickups.entries
+      pickups: state => state.pickups.entries,
+      stores: state => state.stores.entries
     }),
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
-      userId: 'auth/userId'
+      userId: 'auth/userId',
+      storesWithLocation: 'stores/withLocation'
     })
   },
   methods: {
     ...mapActions({
-      fetchGroup: 'groups/fetchGroup',
+      selectGroup: 'groups/selectGroup',
       check: 'auth/check',
       login: 'auth/login',
       logout: 'auth/logout',
-      subscribe: 'conversations/subscribe',
       join: 'groups/join',
       leave: 'groups/leave',
-      fetchPickupListByGroupId: 'pickups/fetchListByGroupId',
       joinPickup: 'pickups/join',
       leavePickup: 'pickups/leave'
     }),
@@ -96,7 +95,7 @@ export default {
   mounted () {
     this.loginDo()
     this.check()
-    this.fetchGroup({ groupId: this.$route.params.groupId })
+    this.selectGroup({ groupId: this.groupId })
   },
   metaInfo () {
     return {

@@ -4,6 +4,8 @@ import log from '@/services/log'
 
 export const types = {
 
+  SELECT_GROUP: 'Select Group',
+
   REQUEST_GROUP: 'Request Group',
   RECEIVE_GROUP: 'Receive Group',
   RECEIVE_GROUP_ERROR: 'Receive Group Error',
@@ -24,6 +26,7 @@ export const types = {
 
 export const state = {
   entries: [],
+  selected: {},
   isFetching: false,
   error: null
 }
@@ -37,11 +40,18 @@ export const getters = {
     return false
   },
   get: state => (groupId) => {
-    return state.entries.find(group => group.id === groupId) || { name: 'NOT FOUND' }
+    return state.entries.find(group => group.id === groupId) || {}
   }
 }
 
 export const actions = {
+
+  async selectGroup ({ commit, state, dispatch }, { groupId }) {
+    await dispatch('fetchGroup', { groupId })
+    commit(types.SELECT_GROUP, { group: getters.get(state)(groupId) })
+    dispatch('pickups/fetchListByGroupId', { groupId }, { root: true })
+    dispatch('stores/fetchListByGroupId', { groupId }, { root: true })
+  },
 
   async fetchGroup ({ commit }, { groupId }) {
     commit(types.REQUEST_GROUP)
@@ -90,6 +100,9 @@ export const actions = {
 }
 
 export const mutations = {
+  [types.SELECT_GROUP] (state, { group }) {
+    state.selected = group
+  },
   [types.REQUEST_GROUP] (state) {},
   [types.RECEIVE_GROUP] (state, { group }) {
     log.debug('receive group!', group)

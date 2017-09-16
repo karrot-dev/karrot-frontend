@@ -5,7 +5,7 @@ import { sync } from 'vuex-router-sync'
 
 import store from '@/store'
 
-import Home from '@/components/Home.vue'
+// import Home from '@/components/Home.vue'
 import GroupDetailContainer from '@/components/GroupDetailContainer.vue'
 import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
@@ -51,7 +51,7 @@ const router = new VueRouter({
    */
   linkActiveClass: 'TEST',
   routes: [
-    { name: 'index', path: '/', component: Home, beforeEnter: protectRoute },
+    { name: 'index', path: '/', redirect: '/group/1', beforeEnter: protectRoute },
     { name: 'group', path: '/group/:groupId', component: GroupDetailContainer, beforeEnter: protectRoute },
     { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
     { name: 'signup', path: '/signup', component: Signup },

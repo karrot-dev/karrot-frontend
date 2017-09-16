@@ -15,6 +15,14 @@ fi
 REPO_URL="https://github.com/yunity/karrot-frontend"
 COMMIT_SHA=$(git rev-parse HEAD)
 COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
+TAG="$(git describe --tags 2>/dev/null)"
+
+# tag means production release
+if [ -z "$TAG" ]; then
+  DEPLOY_ENV="development"
+else
+  DEPLOY_ENV="production"
+fi
 
 REF_URL="$REPO_URL/tree/$REF"
 COMMIT_URL="$REPO_URL/tree/$COMMIT_SHA"
@@ -28,6 +36,16 @@ echo "$REF" > storybook-static/version
 
 echo "$COMMIT_SHA" > dist/.commit
 echo "$COMMIT_SHA" > storybook-static/.commit
+
+about_json=$(printf '{
+    "commitSHA": "%s",
+    "commitSHAShort": "%s",
+    "ref": "%s",
+    "env": "%s"
+  }' "$COMMIT_SHA" "$COMMIT_SHA_SHORT" "$REF" "$DEPLOY_ENV")
+
+echo "$about_json" > dist/about.json
+echo "$about_json" > storybook-static/about.json
 
 # send it all to the host
 rsync -avz --delete dist/ "deploy@$HOST:karrot-frontend/$DIR/"

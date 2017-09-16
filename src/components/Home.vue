@@ -72,7 +72,7 @@ export default {
       error: 'groups/error',
       pickups: 'pickups/list'
     }),
-    conversation: () => store.getters['conversations/getById'](1),
+    conversation: () => store.getters['conversations/getConversationById'](1),
     locale: {
       get () {
         return store.state.i18n.locale

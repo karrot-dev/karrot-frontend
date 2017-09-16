@@ -96,7 +96,7 @@ export default {
   },
   metaInfo () {
     return {
-      title: `${this.myGroup.name}`
+      title: this.myGroup.name
     }
   }
 }

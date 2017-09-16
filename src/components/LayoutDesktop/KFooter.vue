@@ -33,7 +33,8 @@ export default {
         this.releaseLink = `https://github.com/yunity/karrot-frontend/tree/${about.commitSHA}`
         this.releaseName = 'development'
       }
-    } catch (e) {
+    }
+    catch (e) {
       if (DEV) {
         // local development
         this.releaseLink = ''

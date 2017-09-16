@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 import SidenavBox from './SidenavBox.vue'
-import SidenavMap from './SidenavMapUI.vue'
+import SidenavMapUI from './SidenavMapUI.vue'
 import SidenavGroup from './SidenavGroup.vue'
 import SidenavStores from './SidenavStores.vue'
 import { storesMock as stores, usersMock as users } from '../mockdata.js'
@@ -27,7 +27,7 @@ storiesOf('Sidenav Boxes', module)
     },
     render (h) {
       let { showStores, showUsers, toggleUsers, toggleStores } = this
-      return h(SidenavMap, {
+      return h(SidenavMapUI, {
         props: { stores, users, showStores, showUsers },
         on: { toggleStores, toggleUsers }
       })

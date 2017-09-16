@@ -31,11 +31,14 @@ if [ "$REF" == "$dev_deployment_branch" ]; then
     URL="https://karrot-dev.foodsaving.world"
     STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
 
-    COMMIT_URL="https://github.com/yunity/karrot-frontend/tree/$CIRCLE_SHA1"
+    REPO_URL="https://github.com/yunity/karrot-frontend"
+    REF_URL="$REPO_URL/tree/$REF"
+    COMMIT_URL="$REPO_URL/tree/$CIRCLE_SHA1"
     SHORT_SHA=$(git rev-parse --short HEAD)
+    COMMIT_MESSAGE=$(git log -1 --pretty=%s)
 
     ATTACHMENT_TEXT=":banana: <$URL|Visit the site>\n:books: <$STORYBOOK_URL|Visit the storybook>"
-    ATTACHMENT_FOOTER="Using git ref $REF, commit <$COMMIT_URL|$SHORT_SHA>"
+    ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$SHORT_SHA> - $COMMIT_MESSAGE"
 
     payload=$(printf '{
         "channel": "#karrot-git",

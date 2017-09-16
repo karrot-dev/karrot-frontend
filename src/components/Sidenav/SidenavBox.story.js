@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 import SidenavBox from './SidenavBox.vue'
-import SidenavMap from './SidenavMap.vue'
+import SidenavMap from './SidenavMapUI.vue'
 import SidenavGroup from './SidenavGroup.vue'
 import SidenavStores from './SidenavStores.vue'
 import { storesMock, usersMock } from '../mockdata.js'

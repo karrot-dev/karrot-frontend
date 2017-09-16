@@ -7,16 +7,16 @@
       <div class="content" v-bind:class="{ shake: error }">
         <div class="white-box">
           <q-field icon="fa-envelope">
-            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="currentError.type == 'email'" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
+            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="hasError('email')" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
           </q-field>
         </div>
         <div class="white-box">
           <q-field icon="fa-lock">
-            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="currentError.type == 'password'" v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
+            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="hasError('password')" v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
           </q-field>
         </div>
-        <div class="error" v-if="currentError.type">
-          <i class="fa fa-exclamation-triangle"/>{{ currentError.content }}
+        <div class="error" v-if="errorMessage">
+          <i class="fa fa-exclamation-triangle"/>{{ errorMessage }}
         </div>
         <div class="actions">
           <q-btn flat>{{ $t('LOGIN.FORGOT_PASSWORD') }}</q-btn>
@@ -47,12 +47,14 @@ export default {
       required: false
     }
   },
+  methods: {
+    hasError (field) {
+      return this.error && this.error[field]
+    }
+  },
   computed: {
-    currentError () {
-      if (this.error === null) return {type: '', content: ''}
-      if ('email' in this.error) return {type: 'email', content: this.error.email[0]}
-      if ('password' in this.error) return {type: 'password', content: this.error.password[0]}
-      return {type: 'nonField', content: this.error.non_field_errors[0]}
+    errorMessage () {
+      return this.error && this.error[Object.keys(this.error)[0]][0]
     }
   }
 }

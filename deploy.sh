@@ -15,7 +15,7 @@ fi
 REPO_URL="https://github.com/yunity/karrot-frontend"
 COMMIT_SHA=$(git rev-parse HEAD)
 COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
-TAG="$(git describe --tags 2>/dev/null)"
+TAG="$(git describe --tags 2>/dev/null || true)"
 
 # tag means production release
 if [ -z "$TAG" ]; then

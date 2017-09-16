@@ -20,7 +20,7 @@ import i18n from './i18n'
 import log from '@/services/log'
 
 Vue.config.productionTip = false
-Vue.use(Quasar) // Install Quasar Framework
+Vue.use(Quasar)
 
 if (process.env.NODE_ENV !== 'production') {
   log.setLevel('debug')

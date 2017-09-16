@@ -9,7 +9,13 @@
 /*
  * Root component
  */
-export default {}
+export default {
+  metaInfo () {
+    return {
+      titleTemplate: '%s (Foodsaving)'
+    }
+  }
+}
 </script>
 
 <style></style>

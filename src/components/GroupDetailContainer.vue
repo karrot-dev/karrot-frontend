@@ -97,6 +97,11 @@ export default {
     this.loginDo()
     this.check()
     this.fetchGroup({ groupId: this.$route.params.groupId })
+  },
+  metaInfo () {
+    return {
+      title: `${this.myGroup.name}`
+    }
   }
 }
 </script>

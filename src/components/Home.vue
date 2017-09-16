@@ -133,6 +133,11 @@ export default {
   mounted () {
     this.check()
     this.fetchGroups()
+  },
+  metaInfo () {
+    return {
+      title: 'Home'
+    }
   }
 }
 </script>

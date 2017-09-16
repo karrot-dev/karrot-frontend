@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Meta from 'vue-meta'
 
 import Home from '@/components/Home.vue'
 import GroupDetailContainer from '@/components/GroupDetailContainer.vue'
 import Error404 from '@/components/Error404.vue'
 
 Vue.use(VueRouter)
+Vue.use(Meta)
 
 export default new VueRouter({
   /*

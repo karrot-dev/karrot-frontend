@@ -7,8 +7,13 @@ import i18n from '@/i18n'
 storiesOf('Login & Signup', module)
   .add('Login', () => ({
     components: { Login },
-    template: '<div id="q-app" style="padding: 2em"><Login/></div>',
-    i18n
+    template: `<div id="q-app" style="padding: 2em"><Login @loginDo="loginDo" :error="null"/></div>`,
+    i18n,
+    methods: {
+      loginDo (email, password) {
+        this.$emit('loginDo', email, password)
+      }
+    }
   }))
 
   .add('Signup', () => ({

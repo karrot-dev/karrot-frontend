@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper">
-    <Topbar class="topbar"/>
     <div class="main">
       <div class="slotContent">
         <slot>Content</slot>
       </div>
     </div>
     <Footer class="footer"/>
+    <Topbar class="topbar"/>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <SplashLayout>
     <div>
-      <Login/>
+      <Login @loginDo="loginDo" :error="error"/>
     </div>
   </SplashLayout>
 </template>
@@ -9,86 +9,28 @@
 <script>
 import SplashLayout from '@/components/LayoutDesktop/SplashLayout.vue'
 import Login from '@/components/Login/Login.vue'
-
-import { usersMock, messagesMock } from '@/components/mockdata.js'
-
-import {
-  mapState,
-  mapGetters,
-  mapActions
-} from 'vuex'
-import { mapGetterMethods } from '@/store/helpers'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
     SplashLayout, Login
   },
-  data () {
-    return {
-      users: usersMock,
-      messages: messagesMock,
-      emptyPickups: this.pickups
-    }
-  },
-  watch: {
-    groupId (groupId) {
-      this.selectGroup({ groupId })
-    }
-  },
   computed: {
-    groupId () {
-      return parseInt(this.$route.params.groupId, 10)
-    },
-    myGroup () {
-      return this.getGroup(this.groupId)
-    },
-    ...mapState({
-      user: state => state.auth.user,
-      isFetching: state => state.groups.isFetching,
-      error: state => state.groups.error,
-      pickups: state => state.pickups.entries,
-      stores: state => state.stores.entries
-    }),
     ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
-      userId: 'auth/userId',
-      storesWithLocation: 'stores/withLocation'
+      error: 'auth/error'
     })
   },
   methods: {
     ...mapActions({
-      selectGroup: 'groups/selectGroup',
-      check: 'auth/check',
-      login: 'auth/login',
-      logout: 'auth/logout',
-      join: 'groups/join',
-      leave: 'groups/leave',
-      joinPickup: 'pickups/join',
-      leavePickup: 'pickups/leave'
+      login: 'auth/login'
     }),
-    ...mapGetterMethods({
-      isGroupMember: 'groups/isMember',
-      isPickupCollector: 'pickups/isCollector',
-      getGroup: 'groups/get'
-    }),
-    loginDo () {
-      this.login({ email: 'foo@foo.com', password: 'foofoo' })
-    },
-    joinPickupDo (pickupId) {
-      this.joinPickup({ pickupId })
-    },
-    leavePickupDo (pickupId) {
-      this.leavePickup({ pickupId })
+    loginDo (email, password) {
+      this.login({ email, password })
     }
-  },
-  mounted () {
-    this.loginDo()
-    this.check()
-    this.selectGroup({ groupId: this.groupId })
   },
   metaInfo () {
     return {
-      title: `${this.myGroup.name}`
+      title: 'test' // '$t("LOGIN.TITLE")'
     }
   }
 }

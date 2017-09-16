@@ -23,7 +23,8 @@ export const state = {
 export const getters = {
   isLoggedIn: state => !!state.user,
   user: state => state.user,
-  userId: state => state.user && state.user.id
+  userId: state => state.user && state.user.id,
+  error: state => state.error
 }
 
 export const actions = {
@@ -83,7 +84,7 @@ export const mutations = {
     state.error = null
   },
   [types.RECEIVE_LOGIN_ERROR] (state, { error }) {
-    state.error = null
+    state.error = error.response.data
   },
 
   // Logout

@@ -4,7 +4,7 @@
         <img :src="loginImage"></img>
         <h4>{{ $t('LOGIN.TITLE') }}</h4>
       </div>
-      <div class="content">
+      <div class="content" v-bind:class="{ shake: error }">
         <div class="white-box">
           <q-field icon="fa-envelope">
             <q-input v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
@@ -15,10 +15,14 @@
             <q-input v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
           </q-field>
         </div>
+        <div class="error" v-if="error">
+          <i v-if="error.password" class="fa fa-exclamation-triangle"/>{{ error.password[0] }}
+          <i v-if="error.email"class="fa fa-exclamation-triangle"/>{{ error.email[0] }}
+        </div>
         <div class="actions">
           <q-btn flat>{{ $t('LOGIN.FORGOT_PASSWORD') }}</q-btn>
           <router-link :to="{ name: 'signup' }"><q-btn flat>{{ $t('LOGIN.SIGNUP') }}</q-btn></router-link>
-          <q-btn class="submit shadow-4">{{ $t('LOGIN.SUBMIT') }}</q-btn>
+          <q-btn @click="$emit('loginDo', email, password)" class="submit shadow-4">{{ $t('LOGIN.SUBMIT') }}</q-btn>
         </div>
         <div style="clear: both"/>
       </div>
@@ -33,7 +37,16 @@ export default {
   components: { QField, QInput, QBtn },
   data () {
     return {
-      loginImage
+      loginImage,
+      isShaking: false,
+      email: '',
+      password: ''
+    }
+  },
+  props: {
+    error: {
+      required: false,
+      default: 'test'
     }
   }
 }
@@ -66,6 +79,11 @@ export default {
     margin-bottom .5em
     .q-field
       margin-top .2em
+  .error
+    color $warning
+    margin 0 1em
+    .fa
+      margin-right .5em
   .actions
     float right
     color $tertiary
@@ -74,4 +92,19 @@ export default {
       background-color $secondary
     .submit:hover
       background-color $positive
+.shake
+  animation shake 0.82s cubic-bezier(.36, .07, .19, .97) both
+  transform translate3d(0, 0, 0)
+  backface-visibility hidden
+  perspective 1000px
+
+@keyframes shake
+  10%, 90%
+    transform translate3d(-1px, 0, 0)
+  20%, 80%
+    transform translate3d(2px, 0, 0)
+  30%, 50%, 70%
+    transform translate3d(-4px, 0, 0)
+  40%, 60%
+    transform translate3d(4px, 0, 0)
 </style>

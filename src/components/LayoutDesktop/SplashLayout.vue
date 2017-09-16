@@ -25,9 +25,10 @@
 
 import KTopbar from './KTopbar.vue'
 import KFooter from './KFooter.vue'
+import { QLayout } from 'quasar'
 
 export default {
-  components: {KTopbar, KFooter}
+  components: {KTopbar, KFooter, QLayout}
 }
 </script>
 
@@ -38,7 +39,6 @@ export default {
   height 100vh
 .wrapper
   .slotContent
-    min-height: 80vh
     margin auto
     margin-top 10vh
     max-width 50em

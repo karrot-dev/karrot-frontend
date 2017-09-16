@@ -1,6 +1,6 @@
 <template>
   <SidenavBox>
-    <div slot="name">{{$t("GROUPMAP.TITLE")}}</div>
+    <div slot="name"><i class="fa fa-fw fa-map"></i>{{$t("GROUPMAP.TITLE")}}</div>
     <div slot="tools" class="tools">
       <q-btn flat>
         <i class="fa fa-bullseye"></i>

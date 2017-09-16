@@ -3,6 +3,7 @@
     <div class="logo">
       <KarrotLogo/>
     </div>
+    <KBreadcrumb class="bread" :breadcrumbs="['FS Darmstadt', 'Edeka Arheilgen']"/>
     <div>
       <q-btn flat>
         <q-icon size="1em" name="fa-comment" />
@@ -36,10 +37,11 @@
 <script>
 import { QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
 import KarrotLogo from './KarrotLogo'
+import KBreadcrumb from '@/components/General/KBreadcrumb'
 
 export default {
   components: {
-    QBtn, QIcon, QPopover, QList, QItem, KarrotLogo
+    QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb
   }
 }
 </script>
@@ -55,4 +57,6 @@ export default {
   .logo
     margin-left 2em
     height 36px
+  .bread
+    margin auto
 </style>

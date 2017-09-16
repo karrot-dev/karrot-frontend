@@ -36,5 +36,7 @@ export default {
       font-size 1.3em 
   .content
     padding .6em
+  .name .fa
+    margin-right .4em
 
 </style>

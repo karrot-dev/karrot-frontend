@@ -1,40 +1,39 @@
 <template>
   <div class="wrapper">
-    <div class="row justify-between toolbar">
-      <div class="name"><slot name="name">"name"-Slot</slot></div>
-      <div><slot name="tools">"tools"-Slot</slot></div>
+    <div class="prevBread" v-for="breadcrumb in prevElements" :key="breadcrumb">
+      <q-btn flat small>{{ breadcrumb }}</q-btn>
+      <div> > </div>
     </div>
-    <div class="content">
-      <slot>Primary Slot</slot>
-    </div>
+    <div class="q-btn q-btn-flat label">{{ lastElement }}</div>
   </div>
 </template>
 
 <script>
+import { QBtn } from 'quasar'
+
 export default {
-  components: {
+  components: { QBtn },
+  props: {
+    breadcrumbs: { required: true }
+  },
+  computed: {
+    prevElements () {
+      let prev = this.breadcrumbs.slice()
+      prev.pop()
+      return prev
+    },
+    lastElement () {
+      return this.breadcrumbs[this.breadcrumbs.length - 1]
+    }
   }
 }
 </script>
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .wrapper
-  width 100%
-  margin .6em
-  border 1px solid grey
-  border-radius $borderRadius
-  .toolbar
-    border-radius $borderRadius $borderRadius 0 0
-    background-color $primary
-    padding .1em .6em
-    color white
-    .name
-      margin auto 0
-      font-weight 500
-      font-size 1.3em 
-  .content
-    padding .6em
-
+  .prevBread, .q-btn, div
+    display inline-block
+  .label
+    cursor auto
 </style>

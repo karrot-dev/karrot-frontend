@@ -1,6 +1,6 @@
 <template>
   <SidenavBox>
-    <div slot="name">{{$t("GROUP.STORES")}}</div>
+    <div slot="name"><i class="fa fa-fw fa-shopping-cart"></i>{{$t("GROUP.STORES")}}</div>
     <div slot="tools">
       <q-btn small flat>            
         <q-icon size="1em" name="fa-plus-circle" />

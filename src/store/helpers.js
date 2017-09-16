@@ -21,11 +21,11 @@ export function mapGetterMethods (mapping) {
  * @param args will be passed to the getter if it is a function
  * @returns {function()}
  */
-export function watchGetter (getterName, ...args) {
-  return () => {
+export function getter (getterName, ...args) {
+  return (...moreArgs) => {
     let getter = store.getters[getterName]
     if (typeof getter === 'function') {
-      return getter(...args)
+      return getter(...args, ...moreArgs)
     }
     else {
       return getter

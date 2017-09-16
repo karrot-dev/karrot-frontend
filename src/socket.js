@@ -2,7 +2,7 @@ import ReconnectingWebsocket from 'reconnecting-websocket'
 
 import store from '@/store'
 import log from '@/services/log'
-import { watchGetter } from '@/store/helpers'
+import { getter } from '@/store/helpers'
 
 export const WEBSOCKET_ENDPOINT = [
   window.location.protocol.replace(/^http/, 'ws'),
@@ -56,7 +56,7 @@ export function receiveMessage ({ topic, payload }) {
   }
 }
 
-store.watch(watchGetter('auth/isLoggedIn'), isLoggedIn => {
+store.watch(getter('auth/isLoggedIn'), isLoggedIn => {
   if (isLoggedIn) {
     socket.connect()
   }

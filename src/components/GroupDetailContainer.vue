@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import MainLayout from '@/components/LayoutDesktop/MainLayout.vue'
+import MainLayout from '@/components/Layout/MainLayout.vue'
 import Wall from '@/components/Wall/Wall.vue'
 import SidenavMap from '@/components/Sidenav/SidenavMap.vue'
 import SidenavGroup from '@/components/Sidenav/SidenavGroup.vue'

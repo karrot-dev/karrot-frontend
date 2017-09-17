@@ -11,7 +11,7 @@ import { storesMock, usersMock } from '../mockdata.js'
 import i18n from '@/i18n'
 
 const mainLayoutTemplate = `
-<div id="q-app" style="margin: auto; width: 450px; height: 600px; overflow: auto">
+<div id="q-app">
   <MainLayout>
     <template slot="sidenav">      
       <SidenavMap :stores="stores" :users="users"/>
@@ -24,7 +24,7 @@ const mainLayoutTemplate = `
   </MainLayout>
 </div>'`
 
-storiesOf('Layout (Mobile)', module)
+storiesOf('Layout', module)
   .add('MainLayout with Sidenav', () => ({
     components: { MainLayout, SidenavMap, SidenavGroup, SidenavStores, Wall },
     template: mainLayoutTemplate,

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SplashLayout from '@/components/LayoutDesktop/SplashLayout.vue'
+import SplashLayout from '@/components/Layout/SplashLayout.vue'
 import Login from '@/components/Login/Login.vue'
 import { mapActions, mapGetters } from 'vuex'
 

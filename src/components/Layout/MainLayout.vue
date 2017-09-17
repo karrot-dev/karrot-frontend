@@ -15,6 +15,9 @@
           </div>
         </template>
         <div>
+          <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
+            <i class="fa fa-bars"></i>
+          </q-btn>
           <slot>Content</slot>
         </div>
 
@@ -38,6 +41,10 @@ export default {
 <!-- This in NOT scoped! -->
 <style lang="stylus">
 .mainLayoutDesktop
+  .layout-aside
+    transition: all 0s !important
+  .layout-page-container
+    transition: all 0s !important
   .layout-aside.on-layout
     width: 40%
     min-width 20em

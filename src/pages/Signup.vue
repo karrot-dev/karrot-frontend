@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SplashLayout from '@/components/LayoutDesktop/SplashLayout.vue'
+import SplashLayout from '@/components/Layout/SplashLayout.vue'
 import Signup from '@/components/Login/Signup.vue'
 
 import { usersMock, messagesMock } from '@/components/mockdata.js'

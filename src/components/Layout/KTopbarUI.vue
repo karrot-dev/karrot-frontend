@@ -14,13 +14,13 @@
     <KBreadcrumb class="bread" :breadcrumbs="['FS Darmstadt', 'Edeka Arheilgen']"/>
   </q-toolbar-title>
 
-  <q-btn flat>
+  <q-btn flat class="desktop-only">
     <q-icon name="fa-fw fa-comment"/>
   </q-btn>
-  <q-btn flat>
+  <q-btn flat class="desktop-only">
     <q-icon name="fa-fw fa-bell" />
   </q-btn>
-  <q-btn flat>
+  <q-btn flat class="desktop-only">
     <q-icon name="fa-fw fa-user" />
     <q-popover fit ref="popover">
       <q-list item-separator link>

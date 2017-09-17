@@ -38,12 +38,4 @@ export default {
     padding .6em
   .name .fa
     margin-right .4em
-
-@media screen and (max-width $breakpoint-sm)
-  .wrapper
-    border 0
-    border-radius 0px
-    .toolbar
-      border-radius 0
-    margin 0
 </style>

@@ -9,16 +9,40 @@
             </q-btn>
           </KTopbar>
         </div>
-        <template slot="left">
-          <div class="leftContent">
-            <slot name="sidenav"/>
-          </div>
+        <template slot="left" v-if="$q.platform.is.mobile">
+          <q-list no-border link inset-separator>
+            <q-list-header>Essential Links</q-list-header>
+            <q-side-link item to="/docs">
+              <q-item-side icon="school" />
+              <q-item-main label="Docs" sublabel="quasar-framework.org" />
+            </q-side-link>
+            <q-side-link item to="/forum">
+              <q-item-side icon="record_voice_over" />
+              <q-item-main label="Settings" sublabel="forum.quasar-framework.org" />
+            </q-side-link>
+            <q-side-link item to="/chat">
+              <q-item-side icon="chat" />
+              <q-item-main label="Git" sublabel="Quasar Lobby" />
+            </q-side-link>
+            <q-side-link item to="/twitter">
+              <q-item-side icon="rss feed" />
+              <q-item-main label="Logout" sublabel="@quasarframework" />
+            </q-side-link>
+          </q-list>
         </template>
-        <div class="mainContent">
-          <q-btn flat @click="$refs.layout.toggleLeft()">
-            <i class="fa fa-bars"></i>
-          </q-btn>
-          <slot>Content</slot>
+        <div class="mainContent row justify no-wrap">
+          <div class="whiteSpace gt-sm"/>
+          <div class="desktop-only sidenav-desktop">
+            <slot name="sidenav-desktop"/>
+          </div>
+          <div class="whiteSpaceSmall gt-sm"/>
+          <div class="mainContent-page">
+            <slot>Content</slot>
+            <q-btn flat @click="$refs.layout.toggleLeft()">
+              <i class="fa fa-bars on-left"></i>Open Sidenav
+            </q-btn>
+          </div>
+          <div class="whiteSpace gt-sm"/>
         </div>
 
         <MobileNavigation class="mobile-only" slot="footer"></MobileNavigation>
@@ -32,10 +56,10 @@
 import KTopbar from './KTopbar.vue'
 import KFooter from './KFooter.vue'
 import MobileNavigation from './MobileNavigation.vue'
-import { QLayout, QBtn } from 'quasar'
+import { QLayout, QBtn, QList, QListHeader, QSideLink, QItemSide, QItemMain } from 'quasar'
 
 export default {
-  components: {KTopbar, KFooter, MobileNavigation, QLayout, QBtn},
+  components: { KTopbar, KFooter, MobileNavigation, QLayout, QBtn, QList, QListHeader, QSideLink, QItemSide, QItemMain },
   computed: {
     layoutView () {
       console.log(this.$q.platform.is.mobile)
@@ -49,25 +73,17 @@ export default {
 </script>
 
 
-<!-- This in NOT scoped! -->
-<style lang="stylus">
-.mainLayoutDesktop
-  .mainContent
-    padding 1em
-  .layout-aside
-    transition: all 0s !important
-  .layout-page-container
-    transition: all 0s !important
-  .layout-aside.on-layout
-    width: 40%
-    min-width 20em
-    overflow: hidden
-    padding 1em
-    .leftContent
-      min-width 20em
-      width 80%
-      margin-left 5%
-  .layout-aside.on-top
-    .leftContent
-      width: 95%
+<style scoped lang="stylus">
+.sidenav-desktop
+  margin-right 2em
+  width 30%
+  min-width 250px
+body.desktop .mainContent-page
+  min-width 400px
+body.mobile .mainContent-page
+  width 100%
+.whiteSpace
+  width 5%
+.whiteSpaceSmall
+  width 2%
 </style>

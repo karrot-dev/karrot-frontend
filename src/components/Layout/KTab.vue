@@ -1,17 +1,20 @@
 <template>
-  <q-tab slot="title" name="messages">
+  <q-route-tab :to="to" slot="title" name="messages">
     <slot name="icon"></slot>
     <div class="label">
       <slot></slot>
     </div>
-  </q-tab>
+  </q-route-tab>
 </template>
 
 <script>
-import { QTab, QChip } from 'quasar'
+import { QRouteTab, QChip } from 'quasar'
 
 export default {
-  components: { QTab, QChip },
+  components: { QRouteTab, QChip },
+  props: {
+    to: { required: false, default: '' },
+  },
 }
 </script>
 

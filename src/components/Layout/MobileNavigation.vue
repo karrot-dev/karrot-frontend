@@ -1,9 +1,13 @@
 <template>
   <div>
     <q-tabs v-model="selectedTab">
-      <KTab slot="title" name="group">
+      <KTab slot="title" to="/group/1" name="group">
         <template slot="icon"><i class="fa fa-home q-tab-icon"></i></template>
         <template>Wall</template>
+      </KTab>
+      <KTab slot="title" to="/group/1/stores" name="stores">
+        <template slot="icon"><i class="fa fa-shopping-cart q-tab-icon"></i></template>
+        <template>Stores</template>
       </KTab>
       <KTab slot="title" name="messages">
         <template slot="icon"><i class="fa fa-comment q-tab-icon"></i></template>
@@ -13,7 +17,7 @@
         <template slot="icon"><i class="fa fa-bell q-tab-icon"></i></template>
         <template>Alerts</template>
       </KTab>
-      <KTab slot="title" name="profile" icon="fa-user">
+      <KTab slot="title" to="home" name="profile" icon="fa-user">
         <template slot="icon"><i class="fa fa-user q-tab-icon"></i></template>
         <template class="q-tab-label">Profile</template>
       </KTab>

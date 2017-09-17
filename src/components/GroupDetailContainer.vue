@@ -1,13 +1,16 @@
 <template>
   <MainLayout>
-    <div slot="sidenav">
+    <div slot="sidenav-mobile">
+      <SidenavGroup/>
+      <SidenavStores :stores="stores"/>
+    </div>
+    <div slot="sidenav-desktop">
       <SidenavMap :stores="stores" :users="users"/>
       <SidenavGroup/>
       <SidenavStores :stores="stores"/>
     </div>
     <div v-if="group">
-      <h2>{{ group.name }}</h2>
-      <a href="/#/home">home</a>
+      <h4>{{ group.name }}</h4>
       <Wall :messages="messages" :emptyPickups="emptyPickups" />
     </div>
   </MainLayout>

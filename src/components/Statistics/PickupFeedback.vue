@@ -5,7 +5,7 @@
         <img style="width: 100%" :src="cartImg">
       </div>
       <div class="image-and-text-right">
-        <h2>{{$t("PICKUP_FEEDBACK.HEADER")}}</h2>
+        <h3>{{$t("PICKUP_FEEDBACK.HEADER")}}</h3>
         <p>{{$t("PICKUP_FEEDBACK.SUBTITLE")}}</p>
       </div>
     </div>

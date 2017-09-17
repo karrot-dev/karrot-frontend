@@ -4,7 +4,7 @@
       <q-btn flat small>{{ breadcrumb }}</q-btn>
       <div> > </div>
     </div>
-    <div class="q-btn q-btn-flat label">{{ lastElement }}</div>
+    <div class="label">{{ lastElement }}</div>
   </div>
 </template>
 
@@ -36,4 +36,12 @@ export default {
     display inline-block
   .label
     cursor auto
+    text-overflow ellipsis
+    justify-content center
+    outline 0
+    border 
+    vertical-align middle
+    padding 0 16px
+    font-weight 500
+    text-transform uppercase
 </style>

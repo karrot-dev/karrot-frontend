@@ -10,6 +10,7 @@ import GroupDetailContainer from '@/components/GroupDetailContainer.vue'
 import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
 import Signup from '@/pages/Signup.vue'
+import PickupFeedback from '@/pages/Feedback.vue'
 import { getter } from '@/store/helpers'
 
 Vue.use(VueRouter)
@@ -54,6 +55,7 @@ const router = new VueRouter({
     { name: 'index', path: '/', redirect: '/group/1', beforeEnter: protectRoute },
     { name: 'home', path: '/home', component: Home },
     { name: 'group', path: '/group/:groupId', component: GroupDetailContainer, beforeEnter: protectRoute },
+    { name: 'pickupFeedback', path: '/group/:groupId/feedback', component: PickupFeedback, beforeEnter: protectRoute },
     { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
     { name: 'signup', path: '/signup', component: Signup },
 

@@ -49,4 +49,5 @@ export default {
     overflow hidden
   .content
     padding .5em
+    word-wrap break-word
 </style>

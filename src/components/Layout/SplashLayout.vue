@@ -36,7 +36,6 @@ export default {
 .background
   background-image url('../../assets/repeating_grey.jpg')
   background-size: 600px
-  height 100vh
 .wrapper
   .slotContent
     margin auto

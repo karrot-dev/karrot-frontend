@@ -37,8 +37,9 @@ export default {
         }
       }
       if (this.about.env === 'development') {
+        const sha = this.about.commitSHA
         return {
-          link: `https://github.com/yunity/karrot-frontend/tree/${this.about.commitSHA}`,
+          link: `https://github.com/yunity/karrot-frontend/tree/${sha}`,
           name: 'development'
         }
       }

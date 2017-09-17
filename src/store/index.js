@@ -9,6 +9,7 @@ import * as users from './modules/users'
 import * as pickups from './modules/pickups'
 import * as i18n from './modules/i18n'
 import * as sidenav from './modules/sidenav'
+import * as about from './modules/about'
 
 Vue.use(Vuex)
 
@@ -23,7 +24,8 @@ const options = ({
     users,
     pickups,
     i18n,
-    sidenav
+    sidenav,
+    about
   },
   plugins: [createPersistedState({
     paths: ['i18n.locale']

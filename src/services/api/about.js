@@ -1,7 +1,7 @@
 import axios from '@/services/axios'
 
 export default {
-  async about (data) {
+  async get () {
     return (await axios.get('/about.json')).data
   }
 }

@@ -69,7 +69,7 @@ export default {
       groups: 'groups/list',
       isFetching: 'groups/isFetching',
       error: 'groups/error',
-      pickups: 'pickups/list'
+      pickups: 'pickups/all'
     }),
     conversation: () => store.getters['conversations/getConversationById'](1),
     locale: {

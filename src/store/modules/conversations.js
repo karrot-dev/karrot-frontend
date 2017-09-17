@@ -19,7 +19,8 @@ export const types = {
 export const state = {
   conversations: {},
   messages: {},
-  messagesMeta: {}
+  messagesMeta: {},
+  activeConversationId: null
 }
 
 const getAuthor = getter('users/get')
@@ -29,7 +30,11 @@ export const getters = {
   getMessagesById: state => id => (state.messages[id] || []).map(m => {
     const author = getAuthor(m.author)
     return { ...m, author }
-  })
+  }),
+  activeMessages: (state, getters) => {
+    if (!state.activeConversationId) return []
+    return getters.getMessagesById(state.activeConversationId)
+  }
 }
 
 export const actions = {
@@ -65,11 +70,14 @@ export const mutations = {
       Vue.set(state.messages, conversationId, [])
     }
     Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: false, error: null })
+    // TODO: subscribe is not the same as "select", this is just for now...
+    state.activeConversationId = conversationId
   },
   [types.UNSUBSCRIBE] (state, { conversationId }) {
     Vue.delete(state.conversations, conversationId)
     Vue.delete(state.messages, conversationId)
     Vue.delete(state.messagesMeta, conversationId)
+    state.activeConversationId = null
   },
 
   [types.REQUEST_MESSAGES] (state, { conversationId }) {

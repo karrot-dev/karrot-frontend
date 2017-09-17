@@ -1,12 +1,13 @@
 <template>
   <MainLayout>
     <div slot="sidenav">
-      <SidenavMap :stores="storesWithLocation" :users="usersWithLocation"/>
+      <SidenavMap :stores="stores" :users="users"/>
       <SidenavGroup/>
       <SidenavStores :stores="stores"/>
     </div>
-    <div>
-      <h2>{{ myGroup.name }}</h2>
+    <div v-if="group">
+      <h2>{{ group.name }}</h2>
+      <a href="/#/home">home</a>
       <Wall :messages="messages" :emptyPickups="emptyPickups" />
     </div>
   </MainLayout>
@@ -21,9 +22,9 @@ import SidenavStores from '@/components/Sidenav/SidenavStores.vue'
 
 import {
   mapGetters,
-  mapActions
+  mapActions,
+  mapState
 } from 'vuex'
-import { mapGetterMethods } from '@/store/helpers'
 
 export default {
   components: {
@@ -35,37 +36,36 @@ export default {
     }
   },
   computed: {
-    groupId () {
-      return parseInt(this.$route.params.groupId, 10)
-    },
-    myGroup () {
-      return this.getGroup(this.groupId)
-    },
-    messages () {
-      return this.getMessagesByConversationId(this.myGroup.conversationId)
-    },
     ...mapGetters({
-      storesWithLocation: 'stores/withLocation',
-      emptyPickups: 'pickups/listEmpty',
+      emptyPickups: 'pickups/empty',
       stores: 'stores/list',
-      usersWithLocation: 'users/withLocation'
+      messages: 'conversations/activeMessages',
+      group: 'groups/activeGroup',
+      users: 'groups/activeUsers'
+    }),
+    ...mapState({
+      groupId: state => {
+        let groupId = state.route.params.groupId
+        if (groupId) return parseInt(groupId, 10)
+      }
     })
   },
   methods: {
     ...mapActions({
       selectGroup: 'groups/selectGroup'
-    }),
-    ...mapGetterMethods({
-      getGroup: 'groups/get',
-      getMessagesByConversationId: 'conversations/getMessagesById'
     })
   },
   mounted () {
     this.selectGroup({ groupId: this.groupId })
   },
   metaInfo () {
-    return {
-      title: this.myGroup.name
+    if (this.group) {
+      return {
+        title: this.group.name
+      }
+    }
+    else {
+      return {}
     }
   }
 }

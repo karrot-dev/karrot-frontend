@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import pickups from '@/services/api/pickups'
-import log from '@/services/log'
 
 export const types = {
 
@@ -18,24 +17,32 @@ export const types = {
 
   REQUEST_LEAVE: 'Request Leave',
   RECEIVE_LEAVE: 'Receive Leave',
-  RECEIVE_LEAVE_ERROR: 'Receive Leave Error'
+  RECEIVE_LEAVE_ERROR: 'Receive Leave Error',
+
+  CLEAR: 'Clear'
 
 }
 
 export const state = {
-  entries: []
+  entries: {},
+  idList: [],
+  idListGroupId: null
 }
 
 export const getters = {
-  list: state => state.entries,
-  isCollector: state => (pickupId, userId) => {
-    let pickup = state.entries.find(pickup => pickup.id === pickupId)
-    if (pickup && pickup.collectorIds.indexOf(userId) !== -1) {
+  all: state => state.idList.map(id => state.entries[id]),
+  empty: (state, getters) => getters.all.filter(e => e.collectorIds.length < 1),
+  isCollector: (state, getters) => (pickupId, userId) => {
+    let pickup = getters.all.find(pickup => pickup.id === pickupId)
+    if (pickup && pickup.collectorIds.includes(userId)) {
       return true
     }
     return false
   },
-  listEmpty: state => state.entries.filter(e => e.collectorIds.length < 1)
+  mine: (state, getters, rootState, rootGetters) => {
+    if (!rootGetters['auth/isLoggedIn']) return []
+    return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
+  }
 }
 
 export const actions = {
@@ -63,7 +70,7 @@ export const actions = {
   async fetchListByGroupId ({ commit }, { groupId }) {
     commit(types.REQUEST_LIST)
     try {
-      commit(types.RECEIVE_LIST, { pickups: await pickups.listByGroupId(groupId) })
+      commit(types.RECEIVE_LIST, { pickups: await pickups.listByGroupId(groupId), groupId })
     }
     catch (error) {
       commit(types.RECEIVE_LIST_ERROR, { error })
@@ -97,19 +104,28 @@ export const actions = {
 }
 
 export const mutations = {
+  [types.CLEAR] (state) {
+    state.entries = {}
+    state.idList = []
+    state.idListGroupId = null
+  },
   [types.REQUEST_ITEM] (state) {},
   [types.RECEIVE_ITEM] (state, { pickup }) {
-    log.debug('receive pickup!', pickup)
-    let idx = state.entries.findIndex(g => g.id === pickup.id)
-    if (idx !== -1) {
-      Vue.set(state.entries, idx, { ...state.entries[idx], ...pickup })
-    }
+    Vue.set(state.entries, pickup.id, pickup)
   },
   [types.RECEIVE_PICKUP_ERROR] (state, { error }) {},
 
   [types.REQUEST_LIST] (state) {},
-  [types.RECEIVE_LIST] (state, { pickups }) {
-    state.entries = pickups
+  [types.RECEIVE_LIST] (state, { pickups, groupId }) {
+    let entries = {}
+    let ids = []
+    for (let pickup of pickups) {
+      entries[pickup.id] = pickup
+      ids.push(pickup.id)
+    }
+    state.entries = entries
+    state.idList = ids
+    state.idListGroupId = groupId
     state.error = null
   },
   [types.RECEIVE_LIST_ERROR] (state, { error }) {

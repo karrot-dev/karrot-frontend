@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import createPersistedState from 'vuex-persistedstate'
+import persistedState from './plugins/persistedState'
+import i18nPlugin from './plugins/i18n'
 import * as auth from './modules/auth'
 import * as conversations from './modules/conversations'
 import * as groups from './modules/groups'
@@ -27,9 +28,10 @@ const options = ({
     sidenav,
     about
   },
-  plugins: [createPersistedState({
-    paths: ['i18n.locale']
-  })],
+  plugins: [
+    i18nPlugin,
+    persistedState
+  ],
   strict: debug
 })
 

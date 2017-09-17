@@ -31,13 +31,14 @@ export const types = {
 
 export const state = {
   entries: {},
-  selected: {},
+  idsList: [],
   isFetching: false,
-  error: null
+  error: null,
+  activeGroupId: null
 }
 
 export const getters = {
-  list: state => Object.values(state.entries),
+  list: state => state.idsList.map(id => state.entries[id]),
   isFetching: state => state.isFetching,
   error: state => state.error,
   isMember: state => (groupId, userId) => {
@@ -49,19 +50,25 @@ export const getters = {
   },
   get: state => (groupId) => {
     return state.entries[groupId] || {}
+  },
+  activeGroup: state => state.activeGroupId && state.entries[state.activeGroupId],
+  activeUsers: (state, getters, rootState, rootGetters) => {
+    let group = getters.activeGroup
+    if (!group) return []
+    return group.members.map(id => rootGetters['users/get'](id))
   }
 }
 
 export const actions = {
 
-  async selectGroup ({ commit, state, dispatch }, { groupId }) {
-    await dispatch('fetchGroup', { groupId })
-    commit(types.SELECT_GROUP, { group: getters.get(state)(groupId) })
-    dispatch('pickups/fetchListByGroupId', { groupId }, { root: true })
-    dispatch('stores/fetchListByGroupId', { groupId }, { root: true })
-    dispatch('users/fetchList', null, { root: true })
-    await dispatch('fetchGroupConversation', { groupId })
-    dispatch('conversations/subscribe', { conversationId: getters.get(state)(groupId).conversationId }, { root: true })
+  async selectGroup ({ commit, state, dispatch, getters, rootState }, { groupId }) {
+    console.log('selecting group!', groupId)
+    commit(types.SELECT_GROUP, { groupId })
+    dispatch('pickups/fetchListByGroupId', {groupId}, {root: true})
+    dispatch('stores/fetchListByGroupId', {groupId}, {root: true})
+    dispatch('users/fetchList', null, {root: true})
+    await dispatch('fetchGroupConversation', {groupId})
+    dispatch('conversations/subscribe', { conversationId: getters.get(groupId).conversationId }, {root: true})
   },
 
   async fetchGroup ({ commit }, { groupId }) {
@@ -124,8 +131,8 @@ export const actions = {
 }
 
 export const mutations = {
-  [types.SELECT_GROUP] (state, { group }) {
-    state.selected = group
+  [types.SELECT_GROUP] (state, { groupId }) {
+    state.activeGroupId = groupId
   },
   [types.REQUEST_GROUP] (state) {},
   [types.RECEIVE_GROUP] (state, { group }) {

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 import MainLayout from './MainLayout.vue'
-import KTopbar from './KTopbar.vue'
+import KTopbarUI from './KTopbarUI.vue'
 import KFooter from './KFooter.vue'
 import Wall from '../Wall/Wall.vue'
 import SidenavMap from '../Sidenav/SidenavMap.vue'
@@ -37,8 +37,8 @@ storiesOf('Layout', module)
     i18n
   }))
   .add('KTopbar', () => ({
-    components: { KTopbar },
-    template: '<div id="q-app"><KTopbar/></div>'
+    components: { KTopbarUI },
+    template: '<div id="q-app"><KTopbarUI/></div>'
   }))
   .add('KFooter', () => ({
     components: { KFooter },

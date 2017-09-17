@@ -35,6 +35,7 @@ import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
 Quasar.start(async () => {
+  store.dispatch('groups/fetchGroups')
   await store.dispatch('auth/check')
 
   /* eslint-disable no-new */

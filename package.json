@@ -1,9 +1,23 @@
 {
-  "name": "quasar-app",
-  "productName": "Quasar App",
-  "version": "0.0.1",
-  "description": "A Quasar App",
-  "author": "Your Name <your@email.com>",
+  "private": true,
+  "name": "karrot-frontend",
+  "productName": "karrot",
+  "version": "3.0.0",
+  "description": "Modern website for organization of foodsaving groups worldwide",
+  "author": "Foodsaving Worldwide Dev Team <foodsaving@yunity.org>",
+  "homepage": "https://foodsaving.world/",
+  "license": "MIT",
+  "keywords": [
+    "foodsharing",
+    "foodsaving",
+    "community",
+    "organization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunity/karrot-frontend"
+  },
+  "bugs": "https://github.com/yunity/karrot-frontend/issues",
   "scripts": {
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",

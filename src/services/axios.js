@@ -1,5 +1,9 @@
 import Axios from 'axios'
 
+/*
+* Axios configured for Django REST API
+*/
+
 import { camelizeKeys } from '@/services/utils'
 
 const axios = Axios.create({

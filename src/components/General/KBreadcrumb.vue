@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="prevBread" v-for="breadcrumb in prevElements" :key="breadcrumb">
+    <div class="prevBread gt-sm" v-for="breadcrumb in prevElements" :key="breadcrumb">
       <q-btn flat small>{{ breadcrumb }}</q-btn>
       <div> > </div>
     </div>

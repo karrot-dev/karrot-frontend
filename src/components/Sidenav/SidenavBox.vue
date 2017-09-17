@@ -39,7 +39,7 @@ export default {
   .name .fa
     margin-right .4em
 
-@media screen and (max-width 991px)
+@media screen and (max-width $breakpoint-sm)
   .wrapper
     border 0
     border-radius 0px

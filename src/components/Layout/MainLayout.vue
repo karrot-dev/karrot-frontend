@@ -15,7 +15,7 @@
           </div>
         </template>
         <div>
-          <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
+          <q-btn flat @click="$refs.layout.toggleLeft()">
             <i class="fa fa-bars"></i>
           </q-btn>
           <slot>Content</slot>

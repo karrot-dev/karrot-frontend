@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import store from '@/store'
-import { getter } from '@/store/helpers'
 
 Vue.use(VueI18n)
 
@@ -58,10 +56,6 @@ const i18n = new VueI18n({
   dateTimeFormats,
   fallbackLocale: 'en'
 })
-
-store.watch(getter('i18n/getLocale'), locale => {
-  i18n.locale = locale
-}, { immediate: true })
 
 export default i18n
 

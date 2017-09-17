@@ -5,11 +5,11 @@ import SidenavMapUI from './SidenavMapUI.vue'
 export default connect({
   gettersToProps: {
     showStores: 'sidenav/showMapStores',
-    showUsers: 'sidenav/showMapUsers'
+    showUsers: 'sidenav/showMapUsers',
   },
   actionsToEvents: {
     toggleStores: 'sidenav/toggleMapStores',
-    toggleUsers: 'sidenav/toggleMapUsers'
-  }
+    toggleUsers: 'sidenav/toggleMapUsers',
+  },
 })('SidenavMap', SidenavMapUI)
 </script>

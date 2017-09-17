@@ -14,7 +14,7 @@ import { QBtn } from 'quasar'
 export default {
   components: { QBtn },
   props: {
-    breadcrumbs: { required: true }
+    breadcrumbs: { required: true },
   },
   computed: {
     prevElements () {
@@ -24,8 +24,8 @@ export default {
     },
     lastElement () {
       return this.breadcrumbs[this.breadcrumbs.length - 1]
-    }
-  }
+    },
+  },
 }
 </script>
 

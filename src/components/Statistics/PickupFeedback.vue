@@ -21,9 +21,9 @@ export default {
   components: { AmountPicker },
   data () {
     return {
-      cartImg
+      cartImg,
     }
-  }
+  },
 }
 </script>
 

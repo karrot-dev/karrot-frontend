@@ -33,7 +33,7 @@ import KFooter from './KFooter.vue'
 import { QLayout, QBtn } from 'quasar'
 
 export default {
-  components: {KTopbar, KFooter, QLayout, QBtn}
+  components: {KTopbar, KFooter, QLayout, QBtn},
 }
 </script>
 

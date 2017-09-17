@@ -24,11 +24,11 @@ import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
 
 export default {
   components: {
-    WallCard, ProfilePicture, AmountBox
+    WallCard, ProfilePicture, AmountBox,
   },
   props: {
-    feedback: { required: true }
-  }
+    feedback: { required: true },
+  },
 }
 </script>
 

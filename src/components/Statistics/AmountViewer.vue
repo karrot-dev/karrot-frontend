@@ -21,13 +21,13 @@ export default {
   data () {
     return {
       selectedValue: 3.0,
-      appleImg
+      appleImg,
     }
   },
   props: {
     amount: {
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     photosArray () {
@@ -65,8 +65,8 @@ export default {
         amount -= 0.15
       }
       return amountImages
-    }
-  }
+    },
+  },
 }
 </script>
 

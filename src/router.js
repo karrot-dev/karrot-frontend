@@ -58,8 +58,8 @@ const router = new VueRouter({
     { name: 'signup', path: '/signup', component: Signup },
 
     // Always leave this last one
-    { path: '*', component: Error404 } // Not found
-  ]
+    { path: '*', component: Error404 }, // Not found
+  ],
 })
 
 sync(store, router)

@@ -53,13 +53,13 @@ export default {
   data () {
     return {
       groupId: null,
-      locales
+      locales,
     }
   },
   watch: {
     groupId (val) {
       this.fetchListByGroupId({ groupId: val })
-    }
+    },
   },
   computed: {
     ...mapGetters({
@@ -69,7 +69,7 @@ export default {
       groups: 'groups/list',
       isFetching: 'groups/isFetching',
       error: 'groups/error',
-      pickups: 'pickups/all'
+      pickups: 'pickups/all',
     }),
     conversation: () => store.getters['conversations/getConversationById'](1),
     locale: {
@@ -78,8 +78,8 @@ export default {
       },
       set (locale) {
         this.setLocale({ locale })
-      }
-    }
+      },
+    },
   },
   methods: {
     ...mapActions({
@@ -93,11 +93,11 @@ export default {
       fetchListByGroupId: 'pickups/fetchListByGroupId',
       joinPickup: 'pickups/join',
       leavePickup: 'pickups/leave',
-      setLocale: 'i18n/setLocale'
+      setLocale: 'i18n/setLocale',
     }),
     ...mapGetterMethods({
       isGroupMember: 'groups/isMember',
-      isPickupCollector: 'pickups/isCollector'
+      isPickupCollector: 'pickups/isCollector',
     }),
     logoutDo () {
       this.logout()
@@ -121,7 +121,7 @@ export default {
     },
     leavePickupDo (pickupId) {
       this.leavePickup({ pickupId })
-    }
+    },
   },
   mounted () {
     this.check()
@@ -129,9 +129,9 @@ export default {
   },
   metaInfo () {
     return {
-      title: 'Home'
+      title: 'Home',
     }
-  }
+  },
 }
 </script>
 

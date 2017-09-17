@@ -31,5 +31,5 @@ export default {
 
   delete (id) {
     return axios.delete(`/api/stores/${id}/`)
-  }
+  },
 }

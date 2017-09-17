@@ -19,11 +19,11 @@ import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
 
 export default {
   components: {
-    WallCard, ProfilePicture
+    WallCard, ProfilePicture,
   },
   props: {
-    message: { required: true }
-  }
+    message: { required: true },
+  },
 }
 </script>
 

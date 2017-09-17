@@ -11,5 +11,5 @@ export default {
 
   async logout () {
     return (await axios.post('/api/auth/logout/', {})).data
-  }
+  },
 }

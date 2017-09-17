@@ -17,42 +17,42 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
-    QBtn, QIcon, QPopover, QList, QItem
+    QBtn, QIcon, QPopover, QList, QItem,
   },
   computed: {
     ...mapGetters({
-      about: 'about/get'
+      about: 'about/get',
     }),
     release () {
       if (process.env.NODE_ENV === 'development') {
         return {
           link: '',
-          name: 'local development'
+          name: 'local development',
         }
       }
       if (this.about.env === 'production') {
         return {
           link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
-          name: 'Release 3'
+          name: 'Release 3',
         }
       }
       if (this.about.env === 'development') {
         const sha = this.about.commitSHA
         return {
           link: `https://github.com/yunity/karrot-frontend/tree/${sha}`,
-          name: 'development'
+          name: 'development',
         }
       }
-    }
+    },
   },
   methods: {
     ...mapActions({
-      fetchAbout: 'about/fetchAbout'
-    })
+      fetchAbout: 'about/fetchAbout',
+    }),
   },
   mounted () {
     this.fetchAbout()
-  }
+  },
 }
 </script>
 

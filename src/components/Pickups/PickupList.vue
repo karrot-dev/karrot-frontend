@@ -29,25 +29,25 @@ export default {
       default () {
         return {
           showStore: false, // either time or store
-          showCreate: true
+          showCreate: true,
         }
-      }
+      },
     },
     pickups: {
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon, PickupItem
+    QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon, PickupItem,
   },
   methods: {
     join () {
       console.log('join')
-    }
+    },
   },
   mounted () {
     console.log(this.$store)
-  }
+  },
 }
 </script>
 

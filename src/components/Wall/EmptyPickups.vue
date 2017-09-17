@@ -11,8 +11,8 @@ import PickupItem from '../Pickups/PickupItem.vue'
 export default {
   components: { PickupItem },
   props: {
-    pickups: { required: true }
-  }
+    pickups: { required: true },
+  },
 }
 </script>
 

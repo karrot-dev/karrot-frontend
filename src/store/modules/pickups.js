@@ -19,14 +19,14 @@ export const types = {
   RECEIVE_LEAVE: 'Receive Leave',
   RECEIVE_LEAVE_ERROR: 'Receive Leave Error',
 
-  CLEAR: 'Clear'
+  CLEAR: 'Clear',
 
 }
 
 export const state = {
   entries: {},
   idList: [],
-  idListGroupId: null
+  idListGroupId: null,
 }
 
 export const getters = {
@@ -42,7 +42,7 @@ export const getters = {
   mine: (state, getters, rootState, rootGetters) => {
     if (!rootGetters['auth/isLoggedIn']) return []
     return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
-  }
+  },
 }
 
 export const actions = {
@@ -99,7 +99,7 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_LEAVE_ERROR, { error })
     }
-  }
+  },
 
 }
 
@@ -138,5 +138,5 @@ export const mutations = {
 
   [types.REQUEST_LEAVE] (state) {},
   [types.RECEIVE_LEAVE] (state) {},
-  [types.RECEIVE_LEAVE_ERROR] (state, { error }) {}
+  [types.RECEIVE_LEAVE_ERROR] (state, { error }) {},
 }

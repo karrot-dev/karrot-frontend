@@ -15,25 +15,25 @@ import { usersMock, messagesMock } from '@/components/mockdata.js'
 import {
   mapState,
   mapGetters,
-  mapActions
+  mapActions,
 } from 'vuex'
 import { mapGetterMethods } from '@/store/helpers'
 
 export default {
   components: {
-    SplashLayout, Signup
+    SplashLayout, Signup,
   },
   data () {
     return {
       users: usersMock,
       messages: messagesMock,
-      emptyPickups: this.pickups
+      emptyPickups: this.pickups,
     }
   },
   watch: {
     groupId (groupId) {
       this.selectGroup({ groupId })
-    }
+    },
   },
   computed: {
     groupId () {
@@ -47,13 +47,13 @@ export default {
       isFetching: state => state.groups.isFetching,
       error: state => state.groups.error,
       pickups: state => state.pickups.entries,
-      stores: state => state.stores.entries
+      stores: state => state.stores.entries,
     }),
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       userId: 'auth/userId',
-      storesWithLocation: 'stores/withLocation'
-    })
+      storesWithLocation: 'stores/withLocation',
+    }),
   },
   methods: {
     ...mapActions({
@@ -64,12 +64,12 @@ export default {
       join: 'groups/join',
       leave: 'groups/leave',
       joinPickup: 'pickups/join',
-      leavePickup: 'pickups/leave'
+      leavePickup: 'pickups/leave',
     }),
     ...mapGetterMethods({
       isGroupMember: 'groups/isMember',
       isPickupCollector: 'pickups/isCollector',
-      getGroup: 'groups/get'
+      getGroup: 'groups/get',
     }),
     SignupDo () {
       this.Signup({ email: 'foo@foo.com', password: 'foofoo' })
@@ -79,7 +79,7 @@ export default {
     },
     leavePickupDo (pickupId) {
       this.leavePickup({ pickupId })
-    }
+    },
   },
   mounted () {
     this.SignupDo()
@@ -88,9 +88,9 @@ export default {
   },
   metaInfo () {
     return {
-      title: `${this.myGroup.name}`
+      title: `${this.myGroup.name}`,
     }
-  }
+  },
 }
 </script>
 

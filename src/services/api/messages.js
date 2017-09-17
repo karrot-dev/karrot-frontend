@@ -8,5 +8,5 @@ export default {
 
   async list (conversationId) {
     return (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data
-  }
+  },
 }

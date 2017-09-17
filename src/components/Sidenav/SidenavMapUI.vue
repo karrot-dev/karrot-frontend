@@ -56,14 +56,14 @@ import GroupMap from '../Map/GroupMap.vue'
 
 export default {
   components: {
-    SidenavBox, QBtn, QTooltip, GroupMap
+    SidenavBox, QBtn, QTooltip, GroupMap,
   },
   props: {
     stores: { required: false },
     users: { required: false },
     showStores: { default: true },
-    showUsers: { default: true }
-  }
+    showUsers: { default: true },
+  },
 }
 </script>
 

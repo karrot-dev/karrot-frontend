@@ -25,7 +25,7 @@ export const types = {
 
   REQUEST_LEAVE: 'Request Leave',
   RECEIVE_LEAVE: 'Receive Leave',
-  RECEIVE_LEAVE_ERROR: 'Receive Leave Error'
+  RECEIVE_LEAVE_ERROR: 'Receive Leave Error',
 
 }
 
@@ -34,7 +34,7 @@ export const state = {
   idsList: [],
   isFetching: false,
   error: null,
-  activeGroupId: null
+  activeGroupId: null,
 }
 
 export const getters = {
@@ -56,7 +56,7 @@ export const getters = {
     let group = getters.activeGroup
     if (!group) return []
     return group.members.map(id => rootGetters['users/get'](id))
-  }
+  },
 }
 
 export const actions = {
@@ -126,7 +126,7 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_LEAVE_ERROR, { error })
     }
-  }
+  },
 
 }
 
@@ -169,5 +169,5 @@ export const mutations = {
 
   [types.REQUEST_LEAVE] (state) {},
   [types.RECEIVE_LEAVE] (state) {},
-  [types.RECEIVE_LEAVE_ERROR] (state, { error }) {}
+  [types.RECEIVE_LEAVE_ERROR] (state, { error }) {},
 }

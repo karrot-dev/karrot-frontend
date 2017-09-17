@@ -35,5 +35,5 @@ export default {
 
   resendVerificationRequest () {
     return axios.post('/api/users/resend_verification/')
-  }
+  },
 }

@@ -21,11 +21,11 @@ import SidenavBox from './SidenavBox.vue'
 
 export default {
   props: {
-    stores: { required: true }
+    stores: { required: true },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QIcon
-  }
+    SidenavBox, QBtn, QList, QItem, QIcon,
+  },
 }
 </script>
 

@@ -7,7 +7,7 @@ import { usersMock, storesMock } from '../mockdata.js'
 storiesOf('Map', module)
   .add('Demo', () => ({
     components: { MapDemo },
-    template: '<MapDemo style="height: 600px" />'
+    template: '<MapDemo style="height: 600px" />',
   }))
   .add('GroupMap', () => ({
     components: { GroupMap },
@@ -15,7 +15,7 @@ storiesOf('Map', module)
     data () {
       return {
         users: usersMock,
-        stores: storesMock
+        stores: storesMock,
       }
-    }
+    },
   }))

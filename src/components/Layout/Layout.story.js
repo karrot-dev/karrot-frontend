@@ -31,16 +31,16 @@ storiesOf('Layout', module)
     data () {
       return {
         stores: storesMock,
-        users: usersMock
+        users: usersMock,
       }
     },
-    i18n
+    i18n,
   }))
   .add('KTopbar', () => ({
     components: { KTopbarUI },
-    template: '<div id="q-app"><KTopbarUI/></div>'
+    template: '<div id="q-app"><KTopbarUI/></div>',
   }))
   .add('KFooter', () => ({
     components: { KFooter },
-    template: '<div id="q-app"><KFooter/></div>'
+    template: '<div id="q-app"><KFooter/></div>',
   }))

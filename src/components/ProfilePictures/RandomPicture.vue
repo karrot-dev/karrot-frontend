@@ -7,17 +7,17 @@ import { QTooltip } from 'quasar'
 export default {
   props: {
     name: {
-      required: true
+      required: true,
     },
     seed: {
-      default: 2
+      default: 2,
     },
     size: {
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    QTooltip
+    QTooltip,
   },
   mounted () {
     function pseudoRandom (seed) {
@@ -50,7 +50,7 @@ export default {
     g.setAttribute(
       'transform',
       `translate(${-(rows * blockSize - size) / 2} ${-((rows * blockSize - size) / 2)}) ` +
-        `rotate(${90 * seed} ${rotate} ${rotate})`
+        `rotate(${90 * seed} ${rotate} ${rotate})`,
     )
 
     for (let i = 0; i < columns; i++) {
@@ -62,7 +62,7 @@ export default {
         rect.setAttribute('fill', 'rgba(' +
           getRandomRange(100, 255, (i + 1) * (j + 1) * 1) + ',' +
           getRandomRange(100, 255, (i + 1) * (j + 1) * 2) + ',' +
-          getRandomRange(100, 255, (i + 1) * (j + 1) * 3) + ',1)'
+          getRandomRange(100, 255, (i + 1) * (j + 1) * 3) + ',1)',
         )
         rect.setAttribute('x', i * blockSize)
         rect.setAttribute('y', j * blockSize)
@@ -78,7 +78,7 @@ export default {
     overlay.setAttribute('fill', 'rgba(' +
       getRandomRange(100, 255, 1) + ',' +
       getRandomRange(100, 255, 2) + ',' +
-      getRandomRange(100, 255, 3) + ',0.5)'
+      getRandomRange(100, 255, 3) + ',0.5)',
     )
     overlay.setAttribute('x', 0)
     overlay.setAttribute('y', 0)
@@ -101,7 +101,7 @@ export default {
     }
 
     this.$el.append(box)
-  }
+  },
 }
 </script>
 

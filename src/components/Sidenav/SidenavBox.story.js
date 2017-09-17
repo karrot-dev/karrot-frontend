@@ -14,7 +14,7 @@ storiesOf('Sidenav Boxes', module)
     data () {
       return {
         showStores: true,
-        showUsers: true
+        showUsers: true,
       }
     },
     methods: {
@@ -23,24 +23,24 @@ storiesOf('Sidenav Boxes', module)
       },
       toggleUsers () {
         this.showUsers = !this.showUsers
-      }
+      },
     },
     render (h) {
       let { showStores, showUsers, toggleUsers, toggleStores } = this
       return h(SidenavMapUI, {
         props: { stores, users, showStores, showUsers },
-        on: { toggleStores, toggleUsers }
+        on: { toggleStores, toggleUsers },
       })
     },
-    i18n
+    i18n,
   }))
 
   .add('Group', () => ({
     render: h => h(SidenavGroup),
-    i18n
+    i18n,
   }))
 
   .add('Stores', () => ({
     render: h => h(SidenavStores, { props: { stores } }),
-    i18n
+    i18n,
   }))

@@ -26,13 +26,13 @@ const options = ({
     pickups,
     i18n,
     sidenav,
-    about
+    about,
   },
   plugins: [
     i18nPlugin,
-    persistedState
+    persistedState,
   ],
-  strict: debug
+  strict: debug,
 })
 
 // Set all modules to be namespaces

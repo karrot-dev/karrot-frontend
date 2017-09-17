@@ -8,8 +8,8 @@
 
 export default {
   props: {
-    amount: { required: true }
-  }
+    amount: { required: true },
+  },
 }
 </script>
 

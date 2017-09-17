@@ -15,15 +15,15 @@ export function detectLocale () {
 
 export const types = {
   REQUEST_LOCALE: 'Request Locale',
-  RECEIVE_LOCALE: 'Receive Locale'
+  RECEIVE_LOCALE: 'Receive Locale',
 }
 
 export const state = {
-  locale: detectLocale() || DEFAULT_LOCALE
+  locale: detectLocale() || DEFAULT_LOCALE,
 }
 
 export const getters = {
-  getLocale: state => state.locale
+  getLocale: state => state.locale,
 }
 
 export const actions = {
@@ -31,7 +31,7 @@ export const actions = {
   async setLocale ({ commit }, { locale }) {
     commit(types.REQUEST_LOCALE)
     commit(types.RECEIVE_LOCALE, { locale })
-  }
+  },
 
 }
 
@@ -39,5 +39,5 @@ export const mutations = {
   [types.REQUEST_LOCALE] (state) {},
   [types.RECEIVE_LOCALE] (state, { locale }) {
     state.locale = locale
-  }
+  },
 }

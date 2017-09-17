@@ -14,12 +14,12 @@ import ProfilePicture from './ProfilePicture.vue'
 export default {
   props: {
     users: {
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    ProfilePicture
-  }
+    ProfilePicture,
+  },
 }
 </script>
 

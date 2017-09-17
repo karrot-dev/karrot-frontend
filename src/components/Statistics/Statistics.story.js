@@ -14,14 +14,14 @@ const amountPicker = `
 storiesOf('Statistics', module)
   .add('AmountPicker', () => ({
     components: { AmountPicker },
-    template: amountPicker
+    template: amountPicker,
   }))
   .add('AmountBox', () => ({
     components: { AmountBox },
-    template: '<div id="q-app" style="padding: 2em"><AmountBox :amount="20"/></div>'
+    template: '<div id="q-app" style="padding: 2em"><AmountBox :amount="20"/></div>',
   }))
   .add('PickupFeedback', () => ({
     components: { PickupFeedback },
     template: '<div id="q-app" style="padding: 2em"><PickupFeedback/></div>',
-    i18n
+    i18n,
   }))

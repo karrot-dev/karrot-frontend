@@ -37,9 +37,9 @@ export default {
   components: { QField, QInput, QBtn },
   data () {
     return {
-      loginImage
+      loginImage,
     }
-  }
+  },
 }
 </script>
 

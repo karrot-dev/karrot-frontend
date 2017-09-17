@@ -23,15 +23,15 @@ import RandomPicture from './RandomPicture.vue'
 export default {
   props: {
     user: {
-      required: true
+      required: true,
     },
     size: {
-      default: 20
-    }
+      default: 20,
+    },
   },
   components: {
-    QTooltip, RandomPicture
-  }
+    QTooltip, RandomPicture,
+  },
 }
 </script>
 

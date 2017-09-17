@@ -3,15 +3,15 @@ import about from '@/services/api/about'
 
 export const types = {
   SET_ABOUT: 'Set About',
-  SET_ABOUT_ERROR: 'Set About Error'
+  SET_ABOUT_ERROR: 'Set About Error',
 }
 
 export const state = {
-  error: null
+  error: null,
 }
 
 export const getters = {
-  get: state => state
+  get: state => state,
 }
 
 export const actions = {
@@ -22,7 +22,7 @@ export const actions = {
     catch (error) {
       commit(types.SET_ABOUT_ERROR, { error })
     }
-  }
+  },
 }
 
 export const mutations = {
@@ -34,5 +34,5 @@ export const mutations = {
   },
   [types.SET_ABOUT_ERROR] (state, { error }) {
     state.error = error
-  }
+  },
 }

@@ -15,10 +15,10 @@ storiesOf('Wall', module)
     data () {
       return {
         messages: messagesMock,
-        emptyPickups: pickupsMock
+        emptyPickups: pickupsMock,
       }
     },
-    i18n
+    i18n,
   }))
   .add('WallCard', () => ({
     components: { WallCard, ProfilePicture },
@@ -27,11 +27,11 @@ storiesOf('Wall', module)
       return {
         user: {
           id: 5,
-          displayName: 'Lars Wolf'
-        }
+          displayName: 'Lars Wolf',
+        },
       }
     },
-    i18n
+    i18n,
   }))
 
   .add('WallMessage', () => ({
@@ -39,10 +39,10 @@ storiesOf('Wall', module)
     template: '<div id="q-app" style="padding: 2em"><WallMessage :message="message"/></div>',
     data () {
       return {
-        message: messagesMock[0]
+        message: messagesMock[0],
       }
     },
-    i18n
+    i18n,
   }))
 
   .add('WallFeedback', () => ({
@@ -50,8 +50,8 @@ storiesOf('Wall', module)
     template: '<div id="q-app" style="padding: 2em"><WallFeedback :feedback="feedback"/></div>',
     data () {
       return {
-        feedback: feedbackMock[0]
+        feedback: feedbackMock[0],
       }
     },
-    i18n
+    i18n,
   }))

@@ -4,7 +4,7 @@ import KTopbarUI from './KTopbarUI.vue'
 
 export default connect({
   actionsToEvents: {
-    logout: 'auth/logout'
-  }
+    logout: 'auth/logout',
+  },
 })('KTopbar', KTopbarUI)
 </script>

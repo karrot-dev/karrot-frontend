@@ -61,30 +61,30 @@ export default {
         sort: false,
         format (value, row) {
           return new Date(value).toLocaleString()
-        }
+        },
       }, {
         label: 'Users',
         field: 'users',
-        width: '80px'
+        width: '80px',
       }, {
         label: 'Event',
         field: 'event',
-        width: '120px'
+        width: '120px',
       }, {
         label: 'Actions',
         field: 'actions',
-        width: '50px'
-      }]
+        width: '50px',
+      }],
     }
   },
   props: {
     history: {
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    QBtn, QDataTable, ProfilesInline
-  }
+    QBtn, QDataTable, ProfilesInline,
+  },
 }
 </script>
 

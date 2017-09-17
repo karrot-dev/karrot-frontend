@@ -36,11 +36,11 @@ import ProfilesInline from '../ProfilePictures/ProfilesInline.vue'
 export default {
   props: {
     pickup: {
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    QCard, QCardMain, QBtn, ProfilesInline
+    QCard, QCardMain, QBtn, ProfilesInline,
   },
   methods: {
     join (event) {
@@ -48,8 +48,8 @@ export default {
     },
     leave (event) {
       this.$emit('leave')
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -16,13 +16,13 @@ export const types = {
 
   REQUEST_LOGOUT: 'Logout Request',
   RECEIVE_LOGOUT_SUCCESS: 'Logout Success',
-  RECEIVE_LOGOUT_ERROR: 'Logout Failure'
+  RECEIVE_LOGOUT_ERROR: 'Logout Failure',
 }
 
 export const state = {
   user: null,
   error: null,
-  redirectTo: null
+  redirectTo: null,
 }
 
 export const getters = {
@@ -30,7 +30,7 @@ export const getters = {
   user: state => state.user,
   userId: state => state.user && state.user.id,
   error: state => state.error,
-  redirectTo: state => state.redirectTo
+  redirectTo: state => state.redirectTo,
 }
 
 export const actions = {
@@ -70,7 +70,7 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_LOGOUT_ERROR, { error })
     }
-  }
+  },
 }
 
 export const mutations = {
@@ -120,5 +120,5 @@ export const mutations = {
   [types.RECEIVE_LOGOUT_ERROR] (state, { error }) {
     state.error = error.message
     state.user = null
-  }
+  },
 }

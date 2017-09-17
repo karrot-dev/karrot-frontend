@@ -24,8 +24,8 @@ import { QList, QItem, QIcon } from 'quasar'
 
 export default {
   components: {
-    QList, QItem, QIcon
-  }
+    QList, QItem, QIcon,
+  },
 }
 </script>
 

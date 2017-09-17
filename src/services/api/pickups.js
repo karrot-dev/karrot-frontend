@@ -40,7 +40,7 @@ export default {
 
   async leave (pickupId) {
     return convertDate((await axios.post(`/api/pickup-dates/${pickupId}/remove/`, {})).data)
-  }
+  },
 
 }
 

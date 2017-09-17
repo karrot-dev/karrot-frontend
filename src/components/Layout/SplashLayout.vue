@@ -28,7 +28,7 @@ import KFooter from './KFooter.vue'
 import { QLayout } from 'quasar'
 
 export default {
-  components: {KTopbar, KFooter, QLayout}
+  components: {KTopbar, KFooter, QLayout},
 }
 </script>
 

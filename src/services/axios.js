@@ -8,7 +8,7 @@ import { camelizeKeys } from '@/services/utils'
 
 const axios = Axios.create({
   xsrfCookieName: 'csrftoken',
-  xsrfHeaderName: 'X-CSRFTOKEN'
+  xsrfHeaderName: 'X-CSRFTOKEN',
 })
 
 axios.interceptors.response.use(response => {

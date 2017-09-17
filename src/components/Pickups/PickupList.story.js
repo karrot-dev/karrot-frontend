@@ -10,8 +10,8 @@ storiesOf('PickupList', module)
     template: '<div id="q-app"><PickupList :pickups="pickups"></PickupList></div>',
     data () {
       return {
-        pickups: pickupsMock
+        pickups: pickupsMock,
       }
     },
-    i18n
+    i18n,
   }))

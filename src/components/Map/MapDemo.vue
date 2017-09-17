@@ -18,7 +18,7 @@ delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 })
 
 export default {
@@ -26,7 +26,7 @@ export default {
     'v-map': Vue2Leaflet.Map,
     'v-tilelayer': Vue2Leaflet.TileLayer,
     'v-marker': Vue2Leaflet.Marker,
-    'v-popup': Vue2Leaflet.Popup
+    'v-popup': Vue2Leaflet.Popup,
   },
   data () {
     return {
@@ -38,11 +38,11 @@ export default {
       redMarker: L.AwesomeMarkers.icon({
         icon: 'heart',
         markerColor: 'red',
-        prefix: 'fa'
+        prefix: 'fa',
       }),
-      popupcontent: '<a href="https://foodsaving.world">go there</a>'
+      popupcontent: '<a href="https://foodsaving.world">go there</a>',
     }
-  }
+  },
 }
 </script>
 

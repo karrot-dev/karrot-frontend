@@ -12,9 +12,9 @@
 export default {
   metaInfo () {
     return {
-      titleTemplate: '%s (Foodsaving)'
+      titleTemplate: '%s (Foodsaving)',
     }
-  }
+  },
 }
 </script>
 

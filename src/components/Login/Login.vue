@@ -40,7 +40,7 @@ export default {
         loginImage,
         isShaking: false,
         email: 'foo@foo.com',
-        password: 'foofoo'
+        password: 'foofoo',
       }
     }
     else {
@@ -48,25 +48,25 @@ export default {
         loginImage,
         isShaking: false,
         email: '',
-        password: ''
+        password: '',
       }
     }
   },
   props: {
     error: {
-      required: false
-    }
+      required: false,
+    },
   },
   methods: {
     hasError (field) {
       return this.error && this.error[field]
-    }
+    },
   },
   computed: {
     errorMessage () {
       return this.error && this.error[Object.keys(this.error)[0]][0]
-    }
-  }
+    },
+  },
 }
 </script>
 

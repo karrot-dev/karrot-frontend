@@ -27,8 +27,8 @@ import GroupOptions from './GroupOptions.vue'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QPopover
-  }
+    SidenavBox, GroupOptions, QBtn, QList, QItem, QPopover,
+  },
 }
 </script>
 

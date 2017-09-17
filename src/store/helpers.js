@@ -3,7 +3,7 @@ import store from '@/store'
 
 export function mapGetterMethods (mapping) {
   let ctx = {
-    $store: store
+    $store: store,
   }
   let methods = mapGetters(mapping)
 

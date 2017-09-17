@@ -12,7 +12,7 @@ export const messages = {
   it: require('@/locales/locale-it.json'),
   ru: require('@/locales/locale-ru.json'),
   sv: require('@/locales/locale-sv.json'),
-  zh: require('@/locales/locale-zh.json')
+  zh: require('@/locales/locale-zh.json'),
 }
 
 export const locales = [
@@ -24,26 +24,26 @@ export const locales = [
   { locale: 'it', name: 'Italiano' },
   { locale: 'eo', name: 'Esperanto' },
   { locale: 'ru', name: 'Русский' },
-  { locale: 'zh', name: '中文' }
+  { locale: 'zh', name: '中文' },
 ]
 
 const defaultDateTimeFormat = {
   timeShort: {
     hour: 'numeric',
-    minute: 'numeric'
+    minute: 'numeric',
   },
   dateShort: {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   },
   long: {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
     hour: 'numeric',
-    minute: 'numeric'
-  }
+    minute: 'numeric',
+  },
 }
 
 let dateTimeFormats = {}
@@ -54,7 +54,7 @@ for (const locale of locales) {
 const i18n = new VueI18n({
   messages,
   dateTimeFormats,
-  fallbackLocale: 'en'
+  fallbackLocale: 'en',
 })
 
 export default i18n
@@ -82,7 +82,7 @@ if (module.hot) {
     '@/locales/locale-it.json',
     '@/locales/locale-ru.json',
     '@/locales/locale-sv.json',
-    '@/locales/locale-zh.json'
+    '@/locales/locale-zh.json',
   ], () => {
     i18n.setLocaleMessage('en', require('@/locales/locale-en.json'))
     i18n.setLocaleMessage('de', require('@/locales/locale-de.json'))

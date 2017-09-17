@@ -23,16 +23,16 @@ const template = `
 storiesOf('Profile Pictures', module)
   .add('Overview', () => ({
     components: { ProfilesInline },
-    template: template
+    template: template,
   }))
   .add('Profiles Inline', () => ({
     components: { ProfilesInline },
     template: '<div><ProfilesInline :users="users"/></div>',
     data () {
       return {
-        users: usersMock
+        users: usersMock,
       }
-    }
+    },
   }))
   .add('Profile Pictures', () => ({
     components: { ProfilePicture },
@@ -41,8 +41,8 @@ storiesOf('Profile Pictures', module)
       return {
         user: {
           id: 5,
-          displayName: 'Lars Wolf'
-        }
+          displayName: 'Lars Wolf',
+        },
       }
-    }
+    },
   }))

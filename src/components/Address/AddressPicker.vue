@@ -12,11 +12,11 @@ import { QSearch, QAutocomplete } from 'quasar'
 export default {
   props: [],
   components: {
-    QSearch, QAutocomplete
+    QSearch, QAutocomplete,
   },
   data () {
     return {
-      result: null
+      result: null,
     }
   },
   methods: {
@@ -28,7 +28,7 @@ export default {
             return {
               label: e.displayName,
               value: e.displayName,
-              obj: e
+              obj: e,
             }
           })
           done(list)
@@ -36,9 +36,9 @@ export default {
     },
     selected (item) {
       console.log('selected', item.obj)
-    }
+    },
 
-  }
+  },
 }
 </script>
 

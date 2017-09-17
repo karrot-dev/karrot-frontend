@@ -6,7 +6,7 @@ import KBreadcrumb from './KBreadcrumb.vue'
 storiesOf('General Components', module)
   .add('KBox', () => ({
     components: { KBox },
-    template: '<div id="q-app"><KBox></KBox></div>'
+    template: '<div id="q-app"><KBox></KBox></div>',
   }))
 
   .add('KBreadcrumb', () => ({
@@ -14,7 +14,7 @@ storiesOf('General Components', module)
     template: '<div id="q-app"><KBreadcrumb :breadcrumbs="bread"></KBreadcrumb></div>',
     data () {
       return {
-        bread: ['Group', 'Store', 'Pickups']
+        bread: ['Group', 'Store', 'Pickups'],
       }
-    }
+    },
   }))

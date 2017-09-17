@@ -18,12 +18,12 @@ import EmptyPickups from './EmptyPickups.vue'
 export default {
   components: {
     WallMessage,
-    EmptyPickups
+    EmptyPickups,
   },
   props: {
     messages: { required: true },
-    emptyPickups: { required: false }
-  }
+    emptyPickups: { required: false },
+  },
 }
 </script>
 

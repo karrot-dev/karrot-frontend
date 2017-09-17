@@ -4,13 +4,13 @@ export const types = {
 
   REQUEST_USERS: 'Request Users',
   RECEIVE_USERS: 'Receive Users',
-  RECEIVE_USERS_ERROR: 'Receive Users Error'
+  RECEIVE_USERS_ERROR: 'Receive Users Error',
 }
 
 export const state = {
   entries: [],
   isFetching: false,
-  error: null
+  error: null,
 }
 
 export const getters = {
@@ -18,7 +18,7 @@ export const getters = {
   get: state => (id) => {
     return state.entries.find(e => e.id === id) || {}
   },
-  withLocation: state => state.entries.filter(e => e.longitude && e.latitude)
+  withLocation: state => state.entries.filter(e => e.longitude && e.latitude),
 }
 
 export const actions = {
@@ -30,7 +30,7 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_USERS_ERROR, { error })
     }
-  }
+  },
 }
 
 export const mutations = {
@@ -44,5 +44,5 @@ export const mutations = {
   [types.RECEIVE_USERS_ERROR] (state, { error }) {
     state.isFetching = false
     state.error = error
-  }
+  },
 }

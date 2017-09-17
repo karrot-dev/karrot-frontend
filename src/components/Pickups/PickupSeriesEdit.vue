@@ -54,14 +54,14 @@ import { QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn } from 'qu
 export default {
   props: [],
   components: {
-    QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn
+    QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn,
   },
   data () {
     return {
       time: new Date(),
       weekdays: [],
       maxCollectors: 2,
-      description: ''
+      description: '',
     }
   },
   methods: {
@@ -70,10 +70,10 @@ export default {
         time: this.time,
         weekdays: this.weekdays,
         maxCollectors: this.maxCollectors,
-        description: this.description
+        description: this.description,
       }, event)
-    }
-  }
+    },
+  },
 }
 </script>
 

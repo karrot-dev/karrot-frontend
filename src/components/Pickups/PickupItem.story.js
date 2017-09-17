@@ -14,14 +14,14 @@ storiesOf('PickupItem', module)
           date: new Date(),
           description: 'This is the description',
           isFull: false,
-          isUserMember: false
-        }
+          isUserMember: false,
+        },
       }
     },
     methods: {
-      join: action('join')
+      join: action('join'),
     },
-    i18n
+    i18n,
   }))
   .add('Full', () => ({
     components: { PickupItem },
@@ -32,11 +32,11 @@ storiesOf('PickupItem', module)
           date: new Date(),
           description: '',
           isFull: true,
-          isUserMember: false
-        }
+          isUserMember: false,
+        },
       }
     },
-    i18n
+    i18n,
   }))
   .add('Leave', () => ({
     components: { PickupItem },
@@ -47,12 +47,12 @@ storiesOf('PickupItem', module)
           date: new Date(),
           description: '',
           isFull: false,
-          isUserMember: true
-        }
+          isUserMember: true,
+        },
       }
     },
     methods: {
-      leave: action('leave')
+      leave: action('leave'),
     },
-    i18n
+    i18n,
   }))

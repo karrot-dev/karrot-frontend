@@ -23,17 +23,17 @@ import SidenavStores from '@/components/Sidenav/SidenavStores.vue'
 import {
   mapGetters,
   mapActions,
-  mapState
+  mapState,
 } from 'vuex'
 
 export default {
   components: {
-    MainLayout, Wall, SidenavMap, SidenavGroup, SidenavStores
+    MainLayout, Wall, SidenavMap, SidenavGroup, SidenavStores,
   },
   watch: {
     groupId (groupId) {
       this.selectGroup({ groupId })
-    }
+    },
   },
   computed: {
     ...mapGetters({
@@ -41,19 +41,19 @@ export default {
       stores: 'stores/list',
       messages: 'conversations/activeMessages',
       group: 'groups/activeGroup',
-      users: 'groups/activeUsers'
+      users: 'groups/activeUsers',
     }),
     ...mapState({
       groupId: state => {
         let groupId = state.route.params.groupId
         if (groupId) return parseInt(groupId, 10)
-      }
-    })
+      },
+    }),
   },
   methods: {
     ...mapActions({
-      selectGroup: 'groups/selectGroup'
-    })
+      selectGroup: 'groups/selectGroup',
+    }),
   },
   mounted () {
     this.selectGroup({ groupId: this.groupId })
@@ -61,13 +61,13 @@ export default {
   metaInfo () {
     if (this.group) {
       return {
-        title: this.group.name
+        title: this.group.name,
       }
     }
     else {
       return {}
     }
-  }
+  },
 }
 </script>
 

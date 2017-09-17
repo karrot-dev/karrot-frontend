@@ -12,12 +12,12 @@ storiesOf('Login & Signup', module)
     methods: {
       loginDo (email, password) {
         this.$emit('loginDo', email, password)
-      }
-    }
+      },
+    },
   }))
 
   .add('Signup', () => ({
     components: { Signup },
     template: '<div id="q-app" style="padding: 2em"><Signup/></div>',
-    i18n
+    i18n,
   }))

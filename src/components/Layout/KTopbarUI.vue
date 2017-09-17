@@ -85,8 +85,8 @@ import KBreadcrumb from '@/components/General/KBreadcrumb'
 
 export default {
   components: {
-    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb
-  }
+    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb,
+  },
 }
 </script>
 

@@ -21,12 +21,12 @@ import AmountViewer from './AmountViewer.vue'
 export default {
   data () {
     return {
-      selectedValue: 3.0
+      selectedValue: 3.0,
     }
   },
   components: {
-    QSlider, AmountViewer
-  }
+    QSlider, AmountViewer,
+  },
 }
 </script>
 

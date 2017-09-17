@@ -8,11 +8,11 @@ export const WEBSOCKET_ENDPOINT = [
   window.location.protocol.replace(/^http/, 'ws'),
   '//',
   window.location.host,
-  '/api/ws'
+  '/api/ws',
 ].join('')
 
 export const options = {
-  reconnectInterval: 500
+  reconnectInterval: 500,
 }
 
 let ws
@@ -47,7 +47,7 @@ const socket = {
       ws.close(undefined, undefined, { keepClosed: true })
       ws = null
     }
-  }
+  },
 }
 
 export function receiveMessage ({ topic, payload }) {

@@ -13,26 +13,26 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
-    SplashLayout, Login
+    SplashLayout, Login,
   },
   computed: {
     ...mapGetters({
-      error: 'auth/error'
-    })
+      error: 'auth/error',
+    }),
   },
   methods: {
     ...mapActions({
-      login: 'auth/login'
+      login: 'auth/login',
     }),
     loginDo (email, password) {
       this.login({ email, password })
-    }
+    },
   },
   metaInfo () {
     return {
-      title: this.$t('LOGIN.TITLE')
+      title: this.$t('LOGIN.TITLE'),
     }
-  }
+  },
 }
 </script>
 

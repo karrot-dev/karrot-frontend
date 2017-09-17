@@ -13,14 +13,14 @@ export const types = {
   RECEIVE_MESSAGES_ERROR: 'Receive Messages Error',
 
   RECEIVE_MESSAGE: 'Receive Message',
-  RECEIVE_CONVERSATION: 'Receive Conversation'
+  RECEIVE_CONVERSATION: 'Receive Conversation',
 }
 
 export const state = {
   conversations: {},
   messages: {},
   messagesMeta: {},
-  activeConversationId: null
+  activeConversationId: null,
 }
 
 const getAuthor = getter('users/get')
@@ -34,7 +34,7 @@ export const getters = {
   activeMessages: (state, getters) => {
     if (!state.activeConversationId) return []
     return getters.getMessagesById(state.activeConversationId)
-  }
+  },
 }
 
 export const actions = {
@@ -60,7 +60,7 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_MESSAGES_ERROR, { conversationId, error })
     }
-  }
+  },
 }
 
 export const mutations = {
@@ -101,7 +101,7 @@ export const mutations = {
   [types.RECEIVE_MESSAGE] (state, { message }) {
     let { conversation: { id: conversationId } = {} } = message
     maybeAddMessages(state, conversationId, [message])
-  }
+  },
 
 }
 

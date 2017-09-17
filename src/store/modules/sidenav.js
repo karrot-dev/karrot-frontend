@@ -1,18 +1,18 @@
 export const types = {
   MAP_STORES_TOGGLE: 'Map Stores Toggle',
-  MAP_USERS_TOGGLE: 'Map Users Toggle'
+  MAP_USERS_TOGGLE: 'Map Users Toggle',
 }
 
 export const state = {
   map: {
     showStores: true,
-    showUsers: true
-  }
+    showUsers: true,
+  },
 }
 
 export const getters = {
   showMapStores: state => state.map.showStores,
-  showMapUsers: state => state.map.showUsers
+  showMapUsers: state => state.map.showUsers,
 }
 
 export const actions = {
@@ -23,7 +23,7 @@ export const actions = {
 
   toggleMapUsers ({ commit }) {
     commit(types.MAP_USERS_TOGGLE)
-  }
+  },
 
 }
 
@@ -33,5 +33,5 @@ export const mutations = {
   },
   [types.MAP_USERS_TOGGLE] (state) {
     state.map.showUsers = !state.map.showUsers
-  }
+  },
 }

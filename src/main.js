@@ -44,6 +44,6 @@ Quasar.start(async () => {
     router,
     store,
     i18n,
-    render: h => h(require('./App'))
+    render: h => h(require('./App')),
   })
 })

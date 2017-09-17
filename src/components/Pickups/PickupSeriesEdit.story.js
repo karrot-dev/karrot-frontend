@@ -9,7 +9,7 @@ storiesOf('PickupSeriesEdit', module)
     components: { PickupSeriesEdit },
     template: '<PickupSeriesEdit @submit="handleSubmit" />',
     methods: {
-      handleSubmit: action('submit')
+      handleSubmit: action('submit'),
     },
-    i18n
+    i18n,
   }))

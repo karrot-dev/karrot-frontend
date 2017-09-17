@@ -27,7 +27,7 @@ delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 })
 
 export default {
@@ -35,21 +35,21 @@ export default {
     'v-map': Vue2Leaflet.Map,
     'v-tilelayer': Vue2Leaflet.TileLayer,
     'v-marker': Vue2Leaflet.Marker,
-    'v-popup': Vue2Leaflet.Popup
+    'v-popup': Vue2Leaflet.Popup,
   },
   data () {
     return {
       zoom: 13,
       center: L.latLng(49.9105778076202, 8.65834236145019),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     }
   },
   props: {
     users: { required: false, default: () => [] },
     stores: { required: false, default: () => [] },
     showUsers: { required: false, default: true },
-    showStores: { required: false, default: true }
+    showStores: { required: false, default: true },
   },
   computed: {
     storeMarkers () {
@@ -61,9 +61,9 @@ export default {
           icon: L.AwesomeMarkers.icon({
             icon: 'shopping-cart',
             markerColor: 'blue',
-            prefix: 'fa'
+            prefix: 'fa',
           }),
-          popupcontent: `<a href="https://foodsaving.world">${store.name}</a>`
+          popupcontent: `<a href="https://foodsaving.world">${store.name}</a>`,
         }
       })
     },
@@ -76,9 +76,9 @@ export default {
           icon: L.AwesomeMarkers.icon({
             icon: 'user',
             markerColor: 'green',
-            prefix: 'fa'
+            prefix: 'fa',
           }),
-          popupcontent: `<a href="https://foodsaving.world">${user.displayName}</a>`
+          popupcontent: `<a href="https://foodsaving.world">${user.displayName}</a>`,
         }
       })
     },
@@ -90,8 +90,8 @@ export default {
       else {
         return L.latLngBounds()
       }
-    }
-  }
+    },
+  },
 }
 
 function hasLocation (item) {

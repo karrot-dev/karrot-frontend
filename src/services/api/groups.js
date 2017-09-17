@@ -44,5 +44,5 @@ export default {
 
   async conversation (groupId) {
     return (await axios.get(`/api/groups/${groupId}/conversation/`)).data
-  }
+  },
 }

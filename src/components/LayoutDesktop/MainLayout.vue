@@ -2,7 +2,7 @@
     <div class="background mainLayoutDesktop">
       <q-layout class="wrapper" ref="layout" view="hHh lpr fff" :right-breakpoint="1100">
         <div slot="header">
-          
+
           <KTopbar slot="header">
             <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
               <i class="fa fa-bars"></i>

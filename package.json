@@ -26,7 +26,8 @@
     "lint": "eslint --ext .js,.vue src",
     "fix": "eslint --ext .js,.vue --fix src",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "update_i18n": "python update_i18n.py"
   },
   "dependencies": {
     "axios": "^0.16.2",

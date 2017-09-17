@@ -1,7 +1,6 @@
 <template>
   <Layout>
-    <h5>{{$t('GROUP.STORES')}}</h5>
-    <StoreList :stores="stores"/>
+    <h5>Store Detail</h5>
   </Layout>
 </template>
 
@@ -24,7 +23,7 @@ export default {
   },
   metaInfo () {
     return {
-      title: this.$t('GROUP.STORES'),
+      title: this.$t('LOGIN.TITLE'),
     }
   },
 }

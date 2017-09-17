@@ -9,7 +9,7 @@
     </div>
     <div>
       <q-list highlight no-border>
-        <q-item v-for="store in stores" :key="store.id">{{ store.name }}</q-item>
+        <q-item link :to="{name: 'store', params: { storeId: store.id }}" v-for="store in stores" :key="store.id">{{ store.name }}</q-item>
       </q-list>
     </div>
   </SidenavBox>

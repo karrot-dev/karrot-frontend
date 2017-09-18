@@ -1,5 +1,5 @@
 <template>
-  <q-route-tab :to="to" slot="title" name="messages">
+  <q-route-tab class="ktab" :to="to" slot="title" name="messages">
     <slot name="icon"></slot>
     <div class="label">
       <slot></slot>
@@ -21,4 +21,5 @@ export default {
 <style scoped lang="stylus">
   .label
     font-size .8em
+    padding-top 1em
 </style>

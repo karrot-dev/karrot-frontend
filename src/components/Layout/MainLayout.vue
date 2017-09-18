@@ -11,19 +11,16 @@
         <template slot="left" v-if="$q.platform.is.mobile">
           <MobileSidenav/>
         </template>
-        <div class="mainContent row justify no-wrap">
-          <div class="whiteSpace gt-sm"/>
-          <div class="desktop-only sidenav-desktop">
-            <router-view name="sidenav"></router-view>
-          </div>
-          <div class="whiteSpaceSmall gt-sm"/>
+        <div class="mainContent row justify-between no-wrap">
+          <div class="whiteSpace gt-sm desktop-only"/>
+            <router-view class="desktop-only sidenav-desktop" name="sidenav"></router-view>
           <div class="mainContent-page">
             <router-view></router-view>
             <q-btn flat @click="$refs.layout.toggleLeft()">
               <i class="fa fa-bars on-left"></i>Open Sidenav
             </q-btn>
           </div>
-          <div class="whiteSpace gt-sm"/>
+          <div class="whiteSpace gt-sm desktop-only"/>
         </div>
 
         <MobileNavigation class="mobile-only" slot="footer"></MobileNavigation>
@@ -57,15 +54,19 @@ export default {
 
 <style scoped lang="stylus">
 .sidenav-desktop
-  margin-right 2em
+  margin-right 1em
   width 30%
   min-width 250px
+  max-width 30em
 body.desktop .mainContent-page
   min-width 400px
-body.mobile .mainContent-page
+  max-width: 57em
+.mainContent-page
   width 100%
 .whiteSpace
   width 5%
-.whiteSpaceSmall
-  width 2%
+
+.background
+  background-image url('../../assets/repeating_grey.jpg')
+  background-size: 600px
 </style>

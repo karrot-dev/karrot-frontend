@@ -1,5 +1,5 @@
 <template>
-    <q-tabs color="secondary" class="mobile-only" hide="icon" slot="navigation">
+    <q-tabs align="center" color="tertiary" class="mobile-only shadow-14 inset-shadow" hide="icon" slot="navigation">
         <q-route-tab
             :to="{name: 'group'}"
             exact
@@ -18,6 +18,12 @@
             slot="title"
             name="history"
         >History</q-route-tab>
+        <q-route-tab
+            :to="{name: 'stores'}"
+            exact
+            slot="title"
+            name="stores"
+        >Stores</q-route-tab>
     </q-tabs>
 </template>
 

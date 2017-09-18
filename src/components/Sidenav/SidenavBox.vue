@@ -25,6 +25,7 @@ export default {
   margin .6em
   border 1px solid grey
   border-radius $borderRadius
+  background-color $white
   .toolbar
     border-radius $borderRadius $borderRadius 0 0
     background-color $primary

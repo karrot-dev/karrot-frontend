@@ -40,4 +40,6 @@ export default {
 <style scoped lang="stylus">
 .mobileNavigation
   margin-bottom -2px
+.fa
+  font-size 1.4em
 </style>

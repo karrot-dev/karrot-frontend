@@ -6,7 +6,7 @@ import { sync } from 'vuex-router-sync'
 import store from '@/store'
 
 import Home from '@/components/Home.vue'
-import GroupDetailContainer from '@/components/GroupDetailContainer.vue'
+import Group from '@/pages/Group.vue'
 import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
 import Signup from '@/pages/Signup.vue'
@@ -63,7 +63,7 @@ const router = new VueRouter({
   routes: [
     { name: 'index', path: '/', redirect: '/group/1', beforeEnter: protectRoute },
     { name: 'home', path: '/home', component: Home },
-    { name: 'group', path: '/group/:groupId', component: GroupDetailContainer, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }] } },
+    { name: 'group', path: '/group/:groupId', component: Group, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }] } },
     { name: 'pickupFeedback', path: '/group/:groupId/feedback', component: PickupFeedback, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'feedback', route: { name: 'feedback' } }] } },
     { name: 'stores', path: '/group/:groupId/store', component: Stores, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.STORES', route: { name: 'stores' } }] } },
     { name: 'store', path: '/group/:groupId/store/:storeId', component: StoreDetail, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] } },

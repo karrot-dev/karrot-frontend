@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
-    <a v-if="user">
+    <router-link v-if="user" :to="{name:'user', params: {userId: user.id}}">
       <RandomPicture :name="user.displayName" :seed="user.id" :size="size"></RandomPicture>
       <q-tooltip>
         {{ user.displayName }}
       </q-tooltip>
-    </a>
+    </router-link>
 
     <span v-if="!user">
       <span>?</span>

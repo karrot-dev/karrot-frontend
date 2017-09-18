@@ -8,7 +8,7 @@ argon2-cffi==16.3.0       # via django
 asgi-redis==1.4.3
 asgiref==1.1.2            # via asgi-redis, channels, daphne
 attrs==17.2.0             # via automat
-autobahn==17.9.1          # via daphne
+autobahn==17.9.2          # via daphne
 automat==0.6.0            # via twisted
 certifi==2017.7.27.1      # via requests
 cffi==1.10.0              # via argon2-cffi

@@ -11,7 +11,7 @@ attrs==17.2.0             # via automat
 autobahn==17.9.2          # via daphne
 automat==0.6.0            # via twisted
 certifi==2017.7.27.1      # via requests
-cffi==1.10.0              # via argon2-cffi
+cffi==1.11.0              # via argon2-cffi
 channels==1.1.6
 chardet==3.0.4            # via requests
 constantly==15.1.0        # via twisted

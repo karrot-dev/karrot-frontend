@@ -36,7 +36,7 @@ django[argon2]==1.11.5
 djangorestframework==3.6.4
 dnspython==1.15.0         # via email-validator
 drf-nested-routers==0.90.0
-email-validator==1.0.2    # via faker
+email-validator==1.0.3    # via faker
 factory-boy==2.9.2
 faker==0.8.3              # via factory-boy
 flake8==3.4.1

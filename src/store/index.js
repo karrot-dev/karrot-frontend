@@ -11,6 +11,7 @@ import * as pickups from './modules/pickups'
 import * as i18n from './modules/i18n'
 import * as sidenav from './modules/sidenav'
 import * as about from './modules/about'
+import * as breadcrumbs from './modules/breadcrumbs'
 
 Vue.use(Vuex)
 
@@ -27,6 +28,7 @@ const options = ({
     i18n,
     sidenav,
     about,
+    breadcrumbs,
   },
   plugins: [
     i18nPlugin,

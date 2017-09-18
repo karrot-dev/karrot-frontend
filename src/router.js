@@ -56,16 +56,33 @@ const router = new VueRouter({
   routes: [
     { name: 'index', path: '/', redirect: '/group/1', beforeEnter: protectRoute },
     { name: 'home', path: '/home', component: Home },
-    { name: 'group', path: '/group/:groupId', component: GroupDetailContainer, beforeEnter: protectRoute },
-    { name: 'pickupFeedback', path: '/group/:groupId/feedback', component: PickupFeedback, beforeEnter: protectRoute },
-    { name: 'stores', path: '/group/:groupId/store', component: Stores, beforeEnter: protectRoute },
-    { name: 'store', path: '/group/:groupId/store/:storeId', component: StoreDetail, beforeEnter: protectRoute },
+    { name: 'group', path: '/group/:groupId', component: GroupDetailContainer, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }] } },
+    { name: 'pickupFeedback', path: '/group/:groupId/feedback', component: PickupFeedback, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'feedback', route: { name: 'feedback' } }] } },
+    { name: 'stores', path: '/group/:groupId/store', component: Stores, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.STORES', route: { name: 'stores' } }] } },
+    { name: 'store', path: '/group/:groupId/store/:storeId', component: StoreDetail, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] } },
     { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
     { name: 'signup', path: '/signup', component: Signup },
 
     // Always leave this last one
     { path: '*', component: Error404 }, // Not found
   ],
+})
+router.afterEach((to, from) => {
+  if (!(to.meta) || !(to.meta.breadcrumbs)) {
+    store.dispatch('breadcrumbs/setAll', { breadcrumbs: [{name: 'not defined'}] })
+  }
+
+  let newBreadcrumbs = to.meta.breadcrumbs
+  newBreadcrumbs = newBreadcrumbs.map((breadcrumb) => {
+    if (breadcrumb.type) {
+      if (breadcrumb.type === 'activeGroup') {
+        return {name: 'Aktive Gruppe', route: {name: 'group', groupId: 1}}
+      }
+      return {name: 'Aktiver Store', route: {name: 'store', groupId: 1, storeId: 1}}
+    }
+    return breadcrumb
+  })
+  store.dispatch('breadcrumbs/setAll', { breadcrumbs: newBreadcrumbs })
 })
 
 sync(store, router)

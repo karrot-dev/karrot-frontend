@@ -1,6 +1,6 @@
 <template>
   <q-card>
-    <q-card-title class="overflow-ellipsis">
+    <q-card-title>
       {{ group.name }}
       <span slot="subtitle">
         {{ group.members.length }} Members
@@ -14,11 +14,11 @@
     </q-card-main>
     <q-card-separator />
     <q-card-actions>
-      <q-btn v-if="joinable" @click="join" class="q-btn-flat">
-        {{ $t("BUTTON.JOIN") }}
-      </q-btn>
-      <q-btn v-if="visitable" @click="visit" class="q-btn-flat">
+      <q-btn v-if="isMember" @click="$emit('visit')" class="q-btn-flat">
         {{ $t("VISIT") }}
+      </q-btn>
+      <q-btn @click="$emit('preview')" class="q-btn-flat">
+        {{ $t("PREVIEW") }}
       </q-btn>
     </q-card-actions>
   </q-card>
@@ -32,18 +32,11 @@ export default {
     group: {
       required: true,
     },
-    joinable: {},
-    visitable: {},
+    isMember: {
+      required: true,
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn },
-  methods: {
-    join (event) {
-      this.$emit('join')
-    },
-    visit (event) {
-      this.$emit('visit')
-    },
-  },
 }
 </script>
 

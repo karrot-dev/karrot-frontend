@@ -18,10 +18,10 @@
     </q-card-main>
     <q-card-separator />
     <q-card-actions>
-      <q-btn v-if="joinable" @click="join" class="q-btn-flat">
+      <q-btn v-if="joinable" @click="$emit('join')" class="q-btn-flat">
         {{ $t("BUTTON.JOIN") }}
       </q-btn>
-      <q-btn v-if="visitable" @click="visit" class="q-btn-flat">
+      <q-btn v-if="visitable" @click="$emit('visit')" class="q-btn-flat">
         {{ $t("VISIT") }}
       </q-btn>
     </q-card-actions>
@@ -41,14 +41,6 @@ export default {
     visitable: {},
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, VueMarkdown },
-  methods: {
-    join (event) {
-      this.$emit('join')
-    },
-    visit (event) {
-      this.$emit('visit')
-    },
-  },
 }
 </script>
 

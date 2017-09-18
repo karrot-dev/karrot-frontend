@@ -1,10 +1,22 @@
 <template>
-  <div class="row">
-    <div
-      v-for="group in groups"
-      :key="group.id"
-      class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-      <GroupPreviewCard :group="group" isMember="true" />
+  <div>
+    <h4 v-if="myGroups.length>0" class="text-primary">My groups</h4>
+    <div v-if="myGroups.length>0" class="row">
+      <div
+        v-for="group in myGroups"
+        :key="group.id"
+        class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+        <GroupPreviewCard :group="group" :isMember="true" @preview="$emit('preview', { id: group.id })" @visit="$emit('visit', { id: group.id })" />
+      </div>
+    </div>
+    <h4 class="text-primary">Groups to explore</h4>
+    <div class="row">
+      <div
+        v-for="group in otherGroups"
+        :key="group.id"
+        class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+        <GroupPreviewCard :group="group" :isMember="false" @preview="$emit('preview', { id: group.id })" />
+      </div>
     </div>
   </div>
 </template>
@@ -14,7 +26,10 @@ import GroupPreviewCard from './GroupPreviewCard.vue'
 
 export default {
   props: {
-    groups: {
+    myGroups: {
+      default: () => [],
+    },
+    otherGroups: {
       required: true,
     },
   },
@@ -23,8 +38,5 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.fixed-height
-  min-height: 190px
-  height: 100%
-  max-height: 190px
+@import '~variables'
 </style>

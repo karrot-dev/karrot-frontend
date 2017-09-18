@@ -51,6 +51,11 @@ const router = new VueRouter({
    *
    * If switching back to default "hash" mode, don't forget to set the
    * build publicPath back to '' so Cordova builds work again.
+   * 
+   * BREADCRUMBS - Available types:
+   *  - activeGroup
+   *  - activeStore
+   * ...you can define other ones in KBreadcrumb.
    */
   linkActiveClass: 'TEST',
   routes: [
@@ -71,18 +76,7 @@ router.afterEach((to, from) => {
   if (!(to.meta) || !(to.meta.breadcrumbs)) {
     store.dispatch('breadcrumbs/setAll', { breadcrumbs: [{name: 'not defined'}] })
   }
-
-  let newBreadcrumbs = to.meta.breadcrumbs
-  newBreadcrumbs = newBreadcrumbs.map((breadcrumb) => {
-    if (breadcrumb.type) {
-      if (breadcrumb.type === 'activeGroup') {
-        return {name: 'Aktive Gruppe', route: {name: 'group', groupId: 1}}
-      }
-      return {name: 'Aktiver Store', route: {name: 'store', groupId: 1, storeId: 1}}
-    }
-    return breadcrumb
-  })
-  store.dispatch('breadcrumbs/setAll', { breadcrumbs: newBreadcrumbs })
+  store.dispatch('breadcrumbs/setAll', { breadcrumbs: to.meta.breadcrumbs })
 })
 
 sync(store, router)

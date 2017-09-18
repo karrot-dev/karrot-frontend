@@ -1,6 +1,5 @@
 <template>
   <Layout>
-    <h5>{{$t('GROUP.STORES')}}</h5>
     <StoreList :stores="stores"/>
   </Layout>
 </template>

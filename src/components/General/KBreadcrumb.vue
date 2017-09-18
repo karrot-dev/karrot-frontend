@@ -1,10 +1,14 @@
 <template>
   <div class="wrapper">
-    <div class="prevBread gt-sm" v-for="breadcrumb in prevElements" :key="breadcrumb">
-      <router-link :to="breadcrumb.route">
+    <div class="prevBread gt-xs" v-for="breadcrumb in prevElements" :key="breadcrumb">
+      <router-link v-if="breadcrumb.route" :to="breadcrumb.route">
         <q-btn flat small v-if="breadcrumb.name">{{ breadcrumb.name }}</q-btn>
         <q-btn flat small v-if="breadcrumb.translation">{{ $t(breadcrumb.translation) }}</q-btn>
-      </router-link>      
+      </router-link>
+      <div class="label" v-if="!breadcrumb.route">
+        <span v-if="breadcrumb.name">{{ breadcrumb.name }}</span>
+        <span v-if="breadcrumb.translation">{{ breadcrumb.translation }}</span>
+      </div>
       <div> > </div>
     </div>
     <div class="label" v-if="lastElement.name">{{ lastElement.name }}</div>
@@ -15,22 +19,40 @@
 <script>
 import { QBtn } from 'quasar'
 
+import {
+  mapGetters,
+} from 'vuex'
+
 export default {
   components: { QBtn },
   props: {
     breadcrumbs: { required: true },
   },
   computed: {
+    ...mapGetters({
+      activeGroup: 'groups/activeGroup',
+    }),
     prevElements () {
       if (this.breadcrumbs.length === 0) return []
       let prev = this.breadcrumbs.slice()
       prev.pop()
-      return prev
+      return prev.map((breadcrumb) => this.getElement(breadcrumb))
     },
     lastElement () {
-      console.log('breadcrumbs', this.breadcrumbs)
       if (this.breadcrumbs.length === 0) return ''
-      return this.breadcrumbs[this.breadcrumbs.length - 1]
+      return this.getElement(this.breadcrumbs[this.breadcrumbs.length - 1])
+    },
+  },
+  methods: {
+    getElement (element) {
+      if (element.type) {
+        if (element.type === 'activeGroup') {
+          if (this.activeGroup) return {name: this.activeGroup.name, route: {name: 'group', groupId: this.activeGroup.id}}
+          else return {name: 'loading'}
+        }
+        return {name: 'Aktiver Store', route: {name: 'store', groupId: 1, storeId: 1}}
+      }
+      return element
     },
   },
 }

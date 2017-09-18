@@ -10,7 +10,6 @@
       <SidenavStores :stores="stores"/>
     </div>
     <div v-if="group">
-      <h4>{{ group.name }}</h4>
       <Wall :messages="messages" :emptyPickups="emptyPickups" />
     </div>
   </MainLayout>

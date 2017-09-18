@@ -6,18 +6,18 @@
       <q-item-main label="Settings" />
     </q-side-link>
     <q-list-header>About us</q-list-header>
-    <q-side-link item to="/chat">
+    <a class="q-item" href="https://blog.foodsaving.world">
       <q-item-side><i class="fa fa-newspaper-o"/></q-item-side>
       <q-item-main label="Blog" sublabel="All News around foodsaving.world" />
-    </q-side-link>
-    <q-side-link item to="/chat">
+    </a>
+    <a class="q-item" href="https://blog.foodsaving.world/team.en.html">
       <q-item-side><i class="fa fa-users"/></q-item-side>
       <q-item-main label="Team" sublabel="Our Contributors" />
-    </q-side-link>
-    <q-side-link item to="/chat">
+    </a>
+    <a class="q-item" href="https://github.com/yunity/karrot-frontend">
       <q-item-side><i class="fa fa-git"/></q-item-side>
       <q-item-main label="Git" sublabel="See out code!" />
-    </q-side-link>
+    </a>
   </q-list>
 </template>
 <script>

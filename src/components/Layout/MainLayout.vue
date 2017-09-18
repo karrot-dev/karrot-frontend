@@ -1,6 +1,6 @@
 <template>
     <div class="background mainLayoutDesktop">
-      <q-layout class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
+      <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
         <div slot="header">
           <KTopbar slot="header">
             <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">

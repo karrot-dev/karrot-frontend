@@ -7,9 +7,9 @@
     <!--<q-btn slot="left" flat @click="$refs.left.open()">
       <i class="fa fa-bars"></i>
     </q-btn>-->
-    <div class="logo">
+    <router-link :to="{name: 'group'}" class="logo">
       <KarrotLogo/>
-    </div>
+    </router-link>
     <q-toolbar-title>
       <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs"/>
     </q-toolbar-title>
@@ -28,7 +28,7 @@
             <i class="fa-fw fa-user"/>
             View Profile
           </q-item>
-          <q-item @click="doSomething(), $refs.popover.close()">
+          <q-item :to="{name: 'settings'}" @click="$refs.popover.close()">
             <q-icon size="1em" name="fa-cog fa-fw" />
             Settings
           </q-item>

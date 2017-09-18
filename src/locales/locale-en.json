@@ -45,6 +45,7 @@
     "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
+    "GROUP": "Group",
     "LEAVE": "Leave group...",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "NONMEMBER_REDIRECT": "You are not a member of this group.",

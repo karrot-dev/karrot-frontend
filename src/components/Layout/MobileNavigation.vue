@@ -17,7 +17,7 @@
         <template slot="icon"><i class="fa fa-bell q-tab-icon"></i></template>
         <template>Alerts</template>
       </KTab>
-      <KTab slot="title" to="home" name="profile" icon="fa-user">
+      <KTab slot="title" :to="{name: 'user', params: {userId: 72}}" name="profile" icon="fa-user">
         <template slot="icon"><i class="fa fa-user q-tab-icon"></i></template>
         <template class="q-tab-label">Profile</template>
       </KTab>

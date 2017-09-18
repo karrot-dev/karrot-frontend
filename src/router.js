@@ -86,6 +86,7 @@ router.afterEach((to, from) => {
   // save active group/store/user
   if (to.params.groupId) { store.dispatch('groups/selectGroup', { groupId: to.params.groupId }) }
   if (to.params.storeId) { store.dispatch('stores/selectStore', { storeId: to.params.storeId }) }
+  if (to.params.userId) { store.dispatch('users/selectUser', { userId: to.params.userId }) }
 })
 
 sync(store, router)

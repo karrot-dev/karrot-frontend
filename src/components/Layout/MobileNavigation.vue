@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <q-tabs v-model="selectedTab">
+    <q-tabs v-model="selectedTab" class="mobileNavigation">
       <KTab slot="title" to="/group/1" name="group">
         <template slot="icon"><i class="fa fa-home q-tab-icon"></i></template>
         <template>Wall</template>
@@ -17,12 +16,11 @@
         <template slot="icon"><i class="fa fa-bell q-tab-icon"></i></template>
         <template>Alerts</template>
       </KTab>
-      <KTab slot="title" :to="{name: 'user', params: {userId: 72}}" name="profile" icon="fa-user">
-        <template slot="icon"><i class="fa fa-user q-tab-icon"></i></template>
-        <template class="q-tab-label">Profile</template>
+      <KTab slot="title" :to="{name: 'map', params: {groupId: 1}}" name="profile">
+        <template slot="icon"><i class="fa fa-map q-tab-icon"></i></template>
+        <template class="q-tab-label">Map</template>
       </KTab>
     </q-tabs>
-  </div>
 </template>
 <script>
 
@@ -40,4 +38,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.mobileNavigation
+  margin-bottom -2px
 </style>

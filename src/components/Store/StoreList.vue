@@ -4,18 +4,18 @@
       <q-item-main>
         <q-item-tile label>{{ store.name }}</q-item-tile>
       </q-item-main>
-      <q-item-side right>
+      <!--<q-item-side right>
         <q-item-tile><i class="fa fa-pencil"/></q-item-tile>
-      </q-item-side>
+      </q-item-side>-->
     </q-item>
   </q-list>
 </template>
 
 <script>
-import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QItemSeperator } from 'quasar'
+import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
 
 export default {
-  components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QItemSeperator },
+  components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
   props: {
     stores: { required: true },
   },

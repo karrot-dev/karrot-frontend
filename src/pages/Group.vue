@@ -1,15 +1,11 @@
 <template>
   <MainLayout>
-    <div slot="sidenav-mobile">
-      <SidenavGroup/>
-      <SidenavStores :stores="stores"/>
-    </div>
     <div slot="sidenav-desktop">
-      <SidenavMap :stores="stores" :users="users"/>
+      <SidenavMap/>
       <SidenavGroup/>
       <SidenavStores :stores="stores"/>
     </div>
-    <div v-if="group">
+    <div>
       <Wall :messages="messages" :emptyPickups="emptyPickups" />
     </div>
   </MainLayout>

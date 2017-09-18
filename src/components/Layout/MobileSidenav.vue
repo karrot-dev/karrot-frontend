@@ -1,6 +1,10 @@
 <template>
   <q-list no-border link inset-separator>
     <q-list-header>General</q-list-header>
+    <q-side-link item :to="{name: 'user', params: {userId: 72}}">
+      <q-item-side><i class="fa fa-user"/></q-item-side>
+      <q-item-main label="See your Profile" />
+    </q-side-link>
     <q-side-link item :to="{name: 'settings'}">
       <q-item-side><i class="fa fa-cog"/></q-item-side>
       <q-item-main label="Settings" />

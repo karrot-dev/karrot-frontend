@@ -10,6 +10,7 @@ import Group from '@/pages/Group.vue'
 import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
 import Signup from '@/pages/Signup.vue'
+import Map from '@/pages/Map.vue'
 import Stores from '@/pages/Stores.vue'
 import Settings from '@/pages/Settings.vue'
 import User from '@/pages/User.vue'
@@ -71,6 +72,7 @@ const router = new VueRouter({
     { name: 'signup', path: '/signup', component: Signup },
     { name: 'settings', path: '/settings', component: Settings, beforeEnter: protectRoute, meta: { breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] } },
     { name: 'user', path: '/user/:userId', component: User, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeUser' }] } },
+    { name: 'map', path: '/group/:groupId/map', component: Map, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUPMAP.TITLE', route: { name: 'map' } }] } },
 
     // Always leave this last one
     { path: '*', component: Error404 }, // Not found

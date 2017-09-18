@@ -1,9 +1,7 @@
 <template>
-  <Layout>
-    <div class="wrapper shadow-1">
-      <PickupFeedback/>
-    </div>
-  </Layout>
+  <div class="wrapper shadow-1">
+    <PickupFeedback/>
+  </div>
 </template>
 
 <script>

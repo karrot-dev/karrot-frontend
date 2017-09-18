@@ -14,11 +14,11 @@
         <div class="mainContent row justify no-wrap">
           <div class="whiteSpace gt-sm"/>
           <div class="desktop-only sidenav-desktop">
-            <slot name="sidenav-desktop"/>
+            <router-view name="sidenav"></router-view>
           </div>
           <div class="whiteSpaceSmall gt-sm"/>
           <div class="mainContent-page">
-            <slot>Content</slot>
+            <router-view></router-view>
             <q-btn flat @click="$refs.layout.toggleLeft()">
               <i class="fa fa-bars on-left"></i>Open Sidenav
             </q-btn>

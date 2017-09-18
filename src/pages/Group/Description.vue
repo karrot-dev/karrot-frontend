@@ -1,15 +1,11 @@
 <template>
-  <GroupLayout>
-    <h4>Description</h4>
-    asdassdnaölkdmasösdn
-  </GroupLayout>
+  <h4>Description</h4>
 </template>
 
 <script>
-import GroupLayout from '@/components/Group/Layout.vue'
 
 export default {
-  components: { GroupLayout },
+  components: { },
 }
 </script>
 

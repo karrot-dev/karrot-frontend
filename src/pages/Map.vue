@@ -1,15 +1,12 @@
 <template>
-  <Layout>
-    <Map class="map"/>
-  </Layout>
+  <Map class="map"/>
 </template>
 
 <script>
-import Layout from '@/components/Layout/MainLayout.vue'
 import Map from '@/components/Map/GroupMap.vue'
 
 export default {
-  components: { Layout, Map },
+  components: { Map },
 }
 </script>
 

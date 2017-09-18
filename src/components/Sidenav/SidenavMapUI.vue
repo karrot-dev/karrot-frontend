@@ -1,4 +1,5 @@
 <template>
+  <span>
   <SidenavBox>
     <div slot="name"><i class="fa fa-fw fa-map"></i>{{$t("GROUPMAP.TITLE")}}</div>
     <div slot="tools" class="tools">
@@ -46,6 +47,7 @@
       <GroupMap class="map" :showUsers="showUsers" :showStores="showStores"/>
     </div>
   </SidenavBox>
+  </span>
 </template>
 
 <script>

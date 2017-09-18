@@ -1,19 +1,16 @@
 <template>
-  <SplashLayout>
     <div>
       <Login @loginDo="loginDo" :error="error"/>
     </div>
-  </SplashLayout>
 </template>
 
 <script>
-import SplashLayout from '@/components/Layout/SplashLayout.vue'
 import Login from '@/components/Login/Login.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
-    SplashLayout, Login,
+    Login,
   },
   computed: {
     ...mapGetters({

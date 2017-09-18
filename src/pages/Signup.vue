@@ -1,13 +1,10 @@
 <template>
-  <SplashLayout>
     <div>
       <Signup/>
     </div>
-  </SplashLayout>
 </template>
 
 <script>
-import SplashLayout from '@/components/Layout/SplashLayout.vue'
 import Signup from '@/components/Login/Signup.vue'
 
 import { usersMock, messagesMock } from '@/components/mockdata.js'
@@ -21,7 +18,7 @@ import { mapGetterMethods } from '@/store/helpers'
 
 export default {
   components: {
-    SplashLayout, Signup,
+    Signup,
   },
   data () {
     return {

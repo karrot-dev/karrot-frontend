@@ -13,6 +13,7 @@ require(`./themes/app.${__THEME}.styl`)
 
 import Vue from 'vue'
 import Quasar from 'quasar'
+import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
 import './socket'
@@ -35,6 +36,7 @@ import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
 Quasar.start(async () => {
+  sync(store, router)
   store.dispatch('groups/fetchGroups')
   await store.dispatch('auth/check')
 

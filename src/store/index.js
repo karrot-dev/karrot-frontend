@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import persistedState from './plugins/persistedState'
 import i18nPlugin from './plugins/i18n'
+import router from './plugins/router'
+
 import * as auth from './modules/auth'
 import * as conversations from './modules/conversations'
 import * as groups from './modules/groups'
@@ -33,6 +35,7 @@ const options = ({
   plugins: [
     i18nPlugin,
     persistedState,
+    router,
   ],
   strict: debug,
 })

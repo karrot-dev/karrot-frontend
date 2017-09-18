@@ -1,27 +1,24 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Meta from 'vue-meta'
-import { sync } from 'vuex-router-sync'
 
-import store from '@/store'
-
-import MainLayout from '@/components/Layout/MainLayout'
-import GroupLayout from '@/components/Layout/GroupLayout'
-import GroupWall from '@/pages/Group/Wall.vue'
-import GroupMap from '@/pages/Map.vue'
-import StoreWall from '@/pages/StoreDetail.vue'
-import StoreList from '@/pages/Stores.vue'
-import GroupHistory from '@/pages/Group/History.vue'
-import GroupDescription from '@/pages/Group/Description.vue'
-import GroupMapAndStoresSidenav from '@/components/Sidenav/SidenavMapAndStores.vue'
-import GroupGroupSidenav from '@/components/Sidenav/SidenavGroup.vue'
-import GroupStoreSidenav from '@/components/Sidenav/SidenavStore.vue'
-import Error404 from '@/components/Error404.vue'
-import Login from '@/pages/Login.vue'
-import Signup from '@/pages/Signup.vue'
-import Settings from '@/pages/Settings.vue'
-import User from '@/pages/User.vue'
-import PickupFeedback from '@/pages/Group/Feedback.vue'
+const MainLayout = () => import('@/components/Layout/MainLayout')
+const GroupLayout = () => import('@/components/Layout/GroupLayout')
+const GroupWall = () => import('@/pages/Group/Wall.vue')
+const GroupMap = () => import('@/pages/Map.vue')
+const StoreWall = () => import('@/pages/StoreDetail.vue')
+const StoreList = () => import('@/pages/Stores.vue')
+const GroupHistory = () => import('@/pages/Group/History.vue')
+const GroupDescription = () => import('@/pages/Group/Description.vue')
+const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores.vue')
+const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup.vue')
+const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore.vue')
+const Error404 = () => import('@/components/Error404.vue')
+const Login = () => import('@/pages/Login.vue')
+const Signup = () => import('@/pages/Signup.vue')
+const Settings = () => import('@/pages/Settings.vue')
+const User = () => import('@/pages/User.vue')
+const PickupFeedback = () => import('@/pages/Group/Feedback.vue')
 
 /*
 import Home from '@/components/Home.vue'
@@ -35,32 +32,8 @@ import StoreDetail from '@/pages/StoreDetail.vue'
 import PickupFeedback from '@/pages/Feedback.vue'
 */
 
-import { getter } from '@/store/helpers'
-
 Vue.use(VueRouter)
 Vue.use(Meta)
-
-let isLoggedIn = getter('auth/isLoggedIn')
-
-export const protectRoute = (to, from, next) => {
-  if (isLoggedIn()) {
-    next()
-  }
-  else {
-    let { name, params } = to
-    store.dispatch('auth/setRedirectTo', { name, params })
-    next({ name: 'login' })
-  }
-}
-
-export const redirectIfLoggedIn = (to, from, next) => {
-  if (isLoggedIn()) {
-    next({ name: 'index' })
-  }
-  else {
-    next()
-  }
-}
 
 const router = new VueRouter({
   /*
@@ -73,7 +46,7 @@ const router = new VueRouter({
    *
    * If switching back to default "hash" mode, don't forget to set the
    * build publicPath back to '' so Cordova builds work again.
-   * 
+   *
    * BREADCRUMBS - Available types:
    *  - activeGroup
    *  - activeStore
@@ -93,7 +66,7 @@ const router = new VueRouter({
             default: GroupLayout,
             sidenav: GroupMapAndStoresSidenav,
           },
-          beforeEnter: protectRoute,
+          meta: { requireLoggedIn: true },
           children: [
             {
               name: 'group',
@@ -153,8 +126,7 @@ const router = new VueRouter({
         {
           name: 'map',
           path: '/group/:groupId/map',
-          beforeEnter: protectRoute,
-          meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUPMAP.TITLE', route: { name: 'map' } }] },
+          meta: { requireLoggedIn: true, breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUPMAP.TITLE', route: { name: 'map' } }] },
           components: {
             default: GroupMap,
           },
@@ -162,8 +134,7 @@ const router = new VueRouter({
         {
           name: 'login',
           path: '/login',
-          beforeEnter: redirectIfLoggedIn,
-          meta: { breadcrumbs: [{ translation: 'LOGIN.TITLE', route: { name: 'login' } }] },
+          meta: { requireLoggedOut: true, breadcrumbs: [{ translation: 'LOGIN.TITLE', route: { name: 'login' } }] },
           components: {
             default: Login,
           },
@@ -171,8 +142,7 @@ const router = new VueRouter({
         {
           name: 'signup',
           path: '/signup',
-          beforeEnter: redirectIfLoggedIn,
-          meta: { breadcrumbs: [{ translation: 'SIGNUP.TITLE', route: { name: 'signup' } }] },
+          meta: { requireLoggedIn: true, breadcrumbs: [{ translation: 'SIGNUP.TITLE', route: { name: 'signup' } }] },
           components: {
             default: Signup,
           },
@@ -180,8 +150,7 @@ const router = new VueRouter({
         {
           name: 'settings',
           path: '/settings',
-          beforeEnter: protectRoute,
-          meta: { breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] },
+          meta: { requireLoggedIn: true, breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] },
           components: {
             default: Settings,
           },
@@ -189,8 +158,7 @@ const router = new VueRouter({
         {
           name: 'user',
           path: '/user/:userId',
-          beforeEnter: protectRoute,
-          meta: { breadcrumbs: [{ type: 'activeUser' }] },
+          meta: { requireLoggedIn: true, breadcrumbs: [{ type: 'activeUser' }] },
           components: {
             default: User,
           },
@@ -205,7 +173,7 @@ const router = new VueRouter({
     { name: 'groupDescription', path: '/group/:groupId/description', component: GroupDescription, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } }] } },
     { name: 'groupHistory', path: '/group/:groupId/history', component: GroupHistory, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } }] } },
     { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
-    { name: 'signup', path: '/signup', component: Signup },    
+    { name: 'signup', path: '/signup', component: Signup },
     { name: 'settings', path: '/settings', component: Settings, beforeEnter: protectRoute, meta: { breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] } },
     { name: 'user', path: '/user/:userId', component: User, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeUser' }] } },
     { name: 'pickupFeedback', path: '/group/:groupId/feedback', component: PickupFeedback, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'feedback', route: { name: 'feedback' } }] } },
@@ -216,20 +184,5 @@ const router = new VueRouter({
     { path: '*', component: Error404 }, // Not found
   ],
 })
-
-router.afterEach((to, from) => {
-  // save Breadcrumbs to store
-  if (!(to.meta) || !(to.meta.breadcrumbs)) {
-    store.dispatch('breadcrumbs/setAll', { breadcrumbs: [{name: 'not defined'}] })
-  }
-  store.dispatch('breadcrumbs/setAll', { breadcrumbs: to.meta.breadcrumbs })
-
-  // save active group/store/user
-  if (to.params.groupId) { store.dispatch('groups/selectGroup', { groupId: to.params.groupId }) }
-  if (to.params.storeId) { store.dispatch('stores/selectStore', { storeId: to.params.storeId }) }
-  if (to.params.userId) { store.dispatch('users/selectUser', { userId: to.params.userId }) }
-})
-
-sync(store, router)
 
 export default router

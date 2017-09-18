@@ -256,5 +256,9 @@
     "SUBHEADER": "404 - Page not found",
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"
+  },
+  "SETTINGS": {
+    "TITLE": "Settings",
+    "LANGUAGE": "Language"
   }
 }

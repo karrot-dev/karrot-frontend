@@ -11,6 +11,8 @@ import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
 import Signup from '@/pages/Signup.vue'
 import Stores from '@/pages/Stores.vue'
+import Settings from '@/pages/Settings.vue'
+import User from '@/pages/User.vue'
 import StoreDetail from '@/pages/StoreDetail.vue'
 import PickupFeedback from '@/pages/Feedback.vue'
 import { getter } from '@/store/helpers'
@@ -67,6 +69,8 @@ const router = new VueRouter({
     { name: 'store', path: '/group/:groupId/store/:storeId', component: StoreDetail, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] } },
     { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
     { name: 'signup', path: '/signup', component: Signup },
+    { name: 'settings', path: '/settings', component: Settings, beforeEnter: protectRoute, meta: { breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] } },
+    { name: 'user', path: '/user/:userId', component: User, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeUser' }] } },
 
     // Always leave this last one
     { path: '*', component: Error404 }, // Not found

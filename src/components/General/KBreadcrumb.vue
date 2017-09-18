@@ -48,7 +48,11 @@ export default {
       if (element.type) {
         if (element.type === 'activeGroup') {
           if (this.activeGroup) return {name: this.activeGroup.name, route: {name: 'group', groupId: this.activeGroup.id}}
-          else return {name: 'loading'}
+          else return {name: 'loading groupname'}
+        }
+        if (element.type === 'activeUser') {
+          if (this.activeGroup) return {name: this.activeGroup.name, route: {name: 'group', groupId: this.activeGroup.id}}
+          else return {name: 'loading username'}
         }
         return {name: 'Aktiver Store', route: {name: 'store', groupId: 1, storeId: 1}}
       }

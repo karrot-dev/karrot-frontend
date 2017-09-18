@@ -16,9 +16,9 @@
               <q-item-side icon="school" />
               <q-item-main label="Docs" sublabel="quasar-framework.org" />
             </q-side-link>
-            <q-side-link item to="/forum">
+            <q-side-link item :to="{name: 'settings'}">
               <q-item-side icon="record_voice_over" />
-              <q-item-main label="Settings" sublabel="forum.quasar-framework.org" />
+              <q-item-main label="Settings" />
             </q-side-link>
             <q-side-link item to="/chat">
               <q-item-side icon="chat" />

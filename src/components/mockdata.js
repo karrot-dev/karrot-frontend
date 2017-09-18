@@ -44,3 +44,12 @@ export const feedbackMock = [
   e.createdAt = new Date(e.createdAt)
   return e
 })
+
+export const groupsMock = [
+  {'id': 1, 'name': '05_testgroup', 'publicDescription': 'This is the public description\nIt would make sense if it was markdown\n\n# then this would be a header\n[and this a link](www.google.de)', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.872775, 'longitude': 8.651177, 'members': [184, 6, 18, 28, 65, 76, 73, 96, 117, 17, 29, 45, 195, 1, 183, 196, 22, 8], 'protected': false, 'conversationId': 1},
+  {'id': 2, 'name': '06_testgroup', 'publicDescription': '', 'address': 'Grönland', 'latitude': 77.6192349, 'longitude': -42.8125966, 'members': [184, 172, 179, 34, 18, 75, 66, 17, 29, 187, 186, 195, 183], 'protected': false},
+  {'id': 3, 'name': '02_testgroup', 'publicDescription': '', 'address': null, 'latitude': null, 'longitude': null, 'members': [182, 184, 138, 140, 146, 152, 148, 145, 168, 10, 180, 178, 34, 39, 38, 74, 70, 75, 66, 31, 96, 123, 17, 130, 135, 187, 32, 195, 1, 190, 183, 22, 188], 'protected': false},
+  {'id': 4, 'name': '03_testgroup', 'publicDescription': '', 'address': 'Grönland', 'latitude': 77.6192349, 'longitude': -42.8125966, 'members': [184, 37, 43, 60, 68, 76, 66, 90, 17, 29, 45, 22], 'protected': false},
+  {'id': 6, 'name': '01_testgroup_with_maps_and_password', 'publicDescription': 'To enter this group, type "abc" as password (if nobody changed it!)', 'address': '19, Nordenskiöldsgatan, Olivedal, Majorna-Linné, Gothenburg, Göteborg, Västra Götalands län, Götaland, 41309, Sweden', 'latitude': 57.6927122, 'longitude': 11.9510521, 'members': [139, 140, 141, 142, 144, 146, 149, 145, 136, 10, 162, 163, 180, 143, 28, 39, 42, 33, 57, 40, 64, 71, 72, 79, 77, 69, 75, 86, 31, 95, 96, 105, 104, 108, 84, 112, 107, 114, 129, 17, 134, 7, 81, 29, 4, 45, 185, 32, 1, 202, 8, 189, 194], 'protected': true},
+  {'id': 13, 'name': '04_testgroup', 'publicDescription': 'Hi there! This it the public description!', 'address': 'Algeciras, Cádiz, Andalusia, Spain', 'latitude': 36.1445288570277, 'longitude': -5.45059204101562, 'members': [184, 151, 148, 159, 10, 34, 28, 67, 120, 17, 7, 29, 4, 45, 187, 1, 22, 8], 'protected': false},
+]

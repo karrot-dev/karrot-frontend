@@ -11,10 +11,8 @@
     </div>
     <div>
       <q-list highlight no-border>
-        <q-item :to="{name: 'groupDescription'}">{{ $t("GROUP.DESCRIPTION")}}</q-item>
-        <q-item>{{ $t("GROUP.PICKUPS")}} (Do we need that still?)</q-item>
-        <q-item>{{ $t("GROUP.MEMBERS")}} (Number here later)</q-item>
-        <q-item :to="{name: 'groupHistory'}">{{ $t("GROUP.HISTORY")}}</q-item>
+        <q-item :to="{name: 'storePickups'}">{{ $t("GROUP.PICKUPS")}}</q-item>
+        <q-item :to="{name: 'storeHistory'}">{{ $t("GROUP.HISTORY")}}</q-item>
       </q-list>
     </div>
   </SidenavBox>

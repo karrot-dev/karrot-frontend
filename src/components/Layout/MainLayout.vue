@@ -2,7 +2,6 @@
     <div class="background mainLayoutDesktop">
       <q-layout class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
         <div slot="header">
-
           <KTopbar slot="header">
             <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
               <i class="fa fa-bars"></i>
@@ -10,25 +9,7 @@
           </KTopbar>
         </div>
         <template slot="left" v-if="$q.platform.is.mobile">
-          <q-list no-border link inset-separator>
-            <q-list-header>Essential Links</q-list-header>
-            <q-side-link item to="/docs">
-              <q-item-side icon="school" />
-              <q-item-main label="Docs" sublabel="quasar-framework.org" />
-            </q-side-link>
-            <q-side-link item :to="{name: 'settings'}">
-              <q-item-side icon="record_voice_over" />
-              <q-item-main label="Settings" />
-            </q-side-link>
-            <q-side-link item to="/chat">
-              <q-item-side icon="chat" />
-              <q-item-main label="Git" sublabel="Quasar Lobby" />
-            </q-side-link>
-            <q-side-link item to="/twitter">
-              <q-item-side icon="rss feed" />
-              <q-item-main label="Logout" sublabel="@quasarframework" />
-            </q-side-link>
-          </q-list>
+          <MobileSidenav/>
         </template>
         <div class="mainContent row justify no-wrap">
           <div class="whiteSpace gt-sm"/>
@@ -56,10 +37,11 @@
 import KTopbar from './KTopbar.vue'
 import KFooter from './KFooter.vue'
 import MobileNavigation from './MobileNavigation.vue'
-import { QLayout, QBtn, QList, QListHeader, QSideLink, QItemSide, QItemMain } from 'quasar'
+import MobileSidenav from './MobileSidenav'
+import { QLayout, QBtn } from 'quasar'
 
 export default {
-  components: { KTopbar, KFooter, MobileNavigation, QLayout, QBtn, QList, QListHeader, QSideLink, QItemSide, QItemMain },
+  components: { KTopbar, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn },
   computed: {
     layoutView () {
       console.log(this.$q.platform.is.mobile)

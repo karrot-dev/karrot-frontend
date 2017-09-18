@@ -77,10 +77,14 @@ const router = new VueRouter({
   ],
 })
 router.afterEach((to, from) => {
+  // save Breadcrumbs to store
   if (!(to.meta) || !(to.meta.breadcrumbs)) {
     store.dispatch('breadcrumbs/setAll', { breadcrumbs: [{name: 'not defined'}] })
   }
   store.dispatch('breadcrumbs/setAll', { breadcrumbs: to.meta.breadcrumbs })
+
+  // save active group/store/user
+  if (to.params.groupId) { store.dispatch('groups/selectGroup', { groupId: to.params.groupId }) }
 })
 
 sync(store, router)

@@ -13,7 +13,7 @@
             name="description"
         >Description</q-route-tab>
         <q-route-tab
-            :to="{name: 'history'}"
+            :to="{name: 'groupHistory'}"
             exact
             slot="title"
             name="history"

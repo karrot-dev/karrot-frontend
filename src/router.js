@@ -8,6 +8,7 @@ import store from '@/store'
 import Home from '@/components/Home.vue'
 import Group from '@/pages/Group/Group.vue'
 import GroupDescription from '@/pages/Group/Description.vue'
+import GroupHistory from '@/pages/Group/History.vue'
 import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
 import Signup from '@/pages/Signup.vue'
@@ -70,6 +71,7 @@ const router = new VueRouter({
     { name: 'stores', path: '/group/:groupId/store', component: Stores, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.STORES', route: { name: 'stores' } }] } },
     { name: 'store', path: '/group/:groupId/store/:storeId', component: StoreDetail, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] } },
     { name: 'groupDescription', path: '/group/:groupId/description', component: GroupDescription, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } }] } },
+    { name: 'groupHistory', path: '/group/:groupId/history', component: GroupHistory, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } }] } },
     { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
     { name: 'signup', path: '/signup', component: Signup },
     { name: 'settings', path: '/settings', component: Settings, beforeEnter: protectRoute, meta: { breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] } },

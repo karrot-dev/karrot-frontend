@@ -33,8 +33,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.card
-  margin 0
 .padding
   padding 1em
 </style>

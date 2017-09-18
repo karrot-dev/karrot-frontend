@@ -11,9 +11,16 @@
       <KarrotLogo/>
     </router-link>
     <q-toolbar-title>
-      <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs"/>
+      <div class="row justify-between">
+        <div></div>
+        <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs"/>
+        <div></div>
+      </div>
     </q-toolbar-title>
 
+    <q-btn flat class="mobile-only">
+      <q-icon name="fa-fw fa-search"/>
+    </q-btn>
     <q-btn flat class="desktop-only">
       <q-icon name="fa-fw fa-comment"/>
     </q-btn>

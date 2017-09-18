@@ -1,12 +1,9 @@
 import Vue from 'vue'
 import messages from '@/services/api/messages'
-import { getter } from '@/store/helpers'
-
-const REVERSE = true
 
 export const types = {
-  SUBSCRIBE: 'Subscribe',
-  UNSUBSCRIBE: 'Unsubscribe',
+  SET_ACTIVE: 'Set Active',
+  CLEAR_ACTIVE: 'Clear Active',
 
   REQUEST_MESSAGES: 'Request Messages',
   RECEIVE_MESSAGES: 'Receive Messages',
@@ -17,42 +14,39 @@ export const types = {
 }
 
 export const state = {
-  conversations: {},
-  messages: {},
-  messagesMeta: {},
+  entries: {},
+  messages: {}, // { <conversation-id> : [<message>,...] }
   activeConversationId: null,
 }
 
-const getAuthor = getter('users/get')
-
 export const getters = {
-  getConversationById: state => id => state.conversations[id],
-  getMessagesById: state => id => (state.messages[id] || []).map(m => {
-    const author = getAuthor(m.author)
-    return { ...m, author }
-  }),
-  activeMessages: (state, getters) => {
+  activeMessages: (state, getters, rootState, rootGetters) => {
     if (!state.activeConversationId) return []
-    return getters.getMessagesById(state.activeConversationId)
+    let messages = state.messages[state.activeConversationId]
+    if (!messages) return []
+    return messages.map(m => {
+      return { ...m, author: rootGetters['users/get'](m.author) }
+    })
   },
 }
 
 export const actions = {
 
-  async subscribe ({ commit, dispatch }, { conversationId }) {
-    commit(types.SUBSCRIBE, { conversationId })
-    await dispatch('fetchMessagesByConversation', { conversationId })
+  async setActive ({ commit, dispatch }, conversation) {
+    commit(types.SET_ACTIVE, { conversationId: conversation.id })
+    commit(types.RECEIVE_CONVERSATION, { conversation })
+    await dispatch('fetchMessages', conversation.id)
   },
 
-  async unsubscribe ({ commit }, { conversationId }) {
-    commit(types.UNSUBSCRIBE, { conversationId })
+  async clearActive ({ commit }) {
+    commit(types.CLEAR_ACTIVE)
   },
 
   async receiveMessage ({ commit }, { message }) {
     commit(types.RECEIVE_MESSAGE, { message })
   },
 
-  async fetchMessagesByConversation ({ commit }, { conversationId }) {
+  async fetchMessages ({ commit }, conversationId) {
     commit(types.REQUEST_MESSAGES, { conversationId })
     try {
       commit(types.RECEIVE_MESSAGES, { conversationId, messages: await messages.list(conversationId) })
@@ -64,56 +58,32 @@ export const actions = {
 }
 
 export const mutations = {
-
-  [types.SUBSCRIBE] (state, { conversationId }) {
-    if (!state.messages[conversationId]) {
-      Vue.set(state.messages, conversationId, [])
-    }
-    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: false, error: null })
-    // TODO: subscribe is not the same as "select", this is just for now...
+  [types.SET_ACTIVE] (state, { conversationId }) {
     state.activeConversationId = conversationId
   },
-  [types.UNSUBSCRIBE] (state, { conversationId }) {
-    Vue.delete(state.conversations, conversationId)
-    Vue.delete(state.messages, conversationId)
-    Vue.delete(state.messagesMeta, conversationId)
+  [types.CLEAR_ACTIVE] (state) {
     state.activeConversationId = null
   },
-
-  [types.REQUEST_MESSAGES] (state, { conversationId }) {
-    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: true, error: null })
-  },
+  [types.REQUEST_MESSAGES] (state, { conversationId }) {},
   [types.RECEIVE_MESSAGES] (state, { conversationId, messages }) {
-    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: false })
-    if (!state.messages[conversationId]) {
-      Vue.set(state.messages, conversationId, [])
+    if (state.messages[conversationId]) {
+      // state.messages[conversationId].push(...messages)
+      Vue.set(state.messages, conversationId, messages)
     }
-    maybeAddMessages(state, conversationId, messages)
   },
-  [types.RECEIVE_MESSAGES_ERROR] (state, { conversationId, error }) {
-    Vue.set(state.messagesMeta, conversationId, { ...state.messagesMeta[conversationId], isFetching: false, error })
-  },
+  [types.RECEIVE_MESSAGES_ERROR] (state, { conversationId, error }) {},
 
   [types.RECEIVE_CONVERSATION] (state, { conversation }) {
-    Vue.set(state.conversations, conversation.id, conversation)
+    let { id } = conversation
+    Vue.set(state.entries, id, conversation)
+    if (!state.messages[id]) {
+      Vue.set(state.messages, id, [])
+    }
   },
-
   [types.RECEIVE_MESSAGE] (state, { message }) {
     let { conversation: { id: conversationId } = {} } = message
-    maybeAddMessages(state, conversationId, [message])
+    if (state.messages[conversationId]) {
+      state.messages[conversationId].push(...messages)
+    }
   },
-
-}
-
-function maybeAddMessages (state, conversationId, messages) {
-  let convMessages = state.messages[conversationId]
-  if (convMessages) {
-    if (REVERSE) {
-      messages.reverse()
-      convMessages.splice(0, 0, ...messages)
-    }
-    else {
-      convMessages.push(...messages)
-    }
-  }
 }

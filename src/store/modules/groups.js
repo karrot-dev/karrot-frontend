@@ -1,19 +1,14 @@
 import Vue from 'vue'
 import groups from '@/services/api/groups'
-import { types as conversationTypes } from './conversations'
 import { indexById } from '@/store/helpers'
 
 export const types = {
 
-  SELECT_GROUP: 'Select Group',
+  SET_ACTIVE: 'Set Active',
 
   REQUEST_GROUP: 'Request Group',
   RECEIVE_GROUP: 'Receive Group',
   RECEIVE_GROUP_ERROR: 'Receive Group Error',
-
-  REQUEST_CONVERSATION: 'Request Group Conversation',
-  RECEIVE_CONVERSATION: 'Receive Group Conversation',
-  RECEIVE_CONVERSATION_ERROR: 'Receive Group Conversation Error',
 
   REQUEST_GROUPS: 'Request Groups',
   RECEIVE_GROUPS: 'Receive Groups',
@@ -62,13 +57,16 @@ export const getters = {
 export const actions = {
 
   async selectGroup ({ commit, state, dispatch, getters, rootState }, { groupId }) {
-    console.log('selecting group!', groupId)
-    commit(types.SELECT_GROUP, { groupId })
-    dispatch('pickups/fetchListByGroupId', {groupId}, {root: true})
-    dispatch('stores/fetchListByGroupId', {groupId}, {root: true})
-    dispatch('users/fetchList', null, {root: true})
-    await dispatch('fetchGroupConversation', {groupId})
-    dispatch('conversations/subscribe', { conversationId: getters.get(groupId).conversationId }, {root: true})
+    commit(types.SET_ACTIVE, { groupId })
+    dispatch('pickups/fetchListByGroupId', { groupId }, { root: true })
+    dispatch('stores/fetchListByGroupId', { groupId }, { root: true })
+    dispatch('users/fetchList', null, { root: true })
+    try {
+      dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
+    }
+    catch (error) {
+      dispatch('conversations/clearActive')
+    }
   },
 
   async fetchGroup ({ commit }, { groupId }) {
@@ -78,18 +76,6 @@ export const actions = {
     }
     catch (error) {
       commit(types.RECEIVE_GROUP_ERROR, { error })
-    }
-  },
-
-  async fetchGroupConversation ({ commit }, { groupId }) {
-    commit(types.REQUEST_CONVERSATION, { groupId })
-    try {
-      const conversation = await groups.conversation(groupId)
-      commit(types.RECEIVE_CONVERSATION, { groupId, conversationId: conversation.id })
-      commit('conversations/' + conversationTypes.RECEIVE_CONVERSATION, { conversation }, { root: true })
-    }
-    catch (error) {
-      commit(types.RECEIVE_CONVERSATION_ERROR, { error })
     }
   },
 
@@ -131,7 +117,7 @@ export const actions = {
 }
 
 export const mutations = {
-  [types.SELECT_GROUP] (state, { groupId }) {
+  [types.SET_ACTIVE] (state, { groupId }) {
     state.activeGroupId = groupId
   },
   [types.REQUEST_GROUP] (state) {},
@@ -139,16 +125,6 @@ export const mutations = {
     Vue.set(state.entries, group.id, { ...state.entries[group.id], ...group })
   },
   [types.RECEIVE_GROUP_ERROR] (state, { error }) {},
-
-  [types.REQUEST_CONVERSATION] (state, { groupId }) {
-    // TODO set loading state
-  },
-  [types.RECEIVE_CONVERSATION] (state, { groupId, conversationId }) {
-    Vue.set(state.entries, groupId, { ...state.entries[groupId], conversationId })
-  },
-  [types.RECEIVE_CONVERSATION_ERROR] (state, { error }) {
-    // TODO
-  },
 
   [types.REQUEST_GROUPS] (state) {
     state.isFetching = true

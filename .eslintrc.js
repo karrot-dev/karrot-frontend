@@ -6,7 +6,7 @@ module.exports = {
   },
   env: {
     browser: true,
-    mocha: true
+    jest: true
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [
@@ -21,9 +21,7 @@ module.exports = {
     'cordova': true,
     'DEV': true,
     'PROD': true,
-    '__THEME': true,
-    'expect': true,
-    'sinon': true
+    '__THEME': true
   },
   // add your custom rules here
   'rules': {

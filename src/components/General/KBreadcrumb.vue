@@ -31,6 +31,7 @@ export default {
   computed: {
     ...mapGetters({
       activeGroup: 'groups/activeGroup',
+      activeStore: 'stores/activeStore',
     }),
     prevElements () {
       if (this.breadcrumbs.length === 0) return []
@@ -54,7 +55,11 @@ export default {
           if (this.activeGroup) return {name: this.activeGroup.name, route: {name: 'group', groupId: this.activeGroup.id}}
           else return {name: 'loading username'}
         }
-        return {name: 'Aktiver Store', route: {name: 'store', groupId: 1, storeId: 1}}
+        if (element.type === 'activeStore') {
+          if (this.activeStore) return {name: this.activeStore.name, route: {name: 'store', groupId: this.activeStore.id}}
+          else return {name: 'loading storename'}
+        }
+        return {name: 'FAIL', route: {name: 'home'}}
       }
       return element
     },

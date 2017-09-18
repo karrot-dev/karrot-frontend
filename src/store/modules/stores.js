@@ -1,6 +1,9 @@
 import stores from '@/services/api/stores'
+import { indexById } from '@/store/helpers'
 
 export const types = {
+
+  SELECT_STORE: 'Select Store',
 
   REQUEST_STORES: 'Request Stores',
   RECEIVE_STORES: 'Receive Stores',
@@ -11,6 +14,7 @@ export const state = {
   entries: [],
   isFetching: false,
   error: null,
+  activeStoreId: null,
 }
 
 export const getters = {
@@ -19,9 +23,16 @@ export const getters = {
     return state.entries.find(e => e.id === id) || {}
   },
   withLocation: state => state.entries.filter(e => e.longitude && e.latitude),
+  activeStore: state => state.activeStoreId && indexById(state.entries)[state.activeStoreId],
 }
 
 export const actions = {
+  async selectStore ({ commit, state, dispatch, getters, rootState }, { storeId }) {
+    console.log('selecting store!', storeId)
+    commit(types.SELECT_STORE, { storeId })
+    // dispatch('pickups/fetchListByStoreId', {storeId}, {root: true})
+  },
+
   async fetchListByGroupId ({ commit }, { groupId }) {
     commit(types.REQUEST_STORES)
     try {
@@ -34,6 +45,9 @@ export const actions = {
 }
 
 export const mutations = {
+  [types.SELECT_STORE] (state, { storeId }) {
+    state.activeStoreId = storeId
+  },
   [types.REQUEST_STORES] (state) {
     state.isFetching = true
   },

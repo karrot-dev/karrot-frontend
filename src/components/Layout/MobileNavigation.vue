@@ -1,5 +1,5 @@
 <template>
-    <q-tabs v-model="selectedTab" class="mobileNavigation">
+    <q-tabs v-model="selectedTab" align="center" class="mobileNavigation">
       <KTab slot="title" to="/group/1" name="group">
         <template slot="icon"><i class="fa fa-home q-tab-icon"></i></template>
         <template>Wall</template>

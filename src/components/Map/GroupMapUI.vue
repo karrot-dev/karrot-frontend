@@ -63,7 +63,7 @@ export default {
             markerColor: 'blue',
             prefix: 'fa',
           }),
-          popupcontent: `<a href="https://foodsaving.world">${store.name}</a>`,
+          popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
         }
       })
     },
@@ -78,7 +78,7 @@ export default {
             markerColor: 'green',
             prefix: 'fa',
           }),
-          popupcontent: `<a href="https://foodsaving.world">${user.displayName}</a>`,
+          popupcontent: `<a href="/#/user/${user.id}">${user.displayName}</a>`,
         }
       })
     },

@@ -6,7 +6,8 @@ import { sync } from 'vuex-router-sync'
 import store from '@/store'
 
 import Home from '@/components/Home.vue'
-import Group from '@/pages/Group.vue'
+import Group from '@/pages/Group/Group.vue'
+import GroupDescription from '@/pages/Group/Description.vue'
 import Error404 from '@/components/Error404.vue'
 import Login from '@/pages/Login.vue'
 import Signup from '@/pages/Signup.vue'
@@ -68,6 +69,7 @@ const router = new VueRouter({
     { name: 'pickupFeedback', path: '/group/:groupId/feedback', component: PickupFeedback, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'feedback', route: { name: 'feedback' } }] } },
     { name: 'stores', path: '/group/:groupId/store', component: Stores, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.STORES', route: { name: 'stores' } }] } },
     { name: 'store', path: '/group/:groupId/store/:storeId', component: StoreDetail, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] } },
+    { name: 'groupDescription', path: '/group/:groupId/description', component: GroupDescription, beforeEnter: protectRoute, meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } }] } },
     { name: 'login', path: '/login', component: Login, beforeEnter: redirectIfLoggedIn },
     { name: 'signup', path: '/signup', component: Signup },
     { name: 'settings', path: '/settings', component: Settings, beforeEnter: protectRoute, meta: { breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] } },
@@ -78,6 +80,7 @@ const router = new VueRouter({
     { path: '*', component: Error404 }, // Not found
   ],
 })
+
 router.afterEach((to, from) => {
   // save Breadcrumbs to store
   if (!(to.meta) || !(to.meta.breadcrumbs)) {

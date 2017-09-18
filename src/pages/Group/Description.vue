@@ -6,7 +6,8 @@
       <SidenavStores :stores="stores"/>
     </div>
     <div>
-      <Wall :messages="messages" :emptyPickups="emptyPickups" />
+      <h4>Description</h4>
+      asdassdnaölkdmasösdn  
     </div>
   </MainLayout>
 </template>

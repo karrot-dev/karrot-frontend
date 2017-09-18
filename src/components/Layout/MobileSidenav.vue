@@ -10,15 +10,15 @@
       <q-item-main label="Settings" />
     </q-side-link>
     <q-list-header>About us</q-list-header>
-    <a class="q-item" href="https://blog.foodsaving.world">
+    <a class="q-item" target="_blanc" href="https://blog.foodsaving.world">
       <q-item-side><i class="fa fa-newspaper-o"/></q-item-side>
       <q-item-main label="Blog" sublabel="All News around foodsaving.world" />
     </a>
-    <a class="q-item" href="https://blog.foodsaving.world/team.en.html">
+    <a class="q-item" target="_blanc" href="https://blog.foodsaving.world/team.en.html">
       <q-item-side><i class="fa fa-users"/></q-item-side>
       <q-item-main label="Team" sublabel="Our Contributors" />
     </a>
-    <a class="q-item" href="https://github.com/yunity/karrot-frontend">
+    <a class="q-item" target="_blanc" href="https://github.com/yunity/karrot-frontend">
       <q-item-side><i class="fa fa-git"/></q-item-side>
       <q-item-main label="Git" sublabel="See out code!" />
     </a>

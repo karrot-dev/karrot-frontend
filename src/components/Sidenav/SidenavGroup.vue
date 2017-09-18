@@ -11,7 +11,7 @@
     </div>
     <div>
       <q-list highlight no-border>
-        <q-item>{{ $t("GROUP.DESCRIPTION")}}</q-item>
+        <q-item :to="{name: 'groupDescription'}">{{ $t("GROUP.DESCRIPTION")}}</q-item>
         <q-item>{{ $t("GROUP.PICKUPS")}} (Do we need that still?)</q-item>
         <q-item>{{ $t("GROUP.MEMBERS")}} (Number here later)</q-item>
         <q-item>{{ $t("GROUP.HISTORY")}}</q-item>

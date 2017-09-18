@@ -1,0 +1,40 @@
+<template>
+  <div>
+    <h5>Wall</h5>
+  </div>
+</template>
+
+<script>
+
+import {
+  mapGetters,
+} from 'vuex'
+
+import { QCard, QTabs, QRouteTab } from 'quasar'
+
+export default {
+  components: { QCard, QTabs, QRouteTab },
+  computed: {
+    ...mapGetters({
+      store: 'stores/activeStore',
+    }),
+  },
+  metaInfo () {
+    if (this.store) {
+      return {
+        title: this.store.name,
+      }
+    }
+    else {
+      return {}
+    }
+  },
+}
+</script>
+
+<style scoped lang="stylus">
+.card
+  margin 0
+.padding
+  padding 1em
+</style>

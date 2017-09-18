@@ -6,7 +6,10 @@ const MainLayout = () => import('@/components/Layout/MainLayout')
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall.vue')
 const GroupMap = () => import('@/pages/Map.vue')
-const StoreWall = () => import('@/pages/StoreDetail.vue')
+const StoreLayout = () => import('@/pages/Store/Layout.vue')
+const StoreWall = () => import('@/pages/Store/Wall.vue')
+const StorePickups = () => import('@/pages/Store/Pickups.vue')
+const StoreHistory = () => import('@/pages/Store/History.vue')
 const StoreList = () => import('@/pages/Stores.vue')
 const GroupHistory = () => import('@/pages/Group/History.vue')
 const GroupDescription = () => import('@/pages/Group/Description.vue')
@@ -93,13 +96,33 @@ const router = new VueRouter({
               },
             },
             {
-              name: 'store',
+              redirect: '/group/:groupId/store/:storeId/wall',
               path: 'store/:storeId',
               meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
               components: {
-                default: StoreWall,
+                default: StoreLayout,
                 sidenav: GroupStoreSidenav,
               },
+              children: [
+                {
+                  name: 'store',
+                  path: '',
+                  meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
+                  components: { default: StoreWall },
+                },
+                {
+                  name: 'storePickups',
+                  path: 'pickups',
+                  meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
+                  components: { default: StorePickups },
+                },
+                {
+                  name: 'storeHistory',
+                  path: 'history',
+                  meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
+                  components: { default: StoreHistory },
+                },
+              ],
             },
             {
               name: 'pickupFeedback',

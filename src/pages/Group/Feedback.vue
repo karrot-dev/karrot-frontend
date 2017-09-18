@@ -5,12 +5,11 @@
 </template>
 
 <script>
-import Layout from '@/components/Layout/SplashLayout.vue'
 import PickupFeedback from '@/components/Statistics/PickupFeedback.vue'
 
 export default {
   components: {
-    Layout, PickupFeedback,
+    PickupFeedback,
   },
   metaInfo () {
     return {

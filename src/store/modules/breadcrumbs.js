@@ -29,7 +29,7 @@ export const getters = {
         let user = rootGetters['users/activeUser']
         if (user) {
           return {
-            name: user.name, route: { name: 'user', userId: user.id },
+            name: user.displayName, route: { name: 'user', userId: user.id },
           }
         }
       }

@@ -38,7 +38,16 @@ import 'quasar-extras/animate'
 Quasar.start(async () => {
   sync(store, router)
   store.dispatch('groups/fetchGroups')
+
   await store.dispatch('auth/check')
+
+  let currentGroupId = store.getters['auth/user'].currentGroup
+  if (currentGroupId) {
+    store.dispatch('groups/selectGroup', { groupId: currentGroupId })
+  }
+  else {
+    store.dispatch('users/fetchList', null, { root: true })
+  }
 
   /* eslint-disable no-new */
   new Vue({

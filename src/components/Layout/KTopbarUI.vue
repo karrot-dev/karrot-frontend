@@ -38,7 +38,7 @@
     </q-btn>
     <q-btn flat class="desktop-only">
       <q-icon name="fa-fw fa-user" />
-      <q-popover fit ref="popover">
+      <q-popover :touch-position="false" fit ref="popover">
         <q-list item-separator link>
           <q-item :to="{name: 'user', params: {userId: 72}}" @click="$refs.popover.close()">
             <q-icon size="1em" name="fa-user fa-fw" />

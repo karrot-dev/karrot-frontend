@@ -23,6 +23,10 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      # vue-test-utils is installed from github for now and the circleci git config
+      # rewrites the https: url to git: by default, so we remove it here
+      # once vue-test-utils is published properly we can remove this
+      - run: git config --global --remove-section url."ssh://git@github.com"
       - run: yarn test --ci --testResultsProcessor="jest-junit"
       - run: bash <(curl -s https://codecov.io/bash)
 

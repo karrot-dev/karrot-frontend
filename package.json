@@ -108,12 +108,16 @@
   "jest": {
     "moduleNameMapper": {
       "@/components/(.*)$": "<rootDir>/src/components/$1.vue",
-      "@/(.*)$": "<rootDir>/src/$1"
+      "@/(.*)$": "<rootDir>/src/$1",
+      "^quasar$": "<rootDir>/node_modules/quasar-framework"
     },
     "transform": {
       "^.+\\.js$": "babel-jest",
       ".*\\.(vue)$": "jest-vue-preprocessor"
     },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!quasar-framework)"
+    ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   }

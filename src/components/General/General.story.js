@@ -10,11 +10,9 @@ storiesOf('General Components', module)
   }))
 
   .add('KBreadcrumb', () => ({
-    components: { KBreadcrumb },
-    template: '<div id="q-app"><KBreadcrumb :breadcrumbs="bread"></KBreadcrumb></div>',
-    data () {
-      return {
-        bread: ['Group', 'Store', 'Pickups'],
-      }
-    },
+    render: h => h(KBreadcrumb, {
+      props: {
+        breadcrumbs: [{ name: 'Foodsharing Berlin' }, { name: 'SirPlus' }],
+      },
+    }),
   }))

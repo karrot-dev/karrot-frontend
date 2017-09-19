@@ -17,14 +17,16 @@
         <div></div>
       </div>
     </q-toolbar-title>
-    <div class="searchbar row no-wrap" v-if="showSearch">
-      <q-btn flat color="primary" @click="showSearch = false">
-        <q-icon name="fa-fw fa-window-close-o"/>
-      </q-btn>
-      <div>
-        <Search style="margin-top: .2em; vertical-align: middle"/>
+    <q-transition duration="310" name="search-slide-in" appear>
+      <div class="searchbar row no-wrap" v-if="showSearch">
+        <q-btn flat color="primary" @click="showSearch = false">
+          <q-icon name="fa-fw fa-window-close-o"/>
+        </q-btn>
+        <div>
+          <Search style="margin-top: .2em; vertical-align: middle"/>
+        </div>
       </div>
-    </div>
+    </q-transition>
     <q-btn v-if="!showSearch" flat @click="showSearch = true">
       <q-icon name="fa-fw fa-search"/>
     </q-btn>
@@ -57,14 +59,14 @@
 </template>
 
 <script>
-import { QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
+import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
 
 export default {
   components: {
-    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb, Search,
+    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb, Search,
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },
@@ -83,4 +85,18 @@ export default {
   padding-right .2em
   margin-right .2em
   border-radius $borderRadiusSmall
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+
+.search-slide-in-leave, .search-slide-in-enter-to
+  width: 17em
+
+.search-slide-in-leave-active, .search-slide-in-enter-active
+  transition: all .3s ease
+
+.search-slide-in-enter, .search-slide-in-leave-to
+  width: 0em
+  opacity 0
+
 </style>

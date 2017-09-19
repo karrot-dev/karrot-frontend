@@ -1,7 +1,9 @@
 <template>
     <div>
       <h5>Empty Pickups:</h5>
-      <PickupItem v-for="pickup in pickups" :key="pickup.id" :pickup="pickup"/>
+      <PickupItem v-for="pickup in pickups" :key="pickup.id" :pickup="pickup">
+        <i class="fa fa-exclamation-triangle"/> This should be the store name and collectors
+      </PickupItem>
     </div>
 </template>
 

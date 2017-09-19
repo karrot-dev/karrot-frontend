@@ -29,8 +29,8 @@ export const getters = {
 export const actions = {
   async selectStore ({ commit, state, dispatch, getters, rootState }, { storeId }) {
     console.log('selecting store!', storeId)
+    dispatch('pickups/setStoreFilter', storeId, {root: true})
     commit(types.SELECT_STORE, { storeId })
-    // dispatch('pickups/fetchListByStoreId', {storeId}, {root: true})
   },
 
   async fetchListByGroupId ({ commit }, { groupId }) {

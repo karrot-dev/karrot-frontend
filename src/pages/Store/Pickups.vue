@@ -18,11 +18,8 @@ export default {
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',
+      pickups: 'pickups/filtered',
     }),
-    pickups () {
-      console.log(this.store)
-      return []
-    },
   },
   metaInfo () {
     if (this.store) {

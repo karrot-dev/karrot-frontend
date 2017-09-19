@@ -3,6 +3,9 @@ import pickups from '@/services/api/pickups'
 
 export const types = {
 
+  SET_STORE_ID_FILTER: 'Set storeIdFilter',
+  CLEAR_STORE_ID_FILTER: 'Clear storeIdFilter',
+
   REQUEST_LIST: 'Request List',
   RECEIVE_LIST: 'Receive List',
   RECEIVE_LIST_ERROR: 'Receive List Error',
@@ -27,10 +30,12 @@ export const state = {
   entries: {},
   idList: [],
   idListGroupId: null,
+  storeIdFilter: null,
 }
 
 export const getters = {
   all: state => state.idList.map(id => state.entries[id]),
+  filtered: (state, getters) => getters.all.filter(e => !state.storeIdFilter || e.store === state.storeIdFilter),
   empty: (state, getters) => getters.all.filter(e => e.collectorIds.length < 1),
   isCollector: (state, getters) => (pickupId, userId) => {
     let pickup = getters.all.find(pickup => pickup.id === pickupId)
@@ -55,6 +60,14 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_ITEM_ERROR, { error })
     }
+  },
+
+  setStoreFilter ({ commit }, storeId) {
+    commit(types.SET_STORE_ID_FILTER, { storeId })
+  },
+
+  clearStoreFilter ({ commit }) {
+    commit(types.CLEAR_STORE_ID_FILTER)
   },
 
   async fetchList ({ commit }) {
@@ -104,6 +117,14 @@ export const actions = {
 }
 
 export const mutations = {
+  [types.SET_STORE_ID_FILTER] (state, { storeId }) {
+    state.storeIdFilter = parseInt(storeId)
+  },
+
+  [types.CLEAR_STORE_ID_FILTER] (state) {
+    state.storeIdFilter = null
+  },
+
   [types.CLEAR] (state) {
     state.entries = {}
     state.idList = []

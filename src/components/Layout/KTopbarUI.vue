@@ -31,17 +31,17 @@
       <q-icon name="fa-fw fa-user" />
       <q-popover fit ref="popover">
         <q-list item-separator link>
-          <q-item @click="doSomething(), $refs.popover.close()">
-            <i class="fa-fw fa-user"/>
-            View Profile
+          <q-item :to="{name: 'user', params: {userId: 72}}" @click="$refs.popover.close()">
+            <q-icon size="1em" name="fa-user fa-fw" />
+            {{$t('TOPBAR.USERPROFILE')}}
           </q-item>
           <q-item :to="{name: 'settings'}" @click="$refs.popover.close()">
             <q-icon size="1em" name="fa-cog fa-fw" />
-            Settings
+            {{$t('SETTINGS.TITLE')}}
           </q-item>
           <q-item @click="$emit('logout'), $refs.popover.close()">
             <q-icon size="1em" name="fa-sign-out fa-fw" />
-            Logout
+            {{$t('TOPBAR.LOGOUT')}}
           </q-item>
         </q-list>
       </q-popover>

@@ -2,23 +2,23 @@
     <q-tabs v-model="selectedTab" align="center" class="mobileNavigation">
       <KTab slot="title" to="/group/1" name="group">
         <template slot="icon"><i class="fa fa-home q-tab-icon"></i></template>
-        <template>Wall</template>
+        <template>{{$t('GROUP.WALL')}}</template>
       </KTab>
       <KTab slot="title" to="/group/1/store" name="stores">
         <template slot="icon"><i class="fa fa-shopping-cart q-tab-icon"></i></template>
-        <template>Stores</template>
+        <template>{{$t('GROUP.STORES')}}</template>
       </KTab>
       <KTab slot="title" name="messages">
         <template slot="icon"><i class="fa fa-comment q-tab-icon"></i></template>
-        <template>Chat</template>
+        <template>{{$t('CHAT.TITLE')}}</template>
       </KTab>
       <KTab slot="title" name="notifications">
         <template slot="icon"><i class="fa fa-bell q-tab-icon"></i></template>
-        <template>Alerts</template>
+        <template>{{$t('NOTIFICATIONS.TITLE')}}</template>
       </KTab>
       <KTab slot="title" :to="{name: 'map', params: {groupId: 1}}" name="profile">
         <template slot="icon"><i class="fa fa-map q-tab-icon"></i></template>
-        <template class="q-tab-label">Map</template>
+        <template class="q-tab-label">{{$t('GROUPMAP.TITLE')}}</template>
       </KTab>
     </q-tabs>
 </template>

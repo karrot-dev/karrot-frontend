@@ -45,6 +45,7 @@
     "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
+    "WALL": "Wall",
     "GROUP": "Group",
     "LEAVE": "Leave group...",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
@@ -100,6 +101,9 @@
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Delete recurring pickup date",
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+  },
+  "CHAT": {
+    "TITLE": "Chat"
   },
   "USERDETAIL": {
     "EDIT": "Edit user",

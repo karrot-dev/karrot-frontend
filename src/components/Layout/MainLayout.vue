@@ -41,7 +41,6 @@ export default {
   components: { KTopbar, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn },
   computed: {
     layoutView () {
-      console.log(this.$q.platform.is.mobile)
       if (this.$q.platform.is.mobile) {
         return 'hHh lpr fFf'
       }

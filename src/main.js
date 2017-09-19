@@ -41,12 +41,8 @@ Quasar.start(async () => {
 
   await store.dispatch('auth/check')
 
-  let currentGroupId = store.getters['auth/user'].currentGroup
-  if (currentGroupId) {
-    store.dispatch('groups/selectGroup', { groupId: currentGroupId })
-  }
-  else {
-    store.dispatch('users/fetchList', null, { root: true })
+  if (store.getters['auth/isLoggedIn']) {
+    store.dispatch('users/fetchList')
   }
 
   /* eslint-disable no-new */

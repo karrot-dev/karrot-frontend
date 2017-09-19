@@ -43,9 +43,9 @@ export const getters = {
     }
     return false
   },
-  getByActiveUser: (state, getters, rootState, routeGetters) => {
-    let userId = routeGetters['users/activeUser'].id
-    return getters.list.filter((el) => el.members.includes(userId))
+  getByActiveUser: (state, getters, rootState, rootGetters) => {
+    let activeUser = rootGetters['users/activeUser']
+    return activeUser ? getters.list.filter(el => el.members.includes(activeUser.id)) : []
   },
   get: state => (groupId) => {
     return state.entries[groupId] || {}
@@ -64,7 +64,6 @@ export const actions = {
     commit(types.SET_ACTIVE, { groupId })
     dispatch('pickups/fetchListByGroupId', { groupId }, { root: true })
     dispatch('stores/fetchListByGroupId', { groupId }, { root: true })
-    dispatch('users/fetchList', null, { root: true })
     try {
       dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
     }

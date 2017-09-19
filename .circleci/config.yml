@@ -16,11 +16,6 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-
-      # vue-test-utils is installed from github for now and the circleci git config
-      # rewrites the https: url to git: by default, so we remove it here
-      # once vue-test-utils is published properly we can remove this
-      - run: git config --global --remove-section url."ssh://git@github.com"
       - run: yarn
 
       - save_cache:

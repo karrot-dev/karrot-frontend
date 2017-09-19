@@ -13,6 +13,7 @@ const StoreHistory = () => import('@/pages/Store/History.vue')
 const StoreList = () => import('@/pages/Store/Stores.vue')
 const GroupHistory = () => import('@/pages/Group/History.vue')
 const GroupDescription = () => import('@/pages/Group/Description.vue')
+const GroupMembers = () => import('@/pages/Group/Members.vue')
 const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores.vue')
 const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup.vue')
 const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore.vue')
@@ -74,6 +75,15 @@ const router = new VueRouter({
               meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } }] },
               components: {
                 default: GroupDescription,
+                sidenav: GroupGroupSidenav,
+              },
+            },
+            {
+              name: 'groupMembers',
+              path: 'members',
+              meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } }] },
+              components: {
+                default: GroupMembers,
                 sidenav: GroupGroupSidenav,
               },
             },

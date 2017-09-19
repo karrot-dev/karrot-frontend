@@ -6,10 +6,7 @@ import SearchUI from './SearchUI.vue'
 import { storesMock, groupsMock, usersMock } from '../mockdata.js'
 
 storiesOf('General Components', module)
-  .add('KBox', () => ({
-    components: { KBox },
-    template: '<div id="q-app"><KBox></KBox></div>',
-  }))
+  .add('KBox', () => KBox)
 
   .add('KBreadcrumb', () => ({
     render: h => h(KBreadcrumb, {

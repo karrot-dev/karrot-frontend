@@ -43,6 +43,10 @@ export const getters = {
     }
     return false
   },
+  getByActiveUser: (state, getters, rootState, routeGetters) => {
+    let userId = routeGetters['users/activeUser'].id
+    return getters.list.filter((el) => el.members.includes(userId))
+  },
   get: state => (groupId) => {
     return state.entries[groupId] || {}
   },
@@ -132,6 +136,7 @@ export const mutations = {
   },
   [types.RECEIVE_GROUPS] (state, { groups }) {
     state.isFetching = false
+    state.idsList = groups.map((group) => group.id)
     state.entries = indexById(groups)
   },
   [types.RECEIVE_GROUPS_ERROR] (state, { error }) {

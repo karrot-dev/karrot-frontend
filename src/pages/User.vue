@@ -77,7 +77,7 @@ p.subtitle
 
 
 .turn-in-enter
-  transform rotate(0deg)
+  transform rotate(-15deg)
 
 .turn-in-leave-active, .turn-in-enter-active
   transition: all .5s ease

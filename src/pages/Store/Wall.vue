@@ -1,6 +1,11 @@
 <template>
   <div>
     <h5>Wall</h5>
+    <q-card color="info" class="generic-padding">
+      <i class="fa fa-exclamation-triangle on-left"/>
+      Basically waiting for backend since
+      stores don't have walls yet
+    </q-card>
   </div>
 </template>
 

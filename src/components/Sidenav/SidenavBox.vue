@@ -40,4 +40,7 @@ export default {
   .name .fa
     margin-right .4em
     font-size .9em
+    
+  .router-link-exact-active
+    background-color $neutral
 </style>

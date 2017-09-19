@@ -16,7 +16,7 @@
             <router-view class="desktop-only sidenav-desktop" name="sidenav"></router-view>
           <div class="mainContent-page">
             <router-view></router-view>
-            <q-btn flat @click="$refs.layout.toggleLeft()">
+            <q-btn class="mobile-only" flat @click="$refs.layout.toggleLeft()">
               <i class="fa fa-bars on-left"></i>Open Sidenav
             </q-btn>
           </div>

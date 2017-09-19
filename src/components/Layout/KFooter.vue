@@ -1,13 +1,17 @@
 <template>
-  <div class="row justify-between footer">
-      <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div> |
-      <div>made with <i class="fa fa-heart"></i> by <a href="https://yunity.org">yunity</a></div> |
-      <div>contribute on <a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i> GitHub</a></div> |
-      <div>join our official group on <a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-facebook"></i> Facebook</a></div> |
+  <div class="row generic-padding justify-around footer bg-neutral font-primary">
+    <div class="column">
+      <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
+      <div>made with <i class="fa fa-heart"></i> by <a href="https://yunity.org">yunity</a></div>
+    </div>
+    <div class="column">
+      <div>contribute on <a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i> GitHub</a></div>
+      <div>join our official group on <a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-facebook"></i> Facebook</a></div>
       <div><i class="fa fa-envelope"></i>
       <a href="mail:fstool@yunity.org" aria-label="" md-labeled-by-tooltip="md-tooltip-4">
         fstool@yunity.org
       </a></div>
+    </div>
   </div>
 </template>
 
@@ -58,7 +62,11 @@ export default {
 
 <style scoped lang="stylus">
   .footer
-    width: 95%
+    width: 100%
     max-width: 75em
     margin: 0 auto
+    margin-top 10em
+    height: 10em
+    .column div
+      margin .5em
 </style>

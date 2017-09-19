@@ -4,7 +4,6 @@ export default store => {
   let isLoggedIn = () => store.getters['auth/isLoggedIn']
   let hasActiveGroup = () => !!store.getters['groups/activeGroup']
   let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
-  let getUserId = () => isLoggedIn() && store.getters['auth/user'].id
 
   router.beforeEach((to, from, next) => {
     if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
@@ -35,20 +34,6 @@ export default store => {
         next({name: 'group', params: { groupId: 1 }})
       }
     }
-    console.log(to)
-    // set default params correctly
-    if (path.includes('groupId') && !to.params.groupId && getUserGroupId()) {
-      console.log('group redirect...')
-      next({path: to.path, params: { groupId: getUserGroupId() }})
-    }
-
-    // set default params correctly
-    if ((path.includes('userId') || to.name === 'user') && !to.params.userId && getUserId()) {
-      console.log('user redirect')
-      next({path: to.path, params: { userId: getUserId() }})
-    }
-    console.log('route fine')
-    console.log(path.includes('userId'))
     next()
   })
 

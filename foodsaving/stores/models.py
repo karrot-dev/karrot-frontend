@@ -13,6 +13,7 @@ from django.utils import timezone
 
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.stores.signals import pickup_done, pickup_missed
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Store(BaseModel, LocationModel):
@@ -33,7 +34,8 @@ class Store(BaseModel, LocationModel):
 class Feedback(BaseModel):
     given_by = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='feedback')
     about = models.ForeignKey('PickupDate')
-    weight = models.PositiveIntegerField(blank=True, null=True)
+    weight = models.FloatField(
+        blank=True, null=True, validators=[MinValueValidator(-0.01), MaxValueValidator(10000.0)])
     comment = models.CharField(max_length=settings.DESCRIPTION_MAX_LENGTH, blank=True)
 
 

@@ -39,3 +39,10 @@ class IsNotFull(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         return not obj.is_full()
+
+
+class IsSameCollector(permissions.BasePermission):
+    message = _('This feedback is given by another user.')
+
+    def has_object_permission(self, request, view, obj):
+        return obj.given_by == request.user

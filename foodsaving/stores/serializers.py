@@ -254,3 +254,8 @@ class FeedbackSerializer(serializers.ModelSerializer):
         if not about.is_collector(user):
             raise serializers.ValidationError(_('You aren\'t assigned to the pickup.'))
         return about
+
+    def validate(self, data):
+        if data.get('comment') is None and data.get('weight') is None:
+            raise serializers.ValidationError("Both comment and weight cannot be blank.")
+        return data

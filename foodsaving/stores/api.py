@@ -9,7 +9,7 @@ from rest_framework.viewsets import GenericViewSet
 from foodsaving.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
 from foodsaving.stores.permissions import (
     IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate,
-    IsNotFull)
+    IsNotFull, IsSameCollector)
 from foodsaving.stores.serializers import (
     StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer,
     PickupDateJoinSerializer, PickupDateLeaveSerializer, FeedbackSerializer)
@@ -69,6 +69,7 @@ class StoreViewSet(
 class FeedbackViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
+    PartialUpdateModelMixin,
     mixins.ListModelMixin,
     GenericViewSet
 ):
@@ -78,6 +79,12 @@ class FeedbackViewSet(
 
     def get_queryset(self):
         return self.queryset.filter(about__store__group__members=self.request.user)
+
+    def get_permissions(self):
+        if self.action == 'partial_update':
+            self.permission_classes = (IsAuthenticated, IsSameCollector,)
+
+        return super().get_permissions()
 
 
 class PickupDateSeriesViewSet(

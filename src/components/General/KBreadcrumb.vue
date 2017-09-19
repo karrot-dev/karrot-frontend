@@ -11,8 +11,10 @@
       </div>
       <div> > </div>
     </div>
-    <div class="label" v-if="lastElement.name">{{ lastElement.name }}</div>
-    <div class="label" v-if="lastElement.translation">{{ $t(lastElement.translation) }}</div>
+    <div v-if="lastElement">
+      <div class="label" v-if="lastElement.name">{{ lastElement.name }}</div>
+      <div class="label" v-if="lastElement.translation">{{ $t(lastElement.translation) }}</div>
+    </div>
   </div>
 </template>
 

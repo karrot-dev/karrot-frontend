@@ -7,7 +7,7 @@
       <div class="content">
         <div class="white-box">
           <q-field icon="fa-user">
-            <q-input v-model="name" :float-label="$t('USERDATA.USERNAME')"/>
+            <q-input :autofocus="true" v-model="name" :float-label="$t('USERDATA.USERNAME')"/>
           </q-field>
         </div>
         <div class="white-box" style="margin-top: 2em">

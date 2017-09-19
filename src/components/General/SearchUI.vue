@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <q-search separator class="lightgrey" v-model="terms" placeholder="Search">
+    <q-search :autofocus="true" separator class="lightgrey" v-model="terms" placeholder="Search">
       <q-autocomplete @search="search" @selected="selected" />
     </q-search>
   </div>

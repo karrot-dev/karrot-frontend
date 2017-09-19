@@ -7,7 +7,7 @@
       <div class="content" v-bind:class="{ shake: error }">
         <div class="white-box">
           <q-field icon="fa-envelope">
-            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="hasError('email')" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
+            <q-input :autofocus="true" @keyup.enter="$emit('loginDo', email, password)" :error="hasError('email')" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
           </q-field>
         </div>
         <div class="white-box">

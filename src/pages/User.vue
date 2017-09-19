@@ -12,7 +12,10 @@
         <h1 class="accent-font">{{user.displayName}}</h1>
         <p class="subtitle">
           <span v-for="(group, indx) in groups" :key="group.id">
-            {{ group.name }}<span v-if="groups.length !== indx + 1">,</span>
+            <router-link :to="{name: 'group', params: { groupId: group.id }}">
+              {{ group.name }}
+            </router-link>
+            <span v-if="groups.length !== indx + 1">,</span>
           </span>
         </p>
       </div>
@@ -44,7 +47,7 @@
 
     <q-card color="info" class="generic-padding">
       <i class="fa fa-exclamation-triangle on-left"/>
-      To be added: Statistics, working Messages, working Map, Email, Translation
+      To be added: Statistics, working Messages, working Map, Email, Translation, Fix Profile Picure reload
     </q-card>
   </div>
 </template>

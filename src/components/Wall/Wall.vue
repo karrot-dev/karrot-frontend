@@ -5,7 +5,7 @@
     </div>
     <hr/>
     <div>
-      <h5>Wall</h5>
+      <h5 class="generic-padding">Wall</h5>
     </div>
     <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5>Wall</h5>
+    <h5 class="generic-padding">Wall</h5>
     <q-card color="info" class="generic-padding">
       <i class="fa fa-exclamation-triangle on-left"/>
       Basically waiting for backend since

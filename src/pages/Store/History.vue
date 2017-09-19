@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5>History</h5>
+    <h5 class="generic-padding">History</h5>
     <q-card color="info" class="generic-padding">
       <i class="fa fa-exclamation-triangle on-left"/>
       Waiting to be filled with information...

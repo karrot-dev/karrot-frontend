@@ -1,5 +1,5 @@
 <template>
-  <h4>History</h4>
+  <h4 class="generic-padding">History</h4>
 </template>
 
 <script>

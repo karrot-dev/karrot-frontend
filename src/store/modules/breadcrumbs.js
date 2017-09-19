@@ -3,13 +3,39 @@ export const types = {
 }
 
 export const state = {
-  breadcrumbs: [
-    { name: 'First', route: { name: 'store', params: { groupId: 1, storeId: 60 } } },
-    { name: 'Last', route: { name: 'store', params: { groupId: 1, storeId: 60 } } }],
+  breadcrumbs: [],
 }
 
 export const getters = {
-  all: state => state.breadcrumbs,
+  all: (state, getters, rootState, rootGetters) => {
+    return state.breadcrumbs.map((item, idx) => {
+      if (item.type === 'activeGroup') {
+        let group = rootGetters['groups/activeGroup']
+        if (group) {
+          return {
+            name: group.name, route: { name: 'group', groupId: group.id },
+          }
+        }
+      }
+      else if (item.type === 'activeStore') {
+        let store = rootGetters['stores/activeStore']
+        if (store) {
+          return {
+            name: store.name, route: { name: 'store', groupId: store.id },
+          }
+        }
+      }
+      else if (item.type === 'activeUser') {
+        let user = rootGetters['users/activeUser']
+        if (user) {
+          return {
+            name: user.name, route: { name: 'user', userId: user.id },
+          }
+        }
+      }
+      return item
+    })
+  },
 }
 
 export const actions = {

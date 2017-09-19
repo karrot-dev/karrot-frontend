@@ -36,7 +36,12 @@ export const state = {
 export const getters = {
   all: state => state.idList.map(id => state.entries[id]),
   filtered: (state, getters) => getters.all.filter(e => !state.storeIdFilter || e.store === state.storeIdFilter),
-  empty: (state, getters) => getters.all.filter(e => e.collectorIds.length < 1),
+  empty: (state, getters) => {
+    return getters.all.filter((e) => {
+      let nextWeek = new Date(+new Date() + 6096e5)
+      return e.collectorIds.length < 1 && new Date(e.date) < nextWeek
+    })
+  },
   isCollector: (state, getters) => (pickupId, userId) => {
     let pickup = getters.all.find(pickup => pickup.id === pickupId)
     if (pickup && pickup.collectorIds.includes(userId)) {

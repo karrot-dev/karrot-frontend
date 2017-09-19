@@ -107,6 +107,7 @@ const router = new VueRouter({
                 {
                   name: 'store',
                   path: '',
+                  redirect: 'pickups',
                   meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
                   components: { default: StoreWall },
                 },

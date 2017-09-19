@@ -31,12 +31,6 @@
       <q-icon name="fa-fw fa-search"/>
     </q-btn>
     <q-btn flat class="desktop-only">
-      <q-icon name="fa-fw fa-comment"/>
-    </q-btn>
-    <q-btn flat class="desktop-only">
-      <q-icon name="fa-fw fa-bell" />
-    </q-btn>
-    <q-btn flat class="desktop-only">
       <q-icon name="fa-fw fa-user" />
       <q-popover :touch-position="false" fit ref="popover">
         <q-list item-separator link>

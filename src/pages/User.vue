@@ -27,7 +27,7 @@
           <router-link :to="{name: 'settings'}">{{ user.unverifiedEmail }}</router-link>
         </span>
       </div>
-      <q-card-separator /><br/>
+      <q-card-separator v-if="user.description != ''"/><br/>
       <vue-markdown
         v-if="user.description != ''"
         :anchorAttributes="{ target: '_blank', rel: 'nofollow noopener noreferrer' }"
@@ -89,7 +89,7 @@ export default {
 
 <style scoped lang="stylus">
 h1, p.subtitle
-  padding-left 50px
+  padding-left 30px
   margin 0
 p.subtitle
   margin .5em .5em .5em 0

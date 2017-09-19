@@ -11,10 +11,15 @@
       </div>
       <div> > </div>
     </div>
+<<<<<<< 8b323123664d64354ee4edbddf271d972e0efde1
     <div v-if="lastElement">
       <div class="label" v-if="lastElement.name">{{ lastElement.name }}</div>
       <div class="label" v-if="lastElement.translation">{{ $t(lastElement.translation) }}</div>
     </div>
+=======
+    <div class="label lastElement" v-if="lastElement.name">{{ lastElement.name }}</div>
+    <div class="label lastElement" v-if="lastElement.translation">{{ $t(lastElement.translation) }}</div>
+>>>>>>> Moved own style to app.mat.styl
   </div>
 </template>
 
@@ -52,4 +57,6 @@ export default {
     padding 0 16px
     font-weight 500
     text-transform uppercase
+  .lastElement
+    font-size 1.5rem
 </style>

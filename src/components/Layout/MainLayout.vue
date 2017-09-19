@@ -69,4 +69,5 @@ body.desktop .mainContent-page
 .background
   background-image url('../../assets/repeating_grey.jpg')
   background-size: 600px
+  background-attachment:fixed
 </style>

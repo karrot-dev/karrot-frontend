@@ -3,13 +3,13 @@
   <SidenavBox>
     <div slot="name"><i class="fa fa-fw fa-map"></i>{{$t("GROUPMAP.TITLE")}}</div>
     <div slot="tools" class="tools">
-      <q-btn flat>
+      <q-btn flat small>
         <i class="fa fa-bullseye"></i>
         <q-tooltip>
           <span>{{$t("GROUP.STORES")}}</span>
         </q-tooltip>
       </q-btn>
-      <q-btn flat @click="$emit('toggleStores')">
+      <q-btn flat small @click="$emit('toggleStores')">
         <span class="fa-stack" v-if="!showStores">
           <i class="fa fa-shopping-cart fa-stack-1x"></i>
           <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
@@ -26,7 +26,7 @@
         </q-tooltip>
       </q-btn>
 
-      <q-btn flat @click="$emit('toggleUsers')">
+      <q-btn flat small @click="$emit('toggleUsers')">
         <span class="fa-stack" v-if="!showUsers">
           <i class="fa fa-user fa-stack-1x"></i>
           <i class="fa fa-times fa-bot-right fa-stack-1x"></i>

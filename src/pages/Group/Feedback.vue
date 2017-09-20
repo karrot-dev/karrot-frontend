@@ -11,11 +11,6 @@ export default {
   components: {
     PickupFeedback,
   },
-  metaInfo () {
-    return {
-      title: `${this.myGroup.name}`,
-    }
-  },
 }
 </script>
 

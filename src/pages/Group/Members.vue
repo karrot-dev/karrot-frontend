@@ -18,16 +18,6 @@ export default {
       users: 'groups/activeUsers',
     }),
   },
-  metaInfo () {
-    if (this.group) {
-      return {
-        title: this.group.name,
-      }
-    }
-    else {
-      return {}
-    }
-  },
 }
 </script>
 

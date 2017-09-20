@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Meta from 'vue-meta'
 
 const MainLayout = () => import('@/components/Layout/MainLayout')
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
@@ -25,7 +24,6 @@ const User = () => import('@/pages/User.vue')
 const PickupFeedback = () => import('@/pages/Group/Feedback.vue')
 
 Vue.use(VueRouter)
-Vue.use(Meta)
 
 const router = new VueRouter({
   /*

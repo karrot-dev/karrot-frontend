@@ -83,11 +83,6 @@ export default {
     this.check()
     this.selectGroup({ groupId: this.groupId })
   },
-  metaInfo () {
-    return {
-      title: `${this.myGroup.name}`,
-    }
-  },
 }
 </script>
 

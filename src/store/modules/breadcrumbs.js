@@ -36,6 +36,7 @@ export const getters = {
       return item
     })
   },
+  allNames: (state, getters) => getters.all.map(item => item.name).filter(item => item),
 }
 
 export const actions = {

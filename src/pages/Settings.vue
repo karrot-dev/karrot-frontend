@@ -41,11 +41,6 @@ import { mapActions } from 'vuex'
 
 export default {
   components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect },
-  metaInfo () {
-    return {
-      title: this.$t('SETTINGS.TITLE'),
-    }
-  },
   data () {
     return {
       locales,

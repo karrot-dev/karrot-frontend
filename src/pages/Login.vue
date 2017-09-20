@@ -25,11 +25,6 @@ export default {
       this.login({ email, password })
     },
   },
-  metaInfo () {
-    return {
-      title: this.$t('LOGIN.TITLE'),
-    }
-  },
 }
 </script>
 

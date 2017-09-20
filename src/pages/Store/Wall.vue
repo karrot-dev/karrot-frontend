@@ -24,16 +24,6 @@ export default {
       store: 'stores/activeStore',
     }),
   },
-  metaInfo () {
-    if (this.store) {
-      return {
-        title: this.store.name,
-      }
-    }
-    else {
-      return {}
-    }
-  },
 }
 </script>
 

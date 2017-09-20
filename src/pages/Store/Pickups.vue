@@ -31,16 +31,6 @@ export default {
       pickups: 'pickups/filtered',
     }),
   },
-  metaInfo () {
-    if (this.store) {
-      return {
-        title: this.store.name,
-      }
-    }
-    else {
-      return {}
-    }
-  },
 }
 </script>
 

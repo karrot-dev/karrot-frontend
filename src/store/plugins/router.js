@@ -4,6 +4,7 @@ export default store => {
   let isLoggedIn = () => store.getters['auth/isLoggedIn']
   let hasActiveGroup = () => !!store.getters['groups/activeGroup']
   let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
+  let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
   router.beforeEach((to, from, next) => {
     if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
@@ -66,5 +67,11 @@ export default store => {
       let groupId = getUserGroupId()
       if (groupId) store.dispatch('groups/selectGroup', { groupId })
     }
+  })
+
+  store.watch(getBreadcrumbNames, breadcrumbs => {
+    let names = getBreadcrumbNames().slice().reverse()
+    names.push('Karrot')
+    document.title = names.join(' / ')
   })
 }

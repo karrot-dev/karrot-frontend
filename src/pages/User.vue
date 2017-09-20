@@ -77,16 +77,6 @@ export default {
       return 90
     },
   },
-  metaInfo () {
-    if (this.user) {
-      return {
-        title: this.user.displayName,
-      }
-    }
-    else {
-      return {}
-    }
-  },
 }
 </script>
 

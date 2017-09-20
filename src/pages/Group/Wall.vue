@@ -18,16 +18,6 @@ export default {
       group: 'groups/activeGroup',
     }),
   },
-  metaInfo () {
-    if (this.group) {
-      return {
-        title: this.group.name,
-      }
-    }
-    else {
-      return {}
-    }
-  },
 }
 </script>
 

@@ -15,11 +15,6 @@ export default {
       stores: 'stores/list',
     }),
   },
-  metaInfo () {
-    return {
-      title: this.$t('GROUP.STORES'),
-    }
-  },
 }
 </script>
 

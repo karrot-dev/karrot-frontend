@@ -162,7 +162,7 @@ const router = new VueRouter({
         {
           name: 'signup',
           path: '/signup',
-          meta: { requireLoggedIn: true, breadcrumbs: [{ translation: 'SIGNUP.TITLE', route: { name: 'signup' } }] },
+          meta: { requireLoggedOut: true, breadcrumbs: [{ translation: 'SIGNUP.TITLE', route: { name: 'signup' } }] },
           components: {
             default: Signup,
           },

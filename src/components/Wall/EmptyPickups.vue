@@ -2,7 +2,7 @@
     <div>
       <h5>Empty Pickups:</h5>
       <PickupItem v-for="pickup in pickups" :key="pickup.id" :pickup="pickup">
-        <i class="fa fa-exclamation-triangle"/> This should be the store name and collectors
+        <strong>{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
       </PickupItem>
     </div>
 </template>

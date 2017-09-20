@@ -38,11 +38,14 @@ export const getters = {
     return state.idList.map(id => state.entries[id]).map(e => {
       return {
         ...e,
+        store: rootGetters['stores/get'](e.store),
         collectors: e.collectorIds.map(id => rootGetters['users/get'](id)),
       }
     })
   },
-  filtered: (state, getters) => getters.all.filter(e => !state.storeIdFilter || e.store === state.storeIdFilter),
+  filtered: (state, getters) => {
+    return getters.all.filter(e => !state.storeIdFilter || e.store.id === state.storeIdFilter)
+  },
   empty: (state, getters) => {
     return getters.all.filter((e) => {
       let nextWeek = new Date(+new Date() + 6096e5)

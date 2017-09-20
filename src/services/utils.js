@@ -1,5 +1,3 @@
-import camelCase from 'camel-case'
-
 export function camelizeKeys (val) {
   if (isObject(val)) {
     if (Array.isArray(val)) {
@@ -8,7 +6,7 @@ export function camelizeKeys (val) {
     else {
       let newVal = {}
       for (const key of Object.keys(val)) {
-        newVal[camelCase(key)] = camelizeKeys(val[key])
+        newVal[camelize(key)] = camelizeKeys(val[key])
       }
       return newVal
     }
@@ -24,4 +22,9 @@ export function isObject (x) {
     !(x instanceof RegExp) &&
     !(x instanceof Error) &&
     !(x instanceof Date)
+}
+
+// Just enough to support the keys we get back from the Django API
+export function camelize (val) {
+  return val.replace(/_(.)/g, (_, s) => s.toUpperCase())
 }

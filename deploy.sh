@@ -52,10 +52,14 @@ if [ "$REF" == "$dev_deployment_branch" ]; then
 
     URL="https://karrot-dev.foodsaving.world"
     STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
+    WEBPACK_URL="$URL/bundlesize.html"
 
     COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 
-    ATTACHMENT_TEXT=":banana: <$URL|Visit the site>\n:books: <$STORYBOOK_URL|Visit the storybook>"
+    ATTACHMENT_TEXT="\
+      :karrot: <$URL|Visit the site>\n
+      :books: <$STORYBOOK_URL|Visit the storybook>\n
+      :webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
     ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 
     payload=$(printf '{

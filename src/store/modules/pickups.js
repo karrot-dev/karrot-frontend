@@ -28,7 +28,7 @@ export const types = {
 
 export const state = {
   entries: {},
-  waitingSince: {},
+  waiting: {},
   idList: [],
   idListGroupId: null,
   storeIdFilter: null,
@@ -40,7 +40,7 @@ export const getters = {
     return state.idList.map(id => state.entries[id]).map(e => {
       return {
         ...e,
-        isWaiting: state.waitingSince.hasOwnProperty(e.id),
+        isWaiting: state.waiting[e.id],
         isUserMember: e.collectorIds.includes(currentUserId),
         store: rootGetters['stores/get'](e.store),
         collectors: e.collectorIds.map(id => rootGetters['users/get'](id)),
@@ -117,6 +117,7 @@ export const actions = {
     }
     catch (error) {
       commit(types.RECEIVE_JOIN_ERROR, { error, pickupId })
+      dispatch('fetch', { pickupId })
     }
   },
 
@@ -128,6 +129,7 @@ export const actions = {
     }
     catch (error) {
       commit(types.RECEIVE_LEAVE_ERROR, { error, pickupId })
+      dispatch('fetch', { pickupId })
     }
   },
 
@@ -171,30 +173,26 @@ export const mutations = {
   },
 
   [types.REQUEST_JOIN] (state, { pickupId }) {
-    if (!state.waitingSince.hasOwnProperty(pickupId)) {
-      Vue.set(state.waitingSince, pickupId, Date.now())
-    }
+    Vue.set(state.waiting, pickupId, true)
   },
   [types.RECEIVE_JOIN] (state, { pickupId, userId }) {
-    Vue.delete(state.waitingSince, pickupId)
+    Vue.delete(state.waiting, pickupId)
     state.entries[pickupId].collectorIds.push(userId)
   },
   [types.RECEIVE_JOIN_ERROR] (state, { error, pickupId }) {
-    Vue.delete(state.waitingSince, pickupId)
+    Vue.delete(state.waiting, pickupId)
   },
 
   [types.REQUEST_LEAVE] (state, { pickupId }) {
-    if (!state.waitingSince.hasOwnProperty(pickupId)) {
-      Vue.set(state.waitingSince, pickupId, Date.now())
-    }
+    Vue.set(state.waiting, pickupId, true)
   },
   [types.RECEIVE_LEAVE] (state, { pickupId, userId }) {
-    Vue.delete(state.waitingSince, pickupId)
+    Vue.delete(state.waiting, pickupId)
     let { collectorIds } = state.entries[pickupId]
     let idx = collectorIds.indexOf(userId)
     if (idx !== -1) collectorIds.splice(idx, 1)
   },
   [types.RECEIVE_LEAVE_ERROR] (state, { error, pickupId }) {
-    Vue.delete(state.waitingSince, pickupId)
+    Vue.delete(state.waiting, pickupId)
   },
 }

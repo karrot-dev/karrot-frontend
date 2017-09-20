@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-1 wrapper">
+  <div class="grey-border wrapper">
     <UserList :users="users" />
   </div>
 </template>
@@ -34,5 +34,4 @@ export default {
 <style scoped lang="stylus">
 .wrapper
   margin 1em
-  background-color white
 </style>

@@ -1,5 +1,8 @@
 <template>
-  <Map class="map"/>
+  <div>
+    <div class="placeholder"/>
+    <Map class="map"/>
+  </div>
 </template>
 
 <script>
@@ -12,6 +15,12 @@ export default {
 
 <style scoped lang="stylus">
 .map
-  width: 100%
-  height: 100vh
+  position absolute
+  height 100vh
+  width 100vw
+  left 0
+  top 0
+.placeholder
+  height 100vh
+  width 100vw
 </style>

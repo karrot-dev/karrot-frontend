@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="notices">
+    <div class="notices" v-if="emptyPickups.length > 0">
       <EmptyPickups :pickups="emptyPickups"/>
     </div>
-    <hr/>
     <div>
       <h5 class="generic-padding">Wall</h5>
     </div>

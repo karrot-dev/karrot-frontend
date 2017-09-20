@@ -1,30 +1,46 @@
 <template>
-  <div class="generic-padding">
-  <q-list no-border>
-    <q-select
-      @change="setNewLocale" 
-      v-model="select"
-      :options="allLocales"
-    />
-    <q-item>
-      <q-item-side>
-        <i class="fa fa-user"/>
-      </q-item-side>
-      <q-item-main>Profile Info</q-item-main>
-    </q-item>
-  </q-list>
+  <div class="generic-padding grey-border">
+    <q-list no-border highlight
+      <q-list-header>Language</q-list-header>
+      <q-item style="padding-top: 0">
+        <q-item-side>
+          <i class="fa fa-fw fa-language"/>
+        </q-item-side>
+        <q-item-main>
+          <q-select
+            @change="setNewLocale" 
+            v-model="select"
+            :options="allLocales"
+          />
+        </q-item-main>
+      </q-item>
+
+      <q-list-header>Profile</q-list-header>
+      <q-item>
+        <q-item-side>
+          <i class="fa fa-fw fa-user"/>
+        </q-item-side>
+        <q-item-main>Edit Profile Info</q-item-main>
+      </q-item>
+      <q-item>
+        <q-item-side>
+          <i class="fa fa-fw fa-envelope"/>
+        </q-item-side>
+        <q-item-main>Resend Mail verification</q-item-main>
+      </q-item>
+    </q-list>
   </div>
 </template>
 
 <script>
-import { QList, QItem, QItemSide, QItemMain, QSelect } from 'quasar'
+import { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect } from 'quasar'
 import store from '@/store'
 import { locales } from '@/i18n'
 
 import { mapActions } from 'vuex'
 
 export default {
-  components: { QList, QItem, QItemSide, QItemMain, QSelect },
+  components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect },
   metaInfo () {
     return {
       title: this.$t('SETTINGS.TITLE'),

@@ -10,3 +10,4 @@ cordova/plugins
 nbproject/
 storybook-static
 coverage/
+e2e-screenshots

@@ -109,24 +109,22 @@ export const actions = {
     }
   },
 
-  async join ({ commit, dispatch }, pickupId) {
+  async join ({ commit, dispatch, rootGetters }, pickupId) {
     commit(types.REQUEST_JOIN, { pickupId })
     try {
       await pickups.join(pickupId)
-      commit(types.RECEIVE_JOIN, { pickupId })
-      await dispatch('fetch', { pickupId })
+      commit(types.RECEIVE_JOIN, { pickupId, userId: rootGetters['auth/userId'] })
     }
     catch (error) {
       commit(types.RECEIVE_JOIN_ERROR, { error, pickupId })
     }
   },
 
-  async leave ({ commit, dispatch }, pickupId) {
+  async leave ({ commit, dispatch, rootGetters }, pickupId) {
     commit(types.REQUEST_LEAVE, { pickupId })
     try {
       await pickups.leave(pickupId)
-      commit(types.RECEIVE_LEAVE, { pickupId })
-      await dispatch('fetch', { pickupId })
+      commit(types.RECEIVE_LEAVE, { pickupId, userId: rootGetters['auth/userId'] })
     }
     catch (error) {
       commit(types.RECEIVE_LEAVE_ERROR, { error, pickupId })
@@ -177,8 +175,9 @@ export const mutations = {
       Vue.set(state.waitingSince, pickupId, Date.now())
     }
   },
-  [types.RECEIVE_JOIN] (state, { pickupId }) {
+  [types.RECEIVE_JOIN] (state, { pickupId, userId }) {
     Vue.delete(state.waitingSince, pickupId)
+    state.entries[pickupId].collectorIds.push(userId)
   },
   [types.RECEIVE_JOIN_ERROR] (state, { error, pickupId }) {
     Vue.delete(state.waitingSince, pickupId)
@@ -189,8 +188,11 @@ export const mutations = {
       Vue.set(state.waitingSince, pickupId, Date.now())
     }
   },
-  [types.RECEIVE_LEAVE] (state, { pickupId }) {
+  [types.RECEIVE_LEAVE] (state, { pickupId, userId }) {
     Vue.delete(state.waitingSince, pickupId)
+    let { collectorIds } = state.entries[pickupId]
+    let idx = collectorIds.indexOf(userId)
+    if (idx !== -1) collectorIds.splice(idx, 1)
   },
   [types.RECEIVE_LEAVE_ERROR] (state, { error, pickupId }) {
     Vue.delete(state.waitingSince, pickupId)

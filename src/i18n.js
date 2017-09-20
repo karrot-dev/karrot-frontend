@@ -3,6 +3,12 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
+// Just need to include 'en' here as it is the fallback locale
+// All other locales are loaded on demand in store/plugins/i18n
+export const messages = {
+  en: require('@/locales/locale-en.json'),
+}
+
 export const locales = [
   { locale: 'de', name: 'Deutsch' },
   { locale: 'en', name: 'English' },
@@ -40,9 +46,17 @@ for (const locale of locales) {
 }
 
 const i18n = new VueI18n({
-  messages: {}, // loaded on demand in store/plugins/i18n
+  messages,
   dateTimeFormats,
-  fallbackLocale: 'en',
+  fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
 
 export default i18n
+
+if (module.hot) {
+  module.hot.accept([
+    '@/locales/locale-en.json',
+  ], () => {
+    i18n.setLocaleMessage('en', require('@/locales/locale-en.json'))
+  })
+}

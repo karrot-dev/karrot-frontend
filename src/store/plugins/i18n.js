@@ -2,8 +2,7 @@ import i18n from '@/i18n'
 
 export default store => {
   store.watch(state => state.i18n.locale, async locale => {
-    if (locale === 'en') i18n.setLocaleMessage('en', await import('@/locales/locale-en.json'))
-    else if (locale === 'de') i18n.setLocaleMessage('de', await import('@/locales/locale-de.json'))
+    if (locale === 'de') i18n.setLocaleMessage('de', await import('@/locales/locale-de.json'))
     else if (locale === 'eo') i18n.setLocaleMessage('eo', await import('@/locales/locale-eo.json'))
     else if (locale === 'es') i18n.setLocaleMessage('es', await import('@/locales/locale-es.json'))
     else if (locale === 'fr') i18n.setLocaleMessage('fr', await import('@/locales/locale-fr.json'))
@@ -26,7 +25,6 @@ export default store => {
 
 if (module.hot) {
   module.hot.accept([
-    '@/locales/locale-en.json',
     '@/locales/locale-de.json',
     '@/locales/locale-eo.json',
     '@/locales/locale-es.json',
@@ -36,7 +34,6 @@ if (module.hot) {
     '@/locales/locale-sv.json',
     '@/locales/locale-zh.json',
   ], () => {
-    i18n.setLocaleMessage('en', require('@/locales/locale-en.json'))
     i18n.setLocaleMessage('de', require('@/locales/locale-de.json'))
     i18n.setLocaleMessage('eo', require('@/locales/locale-eo.json'))
     i18n.setLocaleMessage('es', require('@/locales/locale-es.json'))

@@ -1,3 +1,5 @@
+import i18n from '@/i18n'
+
 export const types = {
   SET_ALL_BREADCRUMBS: 'Set all breadcrumbs',
 }
@@ -32,6 +34,9 @@ export const getters = {
             name: user.displayName, route: { name: 'user', userId: user.id },
           }
         }
+      }
+      else if (item.translation) {
+        return { ...item, name: i18n.t(item.translation) }
       }
       return item
     })

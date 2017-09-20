@@ -3,17 +3,14 @@
     <div class="prevBread gt-xs" v-for="breadcrumb in prevElements">
       <router-link v-if="breadcrumb.route" :to="breadcrumb.route">
         <q-btn flat small v-if="breadcrumb.name">{{ breadcrumb.name }}</q-btn>
-        <q-btn flat small v-if="breadcrumb.translation">{{ $t(breadcrumb.translation) }}</q-btn>
       </router-link>
       <div class="label" v-if="!breadcrumb.route">
         <span v-if="breadcrumb.name">{{ breadcrumb.name }}</span>
-        <span v-if="breadcrumb.translation">{{ breadcrumb.translation }}</span>
       </div>
       <div> > </div>
     </div>
     <div v-if="lastElement">
       <div class="label lastElement" v-if="lastElement.name">{{ lastElement.name }}</div>
-      <div class="label lastElement" v-if="lastElement.translation">{{ $t(lastElement.translation) }}</div>
     </div>
   </div>
 </template>

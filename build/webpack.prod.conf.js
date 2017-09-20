@@ -7,7 +7,8 @@ var
   baseWebpackConfig = require('./webpack.base.conf'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'),
+  BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = merge(baseWebpackConfig, {
   module: {
@@ -19,6 +20,20 @@ module.exports = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      reportFilename: 'bundlesize.html',
+      defaultSizes: 'gzip',
+      openAnalyzer: true,
+      generateStatsFile: false,
+      statsFilename: 'stats.json',
+      // Options for `stats.toJson()` method.
+      // For example you can exclude sources of your modules from stats file with `source: false` option.
+      // See more options here: https://github.com/webpack/webpack/blob/webpack-1/lib/Stats.js#L21
+      statsOptions: null,
+      // Log level. Can be 'info', 'warn', 'error' or 'silent'.
+      logLevel: 'info'
+    }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: config.build.productionSourceMap,
       minimize: true,

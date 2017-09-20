@@ -1,5 +1,5 @@
 <template>
-  <div class="wall-card-wrapper">
+  <div class="wall-card-wrapper grey-border">
     <div class="row no-wrap justify-between header">
       <div class="icon">
         <slot name="icon">"icon"-slot</slot>
@@ -27,16 +27,13 @@ export default {
 @import '~variables'
 
 .wall-card-wrapper
-  border 1px solid grey
-  border-radius 5px
   margin-bottom 1em
   .header
-    border 1px solid grey
     border-radius 5px 5px 0 0
     height 34px
     padding 0
-    background-color $primary
-    color $tertiary
+    background-color $neutral
+    color black
   .title, .time
     margin auto 0
     padding 0 .3em

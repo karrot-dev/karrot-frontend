@@ -83,6 +83,17 @@ module.exports = merge(baseWebpackConfig, {
         )
       }
     }),
+
+    // Do some cool async chunk children commons loading async shit #awesome #yolo
+    // See:
+    //   https://webpack.js.org/plugins/commons-chunk-plugin/#extra-async-commons-chunk
+    //   https://medium.com/webpack/webpack-bits-getting-the-most-out-of-the-commonschunkplugin-ab389e5f318
+    new webpack.optimize.CommonsChunkPlugin({
+      children: true,
+      async: true,
+      minChunks: 3,
+    }),
+
     // extract webpack runtime and module manifest to its own file in order to
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({

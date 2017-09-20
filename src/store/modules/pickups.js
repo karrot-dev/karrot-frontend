@@ -34,7 +34,14 @@ export const state = {
 }
 
 export const getters = {
-  all: state => state.idList.map(id => state.entries[id]),
+  all: (state, getters, rootState, rootGetters) => {
+    return state.idList.map(id => state.entries[id]).map(e => {
+      return {
+        ...e,
+        collectors: e.collectorIds.map(id => rootGetters['users/get'](id)),
+      }
+    })
+  },
   filtered: (state, getters) => getters.all.filter(e => !state.storeIdFilter || e.store === state.storeIdFilter),
   empty: (state, getters) => {
     return getters.all.filter((e) => {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PickupList :pickups="pickups"></PickupList>
+    <PickupList :pickups="pickups" @join="join" @leave="leave"></PickupList>
     <KNotice v-if="pickups && pickups.length == 0" >
       <template slot="icon">
         <i class="fa fa-bed"/>
@@ -19,12 +19,19 @@ import KNotice from '@/components/General/KNotice'
 
 import {
   mapGetters,
+  mapActions,
 } from 'vuex'
 
 import { QCard, QTabs, QRouteTab } from 'quasar'
 
 export default {
   components: { PickupList, QCard, QTabs, QRouteTab, KNotice },
+  methods: {
+    ...mapActions({
+      join: 'pickups/join',
+      leave: 'pickups/leave',
+    }),
+  },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

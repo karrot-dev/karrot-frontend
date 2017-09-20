@@ -15,14 +15,10 @@
         </div>
       </div>
       <div>
-        <q-btn v-if="!pickup.isUserMember && !pickup.isFull" @click="join" class="join full-height">
-          &nbsp;{{ $t("PICKUPLIST.ITEM.JOIN") }}
-        </q-btn>
-        <q-btn v-if="pickup.isFull && !pickup.isUserMember" class="q-btn-flat full disabled full-height">
-          &nbsp;{{ $t("PICKUPLIST.ITEM.FULL") }}
-        </q-btn>
-        <q-btn v-if="pickup.isUserMember" @click="leave" class="q-btn-flat leave full-height">
-          &nbsp;{{ $t("PICKUPLIST.ITEM.LEAVE") }}
+        <q-btn @click="button.click()" :class="button.className" :disable="pickup.isWaiting">
+          &nbsp;
+          <span v-if="pickup.isWaiting"><q-spinner v-if="pickup.isWaiting"/></span>
+          <span v-else>{{ $t(button.translation) }}</span>
         </q-btn>
       </div>
     </q-card-main>
@@ -30,7 +26,7 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QBtn } from 'quasar'
+import { QCard, QCardMain, QBtn, QSpinner } from 'quasar'
 import ProfilesInline from '../ProfilePictures/ProfilesInline.vue'
 
 export default {
@@ -40,14 +36,38 @@ export default {
     },
   },
   components: {
-    QCard, QCardMain, QBtn, ProfilesInline,
+    QCard, QCardMain, QBtn, QSpinner, ProfilesInline,
   },
   methods: {
-    join (event) {
-      this.$emit('join')
+    join () {
+      this.$emit('join', this.pickup.id)
     },
-    leave (event) {
-      this.$emit('leave')
+    leave () {
+      this.$emit('leave', this.pickup.id)
+    },
+  },
+  computed: {
+    button () {
+      if (this.pickup.isUserMember) {
+        return {
+          className: 'q-btn-flat leave full-height',
+          translation: 'PICKUPLIST.ITEM.LEAVE',
+          click: this.leave,
+        }
+      }
+      else if (this.pickup.isFull) {
+        return {
+          className: 'join full-height',
+          translation: 'PICKUPLIST.ITEM.JOIN',
+        }
+      }
+      else {
+        return {
+          className: 'join full-height',
+          translation: 'PICKUPLIST.ITEM.JOIN',
+          click: this.join,
+        }
+      }
     },
   },
 }
@@ -82,7 +102,7 @@ $lighterGreen = #F8FFF8
 .full-height
   height 100% !important
 .join
-  background-color darkgreen 
+  background-color darkgreen
   color white
 .leave
   color red

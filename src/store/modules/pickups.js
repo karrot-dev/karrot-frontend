@@ -28,6 +28,7 @@ export const types = {
 
 export const state = {
   entries: {},
+  waitingSince: {},
   idList: [],
   idListGroupId: null,
   storeIdFilter: null,
@@ -35,9 +36,12 @@ export const state = {
 
 export const getters = {
   all: (state, getters, rootState, rootGetters) => {
+    let currentUserId = rootGetters['auth/userId']
     return state.idList.map(id => state.entries[id]).map(e => {
       return {
         ...e,
+        isWaiting: state.waitingSince.hasOwnProperty(e.id),
+        isUserMember: e.collectorIds.includes(currentUserId),
         store: rootGetters['stores/get'](e.store),
         collectors: e.collectorIds.map(id => rootGetters['users/get'](id)),
       }
@@ -105,27 +109,27 @@ export const actions = {
     }
   },
 
-  async join ({ commit, dispatch }, { pickupId }) {
-    commit(types.REQUEST_JOIN)
+  async join ({ commit, dispatch }, pickupId) {
+    commit(types.REQUEST_JOIN, { pickupId })
     try {
       await pickups.join(pickupId)
-      commit(types.RECEIVE_JOIN)
+      commit(types.RECEIVE_JOIN, { pickupId })
       await dispatch('fetch', { pickupId })
     }
     catch (error) {
-      commit(types.RECEIVE_JOIN_ERROR, { error })
+      commit(types.RECEIVE_JOIN_ERROR, { error, pickupId })
     }
   },
 
-  async leave ({ commit, dispatch }, { pickupId }) {
-    commit(types.REQUEST_LEAVE)
+  async leave ({ commit, dispatch }, pickupId) {
+    commit(types.REQUEST_LEAVE, { pickupId })
     try {
       await pickups.leave(pickupId)
-      commit(types.RECEIVE_LEAVE)
+      commit(types.RECEIVE_LEAVE, { pickupId })
       await dispatch('fetch', { pickupId })
     }
     catch (error) {
-      commit(types.RECEIVE_LEAVE_ERROR, { error })
+      commit(types.RECEIVE_LEAVE_ERROR, { error, pickupId })
     }
   },
 
@@ -168,11 +172,27 @@ export const mutations = {
     state.error = error.message
   },
 
-  [types.REQUEST_JOIN] (state) {},
-  [types.RECEIVE_JOIN] (state) {},
-  [types.RECEIVE_JOIN_ERROR] (state, { error }) {},
+  [types.REQUEST_JOIN] (state, { pickupId }) {
+    if (!state.waitingSince.hasOwnProperty(pickupId)) {
+      Vue.set(state.waitingSince, pickupId, Date.now())
+    }
+  },
+  [types.RECEIVE_JOIN] (state, { pickupId }) {
+    Vue.delete(state.waitingSince, pickupId)
+  },
+  [types.RECEIVE_JOIN_ERROR] (state, { error, pickupId }) {
+    Vue.delete(state.waitingSince, pickupId)
+  },
 
-  [types.REQUEST_LEAVE] (state) {},
-  [types.RECEIVE_LEAVE] (state) {},
-  [types.RECEIVE_LEAVE_ERROR] (state, { error }) {},
+  [types.REQUEST_LEAVE] (state, { pickupId }) {
+    if (!state.waitingSince.hasOwnProperty(pickupId)) {
+      Vue.set(state.waitingSince, pickupId, Date.now())
+    }
+  },
+  [types.RECEIVE_LEAVE] (state, { pickupId }) {
+    Vue.delete(state.waitingSince, pickupId)
+  },
+  [types.RECEIVE_LEAVE_ERROR] (state, { error, pickupId }) {
+    Vue.delete(state.waitingSince, pickupId)
+  },
 }

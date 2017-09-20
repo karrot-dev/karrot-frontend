@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="notices" v-if="emptyPickups.length > 0">
-      <EmptyPickups :pickups="emptyPickups"/>
+      <EmptyPickups :pickups="emptyPickups" @join="$emit('join', arguments[0])" @leave="$emit('leave', arguments[0])"/>
     </div>
     <div>
       <h5 class="generic-padding">Wall</h5>

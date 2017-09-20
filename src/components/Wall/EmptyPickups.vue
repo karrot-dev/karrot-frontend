@@ -4,7 +4,11 @@
         <i class="fa fa-exclamation-triangle on-left"/>
         There are {{pickups.length}} Empty Pickups in the next days waiting for you!
       </q-card>
-      <PickupItem v-for="pickup in pickups" :key="pickup.id" :pickup="pickup">
+      <PickupItem v-for="pickup in pickups"
+                  :key="pickup.id"
+                  :pickup="pickup"
+                  @join="$emit('join', arguments[0])"
+                  @leave="$emit('leave', arguments[0])">
         <strong>{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
       </PickupItem>
     </div>

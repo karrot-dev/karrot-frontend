@@ -9,7 +9,8 @@
     </div>
     <div>
       <PickupItem v-for="pickup in pickups"
-                  @join="join"
+                  @join="$emit('join', arguments[0])"
+                  @leave="$emit('leave', arguments[0])"
                   :pickup="pickup"
                   :key="pickup.id">
         {{ $d(pickup.date, 'dateShort') }}
@@ -39,11 +40,6 @@ export default {
   },
   components: {
     QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon, PickupItem,
-  },
-  methods: {
-    join () {
-      console.log('join')
-    },
   },
   mounted () {
     console.log(this.$store)

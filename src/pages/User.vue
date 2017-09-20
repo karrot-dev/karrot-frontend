@@ -21,7 +21,7 @@
       </div>
     </div>
     <q-card class="generic-padding">
-      <UserMapPreview :user="user"class="map"/>
+      <UserMapPreview v-if="user.latitude && user.longitude" :user="user"class="map"/>
       <div class="info"> 
         <strong><i class="fa fa-fw fa-envelope-o on-left"></i> </strong>
         {{ user.email }}

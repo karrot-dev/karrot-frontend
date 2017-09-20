@@ -1,6 +1,5 @@
 <template>
   <div class="generic-padding grey-border">
-    <div>{{ $t('ACTION_NOTICE.TEXT') }}</div>
     <q-list no-border highlight>
       <q-list-header>Language</q-list-header>
       <q-item style="padding-top: 0">

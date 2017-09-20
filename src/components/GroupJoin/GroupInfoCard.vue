@@ -7,10 +7,9 @@
       </span>
     </q-card-title>
     <q-card-main>
-      <vue-markdown
+      <Markdown
         v-if="group.publicDescription != ''"
         class="quote"
-        :anchorAttributes="{ target: '_blank', rel: 'nofollow noopener noreferrer' }"
         :source="group.publicDescription" />
       <span v-if="group.publicDescription == ''" class="text-italic">
         {{ $t("JOINGROUP.NO_PUBLIC_DESCRIPTION") }}
@@ -30,7 +29,7 @@
 
 <script>
 import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn } from 'quasar'
-import VueMarkdown from 'vue-markdown'
+import Markdown from '@/components/Markdown.vue'
 
 export default {
   props: {
@@ -40,7 +39,7 @@ export default {
     joinable: {},
     visitable: {},
   },
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, VueMarkdown },
+  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, Markdown },
 }
 </script>
 

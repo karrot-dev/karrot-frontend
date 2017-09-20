@@ -22,7 +22,7 @@
     </div>
     <q-card class="generic-padding">
       <UserMapPreview v-if="user.latitude && user.longitude" :user="user"class="map"/>
-      <div class="info"> 
+      <div class="info">
         <strong><i class="fa fa-fw fa-envelope-o on-left"></i> </strong>
         {{ user.email }}
         <span v-if="user.email !== user.unverifiedEmail">
@@ -31,9 +31,8 @@
         </span>
       </div>
       <q-card-separator v-if="user.description != ''"/><br/>
-      <vue-markdown
+      <Markdown
         v-if="user.description != ''"
-        :anchorAttributes="{ target: '_blank', rel: 'nofollow noopener noreferrer' }"
         :source="user.description" />
       <q-card-separator />
       <q-card-actions>
@@ -57,14 +56,14 @@ import {
   mapGetters,
 } from 'vuex'
 
-import VueMarkdown from 'vue-markdown'
+import Markdown from '@/components/Markdown.vue'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 
 import { QCard, QTransition, QCardActions, QBtn, QCardSeparator } from 'quasar'
 
 export default {
-  components: { VueMarkdown, UserMapPreview, QCard, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
+  components: { Markdown, UserMapPreview, QCard, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',

@@ -7,6 +7,7 @@
           <ProfilePicture
             :key="user.id"
             :user="user"
+            size="30"
             class="profilePic"/>
         </q-item-side>
         <q-item-main>

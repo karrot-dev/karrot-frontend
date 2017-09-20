@@ -8,6 +8,7 @@ export default connect({
   },
   gettersToProps: {
     breadcrumbs: 'breadcrumbs/all',
+    currentUserId: 'auth/userId',
   },
 })('KTopbar', KTopbarUI)
 </script>

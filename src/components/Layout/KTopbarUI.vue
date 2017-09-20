@@ -3,7 +3,7 @@
     <!--
       For Toolbar title, we use
       QToolbarTitle component
-    -->            
+    -->
     <!--<q-btn slot="left" flat @click="$refs.left.open()">
       <i class="fa fa-bars"></i>
     </q-btn>-->
@@ -34,7 +34,7 @@
       <q-icon name="fa-fw fa-user" />
       <q-popover :touch-position="false" fit ref="popover">
         <q-list item-separator link>
-          <q-item :to="{name: 'user', params: {userId: 72}}" @click="$refs.popover.close()">
+          <q-item :to="{name: 'user', params: {userId: currentUserId}}" @click="$refs.popover.close()">
             <q-icon size="1em" name="fa-user fa-fw" />
             {{$t('TOPBAR.USERPROFILE')}}
           </q-item>
@@ -65,6 +65,7 @@ export default {
   props: {
     breadcrumbs: { required: false, default: () => [] },
     showSearch: { required: false, default: false },
+    currentUserId: {},
   },
 }
 </script>

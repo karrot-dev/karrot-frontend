@@ -42,7 +42,6 @@ const router = new VueRouter({
    *  - activeStore
    * ...you can define other ones in KBreadcrumb.
    */
-  linkActiveClass: 'TEST',
   routes: [
     {
       path: '',

@@ -1,6 +1,7 @@
 <template>
   <div class="generic-padding grey-border">
-    <q-list no-border highlight
+    <div>{{ $t('ACTION_NOTICE.TEXT') }}</div>
+    <q-list no-border highlight>
       <q-list-header>Language</q-list-header>
       <q-item style="padding-top: 0">
         <q-item-side>
@@ -8,7 +9,7 @@
         </q-item-side>
         <q-item-main>
           <q-select
-            @change="setNewLocale" 
+            @change="setNewLocale"
             v-model="select"
             :options="allLocales"
           />

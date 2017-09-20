@@ -56,10 +56,11 @@ if [ "$REF" == "$dev_deployment_branch" ]; then
 
     COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 
-    ATTACHMENT_TEXT="\
-      :karrot: <$URL|Visit the site>\n
-      :books: <$STORYBOOK_URL|Visit the storybook>\n
-      :webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
+    KARROT_TEXT=":karrot: <$URL|Visit the site>"
+    STORYBOOK_TEXT=":books: <$STORYBOOK_URL|Visit the storybook>"
+    WEBPACK_TEXT=":webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
+
+    ATTACHMENT_TEXT="$KARROT_TEXT\n$STORYBOOK_TEXT\n$WEBPACK_TEXT"
     ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 
     payload=$(printf '{

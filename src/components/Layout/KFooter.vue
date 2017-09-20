@@ -2,14 +2,14 @@
   <div class="row generic-padding justify-around footer bg-neutral font-primary">
     <div class="column">
       <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
-      <div>made with <i class="fa fa-heart"></i> by <a href="https://yunity.org">yunity</a></div>
+      <div>made with <i class="fa fa-heart"></i> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
     </div>
     <div class="column">
       <div>contribute on <a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i> GitHub</a></div>
       <div>join our official group on <a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-facebook"></i> Facebook</a></div>
       <div><i class="fa fa-envelope"></i>
-      <a href="mail:fstool@yunity.org" aria-label="" md-labeled-by-tooltip="md-tooltip-4">
-        fstool@yunity.org
+      <a href="mail:karrot@foodsaving.world" aria-label="" md-labeled-by-tooltip="md-tooltip-4">
+        karrot@foodsaving.world
       </a></div>
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
       if (process.env.NODE_ENV === 'development') {
         return {
           link: '',
-          name: 'local development',
+          name: 'local dev version',
         }
       }
       if (this.about.env === 'production') {
@@ -44,7 +44,7 @@ export default {
         const sha = this.about.commitSHA
         return {
           link: `https://github.com/yunity/karrot-frontend/tree/${sha}`,
-          name: 'development',
+          name: 'beta version',
         }
       }
     },

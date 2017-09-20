@@ -21,7 +21,7 @@
       </div>
     </div>
     <q-card class="generic-padding">
-      <GroupMap class="map"></GroupMap>
+      <UserMapPreview :user="user"class="map"/>
       <div class="info"> 
         <strong><i class="fa fa-fw fa-envelope-o on-left"></i> </strong>
         {{ user.email }}
@@ -59,12 +59,12 @@ import {
 
 import VueMarkdown from 'vue-markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
-import GroupMap from '@/components/Map/GroupMap'
+import UserMapPreview from '@/components/Map/UserMapPreview'
 
 import { QCard, QTransition, QCardActions, QBtn, QCardSeparator } from 'quasar'
 
 export default {
-  components: { VueMarkdown, GroupMap, QCard, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
+  components: { VueMarkdown, UserMapPreview, QCard, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',

@@ -18,6 +18,7 @@ export default store => {
   })
 
   router.beforeEach((to, from, next) => {
+    window.scrollTo(0, 0)
     if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
       next({name: 'index'})
     }

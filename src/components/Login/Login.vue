@@ -4,7 +4,7 @@
         <img :src="loginImage"></img>
         <h4>{{ $t('LOGIN.TITLE') }}</h4>
       </div>
-      <div class="content" v-bind:class="{ shake: error }">
+      <div class="content" v-bind:class="{ shake: errorMessage }">
         <div class="white-box">
           <q-field icon="fa-envelope">
             <q-input :autofocus="true" @keyup.enter="$emit('loginDo', email, password)" :error="hasError('email')" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
@@ -38,7 +38,6 @@ export default {
     if (process.env.NODE_ENV !== 'production') {
       return {
         loginImage,
-        isShaking: false,
         email: 'foo@foo.com',
         password: 'foofoo',
       }
@@ -46,7 +45,6 @@ export default {
     else {
       return {
         loginImage,
-        isShaking: false,
         email: '',
         password: '',
       }

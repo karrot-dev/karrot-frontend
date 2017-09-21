@@ -2,11 +2,13 @@
     <div class="background mainLayoutDesktop">
       <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
         <div slot="header">
-          <KTopbar slot="header">
+          <KTopbar v-if="isLoggedIn" slot="header">
             <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
               <i class="fa fa-bars"></i>
             </q-btn>
           </KTopbar>
+          <KTopbarLoggedOut v-if="!isLoggedIn" slot="header">
+          </KTopbarLoggedOut>
         </div>
         <template slot="left" v-if="$q.platform.is.mobile">
           <MobileSidenav/>
@@ -31,15 +33,20 @@
 
 <script>
 
-import KTopbar from './KTopbar.vue'
-import KFooter from './KFooter.vue'
-import MobileNavigation from './MobileNavigation.vue'
-import MobileSidenav from './MobileSidenav'
+import KTopbar from '@/components/Layout/KTopbar.vue'
+import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar.vue'
+import KFooter from '@/components/Layout/KFooter.vue'
+import MobileNavigation from '@/components/Layout/MobileNavigation.vue'
+import MobileSidenav from '@/components/Layout/MobileSidenav'
 import { QLayout, QBtn } from 'quasar'
+import { mapGetters } from 'vuex'
 
 export default {
-  components: { KTopbar, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn },
+  components: { KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn },
   computed: {
+    ...mapGetters({
+      isLoggedIn: 'auth/isLoggedIn',
+    }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
         return 'hHh lpr fFf'
@@ -66,7 +73,7 @@ body.desktop .mainContent-page
   width 5%
 
 .background
-  background-image url('../../assets/repeating_grey.jpg')
+  background-image url('../assets/repeating_grey.jpg')
   background-size: 600px
   background-attachment:fixed
 </style>

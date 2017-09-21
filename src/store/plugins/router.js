@@ -49,6 +49,10 @@ export default store => {
     if (to.params.groupId) {
       store.dispatch('groups/selectGroup', {groupId: to.params.groupId})
     }
+    if (to.params.groupInfoId) {
+      // Why do we need to parse the ID here, but not in the others?
+      store.dispatch('groups/selectGroupInfo', parseInt(to.params.groupInfoId, 10))
+    }
     if (to.params.storeId) {
       store.dispatch('stores/selectStore', {storeId: to.params.storeId})
     }

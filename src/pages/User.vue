@@ -67,7 +67,7 @@ export default {
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
-      groups: 'groups/getByActiveUser',
+      groups: 'groups/activeUserGroups',
     }),
     profilePictureSize () {
       if (this.$q.platform.is.mobile) {

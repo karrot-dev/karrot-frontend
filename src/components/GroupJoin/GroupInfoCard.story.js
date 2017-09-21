@@ -12,17 +12,17 @@ const methods = {
 }
 
 storiesOf('GroupInfoCard', module)
-  .add('joinable', () => ({
+  .add('is not member', () => ({
     components: { GroupInfoCard },
-    template: '<GroupInfoCard :group="group" joinable="true" @join="join" />',
-    data () { return { group: groupsMock[0] } },
+    template: '<GroupInfoCard :group="group" @join="join" />',
+    data () { return { group: { ...groupsMock[0], isMember: false } } },
     methods,
     i18n,
   }))
-  .add('visitable', () => ({
+  .add('is member', () => ({
     components: { GroupInfoCard },
-    template: '<GroupInfoCard :group="group" visitable="true" @visit="visit" />',
-    data () { return { group: groupsMock[0] } },
+    template: '<GroupInfoCard :group="group" @visit="visit" />',
+    data () { return { group: { ...groupsMock[0], isMember: true } } },
     methods,
     i18n,
   }))
@@ -31,7 +31,7 @@ storiesOf('GroupInfoCard', module)
     template: '<GroupInfoCard :group="group" />',
     data () {
       return {
-        group: { ...groupsMock[0], publicDescription: '' },
+        group: { ...groupsMock[0], publicDescription: '', isMember: true },
       }
     },
     i18n,

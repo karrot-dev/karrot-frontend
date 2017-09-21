@@ -17,10 +17,11 @@
     </q-card-main>
     <q-card-separator />
     <q-card-actions>
-      <q-btn v-if="joinable" @click="$emit('join')" class="q-btn-flat">
+      <q-input v-if="group.protected && !group.isMember" v-model="password" />
+      <q-btn v-if="!group.isMember" @click="$emit('join', { groupId: group.id, password })" class="q-btn-flat">
         {{ $t("BUTTON.JOIN") }}
       </q-btn>
-      <q-btn v-if="visitable" @click="$emit('visit')" class="q-btn-flat">
+      <q-btn v-if="group.isMember" @click="$emit('visit', { groupId: group.id })" class="q-btn-flat">
         {{ $t("VISIT") }}
       </q-btn>
     </q-card-actions>
@@ -28,18 +29,19 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QInput } from 'quasar'
 import Markdown from '@/components/Markdown.vue'
 
 export default {
+  data () {
+    return { password: '' }
+  },
   props: {
     group: {
       required: true,
     },
-    joinable: {},
-    visitable: {},
   },
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, Markdown },
+  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QInput, Markdown },
 }
 </script>
 

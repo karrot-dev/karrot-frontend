@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import groups from '@/services/api/groups'
 import { indexById } from '@/store/helpers'
+import router from '@/router'
 
 export const types = {
 
   SET_ACTIVE: 'Set Active',
+  SET_ACTIVE_PREVIEW: 'Set Active Preview',
 
   REQUEST_GROUP: 'Request Group',
   RECEIVE_GROUP: 'Receive Group',
@@ -30,10 +32,19 @@ export const state = {
   isFetching: false,
   error: null,
   activeGroupId: null,
+  activeGroupPreviewId: null,
 }
 
 export const getters = {
-  list: state => state.idsList.map(id => state.entries[id]),
+  list: (state, getters, rootState, rootGetters) => {
+    const userId = rootGetters['auth/userId']
+    return state.idsList.map(id => state.entries[id]).map(e => {
+      return {
+        ...e,
+        isMember: userId ? e.members.includes(userId) : false,
+      }
+    })
+  },
   isFetching: state => state.isFetching,
   error: state => state.error,
   isMember: state => (groupId, userId) => {
@@ -43,14 +54,19 @@ export const getters = {
     }
     return false
   },
-  getByActiveUser: (state, getters, rootState, rootGetters) => {
+  activeUserGroups: (state, getters, rootState, rootGetters) => {
     let activeUser = rootGetters['users/activeUser']
     return activeUser ? getters.list.filter(el => el.members.includes(activeUser.id)) : []
   },
-  get: state => (groupId) => {
-    return state.entries[groupId] || {}
+  myGroups: (state, getters) => getters.list.filter(e => e.isMember === true).sort(sortByName),
+  otherGroups: (state, getters) => getters.list.filter(e => e.isMember === false).sort(sortByMemberCount),
+  get: (state, getters, rootState, rootGetters) => (groupId) => {
+    const group = state.entries[groupId]
+    const userId = rootGetters['auth/userId']
+    return group && { ...group, isMember: userId ? group.members.includes(userId) : false }
   },
-  activeGroup: state => state.activeGroupId && state.entries[state.activeGroupId],
+  activeGroup: (state, getters) => getters.get(state.activeGroupId),
+  activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   activeUsers: (state, getters, rootState, rootGetters) => {
     let group = getters.activeGroup
     if (!group) return []
@@ -72,7 +88,13 @@ export const actions = {
     }
   },
 
+  selectGroupInfo ({ commit }, groupPreviewId) {
+    // TODO check if the group was fetched
+    commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
+  },
+
   async fetchGroup ({ commit }, { groupId }) {
+    // fetches group details, TODO put in different state
     commit(types.REQUEST_GROUP)
     try {
       commit(types.RECEIVE_GROUP, { group: await groups.get(groupId) })
@@ -99,6 +121,7 @@ export const actions = {
       await groups.join(groupId, { password })
       commit(types.RECEIVE_JOIN)
       await dispatch('fetchGroup', { groupId })
+      router.push({ name: 'group', params: { groupId } })
     }
     catch (error) {
       commit(types.RECEIVE_JOIN_ERROR, { error })
@@ -122,6 +145,9 @@ export const actions = {
 export const mutations = {
   [types.SET_ACTIVE] (state, { groupId }) {
     state.activeGroupId = groupId
+  },
+  [types.SET_ACTIVE_PREVIEW] (state, { groupPreviewId }) {
+    state.activeGroupPreviewId = groupPreviewId
   },
   [types.REQUEST_GROUP] (state) {},
   [types.RECEIVE_GROUP] (state, { group }) {
@@ -150,4 +176,12 @@ export const mutations = {
   [types.REQUEST_LEAVE] (state) {},
   [types.RECEIVE_LEAVE] (state) {},
   [types.RECEIVE_LEAVE_ERROR] (state, { error }) {},
+}
+
+export function sortByName (a, b) {
+  return a.name.localeCompare(b.name)
+}
+
+export function sortByMemberCount (a, b) {
+  return b.members.length - a.members.length
 }

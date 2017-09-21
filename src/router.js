@@ -5,6 +5,8 @@ const MainLayout = () => import('@/components/Layout/MainLayout')
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall.vue')
 const GroupMap = () => import('@/pages/Map.vue')
+const GroupInfo = () => import('@/pages/GroupInfo.vue')
+const GroupsGallery = () => import('@/pages/GroupsGallery.vue')
 const StoreLayout = () => import('@/pages/Store/Layout.vue')
 const StoreWall = () => import('@/pages/Store/Wall.vue')
 const StorePickups = () => import('@/pages/Store/Pickups.vue')
@@ -46,8 +48,22 @@ const router = new VueRouter({
     {
       path: '',
       component: MainLayout,
-      redirect: '/group/:groupId/wall',
+      redirect: '/groupInfo',
       children: [
+        {
+          name: 'groupsGallery',
+          path: '/groupInfo',
+          components: {
+            default: GroupsGallery,
+          },
+        },
+        {
+          name: 'groupInfo',
+          path: '/groupInfo/:groupInfoId',
+          components: {
+            default: GroupInfo,
+          },
+        },
         {
           path: '/group/:groupId',
           redirect: '/group/:groupId/wall',

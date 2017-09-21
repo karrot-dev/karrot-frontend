@@ -1,16 +1,21 @@
 <template>
-  <div class="row generic-padding justify-around footer bg-neutral font-primary">
-    <div class="column">
-      <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
-      <div>made with <i class="fa fa-heart"></i> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
-    </div>
-    <div class="column">
-      <div>contribute on <a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i> GitHub</a></div>
-      <div>join our official group on <a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-facebook"></i> Facebook</a></div>
-      <div><i class="fa fa-envelope"></i>
-      <a href="mail:karrot@foodsaving.world" aria-label="" md-labeled-by-tooltip="md-tooltip-4">
-        karrot@foodsaving.world
-      </a></div>
+  <div class="footer bg-neutral font-primary">
+    <div class="footer-max-width row generic-padding justify-around">
+      <div class="row generic-padding justify-around">
+        <img src="~@/assets/carrot-logo.svg"/>
+        <div class="column">
+          <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
+          <div>made with <i class="fa fa-heart"></i> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
+        </div>
+      </div>
+      <div class="column">
+        <div>contribute on <a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i> GitHub</a></div>
+        <div>join our official group on <a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-facebook"></i> Facebook</a></div>
+        <div><i class="fa fa-envelope"></i>
+        <a href="mail:karrot@foodsaving.world" aria-label="" md-labeled-by-tooltip="md-tooltip-4">
+          karrot@foodsaving.world
+        </a></div>
+      </div>
     </div>
   </div>
 </template>
@@ -63,10 +68,15 @@ export default {
 <style scoped lang="stylus">
   .footer
     width: 100%
-    max-width: 75em
     margin: 0 auto
     margin-top 10em
-    height: 10em
+    min-height 10em
+    img
+      height 6em
+      margin 0 1em 0em 0
     .column div
       margin .5em
+    .footer-max-width
+      max-width 75em
+      margin: 0 auto
 </style>

@@ -60,7 +60,7 @@
     "autoprefixer": "^7.1.4",
     "axios-mock-adapter": "^1.9.0",
     "babel-core": "^6.0.0",
-    "babel-eslint": "^7.0.0",
+    "babel-eslint": "^8.0.0",
     "babel-jest": "^21.0.2",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-runtime": "^6.0.0",

@@ -11,8 +11,10 @@ const md = markdownIt({
   typopgrapher: true,
   quotes: '“”‘’', // TODO support locale-specific quotes
 }).use(markdownLinkAttributes, {
-  target: '_blank',
-  rel: 'noopener nofollow noreferrer',
+  attrs: {
+    target: '_blank',
+    rel: 'noopener nofollow noreferrer',
+  },
 }).use(emoji)
 
 md.renderer.rules.emoji = (token, idx) => twemoji.parse(token[idx].content)

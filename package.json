@@ -57,7 +57,7 @@
     "@storybook/addon-actions": "^3.2.6",
     "@storybook/addon-links": "^3.2.6",
     "@storybook/vue": "^3.2.8",
-    "autoprefixer": "^6.4.0",
+    "autoprefixer": "^7.1.4",
     "axios-mock-adapter": "^1.9.0",
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.0.0",

@@ -23,7 +23,7 @@
     "font-awesome": "^4.7.0",
     "jstimezonedetect": "^1.0.6",
     "markdown-it": "^8.4.0",
-    "markdown-it-link-attributes": "^1.0.0",
+    "markdown-it-link-attributes": "^2.0.0",
     "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
     "notosans-fontface": "^1.0.1",

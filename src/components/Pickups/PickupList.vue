@@ -41,9 +41,6 @@ export default {
   components: {
     QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon, PickupItem,
   },
-  mounted () {
-    console.log(this.$store)
-  },
 }
 </script>
 

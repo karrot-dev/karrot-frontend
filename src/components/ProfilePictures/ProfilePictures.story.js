@@ -1,8 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 
-import ProfilesInline from './ProfilesInline.vue'
+import ProfilesInline from './ProfilesInlineUI.vue'
 import ProfilePicture from './ProfilePicture.vue'
-import { usersMock } from '../mockdata.js'
+import { usersMock, usersMockWithoutCurrent, currentUserMock } from '../mockdata.js'
+import i18n from '@/i18n'
 
 const template = `
 <div>
@@ -25,14 +26,27 @@ storiesOf('Profile Pictures', module)
     components: { ProfilesInline },
     template: template,
   }))
-  .add('Profiles Inline', () => ({
+  .add('Profiles Inline (with join)', () => ({
     components: { ProfilesInline },
-    template: '<div><ProfilesInline :users="users"/></div>',
+    template: '<div><ProfilesInline :currentUser="currentUser" slots="10" :users="users"/></div>',
+    data () {
+      return {
+        users: usersMockWithoutCurrent,
+        currentUser: currentUserMock,
+      }
+    },
+    i18n,
+  }))
+  .add('Profiles Inline (with leave)', () => ({
+    components: { ProfilesInline },
+    template: '<div><ProfilesInline :currentUser="currentUser" slots="10" :users="users"/></div>',
     data () {
       return {
         users: usersMock,
+        currentUser: currentUserMock,
       }
     },
+    i18n,
   }))
   .add('Profile Pictures', () => ({
     components: { ProfilePicture },

@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="prevBread gt-xs" v-for="breadcrumb in prevElements">
-      <router-link v-if="breadcrumb.route" :to="breadcrumb.route">
+      <router-link v-if="breadcrumb.route" :to="breadcrumb.route" class="no-hover">
         <q-btn flat small v-if="breadcrumb.name">{{ breadcrumb.name }}</q-btn>
       </router-link>
       <div class="label" v-if="!breadcrumb.route">

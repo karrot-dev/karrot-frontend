@@ -2,7 +2,12 @@ import axios from '@/services/axios'
 
 export default {
   async create (data) {
-    return (await axios.post('/api/users/', data)).data
+    try {
+      return (await axios.post('/api/users/', data)).data
+    }
+    catch (error) {
+      return error.response.data
+    }
   },
 
   async get (id) {

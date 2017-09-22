@@ -17,7 +17,7 @@
       <div>
         <q-btn @click="button.click()" :class="button.className" :disable="pickup.isWaiting">
           &nbsp;
-          <span v-if="pickup.isWaiting"><q-spinner v-if="pickup.isWaiting"/></span>
+          <q-spinner v-if="pickup.isWaiting" />
           <span v-else>{{ $t(button.translation) }}</span>
         </q-btn>
       </div>

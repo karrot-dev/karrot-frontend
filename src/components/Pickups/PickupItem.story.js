@@ -4,6 +4,11 @@ import { action } from '@storybook/addon-actions'
 import PickupItem from './PickupItem.vue'
 import i18n from '@/i18n'
 
+const methods = {
+  join: action('join'),
+  leave: action('leave'),
+}
+
 storiesOf('PickupItem', module)
   .add('Join', () => ({
     components: { PickupItem },
@@ -18,9 +23,24 @@ storiesOf('PickupItem', module)
         },
       }
     },
-    methods: {
-      join: action('join'),
+    methods,
+    i18n,
+  }))
+  .add('Waiting', () => ({
+    components: { PickupItem },
+    template: '<div id="q-app"><PickupItem @join="join" :pickup="pickup"></PickupItem></div>',
+    data () {
+      return {
+        pickup: {
+          date: new Date(),
+          description: 'This is the description',
+          isFull: false,
+          isUserMember: false,
+          isWaiting: true,
+        },
+      }
     },
+    methods,
     i18n,
   }))
   .add('Full', () => ({
@@ -51,8 +71,6 @@ storiesOf('PickupItem', module)
         },
       }
     },
-    methods: {
-      leave: action('leave'),
-    },
+    methods,
     i18n,
   }))

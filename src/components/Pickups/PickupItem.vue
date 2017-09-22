@@ -11,7 +11,7 @@
           {{ pickup.description }}
         </div>
         <div class="people">
-          <ProfilesInline :users="pickup.collectors"/>
+          <ProfilesInline @join="button.click()" @leave="button.click()" :slots="pickup.maxCollectors" :users="pickup.collectors"/>
         </div>
       </div>
       <div>
@@ -74,6 +74,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+
 $lightRed = #FFF5F5
 $lightGreen = #F8FFF0
 $lighterGreen = #F8FFF8
@@ -102,8 +104,8 @@ $lighterGreen = #F8FFF8
 .full-height
   height 100% !important
 .join
-  background-color darkgreen
+  background-color $positive
   color white
 .leave
-  color red
+  color $negative
 </style>

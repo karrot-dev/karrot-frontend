@@ -1,29 +1,18 @@
-<template>
-  <div>
-    <ProfilePicture
-      v-for="user in users"
-      :key="user.id"
-      :user="user"
-      class="profilePic"/>
-  </div>
-</template>
-
 <script>
-import ProfilePicture from './ProfilePicture.vue'
+import { connect } from 'vuex-connect'
+import ProfilesInlineUI from './ProfilesInlineUI.vue'
 
-export default {
-  props: {
-    users: {
-      required: true,
+export default connect({
+  gettersToProps: {
+    currentUser: 'auth/user',
+  },
+  methodsToEvents: {
+    join ({ commit }) {
+      this.$emit('join')
+    },
+    leave ({ commit }) {
+      this.$emit('leave')
     },
   },
-  components: {
-    ProfilePicture,
-  },
-}
+})('ProfilesInline', ProfilesInlineUI)
 </script>
-
-<style scoped lang="stylus">
-.profilePic
-  margin-right .5em
-</style>

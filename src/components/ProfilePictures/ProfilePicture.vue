@@ -10,7 +10,7 @@
     <span v-if="!user">
       <span>?</span>
       <q-tooltip>
-        <span translate="PROFILE.INACCESSIBLE_OR_DELETED">PROFILE.INACCESSIBLE_OR_DELETED</span>
+        <span>{{$t('PROFILE.INACCESSIBLE_OR_DELETED')}}</span>
       </q-tooltip>
     </span>
   </div>

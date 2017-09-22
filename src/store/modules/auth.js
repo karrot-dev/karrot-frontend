@@ -102,7 +102,7 @@ export const actions = {
     commit(types.REQUEST_LOGOUT)
     try {
       commit(types.RECEIVE_LOGOUT, { user: await auth.logout() })
-      router.push({ name: 'login' })
+      router.push({ name: 'groupsGallery' })
     }
     catch (error) {
       commit(types.RECEIVE_LOGOUT_ERROR, { error })

@@ -7,11 +7,12 @@ export default connect({
   gettersToProps: {
     group: 'groups/activeGroupInfo',
   },
-  actionsToEvents: {
-    join: 'groups/join',
-  },
   methodsToEvents: {
     visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),
+    join: ({ dispatch }, { groupId, password }) => {
+      dispatch('auth/setJoinGroupAfterLogin', { groupId, password })
+      router.push({name: 'signup'})
+    },
   },
 })('GroupInfo', GroupInfoCard)
 </script>

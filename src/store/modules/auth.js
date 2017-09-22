@@ -6,37 +6,51 @@ export const types = {
   SET_REDIRECT_TO: 'Set RedirectTo',
   CLEAR_REDIRECT_TO: 'Clear RedirectTo',
 
+  SET_JOIN_GROUP_AFTER_LOGIN: 'Join Group After Login',
+  CLEAR_JOIN_GROUP_AFTER_LOGIN: 'Clear Join Group After Login',
+
   REQUEST_STATUS: 'Request Status',
   RECEIVE_LOGIN_STATUS: 'Receive Status',
   RECEIVE_LOGIN_STATUS_ERROR: 'Receive Status Error',
 
   REQUEST_LOGIN: 'Login Request',
-  RECEIVE_LOGIN_SUCCESS: 'Login Success',
+  RECEIVE_LOGIN: 'Login Success',
   RECEIVE_LOGIN_ERROR: 'Login Error',
 
   REQUEST_LOGOUT: 'Logout Request',
-  RECEIVE_LOGOUT_SUCCESS: 'Logout Success',
+  RECEIVE_LOGOUT: 'Logout Success',
   RECEIVE_LOGOUT_ERROR: 'Logout Failure',
+
+  CLEAN_STATUS: 'Clean Status',
 }
 
 export const state = {
   user: null,
-  error: null,
+  status: {
+    isWaiting: false,
+    error: null,
+  },
   redirectTo: null,
+  joinGroupAfterLogin: null,
 }
 
 export const getters = {
   isLoggedIn: state => !!state.user,
   user: state => state.user,
   userId: state => state.user && state.user.id,
-  error: state => state.error,
+  status: state => state.status,
   redirectTo: state => state.redirectTo,
+  joinGroupAfterLogin: state => state.joinGroupAfterLogin,
 }
 
 export const actions = {
 
   setRedirectTo ({ commit }, redirectTo) {
     commit(types.SET_REDIRECT_TO, { redirectTo })
+  },
+
+  setJoinGroupAfterLogin ({ commit }, joinParams) {
+    commit(types.SET_JOIN_GROUP_AFTER_LOGIN, { joinParams })
   },
 
   async check ({ commit }) {
@@ -49,27 +63,54 @@ export const actions = {
     }
   },
 
-  async login ({ commit, state }, data) {
+  async login ({ commit, getters, dispatch }, data) {
     commit(types.REQUEST_LOGIN)
+    let user = null
     try {
-      commit(types.RECEIVE_LOGIN_SUCCESS, { user: await auth.login(data) })
-      router.push(state.redirectTo || { name: 'index' })
-      commit(types.CLEAR_REDIRECT_TO)
+      user = await auth.login(data)
     }
     catch (error) {
-      commit(types.RECEIVE_LOGIN_ERROR, { error })
+      // if response error
+      if (error.response) {
+        let msg = null
+        if (error.response.status < 500) {
+          // handle form error
+          msg = error.response.data
+        }
+        // ignore server error
+        commit(types.RECEIVE_LOGIN_ERROR, { error: msg })
+        return
+      }
+      // throw all other errors
+      throw error
     }
+
+    commit(types.RECEIVE_LOGIN, { user })
+
+    if (getters.joinGroupAfterLogin) {
+      const joinParams = getters.joinGroupAfterLogin
+      dispatch('groups/join', joinParams, { root: true })
+    }
+    else {
+      router.push(getters.redirectTo || { name: 'groupsGallery' })
+    }
+    commit(types.CLEAR_JOIN_GROUP_AFTER_LOGIN)
+    commit(types.CLEAR_REDIRECT_TO)
   },
 
   async logout ({ commit }) {
     commit(types.REQUEST_LOGOUT)
     try {
-      commit(types.RECEIVE_LOGOUT_SUCCESS, { user: await auth.logout() })
+      commit(types.RECEIVE_LOGOUT, { user: await auth.logout() })
       router.push({ name: 'login' })
     }
     catch (error) {
       commit(types.RECEIVE_LOGOUT_ERROR, { error })
     }
+  },
+
+  cleanStatus ({ commit }) {
+    commit(types.CLEAN_STATUS)
   },
 }
 
@@ -83,42 +124,81 @@ export const mutations = {
     state.redirectTo = null
   },
 
+  // Group to join after login
+  [types.SET_JOIN_GROUP_AFTER_LOGIN] (state, { joinParams }) {
+    state.joinGroupAfterLogin = joinParams
+  },
+  [types.CLEAR_JOIN_GROUP_AFTER_LOGIN] (state) {
+    state.joinGroupAfterLogin = null
+  },
+
   // Check
 
   [types.REQUEST_STATUS] (state) {
   },
   [types.RECEIVE_LOGIN_STATUS] (state, { user }) {
     state.user = user
-    state.error = null
+    state.status = {
+      isWaiting: true,
+      error: null,
+    }
   },
   [types.RECEIVE_LOGIN_STATUS_ERROR] (state, { error }) {
-    state.error = error
+    state.status = {
+      isWaiting: false,
+      error: error,
+    }
   },
 
   // Login
 
   [types.REQUEST_LOGIN] (state) {
-    state.error = null
+    state.status = {
+      isWaiting: true,
+      error: null,
+    }
   },
-  [types.RECEIVE_LOGIN_SUCCESS] (state, { user }) {
+  [types.RECEIVE_LOGIN] (state, { user }) {
     state.user = user
-    state.error = null
+    state.status = {
+      isWaiting: false,
+      error: null,
+    }
   },
   [types.RECEIVE_LOGIN_ERROR] (state, { error }) {
-    state.error = error.response.data
+    state.status = {
+      isWaiting: false,
+      error: error,
+    }
   },
 
   // Logout
 
   [types.REQUEST_LOGOUT] (state) {
-    state.error = null
+    state.status = {
+      isWaiting: true,
+      error: null,
+    }
   },
-  [types.RECEIVE_LOGOUT_SUCCESS] (state, { user }) {
+  [types.RECEIVE_LOGOUT] (state) {
     state.user = null
-    state.error = null
+    state.status = {
+      isWaiting: false,
+      error: null,
+    }
   },
   [types.RECEIVE_LOGOUT_ERROR] (state, { error }) {
-    state.error = error.message
     state.user = null
+    state.status = {
+      isWaiting: false,
+      error: error,
+    }
+  },
+
+  [types.CLEAN_STATUS] (state) {
+    state.status = {
+      isWaiting: false,
+      error: null,
+    }
   },
 }

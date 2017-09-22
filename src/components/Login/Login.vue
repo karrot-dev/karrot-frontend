@@ -4,7 +4,7 @@
       <img :src="loginImage"></img>
       <h4>{{ $t('LOGIN.TITLE') }}</h4>
     </div>
-    <form name="login" keydown.enter.prevent="submit">
+    <form name="login" @submit.prevent="submit">
       <div class="content" :class="{ shake: status.errorMessage }">
         <div class="white-box">
           <q-field icon="fa-envelope">
@@ -39,7 +39,7 @@
           <q-btn @click="$router.push({ name: 'signup' })" flat>
             {{ $t('LOGIN.SIGNUP') }}
           </q-btn>
-          <q-btn @click.prevent="submit" class="submit shadow-4" :loader="status.isWaiting">
+          <q-btn type="submit" class="submit shadow-4" :loader="status.isWaiting">
             {{ $t('LOGIN.SUBMIT') }}
           </q-btn>
         </div>
@@ -81,7 +81,9 @@ export default {
       return this.status.error && this.status.error[field]
     },
     submit () {
+      // if (!this.status.isWaiting) {
       this.$emit('submit', { email: this.email, password: this.password })
+      // }
     },
   },
   computed: {

@@ -33,6 +33,10 @@ export const state = {
   error: null,
   activeGroupId: null,
   activeGroupPreviewId: null,
+  joinStatus: {
+    isWaiting: false,
+    error: null,
+  },
 }
 
 export const getters = {
@@ -72,6 +76,7 @@ export const getters = {
     if (!group) return []
     return group.members.map(id => rootGetters['users/get'](id))
   },
+  joinStatus: state => state.joinStatus,
 }
 
 export const actions = {
@@ -169,9 +174,24 @@ export const mutations = {
     state.error = error.message
   },
 
-  [types.REQUEST_JOIN] (state) {},
-  [types.RECEIVE_JOIN] (state) {},
-  [types.RECEIVE_JOIN_ERROR] (state, { error }) {},
+  [types.REQUEST_JOIN] (state) {
+    state.joinStatus = {
+      isWaiting: true,
+      error: null,
+    }
+  },
+  [types.RECEIVE_JOIN] (state) {
+    state.joinStatus = {
+      isWaiting: false,
+      error: null,
+    }
+  },
+  [types.RECEIVE_JOIN_ERROR] (state, { error }) {
+    state.joinStatus = {
+      isWaiting: false,
+      error: error,
+    }
+  },
 
   [types.REQUEST_LEAVE] (state) {},
   [types.RECEIVE_LEAVE] (state) {},

@@ -15,17 +15,23 @@
     <q-card-separator />
     <q-card-actions>
       <q-btn v-if="isMember" @click="$emit('visit')" class="q-btn-flat">
-        {{ $t("VISIT") }}
+        <q-icon name="fa-home" />
+        <q-tooltip>
+          {{ $t("GROUPINFO.MEMBER_VIEW") }}
+        </q-tooltip>
       </q-btn>
       <q-btn @click="$emit('preview')" class="q-btn-flat">
-        {{ $t("PREVIEW") }}
+        <q-icon name="fa-info-circle" />
+        <q-tooltip>
+          {{ $t("GROUPINFO.META") }}
+        </q-tooltip>
       </q-btn>
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon } from 'quasar'
 
 export default {
   props: {
@@ -36,7 +42,7 @@ export default {
       required: true,
     },
   },
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn },
+  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon },
 }
 </script>
 

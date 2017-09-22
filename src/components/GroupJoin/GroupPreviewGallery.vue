@@ -16,8 +16,10 @@
         <GroupPreviewCard :group="group" :isMember="true" @preview="$emit('preview', { groupId: group.id })" @visit="$emit('visit', { groupId: group.id })" />
       </div>
     </div>
-    <h4 class="text-primary">Groups to explore</h4>
-    <div class="row">
+    <h4 class="text-primary" v-if="otherGroups.length>0">
+      {{ $t('JOINGROUP.WHICHGROUP') }}
+    </h4>
+    <div class="row" v-if="otherGroups.length>0">
       <div
         v-for="group in otherGroups"
         :key="group.id"

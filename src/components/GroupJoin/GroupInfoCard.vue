@@ -3,7 +3,7 @@
     <q-card-title>
       {{ group.name }}
       <span slot="subtitle">
-        {{ group.members.length }} Members
+        {{ group.members.length }} {{ $t('Members') }}
       </span>
     </q-card-title>
     <q-card-main>
@@ -17,19 +17,40 @@
     </q-card-main>
     <q-card-separator />
     <q-card-actions>
-      <q-input v-if="group.protected && !group.isMember" v-model="password" />
-      <q-btn v-if="!group.isMember" @click="$emit('join', { groupId: group.id, password })" class="q-btn-flat">
-        {{ $t("BUTTON.JOIN") }}
-      </q-btn>
+      <span v-if="!group.isMember">
+        <form name="joingroup" @submit.prevent="$emit('join', { groupId: group.id, password })">
+          <q-field
+            v-if="group.protected"
+            icon="fa-lock"
+            :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
+            :helper="$t('JOINGROUP.PASSWORD_LABEL')"
+            :error="status.error"
+            :error-label="$t('JOINGROUP.PASSWORD_WRONG')"
+            >
+            <q-input v-model="password" type="password" />
+          </q-field>
+          <q-btn type="submit">
+            <span v-if="isLoggedIn">
+              {{ $t('BUTTON.JOIN') }}
+            </span>
+            <span v-else>
+              {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
+            </span>
+          </q-btn>
+        </form>
+      </span>
       <q-btn v-if="group.isMember" @click="$emit('visit', { groupId: group.id })" class="q-btn-flat">
-        {{ $t("VISIT") }}
+        <q-icon name="fa-home" />
+        <q-tooltip>
+          {{ $t("GROUPINFO.MEMBER_VIEW") }}
+        </q-tooltip>
       </q-btn>
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QInput } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip } from 'quasar'
 import Markdown from '@/components/Markdown.vue'
 
 export default {
@@ -40,8 +61,12 @@ export default {
     group: {
       required: true,
     },
+    status: {
+      required: true,
+    },
+    isLoggedIn: {},
   },
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QInput, Markdown },
+  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, Markdown },
 }
 </script>
 

@@ -6,6 +6,8 @@ import GroupInfoCard from '@/components/GroupJoin/GroupInfoCard.vue'
 export default connect({
   gettersToProps: {
     group: 'groups/activeGroupInfo',
+    status: 'groups/joinStatus',
+    isLoggedIn: 'auth/isLoggedIn',
   },
   methodsToEvents: {
     visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),

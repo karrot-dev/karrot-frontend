@@ -132,7 +132,7 @@ SESSION_CACHE_ALIAS = "default"
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-EMAIL_BACKEND = "anymail.backends.sparkpost.SparkPostBackend"
+EMAIL_BACKEND = "anymail.backends.sparkpost.EmailBackend"
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',

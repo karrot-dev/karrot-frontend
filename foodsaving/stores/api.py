@@ -6,7 +6,9 @@ from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
-from foodsaving.stores.filters import PickupDatesFilter, PickupDateSeriesFilter
+from foodsaving.stores.filters import (
+    PickupDatesFilter, PickupDateSeriesFilter, FeedbackFilter
+)
 from foodsaving.stores.permissions import (
     IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate,
     IsNotFull, IsSameCollector)
@@ -73,8 +75,18 @@ class FeedbackViewSet(
     mixins.ListModelMixin,
     GenericViewSet
 ):
+    """
+    Feedback
+
+    # Query parameters
+    - `?given_by` - filter by user id
+    - `?about` - filter by pickup id
+    - `?store` - filter by store id
+    """
     serializer_class = FeedbackSerializer
     queryset = FeedbackModel.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = FeedbackFilter
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
@@ -125,7 +137,6 @@ class PickupDateViewSet(
 ):
     """
     Pickup Dates
-
     # Query parameters
     - `?series` - filter by pickup date series id
     - `?store` - filter by store id

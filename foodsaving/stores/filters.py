@@ -5,7 +5,7 @@ from django.utils.encoding import force_str
 from django_filters.fields import RangeField
 from rest_framework import filters
 
-from foodsaving.stores.models import PickupDate, PickupDateSeries
+from foodsaving.stores.models import PickupDate, PickupDateSeries, Feedback
 
 
 class ISODateTimeField(forms.DateTimeField):
@@ -39,3 +39,13 @@ class PickupDatesFilter(filters.FilterSet):
     class Meta:
         model = PickupDate
         fields = ['store', 'group', 'date', 'series']
+
+
+class FeedbackFilter(filters.FilterSet):
+    store = django_filters.NumberFilter(name='about__store__id')
+    about = django_filters.NumberFilter(name='about')
+    given_by = django_filters.NumberFilter(name='given_by')
+
+    class Meta:
+        model = Feedback
+        fields = ['store', 'about', 'given_by']

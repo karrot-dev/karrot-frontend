@@ -1,32 +1,16 @@
-<template>
-    <div>
-      <Login @loginDo="loginDo" :error="error"/>
-    </div>
-</template>
-
 <script>
+import { connect } from 'vuex-connect'
 import Login from '@/components/Login/Login.vue'
-import { mapActions, mapGetters } from 'vuex'
 
-export default {
-  components: {
-    Login,
+export default connect({
+  gettersToProps: {
+    status: 'auth/status',
   },
-  computed: {
-    ...mapGetters({
-      error: 'auth/error',
-    }),
+  actionsToEvents: {
+    submit: 'auth/login',
   },
-  methods: {
-    ...mapActions({
-      login: 'auth/login',
-    }),
-    loginDo (email, password) {
-      this.login({ email, password })
-    },
+  lifecycle: {
+    destroyed: ({ dispatch }) => dispatch('auth/cleanStatus'),
   },
-}
+})('Login', Login)
 </script>
-
-<style scoped lang="stylus">
-</style>

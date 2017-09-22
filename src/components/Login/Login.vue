@@ -1,30 +1,51 @@
 <template>
   <div>
-      <div class="header">
-        <img :src="loginImage"></img>
-        <h4>{{ $t('LOGIN.TITLE') }}</h4>
-      </div>
-      <div class="content" v-bind:class="{ shake: errorMessage }">
+    <div class="header">
+      <img :src="loginImage"></img>
+      <h4>{{ $t('LOGIN.TITLE') }}</h4>
+    </div>
+    <form name="login" keydown.enter.prevent="submit">
+      <div class="content" :class="{ shake: status.errorMessage }">
         <div class="white-box">
           <q-field icon="fa-envelope">
-            <q-input :autofocus="true" @keyup.enter="$emit('loginDo', email, password)" :error="hasError('email')" v-model="email" :float-label="$t('USERDATA.EMAIL')"/>
+            <q-input
+            :autofocus="true"
+            :error="hasError('email')"
+            :float-label="$t('USERDATA.EMAIL')"
+            type="email"
+            v-model="email"
+            autocorrect="off" autocapitalize="off" spellcheck="false"
+            />
           </q-field>
         </div>
         <div class="white-box">
           <q-field icon="fa-lock">
-            <q-input @keyup.enter="$emit('loginDo', email, password)" :error="hasError('password')" v-model="password" type="password" :float-label="$t('USERDATA.PASSWORD')"/>
+            <q-input
+            :error="hasError('password')"
+            v-model="password"
+            type="password"
+            :float-label="$t('USERDATA.PASSWORD')"
+            autocorrect="off" autocapitalize="off" spellcheck="false"
+            />
           </q-field>
         </div>
         <div class="error" v-if="errorMessage">
           <i class="fa fa-exclamation-triangle"/>{{ errorMessage }}
         </div>
         <div class="actions">
-          <q-btn flat>{{ $t('LOGIN.FORGOT_PASSWORD') }}</q-btn>
-          <router-link :to="{ name: 'signup' }"><q-btn flat>{{ $t('LOGIN.SIGNUP') }}</q-btn></router-link>
-          <q-btn @click="$emit('loginDo', email, password)" class="submit shadow-4">{{ $t('LOGIN.SUBMIT') }}</q-btn>
+          <q-btn flat>
+            {{ $t('LOGIN.FORGOT_PASSWORD') }}
+          </q-btn>
+          <q-btn @click="$router.push({ name: 'signup' })" flat>
+            {{ $t('LOGIN.SIGNUP') }}
+          </q-btn>
+          <q-btn @click.prevent="submit" class="submit shadow-4" :loader="status.isWaiting">
+            {{ $t('LOGIN.SUBMIT') }}
+          </q-btn>
         </div>
         <div style="clear: both"/>
       </div>
+    </form>
   </div>
 </template>
 
@@ -51,18 +72,21 @@ export default {
     }
   },
   props: {
-    error: {
-      required: false,
+    status: {
+      required: true,
     },
   },
   methods: {
     hasError (field) {
-      return this.error && this.error[field]
+      return this.status.error && this.status.error[field]
+    },
+    submit () {
+      this.$emit('submit', { email: this.email, password: this.password })
     },
   },
   computed: {
     errorMessage () {
-      return this.error && this.error[Object.keys(this.error)[0]][0]
+      return this.status.error && this.status.error[Object.keys(this.status.error)[0]][0]
     },
   },
 }

@@ -53,6 +53,9 @@ const router = new VueRouter({
         {
           name: 'groupsGallery',
           path: '/groupInfo',
+          meta: { breadcrumbs: [
+            { translation: 'JOINGROUP.ALL_GROUPS' },
+          ] },
           components: {
             default: GroupsGallery,
           },
@@ -60,6 +63,10 @@ const router = new VueRouter({
         {
           name: 'groupInfo',
           path: '/groupInfo/:groupInfoId',
+          meta: { breadcrumbs: [
+            { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
+            { type: 'activeGroupInfo' },
+          ] },
           components: {
             default: GroupInfo,
           },
@@ -85,7 +92,10 @@ const router = new VueRouter({
             {
               name: 'groupDescription',
               path: 'description',
-              meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } }] },
+              meta: { breadcrumbs: [
+                { type: 'activeGroup' },
+                { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } },
+              ] },
               components: {
                 default: GroupDescription,
                 sidenav: GroupGroupSidenav,
@@ -94,7 +104,10 @@ const router = new VueRouter({
             {
               name: 'groupMembers',
               path: 'members',
-              meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } }] },
+              meta: { breadcrumbs: [
+                { type: 'activeGroup' },
+                { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } },
+              ] },
               components: {
                 default: GroupMembers,
                 sidenav: GroupGroupSidenav,
@@ -103,7 +116,10 @@ const router = new VueRouter({
             {
               name: 'groupHistory',
               path: 'history',
-              meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } }] },
+              meta: { breadcrumbs: [
+                { type: 'activeGroup' },
+                { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } },
+              ] },
               components: {
                 default: GroupHistory,
                 sidenav: GroupGroupSidenav,
@@ -112,7 +128,10 @@ const router = new VueRouter({
             {
               name: 'stores',
               path: 'store',
-              meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUP.STORES', route: { name: 'stores' } }] },
+              meta: { breadcrumbs: [
+                { type: 'activeGroup' },
+                { translation: 'GROUP.STORES', route: { name: 'stores' } },
+              ] },
               components: {
                 default: StoreList,
                 sidenav: GroupStoreSidenav,
@@ -121,7 +140,10 @@ const router = new VueRouter({
             {
               redirect: '/group/:groupId/store/:storeId/wall',
               path: 'store/:storeId',
-              meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
+              meta: { breadcrumbs: [
+                { type: 'activeGroup' },
+                { type: 'activeStore' },
+              ] },
               components: {
                 default: StoreLayout,
                 sidenav: GroupStoreSidenav,
@@ -131,19 +153,28 @@ const router = new VueRouter({
                   name: 'store',
                   path: '',
                   redirect: 'pickups',
-                  meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
+                  meta: { breadcrumbs: [
+                    { type: 'activeGroup' },
+                    { type: 'activeStore' },
+                  ] },
                   components: { default: StoreWall },
                 },
                 {
                   name: 'storePickups',
                   path: 'pickups',
-                  meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
+                  meta: { breadcrumbs: [
+                    { type: 'activeGroup' },
+                    { type: 'activeStore' },
+                  ] },
                   components: { default: StorePickups },
                 },
                 {
                   name: 'storeHistory',
                   path: 'history',
-                  meta: { breadcrumbs: [{ type: 'activeGroup' }, { type: 'activeStore' }] },
+                  meta: { breadcrumbs: [
+                    { type: 'activeGroup' },
+                    { type: 'activeStore' },
+                  ] },
                   components: { default: StoreHistory },
                 },
               ],
@@ -151,7 +182,10 @@ const router = new VueRouter({
             {
               name: 'pickupFeedback',
               path: 'feedback',
-              meta: { breadcrumbs: [{ type: 'activeGroup' }, { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } }] },
+              meta: { breadcrumbs: [
+                { type: 'activeGroup' },
+                { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
+              ] },
               components: {
                 default: PickupFeedback,
               },
@@ -161,7 +195,13 @@ const router = new VueRouter({
         {
           name: 'map',
           path: '/group/:groupId/map',
-          meta: { requireLoggedIn: true, breadcrumbs: [{ type: 'activeGroup' }, { translation: 'GROUPMAP.TITLE', route: { name: 'map' } }] },
+          meta: {
+            requireLoggedIn: true,
+            breadcrumbs: [
+              { type: 'activeGroup' },
+              { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
+            ],
+          },
           components: {
             default: GroupMap,
           },
@@ -169,7 +209,12 @@ const router = new VueRouter({
         {
           name: 'login',
           path: '/login',
-          meta: { requireLoggedOut: true, breadcrumbs: [{ translation: 'LOGIN.TITLE', route: { name: 'login' } }] },
+          meta: {
+            requireLoggedOut: true,
+            breadcrumbs: [
+              { translation: 'LOGIN.TITLE', route: { name: 'login' } },
+            ],
+          },
           components: {
             default: Login,
           },
@@ -177,7 +222,12 @@ const router = new VueRouter({
         {
           name: 'signup',
           path: '/signup',
-          meta: { requireLoggedOut: true, breadcrumbs: [{ translation: 'SIGNUP.TITLE', route: { name: 'signup' } }] },
+          meta: {
+            requireLoggedOut: true,
+            breadcrumbs: [
+              { translation: 'SIGNUP.TITLE', route: { name: 'signup' } },
+            ],
+          },
           components: {
             default: Signup,
           },
@@ -185,7 +235,12 @@ const router = new VueRouter({
         {
           name: 'settings',
           path: '/settings',
-          meta: { requireLoggedIn: true, breadcrumbs: [{ translation: 'SETTINGS.TITLE', route: { name: 'settings' } }] },
+          meta: {
+            requireLoggedIn: true,
+            breadcrumbs: [
+              { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
+            ],
+          },
           components: {
             default: Settings,
           },
@@ -193,7 +248,12 @@ const router = new VueRouter({
         {
           name: 'user',
           path: '/user/:userId',
-          meta: { requireLoggedIn: true, breadcrumbs: [{ type: 'activeUser' }] },
+          meta: {
+            requireLoggedIn: true,
+            breadcrumbs: [
+              { type: 'activeUser' },
+            ],
+          },
           components: {
             default: User,
           },

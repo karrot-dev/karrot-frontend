@@ -15,7 +15,8 @@ export const getters = {
         let group = rootGetters['groups/activeGroup']
         if (group) {
           return {
-            name: group.name, route: { name: 'group', groupId: group.id },
+            name: group.name,
+            route: { name: 'group', groupId: group.id },
           }
         }
       }
@@ -23,7 +24,8 @@ export const getters = {
         let store = rootGetters['stores/activeStore']
         if (store) {
           return {
-            name: store.name, route: { name: 'store', groupId: store.id },
+            name: store.name,
+            route: { name: 'store', groupId: store.id },
           }
         }
       }
@@ -31,13 +33,24 @@ export const getters = {
         let user = rootGetters['users/activeUser']
         if (user) {
           return {
-            name: user.displayName, route: { name: 'user', userId: user.id },
+            name: user.displayName,
+            route: { name: 'user', userId: user.id },
+          }
+        }
+      }
+      if (item.type === 'activeGroupInfo') {
+        let group = rootGetters['groups/activeGroupInfo']
+        if (group) {
+          return {
+            name: group.name,
+            route: { name: 'groupInfo', groupInfoId: group.id },
           }
         }
       }
       else if (item.translation) {
         return { ...item, name: i18n.t(item.translation) }
       }
+
       return item
     })
   },

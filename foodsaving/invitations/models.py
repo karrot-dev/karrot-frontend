@@ -11,13 +11,12 @@ from furl import furl
 
 from django.conf import settings
 from foodsaving.base.base_models import BaseModel
-from foodsaving.invitations.signals import invitation_accepted
 
 
 class InvitationManager(models.Manager):
     def create_and_send(self, **kwargs):
         # Delete all expired invitations before creating new ones.
-        # Makes re-sending invitations after experiation possible and saves us from running a periodic cleanup command
+        # Makes re-sending invitations after expiration possible and saves us from running a periodic cleanup command
         # I wonder if this is a sane decision.
         self.delete_expired_invitations()
 
@@ -77,15 +76,17 @@ class Invitation(BaseModel):
         ).send()
 
     def accept(self, user):
-        invitation_accepted.send(
-            sender=self.__class__,
-            token=self.token,
-            email=self.email,
-            invited_at=self.created_at,
+        # add user to group
+        self.group.accept_invite(
+            user=user,
             invited_by=self.invited_by,
-            accepted_user=user,
-            group=self.group
+            invited_at=self.created_at,
         )
+
+        # select joined group as default
+        user.current_group = self.group
+        user.save()
+
         self.delete()
 
     def __str__(self):

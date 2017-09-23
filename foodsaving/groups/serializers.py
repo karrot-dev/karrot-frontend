@@ -5,7 +5,7 @@ from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from foodsaving.groups.models import Group as GroupModel, GroupMembership
-from foodsaving.groups.signals import post_group_modify, post_group_create
+from foodsaving.history.models import History, HistoryTypus
 from foodsaving.history.utils import get_changed_data
 from . import roles
 
@@ -86,18 +86,25 @@ class GroupDetailSerializer(serializers.ModelSerializer):
         group = super().update(group, validated_data)
 
         if changed_data:
-            post_group_modify.send(
-                sender=self.__class__,
+            user = self.context['request'].user
+            History.objects.create(
+                typus=HistoryTypus.GROUP_MODIFY,
                 group=group,
-                user=self.context['request'].user,
-                payload=changed_data)
+                users=[user, ],
+                payload=changed_data
+            )
         return group
 
     def create(self, validated_data):
         user = self.context['request'].user
         group = GroupModel.objects.create(**validated_data)
         GroupMembership.objects.create(group=group, user=user)
-        post_group_create.send(sender=self.__class__, group=group, user=user, payload=self.initial_data)
+        History.objects.create(
+            typus=HistoryTypus.GROUP_CREATE,
+            group=group,
+            users=[user, ],
+            payload=self.initial_data
+        )
         return group
 
 

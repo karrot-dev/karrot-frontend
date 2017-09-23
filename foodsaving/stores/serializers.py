@@ -7,6 +7,8 @@ from django.utils.translation import ugettext as _
 from rest_framework import serializers
 
 from django.conf import settings
+
+from foodsaving.history.models import History, HistoryTypus
 from foodsaving.history.utils import get_changed_data
 from foodsaving.stores.models import (
     PickupDate as PickupDateModel,
@@ -14,8 +16,6 @@ from foodsaving.stores.models import (
     PickupDateSeries as PickupDateSeriesModel,
     Store as StoreModel,
 )
-from foodsaving.stores.signals import post_pickup_create, post_pickup_modify, post_pickup_join, post_pickup_leave, \
-    post_series_create, post_series_modify, post_store_create, post_store_modify
 
 
 class PickupDateSerializer(serializers.ModelSerializer):
@@ -39,12 +39,12 @@ class PickupDateSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         pickupdate = super().create(validated_data)
-        post_pickup_create.send(
-            sender=self.__class__,
+        History.objects.create(
+            typus=HistoryTypus.PICKUP_CREATE,
             group=pickupdate.store.group,
             store=pickupdate.store,
-            user=self.context['request'].user,
-            payload=self.initial_data
+            users=[self.context['request'].user, ],
+            payload=self.initial_data,
         )
         return pickupdate
 
@@ -72,12 +72,12 @@ class PickupDateSerializer(serializers.ModelSerializer):
         super().update(pickupdate, selected_validated_data)
 
         if changed_data:
-            post_pickup_modify.send(
-                sender=self.__class__,
+            History.objects.create(
+                typus=HistoryTypus.PICKUP_MODIFY,
                 group=pickupdate.store.group,
                 store=pickupdate.store,
-                user=self.context['request'].user,
-                payload=changed_data
+                users=[self.context['request'].user, ],
+                payload=changed_data,
             )
         return pickupdate
 
@@ -92,17 +92,18 @@ class PickupDateJoinSerializer(serializers.ModelSerializer):
         model = PickupDateModel
         fields = []
 
-    def update(self, pickup_date, validated_data):
+    def update(self, pickupdate, validated_data):
         user = self.context['request'].user
-        pickup_date.collectors.add(user)
-        post_pickup_join.send(
-            sender=self.__class__,
-            group=pickup_date.store.group,
-            store=pickup_date.store,
-            user=user,
-            payload=PickupDateSerializer(instance=pickup_date).data
+        pickupdate.collectors.add(user)
+
+        History.objects.create(
+            typus=HistoryTypus.PICKUP_JOIN,
+            group=pickupdate.store.group,
+            store=pickupdate.store,
+            users=[user, ],
+            payload=PickupDateSerializer(instance=pickupdate).data,
         )
-        return pickup_date
+        return pickupdate
 
 
 class PickupDateLeaveSerializer(serializers.ModelSerializer):
@@ -110,17 +111,18 @@ class PickupDateLeaveSerializer(serializers.ModelSerializer):
         model = PickupDateModel
         fields = []
 
-    def update(self, pickup_date, validated_data):
+    def update(self, pickupdate, validated_data):
         user = self.context['request'].user
-        pickup_date.collectors.remove(user)
-        post_pickup_leave.send(
-            sender=self.__class__,
-            group=pickup_date.store.group,
-            store=pickup_date.store,
-            user=user,
-            payload=PickupDateSerializer(instance=pickup_date).data
+        pickupdate.collectors.remove(user)
+
+        History.objects.create(
+            typus=HistoryTypus.PICKUP_LEAVE,
+            group=pickupdate.store.group,
+            store=pickupdate.store,
+            users=[user, ],
+            payload=PickupDateSerializer(instance=pickupdate).data,
         )
-        return pickup_date
+        return pickupdate
 
 
 class PickupDateSeriesSerializer(serializers.ModelSerializer):
@@ -132,12 +134,13 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         series = super().create(validated_data)
         series.update_pickup_dates()
-        post_series_create.send(
-            sender=self.__class__,
+
+        History.objects.create(
+            typus=HistoryTypus.SERIES_CREATE,
             group=series.store.group,
             store=series.store,
-            user=self.context['request'].user,
-            payload=self.initial_data
+            users=[self.context['request'].user, ],
+            payload=self.initial_data,
         )
         return series
 
@@ -152,12 +155,12 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
         series.update_pickup_dates()
 
         if changed_data:
-            post_series_modify.send(
-                sender=self.__class__,
+            History.objects.create(
+                typus=HistoryTypus.SERIES_MODIFY,
                 group=series.store.group,
                 store=series.store,
-                user=self.context['request'].user,
-                payload=changed_data
+                users=[self.context['request'].user, ],
+                payload=changed_data,
             )
         return series
 
@@ -195,12 +198,12 @@ class StoreSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         store = super().create(validated_data)
-        post_store_create.send(
-            sender=self.__class__,
+        History.objects.create(
+            typus=HistoryTypus.STORE_CREATE,
             group=store.group,
             store=store,
-            user=self.context['request'].user,
-            payload=self.initial_data
+            users=[self.context['request'].user, ],
+            payload=self.initial_data,
         )
         return store
 
@@ -214,12 +217,12 @@ class StoreSerializer(serializers.ModelSerializer):
                     series.update_pickup_dates()
 
         if changed_data:
-            post_store_modify.send(
-                sender=self.__class__,
+            History.objects.create(
+                typus=HistoryTypus.STORE_MODIFY,
                 group=store.group,
                 store=store,
-                user=self.context['request'].user,
-                payload=changed_data
+                users=[self.context['request'].user, ],
+                payload=changed_data,
             )
         return store
 

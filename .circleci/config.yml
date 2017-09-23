@@ -21,12 +21,11 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - node_modules
+            - .
 
   test:
     <<: *defaults
     steps:
-      - checkout
       - attach_workspace:
           at: ~/repo
       - run: yarn lint
@@ -36,26 +35,27 @@ jobs:
   build:
     <<: *defaults
     steps:
-      - checkout
       - attach_workspace:
           at: .
       - run: yarn build
-      - run: yarn build-storybook
       - persist_to_workspace:
           root: ~/repo
           paths:
             - dist
+
+  build-storybook:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run: yarn build-storybook
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
             - storybook-static
 
   deploy-branch:
-    #
-    # specific dev branches are deployed in their own "<branch>" directory
-    #
     <<: *defaults
-    filters:
-      branches:
-        only:
-          - quasar
     steps:
       - run: sudo apt install -y rsync
       - checkout
@@ -66,14 +66,8 @@ jobs:
           command: |
             ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
 
-  deploy_tag:
-    #
-    # all tags are considered releases and go into "release" directory
-    #
+  deploy-tag:
     <<: *defaults
-    filters:
-      tags:
-        only: /.*/
     steps:
       - run: sudo apt install -y rsync
       - checkout
@@ -95,11 +89,29 @@ workflows:
       - build:
           requires:
             - install-dependencies
+      - build-storybook:
+          requires:
+            - install-dependencies
       - deploy-branch:
+          #
+          # specific dev branches are deployed in their own "<branch>" directory
+          #
+          filters:
+            branches:
+              only:
+                - quasar
           requires:
             - test
             - build
+            - build-storybook
       - deploy-tag:
+          #
+          # all tags are considered releases and go into "release" directory
+          #
+          filters:
+            tags:
+              only: /.*/
           requires:
             - test
             - build
+            - build-storybook

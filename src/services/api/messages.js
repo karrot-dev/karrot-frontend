@@ -7,6 +7,12 @@ export default {
   },
 
   async list (conversationId) {
-    return (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data.slice(-2) // TODO: Remove, only here for faster loading for dev
+    return (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data
+      .slice(-10) // TODO: Remove, only here for faster loading for dev
+      .map(e => {
+        e.createdAt = new Date(e.createdAt)
+        return e
+      })
+      .sort((a, b) => b.createdAt - a.createdAt)
   },
 }

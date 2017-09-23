@@ -6,6 +6,7 @@
     <div>
       <h5 class="generic-padding">Wall</h5>
     </div>
+    <WallInput @send="$emit('send', arguments[0])" />
     <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
   </div>
 </template>
@@ -13,11 +14,13 @@
 <script>
 import WallMessage from './WallMessage.vue'
 import EmptyPickups from './EmptyPickups.vue'
+import WallInput from './WallInput.vue'
 
 export default {
   components: {
     WallMessage,
     EmptyPickups,
+    WallInput,
   },
   props: {
     messages: { required: true },

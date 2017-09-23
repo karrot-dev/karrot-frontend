@@ -11,12 +11,20 @@ export const types = {
 
   RECEIVE_MESSAGE: 'Receive Message',
   RECEIVE_CONVERSATION: 'Receive Conversation',
+
+  REQUEST_SEND_MESSAGE: 'Request Send Message',
+  RECEIVE_SEND_MESSAGE: 'Receive Send Message',
+  RECEIVE_SEND_MESSAGE_ERROR: 'Receive Send Message Error',
 }
 
 export const state = {
   entries: {},
   messages: {}, // { <conversation-id> : [<message>,...] }
   activeConversationId: null,
+  sendStatus: {
+    isWaiting: false,
+    error: null,
+  },
 }
 
 export const getters = {
@@ -28,6 +36,7 @@ export const getters = {
       return { ...m, author: rootGetters['users/get'](m.author) }
     })
   },
+  sendStatus: state => state.sendStatus,
 }
 
 export const actions = {
@@ -42,8 +51,26 @@ export const actions = {
     commit(types.CLEAR_ACTIVE)
   },
 
-  async receiveMessage ({ commit }, { message }) {
-    commit(types.RECEIVE_MESSAGE, { message })
+  async sendMessage ({ commit, state, dispatch }, messageData) {
+    commit(types.REQUEST_SEND_MESSAGE)
+    try {
+      // let message =
+      await messages.create({
+        content: messageData,
+        conversation: state.activeConversationId,
+      })
+      dispatch('fetchMessages', state.activeConversationId) // TODO remove after message serializer has been fixed at backend
+      commit(types.RECEIVE_SEND_MESSAGE)
+      // commit(types.RECEIVE_MESSAGE, { message })
+    }
+    catch (error) {
+      commit(types.RECEIVE_SEND_MESSAGE_ERROR, { error })
+    }
+  },
+
+  async receiveMessage ({ commit, dispatch }, { message }) {
+    dispatch('fetchMessages', state.activeConversationId) // TODO remove after message serializer has been fixed at backend
+    // commit(types.RECEIVE_MESSAGE, { message })
   },
 
   async fetchMessages ({ commit }, conversationId) {
@@ -83,7 +110,26 @@ export const mutations = {
   [types.RECEIVE_MESSAGE] (state, { message }) {
     let { conversation: { id: conversationId } = {} } = message
     if (state.messages[conversationId]) {
-      state.messages[conversationId].push(...messages)
+      state.messages[conversationId].push(message)
+    }
+  },
+
+  [types.REQUEST_SEND_MESSAGE] (state) {
+    state.sendStatus = {
+      isWaiting: true,
+      error: null,
+    }
+  },
+  [types.RECEIVE_SEND_MESSAGE] (state) {
+    state.sendStatus = {
+      isWaiting: false,
+      error: null,
+    }
+  },
+  [types.RECEIVE_SEND_MESSAGE_ERROR] (state, { error }) {
+    state.sendStatus = {
+      isWaiting: false,
+      error,
     }
   },
 }

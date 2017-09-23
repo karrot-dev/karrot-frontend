@@ -1,32 +1,16 @@
-<template>
-  <Wall :messages="messages" :emptyPickups="emptyPickups" @join="join" @leave="leave"/>
-</template>
-
 <script>
+import { connect } from 'vuex-connect'
 import Wall from '@/components/Wall/Wall.vue'
 
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
-
-export default {
-  components: { Wall },
-  methods: {
-    ...mapActions({
-      join: 'pickups/join',
-      leave: 'pickups/leave',
-    }),
+export default connect({
+  gettersToProps: {
+    emptyPickups: 'pickups/empty',
+    messages: 'conversations/activeMessages',
   },
-  computed: {
-    ...mapGetters({
-      emptyPickups: 'pickups/empty',
-      messages: 'conversations/activeMessages',
-      group: 'groups/activeGroup',
-    }),
+  actionsToEvents: {
+    join: 'pickups/join',
+    leave: 'pickups/leave',
+    send: 'conversations/sendMessage',
   },
-}
+})('GroupWall', Wall)
 </script>
-
-<style scoped lang="stylus">
-</style>

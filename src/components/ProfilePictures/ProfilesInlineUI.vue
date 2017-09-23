@@ -69,7 +69,7 @@ export default {
     window.addEventListener('resize', () => this.calculateSlotsPerRow())
   },
   beforeDestroy: () => {
-    window.removeEventListener('resize', this.calculateSlotsPerRow())
+    window.removeEventListener('resize', this.calculateSlotsPerRow)
   },
   methods: {
     calculateSlotsPerRow () {

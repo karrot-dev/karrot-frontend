@@ -2,7 +2,7 @@
   <q-card v-bind:class="{ full: pickup.isFull }">
     <q-card-main class="row inline no-padding justify-between content"
       v-bind:class="{ isUserMember: pickup.isUserMember }">
-      <div class="column padding">
+      <div class="column padding full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
           <slot>Date or Store Slot</slot>
@@ -10,16 +10,9 @@
         <div class="people" v-if="pickup.description">
           {{ pickup.description }}
         </div>
-        <div class="people">
+        <div class="people full-width">
           <ProfilesInline @join="button.click()" @leave="button.click()" :slots="pickup.maxCollectors" :users="pickup.collectors"/>
         </div>
-      </div>
-      <div>
-        <q-btn @click="button.click()" :class="button.className" :disable="pickup.isWaiting">
-          &nbsp;
-          <q-spinner v-if="pickup.isWaiting" />
-          <span v-else>{{ $t(button.translation) }}</span>
-        </q-btn>
       </div>
     </q-card-main>
   </q-card>
@@ -77,8 +70,8 @@ export default {
 @import '~variables'
 
 $lightRed = #FFF5F5
-$lightGreen = #F8FFF0
-$lighterGreen = #F8FFF8
+$lightGreen = #E7FFE0
+$lighterGreen = #F0FFF0
 
 .content
   width 100%

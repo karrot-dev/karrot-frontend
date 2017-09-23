@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-start">
+  <div class="row justify-start" ref="wrapperDiv">
     <ProfilePicture
       v-for="user in users"
       v-if="user.id !== currentUser.id"
@@ -55,12 +55,26 @@ export default {
     maxEmptyNumToShow: {
       default: 1,
     },
-    minSlotsToShow: {
-      default: 6,
-    },
+  },
+  data () {
+    return {
+      slotsPerRow: 6,
+    }
   },
   components: {
     ProfilePicture, UserSlot, CurrentUser,
+  },
+  mounted () {
+    this.calculateSlotsPerRow()
+    window.addEventListener('resize', () => this.calculateSlotsPerRow())
+  },
+  beforeDestroy: () => {
+    window.removeEventListener('resize', this.calculateSlotsPerRow())
+  },
+  methods: {
+    calculateSlotsPerRow () {
+      this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
+    },
   },
   computed: {
     emptyPlaces () {
@@ -72,7 +86,7 @@ export default {
     emptySlots () {
       if (this.users) {
         const minToShow = Math.min(this.maxEmptyNumToShow, this.emptyPlaces)
-        const maxToShow = Math.max(minToShow, this.minSlotsToShow - this.users.length - 1)
+        const maxToShow = Math.max(minToShow, this.slotsPerRow - this.users.length - 1)
         return Math.min(this.emptyPlaces, maxToShow)
       }
       return 0

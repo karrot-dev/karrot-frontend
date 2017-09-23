@@ -28,9 +28,15 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: yarn lint
       - run: yarn test --ci
       - run: bash <(curl -s https://codecov.io/bash)
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: yarn lint
 
   build:
     <<: *defaults
@@ -86,6 +92,9 @@ workflows:
       - test:
           requires:
             - install-dependencies
+      - lint:
+          requires:
+            - install-dependencies
       - build:
           requires:
             - install-dependencies
@@ -111,6 +120,8 @@ workflows:
           filters:
             tags:
               only: /.*/
+            branches:
+              ignore: /.*/
           requires:
             - test
             - build

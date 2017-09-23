@@ -2,6 +2,7 @@ import json
 
 import requests_mock
 from channels.test import ChannelTestCase, WSClient
+from dateutil.parser import parse
 from pyfcm.baseapi import BaseAPI as FCMAPI
 
 from foodsaving.conversations.factories import ConversationFactory
@@ -30,15 +31,16 @@ class ReceiverTests(ChannelTestCase):
         message = ConversationMessage.objects.create(conversation=conversation, content='yay', author=author)
 
         # hopefully they receive it!
-        self.assertEqual(client.receive(json=True), {
+        response = client.receive(json=True)
+        response['payload']['created_at'] = parse(response['payload']['created_at'])
+        self.assertEqual(response, {
             'topic': 'conversations:message',
             'payload': {
                 'id': message.id,
                 'content': message.content,
                 'author': message.author.id,
-                'conversation': {
-                    'id': conversation.id
-                }
+                'conversation': conversation.id,
+                'created_at': message.created_at
             }
         })
 

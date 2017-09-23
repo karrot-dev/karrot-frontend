@@ -1,3 +1,4 @@
+from dateutil.parser import parse
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -61,6 +62,9 @@ class TestConversationsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)
         self.assertEqual(response.data['content'], data['content'])
         self.assertEqual(conversation.messages.first().content, data['content'])
+        self.assertEqual(conversation.messages.first().created_at, parse(response.data['created_at']), response.data)
+        self.assertEqual(conversation.messages.first().id, response.data['id'])
+        self.assertEqual(conversation.messages.first().author.id, response.data['author'])
 
     def test_cannot_create_message_without_specifying_conversation(self):
         self.client.force_login(user=self.participant1)

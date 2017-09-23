@@ -135,7 +135,11 @@ class PickupDateManager(models.Manager):
 
         currently only used by the history component
         """
-        for _ in self.filter(done_and_processed=False, date__lt=timezone.now()):
+        for _ in self.filter(
+                done_and_processed=False,
+                date__lt=timezone.now(),
+                deleted=False,
+        ):
             payload = {}
             payload['pickup_date'] = _.id
             if _.series:

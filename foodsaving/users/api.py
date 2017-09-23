@@ -53,15 +53,10 @@ class UserViewSet(
 
         from foodsaving.groups.models import Group
         from foodsaving.groups.models import GroupMembership
-        from foodsaving.stores.models import PickupDate
 
+        # Emits pre_delete and post_delete signals, they are used to remove the user from pick-ups
         for _ in Group.objects.filter(members__in=[user, ]):
             GroupMembership.objects.filter(group=_, user=user).delete()
-
-        for _ in PickupDate.objects. \
-                filter(date__gte=timezone.now()). \
-                filter(collectors__in=[user, ]):
-            _.collectors.remove(user)
 
         user.description = ''
         user.set_unusable_password()

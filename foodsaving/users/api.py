@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Q
-from django.dispatch import Signal
 from django.utils import timezone
 from rest_framework import filters
 from rest_framework import mixins
@@ -13,8 +12,6 @@ from rest_framework.viewsets import GenericViewSet
 from foodsaving.users.permissions import IsSameUser, IsNotVerified
 from foodsaving.users.serializers import UserSerializer, VerifyMailSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
-
-pre_user_delete = Signal(providing_args=['user'])
 
 
 class UserViewSet(
@@ -51,10 +48,21 @@ class UserViewSet(
 
     def perform_destroy(self, user):
         """
-        To keep historic pickup infos, don't delete this user, but delete it from the database.
-        Removal from group and future pickups is handled via the signal.
+        To keep historic pickup infos, don't delete this user, but remove its details from the database.
         """
-        pre_user_delete.send(sender=self.__class__, user=user)
+
+        from foodsaving.groups.models import Group
+        from foodsaving.groups.models import GroupMembership
+        from foodsaving.stores.models import PickupDate
+
+        for _ in Group.objects.filter(members__in=[user, ]):
+            GroupMembership.objects.filter(group=_, user=user).delete()
+
+        for _ in PickupDate.objects. \
+                filter(date__gte=timezone.now()). \
+                filter(collectors__in=[user, ]):
+            _.collectors.remove(user)
+
         user.description = ''
         user.set_unusable_password()
         user.mail = None

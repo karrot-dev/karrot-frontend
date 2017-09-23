@@ -4,6 +4,7 @@ from django.utils import timezone
 from django_enumfield import enum
 
 from foodsaving.base.base_models import NicelyFormattedModel
+from foodsaving.history.utils import without_keys
 
 
 class HistoryTypus(enum.Enum):
@@ -26,7 +27,21 @@ class HistoryTypus(enum.Enum):
     PICKUP_MISSED = 16
 
 
+class HistoryManager(models.Manager):
+    def create(self, typus, group, **kwargs):
+        a = super().create(
+            typus=typus,
+            group=group,
+            **without_keys(kwargs, {'users'})
+        )
+        if kwargs.get('users') is not None:
+            a.users.add(*kwargs['users'])
+            a.save()
+
+
 class History(NicelyFormattedModel):
+    objects = HistoryManager()
+
     class Meta:
         ordering = ['-date']
 

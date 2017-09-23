@@ -53,7 +53,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: .
+          at: ~/repo
       - run: yarn build-storybook
       - persist_to_workspace:
           root: ~/repo
@@ -64,25 +64,21 @@ jobs:
     <<: *defaults
     steps:
       - run: sudo apt install -y rsync
-      - checkout
       - attach_workspace:
           at: ~/repo
       - deploy:
           name: Dev Branch Deploy
-          command: |
-            ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
+          command: ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
 
   deploy-tag:
     <<: *defaults
     steps:
       - run: sudo apt install -y rsync
-      - checkout
       - attach_workspace:
           at: ~/repo
       - deploy:
           name: Release Tag Deploy
-          command: |
-            ./deploy.sh "${CIRCLE_TAG}" release
+          command: ./deploy.sh "${CIRCLE_TAG}" release
 
 workflows:
   version: 2

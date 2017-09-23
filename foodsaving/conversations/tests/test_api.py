@@ -32,16 +32,16 @@ class TestConversationsAPI(APITestCase):
         self.client.force_login(user=self.participant1)
         response = self.client.get('/api/messages/?conversation={}'.format(self.conversation1.id), format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['content'], 'hello')
+        self.assertEqual(len(response.data['results']), 1)
+        self.assertEqual(response.data['results'][0]['content'], 'hello')
 
     def test_can_get_messages_for_all_conversations(self):
         self.client.force_login(user=self.participant1)
         response = self.client.get('/api/messages/', format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 2)
-        self.assertEqual(response.data[0]['content'], 'hello')
-        self.assertEqual(response.data[1]['content'], 'hello2')
+        self.assertEqual(len(response.data['results']), 2)
+        self.assertEqual(response.data['results'][0]['content'], 'hello2')
+        self.assertEqual(response.data['results'][1]['content'], 'hello')
 
     def test_cannot_get_messages_if_not_in_conversation(self):
         self.client.force_login(user=self.participant1)

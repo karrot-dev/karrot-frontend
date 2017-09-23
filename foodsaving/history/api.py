@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.filters import DjangoFilterBackend
-from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.pagination import CursorPagination
 from rest_framework.permissions import IsAuthenticated
 
 from foodsaving.history.filters import HistoryFilter
@@ -8,9 +8,10 @@ from foodsaving.history.models import History
 from foodsaving.history.serializers import HistorySerializer
 
 
-class HistoryPagination(LimitOffsetPagination):
-    default_limit = 50
-    max_limit = 1000
+class HistoryPagination(CursorPagination):
+    # TODO: create an index on 'date' for increased speed
+    page_size = 100
+    ordering = '-date'
 
 
 class HistoryViewSet(viewsets.ReadOnlyModelViewSet):

@@ -68,7 +68,7 @@ export const actions = {
     }
   },
 
-  async receiveMessage ({ commit, dispatch }, { message }) {
+  async receiveMessage ({ commit, dispatch, state }, { message }) {
     dispatch('fetchMessages', state.activeConversationId) // TODO remove after message serializer has been fixed at backend
     // commit(types.RECEIVE_MESSAGE, { message })
   },

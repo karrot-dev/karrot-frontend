@@ -5,7 +5,7 @@
         <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
         {{$t("GROUP.PICKUPS")}}
       </h4>
-      <q-btn v-if="options.showCreate">{{$t("STOREDETAIL.MANAGE")}}</q-btn>
+      <q-btn style="background-color: white" v-if="options.showCreate">{{$t("STOREDETAIL.MANAGE")}}</q-btn>
     </div>
     <div>
       <PickupItem v-for="pickup in pickups"

@@ -176,6 +176,7 @@
     "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
+    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
     "FILTER": "Filter",
     "JOINED": "joined",
     "OPEN": "open",

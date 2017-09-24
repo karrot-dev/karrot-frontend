@@ -2,7 +2,7 @@
     <div>
       <q-card color="secondary" class="generic-padding">
         <i class="fa fa-exclamation-triangle on-left"/>
-        There are {{pickups.length}} Empty Pickups in the next days waiting for you!
+        {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length})}}
       </q-card>
       <PickupItem v-for="pickup in pickups"
                   :key="pickup.id"

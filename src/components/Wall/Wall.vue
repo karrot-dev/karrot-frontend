@@ -4,7 +4,7 @@
       <EmptyPickups :pickups="emptyPickups" @join="$emit('join', arguments[0])" @leave="$emit('leave', arguments[0])"/>
     </div>
     <div>
-      <h5 class="generic-padding">Wall</h5>
+      <h5 class="generic-padding wall-header">Wall</h5>
     </div>
     <WallInput @send="$emit('send', arguments[0])" />
     <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
@@ -30,4 +30,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.notices
+  margin-top .5em
+  margin-bottom 3em
+.wall-header
+  margin-bottom 0
 </style>

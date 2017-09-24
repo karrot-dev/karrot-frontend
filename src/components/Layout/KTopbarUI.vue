@@ -4,9 +4,9 @@
       For Toolbar title, we use
       QToolbarTitle component
     -->
-    <!--<q-btn slot="left" flat @click="$refs.left.open()">
+    <q-btn slot="left" flat class="mobile-only" @click="$emit('toggleSidenav')">
       <i class="fa fa-bars"></i>
-    </q-btn>-->
+    </q-btn>
     <router-link :to="{name: 'group'}" class="logo">
       <KarrotLogo/>
     </router-link>

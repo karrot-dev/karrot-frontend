@@ -10,5 +10,10 @@ export default connect({
     breadcrumbs: 'breadcrumbs/all',
     currentUserId: 'auth/userId',
   },
+  methodsToEvents: {
+    toggleSidenav ({ commit }) {
+      this.$emit('toggleSidenav')
+    },
+  },
 })('KTopbar', KTopbarUI)
 </script>

@@ -2,7 +2,7 @@
     <div class="background mainLayoutDesktop">
       <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
         <div slot="header">
-          <KTopbar v-if="isLoggedIn" slot="header">
+          <KTopbar  @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn" slot="header">
             <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
               <i class="fa fa-bars"></i>
             </q-btn>
@@ -11,16 +11,13 @@
           </KTopbarLoggedOut>
         </div>
         <template slot="left" v-if="$q.platform.is.mobile">
-          <MobileSidenav/>
+          <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
         </template>
         <div class="mainContent row justify-between no-wrap">
           <div class="whiteSpace gt-sm desktop-only"/>
             <router-view class="desktop-only sidenav-desktop" name="sidenav"></router-view>
           <div class="mainContent-page">
             <router-view></router-view>
-            <q-btn class="mobile-only" flat @click="$refs.layout.toggleLeft()">
-              <i class="fa fa-bars on-left"></i>Open Sidenav
-            </q-btn>
           </div>
           <div class="whiteSpace gt-sm desktop-only"/>
         </div>

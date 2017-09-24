@@ -1,7 +1,10 @@
 <template>
   <div>
     <q-card class="no-shadow grey-border" style="width: 100%">
-      <div class="generic-padding">{{ store.description }}</div>
+      <q-scroll-area style="height: 120px;">
+        <div class="generic-padding">{{ store.description }}
+      </div>
+</q-scroll-area>
       <q-tabs align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
         <!--<q-route-tab
             :to="{name: 'store'}"
@@ -33,10 +36,10 @@ import {
   mapGetters,
 } from 'vuex'
 
-import { QCard, QTabs, QRouteTab } from 'quasar'
+import { QCard, QTabs, QRouteTab, QScrollArea } from 'quasar'
 
 export default {
-  components: { QCard, QTabs, QRouteTab },
+  components: { QCard, QTabs, QRouteTab, QScrollArea },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

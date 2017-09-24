@@ -48,8 +48,9 @@ export default {
   padding 1em
 .notice
   .icon
-    font-size 4rem
     margin .1em 0 0 0
+    .fa
+      font-size 10vw
   padding 2em 3em
   transform: translateZ(1px) rotate(-3deg);
   h5

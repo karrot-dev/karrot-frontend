@@ -8,8 +8,12 @@
       :size="size"
       class="profilePic" />
 
+    <div v-if="waiting" class="emptySlots" style="border-color: black" v-bind:style="{ width: size + 'px', height: size + 'px' }">
+      <q-spinner />
+    </div>
+
     <CurrentUser
-      v-if="isUserMember"
+      v-if="isUserMember && !waiting"
       :size="size"
       :popup="leavePopup"
       :currentUser="currentUser"
@@ -21,6 +25,7 @@
       :key="n"
       :size="size"
       :showJoin="!isUserMember && n == 1"
+      v-if="n > 1 || !(waiting && !isUserMember)"
       :popup="joinPopup"
       :currentUser="currentUser"
       class="profilePic"
@@ -38,12 +43,14 @@
 import ProfilePicture from './ProfilePicture.vue'
 import UserSlot from './UserSlot.vue'
 import CurrentUser from './CurrentUser.vue'
+import { QSpinner } from 'quasar'
 
 export default {
   props: {
     joinPopup: { default: 'PICKUPLIST.ITEM.JOIN' },
     leavePopup: { default: 'PICKUPLIST.ITEM.LEAVE' },
     currentUser: { required: false },
+    waiting: { required: false, default: false },
     users: { required: true },
     slots: {
       required: false,
@@ -62,7 +69,7 @@ export default {
     }
   },
   components: {
-    ProfilePicture, UserSlot, CurrentUser,
+    ProfilePicture, UserSlot, CurrentUser, QSpinner,
   },
   mounted () {
     this.calculateSlotsPerRow()
@@ -108,6 +115,8 @@ export default {
     border 2px dashed lightgrey
     color grey
     border-radius $borderRadius
+    margin-right 3.8px
+    margin-bottom 3.8px
     text-align center
     div
       display inline-block

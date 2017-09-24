@@ -11,7 +11,7 @@
           {{ pickup.description }}
         </div>
         <div class="people full-width">
-          <ProfilesInline @join="button.click()" @leave="button.click()" :slots="pickup.maxCollectors" :users="pickup.collectors"/>
+          <ProfilesInline :waiting="pickup.isWaiting" @join="button.click()" @leave="button.click()" :slots="pickup.maxCollectors" :users="pickup.collectors"/>
         </div>
       </div>
     </q-card-main>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QBtn, QSpinner } from 'quasar'
+import { QCard, QCardMain, QBtn } from 'quasar'
 import ProfilesInline from '../ProfilePictures/ProfilesInline.vue'
 
 export default {
@@ -29,7 +29,7 @@ export default {
     },
   },
   components: {
-    QCard, QCardMain, QBtn, QSpinner, ProfilesInline,
+    QCard, QCardMain, QBtn, ProfilesInline,
   },
   methods: {
     join () {

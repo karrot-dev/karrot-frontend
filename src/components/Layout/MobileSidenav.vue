@@ -2,12 +2,16 @@
   <q-list no-border link inset-separator>
     <q-list-header>General</q-list-header>
     <q-side-link item :to="{name: 'user', params: {userId: 72}}">
-      <q-item-side><i class="fa fa-user"/></q-item-side>
-      <q-item-main label="See your Profile" />
+      <q-item-side><i class="fa fa-user fa-fw"/></q-item-side>
+      <q-item-main :label="$t('TOPBAR.USERPROFILE')" />
     </q-side-link>
     <q-side-link item :to="{name: 'settings'}">
-      <q-item-side><i class="fa fa-cog"/></q-item-side>
-      <q-item-main label="Settings" />
+      <q-item-side><i class="fa fa-cog fa-fw"/></q-item-side>
+      <q-item-main :label="$t('SETTINGS.TITLE')" />
+    </q-side-link>
+    <q-side-link item :to="{name: 'settings'}">
+      <q-item-side><i class="fa fa-sign-out fa-fw"/></q-item-side>
+      <q-item-main :label="$t('TOPBAR.LOGOUT')" />
     </q-side-link>
     <q-list-header>About us</q-list-header>
     <a class="q-item" target="_blanc" href="https://blog.foodsaving.world">

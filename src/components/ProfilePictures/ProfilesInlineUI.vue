@@ -1,5 +1,6 @@
 <template>
   <div class="row justify-start" ref="wrapperDiv">
+    <q-resize-observable style="width: 100%" @resize="calculateSlotsPerRow" />
     <ProfilePicture
       v-for="user in users"
       v-if="user.id !== currentUser.id"
@@ -43,7 +44,7 @@
 import ProfilePicture from './ProfilePicture.vue'
 import UserSlot from './UserSlot.vue'
 import CurrentUser from './CurrentUser.vue'
-import { QSpinner } from 'quasar'
+import { QSpinner, QResizeObservable } from 'quasar'
 
 export default {
   props: {
@@ -69,14 +70,7 @@ export default {
     }
   },
   components: {
-    ProfilePicture, UserSlot, CurrentUser, QSpinner,
-  },
-  mounted () {
-    this.calculateSlotsPerRow()
-    window.addEventListener('resize', () => this.calculateSlotsPerRow())
-  },
-  beforeDestroy: () => {
-    window.removeEventListener('resize', this.calculateSlotsPerRow)
+    ProfilePicture, UserSlot, CurrentUser, QSpinner, QResizeObservable,
   },
   methods: {
     calculateSlotsPerRow () {

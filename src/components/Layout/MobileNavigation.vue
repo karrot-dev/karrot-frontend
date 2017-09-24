@@ -1,6 +1,6 @@
 <template>
     <q-tabs v-model="selectedTab" align="center" class="mobileNavigation">
-      <KTab slot="title" to="/group/1" name="group">
+      <KTab slot="title" to="/group/1/wall" name="group">
         <template slot="icon"><i class="fa fa-home q-tab-icon"></i></template>
         <template>{{$t('GROUP.GROUP')}}</template>
       </KTab>
@@ -30,8 +30,15 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .mobileNavigation
   margin-bottom -2px
+  transition: color  10s ease-out
+  .router-link-active
+    color $tertiary
+.ktab
+  transition:  color  .3s ease-out
 .fa
+  transition:  font-size .3s ease-out
   font-size 1.4em
 </style>

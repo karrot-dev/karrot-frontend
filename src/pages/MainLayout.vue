@@ -24,8 +24,9 @@
           </div>
           <div class="whiteSpace gt-sm desktop-only"/>
         </div>
+        <KFooter v-if="!isLoggedIn" class="mobile-only"/>
 
-        <MobileNavigation class="mobile-only" slot="footer"></MobileNavigation>
+        <MobileNavigation v-if="isLoggedIn" class="mobile-only" slot="footer"></MobileNavigation>
         <KFooter class="desktop-only" slot="footer"/>
       </q-layout>
     </div>

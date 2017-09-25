@@ -106,6 +106,7 @@ export default {
 <style scoped lang="stylus">
 .emptySlots
     display inline-block
+    background-color rgba(255, 255, 255, 0.7)
     border 2px dashed lightgrey
     color grey
     border-radius $borderRadius

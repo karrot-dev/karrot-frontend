@@ -76,4 +76,4 @@ twisted==17.9.0           # via daphne
 txaio==2.8.2              # via autobahn
 uritemplate==3.0.0        # via coreapi
 urllib3==1.22             # via requests
-zope.interface==4.4.2     # via twisted
+zope.interface==4.4.3     # via twisted

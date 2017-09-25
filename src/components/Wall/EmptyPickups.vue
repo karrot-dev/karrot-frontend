@@ -4,13 +4,15 @@
         <i class="fa fa-exclamation-triangle on-left"/>
         {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length})}}
       </q-card>
-      <PickupItem v-for="pickup in pickups"
-                  :key="pickup.id"
-                  :pickup="pickup"
-                  @join="$emit('join', arguments[0])"
-                  @leave="$emit('leave', arguments[0])">
-        <strong>{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
-      </PickupItem>
+      <transition-group name="list" tag="div">
+        <PickupItem v-for="pickup in pickups"
+                    :key="pickup.id"
+                    :pickup="pickup"
+                    @join="$emit('join', arguments[0])"
+                    @leave="$emit('leave', arguments[0])">
+          <strong>{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
+        </PickupItem>
+      </transition-group>
     </div>
 </template>
 
@@ -27,4 +29,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.list-leave-active
+  transition: all .5s
+.list-leave-to
+  opacity: 0
+  transform: translateX(-50px)
 </style>

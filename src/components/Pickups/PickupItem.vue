@@ -1,7 +1,7 @@
 <template>
   <q-card v-bind:class="{ full: pickup.isFull }">
     <q-card-main class="row inline no-padding justify-between content"
-      v-bind:class="{ isUserMember: pickup.isUserMember }">
+      v-bind:class="{ isEmpty: pickup.collectorIds.length === 0, isUserMember: pickup.isUserMember }">
       <div class="column padding full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
@@ -74,6 +74,7 @@ $lightGreen = #E7FFE0
 $lighterGreen = #F0FFF0
 
 .content
+  transition: background-color 2s ease
   width 100%
   font-size: .8em
   .padding

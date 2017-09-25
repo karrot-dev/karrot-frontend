@@ -41,6 +41,7 @@ export default {
     border-radius $borderRadius
     margin-right 3.8px
     margin-bottom 3.8px
+    background-color rgba(255, 255, 255, 0.7)
     span
       vertical-align middle
       font-weight 600

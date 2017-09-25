@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QBtn } from 'quasar'
+import { Dialog, QCard, QCardMain, QBtn } from 'quasar'
 import ProfilesInline from '../ProfilePictures/ProfilesInline.vue'
 
 export default {
@@ -33,10 +33,34 @@ export default {
   },
   methods: {
     join () {
-      this.$emit('join', this.pickup.id)
+      Dialog.create({
+        title: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
+        message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', {date: this.$d(this.pickup.date, 'long')}),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('BUTTON.OF_COURSE'),
+            handler: () => {
+              this.$emit('join', this.pickup.id)
+            },
+          },
+        ],
+      })
     },
     leave () {
-      this.$emit('leave', this.pickup.id)
+      Dialog.create({
+        title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
+        message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('BUTTON.YES'),
+            handler: () => {
+              this.$emit('leave', this.pickup.id)
+            },
+          },
+        ],
+      })
     },
   },
   computed: {

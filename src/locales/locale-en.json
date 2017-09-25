@@ -38,7 +38,9 @@
     "BACK": "Back",
     "MORE_OPTIONS": "More options",
     "SUBMIT": "Submit",
-    "SEARCH": "Search"
+    "SEARCH": "Search",
+    "OF_COURSE": "Yes, of course!",
+    "YES": "Yes"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
@@ -168,7 +170,7 @@
     "WEEKDAYS": "Weekdays",
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Time",
-    "TIME_ERROR": "Enter a valid time, e.g. {{timeExample}}",
+    "TIME_ERROR": "Enter a valid time, e.g. {timeExample}",
     "MAX_COLLECTORS": "Max Slots",
     "COMMENT": "Additional information"
   },
@@ -187,6 +189,10 @@
       "JOIN": "Join",
       "FULL": "Full!",
       "DELETE": "Delete pickup date",
+      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
+      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?",
       "DELETE_TEXT": "Do you really want to delete this pickup date?",
       "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
     },

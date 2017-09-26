@@ -7,9 +7,9 @@
       :key="'0' + user.id"
       :user="user"
       :size="size"
-      class="profilePic" />
+      class="profilePic clickable" />
 
-    <div v-if="waiting" class="emptySlots" style="border-color: black" v-bind:style="{ width: size + 'px', height: size + 'px' }">
+    <div v-if="waiting" class="emptySlots profilePic" style="border-color: black" v-bind:style="{ width: size + 'px', height: size + 'px' }">
       <q-spinner />
     </div>
 
@@ -22,7 +22,7 @@
         :size="size"
         :popup="leavePopup"
         :currentUser="currentUser"
-        class="profilePic"
+        class="profilePic clickable"
         v-on:leave="$emit('leave')"/>
     </transition>
 
@@ -35,9 +35,10 @@
       :popup="joinPopup"
       :currentUser="currentUser"
       class="profilePic"
+      :class="{clickable: !isUserMember && n == 1}"
       v-on:join="$emit('join')"/>
 
-    <div v-if="noNotShownEmptySlots > 0" class="emptySlots" v-bind:style="{ width: size + 'px', height: size + 'px' }">
+    <div v-if="noNotShownEmptySlots > 0" class="emptySlots profilePic" v-bind:style="{ width: size + 'px', height: size + 'px' }">
        <div></div>
        <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
        <span v-if="noNotShownEmptySlots > 99">...</span>
@@ -115,15 +116,17 @@ export default {
     border 2px dashed lightgrey
     color grey
     border-radius $borderRadius
-    margin-right 3.8px
     margin-bottom 3.8px
     text-align center
     div
       display inline-block
       height 100%
       vertical-align middle
-.profilePic
+.profilePic.clickable
   margin-right .3em
+  transition transform .1s ease
+.profilePic.clickable:hover
+  transform scale(1.1)
 
 .bounce-enter-active
   animation bounceIn .4s

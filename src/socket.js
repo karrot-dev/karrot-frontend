@@ -3,6 +3,7 @@ import ReconnectingWebsocket from 'reconnecting-websocket'
 import store from '@/store'
 import log from '@/services/log'
 import { getter } from '@/store/helpers'
+import { camelizeKeys } from '@/services/utils'
 
 export const WEBSOCKET_ENDPOINT = [
   window.location.protocol.replace(/^http/, 'ws'),
@@ -52,7 +53,7 @@ const socket = {
 
 export function receiveMessage ({ topic, payload }) {
   if (topic === 'conversations:message') {
-    store.dispatch('conversations/receiveMessage', { message: payload })
+    store.dispatch('conversations/receiveMessage', { message: camelizeKeys(payload) })
   }
 }
 

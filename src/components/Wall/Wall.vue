@@ -7,7 +7,9 @@
       <h5 class="generic-padding wall-header">Wall</h5>
     </div>
     <WallInput @send="$emit('send', arguments[0])" />
+    {{ messageReceiveStatus.error }}
     <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
+    <button @click="$emit('fetchMoreMessages')">fetch more messages</button>
   </div>
 </template>
 
@@ -25,6 +27,7 @@ export default {
   props: {
     messages: { required: true },
     emptyPickups: { required: false },
+    messageReceiveStatus: {},
   },
 }
 </script>

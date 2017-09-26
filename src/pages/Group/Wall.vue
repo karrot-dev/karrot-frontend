@@ -6,11 +6,13 @@ export default connect({
   gettersToProps: {
     emptyPickups: 'pickups/empty',
     messages: 'conversations/activeMessages',
+    messageReceiveStatus: 'conversations/receiveStatus',
   },
   actionsToEvents: {
     join: 'pickups/join',
     leave: 'pickups/leave',
     send: 'conversations/sendMessage',
+    fetchMoreMessages: 'conversations/fetchMoreMessages',
   },
 })('GroupWall', Wall)
 </script>

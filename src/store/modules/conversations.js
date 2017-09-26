@@ -1,5 +1,18 @@
 import Vue from 'vue'
-import messages from '@/services/api/messages'
+import messageAPI from '@/services/api/messages'
+
+export function parseMessage (e) {
+  e.createdAt = new Date(e.createdAt)
+  return e
+}
+
+export function parseMessages (l) {
+  return l.map(parseMessage)
+}
+
+export function parseCursor (c) {
+  return c ? c.substr(c.indexOf('/api')) : null
+}
 
 export const types = {
   SET_ACTIVE: 'Set Active',
@@ -8,6 +21,10 @@ export const types = {
   REQUEST_MESSAGES: 'Request Messages',
   RECEIVE_MESSAGES: 'Receive Messages',
   RECEIVE_MESSAGES_ERROR: 'Receive Messages Error',
+
+  REQUEST_MORE_MESSAGES: 'Request More Messages',
+  RECEIVE_MORE_MESSAGES: 'Receive More Messages',
+  RECEIVE_MORE_MESSAGES_ERROR: 'Receive More Messages Error',
 
   RECEIVE_MESSAGE: 'Receive Message',
   RECEIVE_CONVERSATION: 'Receive Conversation',
@@ -20,8 +37,17 @@ export const types = {
 export const state = {
   entries: {},
   messages: {}, // { <conversation-id> : [<message>,...] }
+  cursors: {}, // { <conversation-id> : [<cursor>, ...]}
   activeConversationId: null,
   sendStatus: {
+    isWaiting: false,
+    error: null,
+  },
+  receiveStatus: {
+    isWaiting: false,
+    error: null,
+  },
+  receiveMoreStatus: {
     isWaiting: false,
     error: null,
   },
@@ -37,6 +63,8 @@ export const getters = {
     })
   },
   sendStatus: state => state.sendStatus,
+  receiveStatus: state => state.receiveStatus,
+  receiveMoreStatus: state => state.receiveMoreStatus,
 }
 
 export const actions = {
@@ -54,33 +82,60 @@ export const actions = {
   async sendMessage ({ commit, state, dispatch }, messageData) {
     commit(types.REQUEST_SEND_MESSAGE)
     try {
-      // let message =
-      await messages.create({
+      const message = await messageAPI.create({
         content: messageData,
         conversation: state.activeConversationId,
       })
-      dispatch('fetchMessages', state.activeConversationId) // TODO remove after message serializer has been fixed at backend
       commit(types.RECEIVE_SEND_MESSAGE)
-      // commit(types.RECEIVE_MESSAGE, { message })
+      commit(types.RECEIVE_MESSAGE, { message: parseMessage(message) })
     }
     catch (error) {
       commit(types.RECEIVE_SEND_MESSAGE_ERROR, { error })
     }
   },
 
-  async receiveMessage ({ commit, dispatch, state }, { message }) {
-    dispatch('fetchMessages', state.activeConversationId) // TODO remove after message serializer has been fixed at backend
-    // commit(types.RECEIVE_MESSAGE, { message })
+  async receiveMessage ({ commit, state, getters }, { message }) {
+    // only add if messages doesn't exist yet
+    if (!getters.activeMessages.find(e => e.id === message.id)) {
+      commit(types.RECEIVE_MESSAGE, { message: parseMessage(message) })
+    }
   },
 
   async fetchMessages ({ commit }, conversationId) {
     commit(types.REQUEST_MESSAGES, { conversationId })
+    let data
     try {
-      commit(types.RECEIVE_MESSAGES, { conversationId, messages: await messages.list(conversationId) })
+      data = await messageAPI.list(conversationId)
     }
     catch (error) {
       commit(types.RECEIVE_MESSAGES_ERROR, { conversationId, error })
+      return
     }
+    const messages = parseMessages(data.results)
+    const cursor = parseCursor(data.next)
+    commit(types.RECEIVE_MESSAGES, { conversationId, messages, cursor })
+  },
+
+  async fetchMoreMessages ({ state, commit }) {
+    // fetch more messages for active conversation
+    const conversationId = state.activeConversationId
+    const currentCursor = state.cursors[conversationId]
+    if (!currentCursor) {
+      return
+    }
+    commit(types.REQUEST_MORE_MESSAGES, { conversationId })
+
+    let data
+    try {
+      data = await messageAPI.listMore(currentCursor)
+    }
+    catch (error) {
+      commit(types.RECEIVE_MORE_MESSAGES_ERROR, { conversationId, error })
+      return
+    }
+    const messages = parseMessages(data.results)
+    const cursor = parseCursor(data.next)
+    commit(types.RECEIVE_MORE_MESSAGES, { conversationId, messages, cursor })
   },
 }
 
@@ -91,15 +146,66 @@ export const mutations = {
   [types.CLEAR_ACTIVE] (state) {
     state.activeConversationId = null
   },
-  [types.REQUEST_MESSAGES] (state, { conversationId }) {},
-  [types.RECEIVE_MESSAGES] (state, { conversationId, messages }) {
-    if (state.messages[conversationId]) {
-      // state.messages[conversationId].push(...messages)
-      Vue.set(state.messages, conversationId, messages)
+
+  // receive initial messages
+  [types.REQUEST_MESSAGES] (state, { conversationId }) {
+    state.receiveStatus = {
+      isWaiting: true,
+      error: null,
     }
   },
-  [types.RECEIVE_MESSAGES_ERROR] (state, { conversationId, error }) {},
+  [types.RECEIVE_MESSAGES] (state, { conversationId, messages, cursor }) {
+    if (state.messages[conversationId]) {
+      Vue.set(state.messages, conversationId, messages)
+      Vue.set(state.cursors, conversationId, cursor)
+    }
+    if (state.activeConversationId === conversationId) {
+      state.receiveStatus = {
+        isWaiting: false,
+        error: null,
+      }
+    }
+  },
+  [types.RECEIVE_MESSAGES_ERROR] (state, { conversationId, error }) {
+    console.log(error)
+    if (state.activeConversationId === conversationId) {
+      state.receiveStatus = {
+        isWaiting: false,
+        error,
+      }
+    }
+  },
 
+  // receive more messages
+  [types.REQUEST_MORE_MESSAGES] (state, { conversationId }) {
+    state.receiveMoreStatus = {
+      isWaiting: true,
+      error: null,
+    }
+  },
+  [types.RECEIVE_MORE_MESSAGES] (state, { conversationId, messages, cursor }) {
+    // append at end
+    if (state.messages[conversationId]) {
+      state.messages[conversationId].push(...messages)
+      Vue.set(state.cursors, conversationId, cursor)
+    }
+    if (state.activeConversationId === conversationId) {
+      state.receiveMoreStatus = {
+        isWaiting: false,
+        error: null,
+      }
+    }
+  },
+  [types.RECEIVE_MORE_MESSAGES_ERROR] (state, { conversationId, error }) {
+    if (state.activeConversationId === conversationId) {
+      state.receiveMoreStatus = {
+        isWaiting: false,
+        error,
+      }
+    }
+  },
+
+  // receive conversation id
   [types.RECEIVE_CONVERSATION] (state, { conversation }) {
     let { id } = conversation
     Vue.set(state.entries, id, conversation)
@@ -107,10 +213,12 @@ export const mutations = {
       Vue.set(state.messages, id, [])
     }
   },
+
+  // receive single message
   [types.RECEIVE_MESSAGE] (state, { message }) {
-    let { conversation: { id: conversationId } = {} } = message
-    if (state.messages[conversationId]) {
-      state.messages[conversationId].push(message)
+    let { conversation } = message
+    if (state.messages[conversation]) {
+      state.messages[conversation].unshift(message)
     }
   },
 

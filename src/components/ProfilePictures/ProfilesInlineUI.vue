@@ -80,7 +80,9 @@ export default {
   },
   methods: {
     calculateSlotsPerRow () {
-      this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
+      if (this.$refs.wrapperDiv) {
+        this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
+      }
     },
   },
   computed: {

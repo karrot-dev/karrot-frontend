@@ -13,13 +13,18 @@
       <q-spinner />
     </div>
 
-    <CurrentUser
-      v-if="isUserMember && !waiting"
-      :size="size"
-      :popup="leavePopup"
-      :currentUser="currentUser"
-      class="profilePic"
-      v-on:leave="$emit('leave')"/>
+    <transition
+      appear
+      :duration="{ enter: 500, leave: 0 }"
+      name="bounce">
+      <CurrentUser
+        v-if="isUserMember && !waiting"
+        :size="size"
+        :popup="leavePopup"
+        :currentUser="currentUser"
+        class="profilePic"
+        v-on:leave="$emit('leave')"/>
+    </transition>
 
     <UserSlot
       v-for="n in emptySlots"
@@ -119,4 +124,29 @@ export default {
       vertical-align middle
 .profilePic
   margin-right .3em
+
+.bounce-enter-active
+  animation bounceIn .4s
+
+.bounce-leave-active
+  display none
+
+@keyframes bounceIn{
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  60%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
 </style>

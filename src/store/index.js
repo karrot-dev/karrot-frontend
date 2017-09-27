@@ -14,6 +14,8 @@ import * as i18n from './modules/i18n'
 import * as sidenav from './modules/sidenav'
 import * as about from './modules/about'
 import * as breadcrumbs from './modules/breadcrumbs'
+import * as verifymail from './modules/verifymail'
+import * as route from './modules/route'
 
 Vue.use(Vuex)
 
@@ -31,6 +33,8 @@ const options = ({
     sidenav,
     about,
     breadcrumbs,
+    verifymail,
+    route,
   },
   plugins: [
     i18nPlugin,

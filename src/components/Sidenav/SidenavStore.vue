@@ -11,8 +11,8 @@
     </div>
     <div>
       <q-list highlight no-border>
-        <q-item :to="{name: 'storePickups'}">{{ $t("GROUP.PICKUPS")}}</q-item>
-        <q-item :to="{name: 'storeHistory'}">{{ $t("GROUP.HISTORY")}}</q-item>
+        <q-item :to="{name: 'storePickups', params: { storeId }}">{{ $t("GROUP.PICKUPS")}}</q-item>
+        <q-item :to="{name: 'storeHistory', params: { storeId }}">{{ $t("GROUP.HISTORY")}}</q-item>
       </q-list>
     </div>
   </SidenavBox>
@@ -24,6 +24,9 @@ import SidenavBox from './SidenavBox.vue'
 import GroupOptions from './GroupOptions.vue'
 
 export default {
+  props: {
+    storeId: { required: true },
+  },
   components: {
     SidenavBox, GroupOptions, QBtn, QList, QItem, QPopover,
   },

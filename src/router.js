@@ -144,6 +144,9 @@ const router = new VueRouter({
                 { type: 'activeGroup' },
                 { type: 'activeStore' },
               ] },
+              props: {
+                sidenav: true,
+              },
               components: {
                 default: StoreLayout,
                 sidenav: GroupStoreSidenav,

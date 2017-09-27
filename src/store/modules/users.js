@@ -10,6 +10,11 @@ export const types = {
   RECEIVE_USER_SIGNUP_ERROR: 'Receiver User Signup Error',
   CLEAN_SIGNUP: 'Clean Signup',
 
+  REQUEST_RESETPASSWORD: 'Request Reset Password',
+  RECEIVE_RESETPASSWORD: 'Receive Reset Password',
+  RECEIVE_RESETPASSWORD_ERROR: 'Receive Reset Password Error',
+  CLEAN_PASSWORD_RESET: 'Clean Password Reset Status',
+
   REQUEST_USERS: 'Request Users',
   RECEIVE_USERS: 'Receive Users',
   RECEIVE_USERS_ERROR: 'Receive Users Error',
@@ -24,6 +29,11 @@ export const state = {
     isWaiting: false,
     error: null,
   },
+  resetpasswordStatus: {
+    isWaiting: false,
+    error: null,
+    success: false,
+  },
 }
 
 export const getters = {
@@ -34,6 +44,7 @@ export const getters = {
   withLocation: state => state.entries.filter(e => e.longitude && e.latitude),
   activeUser: state => state.activeUserId && indexById(state.entries)[state.activeUserId],
   signupStatus: state => state.signup,
+  passwordresetStatus: state => state.resetpasswordStatus,
 }
 
 export const actions = {
@@ -58,6 +69,21 @@ export const actions = {
 
   cleanSignup ({ commit }) {
     commit(types.CLEAN_SIGNUP)
+  },
+
+  async resetPassword ({ commit }, email) {
+    commit(types.REQUEST_RESETPASSWORD)
+    try {
+      await users.resetPassword(email)
+      commit(types.RECEIVE_RESETPASSWORD)
+    }
+    catch (error) {
+      commit(types.RECEIVE_RESETPASSWORD_ERROR, { error })
+    }
+  },
+
+  cleanPasswordreset ({ commit }) {
+    commit(types.CLEAN_PASSWORD_RESET)
   },
 
   async fetchList ({ commit }) {
@@ -99,6 +125,36 @@ export const mutations = {
     state.signup = {
       isWaiting: false,
       error: null,
+    }
+  },
+
+  // reset password
+  [types.REQUEST_RESETPASSWORD] (state) {
+    state.resetpasswordStatus = {
+      isWaiting: true,
+      error: null,
+      success: false,
+    }
+  },
+  [types.RECEIVE_RESETPASSWORD] (state) {
+    state.resetpasswordStatus = {
+      isWaiting: false,
+      error: null,
+      success: true,
+    }
+  },
+  [types.RECEIVE_RESETPASSWORD_ERROR] (state, { error }) {
+    state.resetpasswordStatus = {
+      isWaiting: false,
+      error,
+      success: false,
+    }
+  },
+  [types.CLEAN_PASSWORD_RESET] (state) {
+    state.resetpasswordStatus = {
+      isWaiting: false,
+      error: null,
+      success: false,
     }
   },
 

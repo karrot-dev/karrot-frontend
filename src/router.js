@@ -21,6 +21,7 @@ const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore.vue')
 const Error404 = () => import('@/components/Error404.vue')
 const Login = () => import('@/pages/Login.vue')
 const Signup = () => import('@/pages/Signup.vue')
+const PasswordReset = () => import('@/pages/PasswordReset.vue')
 const Settings = () => import('@/pages/Settings.vue')
 const User = () => import('@/pages/User.vue')
 const PickupFeedback = () => import('@/pages/Group/Feedback.vue')
@@ -220,6 +221,19 @@ const router = new VueRouter({
           },
           components: {
             default: Login,
+          },
+        },
+        {
+          name: 'passwordreset',
+          path: '/passwordreset',
+          meta: {
+            requireLoggedOut: true,
+            breadcrumbs: [
+              { translation: 'PASSWORDRESET.TITLE', route: { name: 'passwordreset' } },
+            ],
+          },
+          components: {
+            default: PasswordReset,
           },
         },
         {

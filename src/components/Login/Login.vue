@@ -33,10 +33,10 @@
           <i class="fa fa-exclamation-triangle"/>{{ errorMessage }}
         </div>
         <div class="actions">
-          <q-btn flat>
+          <q-btn @click.prevent="$router.push({ name: 'passwordreset' })" flat>
             {{ $t('LOGIN.FORGOT_PASSWORD') }}
           </q-btn>
-          <q-btn @click="$router.push({ name: 'signup' })" flat>
+          <q-btn @click.prevent="$router.push({ name: 'signup' })" flat>
             {{ $t('LOGIN.SIGNUP') }}
           </q-btn>
           <q-btn type="submit" class="submit shadow-4" :loader="status.isWaiting">

@@ -35,7 +35,7 @@ export default {
   },
 
   resetPassword (email) {
-    return axios.post('/api/users/reset_password', { email })
+    return axios.post('/api/users/reset_password/', { email })
   },
 
   resendVerificationRequest () {

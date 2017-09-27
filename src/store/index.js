@@ -16,6 +16,7 @@ import * as about from './modules/about'
 import * as breadcrumbs from './modules/breadcrumbs'
 import * as verifymail from './modules/verifymail'
 import * as route from './modules/route'
+import * as invitations from './modules/invitations'
 
 Vue.use(Vuex)
 
@@ -35,6 +36,7 @@ const options = ({
     breadcrumbs,
     verifymail,
     route,
+    invitations,
   },
   plugins: [
     i18nPlugin,

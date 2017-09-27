@@ -8,6 +8,8 @@ export const types = {
   REQUEST_STORES: 'Request Stores',
   RECEIVE_STORES: 'Receive Stores',
   RECEIVE_STORES_ERROR: 'Receive Stores Error',
+
+  CLEAR: 'Clear',
 }
 
 export const state = {
@@ -42,6 +44,10 @@ export const actions = {
       commit(types.RECEIVE_STORES_ERROR, { error })
     }
   },
+
+  clear ({ commit }) {
+    commit(types.CLEAR)
+  },
 }
 
 export const mutations = {
@@ -58,5 +64,9 @@ export const mutations = {
   [types.RECEIVE_STORES_ERROR] (state, { error }) {
     state.isFetching = false
     state.error = error
+  },
+  [types.CLEAR] (state) {
+    state.activeStoreId = null
+    state.entries = []
   },
 }

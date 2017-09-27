@@ -85,6 +85,10 @@ export const actions = {
     commit(types.SET_STORE_ID_FILTER, { storeId })
   },
 
+  clear ({ commit }) {
+    commit(types.CLEAR)
+  },
+
   clearStoreFilter ({ commit }) {
     commit(types.CLEAR_STORE_ID_FILTER)
   },
@@ -146,6 +150,7 @@ export const mutations = {
 
   [types.CLEAR] (state) {
     state.entries = {}
+    state.waiting = {}
     state.idList = []
     state.idListGroupId = null
   },

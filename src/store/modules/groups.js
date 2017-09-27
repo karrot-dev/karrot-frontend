@@ -82,7 +82,13 @@ export const getters = {
 export const actions = {
 
   async selectGroup ({ commit, state, dispatch, getters, rootState }, { groupId }) {
+    if (state.activeGroupId === groupId) return
+
     commit(types.SET_ACTIVE, { groupId })
+
+    dispatch('pickups/clear', {}, { root: true })
+    dispatch('stores/clear', {}, { root: true })
+
     dispatch('pickups/fetchListByGroupId', { groupId }, { root: true })
     dispatch('stores/fetchListByGroupId', { groupId }, { root: true })
     try {

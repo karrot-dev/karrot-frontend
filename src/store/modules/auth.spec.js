@@ -4,10 +4,7 @@ const mockRouterPush = jest.fn()
 jest.mock('@/router', () => ({ push: mockRouterPush }))
 jest.mock('@/services/api/auth', () => ({ status: mockStatus, login: mockLogin }))
 
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
+import { createStore, throws } from '!/helpers'
 
 describe('auth', () => {
   let store
@@ -48,22 +45,3 @@ describe('auth', () => {
     expect(store.getters['auth/user']).toBeNull()
   })
 })
-
-function createStore (mods) {
-  let modules = {}
-  for (let key of Object.keys(mods)) {
-    modules[key] = {...mods[key], namespaced: true}
-  }
-  return new Vuex.Store({
-    modules, strict: false,
-  })
-}
-
-function throws (val) {
-  return () => {
-    if (typeof val === 'function') {
-      val = val()
-    }
-    throw val
-  }
-}

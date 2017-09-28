@@ -7,6 +7,7 @@ module.exports = {
   aliases: {
     quasar: path.resolve(__dirname, '../node_modules/quasar-framework/'),
     '@': path.resolve(__dirname, '../src'),
+    '!': path.resolve(__dirname, '../test'),
     variables: path.resolve(__dirname, '../src/themes/quasar.variables.styl')
   },
 

@@ -116,6 +116,7 @@
     "moduleNameMapper": {
       "@/components/(.*)$": "<rootDir>/src/components/$1.vue",
       "@/(.*)$": "<rootDir>/src/$1",
+      "!/(.*)$": "<rootDir>/test/$1",
       "^quasar$": "<rootDir>/node_modules/quasar-framework"
     },
     "transform": {

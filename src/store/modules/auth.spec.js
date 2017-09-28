@@ -4,7 +4,7 @@ const mockRouterPush = jest.fn()
 jest.mock('@/router', () => ({ push: mockRouterPush }))
 jest.mock('@/services/api/auth', () => ({ status: mockStatus, login: mockLogin }))
 
-import { createStore, throws } from '!/helpers'
+import { createStore, throws } from '>/helpers'
 
 describe('auth', () => {
   let store

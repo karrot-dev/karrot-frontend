@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.q-card > *
+.q-card *
   overflow: hidden
 .fixed-height
   min-height: 60px

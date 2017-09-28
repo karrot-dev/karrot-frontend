@@ -71,4 +71,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.q-card *
+  overflow: hidden
 </style>

@@ -139,6 +139,7 @@
   "TOPBAR": {
     "LOGOUT": "Logout",
     "USERPROFILE": "Visit your profile",
+    "CHANGE_GROUP": "Change group",
     "GREETING": "Hi, {{username}}!"
   },
   "LOGIN": {

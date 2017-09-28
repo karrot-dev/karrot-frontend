@@ -5,6 +5,10 @@
       <q-item-side><i class="fa fa-user fa-fw"/></q-item-side>
       <q-item-main :label="$t('TOPBAR.USERPROFILE')" />
     </q-side-link>
+    <q-side-link item :to="{name: 'groupsGallery'}">
+      <q-item-side><i class="fa fa-home fa-fw"/></q-item-side>
+      <q-item-main :label="$t('TOPBAR.CHANGE_GROUP')" />
+    </q-side-link>
     <q-side-link item :to="{name: 'settings'}">
       <q-item-side><i class="fa fa-cog fa-fw"/></q-item-side>
       <q-item-main :label="$t('SETTINGS.TITLE')" />

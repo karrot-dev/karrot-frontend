@@ -50,4 +50,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+.text-primary
+  margin-left .2em
 </style>

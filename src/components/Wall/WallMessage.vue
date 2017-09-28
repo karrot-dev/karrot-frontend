@@ -4,7 +4,6 @@
         <ProfilePicture :user="message.author" :size="32"/>
       </template>
       <template slot="header">
-        wrote a message
       </template>
       <template slot="time">
         {{  $d(new Date(message.createdAt), 'long')  }}

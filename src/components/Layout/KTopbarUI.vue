@@ -38,6 +38,10 @@
             <q-icon size="1em" name="fa-user fa-fw" />
             {{$t('TOPBAR.USERPROFILE')}}
           </q-item>
+          <q-item :to="{name: 'groupsGallery'}" @click="$refs.popover.close()">
+            <q-icon size="1em" name="fa-home fa-fw" />
+            {{ $t('TOPBAR.CHANGE_GROUP')  }}
+          </q-item>
           <q-item :to="{name: 'settings'}" @click="$refs.popover.close()">
             <q-icon size="1em" name="fa-cog fa-fw" />
             {{$t('SETTINGS.TITLE')}}

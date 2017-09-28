@@ -70,6 +70,7 @@ export const getters = {
     return group && { ...group, isMember: userId ? group.members.includes(userId) : false }
   },
   activeGroup: (state, getters) => getters.get(state.activeGroupId),
+  activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   activeUsers: (state, getters, rootState, rootGetters) => {
     let group = getters.activeGroup

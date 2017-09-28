@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card class="groupPreviewCard">
     <q-card-title>
       {{ group.name }}
       <span slot="subtitle">
@@ -7,7 +7,11 @@
       </span>
     </q-card-title>
     <q-card-main class="fixed-height">
-      {{ group.publicDescription.slice(0, 150) }}
+      <div class="smaller-text">
+      <Markdown
+        v-if="group.publicDescription != ''"
+        :source="group.publicDescription.slice(0, 150)" />
+      </div>
       <span v-if="group.publicDescription == ''" class="text-italic">
         {{ $t("JOINGROUP.NO_PUBLIC_DESCRIPTION") }}
       </span>
@@ -32,6 +36,7 @@
 
 <script>
 import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon } from 'quasar'
+import Markdown from '@/components/Markdown.vue'
 
 export default {
   props: {
@@ -42,7 +47,7 @@ export default {
       required: true,
     },
   },
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon },
+  components: { Markdown, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon },
 }
 </script>
 
@@ -52,4 +57,16 @@ export default {
 .fixed-height
   min-height: 60px
   max-height: 60px
+.groupPreviewCard
+  transition all .5s
+.groupPreviewCard
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+.groupPreviewCard:hover
+  box-shadow: 0 7px 11px 0 rgba(0,0,0,0.2);
+
+</style>
+
+<style lang="stylus">
+.groupPreviewCard .smaller-text > * > *
+  font-size 1em
 </style>

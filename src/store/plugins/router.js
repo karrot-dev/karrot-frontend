@@ -48,17 +48,16 @@ export default store => {
 
     // save active group/store/user
     if (to.params.groupId) {
-      store.dispatch('groups/selectGroup', {groupId: to.params.groupId})
+      store.dispatch('groups/selectGroup', {groupId: parseInt(to.params.groupId, 10)})
     }
     if (to.params.groupInfoId) {
-      // Why do we need to parse the ID here, but not in the others?
       store.dispatch('groups/selectGroupInfo', parseInt(to.params.groupInfoId, 10))
     }
     if (to.params.storeId) {
-      store.dispatch('stores/selectStore', {storeId: to.params.storeId})
+      store.dispatch('stores/selectStore', {storeId: parseInt(to.params.storeId, 10)})
     }
     if (to.params.userId) {
-      store.dispatch('users/selectUser', {userId: to.params.userId})
+      store.dispatch('users/selectUser', {userId: parseInt(to.params.userId, 10)})
     }
 
     /* If:

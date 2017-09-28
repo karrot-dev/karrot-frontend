@@ -127,12 +127,11 @@ export const actions = {
     }
   },
 
-  async join ({ commit, dispatch }, { groupId, password }) {
+  async join ({ commit, dispatch, rootGetters }, { groupId, password }) {
     commit(types.REQUEST_JOIN)
     try {
       await groups.join(groupId, { password })
-      commit(types.RECEIVE_JOIN)
-      await dispatch('fetchGroup', { groupId })
+      commit(types.RECEIVE_JOIN, { groupId, userId: rootGetters['auth/userId'] })
       router.push({ name: 'group', params: { groupId } })
     }
     catch (error) {
@@ -140,12 +139,11 @@ export const actions = {
     }
   },
 
-  async leave ({ commit, dispatch }, { groupId }) {
+  async leave ({ commit, dispatch, rootGetters }, { groupId }) {
     commit(types.REQUEST_LEAVE)
     try {
       await groups.leave(groupId)
-      commit(types.RECEIVE_LEAVE)
-      await dispatch('fetchGroup', { groupId })
+      commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
     }
     catch (error) {
       commit(types.RECEIVE_LEAVE_ERROR, { error })
@@ -187,7 +185,9 @@ export const mutations = {
       error: null,
     }
   },
-  [types.RECEIVE_JOIN] (state) {
+  [types.RECEIVE_JOIN] (state, { groupId, userId }) {
+    let { members } = state.entries[groupId]
+    if (!members.includes(userId)) members.push(userId)
     state.joinStatus = {
       isWaiting: false,
       error: null,
@@ -201,7 +201,11 @@ export const mutations = {
   },
 
   [types.REQUEST_LEAVE] (state) {},
-  [types.RECEIVE_LEAVE] (state) {},
+  [types.RECEIVE_LEAVE] (state, { groupId, userId }) {
+    let { members } = state.entries[groupId]
+    let idx = members.indexOf(userId)
+    if (idx !== -1) members.splice(idx, 1)
+  },
   [types.RECEIVE_LEAVE_ERROR] (state, { error }) {},
 }
 

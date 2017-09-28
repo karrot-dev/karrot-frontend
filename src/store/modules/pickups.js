@@ -103,7 +103,7 @@ export const actions = {
     }
   },
 
-  async fetchListByGroupId ({ commit }, { groupId }) {
+  async fetchListByGroupId ({ commit }, groupId) {
     commit(types.REQUEST_LIST)
     try {
       commit(types.RECEIVE_LIST, { pickups: await pickups.listByGroupId(groupId), groupId })

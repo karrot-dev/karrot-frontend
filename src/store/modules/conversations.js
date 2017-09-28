@@ -94,7 +94,7 @@ export const actions = {
     }
   },
 
-  async receiveMessage ({ commit, state, getters }, { message }) {
+  async receiveMessage ({ commit, state, getters }, message) {
     // only add if messages doesn't exist yet
     if (!getters.activeMessages.find(e => e.id === message.id)) {
       commit(types.RECEIVE_MESSAGE, { message: parseMessage(message) })

@@ -53,7 +53,7 @@ const socket = {
 
 export function receiveMessage ({ topic, payload }) {
   if (topic === 'conversations:message') {
-    store.dispatch('conversations/receiveMessage', { message: camelizeKeys(payload) })
+    store.dispatch('conversations/receiveMessage', camelizeKeys(payload))
   }
 }
 

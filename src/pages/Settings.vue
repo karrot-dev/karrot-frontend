@@ -57,7 +57,7 @@ export default {
         return store.state.i18n.locale
       },
       set (locale) {
-        this.setLocale({ locale })
+        this.setLocale(locale)
       },
     },
   },

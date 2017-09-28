@@ -42,22 +42,22 @@ export default store => {
   router.afterEach((to, from) => {
     // save Breadcrumbs to store
     if (!(to.meta) || !(to.meta.breadcrumbs)) {
-      store.dispatch('breadcrumbs/setAll', {breadcrumbs: [{name: 'not defined'}]})
+      store.dispatch('breadcrumbs/setAll', [{name: 'not defined'}])
     }
-    store.dispatch('breadcrumbs/setAll', {breadcrumbs: to.meta.breadcrumbs || []})
+    store.dispatch('breadcrumbs/setAll', to.meta.breadcrumbs || [])
 
     // save active group/store/user
     if (to.params.groupId) {
-      store.dispatch('groups/selectGroup', {groupId: parseInt(to.params.groupId, 10)})
+      store.dispatch('groups/selectGroup', parseInt(to.params.groupId, 10))
     }
     if (to.params.groupInfoId) {
       store.dispatch('groups/selectGroupInfo', parseInt(to.params.groupInfoId, 10))
     }
     if (to.params.storeId) {
-      store.dispatch('stores/selectStore', {storeId: parseInt(to.params.storeId, 10)})
+      store.dispatch('stores/selectStore', parseInt(to.params.storeId, 10))
     }
     if (to.params.userId) {
-      store.dispatch('users/selectUser', {userId: parseInt(to.params.userId, 10)})
+      store.dispatch('users/selectUser', parseInt(to.params.userId, 10))
     }
 
     /* If:
@@ -69,7 +69,7 @@ export default store => {
      */
     if (!to.params.groupId && !hasActiveGroup() && isLoggedIn()) {
       let groupId = getUserGroupId()
-      if (groupId) store.dispatch('groups/selectGroup', { groupId })
+      if (groupId) store.dispatch('groups/selectGroup', groupId)
     }
   })
 

@@ -29,13 +29,13 @@ export const getters = {
 }
 
 export const actions = {
-  async selectStore ({ commit, state, dispatch, getters, rootState }, { storeId }) {
+  async selectStore ({ commit, state, dispatch, getters, rootState }, storeId) {
     console.log('selecting store!', storeId)
     dispatch('pickups/setStoreFilter', storeId, {root: true})
     commit(types.SELECT_STORE, { storeId })
   },
 
-  async fetchListByGroupId ({ commit }, { groupId }) {
+  async fetchListByGroupId ({ commit }, groupId) {
     commit(types.REQUEST_STORES)
     try {
       commit(types.RECEIVE_STORES, { stores: await stores.listByGroupId(groupId) })

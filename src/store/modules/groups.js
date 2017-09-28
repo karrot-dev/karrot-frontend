@@ -84,7 +84,7 @@ export const getters = {
 
 export const actions = {
 
-  async selectGroup ({ commit, state, dispatch, getters, rootState }, { groupId }) {
+  async selectGroup ({ commit, state, dispatch, getters, rootState }, groupId) {
     if (state.activeGroupId === groupId) return
 
     commit(types.SET_ACTIVE, { groupId })
@@ -94,8 +94,8 @@ export const actions = {
     dispatch('pickups/clear', {}, { root: true })
     dispatch('stores/clear', {}, { root: true })
 
-    dispatch('pickups/fetchListByGroupId', { groupId }, { root: true })
-    dispatch('stores/fetchListByGroupId', { groupId }, { root: true })
+    dispatch('pickups/fetchListByGroupId', groupId, { root: true })
+    dispatch('stores/fetchListByGroupId', groupId, { root: true })
     try {
       dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
     }
@@ -142,7 +142,7 @@ export const actions = {
     }
   },
 
-  async leave ({ commit, dispatch, rootGetters }, { groupId }) {
+  async leave ({ commit, dispatch, rootGetters }, groupId) {
     commit(types.REQUEST_LEAVE)
     try {
       await groups.leave(groupId)

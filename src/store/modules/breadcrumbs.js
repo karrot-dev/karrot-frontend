@@ -59,7 +59,7 @@ export const getters = {
 
 export const actions = {
 
-  setAll ({ commit }, { breadcrumbs }) {
+  setAll ({ commit }, breadcrumbs) {
     commit(types.SET_ALL_BREADCRUMBS, { breadcrumbs })
   },
 

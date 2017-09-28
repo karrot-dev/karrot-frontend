@@ -48,7 +48,7 @@ export const getters = {
 }
 
 export const actions = {
-  async selectUser ({ commit }, { userId }) {
+  async selectUser ({ commit }, userId) {
     console.log('selecting user!', userId)
     commit(types.SELECT_USER, { userId })
   },

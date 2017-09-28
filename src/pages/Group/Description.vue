@@ -1,9 +1,7 @@
 <template>
   <div>
     <q-card class="no-shadow generic-padding grey-border" style="width: 100%">
-      <Markdown
-        v-if="group.publicDescription != ''"
-        :source="group.publicDescription" />
+      <Markdown v-if="group.description" :source="group.description" />
     </q-card>
   </div>
 </template>

@@ -1,10 +1,7 @@
 <template>
   <div>
     <div>
-      <h4>{{ $t('VERIFYMAIL.TITLE') }}</h4>
       <h5>{{ user.email }}</h5>
-    </div>
-    <div>
       <q-spinner v-if="status.isWaiting" />
       <p v-if="status.success">
         {{ $t('VERIFYMAIL.SUCCESS') }}

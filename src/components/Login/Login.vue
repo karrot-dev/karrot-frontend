@@ -1,12 +1,7 @@
 <template>
   <div>
-    <div class="header">
-      <img :src="loginImage"></img>
-      <h4>{{ $t('LOGIN.TITLE') }}</h4>
-    </div>
     <form name="login" @submit.prevent="submit">
-      <div class="content" :class="{ shake: status.errorMessage }">
-        <div class="white-box">
+        <div class="white-box" :class="{ shake: showShake }">
           <q-field icon="fa-envelope">
             <q-input
             :autofocus="true"
@@ -18,7 +13,7 @@
             />
           </q-field>
         </div>
-        <div class="white-box">
+        <div class="white-box" :class="{ shake: showShake }">
           <q-field icon="fa-lock">
             <q-input
             :error="hasError('password')"
@@ -44,28 +39,24 @@
           </q-btn>
         </div>
         <div style="clear: both"/>
-      </div>
     </form>
   </div>
 </template>
 
 <script>
 import { QField, QInput, QBtn } from 'quasar'
-import loginImage from '@/assets/people/cherry.png'
 
 export default {
   components: { QField, QInput, QBtn },
   data () {
     if (process.env.NODE_ENV !== 'production') {
       return {
-        loginImage,
         email: 'foo@foo.com',
         password: 'foofoo',
       }
     }
     else {
       return {
-        loginImage,
         email: '',
         password: '',
       }
@@ -90,50 +81,15 @@ export default {
     errorMessage () {
       return this.status.error && this.status.error[Object.keys(this.status.error)[0]][0]
     },
+    showShake () {
+      return typeof this.errorMessage !== 'undefined' && this.errorMessage !== null
+    },
   },
 }
 </script>
 
 <style scoped lang="stylus">
 @import '~variables'
-.header
-  padding 0.1em 1em
-  img
-    height 40px
-    vertical-align middle
-    margin-bottom: 20px
-    margin-right: 10px
-  img, h4
-    display inline-block
-  h4
-    color $primary
-.content
-  border-radius $borderRadius
-  width 100%
-  min-height 5em
-  background-color $primary
-  color white
-  padding 1em 1em
-  .white-box
-    background-color white
-    border-radius $borderRadiusSmall
-    padding .1em 1em
-    margin-bottom .5em
-    .q-field
-      margin-top .2em
-  .error
-    color $warning
-    margin 0 1em
-    .fa
-      margin-right .5em
-  .actions
-    float right
-    color $tertiary
-    .submit
-      color white
-      background-color $secondary
-    .submit:hover
-      background-color $positive
 .shake
   animation shake 0.82s cubic-bezier(.36, .07, .19, .97) both
   transform translate3d(0, 0, 0)

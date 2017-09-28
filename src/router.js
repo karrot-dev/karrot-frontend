@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 const MainLayout = () => import('@/pages/MainLayout')
+const SplashLayout = () => import('@/pages/SplashLayout')
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall.vue')
 const GroupMap = () => import('@/pages/Map.vue')
@@ -20,7 +21,11 @@ const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup.vue')
 const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore.vue')
 const Error404 = () => import('@/components/Error404.vue')
 const Login = () => import('@/pages/Login.vue')
+const LoginTitle = () => import('@/components/Login/LoginTitle.vue')
+const VerifyMailTitle = () => import('@/components/Login/VerifyMailTitle.vue')
+const PasswordResetTitle = () => import('@/components/Login/PasswordResetTitle.vue')
 const Signup = () => import('@/pages/Signup.vue')
+const SignupTitle = () => import('@/components/Login/SignupTitle.vue')
 const PasswordReset = () => import('@/pages/PasswordReset.vue')
 const VerifyMail = () => import('@/pages/VerifyMail.vue')
 const Settings = () => import('@/pages/Settings.vue')
@@ -212,56 +217,67 @@ const router = new VueRouter({
           },
         },
         {
-          name: 'login',
-          path: '/login',
-          meta: {
-            requireLoggedOut: true,
-            breadcrumbs: [
-              { translation: 'LOGIN.TITLE', route: { name: 'login' } },
-            ],
-          },
-          components: {
-            default: Login,
-          },
-        },
-        {
-          name: 'passwordreset',
-          path: '/passwordreset',
-          meta: {
-            requireLoggedOut: true,
-            breadcrumbs: [
-              { translation: 'PASSWORDRESET.TITLE', route: { name: 'passwordreset' } },
-            ],
-          },
-          components: {
-            default: PasswordReset,
-          },
-        },
-        {
-          name: 'verifymail',
-          path: '/verify-mail',
-          meta: {
-            requireLoggedIn: true,
-            breadcrumbs: [
-              { translation: 'VERIFYMAIL.TITLE', route: { name: 'verifymail' } },
-            ],
-          },
-          components: {
-            default: VerifyMail,
-          },
-        },
-        {
-          name: 'signup',
-          path: '/signup',
-          meta: {
-            requireLoggedOut: true,
-            breadcrumbs: [
-              { translation: 'SIGNUP.TITLE', route: { name: 'signup' } },
-            ],
-          },
-          components: {
-            default: Signup,
-          },
+          path: '',
+          redirect: '/groupInfo',
+          component: SplashLayout,
+          children: [
+            {
+              name: 'login',
+              path: '/login',
+              meta: {
+                requireLoggedOut: true,
+                breadcrumbs: [
+                  { translation: 'LOGIN.TITLE', route: { name: 'login' } },
+                ],
+              },
+              components: {
+                default: Login,
+                header: LoginTitle,
+              },
+            },
+            {
+              name: 'passwordreset',
+              path: '/passwordreset',
+              meta: {
+                requireLoggedOut: true,
+                breadcrumbs: [
+                  { translation: 'PASSWORDRESET.TITLE', route: { name: 'passwordreset' } },
+                ],
+              },
+              components: {
+                default: PasswordReset,
+                header: PasswordResetTitle,
+              },
+            },
+            {
+              name: 'verifymail',
+              path: '/verify-mail',
+              meta: {
+                requireLoggedIn: true,
+                breadcrumbs: [
+                  { translation: 'VERIFYMAIL.TITLE', route: { name: 'verifymail' } },
+                ],
+              },
+              components: {
+                default: VerifyMail,
+                header: VerifyMailTitle,
+              },
+            },
+            {
+              name: 'signup',
+              path: '/signup',
+              meta: {
+                requireLoggedOut: true,
+                breadcrumbs: [
+                  { translation: 'SIGNUP.TITLE', route: { name: 'signup' } },
+                ],
+              },
+              components: {
+                default: Signup,
+                header: SignupTitle,
+              },
+            },
+          ],
         },
         {
           name: 'settings',

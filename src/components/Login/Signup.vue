@@ -1,10 +1,6 @@
 <template>
   <div>
     <form name="signup" @keydown.enter.prevent="submit">
-      <div class="header">
-        <img :src="loginImage"></img>
-        <h4>{{ $t('SIGNUP.TITLE') }}</h4>
-      </div>
       <div class="content">
         <div class="white-box">
           <q-field icon="fa-user">
@@ -83,38 +79,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.header
-  padding 0.1em 1em
-  img
-    height 40px
-    vertical-align middle
-    margin-bottom: 20px
-    margin-right: 10px
-  img, h4
-    display inline-block
-  h4
-    color $primary
-.content
-  border-radius $borderRadius
-  width 100%
-  min-height 5em
-  background-color $primary
-  color white
-  padding 1em 1em
-  .white-box
-    background-color white
-    border-radius $borderRadiusSmall
-    padding .1em 1em
-    margin-bottom .5em
-    .q-field
-      margin-top .2em
-  .actions
-    float right
-    color $tertiary
-    .submit
-      color white
-      background-color $secondary
-    .submit:hover
-      background-color $positive
 </style>

@@ -1,14 +1,11 @@
 <template>
   <div>
-    <div>
-      <h4>{{ $t('PASSWORDRESET.TITLE') }}</h4>
-    </div>
     <form v-if="!status.success" name="passwordreset" @submit.prevent="$emit('submit', email)">
       <div>
         <p>
           {{ $t('PASSWORDRESET.INTRO') }}
         </p>
-        <div>
+        <div class="white-box">
           <q-field icon="fa-envelope">
             <q-input
             :autofocus="true"
@@ -19,10 +16,13 @@
             />
           </q-field>
         </div>
-        <div v-if="status.error">
-          Error!
+        <div v-if="status.error" class="error">
+          <i class="fa fa-exclamation-triangle"/> Error!
         </div>
-        <div>
+        <div class="actions">
+          <q-btn @click="$router.push({ name: 'login' })"flat>
+            {{ $t('PASSWORDRESET.LOGIN') }}
+          </q-btn>
           <q-btn type="submit" class="submit shadow-4" :loader="status.isWaiting">
             {{ $t('PASSWORDRESET.SUBMIT') }}
           </q-btn>
@@ -33,9 +33,6 @@
     <p v-if="status.success">
       {{ $t('PASSWORDRESET.SUCCESS') }}
     </p>
-    <q-btn @click="$router.push({ name: 'login' })"flat>
-      {{ $t('PASSWORDRESET.LOGIN') }}
-    </q-btn>
   </div>
 </template>
 

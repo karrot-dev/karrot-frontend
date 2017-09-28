@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import groups from '@/services/api/groups'
 import { indexById } from '@/store/helpers'
 import router from '@/router'
@@ -27,11 +26,14 @@ export const types = {
 }
 
 export const state = {
-  entries: {},
+  entries: {}, // public group details
   idsList: [],
   isFetching: false,
   error: null,
+
   activeGroupId: null,
+  activeGroup: null, // full group details
+
   activeGroupPreviewId: null,
   joinStatus: {
     isWaiting: false,
@@ -69,7 +71,7 @@ export const getters = {
     const userId = rootGetters['auth/userId']
     return group && { ...group, isMember: userId ? group.members.includes(userId) : false }
   },
-  activeGroup: (state, getters) => getters.get(state.activeGroupId),
+  activeGroup: state => state.activeGroup,
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   activeUsers: (state, getters, rootState, rootGetters) => {
@@ -86,6 +88,8 @@ export const actions = {
     if (state.activeGroupId === groupId) return
 
     commit(types.SET_ACTIVE, { groupId })
+
+    dispatch('fetchGroup', groupId)
 
     dispatch('pickups/clear', {}, { root: true })
     dispatch('stores/clear', {}, { root: true })
@@ -105,8 +109,7 @@ export const actions = {
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
   },
 
-  async fetchGroup ({ commit }, { groupId }) {
-    // fetches group details, TODO put in different state
+  async fetchGroup ({ commit }, groupId) {
     commit(types.REQUEST_GROUP)
     try {
       commit(types.RECEIVE_GROUP, { group: await groups.get(groupId) })
@@ -161,7 +164,9 @@ export const mutations = {
   },
   [types.REQUEST_GROUP] (state) {},
   [types.RECEIVE_GROUP] (state, { group }) {
-    Vue.set(state.entries, group.id, { ...state.entries[group.id], ...group })
+    if (state.activeGroupId === group.id) {
+      state.activeGroup = group
+    }
   },
   [types.RECEIVE_GROUP_ERROR] (state, { error }) {},
 

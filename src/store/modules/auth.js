@@ -9,9 +9,9 @@ export const types = {
   SET_JOIN_GROUP_AFTER_LOGIN: 'Join Group After Login',
   CLEAR_JOIN_GROUP_AFTER_LOGIN: 'Clear Join Group After Login',
 
-  REQUEST_STATUS: 'Request Status',
-  RECEIVE_LOGIN_STATUS: 'Receive Status',
-  RECEIVE_LOGIN_STATUS_ERROR: 'Receive Status Error',
+  REQUEST_LOGIN_STATUS: 'Request Login Status',
+  RECEIVE_LOGIN_STATUS: 'Receive Login Status',
+  RECEIVE_LOGIN_STATUS_ERROR: 'Receive Login Status Error',
 
   REQUEST_LOGIN: 'Login Request',
   RECEIVE_LOGIN: 'Login Success',
@@ -54,7 +54,7 @@ export const actions = {
   },
 
   async check ({ commit }) {
-    commit(types.REQUEST_STATUS)
+    commit(types.REQUEST_LOGIN_STATUS)
     try {
       commit(types.RECEIVE_LOGIN_STATUS, { user: await auth.status() })
     }
@@ -134,7 +134,11 @@ export const mutations = {
 
   // Check
 
-  [types.REQUEST_STATUS] (state) {
+  [types.REQUEST_LOGIN_STATUS] (state) {
+    state.status = {
+      isWaiting: false,
+      error: null,
+    }
   },
   [types.RECEIVE_LOGIN_STATUS] (state, { user }) {
     state.user = user

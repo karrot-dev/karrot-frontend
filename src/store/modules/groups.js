@@ -1,6 +1,12 @@
 import groups from '@/services/api/groups'
-import { indexById } from '@/store/helpers'
 import router from '@/router'
+
+function indexById (iterable) {
+  return iterable.reduce((acc, cur, i) => {
+    acc[cur.id] = cur
+    return acc
+  }, {})
+}
 
 export const types = {
 

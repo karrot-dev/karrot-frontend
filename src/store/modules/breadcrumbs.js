@@ -25,7 +25,7 @@ export const getters = {
         if (store) {
           return {
             name: store.name,
-            route: { name: 'store', groupId: store.id },
+            route: { name: 'store', storeId: store.id },
           }
         }
       }

@@ -53,6 +53,7 @@ const router = new VueRouter({
    */
   routes: [
     {
+      name: 'root',
       path: '',
       component: MainLayout,
       redirect: '/groupInfo',

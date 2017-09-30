@@ -28,7 +28,7 @@
     </a>
     <a class="q-item" target="_blanc" href="https://github.com/yunity/karrot-frontend">
       <q-item-side><i class="fa fa-git"/></q-item-side>
-      <q-item-main label="Git" sublabel="See out code!" />
+      <q-item-main label="Git" sublabel="See our code!" />
     </a>
   </q-list>
 </template>

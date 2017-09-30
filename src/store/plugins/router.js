@@ -84,6 +84,6 @@ export default store => {
   store.watch(getBreadcrumbNames, breadcrumbs => {
     let names = getBreadcrumbNames().slice().reverse()
     names.push('Karrot')
-    document.title = names.join(' | ')
+    document.title = names.join(' · ')
   })
 }

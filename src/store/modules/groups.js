@@ -106,7 +106,7 @@ export const actions = {
       dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
     }
     catch (error) {
-      dispatch('conversations/clearActive')
+      dispatch('conversations/clearActive', {}, { root: true })
     }
   },
 

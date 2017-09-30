@@ -276,5 +276,7 @@
   "SETTINGS": {
     "TITLE": "Settings",
     "LANGUAGE": "Language"
-  }
+  },
+  "this field is required": "This field is required",
+  "enter a valid e-mail address": "Enter a valid e-mail address"
 }

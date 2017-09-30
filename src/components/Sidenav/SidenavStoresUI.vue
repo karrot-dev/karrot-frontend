@@ -1,15 +1,19 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-shopping-cart"></i>{{$t("GROUP.STORES")}}</div>
+    <div slot="name"><i class="fa fa-fw fa-shopping-cart"></i>{{ $t("GROUP.STORES") }}</div>
     <div slot="tools">
-      <q-btn small flat>            
+      <q-btn small flat>
         <q-icon size="1em" name="fa-plus-circle" />
-        {{$t("BUTTON.CREATE")}}
+        {{ $t("BUTTON.CREATE") }}
       </q-btn>
     </div>
     <div>
       <q-list highlight no-border>
-        <q-item link :to="{name: 'store', params: { storeId: store.id }}" v-for="store in stores" :key="store.id">{{ store.name }}</q-item>
+        <q-item
+          v-for="store in stores" :key="store.id"
+          link :to="{name: 'store', params: { storeId: store.id }}">
+          {{ store.name }}
+        </q-item>
       </q-list>
     </div>
   </SidenavBox>

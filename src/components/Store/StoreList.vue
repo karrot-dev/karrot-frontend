@@ -1,6 +1,8 @@
 <template>
   <q-list highlight no-border>
-    <q-item link :to="{name: 'store', params: { storeId: store.id }}" v-for="store in stores" :key="store.id">
+    <q-item
+      v-for="store in stores" :key="store.id"
+      link :to="{name: 'store', params: { storeId: store.id }}">
       <q-item-main>
         <q-item-tile label>{{ store.name }}</q-item-tile>
       </q-item-main>

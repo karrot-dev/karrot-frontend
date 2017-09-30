@@ -5,17 +5,19 @@ export default store => {
   let hasActiveGroup = () => !!store.getters['groups/activeGroup']
   let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
-  let getInviteToken = () => store.getters['route/query'].invite
 
   router.beforeEach((to, from, next) => {
+    console.log('before', to)
     // handle invite parameter
-    if (getInviteToken()) {
+    const inviteToken = to.query.invite
+    if (inviteToken) {
+      console.log('found invite', inviteToken)
       if (isLoggedIn()) {
-        store.dispatch('invitations/accept', getInviteToken())
+        store.dispatch('invitations/accept', inviteToken)
         next('/')
       }
       else {
-        store.dispatch('auth/setAcceptInviteAfterLogin', getInviteToken())
+        store.dispatch('auth/setAcceptInviteAfterLogin', inviteToken)
         next({ name: 'signup' })
       }
     }
@@ -42,7 +44,9 @@ export default store => {
       next('/')
     }
 
-    next()
+    else {
+      next()
+    }
   })
 
   router.afterEach((to, from) => {

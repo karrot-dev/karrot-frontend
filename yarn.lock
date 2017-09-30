@@ -7818,6 +7818,10 @@ vue@~2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.4.tgz#5ec3b87a191da8090bbef56b7cfabd4158038171"
 
+vuelidate@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.5.0.tgz#c315659a023e760d0fb11b6b42b6c3cdf08306c3"
+
 vuex-connect@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/vuex-connect/-/vuex-connect-1.3.1.tgz#deab53abe419d2436f31d6e265deb25115733429"

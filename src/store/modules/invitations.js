@@ -46,10 +46,10 @@ export const getters = {
 
 export const actions = {
   /**
-   * Fetch sent invitations by group ID
+   * Fetch sent invitations for active group
    */
-  async fetchList ({ commit, dispatch }, groupId) {
-    dispatch('clear')
+  async fetchForActiveGroup ({ commit, dispatch, rootGetters }) {
+    const groupId = rootGetters['group/activeGroupId']
     commit(types.REQUEST_LIST)
     try {
       const list = await invitations.listByGroupId(groupId)

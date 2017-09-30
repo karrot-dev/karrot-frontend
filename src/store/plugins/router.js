@@ -8,8 +8,6 @@ export default store => {
   let getInviteToken = () => store.getters['route/query'].invite
 
   router.beforeEach((to, from, next) => {
-    window.scrollTo(0, 0)
-
     // handle invite parameter
     if (getInviteToken()) {
       if (isLoggedIn()) {
@@ -48,6 +46,8 @@ export default store => {
   })
 
   router.afterEach((to, from) => {
+    window.scrollTo(0, 0)
+
     // save Breadcrumbs to store
     if (!(to.meta) || !(to.meta.breadcrumbs)) {
       store.dispatch('breadcrumbs/setAll', [{name: 'not defined'}])

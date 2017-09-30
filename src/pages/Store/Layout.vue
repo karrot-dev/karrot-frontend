@@ -2,9 +2,10 @@
   <div>
     <q-card class="no-shadow grey-border" style="width: 100%">
       <q-scroll-area style="height: 120px;">
-        <div class="generic-padding">{{ store.description }}
-      </div>
-</q-scroll-area>
+        <div class="generic-padding">
+          <Markdown v-if="store.description" :source="store.description" />
+        </div>
+      </q-scroll-area>
       <q-tabs align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
         <!--<q-route-tab
             :to="{name: 'store'}"
@@ -35,11 +36,12 @@
 import {
   mapGetters,
 } from 'vuex'
+import Markdown from '@/components/Markdown.vue'
 
 import { QCard, QTabs, QRouteTab, QScrollArea } from 'quasar'
 
 export default {
-  components: { QCard, QTabs, QRouteTab, QScrollArea },
+  components: { QCard, QTabs, QRouteTab, QScrollArea, Markdown },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

@@ -7,11 +7,9 @@ export default store => {
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
   router.beforeEach((to, from, next) => {
-    console.log('before', to)
     // handle invite parameter
     const inviteToken = to.query.invite
     if (inviteToken) {
-      console.log('found invite', inviteToken)
       if (isLoggedIn()) {
         store.dispatch('invitations/accept', inviteToken)
         next('/')

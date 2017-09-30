@@ -69,7 +69,9 @@
     "INVITE_SEND": "Send invitation",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
-    "INVITE_TITLE": "Invite users to your group"
+    "INVITE_TITLE": "Invite users to your group",
+    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
+    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
   },
   "GROUPMAP": {
     "TITLE": "Map",

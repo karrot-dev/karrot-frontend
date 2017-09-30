@@ -95,7 +95,7 @@ export const actions = {
     commit(types.RECEIVE_LOGIN, { user })
 
     if (state.acceptInviteAfterLogin) {
-      dispatch('invitations/accept', state.acceptInviteAfterLogin)
+      dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
     }
     else if (state.joinGroupAfterLogin) {
       const joinParams = state.joinGroupAfterLogin

@@ -33,6 +33,7 @@ export const state = {
   acceptStatus: {
     isWaiting: false,
     error: null,
+    success: false,
   },
 }
 
@@ -45,7 +46,7 @@ export const getters = {
 
 export const actions = {
   /**
-   * Fetch open invitations by group ID
+   * Fetch sent invitations by group ID
    */
   async fetchList ({ commit, dispatch }, groupId) {
     dispatch('clear')
@@ -79,17 +80,20 @@ export const actions = {
   /**
    * Accept invitation with token
    */
-  async accept ({ commit, dispatch, rootGetters }, token) {
+  async accept ({ commit, dispatch }, token) {
     commit(types.REQUEST_ACCEPT)
     try {
       await invitations.accept(token)
       commit(types.RECEIVE_ACCEPT)
       // Current group has changed, refresh user data
       await dispatch('auth/check', { root: true })
+      dispatch('alerts/create', { type: 'inviteAcceptSuccess' }, { root: true })
       router.push('/')
     }
     catch (error) {
+      dispatch('alerts/create', { type: 'inviteAcceptError' }, { root: true })
       commit(types.RECEIVE_ACCEPT_ERROR, { error })
+      router.push({ name: 'groupsGallery' })
     }
   },
 
@@ -148,18 +152,21 @@ export const mutations = {
     state.acceptStatus = {
       isWaiting: true,
       error: null,
+      success: false,
     }
   },
   [types.RECEIVE_ACCEPT] (state) {
     state.acceptStatus = {
       isWaiting: false,
       error: null,
+      success: true,
     }
   },
   [types.RECEIVE_ACCEPT_ERROR] (state, { error }) {
     state.acceptStatus = {
       isWaiting: false,
       error,
+      success: false,
     }
   },
 
@@ -178,6 +185,7 @@ export const mutations = {
       acceptStatus: {
         isWaiting: false,
         error: null,
+        success: false,
       },
     })
   },

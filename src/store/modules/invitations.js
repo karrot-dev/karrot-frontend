@@ -47,7 +47,8 @@ export const actions = {
   /**
    * Fetch open invitations by group ID
    */
-  async fetchList ({ commit }, groupId) {
+  async fetchList ({ commit, dispatch }, groupId) {
+    dispatch('clear')
     commit(types.REQUEST_LIST)
     try {
       const list = await invitations.listByGroupId(groupId)
@@ -61,13 +62,12 @@ export const actions = {
   /**
    * Send invitation to e-mail
    */
-  async send ({ commit }, email) {
-    // TODO if not already invited
+  async send ({ commit, rootGetters }, email) {
     commit(types.REQUEST_SEND)
     try {
       const invited = await invitations.create({
         email,
-        group: 1, // TODO active group id
+        group: rootGetters['groups/activeGroupId'],
       })
       commit(types.RECEIVE_SEND, { invited })
     }

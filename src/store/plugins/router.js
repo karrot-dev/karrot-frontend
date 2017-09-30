@@ -14,7 +14,7 @@ export default store => {
     if (getInviteToken()) {
       if (isLoggedIn()) {
         store.dispatch('invitations/accept', getInviteToken())
-        next({ name: 'root' })
+        next('/')
       }
       else {
         store.dispatch('auth/setAcceptInviteAfterLogin', getInviteToken())
@@ -41,7 +41,7 @@ export default store => {
 
     // check meta.requireLoggedOut
     else if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
-      next({ name: 'root' })
+      next('/')
     }
 
     next()

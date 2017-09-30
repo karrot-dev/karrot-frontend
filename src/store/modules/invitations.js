@@ -86,7 +86,7 @@ export const actions = {
       commit(types.RECEIVE_ACCEPT)
       // Current group has changed, refresh user data
       await dispatch('auth/check', { root: true })
-      router.push({ name: 'root' })
+      router.push('/')
     }
     catch (error) {
       commit(types.RECEIVE_ACCEPT_ERROR, { error })

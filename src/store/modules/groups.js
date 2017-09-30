@@ -48,36 +48,26 @@ export const state = {
 }
 
 export const getters = {
-  list: (state, getters, rootState, rootGetters) => {
-    const userId = rootGetters['auth/userId']
-    return state.idsList.map(id => state.entries[id]).map(e => {
-      return {
-        ...e,
-        isMember: userId ? e.members.includes(userId) : false,
-      }
-    })
+  get: (state, getters, rootState, rootGetters) => groupId => {
+    return getters.enrich(state.entries[groupId])
   },
-  isFetching: state => state.isFetching,
-  error: state => state.error,
-  isMember: state => (groupId, userId) => {
-    let group = state.entries[groupId]
-    if (group && group.members.includes(userId)) {
-      return true
-    }
-    return false
-  },
-  activeUserGroups: (state, getters, rootState, rootGetters) => {
-    let activeUser = rootGetters['users/activeUser']
-    return activeUser ? getters.list.filter(el => el.members.includes(activeUser.id)) : []
-  },
-  myGroups: (state, getters) => getters.list.filter(e => e.isMember === true).sort(sortByName),
-  otherGroups: (state, getters) => getters.list.filter(e => e.isMember === false).sort(sortByMemberCount),
-  get: (state, getters, rootState, rootGetters) => (groupId) => {
-    const group = state.entries[groupId]
+  enrich: (state, getters, rootState, rootGetters) => group => {
     const userId = rootGetters['auth/userId']
     return group && { ...group, isMember: userId ? group.members.includes(userId) : false }
   },
-  activeGroup: state => state.activeGroup,
+  all: (state, getters, rootState, rootGetters) => {
+    return state.idsList.map(getters.get)
+  },
+  list: (state, getters) => getters.all,
+  isFetching: state => state.isFetching,
+  error: state => state.error,
+  activeUserGroups: (state, getters, rootState, rootGetters) => {
+    let activeUser = rootGetters['users/activeUser']
+    return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
+  },
+  myGroups: (state, getters) => getters.all.filter(e => e.isMember === true).sort(sortByName),
+  otherGroups: (state, getters) => getters.all.filter(e => e.isMember === false).sort(sortByMemberCount),
+  activeGroup: (state, getters) => getters.enrich(state.activeGroup),
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   activeUsers: (state, getters, rootState, rootGetters) => {

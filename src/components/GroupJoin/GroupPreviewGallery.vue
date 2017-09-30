@@ -7,7 +7,9 @@
     >
       You are currently logged out. <router-link :to="{ name: 'login' }" class="text-primary">Log in</router-link> to see your groups!
     </q-alert>
-    <h4 v-if="myGroups.length>0" class="text-primary">My groups</h4>
+    <h4 v-if="myGroups.length>0" class="text-primary">
+      {{ $t('JOINGROUP.MY_GROUPS') }}
+    </h4>
     <div v-if="myGroups.length>0" class="row">
       <div
         v-for="group in myGroups"

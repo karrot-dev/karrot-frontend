@@ -23,7 +23,7 @@ export default store => {
     }
 
     // redirect homescreen correctly
-    else if (to.name === 'root') {
+    else if (to.path === '/') {
       if (getUserGroupId()) {
         next({ name: 'group', params: { groupId: getUserGroupId() } })
       }

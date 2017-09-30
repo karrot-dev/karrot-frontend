@@ -1,15 +1,15 @@
 <template>
   <span>
-      <div class="splashlayout header">
-        <router-view name="header"></router-view>
+    <div class="splashlayout header">
+      <router-view name="header"></router-view>
+    </div>
+    <div class="splashlayout">
+      <div class="content">
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
       </div>
-      <div class="splashlayout">
-        <div class="content">
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-        </div>
-      </div>
+    </div>
   </span>
 </template>
 

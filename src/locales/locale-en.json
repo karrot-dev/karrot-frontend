@@ -127,7 +127,8 @@
     "PASSWORD_REQUIRED": "This group requires a password",
     "PASSWORD_WRONG": "You entered the wrong password",
     "ALL_GROUPS": "All groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!"
+    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
+    "MY_GROUPS": "My groups"
   },
   "GROUPINFO": {
     "META": "Show public group information",

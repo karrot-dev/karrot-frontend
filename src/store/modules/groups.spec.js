@@ -50,7 +50,6 @@ describe('groups', () => {
   })
 
   describe('logged in', () => {
-
     beforeEach(() => {
       storeMocks = {
         auth: {

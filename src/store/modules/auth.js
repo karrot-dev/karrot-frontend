@@ -9,6 +9,9 @@ export const types = {
   SET_JOIN_GROUP_AFTER_LOGIN: 'Join Group After Login',
   CLEAR_JOIN_GROUP_AFTER_LOGIN: 'Clear Join Group After Login',
 
+  SET_ACCEPT_INVITE_AFTER_LOGIN: 'Accept Invite After Login',
+  CLEAR_ACCEPT_INVITE_AFTER_LOGIN: 'Clear Accept Invite After Login',
+
   REQUEST_LOGIN_STATUS: 'Request Login Status',
   RECEIVE_LOGIN_STATUS: 'Receive Login Status',
   RECEIVE_LOGIN_STATUS_ERROR: 'Receive Login Status Error',
@@ -32,6 +35,7 @@ export const state = {
   },
   redirectTo: null,
   joinGroupAfterLogin: null,
+  acceptInviteAfterLogin: null,
 }
 
 export const getters = {
@@ -40,7 +44,6 @@ export const getters = {
   userId: state => state.user && state.user.id,
   status: state => state.status,
   redirectTo: state => state.redirectTo,
-  joinGroupAfterLogin: state => state.joinGroupAfterLogin,
 }
 
 export const actions = {
@@ -53,6 +56,10 @@ export const actions = {
     commit(types.SET_JOIN_GROUP_AFTER_LOGIN, { joinParams })
   },
 
+  setAcceptInviteAfterLogin ({ commit }, token) {
+    commit(types.SET_ACCEPT_INVITE_AFTER_LOGIN, { token })
+  },
+
   async check ({ commit }) {
     commit(types.REQUEST_LOGIN_STATUS)
     try {
@@ -63,7 +70,7 @@ export const actions = {
     }
   },
 
-  async login ({ commit, getters, dispatch }, data) {
+  async login ({ state, commit, getters, dispatch }, data) {
     commit(types.REQUEST_LOGIN)
     let user = null
     try {
@@ -87,13 +94,17 @@ export const actions = {
 
     commit(types.RECEIVE_LOGIN, { user })
 
-    if (getters.joinGroupAfterLogin) {
-      const joinParams = getters.joinGroupAfterLogin
+    if (state.acceptInviteAfterLogin) {
+      dispatch('invitations/accept', state.acceptInviteAfterLogin)
+    }
+    else if (state.joinGroupAfterLogin) {
+      const joinParams = state.joinGroupAfterLogin
       dispatch('groups/join', joinParams, { root: true })
     }
     else {
       router.push(getters.redirectTo || { name: 'groupsGallery' })
     }
+    commit(types.CLEAR_ACCEPT_INVITE_AFTER_LOGIN)
     commit(types.CLEAR_JOIN_GROUP_AFTER_LOGIN)
     commit(types.CLEAR_REDIRECT_TO)
   },
@@ -130,6 +141,14 @@ export const mutations = {
   },
   [types.CLEAR_JOIN_GROUP_AFTER_LOGIN] (state) {
     state.joinGroupAfterLogin = null
+  },
+
+  // Invite token to accept after login
+  [types.SET_ACCEPT_INVITE_AFTER_LOGIN] (state, { token }) {
+    state.acceptInviteAfterLogin = token
+  },
+  [types.CLEAR_ACCEPT_INVITE_AFTER_LOGIN] (state) {
+    state.acceptInviteAfterLogin = null
   },
 
   // Check

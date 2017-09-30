@@ -53,10 +53,10 @@ const router = new VueRouter({
    */
   routes: [
     {
+      // redirects from root state are being handled in vuex plugin
       name: 'root',
       path: '',
       component: MainLayout,
-      redirect: '/groupInfo',
       children: [
         {
           name: 'groupsGallery',

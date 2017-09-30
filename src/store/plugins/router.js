@@ -5,37 +5,45 @@ export default store => {
   let hasActiveGroup = () => !!store.getters['groups/activeGroup']
   let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
-
-  router.beforeEach((to, from, next) => {
-    if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
-      let {name, params} = to
-      store.dispatch('auth/setRedirectTo', {name, params})
-      next({name: 'login'})
-    }
-    else {
-      next()
-    }
-  })
+  let getInviteToken = () => store.getters['route/query'].invite
 
   router.beforeEach((to, from, next) => {
     window.scrollTo(0, 0)
-    if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
-      next({name: 'index'})
-    }
-    else {
-      next()
-    }
 
-    let path = to.path
-    // redirect homescreen correctly
-    if (path === '/') {
-      if (getUserGroupId()) {
-        next({name: 'group', params: { groupId: getUserGroupId() }})
+    // handle invite parameter
+    if (getInviteToken()) {
+      if (isLoggedIn()) {
+        store.dispatch('invitations/accept', getInviteToken())
+        next({ name: 'root' })
       }
       else {
-        next({name: 'group', params: { groupId: 1 }})
+        store.dispatch('auth/setAcceptInviteAfterLogin', getInviteToken())
+        next({ name: 'signup' })
       }
     }
+
+    // redirect homescreen correctly
+    else if (to.name === 'root') {
+      if (getUserGroupId()) {
+        next({ name: 'group', params: { groupId: getUserGroupId() } })
+      }
+      else {
+        next({ name: 'groupsGallery' })
+      }
+    }
+
+    // check meta.requireLoggedIn
+    else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
+      let { name, params } = to
+      store.dispatch('auth/setRedirectTo', { name, params })
+      next({ name: 'login' })
+    }
+
+    // check meta.requireLoggedOut
+    else if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
+      next({ name: 'root' })
+    }
+
     next()
   })
 

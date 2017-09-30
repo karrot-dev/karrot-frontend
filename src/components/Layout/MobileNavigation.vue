@@ -4,7 +4,7 @@ import MobileNavigationUI from './MobileNavigationUI.vue'
 
 export default connect({
   gettersToProps: {
-    currentGroup: 'groups/activeGroup',
+    activeGroupId: 'groups/activeGroupId',
   },
 })('MobileNavigationUI', MobileNavigationUI)
 </script>

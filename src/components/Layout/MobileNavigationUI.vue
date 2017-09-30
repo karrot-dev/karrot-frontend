@@ -1,14 +1,14 @@
 <template>
     <q-tabs v-model="selectedTab" align="center" class="mobileNavigation">
-      <KTab slot="title" :to="{name: 'group', params: {groupId: currentGroup.id}}" name="group">
+      <KTab slot="title" :to="{name: 'group', params: {groupId: activeGroupId}}" name="group">
         <template slot="icon"><i class="fa fa-home q-tab-icon"></i></template>
         <template>{{$t('GROUP.GROUP')}}</template>
       </KTab>
-      <KTab slot="title" :to="{name: 'stores', params: {groupId: currentGroup.id}}" name="stores">
+      <KTab slot="title" :to="{name: 'stores', params: {groupId: activeGroupId}}" name="stores">
         <template slot="icon"><i class="fa fa-shopping-cart q-tab-icon"></i></template>
         <template>{{$t('GROUP.STORES')}}</template>
       </KTab>
-      <KTab slot="title" :to="{name: 'map', params: {groupId: currentGroup.id}}" name="profile">
+      <KTab slot="title" :to="{name: 'map', params: {groupId: activeGroupId}}" name="profile">
         <template slot="icon"><i class="fa fa-map q-tab-icon"></i></template>
         <template class="q-tab-label">{{$t('GROUPMAP.TITLE')}}</template>
       </KTab>
@@ -27,7 +27,7 @@ export default {
     }
   },
   props: {
-    currentGroup: { required: true },
+    activeGroupId: { required: true },
   },
 }
 </script>

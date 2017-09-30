@@ -15,7 +15,7 @@
         v-for="group in myGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupPreviewCard :class="{highlight: group.id === currentGroupId}" :group="group" :isMember="true" @preview="$emit('preview', { groupId: group.id })" @visit="$emit('visit', { groupId: group.id })" />
+        <GroupPreviewCard :class="{highlight: group.id === activeGroupId}" :group="group" :isMember="true" @preview="$emit('preview', { groupId: group.id })" @visit="$emit('visit', { groupId: group.id })" />
       </div>
     </div>
     <h4 class="text-primary" v-if="otherGroups.length>0">
@@ -45,7 +45,7 @@ export default {
       required: true,
     },
     isLoggedIn: {},
-    currentGroupId: {
+    activeGroupId: {
       default: -1,
     },
   },

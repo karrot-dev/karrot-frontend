@@ -4,7 +4,7 @@ import GroupOptionsUI from './GroupOptionsUI.vue'
 
 export default connect({
   gettersToProps: {
-    currentGroup: 'groups/activeGroup',
+    activeGroupId: 'groups/activeGroupId',
   },
 })('GroupOptionsUI', GroupOptionsUI)
 </script>

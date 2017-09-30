@@ -4,7 +4,7 @@
       <q-icon size="1em" name="fa-pencil fa-fw on-left" />
       {{$t("GROUP.EDIT")}}
     </q-item>
-    <q-item :to="{name: 'groupInfo', params: {groupInfoId: currentGroup.id}}" @click="$refs.popover.close()">
+    <q-item :to="{name: 'groupInfo', params: {groupInfoId: activeGroupId}}" @click="$refs.popover.close()">
       <q-icon size="1em" name="fa-info-circle fa-fw on-left" />
       {{$t("GROUPINFO.META")}}
     </q-item>
@@ -27,7 +27,7 @@ export default {
     QList, QItem, QIcon,
   },
   props: {
-    currentGroup: {required: true},
+    activeGroupId: {required: true},
   },
 }
 </script>

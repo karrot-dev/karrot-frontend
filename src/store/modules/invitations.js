@@ -180,5 +180,5 @@ export const mutations = {
         error: null,
       },
     })
-  }
+  },
 }

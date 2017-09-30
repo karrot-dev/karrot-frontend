@@ -89,6 +89,42 @@ describe('groups', () => {
     })
   })
 
+  describe('getters', () => {
+    beforeEach(() => {
+      storeMocks = {
+        auth: {
+          getters: {
+            userId: () => userId,
+          },
+        },
+      }
+      store = createStore({
+        groups: require('./groups'),
+        ...storeMocks,
+      })
+    })
+
+    beforeEach(() => {
+      store.commit('groups/Receive Groups', { groups: [group1, group2, group3] })
+      store.commit('groups/Set Active', { groupId: group2.id })
+      store.commit('groups/Receive Group', { group: group2 })
+    })
+
+    it('has groups/myGroups', () => {
+      expect(store.getters['groups/myGroups']).toEqual([group2, group3].map(g => {
+        return { ...g, isMember: true }
+      }))
+    })
+
+    it('has groups/activeGroupId', () => {
+      expect(store.getters['groups/activeGroupId']).toBe(group2.id)
+    })
+
+    it('has groups/activeGroup', () => {
+      expect(store.getters['groups/activeGroup']).toEqual({ ...group2, isMember: true })
+    })
+  })
+
   describe('with lots of mock stuff', () => {
     beforeEach(() => {
       store.commit('groups/Receive Groups', { groups: [group1, group2, group3] })

@@ -13,24 +13,23 @@ export const types = {
 }
 
 export const state = {
-  entries: [],
+  entries: {},
+  idList: [],
   isFetching: false,
   error: null,
   activeStoreId: null,
 }
 
 export const getters = {
-  list: state => state.entries,
-  get: state => (id) => {
-    return state.entries.find(e => e.id === id) || {}
-  },
-  withLocation: state => state.entries.filter(e => e.longitude && e.latitude),
-  activeStore: state => state.activeStoreId && indexById(state.entries)[state.activeStoreId],
+  list: state => state.idList.map(i => state.entries[i]),
+  get: state => (id) => state.entries[id],
+  withLocation: (state, getters) => getters.list.filter(e => e.longitude && e.latitude),
+  activeStore: state => state.entries[state.activeStoreId] || {},
+  activeStoreId: state => state.activeStoreId,
 }
 
 export const actions = {
   async selectStore ({ commit, state, dispatch, getters, rootState }, storeId) {
-    console.log('selecting store!', storeId)
     dispatch('pickups/setStoreFilter', storeId, {root: true})
     commit(types.SELECT_STORE, { storeId })
   },
@@ -59,7 +58,8 @@ export const mutations = {
   },
   [types.RECEIVE_STORES] (state, { stores }) {
     state.isFetching = false
-    state.entries = stores
+    state.entries = indexById(stores)
+    state.idList = stores.map(e => e.id)
   },
   [types.RECEIVE_STORES_ERROR] (state, { error }) {
     state.isFetching = false
@@ -67,6 +67,7 @@ export const mutations = {
   },
   [types.CLEAR] (state) {
     state.activeStoreId = null
-    state.entries = []
+    state.entries = {}
+    state.idList = []
   },
 }

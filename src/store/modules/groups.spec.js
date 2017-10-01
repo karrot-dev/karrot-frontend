@@ -96,6 +96,13 @@ describe('groups', () => {
             userId: () => userId,
           },
         },
+        users: {
+          getters: {
+            get () {
+              return id => ({ id, name: `Some Name${id}` })
+            },
+          },
+        },
       }
       store = createStore({
         groups: require('./groups'),
@@ -109,17 +116,27 @@ describe('groups', () => {
       store.commit('groups/Receive Group', { group: group2 })
     })
 
-    it('has groups/myGroups', () => {
+    it('can get myGroups', () => {
       expect(store.getters['groups/myGroups']).toEqual([group2, group3].map(g => {
         return { ...g, isMember: true }
       }))
     })
 
-    it('has groups/activeGroupId', () => {
+    it('can get otherGroups', () => {
+      expect(store.getters['groups/otherGroups']).toEqual([group1].map(g => {
+        return { ...g, isMember: false }
+      }))
+    })
+
+    it('can get activeUsers', () => {
+      expect(store.getters['groups/activeUsers']).toEqual([{ id: userId, name: `Some Name${userId}` }])
+    })
+
+    it('can get activeGroupId', () => {
       expect(store.getters['groups/activeGroupId']).toBe(group2.id)
     })
 
-    it('has groups/activeGroup', () => {
+    it('can get activeGroup', () => {
       expect(store.getters['groups/activeGroup']).toEqual({ ...group2, isMember: true })
     })
   })

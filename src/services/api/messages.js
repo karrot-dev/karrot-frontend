@@ -11,7 +11,6 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
       results: convertDate(response.results),
     }
   },

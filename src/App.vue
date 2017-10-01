@@ -15,5 +15,3 @@ export default {
   components: { LoadingProgress },
 }
 </script>
-
-<style></style>

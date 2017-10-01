@@ -44,7 +44,7 @@ Quasar.start(async () => {
   if (store.getters['auth/isLoggedIn']) {
     store.dispatch('users/fetchList')
   }
-  const app = await import('./App')
+  const app = (await import('./App')).default
   /* eslint-disable no-new */
   new Vue({
     el: '#q-app',

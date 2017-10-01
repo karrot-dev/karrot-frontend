@@ -99,6 +99,10 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    })
+    }),
+
+    // do scope hoisting: https://webpack.js.org/plugins/module-concatenation-plugin
+    // should reduce scripting time and bundle size
+    new webpack.optimize.ModuleConcatenationPlugin()
   ]
 })

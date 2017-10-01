@@ -58,7 +58,6 @@ export const getters = {
   all: (state, getters, rootState, rootGetters) => {
     return state.idsList.map(getters.get)
   },
-  list: (state, getters) => getters.all,
   isFetching: state => state.isFetching,
   error: state => state.error,
   activeUserGroups: (state, getters, rootState, rootGetters) => {

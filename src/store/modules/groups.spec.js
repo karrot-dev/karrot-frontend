@@ -38,7 +38,7 @@ describe('groups', () => {
     it('can fetch the group list', async () => {
       mockFetchGroups.mockReturnValueOnce([group1])
       await store.dispatch('groups/fetchGroups')
-      expect(store.getters['groups/list']).toEqual([{ ...group1, isMember: false }])
+      expect(store.getters['groups/all']).toEqual([{ ...group1, isMember: false }])
     })
 
     it('can not join a group', async () => {

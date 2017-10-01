@@ -20,6 +20,7 @@ import * as route from './modules/route'
 import * as invitations from './modules/invitations'
 import * as alerts from './modules/alerts'
 import * as loadingprogress from './modules/loadingprogress'
+import * as history from './modules/history'
 
 Vue.use(Vuex)
 
@@ -42,6 +43,7 @@ const options = ({
     invitations,
     alerts,
     loadingprogress,
+    history,
   },
   plugins: [
     i18nPlugin,

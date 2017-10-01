@@ -171,7 +171,7 @@ export const mutations = {
   },
 
   [types.CLEAR] (state) {
-    Object.assign(state, {
+    state = {
       entries: {},
       idList: [],
       listStatus: {
@@ -187,6 +187,6 @@ export const mutations = {
         error: null,
         success: false,
       },
-    })
+    }
   },
 }

@@ -1,5 +1,6 @@
 import historyAPI from '@/services/api/history'
 import { indexById } from '@/store/helpers'
+import i18n from '@/i18n'
 
 export const types = {
   REQUEST: 'Request',
@@ -21,9 +22,30 @@ export const state = {
 }
 
 export const getters = {
-  all: state => state.idList.map(i => state.entries[i]),
-  receiveStatus: state => state.receiveStatus,
-  canLoadMore: state => typeof state.cursor === 'string',
+  get: (state, getters, rootState, rootGetters) => id => {
+    return getters.enrich(state.entries[id])
+  },
+  all: (state, getters, rootState, rootGetters) => {
+    return state.idList.map(getters.get)
+  },
+  receiveStatus: (state, getters, rootState, rootGetters) => {
+    return state.receiveStatus
+  },
+  canLoadMore: (state, getters, rootState, rootGetters) => {
+    return typeof state.cursor === 'string'
+  },
+  enrich: (state, getters, rootState, rootGetters) => entry => {
+    const store = rootGetters['stores/get'](entry.store)
+    const msgValues = { storeName: store.name, name: store.name }
+    return {
+      ...entry,
+      users: entry.users.map(rootGetters['users/get']),
+      group: rootGetters['groups/get'](entry.group),
+      store: store,
+      message: i18n.t(`HISTORY.${entry.typus}`, msgValues),
+      // TODO enrich payload
+    }
+  },
 }
 
 export const actions = {

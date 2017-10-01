@@ -1,7 +1,7 @@
 jest.mock('@/services/api/pickups', () => ({
 }))
 
-import { createStore, throws } from '>/helpers'
+import { createStore } from '>/helpers'
 
 describe('pickups', () => {
   beforeEach(() => jest.resetModules())

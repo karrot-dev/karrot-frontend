@@ -65,15 +65,14 @@ export const getters = {
     let activeUser = rootGetters['users/activeUser']
     return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
   },
-  myGroups: (state, getters) => getters.all.filter(e => e.isMember === true).sort(sortByName),
-  otherGroups: (state, getters) => getters.all.filter(e => e.isMember === false).sort(sortByMemberCount),
+  myGroups: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
+  otherGroups: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
   activeGroup: (state, getters) => getters.enrich(state.activeGroup),
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   activeUsers: (state, getters, rootState, rootGetters) => {
     let group = getters.activeGroup
-    if (!group) return []
-    return group.members.map(id => rootGetters['users/get'](id))
+    return group ? group.members.map(rootGetters['users/get']) : []
   },
   joinStatus: state => state.joinStatus,
 }

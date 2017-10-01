@@ -1,15 +1,27 @@
 import i18n from '@/i18n'
+import { isObject, camelize } from '@/services/utils'
+
+// Hotfix to use existing files
+// TODO: convert files and sync them with transifex
+function angularToVueI18n (val) {
+  if (isObject(val)) {
+    let newVal = {}
+    for (const key of Object.keys(val)) {
+      newVal[key] = angularToVueI18n(val[key])
+    }
+    return newVal
+  }
+  else {
+    return val.replace(/{{(.*?)}}/g, (_, a) => `{${camelize(a)}}`)
+  }
+}
 
 export default store => {
   store.watch(state => state.i18n.locale, async locale => {
-    if (locale === 'de') i18n.setLocaleMessage('de', await import('@/locales/locale-de.json'))
-    else if (locale === 'eo') i18n.setLocaleMessage('eo', await import('@/locales/locale-eo.json'))
-    else if (locale === 'es') i18n.setLocaleMessage('es', await import('@/locales/locale-es.json'))
-    else if (locale === 'fr') i18n.setLocaleMessage('fr', await import('@/locales/locale-fr.json'))
-    else if (locale === 'it') i18n.setLocaleMessage('it', await import('@/locales/locale-it.json'))
-    else if (locale === 'ru') i18n.setLocaleMessage('ru', await import('@/locales/locale-ru.json'))
-    else if (locale === 'sv') i18n.setLocaleMessage('sv', await import('@/locales/locale-sv.json'))
-    else if (locale === 'zh') i18n.setLocaleMessage('zh', await import('@/locales/locale-zh.json'))
+    if (['de', 'eo', 'es', 'fr', 'it', 'ru', 'sv', 'zh'].includes(locale)) {
+      const messages = angularToVueI18n(await import(`@/locales/locale-${locale}.json`))
+      i18n.setLocaleMessage(locale, messages)
+    }
     i18n.locale = locale
   }, {immediate: true})
 }

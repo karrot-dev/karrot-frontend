@@ -12,7 +12,7 @@ export default connect({
     submit: 'invitations/send',
   },
   lifecycle: {
-    created: ({ dispatch }) => dispatch('invitations/fetchForActiveGroup'),
+    mounted: ({ dispatch }) => dispatch('invitations/fetchForActiveGroup'),
   },
 })('GroupInvites', InvitationsUI)
 </script>

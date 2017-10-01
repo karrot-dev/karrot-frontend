@@ -30,7 +30,7 @@ function convertDates (val) {
     let payload = val.payload
     if (payload) {
       // convert some known payload dates
-      let dates
+      let dates = {};
       ['date', 'startDate', 'invitedAt'].forEach(k => {
         if (payload[k]) {
           dates[k] = new Date(payload[k])

@@ -1,13 +1,19 @@
-<template>
-  <h4 class="generic-padding">History</h4>
-</template>
-
 <script>
+import { connect } from 'vuex-connect'
+import HistoryUI from '@/components/HistoryUI.vue'
 
-export default {
-  components: { },
-}
+export default connect({
+  gettersToProps: {
+    entries: 'history/all',
+    status: 'history/receiveStatus',
+    canLoadMore: 'history/canLoadMore',
+  },
+  actionsToEvents: {
+    more: 'history/fetchMore',
+  },
+  lifecycle: {
+    mounted: ({ dispatch }) => dispatch('history/fetchForActiveGroup'),
+    destroyed: ({ dispatch }) => dispatch('history/clear'),
+  },
+})('GroupHistory', HistoryUI)
 </script>
-
-<style scoped lang="stylus">
-</style>

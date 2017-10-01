@@ -1,12 +1,12 @@
-import Vue from 'vue'
 import historyAPI from '@/services/api/history'
+import { indexById } from '@/store/helpers'
 
 export const types = {
   REQUEST: 'Request',
   RECEIVE: 'Receive',
   RECEIVE_ERROR: 'Receive Error',
 
-  ClEAR: 'Clear',
+  CLEAR: 'Clear',
 }
 
 export const state = {
@@ -23,19 +23,23 @@ export const state = {
 export const getters = {
   all: state => state.idList.map(i => state.entries[i]),
   receiveStatus: state => state.receiveStatus,
+  canLoadMore: state => typeof state.cursor === 'string',
 }
 
 export const actions = {
-  async fetchGroupHistory ({ dispatch, commit, rootGetters }) {
+  async fetchForActiveGroup ({ dispatch, commit, rootGetters }) {
     dispatch('clear')
     commit(types.REQUEST)
+    const groupId = rootGetters['groups/activeGroupId']
+    let data
     try {
-      const data = await historyAPI.list({ group: rootGetters['groups/activeGroupId'] })
-      commit(types.RECEIVE, { entries: data.results, cursor: data.next })
+      data = await historyAPI.list({ group: groupId })
     }
     catch (error) {
       commit(types.RECEIVE_ERROR, { error })
+      throw error
     }
+    commit(types.RECEIVE, { entries: data.results, cursor: data.next })
   },
 
   async fetchMore ({ state, commit }) {
@@ -54,7 +58,7 @@ export const actions = {
   },
 
   clear ({ commit }) {
-    commit(types.ClEAR)
+    commit(types.CLEAR)
   },
 }
 
@@ -74,10 +78,10 @@ export const mutations = {
     }
     state.entries = {
       ...state.entries,
-      ...entries,
+      ...indexById(entries),
     }
     state.idList.push(...entries.map(e => e.id)) // TODO take care of duplicates
-    entries.cursor = cursor
+    state.cursor = cursor
   },
   [types.RECEIVE_ERROR] (state, { error }) {
     state.receiveStatus = {

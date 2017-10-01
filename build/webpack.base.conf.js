@@ -59,7 +59,8 @@ module.exports = {
           loaders: merge({js: 'babel-loader'}, cssUtils.styleLoaders({
             sourceMap: useCssSourceMap,
             extract: env.prod && !process.env.DISABLE_EXTRACT_CSS
-          }))
+          })),
+          esModule: true
         }
       },
       {
@@ -94,8 +95,7 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       minimize: env.prod,
       options: {
-        context: path.resolve(__dirname, '../src'),
-        postcss: cssUtils.postcss
+        context: path.resolve(__dirname, '../src')
       }
     }),
     new ProgressBarPlugin({

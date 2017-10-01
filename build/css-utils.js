@@ -13,21 +13,27 @@ module.exports.styleLoaders = function (options) {
 
   function generateLoaders (loaders) {
     if (options.postcss) {
-      loaders.splice(1, 0, 'postcss')
+      loaders.splice(1, 0, {
+        loader: 'postcss-loader',
+        options: {
+          plugins: module.exports.postcss
+        }
+      })
     }
 
-    var sourceLoader = loaders.map(function (loader) {
-      var extraParamChar
-      if (/\?/.test(loader)) {
-        loader = loader.replace(/\?/, '-loader?')
-        extraParamChar = '&'
+    var sourceLoader = loaders
+    .map(function (loader) {
+      if (typeof loader === 'string') {
+        return { loader, options: {} }
       }
-      else {
-        loader = loader + '-loader'
-        extraParamChar = '?'
+      return loader
+    })
+    .map(function (loader) {
+      if (options.sourceMap) {
+        loader.options.sourceMap = true
       }
-      return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
-    }).join('!')
+      return loader
+    })
 
     if (options.extract) {
       return ExtractTextPlugin.extract({
@@ -36,17 +42,17 @@ module.exports.styleLoaders = function (options) {
       })
     }
     else {
-      return ['vue-style-loader', sourceLoader].join('!')
+      return ['vue-style-loader', ...sourceLoader]
     }
   }
 
   return {
-    css: generateLoaders(['css']),
-    less: generateLoaders(['css', 'less']),
-    sass: generateLoaders(['css', 'sass?indentedSyntax']),
-    scss: generateLoaders(['css', 'sass']),
-    styl: generateLoaders(['css', 'stylus']),
-    stylus: generateLoaders(['css', 'stylus'])
+    css: generateLoaders(['css-loader']),
+    less: generateLoaders(['css-loader', 'less-loader']),
+    sass: generateLoaders(['css-loader', { loader: 'sass-loader', options: { indentedSyntax: true } } ]),
+    scss: generateLoaders(['css-loader', 'sass-loader']),
+    styl: generateLoaders(['css-loader', 'stylus-loader']),
+    stylus: generateLoaders(['css-loader', 'stylus-loader'])
   }
 }
 
@@ -57,7 +63,7 @@ module.exports.styleRules = function (options) {
     var loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      loader: loader
+      use: loader
     })
   }
   return output

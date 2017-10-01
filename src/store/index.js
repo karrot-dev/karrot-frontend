@@ -18,6 +18,7 @@ import * as verifymail from './modules/verifymail'
 import * as route from './modules/route'
 import * as invitations from './modules/invitations'
 import * as alerts from './modules/alerts'
+import * as loadingprogress from './modules/loadingprogress'
 
 Vue.use(Vuex)
 
@@ -39,6 +40,7 @@ const options = ({
     route,
     invitations,
     alerts,
+    loadingprogress,
   },
   plugins: [
     i18nPlugin,

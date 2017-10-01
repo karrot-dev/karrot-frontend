@@ -6,7 +6,7 @@
       <template slot="header">
       </template>
       <template slot="time">
-        {{  $d(new Date(message.createdAt), 'long')  }}
+        {{  $d(message.createdAt, 'long')  }}
       </template>
       <div> {{ message.content }} </div>
     </WallCard>

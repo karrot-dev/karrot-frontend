@@ -57,7 +57,7 @@ export const getters = {
   empty: (state, getters) => {
     return getters.all.filter((e) => {
       let nextWeek = new Date(+new Date() + 6096e5)
-      return e.collectorIds.length < 1 && new Date(e.date) < nextWeek
+      return e.collectorIds.length < 1 && e.date < nextWeek
     })
   },
   mine: (state, getters, rootState, rootGetters) => {

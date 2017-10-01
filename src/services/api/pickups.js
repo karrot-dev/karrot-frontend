@@ -31,7 +31,7 @@ export default {
   },
 
   async delete (pickupId) {
-    return convertDate((await axios.delete(`/api/pickup-dates/${pickupId}/`)).data)
+    return (await axios.delete(`/api/pickup-dates/${pickupId}/`)).data
   },
 
   async join (pickupId) {

@@ -1,19 +1,6 @@
 import Vue from 'vue'
 import messageAPI from '@/services/api/messages'
 
-export function parseMessage (e) {
-  e.createdAt = new Date(e.createdAt)
-  return e
-}
-
-export function parseMessages (l) {
-  return l.map(parseMessage)
-}
-
-export function parseCursor (c) {
-  return c ? c.substr(c.indexOf('/api')) : null
-}
-
 export const types = {
   SET_ACTIVE: 'Set Active',
   CLEAR_ACTIVE: 'Clear Active',
@@ -87,7 +74,7 @@ export const actions = {
         conversation: state.activeConversationId,
       })
       commit(types.RECEIVE_SEND_MESSAGE)
-      commit(types.RECEIVE_MESSAGE, { message: parseMessage(message) })
+      commit(types.RECEIVE_MESSAGE, { message })
     }
     catch (error) {
       commit(types.RECEIVE_SEND_MESSAGE_ERROR, { error })
@@ -97,7 +84,7 @@ export const actions = {
   async receiveMessage ({ commit, state, getters }, message) {
     // only add if messages doesn't exist yet
     if (!getters.activeMessages.find(e => e.id === message.id)) {
-      commit(types.RECEIVE_MESSAGE, { message: parseMessage(message) })
+      commit(types.RECEIVE_MESSAGE, { message })
     }
   },
 
@@ -111,9 +98,7 @@ export const actions = {
       commit(types.RECEIVE_MESSAGES_ERROR, { conversationId, error })
       return
     }
-    const messages = parseMessages(data.results)
-    const cursor = parseCursor(data.next)
-    commit(types.RECEIVE_MESSAGES, { conversationId, messages, cursor })
+    commit(types.RECEIVE_MESSAGES, { conversationId, messages: data.results, cursor: data.next })
   },
 
   async fetchMoreMessages ({ state, commit }) {
@@ -133,9 +118,7 @@ export const actions = {
       commit(types.RECEIVE_MORE_MESSAGES_ERROR, { conversationId, error })
       return
     }
-    const messages = parseMessages(data.results)
-    const cursor = parseCursor(data.next)
-    commit(types.RECEIVE_MORE_MESSAGES, { conversationId, messages, cursor })
+    commit(types.RECEIVE_MORE_MESSAGES, { conversationId, messages: data.results, cursor: data.next })
   },
 }
 

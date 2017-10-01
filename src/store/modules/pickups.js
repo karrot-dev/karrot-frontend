@@ -35,17 +35,21 @@ export const state = {
 }
 
 export const getters = {
+  get: (state, getters, rootState, rootGetters) => pickupId => {
+    return getters.enrich(state.entries[pickupId])
+  },
+  enrich: (state, getters, rootState, rootGetters) => pickup => {
+    const userId = rootGetters['auth/userId']
+    return pickup && {
+      ...pickup,
+      isWaiting: state.waiting[pickup.id],
+      isUserMember: pickup.collectorIds.includes(userId),
+      store: rootGetters['stores/get'](pickup.store),
+      collectors: pickup.collectorIds.map(rootGetters['users/get']),
+    }
+  },
   all: (state, getters, rootState, rootGetters) => {
-    let currentUserId = rootGetters['auth/userId']
-    return state.idList.map(id => state.entries[id]).map(e => {
-      return {
-        ...e,
-        isWaiting: state.waiting[e.id],
-        isUserMember: e.collectorIds.includes(currentUserId),
-        store: rootGetters['stores/get'](e.store),
-        collectors: e.collectorIds.map(id => rootGetters['users/get'](id)),
-      }
-    })
+    return state.idList.map(getters.get)
   },
   filtered: (state, getters) => {
     return getters.all.filter(e => !state.storeIdFilter || e.store.id === state.storeIdFilter)
@@ -55,13 +59,6 @@ export const getters = {
       let nextWeek = new Date(+new Date() + 6096e5)
       return e.collectorIds.length < 1 && new Date(e.date) < nextWeek
     })
-  },
-  isCollector: (state, getters) => (pickupId, userId) => {
-    let pickup = getters.all.find(pickup => pickup.id === pickupId)
-    if (pickup && pickup.collectorIds.includes(userId)) {
-      return true
-    }
-    return false
   },
   mine: (state, getters, rootState, rootGetters) => {
     if (!rootGetters['auth/isLoggedIn']) return []

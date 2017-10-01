@@ -7,6 +7,7 @@ yarn-error.log
 cordova/platforms
 cordova/plugins
 .idea
+.vscode
 nbproject/
 storybook-static
 coverage/

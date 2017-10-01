@@ -4,15 +4,34 @@ jest.mock('@/i18n', () => ({ t: mockTranslate }))
 import { createStore } from '>/helpers'
 
 describe('breadcrumbs', () => {
+  let storeMocks
   let store
 
   beforeEach(() => jest.resetModules())
-  beforeEach(() => (store = createStore({ breadcrumbs: require('./breadcrumbs') }, {
-    'groups/activeGroup': () => ({ id: 1, name: 'my active group' }),
-    'groups/activeGroupInfo': () => ({ id: 4, name: 'my active group info' }),
-    'stores/activeStore': () => ({ id: 2, name: 'my active store' }),
-    'users/activeUser': () => ({ id: 3, displayName: 'my active user' }),
-  })))
+  beforeEach(() => {
+    storeMocks = {
+      groups: {
+        getters: {
+          activeGroup: () => ({ id: 1, name: 'my active group' }),
+          activeGroupInfo: () => ({ id: 4, name: 'my active group info' }),
+        },
+      },
+      stores: {
+        getters: {
+          activeStore: () => ({ id: 2, name: 'my active store' }),
+        },
+      },
+      users: {
+        getters: {
+          activeUser: () => ({ id: 3, displayName: 'my active user' }),
+        },
+      },
+    }
+    store = createStore({
+      breadcrumbs: require('./breadcrumbs'),
+      ...storeMocks,
+    })
+  })
 
   it('can create an activeGroup item', async () => {
     await store.dispatch('breadcrumbs/setAll', [{ type: 'activeGroup' }])

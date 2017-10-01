@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import persistedState from './plugins/persistedState'
 import i18nPlugin from './plugins/i18n'
 import router from './plugins/router'
+import loadingProgressReporter from './plugins/loadingProgressReporter'
 
 import * as auth from './modules/auth'
 import * as conversations from './modules/conversations'
@@ -46,6 +47,7 @@ const options = ({
     i18nPlugin,
     persistedState,
     router,
+    loadingProgressReporter,
   ],
   strict: debug,
 })

@@ -3,7 +3,7 @@
     v-if="active || closing"
     :indeterminate="!closing"
     :percentage="closing ? 100 : 0"
-    animate="true"
+    animate
     color="warning"
     class="fixed-top z-alert"
   />

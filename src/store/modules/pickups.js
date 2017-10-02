@@ -42,8 +42,8 @@ export const getters = {
     const userId = rootGetters['auth/userId']
     return pickup && {
       ...pickup,
-      isWaiting: state.waiting[pickup.id],
-      isUserMember: pickup.collectorIds.includes(userId),
+      isWaiting: !!state.waiting[pickup.id],
+      isUserMember: !!pickup.collectorIds.includes(userId),
       store: rootGetters['stores/get'](pickup.store),
       collectors: pickup.collectorIds.map(rootGetters['users/get']),
     }
@@ -68,7 +68,7 @@ export const getters = {
 
 export const actions = {
 
-  async fetch ({ commit }, { pickupId }) {
+  async fetch ({ commit }, pickupId) {
     commit(types.REQUEST_ITEM)
     try {
       commit(types.RECEIVE_ITEM, { pickup: await pickups.get(pickupId) })
@@ -155,7 +155,7 @@ export const mutations = {
   [types.RECEIVE_ITEM] (state, { pickup }) {
     Vue.set(state.entries, pickup.id, pickup)
   },
-  [types.RECEIVE_PICKUP_ERROR] (state, { error }) {},
+  [types.RECEIVE_ITEM_ERROR] (state, { error }) {},
 
   [types.REQUEST_LIST] (state) {},
   [types.RECEIVE_LIST] (state, { pickups, groupId }) {

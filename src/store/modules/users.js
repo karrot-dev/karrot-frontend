@@ -51,6 +51,7 @@ export const getters = {
   },
   withLocation: state => state.entries.filter(e => e.longitude && e.latitude),
   activeUser: state => state.activeUserId && indexById(state.entries)[state.activeUserId],
+  activeUserId: state => state.activeUserId,
   signupStatus: state => state.signup,
   passwordresetStatus: state => state.resetpasswordStatus,
 }

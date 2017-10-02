@@ -48,6 +48,7 @@
       <i class="fa fa-exclamation-triangle on-left"/>
       To be added: Statistics, working Messages, working Map, Email, Translation, Fix Profile Picure reload
     </q-card>
+    <UserHistory />
   </div>
 </template>
 
@@ -59,11 +60,12 @@ import {
 import Markdown from '@/components/Markdown.vue'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
+import UserHistory from '@/pages/User/History.vue'
 
 import { QCard, QTransition, QCardActions, QBtn, QCardSeparator } from 'quasar'
 
 export default {
-  components: { Markdown, UserMapPreview, QCard, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
+  components: { Markdown, UserMapPreview, QCard, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture, UserHistory },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',

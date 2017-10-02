@@ -16,7 +16,7 @@ const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAn
 const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup.vue')
 const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore.vue')
 const Settings = () => import('@/pages/Settings.vue')
-const User = () => import('@/pages/User.vue')
+const User = () => import('@/pages/User/User.vue')
 const PickupFeedback = () => import('@/pages/Group/Feedback.vue')
 
 export default [

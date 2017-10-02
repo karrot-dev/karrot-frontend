@@ -66,6 +66,12 @@ export const actions = {
     dispatch('fetchFiltered', { store: storeId })
   },
 
+  async fetchForActiveUser ({ dispatch, rootGetters }) {
+    dispatch('clear')
+    const userId = rootGetters['users/activeUserId']
+    dispatch('fetchFiltered', { users: userId })
+  },
+
   async fetchFiltered ({ commit }, filters) {
     commit(types.REQUEST)
     let data

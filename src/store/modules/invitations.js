@@ -18,24 +18,27 @@ export const types = {
 
   CLEAR: 'Clear',
 }
-
-export const state = {
-  entries: {},
-  idList: [],
-  listStatus: {
-    isWaiting: false,
-    error: null,
-  },
-  sendStatus: {
-    isWaiting: false,
-    error: null,
-  },
-  acceptStatus: {
-    isWaiting: false,
-    error: null,
-    success: false,
-  },
+function initialState () {
+  return {
+    entries: {},
+    idList: [],
+    listStatus: {
+      isWaiting: false,
+      error: null,
+    },
+    sendStatus: {
+      isWaiting: false,
+      error: null,
+    },
+    acceptStatus: {
+      isWaiting: false,
+      error: null,
+      success: false,
+    },
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   listStatus: state => state.listStatus,
@@ -171,22 +174,7 @@ export const mutations = {
   },
 
   [types.CLEAR] (state) {
-    state = {
-      entries: {},
-      idList: [],
-      listStatus: {
-        isWaiting: false,
-        error: null,
-      },
-      sendStatus: {
-        isWaiting: false,
-        error: null,
-      },
-      acceptStatus: {
-        isWaiting: false,
-        error: null,
-        success: false,
-      },
-    }
+    Object.entries(initialState())
+      .forEach(([prop, value]) => Vue.set(state, prop, value))
   },
 }

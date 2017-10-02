@@ -6,11 +6,15 @@ export const types = {
   CLEAR: 'Clear',
 }
 
-export const state = {
-  entries: {},
-  idList: [],
-  counter: 0,
+function initialState () {
+  return {
+    entries: {},
+    idList: [],
+    counter: 0,
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   list: state => state.idList.map(i => state.entries[i]),
@@ -45,8 +49,9 @@ export const mutations = {
   },
 
   [types.CLEAR] (state) {
-    state.entries = {}
-    state.idList = []
-    // don't reset counter, maybe there are still old references around
+    Object.entries(initialState())
+      // don't reset counter, maybe there are still old references around
+      .filter(([prop, value]) => prop !== 'counter')
+      .forEach(([prop, value]) => Vue.set(state, prop, value))
   },
 }

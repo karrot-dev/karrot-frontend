@@ -16,7 +16,10 @@ function angularToVueI18n (val) {
     return val.replace(/{{(.*?)}}/g, (_, a) => `{${camelize(a)}}`)
   }
 }
-
+/**
+ * For getting hot reload to work, webpack needs to do static analysis
+ * import should only get a string, like this: import('@/locales/locale-de.json')
+ */
 export default store => {
   store.watch(state => state.i18n.locale, async locale => {
     if (['de', 'eo', 'es', 'fr', 'it', 'ru', 'sv', 'zh'].includes(locale)) {

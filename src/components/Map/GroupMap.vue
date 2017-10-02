@@ -4,7 +4,7 @@ import GroupMapUI from './GroupMapUI.vue'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/list',
+    stores: 'stores/all',
     users: 'groups/activeUsers',
   },
 })('GroupMapUI', GroupMapUI)

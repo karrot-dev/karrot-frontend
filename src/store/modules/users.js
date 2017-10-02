@@ -45,7 +45,7 @@ export const state = {
 }
 
 export const getters = {
-  list: state => state.entries,
+  all: state => state.entries,
   get: state => (id) => {
     return state.entries.find(e => e.id === id) || {}
   },

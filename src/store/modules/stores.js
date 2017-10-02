@@ -21,9 +21,9 @@ export const state = {
 }
 
 export const getters = {
-  list: state => state.idList.map(i => state.entries[i]),
+  all: state => state.idList.map(i => state.entries[i]),
   get: state => (id) => state.entries[id],
-  withLocation: (state, getters) => getters.list.filter(e => e.longitude && e.latitude),
+  withLocation: (state, getters) => getters.all.filter(e => e.longitude && e.latitude),
   activeStore: state => state.entries[state.activeStoreId] || {},
   activeStoreId: state => state.activeStoreId,
 }

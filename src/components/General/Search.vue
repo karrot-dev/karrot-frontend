@@ -4,8 +4,8 @@ import SearchUI from './SearchUI.vue'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/list',
-    users: 'users/list',
+    stores: 'stores/all',
+    users: 'users/all',
   },
 })('SearchUI', SearchUI)
 </script>

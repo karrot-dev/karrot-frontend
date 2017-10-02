@@ -4,7 +4,7 @@ import SidenavStoresUI from './SidenavStoresUI.vue'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/list',
+    stores: 'stores/all',
   },
 })('SidenavStoresUI', SidenavStoresUI)
 </script>

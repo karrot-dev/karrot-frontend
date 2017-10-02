@@ -29,4 +29,8 @@ describe('users', () => {
     expect(mockCreate).toBeCalledWith(signupData)
     expect(storeMocks.auth.actions.login.mock.calls[0][1]).toEqual(signupData)
   })
+
+  it('can get all entries', () => {
+    expect(store.getters['users/all']).toEqual([])
+  })
 })

@@ -46,7 +46,7 @@ export const getters = {
     return pickup && {
       ...pickup,
       isWaiting: !!state.waiting[pickup.id],
-      isUserMember: !!pickup.collectorIds.includes(userId),
+      isUserMember: pickup.collectorIds.includes(userId),
       store: rootGetters['stores/get'](pickup.store),
       collectors: pickup.collectorIds.map(rootGetters['users/get']),
     }

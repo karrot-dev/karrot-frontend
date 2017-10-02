@@ -3,15 +3,21 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export function createStore (mods) {
+export function createStore (mods, { debug = false } = {}) {
   let modules = {}
   for (let key of Object.keys(mods)) {
     modules[key] = {...mods[key], namespaced: true}
   }
 
-  return new Vuex.Store({
+  const store = new Vuex.Store({
     modules, strict: false,
   })
+
+  if (debug) {
+    store.subscribe(({type, payload}) => console.log('mutation', type, payload))
+  }
+
+  return store
 }
 
 export function throws (val) {

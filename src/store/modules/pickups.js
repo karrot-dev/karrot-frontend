@@ -26,13 +26,16 @@ export const types = {
 
 }
 
-export const state = {
-  entries: {},
-  waiting: {},
-  idList: [],
-  idListGroupId: null,
-  storeIdFilter: null,
+function initialState () {
+  return {
+    entries: {},
+    waiting: {},
+    idList: [],
+    idListGroupId: null,
+    storeIdFilter: null,
+  }
 }
+export const state = initialState()
 
 export const getters = {
   get: (state, getters, rootState, rootGetters) => pickupId => {
@@ -146,10 +149,8 @@ export const mutations = {
   },
 
   [types.CLEAR] (state) {
-    state.entries = {}
-    state.waiting = {}
-    state.idList = []
-    state.idListGroupId = null
+    Object.entries(initialState())
+      .forEach(([prop, value]) => Vue.set(state, prop, value))
   },
   [types.REQUEST_ITEM] (state) {},
   [types.RECEIVE_ITEM] (state, { pickup }) {

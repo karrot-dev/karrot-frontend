@@ -137,4 +137,3 @@ describe('pickups', () => {
 function getId ({ id }) {
   return id
 }
-

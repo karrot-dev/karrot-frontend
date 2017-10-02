@@ -23,7 +23,7 @@
         :popup="leavePopup"
         :currentUser="currentUser"
         class="profilePic clickable"
-        v-on:leave="$emit('leave')"/>
+        @leave="$emit('leave')"/>
     </transition>
 
     <UserSlot
@@ -36,9 +36,9 @@
       :currentUser="currentUser"
       class="profilePic"
       :class="{clickable: !isUserMember && n == 1}"
-      v-on:join="$emit('join')"/>
+      @join="$emit('join')"/>
 
-    <div v-if="noNotShownEmptySlots > 0" class="emptySlots profilePic" v-bind:style="{ width: size + 'px', height: size + 'px' }">
+    <div v-if="noNotShownEmptySlots > 0" class="emptySlots profilePic" :style="{ width: size + 'px', height: size + 'px' }">
        <div></div>
        <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
        <span v-if="noNotShownEmptySlots > 99">...</span>

@@ -1,8 +1,10 @@
 const mockGet = jest.fn()
 const mockJoin = jest.fn()
+const mockLeave = jest.fn()
 jest.mock('@/services/api/pickups', () => ({
   get: mockGet,
   join: mockJoin,
+  leave: mockLeave,
 }))
 
 import { createStore } from '>/helpers'
@@ -114,9 +116,17 @@ describe('pickups', () => {
       expect(vstore.getters['pickups/mine'].map(getId)).toContain(pickup1.id)
       expect(mockJoin).toBeCalledWith(pickup1.id)
     })
+
+    it('can leave a pickup', async () => {
+      expect(vstore.getters['pickups/mine'].map(getId)).toContain(pickup2.id)
+      await vstore.dispatch('pickups/leave', pickup2.id)
+      expect(vstore.getters['pickups/mine'].map(getId)).not.toContain(pickup2.id)
+      expect(mockLeave).toBeCalledWith(pickup2.id)
+    })
   })
 })
 
 function getId ({ id }) {
   return id
 }
+

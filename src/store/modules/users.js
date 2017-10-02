@@ -1,5 +1,13 @@
 import users from '@/services/api/users'
-import { indexById } from '@/store/helpers'
+
+// moved from helpers to avoid loading store
+// TODO: put it somewhere general it will not pull in store!
+export function indexById (iterable) {
+  return iterable.reduce((acc, cur, i) => {
+    acc[cur.id] = cur
+    return acc
+  }, {})
+}
 
 export const types = {
 

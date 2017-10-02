@@ -1,32 +1,19 @@
-<template>
-  <div>
-    <h5 class="generic-padding">History</h5>
-    <q-card color="info" class="generic-padding">
-      <i class="fa fa-exclamation-triangle on-left"/>
-      Waiting to be filled with information...
-    </q-card>
-  </div>
-</template>
-
 <script>
+import { connect } from 'vuex-connect'
+import HistoryList from '@/components/HistoryList.vue'
 
-import {
-  mapGetters,
-} from 'vuex'
-
-import { QCard, QTabs, QRouteTab } from 'quasar'
-
-export default {
-  components: { QCard, QTabs, QRouteTab },
-  computed: {
-    ...mapGetters({
-      store: 'stores/activeStore',
-    }),
+export default connect({
+  gettersToProps: {
+    history: 'history/all',
+    status: 'history/receiveStatus',
+    canLoadMore: 'history/canLoadMore',
   },
-}
+  actionsToEvents: {
+    more: 'history/fetchMore',
+  },
+  lifecycle: {
+    mounted: ({ dispatch }) => dispatch('history/fetchForActiveStore'),
+    destroyed: ({ dispatch }) => dispatch('history/clear'),
+  },
+})('StoreHistory', HistoryList)
 </script>
-
-<style scoped lang="stylus">
-.padding
-  padding 1em
-</style>

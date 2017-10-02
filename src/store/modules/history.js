@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import historyAPI from '@/services/api/history'
 import { indexById } from '@/store/helpers'
 import i18n from '@/i18n'
@@ -10,16 +11,20 @@ export const types = {
   CLEAR: 'Clear',
 }
 
-export const state = {
-  entries: {},
-  idList: [],
-  cursor: null,
-  receiveStatus: {
-    isWaiting: false,
-    error: null,
-    success: true,
-  },
+function initialState () {
+  return {
+    entries: {},
+    idList: [],
+    cursor: null,
+    receiveStatus: {
+      isWaiting: false,
+      error: null,
+      success: true,
+    },
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   get: (state, getters, rootState, rootGetters) => id => {
@@ -49,13 +54,23 @@ export const getters = {
 }
 
 export const actions = {
-  async fetchForActiveGroup ({ dispatch, commit, rootGetters }) {
+  async fetchForActiveGroup ({ dispatch, rootGetters }) {
     dispatch('clear')
-    commit(types.REQUEST)
     const groupId = rootGetters['groups/activeGroupId']
+    dispatch('fetchFiltered', { group: groupId })
+  },
+
+  async fetchForActiveStore ({ dispatch, rootGetters }) {
+    dispatch('clear')
+    const storeId = rootGetters['stores/activeStoreId']
+    dispatch('fetchFiltered', { store: storeId })
+  },
+
+  async fetchFiltered ({ commit }, filters) {
+    commit(types.REQUEST)
     let data
     try {
-      data = await historyAPI.list({ group: groupId })
+      data = await historyAPI.list(filters)
     }
     catch (error) {
       commit(types.RECEIVE_ERROR, { error })
@@ -114,15 +129,7 @@ export const mutations = {
   },
 
   [types.CLEAR] (state) {
-    state = {
-      entries: {},
-      idList: [],
-      cursor: null,
-      receiveStatus: {
-        isWaiting: false,
-        error: null,
-        success: true,
-      },
-    }
+    Object.entries(initialState())
+      .forEach(([prop, value]) => Vue.set(state, prop, value))
   },
 }

@@ -123,6 +123,14 @@ describe('pickups', () => {
       expect(vstore.getters['pickups/mine'].map(getId)).not.toContain(pickup2.id)
       expect(mockLeave).toBeCalledWith(pickup2.id)
     })
+
+    it('can set and clear store filter', () => {
+      expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup1, pickup2, pickup3].map(getId))
+      vstore.dispatch('pickups/setStoreFilter', pickup3.store)
+      expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup3].map(getId))
+      vstore.dispatch('pickups/clearStoreFilter')
+      expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup1, pickup2, pickup3].map(getId))
+    })
   })
 })
 

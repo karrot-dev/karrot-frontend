@@ -8,9 +8,8 @@
         </q-item-side>
         <q-item-main>
           <q-select
-            @change="setNewLocale"
-            v-model="select"
-            :options="allLocales"
+            v-model="locale"
+            :options="localeOptions"
           />
         </q-item-main>
       </q-item>
@@ -43,15 +42,10 @@ export default {
   components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect },
   data () {
     return {
-      locales,
-      select: this.locale,
+      localeOptions: locales.map(({ name, locale }) => ({ label: name, value: locale })),
     }
   },
   computed: {
-    allLocales () {
-      let cur = this.locales.map((loc) => { return {label: loc.name, value: loc.locale, obj: loc} })
-      return cur
-    },
     locale: {
       get () {
         return store.state.i18n.locale
@@ -65,13 +59,6 @@ export default {
     ...mapActions({
       setLocale: 'i18n/setLocale',
     }),
-    setNewLocale (test) {
-      let tess = this.allLocales.filter((el) => { return el.value === test })
-      this.setLocale(tess[0].obj)
-    },
-  },
-  mounted () {
-    this.select = this.locale
   },
 }
 </script>

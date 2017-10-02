@@ -22,6 +22,7 @@ export const pickupsMock = [
   { 'id': 874, 'date': '2017-08-13T08:00:00Z', 'series': 16, 'store': 13, 'maxCollectors': 2, 'collectorIds': [], 'description': '', isFull: false, isUserMember: true },
 ].map(e => {
   e.date = new Date(e.date)
+  e.collectors = e.collectorIds.map(i => usersMock.find(u => u.id === i))
   return e
 })
 
@@ -57,3 +58,23 @@ export const groupsMock = [
   {'id': 6, 'name': '01_testgroup_with_maps_and_password', 'publicDescription': 'To enter this group, type "abc" as password (if nobody changed it!)', 'address': '19, Nordenskiöldsgatan, Olivedal, Majorna-Linné, Gothenburg, Göteborg, Västra Götalands län, Götaland, 41309, Sweden', 'latitude': 57.6927122, 'longitude': 11.9510521, 'members': [139, 140, 141, 142, 144, 146, 149, 145, 136, 10, 162, 163, 180, 143, 28, 39, 42, 33, 57, 40, 64, 71, 72, 79, 77, 69, 75, 86, 31, 95, 96, 105, 104, 108, 84, 112, 107, 114, 129, 17, 134, 7, 81, 29, 4, 45, 185, 32, 1, 202, 8, 189, 194], 'protected': true},
   {'id': 13, 'name': '04_testgroup', 'publicDescription': 'Hi there! This it the public description!', 'address': 'Algeciras, Cádiz, Andalusia, Spain', 'latitude': 36.1445288570277, 'longitude': -5.45059204101562, 'members': [184, 151, 148, 159, 10, 34, 28, 67, 120, 17, 7, 29, 4, 45, 187, 1, 22, 8], 'protected': false},
 ]
+
+export const historyMock = [
+  {'id': 4155, 'date': '2017-10-02T09:15:42.484Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [1], 'payload': {'description': 'This is default...', 'store': 56, 'id': 1037, 'series': 31, 'maxCollectors': 4, 'date': '2017-10-03T17:00:00.000Z', 'collectorIds': [1]}},
+  {'id': 4154, 'date': '2017-10-02T09:15:19.072Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'store': 56, 'users': [2], 'payload': {'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': []}},
+  {'id': 4153, 'date': '2017-10-02T09:15:16.568Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [3], 'payload': {'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [3]}},
+  {'id': 4152, 'date': '2017-10-02T09:12:33.954Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'store': 56, 'users': [4], 'payload': {'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': []}},
+  {'id': 4151, 'date': '2017-10-02T09:12:30.903Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [5], 'payload': {'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [5]}},
+  {'id': 4149, 'date': '2017-10-02T08:00:00.000Z', 'typus': 'PICKUP_MISSED', 'group': 1, 'store': 56, 'users': [], 'payload': {'series': 30, 'pickupDate': 1032, 'maxCollectors': 4}},
+  {'id': 4147, 'date': '2017-10-01T16:28:04.960Z', 'typus': 'PICKUP_DONE', 'group': 1, 'store': 56, 'users': [1, 2, 3, 4], 'payload': {'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [1, 2, 3, 4]}},
+  {'id': 4146, 'date': '2017-10-01T16:28:02.494Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'store': 56, 'users': [1], 'payload': {'description': '', 'store': 56, 'id': 1032, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-02T08:00:00.000Z', 'collectorIds': []}},
+  {'id': 4145, 'date': '2017-10-01T16:27:57.393Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [2], 'payload': {'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [22]}},
+].map(e => {
+  e.date = new Date(e.date)
+  e.users = e.users.map(i => usersMock.find(u => u.id === i))
+  e.group = groupsMock.find(g => g.id === e.group)
+  e.store = storesMock.find(s => s.id === e.store)
+  e.message = 'did something'
+  console.log(e.date)
+  return e
+})

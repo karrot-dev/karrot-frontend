@@ -1,10 +1,10 @@
 <script>
 import { connect } from 'vuex-connect'
-import HistoryUI from '@/components/HistoryUI.vue'
+import HistoryList from '@/components/HistoryList.vue'
 
 export default connect({
   gettersToProps: {
-    entries: 'history/all',
+    history: 'history/all',
     status: 'history/receiveStatus',
     canLoadMore: 'history/canLoadMore',
   },
@@ -15,5 +15,5 @@ export default connect({
     mounted: ({ dispatch }) => dispatch('history/fetchForActiveGroup'),
     destroyed: ({ dispatch }) => dispatch('history/clear'),
   },
-})('GroupHistory', HistoryUI)
+})('GroupHistory', HistoryList)
 </script>

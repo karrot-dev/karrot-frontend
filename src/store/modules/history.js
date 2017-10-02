@@ -36,7 +36,7 @@ export const getters = {
   },
   enrich: (state, getters, rootState, rootGetters) => entry => {
     const store = rootGetters['stores/get'](entry.store)
-    const msgValues = { storeName: store.name, name: store.name }
+    const msgValues = store ? { storeName: store.name, name: store.name } : {}
     return {
       ...entry,
       users: entry.users.map(rootGetters['users/get']),

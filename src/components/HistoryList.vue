@@ -1,41 +1,37 @@
 <template>
   <div>
+    <h5 class="generic-padding">
+      {{ $t('GROUP.HISTORY' )}}
+    </h5>
     <q-data-table
       :data="history"
       :columns="columns"
+      :config="config"
     >
-      <!-- Custom renderer for "message" column -->
       <template slot="col-users" scope="cell">
-        <ProfilesInline :users="cell.data"/>
+        <ProfilePicture
+          v-for="user in cell.data" :key="user.id"
+          :user="user"
+        />
       </template>
-      <!-- Custom renderer for "source" column -->
-      <template slot="col-source" scope="cell">
-        <span v-if="cell.data === 'Audit'" class="label text-white bg-primary">
-          Audit
-          <q-tooltip>Some data</q-tooltip>
-        </span>
-        <span v-else class="label text-white bg-negative">{{cell.data}}</span>
-      </template>
-      <!-- Custom renderer for "action" column with button for custom action -->
       <template slot='col-actions' scope='cell'>
-        <q-btn color="primary" @click='doSomethingMethod(cell.row.id)' small>Info</q-btn>
-      </template>
-      <!-- Custom renderer when user selected one or more rows -->
-      <template slot="selection" scope="selection">
-        <q-btn color="primary" @click="changeMessage(selection)">
-          <i>edit</i>
-        </q-btn>
-        <q-btn color="primary" @click="deleteRow(selection)">
-          <i>delete</i>
-        </q-btn>
+        <q-btn color="primary" @click="$emit('info', cell.row.id)" small>Info</q-btn>
       </template>
     </q-data-table>
-
+    <q-btn color="primary" @click="$emit('more')" :disabled="!canLoadMore" loader :value="status.isWaiting">
+      <span v-if="canLoadMore">
+        {{ $t('HISTORY.LOAD_MORE') }}
+      </span>
+      <span v-else>
+        {{ $t('HISTORY.ALL_LOADED') }}
+      </span>
+    </q-btn>
+    <pre>{{ status.error }}</pre>
   </div>
 </template>
 
 <script>
-import ProfilesInline from './ProfilePictures/ProfilesInline.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
 import { QBtn, QDataTable } from 'quasar'
 
 export default {
@@ -45,46 +41,61 @@ export default {
         // [REQUIRED] Column name
         label: 'Date',
         // [REQUIRED] Row property name
-        field: 'when',
+        field: 'date',
         // [REQUIRED] Column width
-        width: '100px',
+        width: '70px',
         // (optional) Column CSS style
         style: {color: '#ff09fa'},
         // "style" can be a function too if you want to apply
         // certain CSS style based on cell value:
         // style (cell_value) { return .... }
         // (optional) Column CSS classes
+        classes: 'text-primary',
         // (optional) Can filter/search be applied to this column?
-        filter: true,
+        filter: false,
         // (optional) Sortable column?
         // If yes, then also specify `type` prop to know how to sort
         sort: false,
-        format (value, row) {
-          return new Date(value).toLocaleString()
+        format: (value, row) => {
+          return this.$d(new Date(value), 'long')
         },
       }, {
         label: 'Users',
         field: 'users',
-        width: '80px',
+        width: '20px',
       }, {
         label: 'Event',
-        field: 'event',
-        width: '120px',
+        field: 'message',
+        width: '200px',
       }, {
         label: 'Actions',
         field: 'actions',
         width: '50px',
       }],
+      config: {
+        refresh: false,
+        noHeader: true,
+        columnPicker: false,
+        leftStickyColumns: 0,
+        rightStickyColumns: 0,
+        bodyStyle: {
+          // maxHeight: '500px',
+        },
+        // rowHeight: '50px',
+        responsive: true,
+        pagination: {
+          rowsPerPage: 15,
+          options: [5, 10, 15, 30, 50, 500],
+        },
+      },
     }
   },
   props: {
-    history: {
-      required: true,
-    },
+    history: { required: true },
+    status: { required: true },
+    canLoadMore: { required: true },
   },
-  components: {
-    QBtn, QDataTable, ProfilesInline,
-  },
+  components: { QBtn, QDataTable, ProfilePicture },
 }
 </script>
 

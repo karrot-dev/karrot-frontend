@@ -1,4 +1,5 @@
 import auth from '@/services/api/auth'
+import users from '@/services/api/users'
 import router from '@/router'
 
 export const types = {
@@ -117,6 +118,17 @@ export const actions = {
     }
     catch (error) {
       commit(types.RECEIVE_LOGOUT_ERROR, { error })
+    }
+  },
+
+  async update ({ commit, state }, data) {
+    let user = state.user
+    if (!user) return
+
+    let changed = Object.keys(data).some(key => user[key] !== data[key])
+
+    if (changed) {
+      commit(types.RECEIVE_LOGIN_STATUS, { user: await users.save({ ...data, id: user.id }) })
     }
   },
 

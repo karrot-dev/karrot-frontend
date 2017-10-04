@@ -42,6 +42,8 @@ Quasar.start(async () => {
   await store.dispatch('auth/check')
 
   if (store.getters['auth/isLoggedIn']) {
+    let user = store.getters['auth/user']
+    store.dispatch('i18n/setLocale', user.language || 'en')
     store.dispatch('users/fetchList')
   }
   const app = (await import('./App')).default

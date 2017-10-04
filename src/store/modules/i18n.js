@@ -28,8 +28,9 @@ export const getters = {
 
 export const actions = {
 
-  async setLocale ({ commit }, locale) {
+  async setLocale ({ commit, dispatch }, locale) {
     commit(types.REQUEST_LOCALE)
+    dispatch('auth/update', { language: locale }, { root: true })
     commit(types.RECEIVE_LOCALE, { locale })
   },
 

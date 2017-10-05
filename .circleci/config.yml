@@ -72,7 +72,7 @@ jobs:
           command: |
             ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
 
-  deploy-tag:
+  deploy-release:
     <<: *defaults
     steps:
       - run: sudo apt install -y rsync
@@ -80,9 +80,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - deploy:
-          name: Release Tag Deploy
+          name: Release Deploy
           command: |
-            ./deploy.sh "${CIRCLE_TAG}" release
+            ./deploy.sh "${CIRCLE_BRANCH}" release
 
 workflows:
   version: 2
@@ -114,15 +114,14 @@ workflows:
             - lint
             - build
             - build-storybook
-      - deploy-tag:
+      - deploy-release:
           #
-          # all "quasar*" tags are considered releases and go into "release" directory
+          # deploy quasar-release branch "release" directory
           #
           filters:
-            tags:
-              only: /^quasar.*/
             branches:
-              ignore: /.*/
+              only:
+                - quasar-release
           requires:
             - test
             - lint

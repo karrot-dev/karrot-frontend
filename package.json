@@ -79,7 +79,7 @@
     "ng-annotate-loader": "^0.6.1",
     "node-libs-browser": "^2.0.0",
     "postcss-loader": "^2.0.6",
-    "raw-loader": "^0.5.1",
+    "raw-loader": "^1.0.0-beta.0",
     "run-sequence": "^2.1.0",
     "style-loader": "^0.18.2",
     "stylint": "^1.5.9",

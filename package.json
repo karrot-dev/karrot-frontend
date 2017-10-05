@@ -74,7 +74,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.4",
     "lodash": "^4.17.4",
-    "mocha": "^3.5.0",
+    "mocha": "^4.0.0",
     "mock-socket": "^7.0.0",
     "ng-annotate-loader": "^0.6.1",
     "node-libs-browser": "^2.0.0",

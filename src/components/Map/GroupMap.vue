@@ -7,5 +7,5 @@ export default connect({
     stores: 'stores/all',
     users: 'groups/activeUsers',
   },
-})('GroupMapUI', GroupMapUI)
+})('GroupMap', GroupMapUI)
 </script>

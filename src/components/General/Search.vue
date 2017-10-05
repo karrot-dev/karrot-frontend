@@ -7,5 +7,5 @@ export default connect({
     stores: 'stores/all',
     users: 'users/all',
   },
-})('SearchUI', SearchUI)
+})('Search', SearchUI)
 </script>

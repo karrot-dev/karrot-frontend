@@ -6,5 +6,5 @@ export default connect({
   gettersToProps: {
     storeId: 'stores/activeStoreId',
   },
-})('SidenavStoreUI', SidenavStoreUI)
+})('SidenavStore', SidenavStoreUI)
 </script>

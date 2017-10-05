@@ -6,5 +6,5 @@ export default connect({
   gettersToProps: {
     activeGroupId: 'groups/activeGroupId',
   },
-})('MobileNavigationUI', MobileNavigationUI)
+})('MobileNavigation', MobileNavigationUI)
 </script>

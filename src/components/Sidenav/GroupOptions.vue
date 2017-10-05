@@ -6,5 +6,5 @@ export default connect({
   gettersToProps: {
     activeGroupId: 'groups/activeGroupId',
   },
-})('GroupOptionsUI', GroupOptionsUI)
+})('GroupOptions', GroupOptionsUI)
 </script>

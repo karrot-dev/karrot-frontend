@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/vue'
 
 import MapDemo from './MapDemo.vue'
 import GroupMap from './GroupMap.vue'
+import UserMapPreview from './UserMapPreview.vue'
 import { usersMock, storesMock } from '../mockdata.js'
 
 storiesOf('Map', module)
@@ -16,6 +17,15 @@ storiesOf('Map', module)
       return {
         users: usersMock,
         stores: storesMock,
+      }
+    },
+  }))
+  .add('UserMapPreview', () => ({
+    components: { UserMapPreview },
+    template: '<UserMapPreview :user="user" style="height: 600px" />',
+    data () {
+      return {
+        user: usersMock[0],
       }
     },
   }))

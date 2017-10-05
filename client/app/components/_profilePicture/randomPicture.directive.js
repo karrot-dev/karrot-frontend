@@ -81,10 +81,10 @@ let randomPictureDirective = ($document) => {
           textOverlay.setAttribute("width", size);
           textOverlay.setAttribute("height", size);
           textOverlay.setAttribute("fill", "rgba(0,0,0,1)");
-          textOverlay.setAttribute("font-size", 12);
+          textOverlay.setAttribute("font-size", blockSize);
           textOverlay.setAttribute("text-anchor", "middle");
-          textOverlay.setAttribute("x", 10);
-          textOverlay.setAttribute("y", 15);
+          textOverlay.setAttribute("x", blockSize);
+          textOverlay.setAttribute("y", blockSize + 5);
           textOverlay.appendChild(initials);
           box.appendChild(textOverlay);
         }

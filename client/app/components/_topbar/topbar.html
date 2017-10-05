@@ -63,7 +63,14 @@
     <group-menu style="min-width: 50%" flex></group-menu>
 
     <div ng-if="$ctrl.ScreenSize.isGtSm()" layout="row">
-      <language-chooser></language-chooser>
+      
+      <md-button class="no-transform" ui-sref="notifications">
+        <i class="fa fa-bell-o"></i>
+        <md-tooltip>
+          <span translate="NOTIFICATIONS.TITLE"></span>
+        </md-tooltip>
+      </md-button>
+      
       <md-button class="no-transform" ui-sref="userDetail({id: $ctrl.SessionUser.value.id})" aria-label="{{ 'TOPBAR.USERPROFILE' | translate }}">
         <i class="fa fa-user"></i>
         {{ $ctrl.SessionUser.value.display_name }}
@@ -71,13 +78,8 @@
           <span translate="TOPBAR.USERPROFILE"></span>
         </md-tooltip>
       </md-button>
-
-      <md-button class="no-transform" ui-sref="notifications">
-        <i class="fa fa-bell-o"></i>
-        <md-tooltip>
-          <span translate="NOTIFICATIONS.TITLE"></span>
-        </md-tooltip>
-      </md-button>
+      
+      <language-chooser></language-chooser>
 
       <md-button ng-click="$ctrl.logOut()" class="md-icon-button" aria-label="{{ 'TOPBAR.LOGOUT' | translate }}">
         <i class="fa fa-sign-out"></i>

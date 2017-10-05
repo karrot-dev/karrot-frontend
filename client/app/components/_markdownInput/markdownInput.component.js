@@ -5,7 +5,9 @@ import "./markdownInput.styl";
 let markdownInputComponent = {
   bindings: {
     translationLabel: "@",
-    model: "="
+    model: "=",
+    onSubmit: "&",
+    options: "<"
   },
   template,
   controller

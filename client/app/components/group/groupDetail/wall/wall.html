@@ -1,0 +1,8 @@
+<div
+     wall-scroll-top="$ctrl.conversation.messages">
+  <form ng-submit="$ctrl.sendMessage()" autocomplete="off">
+    <markdown-input translation-label="WALL.NEW_MESSAGE" model="$ctrl.newMessageBody" on-submit="$ctrl.sendMessage(data)" options="$ctrl.mdinputOptions"></markdown-input>
+    <div class="fin"></div>
+  </form>
+  <wallpost ng-repeat="message in $ctrl.conversation.messages | reverse" message="message"></wallpost>
+</div>

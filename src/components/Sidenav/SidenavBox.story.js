@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import SidenavBox from './SidenavBox.vue'
 import SidenavMapUI from './SidenavMapUI.vue'
 import SidenavGroup from './SidenavGroup.vue'
-import SidenavStores from './SidenavStores.vue'
+import SidenavStoresUI from './SidenavStoresUI.vue'
 import { storesMock as stores, usersMock as users } from '../mockdata.js'
 import i18n from '@/i18n'
 
@@ -41,6 +41,6 @@ storiesOf('Sidenav Boxes', module)
   }))
 
   .add('Stores', () => ({
-    render: h => h(SidenavStores, { props: { stores } }),
+    render: h => h(SidenavStoresUI, { props: { stores } }),
     i18n,
   }))

@@ -44,7 +44,7 @@
       </q-btn>
     </div>
     <div>
-      <GroupMap class="map" :showUsers="showUsers" :showStores="showStores"/>
+      <GroupMap class="map" :stores="stores" :users="users" :showUsers="showUsers" :showStores="showStores"/>
     </div>
   </SidenavBox>
   </span>

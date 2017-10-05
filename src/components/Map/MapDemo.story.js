@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 import MapDemo from './MapDemo.vue'
-import GroupMap from './GroupMapUI.vue'
+import GroupMap from './GroupMap.vue'
 import { usersMock, storesMock } from '../mockdata.js'
 
 storiesOf('Map', module)

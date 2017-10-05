@@ -1,15 +1,24 @@
 <template>
   <div>
     <div class="placeholder"/>
-    <Map class="map"/>
+    <GroupMap class="map" :users="users" :stores="stores"/>
   </div>
 </template>
 
 <script>
-import Map from '@/components/Map/GroupMap.vue'
+
+import GroupMap from '@/components/Map/GroupMap.vue'
+
+import { mapGetters } from 'vuex'
 
 export default {
-  components: { Map },
+  components: { GroupMap },
+  computed: {
+    ...mapGetters({
+      stores: 'stores/all',
+      users: 'users/all',
+    }),
+  },
 }
 </script>
 

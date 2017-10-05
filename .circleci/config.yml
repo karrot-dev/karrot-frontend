@@ -116,11 +116,11 @@ workflows:
             - build-storybook
       - deploy-tag:
           #
-          # all tags are considered releases and go into "release" directory
+          # all "quasar-*" tags are considered releases and go into "release" directory
           #
           filters:
             tags:
-              only: /.*/
+              only: /^quasar\-.*/
             branches:
               ignore: /.*/
           requires:

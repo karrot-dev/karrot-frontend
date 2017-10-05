@@ -1,7 +1,7 @@
 <template>
   <div class="userMapPreview" style="position: relative">
       <v-map :zoom="zoom" :center="center">
-        <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
+        <v-tile-layer :url="url" :attribution="attribution"></v-tile-layer>
         <v-marker v-for="marker in markers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
           <v-popup :content="marker.popupcontent"></v-popup>
         </v-marker>
@@ -11,7 +11,13 @@
 </template>
 
 <script>
-import Vue2Leaflet from 'vue2-leaflet'
+import {
+  Map as VMap,
+  TileLayer as VTileLayer,
+  Marker as VMarker,
+  Popup as VPopup,
+} from 'vue2-leaflet'
+
 import L from 'leaflet'
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.js'
 
@@ -26,10 +32,7 @@ L.Icon.Default.mergeOptions({
 
 export default {
   components: {
-    'v-map': Vue2Leaflet.Map,
-    'v-tilelayer': Vue2Leaflet.TileLayer,
-    'v-marker': Vue2Leaflet.Marker,
-    'v-popup': Vue2Leaflet.Popup,
+    VMap, VTileLayer, VMarker, VPopup,
   },
   data () {
     return {

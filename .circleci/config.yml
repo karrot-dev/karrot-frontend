@@ -1,13 +1,7 @@
-tag-filter: &tag-filter
-  tags:
-    only: /^quasar-.*/
-
 defaults: &defaults
   working_directory: ~/repo
   docker:
     - image: circleci/node:8.5
-  filters:
-    <<: *tag-filter
 
 version: 2
 jobs:
@@ -96,23 +90,15 @@ workflows:
     jobs:
       - install-dependencies
       - test:
-          filters:
-            <<: *tag-filter
           requires:
             - install-dependencies
       - lint:
-          filters:
-            <<: *tag-filter
           requires:
             - install-dependencies
       - build:
-          filters:
-            <<: *tag-filter
           requires:
             - install-dependencies
       - build-storybook:
-          filters:
-            <<: *tag-filter
           requires:
             - install-dependencies
       - deploy-branch:
@@ -130,13 +116,13 @@ workflows:
             - build-storybook
       - deploy-tag:
           #
-          # all "quasar-*" tags are considered releases and go into "release" directory
+          # all "quasar*" tags are considered releases and go into "release" directory
           #
           filters:
-            <<: *tag-filter
+            tags:
+              only: /^quasar.*/
             branches:
-              only:
-                - quasar
+              ignore: /.*/
           requires:
             - test
             - lint

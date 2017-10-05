@@ -1,10 +1,7 @@
-import Vue from 'vue'
-import { mount } from 'vue-test-utils'
+import { createLocalVue, mount } from 'vue-test-utils'
 
 import KBreadcrumb from './KBreadcrumb.vue'
 import MockRouterLink from '>/MockRouterLink.vue'
-
-Vue.component('router-link', MockRouterLink)
 
 describe('KBreadcrumb', () => {
   it('renders', () => {
@@ -17,7 +14,10 @@ describe('KBreadcrumb', () => {
   })
 
   it('renders links if provided with a route', () => {
+    let localVue = createLocalVue()
+    localVue.component('router-link', MockRouterLink)
     let wrapper = mount(KBreadcrumb, {
+      localVue,
       propsData: {
         breadcrumbs: [{ name: 'Some Name', route: { name: 'foo', params: { yay: 1 } } }, { name: 'Last Name' }],
       },

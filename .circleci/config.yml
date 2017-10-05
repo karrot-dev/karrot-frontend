@@ -135,7 +135,8 @@ workflows:
           filters:
             <<: *tag-filter
             branches:
-              ignore: /.*/
+              only:
+                - quasar
           requires:
             - test
             - lint

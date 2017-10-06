@@ -9,7 +9,7 @@
     <WallInput @send="$emit('send', arguments[0])" />
     {{ messageReceiveStatus.error }}
     <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
-    <button @click="$emit('fetchMoreMessages')">fetch more messages</button>
+    <button class="more" @click="$emit('fetchMoreMessages')">fetch more messages</button>
   </div>
 </template>
 

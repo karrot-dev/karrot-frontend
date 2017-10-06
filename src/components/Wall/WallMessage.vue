@@ -17,6 +17,7 @@ import WallCard from './WallCard.vue'
 import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
 
 export default {
+  name: 'WallMessage',
   components: {
     WallCard, ProfilePicture,
   },

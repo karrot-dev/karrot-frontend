@@ -13,6 +13,7 @@
 import { QCard, QCardMain, QInput, QBtn } from 'quasar'
 
 export default {
+  name: 'WallInput',
   components: { QCard, QInput, QBtn, QCardMain },
   data () {
     return {

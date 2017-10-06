@@ -26,8 +26,8 @@ export default {
   },
   props: {
     messages: { required: true },
-    emptyPickups: { required: false },
-    messageReceiveStatus: {},
+    emptyPickups: { required: false, default: () => [] },
+    messageReceiveStatus: { default: () => ({}) },
   },
 }
 </script>

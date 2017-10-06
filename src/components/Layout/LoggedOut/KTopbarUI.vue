@@ -1,12 +1,5 @@
 <template>
   <q-toolbar>
-    <!--
-      For Toolbar title, we use
-      QToolbarTitle component
-    -->
-    <!--<q-btn slot="left" flat @click="$refs.left.open()">
-      <i class="fa fa-bars"></i>
-    </q-btn>-->
     <router-link :to="{name: 'group'}" class="logo">
       <KarrotLogo/>
     </router-link>

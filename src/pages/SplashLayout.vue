@@ -69,13 +69,4 @@ export default {
     transition: all .1s
   .fade-enter, .fade-leave-to
     transform:rotateX(90deg)
-
-  /*
-  .fade-leave-to
-    transform: translate(-100%, 0px)
-    opacity 0
-
-  .fade-enter
-    transform: translate(100%, 0px)
-    opacity 0 */
 </style>

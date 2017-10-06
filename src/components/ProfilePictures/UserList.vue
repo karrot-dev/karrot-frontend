@@ -13,9 +13,6 @@
         <q-item-main>
           <q-item-tile label>{{ user.displayName }}</q-item-tile>
         </q-item-main>
-        <!--<q-item-side right>
-          <q-item-tile><i class="fa fa-pencil"/></q-item-tile>
-        </q-item-side>-->
       </q-item>
     </q-list>
   </div>

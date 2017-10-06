@@ -7,12 +7,6 @@
         </div>
       </q-scroll-area>
       <q-tabs align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
-        <!--<q-route-tab
-            :to="{name: 'store'}"
-            exact
-            slot="title"
-            name="wall"
-        >Wall</q-route-tab>-->
         <q-route-tab
             :to="{name: 'storePickups'}"
             exact

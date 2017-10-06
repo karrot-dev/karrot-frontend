@@ -75,6 +75,5 @@ export const historyMock = [
   e.group = groupsMock.find(g => g.id === e.group)
   e.store = storesMock.find(s => s.id === e.store)
   e.message = 'did something'
-  console.log(e.date)
   return e
 })

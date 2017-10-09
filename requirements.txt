@@ -33,7 +33,7 @@ django-redis==4.8.0
 django-rest-swagger==2.1.2
 django-timezone-field==2.0
 django[argon2]==1.11.6
-djangorestframework==3.6.4
+djangorestframework==3.7.0
 dnspython==1.15.0         # via email-validator
 drf-nested-routers==0.90.0
 email-validator==1.0.3    # via faker

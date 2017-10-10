@@ -64,6 +64,7 @@ jobs:
     <<: *defaults
     steps:
       - run: sudo apt install -y rsync
+      - checkout
       - attach_workspace:
           at: ~/repo
       - deploy:
@@ -75,6 +76,7 @@ jobs:
     <<: *defaults
     steps:
       - run: sudo apt install -y rsync
+      - checkout
       - attach_workspace:
           at: ~/repo
       - deploy:

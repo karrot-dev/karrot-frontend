@@ -39,6 +39,7 @@ import { locales } from '@/i18n'
 import { mapActions } from 'vuex'
 
 export default {
+  name: 'Settings',
   components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect },
   data () {
     return {

@@ -14,7 +14,7 @@ export default {
   props: {
     users: { required: false, default: () => [] },
     stores: { required: false, default: () => [] },
-    showUsers: { required: false, default: true },
+    showUsers: { required: false, default: false },
     showStores: { required: false, default: true },
   },
   computed: {

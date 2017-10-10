@@ -22,10 +22,10 @@ describe('sidenav', () => {
   })
 
   it('can toggle map users', () => {
-    expect(store.getters['sidenav/showMapUsers']).toBe(true)
-    store.dispatch('sidenav/toggleMapUsers')
     expect(store.getters['sidenav/showMapUsers']).toBe(false)
     store.dispatch('sidenav/toggleMapUsers')
     expect(store.getters['sidenav/showMapUsers']).toBe(true)
+    store.dispatch('sidenav/toggleMapUsers')
+    expect(store.getters['sidenav/showMapUsers']).toBe(false)
   })
 })

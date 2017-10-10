@@ -6,7 +6,7 @@ export const types = {
 export const state = {
   map: {
     showStores: true,
-    showUsers: true,
+    showUsers: false,
   },
 }
 

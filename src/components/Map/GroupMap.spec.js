@@ -18,6 +18,8 @@ describe('GroupMap', () => {
       propsData: {
         users: usersMock,
         stores: storesMock,
+        showUsers: true,
+        showStores: true,
       },
     })
     expect(wrapper.findAll(Vue2Leaflet.Map).length).toBe(1)
@@ -31,6 +33,7 @@ describe('GroupMap', () => {
       propsData: {
         users: usersMock,
         stores: storesMock,
+        showUsers: true,
         showStores: false,
       },
     })
@@ -44,6 +47,7 @@ describe('GroupMap', () => {
         users: usersMock,
         stores: storesMock,
         showUsers: false,
+        showStores: true,
       },
     })
     expect(wrapper.findAll(Vue2Leaflet.Marker).length).toBe(storesMock.length)

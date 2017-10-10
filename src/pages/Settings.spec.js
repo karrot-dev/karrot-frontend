@@ -2,7 +2,6 @@ jest.mock('@/store/plugins/persistedState', () => {
   return () => {}
 })
 
-import Vue from 'vue'
 import Quasar from 'quasar'
 
 import { createLocalVue, mount } from 'vue-test-utils'

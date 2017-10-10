@@ -12,11 +12,13 @@ storiesOf('Map', module)
   }))
   .add('GroupMap', () => ({
     components: { GroupMap },
-    template: '<GroupMap :stores="stores" :users="users" style="height: 600px" />',
+    template: '<GroupMap :stores="stores" :users="users" :showUsers="showUsers" :showStores="showStores" style="height: 600px" />',
     data () {
       return {
         users: usersMock,
         stores: storesMock,
+        showStores: true,
+        showUsers: true,
       }
     },
   }))

@@ -14,7 +14,6 @@ export default {
   props: {
     users: { required: false, default: () => [] },
     stores: { required: false, default: () => [] },
-    selectedUserId: { required: false, default: null },
     selectedStoreId: { required: false, default: null },
     showUsers: { required: false, default: false },
     showStores: { required: false, default: true },
@@ -54,11 +53,11 @@ export default {
   computed: {
     selectedMarkerIds () {
       let ids = []
-      if (this.selectedUserId) {
-        ids.push(this.userMarkerId(this.selectedUserId))
-      }
       if (this.selectedStoreId) {
         ids.push(this.storeMarkerId(this.selectedStoreId))
+        if (this.showUsers) {
+          ids.push(...this.users.filter(hasLocation).map(user => user.id).map(this.userMarkerId))
+        }
       }
       return ids
     },

@@ -6,6 +6,7 @@ import UserMapPreview from './UserMapPreview.vue'
 import StandardMap from './StandardMap.vue'
 import { usersMock, storesMock } from '../mockdata.js'
 import L from 'leaflet'
+import router from '@/router'
 
 storiesOf('Map', module)
   .add('StandardMap', () => ({
@@ -90,6 +91,7 @@ storiesOf('Map', module)
   .add('UserMapPreview', () => ({
     components: { UserMapPreview },
     template: '<UserMapPreview :user="user" style="height: 600px" />',
+    router,
     data () {
       return {
         user: usersMock[0],

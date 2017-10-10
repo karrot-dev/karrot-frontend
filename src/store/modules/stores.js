@@ -4,6 +4,7 @@ import { indexById } from '@/store/helpers'
 export const types = {
 
   SELECT_STORE: 'Select Store',
+  CLEAR_SELECTED_STORE: 'Clear Selected Store',
 
   REQUEST_STORES: 'Request Stores',
   RECEIVE_STORES: 'Receive Stores',
@@ -34,6 +35,11 @@ export const actions = {
     commit(types.SELECT_STORE, { storeId })
   },
 
+  async clearSelectedStore ({ commit, dispatch }) {
+    dispatch('pickups/clearStoreFilter', null, { root: true })
+    commit(types.CLEAR_SELECTED_STORE)
+  },
+
   async fetchListByGroupId ({ commit }, groupId) {
     commit(types.REQUEST_STORES)
     try {
@@ -44,7 +50,7 @@ export const actions = {
     }
   },
 
-  clear ({ commit }) {
+  clear ({ commit, dispatch }) {
     commit(types.CLEAR)
   },
 }
@@ -52,6 +58,9 @@ export const actions = {
 export const mutations = {
   [types.SELECT_STORE] (state, { storeId }) {
     state.activeStoreId = storeId
+  },
+  [types.CLEAR_SELECTED_STORE] (state) {
+    state.activeStoreId = null
   },
   [types.REQUEST_STORES] (state) {
     state.isFetching = true

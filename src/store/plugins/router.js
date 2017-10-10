@@ -66,6 +66,9 @@ export default store => {
     if (to.params.storeId) {
       store.dispatch('stores/selectStore', parseInt(to.params.storeId, 10))
     }
+    else {
+      store.dispatch('stores/clearSelectedStore')
+    }
     if (to.params.userId) {
       store.dispatch('users/selectUser', parseInt(to.params.userId, 10))
     }

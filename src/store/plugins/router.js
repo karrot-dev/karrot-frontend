@@ -50,11 +50,7 @@ export default store => {
   router.afterEach((to, from) => {
     window.scrollTo(0, 0)
 
-    // save Breadcrumbs to store
-    if (!(to.meta) || !(to.meta.breadcrumbs)) {
-      store.dispatch('breadcrumbs/setAll', [{name: 'not defined'}])
-    }
-    store.dispatch('breadcrumbs/setAll', to.meta.breadcrumbs || [])
+    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     // save active group/store/user
     if (to.params.groupId) {
@@ -91,4 +87,14 @@ export default store => {
     names.push('Karrot')
     document.title = names.join(' · ')
   })
+}
+
+export function findBreadcrumbs (matched) {
+  // Combine all the breadcrumbs from the root
+  return matched.reduce((acc, m) => {
+    if (m.meta && m.meta.breadcrumbs) {
+      acc.push(...m.meta.breadcrumbs)
+    }
+    return acc
+  }, [])
 }

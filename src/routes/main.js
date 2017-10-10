@@ -6,6 +6,7 @@ const GroupsGallery = () => import('@/pages/GroupsGallery.vue')
 const StoreLayout = () => import('@/pages/Store/Layout.vue')
 const StoreWall = () => import('@/pages/Store/Wall.vue')
 const StorePickups = () => import('@/pages/Store/Pickups.vue')
+const StorePickupsManage = () => import('@/pages/Store/PickupsManage.vue')
 const StoreHistory = () => import('@/pages/Store/History.vue')
 const StoreList = () => import('@/pages/Store/Stores.vue')
 const GroupHistory = () => import('@/pages/Group/History.vue')
@@ -23,9 +24,11 @@ export default [
   {
     name: 'groupsGallery',
     path: '/groupInfo',
-    meta: { breadcrumbs: [
-      { translation: 'JOINGROUP.ALL_GROUPS' },
-    ] },
+    meta: {
+      breadcrumbs: [
+        { translation: 'JOINGROUP.ALL_GROUPS' },
+      ],
+    },
     components: {
       default: GroupsGallery,
     },
@@ -33,10 +36,12 @@ export default [
   {
     name: 'groupInfo',
     path: '/groupInfo/:groupInfoId',
-    meta: { breadcrumbs: [
-      { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
-      { type: 'activeGroupInfo' },
-    ] },
+    meta: {
+      breadcrumbs: [
+        { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
+        { type: 'activeGroupInfo' },
+      ],
+    },
     components: {
       default: GroupInfo,
     },
@@ -44,16 +49,20 @@ export default [
   {
     path: '/group/:groupId',
     redirect: '/group/:groupId/wall',
+    meta: {
+      requireLoggedIn: true,
+      breadcrumbs: [
+        { type: 'activeGroup' },
+      ],
+    },
     components: {
       default: GroupLayout,
       sidenav: GroupMapAndStoresSidenav,
     },
-    meta: { requireLoggedIn: true },
     children: [
       {
         name: 'group',
         path: 'wall',
-        meta: { breadcrumbs: [{ type: 'activeGroup' }] },
         components: {
           default: GroupWall,
           sidenav: GroupGroupSidenav,
@@ -62,10 +71,11 @@ export default [
       {
         name: 'groupDescription',
         path: 'description',
-        meta: { breadcrumbs: [
-          { type: 'activeGroup' },
-          { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } },
-        ] },
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } },
+          ],
+        },
         components: {
           default: GroupDescription,
           sidenav: GroupGroupSidenav,
@@ -74,10 +84,11 @@ export default [
       {
         name: 'groupMembers',
         path: 'members',
-        meta: { breadcrumbs: [
-          { type: 'activeGroup' },
-          { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } },
-        ] },
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } },
+          ],
+        },
         components: {
           default: GroupMembers,
           sidenav: GroupGroupSidenav,
@@ -86,10 +97,11 @@ export default [
       {
         name: 'groupHistory',
         path: 'history',
-        meta: { breadcrumbs: [
-          { type: 'activeGroup' },
-          { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } },
-        ] },
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } },
+          ],
+        },
         components: {
           default: GroupHistory,
           sidenav: GroupGroupSidenav,
@@ -98,10 +110,11 @@ export default [
       {
         name: 'groupInvites',
         path: 'invites',
-        meta: { breadcrumbs: [
-          { type: 'activeGroup' },
-          { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvites' } },
-        ] },
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvites' } },
+          ],
+        },
         components: {
           default: GroupInvites,
           sidenav: GroupGroupSidenav,
@@ -110,10 +123,11 @@ export default [
       {
         name: 'stores',
         path: 'store',
-        meta: { breadcrumbs: [
-          { type: 'activeGroup' },
-          { translation: 'GROUP.STORES', route: { name: 'stores' } },
-        ] },
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.STORES', route: { name: 'stores' } },
+          ],
+        },
         components: {
           default: StoreList,
           sidenav: GroupStoreSidenav,
@@ -122,10 +136,11 @@ export default [
       {
         redirect: '/group/:groupId/store/:storeId/wall',
         path: 'store/:storeId',
-        meta: { breadcrumbs: [
-          { type: 'activeGroup' },
-          { type: 'activeStore' },
-        ] },
+        meta: {
+          breadcrumbs: [
+            { type: 'activeStore' },
+          ],
+        },
         props: {
           sidenav: true,
         },
@@ -138,39 +153,28 @@ export default [
             name: 'store',
             path: '',
             redirect: 'pickups',
-            meta: { breadcrumbs: [
-              { type: 'activeGroup' },
-              { type: 'activeStore' },
-            ] },
-            components: { default: StoreWall },
+            component: StoreWall,
           },
           {
             name: 'storePickups',
             path: 'pickups',
-            meta: { breadcrumbs: [
-              { type: 'activeGroup' },
-              { type: 'activeStore' },
-            ] },
-            components: { default: StorePickups },
+            component: StorePickups,
           },
           {
             name: 'storeHistory',
             path: 'history',
-            meta: { breadcrumbs: [
-              { type: 'activeGroup' },
-              { type: 'activeStore' },
-            ] },
-            components: { default: StoreHistory },
+            component: StoreHistory,
           },
         ],
       },
       {
         name: 'pickupFeedback',
         path: 'feedback',
-        meta: { breadcrumbs: [
-          { type: 'activeGroup' },
-          { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
-        ] },
+        meta: {
+          breadcrumbs: [
+            { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
+          ],
+        },
         components: {
           default: PickupFeedback,
         },

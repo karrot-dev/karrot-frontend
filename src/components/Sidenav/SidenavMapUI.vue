@@ -44,7 +44,7 @@
       </q-btn>
     </div>
     <div>
-      <GroupMap class="map" :stores="stores" :users="users" :showUsers="showUsers" :showStores="showStores"/>
+      <GroupMap class="map" :stores="stores" :users="users" :showUsers="showUsers" :showStores="showStores" :selectedStoreId="selectedStoreId"/>
     </div>
   </SidenavBox>
   </span>
@@ -64,6 +64,7 @@ export default {
     users: { required: false },
     showStores: { default: true },
     showUsers: { default: true },
+    selectedStoreId: { required: false },
   },
 }
 </script>

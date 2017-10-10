@@ -1,8 +1,8 @@
 <template>
-  <v-map :zoom="zoom" :bounds="bounds" :center="center">
+  <v-map ref="map" :bounds="bounds" :maxZoom="15">
     <v-tile-layer :url="url" :attribution="attribution"></v-tile-layer>
-    <v-marker v-for="marker in markers" :key="marker.id" :lat-lng="marker.latLng" :icon="marker.icon">
-      <v-popup :content="marker.popupcontent"></v-popup>
+    <v-marker v-for="marker in markers" :key="marker.id" v-bind="marker" :opacity="opacityFor(marker)">
+      <v-popup v-if="marker.popupcontent" :content="marker.popupcontent"></v-popup>
     </v-marker>
   </v-map>
 </template>
@@ -11,9 +11,10 @@
 import {
   Map as VMap,
   TileLayer as VTileLayer,
-  Marker as VMarker,
   Popup as VPopup,
 } from 'vue2-leaflet'
+
+import ExtendedMarker from './ExtendedMarker.vue'
 
 import L from 'leaflet'
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.js'
@@ -27,22 +28,40 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 })
 
+const SELECTED_OPACITY = 1
+const UNSELECTED_OPACITY = 0.5
+
 export default {
   components: {
-    VMap, VTileLayer, VMarker, VPopup,
+    VMap, VTileLayer, VMarker: ExtendedMarker, VPopup,
   },
   props: {
-    markers: { required: false, default: () => [] },
+    markers: {
+      required: true,
+      type: Array,
+      // validator: value => value.length > 0,
+    },
+    selectedMarkerIds: { required: false, default: () => [] },
     showAttribution: { default: true },
   },
   data () {
     return {
-      zoom: 13,
-      center: L.latLng(49.9105778076202, 8.65834236145019),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     }
   },
+  methods: {
+    opacityFor (marker) {
+      if (!this.hasSelectedMarkers) return SELECTED_OPACITY
+      return this.selectedMarkerIds.includes(marker.id) ? SELECTED_OPACITY : UNSELECTED_OPACITY
+    },
+    getMarker (id) {
+      return this.markers.find(marker => marker.id === id)
+    },
+  },
   computed: {
+    hasSelectedMarkers () {
+      return this.selectedMarkerIds.length > 0
+    },
     attribution () {
       if (this.showAttribution) {
         return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -51,15 +70,27 @@ export default {
         return ''
       }
     },
+    selectedMarkers () {
+      if (this.hasSelectedMarkers) {
+        return this.selectedMarkerIds.map(this.getMarker).filter(existsFilter)
+      }
+      else {
+        return this.markers
+      }
+    },
     bounds () {
-      if (this.markers.length > 0) {
-        return L.latLngBounds(this.markers.map(m => m.latLng)).pad(0.2)
+      if (this.selectedMarkers.length > 0) {
+        return L.latLngBounds(this.selectedMarkers.map(m => m.latLng)).pad(0.2)
       }
       else {
         return L.latLngBounds()
       }
     },
   },
+}
+
+function existsFilter (val) {
+  return !!val
 }
 </script>
 

@@ -8,6 +8,7 @@ export default connect({
     users: 'users/all',
     showStores: 'sidenav/showMapStores',
     showUsers: 'sidenav/showMapUsers',
+    selectedStoreId: 'stores/activeStoreId',
   },
   actionsToEvents: {
     toggleStores: 'sidenav/toggleMapStores',

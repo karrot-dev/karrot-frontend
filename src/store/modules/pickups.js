@@ -55,7 +55,7 @@ export const getters = {
     return state.idList.map(getters.get)
   },
   filtered: (state, getters) => {
-    return getters.all.filter(e => !state.storeIdFilter || e.store.id === state.storeIdFilter)
+    return getters.all.filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
   },
   empty: (state, getters) => {
     return getters.all.filter((e) => {

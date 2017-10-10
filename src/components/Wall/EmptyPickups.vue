@@ -10,7 +10,7 @@
                     :pickup="pickup"
                     @join="$emit('join', arguments[0])"
                     @leave="$emit('leave', arguments[0])">
-          <strong>{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
+          <strong v-if="pickup.store">{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
         </PickupItem>
       </transition-group>
     </div>

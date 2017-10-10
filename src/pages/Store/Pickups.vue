@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PickupList :pickups="pickups" @join="join" @leave="leave"></PickupList>
+    <PickupList :store="store" :pickups="pickups" @join="join" @leave="leave"></PickupList>
     <KNotice v-if="pickups && pickups.length == 0" >
       <template slot="icon">
         <i class="fa fa-bed"/>

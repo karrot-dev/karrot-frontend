@@ -161,6 +161,11 @@ export default [
             component: StorePickups,
           },
           {
+            name: 'storePickupsManage',
+            path: 'pickups/manage',
+            component: StorePickupsManage,
+          },
+          {
             name: 'storeHistory',
             path: 'history',
             component: StoreHistory,

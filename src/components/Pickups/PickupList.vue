@@ -5,7 +5,9 @@
         <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
         {{$t("GROUP.PICKUPS")}}
       </h4>
-      <q-btn style="background-color: white" v-if="options.showCreate">{{$t("STOREDETAIL.MANAGE")}}</q-btn>
+      <router-link v-if="options.showCreate" :to="{ name: 'storePickupsManage', params: { storeId: store.id } }">
+        <q-btn style="background-color: white">{{$t("STOREDETAIL.MANAGE")}}</q-btn>
+      </router-link>
     </div>
     <div>
       <PickupItem v-for="pickup in pickups"
@@ -35,6 +37,9 @@ export default {
       },
     },
     pickups: {
+      required: true,
+    },
+    store: {
       required: true,
     },
   },

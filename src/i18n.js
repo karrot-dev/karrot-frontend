@@ -38,6 +38,9 @@ const defaultDateTimeFormat = {
     hour: 'numeric',
     minute: 'numeric',
   },
+  dayName: {
+    weekday: 'long',
+  },
 }
 
 let dateTimeFormats = {}

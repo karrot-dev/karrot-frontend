@@ -57,6 +57,9 @@ export const getters = {
   filtered: (state, getters) => {
     return getters.all.filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
   },
+  filteredOneTime: (state, getters) => {
+    return getters.filtered.filter(e => !e.series)
+  },
   empty: (state, getters) => {
     return getters.all.filter((e) => {
       let nextWeek = new Date(+new Date() + 6096e5)

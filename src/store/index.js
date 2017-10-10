@@ -11,6 +11,7 @@ import * as groups from './modules/groups'
 import * as stores from './modules/stores'
 import * as users from './modules/users'
 import * as pickups from './modules/pickups'
+import * as pickupSeries from './modules/pickupSeries'
 import * as i18n from './modules/i18n'
 import * as sidenav from './modules/sidenav'
 import * as about from './modules/about'
@@ -34,6 +35,7 @@ const options = ({
     stores,
     users,
     pickups,
+    pickupSeries,
     i18n,
     sidenav,
     about,

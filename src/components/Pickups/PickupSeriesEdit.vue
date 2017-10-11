@@ -19,7 +19,7 @@
       multiple
       toggle
       v-model="seriesEdit.rule.byDay"
-      :options="dayOptions" />
+      :options="dayOptions"/>
     </q-field>
 
     <q-field
@@ -60,11 +60,21 @@ export default {
   data () {
     return {
       seriesEdit: cloneDeep(this.series),
+      lastByDay: [...this.series.rule.byDay],
     }
   },
   watch: {
     series () {
       this.reset()
+    },
+    // enforce having at least one day selected
+    'seriesEdit.rule.byDay' (byDay) {
+      if (byDay.length === 0) {
+        this.seriesEdit.rule.byDay.push(...this.lastByDay)
+      }
+      else {
+        this.lastByDay = [...byDay]
+      }
     },
   },
   computed: {

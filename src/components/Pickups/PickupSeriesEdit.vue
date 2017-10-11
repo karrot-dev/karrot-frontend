@@ -23,7 +23,7 @@
       icon="group"
       label="Max Collectors"
       helper="How many people should participate in the pick-up?">
-      <q-slider v-model="seriesEdit.maxCollectors" :min="0" :max="10" label />
+      <q-slider v-model="seriesEdit.maxCollectors" :min="1" :max="10" label label-always />
     </q-field>
 
     <q-field

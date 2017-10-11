@@ -15,11 +15,7 @@
       icon="today"
       label="Weekdays"
       helper="On which weekdays should the pick-up take place?">
-    <q-select
-      multiple
-      toggle
-      v-model="seriesEdit.rule.byDay"
-      :options="dayOptions"/>
+      <q-select multiple toggle v-model="seriesEdit.rule.byDay" :options="dayOptions"/>
     </q-field>
 
     <q-field
@@ -43,7 +39,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
 import { is24h, dayOptions } from '@/i18n'
 
 import cloneDeep from 'clone-deep'
@@ -55,7 +51,7 @@ export default {
     series: { required: true },
   },
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect,
+    QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect,
   },
   data () {
     return {

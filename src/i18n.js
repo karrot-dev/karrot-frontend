@@ -61,15 +61,16 @@ export function is24h () {
   return i18n.d(TEN_PM, 'timeShort') === '22:00'
 }
 
-const DAY_KEYS = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA']
+const DAY_KEYS = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']
 const DAY_INDEX = DAY_KEYS.reduce((acc, key, idx) => {
   acc[key] = idx
   return acc
 }, {})
+const SUNDAY_INDEX = DAY_KEYS.indexOf('SU')
 
 export function dayNameForKey (key) {
   const date = new Date()
-  date.setDate(date.getDate() - date.getDay() + DAY_INDEX[key])
+  date.setDate(date.getDate() - date.getDay() - SUNDAY_INDEX + DAY_INDEX[key])
   return i18n.d(date, 'dayName')
 }
 export function dayNames () {

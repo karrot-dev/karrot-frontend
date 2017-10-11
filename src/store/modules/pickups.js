@@ -49,6 +49,7 @@ export const getters = {
       isUserMember: pickup.collectorIds.includes(userId),
       store: rootGetters['stores/get'](pickup.store),
       collectors: pickup.collectorIds.map(rootGetters['users/get']),
+      __unenriched: pickup,
     }
   },
   all: (state, getters, rootState, rootGetters) => {

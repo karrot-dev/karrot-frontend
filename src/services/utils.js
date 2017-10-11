@@ -1,3 +1,5 @@
+import deepEqual from 'deep-equal'
+
 export function camelizeKeys (val) {
   if (isObject(val)) {
     if (Array.isArray(val)) {
@@ -49,4 +51,14 @@ export function camelize (val) {
 
 export function underscorize (val) {
   return val.replace(/[A-Z]/g, s => `_${s.toLowerCase()}`)
+}
+
+export function objectDiff (a, b) {
+  const diff = {}
+  for (let key of Object.keys(a)) {
+    if (!deepEqual(a[key], b[key])) {
+      diff[key] = b[key]
+    }
+  }
+  return diff
 }

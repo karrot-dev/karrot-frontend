@@ -5,32 +5,21 @@
       icon="access time"
       label="Time"
       helper="When should the pick-up take place?">
-      <q-datetime type="time" v-model="seriesEdit.startDate"/>
-    </q-field>
-
-    <q-field
-      icon="today"
-      label="Weekdays"
-      helper="On which weekdays should the pick-up take place?">
-      <q-option-group
-        inline
-        type="toggle"
-        v-model="seriesEdit.rule.byDay"
-        :options="dayOptions" />
+      <q-datetime type="datetime" v-model="pickupEdit.date"/>
     </q-field>
 
     <q-field
       icon="group"
       label="Max Collectors"
       helper="How many people should participate in the pick-up?">
-      <q-slider v-model="seriesEdit.maxCollectors" :min="0" :max="10" label />
+      <q-slider v-model="pickupEdit.maxCollectors" :min="0" :max="10" label />
     </q-field>
 
     <q-field
       icon="info"
       label="Additional information"
       helper="What should people know when signing up to this pick-up?">
-      <q-input v-model="seriesEdit.description" type="textarea" :min-rows="1" :max-height="100" />
+      <q-input v-model="pickupEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
 
     <q-btn color="primary" @click="save" :disable="!hasChanged">Save changes</q-btn>
@@ -40,27 +29,28 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn } from 'quasar'
+import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
 import { objectDiff } from '@/services/utils'
 
 export default {
+  name: 'PickupEdit',
   props: {
-    series: { required: true },
+    pickup: { required: true },
   },
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn,
+    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect,
   },
   data () {
     return {
-      seriesEdit: cloneDeep(this.series),
+      pickupEdit: cloneDeep(this.pickup),
     }
   },
   computed: {
     hasChanged () {
-      return !deepEqual(this.series, this.seriesEdit)
+      return !deepEqual(this.pickup, this.pickupEdit)
     },
     dayOptions () {
       return [
@@ -76,7 +66,7 @@ export default {
   },
   methods: {
     reset () {
-      this.seriesEdit = cloneDeep(this.series)
+      this.pickupEdit = cloneDeep(this.pickup)
     },
     save (event) {
       this.$emit('save', objectDiff(this.series, this.seriesEdit), event)

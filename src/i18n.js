@@ -54,6 +54,35 @@ const i18n = new VueI18n({
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
 
+const TEN_PM = new Date()
+TEN_PM.setHours(22, 0)
+
+export function is24h () {
+  return i18n.d(TEN_PM, 'timeShort') === '22:00'
+}
+
+const DAY_KEYS = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA']
+const DAY_INDEX = DAY_KEYS.reduce((acc, key, idx) => {
+  acc[key] = idx
+  return acc
+}, {})
+
+export function dayNameForKey (key) {
+  const date = new Date()
+  date.setDate(date.getDate() - date.getDay() + DAY_INDEX[key])
+  return i18n.d(date, 'dayName')
+}
+export function dayNames () {
+  return DAY_KEYS.map(dayNameForKey)
+}
+
+export function dayOptions () {
+  return DAY_KEYS.map(key => ({
+    label: dayNameForKey(key),
+    value: key,
+  }))
+}
+
 export default i18n
 
 if (module.hot) {

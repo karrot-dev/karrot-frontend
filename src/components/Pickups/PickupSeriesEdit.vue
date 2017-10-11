@@ -3,9 +3,12 @@
 
     <q-field
       icon="access time"
-      label="Time"
-      helper="When should the pick-up take place?">
-      <q-datetime type="time" v-model="seriesEdit.startDate"/>
+      :label="$t('CREATEPICKUP.TIME')"
+      :helper="$t('CREATEPICKUP.TIME_HELPER')">
+      <q-datetime type="time"
+                  v-model="seriesEdit.startDate"
+                  :format24h="is24h"
+                  :display-value="$d(seriesEdit.startDate, 'timeShort')"/>
     </q-field>
 
     <q-field
@@ -21,26 +24,27 @@
 
     <q-field
       icon="group"
-      label="Max Collectors"
-      helper="How many people should participate in the pick-up?">
+      :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
+      :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')">
       <q-slider v-model="seriesEdit.maxCollectors" :min="1" :max="10" label label-always />
     </q-field>
 
     <q-field
       icon="info"
-      label="Additional information"
-      helper="What should people know when signing up to this pick-up?">
+      :label="$t('CREATEPICKUP.COMMENT')"
+      :helper="$t('CREATEPICKUP.COMMENT_HELPER')">
       <q-input v-model="seriesEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
 
-    <q-btn color="primary" @click="save" :disable="!hasChanged">Save changes</q-btn>
-    <q-btn @click="reset" :disable="!hasChanged">Reset</q-btn>
+    <q-btn color="primary" @click="save" :disable="!hasChanged">{{ $t('BUTTON.SAVE_CHANGES') }}</q-btn>
+    <q-btn @click="reset" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
 
   </div>
 </template>
 
 <script>
 import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn } from 'quasar'
+import { is24h, dayOptions } from '@/i18n'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
@@ -59,19 +63,10 @@ export default {
     }
   },
   computed: {
+    dayOptions,
+    is24h,
     hasChanged () {
       return !deepEqual(this.series, this.seriesEdit)
-    },
-    dayOptions () {
-      return [
-        { label: 'Monday', value: 'MO' },
-        { label: 'Tuesday', value: 'TU' },
-        { label: 'Wednesday', value: 'WE' },
-        { label: 'Thursday', value: 'TH' },
-        { label: 'Friday', value: 'FR' },
-        { label: 'Saturday', value: 'SA' },
-        { label: 'Sunday', value: 'SU' },
-      ]
     },
   },
   methods: {

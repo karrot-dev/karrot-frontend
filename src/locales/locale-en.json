@@ -40,7 +40,9 @@
     "SUBMIT": "Submit",
     "SEARCH": "Search",
     "OF_COURSE": "Yes, of course!",
-    "YES": "Yes"
+    "YES": "Yes",
+    "SAVE_CHANGES": "Save changes",
+    "RESET": "Reset"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
@@ -175,8 +177,13 @@
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Time",
     "TIME_ERROR": "Enter a valid time, e.g. {timeExample}",
+    "TIME_HELPER": "When should the pick-up take place?",
+    "DATE": "Date",
+    "DATE_HELPER": "When should the pick-up take place?",
     "MAX_COLLECTORS": "Max Slots",
-    "COMMENT": "Additional information"
+    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
+    "COMMENT": "Additional information",
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"

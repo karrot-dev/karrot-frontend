@@ -3,27 +3,36 @@
 
     <q-field
       icon="access time"
-      label="Time"
-      helper="When should the pick-up take place?">
-      <q-datetime type="datetime" v-model="pickupEdit.date"/>
+      :label="$t('CREATEPICKUP.TIME')"
+      :helper="$t('CREATEPICKUP.TIME_HELPER')">
+      <q-datetime type="time"
+                  v-model="pickupEdit.date"
+                  :format24h="is24h"
+                  :display-value="$d(pickupEdit.date, 'timeShort')"/>
+    </q-field>
+
+    <q-field
+      icon="today"
+      :label="$t('CREATEPICKUP.DATE')"
+      :helper="$t('CREATEPICKUP.DATE_HELPER')">
+      <q-datetime type="date" v-model="pickupEdit.date" :display-value="$d(pickupEdit.date, 'dateShort')"/>
     </q-field>
 
     <q-field
       icon="group"
-      label="Max Collectors"
-      helper="How many people should participate in the pick-up?">
+      :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
+      :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')">
       <q-slider v-model="pickupEdit.maxCollectors" :min="1" :max="10" label label-always />
     </q-field>
 
     <q-field
       icon="info"
-      label="Additional information"
-      helper="What should people know when signing up to this pick-up?">
+      :label="$t('CREATEPICKUP.COMMENT')":helper="$t('CREATEPICKUP.COMMENT_HELPER')">
       <q-input v-model="pickupEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
 
-    <q-btn color="primary" @click="save" :disable="!hasChanged">Save changes</q-btn>
-    <q-btn @click="reset" :disable="!hasChanged">Reset</q-btn>
+    <q-btn color="primary" @click="save" :disable="!hasChanged">{{ $t('BUTTON.SAVE_CHANGES') }}</q-btn>
+    <q-btn @click="reset" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
 
   </div>
 </template>
@@ -34,6 +43,7 @@ import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
 import { objectDiff } from '@/services/utils'
+import { is24h } from '@/i18n'
 
 export default {
   name: 'PickupEdit',
@@ -49,19 +59,9 @@ export default {
     }
   },
   computed: {
+    is24h,
     hasChanged () {
       return !deepEqual(this.pickup, this.pickupEdit)
-    },
-    dayOptions () {
-      return [
-        { label: 'Monday', value: 'MO' },
-        { label: 'Tuesday', value: 'TU' },
-        { label: 'Wednesday', value: 'WE' },
-        { label: 'Thursday', value: 'TH' },
-        { label: 'Friday', value: 'FR' },
-        { label: 'Saturday', value: 'SA' },
-        { label: 'Sunday', value: 'SU' },
-      ]
     },
   },
   methods: {

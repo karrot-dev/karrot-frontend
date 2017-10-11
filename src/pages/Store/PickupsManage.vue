@@ -9,7 +9,7 @@
       <q-list class="pickups" separator no-border highlight sparse>
         <q-collapsible v-for="series in pickupSeries"
                        :key="series.id"
-                       :label="series.dayNames.join(', ')"
+                       :label="series.rule.byDay.map(dayNameForKey).join(', ')"
                        :sublabel="$d(series.startDate, 'timeShort')"
                        icon="fa-calendar" sparse>
 
@@ -65,6 +65,8 @@ import {
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
+import { dayNameForKey } from '@/i18n'
+
 export default {
   components: {
     QCard,
@@ -94,9 +96,11 @@ export default {
       description: 'my nice description',
     }
   },
+  methods: {
+    dayNameForKey,
+  },
   computed: {
     ...mapGetters({
-      dayNames: 'pickupSeries/dayNames',
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
     }),

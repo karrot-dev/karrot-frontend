@@ -1,5 +1,4 @@
 import pickupSeries from '@/services/api/pickupSeries'
-import i18n from '@/i18n'
 
 export const types = {
   REQUEST_LIST: 'Request List',
@@ -18,37 +17,20 @@ function initialState () {
 }
 export const state = initialState()
 
-const DAY_KEYS = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA']
-const DAY_INDEX = DAY_KEYS.reduce((acc, key, idx) => {
-  acc[key] = idx
-  return acc
-}, {})
-
-function dayKeyToDate (key) {
-  const date = new Date()
-  date.setDate(date.getDate() - date.getDay() + DAY_INDEX[key])
-  return date
-}
-
 export const getters = {
   get: (state, getters, rootState, rootGetters) => id => {
     return getters.enrich(state.entries[id])
   },
   enrich: (state, getters, rootState, rootGetters) => entry => {
     const pickups = rootGetters['pickups/all'].filter(pickup => pickup.series === entry.id)
-    const dayNames = entry.rule.byDay.map(dayKeyToDate).map(date => i18n.d(date, 'dayName'))
     return entry && {
       ...entry,
-      dayNames,
       pickups,
       __unenriched: entry,
     }
   },
   all: (state, getters, rootState, rootGetters) => {
     return state.idList.map(getters.get)
-  },
-  dayNames: () => {
-    return DAY_KEYS.map(dayKeyToDate).map(date => i18n.d(date, 'dayName'))
   },
 }
 

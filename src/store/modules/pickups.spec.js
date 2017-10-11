@@ -71,6 +71,7 @@ describe('pickups', () => {
         isUserMember: true,
         isWaiting: false,
         collectors: [{ id: userId, name: `Some Name${userId}` }],
+        __unenriched: pickup2,
       })
     })
 
@@ -97,7 +98,9 @@ describe('pickups', () => {
       let storeId = 101
       mockGet.mockImplementationOnce(id => ({ id, date, store: storeId, collectorIds: [] }))
       await vstore.dispatch('pickups/fetch', pickupId)
-      expect(vstore.getters['pickups/get'](pickupId)).toEqual({
+      const pickup = vstore.getters['pickups/get'](pickupId)
+      delete pickup.__unenriched
+      expect(pickup).toEqual({
         id: pickupId,
         collectorIds: [],
         collectors: [],

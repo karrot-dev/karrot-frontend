@@ -142,8 +142,8 @@ export const actions = {
   },
 
   async save ({ commit, dispatch }, pickup) {
-    await pickups.save(pickup)
-    dispatch('refresh')
+    const updatedPickup = await pickups.save(pickup)
+    commit(types.RECEIVE_ITEM, { pickup: updatedPickup })
   },
 
   refresh ({ state, dispatch }) {

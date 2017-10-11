@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import pickupSeries from '@/services/api/pickupSeries'
 
 export const types = {
@@ -5,6 +7,7 @@ export const types = {
   RECEIVE_LIST: 'Receive List',
   RECEIVE_LIST_ERROR: 'Receive List Error',
   CLEAR_LIST: 'Clear List',
+  RECEIVE_ITEM: 'Receive Item',
 }
 
 function initialState () {
@@ -52,8 +55,8 @@ export const actions = {
   },
 
   async save ({ commit, dispatch }, series) {
-    await pickupSeries.save(series)
-    dispatch('fetchListForActiveStore')
+    const updatedSeries = await pickupSeries.save(series)
+    commit(types.RECEIVE_ITEM, { series: updatedSeries })
     dispatch('pickups/refresh', null, { root: true })
   },
 
@@ -81,5 +84,8 @@ export const mutations = {
     state.idList = []
     state.idListStoreId = null
     state.error = null
+  },
+  [types.RECEIVE_ITEM] (state, { series }) {
+    Vue.set(state.entries, series.id, series)
   },
 }

@@ -53,49 +53,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import {
-  QCard, QCardMain, QCardTitle, QCardSeparator, QCardActions,
-  QBtn, QIcon,
-  QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QSideLink,
-  QToggle,
-  QDatetime,
-  QInput, QField,
-} from 'quasar'
+import { mapGetters, mapActions } from 'vuex'
+import { QCard, QList, QListHeader, QItem, QCollapsible } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
 import { dayNameForKey } from '@/i18n'
 
 export default {
-  components: {
-    QCard,
-    QCardMain,
-    QCardTitle,
-    QCardSeparator,
-    QCardActions,
-    QBtn,
-    QIcon,
-    QList,
-    QListHeader,
-    QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
-    QCollapsible,
-    QSideLink,
-    QToggle,
-    QInput,
-    QDatetime,
-    QField,
-    PickupSeriesEdit,
-    PickupEdit,
-  },
-  data () {
-    return {
-      description: 'my nice description',
-    }
-  },
+  components: { QCard, QItem, QList, QListHeader, QCollapsible, PickupSeriesEdit, PickupEdit },
   methods: {
     dayNameForKey,
   },

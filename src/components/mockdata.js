@@ -26,6 +26,10 @@ export const pickupsMock = [
   return e
 })
 
+export const pickupSeriesMock = [
+  { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': {'freq': 'WEEKLY', 'byDay': ['TH', 'SU']}, 'startDate': '2017-09-17T08:00:00.000Z', 'description': '' },
+]
+
 export const messagesMock = [
   { 'id': 1, 'author': 1, 'content': 'first messsage', 'conversation': 1, 'createdAt': '2017-08-11T15:43:37.419305Z' },
   { 'id': 2, 'author': 2, 'content': 'second messsage', 'conversation': 1, 'createdAt': '2017-08-11T15:47:06.887669Z' },

@@ -43,9 +43,14 @@ export function convert (entry) {
 }
 
 export function serialize (entry) {
-  return {
-    ...entry,
-    rule: serializeRule(entry.rule),
+  if (entry.rule) {
+    return {
+      ...entry,
+      rule: serializeRule(entry.rule),
+    }
+  }
+  else {
+    return entry
   }
 }
 

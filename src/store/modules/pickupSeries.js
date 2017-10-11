@@ -51,6 +51,12 @@ export const actions = {
     commit(types.CLEAR_LIST)
   },
 
+  async save ({ commit, dispatch }, series) {
+    await pickupSeries.save(series)
+    dispatch('fetchListForActiveStore')
+    dispatch('pickups/refresh', null, { root: true })
+  },
+
 }
 
 export const mutations = {

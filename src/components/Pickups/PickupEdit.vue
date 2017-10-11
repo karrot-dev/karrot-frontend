@@ -69,7 +69,7 @@ export default {
       this.pickupEdit = cloneDeep(this.pickup)
     },
     save (event) {
-      this.$emit('save', objectDiff(this.series, this.seriesEdit), event)
+      this.$emit('save', { ...objectDiff(this.pickup, this.pickupEdit), id: this.pickup.id }, event)
     },
   },
 }
@@ -80,7 +80,8 @@ export default {
 button.selected
   background-color $grey-4
 .edit
-  padding 20px // $item-padding
+  width 100%
+  padding 20px
   background-color $grey-1
   &.changed
     background-color $yellow-1

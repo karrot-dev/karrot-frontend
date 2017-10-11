@@ -15,11 +15,11 @@
       icon="today"
       label="Weekdays"
       helper="On which weekdays should the pick-up take place?">
-      <q-option-group
-        inline
-        type="toggle"
-        v-model="seriesEdit.rule.byDay"
-        :options="dayOptions" />
+    <q-select
+      multiple
+      toggle
+      v-model="seriesEdit.rule.byDay"
+      :options="dayOptions" />
     </q-field>
 
     <q-field
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn } from 'quasar'
+import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
 import { is24h, dayOptions } from '@/i18n'
 
 import cloneDeep from 'clone-deep'
@@ -55,7 +55,7 @@ export default {
     series: { required: true },
   },
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn,
+    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect,
   },
   data () {
     return {
@@ -74,7 +74,7 @@ export default {
       this.seriesEdit = cloneDeep(this.series)
     },
     save (event) {
-      this.$emit('save', objectDiff(this.series, this.seriesEdit), event)
+      this.$emit('save', { ...objectDiff(this.series, this.seriesEdit), id: this.series.id }, event)
     },
   },
 }
@@ -85,7 +85,8 @@ export default {
 button.selected
   background-color $grey-4
 .edit
-  padding 20px // $item-padding
+  width 100%
+  padding 20px
   background-color $grey-1
   &.changed
     background-color $yellow-1

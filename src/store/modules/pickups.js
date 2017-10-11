@@ -141,6 +141,20 @@ export const actions = {
     }
   },
 
+  async save ({ commit, dispatch }, pickup) {
+    await pickups.save(pickup)
+    dispatch('refresh')
+  },
+
+  refresh ({ state, dispatch }) {
+    if (state.idListGroupId) {
+      dispatch('fetchListByGroupId', state.idListGroupId)
+    }
+    else {
+      dispatch('fetchList')
+    }
+  },
+
 }
 
 export const mutations = {

@@ -83,6 +83,10 @@ export function dayOptions () {
   }))
 }
 
+export function sortByDay (a, b) {
+  return DAY_INDEX[a] - DAY_INDEX[b]
+}
+
 export default i18n
 
 if (module.hot) {

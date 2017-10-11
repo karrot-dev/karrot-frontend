@@ -9,12 +9,12 @@
       <q-list class="pickups" separator no-border highlight sparse>
         <q-collapsible v-for="series in pickupSeries"
                        :key="series.id"
-                       :label="series.rule.byDay.map(dayNameForKey).join(', ')"
+                       :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
                        :sublabel="$d(series.startDate, 'timeShort')"
                        icon="fa-calendar" sparse>
 
           <q-item>
-            <pickup-series-edit :series="series.__unenriched"/>
+            <pickup-series-edit :series="series.__unenriched" @save="saveSeries"/>
           </q-item>
 
           <q-list no-border seperator>
@@ -22,9 +22,9 @@
 
             <q-collapsible v-for="pickup in series.pickups"
                            :key="pickup.id"
-                           :label="$d(pickup.date, 'dateShort')"
+                           :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup.__unenriched"/>
+              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup"/>
             </q-collapsible>
           </q-list>
 
@@ -44,7 +44,7 @@
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup.__unenriched"/>
+          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup"/>
         </q-collapsible>
       </q-list>
     </q-card>
@@ -54,16 +54,32 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { QCard, QList, QListHeader, QItem, QCollapsible } from 'quasar'
+import { QCard, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
-import { dayNameForKey } from '@/i18n'
+import { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
-  components: { QCard, QItem, QList, QListHeader, QCollapsible, PickupSeriesEdit, PickupEdit },
+  components: { QCard, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, PickupSeriesEdit, PickupEdit },
   methods: {
     dayNameForKey,
+    sortByDay,
+    seriesPickupLabel (series, pickup) {
+      const base = this.$d(pickup.date, 'dateShort')
+      const seriesTime = this.$d(series.startDate, 'timeShort')
+      const pickupTime = this.$d(pickup.date, 'timeShort')
+      if (seriesTime !== pickupTime) {
+        return `${base} (${pickupTime})`
+      }
+      else {
+        return base
+      }
+    },
+    ...mapActions({
+      saveSeries: 'pickupSeries/save',
+      savePickup: 'pickups/save',
+    }),
   },
   computed: {
     ...mapGetters({

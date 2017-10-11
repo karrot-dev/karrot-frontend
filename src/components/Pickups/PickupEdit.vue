@@ -58,6 +58,11 @@ export default {
       pickupEdit: cloneDeep(this.pickup),
     }
   },
+  watch: {
+    pickup () {
+      this.reset()
+    },
+  },
   computed: {
     is24h,
     hasChanged () {

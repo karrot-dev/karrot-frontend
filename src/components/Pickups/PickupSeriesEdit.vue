@@ -62,6 +62,11 @@ export default {
       seriesEdit: cloneDeep(this.series),
     }
   },
+  watch: {
+    series () {
+      this.reset()
+    },
+  },
   computed: {
     dayOptions,
     is24h,

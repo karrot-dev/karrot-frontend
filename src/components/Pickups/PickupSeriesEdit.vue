@@ -35,6 +35,7 @@
     <q-btn color="primary" @click="save" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
     <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
     <q-btn @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
+    <q-btn color="red" @click="destroy" v-if="!isNew">{{ $t('BUTTON.DELETE') }}</q-btn>
 
   </div>
 </template>
@@ -95,6 +96,9 @@ export default {
       else {
         this.$emit('save', { ...objectDiff(this.series, this.seriesEdit), id: this.series.id }, event)
       }
+    },
+    destroy (event) {
+      this.$emit('destroy', this.series.id, event)
     },
   },
 }

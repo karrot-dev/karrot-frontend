@@ -66,6 +66,12 @@ export const actions = {
     dispatch('pickups/refresh', null, { root: true })
   },
 
+  async destroy ({ commit, dispatch }, id) {
+    await pickupSeries.delete(id)
+    dispatch('fetchListForActiveStore')
+    dispatch('pickups/refresh', null, { root: true })
+  },
+
 }
 
 export const mutations = {

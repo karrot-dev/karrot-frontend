@@ -21,7 +21,7 @@
                        icon="fa-calendar" sparse>
 
           <q-item>
-            <pickup-series-edit :series="series.__unenriched" @save="saveSeries"/>
+            <pickup-series-edit :series="series.__unenriched" @save="saveSeries" @destroy="destroySeries"/>
           </q-item>
 
           <q-list no-border seperator>
@@ -61,7 +61,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { QCard, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
+import { Dialog, QCard, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
@@ -92,10 +92,25 @@ export default {
       saveSeries: 'pickupSeries/save',
       savePickup: 'pickups/save',
     }),
+    destroySeries (seriesId) {
+      Dialog.create({
+        title: 'Confirm',
+        message: 'You really want to delete the series?',
+        buttons: [
+          'Cancel',
+          {
+            label: 'Yes, delete it!',
+            handler: () => {
+              this.$store.dispatch('pickupSeries/destroy', seriesId)
+            },
+          },
+        ],
+      })
+    },
     createNewSeries () {
       this.newSeries = {
         maxCollectors: 2,
-        description: 'some description',
+        description: '',
         startDate: new Date(),
         store: this.storeId,
         rule: {

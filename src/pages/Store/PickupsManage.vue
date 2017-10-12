@@ -2,10 +2,8 @@
   <div>
     <h3>
       <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
-      {{ $t('PICKUPMANAGE.SERIES') }}
+      {{ $t('PICKUPMANAGE.SERIES') }} <q-btn @click="createNewSeries">Create new</q-btn>
     </h3>
-
-    <q-btn @click="createNewSeries">Create new</q-btn>
 
     <q-card>
 

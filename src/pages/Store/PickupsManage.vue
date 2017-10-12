@@ -39,17 +39,22 @@
 
     <h3>
       <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
-      {{ $t('PICKUPMANAGE.SINGLE') }}
+      {{ $t('PICKUPMANAGE.SINGLE') }} <q-btn @click="createNewPickup">Create new</q-btn>
     </h3>
 
     <q-card>
+
+      <q-item v-if="newPickup" >
+        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup"/>
+      </q-item>
+
       <q-list class="pickups" separator no-border>
         <q-collapsible v-for="pickup in oneTimePickups"
                        :key="pickup.id"
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup"/>
+          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup"/>
         </q-collapsible>
       </q-list>
     </q-card>
@@ -70,6 +75,7 @@ export default {
   data () {
     return {
       newSeries: null,
+      newPickup: null,
     }
   },
   methods: {
@@ -90,21 +96,6 @@ export default {
       saveSeries: 'pickupSeries/save',
       savePickup: 'pickups/save',
     }),
-    destroySeries (seriesId) {
-      Dialog.create({
-        title: 'Confirm',
-        message: 'You really want to delete the series?',
-        buttons: [
-          'Cancel',
-          {
-            label: 'Yes, delete it!',
-            handler: () => {
-              this.$store.dispatch('pickupSeries/destroy', seriesId)
-            },
-          },
-        ],
-      })
-    },
     createNewSeries () {
       this.newSeries = {
         maxCollectors: 2,
@@ -123,6 +114,53 @@ export default {
     },
     cancelNewSeries () {
       this.newSeries = null
+    },
+    destroySeries (seriesId) {
+      Dialog.create({
+        title: 'Confirm',
+        message: 'You really want to delete the series?',
+        buttons: [
+          'Cancel',
+          {
+            label: 'Yes, delete it!',
+            handler: () => {
+              this.$store.dispatch('pickupSeries/destroy', seriesId)
+            },
+          },
+        ],
+      })
+    },
+    createNewPickup () {
+      const date = new Date()
+      date.setDate(date.getDate() + 1)
+      this.newPickup = {
+        maxCollectors: 2,
+        description: '',
+        date,
+        store: this.storeId,
+      }
+    },
+    saveNewPickup (pickup) {
+      this.$store.dispatch('pickups/create', pickup)
+      this.newPickup = null
+    },
+    cancelNewPickup () {
+      this.newPickup = null
+    },
+    destroyPickup (pickupId) {
+      Dialog.create({
+        title: 'Confirm',
+        message: 'You really want to delete the pickup?',
+        buttons: [
+          'Cancel',
+          {
+            label: 'Yes, delete it!',
+            handler: () => {
+              this.$store.dispatch('pickups/destroy', pickupId)
+            },
+          },
+        ],
+      })
     },
   },
   computed: {

@@ -3,7 +3,7 @@ import axios from '@/services/axios'
 export default {
 
   async create (pickup) {
-    return convertDate((await axios.post('/api/pickup-dates/', this.$serialize(pickup))).data)
+    return convertDate((await axios.post('/api/pickup-dates/', pickup)).data)
   },
 
   async get (pickupId) {

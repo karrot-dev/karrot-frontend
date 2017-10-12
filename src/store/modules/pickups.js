@@ -146,6 +146,16 @@ export const actions = {
     commit(types.RECEIVE_ITEM, { pickup: updatedPickup })
   },
 
+  async create ({ commit, dispatch }, series) {
+    await pickups.create(series)
+    dispatch('refresh')
+  },
+
+  async destroy ({ commit, dispatch }, id) {
+    await pickups.delete(id)
+    dispatch('refresh')
+  },
+
   refresh ({ state, dispatch }) {
     if (state.idListGroupId) {
       dispatch('fetchListByGroupId', state.idListGroupId)

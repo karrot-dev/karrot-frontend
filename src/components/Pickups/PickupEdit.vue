@@ -31,8 +31,10 @@
       <q-input v-model="pickupEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
 
-    <q-btn color="primary" @click="save" :disable="!hasChanged">{{ $t('BUTTON.SAVE_CHANGES') }}</q-btn>
-    <q-btn @click="reset" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
+    <q-btn color="primary" @click="save" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
+    <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
+    <q-btn @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
+    <q-btn color="red" @click="destroy" v-if="!isNew && !pickup.series">{{ $t('BUTTON.DELETE') }}</q-btn>
 
   </div>
 </template>
@@ -65,8 +67,11 @@ export default {
   },
   computed: {
     is24h,
+    isNew () {
+      return !this.pickup.id
+    },
     hasChanged () {
-      return !deepEqual(this.pickup, this.pickupEdit)
+      return !this.isNew && !deepEqual(this.pickup, this.pickupEdit)
     },
   },
   methods: {
@@ -74,7 +79,15 @@ export default {
       this.pickupEdit = cloneDeep(this.pickup)
     },
     save (event) {
-      this.$emit('save', { ...objectDiff(this.pickup, this.pickupEdit), id: this.pickup.id }, event)
+      if (this.isNew) {
+        this.$emit('save', this.pickupEdit, event)
+      }
+      else {
+        this.$emit('save', { ...objectDiff(this.pickup, this.pickupEdit), id: this.pickup.id }, event)
+      }
+    },
+    destroy (event) {
+      this.$emit('destroy', this.pickup.id, event)
     },
   },
 }

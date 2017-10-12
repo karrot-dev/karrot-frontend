@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import raf from 'raf'
 
 Vue.use(Vuex)
 
@@ -27,4 +28,30 @@ export function throws (val) {
     }
     throw val
   }
+}
+
+export function makeFindAllIterable (wrapper) {
+  const findAll = wrapper.constructor.prototype.findAll
+  wrapper.findAll = function () {
+    const wrapperArray = findAll.apply(this, arguments)
+    wrapperArray[Symbol.iterator] = () => {
+      let nextIndex = 0
+      return {
+        next () {
+          if (nextIndex < wrapperArray.length) {
+            return { value: wrapperArray.at(nextIndex++), done: false }
+          }
+          else {
+            return { done: true }
+          }
+        },
+      }
+    }
+    return wrapperArray
+  }
+  return wrapper
+}
+
+export function polyfillRequestAnimationFrame () {
+  raf.polyfill()
 }

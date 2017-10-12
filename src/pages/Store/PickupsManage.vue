@@ -5,7 +5,14 @@
       {{ $t('PICKUPMANAGE.SERIES') }}
     </h3>
 
+    <q-btn @click="createNewSeries">Create new</q-btn>
+
     <q-card>
+
+      <q-item v-if="newSeries" >
+        <pickup-series-edit :series="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries"/>
+      </q-item>
+
       <q-list class="pickups" separator no-border highlight sparse>
         <q-collapsible v-for="series in pickupSeries"
                        :key="series.id"
@@ -54,14 +61,19 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { QCard, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible } from 'quasar'
+import { QCard, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
 import { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
-  components: { QCard, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, PickupSeriesEdit, PickupEdit },
+  components: { QCard, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit },
+  data () {
+    return {
+      newSeries: null,
+    }
+  },
   methods: {
     dayNameForKey,
     sortByDay,
@@ -80,9 +92,29 @@ export default {
       saveSeries: 'pickupSeries/save',
       savePickup: 'pickups/save',
     }),
+    createNewSeries () {
+      this.newSeries = {
+        maxCollectors: 2,
+        description: 'some description',
+        startDate: new Date(),
+        store: this.storeId,
+        rule: {
+          byDay: ['MO'],
+          freq: 'WEEKLY',
+        },
+      }
+    },
+    saveNewSeries (series) {
+      this.$store.dispatch('pickupSeries/create', series)
+      this.newSeries = null
+    },
+    cancelNewSeries () {
+      this.newSeries = null
+    },
   },
   computed: {
     ...mapGetters({
+      storeId: 'stores/activeStoreId',
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
     }),

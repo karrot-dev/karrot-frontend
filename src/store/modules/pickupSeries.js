@@ -54,6 +54,12 @@ export const actions = {
     commit(types.CLEAR_LIST)
   },
 
+  async create ({ commit, dispatch }, series) {
+    await pickupSeries.create(series)
+    dispatch('fetchListForActiveStore')
+    dispatch('pickups/refresh', null, { root: true })
+  },
+
   async save ({ commit, dispatch }, series) {
     const updatedSeries = await pickupSeries.save(series)
     commit(types.RECEIVE_ITEM, { series: updatedSeries })

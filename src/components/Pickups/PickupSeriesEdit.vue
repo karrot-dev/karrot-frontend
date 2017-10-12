@@ -32,8 +32,9 @@
       <q-input v-model="seriesEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
 
-    <q-btn color="primary" @click="save" :disable="!hasChanged">{{ $t('BUTTON.SAVE_CHANGES') }}</q-btn>
-    <q-btn @click="reset" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
+    <q-btn color="primary" @click="save" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
+    <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
+    <q-btn @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
 
   </div>
 </template>
@@ -76,8 +77,11 @@ export default {
   computed: {
     dayOptions,
     is24h,
+    isNew () {
+      return !this.series.id
+    },
     hasChanged () {
-      return !deepEqual(this.series, this.seriesEdit)
+      return !this.isNew && !deepEqual(this.series, this.seriesEdit)
     },
   },
   methods: {
@@ -85,7 +89,12 @@ export default {
       this.seriesEdit = cloneDeep(this.series)
     },
     save (event) {
-      this.$emit('save', { ...objectDiff(this.series, this.seriesEdit), id: this.series.id }, event)
+      if (this.isNew) {
+        this.$emit('save', this.seriesEdit, event)
+      }
+      else {
+        this.$emit('save', { ...objectDiff(this.series, this.seriesEdit), id: this.series.id }, event)
+      }
     },
   },
 }

@@ -1,7 +1,7 @@
 <template>
   <v-map ref="map" :bounds="bounds" :maxZoom="15">
     <v-tile-layer :url="url" :attribution="attribution"></v-tile-layer>
-    <v-marker v-for="marker in markers" :key="marker.id" v-bind="marker" :opacity="opacityFor(marker)">
+    <v-marker v-for="marker in markers" :key="marker.id" v-bind="marker" @l-dragend="$emit('markerMoved', $event.target._latlng, marker)" :opacity="opacityFor(marker)">
       <v-popup v-if="marker.popupcontent" :content="marker.popupcontent"></v-popup>
     </v-marker>
   </v-map>
@@ -39,10 +39,14 @@ export default {
     markers: {
       required: true,
       type: Array,
-      // validator: value => value.length > 0,
     },
-    selectedMarkerIds: { required: false, default: () => [] },
-    showAttribution: { default: true },
+    selectedMarkerIds: {
+      required: false,
+      default: () => [],
+    },
+    showAttribution: {
+      default: true,
+    },
   },
   data () {
     return {
@@ -83,7 +87,7 @@ export default {
         return L.latLngBounds(this.selectedMarkers.map(m => m.latLng)).pad(0.2)
       }
       else {
-        return L.latLngBounds()
+        return L.latLngBounds([{ lat: '49.8990022441358', lng: '8.66415739059448' }])
       }
     },
   },

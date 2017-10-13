@@ -9,35 +9,44 @@
 <script>
 import { QSearch, QAutocomplete } from 'quasar'
 
+import geocoding from '@/services/geocoding'
+
 export default {
-  props: [],
+  props: ['value'],
   components: {
     QSearch, QAutocomplete,
   },
   data () {
     return {
-      result: null,
+      result: this.value,
     }
   },
+  watch: {
+    value (val) {
+      this.result = val
+    },
+    result (val) {
+      this.$emit('input', val)
+      if (val === '') {
+        this.$emit('coords', { latitude: '', longitude: '' })
+      }
+    },
+  },
   methods: {
-    search (terms, done) {
-      fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${terms}`)
-        .then(d => d.json())
-        .then(d => {
-          const list = d.map(e => {
-            return {
-              label: e.displayName,
-              value: e.displayName,
-              obj: e,
-            }
-          })
-          done(list)
-        })
+    async search (terms, done) {
+      done((await geocoding.lookupAddress(terms)).map(result => {
+        const { address } = result
+        return {
+          result,
+          label: address,
+          value: address,
+        }
+      }))
     },
-    selected (item) {
-      console.log('selected', item.obj)
+    selected ({ result: { address, latitude, longitude } }) {
+      this.$emit('input', address)
+      this.$emit('coords', { latitude, longitude })
     },
-
   },
 }
 </script>

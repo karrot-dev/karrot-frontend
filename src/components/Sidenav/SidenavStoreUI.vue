@@ -13,6 +13,7 @@
       <q-list highlight no-border>
         <q-item :to="{name: 'storePickups', params: { storeId }}">{{ $t("GROUP.PICKUPS")}}</q-item>
         <q-item :to="{name: 'storeHistory', params: { storeId }}">{{ $t("GROUP.HISTORY")}}</q-item>
+        <q-item :to="{name: 'storeEdit', params: { storeId }}">{{ $t("STORE.EDIT")}}</q-item>
       </q-list>
     </div>
   </SidenavBox>

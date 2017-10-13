@@ -8,6 +8,7 @@ const StoreWall = () => import('@/pages/Store/Wall.vue')
 const StorePickups = () => import('@/pages/Store/Pickups.vue')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage.vue')
 const StoreHistory = () => import('@/pages/Store/History.vue')
+const StoreEdit = () => import('@/pages/Store/Edit.vue')
 const StoreList = () => import('@/pages/Store/Stores.vue')
 const GroupHistory = () => import('@/pages/Group/History.vue')
 const GroupInvites = () => import('@/pages/Group/Invites.vue')
@@ -169,6 +170,11 @@ export default [
             name: 'storeHistory',
             path: 'history',
             component: StoreHistory,
+          },
+          {
+            name: 'storeEdit',
+            path: 'edit',
+            component: StoreEdit,
           },
         ],
       },

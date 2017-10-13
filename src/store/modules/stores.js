@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import stores from '@/services/api/stores'
 import { indexById } from '@/store/helpers'
 
@@ -9,6 +10,8 @@ export const types = {
   REQUEST_STORES: 'Request Stores',
   RECEIVE_STORES: 'Receive Stores',
   RECEIVE_STORES_ERROR: 'Receive Stores Error',
+
+  RECEIVE_ITEM: 'Receive Item',
 
   CLEAR: 'Clear',
 }
@@ -50,6 +53,12 @@ export const actions = {
     }
   },
 
+  async save ({ commit, dispatch }, store) {
+    console.log('saving store', store)
+    const updatedStore = await stores.save(store)
+    commit(types.RECEIVE_ITEM, { store: updatedStore })
+  },
+
   clear ({ commit, dispatch }) {
     commit(types.CLEAR)
   },
@@ -78,5 +87,8 @@ export const mutations = {
     state.activeStoreId = null
     state.entries = {}
     state.idList = []
+  },
+  [types.RECEIVE_ITEM] (state, { store }) {
+    Vue.set(state.entries, store.id, store)
   },
 }

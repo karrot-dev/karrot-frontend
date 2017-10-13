@@ -121,7 +121,7 @@ export const actions = {
     }
   },
 
-  async update ({ commit, state }, data) {
+  async update ({ commit, state, dispatch }, data) {
     let user = state.user
     if (!user) return
 
@@ -129,6 +129,8 @@ export const actions = {
 
     if (changed) {
       commit(types.RECEIVE_LOGIN_STATUS, { user: await users.save({ ...data, id: user.id }) })
+      // TODO: we only need to update the current user here, but no available action/mutation yet
+      dispatch('users/fetchList', null, { root: true })
     }
   },
 

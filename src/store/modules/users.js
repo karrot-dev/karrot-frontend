@@ -104,6 +104,7 @@ export const actions = {
       commit(types.RECEIVE_USERS_ERROR, { error })
     }
   },
+
 }
 
 export const mutations = {

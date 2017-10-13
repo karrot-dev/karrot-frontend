@@ -1,7 +1,7 @@
 <template>
   <div class="generic-padding grey-border">
-    <q-list no-border highlight>
-      <q-list-header>Language</q-list-header>
+    <q-list no-border>
+      <q-list-header>{{ $t('SETTINGS.LANGUAGE') }}</q-list-header>
       <q-item style="padding-top: 0">
         <q-item-side>
           <i class="fa fa-fw fa-language"/>
@@ -15,12 +15,13 @@
       </q-item>
 
       <q-list-header>Profile</q-list-header>
+
       <q-item>
-        <q-item-side>
-          <i class="fa fa-fw fa-user"/>
-        </q-item-side>
-        <q-item-main>Edit Profile Info</q-item-main>
+        <profile-edit :user="user" @save="saveUser"/>
       </q-item>
+
+      <q-list-header>Email address</q-list-header>
+
       <q-item>
         <q-item-side>
           <i class="fa fa-fw fa-envelope"/>
@@ -32,15 +33,16 @@
 </template>
 
 <script>
-import { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect } from 'quasar'
+import { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible } from 'quasar'
 import store from '@/store'
 import { locales } from '@/i18n'
+import ProfileEdit from '@/components/ProfileEdit'
 
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Settings',
-  components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect },
+  components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible, ProfileEdit },
   data () {
     return {
       localeOptions: locales.map(({ name, locale }) => ({ label: name, value: locale })),
@@ -55,10 +57,14 @@ export default {
         this.setLocale(locale)
       },
     },
+    ...mapGetters({
+      'user': 'auth/user',
+    }),
   },
   methods: {
     ...mapActions({
       setLocale: 'i18n/setLocale',
+      saveUser: 'auth/update',
     }),
   },
 }

@@ -106,8 +106,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-button.selected
-  background-color $grey-4
 .edit
   width 100%
   padding 20px

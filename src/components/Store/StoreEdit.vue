@@ -68,35 +68,8 @@ export default {
     hasChanged () {
       return !this.isNew && !deepEqual(this.store, this.storeEdit)
     },
-    markers () {
-      const { latitude, longitude } = this.storeEdit
-      if (latitude && longitude) {
-        const marker = {
-          latLng: L.latLng(latitude, longitude),
-          icon: L.AwesomeMarkers.icon({
-            icon: 'shopping-cart',
-            markerColor: 'blue',
-            prefix: 'fa',
-          }),
-          draggable: true,
-        }
-        return [marker]
-      }
-      else {
-        return []
-      }
-    },
   },
   methods: {
-    pickedCoords (coords) {
-      Object.assign(this.storeEdit, coords)
-    },
-    markerMoved (latLng, marker) {
-      Object.assign(this.storeEdit, {
-        latitude: latLng.lat,
-        longitude: latLng.lng,
-      })
-    },
     reset () {
       this.storeEdit = cloneDeep(this.store)
     },
@@ -122,6 +95,4 @@ export default {
   padding 20px
   &.changed
     background-color $yellow-1
-.map
-  height: 260px
 </style>

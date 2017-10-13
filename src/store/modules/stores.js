@@ -54,7 +54,6 @@ export const actions = {
   },
 
   async save ({ commit, dispatch }, store) {
-    console.log('saving store', store)
     const updatedStore = await stores.save(store)
     commit(types.RECEIVE_ITEM, { store: updatedStore })
   },

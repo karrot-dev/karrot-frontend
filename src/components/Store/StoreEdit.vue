@@ -22,9 +22,7 @@
     <q-field
       icon="fa-map"
       :label="$t('STOREEDIT.ADDRESS')">
-      <address-picker v-model="storeEdit.address" @coords="pickedCoords"/>
-      <br>
-      <standard-map class="map" :markers="markers" @markerMoved="markerMoved"></standard-map>
+      <address-picker v-model="storeEdit" :map="true"/>
     </q-field>
 
     <q-btn color="primary" @click="save" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
@@ -119,12 +117,9 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-button.selected
-  background-color $grey-4
 .edit
   width 100%
   padding 20px
-  background-color $grey-1
   &.changed
     background-color $yellow-1
 .map

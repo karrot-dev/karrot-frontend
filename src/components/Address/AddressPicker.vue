@@ -1,39 +1,34 @@
 <template>
   <div>
-    <q-search v-model="result" placeholder="Search for address">
-      <q-autocomplete @search="search" @selected="selected" />
+    <q-search v-model="value.address" placeholder="Search for address">
+      <q-autocomplete @search="autocompleteSearch" @selected="autocompleteSelected" />
     </q-search>
+    <standard-map v-if="map" class="map" :markers="marker ? [marker] : []" @markerMoved="mapMarkerMoved"/>
   </div>
 </template>
 
 <script>
 import { QSearch, QAutocomplete } from 'quasar'
+import StandardMap from '@/components/Map/StandardMap'
+import L from 'leaflet'
 
 import geocoding from '@/services/geocoding'
 
 export default {
-  props: ['value'],
-  components: {
-    QSearch, QAutocomplete,
+  props: {
+    value: {},
+    map: Boolean,
   },
-  data () {
-    return {
-      result: this.value,
-    }
-  },
+  components: { QSearch, QAutocomplete, StandardMap },
   watch: {
-    value (val) {
-      this.result = val
-    },
-    result (val) {
-      this.$emit('input', val)
+    'value.address' (val) {
       if (val === '') {
-        this.$emit('coords', { latitude: '', longitude: '' })
+        this.$emit('input', { ...this.value, latitude: '', longitude: '', address: '' })
       }
     },
   },
   methods: {
-    async search (terms, done) {
+    async autocompleteSearch (terms, done) {
       done((await geocoding.lookupAddress(terms)).map(result => {
         const { address } = result
         return {
@@ -43,13 +38,34 @@ export default {
         }
       }))
     },
-    selected ({ result: { address, latitude, longitude } }) {
-      this.$emit('input', address)
-      this.$emit('coords', { latitude, longitude })
+    autocompleteSelected ({ result: { address, latitude, longitude } }) {
+      this.$emit('input', { ...this.value, latitude, longitude, address })
+    },
+    mapMarkerMoved ({ lat: latitude, lng: longitude }) {
+      this.$emit('input', { ...this.value, latitude, longitude })
+    },
+  },
+  computed: {
+    marker () {
+      const { latitude, longitude } = this.value
+      if (latitude && longitude) {
+        return {
+          latLng: L.latLng(latitude, longitude),
+          icon: L.AwesomeMarkers.icon({
+            icon: 'shopping-cart',
+            markerColor: 'blue',
+            prefix: 'fa',
+          }),
+          draggable: true,
+        }
+      }
     },
   },
 }
 </script>
 
 <style scoped lang="stylus">
+.map
+  height 260px
+  margin-top 20px
 </style>

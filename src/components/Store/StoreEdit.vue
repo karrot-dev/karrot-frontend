@@ -37,7 +37,6 @@
 import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
-import L from 'leaflet'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'

@@ -1,4 +1,5 @@
 from django.utils.translation import ugettext_lazy as _
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework.pagination import CursorPagination
 from rest_framework.permissions import IsAuthenticated, BasePermission
@@ -50,6 +51,7 @@ class ConversationMessageViewSet(
     queryset = ConversationMessage.objects
     serializer_class = ConversationMessageSerializer
     permission_classes = (IsAuthenticated, IsConversationParticipant)
+    filter_backends = (DjangoFilterBackend,)
     filter_fields = ('conversation',)
     pagination_class = MessagePagination
 

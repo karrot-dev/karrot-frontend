@@ -1,5 +1,5 @@
 from django.utils import timezone
-from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated, BasePermission
@@ -31,7 +31,7 @@ class InvitationsViewSet(
     """
     queryset = Invitation.objects
     serializer_class = InvitationSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend,)
     filter_fields = ('group', )
     permission_classes = (IsAuthenticated, )
     throttle_classes = ()

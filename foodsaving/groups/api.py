@@ -1,12 +1,13 @@
 import pytz
 from django.utils.translation import ugettext_lazy as _
-from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework.decorators import detail_route, list_route
+from rest_framework.filters import SearchFilter
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, BasePermission
 from rest_framework.response import Response
-from rest_framework.schemas import is_custom_action
+from rest_framework.schemas.generators import is_custom_action
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.conversations.api import RetrieveConversationMixin
@@ -58,7 +59,7 @@ class GroupViewSet(
     - `?include_empty` - set to False to exclude empty groups without members
     """
     queryset = GroupModel.objects
-    filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
+    filter_backends = (SearchFilter, DjangoFilterBackend)
     filter_class = GroupsFilter
     search_fields = ('name', 'public_description')
 

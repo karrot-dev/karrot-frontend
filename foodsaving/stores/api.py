@@ -1,7 +1,8 @@
-from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework import viewsets
 from rest_framework.decorators import detail_route
+from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
@@ -9,19 +10,18 @@ from foodsaving.history.models import History, HistoryTypus
 from foodsaving.stores.filters import (
     PickupDatesFilter, PickupDateSeriesFilter, FeedbackFilter
 )
-from foodsaving.stores.permissions import (
-    IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate,
-    IsNotFull, IsSameCollector)
-from foodsaving.stores.serializers import (
-    StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer,
-    PickupDateJoinSerializer, PickupDateLeaveSerializer, FeedbackSerializer)
 from foodsaving.stores.models import (
     Store as StoreModel,
     PickupDate as PickupDateModel,
     PickupDateSeries as PickupDateSeriesModel,
     Feedback as FeedbackModel
 )
-
+from foodsaving.stores.permissions import (
+    IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate,
+    IsNotFull, IsSameCollector)
+from foodsaving.stores.serializers import (
+    StoreSerializer, PickupDateSerializer, PickupDateSeriesSerializer,
+    PickupDateJoinSerializer, PickupDateLeaveSerializer, FeedbackSerializer)
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 
@@ -43,7 +43,7 @@ class StoreViewSet(
     serializer_class = StoreSerializer
     queryset = StoreModel.objects.filter(deleted=False)
     filter_fields = ('group', 'name')
-    filter_backends = (filters.SearchFilter, filters.DjangoFilterBackend)
+    filter_backends = (SearchFilter, DjangoFilterBackend)
     search_fields = ('name', 'description')
     permission_classes = (IsAuthenticated,)
 
@@ -81,7 +81,7 @@ class FeedbackViewSet(
     """
     serializer_class = FeedbackSerializer
     queryset = FeedbackModel.objects.all()
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend,)
     filter_class = FeedbackFilter
     permission_classes = (IsAuthenticated,)
 
@@ -106,7 +106,7 @@ class PickupDateSeriesViewSet(
 
     serializer_class = PickupDateSeriesSerializer
     queryset = PickupDateSeriesModel.objects
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend,)
     filter_class = PickupDateSeriesFilter
     permission_classes = (IsAuthenticated,)
 
@@ -141,7 +141,7 @@ class PickupDateViewSet(
     """
     serializer_class = PickupDateSerializer
     queryset = PickupDateModel.objects.filter(deleted=False)
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend,)
     filter_class = PickupDatesFilter
     permission_classes = (IsAuthenticated, IsUpcoming)
 

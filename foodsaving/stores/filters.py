@@ -1,9 +1,8 @@
-import django_filters
 from django import forms
 from django.utils.dateparse import parse_datetime
 from django.utils.encoding import force_str
 from django_filters.fields import RangeField
-from rest_framework import filters
+from django_filters.rest_framework import FilterSet, RangeFilter, NumberFilter
 
 from foodsaving.stores.models import PickupDate, PickupDateSeries, Feedback
 
@@ -21,19 +20,19 @@ class DateTimeRangeField(RangeField):
         super(DateTimeRangeField, self).__init__(fields, *args, **kwargs)
 
 
-class DateTimeFromToRangeFilter(django_filters.RangeFilter):
+class DateTimeFromToRangeFilter(RangeFilter):
     field_class = DateTimeRangeField
 
 
-class PickupDateSeriesFilter(filters.FilterSet):
+class PickupDateSeriesFilter(FilterSet):
     class Meta:
         model = PickupDateSeries
         fields = ['store', ]
 
 
-class PickupDatesFilter(filters.FilterSet):
-    store = django_filters.NumberFilter(name='store')
-    group = django_filters.NumberFilter(name='store__group__id')
+class PickupDatesFilter(FilterSet):
+    store = NumberFilter(name='store')
+    group = NumberFilter(name='store__group__id')
     date = DateTimeFromToRangeFilter(name='date')
 
     class Meta:
@@ -41,10 +40,10 @@ class PickupDatesFilter(filters.FilterSet):
         fields = ['store', 'group', 'date', 'series']
 
 
-class FeedbackFilter(filters.FilterSet):
-    store = django_filters.NumberFilter(name='about__store__id')
-    about = django_filters.NumberFilter(name='about')
-    given_by = django_filters.NumberFilter(name='given_by')
+class FeedbackFilter(FilterSet):
+    store = NumberFilter(name='about__store__id')
+    about = NumberFilter(name='about')
+    given_by = NumberFilter(name='given_by')
 
     class Meta:
         model = Feedback

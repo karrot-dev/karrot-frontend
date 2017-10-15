@@ -1,9 +1,8 @@
-import django_filters
 from django import forms
 from django.utils.dateparse import parse_datetime
 from django.utils.encoding import force_str
 from django_filters.fields import RangeField
-from django_filters.rest_framework import filters, FilterSet
+from django_filters.rest_framework import filters, FilterSet, RangeFilter
 
 from foodsaving.history.models import HistoryTypus, History
 
@@ -21,7 +20,7 @@ class DateTimeRangeField(RangeField):
         super(DateTimeRangeField, self).__init__(fields, *args, **kwargs)
 
 
-class DateTimeFromToRangeFilter(django_filters.RangeFilter):
+class DateTimeFromToRangeFilter(RangeFilter):
     field_class = DateTimeRangeField
 
 

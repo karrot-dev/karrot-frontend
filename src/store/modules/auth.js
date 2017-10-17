@@ -134,6 +134,13 @@ export const actions = {
     }
   },
 
+  async changePassword ({ commit, state, dispatch }, { newPassword }) {
+    let user = state.user
+    if (!user) return
+    commit(types.RECEIVE_LOGIN_STATUS, { user: await users.save({ password: newPassword, id: user.id }) })
+    dispatch('logout')
+  },
+
   cleanStatus ({ commit }) {
     commit(types.CLEAN_STATUS)
   },

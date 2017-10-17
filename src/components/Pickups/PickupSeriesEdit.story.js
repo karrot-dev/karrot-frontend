@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 
 import PickupSeriesEdit from './PickupSeriesEdit.vue'
 import i18n from '@/i18n'
-import { pickupSeriesMock } from '@/components/mockdata'
+import { pickupSeriesMock } from '>/mockdata'
 
 storiesOf('PickupSeriesEdit', module)
   .add('Default', () => ({

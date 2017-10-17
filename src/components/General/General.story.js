@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import KBox from './KBox.vue'
 import KBreadcrumb from './KBreadcrumb.vue'
 import SearchUI from './SearchUI.vue'
-import { storesMock, groupsMock, usersMock } from '../mockdata.js'
+import { storesMock, groupsMock, usersMock } from '>/mockdata'
 
 storiesOf('General Components', module)
   .add('KBox', () => KBox)

@@ -4,7 +4,7 @@ import MapDemo from './MapDemo.vue'
 import GroupMap from './GroupMap.vue'
 import UserMapPreview from './UserMapPreview.vue'
 import StandardMap from './StandardMap.vue'
-import { usersMock, storesMock } from '../mockdata.js'
+import { usersMock, storesMock } from '>/mockdata'
 import L from 'leaflet'
 import router from '@/router'
 

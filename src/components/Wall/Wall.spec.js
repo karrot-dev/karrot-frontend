@@ -4,7 +4,7 @@ import Wall from './Wall.vue'
 import WallMessage from './WallMessage.vue'
 import WallInput from './WallInput.vue'
 
-import { messagesMock } from '../mockdata'
+import { messagesMock } from '>/mockdata'
 import MockRouterLink from '>/MockRouterLink.vue'
 
 import { QBtn, QInput } from 'quasar'

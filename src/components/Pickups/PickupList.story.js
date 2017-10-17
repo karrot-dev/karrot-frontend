@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 import PickupList from './PickupList.vue'
-import { pickupsMock } from '../mockdata.js'
+import { pickupsMock } from '>/mockdata'
 import i18n from '@/i18n'
 
 storiesOf('PickupList', module)

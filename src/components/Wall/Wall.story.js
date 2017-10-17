@@ -5,7 +5,7 @@ import WallCard from './WallCard.vue'
 import WallMessage from './WallMessage.vue'
 import WallFeedback from './WallFeedback.vue'
 import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
-import { messagesMock, pickupsMock, feedbackMock } from '../mockdata.js'
+import { messagesMock, pickupsMock, feedbackMock } from '>/mockdata'
 import i18n from '@/i18n'
 
 storiesOf('Wall', module)

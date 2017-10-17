@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import PickupEdit from './PickupEdit.vue'
-import { pickupsMock } from '../mockdata'
+import { pickupsMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
 import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'

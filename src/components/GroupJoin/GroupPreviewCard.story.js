@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 import GroupPreviewCard from './GroupPreviewCard.vue'
 import i18n from '@/i18n'
 
-import { groupsMock } from '@/components/mockdata'
+import { groupsMock } from '>/mockdata'
 
 const methods = {
   preview: action('view group preview'),

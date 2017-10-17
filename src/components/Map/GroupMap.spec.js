@@ -1,7 +1,7 @@
 import { mount } from 'vue-test-utils'
 
 import GroupMap from './GroupMap.vue'
-import { usersMock, storesMock } from '../mockdata.js'
+import { usersMock, storesMock } from '>/mockdata'
 
 import Vue2Leaflet from 'vue2-leaflet'
 

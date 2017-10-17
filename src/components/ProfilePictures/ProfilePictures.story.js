@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 
 import ProfilesInline from './ProfilesInlineUI.vue'
 import ProfilePicture from './ProfilePicture.vue'
-import { usersMock, usersMockWithoutCurrent, currentUserMock } from '../mockdata.js'
+import { usersMock, usersMockWithoutCurrent, currentUserMock } from '>/mockdata'
 import i18n from '@/i18n'
 
 const template = `

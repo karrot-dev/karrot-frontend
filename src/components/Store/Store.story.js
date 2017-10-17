@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { storesMock as stores } from '../mockdata.js'
+import { storesMock as stores } from '>/mockdata'
 
 import StoreList from './StoreList.vue'
 import i18n from '@/i18n'

@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { historyMock } from '@/components/mockdata'
+import { historyMock } from '>/mockdata'
 import i18n from '@/i18n'
 
 import HistoryList from './HistoryList.vue'

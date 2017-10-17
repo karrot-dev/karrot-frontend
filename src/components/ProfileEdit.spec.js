@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import ProfileEdit from './ProfileEdit.vue'
-import { usersMock } from './mockdata'
+import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
 import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'

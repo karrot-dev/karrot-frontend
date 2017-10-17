@@ -8,7 +8,7 @@ import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 
 import store from '@/store'
 
-import { usersMock } from '../components/mockdata'
+import { usersMock } from '>/mockdata'
 
 polyfillRequestAnimationFrame()
 

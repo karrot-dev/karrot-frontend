@@ -29,6 +29,7 @@ export default {
   },
   computed: {
     initials () {
+      if (!this.name) return
       let parts = this.name.split(' ').map(s => s[0])
       if (parts.length > 2) {
         parts = [parts[0], parts[parts.length - 1]]

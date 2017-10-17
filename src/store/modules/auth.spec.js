@@ -27,7 +27,7 @@ describe('auth', () => {
     expect(store.getters['auth/status'].error).toBeNull()
     expect(store.getters['auth/isLoggedIn']).toBe(true)
     expect(store.getters['auth/user']).toBeDefined()
-    expect(mockRouterPush).toBeCalledWith({ name: 'groupsGallery' })
+    expect(mockRouterPush).toBeCalledWith('/')
   })
 
   it('will not be logged when status throws', async () => {

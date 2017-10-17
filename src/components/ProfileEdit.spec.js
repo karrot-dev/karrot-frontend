@@ -1,35 +1,20 @@
 import Vue from 'vue'
-import { createLocalVue, mount } from 'vue-test-utils'
 
 import ProfileEdit from './ProfileEdit.vue'
 import { usersMock } from './mockdata'
-import i18n from '@/i18n'
 import cloneDeep from 'clone-deep'
 
-import Quasar from 'quasar'
-
-import { makeFindAllIterable, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 
 polyfillRequestAnimationFrame()
 
 describe('ProfileEdit', () => {
-  let localVue
   let wrapper
   let user
 
   beforeEach(() => {
-    localVue = createLocalVue()
-    localVue.use(Quasar)
-    i18n.locale = 'en'
     user = cloneDeep(usersMock[0])
-    wrapper = mount(ProfileEdit, {
-      localVue,
-      i18n,
-      propsData: {
-        user,
-      },
-    })
-    makeFindAllIterable(wrapper)
+    wrapper = mountWithDefaults(ProfileEdit, { propsData: { user } })
   })
 
   it('renders', () => {

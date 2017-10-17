@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Quasar from 'quasar'
 import raf from 'raf'
+import { createLocalVue, mount } from 'vue-test-utils'
+
+import i18n from '@/i18n'
 
 Vue.use(Vuex)
 
@@ -54,4 +58,13 @@ export function makeFindAllIterable (wrapper) {
 
 export function polyfillRequestAnimationFrame () {
   raf.polyfill()
+}
+
+export function mountWithDefaults (Component, options = {}) {
+  const localVue = createLocalVue()
+  localVue.use(Quasar)
+  i18n.locale = 'en'
+  const wrapper = mount(Component, { localVue, i18n, ...options })
+  makeFindAllIterable(wrapper)
+  return wrapper
 }

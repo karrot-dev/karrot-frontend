@@ -4,6 +4,7 @@ import Quasar from 'quasar'
 import raf from 'raf'
 import { createLocalVue, mount } from 'vue-test-utils'
 
+import MockRouterLink from '>/MockRouterLink.vue'
 import i18n from '@/i18n'
 
 Vue.use(Vuex)
@@ -62,6 +63,7 @@ export function polyfillRequestAnimationFrame () {
 
 export function mountWithDefaults (Component, options = {}) {
   const localVue = createLocalVue()
+  localVue.component('router-link', MockRouterLink)
   localVue.use(Quasar)
   i18n.locale = 'en'
   const wrapper = mount(Component, { localVue, i18n, ...options })

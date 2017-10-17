@@ -1,35 +1,20 @@
 import Vue from 'vue'
-import { createLocalVue, mount } from 'vue-test-utils'
 
 import PickupEdit from './PickupEdit.vue'
 import { pickupsMock } from '../mockdata'
-import i18n from '@/i18n'
 import cloneDeep from 'clone-deep'
 
-import Quasar from 'quasar'
-
-import { makeFindAllIterable, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 
 polyfillRequestAnimationFrame()
 
 describe('PickupEdit', () => {
-  let localVue
   let wrapper
   let pickup
 
   beforeEach(() => {
-    localVue = createLocalVue()
-    localVue.use(Quasar)
-    i18n.locale = 'en'
     pickup = cloneDeep(pickupsMock[0])
-    wrapper = mount(PickupEdit, {
-      localVue,
-      i18n,
-      propsData: {
-        pickup,
-      },
-    })
-    makeFindAllIterable(wrapper)
+    wrapper = mountWithDefaults(PickupEdit, { propsData: { pickup } })
   })
 
   it('renders', () => {

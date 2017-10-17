@@ -9,6 +9,7 @@ const StorePickups = () => import('@/pages/Store/Pickups.vue')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage.vue')
 const StoreHistory = () => import('@/pages/Store/History.vue')
 const StoreEdit = () => import('@/pages/Store/Edit.vue')
+const StoreCreate = () => import('@/pages/Store/Create.vue')
 const StoreList = () => import('@/pages/Store/Stores.vue')
 const GroupHistory = () => import('@/pages/Group/History.vue')
 const GroupInvites = () => import('@/pages/Group/Invites.vue')
@@ -132,6 +133,14 @@ export default [
         components: {
           default: StoreList,
           sidenav: GroupStoreSidenav,
+        },
+      },
+      {
+        name: 'storeCreate',
+        path: 'store/create',
+        components: {
+          default: StoreCreate,
+          sidenav: GroupGroupSidenav,
         },
       },
       {

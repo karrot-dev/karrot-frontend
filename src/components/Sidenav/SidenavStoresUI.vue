@@ -2,10 +2,12 @@
   <SidenavBox>
     <div slot="name"><i class="fa fa-fw fa-shopping-cart"></i>{{ $t("GROUP.STORES") }}</div>
     <div slot="tools">
-      <q-btn small flat>
-        <q-icon size="1em" name="fa-plus-circle" />
-        {{ $t("BUTTON.CREATE") }}
-      </q-btn>
+      <router-link :to="{name: 'storeCreate'}">
+        <q-btn small flat>
+          <q-icon size="1em" name="fa-plus-circle" />
+          {{ $t("BUTTON.CREATE") }}
+        </q-btn>
+      </router-link>
     </div>
     <div>
       <q-list highlight no-border>

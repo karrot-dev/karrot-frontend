@@ -30,6 +30,11 @@ export const getters = {
   withLocation: (state, getters) => getters.all.filter(e => e.longitude && e.latitude),
   activeStore: state => state.entries[state.activeStoreId] || {},
   activeStoreId: state => state.activeStoreId,
+  createDefaults: () => {
+    return {
+      weeksInAdvance: 4,
+    }
+  },
 }
 
 export const actions = {

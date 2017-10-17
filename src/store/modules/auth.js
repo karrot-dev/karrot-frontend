@@ -61,10 +61,11 @@ export const actions = {
     commit(types.SET_ACCEPT_INVITE_AFTER_LOGIN, { token })
   },
 
-  async check ({ commit }) {
+  async check ({ commit, dispatch }) {
     commit(types.REQUEST_LOGIN_STATUS)
     try {
       commit(types.RECEIVE_LOGIN_STATUS, { user: await auth.status() })
+      dispatch('afterLoggedIn')
     }
     catch (error) {
       commit(types.RECEIVE_LOGIN_STATUS_ERROR, { error })
@@ -95,6 +96,8 @@ export const actions = {
 
     commit(types.RECEIVE_LOGIN, { user })
 
+    dispatch('afterLoggedIn')
+
     if (state.acceptInviteAfterLogin) {
       dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
     }
@@ -108,6 +111,12 @@ export const actions = {
     commit(types.CLEAR_ACCEPT_INVITE_AFTER_LOGIN)
     commit(types.CLEAR_JOIN_GROUP_AFTER_LOGIN)
     commit(types.CLEAR_REDIRECT_TO)
+  },
+
+  afterLoggedIn ({ state, dispatch }) {
+    const { user } = state
+    dispatch('i18n/setLocale', user.language || 'en', null, { root: true })
+    dispatch('users/fetchList', null, { root: true })
   },
 
   async logout ({ commit }) {

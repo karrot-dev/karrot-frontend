@@ -41,13 +41,16 @@ export const state = {
 }
 
 export const getters = {
-  activeMessages: (state, getters, rootState, rootGetters) => {
+  enrichMessage: (state, getters, rootState, rootGetters) => message => {
+    return {
+      ...message,
+      author: rootGetters['users/get'](message.author),
+    }
+  },
+  activeMessages: (state, getters) => {
     if (!state.activeConversationId) return []
-    let messages = state.messages[state.activeConversationId]
-    if (!messages) return []
-    return messages.map(m => {
-      return { ...m, author: rootGetters['users/get'](m.author) }
-    })
+    let messages = state.messages[state.activeConversationId] || []
+    return messages.map(getters.enrichMessage)
   },
   sendStatus: state => state.sendStatus,
   receiveStatus: state => state.receiveStatus,

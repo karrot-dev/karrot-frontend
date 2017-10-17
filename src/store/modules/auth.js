@@ -105,8 +105,11 @@ export const actions = {
       const joinParams = state.joinGroupAfterLogin
       dispatch('groups/join', joinParams, { root: true })
     }
+    else if (getters.redirectTo) {
+      router.push(getters.redirectTo)
+    }
     else {
-      router.push(getters.redirectTo || { name: 'groupsGallery' })
+      router.push('/')
     }
     commit(types.CLEAR_ACCEPT_INVITE_AFTER_LOGIN)
     commit(types.CLEAR_JOIN_GROUP_AFTER_LOGIN)

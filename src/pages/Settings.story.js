@@ -3,13 +3,15 @@ import store from '@/store'
 import i18n from '@/i18n'
 
 import Settings from '@/pages/Settings'
+import { usersMock } from '@/components/mockdata'
 
 storiesOf('Settings Page', module)
   .add('Default', () => ({
-    components: { Settings },
-    template: '<Settings></Settings>',
-    data () {
-      return { }
+    render (h) {
+      return h(Settings)
+    },
+    created () {
+      store.commit('auth/Receive Login Status', { user: usersMock[0] })
     },
     i18n,
     store,

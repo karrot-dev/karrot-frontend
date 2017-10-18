@@ -4,7 +4,7 @@
     <q-field
       icon="fa-star"
       :label="$t('STOREEDIT.NAME')">
-      <q-input v-model="storeEdit.name"/>
+      <q-input v-model="storeEdit.name" :autofocus="true"/>
     </q-field>
 
     <q-field
@@ -30,6 +30,10 @@
     <q-btn @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
     <q-btn color="red" @click="destroy" v-if="!isNew">{{ $t('BUTTON.DELETE') }}</q-btn>
 
+    <pre>
+      {{ status.error }}
+    </pre>
+
   </div>
 </template>
 
@@ -45,7 +49,20 @@ import { objectDiff } from '@/services/utils'
 export default {
   name: 'StoreEdit',
   props: {
-    store: { required: true },
+    store: {
+      required: false,
+      default () {
+        return {
+          name: null,
+          description: null,
+          weeksInAdvance: 4,
+          latitude: null,
+          longitude: null,
+          address: null,
+        }
+      },
+    },
+    status: { required: true },
   },
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,

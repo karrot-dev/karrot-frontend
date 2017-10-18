@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import stores from '@/services/api/stores'
 import { indexById } from '@/store/helpers'
+import router from '@/router'
 
 export const types = {
 
@@ -10,6 +11,10 @@ export const types = {
   REQUEST_STORES: 'Request Stores',
   RECEIVE_STORES: 'Receive Stores',
   RECEIVE_STORES_ERROR: 'Receive Stores Error',
+
+  REQUEST_SAVE: 'Request Save',
+  RECEIVE_SAVE: 'Receive Save',
+  RECEIVE_SAVE_ERROR: 'Receive Save Error',
 
   RECEIVE_ITEM: 'Receive Item',
 
@@ -30,11 +35,7 @@ export const getters = {
   withLocation: (state, getters) => getters.all.filter(e => e.longitude && e.latitude),
   activeStore: state => state.entries[state.activeStoreId] || {},
   activeStoreId: state => state.activeStoreId,
-  createDefaults: () => {
-    return {
-      weeksInAdvance: 4,
-    }
-  },
+  status: state => { return { isFetching: state.isFetching, error: state.error } },
 }
 
 export const actions = {
@@ -61,6 +62,24 @@ export const actions = {
   async save ({ commit, dispatch }, store) {
     const updatedStore = await stores.save(store)
     commit(types.RECEIVE_ITEM, { store: updatedStore })
+  },
+
+  async create ({ commit, dispatch, rootGetters }, store) {
+    commit(types.REQUEST_SAVE)
+    let createdStore
+    try {
+      createdStore = await stores.create({
+        ...store,
+        group: rootGetters['groups/activeGroupId'],
+      })
+    }
+    catch (error) {
+      commit(types.RECEIVE_SAVE_ERROR, { error })
+      return
+    }
+    commit(types.RECEIVE_SAVE)
+    commit(types.RECEIVE_ITEM, { store: createdStore })
+    router.push({ name: 'store', params: { storeId: createdStore.id } })
   },
 
   clear ({ commit, dispatch }) {
@@ -92,7 +111,23 @@ export const mutations = {
     state.entries = {}
     state.idList = []
   },
+  [types.REQUEST_SAVE] (state) {
+    state.isFetching = true
+    state.error = null
+  },
+  [types.RECEIVE_SAVE] (state) {
+    state.isFetching = false
+    state.error = null
+  },
+  [types.RECEIVE_SAVE_ERROR] (state, { error }) {
+    state.isFetching = false
+    state.error = error
+  },
   [types.RECEIVE_ITEM] (state, { store }) {
     Vue.set(state.entries, store.id, store)
+    if (!state.idList.includes(store.id)) {
+      state.idList.push(store.id)
+    }
+    // TODO sort by name
   },
 }

@@ -21,13 +21,12 @@
 </template>
 
 <script>
-import { QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
-// TODO remove unneeded popover import?
+import { QBtn, QIcon, QList, QItem } from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
-    QBtn, QIcon, QPopover, QList, QItem,
+    QBtn, QIcon, QList, QItem,
   },
   computed: {
     ...mapGetters({

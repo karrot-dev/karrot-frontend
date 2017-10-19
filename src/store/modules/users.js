@@ -21,7 +21,8 @@ export const types = {
 }
 
 export const state = {
-  entries: [],
+  entries: {},
+  idList: [],
   isFetching: false,
   error: null,
   activeUserId: null,
@@ -37,12 +38,18 @@ export const state = {
 }
 
 export const getters = {
-  all: state => state.entries,
-  get: state => (id) => {
-    return state.entries.find(e => e.id === id) || {}
+  get: (state, getters, rootState, rootGetters) => id => {
+    return state.entries[id] || {}
   },
-  withLocation: state => state.entries.filter(e => e.longitude && e.latitude),
-  activeUser: state => state.activeUserId && indexById(state.entries)[state.activeUserId],
+  all: (state, getters, rootState, rootGetters) => {
+    return state.idList.map(getters.get)
+  },
+  withLocation: (state, getters, rootState, rootGetters) => {
+    return getters.all.filter(e => e.longitude && e.latitude)
+  },
+  activeUser: (state, getters, rootState, rootGetters) => {
+    return state.activeUserId && getters.get(state.activeUserId)
+  },
   activeUserId: state => state.activeUserId,
   signupStatus: state => state.signup,
   passwordresetStatus: state => state.resetpasswordStatus,
@@ -166,7 +173,8 @@ export const mutations = {
   },
   [types.RECEIVE_USERS] (state, { users }) {
     state.isFetching = false
-    state.entries = users
+    state.entries = indexById(users)
+    state.idList = users.map(e => e.id)
   },
   [types.RECEIVE_USERS_ERROR] (state, { error }) {
     state.isFetching = false

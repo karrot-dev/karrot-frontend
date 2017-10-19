@@ -30,7 +30,7 @@ export const state = {
 }
 
 export const getters = {
-  all: state => state.idList.map(i => state.entries[i]),
+  all: state => state.idList.map(i => state.entries[i]).sort(sortByName),
   get: state => (id) => state.entries[id],
   withLocation: (state, getters) => getters.all.filter(e => e.longitude && e.latitude),
   activeStore: state => state.entries[state.activeStoreId] || {},
@@ -138,6 +138,9 @@ export const mutations = {
     if (!state.idList.includes(store.id)) {
       state.idList.push(store.id)
     }
-    // TODO sort by name
   },
+}
+
+export function sortByName (a, b) {
+  return a.name.localeCompare(b.name)
 }

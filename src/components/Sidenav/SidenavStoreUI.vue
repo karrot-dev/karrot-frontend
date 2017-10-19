@@ -4,32 +4,29 @@
     <div slot="tools">
       <q-btn flat>
         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-        <q-popover fit ref="popover">
-          <GroupOptions/>
-        </q-popover>
+        <StoreOptions/>
       </q-btn>
     </div>
     <div>
       <q-list highlight no-border>
         <q-item :to="{name: 'storePickups', params: { storeId }}">{{ $t("GROUP.PICKUPS")}}</q-item>
         <q-item :to="{name: 'storeHistory', params: { storeId }}">{{ $t("GROUP.HISTORY")}}</q-item>
-        <q-item :to="{name: 'storeEdit', params: { storeId }}">{{ $t("STORE.EDIT")}}</q-item>
       </q-list>
     </div>
   </SidenavBox>
 </template>
 
 <script>
-import { QBtn, QList, QItem, QPopover } from 'quasar'
+import { QBtn, QList, QItem } from 'quasar'
 import SidenavBox from './SidenavBox.vue'
-import GroupOptions from './GroupOptions.vue'
+import StoreOptions from './StoreOptions.vue'
 
 export default {
   props: {
     storeId: { required: true },
   },
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QPopover,
+    SidenavBox, StoreOptions, QBtn, QList, QItem,
   },
 }
 </script>

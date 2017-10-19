@@ -17,12 +17,12 @@ export default {
   computed: {
     ...mapGetters({
       group: 'groups/activeGroup',
-      status: 'groups/status', // TODO implement status
+      status: 'groups/status',
     }),
   },
   methods: {
     ...mapActions({
-      save: 'groups/save', // TODO implement save
+      save: 'groups/save',
     }),
   },
 }

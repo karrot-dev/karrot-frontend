@@ -24,7 +24,7 @@ describe('pickups', () => {
 
   beforeEach(() => {
     pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [] }
-    pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId] }
+    pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1 }
     pickup3 = { id: 3, store: 12, date: new Date(), collectorIds: [userId] }
   })
 
@@ -70,6 +70,8 @@ describe('pickups', () => {
         store: { id: pickup2.store },
         isUserMember: true,
         isWaiting: false,
+        isEmpty: false,
+        isFull: true,
         collectors: [{ id: userId, name: `Some Name${userId}` }],
         __unenriched: pickup2,
       })
@@ -107,6 +109,8 @@ describe('pickups', () => {
         date,
         isUserMember: false,
         isWaiting: false,
+        isEmpty: true,
+        isFull: false,
         store: {
           id: storeId,
         },

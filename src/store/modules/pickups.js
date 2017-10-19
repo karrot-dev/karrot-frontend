@@ -47,6 +47,8 @@ export const getters = {
       ...pickup,
       isWaiting: !!state.waiting[pickup.id],
       isUserMember: pickup.collectorIds.includes(userId),
+      isEmpty: pickup.collectorIds.length === 0,
+      isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
       store: rootGetters['stores/get'](pickup.store),
       collectors: pickup.collectorIds.map(rootGetters['users/get']),
       __unenriched: pickup,

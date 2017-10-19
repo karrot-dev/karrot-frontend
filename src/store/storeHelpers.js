@@ -2,22 +2,7 @@
  * Store dependent helpers
  */
 
-import { mapGetters } from 'vuex'
 import store from '@/store'
-
-export function mapGetterMethods (mapping) {
-  // TODO remove?
-  let ctx = {
-    $store: store,
-  }
-  let methods = mapGetters(mapping)
-
-  for (let key of Object.keys(methods)) {
-    methods[key] = methods[key].call(ctx)
-  }
-
-  return methods
-}
 
 /**
  * Create a function that refers to a getter that you can use in `store.watch()`

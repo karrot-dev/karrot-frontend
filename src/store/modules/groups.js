@@ -1,13 +1,6 @@
 import groups from '@/services/api/groups'
 import router from '@/router'
-
-function indexById (iterable) {
-  // TODO import from helpers.js?
-  return iterable.reduce((acc, cur, i) => {
-    acc[cur.id] = cur
-    return acc
-  }, {})
-}
+import { indexById } from '@/store/helpers'
 
 export const types = {
 

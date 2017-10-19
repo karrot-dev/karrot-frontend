@@ -2,7 +2,7 @@ import ReconnectingWebsocket from 'reconnecting-websocket'
 
 import store from '@/store'
 import log from '@/services/log'
-import { getter } from '@/store/helpers'
+import { getter } from '@/store/storeHelpers'
 import { camelizeKeys } from '@/services/utils'
 
 export const WEBSOCKET_ENDPOINT = [

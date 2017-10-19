@@ -30,6 +30,10 @@ export const types = {
   RECEIVE_LEAVE: 'Receive Leave',
   RECEIVE_LEAVE_ERROR: 'Receive Leave Error',
 
+  REQUEST_SAVE: 'Request Save',
+  RECEIVE_SAVE: 'Receive Save',
+  RECEIVE_SAVE_ERROR: 'Receive Save Error',
+
 }
 
 export const state = {
@@ -156,6 +160,20 @@ export const actions = {
     router.push({ name: 'groupsGallery' })
   },
 
+  async save ({ commit, dispatch }, store) {
+    commit(types.REQUEST_SAVE)
+    let updatedGroup
+    try {
+      updatedGroup = await groups.save(store)
+    }
+    catch (error) {
+      commit(types.RECEIVE_SAVE_ERROR, { error })
+      return
+    }
+    commit(types.RECEIVE_SAVE)
+    commit(types.RECEIVE_GROUP, { group: updatedGroup })
+    router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+  },
 }
 
 export const mutations = {
@@ -215,6 +233,19 @@ export const mutations = {
     if (idx !== -1) members.splice(idx, 1)
   },
   [types.RECEIVE_LEAVE_ERROR] (state, { error }) {},
+
+  [types.REQUEST_SAVE] (state) {
+    state.isFetching = true
+    state.error = null
+  },
+  [types.RECEIVE_SAVE] (state) {
+    state.isFetching = false
+    state.error = null
+  },
+  [types.RECEIVE_SAVE_ERROR] (state, { error }) {
+    state.isFetching = false
+    state.error = error
+  },
 }
 
 export function sortByName (a, b) {

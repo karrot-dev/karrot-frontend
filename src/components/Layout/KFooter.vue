@@ -22,6 +22,7 @@
 
 <script>
 import { QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
+// TODO remove unneeded popover import?
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

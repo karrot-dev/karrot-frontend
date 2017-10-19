@@ -8,7 +8,7 @@
       dismissible
       @dismiss="$emit('dismiss', alert.id)"
       >
-      {{ $t(alert.message) }}
+      {{ $t(alert.message, alert.context) }}
     </q-alert>
   </div>
 </template>
@@ -26,6 +26,11 @@ const alertTypes = {
     color: 'negative',
     icon: 'fa-user-plus',
     message: 'GROUP.INVITATION_ACCEPT_ERROR',
+  },
+  groupLeaveSuccess: {
+    color: 'positive',
+    icon: 'fa-sign-out fa-fw',
+    message: 'GROUP.LEAVE_CONFIRMATION',
   },
 }
 

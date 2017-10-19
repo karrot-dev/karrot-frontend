@@ -4,9 +4,7 @@
     <div slot="tools">
       <q-btn flat>
         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-        <q-popover fit ref="popover">
-          <GroupOptions/>
-        </q-popover>
+        <GroupOptions/>
       </q-btn>
     </div>
     <div>
@@ -20,13 +18,13 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QPopover } from 'quasar'
+import { QBtn, QList, QItem } from 'quasar'
 import SidenavBox from './SidenavBox.vue'
 import GroupOptions from './GroupOptions.vue'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QPopover,
+    SidenavBox, GroupOptions, QBtn, QList, QItem,
   },
 }
 </script>

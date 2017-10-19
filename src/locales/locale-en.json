@@ -53,6 +53,7 @@
     "GROUP": "Group",
     "LEAVE": "Leave group...",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "LEAVE_CONFIRMATION": "You left {groupName}",
     "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Edit group",
     "CREATE_TITLE": "Create new group",

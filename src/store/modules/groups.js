@@ -128,23 +128,30 @@ export const actions = {
     commit(types.REQUEST_JOIN)
     try {
       await groups.join(groupId, { password })
-      commit(types.RECEIVE_JOIN, { groupId, userId: rootGetters['auth/userId'] })
-      router.push({ name: 'group', params: { groupId } })
     }
     catch (error) {
       commit(types.RECEIVE_JOIN_ERROR, { error })
+      return
     }
+    commit(types.RECEIVE_JOIN, { groupId, userId: rootGetters['auth/userId'] })
+    router.push({ name: 'group', params: { groupId } })
   },
 
-  async leave ({ commit, dispatch, rootGetters }, groupId) {
+  async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
     commit(types.REQUEST_LEAVE)
     try {
       await groups.leave(groupId)
-      commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
     }
     catch (error) {
       commit(types.RECEIVE_LEAVE_ERROR, { error })
+      return
     }
+    commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
+    dispatch('alerts/create', {
+      type: 'groupLeaveSuccess',
+      context: { groupName: getters.activeGroup.name },
+    }, { root: true })
+    router.push({ name: 'groupsGallery' })
   },
 
 }

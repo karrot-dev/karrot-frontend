@@ -60,8 +60,18 @@ export const actions = {
   },
 
   async save ({ commit, dispatch }, store) {
-    const updatedStore = await stores.save(store)
+    commit(types.REQUEST_SAVE)
+    let updatedStore
+    try {
+      updatedStore = await stores.save(store)
+    }
+    catch (error) {
+      commit(types.RECEIVE_SAVE_ERROR, { error })
+      return
+    }
+    commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_ITEM, { store: updatedStore })
+    router.push({ name: 'store', params: { storeId: updatedStore.id } })
   },
 
   async create ({ commit, dispatch, rootGetters }, store) {

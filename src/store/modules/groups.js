@@ -149,7 +149,7 @@ export const actions = {
     commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
     dispatch('alerts/create', {
       type: 'groupLeaveSuccess',
-      context: { groupName: getters.activeGroup.name },
+      context: { groupName: getters.get(groupId).name },
     }, { root: true })
     router.push({ name: 'groupsGallery' })
   },

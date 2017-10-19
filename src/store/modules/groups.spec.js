@@ -57,6 +57,11 @@ describe('groups', () => {
             userId: () => userId,
           },
         },
+        alerts: {
+          actions: {
+            create: jest.fn(),
+          },
+        },
       }
       store = createStore({
         groups: require('./groups'),

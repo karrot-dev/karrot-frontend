@@ -1,7 +1,7 @@
 <template>
   <q-popover fit ref="popover">
     <q-list item-separator link>
-      <q-item @click="doSomething(), $refs.popover.close()">
+      <q-item :to="{name: 'groupEdit', params: {groupId: activeGroupId}}">
         <q-icon size="1em" name="fa-pencil fa-fw on-left" />
         {{$t("GROUP.EDIT")}}
       </q-item>

@@ -2,6 +2,7 @@ import groups from '@/services/api/groups'
 import router from '@/router'
 
 function indexById (iterable) {
+  // TODO import from helpers.js?
   return iterable.reduce((acc, cur, i) => {
     acc[cur.id] = cur
     return acc
@@ -58,15 +59,16 @@ export const getters = {
   all: (state, getters, rootState, rootGetters) => {
     return state.idsList.map(getters.get)
   },
-  isFetching: state => state.isFetching,
+  isFetching: state => state.isFetching, // TODO replace usage with status getter
   error: state => state.error,
+  status: state => { return { isFetching: state.isFetching, error: state.error } },
   activeUserGroups: (state, getters, rootState, rootGetters) => {
     let activeUser = rootGetters['users/activeUser']
     return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
   },
   myGroups: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
   otherGroups: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
-  activeGroup: (state, getters) => getters.enrich(state.activeGroup),
+  activeGroup: (state, getters) => getters.enrich(state.activeGroup) || {},
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   activeUsers: (state, getters, rootState, rootGetters) => {

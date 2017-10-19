@@ -1,6 +1,7 @@
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall.vue')
 const GroupMap = () => import('@/pages/Map.vue')
+const GroupEdit = () => import('@/pages/Group/Edit.vue')
 const GroupInfo = () => import('@/pages/GroupInfo.vue')
 const GroupsGallery = () => import('@/pages/GroupsGallery.vue')
 const StoreLayout = () => import('@/pages/Store/Layout.vue')
@@ -119,6 +120,19 @@ export default [
         },
         components: {
           default: GroupInvites,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupEdit',
+        path: 'edit',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
+          ],
+        },
+        components: {
+          default: GroupEdit,
           sidenav: GroupGroupSidenav,
         },
       },

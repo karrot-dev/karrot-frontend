@@ -21,13 +21,17 @@ export const types = {
   CLEAR: 'Clear',
 }
 
-export const state = {
-  entries: {},
-  idList: [],
-  isFetching: false,
-  error: null,
-  activeStoreId: null,
+function initialState () {
+  return {
+    entries: {},
+    idList: [],
+    isFetching: false,
+    error: null,
+    activeStoreId: null,
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   all: state => state.idList.map(i => state.entries[i]).sort(sortByName),

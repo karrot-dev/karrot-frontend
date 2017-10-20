@@ -18,9 +18,13 @@ export const types = {
   RECEIVE_LOCALE: 'Receive Locale',
 }
 
-export const state = {
-  locale: detectLocale() || DEFAULT_LOCALE,
+function initialState () {
+  return {
+    locale: detectLocale() || DEFAULT_LOCALE,
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   getLocale: state => state.locale,

@@ -4,9 +4,13 @@ export const types = {
   SET_ALL_BREADCRUMBS: 'Set all breadcrumbs',
 }
 
-export const state = {
-  breadcrumbs: [],
+function initialState () {
+  return {
+    breadcrumbs: [],
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   all: (state, getters, rootState, rootGetters) => {

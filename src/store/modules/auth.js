@@ -28,16 +28,20 @@ export const types = {
   CLEAN_STATUS: 'Clean Status',
 }
 
-export const state = {
-  user: null,
-  status: {
-    isWaiting: false,
-    error: null,
-  },
-  redirectTo: null,
-  joinGroupAfterLogin: null,
-  acceptInviteAfterLogin: null,
+function initialState () {
+  return {
+    user: null,
+    status: {
+      isWaiting: false,
+      error: null,
+    },
+    redirectTo: null,
+    joinGroupAfterLogin: null,
+    acceptInviteAfterLogin: null,
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   isLoggedIn: state => !!state.user,

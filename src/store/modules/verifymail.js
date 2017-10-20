@@ -7,13 +7,17 @@ export const types = {
   CLEAN: 'Clean',
 }
 
-export const state = {
-  status: {
-    isWaiting: false,
-    error: null,
-    success: false,
-  },
+function initialState () {
+  return {
+    status: {
+      isWaiting: false,
+      error: null,
+      success: false,
+    },
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   status: state => state.status,

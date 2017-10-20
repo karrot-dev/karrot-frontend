@@ -21,24 +21,28 @@ export const types = {
   RECEIVE_SEND_MESSAGE_ERROR: 'Receive Send Message Error',
 }
 
-export const state = {
-  entries: {},
-  messages: {}, // { <conversation-id> : [<message>,...] }
-  cursors: {}, // { <conversation-id> : [<cursor>, ...]}
-  activeConversationId: null,
-  sendStatus: {
-    isWaiting: false,
-    error: null,
-  },
-  receiveStatus: {
-    isWaiting: false,
-    error: null,
-  },
-  receiveMoreStatus: {
-    isWaiting: false,
-    error: null,
-  },
+function initialState () {
+  return {
+    entries: {},
+    messages: {}, // { <conversation-id> : [<message>,...] }
+    cursors: {}, // { <conversation-id> : [<cursor>, ...]}
+    activeConversationId: null,
+    sendStatus: {
+      isWaiting: false,
+      error: null,
+    },
+    receiveStatus: {
+      isWaiting: false,
+      error: null,
+    },
+    receiveMoreStatus: {
+      isWaiting: false,
+      error: null,
+    },
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   enrichMessage: (state, getters, rootState, rootGetters) => message => {

@@ -3,12 +3,16 @@ export const types = {
   MAP_USERS_TOGGLE: 'Map Users Toggle',
 }
 
-export const state = {
-  map: {
-    showStores: true,
-    showUsers: false,
-  },
+function initialState () {
+  return {
+    map: {
+      showStores: true,
+      showUsers: false,
+    },
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   showMapStores: state => state.map.showStores,

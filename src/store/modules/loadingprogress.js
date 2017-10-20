@@ -4,10 +4,14 @@ export const types = {
   HIDE: 'Hide',
 }
 
-export const state = {
-  active: false,
-  closing: false,
+function initialState () {
+  return {
+    active: false,
+    closing: false,
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   active: state => state.active,

@@ -29,21 +29,25 @@ export const types = {
 
 }
 
-export const state = {
-  entries: {}, // public group details
-  idsList: [],
-  isFetching: false,
-  error: null,
-
-  activeGroupId: null,
-  activeGroup: null, // full group details
-
-  activeGroupPreviewId: null,
-  joinStatus: {
-    isWaiting: false,
+function initialState () {
+  return {
+    entries: {}, // public group details
+    idsList: [],
+    isFetching: false,
     error: null,
-  },
+
+    activeGroupId: null,
+    activeGroup: null, // full group details
+
+    activeGroupPreviewId: null,
+    joinStatus: {
+      isWaiting: false,
+      error: null,
+    },
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   get: (state, getters, rootState, rootGetters) => groupId => {

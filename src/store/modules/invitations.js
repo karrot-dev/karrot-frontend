@@ -18,6 +18,7 @@ export const types = {
 
   CLEAR: 'Clear',
 }
+
 function initialState () {
   return {
     entries: {},

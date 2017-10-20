@@ -6,9 +6,13 @@ export const types = {
   SET_ABOUT_ERROR: 'Set About Error',
 }
 
-export const state = {
-  error: null,
+function initialState () {
+  return {
+    error: null,
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   get: state => state,

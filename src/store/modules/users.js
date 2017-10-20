@@ -20,22 +20,26 @@ export const types = {
   RECEIVE_USERS_ERROR: 'Receive Users Error',
 }
 
-export const state = {
-  entries: {},
-  idList: [],
-  isFetching: false,
-  error: null,
-  activeUserId: null,
-  signup: {
-    isWaiting: false,
+function initialState () {
+  return {
+    entries: {},
+    idList: [],
+    isFetching: false,
     error: null,
-  },
-  resetpasswordStatus: {
-    isWaiting: false,
-    error: null,
-    success: false,
-  },
+    activeUserId: null,
+    signup: {
+      isWaiting: false,
+      error: null,
+    },
+    resetpasswordStatus: {
+      isWaiting: false,
+      error: null,
+      success: false,
+    },
+  }
 }
+
+export const state = initialState()
 
 export const getters = {
   get: (state, getters, rootState, rootGetters) => id => {

@@ -16,7 +16,9 @@
     <q-field
       icon="fa-star"
       :label="$t('GROUP.TIMEZONE')">
-      <q-input v-model="groupEdit.timezone"/>
+      <q-input v-model="groupEdit.timezone">
+        <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
+      </q-input>
     </q-field>
 
     <q-field
@@ -49,8 +51,7 @@
 </template>
 
 <script>
-// TODO add timezone autocomplete from backend
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QField, QInput, QBtn, QAutocomplete } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
 
@@ -69,7 +70,7 @@ export default {
           password: null,
           publicDescription: null,
           description: null,
-          timezone: 'Europe/Berlin',
+          timezone: 'Europe/Berlin', // TODO replace with jstimezonedetect on create
           latitude: null,
           longitude: null,
           address: null,
@@ -77,9 +78,10 @@ export default {
       },
     },
     status: { required: true },
+    timezones: { required: true },
   },
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
+    QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker,
   },
   data () {
     return {

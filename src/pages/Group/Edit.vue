@@ -2,7 +2,7 @@
   <div>
     <h3><i class="fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
     <q-card>
-      <GroupEdit :group="group" :status="status" @save="save"/>
+      <GroupEdit :group="group" :status="status" :timezones="timezones" @save="save"/>
     </q-card>
   </div>
 </template>
@@ -18,12 +18,17 @@ export default {
     ...mapGetters({
       group: 'groups/activeGroup',
       status: 'groups/status',
+      timezones: 'groups/timezones',
     }),
   },
   methods: {
     ...mapActions({
       save: 'groups/save',
+      fetchTimezones: 'groups/fetchTimezones',
     }),
+  },
+  mounted () {
+    this.fetchTimezones()
   },
 }
 </script>

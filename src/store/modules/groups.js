@@ -27,6 +27,7 @@ export const types = {
   RECEIVE_SAVE: 'Receive Save',
   RECEIVE_SAVE_ERROR: 'Receive Save Error',
 
+  RECEIVE_TIMEZONES: 'Receive Timezones',
 }
 
 function initialState () {
@@ -44,6 +45,8 @@ function initialState () {
       isWaiting: false,
       error: null,
     },
+
+    timezones: null,
   }
 }
 
@@ -77,6 +80,22 @@ export const getters = {
     return group.members ? group.members.map(rootGetters['users/get']) : []
   },
   joinStatus: state => state.joinStatus,
+  timezones: state => {
+    // ready for q-autocomplete
+    if (state.timezones) {
+      const tzlist = state.timezones.allTimezones.map(tz => {
+        return {
+          label: tz,
+          value: tz,
+        }
+      })
+      return {
+        field: 'value',
+        list: tzlist,
+      }
+    }
+    return null
+  },
 }
 
 export const actions = {
@@ -125,6 +144,11 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_GROUPS_ERROR, { error })
     }
+  },
+
+  async fetchTimezones ({ commit }) {
+    const timezones = await groups.timezones()
+    commit(types.RECEIVE_TIMEZONES, { timezones })
   },
 
   async join ({ commit, dispatch, rootGetters }, { groupId, password }) {
@@ -242,6 +266,10 @@ export const mutations = {
   [types.RECEIVE_SAVE_ERROR] (state, { error }) {
     state.isFetching = false
     state.error = error
+  },
+
+  [types.RECEIVE_TIMEZONES] (state, { timezones }) {
+    state.timezones = timezones
   },
 }
 

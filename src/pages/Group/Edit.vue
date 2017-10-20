@@ -2,7 +2,7 @@
   <div>
     <h3><i class="fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
     <q-card>
-      <GroupEdit :group="group" :status="status" :timezones="timezones" @save="save"/>
+      <GroupEdit :group="group" :status="status" :timezones="timezones" :allGroups="allGroups" @save="save"/>
     </q-card>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
       group: 'groups/activeGroup',
       status: 'groups/status',
       timezones: 'groups/timezones',
+      allGroups: 'groups/all',
     }),
   },
   methods: {

@@ -72,6 +72,7 @@ export default {
   },
   computed: {
     emailErrorMessage () {
+      // TODO translate
       const m = this.$v.form.email
       if (!m.required) return this.$t('this field is required')
       if (!m.email) return this.$t('enter a valid e-mail address')

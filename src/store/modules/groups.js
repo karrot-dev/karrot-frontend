@@ -70,7 +70,7 @@ export const getters = {
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   activeUsers: (state, getters, rootState, rootGetters) => {
     let group = getters.activeGroup
-    return group ? group.members.map(rootGetters['users/get']) : []
+    return group.members ? group.members.map(rootGetters['users/get']) : []
   },
   joinStatus: state => state.joinStatus,
 }

@@ -122,7 +122,7 @@ export const actions = {
 
   afterLoggedIn ({ state, dispatch }) {
     const { user } = state
-    dispatch('i18n/setLocale', user.language || 'en', null, { root: true })
+    dispatch('i18n/setLocale', user.language || 'en', { root: true })
     dispatch('users/fetchList', null, { root: true })
   },
 

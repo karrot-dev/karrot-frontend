@@ -20,30 +20,28 @@ export const getters = {
     const stores = rootGetters['stores/all'],
       groups = rootGetters['groups/all'],
       users = rootGetters['users/all']
-    const res = []
 
-    let storeRes = stores.filter((store) => store.name.toLowerCase().match(getters.terms.toLowerCase()))
-    res.push(...storeRes.map(e => ({
-      value: {name: 'store', params: {groupId: e.groupId, storeId: e.id}},
-      label: e.name,
-      icon: 'fa-shopping-cart',
-    })))
+    const storeRes = stores.filter((store) => store.name.toLowerCase().match(getters.terms.toLowerCase()))
+    const groupRes = groups.filter((group) => group.name.toLowerCase().match(getters.terms.toLowerCase()))
+    const userRes = users.filter((user) => user.displayName.toLowerCase().match(getters.terms.toLowerCase()))
 
-    let groupRes = groups.filter((group) => group.name.toLowerCase().match(getters.terms.toLowerCase()))
-    res.push(...groupRes.map(e => ({
-      value: {name: 'group', params: {groupId: e.id}},
-      label: e.name,
-      icon: 'fa-home',
-    })))
-
-    let userRes = users.filter((user) => user.displayName.toLowerCase().match(getters.terms.toLowerCase()))
-    res.push(...userRes.map(e => ({
-      value: {name: 'user', params: {userId: e.id}},
-      label: e.displayName,
-      icon: 'fa-user',
-    })))
-
-    return res
+    return [
+      ...storeRes.map(e => ({
+        value: {name: 'store', params: {groupId: e.groupId, storeId: e.id}},
+        label: e.name,
+        icon: 'fa-shopping-cart',
+      })),
+      ...groupRes.map(e => ({
+        value: {name: 'group', params: {groupId: e.id}},
+        label: e.name,
+        icon: 'fa-home',
+      })),
+      ...userRes.map(e => ({
+        value: {name: 'user', params: {userId: e.id}},
+        label: e.displayName,
+        icon: 'fa-user',
+      })),
+    ]
   },
 }
 

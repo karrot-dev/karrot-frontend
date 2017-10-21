@@ -1,12 +1,31 @@
-import i18n, { loadLocale } from '@/i18n'
+import i18n from '@/i18n'
+import { isObject, camelize } from '@/services/utils'
 
+// Hotfix to use existing files
+// e.g. converts translations containing {{store_name}} into {storeName}
+// TODO: convert files and sync them with transifex
+function angularToVueI18n (val) {
+  if (isObject(val)) {
+    let newVal = {}
+    for (const key of Object.keys(val)) {
+      newVal[key] = angularToVueI18n(val[key])
+    }
+    return newVal
+  }
+  else {
+    return val.replace(/{{(.*?)}}/g, (_, a) => `{${camelize(a)}}`)
+  }
+}
 /**
  * For getting hot reload to work, webpack needs to do static analysis
  * import should only get a string, like this: import('@/locales/locale-de.json')
  */
 export default store => {
   store.watch(state => state.i18n.locale, async locale => {
-    i18n.setLocaleMessage(locale, await loadLocale(locale))
+    if (['de', 'eo', 'es', 'fr', 'it', 'ru', 'sv', 'zh'].includes(locale)) {
+      const messages = angularToVueI18n(await import(`@/locales/locale-${locale}.json`))
+      i18n.setLocaleMessage(locale, messages)
+    }
     i18n.locale = locale
   }, {immediate: true})
 }

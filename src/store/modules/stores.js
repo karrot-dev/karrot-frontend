@@ -25,7 +25,7 @@ function initialState () {
   return {
     entries: {},
     idList: [],
-    isFetching: false,
+    isWaiting: false,
     error: null,
     activeStoreId: null,
   }
@@ -39,7 +39,7 @@ export const getters = {
   withLocation: (state, getters) => getters.all.filter(e => e.longitude && e.latitude),
   activeStore: state => state.entries[state.activeStoreId] || {},
   activeStoreId: state => state.activeStoreId,
-  status: state => { return { isFetching: state.isFetching, error: state.error } },
+  status: state => { return { isWaiting: state.isWaiting, error: state.error } },
 }
 
 export const actions = {
@@ -109,15 +109,15 @@ export const mutations = {
     state.activeStoreId = null
   },
   [types.REQUEST_STORES] (state) {
-    state.isFetching = true
+    state.isWaiting = true
   },
   [types.RECEIVE_STORES] (state, { stores }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.entries = indexById(stores)
     state.idList = stores.map(e => e.id)
   },
   [types.RECEIVE_STORES_ERROR] (state, { error }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.error = error
   },
   [types.CLEAR] (state) {
@@ -126,15 +126,15 @@ export const mutations = {
     state.idList = []
   },
   [types.REQUEST_SAVE] (state) {
-    state.isFetching = true
+    state.isWaiting = true
     state.error = null
   },
   [types.RECEIVE_SAVE] (state) {
-    state.isFetching = false
+    state.isWaiting = false
     state.error = null
   },
   [types.RECEIVE_SAVE_ERROR] (state, { error }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.error = error
   },
   [types.RECEIVE_ITEM] (state, { store }) {

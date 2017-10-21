@@ -34,7 +34,7 @@ function initialState () {
   return {
     entries: {}, // public group details
     idsList: [],
-    isFetching: false,
+    isWaiting: false,
     error: null,
 
     activeGroupId: null,
@@ -63,9 +63,9 @@ export const getters = {
   all: (state, getters, rootState, rootGetters) => {
     return state.idsList.map(getters.get)
   },
-  isFetching: state => state.isFetching, // TODO replace usage with status getter
+  isWaiting: state => state.isWaiting, // TODO replace usage with status getter
   error: state => state.error,
-  status: state => { return { isFetching: state.isFetching, error: state.error } },
+  status: state => { return { isWaiting: state.isWaiting, error: state.error } },
   activeUserGroups: (state, getters, rootState, rootGetters) => {
     let activeUser = rootGetters['users/activeUser']
     return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
@@ -213,16 +213,16 @@ export const mutations = {
   [types.RECEIVE_GROUP_ERROR] (state, { error }) {},
 
   [types.REQUEST_GROUPS] (state) {
-    state.isFetching = true
+    state.isWaiting = true
     state.error = null
   },
   [types.RECEIVE_GROUPS] (state, { groups }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.idsList = groups.map((group) => group.id)
     state.entries = indexById(groups)
   },
   [types.RECEIVE_GROUPS_ERROR] (state, { error }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.error = error.message
   },
 
@@ -256,15 +256,15 @@ export const mutations = {
   [types.RECEIVE_LEAVE_ERROR] (state, { error }) {},
 
   [types.REQUEST_SAVE] (state) {
-    state.isFetching = true
+    state.isWaiting = true
     state.error = null
   },
   [types.RECEIVE_SAVE] (state) {
-    state.isFetching = false
+    state.isWaiting = false
     state.error = null
   },
   [types.RECEIVE_SAVE_ERROR] (state, { error }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.error = error
   },
 

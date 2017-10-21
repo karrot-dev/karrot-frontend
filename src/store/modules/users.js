@@ -24,7 +24,7 @@ function initialState () {
   return {
     entries: {},
     idList: [],
-    isFetching: false,
+    isWaiting: false,
     error: null,
     activeUserId: null,
     signup: {
@@ -183,15 +183,15 @@ export const mutations = {
 
   // get users
   [types.REQUEST_USERS] (state) {
-    state.isFetching = true
+    state.isWaiting = true
   },
   [types.RECEIVE_USERS] (state, { users }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.entries = indexById(users)
     state.idList = users.map(e => e.id)
   },
   [types.RECEIVE_USERS_ERROR] (state, { error }) {
-    state.isFetching = false
+    state.isWaiting = false
     state.error = error
   },
 }

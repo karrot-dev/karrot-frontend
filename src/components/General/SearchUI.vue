@@ -1,6 +1,12 @@
 <template>
   <div class="wrapper">
-    <q-search :autofocus="true" separator class="lightgrey" v-model="terms" placeholder="Search">
+    <q-search
+      :autofocus="true"
+      separator
+      class="lightgrey"
+      v-model="terms"
+      placeholder="Search"
+      >
       <q-autocomplete @search="search" @selected="selected" />
     </q-search>
   </div>
@@ -18,8 +24,8 @@ export default {
   },
   props: {
     stores: { required: true },
-    groups: { required: false },
-    users: { required: false },
+    groups: { required: true },
+    users: { required: true },
   },
   methods: {
     search (terms, done) {
@@ -34,27 +40,24 @@ export default {
         }
       }))
 
-      if (this.groups) {
-        let groupRes = this.groups.filter((group) => { return group.name.toLowerCase().match(terms.toLowerCase()) })
-        res.push(...groupRes.map((el) => {
-          return {
-            value: {name: 'group', params: {groupId: el.id}},
-            label: el.name,
-            icon: 'fa-home',
-          }
-        }))
-      }
+      let groupRes = this.groups.filter((group) => { return group.name.toLowerCase().match(terms.toLowerCase()) })
+      res.push(...groupRes.map((el) => {
+        return {
+          value: {name: 'group', params: {groupId: el.id}},
+          label: el.name,
+          icon: 'fa-home',
+        }
+      }))
 
-      if (this.users) {
-        let userRes = this.users.filter((user) => { return user.displayName.toLowerCase().match(terms.toLowerCase()) })
-        res.push(...userRes.map((el) => {
-          return {
-            value: {name: 'user', params: {userId: el.id}},
-            label: el.displayName,
-            icon: 'fa-user',
-          }
-        }))
-      }
+      let userRes = this.users.filter((user) => { return user.displayName.toLowerCase().match(terms.toLowerCase()) })
+      res.push(...userRes.map((el) => {
+        return {
+          value: {name: 'user', params: {userId: el.id}},
+          label: el.displayName,
+          icon: 'fa-user',
+        }
+      }))
+
       done(res)
     },
     selected (item) {

@@ -64,8 +64,12 @@ export default {
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },
-    showSearch: { required: false, default: false },
     currentUserId: {},
+  },
+  data () {
+    return {
+      showSearch: false,
+    }
   },
 }
 </script>

@@ -15,6 +15,11 @@ const store = createStore({
       activeGroupId: () => 1,
     },
   },
+  stores: {
+    getters: {
+      all: () => stores,
+    },
+  },
 })
 
 storiesOf('Sidenav Boxes', module)
@@ -55,4 +60,6 @@ storiesOf('Sidenav Boxes', module)
   .add('Stores', () => ({
     render: h => h(SidenavStoresUI, { props: { stores } }),
     i18n,
+    router,
+    store,
   }))

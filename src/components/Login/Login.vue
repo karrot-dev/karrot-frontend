@@ -1,44 +1,44 @@
 <template>
   <div>
     <form name="login" @submit.prevent="submit">
-        <div class="white-box" :class="{ shake: showShake }">
-          <q-field icon="fa-envelope">
-            <q-input
-            :autofocus="true"
-            :error="hasError('email')"
-            :float-label="$t('USERDATA.EMAIL')"
-            type="email"
-            v-model="email"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
-            />
-          </q-field>
-        </div>
-        <div class="white-box" :class="{ shake: showShake }">
-          <q-field icon="fa-lock">
-            <q-input
-            :error="hasError('password')"
-            v-model="password"
-            type="password"
-            :float-label="$t('USERDATA.PASSWORD')"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
-            />
-          </q-field>
-        </div>
-        <div class="error" v-if="errorMessage">
-          <i class="fa fa-exclamation-triangle"/>{{ errorMessage }}
-        </div>
-        <div class="actions">
-          <q-btn type="button" @click.prevent="$router.push({ name: 'passwordreset' })" flat>
-            {{ $t('LOGIN.FORGOT_PASSWORD') }}
-          </q-btn>
-          <q-btn type="button" @click.prevent="$router.push({ name: 'signup' })" flat>
-            {{ $t('LOGIN.SIGNUP') }}
-          </q-btn>
-          <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
-            {{ $t('LOGIN.SUBMIT') }}
-          </q-btn>
-        </div>
-        <div style="clear: both"/>
+      <div class="white-box" :class="{ shake: showShake }">
+        <q-field icon="fa-envelope">
+          <q-input
+          :autofocus="true"
+          :error="hasError('email')"
+          :float-label="$t('USERDATA.EMAIL')"
+          type="email"
+          v-model="email"
+          autocorrect="off" autocapitalize="off" spellcheck="false"
+          />
+        </q-field>
+      </div>
+      <div class="white-box" :class="{ shake: showShake }">
+        <q-field icon="fa-lock">
+          <q-input
+          :error="hasError('password')"
+          v-model="password"
+          type="password"
+          :float-label="$t('USERDATA.PASSWORD')"
+          autocorrect="off" autocapitalize="off" spellcheck="false"
+          />
+        </q-field>
+      </div>
+      <div class="error" v-if="errorMessage">
+        <i class="fa fa-exclamation-triangle"/>{{ errorMessage }}
+      </div>
+      <div class="actions">
+        <q-btn type="button" @click.prevent="$router.push({ name: 'passwordreset' })" flat>
+          {{ $t('LOGIN.FORGOT_PASSWORD') }}
+        </q-btn>
+        <q-btn type="button" @click.prevent="$router.push({ name: 'signup' })" flat>
+          {{ $t('LOGIN.SIGNUP') }}
+        </q-btn>
+        <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
+          {{ $t('LOGIN.SUBMIT') }}
+        </q-btn>
+      </div>
+      <div style="clear: both"/>
     </form>
   </div>
 </template>

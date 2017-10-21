@@ -1,10 +1,10 @@
-export const currentUserMock = { 'id': 5, 'displayName': 'Current User Name', 'email': 'current@user.de', 'unverifiedEmail': 'current@user.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8980022441358, 'longitude': 8.66015739059448, 'description': 'I am the current User!', 'mailVerified': true, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'de' }
+export const currentUserMock = { 'id': 5, 'displayName': 'Current User', 'email': 'current@user.de', 'unverifiedEmail': 'current@user.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8980022441358, 'longitude': 8.66015739059448, 'description': 'I am the current User!', 'mailVerified': true, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'de', isCurrentUser: true }
 
 export const usersMockWithoutCurrent = [
-  { 'id': 1, 'displayName': 'Mira Bellenbaum', 'email': 'l@l.de', 'unverifiedEmail': 'l@l.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8990022441358, 'longitude': 8.66415739059448, 'description': 'This is me!', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'en' },
-  { 'id': 2, 'displayName': 'Max Mustermann', 'email': 'm@m.de', 'unverifiedEmail': 'm@m.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.9090022441358, 'longitude': 8.66815739059448, 'description': 'This is me too!', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'en' },
-  { 'id': 3, 'displayName': 'Karl Karlson', 'email': 'k@k.de', 'unverifiedEmail': 'l@l.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8990022441358, 'longitude': 8.66415739059448, 'description': 'How are you?', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'de' },
-  { 'id': 4, 'displayName': 'Mona Mohnblume', 'email': 'mm@m.de', 'unverifiedEmail': 'm@m.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.9090022441358, 'longitude': 8.66815739059448, 'description': 'Great to be here!', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'en' },
+  { 'id': 1, 'displayName': 'Mira Bellenbaum', 'email': 'l@l.de', 'unverifiedEmail': 'l@l.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8990022441358, 'longitude': 8.66415739059448, 'description': 'This is me!', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'en', isCurrentUser: false },
+  { 'id': 2, 'displayName': 'Max Mustermann', 'email': 'm@m.de', 'unverifiedEmail': 'm@m.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.9090022441358, 'longitude': 8.66815739059448, 'description': 'This is me too!', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'en', isCurrentUser: false },
+  { 'id': 3, 'displayName': 'Karl Karlson', 'email': 'k@k.de', 'unverifiedEmail': 'l@l.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8990022441358, 'longitude': 8.66415739059448, 'description': 'How are you?', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'de', isCurrentUser: false },
+  { 'id': 4, 'displayName': 'Mona Mohnblume', 'email': 'mm@m.de', 'unverifiedEmail': 'm@m.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.9090022441358, 'longitude': 8.66815739059448, 'description': 'Great to be here!', 'mailVerified': false, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'en', isCurrentUser: false },
 ]
 
 export const usersMock = [ ...usersMockWithoutCurrent, currentUserMock ]
@@ -17,14 +17,19 @@ export const storesMock = [
   { 'id': 61, 'name': 'Griesheimer Markt', 'description': 'Frisches Essen dies das', 'group': 1, 'address': 'Griesheim Marktplatz', 'latitude': 49.8615586173026, 'longitude': 8.57465744018555, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
 ]
 
-export const pickupsMock = [
-  { 'id': 873, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 18, 'maxCollectors': 4, 'collectorIds': [1, 2, 3, 4], 'description': 'This Pickup is very Fun!', isFull: true, isUserMember: false },
-  { 'id': 874, 'date': '2017-08-13T08:00:00Z', 'series': 16, 'store': 13, 'maxCollectors': 2, 'collectorIds': [], 'description': '', isFull: false, isUserMember: true },
-].map(e => {
+function enrichPickup (e) {
   e.date = new Date(e.date)
   e.collectors = e.collectorIds.map(i => usersMock.find(u => u.id === i))
+  e.store = storesMock.find(s => e.store === s.id)
   return e
-})
+}
+
+export const joinablePickup = enrichPickup({ 'id': 234, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 3], 'description': 'you can join this pickup', isFull: false, isUserMember: false })
+export const leavablePickup = enrichPickup({ 'id': 235, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 5], 'description': 'you are collector and can leave this pickup', isFull: false, isUserMember: true })
+export const fullPickup = enrichPickup({ 'id': 236, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [1, 2, 3], 'description': 'this pickup is already full!', isFull: true, isUserMember: false })
+export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [], 'description': 'this pickup is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
+
+export const pickupsMock = [ joinablePickup, leavablePickup, fullPickup, emptyPickup ]
 
 export const pickupSeriesMock = [
   { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': {'freq': 'WEEKLY', 'byDay': ['TH', 'SU']}, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },

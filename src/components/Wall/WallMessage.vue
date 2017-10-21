@@ -14,7 +14,7 @@
 
 <script>
 import WallCard from './WallCard.vue'
-import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
 
 export default {
   name: 'WallMessage',

@@ -53,7 +53,7 @@
 <script>
 import { QBtn, QTooltip } from 'quasar'
 import SidenavBox from './SidenavBox.vue'
-import GroupMap from '../Map/GroupMap.vue'
+import GroupMap from '@/components/Map/GroupMap.vue'
 
 export default {
   components: {

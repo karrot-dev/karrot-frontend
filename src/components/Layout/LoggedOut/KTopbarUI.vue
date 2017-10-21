@@ -19,7 +19,7 @@
 
 <script>
 import { QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
-import KarrotLogo from './../KarrotLogo'
+import KarrotLogo from '@/components/Layout/KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
 

@@ -19,8 +19,8 @@
 
 <script>
 import WallCard from './WallCard.vue'
-import AmountBox from '../Statistics/AmountBox'
-import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
+import AmountBox from '@/components/Statistics/AmountBox'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
 
 export default {
   components: {

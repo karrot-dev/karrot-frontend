@@ -1,21 +1,5 @@
-import i18n from '@/i18n'
-import { isObject, camelize } from '@/services/utils'
+import i18n, { angularToVueI18n } from '@/i18n'
 
-// Hotfix to use existing files
-// e.g. converts translations containing {{store_name}} into {storeName}
-// TODO: convert files and sync them with transifex
-function angularToVueI18n (val) {
-  if (isObject(val)) {
-    let newVal = {}
-    for (const key of Object.keys(val)) {
-      newVal[key] = angularToVueI18n(val[key])
-    }
-    return newVal
-  }
-  else {
-    return val.replace(/{{(.*?)}}/g, (_, a) => `{${camelize(a)}}`)
-  }
-}
 /**
  * For getting hot reload to work, webpack needs to do static analysis
  * import should only get a string, like this: import('@/locales/locale-de.json')

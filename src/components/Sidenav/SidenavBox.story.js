@@ -6,6 +6,16 @@ import SidenavGroup from './SidenavGroup.vue'
 import SidenavStoresUI from './SidenavStoresUI.vue'
 import { storesMock as stores, usersMock as users } from '>/mockdata'
 import i18n from '@/i18n'
+import router from '@/router'
+import { createStore } from '>/helpers'
+
+const store = createStore({
+  groups: {
+    getters: {
+      activeGroupId: () => 1,
+    },
+  },
+})
 
 storiesOf('Sidenav Boxes', module)
   .add('Default', () => SidenavBox)
@@ -38,6 +48,8 @@ storiesOf('Sidenav Boxes', module)
   .add('Group', () => ({
     render: h => h(SidenavGroup),
     i18n,
+    router,
+    store,
   }))
 
   .add('Stores', () => ({

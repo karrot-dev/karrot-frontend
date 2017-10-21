@@ -2,22 +2,11 @@
 </template>
 
 <script>
-import { QTooltip } from 'quasar'
-
 export default {
   props: {
-    name: {
-      required: true,
-    },
-    seed: {
-      default: 2,
-    },
-    size: {
-      required: true,
-    },
-  },
-  components: {
-    QTooltip,
+    name: { required: true },
+    seed: { default: 2 },
+    size: { required: true },
   },
   mounted () {
     this.$el.appendChild(this.box)

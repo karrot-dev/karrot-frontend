@@ -4,7 +4,7 @@
       <i :style="{fontSize: (size - 9) + 'px'}" class="fa fa-fw fa-times"/>
     </div>
     <q-tooltip>
-      <span>{{$t(popup)}}</span>
+      <span>{{ $t('PICKUPLIST.ITEM.LEAVE') }}</span>
     </q-tooltip>
     <div class="hoverHide">
       <RandomPicture
@@ -23,7 +23,6 @@ import RandomPicture from './RandomPicture.vue'
 export default {
   props: {
     size: { default: 20 },
-    popup: { default: 'PICKUPLIST.ITEM.JOIN' },
     user: { required: true },
   },
   components: {

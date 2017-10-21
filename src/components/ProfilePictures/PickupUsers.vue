@@ -22,7 +22,6 @@
       <CurrentUser
         v-if="pickup.isUserMember && !pickup.isWaiting"
         :size="size"
-        :popup="leavePopup"
         :user="currentUser"
         class="profilePic clickable"
         @leave="$emit('leave')"
@@ -36,7 +35,6 @@
       :hoverUser="currentUser"
       :showJoin="!pickup.isUserMember && n == 1"
       v-if="n > 1 || !(pickup.isWaiting && !pickup.isUserMember)"
-      :popup="joinPopup"
       class="profilePic"
       :class="{clickable: !pickup.isUserMember && n == 1}"
       @join="$emit('join')"
@@ -60,8 +58,6 @@ import { QSpinner, QResizeObservable } from 'quasar'
 export default {
   props: {
     pickup: { required: true },
-    joinPopup: { default: 'PICKUPLIST.ITEM.JOIN' }, // TODO remove?
-    leavePopup: { default: 'PICKUPLIST.ITEM.LEAVE' },
     size: { default: 36 },
     maxEmptyNumToShow: {
       default: 1,

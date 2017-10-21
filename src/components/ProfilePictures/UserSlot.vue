@@ -9,7 +9,7 @@
         :size="size">
       </RandomPicture>
       <q-tooltip>
-        <span>{{ $t(popup) }}</span>
+        <span>{{ $t('PICKUPLIST.ITEM.JOIN') }}</span>
       </q-tooltip>
     </div>
   </div>
@@ -22,7 +22,6 @@ import RandomPicture from './RandomPicture.vue'
 export default {
   props: {
     size: { default: 20 },
-    popup: { default: 'PICKUPLIST.ITEM.JOIN' },
     hoverUser: { required: false },
     showJoin: { default: false },
   },

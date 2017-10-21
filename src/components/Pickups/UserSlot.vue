@@ -1,8 +1,8 @@
 <template>
-  <div class="user-slot-wrapper" v-bind:class="{ greyedOut: !showJoin, active: showJoin }" v-bind:style="{ width: size + 'px', height: size + 'px' }">
-    <div v-bind:class="{ hoverHide: showJoin }">
+  <div class="user-slot-wrapper" :class="{ greyedOut: !showJoin, active: showJoin }" :style="{ width: size + 'px', height: size + 'px' }">
+    <div :class="{ hoverHide: showJoin }">
     </div>
-    <div v-if="hoverUser && showJoin" v-bind:class="{ hoverShow: showJoin }">
+    <div v-if="hoverUser && showJoin" :class="{ hoverShow: showJoin }">
       <RandomPicture @click.native="$emit('join')"
         :name="hoverUser.displayName"
         :seed="hoverUser.id"

@@ -10,7 +10,7 @@
       class="profilePic clickable"
     />
 
-    <div v-if="pickup.isWaiting" class="emptySlots profilePic" style="border-color: black" v-bind:style="{ width: size + 'px', height: size + 'px' }">
+    <div v-if="pickup.isWaiting" class="emptySlots profilePic" style="border-color: black" :style="{ width: size + 'px', height: size + 'px' }">
       <q-spinner />
     </div>
 

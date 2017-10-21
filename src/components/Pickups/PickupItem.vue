@@ -1,7 +1,7 @@
 <template>
-  <q-card v-bind:class="{ full: pickup.isFull }">
+  <q-card :class="{ full: pickup.isFull }">
     <q-card-main class="row inline no-padding justify-between content"
-      v-bind:class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }">
+      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }">
       <div class="column padding full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>

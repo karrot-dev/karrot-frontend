@@ -1,5 +1,5 @@
 <template>
-  <a @click="$emit('leave')" class="user-slot-wrapper" v-bind:style="{ width: size + 'px', height: size + 'px' }">
+  <a @click="$emit('leave')" class="user-slot-wrapper" :style="{ width: size + 'px', height: size + 'px' }">
     <div class="hoverShow">
       <i :style="{fontSize: (size - 9) + 'px'}" class="fa fa-fw fa-times"/>
     </div>

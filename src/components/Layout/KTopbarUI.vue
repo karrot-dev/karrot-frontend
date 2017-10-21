@@ -14,8 +14,8 @@
       </div>
     </q-toolbar-title>
     <q-transition duration="310" name="search-slide-in" appear>
-      <div class="searchbar row no-wrap" v-if="showSearch">
-        <q-btn flat color="primary" @click="showSearch = false">
+      <div class="searchbar row no-wrap" v-if="searchOpen">
+        <q-btn flat color="primary" @click="$emit('hideSearch')">
           <q-icon name="fa-fw fa-window-close-o"/>
         </q-btn>
         <div>
@@ -23,7 +23,7 @@
         </div>
       </div>
     </q-transition>
-    <q-btn v-if="!showSearch" flat @click="showSearch = true">
+    <q-btn v-if="!searchOpen" flat @click="$emit('showSearch')">
       <q-icon name="fa-fw fa-search"/>
     </q-btn>
     <q-btn flat class="desktop-only">
@@ -64,12 +64,8 @@ export default {
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },
+    searchOpen: { required: true },
     currentUserId: {},
-  },
-  data () {
-    return {
-      showSearch: false,
-    }
   },
 }
 </script>

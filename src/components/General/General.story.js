@@ -2,9 +2,17 @@ import { storiesOf } from '@storybook/vue'
 
 import KBox from './KBox.vue'
 import KBreadcrumb from './KBreadcrumb.vue'
-import SearchUI from './SearchUI.vue'
-import { storesMock, groupsMock, usersMock } from '>/mockdata'
+import Search from './Search.vue'
 import i18n from '@/i18n'
+import { createStore } from '>/helpers'
+import { groupsMock, storesMock, usersMock } from '>/mockdata'
+
+const store = createStore({
+  groups: { getters: { all: () => groupsMock } },
+  stores: { getters: { all: () => storesMock } },
+  users: { getters: { all: () => usersMock } },
+  search: require('@/store/modules/search'),
+})
 
 storiesOf('General Components', module)
   .add('KBox', () => ({
@@ -21,13 +29,8 @@ storiesOf('General Components', module)
     i18n,
   }))
 
-  .add('SearchUI', () => ({
-    render: h => h(SearchUI, {
-      props: {
-        stores: storesMock,
-        groups: groupsMock,
-        users: usersMock,
-      },
-    }),
+  .add('Search', () => ({
+    render: h => h(Search),
     i18n,
+    store,
   }))

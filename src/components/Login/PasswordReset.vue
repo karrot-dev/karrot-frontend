@@ -20,10 +20,10 @@
           <i class="fa fa-exclamation-triangle"/> Error!
         </div>
         <div class="actions">
-          <q-btn @click="$router.push({ name: 'login' })"flat>
+          <q-btn @click="$router.push({ name: 'login' })" flat>
             {{ $t('PASSWORDRESET.LOGIN') }}
           </q-btn>
-          <q-btn type="submit" class="submit shadow-4" :loader="status.isWaiting">
+          <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
             {{ $t('PASSWORDRESET.SUBMIT') }}
           </q-btn>
         </div>

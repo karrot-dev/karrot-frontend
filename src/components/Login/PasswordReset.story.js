@@ -9,63 +9,47 @@ const methods = {
 }
 
 storiesOf('Password Reset', module)
-  .add('initial', () => ({
-    components: { PasswordReset },
-    template: `<PasswordReset @submit="reset" :status="status" />`,
-    data () {
-      return {
-        status: {
-          isWaiting: false,
-          success: false,
-          error: null,
-        },
-      }
-    },
+  .add('empty', () => ({
+    render: h => h(PasswordReset, {
+      props: {
+        status: { error: null, isWaiting: false, success: false },
+      },
+      on: {
+        submit: methods.reset,
+      },
+    }),
     i18n,
-    methods,
   }))
   .add('waiting', () => ({
-    components: { PasswordReset },
-    template: `<PasswordReset @submit="reset" :status="status" />`,
-    data () {
-      return {
-        status: {
-          isWaiting: true,
-          success: false,
-          error: null,
-        },
-      }
-    },
+    render: h => h(PasswordReset, {
+      props: {
+        status: { error: null, isWaiting: true, success: false },
+      },
+      on: {
+        submit: methods.reset,
+      },
+    }),
     i18n,
-    methods,
   }))
   .add('success', () => ({
-    components: { PasswordReset },
-    template: `<PasswordReset @submit="reset" :status="status" />`,
-    data () {
-      return {
-        status: {
-          isWaiting: false,
-          success: true,
-          error: null,
-        },
-      }
-    },
+    render: h => h(PasswordReset, {
+      props: {
+        status: { error: null, isWaiting: false, success: true },
+      },
+      on: {
+        submit: methods.reset,
+      },
+    }),
     i18n,
-    methods,
   }))
   .add('error', () => ({
-    components: { PasswordReset },
-    template: `<PasswordReset @submit="reset" :status="status" />`,
-    data () {
-      return {
-        status: {
-          isWaiting: false,
-          success: false,
-          error: { data: 'error' },
-        },
-      }
-    },
+    render: h => h(PasswordReset, {
+      props: {
+        status: { error: { data: 'some error' }, isWaiting: false, success: false },
+      },
+      on: {
+        submit: methods.reset,
+      },
+    }),
     i18n,
-    methods,
   }))

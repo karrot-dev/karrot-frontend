@@ -36,7 +36,7 @@
           <q-btn @click="$router.push({ name: 'login' })" flat>
             {{ $t('SIGNUP.BACK') }}
           </q-btn>
-          <q-btn @click.prevent="submit" class="submit shadow-4" :loader="status.isWaiting">
+          <q-btn @click.prevent="submit" class="submit shadow-4" loader :value="status.isWaiting">
             {{ $t('SIGNUP.OK') }}
           </q-btn>
         </div>

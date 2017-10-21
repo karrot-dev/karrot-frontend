@@ -19,7 +19,7 @@
           @blur="$v.form.email.$touch"
         />
       </q-field>
-      <q-btn @click="submit" :loader="sendStatus.isWaiting" :disabled="$v.form.$error">
+      <q-btn @click="submit" loader :value="sendStatus.isWaiting" :disabled="$v.form.$error">
         <q-icon name="fa-paper-plane" />
         <q-tooltip>
           {{ $t('GROUP.INVITE_SEND') }}

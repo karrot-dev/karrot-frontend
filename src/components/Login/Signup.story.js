@@ -1,39 +1,41 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import Login from './Login.vue'
+import Signup from './Signup.vue'
 import i18n from '@/i18n'
 
-storiesOf('Login', module)
+storiesOf('Signup', module)
   .add('empty', () => ({
-    render: h => h(Login, {
+    render: h => h(Signup, {
       props: {
         status: { error: null, isWaiting: false },
       },
       on: {
-        submit: action('login'),
+        submit: action('signup'),
       },
     }),
     i18n,
   }))
+
   .add('waiting', () => ({
-    render: h => h(Login, {
+    render: h => h(Signup, {
       props: {
         status: { error: null, isWaiting: true },
       },
       on: {
-        submit: action('login'),
+        submit: action('signup'),
       },
     }),
     i18n,
   }))
+
   .add('error', () => ({
-    render: h => h(Login, {
+    render: h => h(Signup, {
       props: {
-        status: { error: { email: [ 'is missing' ], password: [ 'is wrong' ] }, isWaiting: false },
+        status: { error: 'some error', isWaiting: false },
       },
       on: {
-        submit: action('login'),
+        submit: action('signup'),
       },
     }),
     i18n,

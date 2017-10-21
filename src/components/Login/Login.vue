@@ -34,7 +34,7 @@
           <q-btn type="button" @click.prevent="$router.push({ name: 'signup' })" flat>
             {{ $t('LOGIN.SIGNUP') }}
           </q-btn>
-          <q-btn type="submit" class="submit shadow-4" :loader="status.isWaiting">
+          <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
             {{ $t('LOGIN.SUBMIT') }}
           </q-btn>
         </div>

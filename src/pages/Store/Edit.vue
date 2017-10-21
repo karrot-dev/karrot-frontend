@@ -2,7 +2,7 @@
   <div>
     <h3><i class="fa fa-edit"></i> Edit store</h3>
     <q-card>
-      <store-edit :store="store" :status="status" @save="save"/>
+      <store-edit :store="store" :status="status" :allStores="allStores" @save="save"/>
     </q-card>
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
     ...mapGetters({
       store: 'stores/activeStore',
       status: 'stores/status',
+      allStores: 'stores/all',
     }),
   },
   methods: {

@@ -3,8 +3,16 @@
 
     <q-field
       icon="fa-star"
-      :label="$t('STOREEDIT.NAME')">
-      <q-input v-model="storeEdit.name" :autofocus="true"/>
+      :label="$t('STOREEDIT.NAME')"
+      :error="$v.storeEdit.name.$error"
+      :error-label="nameErrorMessage"
+      >
+      <q-input
+        v-model="storeEdit.name"
+        :autofocus="true"
+        @blur="$v.storeEdit.name.$touch"
+        autocomplete="off"
+      />
     </q-field>
 
     <q-field
@@ -25,10 +33,18 @@
       <address-picker v-model="storeEdit" :map="true"/>
     </q-field>
 
-    <q-btn color="primary" @click="save" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
-    <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
-    <q-btn @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
-    <q-btn color="red" @click="destroy" v-if="!isNew">{{ $t('BUTTON.DELETE') }}</q-btn>
+    <q-btn color="primary" @click="save" :disable="!canSave">
+      {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+    </q-btn>
+    <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">
+      {{ $t('BUTTON.RESET') }}
+    </q-btn>
+    <q-btn @click="$emit('cancel')" v-if="isNew">
+      {{ $t('BUTTON.CANCEL') }}
+    </q-btn>
+    <q-btn color="red" @click="destroy" v-if="!isNew">
+      {{ $t('BUTTON.DELETE') }}
+    </q-btn>
 
     <pre>
       {{ status.error }}
@@ -41,6 +57,8 @@
 import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
+import { validationMixin } from 'vuelidate'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
@@ -48,6 +66,7 @@ import { objectDiff } from '@/services/utils'
 
 export default {
   name: 'StoreEdit',
+  mixins: [validationMixin],
   props: {
     store: {
       required: false,
@@ -63,6 +82,7 @@ export default {
       },
     },
     status: { required: true },
+    allStores: { required: true },
   },
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
@@ -84,12 +104,27 @@ export default {
     hasChanged () {
       return !this.isNew && !deepEqual(this.store, this.storeEdit)
     },
+    canSave () {
+      if (this.$v.storeEdit.$error) {
+        return false
+      }
+      if (!this.isNew && !this.hasChanged) {
+        return false
+      }
+      return true
+    },
+    nameErrorMessage () {
+      // TODO make nicer (have a look at InvitationsUI.vue)
+      return JSON.stringify(this.$v.storeEdit.name)
+    },
   },
   methods: {
     reset () {
       this.storeEdit = cloneDeep(this.store)
     },
     save (event) {
+      this.$v.storeEdit.$touch()
+      if (!this.canSave) return
       if (this.isNew) {
         this.$emit('save', this.storeEdit, event)
       }
@@ -99,6 +134,21 @@ export default {
     },
     destroy (event) {
       this.$emit('destroy', this.store.id, event)
+    },
+  },
+  validations: {
+    storeEdit: {
+      name: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(80),
+        isUnique (value) {
+          if (value === '') return true
+          return this.allStores
+            .filter(e => e.id !== this.storeEdit.id)
+            .findIndex(e => e.name === value) < 0
+        },
+      },
     },
   },
 }

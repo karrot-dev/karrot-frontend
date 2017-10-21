@@ -1,35 +1,37 @@
 <template>
   <q-toolbar>
     <router-link :to="{name: 'group'}" class="logo">
-      <KarrotLogo/>
+      <KarrotLogo />
     </router-link>
     <q-toolbar-title>
       <div class="row justify-between no-wrap">
         <div></div>
-        <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs"/>
+        <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs" />
         <div></div>
       </div>
     </q-toolbar-title>
       <div class="actions">
-        <router-link :to="{ name: 'login' }"><q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn></router-link>
-        <router-link :to="{ name: 'signup' }"><q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn></router-link>
+        <router-link :to="{ name: 'login' }">
+          <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
+        </router-link>
+        <router-link :to="{ name: 'signup' }">
+          <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
+        </router-link>
       </div>
   </q-toolbar>
 </template>
 
 <script>
-import { QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
+import { QToolbar, QToolbarTitle, QBtn } from 'quasar'
 import KarrotLogo from '@/components/Layout/KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
-import Search from '@/components/General/Search'
 
 export default {
   components: {
-    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb, Search,
+    QToolbar, QToolbarTitle, QBtn, KarrotLogo, KBreadcrumb,
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },
-    showSearch: { required: false, default: false },
     currentUserId: {},
   },
 }

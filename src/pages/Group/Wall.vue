@@ -4,6 +4,7 @@ import Wall from '@/components/Wall/Wall.vue'
 
 export default connect({
   gettersToProps: {
+    joinedPickups: 'pickups/joined',
     emptyPickups: 'pickups/empty',
     messages: 'conversations/activeMessages',
     messageReceiveStatus: 'conversations/receiveStatus',

@@ -63,6 +63,7 @@ export const getters = {
   filteredOneTime: (state, getters) => {
     return getters.filtered.filter(e => !e.series)
   },
+  joined: (state, getters) => getters.all.filter(e => e.isUserMember),
   empty: (state, getters) => {
     return getters.all.filter((e) => {
       let nextWeek = new Date(+new Date() + 6096e5)

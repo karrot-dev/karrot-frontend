@@ -1,7 +1,14 @@
 <template>
   <div class="wrapper">
-    <div class="notices" v-if="emptyPickups.length > 0">
+    <div class="notices">
+      <JoinedPickups
+        v-if="joinedPickups.length > 0"
+        :pickups="joinedPickups"
+        @join="$emit('join', arguments[0])"
+        @leave="$emit('leave', arguments[0])"
+      />
       <EmptyPickups
+        v-if="emptyPickups.length > 0"
         :pickups="emptyPickups"
         @join="$emit('join', arguments[0])"
         @leave="$emit('leave', arguments[0])"
@@ -20,16 +27,19 @@
 <script>
 import WallMessage from './WallMessage.vue'
 import EmptyPickups from './EmptyPickups.vue'
+import JoinedPickups from './JoinedPickups.vue'
 import WallInput from './WallInput.vue'
 
 export default {
   components: {
     WallMessage,
+    JoinedPickups,
     EmptyPickups,
     WallInput,
   },
   props: {
     messages: { required: true },
+    joinedPickups: { required: false, default: () => [] },
     emptyPickups: { required: false, default: () => [] },
     messageReceiveStatus: { default: () => ({}) },
   },

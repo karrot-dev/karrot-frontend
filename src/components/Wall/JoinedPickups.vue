@@ -1,8 +1,8 @@
 <template>
   <div>
-    <q-card color="secondary" class="generic-padding">
+    <q-card color="warning" class="generic-padding">
       <i class="fa fa-exclamation-triangle on-left"/>
-      {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length })}}
+      {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length })}}
     </q-card>
     <transition-group name="list" tag="div">
       <PickupItem

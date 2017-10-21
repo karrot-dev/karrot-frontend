@@ -3,6 +3,16 @@ import { action } from '@storybook/addon-actions'
 
 import PickupItem from './PickupItem.vue'
 import i18n from '@/i18n'
+import { createStore } from '>/helpers'
+import { currentUserMock } from '>/mockdata'
+
+const store = createStore({
+  auth: {
+    getters: {
+      user: () => currentUserMock,
+    },
+  },
+})
 
 const methods = {
   join: action('join'),
@@ -25,6 +35,7 @@ storiesOf('PickupItem', module)
     },
     methods,
     i18n,
+    store,
   }))
   .add('Waiting', () => ({
     components: { PickupItem },
@@ -42,6 +53,7 @@ storiesOf('PickupItem', module)
     },
     methods,
     i18n,
+    store,
   }))
   .add('Full', () => ({
     components: { PickupItem },
@@ -57,6 +69,7 @@ storiesOf('PickupItem', module)
       }
     },
     i18n,
+    store,
   }))
   .add('Leave', () => ({
     components: { PickupItem },
@@ -73,4 +86,5 @@ storiesOf('PickupItem', module)
     },
     methods,
     i18n,
+    store,
   }))

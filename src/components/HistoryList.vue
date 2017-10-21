@@ -8,13 +8,13 @@
       :columns="columns"
       :config="config"
     >
-      <template slot="col-users" scope="cell">
+      <template slot="col-users" slot-scope="cell">
         <ProfilePicture
           v-for="user in cell.data" :key="user.id"
           :user="user"
         />
       </template>
-      <template slot='col-actions' scope='cell'>
+      <template slot="col-actions" slot-scope="cell">
         <q-btn color="primary" @click="showDetails(cell.row)" small>Info</q-btn>
       </template>
     </q-data-table>

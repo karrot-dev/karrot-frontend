@@ -22,9 +22,7 @@ import RandomPicture from './RandomPicture.vue'
 
 export default {
   props: {
-    user: {
-      required: true,
-    },
+    user: { required: true },
     size: {
       default: 20,
     },

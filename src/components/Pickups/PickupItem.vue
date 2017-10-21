@@ -11,7 +11,11 @@
           {{ pickup.description }}
         </div>
         <div class="people full-width">
-          <ProfilesInline :waiting="pickup.isWaiting" @join="button.click()" @leave="button.click()" :slots="pickup.maxCollectors" :users="pickup.collectors"/>
+          <PickupUsers
+            :pickup="pickup"
+            @join="button.click()"
+            @leave="button.click()"
+          />
         </div>
       </div>
     </q-card-main>
@@ -20,16 +24,14 @@
 
 <script>
 import { Dialog, QCard, QCardMain, QBtn } from 'quasar'
-import ProfilesInline from '../ProfilePictures/ProfilesInline.vue'
+import PickupUsers from '../ProfilePictures/PickupUsers.vue'
 
 export default {
   props: {
-    pickup: {
-      required: true,
-    },
+    pickup: { required: true },
   },
   components: {
-    QCard, QCardMain, QBtn, ProfilesInline,
+    QCard, QCardMain, QBtn, PickupUsers,
   },
   methods: {
     join () {
@@ -76,6 +78,7 @@ export default {
         return {
           className: 'join full-height',
           translation: 'PICKUPLIST.ITEM.JOIN',
+          click: () => console.log('what??'),
         }
       }
       else {

@@ -10,11 +10,13 @@
       </router-link>
     </div>
     <div>
-      <PickupItem v-for="pickup in pickups"
-                  @join="$emit('join', arguments[0])"
-                  @leave="$emit('leave', arguments[0])"
-                  :pickup="pickup"
-                  :key="pickup.id">
+      <PickupItem
+        v-for="pickup in pickups"
+        :key="pickup.id"
+        :pickup="pickup"
+        @join="$emit('join', arguments[0])"
+        @leave="$emit('leave', arguments[0])"
+        >
         {{ $d(pickup.date, 'dateShort') }}
       </PickupItem>
     </div>
@@ -36,12 +38,8 @@ export default {
         }
       },
     },
-    pickups: {
-      required: true,
-    },
-    store: {
-      required: true,
-    },
+    pickups: { required: true },
+    store: { required: true },
   },
   components: {
     QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon, PickupItem,

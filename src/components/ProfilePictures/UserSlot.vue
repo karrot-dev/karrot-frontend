@@ -2,14 +2,14 @@
   <div class="user-slot-wrapper" v-bind:class="{ greyedOut: !showJoin, active: showJoin }" v-bind:style="{ width: size + 'px', height: size + 'px' }">
     <div v-bind:class="{ hoverHide: showJoin }">
     </div>
-    <div v-if="currentUser && showJoin" v-bind:class="{ hoverShow: showJoin }">
+    <div v-if="hoverUser && showJoin" v-bind:class="{ hoverShow: showJoin }">
       <RandomPicture @click.native="$emit('join')"
-        :name="currentUser.displayName"
-        :seed="currentUser.id"
+        :name="hoverUser.displayName"
+        :seed="hoverUser.id"
         :size="size">
       </RandomPicture>
       <q-tooltip>
-        <span>{{$t(popup)}}</span>
+        <span>{{ $t(popup) }}</span>
       </q-tooltip>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
   props: {
     size: { default: 20 },
     popup: { default: 'PICKUPLIST.ITEM.JOIN' },
-    currentUser: { required: false },
+    hoverUser: { required: false },
     showJoin: { default: false },
   },
   components: {

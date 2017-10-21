@@ -1,6 +1,11 @@
 <template>
   <div>
-    <PickupList :store="store" :pickups="pickups" @join="join" @leave="leave"></PickupList>
+    <PickupList
+      :store="store"
+      :pickups="pickups"
+      @join="join"
+      @leave="leave"
+    />
     <KNotice v-if="pickups && pickups.length == 0" >
       <template slot="icon">
         <i class="fa fa-bed"/>
@@ -36,6 +41,7 @@ export default {
     ...mapGetters({
       store: 'stores/activeStore',
       pickups: 'pickups/filtered',
+      currentUser: 'auth/user',
     }),
   },
 }

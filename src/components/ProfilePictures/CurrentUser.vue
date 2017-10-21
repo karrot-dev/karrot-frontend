@@ -8,10 +8,10 @@
     </q-tooltip>
     <div class="hoverHide">
       <RandomPicture
-        :name="currentUser.displayName"
-        :seed="currentUser.id"
-        :size="size">
-      </RandomPicture>
+        :name="user.displayName"
+        :seed="user.id"
+        :size="size"
+      />
     </div>
   </a>
 </template>
@@ -24,7 +24,7 @@ export default {
   props: {
     size: { default: 20 },
     popup: { default: 'PICKUPLIST.ITEM.JOIN' },
-    currentUser: { required: true },
+    user: { required: true },
   },
   components: {
     QTooltip, RandomPicture,

@@ -1,5 +1,14 @@
 <template>
   <div>
+    <q-card class="bg-primary">
+      <q-card-title>
+        <q-icon name="fa-exclamation-triangle" />
+        {{ $t('GLOBAL.WARNING') }}
+      </q-card-title>
+      <q-card-main>
+        {{ $t('GLOBAL.BETA_WARNING') }}
+      </q-card-main>
+    </q-card>
     <form name="signup" @keydown.enter.prevent="submit">
       <div class="content">
         <div class="white-box">
@@ -48,11 +57,11 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn, QSpinner } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner } from 'quasar'
 import loginImage from '@/assets/people/cherry.png'
 
 export default {
-  components: { QField, QInput, QBtn, QSpinner },
+  components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },
   props: {
     status: {
       required: true,

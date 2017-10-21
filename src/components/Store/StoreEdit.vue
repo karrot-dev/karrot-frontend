@@ -72,12 +72,12 @@ export default {
       required: false,
       default () {
         return {
-          name: null,
-          description: null,
+          name: undefined,
+          description: undefined,
           weeksInAdvance: 4,
-          latitude: null,
-          longitude: null,
-          address: null,
+          latitude: undefined,
+          longitude: undefined,
+          address: undefined,
         }
       },
     },

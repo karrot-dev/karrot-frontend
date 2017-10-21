@@ -181,11 +181,11 @@ export const actions = {
     router.push({ name: 'groupsGallery' })
   },
 
-  async save ({ commit, dispatch }, store) {
+  async save ({ commit, dispatch }, group) {
     commit(types.REQUEST_SAVE)
     let updatedGroup
     try {
-      updatedGroup = await groups.save(store)
+      updatedGroup = await groups.save(group)
     }
     catch (error) {
       commit(types.RECEIVE_SAVE_ERROR, { error })
@@ -194,6 +194,21 @@ export const actions = {
     commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_GROUP, { group: updatedGroup })
     router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+  },
+
+  async create ({ commit, dispatch }, group) {
+    commit(types.REQUEST_SAVE)
+    let createdGroup
+    try {
+      createdGroup = await groups.create(group)
+    }
+    catch (error) {
+      commit(types.RECEIVE_SAVE_ERROR, { error })
+      return
+    }
+    commit(types.RECEIVE_SAVE)
+    commit(types.RECEIVE_GROUP, { group: createdGroup })
+    router.push({ name: 'group', params: { groupId: createdGroup.id } })
   },
 }
 

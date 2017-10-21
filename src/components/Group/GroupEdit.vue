@@ -105,14 +105,14 @@ export default {
       required: false,
       default () {
         return {
-          name: null,
-          password: null,
-          publicDescription: null,
-          description: null,
+          name: undefined,
+          password: undefined,
+          publicDescription: undefined,
+          description: undefined,
           timezone: 'Europe/Berlin', // TODO replace with jstimezonedetect on create
-          latitude: null,
-          longitude: null,
-          address: null,
+          latitude: undefined,
+          longitude: undefined,
+          address: undefined,
         }
       },
     },

@@ -86,3 +86,10 @@ export const historyMock = [
   e.message = 'did something'
   return e
 })
+
+export const timezones = [
+  'Europe/Berlin',
+  'Asia/Bangkok',
+  'America/Santiago',
+  'Europe/Madrid',
+]

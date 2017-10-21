@@ -2,6 +2,7 @@ const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall.vue')
 const GroupMap = () => import('@/pages/Map.vue')
 const GroupEdit = () => import('@/pages/Group/Edit.vue')
+const GroupCreate = () => import('@/pages/Group/Create.vue')
 const GroupInfo = () => import('@/pages/GroupInfo.vue')
 const GroupsGallery = () => import('@/pages/GroupsGallery.vue')
 const StoreLayout = () => import('@/pages/Store/Layout.vue')
@@ -47,6 +48,20 @@ export default [
     },
     components: {
       default: GroupInfo,
+    },
+  },
+  {
+    name: 'groupCreate',
+    path: '/group/create',
+    meta: {
+      requireLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
+        { translation: 'GROUP.CREATE_TITLE', route: { name: 'groupCreate' } },
+      ],
+    },
+    components: {
+      default: GroupCreate,
     },
   },
   {

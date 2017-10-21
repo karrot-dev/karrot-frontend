@@ -4,7 +4,6 @@ import Wall from './Wall.vue'
 import WallCard from './WallCard.vue'
 import WallMessage from './WallMessage.vue'
 import WallFeedback from './WallFeedback.vue'
-import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
 import { messagesMock, pickupsMock, feedbackMock, currentUserMock } from '>/mockdata'
 import i18n from '@/i18n'
 import router from '@/router'
@@ -31,7 +30,7 @@ storiesOf('Wall', module)
     store,
   }))
   .add('WallCard', () => ({
-    components: { WallCard, ProfilePicture },
+    components: { WallCard },
     template: '<div style="padding: 2em"><WallCard/></div>',
     data () {
       return {

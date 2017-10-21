@@ -6,10 +6,8 @@ import i18n, { angularToVueI18n } from '@/i18n'
  */
 export default store => {
   store.watch(state => state.i18n.locale, async locale => {
-    if (['de', 'eo', 'es', 'fr', 'it', 'ru', 'sv', 'zh'].includes(locale)) {
-      const messages = angularToVueI18n(await import(`@/locales/locale-${locale}.json`))
-      i18n.setLocaleMessage(locale, messages)
-    }
+    const messages = angularToVueI18n(await import(`@/locales/locale-${locale}.json`))
+    i18n.setLocaleMessage(locale, messages)
     i18n.locale = locale
   }, {immediate: true})
 }

@@ -5,8 +5,16 @@ import WallCard from './WallCard.vue'
 import WallMessage from './WallMessage.vue'
 import WallFeedback from './WallFeedback.vue'
 import ProfilePicture from '../ProfilePictures/ProfilePicture.vue'
-import { messagesMock, pickupsMock, feedbackMock } from '>/mockdata'
+import { messagesMock, pickupsMock, feedbackMock, currentUserMock } from '>/mockdata'
 import i18n from '@/i18n'
+import router from '@/router'
+import { createStore } from '>/helpers'
+
+const store = createStore({
+  auth: {
+    getters: { user: () => currentUserMock },
+  },
+})
 
 storiesOf('Wall', module)
   .add('Wall', () => ({
@@ -19,6 +27,8 @@ storiesOf('Wall', module)
       }
     },
     i18n,
+    router,
+    store,
   }))
   .add('WallCard', () => ({
     components: { WallCard, ProfilePicture },
@@ -43,6 +53,7 @@ storiesOf('Wall', module)
       }
     },
     i18n,
+    router,
   }))
 
   .add('WallFeedback', () => ({
@@ -54,4 +65,5 @@ storiesOf('Wall', module)
       }
     },
     i18n,
+    router,
   }))

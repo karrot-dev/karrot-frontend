@@ -29,7 +29,7 @@
             >
             <q-input v-model="password" type="password" />
           </q-field>
-          <q-btn type="submit">
+          <q-btn type="submit" loader :value="status.isWaiting" >
             <span v-if="isLoggedIn">
               {{ $t('BUTTON.JOIN') }}
             </span>
@@ -58,12 +58,8 @@ export default {
     return { password: '' }
   },
   props: {
-    group: {
-      required: true,
-    },
-    status: {
-      required: true,
-    },
+    group: { required: true },
+    status: { required: true },
     isLoggedIn: {},
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, Markdown },

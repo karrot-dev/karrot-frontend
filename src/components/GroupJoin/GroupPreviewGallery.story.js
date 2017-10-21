@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 
 import GroupPreviewGallery from './GroupPreviewGallery.vue'
 import i18n from '@/i18n'
-
+import router from '@/router'
 import { groupsMock } from '>/mockdata'
 
 const methods = {
@@ -18,6 +18,7 @@ storiesOf('GroupPreviewGallery', module)
     data () { return { otherGroups: groupsMock } },
     methods,
     i18n,
+    router,
   }))
   .add('switch and explore', () => ({
     components: { GroupPreviewGallery },
@@ -25,4 +26,5 @@ storiesOf('GroupPreviewGallery', module)
     data () { return { myGroups: groupsMock.slice(0, 3), otherGroups: groupsMock } },
     methods,
     i18n,
+    router,
   }))

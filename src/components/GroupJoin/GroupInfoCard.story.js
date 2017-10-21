@@ -13,26 +13,52 @@ const methods = {
 
 storiesOf('GroupInfoCard', module)
   .add('is not member', () => ({
-    components: { GroupInfoCard },
-    template: '<GroupInfoCard :group="group" @join="join" />',
-    data () { return { group: { ...groupsMock[0], isMember: false } } },
-    methods,
+    render: h => h(GroupInfoCard, {
+      props: {
+        group: { ...groupsMock[0], isMember: false },
+        status: { error: null, isWaiting: false },
+      },
+      on: { join: methods.join },
+    }),
     i18n,
   }))
   .add('is member', () => ({
-    components: { GroupInfoCard },
-    template: '<GroupInfoCard :group="group" @visit="visit" />',
-    data () { return { group: { ...groupsMock[0], isMember: true } } },
-    methods,
+    render: h => h(GroupInfoCard, {
+      props: {
+        group: { ...groupsMock[0], isMember: true },
+        status: { error: null, isWaiting: false },
+      },
+      on: { visit: methods.visit },
+    }),
     i18n,
   }))
   .add('without public description', () => ({
-    components: { GroupInfoCard },
-    template: '<GroupInfoCard :group="group" />',
-    data () {
-      return {
+    render: h => h(GroupInfoCard, {
+      props: {
         group: { ...groupsMock[0], publicDescription: '', isMember: true },
-      }
-    },
+        status: { error: null, isWaiting: false },
+      },
+      on: { visit: methods.visit },
+    }),
+    i18n,
+  }))
+  .add('waiting', () => ({
+    render: h => h(GroupInfoCard, {
+      props: {
+        group: { ...groupsMock[4], isMember: false },
+        status: { error: null, isWaiting: true },
+      },
+      on: { join: methods.join },
+    }),
+    i18n,
+  }))
+  .add('error', () => ({
+    render: h => h(GroupInfoCard, {
+      props: {
+        group: { ...groupsMock[4], isMember: false },
+        status: { error: 'asdfasdf', isWaiting: false },
+      },
+      on: { join: methods.join },
+    }),
     i18n,
   }))

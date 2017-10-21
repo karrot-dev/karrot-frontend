@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { historyMock } from '>/mockdata'
 import i18n from '@/i18n'
+import router from '@/router'
 
 import HistoryList from './HistoryList.vue'
 
@@ -16,4 +17,5 @@ storiesOf('History List', module)
       }
     },
     i18n,
+    router,
   }))

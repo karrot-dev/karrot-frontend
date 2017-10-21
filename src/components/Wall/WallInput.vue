@@ -3,7 +3,7 @@
     <q-card-main>
       <form name="wallinput" @submit.prevent="send">
         <q-input v-model="message" />
-        <q-btn type="submit">Send</q-btn>
+        <q-btn class="send" type="submit">Send</q-btn>
       </form>
     </q-card-main>
   </q-card>

@@ -19,7 +19,7 @@
     </div>
     <WallInput @send="$emit('send', arguments[0])" />
     <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
-    <q-btn @click="$emit('fetchMoreMessages')"
+    <q-btn class="more" @click="$emit('fetchMoreMessages')"
       loader :value="messageReceiveMoreStatus.isWaiting"
       :disable="!canLoadMore"
       >

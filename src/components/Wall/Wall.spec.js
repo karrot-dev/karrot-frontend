@@ -7,7 +7,7 @@ import WallInput from './WallInput.vue'
 import { messagesMock } from '>/mockdata'
 import MockRouterLink from '>/MockRouterLink.vue'
 
-import { QBtn, QInput } from 'quasar'
+import { QInput } from 'quasar'
 
 import i18n from '@/i18n'
 
@@ -22,6 +22,7 @@ describe('Wall', () => {
 
   it('renders', () => {
     let wrapper = mount(Wall, {
+      i18n,
       propsData: {
         messages: [],
       },
@@ -50,14 +51,14 @@ describe('Wall', () => {
       },
     })
     expect(wrapper.findAll(QInput).length).toBe(1)
-    expect(wrapper.findAll(QBtn).length).toBe(1)
+    expect(wrapper.findAll('.send').length).toBe(1)
     expect(wrapper.findAll(WallInput).length).toBe(1)
 
     let message = 'A nice new wall message'
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(WallInput).setData({ message })
-    wrapper.find(QBtn).trigger('click')
+    wrapper.find('.send').trigger('click')
 
     expect(wrapper.emitted().send[0]).toEqual([message])
   })
@@ -68,9 +69,10 @@ describe('Wall', () => {
       i18n,
       propsData: {
         messages: [],
+        canLoadMore: true,
       },
     })
-    wrapper.find('button.more').trigger('click')
+    wrapper.find('.more').trigger('click')
     expect(wrapper.emitted().fetchMoreMessages).toBeDefined()
   })
 })

@@ -15,7 +15,7 @@ export const state = initialState()
 
 export const getters = {
   open: state => state.open,
-  terms: state => state.terms,
+  terms: state => state.terms || '',
   results: (state, getters, rootState, rootGetters) => {
     const stores = rootGetters['stores/all'],
       groups = rootGetters['groups/all'],

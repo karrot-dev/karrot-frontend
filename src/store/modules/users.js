@@ -42,8 +42,18 @@ function initialState () {
 export const state = initialState()
 
 export const getters = {
-  get: (state, getters, rootState, rootGetters) => id => {
-    return state.entries[id] || {}
+  get: (state, getters, rootState, rootGetters) => userId => {
+    return getters.enrich(state.entries[userId])
+  },
+  enrich: (state, getters, rootState, rootGetters) => user => {
+    const authUserId = rootGetters['auth/userId']
+    return user ? {
+      ...user,
+      isCurrentUser: user.id === authUserId,
+      __unenriched: user,
+    } : {
+      isCurrentUser: false,
+    }
   },
   all: (state, getters, rootState, rootGetters) => {
     return state.idList.map(getters.get)

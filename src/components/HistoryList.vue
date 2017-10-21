@@ -7,7 +7,7 @@
       :data="history"
       :columns="columns"
       :config="config"
-    >
+      >
       <template slot="col-users" scope="cell">
         <ProfilePicture
           v-for="user in cell.data" :key="user.id"

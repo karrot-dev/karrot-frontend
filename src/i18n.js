@@ -1,12 +1,38 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
+import { isObject, camelize } from '@/services/utils'
+
 Vue.use(VueI18n)
+
+// Hotfix to use existing files
+// e.g. converts translations containing {{store_name}} into {storeName}
+// TODO: convert files and sync them with transifex
+function angularToVueI18n (val) {
+  if (isObject(val)) {
+    let newVal = {}
+    for (const key of Object.keys(val)) {
+      newVal[key] = angularToVueI18n(val[key])
+    }
+    return newVal
+  }
+  else {
+    return val.replace(/{{(.*?)}}/g, (_, a) => `{${camelize(a)}}`)
+  }
+}
+
+export async function loadLocale (locale) {
+  let messages = await import(`@/locales/locale-${locale}.json`)
+  messages = angularToVueI18n(messages)
+  return messages
+}
 
 // Just need to include 'en' here as it is the fallback locale
 // All other locales are loaded on demand in store/plugins/i18n
-export const messages = {
-  en: require('@/locales/locale-en.json'),
+function loadInitialLocale () {
+  let messages = require('@/locales/locale-en.json')
+  messages = angularToVueI18n(messages)
+  return { en: messages }
 }
 
 export const locales = [
@@ -49,7 +75,7 @@ for (const locale of locales) {
 }
 
 const i18n = new VueI18n({
-  messages,
+  messages: loadInitialLocale(),
   dateTimeFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
@@ -90,10 +116,14 @@ export function sortByDay (a, b) {
 
 export default i18n
 
-if (module.hot) {
-  module.hot.accept([
-    '@/locales/locale-en.json',
-  ], () => {
-    i18n.setLocaleMessage('en', require('@/locales/locale-en.json'))
-  })
-}
+/**
+ * Doesn't work for me (Tilmann)
+ */
+// if (module.hot) {
+//   module.hot.accept([
+//     '@/locales/locale-en.json',
+//   ], () => {
+//     const locale = loadInitialLocale()
+//     i18n.setLocaleMessage('en', locale['en'])
+//   })
+// }

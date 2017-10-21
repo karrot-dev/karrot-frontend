@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import { Toast } from 'quasar'
+import i18n from '@/i18n'
 
 /*
 * Axios configured for Django REST API
@@ -16,7 +17,7 @@ axios.interceptors.request.use(request => {
   request.data = underscorizeKeys(request.data)
   return request
 }, (error) => {
-  Toast.create.warning('Could not connect to the server') // TODO translate
+  Toast.create.warning(i18n.t('GLOBAL.CONNECTION_INTERRUPTED'))
   return Promise.reject(error)
 })
 
@@ -25,7 +26,7 @@ axios.interceptors.response.use(response => {
   return response
 }, (error) => {
   if (error.response.status >= 500) {
-    Toast.create.warning('Server error') // TODO translate
+    Toast.create.warning(i18n.t('GLOBAL.SERVER_ERROR'))
   }
   else {
     error.data = camelizeKeys(error.data)

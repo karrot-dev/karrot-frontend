@@ -1,21 +1,21 @@
 <template>
-    <div>
-      <q-card color="secondary" class="generic-padding">
-        <i class="fa fa-exclamation-triangle on-left"/>
-        {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length})}}
-      </q-card>
-      <transition-group name="list" tag="div">
-        <PickupItem
-          v-for="pickup in pickups"
-          :key="pickup.id"
-          :pickup="pickup"
-          @join="$emit('join', arguments[0])"
-          @leave="$emit('leave', arguments[0])"
-          >
-          <strong v-if="pickup.store">{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
-        </PickupItem>
-      </transition-group>
-    </div>
+  <div>
+    <q-card color="secondary" class="generic-padding">
+      <i class="fa fa-exclamation-triangle on-left"/>
+      {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length})}}
+    </q-card>
+    <transition-group name="list" tag="div">
+      <PickupItem
+        v-for="pickup in pickups"
+        :key="pickup.id"
+        :pickup="pickup"
+        @join="$emit('join', arguments[0])"
+        @leave="$emit('leave', arguments[0])"
+        >
+        <strong v-if="pickup.store">{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
+      </PickupItem>
+    </transition-group>
+  </div>
 </template>
 
 <script>

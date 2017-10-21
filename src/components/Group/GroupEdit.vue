@@ -1,88 +1,88 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-
-    <q-field
-      icon="fa-star"
-      :label="$t('GROUP.TITLE')"
-      :error="$v.groupEdit.name.$error"
-      :error-label="nameErrorMessage"
-      >
-      <q-input
-        v-model="groupEdit.name"
-        :autofocus="true"
-        @blur="$v.groupEdit.name.$touch"
-        autocomplete="off"
-        />
-    </q-field>
-
-    <q-field
-      icon="fa-star"
-      :label="$t('GROUP.PASSWORD')"
-      >
-      <q-input v-model="groupEdit.password"/>
-    </q-field>
-
-    <q-field
-      icon="fa-star"
-      :label="$t('GROUP.TIMEZONE')"
-      :error="$v.groupEdit.timezone.$error"
-      error-label="Enter a valid timezone"
-      >
-      <q-input
-        v-model="groupEdit.timezone"
-        @blur="$v.groupEdit.timezone.$touch"
+    <form @submit="save">
+      <q-field
+        icon="fa-star"
+        :label="$t('GROUP.TITLE')"
+        :error="$v.groupEdit.name.$error"
+        :error-label="nameErrorMessage"
         >
-        <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
-      </q-input>
-    </q-field>
+        <q-input
+          v-model="groupEdit.name"
+          :autofocus="true"
+          @blur="$v.groupEdit.name.$touch"
+          autocomplete="off"
+          />
+      </q-field>
 
-    <q-field
-      icon="fa-wheelchair"
-      :label="$t('GROUP.PUBLIC_DESCRIPTION')">
-      <q-input
-        v-model="groupEdit.publicDescription"
-        type="textarea"
-        :min-rows="1"
-        :max-height="100"
-      />
-    </q-field>
+      <q-field
+        icon="fa-star"
+        :label="$t('GROUP.PASSWORD')"
+        >
+        <q-input v-model="groupEdit.password"/>
+      </q-field>
 
-    <q-field
-      icon="fa-wheelchair"
-      :label="$t('GROUP.DESCRIPTION_VERBOSE')"
-      >
-      <q-input
-        v-model="groupEdit.description"
-        type="textarea"
-        :min-rows="1"
-        :max-height="100"
-      />
-    </q-field>
+      <q-field
+        icon="fa-star"
+        :label="$t('GROUP.TIMEZONE')"
+        :error="$v.groupEdit.timezone.$error"
+        error-label="Enter a valid timezone"
+        >
+        <q-input
+          v-model="groupEdit.timezone"
+          @blur="$v.groupEdit.timezone.$touch"
+          >
+          <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
+        </q-input>
+      </q-field>
 
-    <q-field
-      icon="fa-map"
-      :label="$t('GROUP.ADDRESS')"
-      >
-      <address-picker
-        v-model="groupEdit"
-        :map="true"
-      />
-    </q-field>
+      <q-field
+        icon="fa-wheelchair"
+        :label="$t('GROUP.PUBLIC_DESCRIPTION')">
+        <q-input
+          v-model="groupEdit.publicDescription"
+          type="textarea"
+          :min-rows="3"
+          :max-height="100"
+        />
+      </q-field>
 
-    <q-btn color="primary" @click="save" :disable="!canSave">
-      {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-    </q-btn>
-    <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">
-      {{ $t('BUTTON.RESET') }}
-    </q-btn>
-    <q-btn @click="$emit('cancel')" v-if="isNew">
-      {{ $t('BUTTON.CANCEL') }}
-    </q-btn>
+      <q-field
+        icon="fa-wheelchair"
+        :label="$t('GROUP.DESCRIPTION_VERBOSE')"
+        >
+        <q-input
+          v-model="groupEdit.description"
+          type="textarea"
+          :min-rows="3"
+          :max-height="100"
+        />
+      </q-field>
 
-    <pre>
-      {{ status.error }}
-    </pre>
+      <q-field
+        icon="fa-map"
+        :label="$t('GROUP.ADDRESS')"
+        >
+        <address-picker
+          v-model="groupEdit"
+          :map="true"
+        />
+      </q-field>
 
+      <q-btn color="primary" @click="save" :disable="!canSave">
+        {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+      </q-btn>
+      <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">
+        {{ $t('BUTTON.RESET') }}
+      </q-btn>
+      <q-btn @click="$emit('cancel')" v-if="isNew">
+        {{ $t('BUTTON.CANCEL') }}
+      </q-btn>
+
+      <pre>
+        {{ status.error }}
+      </pre>
+    </form>
   </div>
 </template>
 

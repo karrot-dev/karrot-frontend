@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     leave () {
-      // TODO fix cancel button and handle ESC key
       this.$refs.popover.close()
       Dialog.create({
         title: this.$t('GROUP.LEAVE'),

@@ -3,7 +3,7 @@ import store from '@/store'
 import i18n from '@/i18n'
 
 import Settings from '@/pages/Settings'
-import { usersMock } from '>/mockdata'
+import { currentUserMock } from '>/mockdata'
 
 storiesOf('Settings Page', module)
   .add('Default', () => ({
@@ -11,7 +11,7 @@ storiesOf('Settings Page', module)
       return h(Settings)
     },
     created () {
-      store.commit('auth/Receive Login Status', { user: usersMock[0] })
+      store.commit('auth/Receive Login Status', { user: currentUserMock })
     },
     i18n,
     store,

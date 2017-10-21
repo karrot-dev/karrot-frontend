@@ -16,21 +16,21 @@
       </q-field>
 
       <q-field
-        icon="fa-wheelchair"
+        icon="fa-question"
         :label="$t('STOREEDIT.DESCRIPTION')">
         <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
-      </q-field>
-
-      <q-field
-        icon="fa-calendar"
-        :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')">
-        <q-slider v-model="storeEdit.weeksInAdvance" :min="1" :max="10" label label-always />
       </q-field>
 
       <q-field
         icon="fa-map"
         :label="$t('STOREEDIT.ADDRESS')">
         <address-picker v-model="storeEdit" :map="true"/>
+      </q-field>
+
+      <q-field
+        icon="fa-calendar"
+        :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')">
+        <q-slider v-model="storeEdit.weeksInAdvance" :min="1" :max="10" label label-always />
       </q-field>
 
       <q-btn color="primary" @click="save" :disable="!canSave">

@@ -16,28 +16,7 @@
       </q-field>
 
       <q-field
-        icon="fa-star"
-        :label="$t('GROUP.PASSWORD')"
-        >
-        <q-input v-model="groupEdit.password"/>
-      </q-field>
-
-      <q-field
-        icon="fa-star"
-        :label="$t('GROUP.TIMEZONE')"
-        :error="$v.groupEdit.timezone.$error"
-        error-label="Enter a valid timezone"
-        >
-        <q-input
-          v-model="groupEdit.timezone"
-          @blur="$v.groupEdit.timezone.$touch"
-          >
-          <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
-        </q-input>
-      </q-field>
-
-      <q-field
-        icon="fa-wheelchair"
+        icon="fa-question"
         :label="$t('GROUP.PUBLIC_DESCRIPTION')">
         <q-input
           v-model="groupEdit.publicDescription"
@@ -48,7 +27,7 @@
       </q-field>
 
       <q-field
-        icon="fa-wheelchair"
+        icon="fa-question"
         :label="$t('GROUP.DESCRIPTION_VERBOSE')"
         >
         <q-input
@@ -67,6 +46,27 @@
           v-model="groupEdit"
           :map="true"
         />
+      </q-field>
+
+      <q-field
+        icon="fa-question"
+        :label="$t('GROUP.PASSWORD')"
+        >
+        <q-input v-model="groupEdit.password"/>
+      </q-field>
+
+      <q-field
+        icon="fa-globe"
+        :label="$t('GROUP.TIMEZONE')"
+        :error="$v.groupEdit.timezone.$error"
+        error-label="Enter a valid timezone"
+        >
+        <q-input
+          v-model="groupEdit.timezone"
+          @blur="$v.groupEdit.timezone.$touch"
+          >
+          <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
+        </q-input>
       </q-field>
 
       <q-btn color="primary" @click="save" :disable="!canSave">

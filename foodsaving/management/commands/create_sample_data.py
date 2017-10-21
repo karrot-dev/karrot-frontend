@@ -136,7 +136,7 @@ class Command(BaseCommand):
         def make_series(store):
             data = c.post('/api/pickup-date-series/', {
                 'start_date': faker.date_time_between(start_date='now', end_date='+24h', tzinfo=pytz.utc),
-                'rule': 'FREQ=WEEKLY',
+                'rule': 'FREQ=WEEKLY;BYDAY=MO,TU,SA',
                 'max_collectors': 10,
                 'store': store
             }).data

@@ -4,9 +4,13 @@ import KBox from './KBox.vue'
 import KBreadcrumb from './KBreadcrumb.vue'
 import SearchUI from './SearchUI.vue'
 import { storesMock, groupsMock, usersMock } from '>/mockdata'
+import i18n from '@/i18n'
 
 storiesOf('General Components', module)
-  .add('KBox', () => KBox)
+  .add('KBox', () => ({
+    render: h => h(KBox),
+    i18n,
+  }))
 
   .add('KBreadcrumb', () => ({
     render: h => h(KBreadcrumb, {
@@ -14,16 +18,16 @@ storiesOf('General Components', module)
         breadcrumbs: [{ name: 'Foodsharing Berlin' }, { name: 'SirPlus' }],
       },
     }),
+    i18n,
   }))
 
   .add('SearchUI', () => ({
-    components: { SearchUI },
-    template: '<div id="q-app"><SearchUI :stores="stores" :groups="groups" :users="users"></SearchUI></div>',
-    data () {
-      return {
+    render: h => h(SearchUI, {
+      props: {
         stores: storesMock,
         groups: groupsMock,
         users: usersMock,
-      }
-    },
+      },
+    }),
+    i18n,
   }))

@@ -7,7 +7,7 @@ import i18n from '@/i18n'
 storiesOf('PickupList', module)
   .add('Default', () => ({
     components: { PickupList },
-    template: '<div id="q-app"><PickupList :pickups="pickups"></PickupList></div>',
+    template: '<PickupList :pickups="pickups"></PickupList>',
     data () {
       return {
         pickups: pickupsMock,

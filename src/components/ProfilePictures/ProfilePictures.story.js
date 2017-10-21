@@ -24,7 +24,7 @@ const template = `
 storiesOf('Profile Pictures', module)
   .add('Overview', () => ({
     components: { ProfilesInline },
-    template: template,
+    template,
   }))
   .add('Profiles Inline (with join)', () => ({
     components: { ProfilesInline },

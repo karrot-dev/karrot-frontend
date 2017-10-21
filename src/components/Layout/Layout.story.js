@@ -6,12 +6,10 @@ import i18n from '@/i18n'
 
 storiesOf('Layout', module)
   .add('KTopbar', () => ({
-    components: { KTopbarUI },
-    template: '<div id="q-app"><KTopbarUI/></div>',
+    render: h => h(KTopbarUI),
     i18n,
   }))
   .add('KFooter', () => ({
-    components: { KFooter },
-    template: '<div id="q-app"><KFooter/></div>',
+    render: h => h(KFooter),
     i18n,
   }))

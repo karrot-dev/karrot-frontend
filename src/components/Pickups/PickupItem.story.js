@@ -12,7 +12,7 @@ const methods = {
 storiesOf('PickupItem', module)
   .add('Join', () => ({
     components: { PickupItem },
-    template: '<div id="q-app"><PickupItem @join="join" :pickup="pickup"></PickupItem></div>',
+    template: '<PickupItem @join="join" :pickup="pickup"></PickupItem>',
     data () {
       return {
         pickup: {
@@ -28,7 +28,7 @@ storiesOf('PickupItem', module)
   }))
   .add('Waiting', () => ({
     components: { PickupItem },
-    template: '<div id="q-app"><PickupItem @join="join" :pickup="pickup"></PickupItem></div>',
+    template: '<PickupItem @join="join" :pickup="pickup"></PickupItem>',
     data () {
       return {
         pickup: {
@@ -45,7 +45,7 @@ storiesOf('PickupItem', module)
   }))
   .add('Full', () => ({
     components: { PickupItem },
-    template: '<div id="q-app"><PickupItem :pickup="pickup"></PickupItem></div>',
+    template: '<PickupItem :pickup="pickup"></PickupItem>',
     data () {
       return {
         pickup: {
@@ -60,7 +60,7 @@ storiesOf('PickupItem', module)
   }))
   .add('Leave', () => ({
     components: { PickupItem },
-    template: '<div id="q-app"><PickupItem @leave="leave" :pickup="pickup"></PickupItem></div>',
+    template: '<PickupItem @leave="leave" :pickup="pickup"></PickupItem>',
     data () {
       return {
         pickup: {

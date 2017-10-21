@@ -11,7 +11,7 @@ import i18n from '@/i18n'
 storiesOf('Wall', module)
   .add('Wall', () => ({
     components: { Wall },
-    template: '<div id="q-app" style="padding: 2em"><Wall :messages="messages" :emptyPickups="emptyPickups"/></div>',
+    template: '<div style="padding: 2em"><Wall :messages="messages" :emptyPickups="emptyPickups"/></div>',
     data () {
       return {
         messages: messagesMock,
@@ -22,7 +22,7 @@ storiesOf('Wall', module)
   }))
   .add('WallCard', () => ({
     components: { WallCard, ProfilePicture },
-    template: '<div id="q-app" style="padding: 2em"><WallCard/></div>',
+    template: '<div style="padding: 2em"><WallCard/></div>',
     data () {
       return {
         user: {
@@ -36,7 +36,7 @@ storiesOf('Wall', module)
 
   .add('WallMessage', () => ({
     components: { WallMessage },
-    template: '<div id="q-app" style="padding: 2em"><WallMessage :message="message"/></div>',
+    template: '<div style="padding: 2em"><WallMessage :message="message"/></div>',
     data () {
       return {
         message: messagesMock[0],
@@ -47,7 +47,7 @@ storiesOf('Wall', module)
 
   .add('WallFeedback', () => ({
     components: { WallFeedback },
-    template: '<div id="q-app" style="padding: 2em"><WallFeedback :feedback="feedback"/></div>',
+    template: '<div style="padding: 2em"><WallFeedback :feedback="feedback"/></div>',
     data () {
       return {
         feedback: feedbackMock[0],

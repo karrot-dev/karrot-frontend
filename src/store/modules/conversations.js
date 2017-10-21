@@ -59,6 +59,9 @@ export const getters = {
   sendStatus: state => state.sendStatus,
   receiveStatus: state => state.receiveStatus,
   receiveMoreStatus: state => state.receiveMoreStatus,
+  canLoadMore: (state, getters, rootState, rootGetters) => {
+    return typeof state.cursors[state.activeConversationId] === 'string'
+  },
 }
 
 export const actions = {

@@ -8,6 +8,8 @@ export default connect({
     emptyPickups: 'pickups/empty',
     messages: 'conversations/activeMessages',
     messageReceiveStatus: 'conversations/receiveStatus',
+    messageReceiveMoreStatus: 'conversations/receiveMoreStatus',
+    canLoadMore: 'conversations/canLoadMore',
   },
   actionsToEvents: {
     join: 'pickups/join',

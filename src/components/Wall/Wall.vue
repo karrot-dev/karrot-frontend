@@ -18,9 +18,20 @@
       <h5 class="generic-padding wall-header">Wall</h5>
     </div>
     <WallInput @send="$emit('send', arguments[0])" />
-    {{ messageReceiveStatus.error }}
     <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
-    <button class="more" @click="$emit('fetchMoreMessages')">fetch more messages</button>
+    <q-btn @click="$emit('fetchMoreMessages')"
+      loader :value="messageReceiveMoreStatus.isWaiting"
+      :disable="!canLoadMore"
+      >
+      <span v-if="canLoadMore">
+        {{ $t('HISTORY.LOAD_MORE') }}
+      </span>
+      <span v-else>
+        {{ $t('HISTORY.ALL_LOADED') }}
+      </span>
+    </q-btn>
+    <pre>{{ messageReceiveStatus.error }}</pre>
+    <pre>{{ messageReceiveMoreStatus.error }}</pre>
   </div>
 </template>
 
@@ -29,6 +40,7 @@ import WallMessage from './WallMessage.vue'
 import EmptyPickups from './EmptyPickups.vue'
 import JoinedPickups from './JoinedPickups.vue'
 import WallInput from './WallInput.vue'
+import { QBtn } from 'quasar'
 
 export default {
   components: {
@@ -36,12 +48,15 @@ export default {
     JoinedPickups,
     EmptyPickups,
     WallInput,
+    QBtn,
   },
   props: {
     messages: { required: true },
     joinedPickups: { required: false, default: () => [] },
     emptyPickups: { required: false, default: () => [] },
     messageReceiveStatus: { default: () => ({}) },
+    messageReceiveMoreStatus: { default: () => ({}) },
+    canLoadMore: { default: false },
   },
 }
 </script>

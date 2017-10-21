@@ -16,7 +16,7 @@ axios.interceptors.request.use(request => {
   request.data = underscorizeKeys(request.data)
   return request
 }, (error) => {
-  Toast.create.warning('Could not connect to the server')
+  Toast.create.warning('Could not connect to the server') // TODO translate
   return Promise.reject(error)
 })
 
@@ -25,7 +25,7 @@ axios.interceptors.response.use(response => {
   return response
 }, (error) => {
   if (error.response.status >= 500) {
-    Toast.create.warning('Server error')
+    Toast.create.warning('Server error') // TODO translate
   }
   else {
     error.data = camelizeKeys(error.data)

@@ -1,6 +1,8 @@
 import groups from '@/services/api/groups'
 import router from '@/router'
 import { indexById } from '@/store/helpers'
+import { Toast } from 'quasar'
+import i18n from '@/i18n'
 
 export const types = {
 
@@ -81,14 +83,9 @@ export const getters = {
   },
   joinStatus: state => state.joinStatus,
   timezones: state => {
-    // ready for q-autocomplete
+    // q-autocomplete static data format
     if (state.timezones) {
-      const tzlist = state.timezones.allTimezones.map(tz => {
-        return {
-          label: tz,
-          value: tz,
-        }
-      })
+      const tzlist = state.timezones.allTimezones.map(tz => ({ label: tz, value: tz }))
       return {
         field: 'value',
         list: tzlist,
@@ -120,19 +117,29 @@ export const actions = {
     }
   },
 
-  selectGroupInfo ({ commit }, groupPreviewId) {
-    // TODO check if the group was fetched
+  selectGroupInfo ({ commit, getters }, groupPreviewId) {
+    if (!getters.get(groupPreviewId)) {
+      router.push('/notfound')
+    }
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
   },
 
-  async fetchGroup ({ commit }, groupId) {
+  async fetchGroup ({ commit, rootGetters }, groupId) {
     commit(types.REQUEST_GROUP)
+    let group
     try {
-      commit(types.RECEIVE_GROUP, { group: await groups.get(groupId) })
+      group = await groups.get(groupId)
     }
     catch (error) {
       commit(types.RECEIVE_GROUP_ERROR, { error })
+      return
     }
+    const userId = rootGetters['auth/userId']
+    if (!group.members.includes(userId)) {
+      Toast.create.warning(i18n.t('GROUP.NONMEMBER_REDIRECT'))
+      router.push('/')
+    }
+    commit(types.RECEIVE_GROUP, { group })
   },
 
   async fetchGroups ({ commit }) {

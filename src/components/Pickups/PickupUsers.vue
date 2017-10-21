@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import ProfilePicture from './ProfilePicture.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
 import UserSlot from './UserSlot.vue'
 import CurrentUser from './CurrentUser.vue'
 import { mapGetters } from 'vuex'

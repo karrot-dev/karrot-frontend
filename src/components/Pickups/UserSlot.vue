@@ -17,7 +17,7 @@
 
 <script>
 import { QTooltip } from 'quasar'
-import RandomPicture from './RandomPicture.vue'
+import RandomPicture from '@/components/ProfilePictures/RandomPicture.vue'
 
 export default {
   props: {

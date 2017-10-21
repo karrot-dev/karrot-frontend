@@ -24,7 +24,7 @@
 
 <script>
 import { Dialog, QCard, QCardMain, QBtn } from 'quasar'
-import PickupUsers from '../ProfilePictures/PickupUsers.vue'
+import PickupUsers from './PickupUsers.vue'
 
 export default {
   props: {

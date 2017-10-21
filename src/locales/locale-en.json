@@ -133,7 +133,11 @@
     "PASSWORD_WRONG": "You entered the wrong password",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "MY_GROUPS": "My groups"
+    "MY_GROUPS": "My groups",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "You are currently logged out.",
+      "LOG_IN": "Log in to see your groups!"
+    }
   },
   "GROUPINFO": {
     "META": "Show public group information",

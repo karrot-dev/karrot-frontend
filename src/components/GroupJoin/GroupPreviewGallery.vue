@@ -4,8 +4,9 @@
       v-if="!isLoggedIn"
       color="info"
       icon="star"
+      class="alert"
     >
-      You are currently logged out. <router-link :to="{ name: 'login' }" class="text-primary">Log in</router-link> to see your groups!
+      {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT') }} <router-link :to="{ name: 'login' }" class="text-primary">{{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}</router-link>
     </q-alert>
     <h4 v-if="myGroups.length>0" class="text-primary">
       {{ $t('JOINGROUP.MY_GROUPS') }}
@@ -55,6 +56,8 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+body.desktop .alert
+  margin 2em 0 2.5em 0
 .text-primary
   margin-left .2em
 .highlight

@@ -1,11 +1,9 @@
 <template>
   <div>
     <q-card class="no-shadow grey-border" style="width: 100%">
-      <q-scroll-area style="height: 120px;">
-        <div class="generic-padding">
-          <Markdown v-if="store.description" :source="store.description" />
-        </div>
-      </q-scroll-area>
+      <div class="generic-padding overflow" v-if="store.description">
+        <Markdown v-if="store.description" :source="store.description" />
+      </div>
       <q-tabs align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
         <q-route-tab
             :to="{name: 'storePickups'}"
@@ -45,4 +43,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.overflow
+  overflow-y auto
+  max-height 120px
 </style>

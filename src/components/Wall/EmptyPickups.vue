@@ -1,10 +1,13 @@
 <template>
   <div>
-    <q-card color="secondary" class="generic-padding">
+    <q-card @click="showPickups = !showPickups" color="warning" class="generic-padding notice">
       <i class="fa fa-exclamation-triangle on-left"/>
       {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length })}}
+      <div class="card-arrow" v-bind:class="{ upsideDown: showPickups }">
+        <i class="fa fa-arrow-circle-down"/>
+      </div>
     </q-card>
-    <transition-group name="list" tag="div">
+    <transition-group name="list" tag="div" v-if="showPickups">
       <PickupItem
         v-for="pickup in pickups"
         :key="pickup.id"
@@ -26,6 +29,7 @@ export default {
   components: { PickupItem, QCard },
   props: {
     pickups: { required: true },
+    showPickups: { required: false, default: true },
   },
 }
 </script>
@@ -36,4 +40,14 @@ export default {
 .list-leave-to
   opacity: 0
   transform: translateX(-50px)
+.q-card.notice
+  cursor pointer
+  transition: all .2s ease;
+  .card-arrow
+    float: right
+    transition: all .3s ease;
+  .upsideDown
+    transform rotate(180deg)
+.q-card.notice:hover
+  box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.4);
 </style>

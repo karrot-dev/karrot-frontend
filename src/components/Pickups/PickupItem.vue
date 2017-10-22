@@ -105,7 +105,7 @@ $lighterGreen = #F0FFF0
   width 100%
   font-size: .8em
   .padding
-    padding 1em
+    padding 7px
     .featured-text
       font-size 1.5em
       display inline

@@ -18,6 +18,7 @@
         <strong v-if="pickup.store">{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
       </PickupItem>
     </transition-group>
+    <hr v-if="showPickups">
   </div>
 </template>
 
@@ -49,5 +50,8 @@ export default {
   .upsideDown
     transform rotate(180deg)
 .q-card.notice:hover
-  box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.4);
+  box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.4)
+hr
+  margin 1em 2em
+  border solid lightgrey 1px;
 </style>

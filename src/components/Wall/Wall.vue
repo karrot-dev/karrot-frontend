@@ -7,7 +7,6 @@
           @join="$emit('join', arguments[0])"
           @leave="$emit('leave', arguments[0])"
         />
-        <hr>
       </div>
       <div v-if="emptyPickups.length > 0">
         <EmptyPickups
@@ -15,7 +14,6 @@
           @join="$emit('join', arguments[0])"
           @leave="$emit('leave', arguments[0])"
         />
-        <hr>
       </div>
     </div>
     <div>
@@ -73,7 +71,4 @@ export default {
   margin-bottom 3em
 .wall-header
   margin-bottom 0
-hr
-  margin 1em 2em
-  border:solid lightgrey 1px;
 </style>

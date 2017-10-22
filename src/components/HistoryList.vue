@@ -12,7 +12,7 @@
         />
       </template>
       <template slot="col-actions" slot-scope="cell">
-        <q-btn color="primary" @click="showDetails(cell.row)" small>Info</q-btn>
+        <q-btn style="float: right" color="primary" @click="showDetails(cell.row)" small>Info</q-btn>
       </template>
     </q-data-table>
     <q-btn style="width: 100%" color="primary" @click="$emit('more')" :disabled="!canLoadMore" loader :value="status.isWaiting">
@@ -25,18 +25,27 @@
     </q-btn>
     <pre v-if="status.error">{{ status.error }}</pre>
 
-    <q-modal ref="detailModal" :content-css="{padding: '50px', minWidth: '50vw'}">
-      <span class="caption text-italic">still in development</span>
-      <h4>Details</h4>
-      <pre>{{ modalData }}</pre>
-      <q-btn color="primary" @click="$refs.detailModal.close()">Close</q-btn>
+    <q-modal ref="detailModal" :content-css="{minWidth: '50vw', minHeight: '80vh'}">
+      <q-modal-layout content-style="width: 100%">
+        <q-toolbar slot="header">
+          <div class="q-toolbar-title">
+            Details
+          </div>
+          <q-btn flat @click="$refs.detailModal.close()">
+            <i class="fa fa-window-close-o fa-fw" style="font-size: 1.4em"/>
+          </q-btn>
+        </q-toolbar>
+        <div style="padding: 4px; max-width: 100%; width: 100%; overflow: auto">
+          <pre>{{ modalData }}</pre>
+        </div>
+      </q-modal-layout>
     </q-modal>
   </div>
 </template>
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
-import { QBtn, QDataTable, QModal } from 'quasar'
+import { QBtn, QDataTable, QModal, QModalLayout, QToolbar } from 'quasar'
 
 export default {
   data () {
@@ -106,7 +115,7 @@ export default {
       this.$refs.detailModal.open()
     },
   },
-  components: { QBtn, QDataTable, ProfilePicture, QModal },
+  components: { QBtn, QDataTable, ProfilePicture, QModal, QModalLayout, QToolbar },
 }
 </script>
 

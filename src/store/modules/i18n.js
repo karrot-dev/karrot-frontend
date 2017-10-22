@@ -1,3 +1,6 @@
+import { locales } from '@/i18n'
+import status from '@/locales/status-frontend.json'
+
 export const DEFAULT_LOCALE = 'en'
 
 export function detectLocale () {
@@ -21,13 +24,21 @@ export const types = {
 function initialState () {
   return {
     locale: detectLocale() || DEFAULT_LOCALE,
+    locales,
+    status,
   }
 }
 
 export const state = initialState()
 
 export const getters = {
-  getLocale: state => state.locale,
+  locale: state => state.locale,
+  localeOptions: (state, getters) => state.locales.map(({ name, locale }) => ({
+    label: name,
+    value: locale,
+    percentage: getters.completed(locale),
+  })),
+  completed: state => locale => parseInt(state.status[locale].completed.replace('%', ''), 10),
 }
 
 export const actions = {

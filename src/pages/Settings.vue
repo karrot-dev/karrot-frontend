@@ -7,7 +7,7 @@
           <i class="fa fa-fw fa-language"/>
         </q-item-side>
         <q-item-main>
-          <q-select v-model="locale" :options="localeOptions" />
+          <q-select @input="setLocale" :value="locale" :options="localeOptions" />
         </q-item-main>
       </q-item>
 
@@ -37,8 +37,6 @@
 
 <script>
 import { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible } from 'quasar'
-import store from '@/store'
-import { locales } from '@/i18n'
 import ProfileEdit from '@/components/Settings/ProfileEdit'
 import ChangePassword from '@/components/Settings/ChangePassword'
 
@@ -47,22 +45,11 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Settings',
   components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible, ProfileEdit, ChangePassword },
-  data () {
-    return {
-      localeOptions: locales.map(({ name, locale }) => ({ label: name, value: locale })),
-    }
-  },
   computed: {
-    locale: {
-      get () {
-        return store.state.i18n.locale
-      },
-      set (locale) {
-        this.setLocale(locale)
-      },
-    },
     ...mapGetters({
-      'user': 'auth/user',
+      user: 'auth/user',
+      locale: 'i18n/locale',
+      localeOptions: 'i18n/localeOptions',
     }),
   },
   methods: {

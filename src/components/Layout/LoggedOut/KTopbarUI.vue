@@ -10,14 +10,15 @@
         <div></div>
       </div>
     </q-toolbar-title>
-      <div class="actions">
-        <router-link :to="{ name: 'login' }">
-          <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
-        </router-link>
-        <router-link :to="{ name: 'signup' }">
-          <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
-        </router-link>
-      </div>
+    <div class="actions">
+      <LocaleSelect />
+      <router-link :to="{ name: 'login' }">
+        <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
+      </router-link>
+      <router-link :to="{ name: 'signup' }">
+        <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
+      </router-link>
+    </div>
   </q-toolbar>
 </template>
 
@@ -25,10 +26,11 @@
 import { QToolbar, QToolbarTitle, QBtn } from 'quasar'
 import KarrotLogo from '@/components/Layout/KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
+import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
   components: {
-    QToolbar, QToolbarTitle, QBtn, KarrotLogo, KBreadcrumb,
+    QToolbar, QToolbarTitle, QBtn, KarrotLogo, KBreadcrumb, LocaleSelect,
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },

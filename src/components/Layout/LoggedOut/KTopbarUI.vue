@@ -10,15 +10,15 @@
         <div></div>
       </div>
     </q-toolbar-title>
-      <div class="actions">
-        <LocaleSelect />
-        <router-link :to="{ name: 'login' }">
-          <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
-        </router-link>
-        <router-link class="desktop-only" :to="{ name: 'signup' }">
-          <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
-        </router-link>
-      </div>
+    <div class="actions">
+      <LocaleSelect />
+      <router-link :to="{ name: 'login' }">
+        <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
+      </router-link>
+      <router-link class="desktop-only" :to="{ name: 'signup' }">
+        <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
+      </router-link>
+    </div>
   </q-toolbar>
 </template>
 

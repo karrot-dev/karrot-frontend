@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card class="bg-primary">
+    <q-card class="bg-tertiary margin-bottom">
       <q-card-title>
         <q-icon name="fa-exclamation-triangle" />
         {{ $t('GLOBAL.WARNING') }}
@@ -21,7 +21,7 @@
             />
           </q-field>
         </div>
-        <div class="white-box" style="margin-top: 2em">
+        <div class="white-box">
           <q-field icon="fa-envelope">
             <q-input
             v-model="user.email"
@@ -88,4 +88,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+  .margin-bottom
+    margin 0 0 24px 0
 </style>

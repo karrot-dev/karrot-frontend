@@ -10,15 +10,15 @@
         <div></div>
       </div>
     </q-toolbar-title>
-    <div class="actions">
-      <LocaleSelect />
-      <router-link :to="{ name: 'login' }">
-        <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
-      </router-link>
-      <router-link :to="{ name: 'signup' }">
-        <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
-      </router-link>
-    </div>
+      <div class="actions">
+        <LocaleSelect />
+        <router-link :to="{ name: 'login' }">
+          <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
+        </router-link>
+        <router-link class="desktop-only" :to="{ name: 'signup' }">
+          <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
+        </router-link>
+      </div>
   </q-toolbar>
 </template>
 
@@ -44,7 +44,8 @@ export default {
 .logo
   margin-left 1em
   height 36px
-
+.actions .router-link-exact-active
+  display none
 .white-box
   background-color white
   border-radius $borderRadiusSmall
@@ -77,5 +78,4 @@ export default {
     transform translate3d(-4px, 0, 0)
   40%, 60%
     transform translate3d(4px, 0, 0)
-
 </style>

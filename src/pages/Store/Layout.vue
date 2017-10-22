@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card class="no-shadow grey-border no-margin" style="width: 100%">
+    <q-card class="no-shadow grey-border">
       <div class="generic-padding overflow" v-if="store.description">
         <Markdown v-if="store.description" :source="store.description" />
       </div>

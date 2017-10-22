@@ -1,5 +1,5 @@
 <template>
-  <div class="white-background">
+  <div class="white-background desktop-margin">
     <q-data-table
       :data="history"
       :columns="columns"

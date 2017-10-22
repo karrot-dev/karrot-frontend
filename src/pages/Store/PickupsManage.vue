@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h3>
-      <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
-      {{ $t('PICKUPMANAGE.SERIES') }} <q-btn @click="createNewSeries">Create new</q-btn>
-    </h3>
 
     <q-card>
-
+      <q-card-title>
+        <h5>
+          <i class="icon fa fa-repeat on-left" aria-hidden="true"></i>
+          {{ $t('PICKUPMANAGE.SERIES') }}
+        </h5>
+        <div slot="right" class="row items-center">
+          <q-btn @click="createNewSeries">Create new</q-btn>
+        </div>
+      </q-card-title>
       <q-item v-if="newSeries" >
         <pickup-series-edit :series="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries"/>
       </q-item>
@@ -37,12 +41,16 @@
       </q-list>
     </q-card>
 
-    <h3>
-      <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
-      {{ $t('PICKUPMANAGE.SINGLE') }} <q-btn @click="createNewPickup">Create new</q-btn>
-    </h3>
-
     <q-card>
+      <q-card-title>
+        <h5>
+          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true"></i>
+          {{ $t('PICKUPMANAGE.SINGLE') }}
+        </h5>
+        <div slot="right" class="row items-center">
+          <q-btn @click="createNewPickup">Create new</q-btn>
+        </div>
+      </q-card-title>
 
       <q-item v-if="newPickup" >
         <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup"/>
@@ -64,14 +72,14 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { Dialog, QCard, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
+import { Dialog, QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
 import { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
-  components: { QCard, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit },
+  components: { QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit },
   data () {
     return {
       newSeries: null,

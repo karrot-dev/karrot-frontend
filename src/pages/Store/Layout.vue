@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card class="no-shadow grey-border" style="width: 100%">
+    <q-card class="no-shadow grey-border no-margin" style="width: 100%">
       <div class="generic-padding overflow" v-if="store.description">
         <Markdown v-if="store.description" :source="store.description" />
       </div>
@@ -10,13 +10,13 @@
             exact
             slot="title"
             name="pickups"
-        >Pickups</q-route-tab>
+        >{{ $t('GROUP.PICKUPS' )}}</q-route-tab>
         <q-route-tab
             :to="{name: 'storeHistory'}"
             exact
             slot="title"
             name="history"
-        >History</q-route-tab>
+        >{{ $t('GROUP.HISTORY' )}}</q-route-tab>
       </q-tabs>
     </q-card>
     <router-view></router-view>

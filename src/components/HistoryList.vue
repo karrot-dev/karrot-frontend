@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h5 class="generic-padding">
-      {{ $t('GROUP.HISTORY' )}}
-    </h5>
     <q-data-table
       :data="history"
       :columns="columns"

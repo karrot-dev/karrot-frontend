@@ -1,12 +1,11 @@
 <template>
   <div>
     <div class="topbar">
-      <h4 class="md-title">
-        <i class="icon fa fa-shopping-basket" aria-hidden="true"></i>
-        {{$t("GROUP.PICKUPS")}}
-      </h4>
       <router-link v-if="options.showCreate" :to="{ name: 'storePickupsManage', params: { storeId: store.id } }">
-        <q-btn style="background-color: white">{{$t("STOREDETAIL.MANAGE")}}</q-btn>
+        <q-btn style="background-color: white">
+          <i class="fa fa-clock-o on-left"/>
+          {{$t("STOREDETAIL.MANAGE")}}
+        </q-btn>
       </router-link>
     </div>
     <div>
@@ -49,7 +48,8 @@ export default {
 
 <style scoped lang="stylus">
 .topbar
-  h4, q-btn
+  padding 8px
+  q-btn
     display inline-block
     padding .3em
 </style>

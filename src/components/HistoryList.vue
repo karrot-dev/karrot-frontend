@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="white-background">
     <q-data-table
       :data="history"
       :columns="columns"
@@ -15,7 +15,7 @@
         <q-btn color="primary" @click="showDetails(cell.row)" small>Info</q-btn>
       </template>
     </q-data-table>
-    <q-btn color="primary" @click="$emit('more')" :disabled="!canLoadMore" loader :value="status.isWaiting">
+    <q-btn style="width: 100%" color="primary" @click="$emit('more')" :disabled="!canLoadMore" loader :value="status.isWaiting">
       <span v-if="canLoadMore">
         {{ $t('HISTORY.LOAD_MORE') }}
       </span>
@@ -23,7 +23,7 @@
         {{ $t('HISTORY.ALL_LOADED') }}
       </span>
     </q-btn>
-    <pre>{{ status.error }}</pre>
+    <pre v-if="status.error">{{ status.error }}</pre>
 
     <q-modal ref="detailModal" :content-css="{padding: '50px', minWidth: '50vw'}">
       <span class="caption text-italic">still in development</span>
@@ -111,4 +111,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.white-background
+  background-color: white
 </style>

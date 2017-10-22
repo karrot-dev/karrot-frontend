@@ -27,7 +27,7 @@ export default {
 @import '~variables'
 
 .wall-card-wrapper
-  margin-bottom 1em
+  margin 8px
   .header
     border-radius 5px 5px 0 0
     height 34px

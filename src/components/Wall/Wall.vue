@@ -1,18 +1,22 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <JoinedPickups
-        v-if="joinedPickups.length > 0"
-        :pickups="joinedPickups"
-        @join="$emit('join', arguments[0])"
-        @leave="$emit('leave', arguments[0])"
-      />
-      <EmptyPickups
-        v-if="emptyPickups.length > 0"
-        :pickups="emptyPickups"
-        @join="$emit('join', arguments[0])"
-        @leave="$emit('leave', arguments[0])"
-      />
+      <div v-if="joinedPickups.length > 0">
+        <JoinedPickups
+          :pickups="joinedPickups"
+          @join="$emit('join', arguments[0])"
+          @leave="$emit('leave', arguments[0])"
+        />
+        <hr>
+      </div>
+      <div v-if="emptyPickups.length > 0">
+        <EmptyPickups
+          :pickups="emptyPickups"
+          @join="$emit('join', arguments[0])"
+          @leave="$emit('leave', arguments[0])"
+        />
+        <hr>
+      </div>
     </div>
     <div>
       <h5 class="generic-padding wall-header">Wall</h5>
@@ -62,9 +66,14 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+
 .notices
   margin-top .5em
   margin-bottom 3em
 .wall-header
   margin-bottom 0
+hr
+  margin 1em 2em
+  border:solid lightgrey 1px;
 </style>

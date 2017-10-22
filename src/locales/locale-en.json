@@ -195,7 +195,7 @@
   },
   "PICKUPLIST": {
     "EMPTYNOTICE": "There is one empty pick up in the next days waiting for you! | There are {count} empty pick ups in the next days waiting for you!",
-    "JOINEDNOTICE": "You have have one upcoming pick up|You have {count} upcoming pick ups",
+    "JOINEDNOTICE": "You have have one upcoming pickup|You have {count} upcoming pickups",
     "FILTER": "Filter",
     "JOINED": "joined",
     "OPEN": "open",

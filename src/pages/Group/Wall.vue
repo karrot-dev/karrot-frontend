@@ -15,6 +15,8 @@ export default connect({
     join: 'pickups/join',
     leave: 'pickups/leave',
     send: 'conversations/sendMessage',
+  },
+  actionsToProps: {
     fetchMoreMessages: 'conversations/fetchMoreMessages',
   },
 })('GroupWall', Wall)

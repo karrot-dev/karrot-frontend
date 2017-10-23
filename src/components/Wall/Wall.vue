@@ -20,20 +20,19 @@
       <h5 class="generic-padding wall-header">Wall</h5>
     </div>
     <WallInput @send="$emit('send', arguments[0])" />
-    <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
-    <q-btn class="more" @click="$emit('fetchMoreMessages')"
-      loader :value="messageReceiveMoreStatus.isWaiting"
-      :disable="!canLoadMore"
-      >
-      <span v-if="canLoadMore">
-        {{ $t('HISTORY.LOAD_MORE') }}
-      </span>
-      <span v-else>
-        {{ $t('HISTORY.ALL_LOADED') }}
-      </span>
-    </q-btn>
-    <pre>{{ messageReceiveStatus.error }}</pre>
-    <pre>{{ messageReceiveMoreStatus.error }}</pre>
+    <q-infinite-scroll
+      :handler="loadMore"
+      ref="infiniteScroll">
+      <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
+      <div slot="message" style="width: 100%; text-align: center">
+        <q-spinner-dots :size="40"></q-spinner-dots>
+      </div>
+    </q-infinite-scroll>
+    <div style="text-align: center">
+      <div v-if="!canLoadMore">{{ $t('HISTORY.ALL_LOADED') }}</div>
+      <pre>{{ messageReceiveStatus.error }}</pre>
+      <pre>{{ messageReceiveMoreStatus.error }}</pre>
+    </div>
   </div>
 </template>
 
@@ -42,7 +41,7 @@ import WallMessage from './WallMessage.vue'
 import EmptyPickups from './EmptyPickups.vue'
 import JoinedPickups from './JoinedPickups.vue'
 import WallInput from './WallInput.vue'
-import { QBtn } from 'quasar'
+import { QBtn, QInfiniteScroll, QSpinnerDots } from 'quasar'
 
 export default {
   components: {
@@ -51,6 +50,8 @@ export default {
     EmptyPickups,
     WallInput,
     QBtn,
+    QInfiniteScroll,
+    QSpinnerDots,
   },
   props: {
     messages: { required: true },
@@ -59,6 +60,18 @@ export default {
     messageReceiveStatus: { default: () => ({}) },
     messageReceiveMoreStatus: { default: () => ({}) },
     canLoadMore: { default: false },
+    fetchMoreMessages: { required: true },
+  },
+  methods: {
+    loadMore (index, done) {
+      if (!this.canLoadMore) {
+        done()
+        return
+      }
+      this.fetchMoreMessages().then((data) => {
+        done()
+      })
+    },
   },
 }
 </script>

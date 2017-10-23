@@ -22,6 +22,10 @@ export const types = {
   RECEIVE_LEAVE: 'Receive Leave',
   RECEIVE_LEAVE_ERROR: 'Receive Leave Error',
 
+  REQUEST_SAVE: 'Request Save',
+  RECEIVE_SAVE: 'Receive Save',
+  RECEIVE_SAVE_ERROR: 'Receive Save Error',
+
   CLEAR: 'Clear',
 
 }
@@ -33,6 +37,10 @@ function initialState () {
     idList: [],
     idListGroupId: null,
     storeIdFilter: null,
+    saveStatus: {
+      isWaiting: null,
+      error: null,
+    },
   }
 }
 export const state = initialState()
@@ -74,6 +82,8 @@ export const getters = {
     if (!rootGetters['auth/isLoggedIn']) return []
     return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
   },
+  saveStatus: state => state.saveStatus,
+  saveError: (state, getters) => field => getters.saveStatus.error && getters.saveStatus.error[field] && getters.saveStatus.error[field][0],
 }
 
 export const actions = {
@@ -145,12 +155,32 @@ export const actions = {
   },
 
   async save ({ commit, dispatch }, pickup) {
-    const updatedPickup = await pickups.save(pickup)
+    commit(types.REQUEST_SAVE)
+    let updatedPickup
+    try {
+      updatedPickup = await pickups.save(pickup)
+    }
+    catch (error) {
+      if (!error.response && !error.response.data) {
+        throw error
+      }
+      commit(types.RECEIVE_SAVE_ERROR, { error: error.response.data })
+      return
+    }
+    commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_ITEM, { pickup: updatedPickup })
   },
 
-  async create ({ commit, dispatch }, series) {
-    await pickups.create(series)
+  async create ({ commit, dispatch }, data) {
+    commit(types.REQUEST_SAVE)
+    try {
+      await pickups.create(data)
+    }
+    catch (error) {
+      commit(types.RECEIVE_SAVE_ERROR, { error })
+      return
+    }
+    commit(types.RECEIVE_SAVE)
     dispatch('refresh')
   },
 
@@ -228,5 +258,18 @@ export const mutations = {
   },
   [types.RECEIVE_LEAVE_ERROR] (state, { error, pickupId }) {
     Vue.delete(state.waiting, pickupId)
+  },
+
+  [types.REQUEST_SAVE] (state) {
+    state.saveStatus.isWaiting = true
+    state.saveStatus.error = null
+  },
+  [types.RECEIVE_SAVE] (state) {
+    state.saveStatus.isWaiting = false
+    state.saveStatus.error = null
+  },
+  [types.RECEIVE_SAVE_ERROR] (state, { error }) {
+    state.saveStatus.isWaiting = false
+    state.saveStatus.error = error
   },
 }

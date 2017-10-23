@@ -23,7 +23,7 @@
                        icon="fa-calendar" sparse>
 
           <q-item>
-            <pickup-series-edit :series="series.__unenriched" @save="saveSeries" @destroy="destroySeries"/>
+            <pickup-series-edit :series="series.__unenriched" @save="saveSeries" @destroy="destroySeries" />
           </q-item>
 
           <q-list no-border seperator>
@@ -33,7 +33,7 @@
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup"/>
+              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" :status="status" :error="error" />
             </q-collapsible>
           </q-list>
 
@@ -62,11 +62,10 @@
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup"/>
+          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup" :status="status" :error="error" />
         </q-collapsible>
       </q-list>
     </q-card>
-
   </div>
 </template>
 
@@ -176,6 +175,8 @@ export default {
       storeId: 'stores/activeStoreId',
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
+      status: 'pickups/saveStatus',
+      error: 'pickups/saveError',
     }),
   },
   mounted () {

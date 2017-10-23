@@ -1,10 +1,13 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-
+    <div class="text-negative">{{ error('nonFieldErrors') }}</div>
     <q-field
       icon="access time"
       :label="$t('CREATEPICKUP.TIME')"
-      :helper="$t('CREATEPICKUP.TIME_HELPER')">
+      :helper="$t('CREATEPICKUP.TIME_HELPER')"
+      :error="!!error('time')"
+      :error-label="error('time')"
+      >
       <q-datetime type="time"
                   v-model="pickupEdit.date"
                   :format24h="is24h"
@@ -14,20 +17,29 @@
     <q-field
       icon="today"
       :label="$t('CREATEPICKUP.DATE')"
-      :helper="$t('CREATEPICKUP.DATE_HELPER')">
+      :helper="$t('CREATEPICKUP.DATE_HELPER')"
+      :error="!!error('date')"
+      :error-label="error('date')"
+      >
       <q-datetime type="date" v-model="pickupEdit.date" :display-value="$d(pickupEdit.date, 'dateShort')"/>
     </q-field>
 
     <q-field
       icon="group"
       :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
-      :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')">
+      :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
+      :error="!!error('maxCollectors')"
+      :error-label="error('maxCollectors')"
+      >
       <q-slider v-model="pickupEdit.maxCollectors" :min="1" :max="10" label label-always />
     </q-field>
 
     <q-field
       icon="info"
-      :label="$t('CREATEPICKUP.COMMENT')":helper="$t('CREATEPICKUP.COMMENT_HELPER')">
+      :label="$t('CREATEPICKUP.COMMENT')":helper="$t('CREATEPICKUP.COMMENT_HELPER')"
+      :error="!!error('description')"
+      :error-label="error('description')"
+      >
       <q-input v-model="pickupEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
 
@@ -51,6 +63,8 @@ export default {
   name: 'PickupEdit',
   props: {
     pickup: { required: true },
+    status: { required: true },
+    error: { required: true },
   },
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect,

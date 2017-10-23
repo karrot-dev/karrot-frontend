@@ -25,6 +25,7 @@ describe('Wall', () => {
       i18n,
       propsData: {
         messages: [],
+        fetchMoreMessages: jest.fn(),
       },
     })
     expect(wrapper.element.className).toBe('wrapper')
@@ -37,6 +38,7 @@ describe('Wall', () => {
       i18n,
       propsData: {
         messages: messagesMock,
+        fetchMoreMessages: jest.fn(),
       },
     })
     expect(wrapper.findAll(WallMessage).length).toBe(messagesMock.length)
@@ -48,6 +50,7 @@ describe('Wall', () => {
       i18n,
       propsData: {
         messages: [],
+        fetchMoreMessages: jest.fn(),
       },
     })
     expect(wrapper.findAll(QInput).length).toBe(1)
@@ -61,18 +64,5 @@ describe('Wall', () => {
     wrapper.find('.send').trigger('click')
 
     expect(wrapper.emitted().send[0]).toEqual([message])
-  })
-
-  it('can fetch more', () => {
-    let wrapper = mount(Wall, {
-      localVue,
-      i18n,
-      propsData: {
-        messages: [],
-        canLoadMore: true,
-      },
-    })
-    wrapper.find('.more').trigger('click')
-    expect(wrapper.emitted().fetchMoreMessages).toBeDefined()
   })
 })

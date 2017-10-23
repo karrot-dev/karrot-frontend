@@ -1,15 +1,12 @@
-import { createLocalVue, mount } from 'vue-test-utils'
-
 import Wall from './Wall.vue'
 import WallMessage from './WallMessage.vue'
 import WallInput from './WallInput.vue'
 
 import { messagesMock } from '>/mockdata'
-import MockRouterLink from '>/MockRouterLink.vue'
 
 import { QInput } from 'quasar'
 
-import i18n from '@/i18n'
+import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 
 const defaultProps = {
   messages: [],
@@ -17,18 +14,11 @@ const defaultProps = {
   sendStatus: { isWaiting: false },
 }
 
+polyfillRequestAnimationFrame()
+
 describe('Wall', () => {
-  let localVue
-
-  beforeEach(() => {
-    localVue = createLocalVue()
-    localVue.component('router-link', MockRouterLink)
-    i18n.locale = 'en'
-  })
-
   it('renders', () => {
-    let wrapper = mount(Wall, {
-      i18n,
+    let wrapper = mountWithDefaults(Wall, {
       propsData: defaultProps,
     })
     expect(wrapper.element.className).toBe('wrapper')
@@ -36,9 +26,7 @@ describe('Wall', () => {
   })
 
   it('renders messages', () => {
-    let wrapper = mount(Wall, {
-      localVue,
-      i18n,
+    let wrapper = mountWithDefaults(Wall, {
       propsData: {
         ...defaultProps,
         messages: messagesMock,
@@ -48,21 +36,17 @@ describe('Wall', () => {
   })
 
   it('can send a message', () => {
-    let wrapper = mount(Wall, {
-      localVue,
-      i18n,
+    let wrapper = mountWithDefaults(Wall, {
       propsData: defaultProps,
     })
     expect(wrapper.findAll(QInput).length).toBe(1)
-    expect(wrapper.findAll('.send').length).toBe(1)
     expect(wrapper.findAll(WallInput).length).toBe(1)
 
     let message = 'A nice new wall message'
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(WallInput).setData({ message })
-    wrapper.find('.send').trigger('click')
-
+    wrapper.find('.q-if-control').trigger('click')
     expect(wrapper.emitted().send[0]).toEqual([message])
   })
 })

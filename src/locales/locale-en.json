@@ -42,7 +42,8 @@
     "OF_COURSE": "Yes, of course!",
     "YES": "Yes",
     "SAVE_CHANGES": "Save changes",
-    "RESET": "Reset"
+    "RESET": "Reset",
+    "CHANGE_PASSWORD": "Change password"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",

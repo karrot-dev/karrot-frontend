@@ -3,13 +3,6 @@
 
     <q-field
       icon="fa-star"
-      :label="$t('USERDETAIL.OLD_PASSWORD')"
-      helper="Shhhh does not actually check this yet">
-      <q-input type="password" v-model="oldPassword"/>
-    </q-field>
-
-    <q-field
-      icon="fa-star"
       :label="$t('USERDETAIL.PASSWORD')">
       <q-input type="password" v-model="newPassword"/>
     </q-field>

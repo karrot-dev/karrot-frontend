@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import StoreEdit from '@/components/Store/StoreEdit'
+import CreateUI from '@/pages/Store/CreateUI'
 
 export default connect({
   gettersToProps: {
@@ -10,5 +10,5 @@ export default connect({
   actionsToEvents: {
     save: 'stores/create',
   },
-})('StoreCreate', StoreEdit)
+})('StoreCreate', CreateUI)
 </script>

@@ -1,5 +1,8 @@
 <template>
   <div class="generic-padding grey-border">
+
+    <verification-warning></verification-warning>
+
     <q-list no-border>
       <q-list-header>{{ $t('SETTINGS.LANGUAGE') }}</q-list-header>
       <q-item style="padding-top: 0">
@@ -25,12 +28,6 @@
 
       <q-list-header>Email address</q-list-header>
 
-      <q-item>
-        <q-item-side>
-          <i class="fa fa-fw fa-envelope"/>
-        </q-item-side>
-        <q-item-main>Resend Mail verification</q-item-main>
-      </q-item>
     </q-list>
   </div>
 </template>
@@ -39,12 +36,13 @@
 import { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible } from 'quasar'
 import ProfileEdit from '@/components/Settings/ProfileEdit'
 import ChangePassword from '@/components/Settings/ChangePassword'
+import VerificationWarning from '@/components/Settings/VerificationWarning'
 
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Settings',
-  components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible, ProfileEdit, ChangePassword },
+  components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible, ProfileEdit, ChangePassword, VerificationWarning },
   computed: {
     ...mapGetters({
       user: 'auth/user',

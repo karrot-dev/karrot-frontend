@@ -2,8 +2,12 @@
   <q-card>
     <q-card-main>
       <form name="wallinput" @submit.prevent="send">
-        <q-input v-model="message" />
-        <q-btn class="send" type="submit" loader :value="status.isWaiting">Send</q-btn>
+        <q-input
+          type="textarea"
+          v-model="message"
+          placeholder="Write a message..."
+          :min-rows="3"
+          :after="[{icon: 'arrow_forward', content: true, handler: this.send }]" />
       </form>
     </q-card-main>
   </q-card>
@@ -15,9 +19,6 @@ import { QCard, QCardMain, QInput, QBtn } from 'quasar'
 export default {
   name: 'WallInput',
   components: { QCard, QInput, QBtn, QCardMain },
-  props: {
-    status: { required: true },
-  },
   data () {
     return {
       message: '',

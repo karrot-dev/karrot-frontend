@@ -19,20 +19,25 @@
     <div>
       <h5 class="generic-padding wall-header">Wall</h5>
     </div>
-    <WallInput :status="sendStatus" @send="$emit('send', arguments[0])" />
-    <q-infinite-scroll
-      :handler="loadMore"
-      ref="infiniteScroll">
-      <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
-      <div slot="message" style="width: 100%; text-align: center">
-        <q-spinner-dots :size="40"></q-spinner-dots>
-      </div>
-    </q-infinite-scroll>
-    <div style="text-align: center">
-      <div v-if="!canLoadMore">{{ $t('HISTORY.ALL_LOADED') }}</div>
-      <pre>{{ messageReceiveStatus.error }}</pre>
-      <pre>{{ messageReceiveMoreStatus.error }}</pre>
-    </div>
+    <q-alert v-if="messageReceiveStatus.error">
+      {{ messageReceiveStatus.error.response.data.detail }}
+    </q-alert>
+    <template v-if="!messageReceiveStatus.error">
+      <WallInput @send="$emit('send', arguments[0])" />
+      <q-infinite-scroll
+        :handler="loadMore"
+        ref="infiniteScroll">
+        <q-list highlight inset-separator class="bg-white">
+          <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
+        </q-list>
+        <div slot="message" style="width: 100%; text-align: center">
+          <q-spinner-dots :size="40"></q-spinner-dots>
+        </div>
+      </q-infinite-scroll>
+      <q-alert v-if="messageReceiveMoreStatus.error">
+        {{ messageReceiveMoreStatus.error }}
+      </q-alert>
+    </template>
   </div>
 </template>
 
@@ -41,7 +46,7 @@ import WallMessage from './WallMessage.vue'
 import EmptyPickups from './EmptyPickups.vue'
 import JoinedPickups from './JoinedPickups.vue'
 import WallInput from './WallInput.vue'
-import { QBtn, QInfiniteScroll, QSpinnerDots } from 'quasar'
+import { QBtn, QList, QAlert, QInfiniteScroll, QSpinnerDots } from 'quasar'
 
 export default {
   components: {
@@ -50,6 +55,8 @@ export default {
     EmptyPickups,
     WallInput,
     QBtn,
+    QList,
+    QAlert,
     QInfiniteScroll,
     QSpinnerDots,
   },
@@ -61,7 +68,6 @@ export default {
     messageReceiveMoreStatus: { default: () => ({}) },
     canLoadMore: { default: false },
     fetchMoreMessages: { required: true },
-    sendStatus: { required: true },
   },
   methods: {
     loadMore (index, done) {

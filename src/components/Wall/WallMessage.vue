@@ -1,25 +1,23 @@
 <template>
-    <WallCard>
-      <template slot="icon">
-        <ProfilePicture :user="message.author" :size="32"/>
-      </template>
-      <template slot="header">
-      </template>
-      <template slot="time">
-        {{  $d(message.createdAt, 'long')  }}
-      </template>
-      <div> {{ message.content }} </div>
-    </WallCard>
+    <q-item multiline>
+      <q-item-tile lines="2" class="left"><ProfilePicture :user="message.author" :size="40" /></q-item-tile>
+      <q-item-main
+        :label="message.author.displayName"
+        label-lines="1"
+        :sublabel="message.content"
+        sublabel-lines="2"
+      />
+      <q-item-side right :stamp="$d(message.createdAt, 'long')" />
+    </q-item>
 </template>
 
 <script>
-import WallCard from './WallCard.vue'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
-
+import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 export default {
   name: 'WallMessage',
   components: {
-    WallCard, ProfilePicture,
+    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile,
   },
   props: {
     message: { required: true },
@@ -28,4 +26,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.left {
+  margin-right: 1em;
+}
 </style>

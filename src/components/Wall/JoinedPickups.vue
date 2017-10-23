@@ -30,7 +30,11 @@ export default {
   components: { PickupItem, QCard },
   props: {
     pickups: { required: true },
-    showPickups: { required: false, default: true },
+  },
+  data () {
+    return {
+      showPickups: true,
+    }
   },
 }
 </script>

@@ -23,12 +23,18 @@
     <q-card class="generic-padding">
       <UserMapPreview v-if="user.latitude && user.longitude" :user="user"class="map"/>
       <div class="info">
-        <strong><i class="fa fa-fw fa-envelope-o on-left"></i> </strong>
-        {{ user.email }}
-        <span v-if="user.email !== user.unverifiedEmail">
-          <i class="fa fa-arrow-right"/>
-          <router-link :to="{name: 'settings'}">{{ user.unverifiedEmail }}</router-link>
-        </span>
+        <div class="info-item">
+          <strong><i class="fa fa-fw fa-envelope-o on-left"></i> </strong>
+          {{ user.email }}
+          <span v-if="user.email !== user.unverifiedEmail">
+            <i class="fa fa-arrow-right"/>
+            <router-link :to="{name: 'settings'}">{{ user.unverifiedEmail }}</router-link>
+          </span>
+        </div>
+        <div class="info-item">
+          <strong class="info-item"><i class="fa fa-fw fa-map-marker on-left"></i> </strong>
+          {{ user.address }}
+        </div>
       </div>
       <q-card-separator v-if="user.description != ''"/><br/>
       <Markdown
@@ -36,7 +42,7 @@
         :source="user.description" />
       <q-card-separator />
       <q-card-actions>
-        <q-btn flat>
+        <q-btn flat disabled>
           <i class="fa fa-comment on-left"/>
           Message
       </q-btn>
@@ -46,7 +52,7 @@
 
     <q-card color="info" class="generic-padding">
       <i class="fa fa-exclamation-triangle on-left"/>
-      To be added: Statistics, working Messages, working Map, Email, Translation, Fix Profile Picure reload
+      To be added: statistics, working user-to-user messages, translation
     </q-card>
     <UserHistory />
   </div>
@@ -107,6 +113,8 @@ body.mobile .map
   width 150px
 .info
   margin-bottom 1em
+  .info-item
+    margin-bottom 8px
 
 .turn-in-enter
   transform rotate(-15deg)

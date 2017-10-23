@@ -88,7 +88,13 @@ export const actions = {
       })
     }
     catch (error) {
-      commit(types.RECEIVE_SAVE_ERROR, { error })
+      const { response: { status = -1, data } = {} } = error
+      if (status >= 400 && status < 500) {
+        commit(types.RECEIVE_SAVE_ERROR, { error: { validationErrors: data } })
+      }
+      else {
+        commit(types.RECEIVE_SAVE_ERROR, { error })
+      }
       return
     }
     commit(types.RECEIVE_SAVE)

@@ -4,15 +4,13 @@
       <q-field
         icon="fa-star"
         :label="$t('STOREEDIT.NAME')"
-        :error="$v.storeEdit.name.$error"
-        :error-label="nameErrorMessage"
-        >
+        :error="hasNameError"
+        :error-label="nameErrorMessage">
         <q-input
           v-model="storeEdit.name"
           :autofocus="true"
           @blur="$v.storeEdit.name.$touch"
-          autocomplete="off"
-        />
+          autocomplete="off" />
       </q-field>
 
       <q-field
@@ -46,9 +44,6 @@
         {{ $t('BUTTON.DELETE') }}
       </q-btn>
 
-      <pre>
-        {{ status.error }}
-      </pre>
     </form>
   </div>
 </template>
@@ -113,9 +108,20 @@ export default {
       }
       return true
     },
+    hasNameError () {
+      return this.$v.storeEdit.name.$error || (this.serverErrors.name && this.serverErrors.name.length > 0)
+    },
     nameErrorMessage () {
-      // TODO make nicer (have a look at InvitationsUI.vue)
-      return JSON.stringify(this.$v.storeEdit.name)
+      const m = this.$v.storeEdit.name
+      if (!m.required) return this.$t('this field is required')
+      if (!m.minLength) return this.$t('too short')
+      if (!m.maxLength) return this.$t('too long')
+      if (!m.isUnique) return this.$t('already taken')
+      if (this.serverErrors.name && this.serverErrors.name.length > 0) return this.$t(this.serverErrors.name[0])
+    },
+    serverErrors () {
+      const { error: { validationErrors } = {} } = this.status
+      return validationErrors || {}
     },
   },
   methods: {

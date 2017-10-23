@@ -23,12 +23,13 @@ export default {
   watch: {
     'value.address' (val) {
       if (val === '') {
-        this.$emit('input', { ...this.value, latitude: '', longitude: '', address: '' })
+        this.$emit('input', { ...this.value, latitude: null, longitude: null, address: null })
       }
     },
   },
   methods: {
     async autocompleteSearch (terms, done) {
+      if (!terms) done([])
       done((await geocoding.lookupAddress(terms)).map(result => {
         const { address } = result
         return {

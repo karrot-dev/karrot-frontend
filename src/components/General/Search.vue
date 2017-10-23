@@ -30,6 +30,7 @@ export default {
       hideIfEmpty: 'search/hideIfEmpty',
     }),
     search (terms, done) {
+      if (!terms) done([])
       this.setTerms(terms)
       done(this.results)
     },

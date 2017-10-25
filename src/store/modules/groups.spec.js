@@ -42,7 +42,7 @@ describe('groups', () => {
     })
 
     it('can not join a group', async () => {
-      mockJoin.mockImplementation(throws('some error'))
+      mockJoin.mockImplementation(throws({ response: { status: 403, data: 'some error' } }))
       store.commit('groups/Receive Groups', { groups: [group1] })
       await store.dispatch('groups/join', { groupId: group1.id })
       expect(store.getters['groups/joinStatus']).toEqual({ error: 'some error', isWaiting: false })

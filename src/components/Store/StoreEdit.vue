@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
 import { validationMixin } from 'vuelidate'
@@ -89,7 +89,7 @@ export default {
     serverError: { required: true },
   },
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
+    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
   },
   data () {
     return {

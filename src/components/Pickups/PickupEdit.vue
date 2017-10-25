@@ -1,6 +1,5 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-    <div class="text-negative">{{ error('nonFieldErrors') }}</div>
     <q-field
       icon="access time"
       :label="$t('CREATEPICKUP.TIME')"
@@ -42,6 +41,8 @@
       >
       <q-input v-model="pickupEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
+
+    <div class="text-negative">{{ error('nonFieldErrors') }}</div>
 
     <q-btn color="primary" @click="save" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
     <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>

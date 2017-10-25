@@ -29,7 +29,7 @@
     "notosans-fontface": "^1.0.1",
     "raven-js": "^3.17.0",
     "reconnecting-websocket": "^3.2.1",
-    "typeface-cabin-sketch": "^0.0.35",
+    "typeface-cabin-sketch": "^0.0.43",
     "ui-leaflet": "^1.0.3"
   },
   "devDependencies": {

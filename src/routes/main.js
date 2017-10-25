@@ -166,6 +166,11 @@ export default [
       {
         name: 'storeCreate',
         path: 'store/create',
+        meta: {
+          breadcrumbs: [
+            { translation: 'CREATESTORE.TITLE', route: { name: 'storeCreate' } },
+          ],
+        },
         components: {
           default: StoreCreate,
           sidenav: GroupGroupSidenav,
@@ -210,6 +215,11 @@ export default [
           {
             name: 'storeEdit',
             path: 'edit',
+            meta: {
+              breadcrumbs: [
+                { translation: 'STOREDETAIL.EDIT', route: { name: 'storeEdit' } },
+              ],
+            },
             component: StoreEdit,
           },
         ],

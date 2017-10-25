@@ -1,6 +1,7 @@
 import auth from '@/services/api/auth'
 import users from '@/services/api/users'
 import router from '@/router'
+import { onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
 
@@ -24,6 +25,8 @@ export const types = {
   REQUEST_LOGOUT: 'Logout Request',
   RECEIVE_LOGOUT: 'Logout Success',
   RECEIVE_LOGOUT_ERROR: 'Logout Failure',
+
+  RECEIVE_SAVE_ERROR: 'Receive Save Error',
 
   CLEAN_STATUS: 'Clean Status',
 }
@@ -83,19 +86,8 @@ export const actions = {
       user = await auth.login(data)
     }
     catch (error) {
-      // if response error
-      if (error.response) {
-        let msg = null
-        if (error.response.status < 500) {
-          // handle form error
-          msg = error.response.data
-        }
-        // ignore server error
-        commit(types.RECEIVE_LOGIN_ERROR, { error: msg })
-        return
-      }
-      // throw all other errors
-      throw error
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_LOGIN_ERROR, data))
+      return
     }
 
     commit(types.RECEIVE_LOGIN, { user })
@@ -133,7 +125,7 @@ export const actions = {
       router.push({ name: 'groupsGallery' })
     }
     catch (error) {
-      commit(types.RECEIVE_LOGOUT_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_LOGOUT_ERROR, data))
     }
   },
 
@@ -143,17 +135,37 @@ export const actions = {
 
     let changed = Object.keys(data).some(key => user[key] !== data[key])
 
-    if (changed) {
-      commit(types.RECEIVE_LOGIN_STATUS, { user: await users.save({ ...data, id: user.id }) })
-      // TODO: we only need to update the current user here, but no available action/mutation yet
-      dispatch('users/fetchList', null, { root: true })
+    if (!changed) {
+      return
     }
+
+    let savedUser
+    try {
+      savedUser = await users.save({ ...data, id: user.id })
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+
+    commit(types.RECEIVE_LOGIN_STATUS, { user: savedUser })
+    // TODO: we only need to update the current user here, but no available action/mutation yet
+    dispatch('users/fetchList', null, { root: true })
   },
 
   async changePassword ({ commit, state, dispatch }, { newPassword }) {
     let user = state.user
     if (!user) return
-    commit(types.RECEIVE_LOGIN_STATUS, { user: await users.save({ password: newPassword, id: user.id }) })
+
+    let savedUser
+    try {
+      savedUser = await users.save({ password: newPassword, id: user.id })
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+    commit(types.RECEIVE_LOGIN_STATUS, { user: savedUser })
     dispatch('logout')
   },
 
@@ -253,6 +265,10 @@ export const mutations = {
       isWaiting: false,
       error: error,
     }
+  },
+
+  [types.RECEIVE_SAVE_ERROR] (state, { error }) {
+    state.status.error = error
   },
 
   [types.CLEAN_STATUS] (state) {

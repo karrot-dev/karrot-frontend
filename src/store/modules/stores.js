@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import stores from '@/services/api/stores'
-import { indexById } from '@/store/helpers'
+import { indexById, onlyHandleAPIError } from '@/store/helpers'
 import router from '@/router'
 
 export const types = {
@@ -73,7 +73,7 @@ export const actions = {
       updatedStore = await stores.save(store)
     }
     catch (error) {
-      commit(types.RECEIVE_SAVE_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
     commit(types.RECEIVE_SAVE)
@@ -91,13 +91,7 @@ export const actions = {
       })
     }
     catch (error) {
-      const { response: { status = -1, data } = {} } = error
-      if (status >= 400 && status < 500) {
-        commit(types.RECEIVE_SAVE_ERROR, { error: { validationErrors: data } })
-      }
-      else {
-        commit(types.RECEIVE_SAVE_ERROR, { error })
-      }
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
     commit(types.RECEIVE_SAVE)

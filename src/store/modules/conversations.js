@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import messageAPI from '@/services/api/messages'
+import { onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
   SET_ACTIVE: 'Set Active',
@@ -78,17 +79,19 @@ export const actions = {
 
   async sendMessage ({ commit, state, dispatch }, messageData) {
     commit(types.REQUEST_SEND_MESSAGE)
+    let message
     try {
-      const message = await messageAPI.create({
+      message = await messageAPI.create({
         content: messageData,
         conversation: state.activeConversationId,
       })
-      commit(types.RECEIVE_SEND_MESSAGE)
-      commit(types.RECEIVE_MESSAGE, { message })
     }
     catch (error) {
-      commit(types.RECEIVE_SEND_MESSAGE_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SEND_MESSAGE_ERROR, data))
+      return
     }
+    commit(types.RECEIVE_SEND_MESSAGE)
+    commit(types.RECEIVE_MESSAGE, { message })
   },
 
   async receiveMessage ({ commit, state, getters }, message) {

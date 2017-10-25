@@ -1,6 +1,6 @@
 import groups from '@/services/api/groups'
 import router from '@/router'
-import { indexById } from '@/store/helpers'
+import { indexById, onlyHandleAPIError } from '@/store/helpers'
 import { Toast } from 'quasar'
 import i18n from '@/i18n'
 
@@ -164,7 +164,7 @@ export const actions = {
       await groups.join(groupId, { password })
     }
     catch (error) {
-      commit(types.RECEIVE_JOIN_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_JOIN_ERROR, data))
       return
     }
     commit(types.RECEIVE_JOIN, { groupId, userId: rootGetters['auth/userId'] })
@@ -177,7 +177,7 @@ export const actions = {
       await groups.leave(groupId)
     }
     catch (error) {
-      commit(types.RECEIVE_LEAVE_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_LEAVE_ERROR, data))
       return
     }
     commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
@@ -195,7 +195,7 @@ export const actions = {
       updatedGroup = await groups.save(group)
     }
     catch (error) {
-      commit(types.RECEIVE_SAVE_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
     commit(types.RECEIVE_SAVE)
@@ -210,7 +210,7 @@ export const actions = {
       createdGroup = await groups.create(group)
     }
     catch (error) {
-      commit(types.RECEIVE_SAVE_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
     commit(types.RECEIVE_SAVE)

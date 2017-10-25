@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import pickups from '@/services/api/pickups'
+import { onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
 
@@ -161,10 +162,7 @@ export const actions = {
       updatedPickup = await pickups.save(pickup)
     }
     catch (error) {
-      if (!error.response && !error.response.data) {
-        throw error
-      }
-      commit(types.RECEIVE_SAVE_ERROR, { error: error.response.data })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
     commit(types.RECEIVE_SAVE)
@@ -177,7 +175,7 @@ export const actions = {
       await pickups.create(data)
     }
     catch (error) {
-      commit(types.RECEIVE_SAVE_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
     commit(types.RECEIVE_SAVE)

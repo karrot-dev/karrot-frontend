@@ -1,4 +1,5 @@
 import users from '@/services/api/users'
+import { onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
   REQUEST: 'Request',
@@ -31,7 +32,7 @@ export const actions = {
       commit(types.RECEIVE)
     }
     catch (error) {
-      commit(types.RECEIVE_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_ERROR, data))
     }
   },
 }

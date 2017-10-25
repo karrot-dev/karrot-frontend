@@ -1,5 +1,5 @@
 import users from '@/services/api/users'
-import { indexById } from '@/store/helpers'
+import { indexById, onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
 
@@ -92,7 +92,7 @@ export const actions = {
       commit(types.RECEIVE_USER_SIGNUP)
     }
     catch (error) {
-      commit(types.RECEIVE_USER_SIGNUP_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_USER_SIGNUP_ERROR, data))
       return
     }
 
@@ -110,7 +110,7 @@ export const actions = {
       commit(types.RECEIVE_RESETPASSWORD)
     }
     catch (error) {
-      commit(types.RECEIVE_RESETPASSWORD_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_RESETPASSWORD_ERROR, data))
     }
   },
 
@@ -126,7 +126,7 @@ export const actions = {
       commit(types.RECEIVE_VERIFICATIONMAIL)
     }
     catch (error) {
-      commit(types.RECEIVE_VERIFICATIONMAIL_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_VERIFICATIONMAIL_ERROR, data))
     }
   },
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import pickupSeries from '@/services/api/pickupSeries'
+import { onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
   REQUEST_LIST: 'Request List',
@@ -8,6 +9,7 @@ export const types = {
   RECEIVE_LIST_ERROR: 'Receive List Error',
   CLEAR_LIST: 'Clear List',
   RECEIVE_ITEM: 'Receive Item',
+  RECEIVE_SAVE_ERROR: 'Receive Save Error',
 }
 
 function initialState () {
@@ -55,19 +57,38 @@ export const actions = {
   },
 
   async create ({ commit, dispatch }, series) {
-    await pickupSeries.create(series)
+    try {
+      await pickupSeries.create(series)
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
     dispatch('fetchListForActiveStore')
     dispatch('pickups/refresh', null, { root: true })
   },
 
   async save ({ commit, dispatch }, series) {
-    const updatedSeries = await pickupSeries.save(series)
+    let updatedSeries
+    try {
+      updatedSeries = await pickupSeries.save(series)
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
     commit(types.RECEIVE_ITEM, { series: updatedSeries })
     dispatch('pickups/refresh', null, { root: true })
   },
 
   async destroy ({ commit, dispatch }, id) {
-    await pickupSeries.delete(id)
+    try {
+      await pickupSeries.delete(id)
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
     dispatch('fetchListForActiveStore')
     dispatch('pickups/refresh', null, { root: true })
   },
@@ -99,5 +120,9 @@ export const mutations = {
   },
   [types.RECEIVE_ITEM] (state, { series }) {
     Vue.set(state.entries, series.id, series)
+  },
+
+  [types.RECEIVE_SAVE_ERROR] (state, { error }) {
+    state.error = error
   },
 }

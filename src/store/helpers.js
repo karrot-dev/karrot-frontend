@@ -15,3 +15,14 @@ export function indexById (iterable) {
     return acc
   }, {})
 }
+
+export function onlyHandleAPIError (error, handleFn) {
+  const { response: { status = -1, data } = {} } = error
+  if (status >= 400 && status < 500) {
+    handleFn({ error: data })
+  }
+  else {
+    handleFn({ error })
+    throw error
+  }
+}

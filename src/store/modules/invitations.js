@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import invitations from '@/services/api/invitations'
-import { indexById } from '@/store/helpers'
+import { indexById, onlyHandleAPIError } from '@/store/helpers'
 import router from '@/router'
 
 export const types = {
@@ -69,16 +69,18 @@ export const actions = {
    */
   async send ({ commit, rootGetters }, email) {
     commit(types.REQUEST_SEND)
+    let invited
     try {
-      const invited = await invitations.create({
+      invited = await invitations.create({
         email,
         group: rootGetters['groups/activeGroupId'],
       })
-      commit(types.RECEIVE_SEND, { invited })
     }
     catch (error) {
-      commit(types.RECEIVE_SEND_ERROR, { error })
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SEND_ERROR, data))
+      return
     }
+    commit(types.RECEIVE_SEND, { invited })
   },
 
   /**
@@ -95,8 +97,8 @@ export const actions = {
       router.push('/')
     }
     catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_ACCEPT_ERROR, data))
       dispatch('alerts/create', { type: 'inviteAcceptError' }, { root: true })
-      commit(types.RECEIVE_ACCEPT_ERROR, { error })
       router.push({ name: 'groupsGallery' })
     }
   },

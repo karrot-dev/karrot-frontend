@@ -4,8 +4,8 @@
       <q-field
         icon="fa-star"
         :label="$t('STOREEDIT.NAME')"
-        :error="hasNameError"
-        :error-label="nameErrorMessage">
+        :error="!!nameError"
+        :error-label="nameError">
         <q-input
           v-model="storeEdit.name"
           :autofocus="true"
@@ -30,6 +30,8 @@
         :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')">
         <q-slider v-model="storeEdit.weeksInAdvance" :min="1" :max="10" label label-always />
       </q-field>
+
+      <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
 
       <q-btn type="submit" color="primary" :disable="!canSave">
         {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
@@ -78,6 +80,7 @@ export default {
     },
     status: { required: true },
     allStores: { required: true },
+    serverError: { required: true },
   },
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
@@ -108,20 +111,13 @@ export default {
       }
       return true
     },
-    hasNameError () {
-      return this.$v.storeEdit.name.$error || (this.serverErrors.name && this.serverErrors.name.length > 0)
-    },
-    nameErrorMessage () {
+    nameError () {
       const m = this.$v.storeEdit.name
       if (!m.required) return this.$t('this field is required')
       if (!m.minLength) return this.$t('too short')
       if (!m.maxLength) return this.$t('too long')
       if (!m.isUnique) return this.$t('already taken')
-      if (this.serverErrors.name && this.serverErrors.name.length > 0) return this.$t(this.serverErrors.name[0])
-    },
-    serverErrors () {
-      const { error: { validationErrors } = {} } = this.status
-      return validationErrors || {}
+      return this.serverError('name')
     },
   },
   methods: {

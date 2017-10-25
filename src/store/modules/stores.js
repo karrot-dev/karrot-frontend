@@ -25,8 +25,10 @@ function initialState () {
   return {
     entries: {},
     idList: [],
-    isWaiting: false,
-    error: null,
+    status: {
+      isWaiting: false,
+      error: null,
+    },
     activeStoreId: null,
   }
 }
@@ -40,6 +42,7 @@ export const getters = {
   activeStore: state => state.entries[state.activeStoreId] || {},
   activeStoreId: state => state.activeStoreId,
   status: state => { return { isWaiting: state.isWaiting, error: state.error } },
+  error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
 }
 
 export const actions = {
@@ -115,16 +118,16 @@ export const mutations = {
     state.activeStoreId = null
   },
   [types.REQUEST_STORES] (state) {
-    state.isWaiting = true
+    state.status.isWaiting = true
   },
   [types.RECEIVE_STORES] (state, { stores }) {
-    state.isWaiting = false
+    state.status.isWaiting = false
     state.entries = indexById(stores)
     state.idList = stores.map(e => e.id)
   },
   [types.RECEIVE_STORES_ERROR] (state, { error }) {
-    state.isWaiting = false
-    state.error = error
+    state.status.isWaiting = false
+    state.status.error = error
   },
   [types.CLEAR] (state) {
     state.activeStoreId = null
@@ -132,16 +135,16 @@ export const mutations = {
     state.idList = []
   },
   [types.REQUEST_SAVE] (state) {
-    state.isWaiting = true
-    state.error = null
+    state.status.isWaiting = true
+    state.status.error = null
   },
   [types.RECEIVE_SAVE] (state) {
-    state.isWaiting = false
-    state.error = null
+    state.status.isWaiting = false
+    state.status.error = null
   },
   [types.RECEIVE_SAVE_ERROR] (state, { error }) {
-    state.isWaiting = false
-    state.error = error
+    state.status.isWaiting = false
+    state.status.error = error
   },
   [types.RECEIVE_ITEM] (state, { store }) {
     Vue.set(state.entries, store.id, store)

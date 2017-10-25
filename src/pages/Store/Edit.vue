@@ -2,7 +2,7 @@
   <div>
     <h3><i class="fa fa-edit"></i> Edit store</h3>
     <q-card>
-      <store-edit :store="store" :status="status" :allStores="allStores" @save="save"/>
+      <store-edit :store="store" :status="status" :allStores="allStores" :serverError="serverError" @save="save"/>
     </q-card>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
       store: 'stores/activeStore',
       status: 'stores/status',
       allStores: 'stores/all',
+      serverError: 'stores/error',
     }),
   },
   methods: {

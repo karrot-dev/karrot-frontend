@@ -3,15 +3,19 @@
     <q-icon class="globe" name="fa-globe" />
     {{ current }}
     <q-popover ref="popover">
-      <q-list-header>choose your language</q-list-header>
       <q-list>
         <q-item v-for="locale in localeOptions" :key="locale.value"
           @click="setLocale(locale.value), $refs.popover.close()"
           highlight
           >
           <q-item-main>
-            <q-item-tile label>{{ locale.label }}</q-item-tile>
-            <q-item-tile sublabel><q-progress :percentage="locale.percentage" /></q-item-tile>
+            <q-item-tile label>
+              {{ locale.label }}
+              <small>({{ locale.percentage }}%)</small>
+            </q-item-tile>
+            <q-item-tile sublabel>
+              <q-progress v-if="locale.percentage < 100" :percentage="locale.percentage" />
+            </q-item-tile>
           </q-item-main>
         </q-item>
         <q-item-separator />
@@ -22,7 +26,7 @@
           >
           <q-item-main>
             <q-icon name="fa-external-link" />
-            {{ $t('LANGUAGECHOOSER.ADD_MORE') }}
+            <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
           </q-item-main>
         </q-item>
       </q-list>

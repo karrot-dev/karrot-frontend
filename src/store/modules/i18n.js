@@ -37,7 +37,7 @@ export const getters = {
     label: name,
     value: locale,
     percentage: getters.completed(locale),
-  })),
+  })).sort((a, b) => b.percentage - a.percentage),
   completed: state => locale => parseInt(state.status[locale].completed.replace('%', ''), 10),
 }
 

@@ -1,38 +1,19 @@
-<template>
-  <div>
-    <h3><i class="fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
-    <q-card>
-      <GroupEdit :group="group" :status="status" :timezones="timezones" :allGroups="allGroups" @save="save"/>
-    </q-card>
-  </div>
-</template>
-
 <script>
-import { QCard } from 'quasar'
+import { connect } from 'vuex-connect'
 import GroupEdit from '@/components/Group/GroupEdit'
-import { mapGetters, mapActions } from 'vuex'
-export default {
-  name: 'Edit',
-  components: { QCard, GroupEdit },
-  computed: {
-    ...mapGetters({
-      group: 'groups/activeGroup',
-      status: 'groups/status',
-      timezones: 'groups/timezones',
-      allGroups: 'groups/all',
-    }),
-  },
-  methods: {
-    ...mapActions({
-      save: 'groups/save',
-      fetchTimezones: 'groups/fetchTimezones',
-    }),
-  },
-  mounted () {
-    this.fetchTimezones()
-  },
-}
-</script>
 
-<style scoped lang="stylus">
-</style>
+export default connect({
+  gettersToProps: {
+    group: 'groups/activeGroup',
+    status: 'groups/status',
+    timezones: 'groups/timezones',
+    allGroups: 'groups/all',
+  },
+  actionsToEvents: {
+    save: 'groups/save',
+  },
+  lifecycle: {
+    mounted: ({ dispatch }) => dispatch('groups/fetchTimezones'),
+  },
+})('GroupEdit', GroupEdit)
+</script>

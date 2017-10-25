@@ -1,93 +1,99 @@
 <template>
-  <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit="save">
-      <q-field
-        icon="fa-star"
-        :label="$t('GROUP.TITLE')"
-        :error="$v.groupEdit.name.$error"
-        :error-label="nameErrorMessage"
-        >
-        <q-input
-          v-model="groupEdit.name"
-          :autofocus="true"
-          @blur="$v.groupEdit.name.$touch"
-          autocomplete="off"
-          />
-      </q-field>
+  <div>
+    <h3 v-if="isNew"><i class="fa fa-pencil"></i> {{ $t('GROUP.CREATE_TITLE') }}</h3>
+    <h3 v-else><i class="fa fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
+    <q-card>
+      <div class="edit" :class="{ changed: hasChanged }">
+        <form @submit="save">
+          <q-field
+            icon="fa-star"
+            :label="$t('GROUP.TITLE')"
+            :error="$v.groupEdit.name.$error"
+            :error-label="nameErrorMessage"
+            >
+            <q-input
+              v-model="groupEdit.name"
+              :autofocus="true"
+              @blur="$v.groupEdit.name.$touch"
+              autocomplete="off"
+              />
+          </q-field>
 
-      <q-field
-        icon="fa-question"
-        :label="$t('GROUP.PUBLIC_DESCRIPTION')">
-        <q-input
-          v-model="groupEdit.publicDescription"
-          type="textarea"
-          :min-rows="3"
-          :max-height="100"
-        />
-      </q-field>
+          <q-field
+            icon="fa-question"
+            :label="$t('GROUP.PUBLIC_DESCRIPTION')">
+            <q-input
+              v-model="groupEdit.publicDescription"
+              type="textarea"
+              :min-rows="3"
+              :max-height="100"
+            />
+          </q-field>
 
-      <q-field
-        icon="fa-question"
-        :label="$t('GROUP.DESCRIPTION_VERBOSE')"
-        >
-        <q-input
-          v-model="groupEdit.description"
-          type="textarea"
-          :min-rows="3"
-          :max-height="100"
-        />
-      </q-field>
+          <q-field
+            icon="fa-question"
+            :label="$t('GROUP.DESCRIPTION_VERBOSE')"
+            >
+            <q-input
+              v-model="groupEdit.description"
+              type="textarea"
+              :min-rows="3"
+              :max-height="100"
+            />
+          </q-field>
 
-      <q-field
-        icon="fa-map"
-        :label="$t('GROUP.ADDRESS')"
-        >
-        <address-picker
-          v-model="groupEdit"
-          :map="true"
-        />
-      </q-field>
+          <q-field
+            icon="fa-map"
+            :label="$t('GROUP.ADDRESS')"
+            >
+            <address-picker
+              v-model="groupEdit"
+              :map="true"
+            />
+          </q-field>
 
-      <q-field
-        icon="fa-question"
-        :label="$t('GROUP.PASSWORD')"
-        >
-        <q-input v-model="groupEdit.password"/>
-      </q-field>
+          <q-field
+            icon="fa-question"
+            :label="$t('GROUP.PASSWORD')"
+            >
+            <q-input v-model="groupEdit.password"/>
+          </q-field>
 
-      <q-field
-        icon="fa-globe"
-        :label="$t('GROUP.TIMEZONE')"
-        :error="$v.groupEdit.timezone.$error"
-        error-label="Enter a valid timezone"
-        >
-        <q-input
-          v-model="groupEdit.timezone"
-          @blur="$v.groupEdit.timezone.$touch"
-          >
-          <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
-        </q-input>
-      </q-field>
+          <q-field
+            icon="fa-globe"
+            :label="$t('GROUP.TIMEZONE')"
+            :error="$v.groupEdit.timezone.$error"
+            error-label="Enter a valid timezone"
+            >
+            <q-input
+              v-model="groupEdit.timezone"
+              @blur="$v.groupEdit.timezone.$touch"
+              >
+              <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
+            </q-input>
+          </q-field>
 
-      <q-btn type="submit" color="primary" :disable="!canSave">
-        {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-      </q-btn>
-      <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
-        {{ $t('BUTTON.RESET') }}
-      </q-btn>
-      <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
-        {{ $t('BUTTON.CANCEL') }}
-      </q-btn>
+          <q-btn type="submit" color="primary" :disable="!canSave">
+            {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+          </q-btn>
+          <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
+            {{ $t('BUTTON.RESET') }}
+          </q-btn>
+          <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
+            {{ $t('BUTTON.CANCEL') }}
+          </q-btn>
 
-      <pre>
-        {{ status.error }}
-      </pre>
-    </form>
+          <pre>
+            {{ status.error }}
+          </pre>
+        </form>
+      </div>
+    </q-card>
   </div>
 </template>
 
 <script>
-import { QField, QInput, QBtn, QAutocomplete } from 'quasar'
+import { QCard, QField, QInput, QBtn, QAutocomplete } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
 import { validationMixin } from 'vuelidate'
@@ -121,7 +127,7 @@ export default {
     allGroups: { required: true },
   },
   components: {
-    QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker,
+    QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker,
   },
   data () {
     return {

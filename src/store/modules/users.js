@@ -15,6 +15,10 @@ export const types = {
   RECEIVE_RESETPASSWORD_ERROR: 'Receive Reset Password Error',
   CLEAN_PASSWORD_RESET: 'Clean Password Reset Status',
 
+  REQUEST_VERIFICATIONMAIL: 'Request Verification Mail',
+  RECEIVE_VERIFICATIONMAIL: 'Recieve Verification Mail',
+  RECEIVE_VERIFICATIONMAIL_ERROR: 'Recieve Verification Mail Error',
+
   REQUEST_USERS: 'Request Users',
   RECEIVE_USERS: 'Receive Users',
   RECEIVE_USERS_ERROR: 'Receive Users Error',
@@ -32,6 +36,11 @@ function initialState () {
       error: null,
     },
     resetpasswordStatus: {
+      isWaiting: false,
+      error: null,
+      success: false,
+    },
+    resendVerificationStatus: {
       isWaiting: false,
       error: null,
       success: false,
@@ -67,6 +76,7 @@ export const getters = {
   activeUserId: state => state.activeUserId,
   signupStatus: state => state.signup,
   passwordresetStatus: state => state.resetpasswordStatus,
+  resendVerificationStatus: state => state.resendVerificationStatus,
 }
 
 export const actions = {
@@ -106,6 +116,18 @@ export const actions = {
 
   cleanPasswordreset ({ commit }) {
     commit(types.CLEAN_PASSWORD_RESET)
+  },
+
+  async resendVerificationmail ({ commit, state }) {
+    if (state.resendVerificationStatus.isWaiting) return
+    commit(types.REQUEST_VERIFICATIONMAIL)
+    try {
+      await users.resendVerificationRequest()
+      commit(types.RECEIVE_VERIFICATIONMAIL)
+    }
+    catch (error) {
+      commit(types.RECEIVE_VERIFICATIONMAIL_ERROR, { error })
+    }
   },
 
   async fetchList ({ commit }) {
@@ -177,6 +199,29 @@ export const mutations = {
     state.resetpasswordStatus = {
       isWaiting: false,
       error: null,
+      success: false,
+    }
+  },
+
+  // resend verification mail
+  [types.REQUEST_VERIFICATIONMAIL] (state) {
+    state.resendVerificationStatus = {
+      isWaiting: true,
+      error: null,
+      success: false,
+    }
+  },
+  [types.RECEIVE_VERIFICATIONMAIL] (state) {
+    state.resendVerificationStatus = {
+      isWaiting: false,
+      error: null,
+      success: true,
+    }
+  },
+  [types.RECEIVE_VERIFICATIONMAIL_ERROR] (state, { error }) {
+    state.resendVerificationStatus = {
+      isWaiting: false,
+      error,
       success: false,
     }
   },

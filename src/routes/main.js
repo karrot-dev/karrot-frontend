@@ -6,7 +6,6 @@ const GroupCreate = () => import('@/pages/Group/Create.vue')
 const GroupInfo = () => import('@/pages/GroupInfo.vue')
 const GroupsGallery = () => import('@/pages/GroupsGallery.vue')
 const StoreLayout = () => import('@/pages/Store/Layout.vue')
-const StoreWall = () => import('@/pages/Store/Wall.vue')
 const StorePickups = () => import('@/pages/Store/Pickups.vue')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage.vue')
 const StoreHistory = () => import('@/pages/Store/History.vue')
@@ -192,7 +191,6 @@ export default [
             name: 'store',
             path: '',
             redirect: 'pickups',
-            component: StoreWall,
           },
           {
             name: 'storePickups',

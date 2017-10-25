@@ -53,7 +53,7 @@
       </q-card-title>
 
       <q-item v-if="newPickup" >
-        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup"/>
+        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" :error="error" />
       </q-item>
 
       <q-list class="pickups" separator no-border>

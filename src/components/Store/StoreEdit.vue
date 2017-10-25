@@ -1,52 +1,58 @@
 <template>
-  <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit="save">
-      <q-field
-        icon="fa-star"
-        :label="$t('STOREEDIT.NAME')"
-        :error="!!nameError"
-        :error-label="nameError">
-        <q-input
-          v-model="storeEdit.name"
-          :autofocus="true"
-          @blur="$v.storeEdit.name.$touch"
-          autocomplete="off" />
-      </q-field>
+  <div>
+    <h3 v-if="isNew"><i class="fa fa-pencil"></i> {{ $t('CREATESTORE.TITLE') }}</h3>
+    <h3 v-else><i class="fa fa fa-edit"></i> {{ $t('STOREDETAIL.EDIT') }}</h3>
+    <q-card>
+      <div class="edit" :class="{ changed: hasChanged }">
+        <form @submit="save">
+          <q-field
+            icon="fa-star"
+            :label="$t('STOREEDIT.NAME')"
+            :error="!!nameError"
+            :error-label="nameError">
+            <q-input
+              v-model="storeEdit.name"
+              :autofocus="true"
+              @blur="$v.storeEdit.name.$touch"
+              autocomplete="off" />
+          </q-field>
 
-      <q-field
-        icon="fa-question"
-        :label="$t('STOREEDIT.DESCRIPTION')">
-        <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
-      </q-field>
+          <q-field
+            icon="fa-question"
+            :label="$t('STOREEDIT.DESCRIPTION')">
+            <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
+          </q-field>
 
-      <q-field
-        icon="fa-map"
-        :label="$t('STOREEDIT.ADDRESS')">
-        <address-picker v-model="storeEdit" :map="true"/>
-      </q-field>
+          <q-field
+            icon="fa-map"
+            :label="$t('STOREEDIT.ADDRESS')">
+            <address-picker v-model="storeEdit" :map="true"/>
+          </q-field>
 
-      <q-field
-        icon="fa-calendar"
-        :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')">
-        <q-slider v-model="storeEdit.weeksInAdvance" :min="1" :max="10" label label-always />
-      </q-field>
+          <q-field
+            icon="fa-calendar"
+            :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')">
+            <q-slider v-model="storeEdit.weeksInAdvance" :min="1" :max="10" label label-always />
+          </q-field>
 
-      <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
+          <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
 
-      <q-btn type="submit" color="primary" :disable="!canSave">
-        {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-      </q-btn>
-      <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
-        {{ $t('BUTTON.RESET') }}
-      </q-btn>
-      <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
-        {{ $t('BUTTON.CANCEL') }}
-      </q-btn>
-      <q-btn type="button" color="red" @click="destroy" v-if="!isNew">
-        {{ $t('BUTTON.DELETE') }}
-      </q-btn>
+          <q-btn type="submit" color="primary" :disable="!canSave">
+            {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+          </q-btn>
+          <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
+            {{ $t('BUTTON.RESET') }}
+          </q-btn>
+          <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
+            {{ $t('BUTTON.CANCEL') }}
+          </q-btn>
+          <q-btn type="button" color="red" @click="destroy" v-if="!isNew">
+            {{ $t('BUTTON.DELETE') }}
+          </q-btn>
 
-    </form>
+        </form>
+      </div>
+    </q-card>
   </div>
 </template>
 

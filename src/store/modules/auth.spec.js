@@ -8,9 +8,27 @@ import { createStore, throws } from '>/helpers'
 
 describe('auth', () => {
   let store
+  let storeMocks
 
   beforeEach(() => jest.resetModules())
-  beforeEach(() => (store = createStore({ auth: require('./auth') })))
+  beforeEach(() => {
+    storeMocks = {
+      i18n: {
+        actions: {
+          setLocale: jest.fn(),
+        },
+      },
+      users: {
+        actions: {
+          fetchList: jest.fn(),
+        },
+      },
+    }
+    store = createStore({
+      auth: require('./auth'),
+      ...storeMocks,
+    })
+  })
 
   const user = () => ({ name: 'Alex' })
 

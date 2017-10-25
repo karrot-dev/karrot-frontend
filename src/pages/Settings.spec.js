@@ -27,8 +27,9 @@ describe('Settings', () => {
 
   it('can select a locale', () => {
     let wrapper = mountWithDefaults(Settings, { store })
+    const locales = store.getters['i18n/localeOptions']
     let idx = Math.floor(Math.random() * locales.length) // pick a random locale
     wrapper.findAll('.q-item-label').at(idx).trigger('click')
-    expect(store.state.i18n.locale).toBe(locales[idx].locale)
+    expect(store.state.i18n.locale).toBe(locales[idx].value)
   })
 })

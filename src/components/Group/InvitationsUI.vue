@@ -89,6 +89,7 @@ export default {
       this.$v.form.$touch()
       if (this.$v.form.$error) return
       this.$emit('submit', this.form.email)
+      this.$v.form.$reset()
       this.form.email = ''
     },
   },

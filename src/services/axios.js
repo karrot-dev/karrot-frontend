@@ -29,7 +29,7 @@ axios.interceptors.response.use(response => {
     Toast.create.warning(i18n.t('GLOBAL.SERVER_ERROR'))
   }
   else {
-    error.data = camelizeKeys(error.data)
+    error.response.data = camelizeKeys(error.response.data)
   }
   return Promise.reject(error)
 })

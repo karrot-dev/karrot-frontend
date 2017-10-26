@@ -9,10 +9,14 @@
         {{ $t('GLOBAL.BETA_WARNING') }}
       </q-card-main>
     </q-card>
-    <form name="signup" @keydown.enter.prevent="submit">
+    <form name="signup" @submit="submit">
       <div class="content">
         <div class="white-box">
-          <q-field icon="fa-user">
+          <q-field
+            icon="fa-user"
+            :error="!!serverError('displayName')"
+            :error-label="serverError('displayName')"
+            >
             <q-input
             :autofocus="true"
             v-model="user.displayName"
@@ -22,7 +26,11 @@
           </q-field>
         </div>
         <div class="white-box">
-          <q-field icon="fa-envelope">
+          <q-field
+            icon="fa-envelope"
+            :error="!!serverError('email')"
+            :error-label="serverError('email')"
+            >
             <q-input
             v-model="user.email"
             type="email"
@@ -32,7 +40,11 @@
           </q-field>
         </div>
         <div class="white-box">
-          <q-field icon="fa-lock">
+          <q-field
+            icon="fa-lock"
+            :error="!!serverError('password')"
+            :error-label="serverError('password')"
+            >
             <q-input
             v-model="user.password"
             type="password"
@@ -41,16 +53,18 @@
             />
           </q-field>
         </div>
+
+        <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
+
         <div class="actions">
-          <q-btn @click="$router.push({ name: 'login' })" flat>
+          <q-btn type="button" @click="$router.push({ name: 'login' })" flat>
             {{ $t('SIGNUP.BACK') }}
           </q-btn>
-          <q-btn @click.prevent="submit" class="submit shadow-4" loader :value="status.isWaiting">
+          <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
             {{ $t('SIGNUP.OK') }}
           </q-btn>
         </div>
         <div style="clear: both"/>
-        <pre v-if="status.error">{{ status.error }}</pre>
       </div>
     </form>
   </div>
@@ -63,9 +77,8 @@ import loginImage from '@/assets/people/cherry.png'
 export default {
   components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },
   props: {
-    status: {
-      required: true,
-    },
+    status: { required: true },
+    serverError: { required: true },
   },
   data () {
     return {

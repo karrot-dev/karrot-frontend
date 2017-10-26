@@ -75,13 +75,13 @@ export const getters = {
   },
   activeUserId: state => state.activeUserId,
   signupStatus: state => state.signup,
+  signupError: (state, getters) => field => getters.signupStatus.error && getters.signupStatus.error[field] && getters.signupStatus.error[field][0],
   passwordresetStatus: state => state.resetpasswordStatus,
   resendVerificationStatus: state => state.resendVerificationStatus,
 }
 
 export const actions = {
   async selectUser ({ commit }, userId) {
-    console.log('selecting user!', userId)
     commit(types.SELECT_USER, { userId })
   },
 
@@ -89,13 +89,12 @@ export const actions = {
     commit(types.REQUEST_USER_SIGNUP)
     try {
       await users.create(userData)
-      commit(types.RECEIVE_USER_SIGNUP)
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_USER_SIGNUP_ERROR, data))
       return
     }
-
+    commit(types.RECEIVE_USER_SIGNUP)
     dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
   },
 

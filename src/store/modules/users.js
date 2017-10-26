@@ -107,11 +107,12 @@ export const actions = {
     commit(types.REQUEST_RESETPASSWORD)
     try {
       await users.resetPassword(email)
-      commit(types.RECEIVE_RESETPASSWORD)
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_RESETPASSWORD_ERROR, data))
+      return
     }
+    commit(types.RECEIVE_RESETPASSWORD)
   },
 
   cleanPasswordreset ({ commit }) {
@@ -123,11 +124,12 @@ export const actions = {
     commit(types.REQUEST_VERIFICATIONMAIL)
     try {
       await users.resendVerificationRequest()
-      commit(types.RECEIVE_VERIFICATIONMAIL)
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_VERIFICATIONMAIL_ERROR, data))
+      return
     }
+    commit(types.RECEIVE_VERIFICATIONMAIL)
   },
 
   async fetchList ({ commit }) {

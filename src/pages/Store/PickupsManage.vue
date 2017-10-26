@@ -12,7 +12,7 @@
         </div>
       </q-card-title>
       <q-item v-if="newSeries" >
-        <pickup-series-edit :series="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries"/>
+        <pickup-series-edit :series="newSeries" :serverError="seriesError" @save="saveNewSeries" @cancel="cancelNewSeries"/>
       </q-item>
 
       <q-list class="pickups" separator no-border highlight sparse>
@@ -23,7 +23,7 @@
                        icon="fa-calendar" sparse>
 
           <q-item>
-            <pickup-series-edit :series="series.__unenriched" @save="saveSeries" @destroy="destroySeries" />
+            <pickup-series-edit :series="series.__unenriched" :serverError="seriesError" @save="saveSeries" @destroy="destroySeries" />
           </q-item>
 
           <q-list no-border seperator>
@@ -33,7 +33,7 @@
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" :status="status" :error="error" />
+              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" :status="status" :serverError="pickupsError" />
             </q-collapsible>
           </q-list>
 
@@ -53,7 +53,7 @@
       </q-card-title>
 
       <q-item v-if="newPickup" >
-        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" :error="error" />
+        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" :serverError="pickupsError" />
       </q-item>
 
       <q-list class="pickups" separator no-border>
@@ -62,7 +62,7 @@
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup" :status="status" :error="error" />
+          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup" :status="status" :serverError="pickupsError" />
         </q-collapsible>
       </q-list>
     </q-card>
@@ -176,7 +176,8 @@ export default {
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
       status: 'pickups/saveStatus',
-      error: 'pickups/saveError',
+      pickupsError: 'pickups/saveError',
+      seriesError: 'pickupSeries/error',
     }),
   },
   mounted () {

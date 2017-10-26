@@ -37,6 +37,9 @@ export const getters = {
   all: (state, getters, rootState, rootGetters) => {
     return state.idList.map(getters.get)
   },
+  error: (state, getters, rootState, rootGetters) => field => {
+    return state.error && state.error[field] && state.error[field][0]
+  },
 }
 
 export const actions = {

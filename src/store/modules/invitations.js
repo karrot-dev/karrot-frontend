@@ -44,6 +44,7 @@ export const state = initialState()
 export const getters = {
   listStatus: state => state.listStatus,
   sendStatus: state => state.sendStatus,
+  sendError: (state, getters) => field => getters.sendStatus.error && getters.sendStatus.error[field] && getters.sendStatus.error[field][0],
   acceptStatus: state => state.acceptStatus,
   list: state => state.idList.map(i => state.entries[i]),
 }

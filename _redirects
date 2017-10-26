@@ -1,4 +1,0 @@
-# Netlify proxying
-# See https://www.netlify.com/docs/redirects/#proxying
-
-/api/*  https://dev.foodsaving.world/api/:splat  200

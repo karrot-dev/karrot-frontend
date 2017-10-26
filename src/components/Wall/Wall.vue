@@ -19,7 +19,7 @@
     <div>
       <h5 class="generic-padding wall-header">Wall</h5>
     </div>
-    <WallInput @send="$emit('send', arguments[0])" />
+    <WallInput :status="sendStatus" @send="$emit('send', arguments[0])" />
     <q-infinite-scroll
       :handler="loadMore"
       ref="infiniteScroll">
@@ -61,6 +61,7 @@ export default {
     messageReceiveMoreStatus: { default: () => ({}) },
     canLoadMore: { default: false },
     fetchMoreMessages: { required: true },
+    sendStatus: { required: true },
   },
   methods: {
     loadMore (index, done) {

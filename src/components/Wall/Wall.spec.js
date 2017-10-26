@@ -11,6 +11,12 @@ import { QInput } from 'quasar'
 
 import i18n from '@/i18n'
 
+const defaultProps = {
+  messages: [],
+  fetchMoreMessages: jest.fn(),
+  sendStatus: { isWaiting: false },
+}
+
 describe('Wall', () => {
   let localVue
 
@@ -23,10 +29,7 @@ describe('Wall', () => {
   it('renders', () => {
     let wrapper = mount(Wall, {
       i18n,
-      propsData: {
-        messages: [],
-        fetchMoreMessages: jest.fn(),
-      },
+      propsData: defaultProps,
     })
     expect(wrapper.element.className).toBe('wrapper')
     expect(wrapper.findAll(WallMessage).length).toBe(0)
@@ -37,8 +40,8 @@ describe('Wall', () => {
       localVue,
       i18n,
       propsData: {
+        ...defaultProps,
         messages: messagesMock,
-        fetchMoreMessages: jest.fn(),
       },
     })
     expect(wrapper.findAll(WallMessage).length).toBe(messagesMock.length)
@@ -48,10 +51,7 @@ describe('Wall', () => {
     let wrapper = mount(Wall, {
       localVue,
       i18n,
-      propsData: {
-        messages: [],
-        fetchMoreMessages: jest.fn(),
-      },
+      propsData: defaultProps,
     })
     expect(wrapper.findAll(QInput).length).toBe(1)
     expect(wrapper.findAll('.send').length).toBe(1)

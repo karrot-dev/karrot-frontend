@@ -10,6 +10,7 @@ export default connect({
     messageReceiveStatus: 'conversations/receiveStatus',
     messageReceiveMoreStatus: 'conversations/receiveMoreStatus',
     canLoadMore: 'conversations/canLoadMore',
+    sendStatus: 'conversations/sendStatus',
   },
   actionsToEvents: {
     join: 'pickups/join',

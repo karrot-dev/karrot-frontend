@@ -4,7 +4,7 @@ import Wall from './Wall.vue'
 import WallCard from './WallCard.vue'
 import WallMessage from './WallMessage.vue'
 import WallFeedback from './WallFeedback.vue'
-import { messagesMock, pickupsMock, feedbackMock, currentUserMock } from '>/mockdata'
+import { messagesMock, leavablePickup, pickupsMock, feedbackMock, currentUserMock } from '>/mockdata'
 import i18n from '@/i18n'
 import router from '@/router'
 import { createStore } from '>/helpers'
@@ -15,16 +15,19 @@ const store = createStore({
   },
 })
 
+const defaultProps = {
+  messages: messagesMock,
+  emptyPickups: pickupsMock,
+  joinedPickups: [leavablePickup],
+  fetchMoreMessages: jest.fn(),
+  sendStatus: { isWaiting: false },
+}
+
 storiesOf('Wall', module)
   .add('Wall', () => ({
-    components: { Wall },
-    template: '<div style="padding: 2em"><Wall :messages="messages" :emptyPickups="emptyPickups"/></div>',
-    data () {
-      return {
-        messages: messagesMock,
-        emptyPickups: pickupsMock,
-      }
-    },
+    render: h => h(Wall, {
+      props: defaultProps,
+    }),
     i18n,
     router,
     store,

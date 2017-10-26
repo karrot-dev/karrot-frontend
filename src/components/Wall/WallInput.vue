@@ -3,7 +3,7 @@
     <q-card-main>
       <form name="wallinput" @submit.prevent="send">
         <q-input v-model="message" />
-        <q-btn class="send" type="submit">Send</q-btn>
+        <q-btn class="send" type="submit" loader :value="status.isWaiting">Send</q-btn>
       </form>
     </q-card-main>
   </q-card>
@@ -15,6 +15,9 @@ import { QCard, QCardMain, QInput, QBtn } from 'quasar'
 export default {
   name: 'WallInput',
   components: { QCard, QInput, QBtn, QCardMain },
+  props: {
+    status: { required: true },
+  },
   data () {
     return {
       message: '',

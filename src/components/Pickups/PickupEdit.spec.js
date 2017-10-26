@@ -16,7 +16,7 @@ describe('PickupEdit', () => {
   beforeEach(() => {
     pickup = cloneDeep(pickupsMock[0])
     requestError = jest.fn()
-    wrapper = mountWithDefaults(PickupEdit, { propsData: { pickup, status: {}, requestError } })
+    wrapper = mountWithDefaults(PickupEdit, { propsData: { pickup, requestError, isWaiting: false } })
   })
 
   it('renders', () => {

@@ -37,7 +37,7 @@
 
           <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
 
-          <q-btn type="submit" color="primary" :disable="!canSave">
+          <q-btn type="submit" color="primary" :disable="!canSave" loader :value="status.isWaiting">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">

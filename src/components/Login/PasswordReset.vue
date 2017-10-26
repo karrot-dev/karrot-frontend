@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-if="!status.success" name="passwordreset" @submit.prevent="$emit('submit', email)">
+    <form v-if="!status.success" name="passwordreset" @submit="$emit('submit', email)">
       <div>
         <p>
           {{ $t('PASSWORDRESET.INTRO') }}
@@ -13,14 +13,19 @@
             type="email"
             v-model="email"
             autocorrect="off" autocapitalize="off" spellcheck="false"
+            :error="!!serverError('email')"
+            :error-label="serverError('email')"
             />
           </q-field>
         </div>
+
         <div v-if="status.error" class="error">
-          <i class="fa fa-exclamation-triangle"/> Error!
+          <i class="fa fa-exclamation-triangle"/>
+          <div>{{ serverError('nonFieldErrors') }}</div>
         </div>
+
         <div class="actions">
-          <q-btn @click="$router.push({ name: 'login' })" flat>
+          <q-btn type="button" @click="$router.push({ name: 'login' })" flat>
             {{ $t('PASSWORDRESET.LOGIN') }}
           </q-btn>
           <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
@@ -47,9 +52,8 @@ export default {
     }
   },
   props: {
-    status: {
-      required: true,
-    },
+    status: { required: true },
+    serverError: { required: true },
   },
 }
 </script>

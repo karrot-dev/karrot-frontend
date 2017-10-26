@@ -77,6 +77,7 @@ export const getters = {
   signupStatus: state => state.signup,
   signupError: (state, getters) => field => getters.signupStatus.error && getters.signupStatus.error[field] && getters.signupStatus.error[field][0],
   passwordresetStatus: state => state.resetpasswordStatus,
+  passwordresetError: (state, getters) => field => getters.passwordresetStatus.error && getters.passwordresetStatus.error[field] && getters.passwordresetStatus.error[field][0],
   resendVerificationStatus: state => state.resendVerificationStatus,
 }
 

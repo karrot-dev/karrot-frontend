@@ -5,7 +5,7 @@ import Signup from '@/components/Login/Signup.vue'
 export default connect({
   gettersToProps: {
     status: 'users/signupStatus',
-    serverError: 'users/signupError',
+    requestError: 'users/signupError',
   },
   actionsToEvents: {
     submit: 'users/signup',

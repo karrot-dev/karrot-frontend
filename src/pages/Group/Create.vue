@@ -7,7 +7,7 @@ export default connect({
     status: 'groups/status',
     timezones: 'groups/timezones',
     allGroups: 'groups/all',
-    serverError: 'groups/error',
+    requestError: 'groups/error',
   },
   actionsToEvents: {
     save: 'groups/create',

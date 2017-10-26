@@ -13,15 +13,15 @@
             type="email"
             v-model="email"
             autocorrect="off" autocapitalize="off" spellcheck="false"
-            :error="!!serverError('email')"
-            :error-label="serverError('email')"
+            :error="!!requestError('email')"
+            :error-label="requestError('email')"
             />
           </q-field>
         </div>
 
         <div v-if="status.error" class="error">
           <i class="fa fa-exclamation-triangle"/>
-          <div>{{ serverError('nonFieldErrors') }}</div>
+          <div>{{ requestError('nonFieldErrors') }}</div>
         </div>
 
         <div class="actions">
@@ -53,7 +53,7 @@ export default {
   },
   props: {
     status: { required: true },
-    serverError: { required: true },
+    requestError: { required: true },
   },
 }
 </script>

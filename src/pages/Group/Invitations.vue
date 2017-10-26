@@ -7,7 +7,7 @@ export default connect({
     invitations: 'invitations/list',
     listStatus: 'invitations/listStatus',
     sendStatus: 'invitations/sendStatus',
-    serverError: 'invitations/sendError',
+    requestError: 'invitations/sendError',
   },
   actionsToEvents: {
     submit: 'invitations/send',

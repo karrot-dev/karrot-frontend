@@ -5,8 +5,8 @@
       icon="access time"
       :label="$t('CREATEPICKUP.TIME')"
       :helper="$t('CREATEPICKUP.TIME_HELPER')"
-      :error="!!serverError('startDate')"
-      :error-label="serverError('startDate')"
+      :error="!!requestError('startDate')"
+      :error-label="requestError('startDate')"
       >
       <q-datetime type="time"
                   v-model="seriesEdit.startDate"
@@ -18,8 +18,8 @@
       icon="today"
       label="Weekdays"
       helper="On which weekdays should the pick-up take place?"
-      :error="!!serverError('rule')"
-      :error-label="serverError('rule')"
+      :error="!!requestError('rule')"
+      :error-label="requestError('rule')"
       >
       <q-select multiple toggle v-model="seriesEdit.rule.byDay" :options="dayOptions"/>
     </q-field>
@@ -28,8 +28,8 @@
       icon="group"
       :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
       :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
-      :error="!!serverError('maxCollectors')"
-      :error-label="serverError('maxCollectors')"
+      :error="!!requestError('maxCollectors')"
+      :error-label="requestError('maxCollectors')"
       >
       <q-slider v-model="seriesEdit.maxCollectors" :min="1" :max="10" label label-always />
     </q-field>
@@ -38,13 +38,13 @@
       icon="info"
       :label="$t('CREATEPICKUP.COMMENT')"
       :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
-      :error="!!serverError('description')"
-      :error-label="serverError('description')"
+      :error="!!requestError('description')"
+      :error-label="requestError('description')"
       >
       <q-input v-model="seriesEdit.description" type="textarea" :min-rows="1" :max-height="100" />
     </q-field>
 
-    <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
+    <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
 
     <q-btn color="primary" @click="save" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
     <q-btn @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
@@ -65,7 +65,7 @@ import { objectDiff } from '@/services/utils'
 export default {
   props: {
     series: { required: true },
-    serverError: { required: true },
+    requestError: { required: true },
   },
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect,

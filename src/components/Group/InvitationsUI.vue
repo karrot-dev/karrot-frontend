@@ -21,7 +21,7 @@
           />
         </q-field>
 
-        <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
+        <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
 
         <q-btn type="submit" loader :value="sendStatus.isWaiting" :disabled="$v.form.$error">
           <q-icon name="fa-paper-plane" />
@@ -54,7 +54,7 @@ export default {
     invitations: { required: true },
     listStatus: { required: true },
     sendStatus: { required: true },
-    serverError: { required: true },
+    requestError: { required: true },
   },
   data () {
     return {

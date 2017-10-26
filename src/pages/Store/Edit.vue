@@ -7,7 +7,7 @@ export default connect({
     store: 'stores/activeStore',
     status: 'stores/status',
     allStores: 'stores/all',
-    serverError: 'stores/error',
+    requestError: 'stores/error',
   },
   actionsToEvents: {
     save: 'stores/save',

@@ -14,8 +14,8 @@
         <div class="white-box">
           <q-field
             icon="fa-user"
-            :error="!!serverError('displayName')"
-            :error-label="serverError('displayName')"
+            :error="!!requestError('displayName')"
+            :error-label="requestError('displayName')"
             >
             <q-input
             :autofocus="true"
@@ -28,8 +28,8 @@
         <div class="white-box">
           <q-field
             icon="fa-envelope"
-            :error="!!serverError('email')"
-            :error-label="serverError('email')"
+            :error="!!requestError('email')"
+            :error-label="requestError('email')"
             >
             <q-input
             v-model="user.email"
@@ -42,8 +42,8 @@
         <div class="white-box">
           <q-field
             icon="fa-lock"
-            :error="!!serverError('password')"
-            :error-label="serverError('password')"
+            :error="!!requestError('password')"
+            :error-label="requestError('password')"
             >
             <q-input
             v-model="user.password"
@@ -54,7 +54,7 @@
           </q-field>
         </div>
 
-        <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
+        <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
 
         <div class="actions">
           <q-btn type="button" @click="$router.push({ name: 'login' })" flat>
@@ -78,7 +78,7 @@ export default {
   components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },
   props: {
     status: { required: true },
-    serverError: { required: true },
+    requestError: { required: true },
   },
   data () {
     return {

@@ -35,7 +35,7 @@
             <q-slider v-model="storeEdit.weeksInAdvance" :min="1" :max="10" label label-always />
           </q-field>
 
-          <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
+          <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
 
           <q-btn type="submit" color="primary" :disable="!canSave">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
@@ -86,7 +86,7 @@ export default {
     },
     status: { required: true },
     allStores: { required: true },
-    serverError: { required: true },
+    requestError: { required: true },
   },
   components: {
     QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
@@ -123,7 +123,7 @@ export default {
       if (!m.minLength) return this.$t('too short')
       if (!m.maxLength) return this.$t('too long')
       if (!m.isUnique) return this.$t('already taken')
-      return this.serverError('name')
+      return this.requestError('name')
     },
   },
   methods: {

@@ -5,7 +5,7 @@ import PasswordReset from '@/components/Login/PasswordReset.vue'
 export default connect({
   gettersToProps: {
     status: 'users/passwordresetStatus',
-    serverError: 'users/passwordresetError',
+    requestError: 'users/passwordresetError',
   },
   actionsToEvents: {
     submit: 'users/resetPassword',

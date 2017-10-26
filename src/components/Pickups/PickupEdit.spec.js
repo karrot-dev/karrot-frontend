@@ -11,12 +11,12 @@ polyfillRequestAnimationFrame()
 describe('PickupEdit', () => {
   let wrapper
   let pickup
-  let error
+  let serverError
 
   beforeEach(() => {
     pickup = cloneDeep(pickupsMock[0])
-    error = jest.fn()
-    wrapper = mountWithDefaults(PickupEdit, { propsData: { pickup, status: {}, error } })
+    serverError = jest.fn()
+    wrapper = mountWithDefaults(PickupEdit, { propsData: { pickup, status: {}, serverError } })
   })
 
   it('renders', () => {

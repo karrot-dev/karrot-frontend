@@ -27,6 +27,7 @@ describe('PickupSeriesEdit', () => {
       i18n,
       propsData: {
         series,
+        serverError: jest.fn(),
       },
     })
     makeFindAllIterable(wrapper)

@@ -13,7 +13,7 @@ const StoreEdit = () => import('@/pages/Store/Edit.vue')
 const StoreCreate = () => import('@/pages/Store/Create.vue')
 const StoreList = () => import('@/pages/Store/Stores.vue')
 const GroupHistory = () => import('@/pages/Group/History.vue')
-const GroupInvites = () => import('@/pages/Group/Invites.vue')
+const GroupInvitations = () => import('@/pages/Group/Invitations.vue')
 const GroupDescription = () => import('@/pages/Group/Description.vue')
 const GroupMembers = () => import('@/pages/Group/Members.vue')
 const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores.vue')
@@ -125,15 +125,15 @@ export default [
         },
       },
       {
-        name: 'groupInvites',
+        name: 'groupInvitations',
         path: 'invites',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvites' } },
+            { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvitations' } },
           ],
         },
         components: {
-          default: GroupInvites,
+          default: GroupInvitations,
           sidenav: GroupGroupSidenav,
         },
       },

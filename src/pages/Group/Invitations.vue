@@ -15,5 +15,5 @@ export default connect({
   lifecycle: {
     mounted: ({ dispatch }) => dispatch('invitations/fetchForActiveGroup'),
   },
-})('GroupInvites', InvitationsUI)
+})('GroupInvitations', InvitationsUI)
 </script>

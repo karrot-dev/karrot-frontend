@@ -9,7 +9,7 @@
         <q-icon size="1em" name="fa-info-circle fa-fw on-left" />
         {{$t("GROUPINFO.META")}}
       </q-item>
-      <q-item :to="{name: 'groupInvites', params: {groupId: activeGroupId}}" @click="$refs.popover.close()">
+      <q-item :to="{name: 'groupInvitations', params: {groupId: activeGroupId}}" @click="$refs.popover.close()">
         <q-icon size="1em" name="fa-user-plus fa-fw on-left" />
         {{$t("GROUP.INVITE_TITLE")}}
       </q-item>

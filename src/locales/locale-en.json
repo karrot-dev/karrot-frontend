@@ -295,5 +295,6 @@
   "enter a valid e-mail address": "Enter a valid e-mail address",
   "too short": "Too short!",
   "too long": "Too long!",
-  "already taken": "Already taken"
+  "already taken": "Already taken",
+  "Enter a valid timezone": "Enter a valid timezone"
 }

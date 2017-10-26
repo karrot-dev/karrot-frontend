@@ -62,8 +62,8 @@
           <q-field
             icon="fa-globe"
             :label="$t('GROUP.TIMEZONE')"
-            :error="$v.groupEdit.timezone.$error"
-            error-label="Enter a valid timezone"
+            :error="!!timezoneError"
+            :error-label="timezoneError"
             >
             <q-input
               v-model="groupEdit.timezone"
@@ -161,6 +161,12 @@ export default {
       if (!m.maxLength) return this.$t('too long')
       if (!m.isUnique) return this.$t('already taken')
       return this.serverError('name')
+    },
+    timezoneError () {
+      const m = this.$v.groupEdit.timezone
+      if (!m.required) return this.$t('this field is required')
+      if (!m.inList) return this.$t('Enter a valid timezone')
+      return this.serverError('timezone')
     },
   },
   methods: {

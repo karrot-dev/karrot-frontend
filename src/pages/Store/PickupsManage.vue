@@ -12,7 +12,7 @@
         </div>
       </q-card-title>
       <q-item v-if="newSeries" >
-        <pickup-series-edit :series="newSeries" :requestError="seriesError" @save="saveNewSeries" @cancel="cancelNewSeries"/>
+        <pickup-series-edit :series="newSeries" :isWaiting="seriesIsWaiting" :requestError="seriesError" @save="saveNewSeries" @cancel="cancelNewSeries"/>
       </q-item>
 
       <q-list class="pickups" separator no-border highlight sparse>
@@ -23,7 +23,7 @@
                        icon="fa-calendar" sparse>
 
           <q-item>
-            <pickup-series-edit :series="series.__unenriched" :requestError="seriesError" @save="saveSeries" @destroy="destroySeries" />
+            <pickup-series-edit :series="series.__unenriched" :isWaiting="seriesIsWaiting" :requestError="seriesError" @save="saveSeries" @destroy="destroySeries" />
           </q-item>
 
           <q-list no-border seperator>
@@ -33,7 +33,7 @@
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" :status="status" :requestError="pickupsError" />
+              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
             </q-collapsible>
           </q-list>
 
@@ -53,7 +53,7 @@
       </q-card-title>
 
       <q-item v-if="newPickup" >
-        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" :requestError="pickupsError" />
+        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
       </q-item>
 
       <q-list class="pickups" separator no-border>
@@ -62,7 +62,7 @@
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup" :status="status" :requestError="pickupsError" />
+          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
         </q-collapsible>
       </q-list>
     </q-card>
@@ -175,9 +175,10 @@ export default {
       storeId: 'stores/activeStoreId',
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
-      status: 'pickups/saveStatus',
+      pickupIsWaiting: 'pickups/saveIsWaiting',
       pickupsError: 'pickups/saveError',
-      seriesError: 'pickupSeries/error',
+      seriesIsWaiting: 'pickupSeries/saveIsWaiting',
+      seriesError: 'pickupSeries/saveError',
     }),
   },
   mounted () {

@@ -9,6 +9,9 @@ export const types = {
   RECEIVE_LIST_ERROR: 'Receive List Error',
   CLEAR_LIST: 'Clear List',
   RECEIVE_ITEM: 'Receive Item',
+
+  REQUEST_SAVE: 'Request Save',
+  RECEIVE_SAVE: 'Receive Save',
   RECEIVE_SAVE_ERROR: 'Receive Save Error',
 }
 
@@ -18,6 +21,10 @@ function initialState () {
     idList: [],
     idListStoreId: null,
     error: null,
+    saveStatus: {
+      isWaiting: null,
+      error: null,
+    },
   }
 }
 export const state = initialState()
@@ -37,9 +44,10 @@ export const getters = {
   all: (state, getters, rootState, rootGetters) => {
     return state.idList.map(getters.get)
   },
-  error: (state, getters, rootState, rootGetters) => field => {
-    return state.error && state.error[field] && state.error[field][0]
+  saveError: (state, getters, rootState, rootGetters) => field => {
+    return state.saveStatus.error && state.saveStatus.error[field] && state.saveStatus.error[field][0]
   },
+  saveIsWaiting: state => state.saveStatus.isWaiting,
 }
 
 export const actions = {
@@ -60,6 +68,7 @@ export const actions = {
   },
 
   async create ({ commit, dispatch }, series) {
+    commit(types.REQUEST_SAVE)
     try {
       await pickupSeries.create(series)
     }
@@ -67,11 +76,13 @@ export const actions = {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
+    commit(types.RECEIVE_SAVE)
     dispatch('fetchListForActiveStore')
     dispatch('pickups/refresh', null, { root: true })
   },
 
   async save ({ commit, dispatch }, series) {
+    commit(types.REQUEST_SAVE)
     let updatedSeries
     try {
       updatedSeries = await pickupSeries.save(series)
@@ -80,6 +91,7 @@ export const actions = {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
       return
     }
+    commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_ITEM, { series: updatedSeries })
     dispatch('pickups/refresh', null, { root: true })
   },
@@ -125,7 +137,16 @@ export const mutations = {
     Vue.set(state.entries, series.id, series)
   },
 
+  [types.REQUEST_SAVE] (state) {
+    state.saveStatus.isWaiting = true
+    state.saveStatus.error = null
+  },
+  [types.RECEIVE_SAVE] (state) {
+    state.saveStatus.isWaiting = false
+    state.saveStatus.error = null
+  },
   [types.RECEIVE_SAVE_ERROR] (state, { error }) {
-    state.error = error
+    state.saveStatus.isWaiting = false
+    state.saveStatus.error = error
   },
 }

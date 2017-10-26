@@ -46,7 +46,7 @@
 
       <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
 
-      <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
+      <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="isWaiting">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
       <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
       <q-btn type="button" @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
       <q-btn type="button" color="red" @click="destroy" v-if="!isNew">{{ $t('BUTTON.DELETE') }}</q-btn>
@@ -65,6 +65,7 @@ import { objectDiff } from '@/services/utils'
 export default {
   props: {
     series: { required: true },
+    isWaiting: { required: true },
     requestError: { required: true },
   },
   components: {

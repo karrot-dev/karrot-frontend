@@ -84,6 +84,7 @@ export const getters = {
     return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
   },
   saveStatus: state => state.saveStatus,
+  saveIsWaiting: state => state.saveStatus.isWaiting,
   saveError: (state, getters) => field => getters.saveStatus.error && getters.saveStatus.error[field] && getters.saveStatus.error[field][0],
 }
 

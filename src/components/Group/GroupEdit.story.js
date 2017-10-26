@@ -23,6 +23,7 @@ storiesOf('GroupEdit', module)
         status: { error: null, isWaiting: false },
         timezones,
         allGroups: groupsMock,
+        requestError () {},
       },
       on: { save: methods.save },
     }),

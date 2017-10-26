@@ -22,6 +22,7 @@ storiesOf('Stores', module)
         store,
         allStores: otherStores,
         status: {},
+        requestError () {},
       },
     }),
     i18n,
@@ -33,10 +34,10 @@ storiesOf('Stores', module)
       props: {
         store,
         allStores: otherStores,
-        status: {
-          error: {
-            validationErrors: { name: ['a nice server error', 'and another one'] },
-          },
+        status: {},
+        requestError (field) {
+          const error = { name: ['a nice server error', 'and another one'] }
+          return error[field] && error[field][0]
         },
       },
     }),

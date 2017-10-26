@@ -11,6 +11,8 @@ storiesOf('PickupSeriesEdit', module)
       return h(PickupSeriesEdit, {
         props: {
           series: pickupSeriesMock[0],
+          isWaiting: false,
+          requestError () {},
         },
         on: {
           save (diff) {

@@ -8,8 +8,8 @@
           <q-field
             icon="fa-star"
             :label="$t('GROUP.TITLE')"
-            :error="$v.groupEdit.name.$error"
-            :error-label="nameErrorMessage"
+            :error="!!nameError"
+            :error-label="nameError"
             >
             <q-input
               v-model="groupEdit.name"
@@ -73,6 +73,8 @@
             </q-input>
           </q-field>
 
+          <div class="text-negative">{{ serverError('nonFieldErrors') }}</div>
+
           <q-btn type="submit" color="primary" :disable="!canSave">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
@@ -82,10 +84,6 @@
           <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
             {{ $t('BUTTON.CANCEL') }}
           </q-btn>
-
-          <pre>
-            {{ status.error }}
-          </pre>
         </form>
       </div>
     </q-card>
@@ -125,6 +123,7 @@ export default {
     status: { required: true },
     timezones: { required: true },
     allGroups: { required: true },
+    serverError: { required: true },
   },
   components: {
     QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker,
@@ -155,9 +154,13 @@ export default {
       }
       return true
     },
-    nameErrorMessage () {
-      // TODO make nicer (have a look at InvitationsUI.vue)
-      return JSON.stringify(this.$v.groupEdit.name)
+    nameError () {
+      const m = this.$v.groupEdit.name
+      if (!m.required) return this.$t('this field is required')
+      if (!m.minLength) return this.$t('too short')
+      if (!m.maxLength) return this.$t('too long')
+      if (!m.isUnique) return this.$t('already taken')
+      return this.serverError('name')
     },
   },
   methods: {

@@ -65,9 +65,8 @@ export const getters = {
   all: (state, getters, rootState, rootGetters) => {
     return state.idsList.map(getters.get)
   },
-  isWaiting: state => state.isWaiting, // TODO replace usage with status getter
-  error: state => state.error,
-  status: state => { return { isWaiting: state.isWaiting, error: state.error } },
+  status: state => ({ isWaiting: state.isWaiting, error: state.error }),
+  error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
   activeUserGroups: (state, getters, rootState, rootGetters) => {
     let activeUser = rootGetters['users/activeUser']
     return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []

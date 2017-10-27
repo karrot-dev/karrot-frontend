@@ -19,7 +19,6 @@ const defaultProps = {
   messages: messagesMock,
   emptyPickups: pickupsMock,
   joinedPickups: [leavablePickup],
-  fetchMoreMessages: jest.fn(),
   sendStatus: { isWaiting: false },
 }
 

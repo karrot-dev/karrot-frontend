@@ -1,6 +1,6 @@
 <template>
   <q-infinite-scroll :handler="loadMore">
-    <table class="q-table striped-odd">
+    <table :class="tableClass">
       <tbody>
         <HistoryEntry v-for="entry in history" :entry="entry" />
       </tbody>
@@ -23,7 +23,16 @@ export default {
     status: { required: true },
     canLoadMore: { required: true },
     fetchMore: { required: true },
-    title: { required: false },
+    striped: { required: false },
+  },
+  computed: {
+    tableClass () {
+      return {
+        'q-table': true,
+        'striped-odd': !this.striped || this.striped === 'odd',
+        'striped-even': this.striped === 'even',
+      }
+    },
   },
   components: { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain, HistoryEntry },
   methods: {

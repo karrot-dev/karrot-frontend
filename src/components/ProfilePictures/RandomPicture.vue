@@ -96,7 +96,7 @@ export default {
         let textOverlay = document.createElementNS(svgns, 'text')
         textOverlay.setAttribute('width', size)
         textOverlay.setAttribute('height', size)
-        textOverlay.setAttribute('fill', 'rgba(0,0,0,1)')
+        textOverlay.setAttribute('fill', 'rgba(255,255,255,1)')
         textOverlay.setAttribute('font-size', blockSize)
         textOverlay.setAttribute('text-anchor', 'middle')
         textOverlay.setAttribute('x', blockSize)

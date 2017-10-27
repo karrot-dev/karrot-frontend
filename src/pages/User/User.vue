@@ -31,7 +31,7 @@
             <router-link :to="{name: 'settings'}">{{ user.unverifiedEmail }}</router-link>
           </span>
         </div>
-        <div class="info-item">
+        <div class="info-item" v-if="user.address">
           <strong class="info-item"><i class="fa fa-fw fa-map-marker on-left"></i> </strong>
           {{ user.address }}
         </div>
@@ -40,20 +40,16 @@
       <Markdown
         v-if="user.description != ''"
         :source="user.description" />
-      <q-card-separator />
+      <!-- <q-card-separator />
       <q-card-actions>
         <q-btn flat disabled>
           <i class="fa fa-comment on-left"/>
           Message
       </q-btn>
       </q-card-actions>
-      <div style="clear: both"/>
+      <div style="clear: both"/> -->
     </q-card>
 
-    <q-card color="info" class="generic-padding">
-      <i class="fa fa-exclamation-triangle on-left"/>
-      To be added: statistics, working user-to-user messages, translation
-    </q-card>
     <UserHistory />
   </div>
 </template>

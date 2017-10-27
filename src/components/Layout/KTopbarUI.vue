@@ -36,11 +36,11 @@
       <q-icon name="fa-fw fa-ellipsis-v" />
       <q-popover :touch-position="false" fit ref="popover">
         <q-list item-separator link>
-          <q-item :to="{name: 'groupsGallery'}" @click="$refs.popover.close()">
+          <q-item :to="{name: 'groupsGallery'}" @click.native="$refs.popover.close()">
             <q-icon size="1em" name="fa-home fa-fw" />
             {{ $t('TOPBAR.CHANGE_GROUP')  }}
           </q-item>
-          <q-item :to="{name: 'settings'}" @click="$refs.popover.close()">
+          <q-item :to="{name: 'settings'}" @click.native="$refs.popover.close()">
             <q-icon size="1em" name="fa-cog fa-fw" />
             {{$t('SETTINGS.TITLE')}}
           </q-item>

@@ -1,19 +1,23 @@
-<script>
-import { connect } from 'vuex-connect'
-import HistoryList from '@/components/HistoryList.vue'
+<template>
+  <q-card>
+    <HistoryList :group="group" striped="even" />
+  </q-card>
+</template>
 
-export default connect({
-  gettersToProps: {
-    history: 'history/all',
-    status: 'history/receiveStatus',
-    canLoadMore: 'history/canLoadMore',
+<script>
+import { QCard, QCardTitle } from 'quasar'
+import HistoryList from '@/components/History/HistoryList.vue'
+
+import {
+  mapGetters,
+} from 'vuex'
+
+export default {
+  components: { QCard, QCardTitle, HistoryList },
+  computed: {
+    ...mapGetters({
+      group: 'groups/activeGroup',
+    }),
   },
-  actionsToEvents: {
-    more: 'history/fetchMore',
-  },
-  lifecycle: {
-    mounted: ({ dispatch }) => dispatch('history/fetchForActiveGroup'),
-    destroyed: ({ dispatch }) => dispatch('history/clear'),
-  },
-})('GroupHistory', HistoryList)
+}
 </script>

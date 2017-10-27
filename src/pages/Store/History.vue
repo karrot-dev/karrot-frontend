@@ -1,19 +1,21 @@
-<script>
-import { connect } from 'vuex-connect'
-import HistoryList from '@/components/HistoryList.vue'
+<template>
+  <q-card>
+    <HistoryList :store="store" striped="even" />
+  </q-card>
+</template>
 
-export default connect({
-  gettersToProps: {
-    history: 'history/all',
-    status: 'history/receiveStatus',
-    canLoadMore: 'history/canLoadMore',
+<script>
+
+import { mapGetters } from 'vuex'
+import { QCard, QCardTitle } from 'quasar'
+import HistoryList from '@/components/History/HistoryList.vue'
+
+export default {
+  components: { QCard, QCardTitle, HistoryList },
+  computed: {
+    ...mapGetters({
+      store: 'stores/activeStore',
+    }),
   },
-  actionsToEvents: {
-    more: 'history/fetchMore',
-  },
-  lifecycle: {
-    mounted: ({ dispatch }) => dispatch('history/fetchForActiveStore'),
-    destroyed: ({ dispatch }) => dispatch('history/clear'),
-  },
-})('StoreHistory', HistoryList)
+}
 </script>

@@ -31,7 +31,7 @@ export default {
   components: { QIcon, QInfiniteScroll, QSpinnerDots, QCard, QCardTitle, QCardMain, HistoryEntry },
   methods: {
     loadMore (index, done) {
-      this.fetchMore() // .then(done)
+      this.fetchMore().then(done)
     },
   },
 }

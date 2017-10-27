@@ -45,12 +45,9 @@ class TopbarController {
     return this.SessionUser.isLoggedIn() && !window.localStorage.getItem("hidePreviewHint");
   }
   hidePreviewHint() {
-
-    console.log(window.localStorage.getItem("hidePreviewHint"));
     this.$timeout(() => {
       window.localStorage.setItem("hidePreviewHint", true);
-      console.log(window.localStorage.getItem("hidePreviewHint"));
-    })
+    });
   }
 }
 

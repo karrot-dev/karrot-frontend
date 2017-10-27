@@ -1,8 +1,8 @@
 <template>
   <span>
     <SidenavMap/>
-    <SidenavStores/>
     <router-view name="sidenav"></router-view>
+    <SidenavStores/>
   </span>
 </template>
 

@@ -42,4 +42,6 @@ export default {
    width: 1em
    margin: 0 .05em 0 .1em
    vertical-align: -0.1em
+.parsed a
+  text-decoration underline
 </style>

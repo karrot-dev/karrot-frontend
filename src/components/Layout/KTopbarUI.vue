@@ -26,14 +26,16 @@
     <q-btn v-if="!searchOpen" flat @click="$emit('showSearch')">
       <q-icon name="fa-fw fa-search"/>
     </q-btn>
+    <router-link :to="{name: 'user', params: {userId: user.id}}" class="defaulthover">
+      <q-btn flat class="desktop-only">
+        {{ user.displayName }}
+        <q-icon name="fa-fw fa-user" />
+      </q-btn>
+    </router-link>
     <q-btn flat class="desktop-only">
-      <q-icon name="fa-fw fa-user" />
+      <q-icon name="fa-fw fa-ellipsis-v" />
       <q-popover :touch-position="false" fit ref="popover">
         <q-list item-separator link>
-          <q-item :to="{name: 'user', params: {userId: currentUserId}}" @click="$refs.popover.close()">
-            <q-icon size="1em" name="fa-user fa-fw" />
-            {{$t('TOPBAR.USERPROFILE')}}
-          </q-item>
           <q-item :to="{name: 'groupsGallery'}" @click="$refs.popover.close()">
             <q-icon size="1em" name="fa-home fa-fw" />
             {{ $t('TOPBAR.CHANGE_GROUP')  }}
@@ -66,6 +68,7 @@ export default {
     breadcrumbs: { required: false, default: () => [] },
     searchOpen: { required: true },
     currentUserId: {},
+    user: { required: true },
   },
 }
 </script>
@@ -94,4 +97,7 @@ export default {
   width: 0em
   opacity 0
 
+a.defaulthover:hover {
+  color: inherit
+}
 </style>

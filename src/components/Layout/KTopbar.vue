@@ -10,7 +10,7 @@ export default connect({
   },
   gettersToProps: {
     breadcrumbs: 'breadcrumbs/all',
-    currentUserId: 'auth/userId',
+    user: 'auth/user',
     searchOpen: 'search/open',
   },
   methodsToEvents: {

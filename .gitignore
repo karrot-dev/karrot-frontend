@@ -16,3 +16,4 @@ e2e-screenshots
 docs-dist/
 karrot-backend/
 karrot-docker/
+cordova/google-services.json

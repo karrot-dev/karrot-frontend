@@ -49,7 +49,10 @@
       </q-card-actions>
       <div style="clear: both"/> -->
     </q-card>
-    <History :user="user" />
+    <q-card>
+      <q-card-title>History</q-card-title>
+      <History :user="user" />
+    </q-card>
   </div>
 </template>
 
@@ -63,10 +66,10 @@ import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 import History from '@/components/History/HistoryList.vue'
 
-import { QCard, QTransition, QCardActions, QBtn, QCardSeparator } from 'quasar'
+import { QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator } from 'quasar'
 
 export default {
-  components: { History, Markdown, UserMapPreview, QCard, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
+  components: { History, Markdown, UserMapPreview, QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',

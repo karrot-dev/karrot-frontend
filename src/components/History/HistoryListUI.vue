@@ -1,21 +1,17 @@
 <template>
-  <q-card>
-    <q-card-title>History</q-card-title>
-    <q-infinite-scroll :handler="loadMore">
-
-      <table class="q-table striped-odd">
-        <tbody>
-          <HistoryEntry v-for="entry in history" :entry="entry" />
-        </tbody>
-      </table>
-      <q-card-main v-if="!history.length && status.success"><q-icon name="fa-bug" /> Nothing happened so far...</q-card-main>
-      <div class="text-center"><q-spinner-dots slot="message" :size="40"></q-spinner-dots></div>
-    </q-infinite-scroll>
-  </q-card>
+  <q-infinite-scroll :handler="loadMore">
+    <table class="q-table striped-odd">
+      <tbody>
+        <HistoryEntry v-for="entry in history" :entry="entry" />
+      </tbody>
+    </table>
+    <q-card-main v-if="!history.length && status.success"><q-icon name="fa-bug" /> Nothing happened so far...</q-card-main>
+    <div class="text-center"><q-spinner-dots slot="message" :size="40"></q-spinner-dots></div>
+  </q-infinite-scroll>
 </template>
 
 <script>
-import { QIcon, QInfiniteScroll, QSpinnerDots, QCard, QCardTitle, QCardMain } from 'quasar'
+import { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain } from 'quasar'
 import HistoryEntry from '@/components/History/HistoryEntry.vue'
 
 export default {
@@ -27,8 +23,9 @@ export default {
     status: { required: true },
     canLoadMore: { required: true },
     fetchMore: { required: true },
+    title: { required: false },
   },
-  components: { QIcon, QInfiniteScroll, QSpinnerDots, QCard, QCardTitle, QCardMain, HistoryEntry },
+  components: { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain, HistoryEntry },
   methods: {
     loadMore (index, done) {
       this.fetchMore().then(done)

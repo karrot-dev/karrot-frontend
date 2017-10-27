@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-29 10:37+0000\n"
+"POT-Creation-Date: 2017-10-30 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,13 +50,12 @@ msgstr ""
 msgid "You do not have permission to update memberships."
 msgstr ""
 
-#: foodsaving/groups/api.py:151 foodsaving/groups/serializers.py:85
-#: foodsaving/groups/serializers.py:148
-msgid "You cannot manage agreements"
-msgstr ""
-
 #: foodsaving/groups/serializers.py:21
 msgid "Unknown timezone"
+msgstr ""
+
+#: foodsaving/groups/serializers.py:85 foodsaving/groups/serializers.py:148
+msgid "You cannot manage agreements"
 msgstr ""
 
 #: foodsaving/groups/serializers.py:87
@@ -114,7 +113,7 @@ msgid "This feedback is given by another user."
 msgstr ""
 
 #: foodsaving/stores/serializers.py:37 foodsaving/stores/serializers.py:169
-#: foodsaving/stores/serializers.py:254
+#: foodsaving/stores/serializers.py:259
 msgid "You are not member of the store's group."
 msgstr ""
 
@@ -130,11 +129,15 @@ msgstr ""
 msgid "Set at least one week in advance"
 msgstr ""
 
-#: foodsaving/stores/serializers.py:256
+#: foodsaving/stores/serializers.py:242
+msgid "Status invalid"
+msgstr ""
+
+#: foodsaving/stores/serializers.py:261
 msgid "The pickup is not done yet"
 msgstr ""
 
-#: foodsaving/stores/serializers.py:258
+#: foodsaving/stores/serializers.py:263
 msgid "You aren't assigned to the pickup."
 msgstr ""
 

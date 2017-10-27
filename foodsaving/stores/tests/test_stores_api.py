@@ -103,6 +103,16 @@ class TestStoresAPI(APITestCase):
         response = self.client.patch(self.store_url, self.store_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_valid_status(self):
+        self.client.force_login(user=self.member)
+        response = self.client.patch(self.store_url, {'status': 'active'}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_invalid_status(self):
+        self.client.force_login(user=self.member)
+        response = self.client.patch(self.store_url, {'status': 'foobar'}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
     def test_change_group_as_member_in_one(self):
         self.client.force_login(user=self.member)
         response = self.client.patch(self.store_url, {'group': self.different_group.id}, format='json')

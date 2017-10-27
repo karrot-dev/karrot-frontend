@@ -185,7 +185,7 @@ class StoreSerializer(serializers.ModelSerializer):
         model = StoreModel
         fields = ['id', 'name', 'description', 'group',
                   'address', 'latitude', 'longitude',
-                  'weeks_in_advance', 'upcoming_notification_hours']
+                  'weeks_in_advance', 'upcoming_notification_hours', 'status']
         extra_kwargs = {
             'name': {
                 'min_length': 3
@@ -235,6 +235,11 @@ class StoreSerializer(serializers.ModelSerializer):
         if w < 1:
             raise serializers.ValidationError(_('Set at least one week in advance'))
         return w
+
+    def validate_status(self, status):
+        if status in ['created', 'negotiating', 'active', 'declined', 'archived']:
+            return status
+        raise serializers.ValidationError(_('Status invalid'))
 
 
 class FeedbackSerializer(serializers.ModelSerializer):

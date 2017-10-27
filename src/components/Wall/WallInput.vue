@@ -7,7 +7,9 @@
           v-model="message"
           placeholder="Write a message..."
           :min-rows="3"
-          :after="[{icon: 'arrow_forward', content: true, handler: this.send }]" />
+          :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
+          @keyup.ctrl.enter="send"
+          />
       </form>
     </q-card-main>
   </q-card>

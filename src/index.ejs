@@ -17,6 +17,9 @@
     <title>(karrot loading...)</title>
     <link rel="shortcut icon" href="statics/carrot_logo.ico">
     <link rel="icon" type="image/png" href="statics/carrot_logo.png" sizes="32x32">
+    <% if (CORDOVA) { %>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <% } %>
   </head>
   <body>
     <div id="q-app"></div>

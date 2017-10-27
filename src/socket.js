@@ -5,12 +5,22 @@ import log from '@/services/log'
 import { getter } from '@/store/storeHelpers'
 import { camelizeKeys } from '@/services/utils'
 
-export const WEBSOCKET_ENDPOINT = [
-  window.location.protocol.replace(/^http/, 'ws'),
-  '//',
-  window.location.host,
-  '/api/ws',
-].join('')
+let WEBSOCKET_ENDPOINT
+
+if (CORDOVA) {
+  WEBSOCKET_ENDPOINT = [
+    CORDOVA_BACKEND.replace(/^http/, 'ws'),
+    '/api/ws',
+  ].join('')
+}
+else {
+  WEBSOCKET_ENDPOINT = [
+    window.location.protocol.replace(/^http/, 'ws'),
+    '//',
+    window.location.host,
+    '/api/ws',
+  ].join('')
+}
 
 export const options = {
   reconnectInterval: 500,

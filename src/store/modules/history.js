@@ -54,25 +54,18 @@ export const getters = {
 }
 
 export const actions = {
-  async fetchForActiveGroup ({ dispatch, rootGetters }) {
-    dispatch('clear')
-    const groupId = rootGetters['groups/activeGroupId']
-    dispatch('fetchFiltered', { group: groupId })
+  async fetchForGroup ({ dispatch, rootGetters }, group) {
+    dispatch('fetchFiltered', { group: group.id })
+  },
+  async fetchForUser ({ dispatch, rootGetters }, user) {
+    dispatch('fetchFiltered', { users: user.id })
+  },
+  async fetchForStore ({ dispatch, rootGetters }, store) {
+    dispatch('fetchFiltered', { store: store.id })
   },
 
-  async fetchForActiveStore ({ dispatch, rootGetters }) {
+  async fetchFiltered ({ dispatch, commit }, filters) {
     dispatch('clear')
-    const storeId = rootGetters['stores/activeStoreId']
-    dispatch('fetchFiltered', { store: storeId })
-  },
-
-  async fetchForActiveUser ({ dispatch, rootGetters }) {
-    dispatch('clear')
-    const userId = rootGetters['users/activeUserId']
-    dispatch('fetchFiltered', { users: userId })
-  },
-
-  async fetchFiltered ({ commit }, filters) {
     commit(types.REQUEST)
     let data
     try {

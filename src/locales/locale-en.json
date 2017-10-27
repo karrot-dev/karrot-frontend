@@ -296,5 +296,7 @@
   "too short": "Too short!",
   "too long": "Too long!",
   "already taken": "Already taken",
-  "Enter a valid timezone": "Enter a valid timezone"
+  "Enter a valid timezone": "Enter a valid timezone",
+  "write a message": "Write a message...",
+  "write the first message": "Write the first message..."
 }

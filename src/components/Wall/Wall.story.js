@@ -20,6 +20,7 @@ const defaultProps = {
   emptyPickups: pickupsMock,
   joinedPickups: [leavablePickup],
   sendStatus: { isWaiting: false },
+  messageReceiveStatus: { success: true },
 }
 
 storiesOf('Wall', module)

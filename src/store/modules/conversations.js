@@ -35,6 +35,7 @@ function initialState () {
     receiveStatus: {
       isWaiting: false,
       error: null,
+      success: false,
     },
     receiveMoreStatus: {
       isWaiting: false,
@@ -148,6 +149,7 @@ export const mutations = {
     state.receiveStatus = {
       isWaiting: true,
       error: null,
+      success: false,
     }
   },
   [types.RECEIVE_MESSAGES] (state, { conversationId, messages, cursor }) {
@@ -159,6 +161,7 @@ export const mutations = {
       state.receiveStatus = {
         isWaiting: false,
         error: null,
+        success: true,
       }
     }
   },
@@ -168,6 +171,7 @@ export const mutations = {
       state.receiveStatus = {
         isWaiting: false,
         error,
+        success: false,
       }
     }
   },

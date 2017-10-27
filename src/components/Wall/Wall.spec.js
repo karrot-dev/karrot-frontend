@@ -12,6 +12,7 @@ const defaultProps = {
   messages: [],
   fetchMoreMessages: jest.fn(),
   sendStatus: { isWaiting: false },
+  messageReceiveStatus: { success: true },
 }
 
 polyfillRequestAnimationFrame()

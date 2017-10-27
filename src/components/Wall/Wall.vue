@@ -16,18 +16,15 @@
         />
       </div>
     </div>
-    <div>
-      <h5 class="generic-padding wall-header">Wall</h5>
-    </div>
     <q-alert v-if="messageReceiveStatus.error">
-      {{ messageReceiveStatus.error.response.data.detail }}
+      {{ messageReceiveStatus.error }}
     </q-alert>
-    <template v-else>
-      <WallInput :status="sendStatus" @send="$emit('send', arguments[0])" />
+    <template v-if="messageReceiveStatus.success">
+      <WallInput :status="sendStatus" @send="$emit('send', arguments[0])" :placeholder="messagePrompt" />
       <q-infinite-scroll
         :handler="loadMore"
         ref="infiniteScroll">
-        <q-list highlight inset-separator class="bg-white">
+        <q-list highlight inset-separator class="bg-white" v-if="messages.length > 0">
           <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
         </q-list>
         <div slot="message" style="width: 100%; text-align: center">
@@ -80,6 +77,16 @@ export default {
       this.fetchMoreMessages().then((data) => {
         done()
       })
+    },
+  },
+  computed: {
+    messagePrompt () {
+      if (this.messages.length > 0) {
+        return this.$t('write a message')
+      }
+      else {
+        return this.$t('write the first message')
+      }
     },
   },
 }

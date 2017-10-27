@@ -6,6 +6,7 @@
         label-lines="1"
         :sublabel="message.content"
         sublabel-lines="2"
+        class="content"
       />
       <q-item-side right :stamp="$d(message.createdAt, 'long')" />
     </q-item>
@@ -28,5 +29,8 @@ export default {
 <style scoped lang="stylus">
 .left {
   margin-right: 1em;
+}
+.content {
+  white-space: pre;
 }
 </style>

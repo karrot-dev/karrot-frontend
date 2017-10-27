@@ -90,6 +90,21 @@
     <span flex="5"></span>
   </div>
 </md-toolbar>
+
+<md-card ng-if="$ctrl.showPreviewHint()">
+  <md-card-content>
+    <md-icon md-font-icon="fa fa-exclamation-triangle"></md-icon>
+      We developed a <a href="https://alpha.foodsaving.world">new version of foodsaving.world</a>.
+      Use your existing password to login to <a href="https://alpha.foodsaving.world">alpha.foodsaving.world</a> and gives us feedback via <a href="mailto:karrot@foodsaving.world">e-mail</a>.
+      The new version will go online around mid of November 2017.</a>
+  </md-card-content>
+  <md-card-icon-actions>
+    <md-button class="md-icon-button" aria-label="close" ng-click="$ctrl.hidePreviewHint()">
+      <md-icon md-font-icon="fa fa-times"></md-icon>
+      <md-tooltip>hide</md-tooltip>
+    </md-button>
+  </md-card-icon-actions>
+</md-card>
 <!--<div ncy-breadcrumb></div>-->
 
 <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" style="z-index: 100">

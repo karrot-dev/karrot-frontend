@@ -1,5 +1,5 @@
 class TopbarController {
-  constructor(Authentication, SessionUser, $window, ScreenSize, $scope, $rootScope, $mdSidenav) {
+  constructor(Authentication, SessionUser, $window, ScreenSize, $scope, $rootScope, $mdSidenav, $timeout) {
     "ngInject";
 
     Object.assign(this, {
@@ -9,6 +9,7 @@ class TopbarController {
       $mdSidenav,
       $scope,
       $rootScope,
+      $timeout,
       reloadPage: () => $window.location.reload()  // makes it easier to stub
     });
   }
@@ -38,6 +39,18 @@ class TopbarController {
       }, () => {
         //Logout failed!
       });
+  }
+
+  showPreviewHint() {
+    return this.SessionUser.isLoggedIn() && !window.localStorage.getItem("hidePreviewHint");
+  }
+  hidePreviewHint() {
+
+    console.log(window.localStorage.getItem("hidePreviewHint"));
+    this.$timeout(() => {
+      window.localStorage.setItem("hidePreviewHint", true);
+      console.log(window.localStorage.getItem("hidePreviewHint"));
+    })
   }
 }
 

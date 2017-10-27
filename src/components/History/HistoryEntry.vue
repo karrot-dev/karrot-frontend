@@ -18,12 +18,11 @@
 </template>
 
 <script>
-import { QItem, QItemSide, QItemTile, QItemMain, QItemTitle } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
 
 export default {
   props: ['entry'],
-  components: { ProfilePicture, QItem, QItemSide, QItemTile, QItemMain, QItemTitle },
+  components: { ProfilePicture },
 }
 </script>
 <style scoped lang="stylus">

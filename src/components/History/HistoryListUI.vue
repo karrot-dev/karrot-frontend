@@ -2,7 +2,7 @@
   <q-infinite-scroll :handler="loadMore">
     <table :class="tableClass">
       <tbody>
-        <HistoryEntry v-for="entry in history" :entry="entry" />
+        <HistoryEntry v-for="entry in history" :entry="entry" :key="entry.id" />
       </tbody>
     </table>
     <q-card-main v-if="!history.length && status.success"><q-icon name="fa-bug" /> Nothing happened so far...</q-card-main>

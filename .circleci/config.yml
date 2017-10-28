@@ -108,7 +108,7 @@ workflows:
           filters:
             branches:
               only:
-                - quasar
+                - master
           requires:
             - test
             - lint

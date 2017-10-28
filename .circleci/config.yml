@@ -101,6 +101,8 @@ workflows:
       - build-storybook:
           requires:
             - install-dependencies
+      - approval:
+         type: approval
       - deploy-branch:
           #
           # specific dev branches are deployed in their own "<branch>" directory
@@ -121,9 +123,10 @@ workflows:
           filters:
             branches:
               only:
-                - quasar-release
+                - master
           requires:
             - test
             - lint
             - build
             - build-storybook
+            - approval

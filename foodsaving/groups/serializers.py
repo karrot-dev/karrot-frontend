@@ -2,9 +2,9 @@ import pytz
 from django.conf import settings
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import ValidationError, PermissionDenied
 
-from foodsaving.groups.models import Group as GroupModel, GroupMembership
+from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement, UserAgreement
 from foodsaving.history.models import History, HistoryTypus
 from foodsaving.history.utils import get_changed_data
 from . import roles
@@ -52,7 +52,8 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             'longitude',
             'password',
             'timezone',
-            'slack_webhook'
+            'slack_webhook',
+            'active_agreement',
         ]
         extra_kwargs = {
             'name': {
@@ -71,7 +72,10 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             'password': {
                 'trim_whitespace': False,
                 'max_length': 255
-            }
+            },
+            'active_agreement': {
+                'read_only': True
+            },
         }
 
     memberships = serializers.SerializerMethodField()
@@ -106,6 +110,64 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             payload=self.initial_data
         )
         return group
+
+
+class AgreementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Agreement
+        fields = [
+            'id',
+            'title',
+            'content',
+            'group',
+            'agreed'
+        ]
+        extra_kwargs = {
+            'agreed': {
+                'read_only': True
+            },
+        }
+
+    agreed = serializers.SerializerMethodField()
+
+    def get_agreed(self, agreement):
+        return UserAgreement.objects.filter(user=self.context['request'].user, agreement=agreement).exists()
+
+    def validate_group(self, group):
+        membership = GroupMembership.objects.filter(user=self.context['request'].user, group=group).first()
+        if not membership:
+            raise PermissionDenied(_('You are not in this group'))
+        if roles.GROUP_AGREEMENT_MANAGER not in membership.roles:
+            raise PermissionDenied(_('You cannot manage agreements'))
+        return group
+
+
+class AgreementAgreeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Agreement
+        fields = [
+            'id',
+            'title',
+            'content',
+            'group',
+            'agreed',
+        ]
+        extra_kwargs = {
+            'agreed': {
+                'read_only': True
+            },
+        }
+
+    agreed = serializers.SerializerMethodField()
+
+    def get_agreed(self, agreement):
+        return UserAgreement.objects.filter(user=self.context['request'].user, agreement=agreement).exists()
+
+    def update(self, instance, validated_data):
+        user = self.context['request'].user
+        if not UserAgreement.objects.filter(user=user, agreement=instance).exists():
+            UserAgreement.objects.create(user=user, agreement=instance)
+        return instance
 
 
 class GroupPreviewSerializer(serializers.ModelSerializer):

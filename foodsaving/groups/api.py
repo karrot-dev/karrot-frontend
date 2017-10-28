@@ -13,10 +13,11 @@ from rest_framework.viewsets import GenericViewSet
 from foodsaving.conversations.api import RetrieveConversationMixin
 from foodsaving.groups import roles
 from foodsaving.groups.filters import GroupsFilter
-from foodsaving.groups.models import Group as GroupModel, GroupMembership
+from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer, GroupJoinSerializer, \
     GroupLeaveSerializer, TimezonesSerializer, EmptySerializer, \
-    GroupMembershipAddRoleSerializer, GroupMembershipRemoveRoleSerializer, GroupMembershipInfoSerializer
+    GroupMembershipAddRoleSerializer, GroupMembershipRemoveRoleSerializer, GroupMembershipInfoSerializer, \
+    AgreementSerializer, AgreementAgreeSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 
@@ -144,3 +145,37 @@ class GroupViewSet(
         self.perform_update(serializer)
 
         return Response(GroupMembershipInfoSerializer(instance).data)
+
+
+class IsGroupAgreementManager(BasePermission):
+    message = _('You cannot manage agreements.')
+
+    def has_permission(self, request, view):
+        group_id = request.GET.get('group')
+        print('checking agreement manager permissions', request.user, group_id)
+        membership = GroupMembership.objects.filter(user=request.user, group=group_id).first()
+        if not membership:
+            return False
+        return roles.GROUP_AGREEMENT_MANAGER in membership.roles
+
+
+class AgreementViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    PartialUpdateModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
+    queryset = Agreement.objects
+    serializer_class = AgreementSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get_queryset(self):
+        return self.queryset.filter(group__members=self.request.user)
+
+    @detail_route(
+        methods=['POST'],
+        serializer_class=AgreementAgreeSerializer,
+    )
+    def agree(self, request, pk=None):
+        return self.partial_update(request)

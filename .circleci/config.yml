@@ -3,6 +3,16 @@ defaults: &defaults
   docker:
     - image: circleci/node:8.5
 
+tag-filter: &tag-filter
+  tags:
+    only: /^quasar-v.*/
+
+default-workflow-job: &default-workflow-job  
+  filters:
+    <<: *tag-filter
+  requires:
+    - install-dependencies
+
 version: 2
 jobs:
   install-dependencies:
@@ -90,20 +100,16 @@ workflows:
     jobs:
       - install-dependencies
       - test:
-          requires:
-            - install-dependencies
+          <<: *default-workflow-job
       - lint:
-          requires:
-            - install-dependencies
+          <<: *default-workflow-job
       - build:
-          requires:
-            - install-dependencies
+          <<: *default-workflow-job
       - build-storybook:
-          requires:
-            - install-dependencies
+          <<: *default-workflow-job
       - deploy-branch:
           #
-          # specific dev branches are deployed in their own "<branch>" directory
+          # specific branches are deployed in their own "<branch>" directory
           #
           filters:
             branches:
@@ -119,10 +125,9 @@ workflows:
           # deploy quasar-release branch "release" directory
           #
           filters:
+            <<: *tag-filter
             branches:
               ignore: /.*/
-            tags:
-              only: /^quasar-v.*/
           requires:
             - test
             - lint

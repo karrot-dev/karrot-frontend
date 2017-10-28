@@ -102,7 +102,7 @@ workflows:
           requires:
             - install-dependencies
       - approval:
-         type: approval
+          type: approval
           requires:
             - test
             - lint

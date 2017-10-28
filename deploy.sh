@@ -15,14 +15,30 @@ fi
 REPO_URL="https://github.com/yunity/karrot-frontend"
 COMMIT_SHA=$(git rev-parse HEAD)
 COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
-TAG="$(git describe --tags 2>/dev/null || true)"
 
-# tag means production release
-if [ -z "$TAG" ]; then
-  DEPLOY_ENV="development"
-else
+if [ "$DIR" == "release" ]; then
+
+  # release
+
   DEPLOY_ENV="production"
+  URL="https://alpha.foodsaving.world"
+
+elif [ "$REF" == "master" ]; then
+
+  # dev
+
+  DEPLOY_ENV="development"
+  URL="https://karrot-dev.foodsaving.world"
+  STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
+
+else
+
+  # nothing
+
+  exit 0
+
 fi
+
 
 REF_URL="$REPO_URL/tree/$REF"
 COMMIT_URL="$REPO_URL/tree/$COMMIT_SHA"
@@ -45,37 +61,36 @@ echo "$about_json" > storybook-static/about.json
 rsync -avz --delete dist/ "deploy@$HOST:karrot-frontend/$DIR/"
 rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
 
-dev_deployment_branch="master"
+if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 
-if [ "$REF" == "$dev_deployment_branch" ]; then
-  if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
+  WEBPACK_URL="$URL/bundlesize.html"
 
-    URL="https://karrot-dev.foodsaving.world"
-    STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
-    WEBPACK_URL="$URL/bundlesize.html"
+  COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 
-    COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
+  ATTACHMENT_TEXT=""
 
-    KARROT_TEXT=":karrot: <$URL|Visit the site>"
-    STORYBOOK_TEXT=":books: <$STORYBOOK_URL|Visit the storybook>"
-    WEBPACK_TEXT=":webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
+  ATTACHMENT_TEXT+=":karrot: <$URL|Visit the site>"
 
-    ATTACHMENT_TEXT="$KARROT_TEXT\n$STORYBOOK_TEXT\n$WEBPACK_TEXT"
-    ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
-
-    payload=$(printf '{
-        "channel": "#karrot-git",
-        "username": "deploy",
-        "text": ":sparkles: Successful deployment of *karrot-dev*",
-        "attachments": [
-          {
-            "text": "%s",
-            "footer": "%s"
-          }
-        ]
-      }' "$ATTACHMENT_TEXT" "$ATTACHMENT_FOOTER")
-
-    curl -X POST --data-urlencode "payload=$payload" "$SLACK_WEBHOOK_URL"
-
+  if [ ! -z "$STORYBOOK_URL" ]; then
+    ATTACHMENT_TEXT+="\n:books: <$STORYBOOK_URL|Visit the storybook>"
   fi
+
+  ATTACHMENT_TEXT=":webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
+
+  ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
+
+  payload=$(printf '{
+      "channel": "#karrot-git",
+      "username": "deploy",
+      "text": ":sparkles: Successful deployment of *karrot* to _%s_",
+      "attachments": [
+        {
+          "text": "%s",
+          "footer": "%s"
+        }
+      ]
+    }' "$DEPLOY_ENV" "$ATTACHMENT_TEXT" "$ATTACHMENT_FOOTER")
+
+  curl -X POST --data-urlencode "payload=$payload" "$SLACK_WEBHOOK_URL"
+
 fi

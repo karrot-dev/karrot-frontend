@@ -3,16 +3,6 @@ defaults: &defaults
   docker:
     - image: circleci/node:8.5
 
-tag-filter: &tag-filter
-  tags:
-    only: /.*/
-
-default-workflow-job: &default-workflow-job  
-  filters:
-    <<: *tag-filter
-  requires:
-    - install-dependencies
-
 version: 2
 jobs:
   install-dependencies:
@@ -38,7 +28,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: yarn test --ci --runInBand
+      - run: yarn test --ci
       - run: bash <(curl -s https://codecov.io/bash)
 
   lint:
@@ -100,16 +90,20 @@ workflows:
     jobs:
       - install-dependencies
       - test:
-          <<: *default-workflow-job
+          requires:
+            - install-dependencies
       - lint:
-          <<: *default-workflow-job
+          requires:
+            - install-dependencies
       - build:
-          <<: *default-workflow-job
+          requires:
+            - install-dependencies
       - build-storybook:
-          <<: *default-workflow-job
+          requires:
+            - install-dependencies
       - deploy-branch:
           #
-          # specific branches are deployed in their own "<branch>" directory
+          # specific dev branches are deployed in their own "<branch>" directory
           #
           filters:
             branches:
@@ -125,9 +119,9 @@ workflows:
           # deploy quasar-release branch "release" directory
           #
           filters:
-            <<: *tag-filter
             branches:
-              ignore: /.*/
+              only:
+                - quasar-release
           requires:
             - test
             - lint

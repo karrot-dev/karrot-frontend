@@ -13,14 +13,6 @@ export default {
     return (await axios.get('/api/stores/')).data
   },
 
-  async listByGroupId (groupId) {
-    return (await axios.get('/api/stores/', { params: { group: groupId } })).data
-  },
-
-  async listStoresInGroupByName (group, name) {
-    return (await axios.get('/api/stores/', { params: { group, name } })).data
-  },
-
   async search (query) {
     return (await axios.get('/api/stores/', { params: { search: query } })).data
   },

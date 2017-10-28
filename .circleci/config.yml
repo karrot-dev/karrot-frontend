@@ -120,8 +120,9 @@ workflows:
           #
           filters:
             branches:
-              only:
-                - quasar-release
+              except: /.*/
+            tags:
+              only: /^quasar\-v.*/
           requires:
             - test
             - lint

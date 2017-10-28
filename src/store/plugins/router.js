@@ -7,9 +7,6 @@ export default store => {
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
   router.beforeEach((to, from, next) => {
-    // start loading bar for each route transition, in addition to API requests
-    store.dispatch('loadingprogress/start')
-
     // handle invite parameter
     const inviteToken = to.query.invite
     if (inviteToken) {
@@ -52,8 +49,6 @@ export default store => {
 
   router.afterEach((to, from) => {
     window.scrollTo(0, 0)
-
-    store.dispatch('loadingprogress/stop')
 
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 

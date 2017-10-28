@@ -122,7 +122,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^quasar\-v.*/
+              only: /^quasar-v.*/
           requires:
             - test
             - lint

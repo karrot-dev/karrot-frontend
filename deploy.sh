@@ -21,6 +21,7 @@ if [ "$DIR" == "release" ]; then
   # release
 
   DEPLOY_ENV="production"
+  DEPLOY_EMOJI=":rocket:"
   URL="https://alpha.foodsaving.world"
 
 elif [ "$REF" == "master" ]; then
@@ -28,6 +29,7 @@ elif [ "$REF" == "master" ]; then
   # dev
 
   DEPLOY_ENV="development"
+  DEPLOY_EMOJI=":beer:"
   URL="https://karrot-dev.foodsaving.world"
   STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
 
@@ -82,14 +84,14 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
   payload=$(printf '{
       "channel": "#karrot-git",
       "username": "deploy",
-      "text": ":sparkles: Successful deployment of *karrot* to _%s_",
+      "text": ":sparkles: Successful deployment of *karrot* to _%s_ %s",
       "attachments": [
         {
           "text": "%s",
           "footer": "%s"
         }
       ]
-    }' "$DEPLOY_ENV" "$ATTACHMENT_TEXT" "$ATTACHMENT_FOOTER")
+    }' "$DEPLOY_ENV" "$DEPLOY_EMOJI" "$ATTACHMENT_TEXT" "$ATTACHMENT_FOOTER")
 
   curl -X POST --data-urlencode "payload=$payload" "$SLACK_WEBHOOK_URL"
 

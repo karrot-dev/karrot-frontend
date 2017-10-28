@@ -5,7 +5,7 @@ defaults: &defaults
 
 tag-filter: &tag-filter
   tags:
-    only: /^quasar-v.*/
+    only: /.*/
 
 default-workflow-job: &default-workflow-job  
   filters:

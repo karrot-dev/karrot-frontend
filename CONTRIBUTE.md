@@ -24,17 +24,17 @@ yarn
 Then you are ready to start working. Turn on the development server and open the URL (usually http://localhost:3000). As soon as you change a file in the repository and save it, it will automatically reload the page.
 
 ```sh
-yarn run dev
+yarn dev
 ```
 
 If you are finished with your work, you should run the tests and check the code style.
 
 ```sh
-yarn run test:watch
-yarn run lint
+yarn test
+yarn lint
 ```
 
-You can use `yarn run test` to disable the restarting the tests after a file changed. Also, if you use an IDE that supports [code style plugins](#code-style), you can usually skip the `lint` step.
+You can use `yarn test` to disable the restarting the tests after a file changed. Also, if you use an IDE that supports [code style plugins](#code-style), you can usually skip the `lint` step.
 
 ```sh
 git checkout -b newBranchForIssue
@@ -48,41 +48,11 @@ If you now visit github.com/yunity/karrot-frontend, there should be a message th
 
 ### Backend connection
 
-Per default, all requests to `/api` are forwarded to the online backend `foodsaving.world/api`.
+Per default, all requests to `/api` are forwarded to the online backend `dev.foodsaving.world/api`.
 To use a [local backend](https://github.com/yunity/karrot-backend/), create a file `.env` with content like
 
 ```
-BACKEND=http://localhost:8080/
-```
-
-
-## Adding features
-
-### Add components
-To add a component, just execute `gulp component --name <component>`. It will create all necessary files in `client/app/_<component>`:
-
-```
-+<component>
-+-<component>.component.js       component configuration
-+-<component>.controller.js      controller function
-+-<component>.html               component HTML
-+-<component>.js                 module declaration
-+-<component>.spec.js            tests
-+-<component>.styl               styles
-```
-
-To add a component that already includes a route definition (URL), execute `gulp page --name <component>`.
-
-### Add directives
-If you need to add a directive place it as a separate file in your component folder. Name the file like `<component>.<directives name or job>.js`, for example `home.logout.js`. Define it in `<component>.js`, then.
-
-### Add services
-Add services by executing `gulp service --name <service>`.
-```
-+<service>
-+-<service>.js              module declaration
-+-<service>.service.js      service fetching data
-+-<service>.spec.js         tests
+BACKEND=http://localhost:8000/
 ```
 
 ## Code style
@@ -90,25 +60,10 @@ Add services by executing `gulp service --name <service>`.
 Be careful to adapt your coding style to the already existing one. That makes it easier for future contributors to understand and get used to the code. Some helps:
 
 * We use [editorconfig](http://editorconfig.org/). Plugins are available for many editors, e.g. for Atom:`editorconfig`)
-* check your code style with `yarn run lint`, or better: install an `eslint` plugin in your IDE
-* Use ES6 features (but use `$q` of `Promise`, see here: https://github.com/yunity/karrot-frontend/issues/45)
-* Avoid creating directives
+* check your code style with `yarn lint`, or better: install an `eslint` plugin in your IDE
+* use `yarn fix` to automatically fix some kinds of code style errors
+* Use ES6/7 features (including async/await)
 * Avoid global components, import them where needed
-
-## Strings and translation
-
-### Adding new messages
-
-If you want to add a message to the user, be sure to make it translatable. You can follow this workflow:
-
-1. add the message using the `translate` directive, e.g. `<span translate="SOME.MESSAGE"></span>`. Other possibilities can be found in the [angular-translate documentation](https://angular-translate.github.io/docs/#/guide)
-2. add the translation message to the source file: `config/app/locales/locale-en.json`
-
-```json
-"SOME": {
-  "MESSAGE": "This is my message to the user"
-}
-```
 
 ### Translating and updating
 
@@ -119,7 +74,7 @@ Use the [transifex command line client](https://docs.transifex.com/client/introd
 tx push -s
 
 # get translated files
-yarn run update_i18n
+yarn update_i18n
 
 # (it will run the following commands:)
 # tx pull -a
@@ -132,10 +87,9 @@ Now you can commit those files and open a Pull Request in GitHub.
 
 To make it easier to look for documentation and help on the internet, here's a list of our tools and libraries. It's roughly sorted by importance to developers.
 
-* [AngularJS](https://docs.angularjs.org)
-* User interface library: [Angular Material](https://material.angularjs.org/latest/api/)
-* [Stylus](http://stylus-lang.com/), we use it instead of CSS
-* Test framework: [Mocha](https://mochajs.org/)
-* Assertions for tests: [Chai](http://chaijs.com/)
-* Stubs and mocks for tests: [Sinon](http://sinonjs.org/)
-* Test runner: [Karma](https://karma-runner.github.io/)
+* JS framework: [VueJS](https://vuejs.org/v2/guide/)
+* UI framework: [Quasar](http://quasar-framework.org/guide/)
+* State management: [Vuex](https://vuex.vuejs.org/en/)
+* Style: [Stylus](http://stylus-lang.com/)
+* Test framework: [Jest](https://facebook.github.io/jest/docs/en/getting-started.html)
+* Test framework (e2e): [TestCafe](https://devexpress.github.io/testcafe/)

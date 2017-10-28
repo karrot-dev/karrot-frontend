@@ -28,7 +28,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: yarn test --ci
+      - run: yarn test --ci --runInBand
       - run: bash <(curl -s https://codecov.io/bash)
 
   lint:

@@ -164,12 +164,6 @@ describe('groups', () => {
             fetchListByGroupId: jest.fn(),
           },
         },
-        stores: {
-          actions: {
-            clear: jest.fn(),
-            fetchListByGroupId: jest.fn(),
-          },
-        },
         conversations: {
           actions: {
             setActive: jest.fn(),
@@ -188,8 +182,6 @@ describe('groups', () => {
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([])
       expect(storeMocks.pickups.actions.clear).toBeCalled()
       expect(storeMocks.pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group2.id)
-      expect(storeMocks.stores.actions.clear).toBeCalled()
-      expect(storeMocks.stores.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group2.id)
       expect(storeMocks.conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
     })
   })

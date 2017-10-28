@@ -73,12 +73,19 @@ class GroupDetailSerializer(serializers.ModelSerializer):
                 'trim_whitespace': False,
                 'max_length': 255
             },
-            'active_agreement': {
-                'read_only': True
-            },
         }
 
     memberships = serializers.SerializerMethodField()
+
+    def validate_active_agreement(self, active_agreement):
+        user = self.context['request'].user
+        group = self.instance
+        membership = GroupMembership.objects.filter(user=user, group=group).first()
+        if roles.GROUP_AGREEMENT_MANAGER not in membership.roles:
+            raise PermissionDenied(_('You cannot manage agreements'))
+        if active_agreement.group != group:
+            raise ValidationError(_('Agreement is not for this group'))
+        return active_agreement
 
     def get_memberships(self, group):
         return {m.user_id: GroupMembershipInfoSerializer(m).data for m in group.groupmembership_set.all()}

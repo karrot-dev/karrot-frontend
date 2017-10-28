@@ -340,3 +340,13 @@ class TestAgreementsAPI(APITestCase):
         self.client.force_login(user=self.normal_member)
         response = self.client.post('/api/agreements/{}/agree/'.format(self.other_agreement.id))
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_can_set_group_agreement(self):
+        self.client.force_login(user=self.agreement_manager)
+        response = self.client.patch('/api/groups/{}/'.format(self.group.id), {'active_agreement': self.agreement.id})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_normal_user_cannot_group_agreement(self):
+        self.client.force_login(user=self.normal_member)
+        response = self.client.patch('/api/groups/{}/'.format(self.group.id), {'active_agreement': self.agreement.id})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

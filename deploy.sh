@@ -45,7 +45,7 @@ echo "$about_json" > storybook-static/about.json
 rsync -avz --delete dist/ "deploy@$HOST:karrot-frontend/$DIR/"
 rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
 
-dev_deployment_branch="quasar"
+dev_deployment_branch="master"
 
 if [ "$REF" == "$dev_deployment_branch" ]; then
   if [ ! -z "$SLACK_WEBHOOK_URL" ]; then

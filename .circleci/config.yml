@@ -103,6 +103,10 @@ workflows:
             - install-dependencies
       - approval:
          type: approval
+          requires:
+            - test
+            - lint
+            - build
       - deploy-branch:
           #
           # specific dev branches are deployed in their own "<branch>" directory

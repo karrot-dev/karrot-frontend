@@ -1,5 +1,14 @@
 <template>
   <div>
+    <q-card>
+      <q-card-title v-if="$q.platform.is.desktop">
+        Description
+        <router-link slot="right" :to="{name: 'storeEdit', params: { storeId: store.id }}"><q-icon name="fa-pencil" /></router-link>
+      </q-card-title>
+      <div class="generic-padding overflow" v-if="store.description">
+        <Markdown v-if="store.description" :source="store.description" />
+      </div>
+    </q-card>
     <PickupList
       :store="store"
       :pickups="pickups"
@@ -21,16 +30,17 @@
 <script>
 import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
+import Markdown from '@/components/Markdown.vue'
 
 import {
   mapGetters,
   mapActions,
 } from 'vuex'
 
-import { QCard, QTabs, QRouteTab } from 'quasar'
+import { QCard, QCardTitle, QCardActions, QBtn, QTabs, QRouteTab, QIcon } from 'quasar'
 
 export default {
-  components: { PickupList, QCard, QTabs, QRouteTab, KNotice },
+  components: { PickupList, QCard, QCardTitle, QCardActions, QBtn, QTabs, QRouteTab, QIcon, KNotice, Markdown },
   methods: {
     ...mapActions({
       join: 'pickups/join',

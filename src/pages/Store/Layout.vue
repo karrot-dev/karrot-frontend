@@ -1,10 +1,6 @@
 <template>
   <div>
-    <q-card class="no-shadow grey-border">
-      <div class="generic-padding overflow" v-if="store.description">
-        <Markdown v-if="store.description" :source="store.description" />
-      </div>
-      <q-tabs align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
+      <q-tabs v-if="$q.platform.is.mobile" align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
         <q-route-tab
             :to="{name: 'storePickups'}"
             exact
@@ -18,7 +14,6 @@
             name="history"
         >{{ $t('GROUP.HISTORY' )}}</q-route-tab>
       </q-tabs>
-    </q-card>
     <router-view></router-view>
   </div>
 </template>

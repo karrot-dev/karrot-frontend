@@ -1,6 +1,7 @@
 <template>
   <q-card>
-    <HistoryList :store="store" striped="even" />
+    <q-card-title v-if="$q.platform.is.desktop">History</q-card-title>
+    <HistoryList :store="store" />
   </q-card>
 </template>
 

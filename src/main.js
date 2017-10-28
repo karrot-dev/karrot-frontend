@@ -8,8 +8,8 @@ require(`./themes/app.${__THEME}.styl`)
 // ==============================
 
 // Uncomment the following lines if you need IE11/Edge support
-// require(`quasar/dist/quasar.ie`)
-// require(`quasar/dist/quasar.ie.${__THEME}.css`)
+require(`quasar/dist/quasar.ie`)
+require(`quasar/dist/quasar.ie.${__THEME}.css`)
 
 import Vue from 'vue'
 import Quasar from 'quasar'

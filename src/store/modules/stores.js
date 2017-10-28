@@ -37,6 +37,7 @@ export const state = initialState()
 
 export const getters = {
   all: state => state.idList.map(i => state.entries[i]).sort(sortByName),
+  byActiveGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['groups/activeGroupId']),
   get: state => (id) => state.entries[id],
   withLocation: (state, getters) => getters.all.filter(e => e.longitude && e.latitude),
   activeStore: state => state.entries[state.activeStoreId] || {},
@@ -56,10 +57,10 @@ export const actions = {
     commit(types.CLEAR_SELECTED_STORE)
   },
 
-  async fetchListByGroupId ({ commit }, groupId) {
+  async fetchList ({ commit }) {
     commit(types.REQUEST_STORES)
     try {
-      commit(types.RECEIVE_STORES, { stores: await stores.listByGroupId(groupId) })
+      commit(types.RECEIVE_STORES, { stores: await stores.list() })
     }
     catch (error) {
       commit(types.RECEIVE_STORES_ERROR, { error })

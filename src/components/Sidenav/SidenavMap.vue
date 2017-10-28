@@ -4,7 +4,7 @@ import SidenavMapUI from './SidenavMapUI.vue'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/all',
+    stores: 'stores/byActiveGroup',
     users: 'users/all',
     showStores: 'sidenav/showMapStores',
     showUsers: 'sidenav/showMapUsers',

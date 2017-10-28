@@ -114,10 +114,8 @@ export const actions = {
     dispatch('fetchGroup', groupId)
 
     dispatch('pickups/clear', {}, { root: true })
-    dispatch('stores/clear', {}, { root: true })
 
     dispatch('pickups/fetchListByGroupId', groupId, { root: true })
-    dispatch('stores/fetchListByGroupId', groupId, { root: true })
     try {
       dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
     }

@@ -115,6 +115,7 @@ export const actions = {
   afterLoggedIn ({ state, dispatch }) {
     const { user } = state
     dispatch('i18n/setLocale', user.language || 'en', { root: true })
+    dispatch('stores/fetchList', null, { root: true })
   },
 
   async logout ({ commit }) {

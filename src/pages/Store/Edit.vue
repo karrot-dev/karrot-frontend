@@ -6,7 +6,7 @@ export default connect({
   gettersToProps: {
     store: 'stores/activeStore',
     status: 'stores/status',
-    allStores: 'stores/all',
+    allStores: 'stores/byActiveGroup',
     requestError: 'stores/error',
   },
   actionsToEvents: {

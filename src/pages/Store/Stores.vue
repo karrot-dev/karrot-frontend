@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      stores: 'stores/all',
+      stores: 'stores/byActiveGroup',
     }),
   },
 }

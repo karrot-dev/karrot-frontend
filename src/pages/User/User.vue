@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user">
+  <div v-if="user && user.id">
     <UserProfile :user="user" :groups="groups" />
     <q-card>
       <q-card-title>History</q-card-title>

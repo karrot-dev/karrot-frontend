@@ -120,7 +120,7 @@ workflows:
           #
           filters:
             branches:
-              except: /.*/
+              ignore: /.*/
             tags:
               only: /^quasar\-v.*/
           requires:

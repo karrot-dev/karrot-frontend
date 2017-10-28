@@ -43,6 +43,7 @@
     "markdown-it-link-attributes": "^2.0.0",
     "quasar-extras": "0.x",
     "quasar-framework": "^0.14.1",
+    "raven-js": "^3.19.1",
     "reconnecting-websocket": "^3.2.1",
     "twemoji": "^2.5.0",
     "vue": "~2.5.2",

@@ -101,12 +101,6 @@ workflows:
       - build-storybook:
           requires:
             - install-dependencies
-      - approval:
-          type: approval
-          requires:
-            - test
-            - lint
-            - build
       - deploy-dev:
           filters:
             branches:
@@ -117,11 +111,14 @@ workflows:
             - lint
             - build
             - build-storybook
+      - approval:
+          type: approval
+          requires:
+            - deploy-dev
       - deploy-release:
           filters:
             branches:
               only:
                 - master
           requires:
-            - deploy-dev
             - approval

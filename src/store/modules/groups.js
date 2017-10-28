@@ -72,6 +72,16 @@ export const getters = {
     return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
   },
   myGroups: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
+
+  // A de-duplicated list of member ids of all groups the user is part of
+  myGroupMemberIds: (state, getters) => {
+    return Object.keys(getters.myGroups.reduce((obj, group) => {
+      for (let member of group.members) {
+        obj[member] = true
+      }
+      return obj
+    }, {})).sort()
+  },
   otherGroups: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
   activeGroup: (state, getters) => getters.enrich(state.activeGroup) || {},
   activeGroupId: (state) => state.activeGroupId,

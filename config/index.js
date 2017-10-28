@@ -21,7 +21,7 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     publicPath: '',
-    productionSourceMap: false,
+    productionSourceMap: true,
 
     // Remove unused CSS
     // Disable it if it has side-effects for your specific app

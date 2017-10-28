@@ -60,7 +60,7 @@ jobs:
           paths:
             - storybook-static
 
-  deploy-branch:
+  deploy-dev:
     <<: *defaults
     steps:
       - run: sudo apt install -y rsync
@@ -68,7 +68,7 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - deploy:
-          name: Dev Branch Deploy
+          name: Dev Deploy
           command: |
             ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
 
@@ -107,10 +107,7 @@ workflows:
             - test
             - lint
             - build
-      - deploy-branch:
-          #
-          # specific dev branches are deployed in their own "<branch>" directory
-          #
+      - deploy-dev:
           filters:
             branches:
               only:
@@ -119,16 +116,12 @@ workflows:
             - test
             - lint
             - build
+            - build-storybook
       - deploy-release:
-          #
-          # deploy quasar-release branch "release" directory
-          #
           filters:
             branches:
               only:
                 - master
           requires:
-            - test
-            - lint
-            - build
+            - deploy-dev
             - approval

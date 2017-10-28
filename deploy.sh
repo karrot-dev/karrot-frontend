@@ -77,7 +77,7 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
     ATTACHMENT_TEXT+="\n:books: <$STORYBOOK_URL|Visit the storybook>"
   fi
 
-  ATTACHMENT_TEXT+=":webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
+  ATTACHMENT_TEXT+="\n:webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
 
   ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 

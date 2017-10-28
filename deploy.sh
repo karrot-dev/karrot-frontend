@@ -66,6 +66,7 @@ rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$D
 if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 
   WEBPACK_URL="$URL/bundlesize.html"
+  CIRCLE_WORKFLOW_URL="https://circleci.com/gh/yunity/workflows/karrot-frontend/tree/$REF"
 
   COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 
@@ -78,6 +79,7 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
   fi
 
   ATTACHMENT_TEXT+="\n:webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
+  ATTACHMENT_TEXT+="\n:white_check_mark: <$CIRCLE_WORKFLOW_URL|Visit circleci>"
 
   ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 

@@ -4,8 +4,8 @@ import SidenavMapUI from './SidenavMapUI'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/withLocation',
-    users: 'users/withLocation',
+    stores: 'stores/byActiveGroup',
+    users: 'users/byActiveGroup',
     showStores: 'sidenav/showMapStores',
     showUsers: 'sidenav/showMapUsers',
     selectedStoreId: 'stores/activeStoreId',

@@ -71,9 +71,6 @@ export const getters = {
     const activeGroup = rootGetters['groups/activeGroup']
     return activeGroup.members ? activeGroup.members.map(getters.get) : []
   },
-  withLocation: (state, getters, rootState, rootGetters) => {
-    return getters.byActiveGroup.filter(e => e.longitude && e.latitude)
-  },
   activeUser: (state, getters, rootState, rootGetters) => {
     return state.activeUserId && getters.get(state.activeUserId)
   },

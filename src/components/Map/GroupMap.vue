@@ -66,7 +66,7 @@ export default {
   },
   computed: {
     showStoreLocationPrompt () {
-      return this.selectedStoreId && !(this.stores.findIndex(e => e.id === this.selectedStoreId) >= 0)
+      return this.selectedStoreId && !(this.storesWithLocation.findIndex(e => e.id === this.selectedStoreId) >= 0)
     },
     showGroupLocationPrompt () {
       return !this.selectedStoreId && this.markers.length === 0 && !(this.activeGroup.latitude && this.activeGroup.longitude)
@@ -80,12 +80,18 @@ export default {
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }
     },
+    storesWithLocation () {
+      return this.stores.filter(hasLocation)
+    },
+    usersWithLocation () {
+      return this.users.filter(hasLocation)
+    },
     selectedMarkerIds () {
       let ids = []
       if (this.selectedStoreId) {
         ids.push(this.storeMarkerId(this.selectedStoreId))
         if (this.showUsers) {
-          ids.push(...this.users.map(user => user.id).map(this.userMarkerId))
+          ids.push(...this.usersWithLocation.map(user => user.id).map(this.userMarkerId))
         }
       }
       return ids
@@ -93,14 +99,18 @@ export default {
     markers () {
       let items = []
       if (this.showStores) {
-        items.push(...this.stores.map(this.createStoreMarker))
+        items.push(...this.storesWithLocation.map(this.createStoreMarker))
       }
       if (this.showUsers) {
-        items.push(...this.users.map(this.createUserMarker))
+        items.push(...this.usersWithLocation.map(this.createUserMarker))
       }
       return items
     },
   },
+}
+
+function hasLocation (item) {
+  return item.latitude && item.longitude
 }
 </script>
 

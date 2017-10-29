@@ -39,7 +39,6 @@ export const getters = {
   all: state => state.idList.map(i => state.entries[i]).sort(sortByName),
   byActiveGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['groups/activeGroupId']),
   get: state => (id) => state.entries[id],
-  withLocation: (state, getters) => getters.byActiveGroup.filter(e => e.longitude && e.latitude),
   activeStore: state => state.entries[state.activeStoreId] || {},
   activeStoreId: state => state.activeStoreId,
   status: state => { return { isWaiting: state.isWaiting, error: state.error } },

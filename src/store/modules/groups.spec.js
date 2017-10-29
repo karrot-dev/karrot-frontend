@@ -133,10 +133,6 @@ describe('groups', () => {
       }))
     })
 
-    it('can get activeUsers', () => {
-      expect(store.getters['groups/activeUsers']).toEqual([{ id: userId, name: `Some Name${userId}` }])
-    })
-
     it('can get activeGroupId', () => {
       expect(store.getters['groups/activeGroupId']).toBe(group2.id)
     })

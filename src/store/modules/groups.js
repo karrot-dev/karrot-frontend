@@ -86,10 +86,6 @@ export const getters = {
   activeGroup: (state, getters) => getters.enrich(state.activeGroup) || {},
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
-  activeUsers: (state, getters, rootState, rootGetters) => {
-    let group = getters.activeGroup
-    return group.members ? group.members.map(rootGetters['users/get']) : []
-  },
   joinStatus: state => state.joinStatus,
   timezones: state => {
     // q-autocomplete static data format

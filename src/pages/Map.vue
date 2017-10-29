@@ -16,7 +16,8 @@ export default {
   computed: {
     ...mapGetters({
       stores: 'stores/byActiveGroup',
-      users: 'users/all',
+      users: 'users/byActiveGroup',
+      activeGroup: 'groups/activeGroup',
     }),
   },
 }

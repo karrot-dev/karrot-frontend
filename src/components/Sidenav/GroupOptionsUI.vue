@@ -5,6 +5,10 @@
         <q-icon size="1em" name="fa-pencil fa-fw on-left" />
         {{$t("GROUP.EDIT")}}
       </q-item>
+      <q-item v-if="isAgreementManager" :to="{name: 'groupEditAgreement', params: {groupId: activeGroupId}}" @click.native="$refs.popover.close()">
+        <q-icon size="1em" name="fa-pencil fa-fw on-left" />
+        {{$t("GROUP.EDIT_AGREEMENT")}}
+      </q-item>
       <q-item :to="{name: 'groupInfo', params: {groupInfoId: activeGroupId}}" @click.native="$refs.popover.close()">
         <q-icon size="1em" name="fa-info-circle fa-fw on-left" />
         {{$t("GROUPINFO.META")}}
@@ -30,6 +34,12 @@ export default {
   },
   props: {
     activeGroupId: {required: true},
+    roles: { type: Array, required: true },
+  },
+  computed: {
+    isAgreementManager () {
+      return this.roles.includes('agreement_manager')
+    },
   },
   methods: {
     leave () {

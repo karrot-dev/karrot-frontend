@@ -94,6 +94,7 @@ export const getters = {
   otherGroups: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
   activeGroup: (state, getters) => getters.enrich(state.activeGroup) || {},
   activeGroupRoles: (state, getters) => getters.activeGroup.membership ? getters.activeGroup.membership.roles : [],
+  activeGroupAgreement: (state, getters) => getters.activeGroup && getters.activeGroup.activeAgreement,
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   joinStatus: state => state.joinStatus,
@@ -235,6 +236,24 @@ export const actions = {
     commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_GROUP, { group: createdGroup })
     router.push({ name: 'group', params: { groupId: createdGroup.id } })
+  },
+
+  async activeGroupAgreementSave ({ commit, dispatch, state }, agreement) {
+    let { activeGroup } = state
+    let { id } = agreement
+    if (id) {
+      console.log('saving agreement!', agreement)
+      agreement = await dispatch('agreements/save', agreement, { root: true })
+    }
+    else {
+      console.log('creating agreement!', agreement)
+      agreement = await dispatch('agreements/create', { ...agreement, group: activeGroup.id }, { root: true })
+    }
+
+    // Make sure this is our active agreement
+    if (activeGroup.activeAgreement !== agreement.id) {
+      await groups.save({ id: activeGroup.id, agreement: agreement.id })
+    }
   },
 }
 

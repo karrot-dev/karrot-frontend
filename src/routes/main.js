@@ -2,6 +2,7 @@ const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
+const GroupEditAgreement = () => import('@/pages/Group/EditAgreement')
 const GroupCreate = () => import('@/pages/Group/Create')
 const GroupInfo = () => import('@/pages/GroupInfo')
 const GroupsGallery = () => import('@/pages/GroupsGallery')
@@ -147,6 +148,19 @@ export default [
         },
         components: {
           default: GroupEdit,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupEditAgreement',
+        path: 'editAgreement',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.EDIT_AGREEMENT', route: { name: 'groupEditAgreement' } },
+          ],
+        },
+        components: {
+          default: GroupEditAgreement,
           sidenav: GroupGroupSidenav,
         },
       },

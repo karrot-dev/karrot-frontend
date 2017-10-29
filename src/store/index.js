@@ -24,6 +24,7 @@ import * as alerts from './modules/alerts'
 import * as loadingprogress from './modules/loadingprogress'
 import * as history from './modules/history'
 import * as search from './modules/search'
+import * as agreements from './modules/agreements'
 
 Vue.use(Vuex)
 
@@ -49,6 +50,7 @@ const options = ({
     loadingprogress,
     history,
     search,
+    agreements,
   },
   plugins: [
     i18nPlugin,

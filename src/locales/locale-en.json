@@ -43,7 +43,8 @@
     "YES": "Yes",
     "SAVE_CHANGES": "Save changes",
     "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password"
+    "CHANGE_PASSWORD": "Change password",
+    "AGREE": "I agree"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
@@ -290,6 +291,10 @@
   "SETTINGS": {
     "TITLE": "Settings",
     "LANGUAGE": "Language"
+  },
+  "AGREEMENT": {
+    "AGREE": "You must agree to {{title}}",
+    "VIEW": "View agreement"
   },
   "this field is required": "This field is required",
   "enter a valid e-mail address": "Enter a valid e-mail address",

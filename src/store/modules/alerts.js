@@ -10,14 +10,30 @@ function initialState () {
   return {
     entries: {},
     idList: [],
-    counter: 0,
   }
 }
 
 export const state = initialState()
 
 export const getters = {
-  list: state => state.idList.map(i => state.entries[i]),
+  all: (state, getters, rootState, rootGetters) => {
+    // Transient alerts created via actions
+
+    const alerts = state.idList.map(i => state.entries[i])
+
+    // Derived state alerts
+
+    const activeGroup = rootGetters['groups/activeGroup']
+    if (activeGroup && activeGroup.awaitingAgreement) {
+      alerts.push({
+        type: 'awaitingAgreement',
+        context: activeGroup.activeAgreement,
+        dismissible: true,
+      })
+    }
+
+    return alerts
+  },
 }
 
 export const actions = {
@@ -34,10 +50,11 @@ export const actions = {
   },
 }
 
+let counter = 1 // start at 1 so it is always truthy
+
 export const mutations = {
   [types.CREATE] (state, { alert }) {
-    state.counter++
-    alert.id = state.counter
+    alert.id = counter++
     Vue.set(state.entries, alert.id, alert)
     state.idList.push(alert.id)
     return alert.id
@@ -49,9 +66,8 @@ export const mutations = {
   },
 
   [types.CLEAR] (state) {
-    Object.entries(initialState())
-      // don't reset counter, maybe there are still old references around
-      .filter(([prop, value]) => prop !== 'counter')
-      .forEach(([prop, value]) => Vue.set(state, prop, value))
+    for (let [k, v] of Object.entries(initialState())) {
+      Vue.set(state, k, v)
+    }
   },
 }

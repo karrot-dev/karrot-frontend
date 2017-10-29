@@ -59,8 +59,15 @@ export const getters = {
     return getters.enrich(state.entries[groupId])
   },
   enrich: (state, getters, rootState, rootGetters) => group => {
+    if (!group) return
     const userId = rootGetters['auth/userId']
-    return group && { ...group, isMember: userId ? group.members.includes(userId) : false }
+    const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
+    return {
+      ...group,
+      activeAgreement,
+      isMember: userId ? group.members.includes(userId) : false,
+      awaitingAgreement: activeAgreement && activeAgreement.agreed === false,
+    }
   },
   all: (state, getters, rootState, rootGetters) => {
     return state.idsList.map(getters.get)
@@ -127,7 +134,7 @@ export const actions = {
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
   },
 
-  async fetchGroup ({ commit, rootGetters }, groupId) {
+  async fetchGroup ({ commit, rootGetters, dispatch }, groupId) {
     commit(types.REQUEST_GROUP)
     let group
     try {
@@ -137,6 +144,11 @@ export const actions = {
       commit(types.RECEIVE_GROUP_ERROR, { error })
       return
     }
+
+    if (group.activeAgreement) {
+      dispatch('agreements/fetch', group.activeAgreement, { root: true })
+    }
+
     const userId = rootGetters['auth/userId']
     if (!group.members.includes(userId)) {
       Toast.create.warning(i18n.t('GROUP.NONMEMBER_REDIRECT'))
@@ -183,6 +195,7 @@ export const actions = {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_LEAVE_ERROR, data))
       return
     }
+
     commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
     dispatch('alerts/create', {
       type: 'groupLeaveSuccess',

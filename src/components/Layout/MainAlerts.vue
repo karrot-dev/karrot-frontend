@@ -5,9 +5,10 @@ import MainAlertsUI from './MainAlertsUI'
 export default connect({
   actionsToEvents: {
     dismiss: 'alerts/dismiss',
+    agree: 'agreements/agree',
   },
   gettersToProps: {
-    alerts: 'alerts/list',
+    alerts: 'alerts/all',
   },
 })('MainAlerts', MainAlertsUI)
 </script>

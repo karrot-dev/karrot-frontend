@@ -112,7 +112,7 @@
     "vue-loader": "~13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "~2.5.2",
-    "vue-test-utils": "1.0.0-beta.2",
+    "vue-test-utils": "1.0.0-beta.4",
     "webpack": "^3.5.2",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.18.2",

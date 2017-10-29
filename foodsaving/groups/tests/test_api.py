@@ -5,7 +5,7 @@ from rest_framework.test import APITestCase
 
 from foodsaving.groups import roles
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement
+from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement, UserAgreement
 from foodsaving.stores.factories import PickupDateFactory, StoreFactory
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
@@ -331,6 +331,14 @@ class TestAgreementsAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['agreed'], True)
 
+    def test_can_agree_is_idempotent(self):
+        self.client.force_login(user=self.normal_member)
+        response = self.client.post('/api/agreements/{}/agree/'.format(self.agreement.id))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        response = self.client.post('/api/agreements/{}/agree/'.format(self.agreement.id))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(UserAgreement.objects.filter(user=self.normal_member, agreement=self.agreement).count(), 1)
+
     def test_cannot_view_agreements_for_other_groups(self):
         self.client.force_login(user=self.normal_member)
         response = self.client.get('/api/agreements/{}/'.format(self.other_agreement.id))
@@ -345,6 +353,11 @@ class TestAgreementsAPI(APITestCase):
         self.client.force_login(user=self.agreement_manager)
         response = self.client.patch('/api/groups/{}/'.format(self.group.id), {'active_agreement': self.agreement.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_cannot_set_group_agreement_if_for_wrong_group(self):
+        self.client.force_login(user=self.agreement_manager)
+        response = self.client.patch('/api/groups/{}/'.format(self.group.id), {'active_agreement': self.other_agreement.id})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_normal_user_cannot_group_agreement(self):
         self.client.force_login(user=self.normal_member)

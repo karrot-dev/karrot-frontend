@@ -147,17 +147,6 @@ class GroupViewSet(
         return Response(GroupMembershipInfoSerializer(instance).data)
 
 
-class IsGroupAgreementManager(BasePermission):
-    message = _('You cannot manage agreements')
-
-    def has_permission(self, request, view):
-        group_id = request.GET.get('group')
-        membership = GroupMembership.objects.filter(user=request.user, group=group_id).first()
-        if not membership:
-            return False
-        return roles.GROUP_AGREEMENT_MANAGER in membership.roles
-
-
 class AgreementViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,

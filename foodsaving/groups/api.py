@@ -152,7 +152,6 @@ class IsGroupAgreementManager(BasePermission):
 
     def has_permission(self, request, view):
         group_id = request.GET.get('group')
-        print('checking agreement manager permissions', request.user, group_id)
         membership = GroupMembership.objects.filter(user=request.user, group=group_id).first()
         if not membership:
             return False

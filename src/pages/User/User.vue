@@ -11,7 +11,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import UserProfile from '@/components/User/Profile'
-import History from '@/components/History/HistoryList.vue'
+import History from '@/components/History/HistoryList'
 import { QCard, QCardTitle } from 'quasar'
 
 export default {

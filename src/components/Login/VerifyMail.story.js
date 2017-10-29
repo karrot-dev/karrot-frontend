@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import VerifyMail from './VerifyMail.vue'
+import VerifyMail from './VerifyMail'
 import i18n from '@/i18n'
 
 storiesOf('VerifyMail', module)

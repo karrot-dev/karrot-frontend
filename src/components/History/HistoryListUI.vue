@@ -12,7 +12,7 @@
 
 <script>
 import { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain } from 'quasar'
-import HistoryEntry from '@/components/History/HistoryEntry.vue'
+import HistoryEntry from '@/components/History/HistoryEntry'
 
 export default {
   props: {

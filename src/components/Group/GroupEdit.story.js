@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import GroupEdit from './GroupEdit.vue'
+import GroupEdit from './GroupEdit'
 import i18n from '@/i18n'
 
 import { groupsMock, timezones as tzlist } from '>/mockdata'

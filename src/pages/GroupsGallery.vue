@@ -1,7 +1,7 @@
 <script>
 import { connect } from 'vuex-connect'
 import router from '@/router'
-import GroupPreviewGallery from '@/components/GroupJoin/GroupPreviewGallery.vue'
+import GroupPreviewGallery from '@/components/GroupJoin/GroupPreviewGallery'
 
 export default connect({
   gettersToProps: {

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PickupFeedback from '@/components/Statistics/PickupFeedback.vue'
+import PickupFeedback from '@/components/Statistics/PickupFeedback'
 
 export default {
   components: {

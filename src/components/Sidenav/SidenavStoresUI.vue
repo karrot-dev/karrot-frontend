@@ -23,7 +23,7 @@
 
 <script>
 import { QBtn, QList, QItem, QIcon } from 'quasar'
-import SidenavBox from './SidenavBox.vue'
+import SidenavBox from './SidenavBox'
 
 export default {
   props: {

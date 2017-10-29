@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import KTopbarUI from './KTopbarUI.vue'
+import KTopbarUI from './KTopbarUI'
 
 export default connect({
   actionsToEvents: {

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import Signup from './Signup.vue'
+import Signup from './Signup'
 import i18n from '@/i18n'
 
 storiesOf('Signup', module)

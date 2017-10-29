@@ -24,7 +24,7 @@
 
 <script>
 import { QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon } from 'quasar'
-import PickupItem from './PickupItem.vue'
+import PickupItem from './PickupItem'
 
 export default {
   props: {

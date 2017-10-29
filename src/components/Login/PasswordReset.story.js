@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import PasswordReset from './PasswordReset.vue'
+import PasswordReset from './PasswordReset'
 import i18n from '@/i18n'
 
 const methods = {

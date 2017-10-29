@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import ProfileEdit from './ProfileEdit.vue'
+import ProfileEdit from './ProfileEdit'
 import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 

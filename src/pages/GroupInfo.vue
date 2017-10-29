@@ -1,7 +1,7 @@
 <script>
 import { connect } from 'vuex-connect'
 import router from '@/router'
-import GroupInfoCard from '@/components/GroupJoin/GroupInfoCard.vue'
+import GroupInfoCard from '@/components/GroupJoin/GroupInfoCard'
 
 export default connect({
   gettersToProps: {

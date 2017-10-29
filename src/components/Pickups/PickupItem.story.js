@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import PickupItem from './PickupItem.vue'
+import PickupItem from './PickupItem'
 import i18n from '@/i18n'
 import { createStore } from '>/helpers'
 import { currentUserMock } from '>/mockdata'

@@ -23,7 +23,7 @@
 import {
   mapGetters,
 } from 'vuex'
-import Markdown from '@/components/Markdown.vue'
+import Markdown from '@/components/Markdown'
 
 import { QCard, QTabs, QRouteTab, QScrollArea } from 'quasar'
 

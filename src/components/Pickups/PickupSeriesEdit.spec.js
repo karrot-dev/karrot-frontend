@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { createLocalVue, mount } from 'vue-test-utils'
 
-import PickupSeriesEdit from './PickupSeriesEdit.vue'
+import PickupSeriesEdit from './PickupSeriesEdit'
 import { pickupSeriesMock } from '>/mockdata'
 import i18n from '@/i18n'
 import cloneDeep from 'clone-deep'

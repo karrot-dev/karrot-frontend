@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils'
 
-import KBox from './KBox.vue'
+import KBox from './KBox'
 
 describe('KBox', () => {
   it('renders', () => {

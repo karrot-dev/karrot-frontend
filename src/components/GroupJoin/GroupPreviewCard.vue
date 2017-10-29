@@ -36,7 +36,7 @@
 
 <script>
 import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon } from 'quasar'
-import Markdown from '@/components/Markdown.vue'
+import Markdown from '@/components/Markdown'
 
 export default {
   props: {

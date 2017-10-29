@@ -1,11 +1,11 @@
-const Login = () => import('@/pages/Login.vue')
-const LoginTitle = () => import('@/components/Login/LoginTitle.vue')
-const VerifyMailTitle = () => import('@/components/Login/VerifyMailTitle.vue')
-const PasswordResetTitle = () => import('@/components/Login/PasswordResetTitle.vue')
-const Signup = () => import('@/pages/Signup.vue')
-const SignupTitle = () => import('@/components/Login/SignupTitle.vue')
-const PasswordReset = () => import('@/pages/PasswordReset.vue')
-const VerifyMail = () => import('@/pages/VerifyMail.vue')
+const Login = () => import('@/pages/Login')
+const LoginTitle = () => import('@/components/Login/LoginTitle')
+const VerifyMailTitle = () => import('@/components/Login/VerifyMailTitle')
+const PasswordResetTitle = () => import('@/components/Login/PasswordResetTitle')
+const Signup = () => import('@/pages/Signup')
+const SignupTitle = () => import('@/components/Login/SignupTitle')
+const PasswordReset = () => import('@/pages/PasswordReset')
+const VerifyMail = () => import('@/pages/VerifyMail')
 
 export default [
   {

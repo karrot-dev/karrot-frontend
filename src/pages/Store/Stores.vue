@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import StoreList from '@/components/Store/StoreList.vue'
+import StoreList from '@/components/Store/StoreList'
 import { mapGetters } from 'vuex'
 import { QCard } from 'quasar'
 

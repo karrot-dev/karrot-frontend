@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 
-import SidenavBox from './SidenavBox.vue'
-import SidenavMapUI from './SidenavMapUI.vue'
-import SidenavGroup from './SidenavGroup.vue'
-import SidenavStoresUI from './SidenavStoresUI.vue'
+import SidenavBox from './SidenavBox'
+import SidenavMapUI from './SidenavMapUI'
+import SidenavGroup from './SidenavGroup'
+import SidenavStoresUI from './SidenavStoresUI'
 import { storesMock as stores, usersMock as users } from '>/mockdata'
 import i18n from '@/i18n'
 import router from '@/router'

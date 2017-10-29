@@ -30,7 +30,7 @@
 <script>
 import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
-import Markdown from '@/components/Markdown.vue'
+import Markdown from '@/components/Markdown'
 
 import {
   mapGetters,

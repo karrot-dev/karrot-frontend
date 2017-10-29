@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import MobileNavigationUI from './MobileNavigationUI.vue'
+import MobileNavigationUI from './MobileNavigationUI'
 
 export default connect({
   gettersToProps: {

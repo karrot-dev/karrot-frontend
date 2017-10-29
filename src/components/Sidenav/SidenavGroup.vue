@@ -19,8 +19,8 @@
 
 <script>
 import { QBtn, QList, QItem } from 'quasar'
-import SidenavBox from './SidenavBox.vue'
-import GroupOptions from './GroupOptions.vue'
+import SidenavBox from './SidenavBox'
+import GroupOptions from './GroupOptions'
 
 export default {
   components: {

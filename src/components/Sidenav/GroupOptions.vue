@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import GroupOptionsUI from './GroupOptionsUI.vue'
+import GroupOptionsUI from './GroupOptionsUI'
 
 export default connect({
   gettersToProps: {

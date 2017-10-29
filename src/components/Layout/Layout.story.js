@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
-import KTopbar from './KTopbar.vue'
-import KFooter from './KFooter.vue'
+import KTopbar from './KTopbar'
+import KFooter from './KFooter'
 import i18n from '@/i18n'
 import router from '@/router'
 import { createStore } from '>/helpers'

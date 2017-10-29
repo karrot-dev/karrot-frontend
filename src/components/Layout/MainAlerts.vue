@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import MainAlertsUI from './MainAlertsUI.vue'
+import MainAlertsUI from './MainAlertsUI'
 
 export default connect({
   actionsToEvents: {

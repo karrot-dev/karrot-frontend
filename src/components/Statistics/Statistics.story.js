@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 
-import AmountPicker from './AmountPicker.vue'
-import AmountBox from './AmountBox.vue'
-import PickupFeedback from './PickupFeedback.vue'
+import AmountPicker from './AmountPicker'
+import AmountBox from './AmountBox'
+import PickupFeedback from './PickupFeedback'
 import i18n from '@/i18n'
 
 const amountPicker = `

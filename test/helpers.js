@@ -4,7 +4,7 @@ import Quasar from 'quasar'
 import raf from 'raf'
 import { createLocalVue, mount } from 'vue-test-utils'
 
-import MockRouterLink from '>/MockRouterLink.vue'
+import MockRouterLink from '>/MockRouterLink'
 import i18n from '@/i18n'
 
 Vue.use(Vuex)

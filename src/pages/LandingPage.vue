@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Login from '@/components/Login/Login.vue'
+import Login from '@/components/Login/Login'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

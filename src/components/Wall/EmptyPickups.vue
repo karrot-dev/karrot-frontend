@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import PickupItem from '@/components/Pickups/PickupItem.vue'
+import PickupItem from '@/components/Pickups/PickupItem'
 import { QCard } from 'quasar'
 
 export default {

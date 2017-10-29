@@ -49,9 +49,9 @@
 </template>
 
 <script>
-import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
-import UserSlot from './UserSlot.vue'
-import CurrentUser from './CurrentUser.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import UserSlot from './UserSlot'
+import CurrentUser from './CurrentUser'
 import { mapGetters } from 'vuex'
 import { QSpinner, QResizeObservable } from 'quasar'
 

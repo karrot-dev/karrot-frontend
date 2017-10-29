@@ -18,8 +18,8 @@
 
 <script>
 import { QBtn, QList, QItem } from 'quasar'
-import SidenavBox from './SidenavBox.vue'
-import StoreOptions from './StoreOptions.vue'
+import SidenavBox from './SidenavBox'
+import StoreOptions from './StoreOptions'
 
 export default {
   props: {

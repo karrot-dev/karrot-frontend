@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   props: ['entry'],

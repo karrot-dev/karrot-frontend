@@ -40,10 +40,10 @@
 </template>
 
 <script>
-import WallMessage from './WallMessage.vue'
-import EmptyPickups from './EmptyPickups.vue'
-import JoinedPickups from './JoinedPickups.vue'
-import WallInput from './WallInput.vue'
+import WallMessage from './WallMessage'
+import EmptyPickups from './EmptyPickups'
+import JoinedPickups from './JoinedPickups'
+import WallInput from './WallInput'
 import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert } from 'quasar'
 
 export default {

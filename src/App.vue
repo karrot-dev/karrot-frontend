@@ -10,7 +10,7 @@
 /*
  * Root component
  */
-import LoadingProgress from '@/components/Layout/LoadingProgress.vue'
+import LoadingProgress from '@/components/Layout/LoadingProgress'
 export default {
   components: { LoadingProgress },
 }

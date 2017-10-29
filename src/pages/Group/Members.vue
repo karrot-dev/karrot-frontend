@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import UserList from '@/components/ProfilePictures/UserList.vue'
+import UserList from '@/components/ProfilePictures/UserList'
 
 import {
   mapGetters,

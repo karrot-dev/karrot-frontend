@@ -1,6 +1,6 @@
-import Wall from './Wall.vue'
-import WallMessage from './WallMessage.vue'
-import WallInput from './WallInput.vue'
+import Wall from './Wall'
+import WallMessage from './WallMessage'
+import WallInput from './WallInput'
 
 import { messagesMock } from '>/mockdata'
 

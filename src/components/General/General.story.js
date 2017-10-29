@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 
-import KBox from './KBox.vue'
-import KBreadcrumb from './KBreadcrumb.vue'
-import Search from './Search.vue'
+import KBox from './KBox'
+import KBreadcrumb from './KBreadcrumb'
+import Search from './Search'
 import i18n from '@/i18n'
 import { createStore } from '>/helpers'
 import { groupsMock, storesMock, usersMock } from '>/mockdata'

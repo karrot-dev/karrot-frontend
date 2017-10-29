@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import GroupPreviewCard from './GroupPreviewCard.vue'
+import GroupPreviewCard from './GroupPreviewCard'
 import i18n from '@/i18n'
 
 import { groupsMock } from '>/mockdata'

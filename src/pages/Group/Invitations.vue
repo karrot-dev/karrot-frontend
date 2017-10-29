@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import InvitationsUI from '@/components/Group/InvitationsUI.vue'
+import InvitationsUI from '@/components/Group/InvitationsUI'
 
 export default connect({
   gettersToProps: {

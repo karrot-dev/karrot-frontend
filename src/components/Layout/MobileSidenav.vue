@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import MobileSidenavUI from './MobileSidenavUI.vue'
+import MobileSidenavUI from './MobileSidenavUI'
 
 export default connect({
   actionsToEvents: {

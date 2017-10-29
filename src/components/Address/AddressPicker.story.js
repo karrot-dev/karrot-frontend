@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import AddressPicker from './AddressPicker.vue'
+import AddressPicker from './AddressPicker'
 
 storiesOf('AddressPicker', module)
   .add('Default', () => ({

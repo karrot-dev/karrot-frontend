@@ -16,7 +16,7 @@
 
 <script>
 import { QSlider } from 'quasar'
-import AmountViewer from './AmountViewer.vue'
+import AmountViewer from './AmountViewer'
 
 export default {
   data () {

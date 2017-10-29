@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import SidenavMap from './SidenavMap.vue'
-import SidenavStores from './SidenavStores.vue'
+import SidenavMap from './SidenavMap'
+import SidenavStores from './SidenavStores'
 
 export default {
   components: {

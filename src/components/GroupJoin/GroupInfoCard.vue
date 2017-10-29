@@ -51,7 +51,7 @@
 
 <script>
 import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip } from 'quasar'
-import Markdown from '@/components/Markdown.vue'
+import Markdown from '@/components/Markdown'
 
 export default {
   data () {

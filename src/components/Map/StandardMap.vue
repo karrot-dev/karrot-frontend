@@ -14,7 +14,7 @@ import {
   Popup as VPopup,
 } from 'vue2-leaflet'
 
-import ExtendedMarker from './ExtendedMarker.vue'
+import ExtendedMarker from './ExtendedMarker'
 
 import L from 'leaflet'
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.js'

@@ -2,7 +2,7 @@ jest.mock('@/store/plugins/persistedState', () => {
   return () => {}
 })
 
-import Settings from './Settings.vue'
+import Settings from './Settings'
 import { locales } from '@/i18n'
 import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 

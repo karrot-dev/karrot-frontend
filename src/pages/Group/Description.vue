@@ -8,7 +8,7 @@
 
 <script>
 import { QCard } from 'quasar'
-import Markdown from '@/components/Markdown.vue'
+import Markdown from '@/components/Markdown'
 
 import {
   mapGetters,

@@ -54,7 +54,7 @@
 
 <script>
 
-import Markdown from '@/components/Markdown.vue'
+import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 

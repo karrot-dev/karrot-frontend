@@ -2,7 +2,7 @@
   <div class="wrapper">
     <q-list highlight no-border>
       <q-item link :to="{name: 'user', params: { userId: user.id }}" v-for="user in users" :key="user.id">
-        
+
         <q-item-side right>
           <ProfilePicture
             :key="user.id"
@@ -21,7 +21,7 @@
 <script>
 
 import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
-import ProfilePicture from './ProfilePicture.vue'
+import ProfilePicture from './ProfilePicture'
 
 export default {
   components: { ProfilePicture, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },

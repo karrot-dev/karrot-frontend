@@ -7,7 +7,7 @@
 
 <script>
 
-import GroupMap from '@/components/Map/GroupMap.vue'
+import GroupMap from '@/components/Map/GroupMap'
 
 import { mapGetters } from 'vuex'
 

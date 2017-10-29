@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import GroupPreviewCard from './GroupPreviewCard.vue'
+import GroupPreviewCard from './GroupPreviewCard'
 import { QAlert } from 'quasar'
 
 export default {

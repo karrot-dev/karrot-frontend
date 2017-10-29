@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import PickupEdit from './PickupEdit.vue'
+import PickupEdit from './PickupEdit'
 import { pickupsMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 

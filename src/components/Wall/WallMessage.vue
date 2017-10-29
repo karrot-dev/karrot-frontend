@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 export default {
   name: 'WallMessage',

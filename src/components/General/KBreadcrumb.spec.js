@@ -1,7 +1,7 @@
 import { createLocalVue, mount } from 'vue-test-utils'
 
-import KBreadcrumb from './KBreadcrumb.vue'
-import MockRouterLink from '>/MockRouterLink.vue'
+import KBreadcrumb from './KBreadcrumb'
+import MockRouterLink from '>/MockRouterLink'
 
 describe('KBreadcrumb', () => {
   it('renders', () => {

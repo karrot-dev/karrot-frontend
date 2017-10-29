@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import HistoryListUI from '@/components/History/HistoryListUI.vue'
+import HistoryListUI from '@/components/History/HistoryListUI'
 
 export default connect({
   gettersToProps: {

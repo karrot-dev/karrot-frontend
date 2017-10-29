@@ -32,10 +32,10 @@
 
 <script>
 
-import KTopbar from '@/components/Layout/KTopbar.vue'
-import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar.vue'
-import KFooter from '@/components/Layout/KFooter.vue'
-import MobileNavigation from '@/components/Layout/MobileNavigation.vue'
+import KTopbar from '@/components/Layout/KTopbar'
+import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
+import KFooter from '@/components/Layout/KFooter'
+import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
 import { QLayout, QBtn } from 'quasar'

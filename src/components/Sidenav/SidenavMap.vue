@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import SidenavMapUI from './SidenavMapUI.vue'
+import SidenavMapUI from './SidenavMapUI'
 
 export default connect({
   gettersToProps: {

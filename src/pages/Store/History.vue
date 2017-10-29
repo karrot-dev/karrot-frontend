@@ -9,7 +9,7 @@
 
 import { mapGetters } from 'vuex'
 import { QCard, QCardTitle } from 'quasar'
-import HistoryList from '@/components/History/HistoryList.vue'
+import HistoryList from '@/components/History/HistoryList'
 
 export default {
   components: { QCard, QCardTitle, HistoryList },

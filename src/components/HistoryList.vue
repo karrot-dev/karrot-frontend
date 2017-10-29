@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import { QBtn, QDataTable, QModal, QModalLayout, QToolbar } from 'quasar'
 
 export default {

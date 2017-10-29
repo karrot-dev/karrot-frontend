@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import ProfilePicture from './ProfilePicture.vue'
+import ProfilePicture from './ProfilePicture'
 import { usersMock } from '>/mockdata'
 import i18n from '@/i18n'
 import router from '@/router'

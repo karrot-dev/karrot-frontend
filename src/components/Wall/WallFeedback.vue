@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import WallCard from './WallCard.vue'
+import WallCard from './WallCard'
 import AmountBox from '@/components/Statistics/AmountBox'
-import ProfilePicture from '@/components/ProfilePictures/ProfilePicture.vue'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   components: {

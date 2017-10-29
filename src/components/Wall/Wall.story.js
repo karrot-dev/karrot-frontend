@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 
-import Wall from './Wall.vue'
-import WallCard from './WallCard.vue'
-import WallMessage from './WallMessage.vue'
-import WallFeedback from './WallFeedback.vue'
+import Wall from './Wall'
+import WallCard from './WallCard'
+import WallMessage from './WallMessage'
+import WallFeedback from './WallFeedback'
 import { messagesMock, leavablePickup, pickupsMock, feedbackMock, currentUserMock } from '>/mockdata'
 import i18n from '@/i18n'
 import router from '@/router'

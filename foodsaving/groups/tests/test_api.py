@@ -356,7 +356,8 @@ class TestAgreementsAPI(APITestCase):
 
     def test_cannot_set_group_agreement_if_for_wrong_group(self):
         self.client.force_login(user=self.agreement_manager)
-        response = self.client.patch('/api/groups/{}/'.format(self.group.id), {'active_agreement': self.other_agreement.id})
+        response = self.client.patch('/api/groups/{}/'.format(self.group.id),
+                                     {'active_agreement': self.other_agreement.id})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_normal_user_cannot_group_agreement(self):

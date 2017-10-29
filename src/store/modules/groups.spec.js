@@ -13,6 +13,14 @@ jest.mock('@/router', () => ({ push: mockRouterPush }))
 
 import { createStore, throws } from '>/helpers'
 
+function enrich (group) {
+  return { ...group, isMember: false, awaitingAgreement: false, activeAgreement: undefined, membership: {} }
+}
+
+function enrichAsMember (group) {
+  return { ...enrich(group), isMember: true }
+}
+
 describe('groups', () => {
   beforeEach(() => jest.resetModules())
 
@@ -81,7 +89,7 @@ describe('groups', () => {
     it('can fetch the group list', async () => {
       mockFetchGroups.mockReturnValueOnce([group1])
       await store.dispatch('groups/fetchGroups')
-      expect(store.getters['groups/all']).toEqual([{ ...group1, isMember: false }])
+      expect(store.getters['groups/all']).toEqual([enrich(group1)])
     })
 
     it('can not join a group', async () => {
@@ -143,15 +151,11 @@ describe('groups', () => {
     })
 
     it('can get myGroups', () => {
-      expect(store.getters['groups/myGroups']).toEqual([group2, group3].map(g => {
-        return { ...g, isMember: true }
-      }))
+      expect(store.getters['groups/myGroups']).toEqual([group2, group3].map(enrichAsMember))
     })
 
     it('can get otherGroups', () => {
-      expect(store.getters['groups/otherGroups']).toEqual([group1].map(g => {
-        return { ...g, isMember: false }
-      }))
+      expect(store.getters['groups/otherGroups']).toEqual([group1].map(enrich))
     })
 
     it('can get activeGroupId', () => {
@@ -159,7 +163,7 @@ describe('groups', () => {
     })
 
     it('can get activeGroup', () => {
-      expect(store.getters['groups/activeGroup']).toEqual({ ...group2, isMember: true })
+      expect(store.getters['groups/activeGroup']).toEqual(enrichAsMember(group2))
     })
   })
 

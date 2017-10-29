@@ -63,11 +63,13 @@ export const getters = {
     const userId = rootGetters['auth/userId']
     const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
     const isMember = userId ? group.members.includes(userId) : false
+    const membership = isMember && group.memberships ? group.memberships[userId] : {}
     return {
       ...group,
       isMember,
+      membership,
       activeAgreement,
-      awaitingAgreement: activeAgreement && activeAgreement.agreed === false,
+      awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
     }
   },
   all: (state, getters, rootState, rootGetters) => {
@@ -80,7 +82,6 @@ export const getters = {
     return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
   },
   myGroups: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
-
   // A de-duplicated list of member ids of all groups the user is part of
   myGroupMemberIds: (state, getters) => {
     return Object.keys(getters.myGroups.reduce((obj, group) => {
@@ -92,6 +93,7 @@ export const getters = {
   },
   otherGroups: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
   activeGroup: (state, getters) => getters.enrich(state.activeGroup) || {},
+  activeGroupRoles: (state, getters) => getters.activeGroup.membership ? getters.activeGroup.membership.roles : [],
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   joinStatus: state => state.joinStatus,

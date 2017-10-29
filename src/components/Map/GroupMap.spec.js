@@ -12,15 +12,18 @@ Vue2Leaflet.TileLayer.name = 'Vue2LeafletTileLayer'
 Vue2Leaflet.Popup.name = 'Vue2LeafletPopup'
 Vue2Leaflet.Marker.name = 'Vue2LeafletMarker'
 
+const defaultProps = {
+  users: usersMock,
+  stores: storesMock,
+  showUsers: true,
+  showStores: true,
+  activeGroup: {},
+}
+
 describe('GroupMap', () => {
   it('renders users and stores', () => {
     let wrapper = mount(GroupMap, {
-      propsData: {
-        users: usersMock,
-        stores: storesMock,
-        showUsers: true,
-        showStores: true,
-      },
+      propsData: defaultProps,
     })
     expect(wrapper.findAll(Vue2Leaflet.Map).length).toBe(1)
     expect(wrapper.findAll(Vue2Leaflet.Marker).length).toBe(usersMock.length + storesMock.length)
@@ -31,9 +34,7 @@ describe('GroupMap', () => {
   it('renders just users', () => {
     let wrapper = mount(GroupMap, {
       propsData: {
-        users: usersMock,
-        stores: storesMock,
-        showUsers: true,
+        ...defaultProps,
         showStores: false,
       },
     })
@@ -44,10 +45,8 @@ describe('GroupMap', () => {
   it('renders just stores', () => {
     let wrapper = mount(GroupMap, {
       propsData: {
-        users: usersMock,
-        stores: storesMock,
+        ...defaultProps,
         showUsers: false,
-        showStores: true,
       },
     })
     expect(wrapper.findAll(Vue2Leaflet.Marker).length).toBe(storesMock.length)

@@ -15,8 +15,9 @@ export default {
   components: { GroupMap },
   computed: {
     ...mapGetters({
-      stores: 'stores/byActiveGroup',
-      users: 'users/all',
+      stores: 'stores/withLocation',
+      users: 'users/withLocation',
+      activeGroup: 'groups/activeGroup',
     }),
   },
 }

@@ -1,6 +1,18 @@
 <template>
-  <div>
-    <StandardMap :markers="markers" :selectedMarkerIds="selectedMarkerIds"/>
+  <div class="container">
+    <StandardMap :markers="markers" :selectedMarkerIds="selectedMarkerIds" :style="style" :defaultCenter="center" />
+    <div v-if="showOverlay" class="overlay row justify-center content-center">
+      <router-link v-if="showStoreLocationPrompt" :to="{ name: 'storeEdit', params: { storeId: this.selectedStoreId } }">
+        <q-btn color="primary">
+          {{ $t('set store location') }}
+        </q-btn>
+      </router-link>
+      <router-link v-else :to="{ name: 'groupEdit', params: { groupId: this.activeGroup.id, storeId: this.selectedStoreId } }">
+        <q-btn color="primary">
+          {{ $t('set group location') }}
+        </q-btn>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -8,15 +20,17 @@
 
 import StandardMap from '@/components/Map/StandardMap'
 import L from 'leaflet'
+import { QBtn } from 'quasar'
 
 export default {
-  components: { StandardMap },
+  components: { StandardMap, QBtn },
   props: {
-    users: { required: false, default: () => [] },
-    stores: { required: false, default: () => [] },
-    selectedStoreId: { required: false, default: null },
-    showUsers: { required: false, default: false },
-    showStores: { required: false, default: true },
+    users: { required: true, type: Array },
+    stores: { required: true, type: Array },
+    selectedStoreId: { default: null },
+    showUsers: { default: false },
+    showStores: { default: true },
+    activeGroup: { required: true },
   },
   methods: {
     userMarkerId (userId) {
@@ -51,12 +65,27 @@ export default {
     },
   },
   computed: {
+    showStoreLocationPrompt () {
+      return this.selectedStoreId && !(this.stores.findIndex(e => e.id === this.selectedStoreId) >= 0)
+    },
+    showGroupLocationPrompt () {
+      return !this.selectedStoreId && this.markers.length === 0 && !(this.activeGroup.latitude && this.activeGroup.longitude)
+    },
+    showOverlay () {
+      return this.showStoreLocationPrompt || this.showGroupLocationPrompt
+    },
+    center () {
+      if (this.activeGroup.latitude && this.activeGroup.longitude) return this.activeGroup
+    },
+    style () {
+      return { opacity: this.showOverlay ? 0.5 : 1 }
+    },
     selectedMarkerIds () {
       let ids = []
       if (this.selectedStoreId) {
         ids.push(this.storeMarkerId(this.selectedStoreId))
         if (this.showUsers) {
-          ids.push(...this.users.filter(hasLocation).map(user => user.id).map(this.userMarkerId))
+          ids.push(...this.users.map(user => user.id).map(this.userMarkerId))
         }
       }
       return ids
@@ -64,17 +93,25 @@ export default {
     markers () {
       let items = []
       if (this.showStores) {
-        items.push(...this.stores.filter(hasLocation).map(this.createStoreMarker))
+        items.push(...this.stores.map(this.createStoreMarker))
       }
       if (this.showUsers) {
-        items.push(...this.users.filter(hasLocation).map(this.createUserMarker))
+        items.push(...this.users.map(this.createUserMarker))
       }
       return items
     },
   },
 }
-
-function hasLocation (item) {
-  return item.latitude && item.longitude
-}
 </script>
+
+<style lang="stylus">
+.container
+  position relative
+.overlay
+  top 0
+  left 0
+  position absolute
+  width 100%
+  height 100%
+</style>
+

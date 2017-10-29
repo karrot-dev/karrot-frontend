@@ -1,5 +1,5 @@
 <template>
-  <v-map ref="map" :bounds="bounds" :maxZoom="15">
+  <v-map ref="map" :bounds="bounds" :center="center" :zoom="zoom">
     <v-tile-layer :url="url" :attribution="attribution"></v-tile-layer>
     <v-marker v-for="marker in markers" :key="marker.id" v-bind="marker" @l-dragend="$emit('markerMoved', $event.target._latlng, marker)" :opacity="opacityFor(marker)">
       <v-popup v-if="marker.popupcontent" :content="marker.popupcontent"></v-popup>
@@ -47,6 +47,7 @@ export default {
     showAttribution: {
       default: true,
     },
+    defaultCenter: {},
   },
   data () {
     return {
@@ -86,8 +87,25 @@ export default {
       if (this.selectedMarkers.length > 0) {
         return L.latLngBounds(this.selectedMarkers.map(m => m.latLng)).pad(0.2)
       }
-      else {
-        return L.latLngBounds([{ lat: '49.8990022441358', lng: '8.66415739059448' }])
+    },
+    center () {
+      if (!this.bounds) {
+        if (this.defaultCenter) {
+          return [this.defaultCenter.latitude, this.defaultCenter.longitude]
+        }
+        else {
+          return ['49.8990022441358', '8.66415739059448']
+        }
+      }
+    },
+    zoom () {
+      if (!this.bounds) {
+        if (this.defaultCenter) {
+          return 10
+        }
+        else {
+          return 15
+        }
       }
     },
   },

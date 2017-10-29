@@ -200,7 +200,7 @@ export default {
       timezone: {
         required,
         inList (value) {
-          return this.timezones.list.findIndex(e => e.value === value) > 0
+          return this.timezones && this.timezones.list && this.timezones.list.findIndex(e => e.value === value) > 0
         },
       },
     },

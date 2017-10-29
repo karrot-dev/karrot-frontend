@@ -29,9 +29,15 @@ export default {
     QCard, QBtn, AgreementForm,
   },
   data () {
+    console.log('setting initial agrerementEdit on', this.agreement)
     return {
       agreementEdit: this.agreement ? cloneDeep(this.agreement) : null,
     }
+  },
+  watch: {
+    agreement (val) {
+      this.agreementEdit = val
+    },
   },
   methods: {
     newAgreement () {

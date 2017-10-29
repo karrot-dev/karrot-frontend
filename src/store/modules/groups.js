@@ -252,7 +252,7 @@ export const actions = {
 
     // Make sure this is our active agreement
     if (activeGroup.activeAgreement !== agreement.id) {
-      await groups.save({ id: activeGroup.id, agreement: agreement.id })
+      await groups.save({ id: activeGroup.id, activeAgreement: agreement.id })
     }
   },
 }

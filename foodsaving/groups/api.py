@@ -156,7 +156,7 @@ class AgreementViewSet(
 ):
     queryset = Agreement.objects
     serializer_class = AgreementSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         return self.queryset.filter(group__members=self.request.user)

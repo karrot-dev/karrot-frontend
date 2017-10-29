@@ -15,7 +15,7 @@ export default {
   components: { UserList },
   computed: {
     ...mapGetters({
-      users: 'groups/activeUsers',
+      users: 'users/byActiveGroup',
     }),
   },
 }

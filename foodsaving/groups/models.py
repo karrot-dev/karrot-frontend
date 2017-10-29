@@ -28,6 +28,7 @@ class Group(BaseModel, LocationModel, ConversationMixin):
     public_description = models.TextField(blank=True)
     timezone = TimeZoneField(default='Europe/Berlin', null=True, blank=True)
     slack_webhook = models.CharField(max_length=255, blank=True)
+    active_agreement = models.OneToOneField('groups.Agreement', related_name='active_group', null=True)
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -72,6 +73,18 @@ class Group(BaseModel, LocationModel, ConversationMixin):
             'invited_at': invited_at.isoformat(),
             'invited_via': 'e-mail'
         })
+
+
+class Agreement(BaseModel):
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    title = TextField()
+    content = TextField()
+    users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='agreements', through='UserAgreement')
+
+
+class UserAgreement(BaseModel):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    agreement = models.ForeignKey(Agreement, on_delete=models.CASCADE)
 
 
 class GroupMembership(BaseModel):

@@ -79,7 +79,7 @@ export const actions = {
     }
   },
 
-  async login ({ state, commit, getters, dispatch }, data) {
+  async login ({ state, commit, getters, dispatch, rootGetters }, data) {
     commit(types.REQUEST_LOGIN)
     let user = null
     try {
@@ -95,11 +95,14 @@ export const actions = {
     dispatch('afterLoggedIn')
 
     if (state.acceptInviteAfterLogin) {
-      dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
+      await dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
     }
     else if (state.joinGroupAfterLogin) {
       const joinParams = state.joinGroupAfterLogin
-      dispatch('groups/join', joinParams, { root: true })
+      await dispatch('groups/join', joinParams, { root: true })
+      if (rootGetters['groups/joinStatus'].error) {
+        router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.groupId } })
+      }
     }
     else if (getters.redirectTo) {
       router.push(getters.redirectTo)

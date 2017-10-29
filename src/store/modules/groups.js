@@ -1,4 +1,5 @@
 import groups from '@/services/api/groups'
+import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
 import { Toast } from 'quasar'
@@ -161,11 +162,11 @@ export const actions = {
     commit(types.RECEIVE_GROUP, { group })
   },
 
-  async fetchGroups ({ commit }) {
+  async fetchGroupsPreview ({ commit }) {
     // fetch public group info
     commit(types.REQUEST_GROUPS)
     try {
-      commit(types.RECEIVE_GROUPS, { groups: await groups.list() })
+      commit(types.RECEIVE_GROUPS, { groups: await groupsInfo.list() })
     }
     catch (error) {
       commit(types.RECEIVE_GROUPS_ERROR, { error })

@@ -1,13 +1,15 @@
-const mockFetchGroups = jest.fn()
+const mockFetchGroupsPreview = jest.fn()
 const mockJoin = jest.fn()
 const mockLeave = jest.fn()
 const mockConversation = jest.fn()
 const mockRouterPush = jest.fn()
 jest.mock('@/services/api/groups', () => ({
-  list: mockFetchGroups,
   join: mockJoin,
   leave: mockLeave,
   conversation: mockConversation,
+}))
+jest.mock('@/services/api/groupsInfo', () => ({
+  list: mockFetchGroupsPreview,
 }))
 jest.mock('@/router', () => ({ push: mockRouterPush }))
 
@@ -87,8 +89,8 @@ describe('groups', () => {
     })
 
     it('can fetch the group list', async () => {
-      mockFetchGroups.mockReturnValueOnce([group1])
-      await store.dispatch('groups/fetchGroups')
+      mockFetchGroupsPreview.mockReturnValueOnce([group1])
+      await store.dispatch('groups/fetchGroupsPreview')
       expect(store.getters['groups/all']).toEqual([enrich(group1)])
     })
 

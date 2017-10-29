@@ -38,7 +38,7 @@ import 'quasar-extras/animate'
 
 Quasar.start(async () => {
   sync(store, router)
-  store.dispatch('groups/fetchGroups')
+  store.dispatch('groups/fetchGroupsPreview')
 
   await store.dispatch('auth/check')
 

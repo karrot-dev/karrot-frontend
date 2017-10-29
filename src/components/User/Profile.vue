@@ -38,16 +38,9 @@
       </div>
       <q-card-separator v-if="user.description != ''"/><br/>
       <Markdown
-        v-if="user.description != ''"
-        :source="user.description" />
-      <!-- <q-card-separator />
-      <q-card-actions>
-        <q-btn flat disabled>
-          <i class="fa fa-comment on-left"/>
-          Message
-      </q-btn>
-      </q-card-actions>
-      <div style="clear: both"/> -->
+        v-if="user.description"
+        :source="user.description"
+      />
     </q-card>
   </div>
 </template>

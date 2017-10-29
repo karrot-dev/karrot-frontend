@@ -24,6 +24,7 @@ export default {
   props: {
     source: {
       required: true,
+      type: String,
     },
   },
   render (h, { props: { source } }) {

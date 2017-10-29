@@ -7,12 +7,10 @@
       </span>
     </q-card-title>
     <q-card-main class="fixed-height">
-      <div class="smaller-text">
-      <Markdown
-        v-if="group.publicDescription != ''"
-        :source="group.publicDescription.slice(0, 150)" />
+      <div v-if="group.publicDescription" class="smaller-text">
+        <Markdown :source="group.publicDescription.slice(0, 150)" />
       </div>
-      <span v-if="group.publicDescription == ''" class="text-italic">
+      <span v-else class="text-italic">
         {{ $t("JOINGROUP.NO_PUBLIC_DESCRIPTION") }}
       </span>
     </q-card-main>

@@ -8,10 +8,11 @@
     </q-card-title>
     <q-card-main>
       <Markdown
-        v-if="group.publicDescription != ''"
+        v-if="group.publicDescription"
         class="quote"
-        :source="group.publicDescription" />
-      <span v-if="group.publicDescription == ''" class="text-italic">
+        :source="group.publicDescription"
+      />
+      <span v-else class="text-italic">
         {{ $t("JOINGROUP.NO_PUBLIC_DESCRIPTION") }}
       </span>
     </q-card-main>

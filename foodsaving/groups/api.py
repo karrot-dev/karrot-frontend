@@ -148,7 +148,7 @@ class GroupViewSet(
 
 
 class IsGroupAgreementManager(BasePermission):
-    message = _('You cannot manage agreements.')
+    message = _('You cannot manage agreements')
 
     def has_permission(self, request, view):
         group_id = request.GET.get('group')

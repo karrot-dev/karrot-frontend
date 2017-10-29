@@ -25,7 +25,7 @@
             icon="fa-lock"
             :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
             :helper="$t('JOINGROUP.PASSWORD_LABEL')"
-            :error="status.error"
+            :error="!!status.error"
             :error-label="$t('JOINGROUP.PASSWORD_WRONG')"
             >
             <q-input v-model="password" type="password" />

@@ -242,7 +242,7 @@ class EmptySerializer(serializers.Serializer):
 
 class GroupMembershipAddRoleSerializer(serializers.Serializer):
     role_name = serializers.ChoiceField(
-        choices=(roles.GROUP_MEMBERSHIP_MANAGER,),
+        choices=(roles.GROUP_MEMBERSHIP_MANAGER, roles.GROUP_AGREEMENT_MANAGER, ),
         required=True,
         write_only=True
     )

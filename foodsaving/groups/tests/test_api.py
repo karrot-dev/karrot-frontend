@@ -186,9 +186,19 @@ class TestGroupMembershipsAPI(APITestCase):
         self.group = GroupFactory(members=[self.admin, self.member])
         self.membership = GroupMembership.objects.get(group=self.group, user=self.member)
 
-    def test_add_role(self):
+    def test_add_membership_role(self):
         self.client.force_login(user=self.admin)
         role = roles.GROUP_MEMBERSHIP_MANAGER
+        self.assertNotIn(role, self.membership.roles)
+        response = self.client.put('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
+        self.assertIn(role, response.data['roles'])
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.membership.refresh_from_db()
+        self.assertIn(role, self.membership.roles)
+
+    def test_add_agreement_role(self):
+        self.client.force_login(user=self.admin)
+        role = roles.GROUP_AGREEMENT_MANAGER
         self.assertNotIn(role, self.membership.roles)
         response = self.client.put('/api/groups/{}/users/{}/roles/{}/'.format(self.group.id, self.member.id, role))
         self.assertIn(role, response.data['roles'])

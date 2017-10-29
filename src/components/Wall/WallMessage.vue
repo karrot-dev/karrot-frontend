@@ -5,7 +5,7 @@
         :label="message.author.displayName"
         label-lines="1"
         :sublabel="message.content"
-        sublabel-lines="2"
+        sublabel-lines="500"
         class="content"
       />
       <q-item-side right :stamp="$d(message.createdAt, 'long')" />

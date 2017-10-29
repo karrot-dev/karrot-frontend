@@ -13,7 +13,7 @@
     <div class="actions">
       <LocaleSelect />
       <router-link :to="{ name: 'login' }">
-        <q-btn>{{ $t('LOGIN.SUBMIT') }}</q-btn>
+        <q-btn class="text-white">{{ $t('LOGIN.SUBMIT') }}</q-btn>
       </router-link>
       <router-link class="desktop-only" :to="{ name: 'signup' }">
         <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>

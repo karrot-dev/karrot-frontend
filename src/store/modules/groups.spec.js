@@ -16,7 +16,6 @@ import { createStore, throws } from '>/helpers'
 describe('groups', () => {
   beforeEach(() => jest.resetModules())
 
-  let storeMocks
   let store
 
   let userId = 5
@@ -30,9 +29,53 @@ describe('groups', () => {
     group3 = { id: 3, name: 'group 3', members: [userId] }
   })
 
+  // Reusable store mocks
+
+  const agreements = {
+    getters: {
+      get: () => () => {},
+    },
+  }
+
+  const auth = {
+    getters: {
+      userId: () => userId,
+    },
+  }
+
+  const alerts = {
+    actions: {
+      create: jest.fn(),
+    },
+  }
+
+  const users = {
+    getters: {
+      get () {
+        return id => ({ id, name: `Some Name${id}` })
+      },
+    },
+  }
+
+  const pickups = {
+    actions: {
+      clear: jest.fn(),
+      fetchListByGroupId: jest.fn(),
+    },
+  }
+
+  const conversations = {
+    actions: {
+      setActive: jest.fn(),
+    },
+  }
+
   describe('logged out', () => {
     beforeEach(() => {
-      store = createStore({groups: require('./groups')})
+      store = createStore({
+        groups: require('./groups'),
+        agreements,
+      })
     })
 
     it('can fetch the group list', async () => {
@@ -51,21 +94,11 @@ describe('groups', () => {
 
   describe('logged in', () => {
     beforeEach(() => {
-      storeMocks = {
-        auth: {
-          getters: {
-            userId: () => userId,
-          },
-        },
-        alerts: {
-          actions: {
-            create: jest.fn(),
-          },
-        },
-      }
       store = createStore({
         groups: require('./groups'),
-        ...storeMocks,
+        auth,
+        agreements,
+        alerts,
       })
     })
 
@@ -95,23 +128,11 @@ describe('groups', () => {
 
   describe('getters', () => {
     beforeEach(() => {
-      storeMocks = {
-        auth: {
-          getters: {
-            userId: () => userId,
-          },
-        },
-        users: {
-          getters: {
-            get () {
-              return id => ({ id, name: `Some Name${id}` })
-            },
-          },
-        },
-      }
       store = createStore({
         groups: require('./groups'),
-        ...storeMocks,
+        agreements,
+        auth,
+        users,
       })
     })
 
@@ -148,27 +169,12 @@ describe('groups', () => {
     })
 
     beforeEach(() => {
-      storeMocks = {
-        auth: {
-          getters: {
-            userId: () => userId,
-          },
-        },
-        pickups: {
-          actions: {
-            clear: jest.fn(),
-            fetchListByGroupId: jest.fn(),
-          },
-        },
-        conversations: {
-          actions: {
-            setActive: jest.fn(),
-          },
-        },
-      }
       store = createStore({
         groups: require('./groups'),
-        ...storeMocks,
+        agreements,
+        auth,
+        pickups,
+        conversations,
       })
     })
 
@@ -176,9 +182,9 @@ describe('groups', () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
       await store.dispatch('groups/selectGroup', group2.id)
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([])
-      expect(storeMocks.pickups.actions.clear).toBeCalled()
-      expect(storeMocks.pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group2.id)
-      expect(storeMocks.conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
+      expect(pickups.actions.clear).toBeCalled()
+      expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group2.id)
+      expect(conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
     })
   })
 })

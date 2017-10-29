@@ -62,10 +62,11 @@ export const getters = {
     if (!group) return
     const userId = rootGetters['auth/userId']
     const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
+    const isMember = userId ? group.members.includes(userId) : false
     return {
       ...group,
+      isMember,
       activeAgreement,
-      isMember: userId ? group.members.includes(userId) : false,
       awaitingAgreement: activeAgreement && activeAgreement.agreed === false,
     }
   },

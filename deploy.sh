@@ -30,7 +30,7 @@ elif [ "$REF" == "master" ]; then
 
   DEPLOY_ENV="development"
   DEPLOY_EMOJI=":beer:"
-  URL="https://karrot-dev.foodsaving.world"
+  URL="https://dev.foodsaving.world"
   STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
 
 else

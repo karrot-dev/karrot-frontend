@@ -12,7 +12,7 @@
     <div>
       <q-list highlight no-border>
         <q-item
-          v-for="store in stores" :key="store.id"
+          v-for="store in storesSorted" :key="store.id"
           v-if="!store.statusObj.hidden"
           link :to="{name: 'store', params: { storeId: store.id }}">
           <q-item-side class="text-center">
@@ -37,6 +37,13 @@ import SidenavBox from './SidenavBox.vue'
 export default {
   props: {
     stores: { required: true },
+  },
+  computed: {
+    storesSorted () {
+      return this.stores
+        .filter(s => !s.statusObj.hidden)
+        .sort((a, b) => a.statusObj.sort - b.statusObj.sort)
+    },
   },
   components: {
     SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip,

@@ -62,7 +62,7 @@ pyfcm==1.4.3
 pyflakes==1.6.0           # via flake8
 python-dateutil==2.6.1    # via faker, influxdb
 python-server-metrics==0.2.1  # via django-influxdb-metrics
-pytz==2017.2
+pytz==2017.3
 raven==6.2.1
 redis==2.10.6
 requests-toolbelt==0.8.0  # via pyfcm

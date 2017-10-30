@@ -74,15 +74,23 @@ function initialState () {
 export const state = initialState()
 
 export const getters = {
-  all: state => state.idList.map(i => state.entries[i]).sort(sortByName),
+  all: (state, getters) => state.idList
+    .map(i => getters.enrich(state.entries[i]))
+    .sort(sortByName),
   byActiveGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['groups/activeGroupId']),
-  get: state => (id) => state.entries[id],
-  activeStore: state => state.entries[state.activeStoreId] || {},
+  get: (state, getters) => (id) => getters.enrich(state.entries[id]),
+  activeStore: (state, getters) => getters.get(state.activeStoreId) || {},
   activeStoreId: state => state.activeStoreId,
   status: state => { return { isWaiting: state.isWaiting, error: state.error } },
   error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
   statusList: () => Object.keys(statusList).map(key => Object.assign({key}, statusList[key])),
-  statusObj: () => statusList,
+  enrich: (state, getters) => store => {
+    if (!store) return {}
+    return {
+      ...store,
+      statusObj: statusList[store.status || 'created'],
+    }
+  },
 }
 
 export const actions = {

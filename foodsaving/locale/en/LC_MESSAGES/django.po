@@ -38,7 +38,7 @@ msgid "You are not in this conversation"
 msgstr ""
 
 #: foodsaving/groups/api.py:25 foodsaving/invitations/serializers.py:25
-#: foodsaving/stores/serializers.py:231
+#: foodsaving/stores/serializers.py:235
 msgid "You are not a member of this group."
 msgstr ""
 
@@ -112,32 +112,28 @@ msgstr ""
 msgid "This feedback is given by another user."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:37 foodsaving/stores/serializers.py:169
-#: foodsaving/stores/serializers.py:259
+#: foodsaving/stores/serializers.py:38 foodsaving/stores/serializers.py:170
+#: foodsaving/stores/serializers.py:258
 msgid "You are not member of the store's group."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:86
+#: foodsaving/stores/serializers.py:87
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:179
+#: foodsaving/stores/serializers.py:180
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:236
+#: foodsaving/stores/serializers.py:240
 msgid "Set at least one week in advance"
 msgstr ""
 
-#: foodsaving/stores/serializers.py:242
-msgid "Status invalid"
-msgstr ""
-
-#: foodsaving/stores/serializers.py:261
+#: foodsaving/stores/serializers.py:260
 msgid "The pickup is not done yet"
 msgstr ""
 
-#: foodsaving/stores/serializers.py:263
+#: foodsaving/stores/serializers.py:262
 msgid "You aren't assigned to the pickup."
 msgstr ""
 

@@ -18,11 +18,6 @@ describe('auth', () => {
           setLocale: jest.fn(),
         },
       },
-      stores: {
-        actions: {
-          fetchList: jest.fn(),
-        },
-      },
     }
     store = createStore({
       auth: require('./auth'),
@@ -45,7 +40,6 @@ describe('auth', () => {
     expect(store.getters['auth/status'].error).toBeNull()
     expect(store.getters['auth/isLoggedIn']).toBe(true)
     expect(store.getters['auth/user']).toBeDefined()
-    expect(storeMocks.stores.actions.fetchList).toBeCalled()
     expect(mockRouterPush).toBeCalledWith('/')
   })
 

@@ -303,7 +303,7 @@
     "CONTENT": "Content",
     "CONTENT_HELPER": "The text of your agreement",
     "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc...",
+    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
     "BLURB1": "You don't have an agreement yet!",
     "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
     "DIALOGS": {

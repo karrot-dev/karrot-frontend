@@ -49,7 +49,7 @@
 <script>
 import { QCard, QField, QInput, QBtn, QCheckbox, QTooltip, Dialog } from 'quasar'
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required } from 'vuelidate/lib/validators'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
@@ -136,8 +136,6 @@ export default {
     agreementEdit: {
       title: {
         required,
-        minLength: minLength(5),
-        maxLength: maxLength(80),
       },
       content: {
         required,

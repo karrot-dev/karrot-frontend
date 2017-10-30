@@ -6,7 +6,7 @@ import router from '@/router'
 const statusList = {
   created: {
     label: 'STORESTATUS.CREATED',
-    color: 'grey',
+    color: 'gray',
     icon: 'fa-circle-o',
     selectable: true,
     sort: 3,

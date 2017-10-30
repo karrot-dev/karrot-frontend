@@ -57,7 +57,7 @@ export default {
         id: this.storeMarkerId(store.id),
         icon: L.AwesomeMarkers.icon({
           icon: 'shopping-cart',
-          markerColor: 'blue',
+          markerColor: store.statusObj.color,
           prefix: 'fa',
         }),
         popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
@@ -124,4 +124,3 @@ function hasLocation (item) {
   width 100%
   height 100%
 </style>
-

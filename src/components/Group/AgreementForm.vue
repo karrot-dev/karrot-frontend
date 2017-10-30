@@ -29,7 +29,7 @@
         {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
       </q-btn>
 
-      <q-checkbox class="minor" v-model="minor" :label="$t('AGREEMENT.MINOR_EDIT')">
+      <q-checkbox v-if="!isNew" class="minor" v-model="minor" :label="$t('AGREEMENT.MINOR_EDIT')">
         <q-tooltip>{{ $t('AGREEMENT.MINOR_EDIT_HELPER') }}</q-tooltip>
       </q-checkbox>
 

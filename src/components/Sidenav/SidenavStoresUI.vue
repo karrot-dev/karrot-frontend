@@ -12,9 +12,16 @@
     <div>
       <q-list highlight no-border>
         <q-item
-          v-for="store in stores" :key="store.id"
+          v-for="store in storesExtended" :key="store.id"
           link :to="{name: 'store', params: { storeId: store.id }}">
-          {{ store.name }}
+          <q-item-side class="text-center">
+            <q-icon :name="store.icon" :color="store.color">
+              <q-tooltip>{{ store.tooltip }}</q-tooltip>
+            </q-icon>
+          </q-item-side>
+          <q-item-main>
+            {{ store.name }}
+          </q-item-main>
         </q-item>
       </q-list>
     </div>
@@ -22,15 +29,31 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QIcon } from 'quasar'
-import SidenavBox from './SidenavBox'
+
+import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip } from 'quasar'
+import SidenavBox from './SidenavBox.vue'
 
 export default {
   props: {
     stores: { required: true },
+    statusObj: { required: true },
+  },
+  computed: {
+    storesExtended () {
+      return this.stores.map(({id, name, status}) => {
+        let s = this.statusObj[status || 'created']
+        return {
+          id,
+          name,
+          icon: s.icon,
+          color: s.color,
+          tooltip: this.$t(s.label),
+        }
+      })
+    },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QIcon,
+    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip,
   },
 }
 </script>

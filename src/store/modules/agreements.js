@@ -6,6 +6,7 @@ export const types = {
   REQUEST_AGREE: 'Request Agree',
   REQUEST_CREATE: 'Request Create',
   REQUEST_SAVE: 'Request Save',
+  REQUEST_DESTROY: 'Request Destroy',
   RECEIVE_ENTRY: 'Receive Entry',
 }
 

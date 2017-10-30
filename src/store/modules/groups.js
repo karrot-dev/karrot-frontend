@@ -242,18 +242,26 @@ export const actions = {
     let { activeGroup } = state
     let { id } = agreement
     if (id) {
-      console.log('saving agreement!', agreement)
       agreement = await dispatch('agreements/save', agreement, { root: true })
     }
     else {
-      console.log('creating agreement!', agreement)
       agreement = await dispatch('agreements/create', { ...agreement, group: activeGroup.id }, { root: true })
     }
 
-    // Make sure this is our active agreement
     if (activeGroup.activeAgreement !== agreement.id) {
-      await groups.save({ id: activeGroup.id, activeAgreement: agreement.id })
+      commit(types.RECEIVE_GROUP, { group: await groups.save({ id: activeGroup.id, activeAgreement: agreement.id }) })
     }
+  },
+
+  async activeGroupAgreementReplace ({ commit, dispatch, state }, agreement) {
+    let { activeGroupId } = state
+    agreement = await dispatch('agreements/create', { ...agreement, group: activeGroupId }, { root: true })
+    commit(types.RECEIVE_GROUP, { group: await groups.save({ id: activeGroupId, activeAgreement: agreement.id }) })
+  },
+
+  async activeGroupAgreementRemove ({ commit, dispatch, state }) {
+    let { activeGroupId } = state
+    commit(types.RECEIVE_GROUP, { group: await groups.save({ id: activeGroupId, activeAgreement: null }) })
   },
 }
 

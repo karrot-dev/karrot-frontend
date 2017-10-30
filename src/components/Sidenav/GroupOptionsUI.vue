@@ -5,9 +5,9 @@
         <q-icon size="1em" name="fa-pencil fa-fw on-left" />
         {{$t("GROUP.EDIT")}}
       </q-item>
-      <q-item v-if="isAgreementManager" :to="{name: 'groupEditAgreement', params: {groupId: activeGroupId}}" @click.native="$refs.popover.close()">
-        <q-icon size="1em" name="fa-pencil fa-fw on-left" />
-        {{$t("GROUP.EDIT_AGREEMENT")}}
+      <q-item v-if="isAgreementManager" :to="{name: 'groupManageAgreement', params: {groupId: activeGroupId}}" @click.native="$refs.popover.close()">
+        <q-icon size="1em" name="fa-file-text-o fa-fw on-left" />
+        {{$t("GROUP.MANAGE_AGREEMENT")}}
       </q-item>
       <q-item :to="{name: 'groupInfo', params: {groupInfoId: activeGroupId}}" @click.native="$refs.popover.close()">
         <q-icon size="1em" name="fa-info-circle fa-fw on-left" />

@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import GroupEditAgreement from '@/components/Group/GroupEditAgreement'
+import GroupManageAgreement from '@/components/Group/GroupManageAgreement'
 
 export default connect({
   gettersToProps: {
@@ -8,6 +8,8 @@ export default connect({
   },
   actionsToEvents: {
     save: 'groups/activeGroupAgreementSave',
+    replace: 'groups/activeGroupAgreementReplace',
+    remove: 'groups/activeGroupAgreementRemove',
   },
-})('GroupEditAgreement', GroupEditAgreement)
+})('GroupManageAgreement', GroupManageAgreement)
 </script>

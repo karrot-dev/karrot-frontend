@@ -3,7 +3,8 @@
     <form @submit="save">
       <q-field
         icon="fa-star"
-        :label="$t('AGREEMENT.TITLE')">
+        :label="$t('AGREEMENT.TITLE')"
+        :helper="$t('AGREEMENT.TITLE_HELPER')">
         <q-input
           v-model="agreementEdit.title"
           :autofocus="true"
@@ -13,8 +14,9 @@
       </q-field>
 
       <q-field
-        icon="fa-star"
-        :label="$t('AGREEMENT.CONTENT')">
+        icon="fa-file-text-o"
+        :label="$t('AGREEMENT.CONTENT')"
+        :helper="$t('AGREEMENT.CONTENT_HELPER')">
         <q-input
           v-model="agreementEdit.content"
           @blur="$v.agreementEdit.content.$touch"
@@ -26,18 +28,26 @@
       <q-btn type="submit" color="primary" :disable="!canSave">
         {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
       </q-btn>
+
+      <q-checkbox class="minor" v-model="minor" :label="$t('AGREEMENT.MINOR_EDIT')">
+        <q-tooltip>{{ $t('AGREEMENT.MINOR_EDIT_HELPER') }}</q-tooltip>
+      </q-checkbox>
+
       <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
         {{ $t('BUTTON.RESET') }}
       </q-btn>
       <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
         {{ $t('BUTTON.CANCEL') }}
       </q-btn>
+      <q-btn type="button" color="red" @click="$emit('remove', agreement.id)" v-if="!isNew">
+        {{ $t('BUTTON.REMOVE') }}
+      </q-btn>
     </form>
   </div>
 </template>
 
 <script>
-import { QCard, QField, QInput, QBtn, QCheckbox } from 'quasar'
+import { QCard, QField, QInput, QBtn, QCheckbox, QTooltip, Dialog } from 'quasar'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
@@ -60,11 +70,12 @@ export default {
     },
   },
   components: {
-    QCard, QField, QInput, QBtn, QCheckbox,
+    QCard, QField, QInput, QBtn, QCheckbox, QTooltip,
   },
   data () {
     return {
       agreementEdit: cloneDeep(this.agreement),
+      minor: false,
     }
   },
   watch: {
@@ -96,12 +107,28 @@ export default {
     save (event) {
       this.$v.agreementEdit.$touch()
       if (!this.canSave) return
-      console.log('save!', this.agreementEdit)
       if (this.isNew) {
         this.$emit('save', this.agreementEdit, event)
       }
       else {
-        this.$emit('save', { ...objectDiff(this.agreement, this.agreementEdit), id: this.agreement.id }, event)
+        if (!this.minor) {
+          Dialog.create({
+            title: this.$t('AGREEMENT.DIALOGS.REPLACE.TITLE'),
+            message: this.$t('AGREEMENT.DIALOGS.REPLACE.MESSAGE'),
+            buttons: [
+              this.$t('BUTTON.CANCEL'),
+              {
+                label: this.$t('AGREEMENT.DIALOGS.REPLACE.CONFIRM'),
+                handler: () => {
+                  this.$emit('replace', { ...this.agreementEdit, id: this.agreement.id }, event)
+                },
+              },
+            ],
+          })
+        }
+        else {
+          this.$emit('save', { ...objectDiff(this.agreement, this.agreementEdit), id: this.agreement.id }, event)
+        }
       }
     },
   },
@@ -127,4 +154,7 @@ export default {
   padding 20px
   &.changed
     background-color $yellow-1
+.minor
+  margin-right 10px
+  margin-left 10px
 </style>

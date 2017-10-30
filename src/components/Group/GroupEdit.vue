@@ -69,13 +69,13 @@
               v-model="groupEdit.timezone"
               @blur="$v.groupEdit.timezone.$touch"
               >
-              <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" />
+              <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" :filter="timezoneFilter"/>
             </q-input>
           </q-field>
 
           <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
 
-          <q-btn type="submit" color="primary" :disable="!canSave" loader :value="status.isWaiting">
+          <q-btn type="submit" color="primary" :disable="!canSave" :loader="status.isWaiting">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
@@ -182,6 +182,10 @@ export default {
       else {
         this.$emit('save', { ...objectDiff(this.group, this.groupEdit), id: this.group.id }, event)
       }
+    },
+    timezoneFilter (terms, { field, list }) {
+      const token = terms.toLowerCase()
+      return list.filter(item => item[field].toLowerCase().includes(token))
     },
   },
   validations: {

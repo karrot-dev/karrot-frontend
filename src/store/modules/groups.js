@@ -107,7 +107,7 @@ export const getters = {
         list: tzlist,
       }
     }
-    return []
+    return {}
   },
 }
 

@@ -83,7 +83,7 @@ class GroupDetailSerializer(serializers.ModelSerializer):
         membership = GroupMembership.objects.filter(user=user, group=group).first()
         if roles.GROUP_AGREEMENT_MANAGER not in membership.roles:
             raise PermissionDenied(_('You cannot manage agreements'))
-        if active_agreement.group != group:
+        if active_agreement and active_agreement.group != group:
             raise ValidationError(_('Agreement is not for this group'))
         return active_agreement
 

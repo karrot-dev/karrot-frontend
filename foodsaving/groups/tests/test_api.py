@@ -1,3 +1,5 @@
+import json
+
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
@@ -363,6 +365,17 @@ class TestAgreementsAPI(APITestCase):
         self.client.force_login(user=self.agreement_manager)
         response = self.client.patch('/api/groups/{}/'.format(self.group.id), {'active_agreement': self.agreement.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_can_unset_group_agreement(self):
+        self.client.force_login(user=self.agreement_manager)
+        self.group.active_agreement = self.agreement
+        self.group.save()
+        # using json.dumps as otherwise it sends an empty string, but we want it to send json value "null"
+        response = self.client.patch('/api/groups/{}/'.format(self.group.id), json.dumps({'active_agreement': None}),
+                                     content_type='application/json')
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['active_agreement'], None)
 
     def test_cannot_set_group_agreement_if_for_wrong_group(self):
         self.client.force_login(user=self.agreement_manager)

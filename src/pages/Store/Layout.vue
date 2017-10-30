@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="store.status != 'archived'">
       <q-tabs v-if="$q.platform.is.mobile" align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
         <q-route-tab
             :to="{name: 'storePickups'}"
@@ -16,22 +16,36 @@
       </q-tabs>
     <router-view></router-view>
   </div>
+  <div v-else>
+    <q-card>
+      <k-alert color="warning" icon="fa-trash" :actions="[{label: 'Undelete', handler: undelete}]">
+        Store is not available anymore because it got deleted.
+      </k-alert>
+    </q-card>
+  </div>
 </template>
 
 <script>
 
 import {
   mapGetters,
+  mapActions,
 } from 'vuex'
 import Markdown from '@/components/Markdown'
 
 import { QCard, QTabs, QRouteTab, QScrollArea } from 'quasar'
+import KAlert from '@/components/Layout/KAlert'
 
 export default {
-  components: { QCard, QTabs, QRouteTab, QScrollArea, Markdown },
+  components: { KAlert, QCard, QTabs, QRouteTab, QScrollArea, Markdown },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      undelete: 'stores/undelete',
     }),
   },
 }

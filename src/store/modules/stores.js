@@ -129,6 +129,39 @@ export const actions = {
     router.push({ name: 'store', params: { storeId: updatedStore.id } })
   },
 
+  async delete ({ commit, dispatch }, store) {
+    commit(types.REQUEST_SAVE)
+    store.status = 'archived'
+    let updatedStore
+    try {
+      updatedStore = await stores.save(store)
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+    commit(types.RECEIVE_SAVE)
+    commit(types.RECEIVE_ITEM, { store: updatedStore })
+    // router.push({ name: 'group', params: { storeId: updatedStore.id } })
+  },
+
+  async undelete ({ commit, dispatch, getters }, store) {
+    commit(types.REQUEST_SAVE)
+    if (!store) store = getters.activeStore
+    store.status = 'created'
+    let updatedStore
+    try {
+      updatedStore = await stores.save(store)
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+    commit(types.RECEIVE_SAVE)
+    commit(types.RECEIVE_ITEM, { store: updatedStore })
+    // router.push({ name: 'group', params: { storeId: updatedStore.id } })
+  },
+
   async create ({ commit, dispatch, rootGetters }, store) {
     commit(types.REQUEST_SAVE)
     let createdStore

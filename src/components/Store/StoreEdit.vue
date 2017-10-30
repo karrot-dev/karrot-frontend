@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, Dialog } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
 import { validationMixin } from 'vuelidate'
@@ -161,7 +161,20 @@ export default {
       }
     },
     destroy (event) {
-      this.$emit('destroy', this.store.id, event)
+      Dialog.create({
+        title: this.$t('STOREDIT.DELETE_TITLE'),
+        message: this.$t('STOREDIT.DELETE_CONFIRMESSAGE'),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('STOREDIT.DELETE_CONFIRM'),
+            handler: () => {
+              this.storeEdit.status = 'archived'
+              this.$emit('save', this.storeEdit, event)
+            },
+          },
+        ],
+      })
     },
   },
   validations: {

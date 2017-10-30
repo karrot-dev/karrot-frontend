@@ -96,6 +96,7 @@
   },
   "STOREEDIT": {
     "NAME": "Name",
+    "STATUS":"Status",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
@@ -328,5 +329,12 @@
   "write a message": "Write a message...",
   "write the first message": "Write the first message...",
   "set store location": "Set location of this store",
-  "set group location": "Set location of this group"
+  "set group location": "Set location of this group",
+  "STORESTATUS":{
+    "ACTIVE":"in cooperation",
+    "CREATED":"just created",
+    "NEGOTIATING":"in negotiation",
+    "DECLINED":"don't want to cooperate",
+    "ARCHIVED":"archived"
+  }
 }

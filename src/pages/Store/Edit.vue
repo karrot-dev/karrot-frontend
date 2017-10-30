@@ -8,6 +8,7 @@ export default connect({
     status: 'stores/status',
     allStores: 'stores/byActiveGroup',
     requestError: 'stores/error',
+    statusList: 'stores/statusList',
   },
   actionsToEvents: {
     save: 'stores/save',

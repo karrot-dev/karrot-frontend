@@ -3,6 +3,44 @@ import stores from '@/services/api/stores'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
 import router from '@/router'
 
+const statusList = {
+  created: {
+    label: 'STORESTATUS.CREATED',
+    color: 'grey',
+    icon: 'fa-circle-o',
+    selectable: true,
+    sort: 3,
+  },
+  negotiating: {
+    label: 'STORESTATUS.NEGOTIATING',
+    color: 'blue',
+    icon: 'fa-circle',
+    selectable: true,
+    sort: 2,
+  },
+  active: {
+    label: 'STORESTATUS.ACTIVE',
+    color: 'green',
+    icon: 'fa-circle',
+    selectable: true,
+    sort: 1,
+  },
+  declined: {
+    label: 'STORESTATUS.DECLINED',
+    color: 'red',
+    icon: 'fa-circle',
+    selectable: true,
+    sort: 4,
+  },
+  archived: {
+    label: 'STORESTATUS.ARCHIVED',
+    color: 'grey',
+    icon: 'fa-trash',
+    selectable: false,
+    hidden: true,
+  },
+}
+
 export const types = {
 
   SELECT_STORE: 'Select Store',
@@ -43,6 +81,8 @@ export const getters = {
   activeStoreId: state => state.activeStoreId,
   status: state => { return { isWaiting: state.isWaiting, error: state.error } },
   error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
+  statusList: () => Object.keys(statusList).map(key => Object.assign({key}, statusList[key])),
+  statusObj: () => statusList,
 }
 
 export const actions = {

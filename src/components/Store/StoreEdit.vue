@@ -16,6 +16,14 @@
               @blur="$v.storeEdit.name.$touch"
               autocomplete="off" />
           </q-field>
+          <q-field
+            icon="fa-handshake-o"
+            :label="$t('STOREEDIT.STATUS')">
+              <q-select
+               v-model="storeEdit.status"
+               :options="statusOptions"
+             />
+          </q-field>
 
           <q-field
             icon="fa-question"
@@ -81,12 +89,14 @@ export default {
           latitude: undefined,
           longitude: undefined,
           address: undefined,
+          status: 'created',
         }
       },
     },
     status: { required: true },
     allStores: { required: true },
     requestError: { required: true },
+    statusList: { required: true },
   },
   components: {
     QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
@@ -124,6 +134,16 @@ export default {
       if (!m.maxLength) return this.$t('too long')
       if (!m.isUnique) return this.$t('already taken')
       return this.requestError('name')
+    },
+    statusOptions () {
+      return this.statusList
+        .filter(s => s.selectable)
+        .map(s => ({
+          value: s.key,
+          label: this.$t(s.label),
+          leftColor: s.color,
+          icon: s.icon,
+        }))
     },
   },
   methods: {

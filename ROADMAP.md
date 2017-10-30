@@ -21,6 +21,10 @@ Issue is understood well enough for development to start, but not currently assi
 - Statistics similar to foodsharing.de: total amount of  saved food per person, per group, per store https://github.com/yunity/karrot-frontend/issues/355
 - User profile pictures https://github.com/yunity/karrot-frontend/issues/673
 - Login via other identity providers https://github.com/yunity/karrot-frontend/issues/154
+- Add HTML mail templates https://github.com/yunity/karrot-frontend/issues/256
+- Self hosted customization options https://github.com/yunity/karrot-frontend/issues/676
+- Make user profile more informative https://github.com/yunity/karrot-frontend/issues/552
+- Add conversations to individual pickups https://github.com/yunity/karrot-frontend/issues/677
 
 [View issues](https://github.com/yunity/karrot-frontend/milestone/12)
 
@@ -40,6 +44,8 @@ Quite a bit in the future (~1 year), haven't been discussed very much. If one of
 - Locations for public food distribution https://github.com/yunity/karrot-frontend/issues/354
 - Food baskets for person-to-person food exchange https://github.com/yunity/karrot-frontend/issues/672
 - Set up a legal entity for foodsaving.world, add terms of service https://github.com/yunity/karrot-frontend/issues/606
+- Reputation system https://github.com/yunity/karrot-frontend/issues/260
+- Store teams https://github.com/yunity/karrot-frontend/issues/360
 
 [View issues](https://github.com/yunity/karrot-frontend/milestone/10)
 
@@ -48,10 +54,9 @@ Quite a bit in the future (~1 year), haven't been discussed very much. If one of
 Rough ideas, have been mentioned by someone.
 
 - Public landing page for groups (improvement of groupInfo page)
-- Add "to do" events (generalized from pickup date)
+- Add "to do" events (generalized from pickup date) https://github.com/yunity/karrot-frontend/issues/359
 - Make stores groupable in custom categories, offer different colored map markers per category and history filter options
 - Sharing of things: text+image with a tag system
-- Trustworthiness rating for users
 - Undo functionality for changes
 - Work teams for groups (foodsaving platform)
 - Quiz

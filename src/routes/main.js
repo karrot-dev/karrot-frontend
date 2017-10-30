@@ -153,7 +153,7 @@ export default [
       },
       {
         name: 'groupManageAgreement',
-        path: 'manageAgreement',
+        path: 'agreement',
         meta: {
           breadcrumbs: [
             { translation: 'GROUP.MANAGE_AGREEMENT', route: { name: 'groupManageAgreement' } },

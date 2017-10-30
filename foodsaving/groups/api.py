@@ -43,6 +43,26 @@ class CanUpdateMemberships(BasePermission):
         return obj.group.is_member_with_role(request.user, roles.GROUP_MEMBERSHIP_MANAGER)
 
 
+class GroupInfoViewSet(
+    mixins.RetrieveModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
+    """
+    Group Info - public information
+
+    # Query parameters
+    - `?members` - filter by member user id
+    - `?search` - search in name and public description
+    - `?include_empty` - set to False to exclude empty groups without members
+    """
+    queryset = GroupModel.objects
+    filter_backends = (SearchFilter, DjangoFilterBackend)
+    filter_class = GroupsFilter
+    search_fields = ('name', 'public_description')
+    serializer_class = GroupPreviewSerializer
+
+
 class GroupViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
@@ -52,7 +72,7 @@ class GroupViewSet(
     GenericViewSet
 ):
     """
-    Groups
+    Group Detail - in future only for members
 
     # Query parameters
     - `?members` - filter by member user id

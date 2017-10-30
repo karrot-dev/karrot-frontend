@@ -13,6 +13,53 @@ from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 
 
+class TestGroupsInfoAPI(APITestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user = UserFactory()
+        cls.member = UserFactory()
+        cls.group = GroupFactory(members=[cls.member, ])
+        cls.url = '/api/groups-info/'
+
+    def test_list_groups_as_anon(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse('password' in response.data)
+
+    def test_list_groups_as_user(self):
+        self.client.force_login(user=self.user)
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse('password' in response.data)
+
+    def test_list_groups_as_member(self):
+        self.client.force_login(user=self.member)
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse('password' in response.data)
+
+    def test_retrieve_group_as_anon(self):
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse('password' in response.data)
+
+    def test_retrieve_group_as_user(self):
+        self.client.force_login(user=self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse('password' in response.data)
+
+    def test_retrieve_group_as_member(self):
+        self.client.force_login(user=self.member)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse('password' in response.data)
+
+
 class TestGroupsAPI(APITestCase):
     @classmethod
     def setUpClass(cls):

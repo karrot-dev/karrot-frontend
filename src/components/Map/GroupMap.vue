@@ -81,7 +81,7 @@ export default {
       return { opacity: this.showOverlay ? 0.5 : 1 }
     },
     storesWithLocation () {
-      return this.stores.filter(hasLocation)
+      return this.stores.filter(hasLocation).filter(s => !s.statusObj.hidden)
     },
     usersWithLocation () {
       return this.users.filter(hasLocation)

@@ -9,6 +9,14 @@
     </div>
     <div>
       <q-list highlight no-border>
+        <q-item :to="{name: 'group'}">
+          <q-item-side class="text-center">
+            <q-icon name="fa-bullhorn" />
+          </q-item-side>
+          <q-item-main>
+            {{ $t("GROUP.WALL")}}
+          </q-item-main>
+        </q-item>
         <q-item :to="{name: 'groupDescription'}">
           <q-item-side class="text-center">
             <q-icon name="fa-vcard" />

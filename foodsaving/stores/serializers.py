@@ -26,6 +26,7 @@ class PickupDateSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'series': {'read_only': True},
         }
+
     collector_ids = serializers.PrimaryKeyRelatedField(
         source='collectors',
         many=True,
@@ -196,6 +197,9 @@ class StoreSerializer(serializers.ModelSerializer):
             }
         }
 
+    status = serializers.ChoiceField(choices=StoreModel.STATUSES,
+                                     default=StoreModel.DEFAULT_STATUS)
+
     def create(self, validated_data):
         store = super().create(validated_data)
         History.objects.create(
@@ -235,11 +239,6 @@ class StoreSerializer(serializers.ModelSerializer):
         if w < 1:
             raise serializers.ValidationError(_('Set at least one week in advance'))
         return w
-
-    def validate_status(self, status):
-        if status in ['created', 'negotiating', 'active', 'declined', 'archived']:
-            return status
-        raise serializers.ValidationError(_('Status invalid'))
 
 
 class FeedbackSerializer(serializers.ModelSerializer):

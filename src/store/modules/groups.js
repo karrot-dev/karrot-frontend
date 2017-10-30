@@ -59,8 +59,18 @@ export const getters = {
     return getters.enrich(state.entries[groupId])
   },
   enrich: (state, getters, rootState, rootGetters) => group => {
+    if (!group) return
     const userId = rootGetters['auth/userId']
-    return group && { ...group, isMember: userId ? group.members.includes(userId) : false }
+    const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
+    const isMember = userId ? group.members.includes(userId) : false
+    const membership = isMember && group.memberships ? group.memberships[userId] : {}
+    return {
+      ...group,
+      isMember,
+      membership,
+      activeAgreement,
+      awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
+    }
   },
   all: (state, getters, rootState, rootGetters) => {
     return state.idsList.map(getters.get)
@@ -72,7 +82,6 @@ export const getters = {
     return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
   },
   myGroups: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
-
   // A de-duplicated list of member ids of all groups the user is part of
   myGroupMemberIds: (state, getters) => {
     return Object.keys(getters.myGroups.reduce((obj, group) => {
@@ -84,6 +93,8 @@ export const getters = {
   },
   otherGroups: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
   activeGroup: (state, getters) => getters.enrich(state.activeGroup) || {},
+  activeGroupRoles: (state, getters) => getters.activeGroup.membership ? getters.activeGroup.membership.roles : [],
+  activeGroupAgreement: (state, getters) => getters.activeGroup && getters.activeGroup.activeAgreement,
   activeGroupId: (state) => state.activeGroupId,
   activeGroupInfo: (state, getters) => getters.get(state.activeGroupPreviewId),
   joinStatus: state => state.joinStatus,
@@ -96,7 +107,7 @@ export const getters = {
         list: tzlist,
       }
     }
-    return []
+    return {}
   },
 }
 
@@ -127,7 +138,7 @@ export const actions = {
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
   },
 
-  async fetchGroup ({ commit, rootGetters }, groupId) {
+  async fetchGroup ({ commit, rootGetters, dispatch }, groupId) {
     commit(types.REQUEST_GROUP)
     let group
     try {
@@ -137,6 +148,11 @@ export const actions = {
       commit(types.RECEIVE_GROUP_ERROR, { error })
       return
     }
+
+    if (group.activeAgreement) {
+      dispatch('agreements/fetch', group.activeAgreement, { root: true })
+    }
+
     const userId = rootGetters['auth/userId']
     if (!group.members.includes(userId)) {
       Toast.create.warning(i18n.t('GROUP.NONMEMBER_REDIRECT'))
@@ -183,6 +199,7 @@ export const actions = {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_LEAVE_ERROR, data))
       return
     }
+
     commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
     dispatch('alerts/create', {
       type: 'groupLeaveSuccess',
@@ -219,6 +236,32 @@ export const actions = {
     commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_GROUP, { group: createdGroup })
     router.push({ name: 'group', params: { groupId: createdGroup.id } })
+  },
+
+  async activeGroupAgreementSave ({ commit, dispatch, state }, agreement) {
+    let { activeGroup } = state
+    let { id } = agreement
+    if (id) {
+      agreement = await dispatch('agreements/save', agreement, { root: true })
+    }
+    else {
+      agreement = await dispatch('agreements/create', { ...agreement, group: activeGroup.id }, { root: true })
+    }
+
+    if (activeGroup.activeAgreement !== agreement.id) {
+      commit(types.RECEIVE_GROUP, { group: await groups.save({ id: activeGroup.id, activeAgreement: agreement.id }) })
+    }
+  },
+
+  async activeGroupAgreementReplace ({ commit, dispatch, state }, agreement) {
+    let { activeGroupId } = state
+    agreement = await dispatch('agreements/create', { ...agreement, group: activeGroupId }, { root: true })
+    commit(types.RECEIVE_GROUP, { group: await groups.save({ id: activeGroupId, activeAgreement: agreement.id }) })
+  },
+
+  async activeGroupAgreementRemove ({ commit, dispatch, state }) {
+    let { activeGroupId } = state
+    commit(types.RECEIVE_GROUP, { group: await groups.save({ id: activeGroupId, activeAgreement: null }) })
   },
 }
 

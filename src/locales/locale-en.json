@@ -43,7 +43,9 @@
     "YES": "Yes",
     "SAVE_CHANGES": "Save changes",
     "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password"
+    "CHANGE_PASSWORD": "Change password",
+    "AGREE": "I agree",
+    "REMOVE": "Remove"
   },
   "FORM": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
@@ -58,6 +60,7 @@
     "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "EDIT": "Edit group",
     "CREATE_TITLE": "Create new group",
+    "MANAGE_AGREEMENT": "Manage agreement",
     "TITLE": "Title of this group",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
@@ -290,6 +293,31 @@
   "SETTINGS": {
     "TITLE": "Settings",
     "LANGUAGE": "Language"
+  },
+  "AGREEMENT": {
+    "NEW": "New agreement",
+    "AGREE": "You must agree to {{title}}",
+    "VIEW": "View agreement",
+    "TITLE": "Title",
+    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
+    "CONTENT": "Content",
+    "CONTENT_HELPER": "The text of your agreement",
+    "MINOR_EDIT": "Minor edit?",
+    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
+    "BLURB1": "You don't have an agreement yet!",
+    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "DIALOGS": {
+      "REPLACE": {
+        "TITLE": "Change agreement?",
+        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
+        "CONFIRM": "Yes, change agreement"
+      },
+      "REMOVE": {
+        "TITLE": "Remove agreement?",
+        "MESSAGE": "This means anyone will be able to do a pickup",
+        "CONFIRM": "Yes, remove agreement"
+      }
+    }
   },
   "this field is required": "This field is required",
   "enter a valid e-mail address": "Enter a valid e-mail address",

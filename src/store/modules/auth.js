@@ -99,9 +99,17 @@ export const actions = {
     }
     else if (state.joinGroupAfterLogin) {
       const joinParams = state.joinGroupAfterLogin
-      await dispatch('groups/join', joinParams, { root: true })
-      if (rootGetters['groups/joinStatus'].error) {
-        router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.groupId } })
+      if (rootGetters['groups/get'](joinParams.groupId).isMember) {
+        // go to group if already a member
+        router.push({ name: 'group', params: { groupId: joinParams.groupId } })
+      }
+      else {
+        await dispatch('groups/join', joinParams, { root: true })
+        if (rootGetters['groups/joinStatus'].error) {
+          // go back to goup preview if error occured
+          // it should show the error status on the page, thanks to persistent state!
+          router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.groupId } })
+        }
       }
     }
     else if (getters.redirectTo) {

@@ -86,6 +86,11 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
   ATTACHMENT_TEXT+="\n:webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
   ATTACHMENT_TEXT+="\n:white_check_mark: <$CIRCLE_WORKFLOW_URL|Visit circleci>"
 
+  if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist ]; then
+    DOCBOOK_URL="https://karrot-docs.foodsaving.world"
+    ATTACHMENT_TEXT+="\n:page_facing_up: <$DOCBOOK_URL|View docs>"
+  fi
+
   ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 
   payload=$(printf '{

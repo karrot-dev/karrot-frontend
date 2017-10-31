@@ -60,6 +60,17 @@ jobs:
           paths:
             - storybook-static
 
+  build-docs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run: yarn build-docs
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - docs-dist
+
   deploy-dev:
     <<: *defaults
     steps:
@@ -99,6 +110,9 @@ workflows:
           requires:
             - install-dependencies
       - build-storybook:
+          requires:
+            - install-dependencies
+      - build-docs:
           requires:
             - install-dependencies
       - deploy-dev:

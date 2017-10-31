@@ -13,3 +13,4 @@ storybook-static
 coverage/
 e2e-screenshots
 .env
+docs-dist/

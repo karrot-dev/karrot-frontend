@@ -1,0 +1,21 @@
+{
+  "title": "Karrot Developer Documentation",
+  "gitbook": ">3.0.0",
+  "plugins": ["edit-link", "prism", "theme-vuejs", "-fontsettings", "-highlight", "github"],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/yunity/karrot-frontend/tree/master/dev-docs",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/yunity/karrot-frontend/"
+    }
+  },
+  "links": {
+    "sharing": {
+      "facebook": false,
+      "twitter": false
+    }
+  }
+}
+

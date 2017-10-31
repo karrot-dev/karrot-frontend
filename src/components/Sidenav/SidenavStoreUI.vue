@@ -1,6 +1,6 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-home"></i>Store Options</div>
+    <div slot="name"><i class="fa fa-fw fa-home"></i></div>
     <div slot="tools">
       <q-btn flat>
         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>

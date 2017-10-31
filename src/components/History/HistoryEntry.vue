@@ -13,7 +13,6 @@
     <td class="expand text-truncate">
       {{ entry.message }}
     </td>
-    <!-- {{ entry }} -->
   </tr>
 </template>
 

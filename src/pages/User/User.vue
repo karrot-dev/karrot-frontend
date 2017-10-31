@@ -2,7 +2,7 @@
   <div v-if="user && user.id">
     <UserProfile :user="user" :groups="groups" />
     <q-card>
-      <q-card-title>History</q-card-title>
+      <q-card-title>{{ $t('GROUP.HISTORY') }}</q-card-title>
       <History :user="user" />
     </q-card>
   </div>

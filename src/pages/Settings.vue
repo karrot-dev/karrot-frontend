@@ -14,19 +14,19 @@
         </q-item-main>
       </q-item>
 
-      <q-list-header>Profile</q-list-header>
+      <q-list-header>{{ $t('USERDATA.PROFILE_TITLE') }}</q-list-header>
 
       <q-item>
         <profile-edit :user="user" @save="saveUser"/>
       </q-item>
 
-      <q-list-header>Password</q-list-header>
+      <q-list-header>{{ $t('USERDATA.PASSWORD') }}</q-list-header>
 
       <q-item>
         <change-password @save="changePassword"/>
       </q-item>
 
-      <q-list-header>Email address</q-list-header>
+      <q-list-header>{{ $t('USERDATA.EMAIL') }}</q-list-header>
 
     </q-list>
   </div>

@@ -3,7 +3,7 @@
     <q-card-title>
       {{ group.name }}
       <span slot="subtitle">
-        {{ group.members.length }} Members
+        {{ group.members.length }} {{ $t('JOINGROUP.NUM_MEMBERS') }}
       </span>
     </q-card-title>
     <q-card-main class="fixed-height">

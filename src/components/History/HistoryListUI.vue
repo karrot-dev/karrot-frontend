@@ -5,7 +5,7 @@
         <HistoryEntry v-for="entry in history" :entry="entry" :key="entry.id" />
       </tbody>
     </table>
-    <q-card-main v-if="!history.length && status.success"><q-icon name="fa-bug" /> Nothing happened so far...</q-card-main>
+    <q-card-main v-if="!history.length && status.success"><q-icon name="fa-bug" />{{ $t('HISTORY.NOTHING_HAPPENEND') }}</q-card-main>
     <div v-if="canLoadMore || status.isWaiting" class="text-center"><q-spinner-dots slot="message" :size="40"></q-spinner-dots></div>
   </q-infinite-scroll>
 </template>

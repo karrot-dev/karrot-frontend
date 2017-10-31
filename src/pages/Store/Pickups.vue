@@ -2,7 +2,7 @@
   <div>
     <q-card>
       <q-card-title v-if="$q.platform.is.desktop">
-        Description
+        {{ $t('GROUP.DESCRIPTION') }}
         <router-link slot="right" :to="{name: 'storeEdit', params: { storeId: store.id }}"><q-icon name="fa-pencil" /></router-link>
       </q-card-title>
       <div class="generic-padding overflow" v-if="store.description">

@@ -5,19 +5,19 @@
             exact
             slot="title"
             name="wall"
-        >Wall</q-route-tab>
+        >{{ $t('GROUP.WALL') }}</q-route-tab>
         <q-route-tab
             :to="{name: 'groupDescription'}"
             exact
             slot="title"
             name="description"
-        >Description</q-route-tab>
+        >{{ $t('GROUP.DESCRIPTION') }}</q-route-tab>
         <q-route-tab
             :to="{name: 'groupHistory'}"
             exact
             slot="title"
             name="history"
-        >History</q-route-tab>
+        >{{ $t('GROUP.HISTORY') }}</q-route-tab>
     </q-tabs>
 </template>
 

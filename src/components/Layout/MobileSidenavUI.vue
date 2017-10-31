@@ -24,7 +24,7 @@
     </a>
     <a class="q-item" target="_blanc" href="https://blog.foodsaving.world/team.en.html">
       <q-item-side><i class="fa fa-users"/></q-item-side>
-      <q-item-main label="Team" sublabel="Our Contributors" />
+      <q-item-main label="Team" sublabel="Our Team" />
     </a>
     <a class="q-item" target="_blanc" href="https://github.com/yunity/karrot-frontend">
       <q-item-side><i class="fa fa-git"/></q-item-side>

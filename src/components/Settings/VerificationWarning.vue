@@ -7,9 +7,11 @@
     appear
     dismissible
   >
-    <h6>You are not verified yet.</h6>
-    <span v-if="!status.success">Please check your emails or <a @click="resend">resend verification mail</a></span>
-    <span v-if="status.success">A verification mail has been sent. Please check your mails</span>
+    <h6>{{ $t('NOTIFICATIONS.NOT_VERIFIED') }}</h6>
+    <i18n v-if="!status.success" path="NOTIFICATIONS.CHECK_YOUR_MAILS" tag="span">
+      <a place="resend" @click="resend" class="underline">{{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}</a>
+    </i18n>
+    <span v-if="status.success">{{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}</span>
     <p v-if="status.error">Error: {{status.error}}</p>
   </q-alert>
 </template>
@@ -35,3 +37,9 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.underline
+  text-decoration underline
+</style>
+

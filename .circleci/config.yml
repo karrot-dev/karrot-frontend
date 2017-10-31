@@ -125,6 +125,7 @@ workflows:
             - lint
             - build
             - build-storybook
+            - build-docs
       - approval:
           type: approval
           requires:

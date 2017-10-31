@@ -1,23 +1,41 @@
+<template>
+  <HistoryListUI
+    :history="history"
+    :status="status"
+    :canLoadMore="canLoadMore"
+    :fetchMore="fetchMore"
+    />
+</template>
 <script>
-import { connect } from 'vuex-connect'
 import HistoryListUI from '@/components/History/HistoryListUI'
-
-export default connect({
-  gettersToProps: {
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  props: {
+    user: { required: false },
+    store: { required: false },
+    group: { required: false },
+  },
+  computed: mapGetters({
     history: 'history/all',
     status: 'history/receiveStatus',
     canLoadMore: 'history/canLoadMore',
-  },
-  actionsToProps: {
+  }),
+  methods: mapActions({
     fetchMore: 'history/fetchMore',
+    fetchForUser: 'history/fetchForUser',
+    fetchForGroup: 'history/fetchForGroup',
+    fetchForStore: 'history/fetchForStore',
+  }),
+  mounted () {
+    if (this.user) this.fetchForUser(this.user)
+    else if (this.group) this.fetchForGroup(this.group)
+    else if (this.store) this.fetchForStore(this.store)
   },
-  lifecycle: {
-    mounted ({ dispatch }) {
-      if (this.user) dispatch('history/fetchForUser', this.user)
-      else if (this.group) dispatch('history/fetchForGroup', this.group)
-      else if (this.store) dispatch('history/fetchForStore', this.store)
-    },
-    destroyed: ({ dispatch }) => dispatch('history/clear'),
+  watch: {
+    user () { this.fetchForUser(this.user) },
+    group () { this.fetchForGroup(this.group) },
+    store () { this.fetchForGroup(this.store) },
   },
-})('HistoryList', HistoryListUI)
+  components: { HistoryListUI },
+}
 </script>

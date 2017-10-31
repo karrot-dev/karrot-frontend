@@ -1,12 +1,14 @@
 <template>
   <div class="footer bg-neutral font-primary">
-    <div class="footer-max-width row generic-padding justify-around">
-      <div class="row generic-padding justify-around">
+    <div class="footer-max-width row generic-padding justify-between">
+      <div/>
+      <div class="generic-padding">
         <img src="~@/assets/carrot-logo.svg"/>
-        <div class="column">
-          <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
-          <div>made with <i class="fa fa-heart"></i> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
-        </div>
+      </div>
+      <div/>
+      <div class="column">
+        <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
+        <div>made with <i class="fa fa-heart"></i> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
       </div>
       <div class="column">
         <div>contribute on <a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i> GitHub</a></div>
@@ -16,6 +18,7 @@
           karrot@foodsaving.world
         </a></div>
       </div>
+      <div/>
     </div>
   </div>
 </template>
@@ -77,6 +80,6 @@ export default {
     .column div
       margin .5em
     .footer-max-width
-      max-width 75em
+      max-width 60em
       margin: 0 auto
 </style>

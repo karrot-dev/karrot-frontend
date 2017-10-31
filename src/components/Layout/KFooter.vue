@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="column">
-        <div><a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i></a> {{ $t('GLOBAL.GITHUB_NOTE') }}</div>
+        <div><a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-github"></i> {{ $t('GLOBAL.GITHUB_NOTE') }}</a></div>
         <div><a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-facebook"></i> {{ $t('GLOBAL.FACEBOOK_NOTE') }}</a></div>
         <div><i class="fa fa-envelope"></i>
         <a href="mail:karrot@foodsaving.world" aria-label="" md-labeled-by-tooltip="md-tooltip-4">

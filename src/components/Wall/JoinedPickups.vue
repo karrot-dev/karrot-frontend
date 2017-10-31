@@ -33,7 +33,7 @@ export default {
   },
   data () {
     return {
-      showPickups: true,
+      showPickups: false,
     }
   },
 }

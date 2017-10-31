@@ -72,7 +72,6 @@ export default {
   .footer
     width: 100%
     margin: 0 auto
-    margin-top 10em
     min-height 10em
     img
       height 6em

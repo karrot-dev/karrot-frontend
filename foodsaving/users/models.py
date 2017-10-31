@@ -44,7 +44,7 @@ class UserManager(BaseUserManager):
         As we don't allow sign-ups with similarly cased email addresses,
         we can allow users to login with case spelling mistakes
         """
-        return self.filter_by_similar_email(email).first()
+        return self.get(email__iexact=email)
 
     def _validate_email(self, email):
         if email is None:

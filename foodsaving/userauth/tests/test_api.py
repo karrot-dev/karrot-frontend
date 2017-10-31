@@ -36,8 +36,14 @@ class TestUserAuthAPI(APITestCase):
         self.assertEqual(response.data, {'email': ['This field is required.'],
                                          'password': ['This field is required.']})
 
-    def test_wrong_credentials(self):
+    def test_wrong_password(self):
         data = {'email': self.user.email, 'password': 'wrong_password'}
+        response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['non_field_errors'], ['Unable to login with provided credentials.', ])
+
+    def test_wrong_email(self):
+        data = {'email': 'nonexisting@email.com', 'password': 'wrong_password'}
         response = self.client.post(self.url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(response.data['non_field_errors'], ['Unable to login with provided credentials.', ])

@@ -140,7 +140,7 @@
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "My groups",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out.",
+      "LOGGED_OUT": "You are currently logged out. {login}",
       "LOG_IN": "Log in to see your groups!"
     }
   },

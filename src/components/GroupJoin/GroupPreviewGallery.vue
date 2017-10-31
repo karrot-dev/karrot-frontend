@@ -6,7 +6,9 @@
       icon="star"
       class="alert"
     >
-      {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT') }} <router-link :to="{ name: 'login' }" class="text-primary">{{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}</router-link>
+      <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
+        <router-link place="login" :to="{ name: 'login' }" class="text-primary">{{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}</router-link>
+      </i18n>
     </q-alert>
     <h4 v-if="myGroups.length>0" class="text-primary">
       {{ $t('JOINGROUP.MY_GROUPS') }}

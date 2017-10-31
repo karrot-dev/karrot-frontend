@@ -7,7 +7,7 @@
       class="alert"
     >
       <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
-        <router-link place="login" :to="{ name: 'login' }" class="text-primary">{{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}</router-link>
+        <router-link place="login" :to="{ name: 'login' }" class="underline">{{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}</router-link>
       </i18n>
     </q-alert>
     <h4 v-if="myGroups.length>0" class="text-primary">
@@ -64,4 +64,9 @@ body.desktop .alert
   margin-left .2em
 .highlight
   border 2px solid $positive
+</style>
+
+<style lang="stylus" scoped>
+.underline
+  text-decoration underline
 </style>

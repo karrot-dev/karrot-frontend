@@ -101,6 +101,9 @@ workflows:
       - build-storybook:
           requires:
             - install-dependencies
+      - build-docs:
+          requires:
+            - install-dependencies
       - deploy-dev:
           filters:
             branches:

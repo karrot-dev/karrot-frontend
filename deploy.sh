@@ -32,6 +32,7 @@ elif [ "$REF" == "master" ]; then
   DEPLOY_EMOJI=":beer:"
   URL="https://dev.foodsaving.world"
   STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
+  DEPLOY_DOCS="true"
 
 else
 
@@ -62,6 +63,10 @@ echo "$about_json" > storybook-static/about.json
 # send it all to the host
 rsync -avz --delete dist/ "deploy@$HOST:karrot-frontend/$DIR/"
 rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
+
+if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist ]; then
+  rsync -avz --delete docs-dist/ "deploy@$HOST:karrot-docs/$DIR/"
+fi
 
 if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 

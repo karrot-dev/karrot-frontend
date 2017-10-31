@@ -1,5 +1,6 @@
 from django.contrib import auth
 from rest_framework import status
+from rest_framework.authtoken.models import Token
 from rest_framework.test import APITestCase
 
 from foodsaving.users.factories import UserFactory
@@ -75,3 +76,24 @@ class TestUserAuthAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         user = auth.get_user(self.client)
         self.assertFalse(user.is_authenticated())
+
+
+class TestTokenAuthAPI(APITestCase):
+    def setUp(self):
+        self.user = UserFactory(email='user98@example.com')
+        self.url = '/api/auth/token/'
+
+    def test_get_token(self):
+        response = self.client.post(self.url, {'username': self.user.email, 'password': self.user.display_name})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        token = Token.objects.filter(user=self.user).first()
+        self.assertEqual(response.data, {'token': token.key})
+
+    def test_use_token(self):
+        token = Token.objects.create(user=self.user)
+        response = self.client.get(
+            '/api/auth/status/',
+            **{'HTTP_AUTHORIZATION': 'Token {}'.format(token.key)}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['email'], self.user.email)

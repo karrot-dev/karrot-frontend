@@ -1,12 +1,12 @@
 from datetime import timedelta
 
 import dateutil.rrule
+from django.conf import settings
 from django.db import transaction
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
-
-from django.conf import settings
+from rest_framework.validators import UniqueTogetherValidator
 
 from foodsaving.history.models import History, HistoryTypus
 from foodsaving.history.utils import get_changed_data
@@ -245,18 +245,14 @@ class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedbackModel
         fields = ['id', 'weight', 'comment', 'about', 'given_by']
-        read_only_fields = ('given_by',)
-
-    def create(self, validated_data):
-        validated_data['given_by'] = self.context['request'].user
-
-        existing_feedback = len(FeedbackModel.objects.filter(
-            about=validated_data['about'], given_by=validated_data['given_by']
-        ))
-
-        if existing_feedback != 0:
-            raise serializers.ValidationError({'non_field_errors': [_('You already gave feedback for this pickup')]})
-        return super().create(validated_data)
+        read_only_fields = ['given_by', ]
+        extra_kwargs = {'given_by': {'default': serializers.CurrentUserDefault()}}
+        validators = [
+            UniqueTogetherValidator(
+                queryset=FeedbackModel.objects.all(),
+                fields=FeedbackModel._meta.unique_together[0]
+            )
+        ]
 
     def validate_about(self, about):
         user = self.context['request'].user

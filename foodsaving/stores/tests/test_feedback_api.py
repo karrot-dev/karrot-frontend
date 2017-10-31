@@ -1,12 +1,12 @@
-from rest_framework import status
-from rest_framework.test import APITestCase
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
+from rest_framework import status
+from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory
-from foodsaving.users.factories import UserFactory
 from foodsaving.stores.models import Feedback
+from foodsaving.users.factories import UserFactory
 
 
 class FeedbackTest(APITestCase):
@@ -131,7 +131,7 @@ class FeedbackTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)
         response = self.client.post(self.url, self.feedback_post, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
-        self.assertEqual(response.data, {'non_field_errors': ['You already gave feedback for this pickup']})
+        self.assertEqual(response.data, {'non_field_errors': ['The fields about, given_by must make a unique set.']})
 
     def test_create_feedback_fails_for_old_pickup(self):
         """

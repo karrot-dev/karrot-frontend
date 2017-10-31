@@ -249,6 +249,13 @@ class FeedbackSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         validated_data['given_by'] = self.context['request'].user
+
+        existing_feedback = len(FeedbackModel.objects.filter(
+            about=validated_data['about'], given_by=validated_data['given_by']
+        ))
+
+        if existing_feedback != 0:
+            raise serializers.ValidationError({'non_field_errors': [_('You already gave feedback for this pickup')]})
         return super().create(validated_data)
 
     def validate_about(self, about):
@@ -260,6 +267,8 @@ class FeedbackSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(_('The pickup is not done yet'))
         if not about.is_collector(user):
             raise serializers.ValidationError(_('You aren\'t assigned to the pickup.'))
+        if not about.is_recent():
+            raise serializers.ValidationError(_('You can\'t give feedback for pickups more than 30 days ago.'))
         return about
 
     def validate(self, data):

@@ -37,6 +37,7 @@ class TestFeedbackModel(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+
         cls.pickup = PickupDateFactory()
         cls.user = UserFactory()
 
@@ -53,6 +54,15 @@ class TestFeedbackModel(TestCase):
     def test_create_fails_if_comment_too_long(self):
         with self.assertRaises(DataError):
             Feedback.objects.create(comment='a' * 100001, about=self.pickup, given_by=self.user, weight=1)
+
+    def test_create_two_feedback_for_same_pickup_as_same_user_fails(self):
+        Feedback.objects.create(given_by=self.user, about=self.pickup)
+        with self.assertRaises(IntegrityError):
+            Feedback.objects.create(given_by=self.user, about=self.pickup)
+
+    def test_create_two_feedback_for_different_pickups_as_same_user_works(self):
+        Feedback.objects.create(given_by=self.user, about=self.pickup)
+        Feedback.objects.create(given_by=self.user, about=PickupDateFactory())
 
 
 class TestPickupDateSeriesModel(TestCase):

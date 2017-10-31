@@ -37,6 +37,8 @@ class Store(BaseModel, LocationModel):
 
 
 class Feedback(BaseModel):
+    class Meta:
+        unique_together = ('about', 'given_by')
     given_by = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='feedback')
     about = models.ForeignKey('PickupDate')
     weight = models.FloatField(
@@ -251,3 +253,6 @@ class PickupDate(BaseModel):
 
     def is_empty(self):
         return self.collectors.count() == 0
+
+    def is_recent(self):
+        return self.date >= timezone.now() - relativedelta(days=30)

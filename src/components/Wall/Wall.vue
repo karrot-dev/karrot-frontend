@@ -24,7 +24,7 @@
       <q-infinite-scroll
         :handler="loadMore"
         ref="infiniteScroll">
-        <q-list highlight inset-separator class="bg-white" v-if="messages.length > 0">
+        <q-list highlight inset-separator class="bg-white desktop-margin" v-if="messages.length > 0">
           <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
         </q-list>
         <div slot="message" style="width: 100%; text-align: center">

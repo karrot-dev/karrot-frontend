@@ -27,7 +27,7 @@ from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
 from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet, FeedbackViewSet
 from foodsaving.subscriptions.api import PushSubscriptionViewSet
-from foodsaving.userauth.api import AuthViewSet
+from foodsaving.userauth.api import AuthViewSet, create_user, update_user, delete_user, get_user
 from foodsaving.users.api import UserViewSet
 
 router = routers.DefaultRouter()
@@ -36,6 +36,9 @@ router.register(r'groups', GroupViewSet)
 router.register(r'groups-info', GroupInfoViewSet)
 router.register(r'agreements', AgreementViewSet)
 router.register(r'auth', AuthViewSet, base_name='auth')
+
+# unfortunately swagger doesn't show the serializer, so it's not really useful..
+auth_user_urls = [url(r'^api/auth/user/', view) for view in (create_user, update_user, get_user, delete_user)]
 
 # User endpoints
 router.register(r'users', UserViewSet)
@@ -63,7 +66,7 @@ router.register('invitations', InvitationAcceptViewSet)
 # Feedback endpoints
 router.register(r'feedback', FeedbackViewSet)
 
-urlpatterns = [
+urlpatterns = auth_user_urls + [
     url(r'^api/auth/token/', obtain_auth_token),
     url(r'^api/', include(router.urls, namespace='api')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

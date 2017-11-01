@@ -88,8 +88,8 @@ class UserAgreement(BaseModel):
 
 
 class GroupMembership(BaseModel):
-    group = models.ForeignKey(Group, on_delete=models.DO_NOTHING)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     roles = ArrayField(TextField(), default=list)
 
     class Meta:

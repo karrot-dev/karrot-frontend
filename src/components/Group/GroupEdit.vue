@@ -22,24 +22,28 @@
           <q-field
             icon="fa-question"
             :label="$t('GROUP.PUBLIC_DESCRIPTION')">
-            <q-input
-              v-model="groupEdit.publicDescription"
-              type="textarea"
-              :min-rows="3"
-              :max-height="100"
-            />
+            <MarkdownInput :value="groupEdit.publicDescription">
+              <q-input
+                v-model="groupEdit.publicDescription"
+                type="textarea"
+                :min-rows="3"
+                :max-height="100"
+              />
+            </MarkdownInput>
           </q-field>
 
           <q-field
             icon="fa-question"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             >
-            <q-input
-              v-model="groupEdit.description"
-              type="textarea"
-              :min-rows="3"
-              :max-height="100"
-            />
+            <MarkdownInput :value="groupEdit.description">
+              <q-input
+                v-model="groupEdit.description"
+                type="textarea"
+                :min-rows="3"
+                :max-height="100"
+              />
+            </MarkdownInput>
           </q-field>
 
           <q-field
@@ -94,6 +98,7 @@
 import { QCard, QField, QInput, QBtn, QAutocomplete } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
+import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
@@ -126,7 +131,7 @@ export default {
     requestError: { required: true },
   },
   components: {
-    QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker,
+    QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker, MarkdownInput,
   },
   data () {
     return {

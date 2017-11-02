@@ -20,7 +20,9 @@
           <q-field
             icon="fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')">
-            <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
+            <MarkdownInput :value="storeEdit.description">
+              <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
+            </MarkdownInput>
           </q-field>
 
           <q-field
@@ -60,6 +62,7 @@
 import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
+import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
@@ -89,7 +92,7 @@ export default {
     requestError: { required: true },
   },
   components: {
-    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
+    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
   },
   data () {
     return {

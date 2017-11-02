@@ -5,8 +5,8 @@ import { indexById, onlyHandleAPIError, defineRequestModule } from '@/store/help
 import { Toast } from 'quasar'
 import i18n from '@/i18n'
 
-// return value contains namespace already
-export const modules = defineRequestModule({ namespace: 'meta' })
+const meta = defineRequestModule()
+export const modules = { meta }
 
 export const types = {
 
@@ -221,15 +221,16 @@ export const actions = {
     router.push({ name: 'groupsGallery' })
   },
 
-  // looks good, but modules.meta.createRequestAction is a bit long
-  save: modules.meta.createRequestAction({
-    metaId: group => `save-${group.id}`,
-    async request ({ commit }, group) {
-      const updatedGroup = await groups.save(group)
-      commit(types.RECEIVE_GROUP, { group: updatedGroup })
-      router.push({ name: 'group', params: { groupId: updatedGroup.id } })
-    },
-  }),
+  async save ({ commit, dispatch }, group) {
+    dispatch('meta/request', {
+      id: `save-${group.id}`,
+      async run () {
+        const updatedGroup = await groups.save(group)
+        commit(types.RECEIVE_GROUP, { group: updatedGroup })
+        router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+      },
+    })
+  },
 
   async create ({ commit, dispatch }, group) {
     commit(types.REQUEST_SAVE)

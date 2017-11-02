@@ -142,7 +142,8 @@
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "You are currently logged out. {login}",
       "LOG_IN": "Log in to see your groups!"
-    }
+    },
+    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
   },
   "GROUPINFO": {
     "META": "Show public group information",

@@ -130,6 +130,8 @@ export const actions = {
     catch (error) {
       dispatch('conversations/clearActive', {}, { root: true })
     }
+
+    dispatch('auth/update', { currentGroup: groupId }, { root: true })
   },
 
   selectGroupInfo ({ commit, getters }, groupPreviewId) {

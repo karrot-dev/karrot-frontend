@@ -51,6 +51,9 @@ describe('groups', () => {
     getters: {
       userId: () => userId,
     },
+    actions: {
+      update: jest.fn(),
+    },
   }
 
   const alerts = {

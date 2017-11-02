@@ -29,7 +29,27 @@ export function onlyHandleAPIError (error, handleFn) {
   }
 }
 
-export function defineRequestModule ({ namespace = 'meta' } = {}) {
+/**
+ * Defines a vues module that can be used to handle async request metadata.
+ *
+ * Instantiation:
+
+ const meta = defineRequestModule()
+ export const modules = { meta }
+
+ * Usage:
+
+async save ({ commit, dispatch }, group) {
+  dispatch('meta/request', {
+    id: `save-${group.id}`,
+    async run () {
+      const updatedGroup = await groups.save(group)
+      commit(types.RECEIVE_GROUP, { group: updatedGroup }) // other commits when successful
+    },
+  })
+},
+ */
+export function defineRequestModule () {
   const types = {
     REQUEST: 'Request',
     RECEIVE_SUCCESS: 'Receive Success',
@@ -51,10 +71,30 @@ export function defineRequestModule ({ namespace = 'meta' } = {}) {
       const error = getters.get(id).error
       return error && error[field] && error[field][0]
     },
+    isWaiting: (state, getters) => id => getters.get(id).isWaiting,
+    success: (state, getters) => id => getters.get(id).success,
   }
 
   const actions = {
-    clear: ({ commit }) => commit('clear'),
+    async request ({ commit }, { id, run }) {
+      commit(types.REQUEST, { id })
+      try {
+        await run()
+        commit(types.RECEIVE_SUCCESS, { id })
+      }
+      catch (error) {
+        const { response: { status = -1, data } = {} } = error
+        if (status >= 400 && status < 500) {
+          commit(types.RECEIVE_ERROR, { id, error: data })
+        }
+        else {
+          throw error
+        }
+      }
+    },
+    clear ({ commit }) {
+      commit('clear')
+    },
   }
 
   const mutations = {
@@ -88,42 +128,11 @@ export function defineRequestModule ({ namespace = 'meta' } = {}) {
     },
   }
 
-  function namespaced (val) {
-    return namespace + '/' + val
-  }
-
-  function createRequestAction ({ metaId, request }) {
-    // we need to use the namespaced commits here, as the commit happens in parent
-    // I didn't find a good workaround, maybe it would be better to dispatch an action from parent to child?
-    return async function (store, arg) {
-      const { commit } = store
-      const id = metaId(arg)
-      commit(namespaced(types.REQUEST), { id })
-      try {
-        await request(store, arg)
-        commit(namespaced(types.RECEIVE_SUCCESS), { id })
-      }
-      catch (error) {
-        console.log('receive error with id', id, error)
-        const { response: { status = -1, data } = {} } = error
-        if (status >= 400 && status < 500) {
-          commit(namespaced(types.RECEIVE_ERROR), { id, error: data })
-        }
-        else {
-          throw error
-        }
-      }
-    }
-  }
-
   return {
-    [namespace]: {
-      namespaced: true,
-      state,
-      getters,
-      actions,
-      mutations,
-      createRequestAction,
-    },
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations,
   }
 }

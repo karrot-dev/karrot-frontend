@@ -1,5 +1,5 @@
 <template>
-  <div v-if="shouldBeDisplayed" slot="navigation" class="mobile-only shadow-14 inset-shadow row">
+  <div slot="navigation" class="shadow-14 inset-shadow row">
     <q-tabs color="tertiary" hide="icon" class="col">
       <q-route-tab
         :to="{name: 'group'}"
@@ -36,13 +36,6 @@ import GroupOptions from '@/components/Sidenav/GroupOptions'
 
 export default {
   components: { QTabs, QRouteTab, QBtn, QIcon, GroupOptions },
-  computed: {
-    shouldBeDisplayed () {
-      return this.$route.name === 'group' ||
-        this.$route.name === 'groupDescription' ||
-        this.$route.name === 'groupHistory'
-    },
-  },
 }
 </script>
 

@@ -11,6 +11,7 @@ class ChannelSubscription(BaseModel):
     user = ForeignKey(settings.AUTH_USER_MODEL)
     reply_channel = TextField()  # django channels channel
     lastseen_at = DateTimeField(default=timezone.now, null=True)
+    away_at = DateTimeField(null=True)
 
 
 class PushSubscriptionPlatform(enum.Enum):

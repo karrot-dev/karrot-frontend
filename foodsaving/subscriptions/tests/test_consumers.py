@@ -51,6 +51,20 @@ class ConsumerTests(ChannelTestCase):
         difference = subscription.lastseen_at - the_past
         self.assertGreater(difference.seconds, 1000)
 
+    def test_updates_away(self):
+        client = WSClient()
+        user = UserFactory()
+        client.force_login(user)
+        client.send_and_consume('websocket.connect', path='/')
+
+        client.send_and_consume('websocket.receive', text={'type': 'away'}, path='/')
+        subscription = ChannelSubscription.objects.get(user=user)
+        self.assertIsNotNone(subscription.away_at)
+
+        client.send_and_consume('websocket.receive', text={'type': 'back'}, path='/')
+        subscription.refresh_from_db()
+        self.assertIsNone(subscription.away_at)
+
     def test_removes_subscription(self):
         client = WSClient()
         user = UserFactory()

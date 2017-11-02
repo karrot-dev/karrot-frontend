@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GroupNavbar v-if="showGroupNavbar" class="mobile-only"/>
+    <GroupNavbar v-if="$q.platform.is.mobile && showGroupNavbar" />
     <router-view/>
   </div>
 </template>

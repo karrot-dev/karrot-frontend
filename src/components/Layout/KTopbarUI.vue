@@ -26,31 +26,33 @@
     <q-btn v-if="!searchOpen" flat @click="$emit('showSearch')">
       <q-icon name="fa-fw fa-search"/>
     </q-btn>
-    <router-link :to="{name: 'user', params: {userId: user.id}}" class="defaulthover">
-      <q-btn flat class="desktop-only">
-        {{ user.displayName }}
-        <q-icon name="fa-fw fa-user" />
+    <template v-if="!$q.platform.is.mobile">
+      <router-link :to="{name: 'user', params: {userId: user.id}}" class="defaulthover">
+        <q-btn flat>
+          {{ user.displayName }}
+          <q-icon name="fa-fw fa-user" />
+        </q-btn>
+      </router-link>
+      <q-btn flat>
+        <q-icon name="fa-fw fa-ellipsis-v" />
+        <q-popover :touch-position="false" fit ref="popover">
+          <q-list item-separator link>
+            <q-item :to="{name: 'groupsGallery'}" @click.native="$refs.popover.close()">
+              <q-icon size="1em" name="fa-home fa-fw" />
+              {{ $t('TOPBAR.CHANGE_GROUP')  }}
+            </q-item>
+            <q-item :to="{name: 'settings'}" @click.native="$refs.popover.close()">
+              <q-icon size="1em" name="fa-cog fa-fw" />
+              {{$t('SETTINGS.TITLE')}}
+            </q-item>
+            <q-item @click="$emit('logout'), $refs.popover.close()">
+              <q-icon size="1em" name="fa-sign-out fa-fw" />
+              {{$t('TOPBAR.LOGOUT')}}
+            </q-item>
+          </q-list>
+        </q-popover>
       </q-btn>
-    </router-link>
-    <q-btn flat class="desktop-only">
-      <q-icon name="fa-fw fa-ellipsis-v" />
-      <q-popover :touch-position="false" fit ref="popover">
-        <q-list item-separator link>
-          <q-item :to="{name: 'groupsGallery'}" @click.native="$refs.popover.close()">
-            <q-icon size="1em" name="fa-home fa-fw" />
-            {{ $t('TOPBAR.CHANGE_GROUP')  }}
-          </q-item>
-          <q-item :to="{name: 'settings'}" @click.native="$refs.popover.close()">
-            <q-icon size="1em" name="fa-cog fa-fw" />
-            {{$t('SETTINGS.TITLE')}}
-          </q-item>
-          <q-item @click="$emit('logout'), $refs.popover.close()">
-            <q-icon size="1em" name="fa-sign-out fa-fw" />
-            {{$t('TOPBAR.LOGOUT')}}
-          </q-item>
-        </q-list>
-      </q-popover>
-    </q-btn>
+    </template>
   </q-toolbar>
 </template>
 

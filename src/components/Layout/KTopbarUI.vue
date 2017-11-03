@@ -3,7 +3,7 @@
     <q-btn slot="left" flat class="mobile-only" @click="$emit('toggleSidenav')">
       <i class="fa fa-bars"></i>
     </q-btn>
-    <router-link :to="{name: 'group'}" class="logo desktop-only">
+    <router-link v-if="!$q.platform.is.mobile" :to="{name: 'group'}" class="logo">
       <KarrotLogo/>
     </router-link>
     <q-toolbar-title>

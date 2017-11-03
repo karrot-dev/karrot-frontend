@@ -1,8 +1,8 @@
 <template>
   <div>
-    <q-tabs inverted align="right" position="bottom" v-model="tab">
-      <q-tab default name="edit" slot="title" :label="$t('BUTTON.EDIT')" :hidden="tab === 'edit'" />
-      <q-tab v-if="value" name="preview" slot="title" :label="$t('BUTTON.PREVIEW')" :hidden="tab === 'preview'" />
+    <q-tabs class="markdown-input" inverted align="right" position="top" v-model="tab">
+      <q-tab class="markdown-input-tab" default name="edit" slot="title" :label="$t('BUTTON.EDIT')"/>
+      <q-tab class="markdown-input-tab" v-if="value" name="preview" slot="title" :label="$t('BUTTON.PREVIEW')"/>
       <q-tab-pane name="edit">
         <slot />
         <small v-if="!$q.platform.is.mobile && tab === 'edit'" class="row group pull-right light-paragraph">
@@ -15,6 +15,7 @@
             <q-tooltip>{{ $t('MARKDOWN_INPUT.HELP') }}</q-tooltip>
           </a>
         </small>
+        <div style="clear: both"/>
       </q-tab-pane>
       <q-tab-pane name="preview">
         <Markdown v-if="value" :source="value" />
@@ -39,4 +40,15 @@ export default {
   },
 }
 </script>
+<!-- UNSCOPED -->
+<style lang="stylus">
+.markdown-input > .q-tabs-head
+  min-height 36px !important
+</style>
 
+<style scoped lang="stylus">
+.markdown-input-tab
+  min-height 20px !important
+  padding 6px 10px !important
+  font-size .87em !important
+</style>

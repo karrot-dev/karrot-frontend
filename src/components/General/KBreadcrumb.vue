@@ -49,6 +49,6 @@ export default {
     padding 0 16px
     font-weight 500
     text-transform uppercase
-  .lastElement
+body.desktop .lastElement
     font-size 1.5rem
 </style>

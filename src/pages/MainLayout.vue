@@ -69,6 +69,7 @@ body.desktop .mainContent-page
   max-width: 57em
 .mainContent-page
   width 100%
+  margin-bottom 4.5em
 .whiteSpace
   width 5%
 

@@ -23,6 +23,7 @@
   },
   "USERDATA": {
     "EMAIL": "Mail",
+    "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
     "USERNAME": "Name",
     "WHERE_FROM": "Where you are from (not required)"
@@ -130,7 +131,7 @@
   "JOINGROUP": {
     "NAME": "Name",
     "WHICHGROUP": "Which group do you want to join?",
-    "NUM_MEMBERS": "Members",
+    "NUM_MEMBERS": "Member|Members",
     "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
     "PASSWORD_LABEL": "Enter password for private group",
     "PASSWORD_REQUIRED": "This group requires a password",
@@ -139,7 +140,7 @@
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "My groups",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out.",
+      "LOGGED_OUT": "You are currently logged out. {login}",
       "LOG_IN": "Log in to see your groups!"
     }
   },
@@ -266,6 +267,7 @@
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}",
     "LOAD_MORE": "load more ...",
     "ALL_LOADED": "All entries loaded.",
+    "NOTHING_HAPPENEND": "Nothing happened so far...",
     "STORES": "Stores",
     "USERS": "Users",
     "TYPE": "Type",
@@ -280,7 +282,8 @@
   "NOTIFICATIONS": {
     "TITLE": "Notifications",
     "NOT_VERIFIED": "Not verified",
-    "RESEND_VERIFICATION": "Resend verification",
+    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
+    "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOT_FOUND": {

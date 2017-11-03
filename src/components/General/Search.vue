@@ -5,7 +5,7 @@
       separator
       class="lightgrey"
       v-model="terms"
-      placeholder="Search"
+      :placeholder="$t('BUTTON.SEARCH')"
       @blur="hideIfEmpty"
       >
       <q-autocomplete @search="search" @selected="selected" />

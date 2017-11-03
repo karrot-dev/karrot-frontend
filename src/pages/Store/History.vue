@@ -1,6 +1,6 @@
 <template>
   <q-card>
-    <q-card-title v-if="$q.platform.is.desktop">History</q-card-title>
+    <q-card-title v-if="$q.platform.is.desktop">{{ $t('GROUP.HISTORY') }}</q-card-title>
     <HistoryList :store="store" />
   </q-card>
 </template>

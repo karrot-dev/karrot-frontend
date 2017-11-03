@@ -41,6 +41,7 @@
         v-if="user.description"
         :source="user.description"
       />
+      <div style="clear: both; margin-bottom: 8px"/>
     </q-card>
   </div>
 </template>

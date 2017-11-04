@@ -15,10 +15,10 @@
         </template>
         <MainAlerts />
         <div class="mainContent row justify-between no-wrap">
-          <div v-if="!$q.platform.is.mobile" class="whiteSpace gt-sm"/>
-            <router-view class="sidenav-desktop" name="sidenav"></router-view>
+          <div class="whiteSpace gt-sm" />
+          <router-view v-if="!$q.platform.is.mobile" class="sidenav-desktop" name="sidenav" />
           <div class="mainContent-page">
-            <router-view></router-view>
+            <router-view />
           </div>
           <div class="whiteSpace gt-sm desktop-only"/>
         </div>

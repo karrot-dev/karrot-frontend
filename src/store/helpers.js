@@ -68,8 +68,8 @@ export function defineRequestModule () {
       success: false,
     }),
     error: (state, getters) => id => field => {
-      const error = getters.get(id).error
-      return error && error[field] && error[field][0]
+      const { [field]: [ message ] = [] } = getters.get(id).error
+      return message
     },
     isWaiting: (state, getters) => id => getters.get(id).isWaiting,
     success: (state, getters) => id => getters.get(id).success,

@@ -29,6 +29,25 @@ export function onlyHandleAPIError (error, handleFn) {
   }
 }
 
+export function isValidationError (error) {
+  const { response: { status = -1 } = {} } = error
+  if (status >= 400 && status < 500) {
+    return true
+  }
+  return false
+}
+
+export function isRequestError (error) {
+  const { response: { status = -1 } = {} } = error
+  if (status >= 500) {
+    return true
+  }
+  if (error.request) {
+    return true
+  }
+  return false
+}
+
 /**
  * Defines a vues module that can be used to handle async request metadata.
  *
@@ -64,11 +83,11 @@ export function defineRequestModule () {
   const getters = {
     get: state => id => state.entries[id] || ({
       isWaiting: false,
-      error: null,
+      error: undefined,
       success: false,
     }),
     error: (state, getters) => id => field => {
-      const { [field]: [ message ] = [] } = getters.get(id).error
+      const { error: { [field]: [ message ] = [] } = {} } = getters.get(id)
       return message
     },
     isWaiting: (state, getters) => id => getters.get(id).isWaiting,
@@ -83,11 +102,15 @@ export function defineRequestModule () {
         commit(types.RECEIVE_SUCCESS, { id })
       }
       catch (error) {
-        const { response: { status = -1, data } = {} } = error
-        if (status >= 400 && status < 500) {
-          commit(types.RECEIVE_ERROR, { id, error: data })
+        if (isValidationError(error)) {
+          commit(types.RECEIVE_ERROR, { id, error: error.response.data })
+        }
+        else if (isRequestError(error)) {
+          // TODO: should we commit this at all?
+          commit(types.RECEIVE_ERROR, { id, error: error.request })
         }
         else {
+          // some other error, can't handle it here
           throw error
         }
       }
@@ -101,14 +124,14 @@ export function defineRequestModule () {
     [types.REQUEST] (state, { id }) {
       Vue.set(state.entries, id, {
         isWaiting: true,
-        error: null,
+        error: undefined,
         success: false,
       })
     },
     [types.RECEIVE_SUCCESS] (state, { id }) {
       Vue.set(state.entries, id, {
         isWaiting: false,
-        error: null,
+        error: undefined,
         success: true,
       })
     },
@@ -122,7 +145,7 @@ export function defineRequestModule () {
     [types.CLEAR] (state, { id }) {
       Vue.set(state.entries, id, {
         isWaiting: false,
-        error: null,
+        error: undefined,
         success: false,
       })
     },

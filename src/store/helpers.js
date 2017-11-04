@@ -100,7 +100,7 @@ export function defineRequestModule () {
   }
 
   const actions = {
-    async request ({ commit }, { id, run }) {
+    async request ({ commit }, { id, run, onValidationError }) {
       commit(types.REQUEST, { id })
       try {
         await run()
@@ -109,6 +109,7 @@ export function defineRequestModule () {
       catch (error) {
         if (isValidationError(error)) {
           commit(types.RECEIVE_ERROR, { id, error: error.response.data })
+          onValidationError(error)
         }
         else if (isRequestError(error)) {
           // TODO: should we commit this at all?

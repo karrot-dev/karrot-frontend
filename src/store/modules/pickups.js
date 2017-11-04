@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import pickups from '@/services/api/pickups'
-import { onlyHandleAPIError } from '@/store/helpers'
+import { onlyHandleAPIError, defineRequestModule } from '@/store/helpers'
+
+const joinLeave = defineRequestModule()
+export const modules = { joinLeave }
 
 export const types = {
 
@@ -15,13 +18,8 @@ export const types = {
   RECEIVE_ITEM: 'Receive Item',
   RECEIVE_ITEM_ERROR: 'Receive Item Error',
 
-  REQUEST_JOIN: 'Request Join',
-  RECEIVE_JOIN: 'Receive Join',
-  RECEIVE_JOIN_ERROR: 'Receive Join Error',
-
-  REQUEST_LEAVE: 'Request Leave',
-  RECEIVE_LEAVE: 'Receive Leave',
-  RECEIVE_LEAVE_ERROR: 'Receive Leave Error',
+  JOIN: 'Join',
+  LEAVE: 'Leave',
 
   REQUEST_SAVE: 'Request Save',
   RECEIVE_SAVE: 'Receive Save',
@@ -34,7 +32,6 @@ export const types = {
 function initialState () {
   return {
     entries: {},
-    waiting: {},
     idList: [],
     idListGroupId: null,
     storeIdFilter: null,
@@ -54,7 +51,7 @@ export const getters = {
     const userId = rootGetters['auth/userId']
     return pickup && {
       ...pickup,
-      isWaiting: !!state.waiting[pickup.id],
+      isWaiting: !!getters['joinLeave/get'](pickup.id).isWaiting,
       isUserMember: pickup.collectorIds.includes(userId),
       isEmpty: pickup.collectorIds.length === 0,
       isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
@@ -133,27 +130,30 @@ export const actions = {
   },
 
   async join ({ commit, dispatch, rootGetters }, pickupId) {
-    commit(types.REQUEST_JOIN, { pickupId })
-    try {
-      await pickups.join(pickupId)
-      commit(types.RECEIVE_JOIN, { pickupId, userId: rootGetters['auth/userId'] })
-    }
-    catch (error) {
-      commit(types.RECEIVE_JOIN_ERROR, { error, pickupId })
-      dispatch('fetch', { pickupId })
-    }
+    dispatch('joinLeave/request', {
+      id: pickupId,
+      async run () {
+        await pickups.join(pickupId)
+        commit(types.JOIN, { pickupId, userId: rootGetters['auth/userId'] })
+      },
+      onValidationError () {
+        // it would be nice to use plain try-catch instead of this
+        dispatch('fetch', { pickupId })
+      },
+    })
   },
 
   async leave ({ commit, dispatch, rootGetters }, pickupId) {
-    commit(types.REQUEST_LEAVE, { pickupId })
-    try {
-      await pickups.leave(pickupId)
-      commit(types.RECEIVE_LEAVE, { pickupId, userId: rootGetters['auth/userId'] })
-    }
-    catch (error) {
-      commit(types.RECEIVE_LEAVE_ERROR, { error, pickupId })
-      dispatch('fetch', { pickupId })
-    }
+    dispatch('joinLeave/request', {
+      id: pickupId,
+      async run () {
+        await pickups.leave(pickupId)
+        commit(types.LEAVE, { pickupId, userId: rootGetters['auth/userId'] })
+      },
+      onValidationError () {
+        dispatch('fetch', { pickupId })
+      },
+    })
   },
 
   async save ({ commit, dispatch }, pickup) {
@@ -235,28 +235,13 @@ export const mutations = {
     state.error = error.message
   },
 
-  [types.REQUEST_JOIN] (state, { pickupId }) {
-    Vue.set(state.waiting, pickupId, true)
-  },
-  [types.RECEIVE_JOIN] (state, { pickupId, userId }) {
-    Vue.delete(state.waiting, pickupId)
+  [types.JOIN] (state, { pickupId, userId }) {
     state.entries[pickupId].collectorIds.push(userId)
   },
-  [types.RECEIVE_JOIN_ERROR] (state, { error, pickupId }) {
-    Vue.delete(state.waiting, pickupId)
-  },
-
-  [types.REQUEST_LEAVE] (state, { pickupId }) {
-    Vue.set(state.waiting, pickupId, true)
-  },
-  [types.RECEIVE_LEAVE] (state, { pickupId, userId }) {
-    Vue.delete(state.waiting, pickupId)
+  [types.LEAVE] (state, { pickupId, userId }) {
     let { collectorIds } = state.entries[pickupId]
     let idx = collectorIds.indexOf(userId)
     if (idx !== -1) collectorIds.splice(idx, 1)
-  },
-  [types.RECEIVE_LEAVE_ERROR] (state, { error, pickupId }) {
-    Vue.delete(state.waiting, pickupId)
   },
 
   [types.REQUEST_SAVE] (state) {

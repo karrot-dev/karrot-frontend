@@ -1,7 +1,9 @@
 <template>
   <tr>
     <td v-if="!$q.platform.is.mobile" class="text-faded">
-      <small>{{ $d(new Date(entry.date), 'long') }}</small>
+      <small>
+        <DateAsWords :date="entry.date" />
+      </small>
     </td>
     <td class="text-right">
         <ProfilePicture
@@ -18,10 +20,11 @@
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   props: ['entry'],
-  components: { ProfilePicture },
+  components: { ProfilePicture, DateAsWords },
 }
 </script>
 <style scoped lang="stylus">

@@ -3,7 +3,7 @@ from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from django.utils import timezone
 from rest_framework import status, generics
 from rest_framework.decorators import list_route
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
@@ -50,17 +50,20 @@ class AuthUserView(generics.GenericAPIView):
     serializer_class = AuthUserSerializer
 
     def get_permissions(self):
+        # Allow creating user when not logged in
         if self.request.method.lower() == 'post':
-            return []
+            return (AllowAny, )
         return super().get_permissions()
 
     def post(self, request):
+        """Create a new user"""
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def patch(self, request):
+        """Update user profile"""
         instance = request.user
         serializer = self.get_serializer(instance, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
@@ -68,11 +71,14 @@ class AuthUserView(generics.GenericAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def get(self, request):
+        """Get logged-in user"""
         serializer = self.get_serializer(request.user)
         return Response(serializer.data)
 
     def delete(self, request):
         """
+        Deletes the user from the database
+        
         To keep historic pickup infos, don't delete this user, but remove its details from the database.
         """
         user = request.user

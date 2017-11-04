@@ -74,11 +74,16 @@ export function defineRequestModule () {
     RECEIVE_SUCCESS: 'Receive Success',
     RECEIVE_ERROR: 'Receive Error',
     CLEAR: 'Clear',
+    CLEAR_ALL: 'Clear all',
   }
 
-  const state = {
-    entries: {},
+  function initialState () {
+    return {
+      entries: {},
+    }
   }
+
+  const state = initialState()
 
   const getters = {
     get: state => id => state.entries[id] || ({
@@ -143,11 +148,11 @@ export function defineRequestModule () {
       })
     },
     [types.CLEAR] (state, { id }) {
-      Vue.set(state.entries, id, {
-        isWaiting: false,
-        error: undefined,
-        success: false,
-      })
+      Vue.delete(state.entries, id)
+    },
+    [types.CLEAR_ALL] (state) {
+      Object.entries(initialState())
+        .forEach(([prop, value]) => Vue.set(state, prop, value))
     },
   }
 

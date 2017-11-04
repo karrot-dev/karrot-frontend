@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -19,7 +17,6 @@ class TestUsersAPI(APITestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.user = UserFactory()
-        cls.user2 = UserFactory()
         cls.url = '/api/auth/user/'
         cls.user_data = {
             'email': faker.email(),
@@ -29,10 +26,6 @@ class TestUsersAPI(APITestCase):
             'latitude': faker.latitude(),
             'longitude': faker.longitude()
         }
-        cls.group = GroupFactory(members=[cls.user, cls.user2])
-        cls.another_common_group = GroupFactory(members=[cls.user, cls.user2])
-        cls.user_in_another_group = UserFactory()
-        cls.another_group = GroupFactory(members=[cls.user_in_another_group, ])
 
     def test_create_user(self):
         response = self.client.post(self.url, self.user_data, format='json')
@@ -50,14 +43,14 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_retrieve_user_allowed(self):
-        self.client.force_login(user=self.user2)
+        self.client.force_login(user=self.user)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['description'], self.user.description)
 
     def test_patch_user_forbidden(self):
         response = self.client.patch(self.url, self.user_data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_patch_self_allowed(self):
         self.client.force_login(user=self.user)

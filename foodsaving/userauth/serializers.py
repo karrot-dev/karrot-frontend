@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth import authenticate, login, get_user_model
-from rest_framework import serializers
 from django.utils.translation import ugettext as _
+from rest_framework import serializers
 
 
 class AuthLoginSerializer(serializers.Serializer):
@@ -26,12 +26,10 @@ class AuthUserSerializer(serializers.ModelSerializer):
         fields = ['id', 'display_name', 'email', 'unverified_email', 'password',
                   'address', 'latitude', 'longitude', 'description', 'mail_verified',
                   'key_expires_at', 'current_group', 'language']
+        read_only_field = ['unverified_email', 'key_expires_at']
         extra_kwargs = {
             'email': {
                 'required': True
-            },
-            'unverified_email': {
-                'read_only': True
             },
             'password': {
                 'write_only': True
@@ -41,18 +39,15 @@ class AuthUserSerializer(serializers.ModelSerializer):
                 'max_length': settings.DESCRIPTION_MAX_LENGTH},
             'mail_verified': {
                 'read_only': True,
-                'default': False},
-            'key_expires_at': {
-                'read_only': True
-            }
+                'default': False
+            },
         }
 
     def validate_email(self, email):
-        action = self.context['view'].action
         user = self.context['request'].user
         similar = self.Meta.model.objects.filter_by_similar_email(email)
-        if (action == 'create' and similar.exists()) \
-                or (action == 'partial_update' and similar.exclude(id=user.id).exists()):
+        if (self.instance is None and similar.exists()) \
+                or (self.instance is not None and similar.exclude(id=user.id).exists()):
             raise serializers.ValidationError(_('Similar e-mail exists: ') + similar.first().email)
         return email
 

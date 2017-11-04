@@ -3,7 +3,7 @@ from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from django.utils import timezone
 from rest_framework import status, generics
 from rest_framework.decorators import list_route
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
@@ -52,7 +52,7 @@ class AuthUserView(generics.GenericAPIView):
     def get_permissions(self):
         # Allow creating user when not logged in
         if self.request.method.lower() == 'post':
-            return (AllowAny, )
+            return []
         return super().get_permissions()
 
     def post(self, request):
@@ -78,7 +78,7 @@ class AuthUserView(generics.GenericAPIView):
     def delete(self, request):
         """
         Deletes the user from the database
-        
+
         To keep historic pickup infos, don't delete this user, but remove its details from the database.
         """
         user = request.user

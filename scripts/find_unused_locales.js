@@ -28,11 +28,10 @@ function getKeys (src, parent) {
 }
 getKeys(messages)
 
-let usages = []
 const { exec } = require('child_process')
 exec(`grep -hor "[.|$]t[c]*(.*'[a-zA-Z0-9._ ]*'.*)" src/`, (err, stdout, stderr) => {
   if (!err) {
-    usages = stdout.split('\n').map(e => e.split("'")[1])
+    const usages = stdout.split('\n').map(e => e.split("'")[1])
     for (let key of keys) {
       if (!usages.includes(key)) {
         console.log(key)

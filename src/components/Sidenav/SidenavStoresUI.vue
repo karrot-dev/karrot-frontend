@@ -1,11 +1,11 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-shopping-cart"></i>{{ $t("GROUP.STORES") }}</div>
+    <div slot="name"><i class="fa fa-fw fa-shopping-cart"></i>{{ $t('GROUP.STORES') }}</div>
     <div slot="tools">
       <router-link :to="{name: 'storeCreate'}">
         <q-btn class="text-white" small flat>
           <q-icon size="1em" name="fa-plus-circle" />
-          {{ $t("BUTTON.CREATE") }}
+          {{ $t('BUTTON.CREATE') }}
         </q-btn>
       </router-link>
     </div>

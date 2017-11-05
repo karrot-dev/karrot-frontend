@@ -1,7 +1,7 @@
 <template>
   <span>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-map"></i>{{$t("GROUPMAP.TITLE")}}</div>
+    <div slot="name"><i class="fa fa-fw fa-map"></i>{{$t('GROUPMAP.TITLE')}}</div>
     <div slot="tools" class="tools">
       <q-btn flat small @click="$emit('toggleStores')">
         <span class="fa-stack" v-if="!showStores">
@@ -13,10 +13,10 @@
           <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
         </span>
         <q-tooltip v-if="!showStores">
-          <span>{{$t("GROUPMAP.SHOW_STORES")}}</span>
+          <span>{{$t('GROUPMAP.SHOW_STORES')}}</span>
         </q-tooltip>
         <q-tooltip v-if="showStores">
-          <span>{{$t("GROUPMAP.HIDE_STORES")}}</span>
+          <span>{{$t('GROUPMAP.HIDE_STORES')}}</span>
         </q-tooltip>
       </q-btn>
 
@@ -30,10 +30,10 @@
           <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
         </span>
         <q-tooltip v-if="!showUsers">
-          <span>{{$t("GROUPMAP.SHOW_USERS")}}</span>
+          <span>{{$t('GROUPMAP.SHOW_USERS')}}</span>
         </q-tooltip>
         <q-tooltip v-if="showUsers">
-          <span>{{$t("GROUPMAP.HIDE_USERS")}}</span>
+          <span>{{$t('GROUPMAP.HIDE_USERS')}}</span>
         </q-tooltip>
       </q-btn>
     </div>

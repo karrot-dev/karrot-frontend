@@ -17,7 +17,7 @@
 
     <q-field
       icon="fa-map"
-      :label="$t('STOREEDIT.ADDRESS')">
+      :label="$t('USERDATA.WHERE_FROM')">
       <address-picker v-model="userEdit" :map="true"/>
     </q-field>
 

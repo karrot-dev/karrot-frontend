@@ -122,10 +122,10 @@ export default {
     },
     nameError () {
       const m = this.$v.storeEdit.name
-      if (!m.required) return this.$t('this field is required')
-      if (!m.minLength) return this.$t('too short')
-      if (!m.maxLength) return this.$t('too long')
-      if (!m.isUnique) return this.$t('already taken')
+      if (!m.required) return this.$t('FORM.REQUIRED')
+      if (!m.minLength) return this.$t('FORM.MINLENGTH', 2)
+      if (!m.maxLength) return this.$t('FORM.MAXLENGTH', 81)
+      if (!m.isUnique) return this.$t('FORM.UNIQUE')
       return this.requestError('name')
     },
   },

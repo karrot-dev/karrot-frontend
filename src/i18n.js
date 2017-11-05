@@ -19,6 +19,7 @@ export const locales = [
   { locale: 'eo', name: 'Esperanto' },
   { locale: 'ru', name: 'Русский' },
   { locale: 'zh', name: '中文' },
+  { locale: 'cs', name: 'Čeština' },
 ]
 
 const defaultDateTimeFormat = {

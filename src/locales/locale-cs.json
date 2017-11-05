@@ -1,0 +1,278 @@
+{
+  "GLOBAL": {
+    "GITHUB_NOTE": "Vývoj",
+    "FACEBOOK_NOTE": "Přidej se k naší skupině na Facebooku!",
+    "WARNING": "Varování",
+    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
+  },
+  "USERDATA": {
+    "EMAIL": "E-mail",
+    "PROFILE_TITLE": "Profile",
+    "PASSWORD": "Heslo",
+    "USERNAME": "Jméno",
+    "WHERE_FROM": "Where you are from (not required)"
+  },
+  "BUTTON": {
+    "CREATE": "Vytvoř",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "JOIN": "Join",
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview",
+    "BACK": "Zpět",
+    "MORE_OPTIONS": "More options",
+    "SUBMIT": "Submit",
+    "SEARCH": "Search",
+    "OF_COURSE": "Yes, of course!",
+    "YES": "Yes",
+    "SAVE_CHANGES": "Save changes",
+    "RESET": "Reset",
+    "CHANGE_PASSWORD": "Change password",
+    "AGREE": "I agree",
+    "REMOVE": "Remove"
+  },
+  "VALIDATION": {
+    "MINLENGTH": "Please enter more than {min} characters.",
+    "MAXLENGTH": "Too long, please use less than {max} characters.",
+    "UNIQUE": "Name already exists, please choose another.",
+    "REQUIRED": "This field is required.",
+    "VALID_EMAIL": "Enter a valid e-mail address.",
+    "VALID_TIMEZONE": "Enter a valid timezone."
+  },
+  "GROUP": {
+    "WALL": "Wall",
+    "GROUP": "Group",
+    "LEAVE": "Leave group...",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "LEAVE_CONFIRMATION": "You left {groupName}",
+    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "EDIT": "Edit group",
+    "CREATE_TITLE": "Create new group",
+    "MANAGE_AGREEMENT": "Manage agreement",
+    "TITLE": "Title of this group",
+    "DESCRIPTION_VERBOSE": "Group description, visible for members",
+    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
+    "PASSWORD": "Enter a password here if you want to make the group private",
+    "PICKUPS": "Pickups",
+    "MEMBERS": "Members",
+    "STORES": "Stores",
+    "HISTORY": "History",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "TIMEZONE": "Time zone of group",
+    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_SEND": "Send invitation",
+    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITE_TITLE": "Invite users to your group",
+    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
+    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
+  },
+  "GROUPMAP": {
+    "TITLE": "Map",
+    "SHOW_USERS": "Show users",
+    "HIDE_USERS": "Hide users",
+    "SHOW_STORES": "Show stores",
+    "HIDE_STORES": "Hide stores",
+    "SET_LOCATION": "Set location"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Edit store",
+    "MANAGE": "Check and manage the pickups"
+  },
+  "STOREEDIT": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups",
+    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
+    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
+    "DATE_TEXT": "Date of pickup",
+    "NUMBER_COLLECTORS": "Number of collectors"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+  },
+  "USERDETAIL": {
+    "DISPLAY_NAME": "Name",
+    "DESCRIPTION": "About you",
+    "PASSWORD": "Enter your new password"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+  },
+  "JOINGROUP": {
+    "WHICHGROUP": "Which group do you want to join?",
+    "NUM_MEMBERS": "Member | Members",
+    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
+    "PASSWORD_LABEL": "Enter password for private group",
+    "PASSWORD_REQUIRED": "This group requires a password",
+    "PASSWORD_WRONG": "You entered the wrong password",
+    "ALL_GROUPS": "All groups",
+    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
+    "MY_GROUPS": "My groups",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "You are currently logged out. {login}",
+      "LOG_IN": "Log in to see your groups!"
+    },
+    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
+  },
+  "GROUPINFO": {
+    "META": "Show public group information",
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+  },
+  "TOPBAR": {
+    "LOGOUT": "Logout",
+    "USERPROFILE": "Visit your profile",
+    "CHANGE_GROUP": "Change group"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "SUBMIT": "Login",
+    "SIGNUP": "Sign up!",
+    "FORGOT_PASSWORD": "Forgot your password?"
+  },
+  "SIGNUP": {
+    "TITLE": "Sign Up!",
+    "BACK": "Back to Login",
+    "OK": "Join"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Mail verification",
+    "SUCCESS": "Your mail address was successfully verified!",
+    "ERROR": "Something went wrong. Perhaps you already verified your address?"
+  },
+  "CREATEPICKUP": {
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
+    "TIME": "Time",
+    "TIME_ERROR": "Enter a valid time, e.g. {timeExample}",
+    "TIME_HELPER": "When should the pick-up take place?",
+    "DATE": "Date",
+    "DATE_HELPER": "When should the pick-up take place?",
+    "MAX_COLLECTORS": "Max Slots",
+    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
+    "COMMENT": "Additional information",
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+  },
+  "CREATESTORE": {
+    "TITLE": "Create a new store"
+  },
+  "PICKUPLIST": {
+    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
+    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
+    "ITEM": {
+      "LEAVE": "Leave",
+      "JOIN": "Join",
+      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
+      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+    },
+    "NONE": "No upcoming pickups",
+    "NONE_HINT": "You can create a new pickup on the store page."
+  },
+  "PICKUP_FEEDBACK": {
+    "TITLE": "Pickup feedback",
+    "HEADER": "Thank you for your pickup!",
+    "SUBTITLE": "You can provide feedback for your pickup here",
+    "AMOUNT": "Amount of food you took home (in kg)",
+    "COMMENT": "Comment",
+    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+  },
+  "PASSWORDRESET": {
+    "TITLE": "Password reset",
+    "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "Mail address",
+    "SUBMIT": "Get new password",
+    "LOGIN": "Back to login page",
+    "SUCCESS": "The request was successfully sent. Have a look at your mails!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Add more languages!"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "bold",
+    "ITALIC": "italic",
+    "STRIKE": "strike",
+    "QUOTE": "quote",
+    "HELP": "What is Markdown?"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "created this group",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
+    "STORE_CREATE": "created store {name}",
+    "STORE_MODIFY": "changed the settings of store {name}",
+    "STORE_DELETE": "deleted store {name}",
+    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_DELETE": "deleted a pick-up",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
+    "PICKUP_DONE": "did a pick-up at {storeName}",
+    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
+    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
+    "NOTHING_HAPPENEND": "Nothing happened so far..."
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "Not verified",
+    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
+    "RESEND_VERIFICATION": "resend verification email",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
+    "HOME": "Take me home"
+  },
+  "SETTINGS": {
+    "TITLE": "Settings",
+    "LANGUAGE": "Language"
+  },
+  "AGREEMENT": {
+    "NEW": "New agreement",
+    "AGREE": "You must agree to {title}",
+    "VIEW": "View agreement",
+    "TITLE": "Title",
+    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
+    "CONTENT": "Content",
+    "CONTENT_HELPER": "The text of your agreement",
+    "MINOR_EDIT": "Minor edit?",
+    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
+    "BLURB1": "You don't have an agreement yet!",
+    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "DIALOGS": {
+      "REPLACE": {
+        "TITLE": "Change agreement?",
+        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
+        "CONFIRM": "Yes, change agreement"
+      },
+      "REMOVE": {
+        "TITLE": "Remove agreement?",
+        "MESSAGE": "This means anyone will be able to do a pickup",
+        "CONFIRM": "Yes, remove agreement"
+      }
+    }
+  },
+  "WALL": {
+    "WRITE_MESSAGE": "Write a message...",
+    "WRITE_FIRST_MESSAGE": "Write the first message..."
+  }
+}

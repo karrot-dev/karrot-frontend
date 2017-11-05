@@ -161,16 +161,16 @@ export default {
     },
     nameError () {
       const m = this.$v.groupEdit.name
-      if (!m.required) return this.$t('FORM.REQUIRED')
-      if (!m.minLength) return this.$t('FORM.MINLENGTH', 4)
-      if (!m.maxLength) return this.$t('FORM.MAXLENGTH', 81)
-      if (!m.isUnique) return this.$t('FORM.UNIQUE')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 4)
+      if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+      if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.requestError('name')
     },
     timezoneError () {
       const m = this.$v.groupEdit.timezone
-      if (!m.required) return this.$t('FORM.REQUIRED')
-      if (!m.inList) return this.$t('FORM.VALID_TIMEZONE')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
       return this.requestError('timezone')
     },
   },

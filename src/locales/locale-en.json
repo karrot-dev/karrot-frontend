@@ -34,7 +34,7 @@
     "AGREE": "I agree",
     "REMOVE": "Remove"
   },
-  "FORM": {
+  "VALIDATION": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
     "MAXLENGTH": "Too long, please use less than {max} characters.",
     "UNIQUE": "Name already exists, please choose another.",

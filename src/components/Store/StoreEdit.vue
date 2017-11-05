@@ -122,10 +122,10 @@ export default {
     },
     nameError () {
       const m = this.$v.storeEdit.name
-      if (!m.required) return this.$t('FORM.REQUIRED')
-      if (!m.minLength) return this.$t('FORM.MINLENGTH', 2)
-      if (!m.maxLength) return this.$t('FORM.MAXLENGTH', 81)
-      if (!m.isUnique) return this.$t('FORM.UNIQUE')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 2)
+      if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+      if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.requestError('name')
     },
   },

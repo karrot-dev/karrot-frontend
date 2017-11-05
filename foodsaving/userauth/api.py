@@ -1,24 +1,19 @@
 from django.contrib.auth import logout
 from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from django.utils import timezone
-from rest_framework import status, generics
-from rest_framework.decorators import list_route
+from rest_framework import status, generics, views
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.userauth.serializers import AuthLoginSerializer, AuthUserSerializer
 
 
-class AuthViewSet(GenericViewSet):
+class AuthStatusView(generics.GenericAPIView):
     serializer_class = AuthLoginSerializer
 
-    @list_route(methods=['get'])
-    def status(self, request):
+    def get(self, request, **kwargs):
         """ Get the login state (logged in user)
         DEPRECATED in favour of /auth/user/
-        ---
-        response_serializer: UserSerializer
         """
         generate_csrf_token_for_frontend(request)
         if request.user.is_anonymous():
@@ -27,22 +22,24 @@ class AuthViewSet(GenericViewSet):
             serializer = AuthUserSerializer(request.user)
             return Response(serializer.data)
 
-    def create(self, request, **kwargs):
-        """ Log in
-        ---
-        request_serializer: AuthLoginSerializer
-        response_serializer: UserSerializer
-        """
+
+class LogoutView(views.APIView):
+    def post(self, request, **kwargs):
+        """ Log out """
+        logout(request)
+        return Response(status=status.HTTP_200_OK)
+
+
+class AuthView(generics.GenericAPIView):
+    serializer_class = AuthLoginSerializer
+
+    def post(self, request, **kwargs):
+        """ Log in """
         serializer = AuthLoginSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             return Response(data=AuthUserSerializer(request.user).data, status=status.HTTP_201_CREATED)
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    @list_route(methods=['POST'])
-    def logout(self, request, **kwargs):
-        logout(request)
-        return Response(status=status.HTTP_200_OK)
 
 
 class AuthUserView(generics.GenericAPIView):

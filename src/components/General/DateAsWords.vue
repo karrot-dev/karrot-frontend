@@ -1,38 +1,23 @@
 <template>
-  <div>{{dateInWords(date)}}</div>
+  <div>
+    {{dateInWords(date)}}
+    <q-tooltip>{{ $d(new Date(date), 'long') }}</q-tooltip>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import { QTooltip } from 'quasar'
 
-const locales = {
-  en: require('date-fns/locale/en'),
-  zh: require('date-fns/locale/zh_cn'),
-  de: require('date-fns/locale/de'),
-  fr: require('date-fns/locale/fr'),
-  sv: require('date-fns/locale/sv'),
-  es: require('date-fns/locale/es'),
-  it: require('date-fns/locale/it'),
-  eo: require('date-fns/locale/eo'),
-  ru: require('date-fns/locale/ru'),
-}
+import dateFnsHelper from '@/services/DateFnsHelper'
 
 export default {
   props: {
     date: { required: true },
   },
-  computed: {
-    ...mapGetters({
-      userLocale: 'i18n/locale',
-    }),
-    locale () {
-      return locales[this.userLocale]
-    },
-  },
+  components: { QTooltip },
   methods: {
     dateInWords (date) {
-      return distanceInWordsToNow(date, { addSuffix: true, locale: this.locale })
+      return dateFnsHelper.distanceInWordsToNow(date)
     },
   },
 }

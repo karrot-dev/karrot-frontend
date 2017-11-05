@@ -1,10 +1,5 @@
-jest.mock('@/store/plugins/persistedState', () => {
-  return () => {}
-})
-
 import DateAsWords from './DateAsWords'
 import { mountWithDefaults } from '>/helpers'
-import store from '@/store'
 
 describe('DateAsWords', () => {
   it('renders 1 day ago', () => {
@@ -17,8 +12,10 @@ describe('DateAsWords', () => {
         propsData: {
           date,
         },
-        store,
       })
-    expect(wrapper.text()).toBe('1 day ago')
+    // text
+    expect(wrapper.text()).toEqual(expect.stringContaining('1 day ago'))
+    // tooltip
+    expect(wrapper.text()).toEqual(expect.stringContaining('Aug 11, 2017, 12:00 PM'))
   })
 })

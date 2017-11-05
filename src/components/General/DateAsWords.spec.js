@@ -16,6 +16,6 @@ describe('DateAsWords', () => {
     // text
     expect(wrapper.text()).toEqual(expect.stringContaining('1 day ago'))
     // tooltip
-    expect(wrapper.text()).toEqual(expect.stringContaining('Aug 11, 2017, 12:00 PM'))
+    expect(wrapper.text()).toEqual(expect.stringContaining('Aug 11, 2017'))
   })
 })

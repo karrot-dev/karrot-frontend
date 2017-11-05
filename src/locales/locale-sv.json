@@ -37,7 +37,7 @@
     "MORE_OPTIONS": "More options"
   },
   "FORM": {
-    "MINLENGTH": "Ange mer än {{min}} boxtäver.",
+    "MINLENGTH": "Ange mer än {min} boxtäver.",
     "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
@@ -120,7 +120,7 @@
   "TOPBAR": {
     "LOGOUT": "Logga ut",
     "USERPROFILE": "Gå till din profil",
-    "GREETING": "Hej, {{username}}"
+    "GREETING": "Hej, {username}"
   },
   "LOGIN": {
     "TITLE": "Logga in",
@@ -151,7 +151,7 @@
     "WEEKDAYS": "Helg",
     "HINT_MULTIPLE": "Du kan välja flera dagar genom att hålla ner CTRL tangenten.",
     "TIME": "Tid",
-    "TIME_ERROR": "Ange tiden korrekt, tex. {{timeExample}}",
+    "TIME_ERROR": "Ange tiden korrekt, tex. {timeExample}",
     "MAX_COLLECTORS": "Max Slots",
     "COMMENT": "Additional information"
   },
@@ -198,19 +198,19 @@
     "GROUP_MODIFY": "ändrade inställningar för gruppen",
     "GROUP_JOIN": "gick med i gruppen",
     "GROUP_LEAVE": "Lämnade gruppen",
-    "STORE_CREATE": "skapade butiken {{name}}",
-    "STORE_MODIFY": "ändrade inställningen för butiken {{name}}",
-    "STORE_DELETE": "tog bort butiken {{name}}",
+    "STORE_CREATE": "skapade butiken {name}",
+    "STORE_MODIFY": "ändrade inställningen för butiken {name}",
+    "STORE_DELETE": "tog bort butiken {name}",
     "PICKUP_CREATE": "skapade en upphämtning",
     "PICKUP_MODIFY": "ändrade inställningarna för en upphämtninng",
     "PICKUP_DELETE": "tog bort en upphämtning",
     "SERIES_CREATE": "skapade en återkommande upphämtning",
     "SERIES_MODIFY": "ändrade inställningarna för en återkommande upphämtning",
     "SERIES_DELETE": "tog bort en återkommande upphämtning",
-    "PICKUP_DONE": "hämtade på {{store_name}}",
-    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
-    "PICKUP_JOIN": "anmällde sig till en upphämtning på {{store_name}}",
-    "PICKUP_LEAVE": "avanmällde sig från en hämtning på {{store_name}}",
+    "PICKUP_DONE": "hämtade på {storeName}",
+    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
+    "PICKUP_JOIN": "anmällde sig till en upphämtning på {storeName}",
+    "PICKUP_LEAVE": "avanmällde sig från en hämtning på {storeName}",
     "LOAD_MORE": "load more ...",
     "ALL_LOADED": "All entries loaded.",
     "STORES": "Stores",

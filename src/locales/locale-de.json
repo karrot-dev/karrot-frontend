@@ -37,7 +37,7 @@
     "MORE_OPTIONS": "More options"
   },
   "FORM": {
-    "MINLENGTH": "Bitte gib mehr als {{min}} Zeichen ein.",
+    "MINLENGTH": "Bitte gib mehr als {min} Zeichen ein.",
     "UNIQUE": "Der Name existiert bereits, bitte wähle einen anderen."
   },
   "GROUP": {
@@ -120,7 +120,7 @@
   "TOPBAR": {
     "LOGOUT": "Logout",
     "USERPROFILE": "Dein Profil",
-    "GREETING": "Hallo {{username}}!"
+    "GREETING": "Hallo {username}!"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -151,7 +151,7 @@
     "WEEKDAYS": "Wochentage",
     "HINT_MULTIPLE": "Du kannst mehrere Tage auswählen, z.B. indem du Strg gedrückt hälst.",
     "TIME": "Uhrzeit",
-    "TIME_ERROR": "Gib eine gültige Uhrzeit ein, z.B. {{timeExample}}",
+    "TIME_ERROR": "Gib eine gültige Uhrzeit ein, z.B. {timeExample}",
     "MAX_COLLECTORS": "Anzahl Abholer",
     "COMMENT": "Additional information"
   },
@@ -198,19 +198,19 @@
     "GROUP_MODIFY": "hat die Eigenschaften dieser Gruppe geändert",
     "GROUP_JOIN": "ist dieser Gruppe beigetreten",
     "GROUP_LEAVE": "hat diese Gruppe verlassen",
-    "STORE_CREATE": "hat den Betrieb {{name}} erstellt",
-    "STORE_MODIFY": "hat die Eigenschaften von Betrieb {{name}} geändert",
-    "STORE_DELETE": "hat Betrieb {{name}} gelöscht",
+    "STORE_CREATE": "hat den Betrieb {name} erstellt",
+    "STORE_MODIFY": "hat die Eigenschaften von Betrieb {name} geändert",
+    "STORE_DELETE": "hat Betrieb {name} gelöscht",
     "PICKUP_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
     "PICKUP_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
     "PICKUP_DELETE": "hat einen Abholtermin gelöscht",
     "SERIES_CREATE": "hat einen neuen regelmäßigen Abholtermin erstellt",
     "SERIES_MODIFY": "hat die Eigenschaften eines regelmäßigen Abholtermins geändert",
     "SERIES_DELETE": "hat einen regelmäßigen Abholtermin gelöscht",
-    "PICKUP_DONE": "haben bei {{store_name}} abgeholt",
-    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
-    "PICKUP_JOIN": "hat sich gemeldet, um bei {{store_name}} abzuholen",
-    "PICKUP_LEAVE": "ist von dem Abholtermin bei {{store_name}} zurückgetreten",
+    "PICKUP_DONE": "haben bei {storeName} abgeholt",
+    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
+    "PICKUP_JOIN": "hat sich gemeldet, um bei {storeName} abzuholen",
+    "PICKUP_LEAVE": "ist von dem Abholtermin bei {storeName} zurückgetreten",
     "LOAD_MORE": "load more ...",
     "ALL_LOADED": "All entries loaded.",
     "STORES": "Stores",

@@ -37,7 +37,7 @@
     "MORE_OPTIONS": "更多選項"
   },
   "FORM": {
-    "MINLENGTH": "請輸入超過{{min}}字數",
+    "MINLENGTH": "請輸入超過{min}字數",
     "UNIQUE": "名稱已存在，請選另外的名稱"
   },
   "GROUP": {
@@ -120,7 +120,7 @@
   "TOPBAR": {
     "LOGOUT": "登出",
     "USERPROFILE": "進入你的個人資料頁",
-    "GREETING": "嗨，{{username}}！"
+    "GREETING": "嗨，{username}！"
   },
   "LOGIN": {
     "TITLE": "登入",
@@ -151,7 +151,7 @@
     "WEEKDAYS": "週間日",
     "HINT_MULTIPLE": "你可以透過長按Ctrl鈕一次選取多個日子。",
     "TIME": "時間",
-    "TIME_ERROR": "輸入有效的時間，例如{{timeExample}}",
+    "TIME_ERROR": "輸入有效的時間，例如{timeExample}",
     "MAX_COLLECTORS": "最大值",
     "COMMENT": "更多資訊"
   },
@@ -198,19 +198,19 @@
     "GROUP_MODIFY": "變更此社團的設定",
     "GROUP_JOIN": "加入此社團",
     "GROUP_LEAVE": "離開此社團",
-    "STORE_CREATE": "創建店面{{name}}",
-    "STORE_MODIFY": "變更店面{{name}}設定",
-    "STORE_DELETE": "刪除店面{{name}}",
+    "STORE_CREATE": "創建店面{name}",
+    "STORE_MODIFY": "變更店面{name}設定",
+    "STORE_DELETE": "刪除店面{name}",
     "PICKUP_CREATE": "創建新的一次性開放外帶",
     "PICKUP_MODIFY": "變更開放外帶的設定",
     "PICKUP_DELETE": "刪除開放外帶",
     "SERIES_CREATE": "創建新的循環出現開放外帶",
     "SERIES_MODIFY": "變更循環出現的開放外帶設定",
     "SERIES_DELETE": "刪除循環出現的開放外帶",
-    "PICKUP_DONE": "在{{store_name}}拿取開放外帶",
-    "PICKUP_MISSED": "錯過了在  {{store_name}} 的外帶！",
-    "PICKUP_JOIN": "在{{store_name}}之中登記一份外帶",
-    "PICKUP_LEAVE": "從在{{store_name}}進行一次外帶返回",
+    "PICKUP_DONE": "在{storeName}拿取開放外帶",
+    "PICKUP_MISSED": "錯過了在  {storeName} 的外帶！",
+    "PICKUP_JOIN": "在{storeName}之中登記一份外帶",
+    "PICKUP_LEAVE": "從在{storeName}進行一次外帶返回",
     "LOAD_MORE": "載入更多...",
     "ALL_LOADED": "所有輸入都已載入。",
     "STORES": "店面",

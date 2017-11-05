@@ -37,7 +37,7 @@
     "MORE_OPTIONS": "More options"
   },
   "FORM": {
-    "MINLENGTH": "Please enter more than {{min}} characters.",
+    "MINLENGTH": "Please enter more than {min} characters.",
     "UNIQUE": "Name already exists, please choose another."
   },
   "GROUP": {
@@ -120,7 +120,7 @@
   "TOPBAR": {
     "LOGOUT": "Cerrar sesión",
     "USERPROFILE": "Visitar perfil",
-    "GREETING": "¡Hola {{username}}!"
+    "GREETING": "¡Hola {username}!"
   },
   "LOGIN": {
     "TITLE": "Iniciar sesión",
@@ -151,7 +151,7 @@
     "WEEKDAYS": "Weekdays",
     "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
     "TIME": "Fecha",
-    "TIME_ERROR": "introducir fecha válida: {{timeExample}}",
+    "TIME_ERROR": "introducir fecha válida: {timeExample}",
     "MAX_COLLECTORS": "Máx ranuras",
     "COMMENT": "Additional information"
   },
@@ -198,19 +198,19 @@
     "GROUP_MODIFY": "cambió los ajustes de este grupo",
     "GROUP_JOIN": "se unió a este grupo",
     "GROUP_LEAVE": "se fue de este grupo",
-    "STORE_CREATE": "creó la tienda {{name}}",
-    "STORE_MODIFY": "changed the settings of store {{name}}",
-    "STORE_DELETE": "deleted store {{name}}",
+    "STORE_CREATE": "creó la tienda {name}",
+    "STORE_MODIFY": "changed the settings of store {name}",
+    "STORE_DELETE": "deleted store {name}",
     "PICKUP_CREATE": "created a new one-time pick-up",
     "PICKUP_MODIFY": "changed the settings of a pick-up",
     "PICKUP_DELETE": "deleted a pick-up",
     "SERIES_CREATE": "created a new recurring pick-up",
     "SERIES_MODIFY": "changed the settings of a recurring pick-up",
     "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {{store_name}}",
-    "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}",
+    "PICKUP_DONE": "did a pick-up at {storeName}",
+    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
+    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
     "LOAD_MORE": "load more ...",
     "ALL_LOADED": "All entries loaded.",
     "STORES": "Stores",

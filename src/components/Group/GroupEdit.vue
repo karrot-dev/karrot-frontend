@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 v-if="isNew"><i class="fa fa-pencil"></i> {{ $t('GROUP.CREATE_TITLE') }}</h3>
-    <h3 v-else><i class="fa fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
+    <h3 v-else><i class="fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
         <form @submit="save">

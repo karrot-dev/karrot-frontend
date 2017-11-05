@@ -1,4 +1,4 @@
-import i18n, { angularToVueI18n } from '@/i18n'
+import i18n from '@/i18n'
 import axios from 'axios'
 
 /**
@@ -7,7 +7,7 @@ import axios from 'axios'
  */
 export default store => {
   store.watch(state => state.i18n.locale, async locale => {
-    const messages = angularToVueI18n(await import(`@/locales/locale-${locale}.json`))
+    const messages = await import(`@/locales/locale-${locale}.json`)
     i18n.setLocaleMessage(locale, messages)
     i18n.locale = locale
 

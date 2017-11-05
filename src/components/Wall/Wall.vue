@@ -82,10 +82,10 @@ export default {
   computed: {
     messagePrompt () {
       if (this.messages.length > 0) {
-        return this.$t('write a message')
+        return this.$t('WALL.WRITE_MESSAGE')
       }
       else {
-        return this.$t('write the first message')
+        return this.$t('WALL.WRITE_FIRST_MESSAGE')
       }
     },
   },

@@ -17,7 +17,7 @@
           :source="group.publicDescription"
         />
         <span v-else class="text-italic">
-          {{ $t("JOINGROUP.NO_PUBLIC_DESCRIPTION") }}
+          {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
         </span>
       </q-card-main>
       <q-card-separator />
@@ -47,7 +47,7 @@
         <q-btn v-if="group.isMember" @click="$emit('visit', { groupId: group.id })" class="q-btn-flat">
           <q-icon name="fa-home" />
           <q-tooltip>
-            {{ $t("GROUPINFO.MEMBER_VIEW") }}
+            {{ $t('GROUPINFO.MEMBER_VIEW') }}
           </q-tooltip>
         </q-btn>
       </q-card-actions>

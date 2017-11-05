@@ -2,24 +2,10 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FACEBOOK_NOTE": "Join our Facebook Group!",
-    "DEVMAIL_NOTE": "Write us a mail for suggestions and error reports",
     "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
-    "SERVER_ERROR": "Server error",
-    "NOT_LOGGED_IN": "Not logged in"
-  },
-  "ACTION_NOTICE": {
-    "TITLE": "Call for collaboration!",
-    "TEXT": "Are you interested in building up a foodsaving project or a foodsharing community? Do you know somebody who is already doing it?",
-    "MAIL_TEXT": "Write us a mail!"
-  },
-  "LANDINGPAGE": {
-    "BLOG": "Blog",
-    "TEAM": "Team",
-    "LOGIN": "Login",
-    "SEE_OUR_MAP": "Have a look at our map!",
-    "OUR_GROUPS": "Groups on Foodsaving Worldwide"
+    "SERVER_ERROR": "Server error"
   },
   "USERDATA": {
     "EMAIL": "Mail",
@@ -48,9 +34,13 @@
     "AGREE": "I agree",
     "REMOVE": "Remove"
   },
-  "FORM": {
+  "VALIDATION": {
     "MINLENGTH": "Please enter more than {{min}} characters.",
-    "UNIQUE": "Name already exists, please choose another."
+    "MAXLENGTH": "Too long, please use less than {max} characters.",
+    "UNIQUE": "Name already exists, please choose another.",
+    "REQUIRED": "This field is required.",
+    "VALID_EMAIL": "Enter a valid e-mail address.",
+    "VALID_TIMEZONE": "Enter a valid timezone."
   },
   "GROUP": {
     "WALL": "Wall",
@@ -83,17 +73,15 @@
   },
   "GROUPMAP": {
     "TITLE": "Map",
-    "SHOW_OVERVIEW": "Show overview",
     "SHOW_USERS": "Show users",
     "HIDE_USERS": "Hide users",
     "SHOW_STORES": "Show stores",
-    "HIDE_STORES": "Hide stores"
+    "HIDE_STORES": "Hide stores",
+    "SET_LOCATION": "Set location"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
-    "ADDRESS": "Address",
-    "MANAGE": "Check and manage the pickups",
-    "MANAGE_PICKUP_DATES": "Manage pickup dates"
+    "MANAGE": "Check and manage the pickups"
   },
   "STOREEDIT": {
     "NAME": "Name",
@@ -114,22 +102,15 @@
     "DELETE_SERIES_TITLE": "Delete recurring pickup date",
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
-  "CHAT": {
-    "TITLE": "Chat"
-  },
   "USERDETAIL": {
-    "EDIT": "Edit user",
     "DISPLAY_NAME": "Name",
-    "EMAIL": "Mail",
     "DESCRIPTION": "About you",
-    "PASSWORD_CHANGE": "Change your password (you will be logged out)",
     "PASSWORD": "Enter your new password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
-    "NAME": "Name",
     "WHICHGROUP": "Which group do you want to join?",
     "NUM_MEMBERS": "Member|Members",
     "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
@@ -149,18 +130,13 @@
     "META": "Show public group information",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
-  "HOME": {
-    "REDIRECT": "Redirecting to your beloved group..."
-  },
   "TOPBAR": {
     "LOGOUT": "Logout",
     "USERPROFILE": "Visit your profile",
-    "CHANGE_GROUP": "Change group",
-    "GREETING": "Hi, {{username}}!"
+    "CHANGE_GROUP": "Change group"
   },
   "LOGIN": {
     "TITLE": "Login",
-    "WRONG": "The given credentials are wrong. Please check them carefully.",
     "SUBMIT": "Login",
     "SIGNUP": "Sign up!",
     "FORGOT_PASSWORD": "Forgot your password?"
@@ -168,16 +144,12 @@
   "SIGNUP": {
     "TITLE": "Sign Up!",
     "BACK": "Back to Login",
-    "OK": "Join",
-    "FAILED": "Sign up failed!"
+    "OK": "Join"
   },
   "VERIFYMAIL": {
     "TITLE": "Mail verification",
     "SUCCESS": "Your mail address was successfully verified!",
     "ERROR": "Something went wrong. Perhaps you already verified your address?"
-  },
-  "GROUPMENU": {
-    "JOIN": "Join community"
   },
   "CREATEPICKUP": {
     "TITLE": "Create pickup",
@@ -202,22 +174,13 @@
   "PICKUPLIST": {
     "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
     "JOINEDNOTICE": "You have one upcoming pickup|You have {count} upcoming pickups",
-    "FILTER": "Filter",
-    "JOINED": "joined",
-    "OPEN": "open",
-    "FULL": "full",
-    "SORT": "Sort",
     "ITEM": {
       "LEAVE": "Leave",
       "JOIN": "Join",
-      "FULL": "Full!",
-      "DELETE": "Delete pickup date",
       "JOIN_CONFIRMATION_HEADER": "Join Pickup",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
       "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?",
-      "DELETE_TEXT": "Do you really want to delete this pickup date?",
-      "DELETE_SERIES_TEXT": "This pickup date is part of a series. Also delete the series?"
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
     "NONE": "No upcoming pickups",
     "NONE_HINT": "You can create a new pickup on the store page."
@@ -266,19 +229,7 @@
     "PICKUP_MISSED": "A pickup at {{store_name}} was missed!",
     "PICKUP_JOIN": "signed up to do a pick-up at {{store_name}}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {{store_name}}",
-    "LOAD_MORE": "load more ...",
-    "ALL_LOADED": "All entries loaded.",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "STORES": "Stores",
-    "USERS": "Users",
-    "TYPE": "Type",
-    "SELECT_ALL": "Select all",
-    "SELECT_NONE": "Select none",
-    "TYPES": {
-      "GROUPS": "Group related",
-      "STORES": "Store related",
-      "PICKUPS": "Pick-up related"
-    }
+    "NOTHING_HAPPENEND": "Nothing happened so far..."
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",
@@ -288,9 +239,6 @@
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOT_FOUND": {
-    "TITLE": "Page not found",
-    "HEADER": "Ooooooops!",
-    "SUBHEADER": "404 - Page not found",
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"
   },
@@ -323,14 +271,8 @@
       }
     }
   },
-  "this field is required": "This field is required",
-  "enter a valid e-mail address": "Enter a valid e-mail address",
-  "too short": "Too short!",
-  "too long": "Too long!",
-  "already taken": "Already taken",
-  "Enter a valid timezone": "Enter a valid timezone",
-  "write a message": "Write a message...",
-  "write the first message": "Write the first message...",
-  "set store location": "Set location of this store",
-  "set group location": "Set location of this group"
+  "WALL": {
+    "WRITE_MESSAGE": "Write a message...",
+    "WRITE_FIRST_MESSAGE": "Write the first message..."
+  }
 }

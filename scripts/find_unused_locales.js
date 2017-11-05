@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 /**
  * Hacky script to compare the messages in locale-en.json with client-side usage
- * Run: node find_unused_locales.js
+ * Run: scripts/find_unused_locales.js
  *
  * Only handles t('KEY') markers, so it shows a lot of false positives
  */

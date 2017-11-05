@@ -136,7 +136,7 @@ export const actions = {
 
   selectGroupInfo ({ commit, getters }, groupPreviewId) {
     if (!getters.get(groupPreviewId)) {
-      router.push('/notfound')
+      router.replace('/notfound')
     }
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
   },
@@ -159,7 +159,7 @@ export const actions = {
     const userId = rootGetters['auth/userId']
     if (!group.members.includes(userId)) {
       Toast.create.warning(i18n.t('GROUP.NONMEMBER_REDIRECT'))
-      router.push('/')
+      router.replace('/notfound')
     }
     commit(types.RECEIVE_GROUP, { group })
   },

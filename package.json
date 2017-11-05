@@ -48,6 +48,7 @@
     "raven-js": "^3.19.1",
     "reconnecting-websocket": "^3.2.1",
     "twemoji": "^2.5.0",
+    "typeface-cabin-sketch": "^0.0.43",
     "vue": "~2.5.2",
     "vue-i18n": "^7.2.0",
     "vue-router": "^3.0.1",

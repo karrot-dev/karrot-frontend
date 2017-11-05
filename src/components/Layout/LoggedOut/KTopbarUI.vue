@@ -15,7 +15,7 @@
       <router-link :to="{ name: 'login' }">
         <q-btn class="text-white">{{ $t('LOGIN.SUBMIT') }}</q-btn>
       </router-link>
-      <router-link class="desktop-only" :to="{ name: 'signup' }">
+      <router-link v-if="!$q.platform.is.mobile" :to="{ name: 'signup' }">
         <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
       </router-link>
     </div>

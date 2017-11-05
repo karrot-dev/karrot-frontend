@@ -77,10 +77,9 @@ export default {
   },
   computed: {
     emailErrorMessage () {
-      // TODO translate
       const m = this.$v.form.email
-      if (!m.required) return this.$t('this field is required')
-      if (!m.email) return this.$t('enter a valid e-mail address')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')
       if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
     },
   },

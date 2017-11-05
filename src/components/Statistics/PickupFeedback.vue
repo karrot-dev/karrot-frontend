@@ -5,8 +5,8 @@
         <img style="width: 100%" :src="cartImg">
       </div>
       <div class="image-and-text-right">
-        <h3>{{$t("PICKUP_FEEDBACK.HEADER")}}</h3>
-        <p>{{$t("PICKUP_FEEDBACK.SUBTITLE")}}</p>
+        <h3>{{$t('PICKUP_FEEDBACK.HEADER')}}</h3>
+        <p>{{$t('PICKUP_FEEDBACK.SUBTITLE')}}</p>
       </div>
     </div>
     <AmountPicker/>

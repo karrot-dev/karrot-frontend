@@ -15,17 +15,17 @@
         </template>
         <MainAlerts />
         <div class="mainContent row justify-between no-wrap">
-          <div class="whiteSpace gt-sm desktop-only"/>
-            <router-view class="desktop-only sidenav-desktop" name="sidenav"></router-view>
+          <div class="whiteSpace gt-sm" />
+          <router-view v-if="!$q.platform.is.mobile" class="sidenav-desktop" name="sidenav" />
           <div class="mainContent-page">
-            <router-view></router-view>
+            <router-view />
           </div>
           <div class="whiteSpace gt-sm desktop-only"/>
         </div>
-        <KFooter v-if="!isLoggedIn" class="mobile-only"/>
+        <KFooter v-if="$q.platform.is.mobile && !isLoggedIn"/>
 
-        <MobileNavigation v-if="isLoggedIn" class="mobile-only" slot="footer"></MobileNavigation>
-        <KFooter class="desktop-only" slot="footer"/>
+        <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn" slot="footer" />
+        <KFooter v-if="!$q.platform.is.mobile" slot="footer"/>
       </q-layout>
     </div>
 </template>

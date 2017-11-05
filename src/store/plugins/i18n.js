@@ -1,5 +1,6 @@
 import i18n, { angularToVueI18n } from '@/i18n'
 import axios from 'axios'
+import dateFnsHelper from '@/services/DateFnsHelper'
 
 /**
  * For getting hot reload to work, webpack needs to do static analysis
@@ -10,6 +11,8 @@ export default store => {
     const messages = angularToVueI18n(await import(`@/locales/locale-${locale}.json`))
     i18n.setLocaleMessage(locale, messages)
     i18n.locale = locale
+
+    dateFnsHelper.setLocale(locale)
 
     axios.defaults.headers.common['Accept-Language'] = locale
   }, {immediate: true})

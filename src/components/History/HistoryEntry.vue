@@ -15,16 +15,20 @@
     <td class="expand text-truncate">
       {{ entry.message }}
     </td>
+    <q-tooltip v-if="$q.platform.is.mobile">
+      {{ $d(new Date(entry.date), 'long') }}
+    </q-tooltip>
   </tr>
 </template>
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
+import { QTooltip } from 'quasar'
 
 export default {
   props: ['entry'],
-  components: { ProfilePicture, DateAsWords },
+  components: { QTooltip, ProfilePicture, DateAsWords },
 }
 </script>
 <style scoped lang="stylus">

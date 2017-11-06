@@ -1,6 +1,6 @@
 <template>
     <div class="background mainLayoutDesktop">
-      <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
+      <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100" :left-breakpoint="leftBreakpoint">
         <div slot="header">
           <KTopbar  @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn" slot="header">
             <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
@@ -52,6 +52,12 @@ export default {
         return 'hHh lpr fFf'
       }
       return 'hHh lpr fff'
+    },
+    leftBreakpoint () {
+      if (this.isLoggedIn) {
+        return 992 // quasar default
+      }
+      return 9999 // always hide by default
     },
   },
 }

@@ -27,6 +27,7 @@
       <q-icon name="fa-fw fa-search"/>
     </q-btn>
     <template v-if="!$q.platform.is.mobile">
+      <LocaleSelect />
       <router-link :to="{name: 'user', params: {userId: user.id}}" class="defaulthover">
         <q-btn flat>
           {{ user.displayName }}
@@ -61,10 +62,11 @@ import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QIt
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
+import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
   components: {
-    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb, Search,
+    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },

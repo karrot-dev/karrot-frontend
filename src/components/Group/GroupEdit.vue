@@ -95,6 +95,7 @@
 </template>
 
 <script>
+import jstz from 'jstimezonedetect'
 import { QCard, QField, QInput, QBtn, QAutocomplete } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
@@ -118,7 +119,7 @@ export default {
           password: undefined,
           publicDescription: undefined,
           description: undefined,
-          timezone: 'Europe/Berlin', // TODO replace with jstimezonedetect on create
+          timezone: jstz.determine().name(),
           latitude: undefined,
           longitude: undefined,
           address: undefined,

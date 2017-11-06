@@ -1,7 +1,7 @@
 # foodsaving.world Beginners Guide
 
 - Website: https://foodsaving.world
-- Model predecessor: https://foodsharing.de
+- Predecessor: https://foodsharing.de
 - Repository on GitHub: https://github.com/yunity/karrot-backend
 
 This is a beginner guide to _karrot-backend_ by [@id-gue](https://github.com/id-gue) and [@mddemarie](https://github.com/mddemarie) written for people who want to contribute to foodsaving.world, but aren't (yet) experienced Python/Django devs. Welcome and have fun!
@@ -19,7 +19,7 @@ You don't need to do the setup for the frontend, but it might be useful to try o
 https://github.com/yunity/karrot-backend
 
 - Python – object-oriented programming language
-- Django – Python framework (for faster web development)
+- Django – Python framework for backend development
          Tutorial: https://docs.djangoproject.com/en/1.11/intro/tutorial01
 - Django REST Framework on top of django for building Web APIs
          Tutorial: http://www.django-rest-framework.org/tutorial/1-serialization
@@ -77,11 +77,11 @@ Further actions are for example:
 - for member in `Store`: create/update/delete
 - for collector in `PickupDate`/`PickupDateSeries`: create/join/update/delete
 
-Collectors have also an option after food pickup to leave a `feedback`.
+Collectors have also an option after food pickup to leave `feedback`.
 
 ### Foodsaving Apps
 
-At the moment (September 2017) there are 15 Apps (= Folders) in foodsaving. Not all of them are in use or critical for [foodsaving.world](https://foodsaving.world/#!/landingPage) since the project is under development and the dev team tries different approaches.
+At the moment (September 2017) there are 15 Apps (= folders) in foodsaving. Not all of them are in use or critical for [foodsaving.world](https://foodsaving.world/#!/landingPage) since the project is under development and the dev team tries different approaches.
 
 Important apps are for example:
 
@@ -98,27 +98,27 @@ In models.py in `stores`, you can find classes for Stores and Feedback, as well 
 
 #### History
 
-In `history` you find any action regarding stores, groups or pickup-dates/pickup-series from the past. As result you find here different HistoryTypus (just “typus” in database), e.g. PICKUP_JOIN and additional data about that action. This helps to keep a track of all actions.
+In `history` you find any action regarding stores, groups or pickup-dates/pickup-series from the past. As a result, you find here different HistoryTypus (just “typus” in database), e.g. `PICKUP_JOIN` and additional data about that action. This helps to keep a track of all actions.
 
 
 ## 03 Stores app in detail
 
-We want to dig a bit deeper in the app stores a) to give you an example how the foodsaving apps work and b) because there is too much functionality inside that you might like to know. If you didn't already opened the code in your editor: do it now! Open the stores app and have a look on the files:
+We want to dig a bit deeper into the app `Stores` (a) to give you an example of how the foodsaving apps work and (b) because there is too much functionality inside that you might like to know. If you haven't already opened the code in your editor: do it now! Open the stores app and have a look at the files:
 
-1. __models.py__ Here you define which database tables you want to have and what the fields/columns should store in the database. One model (or class) defines one database table. Let's have a look on the Model `Feedback` which creates four database fields (and two fields for the id and a time stamp, but these are created automatically here). The following line creates a field with the name `comment`.
+1. __models.py__ Here you define which database tables you want to have and what the fields/columns should store in the database. One model (or class) defines one database table. Let's have a look at the model `Feedback` which creates four database fields (and two fields for the id and a time stamp, but these are created automatically here). The following line creates a field with the name `comment`.
 
 	`comment = models.CharField(max_length=settings.DESCRIPTION_MAX_LENGTH, blank=True)`
 
-	The type [CharField](https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.CharField) says that `comment` will be stored as string in database. That string could be maximal as long as defined in the file settings.py under `DESCRIPTION_MAX_LENGTH`. The entry can be saved even if the comment field is `blank`.
+	The type [CharField](https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.CharField) says that `comment` will be stored as string in database. The maximum string length is given as `DESCRIPTION_MAX_LENGTH` in the file settings.py. The entry can be saved even if the comment field is `blank`.
 
 
-2. __serializers.py__ The models we created in models.py are python objects. But these are not very useful in order to access the API – so we convert them to JSON objects with `serializers`. Our Feedback model has a FeedbackSerialzer which inherits many functions from ModelSerializers. But there are also new functions like `validate_about`. (user is a member of group, that member joined the pickup and the pickup is in the future).  This validator checks if a user is allowed to give feedback about a certain pickup. _(Validate stuff in a Serializer might sound strange, but it's common in the REST framework. See [Validators in the documentation](http://www.django-rest-framework.org/api-guide/validators/))_
+2. __serializers.py__ The models we created in models.py are python objects. But these are not very useful in order to access the API – so we convert them to JSON objects with `serializers`. Our Feedback model has a FeedbackSerialzer which inherits many functions from ModelSerializers. But there are also new functions like `validate_about`. (user is a member of group, that member joined the pickup and the pickup is in the future).  This validator checks if a user is allowed to give feedback about a certain pickup. _(Validation within a Serializer might sound strange, but it's common in the REST framework. See [Validators in the documentation](http://www.django-rest-framework.org/api-guide/validators/))_
 
 3. __permissions.py__ Another possibility to check if something is allowed are _permissions_. They are used in `api.py`. Here is for example the permission `IsNotFull` that permits a member to join the pickup event only if it is not full.
 
-4. __api.py__ The api defines how the data stored in the database can be accessed via API. The used HTTP methods (like `GET`, `POST` or `PATCH`) are described in the chapter _03 Server and Swagger_.
+4. __api.py__ The api defines how the data stored in the database can be accessed via API. The used HTTP methods (like `GET`, `POST` or `PATCH`) are described in chapter _03 Server and Swagger_.
 
-	Instead of normal `Views` we use whole `ViewSets` which allow to combine the logic for a set of related views. Have a look on the class `FeedbackViewSet`. You will notice that most HTTP methods (like `GET`) are not defined there but in an imported [mixin](http://www.django-rest-framework.org/api-guide/generic-views/#mixins). Each mixin contains whole logic for creating a single HTTP request. The ViewSets are connected with `urls.py` and defined there in form of an url.
+	Instead of normal `Views` we use whole `ViewSets` which allow to combine the logic for a set of related views. Have a look on the class `FeedbackViewSet`. You will notice that most HTTP methods (like `GET`) are not defined there but in an imported [mixin](http://www.django-rest-framework.org/api-guide/generic-views/#mixins). Each mixin contains whole logic for creating a single HTTP request. The ViewSets are connected with `urls.py` and defined there in form of a url.
 
 5. __factories.py__ In a Factory you can create sample data used in the tests.
 
@@ -134,9 +134,9 @@ Please also have a look on the used urls in _config/urls.py_ and on the archive 
 
 #### Why do you need the server output in the shell?
 
-On one hand it's good to notice when the server is not running anymore (to avoid errors), on the other hand you can display with some sample data in Swagger and better understand relations between models.
+On one hand, this way you will notice when an error occurred (or worse, when the server crashed). On the other hand, you can observe the communication with the server while you interact with it.
 
-Furthermore, you see an automatically generated mail address when you start running you docker container (see 3. Tap of "Setup"). Use this and the password `123` to login to Swagger in your browser:
+Furthermore, you see an automatically generated mail address when you start running your docker container (see chapter _Setup_). Use this and the password `123` to login to Swagger in your browser:
 
 http://127.0.0.1:8000/docs/
 
@@ -146,7 +146,7 @@ http://127.0.0.1:8000/docs/
 
 You can use [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like:
 
-* **GET**: list all data from database
+* **GET**: query data from database
 * **POST**: submits new entry into database
 * **PATCH**: modifies one entry in database based on given id
 * **DELETE**: deletes one entry from database based on gived id
@@ -160,11 +160,11 @@ You can also add additional functionalities to your API endpoint like:
 
 The Database is automatically populated with sample data if you use Docker. But there are missing connections between: being user -> being member -> being collector -> pick up the food. You can create these connections in Swagger for testing purposes.
 
-> **TIP**: If you want, you can populate first the database writting some [querysets](https://docs.djangoproject.com/en/1.11/topics/db/queries/) in Django Shell and then look it up in Swagger. Or you can [open PostgreSQL](https://www.postgresql.org/docs/8.3/static/tutorial-accessdb.html) and populate the database there.
+> **TIP**: If you want, you can populate the database writing some [querysets](https://docs.djangoproject.com/en/1.11/topics/db/queries/) in the Django Shell and then look it up in Swagger. Or you can [open PostgreSQL](https://www.postgresql.org/docs/8.3/static/tutorial-accessdb.html) and populate the database there.
 
 #### Response-request Cycle
 
-Whenever you paste the url http://127.0.0.1:8000/docs/ into a browser and hit Enter, you send a request to your local server sitting on your computer (live web sites have their own host server with a domain). It depends if you want to GET data or POST data. The server (with own IP address) will use the given URL (with own IP address), execute some functionality on server with usage of data in database and will respond with view that you can see in your browser.
+Whenever you paste the url [http://127.0.0.1:8000/docs/](http://127.0.0.1:8000/docs/) into your browser and hit Enter, you send a request to your local server sitting on your computer (live web sites have their own host server and domain). It depends if you want to GET data or POST data. The server will use the given URL, execute some functionality on the server (probably this includes accessing the database) and respond with a view that you can see in your browser.
 
 
 ## 05 Tests
@@ -173,15 +173,15 @@ Every time you run the tests (like described in the chapter _Setup_), an additio
 
 The common structure of the tests is:
 
-- Every class in the _models.py_, _api.py_ and _filters.py_ has a class with tests
+- Every class in the _models.py_, _api.py_ and _filters.py_ should have a corresponding class for testing
 	(e.g. the class _FeedbackViewSet_ in the file _api.py_ gets tested in the class _FeedbackTest_ in the file _test–feedback–api.py_)
 - The test class begins with a _setUpClass_. Here the database gets populated. Therefore, you can use:
 	a) a _Factory_ (like the _member_ in _FeedbackTest_ which gets created in the UserFactory) or
-	b) you create the needed objects directly (like _feedback_) with querysets
+	b) you create the needed objects directly with _querysets_
 - Every test case should have its own function below SetUpClass to make bug fixing in the future easier
 
 In the project, there are 2 types of tests:
 
-**1. Integration tests** - test not only one class/function in a file but whole functionality of one part of the project, e.g. based on test case in the FeedbackTest in the file test-feedback-api.py, we cannot know if the test wants us to add a code to FeedbackViewSet or FeedbackSerializer (`api.py` or `serializers.py`).
+**1. Integration tests** - test not only one class/function in a file but whole functionality of one part of the project. The server is taken as a 'black box', that is, we do not check what it actually does internally. We only verify that it creates an HTTP response that matches our expectations.
 
-**2. Unit tests** - test only one function/class in file, e.g. the model Feedback will be tested in test-models.py and the test cases will test each field in model.
+**2. Unit tests** - test only one function/class, e.g. the model `Feedback` is tested in test-models.py.

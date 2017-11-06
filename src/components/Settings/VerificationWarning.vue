@@ -1,13 +1,6 @@
 <template>
-  <q-alert
-    v-if="!user.mailVerified"
-    color="warning"
-    enter="bounceInLeft"
-    leave="bounceOutRight"
-    appear
-    dismissible
-  >
-    <h6>{{ $t('NOTIFICATIONS.NOT_VERIFIED') }}</h6>
+  <q-alert color="warning">
+    <h6>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</h6>
     <i18n v-if="!status.success" path="NOTIFICATIONS.CHECK_YOUR_MAILS" tag="span">
       <a place="resend" @click="resend" class="underline">{{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}</a>
     </i18n>

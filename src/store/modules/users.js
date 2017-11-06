@@ -1,4 +1,5 @@
 import users from '@/services/api/users'
+import authUser from '@/services/api/authUser'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
@@ -90,7 +91,7 @@ export const actions = {
   async signup ({ commit, dispatch }, userData) {
     commit(types.REQUEST_USER_SIGNUP)
     try {
-      await users.create(userData)
+      await authUser.create(userData)
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_USER_SIGNUP_ERROR, data))

@@ -1,5 +1,5 @@
 import auth from '@/services/api/auth'
-import users from '@/services/api/users'
+import authUser from '@/services/api/authUser'
 import router from '@/router'
 import { onlyHandleAPIError } from '@/store/helpers'
 
@@ -71,7 +71,7 @@ export const actions = {
   async check ({ commit, dispatch }) {
     commit(types.REQUEST_LOGIN_STATUS)
     try {
-      commit(types.RECEIVE_LOGIN_STATUS, { user: await auth.status() })
+      commit(types.RECEIVE_LOGIN_STATUS, { user: await authUser.get() })
       dispatch('afterLoggedIn')
     }
     catch (error) {
@@ -151,7 +151,7 @@ export const actions = {
 
     let savedUser
     try {
-      savedUser = await users.save({ ...data, id: user.id })
+      savedUser = await authUser.save({ ...data })
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
@@ -169,7 +169,7 @@ export const actions = {
 
     let savedUser
     try {
-      savedUser = await users.save({ password: newPassword, id: user.id })
+      savedUser = await authUser.save({ password: newPassword })
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))

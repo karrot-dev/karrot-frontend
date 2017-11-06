@@ -119,7 +119,13 @@ export const actions = {
 
     commit(types.SET_ACTIVE, { groupId })
 
-    dispatch('fetchGroup', groupId)
+    try {
+      await dispatch('fetchGroup', groupId)
+    }
+    catch (error) {
+      router.replace('/notfound')
+      return
+    }
 
     dispatch('pickups/clear', {}, { root: true })
 
@@ -159,7 +165,7 @@ export const actions = {
     const userId = rootGetters['auth/userId']
     if (!group.members.includes(userId)) {
       Toast.create.warning(i18n.t('GROUP.NONMEMBER_REDIRECT'))
-      router.replace('/notfound')
+      throw new Error('user is not a member')
     }
     commit(types.RECEIVE_GROUP, { group })
   },

@@ -1,28 +1,28 @@
 {
   "GLOBAL": {
-    "GITHUB_NOTE": "Utveckling",
-    "FACEBOOK_NOTE": "Join our Facebook Group!",
-    "WARNING": "Varning",
-    "BETA_WARNING": "Denna website är under aktiv utveckling och allt kan ändras. Vi kan inte garantera integriteten på din data, men vi kommer att göra så gott vi kan.",
-    "CONNECTION_INTERRUPTED": "Fel: förbindelsen avbröts!",
-    "SERVER_ERROR": "Server fel"
+    "GITHUB_NOTE": "Vývoj",
+    "FACEBOOK_NOTE": "Přidej se k naší skupině na Facebooku!",
+    "WARNING": "Varování",
+    "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
+    "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
+    "SERVER_ERROR": "Server error"
   },
   "USERDATA": {
-    "EMAIL": "Mejl",
+    "EMAIL": "E-mail",
     "PROFILE_TITLE": "Profile",
-    "PASSWORD": "Lösenord",
-    "USERNAME": "Namn",
+    "PASSWORD": "Heslo",
+    "USERNAME": "Jméno",
     "WHERE_FROM": "Where you are from (not required)"
   },
   "BUTTON": {
-    "CREATE": "Skapa",
-    "CANCEL": "Avbryt",
-    "DELETE": "Radera",
-    "EDIT": "Ändra",
-    "JOIN": "Gå med",
-    "LEAVE": "Lämna",
-    "PREVIEW": "Förhandsvisning",
-    "BACK": "Tillbacks",
+    "CREATE": "Vytvoř",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "JOIN": "Join",
+    "LEAVE": "Leave",
+    "PREVIEW": "Preview",
+    "BACK": "Zpět",
     "MORE_OPTIONS": "More options",
     "SUBMIT": "Submit",
     "SEARCH": "Search",
@@ -45,24 +45,24 @@
   "GROUP": {
     "WALL": "Wall",
     "GROUP": "Group",
-    "LEAVE": "Lämna gruppen...",
-    "LEAVE_TEXT": "Är du säker på att du vill lämna denna gruppen?",
+    "LEAVE": "Leave group...",
+    "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "LEAVE_CONFIRMATION": "You left {groupName}",
     "NONMEMBER_REDIRECT": "You are not a member of this group.",
-    "EDIT": "Redigera gruppen",
-    "CREATE_TITLE": "Skapa ny grupp",
+    "EDIT": "Edit group",
+    "CREATE_TITLE": "Create new group",
     "MANAGE_AGREEMENT": "Manage agreement",
-    "TITLE": "Gruppens namn",
-    "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
-    "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
-    "PASSWORD": "Ange ett lösenord för att göra gruppen privat",
-    "PICKUPS": "Upphämtningar",
-    "MEMBERS": "Medlemmar",
-    "STORES": "Butiker",
-    "HISTORY": "Historik",
-    "DESCRIPTION": "Beskrivning",
+    "TITLE": "Title of this group",
+    "DESCRIPTION_VERBOSE": "Group description, visible for members",
+    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
+    "PASSWORD": "Enter a password here if you want to make the group private",
+    "PICKUPS": "Pickups",
+    "MEMBERS": "Members",
+    "STORES": "Stores",
+    "HISTORY": "History",
+    "DESCRIPTION": "Description",
     "ADDRESS": "Address",
-    "TIMEZONE": "Gruppens tidszon",
+    "TIMEZONE": "Time zone of group",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
@@ -80,19 +80,19 @@
     "SET_LOCATION": "Set location"
   },
   "STOREDETAIL": {
-    "EDIT": "Redigera butik",
-    "MANAGE": "Hantera upphämtningarna"
+    "EDIT": "Edit store",
+    "MANAGE": "Check and manage the pickups"
   },
   "STOREEDIT": {
-    "NAME": "Namn",
-    "DESCRIPTION": "Beskrivning",
-    "ADDRESS": "Adress",
-    "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande upphämtningar synas?"
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Address",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
   },
   "PICKUPMANAGE": {
-    "TITLE": "Hantera upphämtningar",
-    "SERIES": "Återkommande",
-    "SINGLE": "Engångs upphämtning",
+    "TITLE": "Manage pickups",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickups",
     "SHOW_SERIES_DETAILS": "Show pickup dates of series",
     "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
     "DATE_TEXT": "Date of pickup",
@@ -103,20 +103,20 @@
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
-    "DISPLAY_NAME": "Namn",
-    "DESCRIPTION": "Beskriv dig själv",
-    "PASSWORD": "Ange ditt nya lösenord"
+    "DISPLAY_NAME": "Name",
+    "DESCRIPTION": "About you",
+    "PASSWORD": "Enter your new password"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(Användaren är oåtkomlig eller borttagen)"
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
-    "WHICHGROUP": "Vilken grupp vill du gå med i?",
+    "WHICHGROUP": "Which group do you want to join?",
     "NUM_MEMBERS": "Member | Members",
-    "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
-    "PASSWORD_LABEL": "Ange lösenordet för den privata gruppen",
-    "PASSWORD_REQUIRED": "Denna grupp kräver ett lösenord",
-    "PASSWORD_WRONG": "Lösenordet som du angav är fel",
+    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
+    "PASSWORD_LABEL": "Enter password for private group",
+    "PASSWORD_REQUIRED": "This group requires a password",
+    "PASSWORD_WRONG": "You entered the wrong password",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "My groups",
@@ -131,34 +131,34 @@
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "TOPBAR": {
-    "LOGOUT": "Logga ut",
-    "USERPROFILE": "Gå till din profil",
+    "LOGOUT": "Logout",
+    "USERPROFILE": "Visit your profile",
     "CHANGE_GROUP": "Change group"
   },
   "LOGIN": {
-    "TITLE": "Logga in",
-    "SUBMIT": "Logga in",
-    "SIGNUP": "Gå med!",
-    "FORGOT_PASSWORD": "Glömt lösenordet?"
+    "TITLE": "Login",
+    "SUBMIT": "Login",
+    "SIGNUP": "Sign up!",
+    "FORGOT_PASSWORD": "Forgot your password?"
   },
   "SIGNUP": {
-    "TITLE": "Gå med!",
-    "BACK": "Tillbacks till logga in",
-    "OK": "gå med"
+    "TITLE": "Sign Up!",
+    "BACK": "Back to Login",
+    "OK": "Join"
   },
   "VERIFYMAIL": {
-    "TITLE": "Mejl verifiering",
-    "SUCCESS": "Din mejladress har verifierats!",
-    "ERROR": "Något gick fel, du har kanske redan verifierat din mejl adress?"
+    "TITLE": "Mail verification",
+    "SUCCESS": "Your mail address was successfully verified!",
+    "ERROR": "Something went wrong. Perhaps you already verified your address?"
   },
   "CREATEPICKUP": {
-    "TITLE": "Skapa upphämtningar",
-    "TITLE_EDIT": "Ändra upphämtning",
-    "SERIES": "Återkommande",
-    "SINGLE": "Engångs upphämtning",
-    "WEEKDAYS": "Helg",
-    "HINT_MULTIPLE": "Du kan välja flera dagar genom att hålla ner CTRL tangenten.",
-    "TIME": "Tid",
+    "TITLE": "Create pickup",
+    "TITLE_EDIT": "Edit pickup",
+    "SERIES": "Recurring",
+    "SINGLE": "One-time pickup",
+    "WEEKDAYS": "Weekdays",
+    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
+    "TIME": "Time",
     "TIME_ERROR": "Enter a valid time, e.g. {timeExample}",
     "TIME_HELPER": "When should the pick-up take place?",
     "DATE": "Date",
@@ -169,21 +169,21 @@
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
   },
   "CREATESTORE": {
-    "TITLE": "Skapa ny butik"
+    "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
     "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
-      "LEAVE": "Lämna",
-      "JOIN": "Gå med",
+      "LEAVE": "Leave",
+      "JOIN": "Join",
       "JOIN_CONFIRMATION_HEADER": "Join Pickup",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
       "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
-    "NONE": "Inga bokade upphämtningar",
-    "NONE_HINT": "Du kan boka en ny upphämtning på butik sidan."
+    "NONE": "No upcoming pickups",
+    "NONE_HINT": "You can create a new pickup on the store page."
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Pickup feedback",
@@ -194,15 +194,15 @@
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
   },
   "PASSWORDRESET": {
-    "TITLE": "Återställ lösenordet",
-    "INTRO": "Ange den mejl adress som du vill att vi skall skicka lösenordet till (om du har ett registrerat konto hos oss).",
-    "EMAIL": "Mejl adress",
-    "SUBMIT": "Skicka",
-    "LOGIN": "Tillbacks till logga in sidan",
-    "SUCCESS": "Vi lyckades skicka, kolla din mejl!"
+    "TITLE": "Password reset",
+    "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "Mail address",
+    "SUBMIT": "Get new password",
+    "LOGIN": "Back to login page",
+    "SUCCESS": "The request was successfully sent. Have a look at your mails!"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Lägg till mer språk!"
+    "ADD_MORE": "Add more languages!"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "bold",
@@ -212,19 +212,19 @@
     "HELP": "What is Markdown?"
   },
   "HISTORY": {
-    "GROUP_CREATE": "skapade gruppen",
-    "GROUP_MODIFY": "ändrade inställningar för gruppen",
-    "GROUP_JOIN": "gick med i gruppen",
-    "GROUP_LEAVE": "Lämnade gruppen",
+    "GROUP_CREATE": "created this group",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
     "STORE_CREATE": "created store {name}",
     "STORE_MODIFY": "changed the settings of store {name}",
     "STORE_DELETE": "deleted store {name}",
-    "PICKUP_CREATE": "skapade en upphämtning",
-    "PICKUP_MODIFY": "ändrade inställningarna för en upphämtninng",
-    "PICKUP_DELETE": "tog bort en upphämtning",
-    "SERIES_CREATE": "skapade en återkommande upphämtning",
-    "SERIES_MODIFY": "ändrade inställningarna för en återkommande upphämtning",
-    "SERIES_DELETE": "tog bort en återkommande upphämtning",
+    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_DELETE": "deleted a pick-up",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
     "PICKUP_DONE": "did a pick-up at {storeName}",
     "PICKUP_MISSED": "A pickup at {storeName} was missed!",
     "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",

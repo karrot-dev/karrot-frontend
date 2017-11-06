@@ -1,30 +1,12 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
-import { isObject, camelize } from '@/services/utils'
-
-// Hotfix to use existing files
-// e.g. converts translations containing {{store_name}} into {storeName}
-// TODO: convert files and sync them with transifex
-export function angularToVueI18n (val) {
-  if (isObject(val)) {
-    let newVal = {}
-    for (const key of Object.keys(val)) {
-      newVal[key] = angularToVueI18n(val[key])
-    }
-    return newVal
-  }
-  else {
-    return val.replace(/{{(.*?)}}/g, (_, a) => `{${camelize(a)}}`)
-  }
-}
-
 Vue.use(VueI18n)
 
 // Just need to include 'en' here as it is the fallback locale
 // All other locales are loaded on demand in store/plugins/i18n
 export const messages = {
-  en: angularToVueI18n(require('@/locales/locale-en.json')),
+  en: require('@/locales/locale-en.json'),
 }
 
 export const locales = [
@@ -37,6 +19,7 @@ export const locales = [
   { locale: 'eo', name: 'Esperanto' },
   { locale: 'ru', name: 'Русский' },
   { locale: 'zh', name: '中文' },
+  { locale: 'cs', name: 'Čeština' },
 ]
 
 const defaultDateTimeFormat = {
@@ -112,6 +95,6 @@ if (module.hot) {
   module.hot.accept([
     '@/locales/locale-en.json',
   ], () => {
-    i18n.setLocaleMessage('en', angularToVueI18n(require('@/locales/locale-en.json')))
+    i18n.setLocaleMessage('en', require('@/locales/locale-en.json'))
   })
 }

@@ -27,11 +27,10 @@
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
-import { QTooltip } from 'quasar'
 
 export default {
   props: ['entry'],
-  components: { QTooltip, ProfilePicture, DateAsWords },
+  components: { ProfilePicture, DateAsWords },
 }
 </script>
 <style scoped lang="stylus">

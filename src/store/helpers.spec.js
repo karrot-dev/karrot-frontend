@@ -63,7 +63,7 @@ describe('helpers', () => {
     it('throws any other errors back atcha', async () => {
       const error = new Error('raaaaaaaaaaa I am an error')
       run.mockImplementationOnce(() => { throw error })
-      await expect(store.dispatch('meta/request', {id, run, onValidationError })).rejects.toBe(error)
+      await expect(store.dispatch('meta/request', { id, run, onValidationError })).rejects.toBe(error)
       expect(run).toBeCalled()
       expect(onValidationError).not.toBeCalled()
       expect(store.getters['meta/get'](id)).toEqual({

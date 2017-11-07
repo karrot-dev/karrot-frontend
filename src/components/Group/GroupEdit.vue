@@ -4,7 +4,7 @@
     <h3 v-else><i class="fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
-        <form @submit="save">
+        <form @submit.prevent="save">
           <q-field
             icon="fa-star"
             :label="$t('GROUP.TITLE')"
@@ -12,6 +12,7 @@
             :error-label="nameError"
             >
             <q-input
+              id="group-title"
               v-model="groupEdit.name"
               :autofocus="true"
               @blur="$v.groupEdit.name.$touch"

@@ -1,7 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Entwicklung",
-    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "FACEBOOK_NOTE": "Tritt unserer Facebook-Gruppe bei!",
     "WARNING": "Warnung",
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
     "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
@@ -9,10 +9,10 @@
   },
   "USERDATA": {
     "EMAIL": "E-Mail",
-    "PROFILE_TITLE": "Profile",
+    "PROFILE_TITLE": "Profil",
     "PASSWORD": "Passwort",
     "USERNAME": "Name",
-    "WHERE_FROM": "Where you are from (not required)"
+    "WHERE_FROM": "Wo kommst du her? (Angabe nicht erforderlich)"
   },
   "BUTTON": {
     "CREATE": "Erstellen",
@@ -22,36 +22,37 @@
     "JOIN": "Beitreten",
     "LEAVE": "Verlassen",
     "PREVIEW": "Vorschau",
-    "BACK": "Back",
-    "MORE_OPTIONS": "More options",
-    "SUBMIT": "Submit",
-    "SEARCH": "Search",
-    "OF_COURSE": "Yes, of course!",
-    "YES": "Yes",
-    "SAVE_CHANGES": "Save changes",
-    "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password",
-    "AGREE": "I agree",
-    "REMOVE": "Remove"
+    "BACK": "Zurück",
+    "MORE_OPTIONS": "Mehr Optionen",
+    "SUBMIT": "Absenden",
+    "SEARCH": "Suche",
+    "OF_COURSE": "Ja, natürlich!",
+    "YES": "Ja",
+    "SAVE_CHANGES": "Änderungen speichern",
+    "RESET": "Zurücksetzen",
+    "CHANGE_PASSWORD": "Password ändern",
+    "CHANGE_EMAIL": "E-Mail-Adresse ändern",
+    "AGREE": "Ich stimme zu",
+    "REMOVE": "Entfernen"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Name already exists, please choose another.",
-    "REQUIRED": "This field is required.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "MINLENGTH": "Bitte mehr als {min} Zeichen eingeben.",
+    "MAXLENGTH": "Zu lang, bitte weniger als {max} Zeichen eingeben.",
+    "UNIQUE": "Name wird bereits verwendet, bitte wähle einen anderen.",
+    "REQUIRED": "Dieses Feld ist erforderlich.",
+    "VALID_EMAIL": "Gib eine gültige E-Mail-Adresse ein.",
+    "VALID_TIMEZONE": "Gib eine gültige Zeitzone ein."
   },
   "GROUP": {
     "WALL": "Wall",
-    "GROUP": "Group",
+    "GROUP": "Gruppe",
     "LEAVE": "Gruppe verlassen",
     "LEAVE_TEXT": "Bist du sicher, dass du diese Gruppe verlassen möchtest?",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "LEAVE_CONFIRMATION": "Du hast {groupName} verlassen",
+    "NONMEMBER_REDIRECT": "Du bist kein Mitglied dieser Gruppe.",
     "EDIT": "Gruppe bearbeiten",
     "CREATE_TITLE": "Neue Gruppe erstellen",
-    "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_AGREEMENT": "Vereinbarung verwalten",
     "TITLE": "Name der Gruppe",
     "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
     "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
@@ -65,19 +66,19 @@
     "TIMEZONE": "Zeitzone der Gruppe",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
+    "INVITED_LIST": "Einladungen wurden bereits an diese E-Mail-Adressen versendet:",
+    "ALREADY_INVITED": "Eine Einladung wurde bereits an diese E-Mail-Adresse versendet",
+    "INVITE_TITLE": "Einladungen zur Gruppe",
+    "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
+    "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
-    "SHOW_STORES": "Show stores",
-    "HIDE_STORES": "Hide stores",
-    "SET_LOCATION": "Set location"
+    "TITLE": "Karte",
+    "SHOW_USERS": "Mitglieder anzeigen",
+    "HIDE_USERS": "Mitglieder verstecken",
+    "SHOW_STORES": "Betriebe anzeigen",
+    "HIDE_STORES": "Betriebe verstecken",
+    "SET_LOCATION": "Ort festlegen"
   },
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
@@ -93,14 +94,14 @@
     "TITLE": "Abholzeiten-Editor",
     "SERIES": "Regelmäßige Abholungen",
     "SINGLE": "Einmalige Abholungen",
-    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
-    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
-    "DATE_TEXT": "Date of pickup",
-    "NUMBER_COLLECTORS": "Number of collectors"
+    "SHOW_SERIES_DETAILS": "Abholungstermine anzeigen",
+    "HIDE_SERIES_DETAILS": "Abholungstermine verstecken",
+    "DATE_TEXT": "Datum der Abholung",
+    "NUMBER_COLLECTORS": "Anzahl an Abholern"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen",
+    "DELETE_SERIES_TEXT": "Willst du wirklich diese regelmäßige Abholung löschen? Das löscht alle Abholungstermine, die zu der regelmäßigen Abholung gehören (außer wenn bereit Abholer eingetragen sind)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
@@ -108,32 +109,32 @@
     "PASSWORD": "Neues Passwort eingeben"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User nicht verfügbar oder gelöscht)"
+    "INACCESSIBLE_OR_DELETED": "(Benutzer nicht verfügbar oder gelöscht)"
   },
   "JOINGROUP": {
     "WHICHGROUP": "Welcher Gruppe möchtest du beitreten?",
-    "NUM_MEMBERS": "Member | Members",
+    "NUM_MEMBERS": "Mitglied | Mitglieder",
     "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
     "PASSWORD_LABEL": "Gib das Passwort für diese geschlossene Gruppe ein.",
     "PASSWORD_REQUIRED": "Diese Gruppe verlangt ein Passwort.",
     "PASSWORD_WRONG": "Das von dir eingegebene Passwort ist falsch.",
-    "ALL_GROUPS": "All groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "MY_GROUPS": "My groups",
+    "ALL_GROUPS": "Alle Gruppen",
+    "SIGNUP_OR_LOGIN": "Anmelden, um dieser Gruppe beizutreten!",
+    "MY_GROUPS": "Meine Gruppen",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOGGED_OUT": "Du bist derzeit nicht angemeldet. {login}",
+      "LOG_IN": "Melde dich an, um deine Gruppen zu sehen!"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
+    "PROFILE_NOTE": "Wenn du dieser Gruppe beitrittst, wird dein Benutzerprofil für andere Gruppenmitglieder sichtbar."
   },
   "GROUPINFO": {
-    "META": "Show public group information",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+    "META": "Öffentliche Gruppeninfos",
+    "MEMBER_VIEW": "Du bist ein Mitglied der Gruppe. Klicke hier, um zur vollen Ansicht zu gelangen."
   },
   "TOPBAR": {
-    "LOGOUT": "Logout",
+    "LOGOUT": "Abmelden",
     "USERPROFILE": "Dein Profil",
-    "CHANGE_GROUP": "Change group"
+    "CHANGE_GROUP": "Gruppe wechseln"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -152,46 +153,46 @@
     "ERROR": "Etwas ging schief. Ist deine Mailadresse vielleicht schon verifiziert?"
   },
   "CREATEPICKUP": {
-    "TITLE": "Create pickup",
-    "TITLE_EDIT": "Edit pickup",
+    "TITLE": "Abholung erstellen",
+    "TITLE_EDIT": "Abholung bearbeiten",
     "SERIES": "Wiederkehrende Abholung",
     "SINGLE": "Einzelne Abholung",
     "WEEKDAYS": "Wochentage",
     "HINT_MULTIPLE": "Du kannst mehrere Tage auswählen, z.B. indem du Strg gedrückt hälst.",
     "TIME": "Uhrzeit",
-    "TIME_ERROR": "Enter a valid time, e.g. {timeExample}",
-    "TIME_HELPER": "When should the pick-up take place?",
-    "DATE": "Date",
-    "DATE_HELPER": "When should the pick-up take place?",
+    "TIME_ERROR": "Gib eine gültige Zeit ein, z.B. {timeExample}",
+    "TIME_HELPER": "Wann soll die Abholung stattfinden?",
+    "DATE": "Datum",
+    "DATE_HELPER": "Wann soll die Abholung stattfinden?",
     "MAX_COLLECTORS": "Anzahl Abholer",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
-    "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+    "MAX_COLLECTORS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
+    "COMMENT": "Zusätzliche Informationen",
+    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?"
   },
   "CREATESTORE": {
     "TITLE": "Neuen Betrieb anlegen"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
+    "EMPTYNOTICE": "In den nächsten Tagen wartet eine offene Abholung auf dich! | In den nächsten Tagen warten {count} offene Abholungen auf dich! ",
+    "JOINEDNOTICE": "Du hast dich für eine Abholung gemeldet | Du hast dich für {count} Abholungen gemeldet",
     "ITEM": {
       "LEAVE": "Nicht mehr abholen",
       "JOIN": "Abholen",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+      "JOIN_CONFIRMATION_HEADER": "Abholen",
+      "JOIN_CONFIRMATION_TEXT": "Bist du sicher, dass du am {date} Zeit hast um abzuholen?",
+      "LEAVE_CONFIRMATION_HEADER": "Nicht abholen",
+      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen die Abholung ohne dich schaffen?"
     },
     "NONE": "Es stehen keine Abholungen an.",
     "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen."
   },
   "PICKUP_FEEDBACK": {
-    "TITLE": "Pickup feedback",
-    "HEADER": "Thank you for your pickup!",
-    "SUBTITLE": "You can provide feedback for your pickup here",
-    "AMOUNT": "Amount of food you took home (in kg)",
-    "COMMENT": "Comment",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+    "TITLE": "Rückmeldung zur Abholung",
+    "HEADER": "Danke für deine Abholung!",
+    "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
+    "AMOUNT": "Wie viel hast du abgeholt (in kg)?",
+    "COMMENT": "Kommentar",
+    "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte..."
   },
   "PASSWORDRESET": {
     "TITLE": "Passwort zurücksetzen",
@@ -216,63 +217,63 @@
     "GROUP_MODIFY": "hat die Eigenschaften dieser Gruppe geändert",
     "GROUP_JOIN": "ist dieser Gruppe beigetreten",
     "GROUP_LEAVE": "hat diese Gruppe verlassen",
-    "STORE_CREATE": "created store {name}",
-    "STORE_MODIFY": "changed the settings of store {name}",
-    "STORE_DELETE": "deleted store {name}",
+    "STORE_CREATE": "hat den Betrieb {name} erstellt",
+    "STORE_MODIFY": "hat die Einstellungen von Betrieb {name} geändert",
+    "STORE_DELETE": "hat Betrieb {store} gelöscht",
     "PICKUP_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
     "PICKUP_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
     "PICKUP_DELETE": "hat einen Abholtermin gelöscht",
     "SERIES_CREATE": "hat einen neuen regelmäßigen Abholtermin erstellt",
     "SERIES_MODIFY": "hat die Eigenschaften eines regelmäßigen Abholtermins geändert",
     "SERIES_DELETE": "hat einen regelmäßigen Abholtermin gelöscht",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "NOTHING_HAPPENEND": "Nothing happened so far..."
+    "PICKUP_DONE": "haben bei Betrieb {storeName} abgeholt",
+    "PICKUP_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
+    "PICKUP_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
+    "PICKUP_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
+    "NOTHING_HAPPENEND": "Bisher ist nichts passiert..."
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifications",
-    "NOT_VERIFIED": "Not verified",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resend verification email",
+    "TITLE": "Benachrichtigungen",
+    "NOT_VERIFIED": "{email} nicht verifiziert",
+    "CHECK_YOUR_MAILS": "Bitte guck in deine E-Mails oder {resend}",
+    "RESEND_VERIFICATION": "sende eine neue Verifizierungs-E-Mail",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
-    "HOME": "Take me home"
+    "EXPLANATION": "Entschuldigung, die Seite konnte nirgendwo gefunden werden.",
+    "HOME": "Zurück zur Startseite"
   },
   "SETTINGS": {
-    "TITLE": "Settings",
-    "LANGUAGE": "Language"
+    "TITLE": "Einstellungen",
+    "LANGUAGE": "Sprache"
   },
   "AGREEMENT": {
-    "NEW": "New agreement",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
-    "TITLE": "Title",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
-    "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "NEW": "Neue Vereinbarung",
+    "AGREE": "Du musst {title} zustimmen",
+    "VIEW": "Vereinbarung ansehen",
+    "TITLE": "Titel",
+    "TITLE_HELPER": "Gib eurer Vereinbarung einen Titel, z.B. Gruppenregeln",
+    "CONTENT": "Inhalt",
+    "CONTENT_HELPER": "Der Inhalt eurer Vereinbarung",
+    "MINOR_EDIT": "Kleine Änderung?",
+    "MINOR_EDIT_HELPER": "Rechtschreibung, Formatierung, usw... Mitglieder müssen nicht von Neuem zustimmen",
+    "BLURB1": "Ihr habt noch keine Vereinbarung!",
+    "BLURB2": "Wenn du eine neue Vereinbarung hinzufügst, müssen alle Gruppenmitglieder zustimmen bevor sie sich wieder für Abholungen eintragen können.",
     "DIALOGS": {
       "REPLACE": {
-        "TITLE": "Change agreement?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
+        "TITLE": "Vereinbarung ändern?",
+        "MESSAGE": "Alle Mitglieder müssen wieder zustimmen bevor sie sich für Abholungen eintragen können",
+        "CONFIRM": "Ja, ändere die Vereinbarung"
       },
       "REMOVE": {
-        "TITLE": "Remove agreement?",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "CONFIRM": "Yes, remove agreement"
+        "TITLE": "Vereinbarung löschen?",
+        "MESSAGE": "Das bedeutet, dass alle Mitglieder sich für Abholungen melden können",
+        "CONFIRM": "Ja, Vereinbarung entfernen"
       }
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message..."
+    "WRITE_MESSAGE": "Schreibe eine Nachricht...",
+    "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht..."
   }
 }

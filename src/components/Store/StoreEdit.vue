@@ -21,7 +21,7 @@
             icon="fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')">
             <MarkdownInput :value="storeEdit.description">
-              <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
+              <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" />
             </MarkdownInput>
           </q-field>
 

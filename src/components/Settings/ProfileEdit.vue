@@ -11,7 +11,7 @@
       icon="info"
       :label="$t('USERDETAIL.DESCRIPTION')">
       <MarkdownInput :value="userEdit.description">
-        <q-input v-model="userEdit.description" type="textarea" :min-rows="1" :max-height="100" />
+        <q-input v-model="userEdit.description" type="textarea" :min-rows="1" />
       </MarkdownInput>
     </q-field>
 

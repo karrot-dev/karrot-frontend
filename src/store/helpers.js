@@ -117,6 +117,7 @@ export function defineRequestModule () {
         }
         else {
           // some other error, can't handle it here
+          commit(types.CLEAR, { id })
           throw error
         }
       }

@@ -164,9 +164,6 @@ export const actions = {
   },
 
   async changePassword ({ commit, state, dispatch }, { newPassword }) {
-    let user = state.user
-    if (!user) return
-
     let savedUser
     try {
       savedUser = await authUser.save({ password: newPassword })
@@ -177,6 +174,18 @@ export const actions = {
     }
     commit(types.RECEIVE_LOGIN_STATUS, { user: savedUser })
     dispatch('logout')
+  },
+
+  async changeEmail ({ commit, dispatch }, email) {
+    let savedUser
+    try {
+      savedUser = await authUser.save({ email })
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+    commit(types.RECEIVE_LOGIN_STATUS, { user: savedUser })
   },
 
   cleanStatus ({ commit }) {

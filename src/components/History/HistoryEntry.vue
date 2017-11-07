@@ -12,7 +12,13 @@
           :user="user"
         />
     </td>
-    <td class="expand text-truncate">
+    <td class="expand" v-if="$q.platform.is.mobile">
+      <span class="text-truncate">{{ entry.message }}</span>
+      <small class="text-faded">
+        <DateAsWords :date="entry.date" />
+      </small>
+    </td>
+    <td class="expand text-truncate" v-else>
       {{ entry.message }}
     </td>
   </tr>

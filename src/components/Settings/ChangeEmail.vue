@@ -33,8 +33,7 @@ export default {
       this.$emit('save', this.newEmail)
     },
     setEmail () {
-      console.log('set')
-      this.newEmail = this.user.mailVerified ? this.user.email : this.user.unverifiedEmail
+      this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
     },
   },
   watch: {

@@ -176,7 +176,7 @@ export const actions = {
     dispatch('logout')
   },
 
-  async changeEmail ({ commit, state, dispatch }, email) {
+  async changeEmail ({ commit, dispatch }, email) {
     let savedUser
     try {
       savedUser = await authUser.save({ email })

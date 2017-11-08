@@ -31,6 +31,32 @@ jobs:
       - run: yarn test --ci --runInBand
       - run: bash <(curl -s https://codecov.io/bash)
 
+  end2end:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: run backend
+          command: |
+            git clone https://github.com/yunity/karrot-backend
+            cd karrot-backend
+            virtualenv env
+            source env/bin/activate
+            pip install -r requirements-dev.txt
+            pip-sync requirements*.txt
+            cp config/local_settings.py.ci config/local_settings.py
+            python manage.py migrate
+            python manage.py runserver
+          background: true
+      - run:
+          name: run frontend
+          command: yarn serve
+          background: true
+      - run: wget --retry-connrefused -T 30 http://localhost:8080
+      - run: wget --retry-connrefused -T 30 http://localhost:8000
+      - run: yarn e2e
+
   lint:
     <<: *defaults
     steps:
@@ -103,6 +129,9 @@ workflows:
       - test:
           requires:
             - install-dependencies
+      - end2end:
+          requires:
+            - build
       - lint:
           requires:
             - install-dependencies

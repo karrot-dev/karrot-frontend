@@ -14,7 +14,9 @@ createTestCafe('localhost')
       .src(join(__dirname, 'tests.js')) // should pass in test files via args or use some autodiscovery
       .browsers('chromium')
       .screenshots('e2e-screenshots')
-      .run()
+      .run({
+        debugOnFail: true,
+      })
   })
   .then(failedCount => {
     testcafe.close()

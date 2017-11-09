@@ -3,6 +3,18 @@ defaults: &defaults
   docker:
     - image: circleci/node:8.5
 
+e2e-defaults: &e2e-defaults
+  working_directory: ~/repo
+  docker:
+    - image: node:8.5
+      environment:
+        PGHOST: 127.0.0.1
+    - image: circleci/postgres:9.6.2
+      environment:
+        POSTGRES_USER: ubuntu
+        POSTGRES_DB: fstool_e2etest
+    - image: redis:3.2.11
+
 version: 2
 jobs:
   install-dependencies:
@@ -31,22 +43,13 @@ jobs:
       - run: yarn test --ci --runInBand
       - run: bash <(curl -s https://codecov.io/bash)
 
-  end2end:
-    working_directory: ~/repo
-    docker:
-      - image: node:8.5
-        environment:
-          PGHOST: 127.0.0.1
-      - image: circleci/postgres:9.6.2
-        environment:
-          POSTGRES_USER: ubuntu
-          POSTGRES_DB: fstool_e2etest
-      - image: redis:3.2.11
+  install-e2e-dependencies:
+    <<: *e2e-defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+        at: ~/repo
       - run:
-          name: run backend
+          name: prepare backend
           command: |
             set -x
             export LC_ALL=C.UTF-8
@@ -61,6 +64,19 @@ jobs:
             pip install -r requirements-dev.txt
             pip-sync requirements*.txt
             cp config/local_settings.py.ci config/local_settings.py
+
+  e2e-test:
+    <<: *e2e-defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: run backend
+          command: |
+            set -x
+            export LC_ALL=C.UTF-8
+            export LANG=C.UTF-8
+            cd karrot-backend
             python3 manage.py migrate
             python3 manage.py runserver
           background: true
@@ -73,6 +89,7 @@ jobs:
       - run:
           name: list all available browsers
           command: $(yarn bin)/testcafe -b saucelabs
+          background: true
       - run:
           name: testcafe
           command: yarn e2e --ci
@@ -149,9 +166,13 @@ workflows:
       - test:
           requires:
             - install-dependencies
-      - end2end:
+      - install-e2e-dependencies:
+          requires:
+            install-dependencies
+      - e2e-test:
           requires:
             - build
+            - install-e2e-dependencies
       - lint:
           requires:
             - install-dependencies

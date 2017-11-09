@@ -71,8 +71,11 @@ jobs:
       - run: wget --retry-connrefused -T 30 http://localhost:8080
       - run: wget --retry-connrefused -T 30 http://localhost:8000/api/groups-info/
       - run:
+          name: list all available browsers
+          command: $(yarn bin)/testcafe -b saucelabs
+      - run:
           name: testcafe
-          command: yarn e2e-ci
+          command: yarn e2e --ci
 
   lint:
     <<: *defaults

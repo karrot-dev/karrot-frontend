@@ -1,5 +1,10 @@
 const createTestCafe = require('testcafe')
 const { join } = require('path')
+const isCI = process.argv.includes('--ci')
+const browsers = isCI ? [
+  'saucelabs:Chrome@latest-1:Windows 10',
+  'saucelabs:Firefox@latest-1:Windows 10',
+] : ['chromium']
 
 let testcafe = null
 let runner = null
@@ -12,10 +17,10 @@ createTestCafe('localhost')
   .then(() => {
     return runner
       .src(join(__dirname, 'tests.js')) // should pass in test files via args or use some autodiscovery
-      .browsers('chromium')
+      .browsers(browsers)
       .screenshots('e2e-screenshots')
       .run({
-        debugOnFail: true,
+        debugOnFail: !isCI,
       })
   })
   .then(failedCount => {

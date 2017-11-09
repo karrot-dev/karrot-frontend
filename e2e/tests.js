@@ -28,7 +28,7 @@ test('create user', async t => {
     .expect(Selector('.fa-user').parent(0).innerText).contains('E2E TESTUSER')
 })
 
-test.skip('login', async t => {
+test('login', async t => {
   const mailField = Selector('div').withText('Mail').child('input')
   const passwordField = Selector('div').withText('Password').child('input')
   await t

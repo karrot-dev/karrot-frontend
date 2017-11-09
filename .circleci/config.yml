@@ -165,7 +165,7 @@ workflows:
       - install-dependencies
       - test:
           requires:
-            - install-dependencies
+            install-dependencies
       - install-e2e-dependencies:
           requires:
             install-dependencies

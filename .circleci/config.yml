@@ -70,7 +70,9 @@ jobs:
           background: true
       - run: wget --retry-connrefused -T 30 http://localhost:8080
       - run: wget --retry-connrefused -T 30 http://localhost:8000/api/groups-info/
-      - run: yarn e2e
+      - run:
+          name: testcafe
+          command: yarn e2e-ci
 
   lint:
     <<: *defaults

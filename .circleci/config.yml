@@ -45,6 +45,9 @@ jobs:
       - run:
           name: run backend
           command: |
+            set -x
+            export LC_ALL=C.UTF-8
+            export LANG=C.UTF-8
             apt-get update
             apt-get install -y python3 virtualenv
             git clone https://github.com/yunity/karrot-backend

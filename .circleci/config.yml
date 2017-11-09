@@ -34,7 +34,7 @@ jobs:
   end2end:
     working_directory: ~/repo
     docker:
-      - image: mhart/alpine-node:9
+      - image: node:8.5
       - image: circleci/postgres:9.6.2
         environment:
           POSTGRES_USER: ubuntu
@@ -45,7 +45,8 @@ jobs:
       - run:
           name: run backend
           command: |
-            pkg add python3
+            apt-get update
+            apt-get install -y python3
             git clone https://github.com/yunity/karrot-backend
             cd karrot-backend
             python3 -m venv venv

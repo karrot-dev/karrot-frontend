@@ -41,6 +41,7 @@ jobs:
         environment:
           POSTGRES_USER: ubuntu
           POSTGRES_DB: fstool_e2etest
+      - image: redis:3.2.11
     steps:
       - attach_workspace:
           at: ~/repo

@@ -32,24 +32,35 @@ jobs:
       - run: bash <(curl -s https://codecov.io/bash)
 
   end2end:
-    <<: *defaults
+    working_directory: ~/repo
+    docker:
+      - image: circleci/python:3.6.1
+      - image: circleci/postgres:9.6.2
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: fstool_e2etest
     steps:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: Install Docker Compose
+          name: run backend
           command: |
-            set -x
-            curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
-      - setup_remote_docker
-      - run: docker-compose up -d backend db redis maildev
+            git clone https://github.com/yunity/karrot-backend
+            cd karrot-backend
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install -r requirements-dev.txt
+            pip-sync requirements*.txt
+            cp config/local_settings.py.ci config/local_settings.py
+            python3 manage.py migrate
+            python3 manage.py runserver
+          background: true
       - run:
           name: run frontend
           command: yarn serve
           background: true
-      - run: wget --retry-connrefused -T 60 http://localhost:8080
-      - run: wget --retry-connrefused -T 60 http://localhost:8000
+      - run: wget --retry-connrefused -T 30 http://localhost:8080
+      - run: wget --retry-connrefused -T 30 http://localhost:8000
       - run: yarn e2e
 
   lint:

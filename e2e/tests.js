@@ -33,6 +33,7 @@ test('login', async t => {
   const passwordField = Selector('div').withText('Password').child('input')
   await t
     .click(Selector('button').withText('LOGIN'))
+  await t
     .expect(await t.eval(() => document.title)).eql('Login · Karrot')
     .selectText(mailField)
     .typeText(mailField, `user${testTime}@example.com`)

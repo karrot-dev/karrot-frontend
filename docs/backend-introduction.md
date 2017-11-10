@@ -1,10 +1,10 @@
-# foodsaving.world Beginners Guide
+# karrot Backend Introduction
 
-- Website: https://foodsaving.world
+- Website: https://karrot.world
 - Predecessor: https://foodsharing.de
 - Repository on GitHub: https://github.com/yunity/karrot-backend
 
-This is a beginner guide to _karrot-backend_ by [@id-gue](https://github.com/id-gue) and [@mddemarie](https://github.com/mddemarie) written for people who want to contribute to foodsaving.world, but aren't (yet) experienced Python/Django devs. Welcome and have fun!
+This is a beginner guide to _karrot-backend_ by [@id-gue](https://github.com/id-gue) and [@mddemarie](https://github.com/mddemarie) written for people who want to contribute to karrot, but aren't (yet) experienced Python/Django devs. Welcome and have fun!
 
 ### Repository Structure
 
@@ -81,7 +81,7 @@ Collectors have also an option after food pickup to leave `feedback`.
 
 ### Foodsaving Apps
 
-At the moment (September 2017) there are 15 Apps (= folders) in foodsaving. Not all of them are in use or critical for [foodsaving.world](https://foodsaving.world/#!/landingPage) since the project is under development and the dev team tries different approaches.
+At the moment (September 2017) there are 15 Apps (= folders) in foodsaving. Not all of them are in use or critical for [karrot.world](https://karrot.world/) since the project is under development and the dev team tries different approaches.
 
 Important apps are for example:
 

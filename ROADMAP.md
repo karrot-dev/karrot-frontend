@@ -14,7 +14,7 @@ We are working on this either right now or pretty soon in the future. Should be 
 
 [View issues](https://github.com/yunity/karrot-frontend/milestone/11)
 
-## Ready for development (lower priority) 
+## Ready for development (lower priority)
 
 Issue is understood well enough for development to start, but not currently assigned to a developer.
 
@@ -43,7 +43,7 @@ Quite a bit in the future (~1 year), haven't been discussed very much. If one of
 - Student mode for newcomers https://github.com/yunity/karrot-frontend/issues/546
 - Locations for public food distribution https://github.com/yunity/karrot-frontend/issues/354
 - Food baskets for person-to-person food exchange https://github.com/yunity/karrot-frontend/issues/672
-- Set up a legal entity for foodsaving.world, add terms of service https://github.com/yunity/karrot-frontend/issues/606
+- Set up a legal entity for foodsaving.world and karrot.world, add terms of service https://github.com/yunity/karrot-frontend/issues/606
 - Reputation system https://github.com/yunity/karrot-frontend/issues/260
 - Store teams https://github.com/yunity/karrot-frontend/issues/360
 

@@ -1,6 +1,6 @@
 var path = require('path')
 
-const BACKEND = process.env.BACKEND || 'https://dev.foodsaving.world/'
+const BACKEND = process.env.BACKEND || 'https://dev.karrot.world/'
 
 module.exports = {
   // Webpack aliases

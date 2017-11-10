@@ -22,7 +22,7 @@ if [ "$DIR" == "release" ]; then
 
   DEPLOY_ENV="production"
   DEPLOY_EMOJI=":rocket:"
-  URL="https://alpha.foodsaving.world"
+  URL="https://karrot.world"
 
 elif [ "$REF" == "master" ]; then
 
@@ -30,8 +30,8 @@ elif [ "$REF" == "master" ]; then
 
   DEPLOY_ENV="development"
   DEPLOY_EMOJI=":beer:"
-  URL="https://dev.foodsaving.world"
-  STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
+  URL="https://dev.karrot.world"
+  STORYBOOK_URL="https://storybook.karrot.world"
   DEPLOY_DOCS="true"
 
 else
@@ -87,7 +87,7 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
   ATTACHMENT_TEXT+="\n:white_check_mark: <$CIRCLE_WORKFLOW_URL|Visit circleci>"
 
   if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist ]; then
-    DOCBOOK_URL="https://karrot-docs.foodsaving.world"
+    DOCBOOK_URL="https://docs.karrot.world"
     ATTACHMENT_TEXT+="\n:page_facing_up: <$DOCBOOK_URL|View docs>"
   fi
 

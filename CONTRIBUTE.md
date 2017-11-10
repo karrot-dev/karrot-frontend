@@ -48,7 +48,7 @@ If you now visit github.com/yunity/karrot-frontend, there should be a message th
 
 ### Backend connection
 
-Per default, all requests to `/api` are forwarded to the online backend `dev.foodsaving.world/api`.
+Per default, all requests to `/api` are forwarded to the online backend `dev.karrot.world/api`.
 To use a [local backend](https://github.com/yunity/karrot-backend/), create a file `.env` with content like
 
 ```

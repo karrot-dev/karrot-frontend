@@ -1,16 +1,16 @@
 <template>
   <span>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-map"></i>{{$t('GROUPMAP.TITLE')}}</div>
+    <div slot="name"><i class="fa fa-fw fa-map" />{{$t('GROUPMAP.TITLE')}}</div>
     <div slot="tools" class="tools">
       <q-btn flat small @click="$emit('toggleStores')">
         <span class="fa-stack" v-if="!showStores">
-          <i class="fa fa-shopping-cart fa-stack-1x"></i>
-          <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
+          <i class="fa fa-shopping-cart fa-stack-1x" />
+          <i class="fa fa-times fa-bot-right fa-stack-1x" />
         </span>
         <span class="fa-stack" v-if="showStores">
-          <i class="fa fa-shopping-cart fa-stack-1x"></i>
-          <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
+          <i class="fa fa-shopping-cart fa-stack-1x" />
+          <i class="fa fa-check fa-bot-right fa-stack-1x" />
         </span>
         <q-tooltip v-if="!showStores">
           <span>{{$t('GROUPMAP.SHOW_STORES')}}</span>
@@ -22,12 +22,12 @@
 
       <q-btn flat small @click="$emit('toggleUsers')">
         <span class="fa-stack" v-if="!showUsers">
-          <i class="fa fa-user fa-stack-1x"></i>
-          <i class="fa fa-times fa-bot-right fa-stack-1x"></i>
+          <i class="fa fa-user fa-stack-1x" />
+          <i class="fa fa-times fa-bot-right fa-stack-1x" />
         </span>
         <span class="fa-stack" v-if="showUsers">
-          <i class="fa fa-user fa-stack-1x"></i>
-          <i class="fa fa-check fa-bot-right fa-stack-1x"></i>
+          <i class="fa fa-user fa-stack-1x" />
+          <i class="fa fa-check fa-bot-right fa-stack-1x" />
         </span>
         <q-tooltip v-if="!showUsers">
           <span>{{$t('GROUPMAP.SHOW_USERS')}}</span>

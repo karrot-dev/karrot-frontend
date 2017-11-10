@@ -1,10 +1,9 @@
 <template>
   <div>
-
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-repeat on-left" aria-hidden="true"></i>
+          <i class="icon fa fa-repeat on-left" aria-hidden="true" />
           {{ $t('PICKUPMANAGE.SERIES') }}
         </h5>
         <div slot="right" class="row items-center">
@@ -44,7 +43,7 @@
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true"></i>
+          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true" />
           {{ $t('PICKUPMANAGE.SINGLE') }}
         </h5>
         <div slot="right" class="row items-center">

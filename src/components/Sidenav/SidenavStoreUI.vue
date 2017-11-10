@@ -1,9 +1,9 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-home"></i></div>
+    <div slot="name"><i class="fa fa-fw fa-home" /></div>
     <div slot="tools">
       <q-btn flat>
-        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        <i class="fa fa-ellipsis-v" aria-hidden="true" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>

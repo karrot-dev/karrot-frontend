@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4><i class="fa fa-envelope"></i> {{ $t('VERIFYMAIL.TITLE') }}</h4>
+    <h4><i class="fa fa-envelope" /> {{ $t('VERIFYMAIL.TITLE') }}</h4>
   </div>
 </template>
 

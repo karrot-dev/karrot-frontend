@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <span v-t="'PICKUP_FEEDBACK.AMOUNT'" />
     <AmountViewer :amount="selectedValue"/>
     <div>
       <q-slider

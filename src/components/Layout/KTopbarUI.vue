@@ -36,6 +36,7 @@
       </router-link>
       <q-btn flat>
         <q-icon name="fa-fw fa-ellipsis-v" />
+        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <q-popover :touch-position="false" fit ref="popover">
           <q-list item-separator link>
             <q-item :to="{name: 'groupsGallery'}" @click.native="$refs.popover.close()">
@@ -58,7 +59,7 @@
 </template>
 
 <script>
-import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
+import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
@@ -66,7 +67,7 @@ import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
   components: {
-    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
+    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },

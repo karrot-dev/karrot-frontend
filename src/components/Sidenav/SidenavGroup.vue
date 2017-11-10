@@ -4,6 +4,7 @@
     <div slot="tools">
       <q-btn flat>
         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <GroupOptions/>
       </q-btn>
     </div>
@@ -18,13 +19,13 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem } from 'quasar'
+import { QBtn, QList, QItem, QTooltip } from 'quasar'
 import SidenavBox from './SidenavBox'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem,
+    SidenavBox, GroupOptions, QBtn, QList, QItem, QTooltip,
   },
 }
 </script>

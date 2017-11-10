@@ -42,7 +42,7 @@ class TestInvitationAPIIntegration(APITestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn('invite=', mail.outbox[0].body)
         token = furl(
-            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+            re.search(r'(/#/signup.*)\n', mail.outbox[0].body).group(1)
         ).fragment.args['invite']
 
         # accept the invite
@@ -176,7 +176,7 @@ class TestInvitationAcceptAPI(APITestCase):
         i.save()
 
         token = furl(
-            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+            re.search(r'(/#/signup.*)\n', mail.outbox[0].body).group(1)
         ).fragment.args['invite']
 
         # accept the invite
@@ -190,7 +190,7 @@ class TestInvitationAcceptAPI(APITestCase):
         self.client.post(base_url, {'email': 'someother@mail.com', 'group': self.group.id})
 
         token = furl(
-            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+            re.search(r'(/#/signup.*)\n', mail.outbox[0].body).group(1)
         ).fragment.args['invite']
 
         # accidentally accept the invite even though you are already in the group
@@ -206,7 +206,7 @@ class TestInvitationAcceptAPI(APITestCase):
         self.client.post(base_url, {'email': 'someother@mail.com', 'group': self.group.id})
 
         token = furl(
-            re.search(r'(/#!/signup.*)\n', mail.outbox[0].body).group(1)
+            re.search(r'(/#/signup.*)\n', mail.outbox[0].body).group(1)
         ).fragment.args['invite']
 
         self.client.logout()

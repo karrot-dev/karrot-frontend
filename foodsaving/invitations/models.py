@@ -50,7 +50,7 @@ class Invitation(BaseModel):
     objects = InvitationManager()
 
     def get_email_body(self):
-        invite_url = furl('{hostname}/#!/signup'.format(hostname=settings.HOSTNAME))
+        invite_url = furl('{hostname}/#/signup'.format(hostname=settings.HOSTNAME))
         invite_url.fragment.args = {
             'invite': self.token,
             'email': self.email

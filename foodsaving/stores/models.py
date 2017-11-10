@@ -218,13 +218,13 @@ class PickupDate(BaseModel):
 
     def notify_upcoming_via_slack(self):
         if 'upcoming' not in self.notifications_sent:
-            store_page_url = '{hostname}/#!/group/{groupid}/store/{storeid}/pickups'\
+            store_page_url = '{hostname}/#/group/{groupid}/store/{storeid}'\
                 .format(hostname=settings.HOSTNAME,
                         groupid=self.store.group.id,
                         storeid=self.store.id)
             r = requests.post(self.store.group.slack_webhook, json={
                 'username': self.store.group.name,
-                'icon_url': '{hostname}/app/icon/carrot_logo.png'.format(hostname=settings.HOSTNAME),
+                'icon_url': '{hostname}/app/icon/carrot_logo.png'.format(hostname=settings.HOSTNAME),  # TODO fix path
                 'attachments': [
                     {
                         'title': self.store.name,

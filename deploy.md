@@ -84,15 +84,15 @@ map $http_upgrade $connection_upgrade {
 
 server {
 
-    server_name foodsaving.world;
+    server_name karrot.world;
 
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
-    ssl_certificate /var/www/fstool/cert/fullchain.pem;
-    ssl_certificate_key /var/www/fstool/cert/key.pem;
+    ssl_certificate /var/www/karrot/cert/fullchain.pem;
+    ssl_certificate_key /var/www/karrot/cert/key.pem;
 
-    root /home/deploy/public-angular;
+    root /home/deploy/karrot;
 
     location / {
         try_files $uri /index.html;
@@ -113,7 +113,7 @@ server {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $connection_upgrade;
-    } 
+    }
 
 }
 

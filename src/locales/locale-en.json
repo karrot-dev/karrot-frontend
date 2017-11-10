@@ -178,7 +178,6 @@
     "NONE_HINT": "You can create a new pickup on the store page."
   },
   "PICKUP_FEEDBACK": {
-    "TITLE": "Pickup feedback",
     "HEADER": "Thank you for your pickup!",
     "SUBTITLE": "You can provide feedback for your pickup here",
     "AMOUNT": "Amount of food you took home (in kg)",

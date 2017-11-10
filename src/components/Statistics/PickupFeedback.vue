@@ -10,17 +10,28 @@
       </div>
     </div>
     <AmountPicker/>
+    <q-field
+      icon="fa-star"
+      :label="$t('PICKUP_FEEDBACK.COMMENT')"
+      :helper="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')">
+      <q-input
+        v-model="comment"
+        autocomplete="off"
+      />
+    </q-field>
   </div>
 </template>
 
 <script>
+import { QField, QInput } from 'quasar'
 import AmountPicker from './AmountPicker'
 import cartImg from '@/assets/people/cart.png'
 
 export default {
-  components: { AmountPicker },
+  components: { QField, QInput, AmountPicker },
   data () {
     return {
+      comment: '',
       cartImg,
     }
   },

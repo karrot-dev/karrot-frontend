@@ -8,11 +8,14 @@ export const types = {
   RECEIVE: 'Receive',
   RECEIVE_ERROR: 'Receive Error',
 
+  SET_ACTIVE: 'Set Active',
+
   CLEAR: 'Clear',
 }
 
 function initialState () {
   return {
+    activeId: null,
     entries: {},
     idList: [],
     cursor: null,
@@ -28,6 +31,9 @@ export const state = initialState()
 
 export const getters = {
   get: (state, getters, rootState, rootGetters) => id => {
+    if (!state.entries[id]) {
+      return undefined
+    }
     return getters.enrich(state.entries[id])
   },
   all: (state, getters, rootState, rootGetters) => {
@@ -51,9 +57,18 @@ export const getters = {
       // TODO enrich payload
     }
   },
+  active: (state, getters, rootState, rootGetters) => {
+    return getters.get(state.activeId)
+  },
 }
 
 export const actions = {
+  async setActive ({ commit, dispatch, state }, id) {
+    if (!state.entries.id) {
+      await dispatch('fetchById', id)
+    }
+    commit(types.SET_ACTIVE, { id })
+  },
   async fetchForGroup ({ dispatch, rootGetters }, group) {
     dispatch('fetchFiltered', { group: group.id })
   },
@@ -77,6 +92,9 @@ export const actions = {
     }
     commit(types.RECEIVE, { entries: data.results, cursor: data.next })
   },
+  async fetchById ({ commit, state }, id) {
+    commit(types.RECEIVE, { entries: [await historyAPI.get(id)], cursor: state.cursor })
+  },
 
   async fetchMore ({ state, commit }) {
     if (!state.cursor) {
@@ -99,6 +117,9 @@ export const actions = {
 }
 
 export const mutations = {
+  [types.SET_ACTIVE] (state, { id }) {
+    state.activeId = id
+  },
   [types.REQUEST] (state) {
     state.receiveStatus = {
       isWaiting: true,

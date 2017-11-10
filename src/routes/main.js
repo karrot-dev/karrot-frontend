@@ -14,6 +14,7 @@ const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
 const StoreList = () => import('@/pages/Store/Stores')
 const GroupHistory = () => import('@/pages/Group/History')
+const HistoryDetail = () => import('@/pages/HistoryDetail')
 const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
@@ -62,6 +63,13 @@ export default [
     },
     components: {
       default: GroupCreate,
+    },
+  },
+  {
+    name: 'historyDetail',
+    path: '/history/:historyId',
+    components: {
+      default: HistoryDetail,
     },
   },
   {

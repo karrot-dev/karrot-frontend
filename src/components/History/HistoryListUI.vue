@@ -1,8 +1,12 @@
 <template>
   <q-infinite-scroll :handler="loadMore">
-    <table :class="tableClass">
+    <table class="q-table highlight" :class="tableClass">
       <tbody>
-        <HistoryEntry v-for="entry in history" :entry="entry" :key="entry.id" />
+        <HistoryEntry
+          v-for="entry in history"
+          :entry="entry"
+          :key="entry.id"
+        />
       </tbody>
     </table>
     <q-card-main v-if="!history.length && status.success"><q-icon name="fa-bug" />{{ $t('HISTORY.NOTHING_HAPPENEND') }}</q-card-main>
@@ -28,7 +32,6 @@ export default {
   computed: {
     tableClass () {
       return {
-        'q-table': true,
         'striped-odd': !this.striped || this.striped === 'odd',
         'striped-even': this.striped === 'even',
       }

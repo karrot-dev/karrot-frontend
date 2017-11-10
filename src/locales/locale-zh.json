@@ -31,6 +31,7 @@
     "SAVE_CHANGES": "Save changes",
     "RESET": "Reset",
     "CHANGE_PASSWORD": "Change password",
+    "CHANGE_EMAIL": "Change e-mail address",
     "AGREE": "I agree",
     "REMOVE": "Remove"
   },
@@ -233,7 +234,7 @@
   },
   "NOTIFICATIONS": {
     "TITLE": "通知",
-    "NOT_VERIFIED": "尚未認證",
+    "NOT_VERIFIED": "{email} not verified",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。"

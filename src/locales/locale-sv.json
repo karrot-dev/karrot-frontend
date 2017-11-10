@@ -31,6 +31,7 @@
     "SAVE_CHANGES": "Save changes",
     "RESET": "Reset",
     "CHANGE_PASSWORD": "Change password",
+    "CHANGE_EMAIL": "Change e-mail address",
     "AGREE": "I agree",
     "REMOVE": "Remove"
   },
@@ -233,7 +234,7 @@
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",
-    "NOT_VERIFIED": "Not verified",
+    "NOT_VERIFIED": "{email} not verified",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."

@@ -28,7 +28,6 @@
                 v-model="groupEdit.publicDescription"
                 type="textarea"
                 :min-rows="3"
-                :max-height="100"
               />
             </MarkdownInput>
           </q-field>
@@ -42,7 +41,6 @@
                 v-model="groupEdit.description"
                 type="textarea"
                 :min-rows="3"
-                :max-height="100"
               />
             </MarkdownInput>
           </q-field>

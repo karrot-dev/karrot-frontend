@@ -4,6 +4,7 @@
     <div slot="tools">
       <q-btn flat>
         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
     </div>
@@ -17,7 +18,7 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem } from 'quasar'
+import { QBtn, QList, QItem, QTooltip } from 'quasar'
 import SidenavBox from './SidenavBox'
 import StoreOptions from './StoreOptions'
 
@@ -26,7 +27,7 @@ export default {
     storeId: { required: true },
   },
   components: {
-    SidenavBox, StoreOptions, QBtn, QList, QItem,
+    SidenavBox, StoreOptions, QBtn, QList, QItem, QTooltip,
   },
 }
 </script>

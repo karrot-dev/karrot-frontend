@@ -17,6 +17,7 @@
       </q-tabs>
       <q-btn flat class="bg-tertiary text-white">
         <q-icon name="fa-ellipsis-v" />
+        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
     </div>
@@ -30,10 +31,10 @@ import { mapGetters } from 'vuex'
 import Markdown from '@/components/Markdown'
 import StoreOptions from '@/components/Sidenav/StoreOptions'
 
-import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon } from 'quasar'
+import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon, QTooltip } from 'quasar'
 
 export default {
-  components: { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon, StoreOptions, Markdown },
+  components: { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon, QTooltip, StoreOptions, Markdown },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

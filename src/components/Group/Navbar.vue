@@ -22,17 +22,18 @@
     </q-tabs>
     <q-btn flat class="bg-tertiary text-white">
       <q-icon name="fa-ellipsis-v" />
+      <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
       <GroupOptions/>
     </q-btn>
   </div>
 </template>
 
 <script>
-import { QTabs, QRouteTab, QBtn, QIcon } from 'quasar'
+import { QTabs, QRouteTab, QBtn, QIcon, QTooltip } from 'quasar'
 import GroupOptions from '@/components/Sidenav/GroupOptions'
 
 export default {
-  components: { QTabs, QRouteTab, QBtn, QIcon, GroupOptions },
+  components: { QTabs, QRouteTab, QBtn, QIcon, GroupOptions, QTooltip },
   watch: {
     $route (route) {
       if (route.name !== 'group' && route.name !== 'groupDescription' && route.name !== 'groupHistory') {

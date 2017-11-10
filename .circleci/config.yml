@@ -64,6 +64,10 @@ jobs:
             pip install -r requirements-dev.txt
             pip-sync requirements*.txt
             cp config/local_settings.py.ci config/local_settings.py
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - karrot-backend/*
 
   e2e-test:
     <<: *e2e-defaults

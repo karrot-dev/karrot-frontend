@@ -36,7 +36,8 @@
 
       <q-field
         icon="info"
-        :label="$t('CREATEPICKUP.COMMENT')":helper="$t('CREATEPICKUP.COMMENT_HELPER')"
+        :label="$t('CREATEPICKUP.COMMENT')"
+        :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="!!requestError('description')"
         :error-label="requestError('description')"
         >

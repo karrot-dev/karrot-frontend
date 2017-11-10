@@ -93,10 +93,7 @@
     "TITLE": "Manage pickups",
     "SERIES": "Recurring",
     "SINGLE": "One-time pickups",
-    "SHOW_SERIES_DETAILS": "Show pickup dates of series",
-    "HIDE_SERIES_DETAILS": "Hide pickup dates of series",
-    "DATE_TEXT": "Date of pickup",
-    "NUMBER_COLLECTORS": "Number of collectors"
+    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Delete recurring pickup date",
@@ -152,14 +149,9 @@
     "ERROR": "Something went wrong. Perhaps you already verified your address?"
   },
   "CREATEPICKUP": {
-    "TITLE": "Create pickup",
-    "TITLE_EDIT": "Edit pickup",
-    "SERIES": "Recurring",
-    "SINGLE": "One-time pickup",
     "WEEKDAYS": "Weekdays",
-    "HINT_MULTIPLE": "You can select multiple days here, e.g. by holding the Ctrl key.",
+    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
     "TIME": "Time",
-    "TIME_ERROR": "Enter a valid time, e.g. {timeExample}",
     "TIME_HELPER": "When should the pick-up take place?",
     "DATE": "Date",
     "DATE_HELPER": "When should the pick-up take place?",

@@ -47,7 +47,7 @@ jobs:
     <<: *e2e-defaults
     steps:
       - attach_workspace:
-        at: ~/repo
+          at: ~/repo
       - run:
           name: prepare backend
           command: |

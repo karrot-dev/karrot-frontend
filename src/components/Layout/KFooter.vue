@@ -5,14 +5,14 @@
         <img class="shadow" src="~@/assets/carrot-logo.svg"/>
       </div>
       <div class="column col-md-4">
-        <div><a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-fw fa-github on-left"></i> {{ $t('GLOBAL.GITHUB_NOTE') }}</a></div>
-        <div><a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-fw fa-facebook on-left"></i> {{ $t('GLOBAL.FACEBOOK_NOTE') }}</a></div>
-        <div><a href="mail:karrot@foodsaving.world"><i class="fa fa-fw fa-envelope on-left"></i>karrot@foodsaving.world</a></div>
+        <div><a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-fw fa-github on-left" /> {{ $t('GLOBAL.GITHUB_NOTE') }}</a></div>
+        <div><a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-fw fa-facebook on-left" /> {{ $t('GLOBAL.FACEBOOK_NOTE') }}</a></div>
+        <div><a href="mail:karrot@foodsaving.world"><i class="fa fa-fw fa-envelope on-left" />karrot@foodsaving.world</a></div>
       </div>
       <div class="column col-md-4">
         <hr style="width: 3em" class="lt-md">
         <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
-        <div>made with <i class="fa fa-heart"></i> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
+        <div>made with <i class="fa fa-heart" /> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
       </div>
     </div>
   </div>
@@ -81,5 +81,5 @@ export default {
       filter: drop-shadow(0px 1px 1px rgba(0,0,0,.7) )
     @media (max-width: $breakpoint-sm)
       text-align center
-      
+
 </style>

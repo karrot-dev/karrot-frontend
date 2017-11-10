@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3><i class="fa fa-edit"></i> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>
+    <h3><i class="fa fa-edit" /> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>
     <q-card v-if="agreementEdit">
       <agreement-form :agreement="agreementEdit"
                       @save="$emit('save', arguments[0])"

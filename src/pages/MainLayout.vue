@@ -4,7 +4,7 @@
       <div slot="header">
         <KTopbar @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn" slot="header">
           <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars" />
           </q-btn>
         </KTopbar>
         <KTopbarLoggedOut v-if="!isLoggedIn" slot="header">

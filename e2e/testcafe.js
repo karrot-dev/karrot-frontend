@@ -29,6 +29,13 @@ createTestCafe('localhost')
       })
   })
   .then(failedCount => {
+    console.log('Tests failed: ' + failedCount)
     testcafe.close()
+    if (failedCount > 0) {
+      process.exit(1)
+    }
   })
-  .catch(err => console.log(err))
+  .catch(err => {
+    console.log(err)
+    process.exit(1)
+  })

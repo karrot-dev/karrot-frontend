@@ -95,7 +95,7 @@ jobs:
           name: wait for backend to get ready
           command: wget --retry-connrefused -T 30 http://localhost:8000/api/groups-info/
       - run:
-          name: list all available browsers
+          name: list all available browsers for your personal benefit
           command: $(yarn bin)/testcafe -b saucelabs
           background: true
       - run:

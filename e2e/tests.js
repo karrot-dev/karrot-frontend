@@ -1,6 +1,5 @@
 import { Selector, Role } from 'testcafe'
 const testTime = Math.floor(new Date() / 1000)
-console.log(testTime)
 
 const testUser = Role('http://localhost:8080/#/login', async t => {
   const mailField = Selector('div').withText('Mail').child('input')

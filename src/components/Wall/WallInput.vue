@@ -1,6 +1,6 @@
 <template>
-  <q-card>
-    <q-card-main>
+  <q-item>
+    <q-item-main>
       <form name="wallinput" @submit.prevent="send">
         <q-input
           type="textarea"
@@ -11,16 +11,16 @@
           :loading="status.isWaiting"
           />
       </form>
-    </q-card-main>
-  </q-card>
+    </q-item-main>
+  </q-item>
 </template>
 
 <script>
-import { QCard, QCardMain, QInput, QBtn } from 'quasar'
+import { QItem, QItemMain, QInput, QBtn } from 'quasar'
 
 export default {
   name: 'WallInput',
-  components: { QCard, QInput, QBtn, QCardMain },
+  components: { QItem, QInput, QBtn, QItemMain },
   props: {
     status: { required: true },
     placeholder: { default: 'placeholder' },

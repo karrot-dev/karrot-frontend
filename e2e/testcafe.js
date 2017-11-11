@@ -9,33 +9,22 @@ const browsers = isCI ? [
 //  'saucelabs:iPhone 7 Simulator@11.0',
 //  'saucelabs:iPad 2 Simulator@11.0',
 //  'saucelabs:Android Emulator Phone@6.0',
-] : ['chromium']
+] : ['chromium'];
 
-let testcafe = null
-let runner = null
+(async () => {
+  const testcafe = await createTestCafe('localhost')
+  const runner = await testcafe.createRunner()
+  const failedCount = await runner
+    .src(join(__dirname, 'tests.js')) // should pass in test files via args or use some autodiscovery
+    .browsers(browsers)
+    .screenshots('e2e-screenshots')
+    .run({
+      debugOnFail: !isCI,
+    })
 
-createTestCafe('localhost')
-  .then(tc => {
-    testcafe = tc
-    runner = testcafe.createRunner()
-  })
-  .then(() => {
-    return runner
-      .src(join(__dirname, 'tests.js')) // should pass in test files via args or use some autodiscovery
-      .browsers(browsers)
-      .screenshots('e2e-screenshots')
-      .run({
-        debugOnFail: !isCI,
-      })
-  })
-  .then(failedCount => {
-    console.log('Tests failed: ' + failedCount)
-    testcafe.close()
-    if (failedCount > 0) {
-      process.exit(1)
-    }
-  })
-  .catch(err => {
-    console.log(err)
+  console.log('Tests failed: ' + failedCount)
+  testcafe.close()
+  if (failedCount > 0) {
     process.exit(1)
-  })
+  }
+})()

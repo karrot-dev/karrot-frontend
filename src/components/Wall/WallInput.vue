@@ -1,16 +1,15 @@
 <template>
   <q-item>
     <q-item-main>
-      <form name="wallinput" @submit.prevent="send">
-        <q-input
-          type="textarea"
-          v-model="message"
-          :placeholder="placeholder"
-          :min-rows="3"
-          :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
-          :loading="status.isWaiting"
-          />
-      </form>
+      <q-input
+        type="textarea"
+        v-model="message"
+        :placeholder="placeholder"
+        :min-rows="3"
+        :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
+        :loading="status.isWaiting"
+        @keyup.ctrl.enter="send"
+        />
     </q-item-main>
   </q-item>
 </template>

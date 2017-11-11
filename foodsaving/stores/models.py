@@ -224,7 +224,7 @@ class PickupDate(BaseModel):
                         storeid=self.store.id)
             r = requests.post(self.store.group.slack_webhook, json={
                 'username': self.store.group.name,
-                'icon_url': '{hostname}/app/icon/carrot_logo.png'.format(hostname=settings.HOSTNAME),  # TODO fix path
+                'icon_url': '{hostname}/statics/carrot_logo.png'.format(hostname=settings.HOSTNAME),  # TODO fix path
                 'attachments': [
                     {
                         'title': self.store.name,

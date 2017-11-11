@@ -88,8 +88,12 @@ jobs:
           name: run frontend
           command: yarn serve
           background: true
-      - run: wget --retry-connrefused -T 30 http://localhost:8080
-      - run: wget --retry-connrefused -T 30 http://localhost:8000/api/groups-info/
+      - run:
+          name: wait for frontend to get ready
+          command: wget --retry-connrefused -T 30 http://localhost:8080
+      - run:
+          name: wait for backend to get ready
+          command: wget --retry-connrefused -T 30 http://localhost:8000/api/groups-info/
       - run:
           name: list all available browsers
           command: $(yarn bin)/testcafe -b saucelabs

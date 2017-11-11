@@ -80,7 +80,9 @@ export const actions = {
     commit(types.RECEIVE, { entries: data.results, cursor: data.next })
   },
   async fetchById ({ commit, state }, id) {
-    commit(types.RECEIVE, { entries: [await historyAPI.get(id)], cursor: state.cursor })
+    // add entry by ID, keep cursor the same as before
+    const entry = await historyAPI.get(id)
+    commit(types.RECEIVE, { entries: [entry], cursor: state.cursor })
   },
 
   async fetchMore ({ state, commit }) {

@@ -76,7 +76,7 @@
             </q-input>
           </q-field>
 
-          <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
+          <!--<div class="text-negative">{{ requestError('nonFieldErrors') }}</div>-->
 
           <q-btn type="submit" color="primary" :disable="!canSave" :loader="status.isWaiting">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
@@ -128,7 +128,7 @@ export default {
     status: { required: true },
     timezones: { required: true },
     allGroups: { required: true },
-    requestError: { required: true },
+    requestError: { required: false },
   },
   components: {
     QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker, MarkdownInput,
@@ -165,13 +165,13 @@ export default {
       if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 4)
       if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
       if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
-      return this.requestError('name')
+      // return this.requestError('name')
     },
     timezoneError () {
       const m = this.$v.groupEdit.timezone
       if (!m.required) return this.$t('VALIDATION.REQUIRED')
       if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
-      return this.requestError('timezone')
+      // return this.requestError('timezone')
     },
   },
   methods: {

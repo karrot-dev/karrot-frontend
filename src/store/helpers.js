@@ -49,120 +49,117 @@ export function isRequestError (error) {
 }
 
 /**
- * Defines a vues module that can be used to handle async request metadata.
+ * Defines a vuex module that can be used to handle async request metadata.
  *
  * Instantiation:
 
- const meta = defineRequestModule()
+ const meta = createMetaModule()
  export const modules = { meta }
 
  * Usage:
 
-async save ({ commit, dispatch }, group) {
-  dispatch('meta/request', {
-    id: `save-${group.id}`,
-    async run () {
-      const updatedGroup = await groups.save(group)
-      commit(types.RECEIVE_GROUP, { group: updatedGroup }) // other commits when successful
+const actions = {
+  ...withMeta({
+    async save ({ commit, dispatch }, group) {
+      commit(types.RECEIVE_GROUP, { group: await groups.save(group) })
     },
   })
-},
+}
+
+ The meta is stored in two ways:
+   - if the argument to the action is a number, or an object containing an id field,
+     then we store the meta in a nested object at path id/actionName, e.g. { 23: { save: { pending: true } }
+   - otherwise, we key it by the action name, e.g. { fetchList: { pending: true }
+
+ You can access it via function getters `meta/byId` and `meta/byAction`
+
  */
-export function defineRequestModule () {
-  const types = {
-    REQUEST: 'Request',
-    RECEIVE_SUCCESS: 'Receive Success',
-    RECEIVE_ERROR: 'Receive Error',
-    CLEAR: 'Clear',
-    CLEAR_ALL: 'Clear all',
-  }
 
-  function initialState () {
-    return {
-      entries: {},
-    }
-  }
-
-  const state = initialState()
-
-  const getters = {
-    get: state => id => state.entries[id] || ({
-      isWaiting: false,
-      error: undefined,
-      success: false,
-    }),
-    error: (state, getters) => id => field => {
-      const { error: { [field]: [ message ] = [] } = {} } = getters.get(id)
-      return message
-    },
-    isWaiting: (state, getters) => id => getters.get(id).isWaiting,
-    success: (state, getters) => id => getters.get(id).success,
-  }
-
-  const actions = {
-    async request ({ commit }, { id, run, onValidationError }) {
-      commit(types.REQUEST, { id })
-      try {
-        await run()
-        commit(types.RECEIVE_SUCCESS, { id })
-      }
-      catch (error) {
-        if (isValidationError(error)) {
-          commit(types.RECEIVE_ERROR, { id, error: error.response.data })
-          onValidationError(error)
-        }
-        else if (isRequestError(error)) {
-          // TODO: should we commit this at all?
-          commit(types.RECEIVE_ERROR, { id, error: error.request })
-        }
-        else {
-          // some other error, can't handle it here
-          commit(types.CLEAR, { id })
-          throw error
-        }
-      }
-    },
-    clear ({ commit }) {
-      commit('clear')
-    },
-  }
-
-  const mutations = {
-    [types.REQUEST] (state, { id }) {
-      Vue.set(state.entries, id, {
-        isWaiting: true,
-        error: undefined,
-        success: false,
-      })
-    },
-    [types.RECEIVE_SUCCESS] (state, { id }) {
-      Vue.set(state.entries, id, {
-        isWaiting: false,
-        error: undefined,
-        success: true,
-      })
-    },
-    [types.RECEIVE_ERROR] (state, { id, error }) {
-      Vue.set(state.entries, id, {
-        isWaiting: false,
-        error,
-        success: false,
-      })
-    },
-    [types.CLEAR] (state, { id }) {
-      Vue.delete(state.entries, id)
-    },
-    [types.CLEAR_ALL] (state) {
-      Object.entries(initialState())
-        .forEach(([prop, value]) => Vue.set(state, prop, value))
-    },
-  }
-
+export function createMetaModule () {
   return {
     namespaced: true,
-    state,
-    getters,
-    actions,
-    mutations,
+    state: {
+      byId: {},
+      byAction: {},
+    },
+    getters: {
+      byId: state => id => state.byId[id] || {},
+      byAction: state => actionName => state.byAction[actionName] || {},
+
+      // Check if any of the actions for this id are pending
+      pendingById: (state, getters) => id => {
+        return Object.values(getters.byId(id)).some(({ pending }) => pending)
+      },
+    },
+    mutations: {
+      update (state, { actionName, id, value }) {
+        if (id) {
+          if (!state.byId[id]) Vue.set(state.byId, id, {})
+          Vue.set(state.byId[id], actionName, value)
+        }
+        else {
+          state.byAction[actionName] = value
+        }
+      },
+      clear (state, { actionName, id }) {
+        if (id) {
+          if (state.byId[id]) {
+            Vue.delete(state.byId[id], actionName)
+            if (Object.keys(state.byId[id]).length === 0) {
+              Vue.delete(state.byId, id)
+            }
+          }
+        }
+        else {
+          Vue.delete(state.byAction, actionName)
+        }
+      },
+    },
+  }
+}
+
+export function withMeta (actions, { namespace = 'meta' } = {}) {
+  const wrappedActions = {}
+  for (const [actionName, action] of Object.entries(actions)) {
+    wrappedActions[actionName] = wrapAction(namespace, actionName, action)
+  }
+  return wrappedActions
+}
+
+function findId (data) {
+  if (typeof data === 'number') {
+    return data
+  }
+  else if (typeof data === 'object' && data.hasOwnProperty('id')) {
+    return data.id
+  }
+}
+
+function wrapAction (namespace, actionName, fn) {
+  return async function (ctx, data) {
+    const { commit } = ctx
+    const id = findId(data)
+
+    const runAction = () => fn.apply(this, arguments)
+    const update = value => commit(`${namespace}/update`, { actionName, id, value })
+    const clear = () => commit(`${namespace}/clear`, { actionName, id })
+
+    update({ pending: true })
+
+    try {
+      const result = await runAction()
+      clear()
+      return result
+    }
+    catch (error) {
+      if (isValidationError(error)) {
+        update({ validationErrors: error.response.data })
+      }
+      else {
+        // some other error, can't handle it here
+        clear()
+        throw error
+      }
+    }
   }
 }

@@ -8,86 +8,70 @@ jest.mock('@/router', () => ({ push: mockRouterPush }))
 jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
 
-import { defineRequestModule } from '@/store/helpers'
+import { createValidationError } from '>/helpers'
+import { withMeta, createMetaModule } from '@/store/helpers'
 
 Vue.use(Vuex)
 
 describe('helpers', () => {
-  describe('defineRequestModule', () => {
+  describe('createMetaModule', () => {
     const id = 'foo'
     let run
-    let onValidationError
     let meta
     let store
     beforeEach(() => {
-      meta = defineRequestModule()
-      store = new Vuex.Store({ modules: { meta } })
       run = jest.fn()
-      onValidationError = jest.fn()
-    })
-
-    it('is a function', () => {
-      expect(typeof defineRequestModule).toBe('function')
-    })
-
-    it('calls run', async () => {
-      await store.dispatch('meta/request', { id, run })
-      expect(run).toBeCalled()
-    })
-
-    it('handles validation errors', async () => {
-      const data = { foo: 'bar' }
-      const error = createValidationError(data)
-      run.mockImplementationOnce(() => { throw error })
-      await store.dispatch('meta/request', { id, run, onValidationError })
-      expect(run).toBeCalled()
-      expect(onValidationError).toBeCalledWith(error)
-      expect(store.getters['meta/get'](id)).toEqual({
-        error: data,
-        isWaiting: false,
-        success: false,
+      meta = createMetaModule()
+      store = new Vuex.Store({
+        modules: { meta },
+        actions: withMeta({
+          run,
+        }),
       })
     })
 
-    it('handles request errors', async () => {
-      run.mockImplementationOnce(() => { throw createRequestError() })
-      await store.dispatch('meta/request', { id, run, onValidationError })
+    it('is a function', () => {
+      expect(typeof createMetaModule).toBe('function')
+    })
+
+    it('calls run', async () => {
+      await store.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(onValidationError).not.toBeCalled()
-      expect(store.getters['meta/get'](id)).toEqual({
-        isWaiting: false,
-        success: false,
+      expect(store.getters['meta/byId'](id)).toEqual({})
+    })
+
+    it('handles validation errors', async () => {
+      const validationErrors = { foo: 'bar' }
+      run.mockImplementationOnce(() => { throw createValidationError(validationErrors) })
+      await store.dispatch('run', { id })
+      expect(run).toBeCalled()
+      expect(store.getters['meta/byId'](id)).toEqual({
+        run: {
+          validationErrors,
+        },
       })
     })
 
     it('throws any other errors back atcha', async () => {
       const error = new Error('raaaaaaaaaaa I am an error')
       run.mockImplementationOnce(() => { throw error })
-      await expect(store.dispatch('meta/request', { id, run, onValidationError })).rejects.toBe(error)
+      await expect(store.dispatch('run', { id })).rejects.toBe(error)
       expect(run).toBeCalled()
-      expect(onValidationError).not.toBeCalled()
-      expect(store.getters['meta/get'](id)).toEqual({
-        isWaiting: false,
-        success: false,
+      expect(store.getters['meta/byId'](id)).toEqual({})
+    })
+
+    it('goes into pending state during request', async () => {
+      const promise = new Promise(resolve => {
+        store.dispatch('run', { id })
+        expect(store.getters['meta/byId'](id)).toEqual({
+          run: {
+            pending: true,
+          },
+        })
+        resolve()
       })
+      run.mockReturnValueOnce(promise)
+      await promise
     })
   })
 })
-
-function createValidationError (data) {
-  return Object.assign(new Error(), {
-    response: {
-      status: 403,
-      data,
-    },
-  })
-}
-
-function createRequestError () {
-  return Object.assign(new Error(), {
-    response: {
-      status: 500,
-      request: 'foo',
-    },
-  })
-}

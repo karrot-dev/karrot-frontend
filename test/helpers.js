@@ -70,3 +70,21 @@ export function mountWithDefaults (Component, options = {}) {
   makeFindAllIterable(wrapper)
   return wrapper
 }
+
+export function createValidationError (data) {
+  return Object.assign(new Error(), {
+    response: {
+      status: 403,
+      data,
+    },
+  })
+}
+
+export function createRequestError () {
+  return Object.assign(new Error(), {
+    response: {
+      status: 500,
+      request: 'foo',
+    },
+  })
+}

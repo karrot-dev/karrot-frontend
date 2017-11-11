@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import pickups from '@/services/api/pickups'
-import { onlyHandleAPIError, defineRequestModule } from '@/store/helpers'
+import {onlyHandleAPIError, createMetaModule, withMeta, isValidationError} from '@/store/helpers'
 
-const joinLeave = defineRequestModule()
-export const modules = { joinLeave }
+const meta = createMetaModule()
+export const modules = { meta }
 
 export const types = {
 
@@ -51,7 +51,7 @@ export const getters = {
     const userId = rootGetters['auth/userId']
     return pickup && {
       ...pickup,
-      isWaiting: !!getters['joinLeave/get'](pickup.id).isWaiting,
+      isWaiting: !!getters['meta/pendingById'](pickup.id),
       isUserMember: pickup.collectorIds.includes(userId),
       isEmpty: pickup.collectorIds.length === 0,
       isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
@@ -129,32 +129,31 @@ export const actions = {
     }
   },
 
-  async join ({ commit, dispatch, rootGetters }, pickupId) {
-    dispatch('joinLeave/request', {
-      id: pickupId,
-      async run () {
-        await pickups.join(pickupId)
-        commit(types.JOIN, { pickupId, userId: rootGetters['auth/userId'] })
-      },
-      onValidationError () {
-        // it would be nice to use plain try-catch instead of this
-        dispatch('fetch', { pickupId })
-      },
-    })
-  },
+  ...withMeta({
 
-  async leave ({ commit, dispatch, rootGetters }, pickupId) {
-    dispatch('joinLeave/request', {
-      id: pickupId,
-      async run () {
+    async join ({ commit, dispatch, rootGetters }, pickupId) {
+      try {
+        await pickups.join(pickupId)
+        commit(types.JOIN, {pickupId, userId: rootGetters['auth/userId']})
+      }
+      catch (error) {
+        if (isValidationError(error)) dispatch('fetch', { pickupId })
+        throw error
+      }
+    },
+
+    async leave ({ commit, dispatch, rootGetters }, pickupId) {
+      try {
         await pickups.leave(pickupId)
         commit(types.LEAVE, { pickupId, userId: rootGetters['auth/userId'] })
-      },
-      onValidationError () {
-        dispatch('fetch', { pickupId })
-      },
-    })
-  },
+      }
+      catch (error) {
+        if (isValidationError(error)) dispatch('fetch', { pickupId })
+        throw error
+      }
+    },
+
+  }),
 
   async save ({ commit, dispatch }, pickup) {
     commit(types.REQUEST_SAVE)

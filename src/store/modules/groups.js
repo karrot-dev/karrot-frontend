@@ -1,12 +1,12 @@
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
-import { indexById, onlyHandleAPIError, defineRequestModule } from '@/store/helpers'
+import { indexById, onlyHandleAPIError, withMeta, createMetaModule } from '@/store/helpers'
 import { Toast } from 'quasar'
 import i18n from '@/i18n'
 
-const meta = defineRequestModule()
-export const modules = { meta }
+// const meta = defineRequestModule()
+export const modules = { meta: createMetaModule() }
 
 export const types = {
 
@@ -70,6 +70,7 @@ export const getters = {
       membership,
       activeAgreement,
       awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
+      meta: getters['meta/byId'](group.id),
     }
   },
   all: (state, getters, rootState, rootGetters) => {
@@ -79,7 +80,7 @@ export const getters = {
   saveError: (state, getters) => {
     // access meta error getter with metaID
     // a bit cumbersome!
-    return getters['meta/error'](`save-${getters.activeGroupId}`)
+    // return getters['meta/error'](`save-${getters.activeGroupId}`)
   },
   error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
   activeUserGroups: (state, getters, rootState, rootGetters) => {
@@ -117,6 +118,41 @@ export const getters = {
 }
 
 export const actions = {
+
+  ...withMeta({
+
+    async save ({ commit, dispatch }, group) {
+      commit(types.RECEIVE_GROUP, { group: await groups.save(group) })
+      router.push({ name: 'group', params: { groupId: group.id } })
+    },
+
+    async join ({ commit, dispatch, rootGetters }, { groupId, password }) {
+      await groups.join(groupId, { password })
+      commit(types.RECEIVE_JOIN, { groupId, userId: rootGetters['auth/userId'] })
+      router.push({ name: 'group', params: { groupId } })
+    },
+
+    async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
+      await groups.leave(groupId)
+      commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
+      dispatch('alerts/create', {
+        type: 'groupLeaveSuccess',
+        context: { groupName: getters.get(groupId).name },
+      }, { root: true })
+      router.push({ name: 'groupsGallery' })
+    },
+
+    async create ({ commit, dispatch }, group) {
+      const createdGroup = await groups.create(group)
+      commit(types.RECEIVE_GROUP, { group: createdGroup })
+      router.push({ name: 'group', params: { groupId: createdGroup.id } })
+    },
+
+    async fetchGroupsPreview ({ commit }) {
+      commit(types.RECEIVE_GROUPS, { groups: await groupsInfo.list() })
+    },
+
+  }),
 
   async selectGroup ({ commit, state, dispatch, getters, rootState }, groupId) {
     if (state.activeGroupId === groupId) return
@@ -174,17 +210,6 @@ export const actions = {
     commit(types.RECEIVE_GROUP, { group })
   },
 
-  async fetchGroupsPreview ({ commit }) {
-    // fetch public group info
-    commit(types.REQUEST_GROUPS)
-    try {
-      commit(types.RECEIVE_GROUPS, { groups: await groupsInfo.list() })
-    }
-    catch (error) {
-      commit(types.RECEIVE_GROUPS_ERROR, { error })
-    }
-  },
-
   async fetchTimezones ({ commit }) {
     const timezones = await groups.timezones()
     commit(types.RECEIVE_TIMEZONES, { timezones })
@@ -201,50 +226,6 @@ export const actions = {
     }
     commit(types.RECEIVE_JOIN, { groupId, userId: rootGetters['auth/userId'] })
     router.push({ name: 'group', params: { groupId } })
-  },
-
-  async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
-    commit(types.REQUEST_LEAVE)
-    try {
-      await groups.leave(groupId)
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_LEAVE_ERROR, data))
-      return
-    }
-
-    commit(types.RECEIVE_LEAVE, { groupId, userId: rootGetters['auth/userId'] })
-    dispatch('alerts/create', {
-      type: 'groupLeaveSuccess',
-      context: { groupName: getters.get(groupId).name },
-    }, { root: true })
-    router.push({ name: 'groupsGallery' })
-  },
-
-  async save ({ commit, dispatch }, group) {
-    dispatch('meta/request', {
-      id: `save-${group.id}`,
-      async run () {
-        const updatedGroup = await groups.save(group)
-        commit(types.RECEIVE_GROUP, { group: updatedGroup })
-        router.push({ name: 'group', params: { groupId: updatedGroup.id } })
-      },
-    })
-  },
-
-  async create ({ commit, dispatch }, group) {
-    commit(types.REQUEST_SAVE)
-    let createdGroup
-    try {
-      createdGroup = await groups.create(group)
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
-      return
-    }
-    commit(types.RECEIVE_SAVE)
-    commit(types.RECEIVE_GROUP, { group: createdGroup })
-    router.push({ name: 'group', params: { groupId: createdGroup.id } })
   },
 
   async activeGroupAgreementSave ({ commit, dispatch, state }, agreement) {
@@ -275,6 +256,7 @@ export const actions = {
 }
 
 export const mutations = {
+
   [types.SET_ACTIVE] (state, { groupId }) {
     state.activeGroupId = groupId
   },

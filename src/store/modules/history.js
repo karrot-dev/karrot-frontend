@@ -30,21 +30,10 @@ function initialState () {
 export const state = initialState()
 
 export const getters = {
-  get: (state, getters, rootState, rootGetters) => id => {
-    if (!state.entries[id]) {
-      return undefined
-    }
-    return getters.enrich(state.entries[id])
-  },
-  all: (state, getters, rootState, rootGetters) => {
-    return state.idList.map(getters.get)
-  },
-  receiveStatus: (state, getters, rootState, rootGetters) => {
-    return state.receiveStatus
-  },
-  canLoadMore: (state, getters, rootState, rootGetters) => {
-    return typeof state.cursor === 'string'
-  },
+  get: (state, getters, rootState, rootGetters) => id => getters.enrich(state.entries[id]),
+  all: (state, getters, rootState, rootGetters) => state.idList.map(getters.get),
+  receiveStatus: (state, getters, rootState, rootGetters) => state.receiveStatus,
+  canLoadMore: (state, getters, rootState, rootGetters) => typeof state.cursor === 'string',
   enrich: (state, getters, rootState, rootGetters) => entry => {
     const store = rootGetters['stores/get'](entry.store)
     const msgValues = store ? { storeName: store.name, name: store.name } : {}
@@ -57,9 +46,7 @@ export const getters = {
       // TODO enrich payload
     }
   },
-  active: (state, getters, rootState, rootGetters) => {
-    return getters.get(state.activeId)
-  },
+  active: (state, getters, rootState, rootGetters) => getters.get(state.activeId),
 }
 
 export const actions = {

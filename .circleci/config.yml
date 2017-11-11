@@ -174,13 +174,6 @@ workflows:
       - test:
           requires:
             - install-dependencies
-      - install-e2e-dependencies:
-          requires:
-            - install-dependencies
-      - e2e-test:
-          requires:
-            - build
-            - install-e2e-dependencies
       - lint:
           requires:
             - install-dependencies
@@ -208,10 +201,16 @@ workflows:
           type: approval
           requires:
             - deploy-dev
+      - install-e2e-dependencies:
+          requires:
+            - approval
+      - e2e-test:
+          requires:
+            - install-e2e-dependencies
       - deploy-release:
           filters:
             branches:
               only:
                 - master
           requires:
-            - approval
+            - e2e-test

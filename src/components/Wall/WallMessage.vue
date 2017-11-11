@@ -1,17 +1,17 @@
 <template>
     <q-item multiline>
-      <q-item-tile lines="2" class="left"><ProfilePicture :user="message.author" :size="40" /></q-item-tile>
-      <q-item-main
-        :label="message.author.displayName"
-        label-lines="1"
-        :sublabel="message.content"
-        sublabel-lines="500"
-        class="content"
-      />
+      </q-item-side>
+      <q-item-main>
+        <q-item-tile icon="message" />
+        <q-item-tile label class="content">
+          {{ message.content }}
+        </q-item-tile>
+      </q-item-main>
       <q-item-side right>
         <q-item-tile stamp>
           <DateAsWords :date="message.createdAt" />
-        </q-item-tile>              
+        </q-item-tile>
+        <ProfilePicture :user="message.author" :size="40" />
       </q-item-side>
     </q-item>
 </template>
@@ -37,6 +37,6 @@ export default {
   margin-right: 1em;
 }
 .content {
-  white-space: pre;
+  white-space: pre-line;
 }
 </style>

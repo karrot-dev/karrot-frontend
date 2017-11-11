@@ -1,7 +1,6 @@
 <template>
     <q-item multiline>
       <q-item-main>
-        <q-item-tile icon="message" />
         <q-item-tile label class="content">
           {{ message.content }}
         </q-item-tile>

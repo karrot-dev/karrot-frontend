@@ -79,13 +79,14 @@ export default {
   props: {
     status: { required: true },
     requestError: { required: true },
+    prefillEmail: {},
   },
   data () {
     return {
       loginImage,
       user: {
         displayName: null,
-        email: null,
+        email: this.prefillEmail(),
         password: null,
       },
     }

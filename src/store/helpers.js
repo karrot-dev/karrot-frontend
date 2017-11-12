@@ -75,6 +75,8 @@ const actions = {
 
  */
 
+const defaultStatus = { pending: false, validationErrors: {} }
+
 export function createMetaModule () {
   return {
     namespaced: true,
@@ -83,12 +85,18 @@ export function createMetaModule () {
       byAction: {},
     },
     getters: {
-      byId: state => id => state.byId[id] || {},
-      byAction: state => actionName => state.byAction[actionName] || {},
-
-      // Check if any of the actions for this id are pending
-      pendingById: (state, getters) => id => {
-        return Object.values(getters.byId(id)).some(({ pending }) => pending)
+      status: state => (actionName, id) => {
+        if (id) {
+          return { ...defaultStatus, ...(state.byId[id] && state.byId[id][actionName]) }
+        }
+        else {
+          return { ...defaultStatus, ...state.byAction[actionName] }
+        }
+      },
+    },
+    actions: {
+      clear ({ commit }, [actionName, id]) {
+        commit('clear', { actionName, id })
       },
     },
     mutations: {
@@ -98,7 +106,7 @@ export function createMetaModule () {
           Vue.set(state.byId[id], actionName, value)
         }
         else {
-          state.byAction[actionName] = value
+          Vue.set(state.byAction, actionName, value)
         }
       },
       clear (state, { actionName, id }) {
@@ -118,15 +126,19 @@ export function createMetaModule () {
   }
 }
 
-export function withMeta (actions, { namespace = 'meta' } = {}) {
+export function withMeta (actions, { namespace = 'meta', idPrefix = '', findId = defaultFindId } = {}) {
   const wrappedActions = {}
   for (const [actionName, action] of Object.entries(actions)) {
-    wrappedActions[actionName] = wrapAction(namespace, actionName, action)
+    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, findId })
   }
   return wrappedActions
 }
 
-function findId (data) {
+export function withPrefixedIdMeta (idPrefix, actions, options) {
+  return withMeta(actions, { ...options, idPrefix })
+}
+
+function defaultFindId (data) {
   if (typeof data === 'number') {
     return data
   }
@@ -135,25 +147,32 @@ function findId (data) {
   }
 }
 
-function wrapAction (namespace, actionName, fn) {
+function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
   return async function (ctx, data) {
-    const { commit } = ctx
-    const id = findId(data)
+    const { commit, getters } = ctx
+    let id = findId(data)
 
-    const runAction = () => fn.apply(this, arguments)
+    if (id && idPrefix) id = idPrefix + id
+
+    if (getters[`${namespace}/status`](actionName, id).pending) {
+      throw new Error(`action already pending for ${actionName}/${id}`)
+    }
+
+    const runAction = () => action.apply(this, arguments)
     const update = value => commit(`${namespace}/update`, { actionName, id, value })
     const clear = () => commit(`${namespace}/clear`, { actionName, id })
 
     update({ pending: true })
 
     try {
-      const result = await runAction()
+      await runAction()
       clear()
-      return result
+      return true
     }
     catch (error) {
       if (isValidationError(error)) {
         update({ validationErrors: error.response.data })
+        return false
       }
       else {
         // some other error, can't handle it here
@@ -162,4 +181,20 @@ function wrapAction (namespace, actionName, fn) {
       }
     }
   }
+}
+
+export function metaStatusesWithId (getters, actions, id) {
+  const result = {}
+  for (let action of actions) {
+    result[action + 'Status'] = getters['meta/status'](action, id)
+  }
+  return result
+}
+
+export function metaStatuses (actions) {
+  const result = {}
+  for (let action of actions) {
+    result[action + 'Status'] = (state, getters) => getters['meta/status'](action)
+  }
+  return result
 }

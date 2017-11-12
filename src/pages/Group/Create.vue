@@ -4,13 +4,15 @@ import GroupEdit from '@/components/Group/GroupEdit'
 
 export default connect({
   gettersToProps: {
-    status: 'groups/status',
     timezones: 'groups/timezones',
     allGroups: 'groups/all',
-    requestError: 'groups/saveError',
+    status: 'groups/createStatus',
   },
   actionsToEvents: {
     save: 'groups/create',
+  },
+  methodsToEvents: {
+    reset: ({ dispatch }) => dispatch('meta/clear', ['create']),
   },
   lifecycle: {
     mounted: ({ dispatch }) => dispatch('groups/fetchTimezones'),

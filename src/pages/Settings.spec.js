@@ -4,7 +4,7 @@ jest.mock('@/store/plugins/persistedState', () => {
 
 import Settings from './Settings'
 import { locales } from '@/i18n'
-import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame, mockActionOnce } from '>/helpers'
 
 import store from '@/store'
 
@@ -26,6 +26,7 @@ describe('Settings', () => {
   })
 
   it('can select a locale', () => {
+    mockActionOnce(store, 'auth/update')
     let wrapper = mountWithDefaults(Settings, { store })
     const locales = store.getters['i18n/localeOptions']
     let idx = Math.floor(Math.random() * locales.length) // pick a random locale

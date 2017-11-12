@@ -63,6 +63,7 @@ export function polyfillRequestAnimationFrame () {
 
 export function mountWithDefaults (Component, options = {}) {
   const localVue = createLocalVue()
+  // localVue.productionTip = false
   localVue.component('router-link', MockRouterLink)
   localVue.use(Quasar)
   i18n.locale = 'en'
@@ -87,4 +88,31 @@ export function createRequestError () {
       request: 'foo',
     },
   })
+}
+
+export function mockActionOnce (store, actionName) {
+  const originalValue = store._actions[actionName]
+  const restore = () => { store._actions[actionName] = originalValue }
+  const mockFn = jest.fn()
+  store._actions[actionName] = [async () => {
+    try {
+      await mockFn()
+    }
+    finally {
+      restore()
+    }
+  }]
+  return mockFn
+}
+
+export function defaultActionStatus () {
+  return { pending: false, validationErrors: {} }
+}
+
+export function defaultActionStatusesFor (...actions) {
+  const result = {}
+  for (let action of actions) {
+    result[action + 'Status'] = defaultActionStatus()
+  }
+  return result
 }

@@ -36,7 +36,7 @@
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
+              <pickup-edit :pickup="pickup" @save="savePickup" :status="pickup.saveStatus" />
             </q-collapsible>
           </q-list>
 
@@ -59,7 +59,7 @@
       </q-card-title>
 
       <q-item v-if="newPickup" >
-        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
+        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" @reset="resetNewPickup" :status="pickupCreateStatus" />
       </q-item>
 
       <q-list class="pickups" separator no-border>
@@ -68,7 +68,7 @@
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
+          <pickup-edit :pickup="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
         </q-collapsible>
       </q-list>
     </q-card>
@@ -77,14 +77,16 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
+import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
 import { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
-  components: { QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit },
+  components: {
+    QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
+  },
   data () {
     return {
       newSeries: null,
@@ -141,12 +143,20 @@ export default {
         store: this.storeId,
       }
     },
-    saveNewPickup (pickup) {
-      this.$store.dispatch('pickups/create', pickup)
-      this.newPickup = null
+    async saveNewPickup (pickup) {
+      if (await this.$store.dispatch('pickups/create', pickup)) {
+        this.newPickup = null
+      }
     },
     cancelNewPickup () {
       this.newPickup = null
+      this.resetNewPickup()
+    },
+    resetNewPickup () {
+      this.$store.dispatch('pickups/meta/clear', ['create'])
+    },
+    resetPickup (pickupId) {
+      this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
     },
     destroyPickup (pickupId) {
       this.$store.dispatch('pickups/destroy', pickupId)
@@ -157,8 +167,7 @@ export default {
       storeId: 'stores/activeStoreId',
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
-      pickupIsWaiting: 'pickups/saveIsWaiting',
-      pickupsError: 'pickups/saveError',
+      pickupCreateStatus: 'pickups/createStatus',
       seriesIsWaiting: 'pickupSeries/saveIsWaiting',
       seriesError: 'pickupSeries/saveError',
     }),

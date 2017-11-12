@@ -15,7 +15,7 @@ export default store => {
     dateFnsHelper.setLocale(locale)
 
     axios.defaults.headers.common['Accept-Language'] = locale
-  }, {immediate: true})
+  }, { immediate: true })
 }
 
 /*

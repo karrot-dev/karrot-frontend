@@ -25,11 +25,13 @@ axios.interceptors.response.use(response => {
   response.data = camelizeKeys(response.data)
   return response
 }, (error) => {
-  if (error.response.status >= 500) {
-    Toast.create.warning(i18n.t('GLOBAL.SERVER_ERROR'))
-  }
-  else {
-    error.response.data = camelizeKeys(error.response.data)
+  if (error.response) {
+    if (error.response.status >= 500) {
+      Toast.create.warning(i18n.t('GLOBAL.SERVER_ERROR'))
+    }
+    else {
+      error.response.data = camelizeKeys(error.response.data)
+    }
   }
   return Promise.reject(error)
 })

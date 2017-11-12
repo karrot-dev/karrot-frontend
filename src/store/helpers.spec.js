@@ -37,7 +37,7 @@ describe('helpers', () => {
     it('calls run', async () => {
       await store.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(store.getters['meta/byId'](id)).toEqual({})
+      expect(store.getters['meta/status']('run', id).pending).toEqual(false)
     })
 
     it('handles validation errors', async () => {
@@ -45,11 +45,7 @@ describe('helpers', () => {
       run.mockImplementationOnce(() => { throw createValidationError(validationErrors) })
       await store.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(store.getters['meta/byId'](id)).toEqual({
-        run: {
-          validationErrors,
-        },
-      })
+      expect(store.getters['meta/status']('run', id).pending).toEqual(false)
     })
 
     it('throws any other errors back atcha', async () => {
@@ -57,21 +53,20 @@ describe('helpers', () => {
       run.mockImplementationOnce(() => { throw error })
       await expect(store.dispatch('run', { id })).rejects.toBe(error)
       expect(run).toBeCalled()
-      expect(store.getters['meta/byId'](id)).toEqual({})
+      expect(store.getters['meta/status']('run', id)).toEqual({ pending: false, validationErrors: {} })
     })
 
     it('goes into pending state during request', async () => {
-      const promise = new Promise(resolve => {
-        store.dispatch('run', { id })
-        expect(store.getters['meta/byId'](id)).toEqual({
-          run: {
-            pending: true,
-          },
-        })
-        resolve()
-      })
-      run.mockReturnValueOnce(promise)
-      await promise
+      const runPromise = store.dispatch('run', { id })
+      expect(store.getters['meta/status']('run', id).pending).toEqual(true)
+      await runPromise
+      expect(store.getters['meta/status']('run', id).pending).toEqual(false)
+    })
+
+    it('does not let concurrent actions', async () => {
+      const runPromise = store.dispatch('run', { id })
+      await expect(store.dispatch('run', { id })).rejects.toHaveProperty('message', `action already pending for run/${id}`)
+      await runPromise
     })
   })
 })

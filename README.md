@@ -5,7 +5,7 @@
 
 # karrot frontend
 
-Welcome to _karrot_! _karrot_ is a software to support foodsaving groups worldwide. This is the frontend repository, i.e. the browser-side software that powers [foodsaving worldwide](https://foodsaving.world). 
+Welcome to _karrot_! _karrot_ is a software to support foodsaving groups worldwide. This is the frontend repository, i.e. the browser-side software that powers [foodsaving worldwide](https://karrot.world).
 
 
 ## foodsaving worldwide
@@ -24,7 +24,7 @@ Look into our [change log file](CHANGELOG.md) for a quick overview of past versi
 
 ### Potential users
 
-Have a look [on the live site](https://foodsaving.world) for all groups that have registered so far. Not all of them are using the app right now, but we have received feature requests from them.
+Have a look [on the live site](https://karrot.world) for all groups that have registered so far. Not all of them are using the app right now, but we have received feature requests from them.
 
 ## Translation
 

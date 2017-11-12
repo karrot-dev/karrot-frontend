@@ -3,7 +3,7 @@
     <q-card-title>
       {{ group.name }}
       <span slot="subtitle">
-        {{ group.members.length }} Members
+        {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
       </span>
     </q-card-title>
     <q-card-main class="fixed-height">
@@ -11,7 +11,7 @@
         <Markdown :source="group.publicDescription.slice(0, 150)" />
       </div>
       <span v-else class="text-italic">
-        {{ $t("JOINGROUP.NO_PUBLIC_DESCRIPTION") }}
+        {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
       </span>
     </q-card-main>
     <q-card-separator />
@@ -19,13 +19,13 @@
       <q-btn v-if="isMember" @click="$emit('visit')" class="q-btn-flat">
         <q-icon name="fa-home" />
         <q-tooltip>
-          {{ $t("GROUPINFO.MEMBER_VIEW") }}
+          {{ $t('GROUPINFO.MEMBER_VIEW') }}
         </q-tooltip>
       </q-btn>
       <q-btn @click="$emit('preview')" class="q-btn-flat">
         <q-icon name="fa-info-circle" />
         <q-tooltip>
-          {{ $t("GROUPINFO.META") }}
+          {{ $t('GROUPINFO.META') }}
         </q-tooltip>
       </q-btn>
     </q-card-actions>

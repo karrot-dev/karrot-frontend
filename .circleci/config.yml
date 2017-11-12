@@ -31,6 +31,77 @@ jobs:
       - run: yarn test --ci --runInBand
       - run: bash <(curl -s https://codecov.io/bash)
 
+  install-e2e-dependencies:
+    working_directory: ~/repo
+    docker:
+      - image: node:8.5
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: prepare backend
+          command: |
+            set -x
+            export LC_ALL=C.UTF-8
+            export LANG=C.UTF-8
+            apt-get update
+            apt-get install -y python3 python3-dev virtualenv
+            git clone https://github.com/yunity/karrot-backend
+            cd karrot-backend
+            virtualenv -p python3 env
+            env/bin/pip install --upgrade pip
+            env/bin/pip install -r requirements-dev.txt
+            env/bin/pip-sync requirements*.txt
+            cp config/local_settings.py.ci config/local_settings.py
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - karrot-backend/*
+
+  e2e-test:
+    working_directory: ~/repo
+    docker:
+      - image: node:8.5
+        environment:
+          PGHOST: 127.0.0.1
+      - image: circleci/postgres:9.6.2
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: fstool_e2etest
+      - image: redis:3.2.11
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: run backend
+          command: |
+            set -x
+            export LC_ALL=C.UTF-8
+            export LANG=C.UTF-8
+            apt-get update
+            apt-get install -y python3 python3-dev virtualenv
+            cd karrot-backend
+            env/bin/python manage.py migrate
+            env/bin/python manage.py runserver
+          background: true
+      - run:
+          name: run frontend
+          command: yarn serve
+          background: true
+      - run:
+          name: wait for frontend to get ready
+          command: wget --retry-connrefused -T 30 http://localhost:8080
+      - run:
+          name: wait for backend to get ready
+          command: wget --retry-connrefused -T 30 http://localhost:8000/api/groups-info/
+      - run:
+          name: list all available browsers for your personal benefit
+          command: $(yarn bin)/testcafe -b saucelabs
+          background: true
+      - run:
+          name: testcafe
+          command: yarn e2e --ci
+
   lint:
     <<: *defaults
     steps:
@@ -59,6 +130,17 @@ jobs:
           root: ~/repo
           paths:
             - storybook-static
+
+  build-docs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run: yarn build-docs
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - docs-dist
 
   deploy-dev:
     <<: *defaults
@@ -101,6 +183,9 @@ workflows:
       - build-storybook:
           requires:
             - install-dependencies
+      - build-docs:
+          requires:
+            - install-dependencies
       - deploy-dev:
           filters:
             branches:
@@ -111,14 +196,21 @@ workflows:
             - lint
             - build
             - build-storybook
+            - build-docs
       - approval:
           type: approval
           requires:
             - deploy-dev
+      - install-e2e-dependencies:
+          requires:
+            - approval
+      - e2e-test:
+          requires:
+            - install-e2e-dependencies
       - deploy-release:
           filters:
             branches:
               only:
                 - master
           requires:
-            - approval
+            - e2e-test

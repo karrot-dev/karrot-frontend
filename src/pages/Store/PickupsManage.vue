@@ -1,14 +1,17 @@
 <template>
   <div>
-
+    <h3 v-t="'PICKUPMANAGE.TITLE'" />
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-repeat on-left" aria-hidden="true"></i>
+          <i class="icon fa fa-repeat on-left" aria-hidden="true" />
           {{ $t('PICKUPMANAGE.SERIES') }}
         </h5>
         <div slot="right" class="row items-center">
-          <q-btn @click="createNewSeries">Create new</q-btn>
+          <q-btn @click="createNewSeries">
+            <q-icon name="fa-plus-circle" />
+            <q-tooltip v-t="'BUTTON.CREATE'" />
+          </q-btn>
         </div>
       </q-card-title>
       <q-item v-if="newSeries" >
@@ -27,7 +30,7 @@
           </q-item>
 
           <q-list no-border seperator>
-            <q-list-header>Upcoming pickups in this series</q-list-header>
+            <q-list-header v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
 
             <q-collapsible v-for="pickup in series.pickups"
                            :key="pickup.id"
@@ -44,11 +47,14 @@
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true"></i>
+          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true" />
           {{ $t('PICKUPMANAGE.SINGLE') }}
         </h5>
         <div slot="right" class="row items-center">
-          <q-btn @click="createNewPickup">Create new</q-btn>
+          <q-btn @click="createNewPickup">
+            <q-icon name="fa-plus-circle" />
+            <q-tooltip v-t="'BUTTON.CREATE'" />
+          </q-btn>
         </div>
       </q-card-title>
 
@@ -71,7 +77,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { Dialog, QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
+import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
@@ -123,19 +129,7 @@ export default {
       this.newSeries = null
     },
     destroySeries (seriesId) {
-      Dialog.create({
-        title: 'Confirm',
-        message: 'You really want to delete the series?',
-        buttons: [
-          'Cancel',
-          {
-            label: 'Yes, delete it!',
-            handler: () => {
-              this.$store.dispatch('pickupSeries/destroy', seriesId)
-            },
-          },
-        ],
-      })
+      this.$store.dispatch('pickupSeries/destroy', seriesId)
     },
     createNewPickup () {
       const date = new Date()
@@ -155,19 +149,7 @@ export default {
       this.newPickup = null
     },
     destroyPickup (pickupId) {
-      Dialog.create({
-        title: 'Confirm',
-        message: 'You really want to delete the pickup?',
-        buttons: [
-          'Cancel',
-          {
-            label: 'Yes, delete it!',
-            handler: () => {
-              this.$store.dispatch('pickups/destroy', pickupId)
-            },
-          },
-        ],
-      })
+      this.$store.dispatch('pickups/destroy', pickupId)
     },
   },
   computed: {

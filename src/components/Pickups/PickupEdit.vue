@@ -1,6 +1,6 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit="save">
+    <form @submit.prevent="save">
       <q-field
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
@@ -36,7 +36,8 @@
 
       <q-field
         icon="info"
-        :label="$t('CREATEPICKUP.COMMENT')":helper="$t('CREATEPICKUP.COMMENT_HELPER')"
+        :label="$t('CREATEPICKUP.COMMENT')"
+        :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="!!requestError('description')"
         :error-label="requestError('description')"
         >
@@ -48,7 +49,7 @@
       <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="isWaiting">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
       <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
       <q-btn type="button" @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
-      <q-btn type="button" color="red" @click="destroy" v-if="!isNew && !pickup.series">{{ $t('BUTTON.DELETE') }}</q-btn>
+      <q-btn type="button" color="red" @click="destroy" v-if="!isNew" :disabled="pickup.collectorIds.length !== 0">{{ $t('BUTTON.DELETE') }}</q-btn>
     </form>
   </div>
 </template>

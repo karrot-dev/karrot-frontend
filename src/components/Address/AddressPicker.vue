@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-search v-model="value.address" placeholder="Search for address">
+    <q-search v-model="value.address" :placeholder="$t('BUTTON.SEARCH')">
       <q-autocomplete @search="autocompleteSearch" @selected="autocompleteSelected" />
     </q-search>
     <standard-map v-if="map" class="map" :markers="marker ? [marker] : []" @markerMoved="mapMarkerMoved"/>

@@ -1,6 +1,6 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit="save">
+    <form @submit.prevent="save">
       <q-field
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
@@ -16,8 +16,8 @@
 
       <q-field
         icon="today"
-        label="Weekdays"
-        helper="On which weekdays should the pick-up take place?"
+        :label="$t('CREATEPICKUP.WEEKDAYS')"
+        :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
         :error="!!requestError('rule')"
         :error-label="requestError('rule')"
         >
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
+import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog } from 'quasar'
 import { is24h, dayOptions } from '@/i18n'
 
 import cloneDeep from 'clone-deep'
@@ -114,7 +114,19 @@ export default {
       }
     },
     destroy (event) {
-      this.$emit('destroy', this.series.id, event)
+      Dialog.create({
+        title: this.$t('PICKUPDELETE.DELETE_SERIES_TITLE'),
+        message: this.$t('PICKUPDELETE.DELETE_SERIES_TEXT'),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('BUTTON.YES'),
+            handler: () => {
+              this.$emit('destroy', this.series.id, event)
+            },
+          },
+        ],
+      })
     },
   },
 }

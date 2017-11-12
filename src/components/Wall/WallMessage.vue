@@ -8,17 +8,23 @@
         sublabel-lines="500"
         class="content"
       />
-      <q-item-side right :stamp="$d(message.createdAt, 'long')" />
+      <q-item-side right>
+        <q-item-tile stamp>
+          <DateAsWords :date="message.createdAt" />
+        </q-item-tile>              
+      </q-item-side>
     </q-item>
 </template>
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
+import DateAsWords from '@/components/General/DateAsWords'
+
 export default {
   name: 'WallMessage',
   components: {
-    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile,
+    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords,
   },
   props: {
     message: { required: true },

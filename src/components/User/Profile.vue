@@ -24,7 +24,7 @@
       <UserMapPreview v-if="user.latitude && user.longitude" :user="user"class="map"/>
       <div class="info">
         <div class="info-item">
-          <strong><i class="fa fa-fw fa-envelope-o on-left"></i> </strong>
+          <strong><i class="fa fa-fw fa-envelope-o on-left" /> </strong>
           {{ user.email }}
           <span v-if="user.email !== user.unverifiedEmail">
             <i class="fa fa-arrow-right"/>
@@ -32,7 +32,7 @@
           </span>
         </div>
         <div class="info-item" v-if="user.address">
-          <strong class="info-item"><i class="fa fa-fw fa-map-marker on-left"></i> </strong>
+          <strong class="info-item"><i class="fa fa-fw fa-map-marker on-left" /> </strong>
           {{ user.address }}
         </div>
       </div>
@@ -41,6 +41,7 @@
         v-if="user.description"
         :source="user.description"
       />
+      <div style="clear: both; margin-bottom: 8px"/>
     </q-card>
   </div>
 </template>

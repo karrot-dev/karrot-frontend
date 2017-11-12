@@ -22,7 +22,7 @@ if [ "$DIR" == "release" ]; then
 
   DEPLOY_ENV="production"
   DEPLOY_EMOJI=":rocket:"
-  URL="https://alpha.foodsaving.world"
+  URL="https://karrot.world"
 
 elif [ "$REF" == "master" ]; then
 
@@ -30,8 +30,9 @@ elif [ "$REF" == "master" ]; then
 
   DEPLOY_ENV="development"
   DEPLOY_EMOJI=":beer:"
-  URL="https://dev.foodsaving.world"
-  STORYBOOK_URL="https://karrot-storybook-dev.foodsaving.world"
+  URL="https://dev.karrot.world"
+  STORYBOOK_URL="https://storybook.karrot.world"
+  DEPLOY_DOCS="true"
 
 else
 
@@ -63,6 +64,10 @@ echo "$about_json" > storybook-static/about.json
 rsync -avz --delete dist/ "deploy@$HOST:karrot-frontend/$DIR/"
 rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
 
+if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist ]; then
+  rsync -avz --delete docs-dist/ "deploy@$HOST:karrot-docs/$DIR/"
+fi
+
 if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 
   WEBPACK_URL="$URL/bundlesize.html"
@@ -80,6 +85,11 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 
   ATTACHMENT_TEXT+="\n:webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
   ATTACHMENT_TEXT+="\n:white_check_mark: <$CIRCLE_WORKFLOW_URL|Visit circleci>"
+
+  if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist ]; then
+    DOCBOOK_URL="https://docs.karrot.world"
+    ATTACHMENT_TEXT+="\n:page_facing_up: <$DOCBOOK_URL|View docs>"
+  fi
 
   ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 

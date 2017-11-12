@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h3 v-if="isNew"><i class="fa fa-pencil"></i> {{ $t('CREATESTORE.TITLE') }}</h3>
-    <h3 v-else><i class="fa fa fa-edit"></i> {{ $t('STOREDETAIL.EDIT') }}</h3>
+    <h3 v-if="isNew"><i class="fa fa-pencil" /> {{ $t('CREATESTORE.TITLE') }}</h3>
+    <h3 v-else><i class="fa fa-edit" /> {{ $t('STOREDETAIL.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
-        <form @submit="save">
+        <form @submit.prevent="save">
           <q-field
             icon="fa-star"
             :label="$t('STOREEDIT.NAME')"
@@ -28,7 +28,9 @@
           <q-field
             icon="fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')">
-            <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
+            <MarkdownInput :value="storeEdit.description">
+              <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" />
+            </MarkdownInput>
           </q-field>
 
           <q-field
@@ -68,6 +70,7 @@
 import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, Dialog } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
+import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
@@ -99,7 +102,7 @@ export default {
     statusList: { required: true },
   },
   components: {
-    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
+    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
   },
   data () {
     return {
@@ -129,10 +132,10 @@ export default {
     },
     nameError () {
       const m = this.$v.storeEdit.name
-      if (!m.required) return this.$t('this field is required')
-      if (!m.minLength) return this.$t('too short')
-      if (!m.maxLength) return this.$t('too long')
-      if (!m.isUnique) return this.$t('already taken')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 2)
+      if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+      if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.requestError('name')
     },
     statusOptions () {

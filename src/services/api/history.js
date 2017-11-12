@@ -1,6 +1,10 @@
 import axios from '@/services/axios'
 
 export default {
+  async get (id) {
+    return (await axios.get(`/api/history/${id}/`)).data
+  },
+
   async list (filter) {
     const response = (await axios.get('/api/history/', { params: filter })).data
     return {

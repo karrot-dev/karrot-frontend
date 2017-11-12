@@ -1,5 +1,5 @@
 <template>
-  <q-btn small>
+  <q-btn flat>
     <q-icon class="globe" name="fa-globe" />
     {{ current }}
     <q-popover ref="popover">

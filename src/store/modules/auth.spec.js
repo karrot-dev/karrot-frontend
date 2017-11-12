@@ -2,7 +2,8 @@ const mockStatus = jest.fn()
 const mockLogin = jest.fn()
 const mockRouterPush = jest.fn()
 jest.mock('@/router', () => ({ push: mockRouterPush }))
-jest.mock('@/services/api/auth', () => ({ status: mockStatus, login: mockLogin }))
+jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
+jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
 
 import { createStore, throws } from '>/helpers'
 

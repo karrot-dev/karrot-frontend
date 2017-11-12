@@ -4,12 +4,12 @@
     <div v-if="showOverlay" class="overlay row justify-center content-center">
       <router-link v-if="showStoreLocationPrompt" :to="{ name: 'storeEdit', params: { storeId: this.selectedStoreId } }">
         <q-btn color="primary">
-          {{ $t('set store location') }}
+          {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
       </router-link>
       <router-link v-else :to="{ name: 'groupEdit', params: { groupId: this.activeGroup.id, storeId: this.selectedStoreId } }">
         <q-btn color="primary">
-          {{ $t('set group location') }}
+          {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
       </router-link>
     </div>

@@ -9,7 +9,7 @@
         {{ $t('GLOBAL.BETA_WARNING') }}
       </q-card-main>
     </q-card>
-    <form name="signup" @submit="submit">
+    <form name="signup" @submit.prevent="submit">
       <div class="content">
         <div class="white-box">
           <q-field
@@ -79,13 +79,14 @@ export default {
   props: {
     status: { required: true },
     requestError: { required: true },
+    prefillEmail: {},
   },
   data () {
     return {
       loginImage,
       user: {
         displayName: null,
-        email: null,
+        email: this.prefillEmail(),
         password: null,
       },
     }

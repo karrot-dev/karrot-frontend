@@ -1,5 +1,5 @@
 import auth from '@/services/api/auth'
-import users from '@/services/api/users'
+import authUser from '@/services/api/authUser'
 import router from '@/router'
 import { onlyHandleAPIError } from '@/store/helpers'
 
@@ -71,7 +71,7 @@ export const actions = {
   async check ({ commit, dispatch }) {
     commit(types.REQUEST_LOGIN_STATUS)
     try {
-      commit(types.RECEIVE_LOGIN_STATUS, { user: await auth.status() })
+      commit(types.RECEIVE_LOGIN_STATUS, { user: await authUser.get() })
       dispatch('afterLoggedIn')
     }
     catch (error) {
@@ -99,9 +99,17 @@ export const actions = {
     }
     else if (state.joinGroupAfterLogin) {
       const joinParams = state.joinGroupAfterLogin
-      await dispatch('groups/join', joinParams, { root: true })
-      if (rootGetters['groups/joinStatus'].error) {
-        router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.groupId } })
+      if (rootGetters['groups/get'](joinParams.groupId).isMember) {
+        // go to group if already a member
+        router.push({ name: 'group', params: { groupId: joinParams.groupId } })
+      }
+      else {
+        await dispatch('groups/join', joinParams, { root: true })
+        if (rootGetters['groups/joinStatus'].error) {
+          // go back to goup preview if error occured
+          // it should show the error status on the page, thanks to persistent state!
+          router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.groupId } })
+        }
       }
     }
     else if (getters.redirectTo) {
@@ -143,7 +151,7 @@ export const actions = {
 
     let savedUser
     try {
-      savedUser = await users.save({ ...data, id: user.id })
+      savedUser = await authUser.save({ ...data })
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
@@ -156,12 +164,9 @@ export const actions = {
   },
 
   async changePassword ({ commit, state, dispatch }, { newPassword }) {
-    let user = state.user
-    if (!user) return
-
     let savedUser
     try {
-      savedUser = await users.save({ password: newPassword, id: user.id })
+      savedUser = await authUser.save({ password: newPassword })
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
@@ -169,6 +174,18 @@ export const actions = {
     }
     commit(types.RECEIVE_LOGIN_STATUS, { user: savedUser })
     dispatch('logout')
+  },
+
+  async changeEmail ({ commit, dispatch }, email) {
+    let savedUser
+    try {
+      savedUser = await authUser.save({ email })
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+    commit(types.RECEIVE_LOGIN_STATUS, { user: savedUser })
   },
 
   cleanStatus ({ commit }) {

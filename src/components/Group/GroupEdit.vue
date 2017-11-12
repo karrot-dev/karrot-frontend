@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h3 v-if="isNew"><i class="fa fa-pencil"></i> {{ $t('GROUP.CREATE_TITLE') }}</h3>
-    <h3 v-else><i class="fa fa fa-edit"></i> {{ $t('GROUP.EDIT') }}</h3>
+    <h3 v-if="isNew"><i class="fa fa-pencil" /> {{ $t('GROUP.CREATE_TITLE') }}</h3>
+    <h3 v-else><i class="fa fa-edit" /> {{ $t('GROUP.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
-        <form @submit="save">
+        <form @submit.prevent="save">
           <q-field
             icon="fa-star"
             :label="$t('GROUP.TITLE')"
@@ -12,6 +12,7 @@
             :error-label="nameError"
             >
             <q-input
+              id="group-title"
               v-model="groupEdit.name"
               :autofocus="true"
               @blur="$v.groupEdit.name.$touch"
@@ -22,24 +23,26 @@
           <q-field
             icon="fa-question"
             :label="$t('GROUP.PUBLIC_DESCRIPTION')">
-            <q-input
-              v-model="groupEdit.publicDescription"
-              type="textarea"
-              :min-rows="3"
-              :max-height="100"
-            />
+            <MarkdownInput :value="groupEdit.publicDescription">
+              <q-input
+                v-model="groupEdit.publicDescription"
+                type="textarea"
+                :min-rows="3"
+              />
+            </MarkdownInput>
           </q-field>
 
           <q-field
             icon="fa-question"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             >
-            <q-input
-              v-model="groupEdit.description"
-              type="textarea"
-              :min-rows="3"
-              :max-height="100"
-            />
+            <MarkdownInput :value="groupEdit.description">
+              <q-input
+                v-model="groupEdit.description"
+                type="textarea"
+                :min-rows="3"
+              />
+            </MarkdownInput>
           </q-field>
 
           <q-field
@@ -91,9 +94,11 @@
 </template>
 
 <script>
+import jstz from 'jstimezonedetect'
 import { QCard, QField, QInput, QBtn, QAutocomplete } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
+import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
@@ -113,7 +118,7 @@ export default {
           password: undefined,
           publicDescription: undefined,
           description: undefined,
-          timezone: 'Europe/Berlin', // TODO replace with jstimezonedetect on create
+          timezone: jstz.determine().name(),
           latitude: undefined,
           longitude: undefined,
           address: undefined,
@@ -126,7 +131,7 @@ export default {
     requestError: { required: true },
   },
   components: {
-    QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker,
+    QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker, MarkdownInput,
   },
   data () {
     return {
@@ -156,16 +161,16 @@ export default {
     },
     nameError () {
       const m = this.$v.groupEdit.name
-      if (!m.required) return this.$t('this field is required')
-      if (!m.minLength) return this.$t('too short')
-      if (!m.maxLength) return this.$t('too long')
-      if (!m.isUnique) return this.$t('already taken')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 4)
+      if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+      if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.requestError('name')
     },
     timezoneError () {
       const m = this.$v.groupEdit.timezone
-      if (!m.required) return this.$t('this field is required')
-      if (!m.inList) return this.$t('Enter a valid timezone')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
       return this.requestError('timezone')
     },
   },

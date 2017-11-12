@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-if="!status.success" name="passwordreset" @submit="$emit('submit', email)">
+    <form v-if="!status.success" name="passwordreset" @submit.prevent="$emit('submit', email)">
       <div>
         <p>
           {{ $t('PASSWORDRESET.INTRO') }}

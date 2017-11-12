@@ -1,8 +1,5 @@
 <template>
   <div class="generic-padding grey-border">
-
-    <verification-warning></verification-warning>
-
     <q-list no-border>
       <q-list-header>{{ $t('SETTINGS.LANGUAGE') }}</q-list-header>
       <q-item style="padding-top: 0">
@@ -14,19 +11,23 @@
         </q-item-main>
       </q-item>
 
-      <q-list-header>Profile</q-list-header>
+      <q-list-header>{{ $t('USERDATA.PROFILE_TITLE') }}</q-list-header>
 
       <q-item>
-        <profile-edit :user="user" @save="saveUser"/>
+        <ProfileEdit :user="user" @save="saveUser"/>
       </q-item>
 
-      <q-list-header>Password</q-list-header>
+      <q-list-header>{{ $t('USERDATA.EMAIL') }}</q-list-header>
 
       <q-item>
-        <change-password @save="changePassword"/>
+        <ChangeEmail :user="user" @save="changeEmail" />
       </q-item>
 
-      <q-list-header>Email address</q-list-header>
+      <q-list-header>{{ $t('USERDATA.PASSWORD') }}</q-list-header>
+
+      <q-item>
+        <ChangePassword @save="changePassword" />
+      </q-item>
 
     </q-list>
   </div>
@@ -36,13 +37,13 @@
 import { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible } from 'quasar'
 import ProfileEdit from '@/components/Settings/ProfileEdit'
 import ChangePassword from '@/components/Settings/ChangePassword'
-import VerificationWarning from '@/components/Settings/VerificationWarning'
+import ChangeEmail from '@/components/Settings/ChangeEmail'
 
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Settings',
-  components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible, ProfileEdit, ChangePassword, VerificationWarning },
+  components: { QList, QItem, QItemSide, QListHeader, QItemSeparator, QItemMain, QSelect, QCollapsible, ProfileEdit, ChangePassword, ChangeEmail },
   computed: {
     ...mapGetters({
       user: 'auth/user',
@@ -55,6 +56,7 @@ export default {
       setLocale: 'i18n/setLocale',
       saveUser: 'auth/update',
       changePassword: 'auth/changePassword',
+      changeEmail: 'auth/changeEmail',
     }),
   },
 }

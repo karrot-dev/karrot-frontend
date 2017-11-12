@@ -1,5 +1,5 @@
 const mockCreate = jest.fn()
-jest.mock('@/services/api/users', () => ({ create: mockCreate }))
+jest.mock('@/services/api/authUser', () => ({ create: mockCreate }))
 
 import { createStore } from '>/helpers'
 

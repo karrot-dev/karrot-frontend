@@ -2,7 +2,6 @@ import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
-import { Toast } from 'quasar'
 import i18n from '@/i18n'
 
 export const types = {
@@ -123,7 +122,6 @@ export const actions = {
       await dispatch('fetchGroup', groupId)
     }
     catch (error) {
-      router.replace('/notfound')
       return
     }
 
@@ -140,9 +138,9 @@ export const actions = {
     dispatch('auth/update', { currentGroup: groupId }, { root: true })
   },
 
-  selectGroupInfo ({ commit, getters }, groupPreviewId) {
+  selectGroupInfo ({ commit, getters, dispatch }, groupPreviewId) {
     if (!getters.get(groupPreviewId)) {
-      router.replace('/notfound')
+      dispatch('routeError/set', null, { root: true })
     }
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
   },
@@ -164,8 +162,9 @@ export const actions = {
 
     const userId = rootGetters['auth/userId']
     if (!group.members.includes(userId)) {
-      Toast.create.warning(i18n.t('GROUP.NONMEMBER_REDIRECT'))
-      throw new Error('user is not a member')
+      const message = i18n.t('GROUP.NONMEMBER_REDIRECT')
+      dispatch('routeError/set', message, { root: true })
+      throw new Error(message)
     }
     commit(types.RECEIVE_GROUP, { group })
   },

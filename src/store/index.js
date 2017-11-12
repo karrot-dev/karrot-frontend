@@ -25,6 +25,7 @@ import * as loadingprogress from './modules/loadingprogress'
 import * as history from './modules/history'
 import * as search from './modules/search'
 import * as agreements from './modules/agreements'
+import * as routeError from './modules/routeError'
 
 Vue.use(Vuex)
 
@@ -51,6 +52,7 @@ const options = ({
     history,
     search,
     agreements,
+    routeError,
   },
   plugins: [
     i18nPlugin,

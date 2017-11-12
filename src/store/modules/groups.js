@@ -1,9 +1,12 @@
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
-import { indexById, onlyHandleAPIError } from '@/store/helpers'
+import { indexById, onlyHandleAPIError, defineRequestModule } from '@/store/helpers'
 import { Toast } from 'quasar'
 import i18n from '@/i18n'
+
+const meta = defineRequestModule()
+export const modules = { meta }
 
 export const types = {
 
@@ -25,10 +28,6 @@ export const types = {
   REQUEST_LEAVE: 'Request Leave',
   RECEIVE_LEAVE: 'Receive Leave',
   RECEIVE_LEAVE_ERROR: 'Receive Leave Error',
-
-  REQUEST_SAVE: 'Request Save',
-  RECEIVE_SAVE: 'Receive Save',
-  RECEIVE_SAVE_ERROR: 'Receive Save Error',
 
   RECEIVE_TIMEZONES: 'Receive Timezones',
 }
@@ -77,6 +76,11 @@ export const getters = {
     return state.idsList.map(getters.get)
   },
   status: state => ({ isWaiting: state.isWaiting, error: state.error }),
+  saveError: (state, getters) => {
+    // access meta error getter with metaID
+    // a bit cumbersome!
+    return getters['meta/error'](`save-${getters.activeGroupId}`)
+  },
   error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
   activeUserGroups: (state, getters, rootState, rootGetters) => {
     let activeUser = rootGetters['users/activeUser']
@@ -218,18 +222,14 @@ export const actions = {
   },
 
   async save ({ commit, dispatch }, group) {
-    commit(types.REQUEST_SAVE)
-    let updatedGroup
-    try {
-      updatedGroup = await groups.save(group)
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
-      return
-    }
-    commit(types.RECEIVE_SAVE)
-    commit(types.RECEIVE_GROUP, { group: updatedGroup })
-    router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+    dispatch('meta/request', {
+      id: `save-${group.id}`,
+      async run () {
+        const updatedGroup = await groups.save(group)
+        commit(types.RECEIVE_GROUP, { group: updatedGroup })
+        router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+      },
+    })
   },
 
   async create ({ commit, dispatch }, group) {

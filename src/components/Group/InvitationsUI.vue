@@ -5,7 +5,7 @@
       {{ $t('GROUP.INVITE_TITLE') }}
     </h5>
     <div>
-      <form @submit="submit">
+      <form @submit.prevent="submit">
         <q-field
           icon="fa-envelope"
           :helper="$t('GROUP.INVITE_EMAIL')"

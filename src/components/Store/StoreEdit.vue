@@ -4,7 +4,7 @@
     <h3 v-else><i class="fa fa-edit" /> {{ $t('STOREDETAIL.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
-        <form @submit="save">
+        <form @submit.prevent="save">
           <q-field
             icon="fa-star"
             :label="$t('STOREEDIT.NAME')"

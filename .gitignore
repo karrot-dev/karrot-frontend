@@ -14,3 +14,5 @@ coverage/
 e2e-screenshots
 .env
 docs-dist/
+karrot-backend/
+karrot-docker/

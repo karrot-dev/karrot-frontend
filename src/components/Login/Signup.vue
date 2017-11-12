@@ -9,7 +9,7 @@
         {{ $t('GLOBAL.BETA_WARNING') }}
       </q-card-main>
     </q-card>
-    <form name="signup" @submit="submit">
+    <form name="signup" @submit.prevent="submit">
       <div class="content">
         <div class="white-box">
           <q-field

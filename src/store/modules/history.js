@@ -35,15 +35,17 @@ export const getters = {
   receiveStatus: (state, getters, rootState, rootGetters) => state.receiveStatus,
   canLoadMore: (state, getters, rootState, rootGetters) => typeof state.cursor === 'string',
   enrich: (state, getters, rootState, rootGetters) => entry => {
-    const store = rootGetters['stores/get'](entry.store)
-    const msgValues = store ? { storeName: store.name, name: store.name } : {}
-    return {
-      ...entry,
-      users: entry.users.map(rootGetters['users/get']),
-      group: rootGetters['groups/get'](entry.group),
-      store: store,
-      message: i18n.t(`HISTORY.${entry.typus}`, msgValues),
-      // TODO enrich payload
+    if (entry) {
+      const store = rootGetters['stores/get'](entry.store)
+      const msgValues = store ? { storeName: store.name, name: store.name } : {}
+      return {
+        ...entry,
+        users: entry.users.map(rootGetters['users/get']),
+        group: rootGetters['groups/get'](entry.group),
+        store: store,
+        message: i18n.t(`HISTORY.${entry.typus}`, msgValues),
+        // TODO enrich payload
+      }
     }
   },
   active: (state, getters, rootState, rootGetters) => getters.get(state.activeId),

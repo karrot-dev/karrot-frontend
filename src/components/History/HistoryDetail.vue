@@ -1,9 +1,9 @@
 <template>
-  <q-card v-if="entry">
+  <q-card>
     <q-card-title>
       {{ $t('HISTORY.DETAILS') }}
     </q-card-title>
-    <table class="q-table">
+    <table class="q-table" v-if="entry">
       <colgroup>
         <col span="1" style="width: 1%;">
         <col span="1">
@@ -66,7 +66,7 @@ import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   props: {
-    entry: { required: true },
+    entry: {},
   },
   components: { QIcon, QBtn, QCard, QCardTitle, ProfilePicture, DateAsWords },
   methods: {

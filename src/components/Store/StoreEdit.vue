@@ -56,8 +56,8 @@
           <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
             {{ $t('BUTTON.CANCEL') }}
           </q-btn>
-          <q-btn type="button" color="red" @click="destroy" v-if="!isNew">
-            {{ $t('BUTTON.DELETE') }}
+          <q-btn type="button" color="red" @click="archive" v-if="!isNew">
+            {{ $t('BUTTON.ARCHIVE') }}
           </q-btn>
 
         </form>
@@ -73,6 +73,7 @@ import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { statusList } from '@/services/storeStatus'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
@@ -99,7 +100,6 @@ export default {
     status: { required: true },
     allStores: { required: true },
     requestError: { required: true },
-    statusList: { required: true },
   },
   components: {
     QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
@@ -139,7 +139,7 @@ export default {
       return this.requestError('name')
     },
     statusOptions () {
-      return this.statusList
+      return statusList
         .filter(s => s.selectable)
         .map(s => ({
           value: s.key,
@@ -163,17 +163,16 @@ export default {
         this.$emit('save', { ...objectDiff(this.store, this.storeEdit), id: this.store.id }, event)
       }
     },
-    destroy (event) {
+    archive (event) {
       Dialog.create({
-        title: this.$t('STOREDIT.DELETE_TITLE'),
-        message: this.$t('STOREDIT.DELETE_CONFIRMESSAGE'),
+        title: this.$t('STOREEDIT.DIALOGS.ARCHIVE.TITLE'),
+        message: this.$t('STOREEDIT.DIALOGS.ARCHIVE.MESSAGE'),
         buttons: [
           this.$t('BUTTON.CANCEL'),
           {
-            label: this.$t('STOREDIT.DELETE_CONFIRM'),
+            label: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
             handler: () => {
-              this.storeEdit.status = 'archived'
-              this.$emit('save', this.storeEdit, event)
+              this.$emit('save', { id: this.store.id, status: 'archived' }, event)
             },
           },
         ],

@@ -13,11 +13,11 @@
       <q-list highlight no-border>
         <q-item
           v-for="store in storesSorted" :key="store.id"
-          v-if="!store.statusObj.hidden"
+          v-if="!store.ui.hidden"
           link :to="{name: 'store', params: { storeId: store.id }}">
           <q-item-side class="text-center">
-            <q-icon :name="store.statusObj.icon" :color="store.statusObj.color">
-              <q-tooltip>{{ $t(store.statusObj.label) }}</q-tooltip>
+            <q-icon :name="store.ui.icon" :color="store.ui.color">
+              <q-tooltip>{{ $t(store.ui.label) }}</q-tooltip>
             </q-icon>
           </q-item-side>
           <q-item-main>
@@ -32,7 +32,8 @@
 <script>
 
 import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip } from 'quasar'
-import SidenavBox from './SidenavBox.vue'
+import SidenavBox from './SidenavBox'
+import { optionsFor } from '@/services/storeStatus'
 
 export default {
   props: {
@@ -41,8 +42,9 @@ export default {
   computed: {
     storesSorted () {
       return this.stores
-        .filter(s => !s.statusObj.hidden)
-        .sort((a, b) => a.statusObj.sort - b.statusObj.sort)
+        .filter(s => s.status !== 'archived')
+        .map(s => ({ ...s, ui: optionsFor(s) }))
+        .sort((a, b) => a.ui.sort - b.ui.sort)
     },
   },
   components: {

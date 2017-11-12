@@ -3,44 +3,6 @@ import stores from '@/services/api/stores'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
 import router from '@/router'
 
-const statusList = {
-  created: {
-    label: 'STORESTATUS.CREATED',
-    color: 'gray',
-    icon: 'fa-circle-o',
-    selectable: true,
-    sort: 3,
-  },
-  negotiating: {
-    label: 'STORESTATUS.NEGOTIATING',
-    color: 'blue',
-    icon: 'fa-circle',
-    selectable: true,
-    sort: 2,
-  },
-  active: {
-    label: 'STORESTATUS.ACTIVE',
-    color: 'green',
-    icon: 'fa-circle',
-    selectable: true,
-    sort: 1,
-  },
-  declined: {
-    label: 'STORESTATUS.DECLINED',
-    color: 'red',
-    icon: 'fa-circle',
-    selectable: true,
-    sort: 4,
-  },
-  archived: {
-    label: 'STORESTATUS.ARCHIVED',
-    color: 'grey',
-    icon: 'fa-trash',
-    selectable: false,
-    hidden: true,
-  },
-}
-
 export const types = {
 
   SELECT_STORE: 'Select Store',
@@ -74,23 +36,13 @@ function initialState () {
 export const state = initialState()
 
 export const getters = {
-  all: (state, getters) => state.idList
-    .map(i => getters.enrich(state.entries[i]))
-    .sort(sortByName),
+  all: (state, getters) => state.idList.map(getters.get).sort(sortByName),
   byActiveGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['groups/activeGroupId']),
-  get: (state, getters) => (id) => getters.enrich(state.entries[id]),
+  get: (state, getters) => id => state.entries[id],
   activeStore: (state, getters) => getters.get(state.activeStoreId) || {},
   activeStoreId: state => state.activeStoreId,
   status: state => { return { isWaiting: state.isWaiting, error: state.error } },
   error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
-  statusList: () => Object.keys(statusList).map(key => Object.assign({key}, statusList[key])),
-  enrich: (state, getters) => store => {
-    if (!store) return {}
-    return {
-      ...store,
-      statusObj: statusList[store.status || 'created'],
-    }
-  },
 }
 
 export const actions = {
@@ -145,13 +97,12 @@ export const actions = {
     // router.push({ name: 'group', params: { storeId: updatedStore.id } })
   },
 
-  async undelete ({ commit, dispatch, getters }, store) {
+  async restore ({ commit, dispatch, getters }, store) {
     commit(types.REQUEST_SAVE)
     if (!store) store = getters.activeStore
-    store.status = 'created'
     let updatedStore
     try {
-      updatedStore = await stores.save(store)
+      updatedStore = await stores.save({ id: store.id, status: 'created' })
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
@@ -159,7 +110,6 @@ export const actions = {
     }
     commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_ITEM, { store: updatedStore })
-    // router.push({ name: 'group', params: { storeId: updatedStore.id } })
   },
 
   async create ({ commit, dispatch, rootGetters }, store) {

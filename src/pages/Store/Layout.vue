@@ -25,8 +25,8 @@
   </div>
   <div v-else>
     <q-card>
-      <k-alert color="warning" icon="fa-trash" :actions="[{label: 'Undelete', handler: undelete}]">
-        Store is not available anymore because it got deleted.
+      <k-alert color="warning" icon="fa-trash" :actions="[{ label: $t('STOREEDIT.RESTORE'), handler: restore }]">
+        {{ $t('STOREDETAIL.ARCHIVED') }}
       </k-alert>
     </q-card>
   </div>
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      undelete: 'stores/undelete',
+      restore: 'stores/restore',
     }),
   },
 }

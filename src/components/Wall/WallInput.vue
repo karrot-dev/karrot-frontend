@@ -1,7 +1,10 @@
 <template>
-  <q-card>
-    <q-card-main>
-      <form name="wallinput" @submit.prevent="send">
+  <q-item multiline>
+    <q-item-side style="margin-top: 16px">
+      <ProfilePicture :user="user" :size="40" />
+    </q-item-side>
+    <q-item-main>
+      <q-item-tile>
         <q-input
           type="textarea"
           v-model="message"
@@ -9,21 +12,24 @@
           :min-rows="3"
           :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
           :loading="status.isWaiting"
+          @keyup.ctrl.enter="send"
           />
-      </form>
-    </q-card-main>
-  </q-card>
+        </q-item-tile>
+    </q-item-main>
+  </q-item>
 </template>
 
 <script>
-import { QCard, QCardMain, QInput, QBtn } from 'quasar'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import { QItem, QItemMain, QInput, QBtn, QItemSide, QItemTile } from 'quasar'
 
 export default {
   name: 'WallInput',
-  components: { QCard, QInput, QBtn, QCardMain },
+  components: { QItem, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture },
   props: {
     status: { required: true },
     placeholder: { default: 'placeholder' },
+    user: { required: true },
   },
   data () {
     return {

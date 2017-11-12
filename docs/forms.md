@@ -5,17 +5,17 @@ Forms and validation is quite a complex topic! This just covers a few topics for
 Our approach for forms is to clone an _editing_ version of the data for use in the form. This allows us to:
 - know if the value of the data has changed (`diff(source, edit)`)
 - reset the form (`edit = source`)
-- emit the diff of changes in a `@save` event (`emit(edit)`) (works nicely with http `PATCH`)
+- emit the diff of changes in a `@save` event (`emit(diff(source, edit))`) (works nicely with http `PATCH`)
 - handle underlying changes in the source value as we wish
 
 In many places we enrich the data with additional fields,
 and we need to use the original data (available as `__unenriched`) to correctly only detect changes in the
-underlying value, not the derrived data.
+underlying value, not the derived data.
 
 ## Request status and server validation errors
 
 Request status and server validation errors are handled using the `meta` module.
-We store meta for each combination of action and id (optional), the underlying might look like this:
+We store meta for each combination of action and id (optional), the underlying state looks like this:
 
 ```js
 {
@@ -61,10 +61,10 @@ There is one action, `clear`, which has the same signature:
 
 ```js
 // for an action without an id 
-getters['meta/clear']('create')
+dispatch('meta/clear', ['create'])
 
 // for an action with an id
-getters['meta/clear']('save', id)
+dispatch('meta/clear',['save', id])
 ```
 
 ### Using meta in Vuex modules

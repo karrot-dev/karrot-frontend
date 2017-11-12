@@ -1,10 +1,14 @@
 import Vue from 'vue'
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import distanceInWords from 'date-fns/distance_in_words'
 
 export default new Vue({
   data: {
     locale: 'en',
     locales: {},
+    now: new Date(),
+  },
+  created () {
+    setInterval(() => { this.now = new Date() }, 10 * 1000)
   },
   watch: {
     async locale (locale) {
@@ -13,8 +17,9 @@ export default new Vue({
     },
   },
   methods: {
-    distanceInWordsToNow (date) {
-      return distanceInWordsToNow(date, { addSuffix: true, locale: this.locales[this.locale] })
+    distanceInWordsToNow (date, options = {}) {
+      if (options.disallowFuture && date > this.now) date = this.now
+      return distanceInWords(this.now, date, { locale: this.locales[this.locale], ...options })
     },
   },
 })

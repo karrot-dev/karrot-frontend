@@ -19,7 +19,7 @@ export default {
       return this.$d(new Date(this.date), 'long')
     },
     dateInWords () {
-      return dateFnsHelper.distanceInWordsToNow(this.date)
+      return dateFnsHelper.distanceInWordsToNow(this.date, { addSuffix: true, disallowFuture: true })
     },
   },
 }

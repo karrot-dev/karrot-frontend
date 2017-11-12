@@ -126,6 +126,7 @@
     "webpack-merge": "^4.1.0"
   },
   "jest": {
+    "roots": ["<rootDir>/src/"],
     "moduleNameMapper": {
       "@/(.*)$": "<rootDir>/src/$1",
       ">/(.*)$": "<rootDir>/test/$1",

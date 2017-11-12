@@ -23,8 +23,9 @@
       <q-infinite-scroll
         :handler="loadMore"
         ref="infiniteScroll">
-        <q-list :highlight="false" separator class="bg-white desktop-margin">
+        <q-list :highlight="false" class="bg-white desktop-margin">
           <WallInput :status="sendStatus" @send="$emit('send', arguments[0])" :placeholder="messagePrompt" />
+          <q-item-separator />
           <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
         </q-list>
         <div slot="message" style="width: 100%; text-align: center">
@@ -44,7 +45,7 @@ import WallMessage from './WallMessage'
 import EmptyPickups from './EmptyPickups'
 import JoinedPickups from './JoinedPickups'
 import WallInput from './WallInput'
-import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert } from 'quasar'
+import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItemSeparator } from 'quasar'
 
 export default {
   components: {
@@ -57,6 +58,7 @@ export default {
     QSpinnerDots,
     QList,
     QAlert,
+    QItemSeparator,
   },
   props: {
     messages: { required: true },

@@ -148,6 +148,9 @@
       "/node_modules/(?!quasar-framework)"
     ],
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "setupFiles": [
+      "<rootDir>/test/setup/unhandledPromiseRejectionHandler.js"
+    ]
   }
 }

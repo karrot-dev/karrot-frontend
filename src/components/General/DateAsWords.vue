@@ -7,7 +7,7 @@
 <script>
 import { QTooltip } from 'quasar'
 
-import dateFnsHelper from '@/services/DateFnsHelper'
+import dateFnsHelper from '@/services/dateFnsHelper'
 
 export default {
   props: {

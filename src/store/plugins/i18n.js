@@ -1,6 +1,6 @@
 import i18n from '@/i18n'
 import axios from 'axios'
-import dateFnsHelper from '@/services/DateFnsHelper'
+import dateFnsHelper from '@/services/dateFnsHelper'
 
 /**
  * For getting hot reload to work, webpack needs to do static analysis

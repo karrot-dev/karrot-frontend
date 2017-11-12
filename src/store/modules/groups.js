@@ -5,7 +5,6 @@ import { indexById, withMeta, createMetaModule, withPrefixedIdMeta, metaStatuses
 import { Toast } from 'quasar'
 import i18n from '@/i18n'
 
-// const meta = defineRequestModule()
 export const modules = { meta: createMetaModule() }
 
 export const types = {

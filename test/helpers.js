@@ -63,7 +63,6 @@ export function polyfillRequestAnimationFrame () {
 
 export function mountWithDefaults (Component, options = {}) {
   const localVue = createLocalVue()
-  // localVue.productionTip = false
   localVue.component('router-link', MockRouterLink)
   localVue.use(Quasar)
   i18n.locale = 'en'

@@ -1,6 +1,7 @@
 <template>
   <div v-if="store.status != 'archived'">
-      <q-tabs v-if="$q.platform.is.mobile" align="center" color="tertiary" class="shadow-14 inset-shadow" hide="icon" slot="navigation">
+    <div v-if="$q.platform.is.mobile" slot="navigation" class="shadow-14 inset-shadow row">
+      <q-tabs align="center" color="tertiary" hide="icon" class="col">
         <q-route-tab
             :to="{name: 'storePickups'}"
             exact

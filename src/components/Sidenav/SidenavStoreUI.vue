@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSide, QIcon, QItemMain } from 'quasar'
+import { QBtn, QList, QItem, QItemSide, QIcon, QItemMain, QTooltip } from 'quasar'
 import SidenavBox from './SidenavBox'
 import StoreOptions from './StoreOptions'
 
@@ -41,7 +41,7 @@ export default {
     storeId: { required: true },
   },
   components: {
-    SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain,
+    SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain, QTooltip,
   },
 }
 </script>

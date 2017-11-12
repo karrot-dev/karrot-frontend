@@ -48,13 +48,13 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSide, QItemMain, QIcon } from 'quasar'
+import { QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip } from 'quasar'
 import SidenavBox from './SidenavBox'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon,
+    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip,
   },
 }
 </script>

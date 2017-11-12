@@ -8,11 +8,14 @@ export const types = {
   RECEIVE: 'Receive',
   RECEIVE_ERROR: 'Receive Error',
 
+  SET_ACTIVE: 'Set Active',
+
   CLEAR: 'Clear',
 }
 
 function initialState () {
   return {
+    activeId: null,
     entries: {},
     idList: [],
     cursor: null,
@@ -27,33 +30,34 @@ function initialState () {
 export const state = initialState()
 
 export const getters = {
-  get: (state, getters, rootState, rootGetters) => id => {
-    return getters.enrich(state.entries[id])
-  },
-  all: (state, getters, rootState, rootGetters) => {
-    return state.idList.map(getters.get)
-  },
-  receiveStatus: (state, getters, rootState, rootGetters) => {
-    return state.receiveStatus
-  },
-  canLoadMore: (state, getters, rootState, rootGetters) => {
-    return typeof state.cursor === 'string'
-  },
+  get: (state, getters, rootState, rootGetters) => id => getters.enrich(state.entries[id]),
+  all: (state, getters, rootState, rootGetters) => state.idList.map(getters.get),
+  receiveStatus: (state, getters, rootState, rootGetters) => state.receiveStatus,
+  canLoadMore: (state, getters, rootState, rootGetters) => typeof state.cursor === 'string',
   enrich: (state, getters, rootState, rootGetters) => entry => {
-    const store = rootGetters['stores/get'](entry.store)
-    const msgValues = store ? { storeName: store.name, name: store.name } : {}
-    return {
-      ...entry,
-      users: entry.users.map(rootGetters['users/get']),
-      group: rootGetters['groups/get'](entry.group),
-      store: store,
-      message: i18n.t(`HISTORY.${entry.typus}`, msgValues),
-      // TODO enrich payload
+    if (entry) {
+      const store = rootGetters['stores/get'](entry.store)
+      const msgValues = store ? { storeName: store.name, name: store.name } : {}
+      return {
+        ...entry,
+        users: entry.users.map(rootGetters['users/get']),
+        group: rootGetters['groups/get'](entry.group),
+        store: store,
+        message: i18n.t(`HISTORY.${entry.typus}`, msgValues),
+        // TODO enrich payload
+      }
     }
   },
+  active: (state, getters, rootState, rootGetters) => getters.get(state.activeId),
 }
 
 export const actions = {
+  async setActive ({ commit, dispatch, state }, id) {
+    if (!state.entries.id) {
+      await dispatch('fetchById', id)
+    }
+    commit(types.SET_ACTIVE, { id })
+  },
   async fetchForGroup ({ dispatch, rootGetters }, group) {
     dispatch('fetchFiltered', { group: group.id })
   },
@@ -77,6 +81,11 @@ export const actions = {
     }
     commit(types.RECEIVE, { entries: data.results, cursor: data.next })
   },
+  async fetchById ({ commit, state }, id) {
+    // add entry by ID, keep cursor the same as before
+    const entry = await historyAPI.get(id)
+    commit(types.RECEIVE, { entries: [entry], cursor: state.cursor })
+  },
 
   async fetchMore ({ state, commit }) {
     if (!state.cursor) {
@@ -99,6 +108,9 @@ export const actions = {
 }
 
 export const mutations = {
+  [types.SET_ACTIVE] (state, { id }) {
+    state.activeId = id
+  },
   [types.REQUEST] (state) {
     state.receiveStatus = {
       isWaiting: true,

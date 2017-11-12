@@ -220,7 +220,8 @@
     "PICKUP_MISSED": "A pickup at {storeName} was missed!",
     "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "NOTHING_HAPPENEND": "Nothing happened so far..."
+    "NOTHING_HAPPENEND": "Nothing happened so far...",
+    "DETAILS": "More information"
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",

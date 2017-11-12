@@ -68,6 +68,9 @@ export default store => {
     if (to.params.userId) {
       store.dispatch('users/selectUser', parseInt(to.params.userId, 10))
     }
+    if (to.params.historyId) {
+      store.dispatch('history/setActive', parseInt(to.params.historyId, 10))
+    }
 
     /* If:
         - the group is not mentioned in the URL

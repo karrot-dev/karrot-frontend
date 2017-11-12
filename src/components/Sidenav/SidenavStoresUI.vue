@@ -10,7 +10,7 @@
       </router-link>
     </div>
     <div>
-      <stores-list :stores="stores"/>
+      <store-list :stores="stores"/>
     </div>
   </SidenavBox>
 </template>
@@ -19,14 +19,14 @@
 
 import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip } from 'quasar'
 import SidenavBox from './SidenavBox'
-import StoresList from '@/components/Store/StoreList'
+import StoreList from '@/components/Store/StoreList'
 
 export default {
   props: {
     stores: { required: true },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoresList,
+    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoreList,
   },
 }
 </script>

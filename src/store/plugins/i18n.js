@@ -11,9 +11,7 @@ export default store => {
     const messages = await import(`@/locales/locale-${locale}.json`)
     i18n.setLocaleMessage(locale, messages)
     i18n.locale = locale
-
-    dateFnsHelper.setLocale(locale)
-
+    dateFnsHelper.locale = locale
     axios.defaults.headers.common['Accept-Language'] = locale
   }, {immediate: true})
 }

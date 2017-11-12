@@ -1,24 +1,20 @@
+import Vue from 'vue'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 
-let dateLocale
-
-export default {
-  distanceInWordsToNow (date) {
-    return distanceInWordsToNow(date, { addSuffix: true, locale: dateLocale })
+export default new Vue({
+  data: {
+    locale: 'en',
+    locales: {},
   },
-
-  setLocale (locale) {
-    if (locale === 'zh') {
-      // https://date-fns.org/v1.29.0/docs/I18n
-      locale = 'zh_cn'
-    }
-
-    import(`date-fns/locale/${locale}`)
-      .then(result => {
-        dateLocale = result
-      })
-      .catch(() => {
-        dateLocale = null
-      })
+  watch: {
+    async locale (locale) {
+      if (locale === 'zh') locale = 'zh_cn' // https://date-fns.org/v1.29.0/docs/I18n
+      Vue.set(this.locales, locale, await import(`date-fns/locale/${locale}`))
+    },
   },
-}
+  methods: {
+    distanceInWordsToNow (date) {
+      return distanceInWordsToNow(date, { addSuffix: true, locale: this.locales[this.locale] })
+    },
+  },
+})

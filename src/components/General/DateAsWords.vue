@@ -1,7 +1,6 @@
 <template>
   <div>
-    {{dateInWords(date)}}
-    <q-tooltip>{{ $d(new Date(date), 'long') }}</q-tooltip>
+    {{ dateInWords }}<q-tooltip>{{ tooltipContent }}</q-tooltip>
   </div>
 </template>
 
@@ -15,9 +14,12 @@ export default {
     date: { required: true },
   },
   components: { QTooltip },
-  methods: {
-    dateInWords (date) {
-      return dateFnsHelper.distanceInWordsToNow(date)
+  computed: {
+    tooltipContent () {
+      return this.$d(new Date(this.date), 'long')
+    },
+    dateInWords () {
+      return dateFnsHelper.distanceInWordsToNow(this.date)
     },
   },
 }

@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     isAgreementManager () {
-      return this.roles.includes('agreement_manager')
+      return this.roles && this.roles.includes('agreement_manager')
     },
   },
   methods: {

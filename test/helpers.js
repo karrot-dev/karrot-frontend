@@ -95,7 +95,7 @@ export function mockActionOnce (store, actionName) {
   const mockFn = jest.fn()
   store._actions[actionName] = [async () => {
     try {
-      await mockFn()
+      return await mockFn()
     }
     finally {
       restore()

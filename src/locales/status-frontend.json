@@ -33,15 +33,15 @@
     "untranslated_words": 890
   },
   "de": {
-    "completed": "93%",
+    "completed": "100%",
     "last_commiter": "tilmann",
-    "last_update": "2017-11-13 19:44:54",
+    "last_update": "2017-11-13 19:52:34",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 193,
-    "translated_words": 850,
-    "untranslated_entities": 15,
-    "untranslated_words": 40
+    "translated_entities": 208,
+    "translated_words": 890,
+    "untranslated_entities": 0,
+    "untranslated_words": 0
   },
   "en": {
     "completed": "100%",

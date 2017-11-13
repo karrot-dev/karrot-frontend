@@ -1,9 +1,8 @@
-import { mount } from 'vue-test-utils'
-
 import GroupMap from './GroupMap'
 import { usersMock, storesMock } from '>/mockdata'
 
 import Vue2Leaflet from 'vue2-leaflet'
+import { mountWithDefaults } from '>/helpers'
 
 /* vue2-leaflet library does not name its components, which vue-test-utils needs to find them
    so we give them names here... */
@@ -22,7 +21,7 @@ const defaultProps = {
 
 describe('GroupMap', () => {
   it('renders users and stores', () => {
-    let wrapper = mount(GroupMap, {
+    let wrapper = mountWithDefaults(GroupMap, {
       propsData: defaultProps,
     })
     expect(wrapper.findAll(Vue2Leaflet.Map).length).toBe(1)
@@ -32,7 +31,7 @@ describe('GroupMap', () => {
   })
 
   it('renders just users', () => {
-    let wrapper = mount(GroupMap, {
+    let wrapper = mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showStores: false,
@@ -43,7 +42,7 @@ describe('GroupMap', () => {
   })
 
   it('renders just stores', () => {
-    let wrapper = mount(GroupMap, {
+    let wrapper = mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showUsers: false,

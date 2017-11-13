@@ -16,6 +16,14 @@
               @blur="$v.storeEdit.name.$touch"
               autocomplete="off" />
           </q-field>
+          <q-field
+            icon="fa-handshake-o"
+            :label="$t('STOREEDIT.STATUS')">
+              <q-select
+               v-model="storeEdit.status"
+               :options="statusOptions"
+             />
+          </q-field>
 
           <q-field
             icon="fa-question"
@@ -48,8 +56,8 @@
           <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
             {{ $t('BUTTON.CANCEL') }}
           </q-btn>
-          <q-btn type="button" color="red" @click="destroy" v-if="!isNew">
-            {{ $t('BUTTON.DELETE') }}
+          <q-btn type="button" color="red" @click="archive" v-if="!isNew">
+            {{ $t('BUTTON.ARCHIVE') }}
           </q-btn>
 
         </form>
@@ -59,12 +67,13 @@
 </template>
 
 <script>
-import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, Dialog } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { statusList } from '@/services/storeStatus'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
@@ -84,6 +93,7 @@ export default {
           latitude: undefined,
           longitude: undefined,
           address: undefined,
+          status: 'created',
         }
       },
     },
@@ -128,6 +138,16 @@ export default {
       if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.requestError('name')
     },
+    statusOptions () {
+      return statusList
+        .filter(s => s.selectable)
+        .map(s => ({
+          value: s.key,
+          label: this.$t(s.label),
+          leftColor: s.color,
+          icon: s.icon,
+        }))
+    },
   },
   methods: {
     reset () {
@@ -143,8 +163,20 @@ export default {
         this.$emit('save', { ...objectDiff(this.store, this.storeEdit), id: this.store.id }, event)
       }
     },
-    destroy (event) {
-      this.$emit('destroy', this.store.id, event)
+    archive (event) {
+      Dialog.create({
+        title: this.$t('STOREEDIT.DIALOGS.ARCHIVE.TITLE'),
+        message: this.$t('STOREEDIT.DIALOGS.ARCHIVE.MESSAGE'),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
+            handler: () => {
+              this.$emit('save', { id: this.store.id, status: 'archived' }, event)
+            },
+          },
+        ],
+      })
     },
   },
   validations: {

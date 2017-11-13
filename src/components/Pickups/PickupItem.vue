@@ -7,9 +7,7 @@
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
           <slot>Date or Store Slot</slot>
         </div>
-        <div class="people" v-if="pickup.description">
-          {{ pickup.description }}
-        </div>
+        <div class="description multiline" v-if="pickup.description">{{ pickup.description }}</div>
         <div class="people full-width">
           <PickupUsers
             :pickup="pickup"
@@ -112,6 +110,8 @@ $lighterGreen = #F0FFF0
       margin-right .5em
   .people
     padding: .3em
+.description
+  padding: .3em
 .content.isEmpty
   background repeating-linear-gradient(
     135deg,

@@ -17,7 +17,7 @@ describe('PickupSeriesEdit', () => {
     series.__unenriched = cloneDeep(pickupSeriesMock[0])
     wrapper = mountWithDefaults(PickupSeriesEdit, {
       propsData: {
-        series,
+        value: series,
         status: { pending: false, validationErrors: {} },
       },
     })

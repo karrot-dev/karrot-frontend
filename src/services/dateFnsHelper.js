@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import distanceInWords from 'date-fns/distance_in_words'
 
+// https://date-fns.org/v1.29.0/docs/I18n
+const localeMap = {
+  zh: 'zh_tw',
+}
+
 export default new Vue({
   data: {
     locale: 'en',
-    loadedLocale: 'en',
-    locales: {},
+    localeData: null,
     now: new Date(),
   },
   created () {
@@ -13,15 +17,13 @@ export default new Vue({
   },
   watch: {
     async locale (locale) {
-      if (locale === 'zh') locale = 'zh_tw' // https://date-fns.org/v1.29.0/docs/I18n
-      Vue.set(this.locales, this.locale, await import(`date-fns/locale/${locale}`))
-      this.loadedLocale = this.locale
+      this.localeData = await import(`date-fns/locale/${localeMap[locale] || locale}`)
     },
   },
   methods: {
     distanceInWordsToNow (date, options = {}) {
       if (options.disallowFuture && date > this.now) date = this.now
-      return distanceInWords(this.now, date, { locale: this.locales[this.loadedLocale], ...options })
+      return distanceInWords(this.now, date, { locale: this.localeData, ...options })
     },
   },
 })

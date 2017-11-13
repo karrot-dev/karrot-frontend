@@ -4,6 +4,7 @@ import distanceInWords from 'date-fns/distance_in_words'
 export default new Vue({
   data: {
     locale: 'en',
+    loadedLocale: 'en',
     locales: {},
     now: new Date(),
   },
@@ -14,12 +15,13 @@ export default new Vue({
     async locale (locale) {
       if (locale === 'zh') locale = 'zh_tw' // https://date-fns.org/v1.29.0/docs/I18n
       Vue.set(this.locales, this.locale, await import(`date-fns/locale/${locale}`))
+      this.loadedLocale = this.locale
     },
   },
   methods: {
     distanceInWordsToNow (date, options = {}) {
       if (options.disallowFuture && date > this.now) date = this.now
-      return distanceInWords(this.now, date, { locale: this.locales[this.locale], ...options })
+      return distanceInWords(this.now, date, { locale: this.locales[this.loadedLocale], ...options })
     },
   },
 })

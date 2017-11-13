@@ -38,10 +38,8 @@
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
-        :error="hasError('description')"
-        :error-label="firstError('description')"
         >
-        <q-input v-model="edit.description" type="textarea" />
+        <q-input v-model="edit.description" type="textarea" max-length="500" />
       </q-field>
 
       <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>

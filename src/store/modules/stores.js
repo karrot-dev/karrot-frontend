@@ -36,10 +36,10 @@ function initialState () {
 export const state = initialState()
 
 export const getters = {
-  all: state => state.idList.map(i => state.entries[i]).sort(sortByName),
+  all: (state, getters) => state.idList.map(getters.get).sort(sortByName),
   byActiveGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['groups/activeGroupId']),
-  get: state => (id) => state.entries[id],
-  activeStore: state => state.entries[state.activeStoreId] || {},
+  get: (state, getters) => id => state.entries[id],
+  activeStore: (state, getters) => getters.get(state.activeStoreId) || {},
   activeStoreId: state => state.activeStoreId,
   status: state => { return { isWaiting: state.isWaiting, error: state.error } },
   error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
@@ -79,6 +79,37 @@ export const actions = {
     commit(types.RECEIVE_SAVE)
     commit(types.RECEIVE_ITEM, { store: updatedStore })
     router.push({ name: 'store', params: { storeId: updatedStore.id } })
+  },
+
+  async delete ({ commit, dispatch }, store) {
+    commit(types.REQUEST_SAVE)
+    store.status = 'archived'
+    let updatedStore
+    try {
+      updatedStore = await stores.save(store)
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+    commit(types.RECEIVE_SAVE)
+    commit(types.RECEIVE_ITEM, { store: updatedStore })
+    // router.push({ name: 'group', params: { storeId: updatedStore.id } })
+  },
+
+  async restore ({ commit, dispatch, getters }, store) {
+    commit(types.REQUEST_SAVE)
+    if (!store) store = getters.activeStore
+    let updatedStore
+    try {
+      updatedStore = await stores.save({ id: store.id, status: 'created' })
+    }
+    catch (error) {
+      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
+      return
+    }
+    commit(types.RECEIVE_SAVE)
+    commit(types.RECEIVE_ITEM, { store: updatedStore })
   },
 
   async create ({ commit, dispatch, rootGetters }, store) {

@@ -1,18 +1,21 @@
 <template>
     <q-item multiline>
-      <q-item-tile lines="2" class="left"><ProfilePicture :user="message.author" :size="40" /></q-item-tile>
-      <q-item-main
-        :label="message.author.displayName"
-        label-lines="1"
-        :sublabel="message.content"
-        sublabel-lines="500"
-        class="content"
-      />
-      <q-item-side right>
-        <q-item-tile stamp>
-          <DateAsWords :date="message.createdAt" />
-        </q-item-tile>              
+      <q-item-side>
+        <ProfilePicture :user="message.author" :size="40" />
       </q-item-side>
+      <q-item-main>
+        <q-item-tile>
+          <router-link :to="{ name: 'user', params: {userId: message.author.id} }">
+            <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
+          </router-link>
+          <span class="content">{{ message.content }}</span>
+        </q-item-tile>
+        <q-item-tile class="row light-paragraph" style="padding-top: 5px">
+          <small>
+            <DateAsWords :date="message.createdAt" />
+          </small>
+        </q-item-tile>
+      </q-item-main>
     </q-item>
 </template>
 
@@ -33,10 +36,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.left {
-  margin-right: 1em;
-}
-.content {
-  white-space: pre;
-}
+.left
+  margin-right 1em
+.content
+  white-space pre-line
 </style>

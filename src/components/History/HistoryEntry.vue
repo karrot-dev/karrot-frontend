@@ -19,7 +19,9 @@
       </small>
     </td>
     <td v-else class="expand text-truncate">
-      {{ entry.message }}
+      <router-link :to="{ name: 'historyDetail', params: { historyId: entry.id } }">
+        {{ entry.message }}
+      </router-link>
     </td>
   </tr>
 </template>

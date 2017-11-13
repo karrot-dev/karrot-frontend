@@ -1,21 +1,26 @@
-import DateAsWords from './DateAsWords'
 import { mountWithDefaults } from '>/helpers'
+import lolex from 'lolex'
 
 describe('DateAsWords', () => {
-  it('renders 1 day ago', () => {
-    const now = new Date('2017-08-12T12:00:00Z')
-    Date.now = jest.fn().mockReturnValue(now)
+  const now = new Date('2017-08-11T12:00:10Z')
+  const date = new Date('2017-08-11T12:00:00Z')
+  let DateAsWords, clock
+  beforeEach(() => {
+    jest.resetModules()
+    clock = lolex.install({ now, toFake: ['Date'] })
+    DateAsWords = require('./DateAsWords')
+  })
+  afterEach(() => {
+    clock = clock.uninstall()
+  })
 
-    let date = new Date('2017-08-11T10:00:00Z')
-    let wrapper = mountWithDefaults(DateAsWords,
-      {
-        propsData: {
-          date,
-        },
-      })
+  it('renders 1 day ago', () => {
+    const wrapper = mountWithDefaults(DateAsWords, {
+      propsData: { date },
+    })
     // text
-    expect(wrapper.text()).toEqual(expect.stringContaining('1 day ago'))
+    expect(wrapper.text()).toContain('less than a minute ago')
     // tooltip
-    expect(wrapper.text()).toEqual(expect.stringContaining('Aug 11, 2017'))
+    expect(wrapper.text()).toContain('Aug 11, 2017')
   })
 })

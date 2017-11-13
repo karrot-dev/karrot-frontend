@@ -4,12 +4,6 @@ import router from '@/router'
 import { onlyHandleAPIError } from '@/store/helpers'
 import { types as userTypes } from '@/store/modules/users'
 
-/*
-import Vue from 'vue'
-Vue.config.productionTip = false
-console.log('pid in auth.js', process.pid, 'set production tip off', Vue.config.productionTip)
-*/
-
 export const types = {
 
   SET_REDIRECT_TO: 'Set RedirectTo',

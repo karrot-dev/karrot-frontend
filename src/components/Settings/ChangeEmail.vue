@@ -1,6 +1,6 @@
 <template>
   <div class="edit">
-    <VerificationWarning v-if="!user.mailVerified" />
+    <VerificationWarning v-if="user && !user.mailVerified" />
 
     <q-field
       icon="fa-star"

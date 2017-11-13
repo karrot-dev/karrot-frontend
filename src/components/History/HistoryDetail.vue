@@ -16,6 +16,7 @@
           <td><q-icon name="fa-clock-o"></q-icon></td>
           <td>{{ $d(new Date(entry.date), 'long') }}, <DateAsWords :date="entry.date" /></td>
         </tr>
+        <tr>
           <td><q-icon name="fa-user"></q-icon></td>
           <td>
             <ProfilePicture
@@ -24,29 +25,31 @@
               :user="user"
             />
           </td>
-        <tr>
         </tr>
+        <tr>
           <td><q-icon name="fa-commenting-o"></q-icon></td>
           <td>{{ entry.message }}</td>
-        <tr>
         </tr>
+        <tr v-if="entry.group && entry.group.name">
           <td><q-icon name="fa-home"></q-icon></td>
           <td>{{ entry.group.name }}</td>
-        <tr>
-        </tr v-if="entry.store">
+        </tr>
+        <tr v-if="entry.store && entry.store.name">
           <td><q-icon name="fa-shopping-cart"></q-icon></td>
           <td>{{ entry.store.name }}</td>
         </tr>
-        <tr class="bg-primary text-white">
-          <td colspan="2"><q-icon name="fa-file-text-o"></q-icon></td>
-        </tr>
-        <tr v-for="(value, key) in entry.payload" :key="key">
-          <td>{{ key }}</td>
-          <td>{{ value }}</td>
-        </tr>
+        <template v-if="entry.payload">
+          <tr class="bg-primary text-white">
+            <td colspan="2"><q-icon name="fa-file-text-o"></q-icon></td>
+          </tr>
+          <tr v-for="(value, key) in entry.payload" :key="key">
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+          </tr>
+        </template>
         <tr class="bg-primary text-white">
           <td colspan="2">
-            <q-btn @click="toggleRaw()" color="secondary">Show raw data</q-btn>
+            <q-btn @click="toggleRaw()" color="secondary">Raw data</q-btn>
           </td>
         </tr>
         <tr v-if="raw">

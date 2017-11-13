@@ -1,37 +1,26 @@
 import Vue from 'vue'
-import { createLocalVue, mount } from 'vue-test-utils'
 
 import PickupSeriesEdit from './PickupSeriesEdit'
 import { pickupSeriesMock } from '>/mockdata'
-import i18n from '@/i18n'
 import cloneDeep from 'clone-deep'
 
-import Quasar from 'quasar'
-
-import { makeFindAllIterable, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 
 polyfillRequestAnimationFrame()
 
 describe('PickupSeriesEdit', () => {
-  let localVue
   let wrapper
   let series
 
   beforeEach(() => {
-    localVue = createLocalVue()
-    localVue.use(Quasar)
-    i18n.locale = 'en'
     series = cloneDeep(pickupSeriesMock[0])
-    wrapper = mount(PickupSeriesEdit, {
-      localVue,
-      i18n,
+    series.__unenriched = cloneDeep(pickupSeriesMock[0])
+    wrapper = mountWithDefaults(PickupSeriesEdit, {
       propsData: {
         series,
-        requestError: jest.fn(),
-        isWaiting: false,
+        status: { pending: false, validationErrors: {} }
       },
     })
-    makeFindAllIterable(wrapper)
   })
 
   it('renders', () => {
@@ -45,32 +34,32 @@ describe('PickupSeriesEdit', () => {
     const friday = labels.find(label => label.text() === 'Friday')
 
     monday.trigger('click')
-    expect(wrapper.vm.seriesEdit.rule.byDay).toContain('MO')
+    expect(wrapper.vm.edit.rule.byDay).toContain('MO')
 
     friday.trigger('click')
-    expect(wrapper.vm.seriesEdit.rule.byDay).toContain('FR')
+    expect(wrapper.vm.edit.rule.byDay).toContain('FR')
 
     monday.trigger('click')
-    expect(wrapper.vm.seriesEdit.rule.byDay).not.toContain('MO')
+    expect(wrapper.vm.edit.rule.byDay).not.toContain('MO')
   })
 
   it('can reset to initial state', () => {
-    wrapper.vm.seriesEdit.description = 'changed'
-    wrapper.vm.seriesEdit.maxCollectors++
+    wrapper.vm.edit.description = 'changed'
+    wrapper.vm.edit.maxCollectors++
     wrapper.vm.reset()
-    expect(wrapper.vm.seriesEdit).toEqual(series)
+    expect(wrapper.vm.edit).toEqual(series.__unenriched)
   })
 
   it('does not let you remove all days', () => {
-    wrapper.vm.seriesEdit.rule.byDay = []
+    wrapper.vm.edit.rule.byDay = []
     return Vue.nextTick(() => {
-      expect(wrapper.vm.seriesEdit.rule.byDay).toEqual(series.rule.byDay)
+      expect(wrapper.vm.edit.rule.byDay).toEqual(series.rule.byDay)
     })
   })
 
   it('detects if you have changed something', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
-    wrapper.vm.seriesEdit.maxCollectors++
+    wrapper.vm.edit.maxCollectors++
     expect(wrapper.vm.hasChanged).toBe(true)
     return Vue.nextTick(() => {
       expect(wrapper.hasClass('changed')).toBe(true)
@@ -78,7 +67,7 @@ describe('PickupSeriesEdit', () => {
   })
 
   it('emits a save event with a diff of changes', () => {
-    wrapper.vm.seriesEdit.maxCollectors++
+    wrapper.vm.edit.maxCollectors++
     wrapper.vm.save()
     expect(wrapper.emitted().save[0][0]).toEqual({ id: series.id, maxCollectors: series.maxCollectors + 1 })
   })

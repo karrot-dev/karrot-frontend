@@ -61,8 +61,6 @@ export const getters = {
     if (!rootGetters['auth/isLoggedIn']) return []
     return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
   },
-  // isCreating: (state, getters) => getters['meta/pendingByAction']('create'),
-  // createValidationErrors: (state, getters) => getters['meta/validationErrors']('create'),
   ...metaStatuses(['create']),
 }
 

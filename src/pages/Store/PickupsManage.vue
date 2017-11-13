@@ -15,7 +15,7 @@
         </div>
       </q-card-title>
       <q-item v-if="newSeries" >
-        <pickup-series-edit :series="newSeries" :isWaiting="seriesIsWaiting" :requestError="seriesError" @save="saveNewSeries" @cancel="cancelNewSeries"/>
+        <pickup-series-edit :series="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries" @reset="resetNewSeries" :status="seriesCreateStatus"/>
       </q-item>
 
       <q-list class="pickups" separator no-border highlight sparse>
@@ -26,7 +26,7 @@
                        icon="fa-calendar" sparse>
 
           <q-item>
-            <pickup-series-edit :series="series.__unenriched" :isWaiting="seriesIsWaiting" :requestError="seriesError" @save="saveSeries" @destroy="destroySeries" />
+            <pickup-series-edit :series="series" @save="saveSeries" @destroy="destroySeries" @reset="resetPickup" :status="series.saveStatus" />
           </q-item>
 
           <q-list no-border seperator>
@@ -36,7 +36,7 @@
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup" @save="savePickup" :status="pickup.saveStatus" />
+              <pickup-edit :pickup="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
             </q-collapsible>
           </q-list>
 
@@ -152,6 +152,12 @@ export default {
       this.newPickup = null
       this.resetNewPickup()
     },
+    resetSeries (seriesId) {
+      this.$store.dispatch('pickups/meta/clear', ['save', seriesId])
+    },
+    resetNewSeries () {
+      this.$store.dispatch('pickupSeries/meta/clear', ['create'])
+    },
     resetNewPickup () {
       this.$store.dispatch('pickups/meta/clear', ['create'])
     },
@@ -168,8 +174,7 @@ export default {
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
       pickupCreateStatus: 'pickups/createStatus',
-      seriesIsWaiting: 'pickupSeries/saveIsWaiting',
-      seriesError: 'pickupSeries/saveError',
+      seriesCreateStatus: 'pickupSeries/createStatus',
     }),
   },
   mounted () {

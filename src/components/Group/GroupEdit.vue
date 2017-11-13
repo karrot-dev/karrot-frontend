@@ -209,7 +209,11 @@ export default {
       timezone: {
         required,
         inList (value) {
-          return this.timezones && this.timezones.list && this.timezones.list.findIndex(e => e.value === value) > 0
+          if (value === '') return true
+          if (this.timezones && this.timezones.list) {
+            return this.timezones.list.findIndex(e => e.value === value) > 0
+          }
+          return true
         },
       },
     },

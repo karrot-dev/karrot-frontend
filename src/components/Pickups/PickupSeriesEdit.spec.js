@@ -18,7 +18,7 @@ describe('PickupSeriesEdit', () => {
     wrapper = mountWithDefaults(PickupSeriesEdit, {
       propsData: {
         series,
-        status: { pending: false, validationErrors: {} }
+        status: { pending: false, validationErrors: {} },
       },
     })
   })

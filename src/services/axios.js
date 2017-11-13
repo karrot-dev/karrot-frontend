@@ -7,6 +7,7 @@ import i18n from '@/i18n'
 */
 
 import { camelizeKeys, underscorizeKeys } from '@/services/utils'
+import { isValidationError } from '@/store/helpers'
 
 const axios = Axios.create({
   xsrfCookieName: 'csrftoken',
@@ -16,7 +17,7 @@ const axios = Axios.create({
 axios.interceptors.request.use(request => {
   request.data = underscorizeKeys(request.data)
   return request
-}, (error) => {
+}, error => {
   Toast.create.warning(i18n.t('GLOBAL.CONNECTION_INTERRUPTED'))
   return Promise.reject(error)
 })
@@ -24,16 +25,14 @@ axios.interceptors.request.use(request => {
 axios.interceptors.response.use(response => {
   response.data = camelizeKeys(response.data)
   return response
-}, (error) => {
-  if (error.response) {
-    if (error.response.status >= 500) {
-      Toast.create.warning(i18n.t('GLOBAL.SERVER_ERROR'))
-    }
-    else {
-      error.response.data = camelizeKeys(error.response.data)
-    }
+}, async error => {
+  if (error.response && error.response.data) {
+    error.response.data = camelizeKeys(error.response.data)
   }
-  return Promise.reject(error)
+  if (!isValidationError(error)) {
+    Toast.create.warning(i18n.t('GLOBAL.SERVER_ERROR'))
+  }
+  throw error
 })
 
 export default axios

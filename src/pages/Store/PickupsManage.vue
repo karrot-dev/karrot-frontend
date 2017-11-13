@@ -20,12 +20,13 @@
 
       <q-list class="pickups" separator no-border highlight sparse>
         <q-collapsible v-for="series in pickupSeries"
+                       @open="makeVisible('series', series.id)"
                        :key="series.id"
                        :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
                        :sublabel="$d(series.startDate, 'timeShort')"
                        icon="fa-calendar" sparse>
 
-          <q-item>
+          <q-item v-if="visible.series[series.id]">
             <pickup-series-edit :value="series" @save="saveSeries" @destroy="destroySeries" @reset="resetPickup" :status="series.saveStatus" />
           </q-item>
 
@@ -33,10 +34,11 @@
             <q-list-header v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
 
             <q-collapsible v-for="pickup in series.pickups"
+                           @open="makeVisible('pickup', pickup.id)"
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
+              <pickup-edit v-if="visible.pickup[pickup.id]" :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
             </q-collapsible>
           </q-list>
 
@@ -64,11 +66,12 @@
 
       <q-list class="pickups" separator no-border>
         <q-collapsible v-for="pickup in oneTimePickups"
+                       @open="makeVisible('pickup', pickup.id)"
                        :key="pickup.id"
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
+          <pickup-edit v-if="visible.pickup[pickup.id]" :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
         </q-collapsible>
       </q-list>
     </q-card>
@@ -91,9 +94,18 @@ export default {
     return {
       newSeries: null,
       newPickup: null,
+      visible: {
+        series: {},
+        pickup: {},
+      },
     }
   },
   methods: {
+    makeVisible (type, id) {
+      // prevents rending q-collabsible children before they are displayed
+      // if we don't do this, the textarea in pickupEdit won't autogrow
+      this.$set(this.visible[type], id, true)
+    },
     dayNameForKey,
     sortByDay,
     seriesPickupLabel (series, pickup) {

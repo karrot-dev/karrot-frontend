@@ -36,7 +36,7 @@
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
+              <pickup-edit :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
             </q-collapsible>
           </q-list>
 
@@ -59,7 +59,7 @@
       </q-card-title>
 
       <q-item v-if="newPickup" >
-        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" @reset="resetNewPickup" :status="pickupCreateStatus" />
+        <pickup-edit :value="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" @reset="resetNewPickup" :status="pickupCreateStatus" />
       </q-item>
 
       <q-list class="pickups" separator no-border>
@@ -68,7 +68,7 @@
                        :label="$d(pickup.date, 'dateShort')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
+          <pickup-edit :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
         </q-collapsible>
       </q-list>
     </q-card>

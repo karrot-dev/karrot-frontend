@@ -54,7 +54,7 @@ mccabe==0.6.1             # via flake8
 msgpack-python==0.4.8     # via asgi-redis
 openapi-codec==1.3.2      # via django-rest-swagger
 orderedmultidict==0.7.11  # via furl
-psutil==5.4.0             # via python-server-metrics
+psutil==5.4.1             # via python-server-metrics
 psycopg2==2.7.3.2
 pycodestyle==2.3.1        # via flake8
 pycparser==2.18           # via cffi

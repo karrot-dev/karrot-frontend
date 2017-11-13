@@ -15,7 +15,7 @@
         </div>
       </q-card-title>
       <q-item v-if="newSeries" >
-        <pickup-series-edit :series="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries" @reset="resetNewSeries" :status="seriesCreateStatus"/>
+        <pickup-series-edit :value="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries" @reset="resetNewSeries" :status="seriesCreateStatus"/>
       </q-item>
 
       <q-list class="pickups" separator no-border highlight sparse>
@@ -26,7 +26,7 @@
                        icon="fa-calendar" sparse>
 
           <q-item>
-            <pickup-series-edit :series="series" @save="saveSeries" @destroy="destroySeries" @reset="resetPickup" :status="series.saveStatus" />
+            <pickup-series-edit :value="series" @save="saveSeries" @destroy="destroySeries" @reset="resetPickup" :status="series.saveStatus" />
           </q-item>
 
           <q-list no-border seperator>
@@ -123,9 +123,10 @@ export default {
         },
       }
     },
-    saveNewSeries (series) {
-      this.$store.dispatch('pickupSeries/create', series)
-      this.newSeries = null
+    async saveNewSeries (series) {
+      if (await this.$store.dispatch('pickupSeries/create', series)) {
+        this.newSeries = null
+      }
     },
     cancelNewSeries () {
       this.newSeries = null

@@ -56,33 +56,16 @@
 
 <script>
 import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog } from 'quasar'
+import formMixin from '@/mixins/formMixin'
+
 import { is24h, dayOptions } from '@/i18n'
 
-import cloneDeep from 'clone-deep'
-import deepEqual from 'deep-equal'
-import { objectDiff } from '@/services/utils'
-
 export default {
-  props: {
-    series: { required: true },
-    status: { required: true },
-  },
+  mixins: [formMixin],
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect,
   },
-  data () {
-    const source = this.series.id ? this.series.__unenriched : this.series
-    return {
-      source,
-      edit: cloneDeep(source),
-      lastByDay: [...this.series.rule.byDay],
-    }
-  },
   watch: {
-    'series.__unenriched' (curr, prev) {
-      // we want to make sure it's _really_ changed or we risk undoing the users changes
-      if (curr !== prev || !deepEqual(curr, prev)) this.reset()
-    },
     // enforce having at least one day selected
     'edit.rule.byDay' (byDay) {
       if (byDay.length === 0) {
@@ -96,34 +79,8 @@ export default {
   computed: {
     dayOptions,
     is24h,
-    isNew () {
-      return !this.source.id
-    },
-    hasChanged () {
-      return !this.isNew && !deepEqual(this.source, this.edit)
-    },
   },
   methods: {
-    hasError (field) {
-      return !!this.status.validationErrors[field]
-    },
-    firstError (field) {
-      const errors = this.status.validationErrors[field]
-      return errors && errors[0]
-    },
-    reset () {
-      this.source = this.source.id ? this.series.__unenriched : this.series
-      this.edit = cloneDeep(this.source)
-      this.$emit('reset', this.source.id)
-    },
-    save (event) {
-      if (this.isNew) {
-        this.$emit('save', this.edit, event)
-      }
-      else {
-        this.$emit('save', { ...objectDiff(this.source, this.edit), id: this.source.id }, event)
-      }
-    },
     destroy (event) {
       Dialog.create({
         title: this.$t('PICKUPDELETE.DELETE_SERIES_TITLE'),

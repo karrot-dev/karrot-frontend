@@ -24,7 +24,6 @@
     "PREVIEW": "Vorschau",
     "BACK": "Zurück",
     "MORE_OPTIONS": "Mehr Optionen",
-    "SUBMIT": "Absenden",
     "SEARCH": "Suche",
     "OF_COURSE": "Ja, natürlich!",
     "YES": "Ja",
@@ -33,7 +32,8 @@
     "CHANGE_PASSWORD": "Password ändern",
     "CHANGE_EMAIL": "E-Mail-Adresse ändern",
     "AGREE": "Ich stimme zu",
-    "REMOVE": "Entfernen"
+    "REMOVE": "Entfernen",
+    "ARCHIVE": "Archive"
   },
   "VALIDATION": {
     "MINLENGTH": "Bitte mehr als {min} Zeichen eingeben.",
@@ -82,22 +82,29 @@
   },
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
-    "MANAGE": "Abholzeiten prüfen und ändern"
+    "MANAGE": "Abholzeiten prüfen und ändern",
+    "ARCHIVED": "This store has been archived"
   },
   "STOREEDIT": {
     "NAME": "Name",
+    "STATUS":"Status",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
-    "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?"
+    "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "TITLE": "Archive store",
+        "MESSAGE": "Are you sure?",
+        "CONFIRM": "Yes, archive store"
+      }
+    },
+    "RESTORE": "Restore"
   },
   "PICKUPMANAGE": {
     "TITLE": "Abholzeiten-Editor",
     "SERIES": "Regelmäßige Abholungen",
     "SINGLE": "Einmalige Abholungen",
-    "SHOW_SERIES_DETAILS": "Abholungstermine anzeigen",
-    "HIDE_SERIES_DETAILS": "Abholungstermine verstecken",
-    "DATE_TEXT": "Datum der Abholung",
-    "NUMBER_COLLECTORS": "Anzahl an Abholern"
+    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen",
@@ -153,14 +160,9 @@
     "ERROR": "Etwas ging schief. Ist deine Mailadresse vielleicht schon verifiziert?"
   },
   "CREATEPICKUP": {
-    "TITLE": "Abholung erstellen",
-    "TITLE_EDIT": "Abholung bearbeiten",
-    "SERIES": "Wiederkehrende Abholung",
-    "SINGLE": "Einzelne Abholung",
     "WEEKDAYS": "Wochentage",
-    "HINT_MULTIPLE": "Du kannst mehrere Tage auswählen, z.B. indem du Strg gedrückt hälst.",
+    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
     "TIME": "Uhrzeit",
-    "TIME_ERROR": "Gib eine gültige Zeit ein, z.B. {timeExample}",
     "TIME_HELPER": "Wann soll die Abholung stattfinden?",
     "DATE": "Datum",
     "DATE_HELPER": "Wann soll die Abholung stattfinden?",
@@ -187,7 +189,6 @@
     "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen."
   },
   "PICKUP_FEEDBACK": {
-    "TITLE": "Rückmeldung zur Abholung",
     "HEADER": "Danke für deine Abholung!",
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
     "AMOUNT": "Wie viel hast du abgeholt (in kg)?",
@@ -230,7 +231,8 @@
     "PICKUP_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
     "PICKUP_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
     "PICKUP_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
-    "NOTHING_HAPPENEND": "Bisher ist nichts passiert..."
+    "NOTHING_HAPPENEND": "Bisher ist nichts passiert...",
+    "DETAILS": "More information"
   },
   "NOTIFICATIONS": {
     "TITLE": "Benachrichtigungen",
@@ -275,5 +277,12 @@
   "WALL": {
     "WRITE_MESSAGE": "Schreibe eine Nachricht...",
     "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht..."
+  },
+  "STORESTATUS":{
+    "ACTIVE": "Co-operating",
+    "CREATED": "Just created",
+    "NEGOTIATING": "Negotiating",
+    "DECLINED": "Don't want to cooperate",
+    "ARCHIVED": "Archived"
   }
 }

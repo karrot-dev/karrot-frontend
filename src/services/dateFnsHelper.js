@@ -13,7 +13,7 @@ export default new Vue({
   watch: {
     async locale (locale) {
       if (locale === 'zh') locale = 'zh_tw' // https://date-fns.org/v1.29.0/docs/I18n
-      Vue.set(this.locales, locale, await import(`date-fns/locale/${locale}`))
+      Vue.set(this.locales, this.locale, await import(`date-fns/locale/${locale}`))
     },
   },
   methods: {

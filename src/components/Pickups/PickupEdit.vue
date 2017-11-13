@@ -41,7 +41,7 @@
         :error="hasError('description')"
         :error-label="firstError('description')"
         >
-        <q-input v-model="edit.description" type="textarea" :min-rows="1" :max-height="100" />
+        <q-input v-model="edit.description" type="textarea" />
       </q-field>
 
       <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>

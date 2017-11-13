@@ -156,13 +156,15 @@ You can run the server with `python manage.py runserver`.
 
 ## Migrations
 
-Sometimes you will need to create Django migrations.
+Sometimes you will need to create Django migrations. 
 
 ```
 source env/bin/activate
 ./manage.py makemigrations
 ./manage.py migrate
 ```
+
+In particular, before you launch your backend for the very first time you will need to execute `./manage.py migrate` to initialize your database.
 
 # Contributing to karrot-backend
 

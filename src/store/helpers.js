@@ -48,33 +48,6 @@ export function isRequestError (error) {
   return false
 }
 
-/**
- * Defines a vuex module that can be used to handle async request metadata.
- *
- * Instantiation:
-
- const meta = createMetaModule()
- export const modules = { meta }
-
- * Usage:
-
-const actions = {
-  ...withMeta({
-    async save ({ commit, dispatch }, group) {
-      commit(types.RECEIVE_GROUP, { group: await groups.save(group) })
-    },
-  })
-}
-
- The meta is stored in two ways:
-   - if the argument to the action is a number, or an object containing an id field,
-     then we store the meta in a nested object at path id/actionName, e.g. { 23: { save: { pending: true } }
-   - otherwise, we key it by the action name, e.g. { fetchList: { pending: true }
-
- You can access it via function getters `meta/byId` and `meta/byAction`
-
- */
-
 const defaultStatus = { pending: false, validationErrors: {} }
 
 export function createMetaModule () {

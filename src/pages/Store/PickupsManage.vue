@@ -124,7 +124,7 @@ export default {
       }
     },
     async saveNewSeries (series) {
-      if (await this.$store.dispatch('pickupSeries/create', series)) {
+      if ((await this.$store.dispatch('pickupSeries/create', series)) !== false) {
         this.newSeries = null
       }
     },
@@ -145,7 +145,7 @@ export default {
       }
     },
     async saveNewPickup (pickup) {
-      if (await this.$store.dispatch('pickups/create', pickup)) {
+      if ((await this.$store.dispatch('pickups/create', pickup)) !== false) {
         this.newPickup = null
       }
     },

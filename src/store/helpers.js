@@ -138,9 +138,9 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
     update({ pending: true })
 
     try {
-      await runAction()
+      const result = await runAction()
       clear()
-      return true
+      return result
     }
     catch (error) {
       if (isValidationError(error)) {

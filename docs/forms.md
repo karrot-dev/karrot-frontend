@@ -12,6 +12,20 @@ In many places we enrich the data with additional fields,
 and we need to use the original data (available as `__unenriched`) to correctly only detect changes in the
 underlying value, not the derived data.
 
+## formMixin
+
+This logic is encapsulated in the `formMixin`, so you get these features with just:
+
+```js
+export default {
+  mixins: [formMixin],
+}
+```
+
+The mixin requires two props:
+- `value` (the object you are editing, which must have an `__enriched` field)
+- `status` (from the meta module).
+
 ## Request status and server validation errors
 
 Request status and server validation errors are handled using the `meta` module.

@@ -1,23 +1,25 @@
 <template>
   <div>
-    {{dateInWords(date)}}
-    <q-tooltip>{{ $d(new Date(date), 'long') }}</q-tooltip>
+    {{ dateInWords }}<q-tooltip>{{ tooltipContent }}</q-tooltip>
   </div>
 </template>
 
 <script>
 import { QTooltip } from 'quasar'
 
-import dateFnsHelper from '@/services/DateFnsHelper'
+import dateFnsHelper from '@/services/dateFnsHelper'
 
 export default {
   props: {
     date: { required: true },
   },
   components: { QTooltip },
-  methods: {
-    dateInWords (date) {
-      return dateFnsHelper.distanceInWordsToNow(date)
+  computed: {
+    tooltipContent () {
+      return this.$d(new Date(this.date), 'long')
+    },
+    dateInWords () {
+      return dateFnsHelper.distanceInWordsToNow(this.date, { addSuffix: true, disallowFuture: true })
     },
   },
 }

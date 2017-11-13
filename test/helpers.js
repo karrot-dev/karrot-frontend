@@ -70,3 +70,7 @@ export function mountWithDefaults (Component, options = {}) {
   makeFindAllIterable(wrapper)
   return wrapper
 }
+
+export function sleep (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}

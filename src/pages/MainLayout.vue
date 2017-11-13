@@ -2,13 +2,12 @@
   <div class="background mainLayoutDesktop">
     <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
       <div slot="header">
-        <KTopbar @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn" slot="header">
-          <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
+        <KTopbar @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn">
+          <q-btn flat @click="$refs.layout.toggleLeft()" class="mobile-only">
             <i class="fa fa-bars" />
           </q-btn>
         </KTopbar>
-        <KTopbarLoggedOut v-if="!isLoggedIn" slot="header">
-        </KTopbarLoggedOut>
+        <KTopbarLoggedOut v-if="!isLoggedIn" />
       </div>
       <template slot="left" v-if="$q.platform.is.mobile && isLoggedIn">
         <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
@@ -22,10 +21,10 @@
         </div>
         <div class="whiteSpace gt-sm desktop-only"/>
       </div>
-      <KFooter v-if="$q.platform.is.mobile && !isLoggedIn"/>
+      <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 
       <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn" slot="footer" />
-      <KFooter v-if="!$q.platform.is.mobile" slot="footer"/>
+      <KFooter v-if="!$q.platform.is.mobile" slot="footer" />
     </q-layout>
   </div>
 </template>

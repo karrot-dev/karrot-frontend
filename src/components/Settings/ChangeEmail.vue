@@ -33,7 +33,9 @@ export default {
       this.$emit('save', this.newEmail)
     },
     setEmail () {
-      this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
+      if (this.user) {
+        this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
+      }
     },
   },
   watch: {

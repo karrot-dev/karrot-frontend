@@ -7,6 +7,8 @@ export default store => {
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
   router.beforeEach((to, from, next) => {
+    store.dispatch('routeError/clear')
+
     // handle invite parameter
     const inviteToken = to.query.invite
     if (inviteToken) {

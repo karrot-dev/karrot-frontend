@@ -2,8 +2,6 @@ import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
 import { indexById, withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/store/helpers'
-import { Toast } from 'quasar'
-import i18n from '@/i18n'
 
 export const modules = { meta: createMetaModule() }
 
@@ -101,7 +99,6 @@ export const actions = {
         await dispatch('fetchGroup', groupId)
       }
       catch (error) {
-        router.replace('/notfound')
         return
       }
 
@@ -156,8 +153,9 @@ export const actions = {
       }
       const userId = rootGetters['auth/userId']
       if (!group.members.includes(userId)) {
-        Toast.create.warning(i18n.t('GROUP.NONMEMBER_REDIRECT'))
-        throw new Error('user is not a member')
+        const error = { translation: 'GROUP.NONMEMBER_REDIRECT' }
+        dispatch('routeError/set', error, { root: true })
+        throw new Error(error)
       }
       commit(types.RECEIVE_GROUP, { group })
     },
@@ -201,7 +199,7 @@ export const actions = {
 
   selectGroupInfo ({ commit, getters }, groupPreviewId) {
     if (!getters.get(groupPreviewId)) {
-      router.replace('/notfound')
+      dispatch('routeError/set', null, { root: true })
     }
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
   },

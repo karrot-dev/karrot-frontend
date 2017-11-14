@@ -12,19 +12,20 @@ In many places we enrich the data with additional fields,
 and we need to use the original data (available as `__unenriched`) to correctly only detect changes in the
 underlying value, not the derived data.
 
-## formMixin
+## formMixin and statusMixin
 
-This logic is encapsulated in the `formMixin`, so you get these features with just:
+This logic is encapsulated in `formMixin` and `statusMixin`, so you get these features with just:
 
 ```js
 export default {
-  mixins: [formMixin],
+  mixins: [formMixin, statusMixin],
 }
 ```
 
-The mixin requires two props:
-- `value` (the object you are editing, which must have an `__enriched` field)
-- `status` (from the meta module).
+They require additional props to the component:
+
+- `formMixin` requires `value`: the object you are editing, which must have an `__enriched` field
+- `statusMixin` requires `status` from the meta module
 
 ## Request status and server validation errors
 
@@ -55,7 +56,7 @@ We store meta for each combination of action and id (optional), the underlying s
 There is only 1 meta getter which you use like this:
 
 ```js
-// for an action without an id 
+// for an action without an id
 getters['meta/status']('create')
 
 // for an action with an id
@@ -74,7 +75,7 @@ It will always return a value, by default it will be:
 There is one action, `clear`, which has the same signature:
 
 ```js
-// for an action without an id 
+// for an action without an id
 dispatch('meta/clear', ['create'])
 
 // for an action with an id
@@ -91,27 +92,27 @@ import { createMetaModule, withMeta } from '@/store/helpers'
 export const modules = { meta: createMetaModule() }
 
 export const actions = {
-  
+
   // This wraps the actions so we catch pending status and validation errors
   ...withMeta({
-    
-    // If `entry` has an `id` field, we use that 
+
+    // If `entry` has an `id` field, we use that
     async save ({ commit }, entry) {
-     // ... do stuff ... 
+     // ... do stuff ...
     },
-    
+
     // The argument is a number, we use that as the `id`
     async join ({ commit }, id) {
-     // ... do stuff ... 
+     // ... do stuff ...
     },
-    
+
     // No argument, so it is stored by action name
     async list ({ commit }) {
       // ... do stuff ...
     },
-    
+
   })
-} 
+}
 ```
 
 #### Getters

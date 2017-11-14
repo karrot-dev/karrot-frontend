@@ -56,12 +56,12 @@
 import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
 
 import { is24h } from '@/i18n'
-import formMixin from '@/mixins/formMixin'
+import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
 
 export default {
   name: 'PickupEdit',
-  mixins: [formMixin, statusMixin],
+  mixins: [editMixin, statusMixin],
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect,
   },

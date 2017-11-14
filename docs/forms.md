@@ -12,19 +12,19 @@ In many places we enrich the data with additional fields,
 and we need to use the original data (available as `__unenriched`) to correctly only detect changes in the
 underlying value, not the derived data.
 
-## formMixin and statusMixin
+## editMixin and statusMixin
 
-This logic is encapsulated in `formMixin` and `statusMixin`, so you get these features with just:
+This logic is encapsulated in `editMixin` and `statusMixin`, so you get these features with just:
 
 ```js
 export default {
-  mixins: [formMixin, statusMixin],
+  mixins: [editMixin, statusMixin],
 }
 ```
 
 They require additional props to the component:
 
-- `formMixin` requires `value`: the object you are editing, which must have an `__enriched` field
+- `editMixin` requires `value`: the object you are editing, which must have an `__enriched` field
 - `statusMixin` requires `status` from the meta module
 
 ## Request status and server validation errors

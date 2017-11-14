@@ -45,7 +45,7 @@ describe('helpers', () => {
       run.mockImplementationOnce(() => { throw createValidationError(validationErrors) })
       await store.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id).pending).toEqual(false)
+      expect(store.getters['meta/status']('run', id)).toEqual({ pending: false, validationErrors })
     })
 
     it('throws any other errors back atcha', async () => {

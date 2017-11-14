@@ -5,6 +5,7 @@ import InvitationsUI from '@/components/Group/InvitationsUI'
 export default connect({
   gettersToProps: {
     invitations: 'invitations/list',
+    fetchStatus: 'invitations/fetchStatus',
     sendStatus: 'invitations/sendStatus',
   },
   actionsToEvents: {

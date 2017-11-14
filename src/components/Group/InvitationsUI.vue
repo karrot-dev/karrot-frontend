@@ -5,7 +5,7 @@
       {{ $t('GROUP.INVITE_TITLE') }}
     </h5>
     <InvitationsForm :invitations="invitations" :status="sendStatus" @submit="$emit('submit', arguments[0])" />
-    <InvitationsList :invitations="invitations" />
+    <InvitationsList :invitations="invitations" :status="fetchStatus" />
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
   components: { QIcon, InvitationsForm, InvitationsList },
   props: {
     invitations: { required: true },
+    fetchStatus: { required: true },
     sendStatus: { required: true },
   },
 }

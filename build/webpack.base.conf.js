@@ -7,6 +7,7 @@ var
   merge = require('webpack-merge'),
   projectRoot = path.resolve(__dirname, '../'),
   ProgressBarPlugin = require('progress-bar-webpack-plugin'),
+  IntlPolyfillServicePlugin = require('./plugins/IntlPolyfillServicePlugin'),
   useCssSourceMap =
     (env.dev && config.dev.cssSourceMap) ||
     (env.prod && config.build.productionSourceMap)
@@ -86,6 +87,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new IntlPolyfillServicePlugin(),
     new webpack.DefinePlugin({
       'process.env': config[env.prod ? 'build' : 'dev'].env,
       'DEV': env.dev,

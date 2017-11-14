@@ -56,13 +56,13 @@
 
 <script>
 import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog } from 'quasar'
-import formMixin from '@/mixins/formMixin'
+import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
 
 import { is24h, dayOptions } from '@/i18n'
 
 export default {
-  mixins: [formMixin, statusMixin],
+  mixins: [editMixin, statusMixin],
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect,
   },

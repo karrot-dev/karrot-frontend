@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import { Platform, throttle, dom } from 'quasar'
-const { ready, height, width } = dom
+const { ready } = dom
 
-const getSize = () => height(window) + width(window)
+const getSize = () => {
+  return document.documentElement.clientHeight + document.documentElement.clientWidth
+}
 
 const size = {
   original: null,

@@ -5,7 +5,6 @@ import { objectDiff } from '@/services/utils'
 export default {
   props: {
     value: { required: true },
-    status: { required: true },
   },
   data () {
     const source = this.value.id ? this.value.__unenriched : this.value
@@ -30,18 +29,8 @@ export default {
     hasChanged () {
       return !this.isNew && !deepEqual(this.source, this.edit)
     },
-    isPending () {
-      return this.status.pending
-    },
   },
   methods: {
-    hasError (field) {
-      return !!this.status.validationErrors[field]
-    },
-    firstError (field) {
-      const errors = this.status.validationErrors[field]
-      return errors && errors[0]
-    },
     save (event) {
       if (this.isNew) {
         this.$emit('save', this.edit, event)

@@ -47,9 +47,7 @@ export default store => {
     }
   })
 
-  router.afterEach(async (to, from) => {
-    window.scrollTo(0, 0)
-
+  router.beforeEach(async (to, from, next) => {
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     // save active group/store/user
@@ -83,7 +81,11 @@ export default store => {
       let groupId = getUserGroupId()
       if (groupId) store.dispatch('groups/selectGroup', groupId)
     }
+
+    next()
   })
+
+  router.afterEach(() => window.scrollTo(0, 0))
 
   store.watch(getBreadcrumbNames, breadcrumbs => {
     let names = getBreadcrumbNames().slice().reverse()

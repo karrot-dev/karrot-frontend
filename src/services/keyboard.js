@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import { Platform, throttle, dom } from 'quasar'
-const { ready } = dom
+const { ready, height, width } = dom
 
-const getSize = () => {
-  return document.documentElement.clientHeight + document.documentElement.clientWidth
-}
+const getSize = () => height(window) + width(window)
 
 const size = {
   original: null,
@@ -25,7 +23,8 @@ const keyboard = new Vue({
     if (!Platform.is.mobile) return
     ready(() => {
       window.addEventListener('resize', throttle(() => {
-        this.is.open = size.original !== getSize()
+        // if the window is >150px smaller than original, we guess it's the keyboard...
+        this.is.open = (size.original - getSize()) > 150
       }, 100))
     })
   },

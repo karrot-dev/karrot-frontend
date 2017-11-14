@@ -127,6 +127,7 @@
     "webpack-merge": "^4.1.0"
   },
   "jest": {
+    "roots": ["<rootDir>/src/"],
     "moduleNameMapper": {
       "@/(.*)$": "<rootDir>/src/$1",
       ">/(.*)$": "<rootDir>/test/$1",
@@ -148,6 +149,9 @@
       "/node_modules/(?!quasar-framework)"
     ],
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "setupFiles": [
+      "<rootDir>/test/setup/unhandledPromiseRejectionHandler.js"
+    ]
   }
 }

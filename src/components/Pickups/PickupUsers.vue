@@ -10,7 +10,7 @@
       class="profilePic clickable"
     />
 
-    <div v-if="pickup.isWaiting" class="emptySlots profilePic" style="border-color: black" :style="{ width: size + 'px', height: size + 'px' }">
+    <div v-if="isJoiningOrLeaving(pickup)" class="emptySlots profilePic" style="border-color: black" :style="{ width: size + 'px', height: size + 'px' }">
       <q-spinner />
     </div>
 
@@ -20,7 +20,7 @@
       name="bounce"
       >
       <CurrentUser
-        v-if="pickup.isUserMember && !pickup.isWaiting"
+        v-if="pickup.isUserMember && !isJoiningOrLeaving(pickup)"
         :size="size"
         :user="currentUser"
         class="profilePic clickable"
@@ -34,7 +34,7 @@
       :size="size"
       :hoverUser="currentUser"
       :showJoin="!pickup.isUserMember && n == 1"
-      v-if="n > 1 || !(pickup.isWaiting && !pickup.isUserMember)"
+      v-if="n > 1 || !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
       class="profilePic"
       :class="{clickable: !pickup.isUserMember && n == 1}"
       @join="$emit('join')"
@@ -72,6 +72,9 @@ export default {
     ProfilePicture, UserSlot, CurrentUser, QSpinner, QResizeObservable,
   },
   methods: {
+    isJoiningOrLeaving (pickup) {
+      return pickup.joinStatus.pending || pickup.leaveStatus.pending
+    },
     calculateSlotsPerRow () {
       if (this.$refs.wrapperDiv) {
         this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))

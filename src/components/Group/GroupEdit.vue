@@ -13,9 +13,9 @@
             >
             <q-input
               id="group-title"
-              v-model="groupEdit.name"
+              v-model="edit.name"
               :autofocus="true"
-              @blur="$v.groupEdit.name.$touch"
+              @blur="$v.edit.name.$touch"
               autocomplete="off"
               />
           </q-field>
@@ -23,9 +23,9 @@
           <q-field
             icon="fa-question"
             :label="$t('GROUP.PUBLIC_DESCRIPTION')">
-            <MarkdownInput :value="groupEdit.publicDescription">
+            <MarkdownInput :value="edit.publicDescription">
               <q-input
-                v-model="groupEdit.publicDescription"
+                v-model="edit.publicDescription"
                 type="textarea"
                 :min-rows="3"
               />
@@ -36,9 +36,9 @@
             icon="fa-question"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             >
-            <MarkdownInput :value="groupEdit.description">
+            <MarkdownInput :value="edit.description">
               <q-input
-                v-model="groupEdit.description"
+                v-model="edit.description"
                 type="textarea"
                 :min-rows="3"
               />
@@ -50,7 +50,7 @@
             :label="$t('GROUP.ADDRESS')"
             >
             <address-picker
-              v-model="groupEdit"
+              v-model="edit"
               :map="true"
             />
           </q-field>
@@ -59,7 +59,7 @@
             icon="fa-question"
             :label="$t('GROUP.PASSWORD')"
             >
-            <q-input v-model="groupEdit.password"/>
+            <q-input v-model="edit.password"/>
           </q-field>
 
           <q-field
@@ -69,16 +69,16 @@
             :error-label="timezoneError"
             >
             <q-input
-              v-model="groupEdit.timezone"
-              @blur="$v.groupEdit.timezone.$touch"
+              v-model="edit.timezone"
+              @blur="$v.edit.timezone.$touch"
               >
               <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" :filter="timezoneFilter"/>
             </q-input>
           </q-field>
 
-          <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
+          <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
 
-          <q-btn type="submit" color="primary" :disable="!canSave" :loader="status.isWaiting">
+          <q-btn type="submit" color="primary" :disable="!canSave" :loader="status.pending">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
@@ -107,7 +107,7 @@ import deepEqual from 'deep-equal'
 import { objectDiff } from '@/services/utils'
 
 export default {
-  name: 'groupEdit',
+  name: 'GroupEdit',
   mixins: [validationMixin],
   props: {
     group: {
@@ -125,33 +125,38 @@ export default {
         }
       },
     },
-    status: { required: true },
+    status: {
+      required: false,
+      default: () => ({ pending: false, validationErrors: {} }),
+    },
     timezones: { required: true },
     allGroups: { required: true },
-    requestError: { required: true },
   },
   components: {
     QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker, MarkdownInput,
   },
   data () {
+    const source = this.group.id ? this.group.__unenriched : this.group
     return {
-      groupEdit: cloneDeep(this.group),
+      source,
+      edit: cloneDeep(source),
     }
   },
   watch: {
-    group () {
-      this.reset()
+    'group.__unenriched' (curr, prev) {
+      // we want to make sure it's _really_ changed or we risk undoing the users changes
+      if (curr !== prev || !deepEqual(curr, prev)) this.reset()
     },
   },
   computed: {
     isNew () {
-      return !this.group.id
+      return !this.source.id
     },
     hasChanged () {
-      return !this.isNew && !deepEqual(this.group, this.groupEdit)
+      return !this.isNew && !deepEqual(this.source, this.edit)
     },
     canSave () {
-      if (this.$v.groupEdit.$error) {
+      if (this.$v.edit.$error) {
         return false
       }
       if (!this.isNew && !this.hasChanged) {
@@ -160,49 +165,55 @@ export default {
       return true
     },
     nameError () {
-      const m = this.$v.groupEdit.name
+      const m = this.$v.edit.name
       if (!m.required) return this.$t('VALIDATION.REQUIRED')
       if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 4)
       if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
       if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
-      return this.requestError('name')
+      return this.firstError('name')
     },
     timezoneError () {
-      const m = this.$v.groupEdit.timezone
+      const m = this.$v.edit.timezone
       if (!m.required) return this.$t('VALIDATION.REQUIRED')
       if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
-      return this.requestError('timezone')
+      return this.firstError('timezone')
     },
   },
   methods: {
     reset () {
-      this.groupEdit = cloneDeep(this.group)
+      this.source = this.source.id ? this.group.__unenriched : this.group
+      this.edit = cloneDeep(this.source)
+      this.$emit('reset', this.source.id)
     },
     save (event) {
-      this.$v.groupEdit.$touch()
+      this.$v.edit.$touch()
       if (!this.canSave) return
       if (this.isNew) {
-        this.$emit('save', this.groupEdit, event)
+        this.$emit('save', this.edit, event)
       }
       else {
-        this.$emit('save', { ...objectDiff(this.group, this.groupEdit), id: this.group.id }, event)
+        this.$emit('save', { ...objectDiff(this.source, this.edit), id: this.source.id }, event)
       }
     },
     timezoneFilter (terms, { field, list }) {
       const token = terms.toLowerCase()
       return list.filter(item => item[field].toLowerCase().includes(token))
     },
+    firstError (field) {
+      const errors = this.status.validationErrors[field]
+      return errors && errors[0]
+    },
   },
   validations: {
-    groupEdit: {
+    edit: {
       name: {
         required,
         minLength: minLength(5),
         maxLength: maxLength(80),
         isUnique (value) {
-          if (value === '') return true
+          if (value === '' || !this.source) return true
           return this.allGroups
-            .filter(e => e.id !== this.groupEdit.id)
+            .filter(e => e.id !== this.source.id)
             .findIndex(e => e.name === value) < 0
         },
       },

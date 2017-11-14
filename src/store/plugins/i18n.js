@@ -13,7 +13,7 @@ export default store => {
     i18n.locale = locale
     dateFnsHelper.locale = locale
     axios.defaults.headers.common['Accept-Language'] = locale
-  }, {immediate: true})
+  }, { immediate: true })
 }
 
 /*

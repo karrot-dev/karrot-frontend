@@ -197,7 +197,7 @@ export const actions = {
 
   }),
 
-  selectGroupInfo ({ commit, getters }, groupPreviewId) {
+  selectGroupInfo ({ commit, getters, dispatch }, groupPreviewId) {
     if (!getters.get(groupPreviewId)) {
       dispatch('routeError/set', null, { root: true })
     }

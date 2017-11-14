@@ -39,14 +39,14 @@ describe('auth', () => {
   it('can login', async () => {
     mockLogin.mockReturnValueOnce(user())
     await store.dispatch('auth/login')
-    expect(store.getters['auth/status'].error).toBeNull()
+    expect(store.getters['auth/loginStatus'].error).toBeUndefined()
     expect(store.getters['auth/isLoggedIn']).toBe(true)
     expect(store.getters['auth/user']).toBeDefined()
     expect(mockRouterPush).toBeCalledWith('/')
   })
 
   it('will not be logged when status throws', async () => {
-    mockStatus.mockImplementation(throws(() => new Error('some error')))
+    mockStatus.mockImplementation(throws({ response: { data: { foo: 'some error info' }, status: 401 } }))
     await store.dispatch('auth/check')
     expect(store.getters['auth/isLoggedIn']).toBe(false)
     expect(store.getters['auth/user']).toBeNull()
@@ -56,7 +56,7 @@ describe('auth', () => {
     mockLogin.mockImplementationOnce(throws({ response: { data: { foo: 'some error info' }, status: 403 } }))
     await store.dispatch('auth/login')
     expect(store.getters['auth/isLoggedIn']).toBe(false)
-    expect(store.getters['auth/status'].error).toEqual({ foo: 'some error info' })
+    expect(store.getters['auth/loginStatus'].validationErrors).toEqual({ foo: 'some error info' })
     expect(store.getters['auth/user']).toBeNull()
   })
 })

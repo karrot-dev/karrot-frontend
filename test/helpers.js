@@ -70,3 +70,52 @@ export function mountWithDefaults (Component, options = {}) {
   makeFindAllIterable(wrapper)
   return wrapper
 }
+
+export function createValidationError (data) {
+  return Object.assign(new Error(), {
+    response: {
+      status: 403,
+      data,
+    },
+  })
+}
+
+export function createRequestError () {
+  return Object.assign(new Error(), {
+    response: {
+      status: 500,
+      request: 'foo',
+    },
+  })
+}
+
+export function mockActionOnce (store, actionName) {
+  const originalValue = store._actions[actionName]
+  const restore = () => { store._actions[actionName] = originalValue }
+  const mockFn = jest.fn()
+  store._actions[actionName] = [async () => {
+    try {
+      return await mockFn()
+    }
+    finally {
+      restore()
+    }
+  }]
+  return mockFn
+}
+
+export function defaultActionStatus () {
+  return { pending: false, validationErrors: {} }
+}
+
+export function defaultActionStatusesFor (...actions) {
+  const result = {}
+  for (let action of actions) {
+    result[action + 'Status'] = defaultActionStatus()
+  }
+  return result
+}
+
+export function sleep (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}

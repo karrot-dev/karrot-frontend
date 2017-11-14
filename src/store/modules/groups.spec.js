@@ -1,22 +1,40 @@
-const mockFetchGroupsPreview = jest.fn()
+const mockGet = jest.fn()
 const mockJoin = jest.fn()
 const mockLeave = jest.fn()
+const mockSave = jest.fn()
 const mockConversation = jest.fn()
-const mockRouterPush = jest.fn()
 jest.mock('@/services/api/groups', () => ({
+  get: mockGet,
   join: mockJoin,
   leave: mockLeave,
+  save: mockSave,
   conversation: mockConversation,
 }))
+
+const mockFetchGroupsPreview = jest.fn()
 jest.mock('@/services/api/groupsInfo', () => ({
   list: mockFetchGroupsPreview,
 }))
-jest.mock('@/router', () => ({ push: mockRouterPush }))
 
-import { createStore, throws } from '>/helpers'
+const mockRouterPush = jest.fn()
+const mockRouterReplace = jest.fn()
+jest.mock('@/router', () => ({
+  push: mockRouterPush,
+  replace: mockRouterReplace,
+}))
+
+import { createStore, createValidationError, defaultActionStatusesFor } from '>/helpers'
 
 function enrich (group) {
-  return { ...group, isMember: false, awaitingAgreement: false, activeAgreement: undefined, membership: {} }
+  return {
+    ...group,
+    isMember: false,
+    awaitingAgreement: false,
+    activeAgreement: undefined,
+    membership: {},
+    ...defaultActionStatusesFor('save', 'join', 'leave'),
+    __unenriched: group,
+  }
 }
 
 function enrichAsMember (group) {
@@ -98,10 +116,9 @@ describe('groups', () => {
     })
 
     it('can not join a group', async () => {
-      mockJoin.mockImplementation(throws({ response: { status: 403, data: 'some error' } }))
+      mockJoin.mockImplementationOnce(() => { throw new Error('some error') })
       store.commit('groups/Receive Groups', { groups: [group1] })
-      await store.dispatch('groups/join', { groupId: group1.id })
-      expect(store.getters['groups/joinStatus']).toEqual({ error: 'some error', isWaiting: false })
+      await expect(store.dispatch('groups/join', { id: group1.id })).rejects.toHaveProperty('message', 'some error')
     })
   })
 
@@ -126,7 +143,7 @@ describe('groups', () => {
     it('can join a group', async () => {
       mockJoin.mockReturnValueOnce({})
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group2.id, group3.id])
-      await store.dispatch('groups/join', { groupId: group1.id })
+      await store.dispatch('groups/join', { id: group1.id })
       expect(mockRouterPush).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group1.id, group2.id, group3.id])
     })
@@ -136,6 +153,21 @@ describe('groups', () => {
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group2.id, group3.id])
       await store.dispatch('groups/leave', group2.id)
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group3.id])
+    })
+
+    it('can save a group', async () => {
+      mockSave.mockImplementationOnce(group => group)
+      await store.dispatch('groups/save', { id: group2.id, name: 'new name' })
+    })
+
+    it('adds save errors to the group', async () => {
+      const validationErrors = { foo: 'bar' }
+      mockSave.mockImplementationOnce(() => { throw createValidationError(validationErrors) })
+      await store.dispatch('groups/save', { id: group2.id, name: 'new name' })
+      expect(store.getters['groups/get'](group2.id)).toEqual({
+        ...enrichAsMember(group2),
+        saveStatus: { pending: false, validationErrors: validationErrors },
+      })
     })
   })
 
@@ -189,6 +221,7 @@ describe('groups', () => {
 
     it('can select a group', async () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
+      mockGet.mockReturnValueOnce(group2)
       await store.dispatch('groups/selectGroup', group2.id)
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([])
       expect(pickups.actions.clear).toBeCalled()

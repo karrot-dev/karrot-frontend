@@ -1,6 +1,6 @@
 <template>
   <div class="edit">
-    <VerificationWarning v-if="!user.mailVerified" />
+    <VerificationWarning v-if="user && !user.mailVerified" />
 
     <q-field
       icon="fa-star"
@@ -33,7 +33,9 @@ export default {
       this.$emit('save', this.newEmail)
     },
     setEmail () {
-      this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
+      if (this.user) {
+        this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
+      }
     },
   },
   watch: {

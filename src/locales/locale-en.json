@@ -32,7 +32,8 @@
     "CHANGE_PASSWORD": "Change password",
     "CHANGE_EMAIL": "Change e-mail address",
     "AGREE": "I agree",
-    "REMOVE": "Remove"
+    "REMOVE": "Remove",
+    "ARCHIVE": "Archive"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",
@@ -81,13 +82,23 @@
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
-    "MANAGE": "Check and manage the pickups"
+    "MANAGE": "Check and manage the pickups",
+    "ARCHIVED": "This store has been archived"
   },
   "STOREEDIT": {
     "NAME": "Name",
+    "STATUS":"Status",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?"
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "TITLE": "Archive store",
+        "MESSAGE": "Are you sure?",
+        "CONFIRM": "Yes, archive store"
+      }
+    },
+    "RESTORE": "Restore"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
@@ -235,8 +246,7 @@
     "HOME": "Take me home"
   },
   "SETTINGS": {
-    "TITLE": "Settings",
-    "LANGUAGE": "Language"
+    "TITLE": "Settings"
   },
   "AGREEMENT": {
     "NEW": "New agreement",
@@ -266,5 +276,12 @@
   "WALL": {
     "WRITE_MESSAGE": "Write a message...",
     "WRITE_FIRST_MESSAGE": "Write the first message..."
+  },
+  "STORESTATUS":{
+    "ACTIVE": "Co-operating",
+    "CREATED": "Just created",
+    "NEGOTIATING": "Negotiating",
+    "DECLINED": "Don't want to cooperate",
+    "ARCHIVED": "Archived"
   }
 }

@@ -29,12 +29,12 @@
               icon="fa-lock"
               :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
               :helper="$t('JOINGROUP.PASSWORD_LABEL')"
-              :error="!!status.error"
+              :error="hasJoinError"
               :error-label="$t('JOINGROUP.PASSWORD_WRONG')"
               >
               <q-input v-model="password" type="password" />
             </q-field>
-            <q-btn type="submit" loader :value="status.isWaiting" >
+            <q-btn type="submit" loader :value="group.joinStatus.pending" >
               <span v-if="isLoggedIn">
                 {{ $t('BUTTON.JOIN') }}
               </span>
@@ -65,8 +65,12 @@ export default {
   },
   props: {
     group: { required: true },
-    status: { required: true },
     isLoggedIn: {},
+  },
+  computed: {
+    hasJoinError () {
+      return Object.keys(this.group.joinStatus.validationErrors).length > 0
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
 }

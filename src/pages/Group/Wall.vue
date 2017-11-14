@@ -11,6 +11,7 @@ export default connect({
     messageReceiveMoreStatus: 'conversations/receiveMoreStatus',
     canLoadMore: 'conversations/canLoadMore',
     sendStatus: 'conversations/sendStatus',
+    currentUser: 'auth/user',
   },
   actionsToEvents: {
     join: 'pickups/join',

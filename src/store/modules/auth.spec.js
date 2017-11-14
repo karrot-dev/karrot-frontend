@@ -12,6 +12,7 @@ describe('auth', () => {
   let storeMocks
 
   beforeEach(() => jest.resetModules())
+
   beforeEach(() => {
     storeMocks = {
       i18n: {

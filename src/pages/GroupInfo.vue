@@ -13,10 +13,10 @@ export default connect({
     visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),
     join: ({ dispatch, getters }, { groupId, password }) => {
       if (getters['auth/isLoggedIn']) {
-        dispatch('groups/join', { groupId, password })
+        dispatch('groups/join', { id: groupId, password })
       }
       else {
-        dispatch('auth/setJoinGroupAfterLogin', { groupId, password })
+        dispatch('auth/setJoinGroupAfterLogin', { id: groupId, password })
         router.push({ name: 'signup' })
       }
     },

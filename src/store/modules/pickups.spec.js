@@ -7,7 +7,7 @@ jest.mock('@/services/api/pickups', () => ({
   leave: mockLeave,
 }))
 
-import { createStore } from '>/helpers'
+import { createStore, defaultActionStatusesFor } from '>/helpers'
 
 describe('pickups', () => {
   beforeEach(() => jest.resetModules())
@@ -69,9 +69,9 @@ describe('pickups', () => {
         ...pickup2,
         store: { id: pickup2.store },
         isUserMember: true,
-        isWaiting: false,
         isEmpty: false,
         isFull: true,
+        ...defaultActionStatusesFor('save', 'join', 'leave'),
         collectors: [{ id: userId, name: `Some Name${userId}` }],
         __unenriched: pickup2,
       })
@@ -108,9 +108,9 @@ describe('pickups', () => {
         collectors: [],
         date,
         isUserMember: false,
-        isWaiting: false,
         isEmpty: true,
         isFull: false,
+        ...defaultActionStatusesFor('save', 'join', 'leave'),
         store: {
           id: storeId,
         },

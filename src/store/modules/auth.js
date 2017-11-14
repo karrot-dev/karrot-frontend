@@ -2,6 +2,7 @@ import auth from '@/services/api/auth'
 import authUser from '@/services/api/authUser'
 import router from '@/router'
 import { onlyHandleAPIError } from '@/store/helpers'
+import { types as userTypes } from '@/store/modules/users'
 
 export const types = {
 
@@ -101,14 +102,14 @@ export const actions = {
       const joinParams = state.joinGroupAfterLogin
       if (rootGetters['groups/get'](joinParams.groupId).isMember) {
         // go to group if already a member
-        router.push({ name: 'group', params: { groupId: joinParams.groupId } })
+        router.push({ name: 'group', params: { groupId: joinParams.id } })
       }
       else {
         await dispatch('groups/join', joinParams, { root: true })
         if (rootGetters['groups/joinStatus'].error) {
           // go back to goup preview if error occured
           // it should show the error status on the page, thanks to persistent state!
-          router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.groupId } })
+          router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.id } })
         }
       }
     }
@@ -159,8 +160,7 @@ export const actions = {
     }
 
     commit(types.RECEIVE_LOGIN_STATUS, { user: savedUser })
-    // TODO: we only need to update the current user here, but no available action/mutation yet
-    dispatch('users/fetchList', null, { root: true })
+    commit(`users/${userTypes.RECEIVE_USER}`, { user: savedUser }, { root: true })
   },
 
   async changePassword ({ commit, state, dispatch }, { newPassword }) {

@@ -31,7 +31,7 @@
         </div>
         <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 
-        <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn" slot="footer" />
+        <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" slot="footer" />
         <KFooter v-if="!$q.platform.is.mobile" slot="footer" />
       </q-layout>
     </div>

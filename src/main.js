@@ -20,11 +20,11 @@ import './socket'
 import i18n from './i18n'
 import log from '@/services/log'
 import './raven'
-import { KeyboardPlugin } from '@/services/keyboard'
+import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 
 Vue.config.productionTip = false
 Vue.use(Quasar)
-Vue.use(KeyboardPlugin)
+Vue.use(DetectMobileKeyboardPlugin)
 
 if (process.env.NODE_ENV !== 'production') {
   log.setLevel('debug')

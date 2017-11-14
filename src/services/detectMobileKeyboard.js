@@ -32,7 +32,7 @@ const keyboard = new Vue({
 
 export default keyboard
 
-export const KeyboardPlugin = {
+export const DetectMobileKeyboardPlugin = {
   install (Vue, options) {
     Vue.prototype.$keyboard = keyboard
   },

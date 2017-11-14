@@ -3,7 +3,7 @@
     <template v-if="routeError.hasError">
       <RouteError>
         <p v-if="routeError.message" class="caption text-center">
-          {{ routeError.message }}
+          <span v-if="routeError.message.translation" v-t="routeError.message.translation" />
         </p>
       </RouteError>
     </template>

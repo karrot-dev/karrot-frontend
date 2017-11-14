@@ -2,7 +2,6 @@ import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
-import i18n from '@/i18n'
 
 export const types = {
 
@@ -162,9 +161,9 @@ export const actions = {
 
     const userId = rootGetters['auth/userId']
     if (!group.members.includes(userId)) {
-      const message = i18n.t('GROUP.NONMEMBER_REDIRECT')
-      dispatch('routeError/set', message, { root: true })
-      throw new Error(message)
+      const error = { translation: 'GROUP.NONMEMBER_REDIRECT' }
+      dispatch('routeError/set', error, { root: true })
+      throw new Error(error)
     }
     commit(types.RECEIVE_GROUP, { group })
   },

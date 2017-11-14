@@ -3,20 +3,24 @@
 
     <q-field
       icon="fa-star"
-      :label="$t('USERDETAIL.PASSWORD')">
+      :label="$t('USERDETAIL.PASSWORD')"
+      :error="hasError('password')"
+      :error-label="firstError('password')">
       <q-input type="password" v-model="newPassword"/>
     </q-field>
 
-    <q-btn color="primary" @click="save">{{ $t('BUTTON.CHANGE_PASSWORD') }}</q-btn>
+    <q-btn color="primary" @click="save" loader :value="isPending">{{ $t('BUTTON.CHANGE_PASSWORD') }}</q-btn>
 
   </div>
 </template>
 
 <script>
 import { QField, QInput, QBtn } from 'quasar'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
   components: { QField, QInput, QBtn },
+  mixins: [statusMixin],
   data () {
     return {
       oldPassword: '',

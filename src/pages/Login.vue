@@ -4,13 +4,13 @@ import Login from '@/components/Login/Login'
 
 export default connect({
   gettersToProps: {
-    status: 'auth/status',
+    status: 'auth/loginStatus',
   },
   actionsToEvents: {
     submit: 'auth/login',
   },
   lifecycle: {
-    destroyed: ({ dispatch }) => dispatch('auth/cleanStatus'),
+    mounted: ({ dispatch }) => dispatch('auth/meta/clear', ['login']),
   },
 })('Login', Login)
 </script>

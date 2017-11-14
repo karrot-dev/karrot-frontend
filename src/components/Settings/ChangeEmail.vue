@@ -4,22 +4,28 @@
 
     <q-field
       icon="fa-star"
-      :label="$t('USERDATA.EMAIL')">
+      :label="$t('USERDATA.EMAIL')"
+      :error="hasError('email')"
+      :error-label="firstError('email')">
       <q-input type="email" v-model="newEmail"/>
     </q-field>
 
-    <q-btn color="primary" @click="save">{{ $t('BUTTON.CHANGE_EMAIL') }}</q-btn>
+    <div v-if="hasError('nonFieldErrors')" class="text-negative">{{ firstError('nonFieldErrors') }}</div>
+    <div v-if="hasError('detail')" class="text-negative">{{ firstError('detail') }}</div>
+
+    <q-btn color="primary" @click="save" loader :value="isPending">{{ $t('BUTTON.CHANGE_EMAIL') }}</q-btn>
 
   </div>
 </template>
 
 <script>
 import { QField, QInput, QBtn } from 'quasar'
-
+import statusMixin from '@/mixins/statusMixin'
 import VerificationWarning from '@/components/Settings/VerificationWarning'
 
 export default {
   components: { QField, QInput, QBtn, VerificationWarning },
+  mixins: [statusMixin],
   props: {
     user: { required: true },
   },

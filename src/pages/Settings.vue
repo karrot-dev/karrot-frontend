@@ -10,13 +10,13 @@
       <q-list-header>{{ $t('USERDATA.EMAIL') }}</q-list-header>
 
       <q-item>
-        <ChangeEmail :user="user" @save="changeEmail" />
+        <ChangeEmail :user="user" :status="changeEmailStatus" @save="changeEmail" />
       </q-item>
 
       <q-list-header>{{ $t('USERDATA.PASSWORD') }}</q-list-header>
 
       <q-item>
-        <ChangePassword @save="changePassword" />
+        <ChangePassword :status="changePasswordStatus" @save="changePassword" />
       </q-item>
 
     </q-list>
@@ -37,6 +37,8 @@ export default {
   computed: {
     ...mapGetters({
       user: 'auth/user',
+      changeEmailStatus: 'auth/changeEmailStatus',
+      changePasswordStatus: 'auth/changePasswordStatus',
     }),
   },
   methods: {

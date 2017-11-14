@@ -20,9 +20,11 @@ import './socket'
 import i18n from './i18n'
 import log from '@/services/log'
 import './raven'
+import { KeyboardPlugin } from '@/services/keyboard'
 
 Vue.config.productionTip = false
 Vue.use(Quasar)
+Vue.use(KeyboardPlugin)
 
 if (process.env.NODE_ENV !== 'production') {
   log.setLevel('debug')

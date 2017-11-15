@@ -34,8 +34,8 @@ export default store => {
 
     // check meta.requireLoggedIn
     else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
-      let { name, params } = to
-      store.dispatch('auth/setRedirectTo', { name, params })
+      let { name, params, query } = to
+      store.dispatch('auth/setRedirectTo', { name, params, query })
       next({ name: 'login' })
     }
 

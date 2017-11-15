@@ -4,7 +4,7 @@
       <q-list-header>{{ $t('USERDATA.PROFILE_TITLE') }}</q-list-header>
 
       <q-item>
-        <ProfileEdit :user="user" @save="saveUser"/>
+        <ProfileEdit :value="user" @save="saveUser"/>
       </q-item>
 
       <q-list-header>{{ $t('USERDATA.EMAIL') }}</q-list-header>

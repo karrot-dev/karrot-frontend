@@ -11,7 +11,7 @@ storiesOf('Settings Page', module)
       return h(Settings)
     },
     created () {
-      store.commit('auth/Receive Login Status', { user: currentUserMock })
+      store.commit('auth/Set User', { user: currentUserMock })
     },
     i18n,
     store,

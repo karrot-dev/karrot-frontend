@@ -21,7 +21,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 
-from foodsaving.conversations.api import ConversationMessageViewSet
+from foodsaving.conversations.api import ConversationMessageViewSet, ConversationViewSet
 from foodsaving.groups.api import GroupViewSet, AgreementViewSet, GroupInfoViewSet
 from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
@@ -43,7 +43,8 @@ router.register(r'users', UserViewSet)
 router.register(r'pickup-date-series', PickupDateSeriesViewSet)
 router.register(r'pickup-dates', PickupDateViewSet)
 
-# Message endpoints
+# Conversation/Message endpoints
+router.register(r'conversations', ConversationViewSet)
 router.register(r'messages', ConversationMessageViewSet)
 
 # Subscription endpoints

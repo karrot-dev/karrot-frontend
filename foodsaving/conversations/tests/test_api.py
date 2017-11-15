@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.conversations.factories import ConversationFactory
+from foodsaving.conversations.models import ConversationParticipant
 from foodsaving.users.factories import UserFactory
 
 
@@ -77,3 +78,72 @@ class TestConversationsAPI(APITestCase):
         data = {'conversation': self.conversation3.id, 'content': 'a nice message'}
         response = self.client.post('/api/messages/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+
+class TestConversationsSeenUpToAPI(APITestCase):
+    def setUp(self):
+        self.conversation = ConversationFactory()
+        self.user = UserFactory()
+        self.conversation.join(self.user)
+        self.participant = ConversationParticipant.objects.get(conversation=self.conversation, user=self.user)
+
+    def test_conversation_get(self):
+        message = self.conversation.messages.create(author=self.user, content='yay')
+        self.client.force_login(user=self.user)
+
+        response = self.client.get('/api/conversations/{}/'.format(self.conversation.id), format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['seen_up_to'], None)
+        self.assertEqual(response.data['unread_message_count'], 1)
+
+        self.participant.seen_up_to = message
+        self.participant.save()
+
+        response = self.client.get('/api/conversations/{}/'.format(self.conversation.id), format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['seen_up_to'], message.id)
+        self.assertEqual(response.data['unread_message_count'], 0)
+
+    def test_conversation_list(self):
+        message = self.conversation.messages.create(author=self.user, content='yay')
+        self.client.force_login(user=self.user)
+
+        self.participant.seen_up_to = message
+        self.participant.save()
+
+        response = self.client.get('/api/conversations/'.format(self.conversation.id), format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data[0]['seen_up_to'], message.id)
+
+    def test_mark_seen_up_to(self):
+        message = self.conversation.messages.create(author=self.user, content='yay')
+        self.client.force_login(user=self.user)
+
+        response = self.client.get('/api/conversations/{}/'.format(self.conversation.id), format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['seen_up_to'], None)
+
+        data = {'seen_up_to': message.id}
+        response = self.client.post('/api/conversations/{}/mark/'.format(self.conversation.id), data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['seen_up_to'], message.id)
+
+        self.participant.refresh_from_db()
+        self.assertEqual(self.participant.seen_up_to, message)
+
+    def test_mark_seen_up_to_fails_for_invalid_id(self):
+        self.client.force_login(user=self.user)
+        data = {'seen_up_to': 9817298172}
+        response = self.client.post('/api/conversations/{}/mark/'.format(self.conversation.id), data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['seen_up_to'][0],
+                         'Invalid pk "{}" - object does not exist.'.format(data['seen_up_to']))
+
+    def test_mark_seen_up_to_fails_for_message_in_other_conversation(self):
+        conversation = ConversationFactory()
+        message = conversation.messages.create(author=self.user, content='yay')
+        self.client.force_login(user=self.user)
+        data = {'seen_up_to': message.id}
+        response = self.client.post('/api/conversations/{}/mark/'.format(self.conversation.id), data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['seen_up_to'][0], 'Must refer to a message in the conversation')

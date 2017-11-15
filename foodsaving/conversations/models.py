@@ -54,6 +54,7 @@ class ConversationParticipant(BaseModel):
     """The join table between Conversation and User."""
     user = ForeignKey(settings.AUTH_USER_MODEL)
     conversation = ForeignKey(Conversation)
+    seen_up_to = ForeignKey('ConversationMessage', null=True)
 
 
 class ConversationMessage(BaseModel):

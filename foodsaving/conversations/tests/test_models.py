@@ -41,6 +41,7 @@ class ConversationModelTests(TestCase):
     def test_message_create(self):
         user = UserFactory()
         conversation = ConversationFactory()
+        conversation.join(user)
         conversation.messages.create(author=user, content='yay')
         self.assertEqual(ConversationMessage.objects.filter(author=user).count(), 1)
 

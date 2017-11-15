@@ -41,6 +41,8 @@ export const getters = {
 }
 
 export const actions = {
+  clearLoginStatus: ({ dispatch }) => dispatch('meta/clear', ['login']),
+
   ...withMeta({
 
     async check ({ commit, dispatch }) {

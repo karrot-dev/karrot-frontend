@@ -10,7 +10,7 @@ export default connect({
     submit: 'auth/login',
   },
   lifecycle: {
-    mounted: ({ dispatch }) => dispatch('auth/meta/clear', ['login']),
+    destroyed: ({ dispatch }) => dispatch('auth/clearLoginStatus'),
   },
 })('Login', Login)
 </script>

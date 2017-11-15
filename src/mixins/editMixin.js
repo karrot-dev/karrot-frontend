@@ -8,21 +8,25 @@ export default {
   },
   data () {
     return {
-      edit: cloneDeep(this.value),
+      edit: cloneDeep(this.source),
     }
   },
   watch: {
-    value (current, previous) {
+    source (current, previous) {
       const changes = objectDiff(previous, current)
       this.edit = cloneDeep({ ...this.edit, ...changes })
     },
   },
   computed: {
+    source () {
+      const isFn = typeof this.value === 'function'
+      return isFn ? this.value() : this.value
+    },
     isNew () {
-      return !this.value.id
+      return !this.source.id
     },
     hasChanged () {
-      return !this.isNew && !deepEqual(this.value, this.edit)
+      return !this.isNew && !deepEqual(this.source, this.edit)
     },
   },
   methods: {
@@ -31,15 +35,15 @@ export default {
         this.$emit('save', this.edit, event)
       }
       else {
-        this.$emit('save', { ...objectDiff(this.value, this.edit), id: this.value.id }, event)
+        this.$emit('save', { ...objectDiff(this.source, this.edit), id: this.source.id }, event)
       }
     },
     destroy (event) {
-      this.$emit('destroy', this.value.id, event)
+      this.$emit('destroy', this.source.id, event)
     },
     reset () {
-      this.edit = cloneDeep(this.value)
-      this.$emit('reset', this.value.id)
+      this.edit = cloneDeep(this.source)
+      this.$emit('reset', this.source.id)
     },
   },
 }

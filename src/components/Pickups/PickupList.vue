@@ -16,7 +16,7 @@
         @join="$emit('join', arguments[0])"
         @leave="$emit('leave', arguments[0])"
         >
-        {{ $d(pickup.date, 'dateShort') }}
+        {{ $d(pickup.date, 'dateLongWithDayName') }}
       </PickupItem>
     </div>
   </div>

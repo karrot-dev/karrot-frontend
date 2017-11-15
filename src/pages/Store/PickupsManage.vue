@@ -68,7 +68,7 @@
         <q-collapsible v-for="pickup in oneTimePickups"
                        @open="makeVisible('pickup', pickup.id)"
                        :key="pickup.id"
-                       :label="$d(pickup.date, 'dateShort')"
+                       :label="$d(pickup.date, 'dateWithDayName')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
           <pickup-edit v-if="visible.pickup[pickup.id]" :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />

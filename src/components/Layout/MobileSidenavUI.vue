@@ -17,12 +17,13 @@
       <q-item-side><i class="fa fa-sign-out fa-fw"/></q-item-side>
       <q-item-main :label="$t('TOPBAR.LOGOUT')" />
     </q-item>
+    <LocaleSelect />
     <q-list-header>About us</q-list-header>
-    <a class="q-item" target="_blanc" href="https://blog.foodsaving.world">
+    <a class="q-item" target="_blanc" href="https://blog.karrot.world">
       <q-item-side><i class="fa fa-newspaper-o"/></q-item-side>
-      <q-item-main label="Blog" sublabel="All News around foodsaving.world" />
+      <q-item-main label="Blog" sublabel="All News around karrot.world" />
     </a>
-    <a class="q-item" target="_blanc" href="https://blog.foodsaving.world/team.en.html">
+    <a class="q-item" target="_blanc" href="https://blog.karrot.world/team.en.html">
       <q-item-side><i class="fa fa-users"/></q-item-side>
       <q-item-main label="Team" sublabel="Our Team" />
     </a>
@@ -35,9 +36,10 @@
 <script>
 
 import { QList, QListHeader, QSideLink, QItem, QItemSide, QItemMain } from 'quasar'
+import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
-  components: { QList, QListHeader, QSideLink, QItem, QItemSide, QItemMain },
+  components: { QList, QListHeader, QSideLink, QItem, QItemSide, QItemMain, LocaleSelect },
   props: {
     currentUserId: { required: true },
   },

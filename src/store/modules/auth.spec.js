@@ -5,7 +5,7 @@ jest.mock('@/router', () => ({ push: mockRouterPush }))
 jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
 
-import { createStore, throws } from '>/helpers'
+import { createStore, createValidationError, throws } from '>/helpers'
 
 describe('auth', () => {
   let store
@@ -39,24 +39,24 @@ describe('auth', () => {
   it('can login', async () => {
     mockLogin.mockReturnValueOnce(user())
     await store.dispatch('auth/login')
-    expect(store.getters['auth/status'].error).toBeNull()
+    expect(store.getters['auth/loginStatus'].validationErrors).toEqual({})
     expect(store.getters['auth/isLoggedIn']).toBe(true)
     expect(store.getters['auth/user']).toBeDefined()
     expect(mockRouterPush).toBeCalledWith('/')
   })
 
   it('will not be logged when status throws', async () => {
-    mockStatus.mockImplementation(throws(() => new Error('some error')))
+    mockStatus.mockImplementation(throws(createValidationError({ foo: 'some error info' })))
     await store.dispatch('auth/check')
     expect(store.getters['auth/isLoggedIn']).toBe(false)
     expect(store.getters['auth/user']).toBeNull()
   })
 
   it('will not be logged in when login throws', async () => {
-    mockLogin.mockImplementationOnce(throws({ response: { data: { foo: 'some error info' }, status: 403 } }))
+    mockLogin.mockImplementationOnce(throws(createValidationError({ foo: 'some error info' })))
     await store.dispatch('auth/login')
     expect(store.getters['auth/isLoggedIn']).toBe(false)
-    expect(store.getters['auth/status'].error).toEqual({ foo: 'some error info' })
+    expect(store.getters['auth/loginStatus'].validationErrors).toEqual({ foo: 'some error info' })
     expect(store.getters['auth/user']).toBeNull()
   })
 })

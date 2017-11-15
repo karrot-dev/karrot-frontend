@@ -1,7 +1,7 @@
 <template>
   <div>
     <form name="login" @submit.prevent="submit">
-      <div class="white-box" :class="{ shake: showShake }">
+      <div class="white-box" :class="{ shake: hasAnyError }">
         <q-field icon="fa-envelope">
           <q-input
           :autofocus="true"
@@ -13,7 +13,7 @@
           />
         </q-field>
       </div>
-      <div class="white-box" :class="{ shake: showShake }">
+      <div class="white-box" :class="{ shake: hasAnyError }">
         <q-field icon="fa-lock">
           <q-input
           :error="hasError('password')"
@@ -24,8 +24,8 @@
           />
         </q-field>
       </div>
-      <div class="error" v-if="errorMessage">
-        <i class="fa fa-exclamation-triangle"/>{{ errorMessage }}
+      <div class="error" v-if="hasAnyError">
+        <i class="fa fa-exclamation-triangle"/>{{ anyError }}
       </div>
       <div class="actions">
         <q-btn type="button" @click.prevent="$router.push({ name: 'passwordreset' })" flat>
@@ -34,7 +34,7 @@
         <q-btn type="button" @click.prevent="$router.push({ name: 'signup' })" flat>
           {{ $t('LOGIN.SIGNUP') }}
         </q-btn>
-        <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
+        <q-btn type="submit" class="submit shadow-4" loader :value="isPending">
           {{ $t('LOGIN.SUBMIT') }}
         </q-btn>
       </div>
@@ -45,9 +45,11 @@
 
 <script>
 import { QField, QInput, QBtn } from 'quasar'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
   components: { QField, QInput, QBtn },
+  mixins: [statusMixin],
   data () {
     if (process.env.NODE_ENV !== 'production') {
       return {
@@ -62,27 +64,19 @@ export default {
       }
     }
   },
-  props: {
-    status: {
-      required: true,
-    },
-  },
   methods: {
-    hasError (field) {
-      return this.status.error && this.status.error[field]
-    },
     submit () {
-      // if (!this.status.isWaiting) {
       this.$emit('submit', { email: this.email, password: this.password })
-      // }
     },
   },
   computed: {
-    errorMessage () {
-      return this.status.error && this.status.error[Object.keys(this.status.error)[0]][0]
+    hasAnyError () {
+      return !!this.anyError
     },
-    showShake () {
-      return typeof this.errorMessage !== 'undefined' && this.errorMessage !== null
+    anyError () {
+      for (let field of ['email', 'password', 'nonFieldErrors', 'detail']) {
+        if (this.hasError(field)) return this.firstError(field)
+      }
     },
   },
 }

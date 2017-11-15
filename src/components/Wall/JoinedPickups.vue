@@ -15,7 +15,7 @@
         @join="$emit('join', arguments[0])"
         @leave="$emit('leave', arguments[0])"
         >
-        <strong v-if="pickup.store">{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateShort') }}
+        <strong v-if="pickup.store">{{ pickup.store.name }}</strong> {{ $d(pickup.date, 'dateWithDayName') }}
       </PickupItem>
     </transition-group>
     <hr v-if="showPickups">

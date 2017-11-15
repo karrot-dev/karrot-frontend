@@ -42,6 +42,11 @@ const defaultDateTimeFormat = {
   dayName: {
     weekday: 'long',
   },
+  dateWithDayName: {
+    month: 'long',
+    day: 'numeric',
+    weekday: 'short',
+  },
 }
 
 let dateTimeFormats = {}

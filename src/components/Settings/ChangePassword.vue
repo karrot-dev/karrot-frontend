@@ -4,8 +4,8 @@
     <q-field
       icon="fa-star"
       :label="$t('USERDETAIL.PASSWORD')"
-      :error="hasError('password')"
-      :error-label="firstError('password')">
+      :error="hasAnyError"
+      :error-label="anyError">
       <q-input type="password" v-model="newPassword"/>
     </q-field>
 
@@ -31,6 +31,16 @@ export default {
     save () {
       const { oldPassword, newPassword } = this
       this.$emit('save', { oldPassword, newPassword })
+    },
+  },
+  computed: {
+    hasAnyError () {
+      return !!this.anyError
+    },
+    anyError () {
+      for (let field of ['password', 'nonFieldErrors', 'detail']) {
+        if (this.hasError(field)) return this.firstError(field)
+      }
     },
   },
 }

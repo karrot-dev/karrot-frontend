@@ -5,13 +5,10 @@
     <q-field
       icon="fa-star"
       :label="$t('USERDATA.EMAIL')"
-      :error="hasError('email')"
-      :error-label="firstError('email')">
+      :error="hasAnyError"
+      :error-label="anyError">
       <q-input type="email" v-model="newEmail"/>
     </q-field>
-
-    <div v-if="hasError('nonFieldErrors')" class="text-negative">{{ firstError('nonFieldErrors') }}</div>
-    <div v-if="hasError('detail')" class="text-negative">{{ firstError('detail') }}</div>
 
     <q-btn color="primary" @click="save" loader :value="isPending">{{ $t('BUTTON.CHANGE_EMAIL') }}</q-btn>
 
@@ -41,6 +38,16 @@ export default {
     setEmail () {
       if (this.user) {
         this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
+      }
+    },
+  },
+  computed: {
+    hasAnyError () {
+      return !!this.anyError
+    },
+    anyError () {
+      for (let field of ['email', 'nonFieldErrors', 'detail']) {
+        if (this.hasError(field)) return this.firstError(field)
       }
     },
   },

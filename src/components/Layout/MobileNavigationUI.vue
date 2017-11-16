@@ -4,6 +4,10 @@
         <template slot="icon"><i class="fa fa-home q-tab-icon" /></template>
         <template>{{$t('GROUP.GROUP')}}</template>
       </KTab>
+      <KTab slot="title" :to="{name: 'groupPickups', params: {groupId: activeGroupId}}" name="pickups">
+        <template slot="icon"><i class="fa fa-shopping-basket q-tab-icon" /></template>
+        <template>{{$t('GROUP.PICKUPS')}}</template>
+      </KTab>
       <KTab slot="title" :to="{name: 'stores', params: {groupId: activeGroupId}}" name="stores">
         <template slot="icon"><i class="fa fa-shopping-cart q-tab-icon" /></template>
         <template>{{$t('GROUP.STORES')}}</template>

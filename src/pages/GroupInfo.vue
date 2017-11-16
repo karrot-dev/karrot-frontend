@@ -6,7 +6,6 @@ import GroupInfoCard from '@/components/GroupJoin/GroupInfoCard'
 export default connect({
   gettersToProps: {
     group: 'groups/activeGroupInfo',
-    status: 'groups/joinStatus',
     isLoggedIn: 'auth/isLoggedIn',
   },
   methodsToEvents: {

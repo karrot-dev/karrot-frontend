@@ -14,7 +14,6 @@ describe('ProfileEdit', () => {
 
   beforeEach(() => {
     user = cloneDeep(usersMock[0])
-    user.__unenriched = user
     wrapper = mountWithDefaults(ProfileEdit, { propsData: { value: user } })
   })
 

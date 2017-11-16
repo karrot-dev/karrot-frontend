@@ -38,7 +38,6 @@ export const getters = {
       store: rootGetters['stores/get'](pickup.store),
       collectors: pickup.collectorIds.map(rootGetters['users/get']),
       ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
-      __unenriched: pickup,
     }
   },
   all: (state, getters, rootState, rootGetters) => {

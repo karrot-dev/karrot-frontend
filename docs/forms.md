@@ -8,9 +8,7 @@ Our approach for forms is to clone an _editing_ version of the data for use in t
 - emit the diff of changes in a `@save` event (`emit(diff(source, edit))`) (works nicely with http `PATCH`)
 - handle underlying changes in the source value as we wish
 
-In many places we enrich the data with additional fields,
-and we need to use the original data (available as `__unenriched`) to correctly only detect changes in the
-underlying value, not the derived data.
+In many places we enrich the data with additional fields, but we only want to send unenriched fields to the API. Luckily, the diff of changes provides us exactly that.
 
 ## editMixin and statusMixin
 
@@ -130,7 +128,6 @@ export const getters = {
       ...entry,
       // this will add `saveStatus`, `joinStatus`, and `leaveStatus`
       ...metaStatusesWithId(getters, ['save', 'join', 'leave'], entry.id),
-      __unenriched: entry,
       // ... other enriched fields ...
     }
   }

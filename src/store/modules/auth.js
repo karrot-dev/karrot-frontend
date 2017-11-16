@@ -33,7 +33,7 @@ export const state = initialState()
 
 export const getters = {
   isLoggedIn: state => !!state.user,
-  user: state => ({ ...state.user, __unenriched: state.user }),
+  user: state => state.user,
   userId: state => state.user && state.user.id,
   status: state => state.status,
   redirectTo: state => state.redirectTo,

@@ -1,5 +1,6 @@
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
+const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
@@ -91,6 +92,19 @@ export default [
         path: 'wall',
         components: {
           default: GroupWall,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupPickups',
+        path: 'pickups',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.PICKUPS', route: { name: 'groupPickups' } },
+          ],
+        },
+        components: {
+          default: GroupPickups,
           sidenav: GroupGroupSidenav,
         },
       },

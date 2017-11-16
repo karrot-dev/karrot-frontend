@@ -18,6 +18,14 @@
             {{ $t("GROUP.WALL")}}
           </q-item-main>
         </q-item>
+        <q-item :to="{name: 'groupPickups'}">
+          <q-item-side class="text-center">
+            <q-icon name="fa-shopping-basket" />
+          </q-item-side>
+          <q-item-main>
+            {{ $t("GROUP.PICKUPS")}}
+          </q-item-main>
+        </q-item>
         <q-item :to="{name: 'groupDescription'}">
           <q-item-side class="text-center">
             <q-icon name="fa-vcard" />

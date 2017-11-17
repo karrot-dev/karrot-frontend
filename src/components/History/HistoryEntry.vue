@@ -32,9 +32,4 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-td
-    white-space nowrap
-td.expand
-    width 100%
-    white-space normal
 </style>

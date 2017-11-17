@@ -248,7 +248,7 @@ describe('groups', () => {
     })
 
     it('sets routeError if not group does not exist', async () => {
-      mockGet.mockImplementationOnce(throws(createNotFoundError()))
+      mockGet.mockImplementationOnce(throws(createNotFoundError))
       await store.dispatch('groups/selectGroup', 9999)
       expect(routeError.actions.set).toBeCalled()
     })

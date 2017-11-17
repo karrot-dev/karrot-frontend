@@ -7,7 +7,7 @@
       <div class="label" v-if="!breadcrumb.route">
         <span v-if="breadcrumb.name">{{ breadcrumb.name }}</span>
       </div>
-      <div> > </div>
+      <div> <i class="fa fa-fw fa-angle-right"/> </div>
     </div>
     <div v-if="secondlastElement" class="xs">
       <router-link v-if="secondlastElement.route" :to="secondlastElement.route" class="no-hover">

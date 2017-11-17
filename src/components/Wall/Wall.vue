@@ -20,11 +20,11 @@
       {{ messageReceiveStatus.error }}
     </q-alert>
     <template v-if="messageReceiveStatus.success">
-      <WallInput :status="sendStatus" @send="$emit('send', arguments[0])" :placeholder="messagePrompt" />
       <q-infinite-scroll
         :handler="loadMore"
         ref="infiniteScroll">
-        <q-list highlight inset-separator class="bg-white desktop-margin" v-if="messages.length > 0">
+        <q-list :highlight="false" class="bg-white desktop-margin">
+          <WallInput :status="sendStatus" @send="$emit('send', arguments[0])" :placeholder="messagePrompt" :user="currentUser" />
           <WallMessage v-for="message in messages" :key="message.id" :message="message"/>
         </q-list>
         <div slot="message" style="width: 100%; text-align: center">
@@ -67,6 +67,7 @@ export default {
     canLoadMore: { default: false },
     fetchMoreMessages: { required: true },
     sendStatus: { required: true },
+    currentUser: { required: true },
   },
   methods: {
     loadMore (index, done) {
@@ -82,10 +83,10 @@ export default {
   computed: {
     messagePrompt () {
       if (this.messages.length > 0) {
-        return this.$t('write a message')
+        return this.$t('WALL.WRITE_MESSAGE')
       }
       else {
-        return this.$t('write the first message')
+        return this.$t('WALL.WRITE_FIRST_MESSAGE')
       }
     },
   },

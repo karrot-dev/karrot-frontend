@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h3 v-if="isNew"><i class="fa fa-pencil"></i> {{ $t('CREATESTORE.TITLE') }}</h3>
-    <h3 v-else><i class="fa fa fa-edit"></i> {{ $t('STOREDETAIL.EDIT') }}</h3>
+    <h3 v-if="isNew"><i class="fa fa-pencil" /> {{ $t('CREATESTORE.TITLE') }}</h3>
+    <h3 v-else><i class="fa fa-edit" /> {{ $t('STOREDETAIL.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
-        <form @submit="save">
+        <form @submit.prevent="save">
           <q-field
             icon="fa-star"
             :label="$t('STOREEDIT.NAME')"
@@ -16,11 +16,21 @@
               @blur="$v.storeEdit.name.$touch"
               autocomplete="off" />
           </q-field>
+          <q-field
+            icon="fa-handshake-o"
+            :label="$t('STOREEDIT.STATUS')">
+              <q-select
+               v-model="storeEdit.status"
+               :options="statusOptions"
+             />
+          </q-field>
 
           <q-field
             icon="fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')">
-            <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" :max-height="100" />
+            <MarkdownInput :value="storeEdit.description">
+              <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" />
+            </MarkdownInput>
           </q-field>
 
           <q-field
@@ -46,8 +56,8 @@
           <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
             {{ $t('BUTTON.CANCEL') }}
           </q-btn>
-          <q-btn type="button" color="red" @click="destroy" v-if="!isNew">
-            {{ $t('BUTTON.DELETE') }}
+          <q-btn type="button" color="red" @click="archive" v-if="!isNew">
+            {{ $t('BUTTON.ARCHIVE') }}
           </q-btn>
 
         </form>
@@ -57,11 +67,13 @@
 </template>
 
 <script>
-import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, Dialog } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
+import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { statusList } from '@/services/storeStatus'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
@@ -81,6 +93,7 @@ export default {
           latitude: undefined,
           longitude: undefined,
           address: undefined,
+          status: 'created',
         }
       },
     },
@@ -89,7 +102,7 @@ export default {
     requestError: { required: true },
   },
   components: {
-    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, StandardMap, AddressPicker,
+    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
   },
   data () {
     return {
@@ -119,11 +132,21 @@ export default {
     },
     nameError () {
       const m = this.$v.storeEdit.name
-      if (!m.required) return this.$t('this field is required')
-      if (!m.minLength) return this.$t('too short')
-      if (!m.maxLength) return this.$t('too long')
-      if (!m.isUnique) return this.$t('already taken')
+      if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 2)
+      if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+      if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.requestError('name')
+    },
+    statusOptions () {
+      return statusList
+        .filter(s => s.selectable)
+        .map(s => ({
+          value: s.key,
+          label: this.$t(s.label),
+          leftColor: s.color,
+          icon: s.icon,
+        }))
     },
   },
   methods: {
@@ -140,8 +163,20 @@ export default {
         this.$emit('save', { ...objectDiff(this.store, this.storeEdit), id: this.store.id }, event)
       }
     },
-    destroy (event) {
-      this.$emit('destroy', this.store.id, event)
+    archive (event) {
+      Dialog.create({
+        title: this.$t('STOREEDIT.DIALOGS.ARCHIVE.TITLE'),
+        message: this.$t('STOREEDIT.DIALOGS.ARCHIVE.MESSAGE'),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
+            handler: () => {
+              this.$emit('save', { id: this.store.id, status: 'archived' }, event)
+            },
+          },
+        ],
+      })
     },
   },
   validations: {

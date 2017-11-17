@@ -1,39 +1,44 @@
 <template>
   <div>
-
+    <h3 v-t="'PICKUPMANAGE.TITLE'" />
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-repeat on-left" aria-hidden="true"></i>
+          <i class="icon fa fa-repeat on-left" aria-hidden="true" />
           {{ $t('PICKUPMANAGE.SERIES') }}
         </h5>
         <div slot="right" class="row items-center">
-          <q-btn @click="createNewSeries">Create new</q-btn>
+          <q-btn @click="createNewSeries">
+            <q-icon name="fa-plus-circle" />
+            <q-tooltip v-t="'BUTTON.CREATE'" />
+          </q-btn>
         </div>
       </q-card-title>
       <q-item v-if="newSeries" >
-        <pickup-series-edit :series="newSeries" :isWaiting="seriesIsWaiting" :requestError="seriesError" @save="saveNewSeries" @cancel="cancelNewSeries"/>
+        <pickup-series-edit :value="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries" @reset="resetNewSeries" :status="seriesCreateStatus"/>
       </q-item>
 
       <q-list class="pickups" separator no-border highlight sparse>
         <q-collapsible v-for="series in pickupSeries"
+                       @open="makeVisible('series', series.id)"
                        :key="series.id"
                        :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
                        :sublabel="$d(series.startDate, 'timeShort')"
                        icon="fa-calendar" sparse>
 
-          <q-item>
-            <pickup-series-edit :series="series.__unenriched" :isWaiting="seriesIsWaiting" :requestError="seriesError" @save="saveSeries" @destroy="destroySeries" />
+          <q-item v-if="visible.series[series.id]">
+            <pickup-series-edit :value="series" @save="saveSeries" @destroy="destroySeries" @reset="resetPickup" :status="series.saveStatus" />
           </q-item>
 
           <q-list no-border seperator>
-            <q-list-header>Upcoming pickups in this series</q-list-header>
+            <q-list-header v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
 
             <q-collapsible v-for="pickup in series.pickups"
+                           @open="makeVisible('pickup', pickup.id)"
                            :key="pickup.id"
                            :label="seriesPickupLabel(series, pickup)"
                            icon="fa-calendar">
-              <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
+              <pickup-edit v-if="visible.pickup[pickup.id]" :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
             </q-collapsible>
           </q-list>
 
@@ -44,25 +49,29 @@
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true"></i>
+          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true" />
           {{ $t('PICKUPMANAGE.SINGLE') }}
         </h5>
         <div slot="right" class="row items-center">
-          <q-btn @click="createNewPickup">Create new</q-btn>
+          <q-btn @click="createNewPickup">
+            <q-icon name="fa-plus-circle" />
+            <q-tooltip v-t="'BUTTON.CREATE'" />
+          </q-btn>
         </div>
       </q-card-title>
 
       <q-item v-if="newPickup" >
-        <pickup-edit :pickup="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
+        <pickup-edit :value="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" @reset="resetNewPickup" :status="pickupCreateStatus" />
       </q-item>
 
       <q-list class="pickups" separator no-border>
         <q-collapsible v-for="pickup in oneTimePickups"
+                       @open="makeVisible('pickup', pickup.id)"
                        :key="pickup.id"
-                       :label="$d(pickup.date, 'dateShort')"
+                       :label="$d(pickup.date, 'dateWithDayName')"
                        :sublabel="$d(pickup.date, 'timeShort')"
                        icon="fa-calendar" sparse>
-          <pickup-edit :pickup="pickup.__unenriched" @save="savePickup" @destroy="destroyPickup" :isWaiting="pickupIsWaiting" :requestError="pickupsError" />
+          <pickup-edit v-if="visible.pickup[pickup.id]" :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
         </q-collapsible>
       </q-list>
     </q-card>
@@ -71,21 +80,32 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { Dialog, QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn } from 'quasar'
+import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 
 import { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
-  components: { QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit },
+  components: {
+    QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
+  },
   data () {
     return {
       newSeries: null,
       newPickup: null,
+      visible: {
+        series: {},
+        pickup: {},
+      },
     }
   },
   methods: {
+    makeVisible (type, id) {
+      // prevents rending q-collabsible children before they are displayed
+      // if we don't do this, the textarea in pickupEdit won't autogrow
+      this.$set(this.visible[type], id, true)
+    },
     dayNameForKey,
     sortByDay,
     seriesPickupLabel (series, pickup) {
@@ -115,27 +135,16 @@ export default {
         },
       }
     },
-    saveNewSeries (series) {
-      this.$store.dispatch('pickupSeries/create', series)
-      this.newSeries = null
+    async saveNewSeries (series) {
+      if ((await this.$store.dispatch('pickupSeries/create', series)) !== false) {
+        this.newSeries = null
+      }
     },
     cancelNewSeries () {
       this.newSeries = null
     },
     destroySeries (seriesId) {
-      Dialog.create({
-        title: 'Confirm',
-        message: 'You really want to delete the series?',
-        buttons: [
-          'Cancel',
-          {
-            label: 'Yes, delete it!',
-            handler: () => {
-              this.$store.dispatch('pickupSeries/destroy', seriesId)
-            },
-          },
-        ],
-      })
+      this.$store.dispatch('pickupSeries/destroy', seriesId)
     },
     createNewPickup () {
       const date = new Date()
@@ -147,27 +156,29 @@ export default {
         store: this.storeId,
       }
     },
-    saveNewPickup (pickup) {
-      this.$store.dispatch('pickups/create', pickup)
-      this.newPickup = null
+    async saveNewPickup (pickup) {
+      if ((await this.$store.dispatch('pickups/create', pickup)) !== false) {
+        this.newPickup = null
+      }
     },
     cancelNewPickup () {
       this.newPickup = null
+      this.resetNewPickup()
+    },
+    resetSeries (seriesId) {
+      this.$store.dispatch('pickups/meta/clear', ['save', seriesId])
+    },
+    resetNewSeries () {
+      this.$store.dispatch('pickupSeries/meta/clear', ['create'])
+    },
+    resetNewPickup () {
+      this.$store.dispatch('pickups/meta/clear', ['create'])
+    },
+    resetPickup (pickupId) {
+      this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
     },
     destroyPickup (pickupId) {
-      Dialog.create({
-        title: 'Confirm',
-        message: 'You really want to delete the pickup?',
-        buttons: [
-          'Cancel',
-          {
-            label: 'Yes, delete it!',
-            handler: () => {
-              this.$store.dispatch('pickups/destroy', pickupId)
-            },
-          },
-        ],
-      })
+      this.$store.dispatch('pickups/destroy', pickupId)
     },
   },
   computed: {
@@ -175,10 +186,8 @@ export default {
       storeId: 'stores/activeStoreId',
       pickupSeries: 'pickupSeries/all',
       oneTimePickups: 'pickups/filteredOneTime',
-      pickupIsWaiting: 'pickups/saveIsWaiting',
-      pickupsError: 'pickups/saveError',
-      seriesIsWaiting: 'pickupSeries/saveIsWaiting',
-      seriesError: 'pickupSeries/saveError',
+      pickupCreateStatus: 'pickups/createStatus',
+      seriesCreateStatus: 'pickupSeries/createStatus',
     }),
   },
   mounted () {

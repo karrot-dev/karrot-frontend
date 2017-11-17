@@ -1,6 +1,6 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit="save">
+    <form @submit.prevent="save">
       <q-field
         icon="fa-star"
         :label="$t('AGREEMENT.TITLE')"

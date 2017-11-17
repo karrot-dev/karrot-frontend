@@ -1,52 +1,50 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit="save">
+    <form @submit.prevent="save">
       <q-field
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
         :helper="$t('CREATEPICKUP.TIME_HELPER')"
-        :error="!!requestError('startDate')"
-        :error-label="requestError('startDate')"
+        :error="hasError('startDate')"
+        :error-label="firstError('startDate')"
         >
         <q-datetime type="time"
-                    v-model="seriesEdit.startDate"
+                    v-model="edit.startDate"
                     :format24h="is24h"
-                    :display-value="$d(seriesEdit.startDate, 'timeShort')"/>
+                    :display-value="$d(edit.startDate, 'timeShort')"/>
       </q-field>
 
       <q-field
         icon="today"
-        label="Weekdays"
-        helper="On which weekdays should the pick-up take place?"
-        :error="!!requestError('rule')"
-        :error-label="requestError('rule')"
+        :label="$t('CREATEPICKUP.WEEKDAYS')"
+        :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
+        :error="hasError('rule')"
+        :error-label="firstError('rule')"
         >
-        <q-select multiple toggle v-model="seriesEdit.rule.byDay" :options="dayOptions"/>
+        <q-select multiple toggle v-model="edit.rule.byDay" :options="dayOptions"/>
       </q-field>
 
       <q-field
         icon="group"
         :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
-        :error="!!requestError('maxCollectors')"
-        :error-label="requestError('maxCollectors')"
+        :error="hasError('maxCollectors')"
+        :error-label="firstError('maxCollectors')"
         >
-        <q-slider v-model="seriesEdit.maxCollectors" :min="1" :max="10" label label-always />
+        <q-slider v-model="edit.maxCollectors" :min="1" :max="10" label label-always />
       </q-field>
 
       <q-field
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
-        :error="!!requestError('description')"
-        :error-label="requestError('description')"
         >
-        <q-input v-model="seriesEdit.description" type="textarea" :min-rows="1" :max-height="100" />
+        <q-input v-model="edit.description" type="textarea" max-length="500" />
       </q-field>
 
-      <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
+      <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
 
-      <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="isWaiting">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
+      <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="status.pending">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
       <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
       <q-btn type="button" @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
       <q-btn type="button" color="red" @click="destroy" v-if="!isNew">{{ $t('BUTTON.DELETE') }}</q-btn>
@@ -55,36 +53,22 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
+import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog } from 'quasar'
+import editMixin from '@/mixins/editMixin'
+import statusMixin from '@/mixins/statusMixin'
+
 import { is24h, dayOptions } from '@/i18n'
 
-import cloneDeep from 'clone-deep'
-import deepEqual from 'deep-equal'
-import { objectDiff } from '@/services/utils'
-
 export default {
-  props: {
-    series: { required: true },
-    isWaiting: { required: true },
-    requestError: { required: true },
-  },
+  mixins: [editMixin, statusMixin],
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect,
   },
-  data () {
-    return {
-      seriesEdit: cloneDeep(this.series),
-      lastByDay: [...this.series.rule.byDay],
-    }
-  },
   watch: {
-    series () {
-      this.reset()
-    },
     // enforce having at least one day selected
-    'seriesEdit.rule.byDay' (byDay) {
+    'edit.rule.byDay' (byDay) {
       if (byDay.length === 0) {
-        this.seriesEdit.rule.byDay.push(...this.lastByDay)
+        this.edit.rule.byDay.push(...this.lastByDay)
       }
       else {
         this.lastByDay = [...byDay]
@@ -94,27 +78,22 @@ export default {
   computed: {
     dayOptions,
     is24h,
-    isNew () {
-      return !this.series.id
-    },
-    hasChanged () {
-      return !this.isNew && !deepEqual(this.series, this.seriesEdit)
-    },
   },
   methods: {
-    reset () {
-      this.seriesEdit = cloneDeep(this.series)
-    },
-    save (event) {
-      if (this.isNew) {
-        this.$emit('save', this.seriesEdit, event)
-      }
-      else {
-        this.$emit('save', { ...objectDiff(this.series, this.seriesEdit), id: this.series.id }, event)
-      }
-    },
     destroy (event) {
-      this.$emit('destroy', this.series.id, event)
+      Dialog.create({
+        title: this.$t('PICKUPDELETE.DELETE_SERIES_TITLE'),
+        message: this.$t('PICKUPDELETE.DELETE_SERIES_TEXT'),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('BUTTON.YES'),
+            handler: () => {
+              this.$emit('destroy', this.source.id, event)
+            },
+          },
+        ],
+      })
     },
   },
 }

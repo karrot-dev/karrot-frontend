@@ -1,9 +1,7 @@
 <template>
   <q-toolbar color="primary">
-    <q-btn slot="left" flat class="mobile-only" @click="$emit('toggleSidenav')">
-      <i class="fa fa-bars"></i>
-    </q-btn>
-    <router-link v-if="!$q.platform.is.mobile" :to="{name: 'group'}" class="logo">
+    <slot />
+    <router-link :to="{name: 'group'}" v-if="!$q.platform.is.mobile" class="logo">
       <KarrotLogo/>
     </router-link>
     <q-toolbar-title>
@@ -26,43 +24,48 @@
     <q-btn v-if="!searchOpen" flat @click="$emit('showSearch')">
       <q-icon name="fa-fw fa-search"/>
     </q-btn>
-    <router-link :to="{name: 'user', params: {userId: user.id}}" class="defaulthover">
-      <q-btn flat class="desktop-only">
-        {{ user.displayName }}
-        <q-icon name="fa-fw fa-user" />
+    <template v-if="!$q.platform.is.mobile">
+      <LocaleSelect />
+      <router-link :to="{name: 'user', params: {userId: user.id}}" class="defaulthover">
+        <q-btn flat>
+          {{ user.displayName }}
+          <q-icon name="fa-fw fa-user" />
+        </q-btn>
+      </router-link>
+      <q-btn flat>
+        <q-icon name="fa-fw fa-ellipsis-v" />
+        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
+        <q-popover :touch-position="false" fit ref="popover">
+          <q-list item-separator link>
+            <q-item :to="{name: 'groupsGallery'}" @click.native="$refs.popover.close()">
+              <q-icon size="1em" name="fa-home fa-fw" />
+              {{ $t('TOPBAR.CHANGE_GROUP')  }}
+            </q-item>
+            <q-item :to="{name: 'settings'}" @click.native="$refs.popover.close()">
+              <q-icon size="1em" name="fa-cog fa-fw" />
+              {{$t('SETTINGS.TITLE')}}
+            </q-item>
+            <q-item @click="$emit('logout'), $refs.popover.close()">
+              <q-icon size="1em" name="fa-sign-out fa-fw" />
+              {{$t('TOPBAR.LOGOUT')}}
+            </q-item>
+          </q-list>
+        </q-popover>
       </q-btn>
-    </router-link>
-    <q-btn flat class="desktop-only">
-      <q-icon name="fa-fw fa-ellipsis-v" />
-      <q-popover :touch-position="false" fit ref="popover">
-        <q-list item-separator link>
-          <q-item :to="{name: 'groupsGallery'}" @click.native="$refs.popover.close()">
-            <q-icon size="1em" name="fa-home fa-fw" />
-            {{ $t('TOPBAR.CHANGE_GROUP')  }}
-          </q-item>
-          <q-item :to="{name: 'settings'}" @click.native="$refs.popover.close()">
-            <q-icon size="1em" name="fa-cog fa-fw" />
-            {{$t('SETTINGS.TITLE')}}
-          </q-item>
-          <q-item @click="$emit('logout'), $refs.popover.close()">
-            <q-icon size="1em" name="fa-sign-out fa-fw" />
-            {{$t('TOPBAR.LOGOUT')}}
-          </q-item>
-        </q-list>
-      </q-popover>
-    </q-btn>
+    </template>
   </q-toolbar>
 </template>
 
 <script>
-import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem } from 'quasar'
+import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
+import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
   components: {
-    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, KarrotLogo, KBreadcrumb, Search,
+    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },

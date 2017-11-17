@@ -1,24 +1,33 @@
 <template>
     <q-item multiline>
-      <q-item-tile lines="2" class="left"><ProfilePicture :user="message.author" :size="40" /></q-item-tile>
-      <q-item-main
-        :label="message.author.displayName"
-        label-lines="1"
-        :sublabel="message.content"
-        sublabel-lines="500"
-        class="content"
-      />
-      <q-item-side right :stamp="$d(message.createdAt, 'long')" />
+      <q-item-side>
+        <ProfilePicture :user="message.author" :size="40" />
+      </q-item-side>
+      <q-item-main>
+        <q-item-tile>
+          <router-link :to="{ name: 'user', params: {userId: message.author.id} }">
+            <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
+          </router-link>
+          <span class="content">{{ message.content }}</span>
+        </q-item-tile>
+        <q-item-tile class="row light-paragraph" style="padding-top: 5px">
+          <small>
+            <DateAsWords :date="message.createdAt" />
+          </small>
+        </q-item-tile>
+      </q-item-main>
     </q-item>
 </template>
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
+import DateAsWords from '@/components/General/DateAsWords'
+
 export default {
   name: 'WallMessage',
   components: {
-    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile,
+    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords,
   },
   props: {
     message: { required: true },
@@ -27,10 +36,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.left {
-  margin-right: 1em;
-}
-.content {
-  white-space: pre;
-}
+.left
+  margin-right 1em
+.content
+  white-space pre-line
 </style>

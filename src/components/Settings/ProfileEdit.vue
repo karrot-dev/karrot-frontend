@@ -10,12 +10,14 @@
     <q-field
       icon="info"
       :label="$t('USERDETAIL.DESCRIPTION')">
-      <q-input v-model="userEdit.description" type="textarea" :min-rows="1" :max-height="100" />
+      <MarkdownInput :value="userEdit.description">
+        <q-input v-model="userEdit.description" type="textarea" :min-rows="1" />
+      </MarkdownInput>
     </q-field>
 
     <q-field
       icon="fa-map"
-      :label="$t('STOREEDIT.ADDRESS')">
+      :label="$t('USERDATA.WHERE_FROM')">
       <address-picker v-model="userEdit" :map="true"/>
     </q-field>
 
@@ -28,6 +30,7 @@
 <script>
 import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
 import AddressPicker from '@/components/Address/AddressPicker'
+import MarkdownInput from '@/components/MarkdownInput'
 
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
@@ -38,7 +41,7 @@ export default {
     user: { required: true },
   },
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, AddressPicker,
+    QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, AddressPicker, MarkdownInput,
   },
   data () {
     return {

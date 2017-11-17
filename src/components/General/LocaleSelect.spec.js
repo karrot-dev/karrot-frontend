@@ -2,23 +2,17 @@ jest.mock('@/store/plugins/persistedState', () => {
   return () => {}
 })
 
-import Settings from './Settings'
+import LocaleSelect from './LocaleSelect'
 import { locales } from '@/i18n'
-import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame, mockActionOnce } from '>/helpers'
 
 import store from '@/store'
 
-import { usersMock } from '>/mockdata'
-
 polyfillRequestAnimationFrame()
 
-describe('Settings', () => {
-  beforeEach(() => {
-    store.commit('auth/Receive Login Status', { user: usersMock[0] })
-  })
-
+describe('LocaleSelect', () => {
   it('renders all the available locales', () => {
-    let wrapper = mountWithDefaults(Settings, { store })
+    let wrapper = mountWithDefaults(LocaleSelect, { store })
     expect(wrapper.findAll('.q-item-label').length).toBe(locales.length)
     for (let locale of locales) {
       expect(wrapper.html()).toContain(locale.name)
@@ -26,7 +20,8 @@ describe('Settings', () => {
   })
 
   it('can select a locale', () => {
-    let wrapper = mountWithDefaults(Settings, { store })
+    mockActionOnce(store, 'auth/update')
+    let wrapper = mountWithDefaults(LocaleSelect, { store })
     const locales = store.getters['i18n/localeOptions']
     let idx = Math.floor(Math.random() * locales.length) // pick a random locale
     wrapper.findAll('.q-item-label').at(idx).trigger('click')

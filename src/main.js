@@ -20,9 +20,11 @@ import './socket'
 import i18n from './i18n'
 import log from '@/services/log'
 import './raven'
+import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 
 Vue.config.productionTip = false
 Vue.use(Quasar)
+Vue.use(DetectMobileKeyboardPlugin)
 
 if (process.env.NODE_ENV !== 'production') {
   log.setLevel('debug')
@@ -35,6 +37,7 @@ import 'quasar-extras/material-icons'
 // import 'quasar-extras/ionicons'
 import 'quasar-extras/fontawesome'
 import 'quasar-extras/animate'
+import 'typeface-cabin-sketch'
 
 Quasar.start(async () => {
   sync(store, router)

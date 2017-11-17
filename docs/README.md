@@ -23,10 +23,9 @@ Purposes would/could be to document:
   - **backend** - [yunity/karrot-frontend/issues](https://github.com/yunity/karrot-frontend/issues)
 - Other documentation
   - **user docs** (_coming soon_)
-  - **API docs** [dev.foodsaving.world/docs/](https://dev.foodsaving.world/docs/) (create account and login to see more
+  - **API docs** [dev.karrot.world/docs/](https://dev.karrot.world/docs/) (create account and login to see more
 - Chat
   - **\#karrot-dev** in [yunity slack](https://slackin.yunity.org)
 - Deployments
-  - **dev** [dev.foodsaving.world](https://dev.foodsaving.world) - master branch using dev backend/db
-  - **alpha** [alpha.foodsaving.world](https://alpha.foodsaving.world) - master branch (manual approval in circleci) with production backend/db
-  - **production** [foodsaving.world](https://foodsaving.world) - angular branch using production backend/db
+  - **dev** [dev.karrot.world](https://dev.karrot.world) - master branch using dev backend/db
+  - **production** [karrot.world](https://karrot.world) -  production backend/db

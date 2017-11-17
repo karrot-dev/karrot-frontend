@@ -1,33 +1,30 @@
-import { Selector } from 'testcafe'
+const createTestCafe = require('testcafe')
+const { join } = require('path')
+const isCI = process.argv.includes('--ci')
+const browsers = isCI ? [
+  'saucelabs:Chrome@61:Windows 10',
+//  'saucelabs:Firefox@56:Windows 10',
+//  'saucelabs:Internet Explorer@11.103:Windows 10',
+//  'saucelabs:Safari@11.0:macOS Sierra',
+//  'saucelabs:iPhone 7 Simulator@11.0',
+//  'saucelabs:iPad 2 Simulator@11.0',
+//  'saucelabs:Android Emulator Phone@6.0',
+] : ['chromium'];
 
-fixture('default page')
-  .page('http://localhost:8080/#/')
-//  .page('https://karrot-dev.foodsaving.world')
+(async () => {
+  const testcafe = await createTestCafe('localhost')
+  const runner = await testcafe.createRunner()
+  const failedCount = await runner
+    .src(join(__dirname, 'tests.js')) // should pass in test files via args or use some autodiscovery
+    .browsers(browsers)
+    .screenshots('e2e-screenshots')
+    .run({
+      debugOnFail: !isCI,
+    })
 
-test('loads login page', async t => {
-  await t
-    .takeScreenshot()
-  const location = await t.eval(() => window.location)
-  await t.expect(location.hash).eql('#/login')
-  const title = await t.eval(() => document.title)
-  await t.expect(title).eql('Login | Karrot')
-})
-
-test('can log in', async t => {
-  // using prefilled login in dev mode
-  // const emailfield = 'div.white-box:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)'
-  // const passwordfield = 'div.white-box:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)'
-  const loginbutton = '.submit'
-  await t
-    // .typeText(emailfield, 'foo@foo.com')
-    // .typeText(passwordfield, 'foofoo')
-    .pressKey('enter')
-
-  await t.takeScreenshot()
-  await t.click(loginbutton) // pressing enter does not submit the form on "Chrome@61.0:OS X 10.9"
-  await t.takeScreenshot()
-  const location = await t.eval(() => window.location)
-  await t.expect(location.hash).eql('#/group/1/wall')
-  const title = await t.eval(() => document.title)
-  await t.expect(title).eql('05_testgroup | Karrot')
-})
+  console.log('Tests failed: ' + failedCount)
+  testcafe.close()
+  if (failedCount > 0) {
+    process.exit(1)
+  }
+})()

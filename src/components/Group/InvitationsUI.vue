@@ -4,98 +4,25 @@
       <q-icon name="fa-user-plus" />
       {{ $t('GROUP.INVITE_TITLE') }}
     </h5>
-    <div>
-      <form @submit="submit">
-        <q-field
-          icon="fa-envelope"
-          :helper="$t('GROUP.INVITE_EMAIL')"
-          :error="$v.form.email.$error"
-          :error-label="emailErrorMessage"
-        >
-          <q-input
-            v-model="form.email"
-            type="email"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
-            @keyup.enter="submit"
-            @blur="$v.form.email.$touch"
-          />
-        </q-field>
-
-        <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
-
-        <q-btn type="submit" loader :value="sendStatus.isWaiting" :disabled="$v.form.$error">
-          <q-icon name="fa-paper-plane" />
-          <q-tooltip>
-            {{ $t('GROUP.INVITE_SEND') }}
-          </q-tooltip>
-        </q-btn>
-      </form>
-    </div>
-
-    <h5 class="text-primary generic-padding" v-if="invitations.length > 0">
-      {{ $t('GROUP.INVITED_LIST') }}
-    </h5>
-    <ul>
-      <li v-for="invite in invitations" :key="invite.id">{{ invite.email }}</li>
-    </ul>
-    <pre>{{ listStatus.error }}</pre>
+    <InvitationsForm :invitations="invitations" :status="sendStatus" @submit="$emit('submit', arguments[0])" />
+    <InvitationsList :invitations="invitations" :status="fetchStatus" />
   </div>
 </template>
 
 <script>
-import { QIcon, QField, QInput, QBtn, QTooltip } from 'quasar'
-import { validationMixin } from 'vuelidate'
-import { required, email } from 'vuelidate/lib/validators'
+import { QIcon } from 'quasar'
+import InvitationsForm from './InvitationsForm'
+import InvitationsList from './InvitationsList'
 
 export default {
-  mixins: [validationMixin],
-  components: { QIcon, QField, QInput, QBtn, QTooltip },
+  components: { QIcon, InvitationsForm, InvitationsList },
   props: {
     invitations: { required: true },
-    listStatus: { required: true },
+    fetchStatus: { required: true },
     sendStatus: { required: true },
-    requestError: { required: true },
-  },
-  data () {
-    return {
-      form: {
-        email: '',
-      },
-    }
-  },
-  validations: {
-    form: {
-      email: {
-        required,
-        email,
-        isUnique (value) {
-          if (value === '') return true
-          return this.invitations.findIndex(e => e.email === value) < 0
-        },
-      },
-    },
-  },
-  computed: {
-    emailErrorMessage () {
-      // TODO translate
-      const m = this.$v.form.email
-      if (!m.required) return this.$t('this field is required')
-      if (!m.email) return this.$t('enter a valid e-mail address')
-      if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
-    },
-  },
-  methods: {
-    submit () {
-      this.$v.form.$touch()
-      if (this.$v.form.$error) return
-      this.$emit('submit', this.form.email)
-      this.$v.form.$reset()
-      this.form.email = ''
-    },
   },
 }
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
 </style>

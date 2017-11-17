@@ -1,33 +1,41 @@
 <template>
-    <div class="background mainLayoutDesktop">
+  <div>
+    <template v-if="routeError.hasError">
+      <RouteError>
+        <p v-if="routeError.message" class="caption text-center">
+          <span v-if="routeError.message.translation" v-t="routeError.message.translation" />
+        </p>
+      </RouteError>
+    </template>
+    <div v-else class="background mainLayoutDesktop">
       <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
         <div slot="header">
-          <KTopbar  @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn" slot="header">
-            <q-btn slot="left" flat @click="$refs.layout.toggleLeft()">
-              <i class="fa fa-bars"></i>
+          <KTopbar @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn">
+            <q-btn flat @click="$refs.layout.toggleLeft()" class="mobile-only">
+              <i class="fa fa-bars" />
             </q-btn>
           </KTopbar>
-          <KTopbarLoggedOut v-if="!isLoggedIn" slot="header">
-          </KTopbarLoggedOut>
+          <KTopbarLoggedOut v-if="!isLoggedIn" />
         </div>
-        <template slot="left" v-if="$q.platform.is.mobile">
+        <template slot="left" v-if="$q.platform.is.mobile && isLoggedIn">
           <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
         </template>
         <MainAlerts />
         <div class="mainContent row justify-between no-wrap">
-          <div class="whiteSpace gt-sm desktop-only"/>
-            <router-view class="desktop-only sidenav-desktop" name="sidenav"></router-view>
+          <div class="whiteSpace gt-sm" />
+          <router-view v-if="!$q.platform.is.mobile" class="sidenav-desktop" name="sidenav" />
           <div class="mainContent-page">
-            <router-view></router-view>
+            <router-view />
           </div>
           <div class="whiteSpace gt-sm desktop-only"/>
         </div>
-        <KFooter v-if="!isLoggedIn" class="mobile-only"/>
+        <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 
-        <MobileNavigation v-if="isLoggedIn" class="mobile-only" slot="footer"></MobileNavigation>
-        <KFooter class="desktop-only" slot="footer"/>
+        <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" slot="footer" />
+        <KFooter v-if="!$q.platform.is.mobile" slot="footer" />
       </q-layout>
     </div>
+  </div>
 </template>
 
 <script>
@@ -38,14 +46,16 @@ import KFooter from '@/components/Layout/KFooter'
 import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
+import RouteError from '@/components/RouteError'
 import { QLayout, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn, MainAlerts },
+  components: { KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn, MainAlerts, RouteError },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
+      routeError: 'routeError/status',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

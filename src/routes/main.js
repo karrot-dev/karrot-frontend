@@ -1,5 +1,6 @@
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
+const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
@@ -14,6 +15,7 @@ const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
 const StoreList = () => import('@/pages/Store/Stores')
 const GroupHistory = () => import('@/pages/Group/History')
+const HistoryDetail = () => import('@/pages/HistoryDetail')
 const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
@@ -65,6 +67,13 @@ export default [
     },
   },
   {
+    name: 'historyDetail',
+    path: '/history/:historyId',
+    components: {
+      default: HistoryDetail,
+    },
+  },
+  {
     path: '/group/:groupId',
     redirect: '/group/:groupId/wall',
     meta: {
@@ -83,6 +92,19 @@ export default [
         path: 'wall',
         components: {
           default: GroupWall,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupPickups',
+        path: 'pickups',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.PICKUPS', route: { name: 'groupPickups' } },
+          ],
+        },
+        components: {
+          default: GroupPickups,
           sidenav: GroupGroupSidenav,
         },
       },

@@ -7,6 +7,8 @@ export default store => {
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
   router.beforeEach((to, from, next) => {
+    store.dispatch('routeError/clear')
+
     // handle invite parameter
     const inviteToken = to.query.invite
     if (inviteToken) {
@@ -32,8 +34,8 @@ export default store => {
 
     // check meta.requireLoggedIn
     else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
-      let { name, params } = to
-      store.dispatch('auth/setRedirectTo', { name, params })
+      let { name, params, query } = to
+      store.dispatch('auth/setRedirectTo', { name, params, query })
       next({ name: 'login' })
     }
 
@@ -47,14 +49,12 @@ export default store => {
     }
   })
 
-  router.afterEach((to, from) => {
-    window.scrollTo(0, 0)
-
+  router.beforeEach(async (to, from, next) => {
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     // save active group/store/user
     if (to.params.groupId) {
-      store.dispatch('groups/selectGroup', parseInt(to.params.groupId, 10))
+      await store.dispatch('groups/selectGroup', parseInt(to.params.groupId, 10))
     }
     if (to.params.groupInfoId) {
       store.dispatch('groups/selectGroupInfo', parseInt(to.params.groupInfoId, 10))
@@ -68,6 +68,9 @@ export default store => {
     if (to.params.userId) {
       store.dispatch('users/selectUser', parseInt(to.params.userId, 10))
     }
+    if (to.params.historyId) {
+      store.dispatch('history/setActive', parseInt(to.params.historyId, 10))
+    }
 
     /* If:
         - the group is not mentioned in the URL
@@ -80,7 +83,11 @@ export default store => {
       let groupId = getUserGroupId()
       if (groupId) store.dispatch('groups/selectGroup', groupId)
     }
+
+    next()
   })
+
+  router.afterEach(() => window.scrollTo(0, 0))
 
   store.watch(getBreadcrumbNames, breadcrumbs => {
     let names = getBreadcrumbNames().slice().reverse()

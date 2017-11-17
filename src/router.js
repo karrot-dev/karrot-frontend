@@ -5,7 +5,7 @@ import mainRoutes from '@/routes/main'
 
 const MainLayout = () => import('@/pages/MainLayout')
 const SplashLayout = () => import('@/pages/SplashLayout')
-const Error404 = () => import('@/components/Error404')
+const RouteError = () => import('@/components/RouteError')
 
 Vue.use(VueRouter)
 
@@ -41,7 +41,7 @@ const router = new VueRouter({
     },
 
     // Always leave this last one
-    { path: '*', component: Error404 }, // Not found
+    { path: '*', component: RouteError }, // Not found
   ],
 })
 

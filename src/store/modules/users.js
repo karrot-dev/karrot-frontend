@@ -1,4 +1,6 @@
+import Vue from 'vue'
 import users from '@/services/api/users'
+import authUser from '@/services/api/authUser'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
@@ -22,6 +24,8 @@ export const types = {
   REQUEST_USERS: 'Request Users',
   RECEIVE_USERS: 'Receive Users',
   RECEIVE_USERS_ERROR: 'Receive Users Error',
+
+  RECEIVE_USER: 'Receive User',
 }
 
 function initialState () {
@@ -90,7 +94,7 @@ export const actions = {
   async signup ({ commit, dispatch }, userData) {
     commit(types.REQUEST_USER_SIGNUP)
     try {
-      await users.create(userData)
+      await authUser.create(userData)
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_USER_SIGNUP_ERROR, data))
@@ -241,5 +245,8 @@ export const mutations = {
   [types.RECEIVE_USERS_ERROR] (state, { error }) {
     state.isWaiting = false
     state.error = error
+  },
+  [types.RECEIVE_USER] (state, { user }) {
+    Vue.set(state.entries, user.id, user)
   },
 }

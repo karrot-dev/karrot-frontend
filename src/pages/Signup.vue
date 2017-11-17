@@ -7,6 +7,11 @@ export default connect({
     status: 'users/signupStatus',
     requestError: 'users/signupError',
   },
+  methodsToProps: {
+    prefillEmail ({ getters }) {
+      return getters['route/query'].email
+    },
+  },
   actionsToEvents: {
     submit: 'users/signup',
   },

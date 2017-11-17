@@ -1,36 +1,44 @@
 <template>
-    <q-tabs v-if="shouldBeDisplayed" align="center" color="tertiary" class="mobile-only shadow-14 inset-shadow" hide="icon" slot="navigation">
-        <q-route-tab
-            :to="{name: 'group'}"
-            exact
-            slot="title"
-            name="wall"
-        >{{ $t('GROUP.WALL') }}</q-route-tab>
-        <q-route-tab
-            :to="{name: 'groupDescription'}"
-            exact
-            slot="title"
-            name="description"
-        >{{ $t('GROUP.DESCRIPTION') }}</q-route-tab>
-        <q-route-tab
-            :to="{name: 'groupHistory'}"
-            exact
-            slot="title"
-            name="history"
-        >{{ $t('GROUP.HISTORY') }}</q-route-tab>
+  <div slot="navigation" class="shadow-14 inset-shadow row">
+    <q-tabs color="tertiary" hide="icon" class="col" ref="groupnav">
+      <q-route-tab
+        :to="{name: 'group'}"
+        exact
+        slot="title">
+        {{ $t('GROUP.WALL') }}
+      </q-route-tab>
+      <q-route-tab
+        :to="{name: 'groupDescription'}"
+        exact
+        slot="title">
+        {{ $t('GROUP.DESCRIPTION') }}
+      </q-route-tab>
+      <q-route-tab
+        :to="{name: 'groupHistory'}"
+        exact
+        slot="title">
+        {{ $t('GROUP.HISTORY') }}
+      </q-route-tab>
     </q-tabs>
+    <q-btn flat class="bg-tertiary text-white">
+      <q-icon name="fa-ellipsis-v" />
+      <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
+      <GroupOptions/>
+    </q-btn>
+  </div>
 </template>
 
 <script>
-import { QTabs, QRouteTab } from 'quasar'
+import { QTabs, QRouteTab, QBtn, QIcon, QTooltip } from 'quasar'
+import GroupOptions from '@/components/Sidenav/GroupOptions'
 
 export default {
-  components: { QTabs, QRouteTab },
-  computed: {
-    shouldBeDisplayed () {
-      return this.$route.name === 'group' ||
-        this.$route.name === 'groupDescription' ||
-        this.$route.name === 'groupHistory'
+  components: { QTabs, QRouteTab, QBtn, QIcon, GroupOptions, QTooltip },
+  watch: {
+    $route (route) {
+      if (route.name !== 'group' && route.name !== 'groupDescription' && route.name !== 'groupHistory') {
+        this.$refs.groupnav.selectTab(null)
+      }
     },
   },
 }

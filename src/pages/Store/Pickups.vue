@@ -9,8 +9,15 @@
         <Markdown v-if="store.description" :source="store.description" />
       </div>
     </q-card>
+    <div class="manage">
+      <router-link :to="{ name: 'storePickupsManage', params: { storeId: store.id } }">
+        <q-btn style="background-color: white">
+          <i class="fa fa-clock-o on-left"/>
+          {{$t('STOREDETAIL.MANAGE')}}
+        </q-btn>
+      </router-link>
+    </div>
     <PickupList
-      :store="store"
       :pickups="pickups"
       @join="join"
       @leave="leave"
@@ -71,4 +78,9 @@ export default {
   transform: translateZ(1px) rotate(-3deg);
   h5
     padding 0
+.manage
+  padding 8px
+  q-btn
+    display inline-block
+    padding .3em
 </style>

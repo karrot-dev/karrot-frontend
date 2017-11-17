@@ -4,12 +4,12 @@
     <div v-if="showOverlay" class="overlay row justify-center content-center">
       <router-link v-if="showStoreLocationPrompt" :to="{ name: 'storeEdit', params: { storeId: this.selectedStoreId } }">
         <q-btn color="primary">
-          {{ $t('set store location') }}
+          {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
       </router-link>
       <router-link v-else :to="{ name: 'groupEdit', params: { groupId: this.activeGroup.id, storeId: this.selectedStoreId } }">
         <q-btn color="primary">
-          {{ $t('set group location') }}
+          {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
       </router-link>
     </div>
@@ -21,6 +21,7 @@
 import StandardMap from '@/components/Map/StandardMap'
 import L from 'leaflet'
 import { QBtn } from 'quasar'
+import { optionsFor } from '@/services/storeStatus'
 
 export default {
   components: { StandardMap, QBtn },
@@ -57,7 +58,7 @@ export default {
         id: this.storeMarkerId(store.id),
         icon: L.AwesomeMarkers.icon({
           icon: 'shopping-cart',
-          markerColor: 'blue',
+          markerColor: store.ui.color,
           prefix: 'fa',
         }),
         popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
@@ -81,7 +82,7 @@ export default {
       return { opacity: this.showOverlay ? 0.5 : 1 }
     },
     storesWithLocation () {
-      return this.stores.filter(hasLocation)
+      return this.stores.filter(hasLocation).filter(notArchived).map(store => ({ ...store, ui: optionsFor(store) }))
     },
     usersWithLocation () {
       return this.users.filter(hasLocation)
@@ -112,6 +113,10 @@ export default {
 function hasLocation (item) {
   return item.latitude && item.longitude
 }
+
+function notArchived (store) {
+  return store.status !== 'archived'
+}
 </script>
 
 <style lang="stylus">
@@ -124,4 +129,3 @@ function hasLocation (item) {
   width 100%
   height 100%
 </style>
-

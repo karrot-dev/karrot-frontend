@@ -1,12 +1,13 @@
 <template>
   <div class="error-page window-height window-width bg-light column items-center no-wrap">
     <div class="error-code bg-primary flex items-center justify-center">
-      404
     </div>
     <div>
       <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
         <q-icon name="error_outline" color="grey-5" />
-        <p class="caption text-center">Oops. Nothing here...</p>
+        <slot>
+          <p class="caption text-center">{{ $t('NOT_FOUND.EXPLANATION') }}</p>
+        </slot>
         <p class="text-center group">
           <q-btn
             v-if="canGoBack"
@@ -15,7 +16,7 @@
             @click="goBack"
             icon="keyboard_arrow_left"
           >
-            Go back
+            {{ $t('BUTTON.BACK') }}
           </q-btn>
           <q-btn
             color="primary"
@@ -23,7 +24,7 @@
             @click="$router.replace('/')"
             icon-right="home"
           >
-            Go home
+            {{ $t('NOT_FOUND.HOME') }}
           </q-btn>
         </p>
       </div>

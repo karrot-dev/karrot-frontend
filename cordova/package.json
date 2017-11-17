@@ -12,7 +12,6 @@
     }
   },
   "dependencies": {
-    "cordova": "^7.1.0",
     "cordova-android": "^6.4.0",
     "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-whitelist": "^1.3.3",

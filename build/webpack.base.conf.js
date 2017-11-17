@@ -91,7 +91,7 @@ module.exports = {
       'DEV': env.dev,
       'PROD': env.prod,
       'CORDOVA': env.cordova,
-      'CORDOVA_BACKEND': '"' + env.cordovaBackend + '"',
+      'BACKEND': '"' + config.backend + '"',
       '__THEME': '"' + env.platform.theme + '"'
     }),
     new webpack.LoaderOptionsPlugin({

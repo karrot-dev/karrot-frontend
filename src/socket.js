@@ -9,7 +9,7 @@ let WEBSOCKET_ENDPOINT
 
 if (CORDOVA) {
   WEBSOCKET_ENDPOINT = [
-    CORDOVA_BACKEND.replace(/^http/, 'ws'),
+    BACKEND.replace(/^http/, 'ws'),
     '/api/ws',
   ].join('')
 }

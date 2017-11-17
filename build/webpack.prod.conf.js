@@ -24,7 +24,7 @@ module.exports = merge(baseWebpackConfig, {
       analyzerMode: 'static',
       reportFilename: 'bundlesize.html',
       defaultSizes: 'gzip',
-      openAnalyzer: true,
+      openAnalyzer: false,
       generateStatsFile: false,
       statsFilename: 'stats.json',
       // Options for `stats.toJson()` method.

@@ -1,10 +1,13 @@
 <template>
-  <div class="grey-border wrapper">
-    <UserList :users="users" />
+  <div>
+    <q-card class="no-shadow grey-border" style="width: 100%">
+      <UserList :users="users" />
+    </q-card>
   </div>
 </template>
 
 <script>
+import { QCard } from 'quasar'
 import UserList from '@/components/ProfilePictures/UserList'
 
 import {
@@ -12,7 +15,7 @@ import {
 } from 'vuex'
 
 export default {
-  components: { UserList },
+  components: { UserList, QCard },
   computed: {
     ...mapGetters({
       users: 'users/byActiveGroup',

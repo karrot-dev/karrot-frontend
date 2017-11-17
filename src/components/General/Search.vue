@@ -27,6 +27,7 @@ export default {
   methods: {
     ...mapActions({
       setTerms: 'search/setTerms',
+      hide: 'search/hide',
       hideIfEmpty: 'search/hideIfEmpty',
     }),
     search (terms, done) {
@@ -36,6 +37,7 @@ export default {
     },
     selected (item) {
       this.terms = item.label
+      this.hide()
       this.$router.push(item.value)
     },
   },

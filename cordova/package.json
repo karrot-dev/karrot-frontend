@@ -2,9 +2,6 @@
   "name": "world.foodsaving",
   "version": "1.0.0",
   "displayName": "Karrot",
-  "scripts": {
-    "setup": "cordova platfor"
-  },
   "cordova": {
     "platforms": [
       "android"

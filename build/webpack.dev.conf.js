@@ -30,7 +30,7 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.ejs',
+      template: 'src/index.html',
       inject: true
     }),
     new FriendlyErrorsPlugin({

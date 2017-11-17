@@ -1,11 +1,14 @@
 <template>
-  <q-card>
+  <q-card class="no-margin">
     <table class="q-table" v-if="entry">
       <colgroup>
         <col span="1" style="width: 1%;">
         <col span="1">
       </colgroup>
       <tbody>
+        <tr class="bg-tertiary text-white">
+          <td colspan="2"><q-icon name="fa-info"></q-icon></td>
+        </tr>
         <tr>
           <td><q-icon name="fa-fw fa-clock-o"></q-icon></td>
           <td>{{ $d(new Date(entry.date), 'long') }}, <DateAsWords :date="entry.date" /></td>
@@ -33,7 +36,7 @@
           <td>{{ entry.store.name }}</td>
         </tr>
         <template v-if="entry.payload">
-          <tr class="bg-primary text-white">
+          <tr class="bg-tertiary text-white">
             <td colspan="2"><q-icon name="fa-fw fa-file-text-o"></q-icon></td>
           </tr>
           <tr v-for="(value, key) in entry.payload" :key="key">

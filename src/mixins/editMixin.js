@@ -26,6 +26,10 @@ export default {
     hasChanged () {
       return !this.isNew && !deepEqual(this.value, this.edit)
     },
+    today () {
+      const date = new Date()
+      return date.toISOString()
+    },
   },
   methods: {
     save (event) {
@@ -33,7 +37,11 @@ export default {
         this.$emit('save', this.edit, event)
       }
       else {
-        this.$emit('save', { ...objectDiff(this.value, this.edit), id: this.value.id }, event)
+        this.$emit(
+          'save',
+          { ...objectDiff(this.value, this.edit), id: this.value.id },
+          event,
+        )
       }
     },
     destroy (event) {

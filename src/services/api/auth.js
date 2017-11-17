@@ -55,5 +55,8 @@ export default {
     if (CORDOVA) {
       return localStorage.getItem(KEY)
     }
+    else {
+      throw new Error('getToken() is only available inside cordova environment')
+    }
   },
 }

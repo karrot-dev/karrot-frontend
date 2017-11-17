@@ -153,9 +153,10 @@ export const actions = {
       }
       const userId = rootGetters['auth/userId']
       if (!group.members.includes(userId)) {
+        // TODO remove after refactoring of backend groups API
         const error = { translation: 'GROUP.NONMEMBER_REDIRECT' }
         dispatch('routeError/set', error, { root: true })
-        throw new Error(error)
+        throw new Error('not in group')
       }
       commit(types.RECEIVE_GROUP, { group })
     },
@@ -220,7 +221,6 @@ export const mutations = {
     }
   },
   [types.RECEIVE_GROUPS] (state, { groups }) {
-    state.isWaiting = false
     state.idsList = groups.map((group) => group.id)
     state.entries = indexById(groups)
   },

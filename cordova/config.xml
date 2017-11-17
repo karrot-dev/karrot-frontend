@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="world.foodsaving" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="world.karrot" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Karrot</name>
     <description>
         Mobile app for Karrot
     </description>
-    <author email="dev@foodsaving.world" href="https://foodsaving.world">
+    <author email="karrot@foodsaving.world" href="https://foodsaving.world">
         Foodsaving World Team
     </author>
+    <icon density="mdpi" src="carrot_logo_144x144.png" />
     <content src="index.html" />
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />

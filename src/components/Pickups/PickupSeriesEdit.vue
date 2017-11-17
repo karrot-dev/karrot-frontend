@@ -44,10 +44,16 @@
 
       <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
 
-      <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="status.pending">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
-      <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
-      <q-btn type="button" @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
-      <q-btn type="button" color="red" @click="destroy" v-if="!isNew">{{ $t('BUTTON.DELETE') }}</q-btn>
+      <div class="row"  v-if="!isNew">
+        <div class="col-6 actionButton">
+          <q-btn type="button" class="full-width" @click="reset" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
+        </div>
+        <div class="col-6 actionButton">
+          <q-btn type="button" class="full-width" color="red" @click="destroy" v-if="!isNew">{{ $t('BUTTON.DELETE') }}</q-btn>
+        </div>
+      </div>
+      <q-btn type="button" class="full-width actionButton" @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
+      <q-btn type="submit" class="full-width actionButton" color="primary" :disable="!isNew && !hasChanged" loader :value="status.pending">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
     </form>
   </div>
 </template>
@@ -107,4 +113,6 @@ export default {
   background-color $grey-1
   &.changed
     background-color $yellow-1
+  .actionButton
+    padding: 3px
 </style>

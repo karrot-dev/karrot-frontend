@@ -87,7 +87,11 @@ export const getters = {
 }
 
 export const actions = {
-  async selectUser ({ commit }, userId) {
+  async selectUser ({ commit, getters, dispatch }, userId) {
+    if (!getters.get(userId).id) {
+      const error = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+      dispatch('routeError/set', error, { root: true })
+    }
     commit(types.SELECT_USER, { userId })
   },
 

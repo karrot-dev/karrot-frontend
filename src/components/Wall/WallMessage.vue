@@ -40,4 +40,5 @@ export default {
   margin-right 1em
 .content
   white-space pre-line
+  word-wrap break-word
 </style>

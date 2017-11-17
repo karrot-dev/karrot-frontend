@@ -1,5 +1,5 @@
 <template>
-  <div class="generic-padding grey-border">
+  <div class="grey-border">
     <q-list no-border>
       <q-list-header>{{ $t('USERDATA.PROFILE_TITLE') }}</q-list-header>
 

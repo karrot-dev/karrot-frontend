@@ -1,19 +1,12 @@
 import axios from '@/services/axios'
 import authUser from '@/services/api/authUser'
 
-let updateToken, clearToken
+let KEY, updateToken, clearToken
 
 if (CORDOVA) {
-  const KEY = 'token'
   const { localStorage } = window
 
-  const setHeader = token => {
-    axios.defaults.headers.common.Authorization = `TOKEN ${token}`
-  }
-
-  const clearHeader = () => {
-    delete axios.defaults.headers.common.Authorization
-  }
+  KEY = 'token'
 
   clearToken = () => {
     localStorage.removeItem(KEY)
@@ -25,8 +18,20 @@ if (CORDOVA) {
     setHeader(token)
   }
 
-  const token = localStorage.getItem(KEY)
-  if (token) setHeader(token)
+  const initialize = () => {
+    const token = localStorage.getItem(KEY)
+    if (token) setHeader(token)
+  }
+
+  const setHeader = token => {
+    axios.defaults.headers.common.Authorization = `TOKEN ${token}`
+  }
+
+  const clearHeader = () => {
+    delete axios.defaults.headers.common.Authorization
+  }
+
+  initialize()
 }
 
 export default {
@@ -44,5 +49,11 @@ export default {
   async logout () {
     if (CORDOVA) clearToken()
     return (await axios.post('/api/auth/logout/', {})).data
+  },
+
+  getToken () {
+    if (CORDOVA) {
+      return localStorage.getItem(KEY)
+    }
   },
 }

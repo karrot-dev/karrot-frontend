@@ -73,7 +73,6 @@ describe('pickups', () => {
         isFull: true,
         ...defaultActionStatusesFor('save', 'join', 'leave'),
         collectors: [{ id: userId, name: `Some Name${userId}` }],
-        __unenriched: pickup2,
       })
     })
 
@@ -101,7 +100,6 @@ describe('pickups', () => {
       mockGet.mockImplementationOnce(id => ({ id, date, store: storeId, collectorIds: [] }))
       await vstore.dispatch('pickups/fetch', pickupId)
       const pickup = vstore.getters['pickups/get'](pickupId)
-      delete pickup.__unenriched
       expect(pickup).toEqual({
         id: pickupId,
         collectorIds: [],

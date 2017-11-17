@@ -89,8 +89,14 @@ export const getters = {
 export const actions = {
   async selectUser ({ commit, getters, dispatch }, userId) {
     if (!getters.get(userId).id) {
-      const error = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
-      dispatch('routeError/set', error, { root: true })
+      try {
+        const user = await users.get(userId)
+        commit(types.RECEIVE_USERS, { users: [user] })
+      }
+      catch (error) {
+        const message = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+        dispatch('routeError/set', message, { root: true })
+      }
     }
     commit(types.SELECT_USER, { userId })
   },
@@ -249,8 +255,5 @@ export const mutations = {
   [types.RECEIVE_USERS_ERROR] (state, { error }) {
     state.isWaiting = false
     state.error = error
-  },
-  [types.RECEIVE_USER] (state, { user }) {
-    Vue.set(state.entries, user.id, user)
   },
 }

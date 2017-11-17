@@ -40,6 +40,7 @@
     "clone-deep": "^1.0.0",
     "date-fns": "^1.29.0",
     "deep-equal": "^1.0.1",
+    "intl": "^1.2.5",
     "jstimezonedetect": "^1.0.6",
     "leaflet.awesome-markers": "^2.0.4",
     "loglevel": "^1.5.0",
@@ -124,11 +125,12 @@
     "webpack": "^3.5.2",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.18.2",
-    "webpack-merge": "^4.1.0",
-    "webpack-sources": "^1.0.2"
+    "webpack-merge": "^4.1.0"
   },
   "jest": {
-    "roots": ["<rootDir>/src/"],
+    "roots": [
+      "<rootDir>/src/"
+    ],
     "moduleNameMapper": {
       "@/(.*)$": "<rootDir>/src/$1",
       ">/(.*)$": "<rootDir>/test/$1",

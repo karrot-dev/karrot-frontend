@@ -1,48 +1,40 @@
 <template>
-  <tr @click="$router.push({ name: 'historyDetail', params: { historyId: entry.id } })" class="clickable">
-    <td v-if="!$q.platform.is.mobile" class="text-faded">
-      <small>
+<div>
+    <q-item multiline :to="{ name: 'historyDetail', params: { historyId: entry.id } }">
+      <q-item-side>
+        <ProfilePicture
+          v-for="user in entry.users"
+          :key="user.id"
+          :user="user"
+          size="25"
+        />
+      </q-item-side>
+      <q-item-main>
+        <q-item-tile>
+          <span class="content">{{ entry.message }}</span>
+        </q-item-tile>
+      </q-item-main>
+      <q-item-side right>
         <DateAsWords :date="entry.date" />
-      </small>
-    </td>
-    <td class="text-right">
-      <ProfilePicture
-        v-for="user in entry.users"
-        :key="user.id"
-        :user="user"
-      />
-    </td>
-    <td v-if="$q.platform.is.mobile" class="expand">
-      <span class="text-truncate">{{ entry.message }}</span>
-      <small class="text-faded">
-        <DateAsWords :date="entry.date" />
-      </small>
-    </td>
-    <td v-else class="expand text-truncate">
-      <router-link :to="{ name: 'historyDetail', params: { historyId: entry.id } }">
-        {{ entry.message }}
-      </router-link>
-    </td>
-  </tr>
+      </q-item-side>
+    </q-item>
+  </div>
 </template>
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
+import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 
 export default {
   props: ['entry'],
-  components: { ProfilePicture, DateAsWords },
+  components: { ProfilePicture, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
 }
 </script>
 <style scoped lang="stylus">
-td {
-    white-space: nowrap;
-}
-td.expand {
-    width: 100%;
-    white-space: normal;
-}
-.clickable
-  cursor pointer
+td
+    white-space nowrap
+td.expand
+    width 100%
+    white-space normal
 </style>

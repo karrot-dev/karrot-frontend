@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h3 v-if="isNew"><i class="fa fa-pencil" /> {{ $t('CREATESTORE.TITLE') }}</h3>
-    <h3 v-else><i class="fa fa-edit" /> {{ $t('STOREDETAIL.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
         <form @submit.prevent="save">

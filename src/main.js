@@ -23,10 +23,8 @@ import './raven'
 import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 import polyfill from '@/polyfill'
 
-if (CORDOVA) {
-  require('@/cordova/url')
-  require('@/cordova/csrf')
-  require('@/cordova/fcm')
+if (CORDOVA && BACKEND) {
+  require('@/cordova')
 }
 
 Vue.config.productionTip = false

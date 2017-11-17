@@ -22,6 +22,7 @@
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
+    "build:cordova": "CORDOVA=true node build/script.build.js",
     "serve": "node build/script.serve.js",
     "test": "jest",
     "e2e": "node e2e/testcafe.js",

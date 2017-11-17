@@ -11,9 +11,7 @@
 
 import axios from '@/services/axios'
 
-if (CORDOVA_BACKEND) {
-  axios.interceptors.request.use(request => {
-    request.baseURL = CORDOVA_BACKEND
-    return request
-  })
-}
+axios.interceptors.request.use(request => {
+  request.baseURL = BACKEND
+  return request
+})

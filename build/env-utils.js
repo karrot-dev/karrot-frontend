@@ -6,7 +6,6 @@ module.exports = {
   dev: process.env.NODE_ENV === 'development',
   prod: process.env.NODE_ENV === 'production',
   cordova: process.env.CORDOVA === 'true',
-  cordovaBackend: (process.env.CORDOVA_BACKEND || '').replace(/\/$/, ''), // no trailing slash
 
   platform: {
     theme: theme,

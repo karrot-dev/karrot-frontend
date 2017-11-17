@@ -18,11 +18,10 @@ module.exports = {
     'import'
   ],
   globals: {
-    'cordova': true,
     'DEV': true,
     'PROD': true,
     'CORDOVA': true,
-    'CORDOVA_BACKEND': true,
+    'BACKEND': true,
     '__THEME': true
   },
   // add your custom rules here

@@ -26,6 +26,7 @@ import * as history from './modules/history'
 import * as search from './modules/search'
 import * as agreements from './modules/agreements'
 import * as routeError from './modules/routeError'
+import fcm, { plugin as fcmPlugin } from './modules/fcm'
 
 Vue.use(Vuex)
 
@@ -53,6 +54,7 @@ const options = ({
     search,
     agreements,
     routeError,
+    fcm,
   },
   plugins: [
     i18nPlugin,
@@ -60,6 +62,7 @@ const options = ({
     router,
     loadingProgressReporter,
     dependentState,
+    fcmPlugin,
   ],
   strict: debug,
 })

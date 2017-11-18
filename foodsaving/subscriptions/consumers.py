@@ -54,10 +54,10 @@ class Consumer(JsonWebsocketConsumer):
             reply_channel = self.message.reply_channel.name
             subscriptions = ChannelSubscription.objects.filter(user=user, reply_channel=reply_channel)
             update_attrs = {'lastseen_at': timezone.now()}
-            type = content.get('type', None)
-            if type == 'away':
+            message_type = content.get('type', None)
+            if message_type == 'away':
                 update_attrs['away_at'] = timezone.now()
-            elif type == 'back':
+            elif message_type == 'back':
                 update_attrs['away_at'] = None
             subscriptions.update(**update_attrs)
 

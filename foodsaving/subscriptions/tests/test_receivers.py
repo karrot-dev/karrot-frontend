@@ -2,12 +2,13 @@ import json
 
 import requests_mock
 from channels.test import ChannelTestCase, WSClient
-from django.utils import timezone
 from dateutil.parser import parse
+from django.utils import timezone
 from pyfcm.baseapi import BaseAPI as FCMAPI
 
 from foodsaving.conversations.factories import ConversationFactory
 from foodsaving.conversations.models import ConversationMessage
+from foodsaving.groups.factories import GroupFactory
 from foodsaving.subscriptions.models import PushSubscriptionPlatform, PushSubscription, ChannelSubscription
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
@@ -87,7 +88,8 @@ class ReceiverPushTests(ChannelTestCase):
     def test_sends_to_push_subscribers(self, m):
         def check_json_data(request):
             data = json.loads(request.body.decode('utf-8'))
-            self.assertEqual(data['notification']['title'], '{}: {}'.format(self.author.display_name, self.content))
+            self.assertEqual(data['notification']['title'], self.author.display_name)
+            self.assertEqual(data['notification']['body'], self.content)
             self.assertEqual(data['to'], self.token)
             return True
 
@@ -109,7 +111,8 @@ class ReceiverPushTests(ChannelTestCase):
     def test_send_push_notification_if_channel_subscription_is_away(self, m):
         def check_json_data(request):
             data = json.loads(request.body.decode('utf-8'))
-            self.assertEqual(data['notification']['title'], '{}: {}'.format(self.author.display_name, self.content))
+            self.assertEqual(data['notification']['title'], self.author.display_name)
+            self.assertEqual(data['notification']['body'], self.content)
             self.assertEqual(data['to'], self.token)
             return True
 
@@ -117,6 +120,37 @@ class ReceiverPushTests(ChannelTestCase):
 
         # add a channel subscription to prevent the push being sent
         ChannelSubscription.objects.create(user=self.user, reply_channel='foo', away_at=timezone.now())
+
+        # add a message to the conversation
+        ConversationMessage.objects.create(conversation=self.conversation, content=self.content, author=self.author)
+
+
+@requests_mock.Mocker()
+class GroupConversationReceiverPushTests(ChannelTestCase):
+    def setUp(self):
+        self.group = GroupFactory()
+        self.user = UserFactory()
+        self.author = UserFactory()
+        self.group.add_member(self.user)
+        self.group.add_member(self.author)
+
+        self.token = faker.uuid4()
+        self.content = faker.text()
+
+        self.conversation = self.group.conversation
+
+        # add a push subscriber
+        PushSubscription.objects.create(user=self.user, token=self.token, platform=PushSubscriptionPlatform.ANDROID)
+
+    def test_sends_to_push_subscribers(self, m):
+        def check_json_data(request):
+            data = json.loads(request.body.decode('utf-8'))
+            self.assertEqual(data['notification']['title'], self.group.name + ' / ' + self.author.display_name)
+            self.assertEqual(data['notification']['body'], self.content)
+            self.assertEqual(data['to'], self.token)
+            return True
+
+        m.post(FCMAPI.FCM_END_POINT, json={}, additional_matcher=check_json_data)
 
         # add a message to the conversation
         ConversationMessage.objects.create(conversation=self.conversation, content=self.content, author=self.author)

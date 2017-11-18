@@ -13,10 +13,8 @@ export default {
   },
   watch: {
     value (current, previous) {
-      // we want to make sure it's _really_ changed or we risk undoing the users changes
-      if (current !== previous || !deepEqual(current, previous)) {
-        this.reset()
-      }
+      const changes = objectDiff(previous, current)
+      this.edit = cloneDeep({ ...this.edit, ...changes })
     },
   },
   computed: {

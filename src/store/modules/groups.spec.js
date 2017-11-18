@@ -23,7 +23,7 @@ jest.mock('@/router', () => ({
   replace: mockRouterReplace,
 }))
 
-import { createStore, createValidationError, createNotFoundError, defaultActionStatusesFor, throws } from '>/helpers'
+import { createStore, createValidationError, defaultActionStatusesFor, throws } from '>/helpers'
 
 function enrich (group) {
   return {
@@ -248,7 +248,7 @@ describe('groups', () => {
     })
 
     it('sets routeError if not group does not exist', async () => {
-      mockGet.mockImplementationOnce(throws(createNotFoundError))
+      mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
       await store.dispatch('groups/selectGroup', 9999)
       expect(routeError.actions.set).toBeCalled()
     })

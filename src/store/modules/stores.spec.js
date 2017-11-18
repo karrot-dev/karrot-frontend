@@ -1,7 +1,7 @@
 const mockGet = jest.fn()
 jest.mock('@/services/api/stores', () => ({ get: mockGet }))
 
-import { createStore, throws, createNotFoundError } from '>/helpers'
+import { createStore, throws } from '>/helpers'
 
 const pickups = {
   actions: {
@@ -40,7 +40,7 @@ describe('stores module', () => {
   })
 
   it('sets routeError if store is not accessible', () => {
-    mockGet.mockImplementationOnce(throws(createNotFoundError))
+    mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
     store.dispatch('stores/selectStore', 9999)
     expect(routeError.actions.set).toBeCalled()
     expect(pickups.actions.setStoreFilter).not.toBeCalled()

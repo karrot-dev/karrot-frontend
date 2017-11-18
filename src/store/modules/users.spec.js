@@ -3,7 +3,7 @@ jest.mock('@/services/api/authUser', () => ({ create: mockCreate }))
 const mockGet = jest.fn()
 jest.mock('@/services/api/users', () => ({ get: mockGet }))
 
-import { createStore, throws, createNotFoundError } from '>/helpers'
+import { createStore, throws } from '>/helpers'
 
 const auth = {
   actions: {
@@ -63,7 +63,7 @@ describe('users', () => {
   })
 
   it('sets routeError if user is not accessible', () => {
-    mockGet.mockImplementationOnce(throws(createNotFoundError))
+    mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
     store.dispatch('users/selectUser', 9999)
     expect(routeError.actions.set).toBeCalled()
   })

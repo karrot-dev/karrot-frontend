@@ -71,14 +71,6 @@ export function mountWithDefaults (Component, options = {}) {
   return wrapper
 }
 
-export function createNotFoundError () {
-  return Object.assign(new Error(), {
-    response: {
-      status: 404,
-    },
-  })
-}
-
 export function createValidationError (data) {
   return Object.assign(new Error(), {
     response: {

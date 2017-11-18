@@ -3,7 +3,7 @@ jest.mock('@/services/api/authUser', () => ({ create: mockCreate }))
 const mockGet = jest.fn()
 jest.mock('@/services/api/users', () => ({ get: mockGet }))
 
-import { createStore, throws } from '>/helpers'
+import { createStore, throws, createValidationError } from '>/helpers'
 
 const auth = {
   actions: {

@@ -1,7 +1,7 @@
 const mockGet = jest.fn()
 jest.mock('@/services/api/stores', () => ({ get: mockGet }))
 
-import { createStore, throws } from '>/helpers'
+import { createStore, throws, createValidationError } from '>/helpers'
 
 const pickups = {
   actions: {

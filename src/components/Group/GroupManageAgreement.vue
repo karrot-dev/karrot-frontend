@@ -2,11 +2,11 @@
   <div>
     <h3><i class="fa fa-edit" /> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>
     <q-card v-if="agreementEdit">
-      <agreement-form :agreement="agreementEdit"
+      <agreement-form :value="agreementEdit"
                       @save="$emit('save', arguments[0])"
                       @replace="$emit('replace', arguments[0])"
                       @cancel="cancel()"
-                      @remove="remove()"/>
+                      @destroy="remove()"/>
     </q-card>
     <q-card v-else>
       <q-card-main class="generic-padding">

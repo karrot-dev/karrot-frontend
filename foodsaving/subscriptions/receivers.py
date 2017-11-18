@@ -25,8 +25,9 @@ def send_messages(sender, instance, **kwargs):
 
     for subscription in ChannelSubscription.objects.filter(user__in=conversation.participants.all()):
 
-        if not subscription.away_at:
-            push_exclude_users.append(subscription.user)
+        # TODO: add back in once https://github.com/yunity/karrot-frontend/issues/770 is implemented
+        # if not subscription.away_at:
+        #     push_exclude_users.append(subscription.user)
 
         Channel(subscription.reply_channel).send({
             "text": json.dumps({
@@ -42,7 +43,7 @@ def send_messages(sender, instance, **kwargs):
 
     notify_multiple_devices(
         registration_ids=tokens,
-        message_title=message.content,
+        message_title='{}: {}'.format(message.author.display_name, message.content),
         # this causes each notification for a given conversation to replace previous notifications so they don't build
         # up too much. fancier would be to make the new notifications show a summary not just the latest message.
         tag='conversation:{}'.format(conversation.id)
@@ -57,7 +58,6 @@ def remove_participant(sender, instance, **kwargs):
     conversation = instance.conversation
     for item in ChannelSubscription.objects.filter(user=user):
         Channel(item.reply_channel).send({
-            # TODO: use a serializer
             'text': json.dumps({
                 'topic': 'conversations:leave',
                 'payload': {

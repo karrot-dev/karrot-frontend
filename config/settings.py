@@ -189,6 +189,8 @@ CHANNEL_LAYERS = {
     },
 }
 
+CHANNELS_WS_PROTOCOLS = ['karrot.token']
+
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control
 try:

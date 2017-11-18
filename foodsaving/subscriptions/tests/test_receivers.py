@@ -87,7 +87,7 @@ class ReceiverPushTests(ChannelTestCase):
     def test_sends_to_push_subscribers(self, m):
         def check_json_data(request):
             data = json.loads(request.body.decode('utf-8'))
-            self.assertEqual(data['notification']['title'], self.content)
+            self.assertEqual(data['notification']['title'], '{}: {}'.format(self.author.display_name, self.content))
             self.assertEqual(data['to'], self.token)
             return True
 
@@ -96,19 +96,20 @@ class ReceiverPushTests(ChannelTestCase):
         # add a message to the conversation
         ConversationMessage.objects.create(conversation=self.conversation, content=self.content, author=self.author)
 
-    def test_does_not_send_push_notification_if_active_channel_subscription(self, m):
-        # add a channel subscription to prevent the push being sent
-        ChannelSubscription.objects.create(user=self.user, reply_channel='foo')
-
-        # add a message to the conversation
-        ConversationMessage.objects.create(conversation=self.conversation, content=self.content, author=self.author)
-
-        # if it sent a push message, the requests mock would complain there is no matching request...
+    # TODO: add back in once https://github.com/yunity/karrot-frontend/issues/770 is implemented
+    # def test_does_not_send_push_notification_if_active_channel_subscription(self, m):
+    #     # add a channel subscription to prevent the push being sent
+    #     ChannelSubscription.objects.create(user=self.user, reply_channel='foo')
+    #
+    #     # add a message to the conversation
+    #     ConversationMessage.objects.create(conversation=self.conversation, content=self.content, author=self.author)
+    #
+    #     # if it sent a push message, the requests mock would complain there is no matching request...
 
     def test_send_push_notification_if_channel_subscription_is_away(self, m):
         def check_json_data(request):
             data = json.loads(request.body.decode('utf-8'))
-            self.assertEqual(data['notification']['title'], self.content)
+            self.assertEqual(data['notification']['title'], '{}: {}'.format(self.author.display_name, self.content))
             self.assertEqual(data['to'], self.token)
             return True
 

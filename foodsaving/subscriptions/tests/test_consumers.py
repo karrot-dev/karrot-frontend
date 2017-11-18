@@ -1,8 +1,11 @@
 from channels import Channel
 from channels.test import ChannelTestCase, WSClient
 from dateutil.relativedelta import relativedelta
+from django.test import TestCase
 from django.utils import timezone
+from rest_framework.authtoken.models import Token
 
+from foodsaving.subscriptions.consumers import check_for_auth_token_header, check_for_token_user
 from foodsaving.subscriptions.models import ChannelSubscription
 from foodsaving.users.factories import UserFactory
 
@@ -74,3 +77,42 @@ class ConsumerTests(ChannelTestCase):
 
         client.send_and_consume('websocket.disconnect', path='/')
         self.assertEqual(ChannelSubscription.objects.filter(user=user).count(), 0, 'Did not remove subscription')
+
+
+class TestMessage(dict):
+    def __init__(self, *args, **kwargs):
+        self.update(*args, **kwargs)
+        self.session = {}
+        self.user = None
+
+    @property
+    def channel_session(self):
+        return self.session
+
+
+class TokenUtilTests(TestCase):
+    def test_check_for_auth_token_header(self):
+        message = TestMessage({
+            'headers': [
+                [b'sec-websocket-protocol', b'karrot.token,karrot.token.value.Zm9v']
+            ]
+        })
+        check_for_auth_token_header(message)
+        self.assertEqual(message.channel_session['auth_token'], 'foo')
+
+    def test_check_for_auth_token_header_with_removed_base64_padding(self):
+        message = TestMessage({
+            'headers': [
+                [b'sec-websocket-protocol', b'karrot.token,karrot.token.value.Zm9vMQ']
+            ]
+        })
+        check_for_auth_token_header(message)
+        self.assertEqual(message.channel_session['auth_token'], 'foo1')
+
+    def test_check_for_token_user(self):
+        user = UserFactory()
+        token = Token.objects.create(user=user)
+        message = TestMessage()
+        message.channel_session['auth_token'] = token.key
+        check_for_token_user(message)
+        self.assertEqual(message.user, user)

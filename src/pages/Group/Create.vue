@@ -8,6 +8,18 @@ export default connect({
     allGroups: 'groups/all',
     status: 'groups/createStatus',
   },
+  methodsToProps: {
+    value: () => ({
+      name: undefined,
+      password: undefined,
+      publicDescription: undefined,
+      description: undefined,
+      timezone: jstz.determine().name(),
+      latitude: undefined,
+      longitude: undefined,
+      address: undefined,
+    }),
+  },
   actionsToEvents: {
     save: 'groups/create',
   },

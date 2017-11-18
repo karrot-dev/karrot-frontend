@@ -2,7 +2,7 @@
   <div>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
-        <form @submit.prevent="save">
+        <form @submit.prevent="checkSave">
           <q-field
             icon="fa-fw fa-star"
             :label="$t('GROUP.TITLE')"
@@ -98,30 +98,12 @@ import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-
-import cloneDeep from 'clone-deep'
-import deepEqual from 'deep-equal'
-import { objectDiff } from '@/services/utils'
+import editMixin from '@/mixins/editMixin'
 
 export default {
   name: 'GroupEdit',
-  mixins: [validationMixin],
+  mixins: [validationMixin, editMixin],
   props: {
-    group: {
-      required: false,
-      default () {
-        return {
-          name: undefined,
-          password: undefined,
-          publicDescription: undefined,
-          description: undefined,
-          timezone: jstz.determine().name(),
-          latitude: undefined,
-          longitude: undefined,
-          address: undefined,
-        }
-      },
-    },
     status: {
       required: false,
       default: () => ({ pending: false, validationErrors: {} }),
@@ -132,26 +114,7 @@ export default {
   components: {
     QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker, MarkdownInput,
   },
-  data () {
-    const source = this.group.id ? this.group.__unenriched : this.group
-    return {
-      source,
-      edit: cloneDeep(source),
-    }
-  },
-  watch: {
-    'group.__unenriched' (curr, prev) {
-      // we want to make sure it's _really_ changed or we risk undoing the users changes
-      if (curr !== prev || !deepEqual(curr, prev)) this.reset()
-    },
-  },
   computed: {
-    isNew () {
-      return !this.source.id
-    },
-    hasChanged () {
-      return !this.isNew && !deepEqual(this.source, this.edit)
-    },
     canSave () {
       if (this.$v.edit.$error) {
         return false
@@ -182,15 +145,10 @@ export default {
       this.edit = cloneDeep(this.source)
       this.$emit('reset', this.source.id)
     },
-    save (event) {
+    checkSave (event) {
       this.$v.edit.$touch()
       if (!this.canSave) return
-      if (this.isNew) {
-        this.$emit('save', this.edit, event)
-      }
-      else {
-        this.$emit('save', { ...objectDiff(this.source, this.edit), id: this.source.id }, event)
-      }
+      this.save()
     },
     timezoneFilter (terms, { field, list }) {
       const token = terms.toLowerCase()

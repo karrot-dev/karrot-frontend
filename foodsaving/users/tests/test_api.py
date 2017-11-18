@@ -338,7 +338,7 @@ class TestEMailVerification(APITestCase):
     def test_verify_mail_fails_if_already_verified(self):
         self.client.force_login(user=self.verified_user)
         response = self.client.post(self.url, {'key': self.user.activation_key})
-        self.assertEqual(response.data, {'detail': 'Mail is already verified.'})
+        self.assertEqual(response.data['detail'], 'Mail is already verified.')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_verify_mail_fails_without_key(self):

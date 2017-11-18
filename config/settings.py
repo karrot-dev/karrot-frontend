@@ -68,6 +68,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'EXCEPTION_HANDLER': 'foodsaving.utils.misc.custom_exception_handler'
 }
 
 MIDDLEWARE_CLASSES = (

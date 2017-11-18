@@ -48,7 +48,7 @@ export function isRequestError (error) {
   return false
 }
 
-const defaultStatus = { pending: false, validationErrors: {} }
+const defaultStatus = { pending: false, validationErrors: {}, hasValidationErrors: false }
 
 export function createMetaModule () {
   return {
@@ -59,12 +59,10 @@ export function createMetaModule () {
     },
     getters: {
       status: state => (actionName, id) => {
-        if (id) {
-          return { ...defaultStatus, ...(state.byId[id] && state.byId[id][actionName]) }
-        }
-        else {
-          return { ...defaultStatus, ...state.byAction[actionName] }
-        }
+        const actual = id ? (state.byId[id] && state.byId[id][actionName]) : state.byAction[actionName]
+        const composed = { ...defaultStatus, ...actual }
+        composed.hasValidationErrors = Object.keys(composed.validationErrors).length > 0
+        return composed
       },
     },
     actions: {

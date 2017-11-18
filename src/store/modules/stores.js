@@ -47,6 +47,16 @@ export const getters = {
 
 export const actions = {
   async selectStore ({ commit, state, dispatch, getters, rootState }, storeId) {
+    if (!getters.get(storeId)) {
+      try {
+        const store = await stores.get(storeId)
+        commit(types.RECEIVE_ITEM, { store })
+      }
+      catch (error) {
+        dispatch('routeError/set', null, { root: true })
+        return
+      }
+    }
     dispatch('pickups/setStoreFilter', storeId, {root: true})
     commit(types.SELECT_STORE, { storeId })
   },

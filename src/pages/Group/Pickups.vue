@@ -4,8 +4,8 @@
       v-for="pickup in pickups"
       :key="pickup.id"
       :pickup="pickup"
-      @join="$emit('join', arguments[0])"
-      @leave="$emit('leave', arguments[0])"
+      @join="join"
+      @leave="leave"
       >
       <strong v-if="pickup.store">
         <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">{{ pickup.store.name }}</router-link>

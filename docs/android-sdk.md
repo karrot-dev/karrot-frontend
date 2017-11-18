@@ -1,6 +1,6 @@
 # Android Setup
 
-Android dev stuff is a bit annoying, you need to get an android sdk from somewhere. The easiest approach is to install [Android Atudio](https://developer.android.com/studio/index.html).
+Android dev stuff is a bit annoying, you need to get an android sdk from somewhere. The easiest approach is to install [Android Studio](https://developer.android.com/studio/index.html).
 
 Then you need to install sdk platforms/images/apis and one or more emulators. You can do it via the Android Studio GUI, or command line.
 

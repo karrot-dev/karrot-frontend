@@ -1,0 +1,5 @@
+pip-tools
+ipython
+requests-mock
+tblib
+autopep8

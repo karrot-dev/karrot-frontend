@@ -172,7 +172,7 @@ describe('groups', () => {
       await store.dispatch('groups/save', { id: group2.id, name: 'new name' })
       expect(store.getters['groups/get'](group2.id)).toEqual({
         ...enrichAsMember(group2),
-        saveStatus: { pending: false, validationErrors: validationErrors },
+        saveStatus: { pending: false, validationErrors, hasValidationErrors: true },
       })
     })
   })

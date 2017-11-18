@@ -73,8 +73,7 @@ export const actions = {
         }
         else {
           await dispatch('groups/join', joinParams, { root: true })
-          const hasError = Object.keys(group().joinStatus.validationErrors).length > 0
-          if (hasError) {
+          if (group().joinStatus.hasValidationErrors) {
             // go back to goup preview if error occured
             // it should show the error status on group preview, thanks to persistent state!
             router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.id } })

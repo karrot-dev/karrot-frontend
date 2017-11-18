@@ -96,7 +96,7 @@ export const actions = {
       commit(types.SET_ACTIVE, { groupId })
 
       await dispatch('fetchGroup', groupId)
-      const hasError = Object.keys(getters['meta/status']('fetchGroup', groupId).validationErrors).length > 0
+      const hasError = getters['meta/status']('fetchGroup', groupId).hasValidationErrors
       if (hasError) {
         const groupExists = !!getters.get(groupId)
         const error = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }

@@ -24,6 +24,7 @@ export default {
       state.token = token
     },
     receiveTokens (state, tokens) {
+      state.tokens = {}
       for (let token of tokens) {
         Vue.set(state.tokens, token, true)
       }

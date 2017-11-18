@@ -1,5 +1,6 @@
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
+import dateFnsHelper from '@/services/dateFnsHelper'
 import { objectDiff } from '@/services/utils'
 
 export default {
@@ -27,8 +28,7 @@ export default {
       return !this.isNew && !deepEqual(this.value, this.edit)
     },
     today () {
-      const date = new Date()
-      return date.toISOString()
+      return dateFnsHelper.now
     },
   },
   methods: {
@@ -37,11 +37,7 @@ export default {
         this.$emit('save', this.edit, event)
       }
       else {
-        this.$emit(
-          'save',
-          { ...objectDiff(this.value, this.edit), id: this.value.id },
-          event,
-        )
+        this.$emit('save', { ...objectDiff(this.value, this.edit), id: this.value.id }, event)
       }
     },
     destroy (event) {

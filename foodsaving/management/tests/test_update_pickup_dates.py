@@ -6,10 +6,8 @@ from foodsaving.stores.models import PickupDate
 
 
 class TestUpdatePickupDatesCommand(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.series = PickupDateSeriesFactory()
+    def setUp(self):
+        self.series = PickupDateSeriesFactory()
 
     def test_run_command(self):
         # remember to also call this regularly on the server, e.g. via cron-job

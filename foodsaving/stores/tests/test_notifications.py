@@ -15,13 +15,11 @@ def parse(body):
 
 
 class TestNotificationsDisabled(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(store=cls.store)
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store)
 
     @responses.activate
     def test_send_no_upcoming_notification_if_no_webhook(self):
@@ -29,21 +27,20 @@ class TestNotificationsDisabled(APITestCase):
 
 
 class TestNotificationsEnabled(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ], slack_webhook='https://hooks.slack.com/services/some_webhook')
-        cls.store = StoreFactory(group=cls.group, name="Elke's")
-        cls.pickup_upcoming = PickupDateFactory(store=cls.store, date=timezone.now() + relativedelta(hours=1))
-        cls.pickup_future = PickupDateFactory(store=cls.store, date=timezone.now() + relativedelta(hours=12))
-        cls.pickup_past = PickupDateFactory(store=cls.store, date=timezone.now() - relativedelta(days=1))
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ],
+                                  slack_webhook='https://hooks.slack.com/services/some_webhook')
+        self.store = StoreFactory(group=self.group, name="Elke's")
+        self.pickup_upcoming = PickupDateFactory(store=self.store, date=timezone.now() + relativedelta(hours=1))
+        self.pickup_future = PickupDateFactory(store=self.store, date=timezone.now() + relativedelta(hours=12))
+        self.pickup_past = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=1))
 
     def refresh(self):
         for p in (
-            self.pickup_upcoming,
-            self.pickup_future,
-            self.pickup_past
+                self.pickup_upcoming,
+                self.pickup_future,
+                self.pickup_past
         ):
             p.refresh_from_db()
 
@@ -64,5 +61,3 @@ class TestNotificationsEnabled(APITestCase):
         # should not send a second notification
         self.group.send_notifications()
         self.assertEqual(len(responses.calls), 1)
-
-

@@ -1,50 +1,48 @@
-from rest_framework import status
-from rest_framework.test import APITestCase
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
+from rest_framework import status
+from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory
-from foodsaving.users.factories import UserFactory
 from foodsaving.stores.models import Feedback
+from foodsaving.users.factories import UserFactory
 
 
 class TestFeedbackAPIFilter(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/feedback/'
+    def setUp(self):
+        self.url = '/api/feedback/'
 
         # create a group with a user and two stores
-        cls.collector = UserFactory()
-        cls.collector2 = UserFactory()
-        cls.group = GroupFactory(members=[cls.collector, cls.collector2, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.store2 = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(store=cls.store, date=timezone.now() - relativedelta(days=1))
-        cls.pickup2 = PickupDateFactory(store=cls.store2, date=timezone.now() - relativedelta(days=1))
+        self.collector = UserFactory()
+        self.collector2 = UserFactory()
+        self.group = GroupFactory(members=[self.collector, self.collector2, ])
+        self.store = StoreFactory(group=self.group)
+        self.store2 = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=1))
+        self.pickup2 = PickupDateFactory(store=self.store2, date=timezone.now() - relativedelta(days=1))
 
         # create a feedback data
-        cls.feedback_get = {
-            'given_by': cls.collector,
-            'about': cls.pickup,
+        self.feedback_get = {
+            'given_by': self.collector,
+            'about': self.pickup,
             'weight': 1,
             'comment': 'asfjk'
         }
-        cls.feedback_get2 = {
-            'given_by': cls.collector2,
-            'about': cls.pickup2,
+        self.feedback_get2 = {
+            'given_by': self.collector2,
+            'about': self.pickup2,
             'weight': 2,
             'comment': 'bsfjk'
         }
 
         # create 2 instances of feedback
-        cls.feedback = Feedback.objects.create(**cls.feedback_get)
-        cls.feedback2 = Feedback.objects.create(**cls.feedback_get2)
+        self.feedback = Feedback.objects.create(**self.feedback_get)
+        self.feedback2 = Feedback.objects.create(**self.feedback_get2)
 
         # transforms the user into a collector
-        cls.pickup.collectors.add(cls.collector, )
-        cls.pickup2.collectors.add(cls.collector, cls.collector2)
+        self.pickup.collectors.add(self.collector, )
+        self.pickup2.collectors.add(self.collector, self.collector2)
 
     def test_filter_by_about(self):
         """

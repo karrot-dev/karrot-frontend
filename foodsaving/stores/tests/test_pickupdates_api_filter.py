@@ -3,6 +3,7 @@ from datetime import timedelta
 from dateutil.parser import parse
 from rest_framework import status
 from rest_framework.test import APITestCase
+
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.stores.models import PickupDate as PickupDateModel
@@ -10,29 +11,28 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestPickupdatesAPIFilter(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/pickup-dates/'
+    def setUp(self):
+
+        self.url = '/api/pickup-dates/'
 
         # pickup date for group with one member and one store
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(store=cls.store)
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store)
 
         # and another store + group + pick-update
-        cls.group2 = GroupFactory(members=[cls.member, ])
-        cls.store2 = StoreFactory(group=cls.group2)
-        cls.pickup2 = PickupDateFactory(store=cls.store2)
+        self.group2 = GroupFactory(members=[self.member, ])
+        self.store2 = StoreFactory(group=self.group2)
+        self.pickup2 = PickupDateFactory(store=self.store2)
 
         # a pickup date series
-        cls.series = PickupDateSeriesFactory(store=cls.store)
-        cls.series.update_pickup_dates()
+        self.series = PickupDateSeriesFactory(store=self.store)
+        self.series.update_pickup_dates()
 
         # another pickup date series
-        cls.series2 = PickupDateSeriesFactory(store=cls.store)
-        cls.series2.update_pickup_dates()
+        self.series2 = PickupDateSeriesFactory(store=self.store)
+        self.series2.update_pickup_dates()
 
     def test_filter_by_store(self):
         self.client.force_login(user=self.member)
@@ -69,7 +69,7 @@ class TestPickupdatesAPIFilter(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for _ in response.data:
             self.assertGreater(parse(_['date']), query_date)
-        selected_pickups = PickupDateModel.objects.filter(store__group__members=self.member)\
+        selected_pickups = PickupDateModel.objects.filter(store__group__members=self.member) \
             .filter(date__gte=query_date)
         self.assertEqual(len(response.data), selected_pickups.count())
 
@@ -80,6 +80,6 @@ class TestPickupdatesAPIFilter(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for _ in response.data:
             self.assertLess(parse(_['date']), query_date)
-        selected_pickups = PickupDateModel.objects.filter(store__group__members=self.member)\
+        selected_pickups = PickupDateModel.objects.filter(store__group__members=self.member) \
             .filter(date__lte=query_date)
         self.assertEqual(len(response.data), selected_pickups.count())

@@ -1,11 +1,12 @@
+from datetime import datetime
+
 from dateutil import rrule
 from dateutil.relativedelta import relativedelta
-from django.db import DataError
 from django.core.exceptions import ValidationError
+from django.db import DataError
 from django.db import IntegrityError
 from django.test import TestCase
 from django.utils import timezone
-from datetime import datetime
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory
@@ -14,10 +15,8 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestStoreModel(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.group = GroupFactory()
+    def setUp(self):
+        self.group = GroupFactory()
 
     def test_create_fails_if_name_too_long(self):
         with self.assertRaises(DataError):
@@ -34,12 +33,9 @@ class TestStoreModel(TestCase):
 
 
 class TestFeedbackModel(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-
-        cls.pickup = PickupDateFactory()
-        cls.user = UserFactory()
+    def setUp(self):
+        self.pickup = PickupDateFactory()
+        self.user = UserFactory()
 
     def test_weight_is_negative_fails(self):
         with self.assertRaises(ValidationError):
@@ -66,11 +62,10 @@ class TestFeedbackModel(TestCase):
 
 
 class TestPickupDateSeriesModel(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.store = StoreFactory()
-        cls.recurrence = rrule.rrule(
+    def setUp(self):
+
+        self.store = StoreFactory()
+        self.recurrence = rrule.rrule(
             freq=rrule.WEEKLY,
         )
 

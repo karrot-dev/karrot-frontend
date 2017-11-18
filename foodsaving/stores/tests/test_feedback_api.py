@@ -10,82 +10,80 @@ from foodsaving.users.factories import UserFactory
 
 
 class FeedbackTest(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/feedback/'
+    def setUp(self):
+        self.url = '/api/feedback/'
 
-        cls.member = UserFactory()
-        cls.collector = UserFactory()
-        cls.collector2 = UserFactory()
-        cls.collector3 = UserFactory()
-        cls.evil_collector = UserFactory()
-        cls.group = GroupFactory(members=[
-            cls.member, cls.collector, cls.evil_collector, cls.collector2, cls.collector3
+        self.member = UserFactory()
+        self.collector = UserFactory()
+        self.collector2 = UserFactory()
+        self.collector3 = UserFactory()
+        self.evil_collector = UserFactory()
+        self.group = GroupFactory(members=[
+            self.member, self.collector, self.evil_collector, self.collector2, self.collector3
         ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(store=cls.store, date=timezone.now() + relativedelta(days=1))
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store, date=timezone.now() + relativedelta(days=1))
 
         # not a member of the group
-        cls.user = UserFactory()
+        self.user = UserFactory()
 
         # past pickup date
-        cls.past_pickup = PickupDateFactory(store=cls.store, date=timezone.now() - relativedelta(days=1))
+        self.past_pickup = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=1))
 
         # old pickup date
-        cls.old_pickup = PickupDateFactory(store=cls.store, date=timezone.now() - relativedelta(days=32))
+        self.old_pickup = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=32))
 
         # transforms the member into a collector
-        cls.past_pickup.collectors.add(cls.collector, cls.evil_collector, cls.collector2, cls.collector3)
-        cls.pickup.collectors.add(cls.collector, cls.collector2, cls.collector3)
-        cls.old_pickup.collectors.add(cls.collector3)
+        self.past_pickup.collectors.add(self.collector, self.evil_collector, self.collector2, self.collector3)
+        self.pickup.collectors.add(self.collector, self.collector2, self.collector3)
+        self.old_pickup.collectors.add(self.collector3)
 
         # create feedback for POST method
-        cls.feedback_post = {
-            'about': cls.past_pickup.id,
+        self.feedback_post = {
+            'about': self.past_pickup.id,
             'weight': 2,
             'comment': 'asfjk'
         }
 
         # create feedback for POST method without weight and comment
-        cls.feedback_without_weight_comment = {
-            'about': cls.past_pickup.id,
+        self.feedback_without_weight_comment = {
+            'about': self.past_pickup.id,
         }
 
         # create feedback to future pickup
-        cls.future_feedback_post = {
-            'about': cls.pickup.id,
+        self.future_feedback_post = {
+            'about': self.pickup.id,
             'weight': 2,
             'comment': 'asfjk'
         }
 
         # create feedback for an old pickup
-        cls.feedback_for_old_pickup = {
-            'about': cls.old_pickup.id,
+        self.feedback_for_old_pickup = {
+            'about': self.old_pickup.id,
             'weight': 5,
             'comment': 'this is long ago'
         }
 
         # create feedback for GET method
-        cls.feedback_get = {
-            'given_by': cls.collector,
-            'about': cls.past_pickup,
+        self.feedback_get = {
+            'given_by': self.collector,
+            'about': self.past_pickup,
             'weight': 2,
             'comment': 'asfjk2'
         }
 
-        cls.feedback_get_2 = {
-            'given_by': cls.collector2,
-            'about': cls.past_pickup,
+        self.feedback_get_2 = {
+            'given_by': self.collector2,
+            'about': self.past_pickup,
             'weight': 2,
             'comment': 'asfjk'
         }
 
         # create 2 instances of feedback for GET method
-        cls.feedback = Feedback.objects.create(**cls.feedback_get)
-        Feedback.objects.create(**cls.feedback_get_2)
+        self.feedback = Feedback.objects.create(**self.feedback_get)
+        Feedback.objects.create(**self.feedback_get_2)
 
-        cls.feedback_url = cls.url + str(cls.feedback.id) + '/'
+        self.feedback_url = self.url + str(self.feedback.id) + '/'
 
     def test_create_feedback_fails_as_non_user(self):
         """

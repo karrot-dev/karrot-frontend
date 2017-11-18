@@ -9,10 +9,8 @@ from foodsaving.stores.models import PickupDate
 
 
 class TestProcessFinishedPickupDatesCommand(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.pickup = PickupDateFactory(date=timezone.now() - relativedelta(weeks=1))
+    def setUp(self):
+        self.pickup = PickupDateFactory(date=timezone.now() - relativedelta(weeks=1))
 
     def test_run_command(self):
         call_command('process_finished_pickup_dates')

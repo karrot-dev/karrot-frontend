@@ -4,11 +4,9 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestSwaggerAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.url = '/docs/'
+    def setUp(self):
+        self.user = UserFactory()
+        self.url = '/docs/'
 
     def test_swagger_coreapi(self):
         self.client.force_login(user=self.user)

@@ -8,26 +8,24 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestConversationsAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.participant1 = UserFactory()
-        cls.participant2 = UserFactory()
-        cls.participant3 = UserFactory()
-        cls.not_participant1 = UserFactory()
-        cls.not_participant2 = UserFactory()
-        cls.not_participant3 = UserFactory()
-        cls.conversation1 = ConversationFactory()
-        cls.conversation1.sync_users([
-            cls.participant1, cls.participant2, cls.participant3
+    def setUp(self):
+        self.participant1 = UserFactory()
+        self.participant2 = UserFactory()
+        self.participant3 = UserFactory()
+        self.not_participant1 = UserFactory()
+        self.not_participant2 = UserFactory()
+        self.not_participant3 = UserFactory()
+        self.conversation1 = ConversationFactory()
+        self.conversation1.sync_users([
+            self.participant1, self.participant2, self.participant3
         ])
-        cls.conversation1.messages.create(author=cls.participant1, content='hello')
-        cls.conversation2 = ConversationFactory()
-        cls.conversation2.sync_users([
-            cls.participant1
+        self.conversation1.messages.create(author=self.participant1, content='hello')
+        self.conversation2 = ConversationFactory()
+        self.conversation2.sync_users([
+            self.participant1
         ])
-        cls.conversation2.messages.create(author=cls.participant1, content='hello2')
-        cls.conversation3 = ConversationFactory()  # conversation noone is in
+        self.conversation2.messages.create(author=self.participant1, content='hello2')
+        self.conversation3 = ConversationFactory()  # conversation noone is in
 
     def test_get_messages(self):
         self.client.force_login(user=self.participant1)

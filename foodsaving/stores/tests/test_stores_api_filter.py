@@ -1,22 +1,21 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
+
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory
 
 
 class TestStoresAPIFilter(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/stores/'
+    def setUp(self):
+        self.url = '/api/stores/'
 
         # two groups one store
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.group2 = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.store2 = StoreFactory(group=cls.group2)
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.group2 = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.store2 = StoreFactory(group=self.group2)
 
     def test_filter_by_group(self):
         self.client.force_login(user=self.member)

@@ -15,13 +15,11 @@ from foodsaving.utils.tests.fake import faker
 
 
 class TestUsersAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.user2 = UserFactory()
-        cls.url = '/api/users/'
-        cls.user_data = {
+    def setUp(self):
+        self.user = UserFactory()
+        self.user2 = UserFactory()
+        self.url = '/api/users/'
+        self.user_data = {
             'email': faker.email(),
             'password': faker.name(),
             'display_name': faker.name(),
@@ -29,10 +27,11 @@ class TestUsersAPI(APITestCase):
             'latitude': faker.latitude(),
             'longitude': faker.longitude()
         }
-        cls.group = GroupFactory(members=[cls.user, cls.user2])
-        cls.another_common_group = GroupFactory(members=[cls.user, cls.user2])
-        cls.user_in_another_group = UserFactory()
-        cls.another_group = GroupFactory(members=[cls.user_in_another_group, ])
+        self.group = GroupFactory(members=[self.user, self.user2])
+        self.another_common_group = GroupFactory(members=[self.user, self.user2])
+        self.user_in_another_group = UserFactory()
+        self.another_group = GroupFactory(members=[self.user_in_another_group, ])
+        mail.outbox = []
 
     def test_create_user(self):
         response = self.client.post(self.url, self.user_data, format='json')
@@ -105,23 +104,21 @@ class TestUsersAPI(APITestCase):
 
 
 class TestUserDeleteAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.user2 = UserFactory()
-        cls.group = GroupFactory(members=[cls.user, cls.user2])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickupdate = PickupDateFactory(
-            store=cls.store,
+    def setUp(self):
+        self.user = UserFactory()
+        self.user2 = UserFactory()
+        self.group = GroupFactory(members=[self.user, self.user2])
+        self.store = StoreFactory(group=self.group)
+        self.pickupdate = PickupDateFactory(
+            store=self.store,
             date=timezone.now() + relativedelta(days=1),
-            collectors=[cls.user, ])
-        cls.past_pickupdate = PickupDateFactory(
-            store=cls.store,
+            collectors=[self.user, ])
+        self.past_pickupdate = PickupDateFactory(
+            store=self.store,
             date=timezone.now() - relativedelta(days=1),
-            collectors=[cls.user, ]
+            collectors=[self.user, ]
         )
-        cls.url = '/api/users/'
+        self.url = '/api/users/'
 
     def test_delete_self(self):
         self.assertEqual(self.pickupdate.collectors.count(), 1)
@@ -156,11 +153,9 @@ class TestUserDeleteAPI(APITestCase):
 
 
 class TestCreateUserErrors(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.url = '/api/users/'
+    def setUp(self):
+        self.user = UserFactory()
+        self.url = '/api/users/'
 
     def test_create_user_with_similar_cased_email_fails(self):
         response = self.client.post(self.url, {
@@ -180,12 +175,10 @@ class TestCreateUserErrors(APITestCase):
 
 
 class TestChangePassword(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.url = '/api/users/'
-        cls.data = {'password': 'new_password'}
+    def setUp(self):
+        self.user = UserFactory()
+        self.url = '/api/users/'
+        self.data = {'password': 'new_password'}
 
     def test_change_with_patch_succeeds(self):
         self.client.force_login(user=self.user)
@@ -219,13 +212,12 @@ class TestChangePassword(APITestCase):
 
 
 class TestChangeMail(APITestCase):
-    @classmethod
-    def setUpTestData(cls):
-        super().setUpTestData()
-        cls.verified_user = VerifiedUserFactory()
-        cls.another_user = VerifiedUserFactory()
-        cls.url = '/api/users/'
-        cls.user_url = cls.url + str(cls.verified_user.id) + '/'
+    def setUp(self):
+        self.verified_user = VerifiedUserFactory()
+        self.another_user = VerifiedUserFactory()
+        self.url = '/api/users/'
+        self.user_url = self.url + str(self.verified_user.id) + '/'
+        mail.outbox = []
 
     def test_change_succeeds(self):
         self.client.force_login(user=self.verified_user)
@@ -278,11 +270,10 @@ class TestChangeMail(APITestCase):
 
 
 class TestPasswordReset(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.verified_user = VerifiedUserFactory(email='reset_test@example.com')
-        cls.url = '/api/users/reset_password/'
+    def setUp(self):
+        self.verified_user = VerifiedUserFactory(email='reset_test@example.com')
+        self.url = '/api/users/reset_password/'
+        mail.outbox = []
 
     def test_reset_password_succeeds(self):
         response = self.client.post(self.url, {'email': self.verified_user.email})
@@ -312,12 +303,10 @@ class TestPasswordReset(APITestCase):
 
 
 class TestEMailVerification(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.verified_user = VerifiedUserFactory()
-        cls.url = '/api/users/verify_mail/'
+    def setUp(self):
+        self.user = UserFactory()
+        self.verified_user = VerifiedUserFactory()
+        self.url = '/api/users/verify_mail/'
 
     def test_verify_mail_succeeds(self):
         self.client.force_login(user=self.user)
@@ -360,12 +349,11 @@ class TestEMailVerification(APITestCase):
 
 
 class TestResendEMailVerificationKey(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.verified_user = VerifiedUserFactory()
-        cls.url = '/api/users/resend_verification/'
+    def setUp(self):
+        self.user = UserFactory()
+        self.verified_user = VerifiedUserFactory()
+        self.url = '/api/users/resend_verification/'
+        mail.outbox = []
 
     def test_resend_verification_succeeds(self):
         self.client.force_login(user=self.user)

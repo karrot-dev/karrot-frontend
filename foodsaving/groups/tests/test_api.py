@@ -14,13 +14,11 @@ from foodsaving.utils.tests.fake import faker
 
 
 class TestGroupsInfoAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.url = '/api/groups-info/'
+    def setUp(self):
+        self.user = UserFactory()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.url = '/api/groups-info/'
 
     def test_list_groups_as_anon(self):
         response = self.client.get(self.url)
@@ -61,21 +59,19 @@ class TestGroupsInfoAPI(APITestCase):
 
 
 class TestGroupsAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.group_with_password = GroupFactory(password='abc')
-        cls.join_password_url = '/api/groups/{}/join/'.format(cls.group_with_password.id)
-        cls.url = '/api/groups/'
-        cls.group_data = {'name': faker.name(),
-                          'description': faker.text(),
-                          'address': faker.address(),
-                          'latitude': faker.latitude(),
-                          'longitude': faker.longitude(),
-                          'timezone': 'Europe/Berlin'}
+    def setUp(self):
+        self.user = UserFactory()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.group_with_password = GroupFactory(password='abc')
+        self.join_password_url = '/api/groups/{}/join/'.format(self.group_with_password.id)
+        self.url = '/api/groups/'
+        self.group_data = {'name': faker.name(),
+                           'description': faker.text(),
+                           'address': faker.address(),
+                           'latitude': faker.latitude(),
+                           'longitude': faker.longitude(),
+                           'timezone': 'Europe/Berlin'}
 
     def test_create_group(self):
         self.client.force_login(user=self.user)

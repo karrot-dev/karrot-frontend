@@ -6,20 +6,18 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestGroupsAPIFilter(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/groups/'
+    def setUp(self):
+        self.url = '/api/groups/'
 
         # some user
-        cls.user = UserFactory()
+        self.user = UserFactory()
 
         # two groups with different members
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.member2 = UserFactory()
-        cls.group2 = GroupFactory(members=[cls.member2, ])
-        cls.empty_group = GroupFactory()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.member2 = UserFactory()
+        self.group2 = GroupFactory(members=[self.member2, ])
+        self.empty_group = GroupFactory()
 
     def test_filter_by_member(self):
         response = self.client.get(self.url, {'members': self.member.id})

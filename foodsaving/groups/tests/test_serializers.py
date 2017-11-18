@@ -1,14 +1,13 @@
 from django.test import TestCase
+
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.users.factories import UserFactory
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
+from foodsaving.users.factories import UserFactory
 
 
 class TestGroupSerializer(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.group = GroupFactory(members=[UserFactory() for _ in range(3)])
+    def setUp(self):
+        self.group = GroupFactory(members=[UserFactory() for _ in range(3)])
 
     def test_detail(self):
         serializer = GroupDetailSerializer(self.group)

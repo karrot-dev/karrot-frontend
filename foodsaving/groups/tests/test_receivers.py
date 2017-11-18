@@ -9,13 +9,11 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestConversationReceiver(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.invited_by = UserFactory()
-        cls.group = GroupFactory(members=[cls.invited_by, ])
-        cls.user = UserFactory()
-        cls.invited_at = timezone.now()
+    def setUp(self):
+        self.invited_by = UserFactory()
+        self.group = GroupFactory(members=[self.invited_by, ])
+        self.user = UserFactory()
+        self.invited_at = timezone.now()
 
     def test_creates_conversation(self):
         group = GroupFactory()

@@ -1,9 +1,11 @@
 from copy import deepcopy
+
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
+
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory, PickupDateSeriesFactory, PickupDateFactory
 from foodsaving.users.factories import UserFactory
@@ -11,31 +13,29 @@ from foodsaving.utils.tests.fake import faker
 
 
 class TestStoresAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/stores/'
+    def setUp(self):
+        self.url = '/api/stores/'
 
         # group with two members and one store
-        cls.member = UserFactory()
-        cls.member2 = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, cls.member2])
-        cls.store = StoreFactory(group=cls.group)
-        cls.store_url = cls.url + str(cls.store.id) + '/'
+        self.member = UserFactory()
+        self.member2 = UserFactory()
+        self.group = GroupFactory(members=[self.member, self.member2])
+        self.store = StoreFactory(group=self.group)
+        self.store_url = self.url + str(self.store.id) + '/'
 
         # not a member
-        cls.user = UserFactory()
+        self.user = UserFactory()
 
         # another store for above group
-        cls.store_data = {'name': faker.name(),
-                          'description': faker.name(),
-                          'group': cls.group.id,
-                          'address': faker.address(),
-                          'latitude': faker.latitude(),
-                          'longitude': faker.longitude()}
+        self.store_data = {'name': faker.name(),
+                           'description': faker.name(),
+                           'group': self.group.id,
+                           'address': faker.address(),
+                           'latitude': faker.latitude(),
+                           'longitude': faker.longitude()}
 
         # another group
-        cls.different_group = GroupFactory(members=[cls.member2, ])
+        self.different_group = GroupFactory(members=[self.member2, ])
 
     def test_create_store(self):
         response = self.client.post(self.url, self.store_data, format='json')
@@ -152,17 +152,16 @@ class TestStoresAPI(APITestCase):
 
 
 class TestStoreChangesPickupDateSeriesAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.now = timezone.now()
-        cls.url = '/api/stores/'
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.store_url = cls.url + str(cls.store.id) + '/'
-        cls.series = PickupDateSeriesFactory(max_collectors=3, store=cls.store)
-        cls.series.update_pickup_dates(start=lambda: cls.now)
+    def setUp(self):
+
+        self.now = timezone.now()
+        self.url = '/api/stores/'
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.store_url = self.url + str(self.store.id) + '/'
+        self.series = PickupDateSeriesFactory(max_collectors=3, store=self.store)
+        self.series.update_pickup_dates(start=lambda: self.now)
 
     def test_reduce_weeks_in_advance(self):
         self.client.force_login(user=self.member)

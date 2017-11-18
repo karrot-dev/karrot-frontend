@@ -20,9 +20,8 @@ class PaginatedResponseTestCase(APITestCase):
 
 
 class TestHistoryAPICreateGroup(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
+    def setUp(self):
+        self.member = UserFactory()
 
     def test_create_group(self):
         self.client.force_login(self.member)
@@ -33,8 +32,8 @@ class TestHistoryAPICreateGroup(PaginatedResponseTestCase):
 
 class TestHistoryAPIOrdering(PaginatedResponseTestCase):
     @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
+    def setUp(self):
+        self.member = UserFactory()
 
     def test_ordering(self):
         self.client.force_login(self.member)
@@ -45,11 +44,10 @@ class TestHistoryAPIOrdering(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIWithExistingGroup(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.group_url = '/api/groups/{}/'.format(cls.group.id)
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.group_url = '/api/groups/{}/'.format(self.group.id)
 
     def test_modify_group(self):
         self.client.force_login(self.member)
@@ -89,12 +87,11 @@ class TestHistoryAPIWithExistingGroup(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIWithExistingStore(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.store_url = '/api/stores/{}/'.format(cls.store.id)
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.store_url = '/api/stores/{}/'.format(self.store.id)
 
     def test_modify_store(self):
         self.client.force_login(self.member)
@@ -141,15 +138,14 @@ class TestHistoryAPIWithExistingStore(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIWithExistingPickups(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(store=cls.store)
-        cls.pickup_url = '/api/pickup-dates/{}/'.format(cls.pickup.id)
-        cls.series = PickupDateSeriesFactory(store=cls.store)
-        cls.series_url = '/api/pickup-date-series/{}/'.format(cls.series.id)
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store)
+        self.pickup_url = '/api/pickup-dates/{}/'.format(self.pickup.id)
+        self.series = PickupDateSeriesFactory(store=self.store)
+        self.series_url = '/api/pickup-date-series/{}/'.format(self.series.id)
 
     def test_modify_pickup(self):
         self.client.force_login(self.member)
@@ -206,17 +202,16 @@ class TestHistoryAPIWithExistingPickups(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIWithDonePickup(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(
-            store=cls.store,
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(
+            store=self.store,
             date=timezone.now() - relativedelta(days=1)
         )
-        cls.pickup_url = '/api/pickup-dates/{}/'.format(cls.pickup.id)
-        cls.pickup.collectors.add(cls.member)
+        self.pickup_url = '/api/pickup-dates/{}/'.format(self.pickup.id)
+        self.pickup.collectors.add(self.member)
         call_command('process_finished_pickup_dates')
 
     def test_pickup_done(self):
@@ -234,13 +229,12 @@ class TestHistoryAPIWithDonePickup(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIWithMissedPickup(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(
-            store=cls.store,
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(
+            store=self.store,
             date=timezone.now() - relativedelta(days=1)
         )
         # No one joined the pickup
@@ -261,13 +255,12 @@ class TestHistoryAPIWithMissedPickup(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIWithDeletedPickup(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(
-            store=cls.store,
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(
+            store=self.store,
             date=timezone.now() - relativedelta(days=1),
             deleted=True,
         )
@@ -280,9 +273,8 @@ class TestHistoryAPIWithDeletedPickup(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIDateFiltering(PaginatedResponseTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
+    def setUp(self):
+        self.member = UserFactory()
 
     def test_filter_by_date(self):
         self.client.force_login(self.member)

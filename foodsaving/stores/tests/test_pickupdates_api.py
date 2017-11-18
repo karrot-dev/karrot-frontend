@@ -1,14 +1,14 @@
 from itertools import zip_longest
 
-from dateutil.parser import parse
 from dateutil import rrule
+from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import rrulestr
-from django.utils.datetime_safe import datetime
-
 from django.utils import timezone
+from django.utils.datetime_safe import datetime
 from rest_framework import status
 from rest_framework.test import APITestCase
+
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import GroupMembership
 from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
@@ -28,12 +28,12 @@ class TestPickupDateSeriesCreationAPI(APITestCase):
     """
     This is an integration test for the pickup-date-series API
     """
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
+
+    def setUp(self):
+
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
 
     def test_create_and_get_recurring_series(self):
         url = '/api/pickup-date-series/'
@@ -117,15 +117,15 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
     """
     This is an integration test for the pickup-date-series API with pre-created series
     """
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.now = timezone.now()
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.series = PickupDateSeriesFactory(max_collectors=3, store=cls.store)
-        cls.series.update_pickup_dates(start=lambda: cls.now)
+
+    def setUp(self):
+
+        self.now = timezone.now()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.series = PickupDateSeriesFactory(max_collectors=3, store=self.store)
+        self.series.update_pickup_dates(start=lambda: self.now)
 
     def test_change_max_collectors_for_series(self):
         "should change all future instances (except for individually changed ones), but not past ones"
@@ -236,7 +236,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         self.client.force_login(user=self.member)
         # change rule
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        rule = rrulestr(self.series.rule)\
+        rule = rrulestr(self.series.rule) \
             .replace(until=self.now + relativedelta(days=8))
         response = self.client.patch(url, {'rule': str(rule)})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
@@ -253,7 +253,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         self.series.pickup_dates.last().collectors.add(self.member)
         # change rule
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        rule = rrulestr(self.series.rule)\
+        rule = rrulestr(self.series.rule) \
             .replace(until=self.now)
         response = self.client.patch(url, {'rule': str(rule)})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
@@ -412,13 +412,12 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
 
 class TestPickupDateSeriesAPIAuth(APITestCase):
     """ Testing actions that are forbidden """
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/pickup-date-series/'
-        cls.series = PickupDateSeriesFactory()
-        cls.series_url = '/api/pickup-date-series/{}/'.format(cls.series.id)
-        cls.non_member = UserFactory()
+
+    def setUp(self):
+        self.url = '/api/pickup-date-series/'
+        self.series = PickupDateSeriesFactory()
+        self.series_url = '/api/pickup-date-series/{}/'.format(self.series.id)
+        self.non_member = UserFactory()
 
     def test_create_as_anonymous_fails(self):
         response = self.client.post(self.url, {})
@@ -473,36 +472,34 @@ class TestPickupDateSeriesAPIAuth(APITestCase):
 
 
 class TestPickupDatesAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/pickup-dates/'
+    def setUp(self):
+        self.url = '/api/pickup-dates/'
 
         # pickup date for group with one member and one store
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.store = StoreFactory(group=cls.group)
-        cls.pickup = PickupDateFactory(store=cls.store)
-        cls.pickup_url = cls.url + str(cls.pickup.id) + '/'
-        cls.join_url = cls.pickup_url + 'add/'
-        cls.leave_url = cls.pickup_url + 'remove/'
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store)
+        self.pickup_url = self.url + str(self.pickup.id) + '/'
+        self.join_url = self.pickup_url + 'add/'
+        self.leave_url = self.pickup_url + 'remove/'
 
         # not a member of the group
-        cls.user = UserFactory()
+        self.user = UserFactory()
 
         # another pickup date for above store
-        cls.pickup_data = {'date': timezone.now() + relativedelta(days=2),
-                           'max_collectors': 5,
-                           'store': cls.store.id}
+        self.pickup_data = {'date': timezone.now() + relativedelta(days=2),
+                            'max_collectors': 5,
+                            'store': self.store.id}
 
         # past pickup date
-        cls.past_pickup_data = {'date': timezone.now() - relativedelta(days=1),
-                                'max_collectors': 5,
-                                'store': cls.store.id}
-        cls.past_pickup = PickupDateFactory(store=cls.store, date=timezone.now() - relativedelta(days=1))
-        cls.past_pickup_url = cls.url + str(cls.past_pickup.id) + '/'
-        cls.past_join_url = cls.past_pickup_url + 'add/'
-        cls.past_leave_url = cls.past_pickup_url + 'remove/'
+        self.past_pickup_data = {'date': timezone.now() - relativedelta(days=1),
+                                 'max_collectors': 5,
+                                 'store': self.store.id}
+        self.past_pickup = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=1))
+        self.past_pickup_url = self.url + str(self.past_pickup.id) + '/'
+        self.past_join_url = self.past_pickup_url + 'add/'
+        self.past_leave_url = self.past_pickup_url + 'remove/'
 
     def test_create_pickup(self):
         response = self.client.post(self.url, self.pickup_data, format='json')

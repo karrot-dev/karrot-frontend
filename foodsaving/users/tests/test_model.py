@@ -13,16 +13,14 @@ from foodsaving.utils.tests.fake import faker
 
 
 class TestUserModel(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory()
-        cls.group = GroupFactory(members=[cls.user, ])
-        cls.exampleuser = {
+    def setUp(self):
+        self.user = UserFactory()
+        self.group = GroupFactory(members=[self.user, ])
+        self.exampleuser = {
             'display_name': 'bla',
             'email': 'user@example.com',
             'password': 'notsafe',
-            'current_group': cls.group,
+            'current_group': self.group,
         }
 
     def test_create_fails_if_email_is_not_unique(self):
@@ -73,17 +71,13 @@ class TestUserModel(TestCase):
 
 
 class TestSendMail(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.mail_class = models.AnymailMessage
-        cls._original_send = cls.mail_class.send
-        cls.mail_class.send = MagicMock(side_effect=AnymailAPIError())
+    def setUp(self):
+        self.mail_class = models.AnymailMessage
+        self._original_send = self.mail_class.send
+        self.mail_class.send = MagicMock(side_effect=AnymailAPIError())
 
-    @classmethod
-    def tearDownClass(cls):
-        super().tearDownClass()
-        cls.mail_class.send = cls._original_send
+    def tearDown(self):
+        self.mail_class.send = self._original_send
 
     def test_send_to_fake_email(self):
         with self.assertRaises(AnymailAPIError):

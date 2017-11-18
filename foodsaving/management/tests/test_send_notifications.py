@@ -8,10 +8,8 @@ from foodsaving.stores.factories import PickupDateFactory
 
 
 class TestSendNotifications(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.pickup = PickupDateFactory(date=timezone.now() + relativedelta(hours=1))
+    def setUp(self):
+        self.pickup = PickupDateFactory(date=timezone.now() + relativedelta(hours=1))
 
     @responses.activate
     def test_run_command(self):

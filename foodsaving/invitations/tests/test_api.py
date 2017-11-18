@@ -16,15 +16,16 @@ base_url = '/api/invitations/'
 
 
 class TestInvitationAPIIntegration(APITestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.non_member = UserFactory()
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.non_member = UserFactory()
 
         # effectively disable throttling
         from foodsaving.invitations.api import InvitesPerDayThrottle
         InvitesPerDayThrottle.rate = '1000/day'
+
+        mail.outbox = []
 
     def test_invite_flow(self):
         self.assertIn(self.member, self.group.members.all())
@@ -58,12 +59,11 @@ class TestInvitationAPIIntegration(APITestCase):
 
 
 class TestInviteCreate(APITestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.member2 = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, cls.member2])
-        cls.group2 = GroupFactory(members=[cls.member, ])
+    def setUp(self):
+        self.member = UserFactory()
+        self.member2 = UserFactory()
+        self.group = GroupFactory(members=[self.member, self.member2])
+        self.group2 = GroupFactory(members=[self.member, ])
 
         # effectively disable throttling
         from foodsaving.invitations.api import InvitesPerDayThrottle
@@ -123,12 +123,11 @@ class TestInviteCreate(APITestCase):
 
 
 class TestInvitationAPI(APITestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.member2 = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, cls.member2])
-        cls.non_member = UserFactory()
+    def setUp(self):
+        self.member = UserFactory()
+        self.member2 = UserFactory()
+        self.group = GroupFactory(members=[self.member, self.member2])
+        self.non_member = UserFactory()
 
     def test_list_invitations(self):
         self.client.force_login(self.member)
@@ -156,15 +155,16 @@ class TestInvitationAPI(APITestCase):
 
 
 class TestInvitationAcceptAPI(APITestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.member = UserFactory()
-        cls.group = GroupFactory(members=[cls.member, ])
-        cls.non_member = UserFactory()
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.non_member = UserFactory()
 
         # effectively disable throttling
         from foodsaving.invitations.api import InvitesPerDayThrottle
         InvitesPerDayThrottle.rate = '1000/day'
+
+        mail.outbox = []
 
     def test_accept_invite_with_expired_invitation(self):
         self.client.force_login(self.member)
@@ -212,4 +212,3 @@ class TestInvitationAcceptAPI(APITestCase):
         self.client.logout()
         response = self.client.post(base_url + token + '/accept/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-

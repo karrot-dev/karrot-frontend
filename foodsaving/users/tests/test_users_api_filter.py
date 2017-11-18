@@ -7,16 +7,14 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestStoresAPIFilter(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.url = '/api/users/'
+    def setUp(self):
+        self.url = '/api/users/'
 
-        cls.user = UserFactory()
-        cls.user2 = UserFactory()
-        cls.group = GroupFactory()
-        GroupMembership.objects.create(group=cls.group, user=cls.user)
-        GroupMembership.objects.create(group=cls.group, user=cls.user2)
+        self.user = UserFactory()
+        self.user2 = UserFactory()
+        self.group = GroupFactory()
+        GroupMembership.objects.create(group=self.group, user=self.user)
+        GroupMembership.objects.create(group=self.group, user=self.user2)
 
     def test_search_display_name(self):
         self.client.force_login(user=self.user2)

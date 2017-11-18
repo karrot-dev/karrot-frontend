@@ -8,10 +8,9 @@ from foodsaving.users.factories import UserFactory
 
 
 class CleanupChannelCommandTests(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.user = UserFactory()
-        cls.subscription = ChannelSubscription.objects.create(user=cls.user, reply_channel='foo')
+    def setUp(self):
+        self.user = UserFactory()
+        self.subscription = ChannelSubscription.objects.create(user=self.user, reply_channel='foo')
 
     def test_keeps_recent_entries(self):
         self.set_lastseen_ago_in_minutes(3)

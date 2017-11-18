@@ -7,12 +7,10 @@ from foodsaving.users.factories import UserFactory
 
 
 class TestUserAuthAPI(APITestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.user = UserFactory(email='user98@example.com')
-        cls.disabled_user = UserFactory(is_active=False)
-        cls.url = '/api/auth/'
+    def setUp(self):
+        self.user = UserFactory(email='user98@example.com')
+        self.disabled_user = UserFactory(is_active=False)
+        self.url = '/api/auth/'
 
     def test_login(self):
         data = {'email': self.user.email, 'password': self.user.display_name}

@@ -122,7 +122,7 @@ describe('groups', () => {
     })
 
     it('can not join a group', async () => {
-      mockJoin.mockImplementationOnce(throws(Error('some error')))
+      mockJoin.mockImplementationOnce(throws(new Error('some error')))
       store.commit('groups/Receive Groups', { groups: [group1] })
       await expect(store.dispatch('groups/join', { id: group1.id })).rejects.toHaveProperty('message', 'some error')
     })

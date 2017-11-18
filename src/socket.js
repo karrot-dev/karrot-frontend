@@ -16,12 +16,18 @@ export const options = {
   reconnectInterval: 500,
 }
 
-let ws
+let ws, timer
 
 const socket = {
   connect () {
     if (ws) return
     ws = new ReconnectingWebsocket(WEBSOCKET_ENDPOINT, undefined, options)
+
+    timer = setInterval(() => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type: 'ping' }))
+      }
+    }, 10000)
 
     ws.addEventListener('open', () => {
       log.debug('socket opened!')
@@ -44,6 +50,7 @@ const socket = {
     })
   },
   disconnect () {
+    if (timer) clearTimeout(timer)
     if (ws) {
       ws.close(undefined, undefined, { keepClosed: true })
       ws = null

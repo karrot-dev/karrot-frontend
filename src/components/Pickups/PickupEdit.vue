@@ -21,7 +21,7 @@
         :error="hasError('date')"
         :error-label="firstError('date')"
         >
-        <q-datetime type="date" v-model="edit.date" :min="this.today" :display-value="$d(edit.date, 'dateShort')"/>
+        <q-datetime type="date" v-model="edit.date" :min="today" :display-value="$d(edit.date, 'dateShort')"/>
       </q-field>
 
       <q-field

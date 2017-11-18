@@ -1,0 +1,12 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "karrot.jks",
+            "alias": "karrot"
+        },
+        "release": {
+            "keystore": "karrot.jks",
+            "alias": "karrot"
+        }
+    }
+}

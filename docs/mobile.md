@@ -58,10 +58,36 @@ Run!
 cordova run android
 ```
 
-It will try and start an emulator, but you might have to run one yourself if the default does not work.
+If you have an android device connected in USB debugging mode it will install it on that,
+otherwise it will try and start an emulator, but you might have to run one yourself if the default does not work.
 
 Then open the chrome developer tools, which can connect to the remote webview:
 
 ```
 chrome://inspect
+```
+
+## Building
+
+We try and make as easy as possible to build an installable app during development. There are a few pieces:
+- `karrot.jks` keystore with a common yunity password
+- `google-services.json` for development (which [seems](https://groups.google.com/forum/#!topic/firebase-talk/bamCgTDajkw) to be safe into include)
+- config.xml containing app details
+
+We maintain a dev config inside the repo. When we are ready for production we will probably keep the files more secret.
+
+The aim is that the dev version would connect to dev.karrot.world and the production one to karrot.world.
+
+### Debug build
+
+```
+cordova build android -- --password=<password> --storePassword=<password>
+```
+
+If you connect your phone to your computer, you can use the chrome debugging tools with this.
+
+### Release build
+
+```
+cordova build android --release -- --password=<password> --storePassword=<password>
 ```

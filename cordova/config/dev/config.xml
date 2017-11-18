@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="world.karrot.dev" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Karrot Dev</name>
+    <description>
+        Mobile app for Karrot
+    </description>
+    <author email="karrot@foodsaving.world" href="https://foodsaving.world">
+        Foodsaving World Team
+    </author>
+    <icon density="mdpi" src="carrot_logo_144x144.png" />
+    <content src="index.html" />
+    <access origin="*" subdomains="true" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <engine name="android" spec="^6.4.0" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
+</widget>

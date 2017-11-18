@@ -1,6 +1,5 @@
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
-import dateFnsHelper from '@/services/dateFnsHelper'
 import { objectDiff } from '@/services/utils'
 
 export default {
@@ -24,9 +23,6 @@ export default {
     },
     hasChanged () {
       return !this.isNew && !deepEqual(this.value, this.edit)
-    },
-    today () {
-      return dateFnsHelper.now
     },
   },
   methods: {

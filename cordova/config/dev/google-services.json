@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "819038505585",
+    "firebase_url": "https://karrot-dev.firebaseio.com",
+    "project_id": "karrot-dev",
+    "storage_bucket": "karrot-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819038505585:android:6f16ad945a2ecf0d",
+        "android_client_info": {
+          "package_name": "world.karrot.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819038505585-q9o44kaa7i7h1c9nbea05dqb2sd2f1be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKleYGr7b4B45rPyH4Pg8bIBCI9nuTXfo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

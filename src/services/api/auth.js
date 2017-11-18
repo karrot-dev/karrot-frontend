@@ -31,6 +31,29 @@ if (CORDOVA) {
     delete axios.defaults.headers.common.Authorization
   }
 
+  /**
+   * Returns true for any authentication failure, except for actual authentication requests
+   */
+  const isInvalidTokenError = error => {
+    const { response: { data = {}, config: { method, baseURL, url } = {} } = {} } = error
+    if (data.errorCode === 'authentication_failed') {
+      const path = url.indexOf(baseURL) === 0 ? url.substring(baseURL.length) : url
+      // true for anything other than a legitimate authentication request
+      return method !== 'post' || path !== '/api/auth/token/'
+    }
+    return false
+  }
+
+  axios.interceptors.response.use(response => response, async error => {
+    if (isInvalidTokenError(error)) {
+      clearToken()
+      location.reload() // this is a bit of a heavy thing to do, a full page refresh, but it should be rare
+    }
+    else {
+      throw error
+    }
+  })
+
   initialize()
 }
 

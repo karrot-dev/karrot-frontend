@@ -91,6 +91,7 @@
 </template>
 
 <script>
+import jstz from 'jstimezonedetect'
 import { QCard, QField, QInput, QBtn, QAutocomplete } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
@@ -103,6 +104,19 @@ export default {
   name: 'GroupEdit',
   mixins: [validationMixin, editMixin],
   props: {
+    value: {
+      required: false,
+      default: () => ({
+        name: undefined,
+        password: undefined,
+        publicDescription: undefined,
+        description: undefined,
+        timezone: jstz.determine().name(),
+        latitude: undefined,
+        longitude: undefined,
+        address: undefined,
+      }),
+    },
     status: {
       required: false,
       default: () => ({ pending: false, validationErrors: {} }),

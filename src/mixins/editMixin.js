@@ -2,40 +2,27 @@ import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
 import { objectDiff } from '@/services/utils'
 
-const _edit = {}
-
 export default {
   props: {
     value: { required: true },
   },
+  data () {
+    return {
+      edit: cloneDeep(this.value),
+    }
+  },
   watch: {
-    source (current, previous) {
+    value (current, previous) {
       const changes = objectDiff(previous, current)
       this.edit = cloneDeep({ ...this.edit, ...changes })
     },
   },
-  mounted () {
-    this.edit = this.source
-  },
   computed: {
-    edit: {
-      get () {
-        return _edit
-      },
-      set (val) {
-        Object.entries(cloneDeep(val))
-          .forEach(([prop, value]) => this.$set(_edit, prop, value))
-      },
-    },
-    source () {
-      const isFn = typeof this.value === 'function'
-      return isFn ? this.value() : this.value
-    },
     isNew () {
-      return !this.source.id
+      return !this.value.id
     },
     hasChanged () {
-      return !this.isNew && !deepEqual(this.source, this.edit)
+      return !this.isNew && !deepEqual(this.value, this.edit)
     },
   },
   methods: {
@@ -44,15 +31,15 @@ export default {
         this.$emit('save', this.edit, event)
       }
       else {
-        this.$emit('save', { ...objectDiff(this.source, this.edit), id: this.source.id }, event)
+        this.$emit('save', { ...objectDiff(this.value, this.edit), id: this.value.id }, event)
       }
     },
     destroy (event) {
-      this.$emit('destroy', this.source.id, event)
+      this.$emit('destroy', this.value.id, event)
     },
     reset () {
-      this.edit = cloneDeep(this.source)
-      this.$emit('reset', this.source.id)
+      this.edit = cloneDeep(this.value)
+      this.$emit('reset', this.value.id)
     },
   },
 }

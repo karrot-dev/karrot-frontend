@@ -142,6 +142,38 @@ jobs:
           paths:
             - docs-dist
 
+  build-cordova:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run: yarn build:cordova
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - dist
+
+  build-android:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/android:api-26-alpha
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: build android apk
+          command: |
+            curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+            sudo apt install -y gradle nodejs
+            (cd / && sudo npm install -g cordova)
+            cd cordova
+            cordova platform add android
+            cordova build android --release \
+              -- --password=$CORDOVA_PASSWORD --storePassword=$CORDOVA_PASSWORD
+      - store_artifacts:
+          path: cordova/platforms/android/build/outputs/apk/release/android-release.apk
+
   deploy-dev:
     <<: *defaults
     steps:
@@ -171,46 +203,9 @@ workflows:
   all-the-things:
     jobs:
       - install-dependencies
-      - test:
+      - build-cordova:
           requires:
             - install-dependencies
-      - lint:
+      - build-android:
           requires:
-            - install-dependencies
-      - build:
-          requires:
-            - install-dependencies
-      - build-storybook:
-          requires:
-            - install-dependencies
-      - build-docs:
-          requires:
-            - install-dependencies
-      - deploy-dev:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - test
-            - lint
-            - build
-            - build-storybook
-            - build-docs
-      - approval:
-          type: approval
-          requires:
-            - deploy-dev
-      - install-e2e-dependencies:
-          requires:
-            - approval
-      - e2e-test:
-          requires:
-            - install-e2e-dependencies
-      - deploy-release:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - e2e-test
+            - build-cordova

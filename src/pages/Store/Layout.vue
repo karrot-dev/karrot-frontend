@@ -49,9 +49,9 @@ export default {
     }),
   },
   methods: {
-    ...mapActions({
-      restore: 'stores/restore',
-    }),
+    restore () {
+      this.$store.dispatch('stores/save', { id: this.store.id, status: 'created' })
+    },
   },
 }
 </script>

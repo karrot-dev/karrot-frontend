@@ -8,17 +8,6 @@ export default connect({
     allStores: 'stores/byActiveGroup',
     requestError: 'stores/error',
   },
-  methodsToProps: {
-    value: () => ({
-      name: undefined,
-      description: undefined,
-      weeksInAdvance: 4,
-      latitude: undefined,
-      longitude: undefined,
-      address: undefined,
-      status: 'created',
-    }),
-  },
   actionsToEvents: {
     save: 'stores/create',
   },

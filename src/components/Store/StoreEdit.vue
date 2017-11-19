@@ -81,6 +81,19 @@ export default {
   name: 'StoreEdit',
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
+    value: {
+      required: false,
+      type: Object,
+      default: () => ({
+        name: undefined,
+        description: undefined,
+        weeksInAdvance: 4,
+        latitude: undefined,
+        longitude: undefined,
+        address: undefined,
+        status: 'created',
+      }),
+    },
     allStores: { required: true },
   },
   components: {

@@ -6,7 +6,7 @@
           <q-field
             icon="fa-fw fa-star"
             :label="$t('GROUP.TITLE')"
-            :error="!!nameError"
+            :error="hasNameError"
             :error-label="nameError"
             >
             <q-input
@@ -15,12 +15,15 @@
               :autofocus="true"
               @blur="$v.edit.name.$touch"
               autocomplete="off"
-              />
+            />
           </q-field>
 
           <q-field
             icon="fa-fw fa-question"
-            :label="$t('GROUP.PUBLIC_DESCRIPTION')">
+            :label="$t('GROUP.PUBLIC_DESCRIPTION')"
+            :error="hasError('publicDescription')"
+            :error-label="firstError('publicDescription')"
+            >
             <MarkdownInput :value="edit.publicDescription">
               <q-input
                 v-model="edit.publicDescription"
@@ -33,6 +36,8 @@
           <q-field
             icon="fa-fw fa-vcard"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
+            :error="hasError('description')"
+            :error-label="firstError('description')"
             >
             <MarkdownInput :value="edit.description">
               <q-input
@@ -46,6 +51,8 @@
           <q-field
             icon="fa-fw fa-map"
             :label="$t('GROUP.ADDRESS')"
+            :error="hasAddressError"
+            :error-label="addressError"
             >
             <address-picker
               v-model="edit"
@@ -56,6 +63,8 @@
           <q-field
             icon="fa-fw fa-question"
             :label="$t('GROUP.PASSWORD')"
+            :error="hasError('password')"
+            :error-label="firstError('password')"
             >
             <q-input v-model="edit.password"/>
           </q-field>
@@ -63,7 +72,7 @@
           <q-field
             icon="fa-fw fa-globe"
             :label="$t('GROUP.TIMEZONE')"
-            :error="!!timezoneError"
+            :error="hasTimezoneError"
             :error-label="timezoneError"
             >
             <q-input
@@ -74,13 +83,13 @@
             </q-input>
           </q-field>
 
-          <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
+          <div v-if="hasNonFieldErrors" class="text-negative">{{ nonFieldErrors }}</div>
 
           <q-btn class="actionButton" type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
             {{ $t('BUTTON.RESET') }}
           </q-btn>
 
-          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" :loader="status.pending">
+          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" :loader="isPending">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <div style="clear: both"/>
@@ -99,10 +108,11 @@ import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/mixins/editMixin'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
   name: 'GroupEdit',
-  mixins: [validationMixin, editMixin],
+  mixins: [validationMixin, editMixin, statusMixin],
   props: {
     value: {
       required: false,
@@ -116,10 +126,6 @@ export default {
         longitude: undefined,
         address: undefined,
       }),
-    },
-    status: {
-      required: false,
-      default: () => ({ pending: false, validationErrors: {} }),
     },
     timezones: { required: true },
     allGroups: { required: true },
@@ -137,6 +143,9 @@ export default {
       }
       return true
     },
+    hasNameError () {
+      return !!this.nameError
+    },
     nameError () {
       const m = this.$v.edit.name
       if (!m.required) return this.$t('VALIDATION.REQUIRED')
@@ -145,12 +154,23 @@ export default {
       if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.firstError('name')
     },
+    hasTimezoneError () {
+       return !!this.timezoneError
+    },
     timezoneError () {
       const m = this.$v.edit.timezone
       if (!m.required) return this.$t('VALIDATION.REQUIRED')
       if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
       return this.firstError('timezone')
     },
+    hasAddressError () {
+      return !!this.addressError
+    },
+    addressError () {
+      for (let field of ['address', 'latitude', 'longitude']) {
+        if (this.hasError(field)) return this.firstError(field)
+      }
+    }
   },
   methods: {
     checkSave (event) {
@@ -161,10 +181,6 @@ export default {
     timezoneFilter (terms, { field, list }) {
       const token = terms.toLowerCase()
       return list.filter(item => item[field].toLowerCase().includes(token))
-    },
-    firstError (field) {
-      const errors = this.status.validationErrors[field]
-      return errors && errors[0]
     },
   },
   validations: {

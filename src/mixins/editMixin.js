@@ -2,14 +2,11 @@ import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
 import { objectDiff } from '@/services/utils'
 
+const _edit = {}
+
 export default {
   props: {
     value: { required: true },
-  },
-  data () {
-    return {
-      edit: cloneDeep(this.source),
-    }
   },
   watch: {
     source (current, previous) {
@@ -17,7 +14,19 @@ export default {
       this.edit = cloneDeep({ ...this.edit, ...changes })
     },
   },
+  mounted () {
+    this.edit = this.source
+  },
   computed: {
+    edit: {
+      get () {
+        return _edit
+      },
+      set (val) {
+        Object.entries(cloneDeep(val))
+          .forEach(([prop, value]) => this.$set(_edit, prop, value))
+      },
+    },
     source () {
       const isFn = typeof this.value === 'function'
       return isFn ? this.value() : this.value

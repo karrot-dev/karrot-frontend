@@ -16,5 +16,4 @@ karrot-backend/
 karrot-docker/
 cordova/platforms
 cordova/plugins
-cordova/google-services.json
 cordova/*.jks

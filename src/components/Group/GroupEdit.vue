@@ -155,7 +155,7 @@ export default {
       return this.firstError('name')
     },
     hasTimezoneError () {
-       return !!this.timezoneError
+      return !!this.timezoneError
     },
     timezoneError () {
       const m = this.$v.edit.timezone
@@ -170,7 +170,7 @@ export default {
       for (let field of ['address', 'latitude', 'longitude']) {
         if (this.hasError(field)) return this.firstError(field)
       }
-    }
+    },
   },
   methods: {
     checkSave (event) {

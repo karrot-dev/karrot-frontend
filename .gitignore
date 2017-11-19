@@ -16,4 +16,3 @@ karrot-backend/
 karrot-docker/
 cordova/platforms
 cordova/plugins
-cordova/*.jks

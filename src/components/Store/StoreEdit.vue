@@ -8,17 +8,22 @@
           <q-field
             icon="fa-star"
             :label="$t('STOREEDIT.NAME')"
-            :error="!!nameError"
-            :error-label="nameError">
+            :error="hasNameError"
+            :error-label="nameError"
+            >
             <q-input
               v-model="edit.name"
               :autofocus="true"
               @blur="$v.edit.name.$touch"
-              autocomplete="off" />
+              autocomplete="off"
+            />
           </q-field>
           <q-field
             icon="fa-handshake-o"
-            :label="$t('STOREEDIT.STATUS')">
+            :label="$t('STOREEDIT.STATUS')"
+            :error="hasError('status')"
+            :error-label="firstError('status')"
+            >
               <q-select
                v-model="edit.status"
                :options="statusOptions"
@@ -27,7 +32,10 @@
 
           <q-field
             icon="fa-question"
-            :label="$t('STOREEDIT.DESCRIPTION')">
+            :label="$t('STOREEDIT.DESCRIPTION')"
+            :error="hasError('description')"
+            :error-label="firstError('description')"
+            >
             <MarkdownInput :value="edit.description">
               <q-input v-model="edit.description" type="textarea" :min-rows="3" />
             </MarkdownInput>
@@ -35,19 +43,25 @@
 
           <q-field
             icon="fa-map"
-            :label="$t('STOREEDIT.ADDRESS')">
-            <address-picker v-model="edit" :map="true"/>
+            :label="$t('STOREEDIT.ADDRESS')"
+            :error="hasAddressError"
+            :error-label="addressError"
+            >
+            <address-picker v-model="edit" :map="true" />
           </q-field>
 
           <q-field
             icon="fa-calendar"
-            :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')">
+            :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
+            :error="hasError('weeksInAdvance')"
+            :error-label="firstError('weeksInAdvance')"
+            >
             <q-slider v-model="edit.weeksInAdvance" :min="1" :max="10" label label-always />
           </q-field>
 
-          <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
+          <div v-if="hasNonFieldErrors" class="text-negative">{{ nonFieldErrors }}</div>
 
-          <q-btn type="submit" color="primary" :disable="!canSave" loader :value="status.isWaiting">
+          <q-btn type="submit" color="primary" :disable="!canSave" loader :value="isPending">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
@@ -109,6 +123,9 @@ export default {
       }
       return true
     },
+    hasNameError () {
+      return !!this.nameError
+    },
     nameError () {
       const m = this.$v.edit.name
       if (!m.required) return this.$t('VALIDATION.REQUIRED')
@@ -116,6 +133,14 @@ export default {
       if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
       if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       return this.firstError('name')
+    },
+    hasAddressError () {
+      return !!this.addressError
+    },
+    addressError () {
+      for (let field of ['address', 'latitude', 'longitude']) {
+        if (this.hasError(field)) return this.firstError(field)
+      }
     },
     statusOptions () {
       return statusList

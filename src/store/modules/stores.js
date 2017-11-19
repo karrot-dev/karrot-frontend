@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import stores from '@/services/api/stores'
-import { createMetaModule, withMeta, metaStatuses, metaStatusesWithId, indexById, onlyHandleAPIError } from '@/store/helpers'
+import { createMetaModule, withMeta, metaStatuses, metaStatusesWithId, indexById } from '@/store/helpers'
 import router from '@/router'
 
 export const modules = { meta: createMetaModule() }

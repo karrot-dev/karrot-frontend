@@ -143,7 +143,7 @@ export default {
           {
             label: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
             handler: () => {
-              this.$emit('save', { id: this.store.id, status: 'archived' }, event)
+              this.$emit('save', { id: this.value.id, status: 'archived' }, event)
             },
           },
         ],

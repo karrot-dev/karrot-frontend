@@ -91,7 +91,6 @@
 </template>
 
 <script>
-import jstz from 'jstimezonedetect'
 import { QCard, QField, QInput, QBtn, QAutocomplete } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
@@ -140,11 +139,6 @@ export default {
     },
   },
   methods: {
-    reset () {
-      this.source = this.source.id ? this.group.__unenriched : this.group
-      this.edit = cloneDeep(this.source)
-      this.$emit('reset', this.source.id)
-    },
     checkSave (event) {
       this.$v.edit.$touch()
       if (!this.canSave) return

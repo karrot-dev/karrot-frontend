@@ -1,4 +1,5 @@
 <script>
+import jstz from 'jstimezonedetect'
 import { connect } from 'vuex-connect'
 import GroupEdit from '@/components/Group/GroupEdit'
 

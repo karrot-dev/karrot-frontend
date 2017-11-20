@@ -21,6 +21,11 @@ import i18n from './i18n'
 import log from '@/services/log'
 import './raven'
 import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
+import polyfill from '@/polyfill'
+
+if (CORDOVA && BACKEND) {
+  require('@/cordova')
+}
 
 Vue.config.productionTip = false
 Vue.use(Quasar)
@@ -43,9 +48,13 @@ Quasar.start(async () => {
   sync(store, router)
   store.dispatch('groups/fetchGroupsPreview')
 
-  await store.dispatch('auth/check')
+  const [App] = await Promise.all([
+    import('./App'),
+    polyfill.init(),
+    store.dispatch('auth/check'),
+  ])
 
-  const app = (await import('./App')).default
+  const app = App.default
   /* eslint-disable no-new */
   new Vue({
     el: '#q-app',

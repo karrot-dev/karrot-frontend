@@ -1,6 +1,7 @@
 import i18n from '@/i18n'
 import axios from 'axios'
 import dateFnsHelper from '@/services/dateFnsHelper'
+import polyfill from '@/polyfill'
 
 /**
  * For getting hot reload to work, webpack needs to do static analysis
@@ -12,6 +13,7 @@ export default store => {
     i18n.setLocaleMessage(locale, messages)
     i18n.locale = locale
     dateFnsHelper.locale = locale
+    polyfill.locale = locale
     axios.defaults.headers.common['Accept-Language'] = locale
   }, { immediate: true })
 }

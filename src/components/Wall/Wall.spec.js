@@ -2,7 +2,7 @@ import Wall from './Wall'
 import WallMessage from './WallMessage'
 import WallInput from './WallInput'
 
-import { messagesMock } from '>/mockdata'
+import { messagesMock, currentUserMock } from '>/mockdata'
 
 import { QInput } from 'quasar'
 
@@ -13,6 +13,7 @@ const defaultProps = {
   fetchMoreMessages: jest.fn(),
   sendStatus: { isWaiting: false },
   messageReceiveStatus: { success: true },
+  currentUser: currentUserMock,
 }
 
 polyfillRequestAnimationFrame()

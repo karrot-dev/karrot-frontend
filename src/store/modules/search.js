@@ -27,7 +27,7 @@ export const getters = {
 
     return [
       ...storeRes.map(e => ({
-        value: {name: 'store', params: {groupId: e.groupId, storeId: e.id}},
+        value: {name: 'store', params: {groupId: e.group, storeId: e.id}},
         label: e.name,
         icon: 'fa-shopping-cart',
       })),

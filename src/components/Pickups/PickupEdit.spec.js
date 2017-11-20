@@ -14,7 +14,6 @@ describe('PickupEdit', () => {
   beforeEach(() => {
     pickup = cloneDeep(pickupsMock[0])
     unenriched = cloneDeep(pickupsMock[0])
-    pickup.__unenriched = unenriched
     status = { pending: false, validationErrors: {} }
     wrapper = mountWithDefaults(PickupEdit, { propsData: { value: pickup, status } })
   })

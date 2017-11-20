@@ -29,7 +29,7 @@
               icon="fa-lock"
               :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
               :helper="$t('JOINGROUP.PASSWORD_LABEL')"
-              :error="hasJoinError"
+              :error="this.group.joinStatus.hasValidationErrors"
               :error-label="$t('JOINGROUP.PASSWORD_WRONG')"
               >
               <q-input v-model="password" type="password" />
@@ -66,11 +66,6 @@ export default {
   props: {
     group: { required: true },
     isLoggedIn: {},
-  },
-  computed: {
-    hasJoinError () {
-      return Object.keys(this.group.joinStatus.validationErrors).length > 0
-    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
 }

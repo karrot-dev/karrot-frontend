@@ -1,7 +1,7 @@
 <template>
   <q-toolbar color="primary">
     <slot />
-    <router-link :to="{name: 'group'}" class="logo desktop-only">
+    <router-link :to="{name: 'group'}" v-if="!$q.platform.is.mobile" class="logo">
       <KarrotLogo/>
     </router-link>
     <q-toolbar-title>

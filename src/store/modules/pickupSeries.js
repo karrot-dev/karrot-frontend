@@ -30,7 +30,6 @@ export const getters = {
       ...entry,
       pickups,
       ...metaStatusesWithId(getters, ['save', 'destroy'], entry.id),
-      __unenriched: entry,
     }
   },
   all: (state, getters, rootState, rootGetters) => {

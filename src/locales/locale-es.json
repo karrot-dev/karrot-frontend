@@ -23,10 +23,10 @@
     "LEAVE": "Salir",
     "PREVIEW": "Vista previa",
     "BACK": "Back",
-    "MORE_OPTIONS": "More options",
-    "SEARCH": "Search",
+    "MORE_OPTIONS": "Más opciones",
+    "SEARCH": "Buscar",
     "OF_COURSE": "Yes, of course!",
-    "YES": "Yes",
+    "YES": "Si",
     "SAVE_CHANGES": "Save changes",
     "RESET": "Reset",
     "CHANGE_PASSWORD": "Change password",
@@ -45,11 +45,11 @@
   },
   "GROUP": {
     "WALL": "Wall",
-    "GROUP": "Group",
+    "GROUP": "Grupo",
     "LEAVE": "Abandonar grupo...",
     "LEAVE_TEXT": "¿De verdad quiere abandonar este grupo?",
     "LEAVE_CONFIRMATION": "You left {groupName}",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "NONMEMBER_REDIRECT": "No eres un miembro de este grupo. ",
     "EDIT": "Editar grupo",
     "CREATE_TITLE": "Crear un grupo nuevo",
     "MANAGE_AGREEMENT": "Manage agreement",
@@ -65,7 +65,7 @@
     "ADDRESS": "Dirección",
     "TIMEZONE": "Zona horaria del grupo",
     "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
+    "INVITE_SEND": "Enviar invitación",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
     "INVITE_TITLE": "Invite users to your group",
@@ -73,10 +73,10 @@
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
+    "TITLE": "Mapa",
     "SHOW_USERS": "Show users",
     "HIDE_USERS": "Hide users",
-    "SHOW_STORES": "Show stores",
+    "SHOW_STORES": "Enseñar tiendas",
     "HIDE_STORES": "Hide stores",
     "SET_LOCATION": "Set location"
   },
@@ -94,7 +94,7 @@
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive store",
-        "MESSAGE": "Are you sure?",
+        "MESSAGE": "Estás segur@?",
         "CONFIRM": "Yes, archive store"
       }
     },
@@ -120,14 +120,14 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "¿A qué grupo quiere unirse?",
-    "NUM_MEMBERS": "Member | Members",
+    "NUM_MEMBERS": "Miembro | Miembros",
     "NO_PUBLIC_DESCRIPTION": "(Este grupo no tiene una descripción pública... todavía)",
     "PASSWORD_LABEL": "Introducir contraseña para grupo privado",
     "PASSWORD_REQUIRED": "Este grupo requiere contraseña",
     "PASSWORD_WRONG": "Contraseña errónea",
-    "ALL_GROUPS": "All groups",
+    "ALL_GROUPS": "Todos los grupos",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "MY_GROUPS": "My groups",
+    "MY_GROUPS": "Mis grupos",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "You are currently logged out. {login}",
       "LOG_IN": "Log in to see your groups!"
@@ -141,7 +141,7 @@
   "TOPBAR": {
     "LOGOUT": "Cerrar sesión",
     "USERPROFILE": "Visitar perfil",
-    "CHANGE_GROUP": "Change group"
+    "CHANGE_GROUP": "Cambiar el grupo"
   },
   "LOGIN": {
     "TITLE": "Iniciar sesión",
@@ -160,7 +160,7 @@
     "ERROR": "Algo fue mal ¿Quizás su dirección de correo ya está verificada?"
   },
   "CREATEPICKUP": {
-    "WEEKDAYS": "Weekdays",
+    "WEEKDAYS": "Día de la semana",
     "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
     "TIME": "Fecha",
     "TIME_HELPER": "When should the pick-up take place?",
@@ -168,7 +168,7 @@
     "DATE_HELPER": "When should the pick-up take place?",
     "MAX_COLLECTORS": "Máx ranuras",
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
-    "COMMENT": "Additional information",
+    "COMMENT": "Información adicional",
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
   },
   "CREATESTORE": {
@@ -211,16 +211,16 @@
     "ITALIC": "cursiva",
     "STRIKE": "strike",
     "QUOTE": "quote",
-    "HELP": "What is Markdown?"
+    "HELP": "Qué es Markdown?"
   },
   "HISTORY": {
     "GROUP_CREATE": "creó este grupo",
     "GROUP_MODIFY": "cambió los ajustes de este grupo",
     "GROUP_JOIN": "se unió a este grupo",
     "GROUP_LEAVE": "se fue de este grupo",
-    "STORE_CREATE": "created store {name}",
-    "STORE_MODIFY": "changed the settings of store {name}",
-    "STORE_DELETE": "deleted store {name}",
+    "STORE_CREATE": "creyó la tienda {name}",
+    "STORE_MODIFY": "cambió los ajustes de la tienda {name}",
+    "STORE_DELETE": "borró la tienda {name}",
     "PICKUP_CREATE": "created a new one-time pick-up",
     "PICKUP_MODIFY": "changed the settings of a pick-up",
     "PICKUP_DELETE": "deleted a pick-up",
@@ -232,13 +232,13 @@
     "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
     "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "DETAILS": "More information"
+    "DETAILS": "Más información "
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifications",
-    "NOT_VERIFIED": "{email} not verified",
+    "TITLE": "Notificatiónes",
+    "NOT_VERIFIED": "{email} no está verificado ",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resend verification email",
+    "RESEND_VERIFICATION": "Enviar verificación de correo otra vez",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOT_FOUND": {
@@ -247,15 +247,15 @@
   },
   "SETTINGS": {
     "TITLE": "Settings",
-    "LANGUAGE": "Language"
+    "LANGUAGE": "Lengua "
   },
   "AGREEMENT": {
     "NEW": "New agreement",
     "AGREE": "You must agree to {title}",
     "VIEW": "View agreement",
-    "TITLE": "Title",
+    "TITLE": "Título",
     "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "CONTENT": "Content",
+    "CONTENT": "Contenido",
     "CONTENT_HELPER": "The text of your agreement",
     "MINOR_EDIT": "Minor edit?",
     "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
@@ -275,14 +275,14 @@
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
+    "WRITE_MESSAGE": "Escribir un mensaje...",
     "WRITE_FIRST_MESSAGE": "Write the first message..."
   },
   "STORESTATUS":{
     "ACTIVE": "Co-operating",
     "CREATED": "Just created",
     "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
+    "DECLINED": "No está dispuesta a cooperar",
     "ARCHIVED": "Archived"
   }
 }

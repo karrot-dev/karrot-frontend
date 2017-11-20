@@ -21,7 +21,7 @@
         :error="hasError('date')"
         :error-label="firstError('date')"
         >
-        <q-datetime :min="new Date()" type="date" v-model="edit.date" :display-value="$d(edit.date, 'dateShort')"/>
+        <q-datetime type="date" v-model="edit.date" :min="now" :display-value="$d(edit.date, 'dateShort')"/>
       </q-field>
 
       <q-field
@@ -58,6 +58,7 @@ import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn
 import { is24h } from '@/i18n'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
+import dateFnsHelper from '@/services/dateFnsHelper'
 
 export default {
   name: 'PickupEdit',
@@ -67,6 +68,9 @@ export default {
   },
   computed: {
     is24h,
+    now () {
+      return dateFnsHelper.now
+    },
   },
 }
 </script>

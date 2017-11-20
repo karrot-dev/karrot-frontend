@@ -17,7 +17,6 @@
       <q-item-side><i class="fa fa-sign-out fa-fw"/></q-item-side>
       <q-item-main :label="$t('TOPBAR.LOGOUT')" />
     </q-item>
-    <LocaleSelect />
     <q-list-header>About us</q-list-header>
     <a class="q-item" target="_blanc" href="https://blog.karrot.world">
       <q-item-side><i class="fa fa-newspaper-o"/></q-item-side>
@@ -31,15 +30,17 @@
       <q-item-side><i class="fa fa-git"/></q-item-side>
       <q-item-main label="Git" sublabel="See our code!" />
     </a>
+    <q-item-separator />
+    <LocaleSelect style="color: rgba(0,0,0,0.54)" />
   </q-list>
 </template>
 <script>
 
-import { QList, QListHeader, QSideLink, QItem, QItemSide, QItemMain } from 'quasar'
+import { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain } from 'quasar'
 import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
-  components: { QList, QListHeader, QSideLink, QItem, QItemSide, QItemMain, LocaleSelect },
+  components: { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
   props: {
     currentUserId: { required: true },
   },

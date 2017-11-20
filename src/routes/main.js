@@ -72,6 +72,12 @@ export default [
     components: {
       default: HistoryDetail,
     },
+    meta: {
+      requireLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'HISTORY.DETAILS', route: { name: 'historyDetail' } },
+      ],
+    },
   },
   {
     path: '/group/:groupId',

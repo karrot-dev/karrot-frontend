@@ -95,10 +95,12 @@ export const actions = {
 
       commit(types.SET_ACTIVE, { groupId })
 
-      try {
-        await dispatch('fetchGroup', groupId)
-      }
-      catch (error) {
+      await dispatch('fetchGroup', groupId)
+      const hasError = getters['meta/status']('fetchGroup', groupId).hasValidationErrors
+      if (hasError) {
+        const groupExists = !!getters.get(groupId)
+        const error = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
+        dispatch('routeError/set', error, { root: true })
         return
       }
 
@@ -153,9 +155,8 @@ export const actions = {
       }
       const userId = rootGetters['auth/userId']
       if (!group.members.includes(userId)) {
-        const error = { translation: 'GROUP.NONMEMBER_REDIRECT' }
-        dispatch('routeError/set', error, { root: true })
-        throw new Error(error)
+        // TODO remove after refactoring of backend groups API
+        throw Object.assign(new Error(), { response: { status: 404, data: { detail: 'Not found.' } } })
       }
       commit(types.RECEIVE_GROUP, { group })
     },
@@ -220,7 +221,6 @@ export const mutations = {
     }
   },
   [types.RECEIVE_GROUPS] (state, { groups }) {
-    state.isWaiting = false
     state.idsList = groups.map((group) => group.id)
     state.entries = indexById(groups)
   },

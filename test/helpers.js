@@ -105,7 +105,7 @@ export function mockActionOnce (store, actionName) {
 }
 
 export function defaultActionStatus () {
-  return { pending: false, validationErrors: {} }
+  return { pending: false, validationErrors: {}, hasValidationErrors: false }
 }
 
 export function defaultActionStatusesFor (...actions) {

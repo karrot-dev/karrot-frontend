@@ -1,12 +1,10 @@
 <template>
   <div>
-    <h3 v-if="isNew"><i class="fa fa-pencil" /> {{ $t('GROUP.CREATE_TITLE') }}</h3>
-    <h3 v-else><i class="fa fa-edit" /> {{ $t('GROUP.EDIT') }}</h3>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
         <form @submit.prevent="save">
           <q-field
-            icon="fa-star"
+            icon="fa-fw fa-star"
             :label="$t('GROUP.TITLE')"
             :error="!!nameError"
             :error-label="nameError"
@@ -21,7 +19,7 @@
           </q-field>
 
           <q-field
-            icon="fa-question"
+            icon="fa-fw fa-question"
             :label="$t('GROUP.PUBLIC_DESCRIPTION')">
             <MarkdownInput :value="edit.publicDescription">
               <q-input
@@ -33,7 +31,7 @@
           </q-field>
 
           <q-field
-            icon="fa-question"
+            icon="fa-fw fa-vcard"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             >
             <MarkdownInput :value="edit.description">
@@ -46,7 +44,7 @@
           </q-field>
 
           <q-field
-            icon="fa-map"
+            icon="fa-fw fa-map"
             :label="$t('GROUP.ADDRESS')"
             >
             <address-picker
@@ -56,14 +54,14 @@
           </q-field>
 
           <q-field
-            icon="fa-question"
+            icon="fa-fw fa-question"
             :label="$t('GROUP.PASSWORD')"
             >
             <q-input v-model="edit.password"/>
           </q-field>
 
           <q-field
-            icon="fa-globe"
+            icon="fa-fw fa-globe"
             :label="$t('GROUP.TIMEZONE')"
             :error="!!timezoneError"
             :error-label="timezoneError"
@@ -78,15 +76,14 @@
 
           <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
 
-          <q-btn type="submit" color="primary" :disable="!canSave" :loader="status.pending">
-            {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-          </q-btn>
-          <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
+          <q-btn class="actionButton" type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
             {{ $t('BUTTON.RESET') }}
           </q-btn>
-          <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
-            {{ $t('BUTTON.CANCEL') }}
+
+          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" :loader="status.pending">
+            {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
+          <div style="clear: both"/>
         </form>
       </div>
     </q-card>
@@ -239,4 +236,7 @@ export default {
   padding 20px
   &.changed
     background-color $yellow-1
+.actionButton
+  float: right
+  margin: 2px
 </style>

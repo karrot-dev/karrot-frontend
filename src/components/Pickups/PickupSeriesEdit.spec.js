@@ -14,7 +14,6 @@ describe('PickupSeriesEdit', () => {
 
   beforeEach(() => {
     series = cloneDeep(pickupSeriesMock[0])
-    series.__unenriched = cloneDeep(pickupSeriesMock[0])
     wrapper = mountWithDefaults(PickupSeriesEdit, {
       propsData: {
         value: series,
@@ -47,7 +46,7 @@ describe('PickupSeriesEdit', () => {
     wrapper.vm.edit.description = 'changed'
     wrapper.vm.edit.maxCollectors++
     wrapper.vm.reset()
-    expect(wrapper.vm.edit).toEqual(series.__unenriched)
+    expect(wrapper.vm.edit).toEqual(series)
   })
 
   it('does not let you remove all days', () => {

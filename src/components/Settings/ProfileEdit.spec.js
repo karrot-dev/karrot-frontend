@@ -14,7 +14,7 @@ describe('ProfileEdit', () => {
 
   beforeEach(() => {
     user = cloneDeep(usersMock[0])
-    wrapper = mountWithDefaults(ProfileEdit, { propsData: { user } })
+    wrapper = mountWithDefaults(ProfileEdit, { propsData: { value: user } })
   })
 
   it('renders', () => {
@@ -22,14 +22,14 @@ describe('ProfileEdit', () => {
   })
 
   it('can reset to initial state', () => {
-    wrapper.vm.userEdit.displayName = 'a nice new name'
+    wrapper.vm.edit.displayName = 'a nice new name'
     wrapper.vm.reset()
-    expect(wrapper.vm.userEdit).toEqual(user)
+    expect(wrapper.vm.edit).toEqual(user)
   })
 
   it('detects if you have changed something', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
-    wrapper.vm.userEdit.displayName = 'a new name'
+    wrapper.vm.edit.displayName = 'a new name'
     expect(wrapper.vm.hasChanged).toBe(true)
     return Vue.nextTick(() => {
       expect(wrapper.hasClass('changed')).toBe(true)
@@ -37,7 +37,7 @@ describe('ProfileEdit', () => {
   })
 
   it('emits a save event with a diff of changes', () => {
-    wrapper.vm.userEdit.displayName = 'my new name'
+    wrapper.vm.edit.displayName = 'my new name'
     wrapper.vm.save()
     expect(wrapper.emitted().save[0][0]).toEqual({ id: user.id, displayName: 'my new name' })
   })

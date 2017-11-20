@@ -1,0 +1,20 @@
+{
+  "name": "world.foodsaving",
+  "version": "1.0.0",
+  "displayName": "Karrot",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-fcm": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^6.4.0",
+    "cordova-plugin-fcm": "^2.1.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "fcm": "^1.0.3"
+  }
+}

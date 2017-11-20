@@ -248,11 +248,21 @@ export default [
             name: 'storePickupsManage',
             path: 'pickups/manage',
             component: StorePickupsManage,
+            meta: {
+              breadcrumbs: [
+                { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
+              ],
+            },
           },
           {
             name: 'storeHistory',
             path: 'history',
             component: StoreHistory,
+            meta: {
+              breadcrumbs: [
+                { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
+              ],
+            },
           },
           {
             name: 'storeEdit',

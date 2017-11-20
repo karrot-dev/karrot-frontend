@@ -1,5 +1,5 @@
 <template>
-<div>
+  <div>
     <q-item multiline :to="{ name: 'historyDetail', params: { historyId: entry.id } }">
       <q-item-side>
         <ProfilePicture

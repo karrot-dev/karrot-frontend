@@ -13,8 +13,11 @@
         <q-item-tile>
           <span class="content">{{ entry.message }}</span>
         </q-item-tile>
+        <q-item-tile stamp class="mobile-only light-paragraph">
+          <DateAsWords :date="entry.date" />
+        </q-item-tile>
       </q-item-main>
-      <q-item-side right>
+      <q-item-side class="desktop-only" stamp right>
         <DateAsWords :date="entry.date" />
       </q-item-side>
     </q-item>

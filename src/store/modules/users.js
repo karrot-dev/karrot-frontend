@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import users from '@/services/api/users'
 import authUser from '@/services/api/authUser'
+import auth from '@/services/api/auth'
 import { indexById, onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
@@ -122,7 +123,7 @@ export const actions = {
   async resetPassword ({ commit }, email) {
     commit(types.REQUEST_RESETPASSWORD)
     try {
-      await users.resetPassword(email)
+      await auth.resetPassword(email)
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_RESETPASSWORD_ERROR, data))
@@ -139,7 +140,7 @@ export const actions = {
     if (state.resendVerificationStatus.isWaiting) return
     commit(types.REQUEST_VERIFICATIONMAIL)
     try {
-      await users.resendVerificationRequest()
+      await authUser.resendVerificationRequest()
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_VERIFICATIONMAIL_ERROR, data))

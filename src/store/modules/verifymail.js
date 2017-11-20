@@ -1,4 +1,4 @@
-import users from '@/services/api/users'
+import authUser from '@/services/api/authUser'
 import { onlyHandleAPIError } from '@/store/helpers'
 
 export const types = {
@@ -28,7 +28,7 @@ export const actions = {
   async verify ({ commit }, key) {
     commit(types.REQUEST)
     try {
-      await users.verifyMail(key)
+      await authUser.verifyMail(key)
       commit(types.RECEIVE)
     }
     catch (error) {

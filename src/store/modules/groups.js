@@ -153,11 +153,6 @@ export const actions = {
       if (group.activeAgreement) {
         dispatch('agreements/fetch', group.activeAgreement, { root: true })
       }
-      const userId = rootGetters['auth/userId']
-      if (!group.members.includes(userId)) {
-        // TODO remove after refactoring of backend groups API
-        throw Object.assign(new Error(), { response: { status: 404, data: { detail: 'Not found.' } } })
-      }
       commit(types.RECEIVE_GROUP, { group })
     },
 

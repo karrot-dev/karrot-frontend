@@ -35,7 +35,7 @@ django[argon2]==1.11.7
 djangorestframework==3.7.3
 drf-nested-routers==0.90.0
 factory-boy==2.9.2
-faker==0.8.6              # via factory-boy
+faker==0.8.7              # via factory-boy
 flake8==3.5.0
 furl==1.0.1
 hiredis==0.2.0

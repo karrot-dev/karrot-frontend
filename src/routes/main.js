@@ -330,6 +330,8 @@ export default [
       breadcrumbs: [
         { type: 'activeUser' },
       ],
+      beforeEnter: 'users/selectUser',
+      afterLeave: 'users/clearSelectedUser',
     },
     components: {
       default: User,

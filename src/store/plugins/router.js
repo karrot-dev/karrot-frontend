@@ -77,9 +77,6 @@ export default store => {
     }
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
-    if (to.params.userId) {
-      store.dispatch('users/selectUser', parseInt(to.params.userId, 10))
-    }
     if (to.params.historyId) {
       store.dispatch('history/setActive', parseInt(to.params.historyId, 10))
     }

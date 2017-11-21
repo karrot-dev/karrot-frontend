@@ -262,6 +262,8 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
               ],
+              beforeEnter: 'pickupSeries/fetchListForActiveStore',
+              afterLeave: 'pickupSeries/clearList',
             },
           },
           {

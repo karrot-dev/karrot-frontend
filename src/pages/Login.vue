@@ -9,8 +9,5 @@ export default connect({
   actionsToEvents: {
     submit: 'auth/login',
   },
-  lifecycle: {
-    destroyed: ({ dispatch }) => dispatch('auth/clearLoginStatus'),
-  },
 })('Login', Login)
 </script>

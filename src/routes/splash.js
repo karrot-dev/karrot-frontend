@@ -16,6 +16,7 @@ export default [
       breadcrumbs: [
         { translation: 'LOGIN.TITLE', route: { name: 'login' } },
       ],
+      afterLeave: 'auth/clearLoginStatus',
     },
     components: {
       default: Login,
@@ -30,6 +31,7 @@ export default [
       breadcrumbs: [
         { translation: 'PASSWORDRESET.TITLE', route: { name: 'passwordreset' } },
       ],
+      afterLeave: 'users/cleanPasswordreset',
     },
     components: {
       default: PasswordReset,
@@ -44,6 +46,7 @@ export default [
       breadcrumbs: [
         { translation: 'VERIFYMAIL.TITLE', route: { name: 'verifymail' } },
       ],
+      afterLeave: 'verifymail/clean',
     },
     components: {
       default: VerifyMail,
@@ -58,6 +61,7 @@ export default [
       breadcrumbs: [
         { translation: 'SIGNUP.TITLE', route: { name: 'signup' } },
       ],
+      afterLeave: 'users/cleanSignup',
     },
     components: {
       default: Signup,

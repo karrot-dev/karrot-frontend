@@ -15,8 +15,5 @@ export default connect({
   actionsToEvents: {
     submit: 'users/signup',
   },
-  lifecycle: {
-    destroyed: ({ dispatch }) => dispatch('users/cleanSignup'),
-  },
 })('Signup', Signup)
 </script>

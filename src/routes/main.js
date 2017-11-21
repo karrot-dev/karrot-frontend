@@ -79,6 +79,8 @@ export default [
       breadcrumbs: [
         { translation: 'HISTORY.DETAILS', route: { name: 'historyDetail' } },
       ],
+      beforeEnter: 'history/setActive',
+      afterLeave: 'history/clearActive',
     },
   },
   {

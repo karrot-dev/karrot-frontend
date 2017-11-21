@@ -77,10 +77,6 @@ export default store => {
     }
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
-    if (to.params.historyId) {
-      store.dispatch('history/setActive', parseInt(to.params.historyId, 10))
-    }
-
     /* If:
         - the group is not mentioned in the URL
         - we do not have an active group

@@ -198,11 +198,14 @@ export const actions = {
 
   }),
 
-  selectGroupInfo ({ commit, getters, dispatch }, groupPreviewId) {
-    if (!getters.get(groupPreviewId)) {
-      dispatch('routeError/set', null, { root: true })
+  selectGroupInfo ({ commit, getters, dispatch }, { groupInfoId }) {
+    if (!getters.get(groupInfoId)) {
+      throw new Error('no group found')
     }
-    commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
+    commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId: groupInfoId })
+  },
+  clearGroupInfo ({ commit }) {
+    commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId: null })
   },
 
 }

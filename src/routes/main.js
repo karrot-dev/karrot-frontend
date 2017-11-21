@@ -47,6 +47,9 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { type: 'activeGroupInfo' },
       ],
+      beforeEnter: 'groups/selectGroupInfo',
+      onError: 'group id not found',
+      onLeave: 'groups/clearGroupInfo',
     },
     components: {
       default: GroupInfo,

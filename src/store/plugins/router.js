@@ -50,14 +50,31 @@ export default store => {
   })
 
   router.beforeEach(async (to, from, next) => {
+    for (let m of from.matched) {
+      if (m.meta.onLeave) {
+        console.log('onLeave', m.meta.onLeave)
+        store.dispatch(m.meta.onLeave)
+      }
+    }
+    for (let m of to.matched) {
+      if (m.meta.beforeEnter) {
+        try {
+          console.log('beforeEnter', to.params.groupInfoId)
+          // TODO parse all params, assuming that all are integer
+          const params = { groupInfoId: parseInt(to.params.groupInfoId, 10) }
+          store.dispatch(m.meta.beforeEnter, params)
+        }
+        catch (error) {
+          console.log('onError', m.meta.onError)
+          store.dispatch('routeError/set', { translation: m.meta.onError })
+        }
+      }
+    }
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     // save active group/store/user
     if (to.params.groupId) {
       await store.dispatch('groups/selectGroup', parseInt(to.params.groupId, 10))
-    }
-    if (to.params.groupInfoId) {
-      store.dispatch('groups/selectGroupInfo', parseInt(to.params.groupInfoId, 10))
     }
     if (to.params.storeId) {
       store.dispatch('stores/selectStore', parseInt(to.params.storeId, 10))

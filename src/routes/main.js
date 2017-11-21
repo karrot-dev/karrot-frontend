@@ -228,6 +228,8 @@ export default [
           breadcrumbs: [
             { type: 'activeStore' },
           ],
+          beforeEnter: 'stores/selectStore',
+          afterLeave: 'stores/clearSelectedStore',
         },
         props: {
           sidenav: true,

@@ -51,22 +51,25 @@ export default store => {
 
   router.beforeEach(async (to, from, next) => {
     for (let m of from.matched) {
-      if (m.meta.onLeave) {
-        console.log('onLeave', m.meta.onLeave)
-        store.dispatch(m.meta.onLeave)
+      if (m.meta.afterLeave) {
+        console.log('onLeave', m.meta.afterLeave)
+        store.dispatch(m.meta.afterLeave)
       }
     }
     for (let m of to.matched) {
       if (m.meta.beforeEnter) {
         try {
-          console.log('beforeEnter', to.params.groupInfoId)
-          // TODO parse all params, assuming that all are integer
-          const params = { groupInfoId: parseInt(to.params.groupInfoId, 10) }
-          store.dispatch(m.meta.beforeEnter, params)
+          console.log('beforeEnter', to.params)
+          store.dispatch(m.meta.beforeEnter, parseAsIntegers(to.params))
         }
         catch (error) {
-          console.log('onError', m.meta.onError)
-          store.dispatch('routeError/set', { translation: m.meta.onError })
+          if (error.type === 'RouteError') {
+            store.dispatch('routeError/set', error.data)
+          }
+          else {
+            // can't be handled here
+            throw error
+          }
         }
       }
     }
@@ -121,4 +124,10 @@ export function findBreadcrumbs (matched) {
     }
     return acc
   }, [])
+}
+
+export function parseAsIntegers (obj) {
+  return Object.entries(obj).reduce((acc, [k, v]) => {
+    acc[k] = parseInt(v, 10)
+  }, {})
 }

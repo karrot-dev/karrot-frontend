@@ -1,7 +1,7 @@
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
-import { indexById, withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/store/helpers'
+import { indexById, withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, metaStatuses, createRouteError } from '@/store/helpers'
 
 export const modules = { meta: createMetaModule() }
 
@@ -200,7 +200,7 @@ export const actions = {
 
   selectGroupInfo ({ commit, getters, dispatch }, { groupInfoId }) {
     if (!getters.get(groupInfoId)) {
-      throw new Error('no group found')
+      throw createRouteError({ translation: 'no group found' })
     }
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId: groupInfoId })
   },

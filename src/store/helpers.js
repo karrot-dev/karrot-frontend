@@ -169,3 +169,10 @@ export function metaStatuses (actions) {
   }
   return result
 }
+
+export function createRouteError (data) {
+  return Object.assign(new Error(), {
+    type: 'RouteError',
+    data,
+  })
+}

@@ -48,8 +48,7 @@ export default [
         { type: 'activeGroupInfo' },
       ],
       beforeEnter: 'groups/selectGroupInfo',
-      onError: 'group id not found',
-      onLeave: 'groups/clearGroupInfo',
+      afterLeave: 'groups/clearGroupInfo',
     },
     components: {
       default: GroupInfo,

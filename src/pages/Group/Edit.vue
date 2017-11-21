@@ -15,8 +15,5 @@ export default connect({
   methodsToEvents: {
     reset: ({ dispatch }, id) => dispatch('groups/meta/clear', ['save', id]),
   },
-  lifecycle: {
-    mounted: ({ dispatch }) => dispatch('groups/fetchTimezones'),
-  },
 })('GroupEdit', GroupEdit)
 </script>

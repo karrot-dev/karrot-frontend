@@ -89,6 +89,7 @@ export default [
       breadcrumbs: [
         { type: 'activeGroup' },
       ],
+      beforeEnter: 'groups/selectGroup',
     },
     components: {
       default: GroupLayout,

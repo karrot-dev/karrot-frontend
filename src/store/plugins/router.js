@@ -78,9 +78,6 @@ export default store => {
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     // save active group/store/user
-    if (to.params.groupId) {
-      await store.dispatch('groups/selectGroup', parseInt(to.params.groupId, 10))
-    }
     if (to.params.storeId) {
       store.dispatch('stores/selectStore', parseInt(to.params.storeId, 10))
     }

@@ -70,6 +70,11 @@ export default {
   components: {
     QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect,
   },
+  data () {
+    return {
+      lastByDay: [...this.series.rule.byDay],
+    }
+  },
   watch: {
     // enforce having at least one day selected
     'edit.rule.byDay' (byDay) {

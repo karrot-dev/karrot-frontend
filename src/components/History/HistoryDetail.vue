@@ -29,20 +29,25 @@
         </tr>
         <tr v-if="entry.group && entry.group.name">
           <td><q-icon name="fa-fw fa-home"></q-icon></td>
-          <td>{{ entry.group.name }}</td>
+          <td>
+            <router-link :to="{name: 'group', params: { groupId: entry.group.id }}">
+              {{ entry.group.name }}
+            </router-link>
+          </td>
         </tr>
         <tr v-if="entry.store && entry.store.name">
           <td><q-icon name="fa-fw fa-shopping-cart"></q-icon></td>
-          <td>{{ entry.store.name }}</td>
+          <td>
+            <router-link :to="{name: 'store', params: { groupId: entry.store.group, storeId: entry.store.id }}">
+              {{ entry.store.name }}
+            </router-link>
+          </td>
         </tr>
         <template v-if="entry.payload">
           <tr class="bg-tertiary text-white">
             <td colspan="2"><q-icon name="fa-fw fa-file-text-o"></q-icon></td>
           </tr>
-          <tr v-for="(value, key) in entry.payload" :key="key">
-            <td>{{ key }}</td>
-            <td>{{ value }}</td>
-          </tr>
+          <HistoryPayloadDetail :label="key" :value="value" v-for="(value, key) in entry.payload" :key="key" />
         </template>
         <tr class="bg-neutral text-white">
           <td colspan="2">
@@ -63,12 +68,13 @@
 import { QIcon, QBtn, QCard, QCardTitle } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
+import HistoryPayloadDetail from '@/components/History/HistoryPayloadDetail'
 
 export default {
   props: {
     entry: {},
   },
-  components: { QIcon, QBtn, QCard, QCardTitle, ProfilePicture, DateAsWords },
+  components: { QIcon, QBtn, QCard, QCardTitle, ProfilePicture, DateAsWords, HistoryPayloadDetail },
   methods: {
     toggleRaw () {
       this.raw = !this.raw

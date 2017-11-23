@@ -23,6 +23,10 @@ import './raven'
 import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 import polyfill from '@/polyfill'
 
+if (CORDOVA && BACKEND) {
+  require('@/cordova')
+}
+
 Vue.config.productionTip = false
 Vue.use(Quasar)
 Vue.use(DetectMobileKeyboardPlugin)

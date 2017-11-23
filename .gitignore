@@ -4,8 +4,6 @@ node_modules/
 dist/
 npm-debug.log*
 yarn-error.log
-cordova/platforms
-cordova/plugins
 .idea
 .vscode
 nbproject/
@@ -16,3 +14,5 @@ e2e-screenshots
 docs-dist/
 karrot-backend/
 karrot-docker/
+cordova/platforms
+cordova/plugins

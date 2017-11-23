@@ -90,6 +90,8 @@ module.exports = {
       'process.env': config[env.prod ? 'build' : 'dev'].env,
       'DEV': env.dev,
       'PROD': env.prod,
+      'CORDOVA': env.cordova,
+      'BACKEND': '"' + config.backend + '"',
       '__THEME': '"' + env.platform.theme + '"'
     }),
     new webpack.LoaderOptionsPlugin({

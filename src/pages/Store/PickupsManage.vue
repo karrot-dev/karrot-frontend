@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h3 v-t="'PICKUPMANAGE.TITLE'" />
     <q-card>
       <q-card-title>
         <h5>

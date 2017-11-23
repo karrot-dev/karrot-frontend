@@ -1,7 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Dévéloppement",
-    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "FACEBOOK_NOTE": "Joins notre groupe sur Facebook!",
     "WARNING": "Attention",
     "BETA_WARNING": "Cette page est dévéloppée continuement et les informations sont régulièrement actualisées. Nous ne pouvons pas garantir la sécurité des données, mais nous faisons tout pour optimiser le niveau de protection !",
     "CONNECTION_INTERRUPTED": "Erreur: connexion interrompu!",
@@ -22,11 +22,11 @@
     "JOIN": "Rejoindre",
     "LEAVE": "Quitter",
     "PREVIEW": "Aperçu",
-    "BACK": "Back",
-    "MORE_OPTIONS": "More options",
-    "SEARCH": "Search",
-    "OF_COURSE": "Yes, of course!",
-    "YES": "Yes",
+    "BACK": "Rétour",
+    "MORE_OPTIONS": "Autres options",
+    "SEARCH": "Recherche",
+    "OF_COURSE": "Oui, bien sûr!",
+    "YES": "Oui",
     "SAVE_CHANGES": "Save changes",
     "RESET": "Reset",
     "CHANGE_PASSWORD": "Change password",
@@ -49,7 +49,7 @@
     "LEAVE": "Quitter le groupe...",
     "LEAVE_TEXT": "Es-tu sûr que tu veux quitter ce groupe?",
     "LEAVE_CONFIRMATION": "You left {groupName}",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "NONMEMBER_REDIRECT": "Tu n'est pas membre de ce groupe.",
     "EDIT": "Traite groupe",
     "CREATE_TITLE": "Créer un nouvel groupe",
     "MANAGE_AGREEMENT": "Manage agreement",
@@ -60,7 +60,7 @@
     "PICKUPS": "Récoltes",
     "MEMBERS": "Membres",
     "STORES": "Magasins",
-    "HISTORY": "History",
+    "HISTORY": "Histoire",
     "DESCRIPTION": "Déscription",
     "ADDRESS": "Addresse",
     "TIMEZONE": "Fuseau horaire du groupe",
@@ -101,13 +101,13 @@
     "RESTORE": "Restore"
   },
   "PICKUPMANAGE": {
-    "TITLE": "Manage pickups",
-    "SERIES": "Recurring",
-    "SINGLE": "One-time pickups",
+    "TITLE": "Administrer les récoltes",
+    "SERIES": "Récurrent",
+    "SINGLE": "Récoltes individuelles",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TITLE": "Effacer récolte récurrent",
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
@@ -125,23 +125,23 @@
     "PASSWORD_LABEL": "Tape le mot de passe pour le groupe privé",
     "PASSWORD_REQUIRED": "Ce groupe demande un mot de passe",
     "PASSWORD_WRONG": "Le mot de passe que tu as saisi est incorrecte",
-    "ALL_GROUPS": "All groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "MY_GROUPS": "My groups",
+    "ALL_GROUPS": "Tous les groupes",
+    "SIGNUP_OR_LOGIN": "Il faut s'enregistrer pour joindre ce groupe!",
+    "MY_GROUPS": "Mes groupes",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "You are currently logged out. {login}",
       "LOG_IN": "Log in to see your groups!"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
+    "PROFILE_NOTE": "Quand tu joins ce groupe tes détails seront visible pour les autres membres."
   },
   "GROUPINFO": {
-    "META": "Show public group information",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+    "META": "Information publique du groupe",
+    "MEMBER_VIEW": "Tu es membre de ce groupe. Clique ici pour l'affichage complet."
   },
   "TOPBAR": {
     "LOGOUT": "Déconnexion",
     "USERPROFILE": "Vois ton profile",
-    "CHANGE_GROUP": "Change group"
+    "CHANGE_GROUP": "Change groupe"
   },
   "LOGIN": {
     "TITLE": "Connexion",
@@ -221,14 +221,14 @@
     "STORE_CREATE": "created store {name}",
     "STORE_MODIFY": "changed the settings of store {name}",
     "STORE_DELETE": "deleted store {name}",
-    "PICKUP_CREATE": "created a new one-time pick-up",
-    "PICKUP_MODIFY": "changed the settings of a pick-up",
-    "PICKUP_DELETE": "deleted a pick-up",
-    "SERIES_CREATE": "created a new recurring pick-up",
-    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
-    "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
+    "PICKUP_CREATE": "a crée une récolte individuelle",
+    "PICKUP_MODIFY": "a changé les détails d'une récolte",
+    "PICKUP_DELETE": "a effacé une récolte",
+    "SERIES_CREATE": "a crée une nouvelle récolte récurrent",
+    "SERIES_MODIFY": "a changé les détails d'une récolte récurrent",
+    "SERIES_DELETE": "a effacé une récolte récurrent",
+    "PICKUP_DONE": "a fait une récolte à {storeName}",
+    "PICKUP_MISSED": "Une récolte à {storeName} a été manqué!",
     "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
     "NOTHING_HAPPENEND": "Nothing happened so far...",

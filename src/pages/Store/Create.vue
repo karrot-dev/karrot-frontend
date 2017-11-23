@@ -4,9 +4,8 @@ import StoreEdit from '@/components/Store/StoreEdit'
 
 export default connect({
   gettersToProps: {
-    status: 'stores/status',
     allStores: 'stores/byActiveGroup',
-    requestError: 'stores/error',
+    status: 'stores/createStatus',
   },
   actionsToEvents: {
     save: 'stores/create',

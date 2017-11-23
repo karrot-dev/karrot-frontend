@@ -1,14 +1,14 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit.prevent="save">
+    <form @submit.prevent="maybeSave">
       <q-field
         icon="fa-star"
         :label="$t('AGREEMENT.TITLE')"
         :helper="$t('AGREEMENT.TITLE_HELPER')">
         <q-input
-          v-model="agreementEdit.title"
+          v-model="edit.title"
           :autofocus="true"
-          @blur="$v.agreementEdit.title.$touch"
+          @blur="$v.edit.title.$touch"
           autocomplete="off"
         />
       </q-field>
@@ -18,8 +18,8 @@
         :label="$t('AGREEMENT.CONTENT')"
         :helper="$t('AGREEMENT.CONTENT_HELPER')">
         <q-input
-          v-model="agreementEdit.content"
-          @blur="$v.agreementEdit.content.$touch"
+          v-model="edit.content"
+          @blur="$v.edit.content.$touch"
           type="textarea"
           :min-rows="20"
           />
@@ -50,48 +50,22 @@
 import { QCard, QField, QInput, QBtn, QCheckbox, QTooltip, Dialog } from 'quasar'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
-
-import cloneDeep from 'clone-deep'
-import deepEqual from 'deep-equal'
-import { objectDiff } from '@/services/utils'
+import editMixin from '@/mixins/editMixin'
 
 export default {
   name: 'AgreementForm',
-  mixins: [validationMixin],
-  props: {
-    agreement: {
-      required: false,
-      default () {
-        return {
-          title: undefined,
-          content: undefined,
-        }
-      },
-    },
-  },
+  mixins: [validationMixin, editMixin],
   components: {
     QCard, QField, QInput, QBtn, QCheckbox, QTooltip,
   },
   data () {
     return {
-      agreementEdit: cloneDeep(this.agreement),
       minor: false,
     }
   },
-  watch: {
-    agreement () {
-      this.reset()
-    },
-  },
   computed: {
-    isNew () {
-      return !this.agreement.id
-    },
-    hasChanged () {
-      return !this.isNew && !deepEqual(this.agreement, this.agreementEdit)
-    },
     canSave () {
-      if (this.$v.agreementEdit.$error) {
+      if (this.$v.edit.$error) {
         return false
       }
       if (!this.isNew && !this.hasChanged) {
@@ -101,14 +75,11 @@ export default {
     },
   },
   methods: {
-    reset () {
-      this.agreementEdit = cloneDeep(this.agreement)
-    },
-    save (event) {
-      this.$v.agreementEdit.$touch()
+    maybeSave (event) {
+      this.$v.edit.$touch()
       if (!this.canSave) return
       if (this.isNew) {
-        this.$emit('save', this.agreementEdit, event)
+        this.save()
       }
       else {
         if (!this.minor) {
@@ -120,20 +91,20 @@ export default {
               {
                 label: this.$t('AGREEMENT.DIALOGS.REPLACE.CONFIRM'),
                 handler: () => {
-                  this.$emit('replace', { ...this.agreementEdit, id: this.agreement.id }, event)
+                  this.$emit('replace', { ...this.edit, id: this.agreement.id }, event)
                 },
               },
             ],
           })
         }
         else {
-          this.$emit('save', { ...objectDiff(this.agreement, this.agreementEdit), id: this.agreement.id }, event)
+          this.save()
         }
       }
     },
   },
   validations: {
-    agreementEdit: {
+    edit: {
       title: {
         required,
       },

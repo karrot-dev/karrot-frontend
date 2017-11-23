@@ -16,12 +16,4 @@ export default {
   delete (id) {
     return axios.delete(`/api/auth/user/`)
   },
-
-  verifyMail (key) {
-    return axios.post('/api/auth/user/verify_mail/', { key })
-  },
-
-  resendVerificationRequest () {
-    return axios.post('/api/auth/user/resend_verification/')
-  },
 }

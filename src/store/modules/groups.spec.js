@@ -241,13 +241,7 @@ describe('groups', () => {
       expect(routeError.actions.set).not.toBeCalled()
     })
 
-    it('sets routeError if not member of group', async () => {
-      mockGet.mockReturnValueOnce(group1)
-      await store.dispatch('groups/selectGroup', group1.id)
-      expect(routeError.actions.set).toBeCalled()
-    })
-
-    it('sets routeError if not group does not exist', async () => {
+    it('sets routeError if not group does not exist or user is not member of the group', async () => {
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
       await store.dispatch('groups/selectGroup', 9999)
       expect(routeError.actions.set).toBeCalled()

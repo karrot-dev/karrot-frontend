@@ -140,7 +140,7 @@ export const actions = {
     if (state.resendVerificationStatus.isWaiting) return
     commit(types.REQUEST_VERIFICATIONMAIL)
     try {
-      await authUser.resendVerificationRequest()
+      await auth.resendVerificationRequest()
     }
     catch (error) {
       onlyHandleAPIError(error, data => commit(types.RECEIVE_VERIFICATIONMAIL_ERROR, data))

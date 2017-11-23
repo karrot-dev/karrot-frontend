@@ -1,6 +1,6 @@
 <template>
   <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit.prevent="checkSave">
+    <form @submit.prevent="maybeSave">
       <q-field
         icon="fa-star"
         :label="$t('AGREEMENT.TITLE')"
@@ -75,7 +75,7 @@ export default {
     },
   },
   methods: {
-    checkSave (event) {
+    maybeSave (event) {
       this.$v.edit.$touch()
       if (!this.canSave) return
       if (this.isNew) {

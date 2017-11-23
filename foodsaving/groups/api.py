@@ -92,7 +92,7 @@ class GroupViewSet(
 
     def partial_update(self, request, *args, **kwargs):
         """Update one of your groups"""
-        return super().partial_update(request, *args, *kwargs)
+        return super().partial_update(request, *args, **kwargs)
 
     def get_queryset(self):
         if self.action == 'join':

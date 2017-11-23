@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import stores from '@/services/api/stores'
-import { indexById, onlyHandleAPIError, createRouteError } from '@/store/helpers'
+import { createMetaModule, withMeta, metaStatuses, metaStatusesWithId, indexById, createRouteError } from '@/store/helpers'
 import router from '@/router'
+
+export const modules = { meta: createMetaModule() }
 
 export const types = {
 
@@ -11,10 +13,6 @@ export const types = {
   REQUEST_STORES: 'Request Stores',
   RECEIVE_STORES: 'Receive Stores',
   RECEIVE_STORES_ERROR: 'Receive Stores Error',
-
-  REQUEST_SAVE: 'Request Save',
-  RECEIVE_SAVE: 'Receive Save',
-  RECEIVE_SAVE_ERROR: 'Receive Save Error',
 
   RECEIVE_ITEM: 'Receive Item',
 
@@ -38,14 +36,37 @@ export const state = initialState()
 export const getters = {
   all: (state, getters) => state.idList.map(getters.get).sort(sortByName),
   byActiveGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['groups/activeGroupId']),
-  get: (state, getters) => id => state.entries[id],
+  get: (state, getters) => id => getters.enrich(state.entries[id]),
+  enrich: (state, getters) => store => {
+    return store && {
+      ...store,
+      ...metaStatusesWithId(getters, ['save'], store.id),
+    }
+  },
   activeStore: (state, getters) => getters.get(state.activeStoreId) || {},
   activeStoreId: state => state.activeStoreId,
-  status: state => { return { isWaiting: state.isWaiting, error: state.error } },
   error: (state, getters) => field => getters.status.error && getters.status.error[field] && getters.status.error[field][0],
+  ...metaStatuses(['create']),
 }
 
 export const actions = {
+  ...withMeta({
+    async save ({ commit, dispatch }, store) {
+      commit(types.RECEIVE_ITEM, { store: await stores.save(store) })
+      router.push({ name: 'store', params: { storeId: store.id } })
+    },
+
+    async create ({ commit, dispatch, rootGetters }, store) {
+      const createdStore = await stores.create({
+        ...store,
+        group: rootGetters['groups/activeGroupId'],
+      })
+      commit(types.RECEIVE_ITEM, { store: createdStore })
+      router.push({ name: 'store', params: { storeId: createdStore.id } })
+    },
+
+  }),
+
   async selectStore ({ commit, state, dispatch, getters, rootState }, { storeId }) {
     if (!getters.get(storeId)) {
       try {
@@ -73,70 +94,6 @@ export const actions = {
     catch (error) {
       commit(types.RECEIVE_STORES_ERROR, { error })
     }
-  },
-
-  async save ({ commit, dispatch }, store) {
-    commit(types.REQUEST_SAVE)
-    let updatedStore
-    try {
-      updatedStore = await stores.save(store)
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
-      return
-    }
-    commit(types.RECEIVE_SAVE)
-    commit(types.RECEIVE_ITEM, { store: updatedStore })
-    router.push({ name: 'store', params: { storeId: updatedStore.id } })
-  },
-
-  async delete ({ commit, dispatch }, store) {
-    commit(types.REQUEST_SAVE)
-    store.status = 'archived'
-    let updatedStore
-    try {
-      updatedStore = await stores.save(store)
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
-      return
-    }
-    commit(types.RECEIVE_SAVE)
-    commit(types.RECEIVE_ITEM, { store: updatedStore })
-    // router.push({ name: 'group', params: { storeId: updatedStore.id } })
-  },
-
-  async restore ({ commit, dispatch, getters }, store) {
-    commit(types.REQUEST_SAVE)
-    if (!store) store = getters.activeStore
-    let updatedStore
-    try {
-      updatedStore = await stores.save({ id: store.id, status: 'created' })
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
-      return
-    }
-    commit(types.RECEIVE_SAVE)
-    commit(types.RECEIVE_ITEM, { store: updatedStore })
-  },
-
-  async create ({ commit, dispatch, rootGetters }, store) {
-    commit(types.REQUEST_SAVE)
-    let createdStore
-    try {
-      createdStore = await stores.create({
-        ...store,
-        group: rootGetters['groups/activeGroupId'],
-      })
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_SAVE_ERROR, data))
-      return
-    }
-    commit(types.RECEIVE_SAVE)
-    commit(types.RECEIVE_ITEM, { store: createdStore })
-    router.push({ name: 'store', params: { storeId: createdStore.id } })
   },
 
   clear ({ commit, dispatch }) {
@@ -167,18 +124,6 @@ export const mutations = {
     state.activeStoreId = null
     state.entries = {}
     state.idList = []
-  },
-  [types.REQUEST_SAVE] (state) {
-    state.status.isWaiting = true
-    state.status.error = null
-  },
-  [types.RECEIVE_SAVE] (state) {
-    state.status.isWaiting = false
-    state.status.error = null
-  },
-  [types.RECEIVE_SAVE_ERROR] (state, { error }) {
-    state.status.isWaiting = false
-    state.status.error = error
   },
   [types.RECEIVE_ITEM] (state, { store }) {
     Vue.set(state.entries, store.id, store)

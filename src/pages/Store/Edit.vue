@@ -1,13 +1,15 @@
 <script>
 import { connect } from 'vuex-connect'
+import store from '@/store'
 import StoreEdit from '@/components/Store/StoreEdit'
 
 export default connect({
+  stateToProps: {
+    status: () => store.getters['stores/activeStore'].saveStatus,
+  },
   gettersToProps: {
-    store: 'stores/activeStore',
-    status: 'stores/status',
+    value: 'stores/activeStore',
     allStores: 'stores/byActiveGroup',
-    requestError: 'stores/error',
   },
   actionsToEvents: {
     save: 'stores/save',

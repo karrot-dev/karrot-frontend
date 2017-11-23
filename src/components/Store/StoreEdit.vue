@@ -2,50 +2,64 @@
   <div>
     <q-card>
       <div class="edit" :class="{ changed: hasChanged }">
-        <form @submit.prevent="save">
+        <form @submit.prevent="maybeSave">
           <q-field
             icon="fa-star"
             :label="$t('STOREEDIT.NAME')"
-            :error="!!nameError"
-            :error-label="nameError">
+            :error="hasNameError"
+            :error-label="nameError"
+            >
             <q-input
-              v-model="storeEdit.name"
+              v-model="edit.name"
               :autofocus="true"
-              @blur="$v.storeEdit.name.$touch"
-              autocomplete="off" />
+              @blur="$v.edit.name.$touch"
+              autocomplete="off"
+            />
           </q-field>
           <q-field
             icon="fa-handshake-o"
-            :label="$t('STOREEDIT.STATUS')">
+            :label="$t('STOREEDIT.STATUS')"
+            :error="hasError('status')"
+            :error-label="firstError('status')"
+            >
               <q-select
-               v-model="storeEdit.status"
+               v-model="edit.status"
                :options="statusOptions"
              />
           </q-field>
 
           <q-field
             icon="fa-question"
-            :label="$t('STOREEDIT.DESCRIPTION')">
-            <MarkdownInput :value="storeEdit.description">
-              <q-input v-model="storeEdit.description" type="textarea" :min-rows="3" />
+            :label="$t('STOREEDIT.DESCRIPTION')"
+            :error="hasError('description')"
+            :error-label="firstError('description')"
+            >
+            <MarkdownInput :value="edit.description">
+              <q-input v-model="edit.description" type="textarea" :min-rows="3" />
             </MarkdownInput>
           </q-field>
 
           <q-field
             icon="fa-map"
-            :label="$t('STOREEDIT.ADDRESS')">
-            <address-picker v-model="storeEdit" :map="true"/>
+            :label="$t('STOREEDIT.ADDRESS')"
+            :error="hasAddressError"
+            :error-label="addressError"
+            >
+            <address-picker v-model="edit" :map="true" />
           </q-field>
 
           <q-field
             icon="fa-calendar"
-            :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')">
-            <q-slider v-model="storeEdit.weeksInAdvance" :min="1" :max="10" label label-always />
+            :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
+            :error="hasError('weeksInAdvance')"
+            :error-label="firstError('weeksInAdvance')"
+            >
+            <q-slider v-model="edit.weeksInAdvance" :min="1" :max="10" label label-always />
           </q-field>
 
-          <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
+          <div v-if="hasNonFieldErrors" class="text-negative">{{ nonFieldErrors }}</div>
 
-          <q-btn type="submit" color="primary" :disable="!canSave" loader :value="status.isWaiting">
+          <q-btn type="submit" color="primary" :disable="!canSave" loader :value="isPending">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
@@ -70,57 +84,36 @@ import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
+import editMixin from '@/mixins/editMixin'
+import statusMixin from '@/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import { statusList } from '@/services/storeStatus'
 
-import cloneDeep from 'clone-deep'
-import deepEqual from 'deep-equal'
-import { objectDiff } from '@/services/utils'
-
 export default {
   name: 'StoreEdit',
-  mixins: [validationMixin],
+  mixins: [validationMixin, editMixin, statusMixin],
   props: {
-    store: {
+    value: {
       required: false,
-      default () {
-        return {
-          name: undefined,
-          description: undefined,
-          weeksInAdvance: 4,
-          latitude: undefined,
-          longitude: undefined,
-          address: undefined,
-          status: 'created',
-        }
-      },
+      type: Object,
+      default: () => ({
+        name: undefined,
+        description: undefined,
+        weeksInAdvance: 4,
+        latitude: undefined,
+        longitude: undefined,
+        address: undefined,
+        status: 'created',
+      }),
     },
-    status: { required: true },
     allStores: { required: true },
-    requestError: { required: true },
   },
   components: {
     QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
   },
-  data () {
-    return {
-      storeEdit: cloneDeep(this.store),
-    }
-  },
-  watch: {
-    store () {
-      this.reset()
-    },
-  },
   computed: {
-    isNew () {
-      return !this.store.id
-    },
-    hasChanged () {
-      return !this.isNew && !deepEqual(this.store, this.storeEdit)
-    },
     canSave () {
-      if (this.$v.storeEdit.$error) {
+      if (this.$v.edit.$error) {
         return false
       }
       if (!this.isNew && !this.hasChanged) {
@@ -128,13 +121,24 @@ export default {
       }
       return true
     },
+    hasNameError () {
+      return !!this.nameError
+    },
     nameError () {
-      const m = this.$v.storeEdit.name
+      const m = this.$v.edit.name
       if (!m.required) return this.$t('VALIDATION.REQUIRED')
       if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 2)
       if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
       if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
-      return this.requestError('name')
+      return this.firstError('name')
+    },
+    hasAddressError () {
+      return !!this.addressError
+    },
+    addressError () {
+      for (let field of ['address', 'latitude', 'longitude']) {
+        if (this.hasError(field)) return this.firstError(field)
+      }
     },
     statusOptions () {
       return statusList
@@ -148,18 +152,10 @@ export default {
     },
   },
   methods: {
-    reset () {
-      this.storeEdit = cloneDeep(this.store)
-    },
-    save (event) {
-      this.$v.storeEdit.$touch()
+    maybeSave () {
+      this.$v.edit.$touch()
       if (!this.canSave) return
-      if (this.isNew) {
-        this.$emit('save', this.storeEdit, event)
-      }
-      else {
-        this.$emit('save', { ...objectDiff(this.store, this.storeEdit), id: this.store.id }, event)
-      }
+      this.save()
     },
     archive (event) {
       Dialog.create({
@@ -170,7 +166,7 @@ export default {
           {
             label: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
             handler: () => {
-              this.$emit('save', { id: this.store.id, status: 'archived' }, event)
+              this.$emit('save', { id: this.value.id, status: 'archived' }, event)
             },
           },
         ],
@@ -178,7 +174,7 @@ export default {
     },
   },
   validations: {
-    storeEdit: {
+    edit: {
       name: {
         required,
         minLength: minLength(3),
@@ -186,7 +182,7 @@ export default {
         isUnique (value) {
           if (value === '') return true
           return this.allStores
-            .filter(e => e.id !== this.storeEdit.id)
+            .filter(e => e.id !== this.edit.id)
             .findIndex(e => e.name === value) < 0
         },
       },

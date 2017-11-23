@@ -34,7 +34,7 @@
 
 <script>
 
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import Markdown from '@/components/Markdown'
 import StoreOptions from '@/components/Sidenav/StoreOptions'
 
@@ -49,9 +49,9 @@ export default {
     }),
   },
   methods: {
-    ...mapActions({
-      restore: 'stores/restore',
-    }),
+    restore () {
+      this.$store.dispatch('stores/save', { id: this.store.id, status: 'created' })
+    },
   },
 }
 </script>

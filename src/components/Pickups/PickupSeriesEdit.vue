@@ -95,7 +95,7 @@ export default {
           {
             label: this.$t('BUTTON.YES'),
             handler: () => {
-              this.$emit('destroy', this.source.id, event)
+              this.$emit('destroy', this.value.id, event)
             },
           },
         ],

@@ -190,9 +190,9 @@ export default {
         minLength: minLength(5),
         maxLength: maxLength(80),
         isUnique (value) {
-          if (value === '' || !this.source) return true
+          if (value === '' || !this.value) return true
           return this.allGroups
-            .filter(e => e.id !== this.source.id)
+            .filter(e => e.id !== this.value.id)
             .findIndex(e => e.name === value) < 0
         },
       },

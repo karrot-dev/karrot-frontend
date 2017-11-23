@@ -13,13 +13,13 @@ export default {
   },
   watch: {
     value (current, previous) {
-      const changes = objectDiff(previous, current)
+      const changes = (current && previous) ? objectDiff(previous, current) : {}
       this.edit = cloneDeep({ ...this.edit, ...changes })
     },
   },
   computed: {
     isNew () {
-      return !this.value.id
+      return this.value && !this.value.id
     },
     hasChanged () {
       return !this.isNew && !deepEqual(this.value, this.edit)

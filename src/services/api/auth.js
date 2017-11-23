@@ -82,4 +82,16 @@ export default {
       throw new Error('getToken() is only available inside cordova environment')
     }
   },
+
+  resetPassword (email) {
+    return axios.post('/api/auth/reset_password/', { email })
+  },
+
+  verifyMail (key) {
+    return axios.post('/api/auth/verify_mail/', { key })
+  },
+
+  resendVerificationRequest () {
+    return axios.post('/api/auth/resend_verification/')
+  },
 }

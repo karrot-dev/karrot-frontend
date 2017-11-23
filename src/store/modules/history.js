@@ -93,7 +93,6 @@ export const actions = {
     catch (error) {
       throw createRouteError()
     }
-
   },
 
   async fetchMore ({ state, commit }) {

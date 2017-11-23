@@ -50,31 +50,8 @@ export default store => {
   })
 
   router.beforeEach(async (to, from, next) => {
-    for (let m of from.matched) {
-      if (m.meta.afterLeave) {
-        console.log('afterLeave', m.meta.afterLeave)
-        await store.dispatch(m.meta.afterLeave)
-      }
-    }
-    for (let m of to.matched) {
-      if (m.meta.beforeEnter) {
-        try {
-          console.log('beforeEnter', to.params)
-          await store.dispatch(m.meta.beforeEnter, parseAsIntegers(to.params))
-        }
-        catch (error) {
-          if (error.type === 'RouteError') {
-            await store.dispatch('routeError/set', error.data)
-            // no further loading needed
-            return
-          }
-          else {
-            // can't be handled here
-            throw error
-          }
-        }
-      }
-    }
+    await maybeDispatchActions(store, to, from)
+
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     /* If:
@@ -111,8 +88,35 @@ export function findBreadcrumbs (matched) {
   }, [])
 }
 
+export async function maybeDispatchActions (store, to, from) {
+  for (let m of from.matched.reverse()) {
+    if (m.meta.afterLeave) {
+      await store.dispatch(m.meta.afterLeave)
+    }
+  }
+  for (let m of to.matched) {
+    if (m.meta.beforeEnter) {
+      try {
+        await store.dispatch(m.meta.beforeEnter, parseAsIntegers(to.params))
+      }
+      catch (error) {
+        if (error.type === 'RouteError') {
+          await store.dispatch('routeError/set', error.data)
+          // no further loading should be done
+          return
+        }
+        else {
+          // can't be handled here
+          throw error
+        }
+      }
+    }
+  }
+}
+
 export function parseAsIntegers (obj) {
   return Object.entries(obj).reduce((acc, [k, v]) => {
     acc[k] = parseInt(v, 10)
+    return acc
   }, {})
 }

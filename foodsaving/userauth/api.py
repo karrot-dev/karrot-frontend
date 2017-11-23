@@ -1,26 +1,12 @@
-from django.contrib.auth import logout
+from django.contrib.auth import logout, get_user_model
 from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
 from django.utils import timezone
 from rest_framework import status, generics, views
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
-from foodsaving.userauth.serializers import AuthLoginSerializer, AuthUserSerializer
-
-
-class AuthStatusView(generics.GenericAPIView):
-    serializer_class = AuthLoginSerializer
-
-    def get(self, request, **kwargs):
-        """ Get the login state (logged in user)
-        DEPRECATED in favour of /auth/user/
-        """
-        generate_csrf_token_for_frontend(request)
-        if request.user.is_anonymous():
-            return Response(data={"error": "not_authed"}, status=status.HTTP_401_UNAUTHORIZED)
-        else:
-            serializer = AuthUserSerializer(request.user)
-            return Response(serializer.data)
+from foodsaving.userauth.permissions import IsNotVerified
+from foodsaving.userauth.serializers import AuthLoginSerializer, AuthUserSerializer, VerifyMailSerializer
 
 
 class LogoutView(views.APIView):
@@ -43,13 +29,13 @@ class AuthView(generics.GenericAPIView):
 
 
 class AuthUserView(generics.GenericAPIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
     serializer_class = AuthUserSerializer
 
     def get_permissions(self):
         # Allow creating user when not logged in
         if self.request.method.lower() == 'post':
-            return []
+            return ()
         return super().get_permissions()
 
     def post(self, request):
@@ -69,6 +55,7 @@ class AuthUserView(generics.GenericAPIView):
 
     def get(self, request):
         """Get logged-in user"""
+        generate_csrf_token_for_frontend(request)
         serializer = self.get_serializer(request.user)
         return Response(serializer.data)
 
@@ -100,3 +87,52 @@ class AuthUserView(generics.GenericAPIView):
         user.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class VerifyMailView(generics.GenericAPIView):
+    permission_classes = (IsAuthenticated, IsNotVerified)
+    serializer_class = VerifyMailSerializer
+
+    def post(self, request):
+        """
+        Send token to verify e-mail
+
+        requires "key" parameter
+        """
+        self.check_object_permissions(request, request.user)
+        serializer = self.get_serializer(request.user, request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
+
+
+class ResendVerificationView(views.APIView):
+    permission_classes = (IsAuthenticated, IsNotVerified)
+
+    def post(self, request):
+        """Resend verification e-mail"""
+        self.check_object_permissions(request, request.user)
+        request.user.send_new_verification_code()
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
+
+
+class ResetPasswordView(views.APIView):
+    permission_classes = (AllowAny,)
+
+    def post(self, request):
+        """
+        Request new password
+
+        send a request with 'email' to this endpoint to get a new password mailed
+        """
+        request_email = request.data.get('email')
+        if not request_email:
+            return Response(status=status.HTTP_400_BAD_REQUEST,
+                            data={'error': 'mail address is not provided'})
+        try:
+            user = get_user_model().objects.get(email__iexact=request_email)
+        except get_user_model().DoesNotExist:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+        user.reset_password()
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})

@@ -27,31 +27,32 @@ from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
 from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet, FeedbackViewSet
 from foodsaving.subscriptions.api import PushSubscriptionViewSet
-from foodsaving.userauth.api import AuthUserView, AuthView, LogoutView, AuthStatusView
+from foodsaving.userauth.api import AuthUserView, AuthView, LogoutView, VerifyMailView, ResendVerificationView, \
+    ResetPasswordView
 from foodsaving.users.api import UserViewSet
 
 router = routers.DefaultRouter()
 
-router.register(r'groups', GroupViewSet)
-router.register(r'groups-info', GroupInfoViewSet)
-router.register(r'agreements', AgreementViewSet)
+router.register('groups', GroupViewSet)
+router.register('groups-info', GroupInfoViewSet)
+router.register('agreements', AgreementViewSet)
 
 # User endpoints
-router.register(r'users', UserViewSet)
+router.register('users', UserViewSet)
 
 # pickup date endpoints
-router.register(r'pickup-date-series', PickupDateSeriesViewSet)
-router.register(r'pickup-dates', PickupDateViewSet)
+router.register('pickup-date-series', PickupDateSeriesViewSet)
+router.register('pickup-dates', PickupDateViewSet)
 
 # Conversation/Message endpoints
-router.register(r'conversations', ConversationViewSet)
-router.register(r'messages', ConversationMessageViewSet)
+router.register('conversations', ConversationViewSet)
+router.register('messages', ConversationMessageViewSet)
 
 # Subscription endpoints
-router.register(r'subscriptions/push', PushSubscriptionViewSet)
+router.register('subscriptions/push', PushSubscriptionViewSet)
 
 # Store endpoints
-router.register(r'stores', StoreViewSet)
+router.register('stores', StoreViewSet)
 
 # History endpoints
 router.register('history', HistoryViewSet)
@@ -65,9 +66,11 @@ router.register(r'feedback', FeedbackViewSet)
 
 urlpatterns = [
     url(r'^api/auth/token/$', obtain_auth_token),
-    url(r'^api/auth/status/$', AuthStatusView.as_view()),
     url(r'^api/auth/logout/$', LogoutView.as_view()),
     url(r'^api/auth/user/$', AuthUserView.as_view()),
+    url(r'^api/auth/verify_mail/$', VerifyMailView.as_view()),
+    url(r'^api/auth/resend_verification/$', ResendVerificationView.as_view()),
+    url(r'^api/auth/reset_password/$', ResetPasswordView.as_view()),
     url(r'^api/auth/$', AuthView.as_view()),
     url(r'^api/', include(router.urls, namespace='api')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

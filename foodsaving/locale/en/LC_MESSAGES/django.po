@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-31 11:33+0000\n"
+"POT-Creation-Date: 2017-11-20 17:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,21 +32,16 @@ msgid ""
 "the foodsaving.world team"
 msgstr ""
 
-#: foodsaving/conversations/api.py:26
-#: foodsaving/conversations/serializers.py:32
+#: foodsaving/conversations/api.py:28
+#: foodsaving/conversations/serializers.py:68
 msgid "You are not in this conversation"
 msgstr ""
 
-#: foodsaving/groups/api.py:25 foodsaving/invitations/serializers.py:25
-#: foodsaving/stores/serializers.py:236
-msgid "You are not a member of this group."
-msgstr ""
-
-#: foodsaving/groups/api.py:32
+#: foodsaving/groups/api.py:24
 msgid "You are already a member."
 msgstr ""
 
-#: foodsaving/groups/api.py:39
+#: foodsaving/groups/api.py:31
 msgid "You do not have permission to update memberships."
 msgstr ""
 
@@ -68,6 +63,11 @@ msgstr ""
 
 #: foodsaving/groups/serializers.py:212
 msgid "Group password is wrong"
+msgstr ""
+
+#: foodsaving/invitations/serializers.py:25
+#: foodsaving/stores/serializers.py:235
+msgid "You are not a member of this group."
 msgstr ""
 
 #: foodsaving/invitations/serializers.py:30
@@ -112,32 +112,32 @@ msgstr ""
 msgid "This feedback is given by another user."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:39 foodsaving/stores/serializers.py:171
-#: foodsaving/stores/serializers.py:262
+#: foodsaving/stores/serializers.py:38 foodsaving/stores/serializers.py:170
+#: foodsaving/stores/serializers.py:261
 msgid "You are not member of the store's group."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:88
+#: foodsaving/stores/serializers.py:87
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:181
+#: foodsaving/stores/serializers.py:180
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:241
+#: foodsaving/stores/serializers.py:240
 msgid "Set at least one week in advance"
 msgstr ""
 
-#: foodsaving/stores/serializers.py:264
+#: foodsaving/stores/serializers.py:263
 msgid "The pickup is not done yet"
 msgstr ""
 
-#: foodsaving/stores/serializers.py:266
+#: foodsaving/stores/serializers.py:265
 msgid "You aren't assigned to the pickup."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:268
+#: foodsaving/stores/serializers.py:267
 msgid "You can't give feedback for pickups more than 30 days ago."
 msgstr ""
 
@@ -148,34 +148,30 @@ msgid ""
 "and save the food!"
 msgstr ""
 
-#: foodsaving/users/models.py:180
-msgid "New password"
-msgstr ""
-
-#: foodsaving/users/models.py:181
-msgid ""
-"Here is your new temporary password: {}. You can use it to login. Please "
-"change it soon."
-msgstr ""
-
-#: foodsaving/users/permissions.py:6
-msgid "You can modify only your own user data."
-msgstr ""
-
-#: foodsaving/users/permissions.py:13
+#: foodsaving/userauth/permissions.py:6
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/users/serializers.py:41
+#: foodsaving/userauth/serializers.py:52
 msgid "Similar e-mail exists: "
 msgstr ""
 
-#: foodsaving/users/serializers.py:64
+#: foodsaving/userauth/serializers.py:77
 msgid "Key has expired"
 msgstr ""
 
-#: foodsaving/users/serializers.py:66
+#: foodsaving/userauth/serializers.py:79
 msgid "Key is invalid"
+msgstr ""
+
+#: foodsaving/users/models.py:184
+msgid "New password"
+msgstr ""
+
+#: foodsaving/users/models.py:185
+msgid ""
+"Here is your new temporary password: {}. You can use it to login. Please "
+"change it soon."
 msgstr ""
 
 #: foodsaving/users/templates/accountdelete_request-subject.jinja:1

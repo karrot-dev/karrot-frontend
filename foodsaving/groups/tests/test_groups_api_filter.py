@@ -5,9 +5,9 @@ from foodsaving.groups.factories import GroupFactory
 from foodsaving.users.factories import UserFactory
 
 
-class TestGroupsAPIFilter(APITestCase):
+class TestGroupsInfoAPIFilter(APITestCase):
     def setUp(self):
-        self.url = '/api/groups/'
+        self.url = '/api/groups-info/'
 
         # some user
         self.user = UserFactory()

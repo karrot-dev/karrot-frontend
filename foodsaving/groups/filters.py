@@ -9,9 +9,15 @@ def include_empty(qs, name, value):
     return qs.exclude(members=None)
 
 
-class GroupsFilter(FilterSet):
+class GroupsInfoFilter(FilterSet):
     include_empty = BooleanFilter(name='members', method=include_empty)
 
     class Meta:
         model = Group
         fields = ['members', 'include_empty', 'name']
+
+
+class GroupsFilter(FilterSet):
+    class Meta:
+        model = Group
+        fields = ['members', 'name']

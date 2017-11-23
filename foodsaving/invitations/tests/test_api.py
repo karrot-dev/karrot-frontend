@@ -53,7 +53,7 @@ class TestInvitationAPIIntegration(APITestCase):
         self.assertIn(self.non_member, self.group.members.all())
 
         # check if current_group is set to invited group
-        response = self.client.get('/api/auth/status/')
+        response = self.client.get('/api/auth/user/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['current_group'], self.group.id)
 

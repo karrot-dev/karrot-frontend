@@ -20,7 +20,7 @@ class UserManager(BaseUserManager):
 
     @transaction.atomic
     def _create_user(self, email, password, display_name=None, is_active=True, **extra_fields):
-        """ Creates and saves a User with the given username, email and password.
+        """ Creates and saves a user with the given username, email and password.
 
         """
         email = self._validate_email(email)

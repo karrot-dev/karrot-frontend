@@ -56,13 +56,13 @@ class TestUserAuthAPI(APITestCase):
         self.assertFalse(user.is_authenticated())
 
     def test_status_not_logged_in(self):
-        response = self.client.get('/api/auth/status/')
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
-        self.assertEqual(response.data['error'], 'not_authed')
+        response = self.client.get('/api/auth/user/')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.data['error_code'], 'not_authenticated', response.data)
 
     def test_status_as_user(self):
         self.client.force_login(user=self.user)
-        response = self.client.get('/api/auth/status/')
+        response = self.client.get('/api/auth/user/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['display_name'], self.user.display_name)
 
@@ -90,8 +90,8 @@ class TestTokenAuthAPI(APITestCase):
     def test_use_token(self):
         token = Token.objects.create(user=self.user)
         response = self.client.get(
-            '/api/auth/status/',
+            '/api/auth/user/',
             **{'HTTP_AUTHORIZATION': 'Token {}'.format(token.key)}
         )
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(response.data['email'], self.user.email)

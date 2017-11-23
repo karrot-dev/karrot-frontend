@@ -4,10 +4,9 @@ import pytz
 from dateutil.relativedelta import relativedelta
 from django.core import mail
 from django.core.management import call_command
+from django.core.management.base import BaseCommand
 from django.http import request
 from django.utils import timezone
-
-from django.core.management.base import BaseCommand
 from rest_framework.test import APIClient
 
 from foodsaving.groups.models import Group
@@ -71,7 +70,7 @@ class Command(BaseCommand):
         password = '123'
 
         def make_user():
-            data = c.post('/api/users/', {
+            data = c.post('/api/auth/user/', {
                 'email': str(timezone.now().microsecond) + faker.email(),
                 'password': password,
                 'display_name': faker.name(),

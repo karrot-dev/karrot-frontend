@@ -5,7 +5,7 @@ from rest_framework.test import APITestCase
 class TestCustomExceptionHandlerAPI(APITestCase):
     def test_use_token(self):
         response = self.client.get(
-            '/api/auth/status/',
+            '/api/auth/user/',
             **{
                 'HTTP_AUTHORIZATION': 'Token {}'.format('invalidtoken'),
                 'HTTP_ACCEPT_LANGUAGE': 'de',

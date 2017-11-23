@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.auth import authenticate, login, get_user_model
+from django.utils import timezone
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
 
@@ -26,7 +27,7 @@ class AuthUserSerializer(serializers.ModelSerializer):
         fields = ['id', 'display_name', 'email', 'unverified_email', 'password',
                   'address', 'latitude', 'longitude', 'description', 'mail_verified',
                   'key_expires_at', 'current_group', 'language']
-        read_only_field = ['unverified_email', 'key_expires_at']
+        read_only_fields = ('unverified_email', 'key_expires_at')
         extra_kwargs = {
             'email': {
                 'required': True
@@ -56,10 +57,28 @@ class AuthUserSerializer(serializers.ModelSerializer):
         return user
 
     def update(self, user, validated_data):
-        if 'email' in validated_data and validated_data['email'] != user.email:
-            user.update_email(validated_data.pop('email'))
+        if 'email' in validated_data:
+            latest_email = user.email if user.email == user.unverified_email else user.unverified_email
+            if validated_data['email'] != latest_email:
+                user.update_email(validated_data.pop('email'))
         if 'password' in validated_data:
             user.set_password(validated_data.pop('password'))
         if 'language' in validated_data and validated_data['language'] != user.language:
             user.update_language(validated_data.pop('language'))
         return super().update(user, validated_data)
+
+
+class VerifyMailSerializer(serializers.Serializer):
+    key = serializers.CharField(max_length=40, min_length=40)
+
+    def validate_key(self, key):
+        user = self.instance
+        if user.key_expires_at < timezone.now():
+            raise serializers.ValidationError(_('Key has expired'))
+        if key != user.activation_key:
+            raise serializers.ValidationError(_('Key is invalid'))
+        return key
+
+    def update(self, user, validated_data):
+        user.verify_mail()
+        return user

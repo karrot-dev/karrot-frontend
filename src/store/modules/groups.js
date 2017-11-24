@@ -193,7 +193,6 @@ export const actions = {
 
   async selectGroupInfo ({ commit, getters, dispatch }, { groupInfoId }) {
     if (!getters.get(groupInfoId)) {
-      console.log('throw')
       throw createRouteError()
     }
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId: groupInfoId })

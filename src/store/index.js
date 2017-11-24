@@ -23,9 +23,9 @@ import * as alerts from './modules/alerts'
 import * as loadingprogress from './modules/loadingprogress'
 import * as history from './modules/history'
 import * as search from './modules/search'
-import * as agreements from './modules/agreements'
 import * as routeError from './modules/routeError'
 import about from './modules/about'
+import agreements from './modules/agreements'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 
 Vue.use(Vuex)

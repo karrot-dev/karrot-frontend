@@ -13,6 +13,7 @@ const auth = {
 
 describe('users', () => {
   beforeEach(() => jest.resetModules())
+  beforeEach(() => jest.resetAllMocks())
 
   let store
 
@@ -56,22 +57,14 @@ describe('users', () => {
   })
 
   it('can select user', async () => {
-    expect.assertions(1)
     mockGet.mockReturnValueOnce(user1)
     await store.dispatch('users/selectUser', { userId: user1.id })
     expect(store.getters['users/activeUser'].id).toEqual(user1.id)
-    mockGet.mockReset()
   })
 
   it('throws routeError if user is not accessible', async () => {
-    expect.assertions(1)
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-    try {
-      await store.dispatch('users/selectUser', { userId: 9999 })
-    }
-    catch (e) {
-      expect(e.type).toEqual('RouteError')
-    }
-    mockGet.mockReset()
+    await expect(store.dispatch('users/selectUser', { userId: 9999 }))
+      .rejects.toHaveProperty('type', 'RouteError')
   })
 })

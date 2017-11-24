@@ -63,7 +63,7 @@ export default store => {
      */
     if (!to.params.groupId && !hasActiveGroup() && isLoggedIn()) {
       let groupId = getUserGroupId()
-      if (groupId) store.dispatch('groups/selectGroup', groupId)
+      if (groupId) store.dispatch('groups/selectGroup', { groupId })
     }
 
     next()

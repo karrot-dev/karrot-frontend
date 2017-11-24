@@ -101,12 +101,6 @@ describe('groups', () => {
     },
   }
 
-  const routeError = {
-    actions: {
-      set: jest.fn(),
-    },
-  }
-
   describe('logged out', () => {
     beforeEach(() => {
       store = createStore({
@@ -226,25 +220,28 @@ describe('groups', () => {
         auth,
         pickups,
         conversations,
-        routeError,
       })
     })
 
     it('can select a group', async () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
       mockGet.mockReturnValueOnce(group2)
-      await store.dispatch('groups/selectGroup', group2.id)
+      await store.dispatch('groups/selectGroup', { groupId: group2.id })
       expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([])
       expect(pickups.actions.clear).toBeCalled()
       expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group2.id)
       expect(conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
-      expect(routeError.actions.set).not.toBeCalled()
     })
 
-    it('sets routeError if not group does not exist or user is not member of the group', async () => {
+    it('throws routeError if not group does not exist or user is not member of the group', async () => {
+      expect.assertions(1)
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-      await store.dispatch('groups/selectGroup', 9999)
-      expect(routeError.actions.set).toBeCalled()
+      try {
+        await store.dispatch('groups/selectGroup', { groupId: 9999 })
+      }
+      catch (e) {
+        expect(e.type).toEqual('RouteError')
+      }
     })
   })
 
@@ -252,13 +249,17 @@ describe('groups', () => {
     beforeEach(() => {
       store = createStore({
         groups: require('./groups'),
-        routeError,
       })
     })
 
-    it('sets routeError if group does not exist', async () => {
-      await store.dispatch('groups/selectGroupInfo', 9999)
-      expect(routeError.actions.set).toBeCalled()
+    it('throws routeError if group does not exist', async () => {
+      expect.assertions(2)
+      try {
+        await store.dispatch('groups/selectGroupInfo', { groupInfoId: 9999 })
+      }
+      catch (e) {
+        expect(e.type).toEqual('RouteError')
+      }
       expect(store.getters['groups/activeGroupInfo']).toBeUndefined()
     })
   })

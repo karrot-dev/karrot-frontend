@@ -52,11 +52,11 @@ export const getters = {
 }
 
 export const actions = {
-  async setActive ({ commit, dispatch, state }, id) {
-    if (!state.entries.id) {
-      await dispatch('fetchById', id)
+  async setActive ({ commit, dispatch, state }, { historyId }) {
+    if (!state.entries[historyId]) {
+      await dispatch('fetchById', historyId)
     }
-    commit(types.SET_ACTIVE, { id })
+    commit(types.SET_ACTIVE, { id: historyId })
   },
   clearActive ({ commit }) {
     commit(types.SET_ACTIVE, { id: null })

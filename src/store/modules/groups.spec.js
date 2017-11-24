@@ -234,14 +234,9 @@ describe('groups', () => {
     })
 
     it('throws routeError if not group does not exist or user is not member of the group', async () => {
-      expect.assertions(1)
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-      try {
-        await store.dispatch('groups/selectGroup', { groupId: 9999 })
-      }
-      catch (e) {
-        expect(e.type).toEqual('RouteError')
-      }
+      await expect(store.dispatch('groups/selectGroup', { groupId: 9999 }))
+        .rejects.toHaveProperty('type', 'RouteError')
     })
   })
 
@@ -253,13 +248,8 @@ describe('groups', () => {
     })
 
     it('throws routeError if group does not exist', async () => {
-      expect.assertions(2)
-      try {
-        await store.dispatch('groups/selectGroupInfo', { groupInfoId: 9999 })
-      }
-      catch (e) {
-        expect(e.type).toEqual('RouteError')
-      }
+      await expect(store.dispatch('groups/selectGroupInfo', { groupInfoId: 9999 }))
+        .rejects.toHaveProperty('type', 'RouteError')
       expect(store.getters['groups/activeGroupInfo']).toBeUndefined()
     })
   })

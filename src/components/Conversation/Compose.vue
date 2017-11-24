@@ -11,7 +11,7 @@
           :placeholder="placeholder"
           :min-rows="2"
           :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
-          :loading="status.isWaiting"
+          :loading="isPending"
           @keyup.ctrl.enter="send"
           />
         </q-item-tile>
@@ -22,12 +22,13 @@
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import { QItem, QItemMain, QInput, QBtn, QItemSide, QItemTile } from 'quasar'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
-  name: 'WallInput',
+  name: 'Compose',
   components: { QItem, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture },
+  mixins: [statusMixin],
   props: {
-    status: { required: true },
     placeholder: { default: 'placeholder' },
     user: { required: true },
   },

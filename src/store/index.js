@@ -25,6 +25,7 @@ import agreements from './modules/agreements'
 import alerts from './modules/alerts'
 import auth from './modules/auth'
 import breadcrumbs from './modules/breadcrumbs'
+import conversations from './modules/conversations'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 
 Vue.use(Vuex)

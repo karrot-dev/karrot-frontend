@@ -1,42 +1,28 @@
-import Vue from 'vue'
 import about from '@/services/api/about'
-
-export const types = {
-  SET_ABOUT: 'Set About',
-  SET_ABOUT_ERROR: 'Set About Error',
-}
 
 function initialState () {
   return {
-    error: null,
+    about: null,
   }
 }
 
-export const state = initialState()
-
-export const getters = {
-  get: state => state,
-}
-
-export const actions = {
-  async fetchAbout ({ commit }) {
-    try {
-      commit(types.SET_ABOUT, { about: await about.get() })
-    }
-    catch (error) {
-      commit(types.SET_ABOUT_ERROR, { error })
-    }
+export default {
+  namespaced: true,
+  state: initialState(),
+  getters: {
+    get: state => state.about,
   },
-}
-
-export const mutations = {
-  [types.SET_ABOUT] (state, { about }) {
-    state.error = null
-    for (let [k, v] of Object.entries(about)) {
-      Vue.set(state, k, v)
-    }
+  actions: {
+    async fetch ({ commit }) {
+      try {
+        commit('setAbout', await about.get())
+      }
+      catch (e) {}
+    },
   },
-  [types.SET_ABOUT_ERROR] (state, { error }) {
-    state.error = error
+  mutations: {
+    setAbout (state, about) {
+      state.about = about
+    },
   },
 }

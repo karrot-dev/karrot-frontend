@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchAbout: 'about/fetchAbout',
+      fetchAbout: 'about/fetch',
     }),
   },
   mounted () {

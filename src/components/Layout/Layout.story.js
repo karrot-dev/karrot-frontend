@@ -9,7 +9,7 @@ import { groupsMock, storesMock, usersMock } from '>/mockdata'
 
 const store = createStore({
   about: {
-    actions: { fetchAbout () {} },
+    actions: { fetch () {} },
   },
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },

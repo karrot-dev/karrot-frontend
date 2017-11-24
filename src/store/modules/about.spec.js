@@ -7,20 +7,19 @@ describe('spec', () => {
   let store
 
   beforeEach(() => jest.resetModules())
-  beforeEach(() => (store = createStore({ about: require('./about') })))
+  beforeEach(() => (store = createStore({ about: require('./about').default })))
 
   it('sets all the about values', async () => {
     mockGet.mockReturnValueOnce({ name: 'peter' })
-    await store.dispatch('about/fetchAbout')
+    await store.dispatch('about/fetch')
     expect(store.getters['about/get']).toEqual({
-      error: null,
       name: 'peter',
     })
   })
 
-  it('sets the error', async () => {
+  it('ignores the error', async () => {
     mockGet.mockImplementation(throws('some error'))
-    await store.dispatch('about/fetchAbout')
-    expect(store.getters['about/get']).toEqual({ error: 'some error' })
+    await store.dispatch('about/fetch')
+    expect(store.getters['about/get']).toBeNull()
   })
 })

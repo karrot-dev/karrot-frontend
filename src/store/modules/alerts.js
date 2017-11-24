@@ -1,10 +1,6 @@
 import Vue from 'vue'
 
-export const types = {
-  CREATE: 'Create',
-  DISMISS: 'Dismiss',
-  CLEAR: 'Clear',
-}
+let counter = 1 // start at 1 so it is always truthy
 
 function initialState () {
   return {
@@ -13,61 +9,57 @@ function initialState () {
   }
 }
 
-export const state = initialState()
+export default {
+  namespaced: true,
+  state: initialState(),
+  getters: {
+    all: (state, getters, rootState, rootGetters) => {
+      // Transient alerts created via actions
 
-export const getters = {
-  all: (state, getters, rootState, rootGetters) => {
-    // Transient alerts created via actions
+      const alerts = state.idList.map(i => state.entries[i])
 
-    const alerts = state.idList.map(i => state.entries[i])
+      // Derived state alerts
 
-    // Derived state alerts
+      const activeGroup = rootGetters['groups/activeGroup']
+      if (activeGroup && activeGroup.awaitingAgreement) {
+        alerts.push({
+          type: 'awaitingAgreement',
+          context: activeGroup.activeAgreement,
+          dismissible: true,
+        })
+      }
 
-    const activeGroup = rootGetters['groups/activeGroup']
-    if (activeGroup && activeGroup.awaitingAgreement) {
-      alerts.push({
-        type: 'awaitingAgreement',
-        context: activeGroup.activeAgreement,
-        dismissible: true,
-      })
-    }
-
-    return alerts
+      return alerts
+    },
   },
-}
-
-export const actions = {
-  create ({ commit }, alert) {
-    return commit(types.CREATE, { alert })
+  actions: {
+    create ({ commit }, alert) {
+      return commit('create', alert)
+    },
+    dismiss ({ commit }, id) {
+      commit('dismiss', id)
+    },
+    clear ({ commit }) {
+      commit('clear')
+    },
   },
+  mutations: {
+    create (state, alert) {
+      alert.id = counter++
+      Vue.set(state.entries, alert.id, alert)
+      state.idList.push(alert.id)
+      return alert.id
+    },
 
-  dismiss ({ commit }, id) {
-    commit(types.DISMISS, { id })
-  },
+    dismiss (state, id) {
+      Vue.delete(state.entries, id)
+      state.idList.splice(state.idList.indexOf(id), 1)
+    },
 
-  clear ({ commit }) {
-    commit(types.CLEAR)
-  },
-}
-
-let counter = 1 // start at 1 so it is always truthy
-
-export const mutations = {
-  [types.CREATE] (state, { alert }) {
-    alert.id = counter++
-    Vue.set(state.entries, alert.id, alert)
-    state.idList.push(alert.id)
-    return alert.id
-  },
-
-  [types.DISMISS] (state, { id }) {
-    Vue.delete(state.entries, id)
-    state.idList.splice(state.idList.indexOf(id), 1)
-  },
-
-  [types.CLEAR] (state) {
-    for (let [k, v] of Object.entries(initialState())) {
-      Vue.set(state, k, v)
-    }
+    clear (state) {
+      for (let [k, v] of Object.entries(initialState())) {
+        Vue.set(state, k, v)
+      }
+    },
   },
 }

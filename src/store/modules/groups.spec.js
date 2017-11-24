@@ -235,7 +235,8 @@ describe('groups', () => {
 
     it('throws routeError if not group does not exist or user is not member of the group', async () => {
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-      await expect(store.dispatch('groups/selectGroup', { groupId: 9999 })).rejects.toHaveProperty('type', 'RouteError')
+      await expect(store.dispatch('groups/selectGroup', { groupId: 9999 }))
+        .rejects.toHaveProperty('type', 'RouteError')
     })
   })
 

@@ -28,7 +28,7 @@ describe('breadcrumbs', () => {
       },
     }
     store = createStore({
-      breadcrumbs: require('./breadcrumbs'),
+      breadcrumbs: require('./breadcrumbs').default,
       ...storeMocks,
     })
   })

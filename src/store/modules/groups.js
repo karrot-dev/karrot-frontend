@@ -87,34 +87,7 @@ export const getters = {
 }
 
 export const actions = {
-
   ...withMeta({
-
-    async selectGroup ({ commit, state, dispatch, getters, rootState }, { groupId }) {
-      if (state.activeGroupId === groupId) return
-
-      commit(types.SET_ACTIVE, { groupId })
-
-      await dispatch('fetchGroup', groupId)
-      const hasError = getters['meta/status']('fetchGroup', groupId).hasValidationErrors
-      if (hasError) {
-        const groupExists = !!getters.get(groupId)
-        const data = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
-        throw createRouteError(data)
-      }
-
-      dispatch('pickups/clear', {}, { root: true })
-
-      dispatch('pickups/fetchListByGroupId', groupId, { root: true })
-      try {
-        dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
-      }
-      catch (error) {
-        dispatch('conversations/clearActive', {}, { root: true })
-      }
-
-      dispatch('auth/update', { currentGroup: groupId }, { root: true })
-    },
 
     async save ({ commit, dispatch }, group) {
       commit(types.RECEIVE_GROUP, { group: await groups.save(group) })
@@ -191,6 +164,32 @@ export const actions = {
     },
 
   }),
+
+  async selectGroup ({ commit, state, dispatch, getters, rootState }, { groupId }) {
+    if (state.activeGroupId === groupId) return
+
+    commit(types.SET_ACTIVE, { groupId })
+
+    await dispatch('fetchGroup', groupId)
+    const hasError = getters['meta/status']('fetchGroup', groupId).hasValidationErrors
+    if (hasError) {
+      const groupExists = !!getters.get(groupId)
+      const data = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
+      throw createRouteError(data)
+    }
+
+    dispatch('pickups/clear', {}, { root: true })
+
+    dispatch('pickups/fetchListByGroupId', groupId, { root: true })
+    try {
+      dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
+    }
+    catch (error) {
+      dispatch('conversations/clearActive', {}, { root: true })
+    }
+
+    dispatch('auth/update', { currentGroup: groupId }, { root: true })
+  },
 
   async selectGroupInfo ({ commit, getters, dispatch }, { groupInfoId }) {
     if (!getters.get(groupInfoId)) {

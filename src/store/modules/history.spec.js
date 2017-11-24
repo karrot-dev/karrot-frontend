@@ -15,14 +15,9 @@ describe('history module', () => {
   })
 
   it('throws routeError if historyId is not available', async () => {
-    expect.assertions(2)
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-    try {
-      await store.dispatch('history/setActive', { historyId: 9999 })
-    }
-    catch (e) {
-      expect(e.type).toEqual('RouteError')
-    }
+    await expect(store.dispatch('history/setActive', { historyId: 9999 }))
+      .rejects.toHaveProperty('type', 'RouteError')
     expect(store.getters['history/active']).toBeUndefined()
   })
 })

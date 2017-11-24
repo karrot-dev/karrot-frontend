@@ -33,14 +33,8 @@ describe('stores module', () => {
   })
 
   it('throws routeError if store is not accessible', async () => {
-    expect.assertions(2)
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-    try {
-      await store.dispatch('stores/selectStore', { storeId: 9999 })
-    }
-    catch (e) {
-      expect(e.type).toEqual('RouteError')
-    }
+    await expect(store.dispatch('stores/selectStore', { storeId: 9999 })).rejects.toHaveProperty('type', 'RouteError')
     expect(pickups.actions.setStoreFilter).not.toBeCalled()
   })
 })

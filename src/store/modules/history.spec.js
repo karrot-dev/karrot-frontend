@@ -23,6 +23,6 @@ describe('history module', () => {
     catch (e) {
       expect(e.type).toEqual('RouteError')
     }
-    expect(store.getters.active).toBeUndefined()
+    expect(store.getters['history/active']).toBeUndefined()
   })
 })

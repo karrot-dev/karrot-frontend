@@ -55,6 +55,14 @@ describe('users', () => {
     expect(store.getters['users/byActiveGroup'].map(e => e.id)).toEqual([user1.id, user2.id])
   })
 
+  it('can select user', async () => {
+    expect.assertions(1)
+    mockGet.mockReturnValueOnce(user1)
+    await store.dispatch('users/selectUser', { userId: user1.id })
+    expect(store.getters['users/activeUser'].id).toEqual(user1.id)
+    mockGet.mockReset()
+  })
+
   it('throws routeError if user is not accessible', async () => {
     expect.assertions(1)
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
@@ -64,5 +72,6 @@ describe('users', () => {
     catch (e) {
       expect(e.type).toEqual('RouteError')
     }
+    mockGet.mockReset()
   })
 })

@@ -88,7 +88,7 @@ export const getters = {
 }
 
 export const actions = {
-  async selectUser ({ commit, getters, dispatch }, userId) {
+  async selectUser ({ commit, getters, dispatch }, { userId }) {
     if (!getters.get(userId).id) {
       try {
         const user = await users.get(userId)

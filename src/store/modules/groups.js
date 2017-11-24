@@ -1,7 +1,7 @@
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
-import { indexById, withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/store/helpers'
+import { indexById, withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, metaStatuses, createRouteError } from '@/store/helpers'
 
 export const modules = { meta: createMetaModule() }
 
@@ -90,7 +90,7 @@ export const actions = {
 
   ...withMeta({
 
-    async selectGroup ({ commit, state, dispatch, getters, rootState }, groupId) {
+    async selectGroup ({ commit, state, dispatch, getters, rootState }, { groupId }) {
       if (state.activeGroupId === groupId) return
 
       commit(types.SET_ACTIVE, { groupId })
@@ -99,9 +99,8 @@ export const actions = {
       const hasError = getters['meta/status']('fetchGroup', groupId).hasValidationErrors
       if (hasError) {
         const groupExists = !!getters.get(groupId)
-        const error = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
-        dispatch('routeError/set', error, { root: true })
-        return
+        const data = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
+        throw createRouteError(data)
       }
 
       dispatch('pickups/clear', {}, { root: true })
@@ -193,11 +192,15 @@ export const actions = {
 
   }),
 
-  selectGroupInfo ({ commit, getters, dispatch }, groupPreviewId) {
-    if (!getters.get(groupPreviewId)) {
-      dispatch('routeError/set', null, { root: true })
+  async selectGroupInfo ({ commit, getters, dispatch }, { groupInfoId }) {
+    if (!getters.get(groupInfoId)) {
+      console.log('throw')
+      throw createRouteError()
     }
-    commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId })
+    commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId: groupInfoId })
+  },
+  clearGroupInfo ({ commit }) {
+    commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId: null })
   },
 
 }

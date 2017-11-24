@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import historyAPI from '@/services/api/history'
-import { indexById } from '@/store/helpers'
+import { indexById, createRouteError } from '@/store/helpers'
 import i18n from '@/i18n'
 
 export const types = {
@@ -52,11 +52,14 @@ export const getters = {
 }
 
 export const actions = {
-  async setActive ({ commit, dispatch, state }, id) {
-    if (!state.entries.id) {
-      await dispatch('fetchById', id)
+  async setActive ({ commit, dispatch, state }, { historyId }) {
+    if (!state.entries[historyId]) {
+      await dispatch('fetchById', historyId)
     }
-    commit(types.SET_ACTIVE, { id })
+    commit(types.SET_ACTIVE, { id: historyId })
+  },
+  clearActive ({ commit }) {
+    commit(types.SET_ACTIVE, { id: null })
   },
   async fetchForGroup ({ dispatch, rootGetters }, group) {
     dispatch('fetchFiltered', { group: group.id })
@@ -83,8 +86,13 @@ export const actions = {
   },
   async fetchById ({ commit, state }, id) {
     // add entry by ID, keep cursor the same as before
-    const entry = await historyAPI.get(id)
-    commit(types.RECEIVE, { entries: [entry], cursor: state.cursor })
+    try {
+      const entry = await historyAPI.get(id)
+      commit(types.RECEIVE, { entries: [entry], cursor: state.cursor })
+    }
+    catch (error) {
+      throw createRouteError()
+    }
   },
 
   async fetchMore ({ state, commit }) {

@@ -10,7 +10,6 @@ export default connect({
   lifecycle: {
     // when page is loaded, use the `?key` route parameter to trigger verification
     mounted: ({ getters, dispatch }) => dispatch('verifymail/verify', getters['route/query'].key),
-    destroyed: ({ dispatch }) => dispatch('verifymail/clean'),
   },
 })('VerifyMail', VerifyMail)
 </script>

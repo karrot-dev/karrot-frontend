@@ -11,14 +11,9 @@ const auth = {
   },
 }
 
-const routeError = {
-  actions: {
-    set: jest.fn(),
-  },
-}
-
 describe('users', () => {
   beforeEach(() => jest.resetModules())
+  beforeEach(() => jest.resetAllMocks())
 
   let store
 
@@ -27,7 +22,6 @@ describe('users', () => {
     store = createStore({
       users: require('./users'),
       auth,
-      routeError,
       groups: {
         getters: {
           activeGroup: () => ({ members: [1, 2] }),
@@ -62,9 +56,15 @@ describe('users', () => {
     expect(store.getters['users/byActiveGroup'].map(e => e.id)).toEqual([user1.id, user2.id])
   })
 
-  it('sets routeError if user is not accessible', () => {
+  it('can select user', async () => {
+    mockGet.mockReturnValueOnce(user1)
+    await store.dispatch('users/selectUser', { userId: user1.id })
+    expect(store.getters['users/activeUser'].id).toEqual(user1.id)
+  })
+
+  it('throws routeError if user is not accessible', async () => {
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-    store.dispatch('users/selectUser', 9999)
-    expect(routeError.actions.set).toBeCalled()
+    await expect(store.dispatch('users/selectUser', { userId: 9999 }))
+      .rejects.toHaveProperty('type', 'RouteError')
   })
 })

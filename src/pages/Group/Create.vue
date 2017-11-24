@@ -14,8 +14,5 @@ export default connect({
   methodsToEvents: {
     reset: ({ dispatch }) => dispatch('meta/clear', ['create']),
   },
-  lifecycle: {
-    mounted: ({ dispatch }) => dispatch('groups/fetchTimezones'),
-  },
 })('GroupCreate', GroupEdit)
 </script>

@@ -11,8 +11,5 @@ export default connect({
   actionsToEvents: {
     submit: 'invitations/send',
   },
-  lifecycle: {
-    mounted: ({ dispatch }) => dispatch('invitations/fetch'),
-  },
 })('GroupInvitations', InvitationsUI)
 </script>

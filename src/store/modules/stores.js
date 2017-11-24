@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import stores from '@/services/api/stores'
-import { createMetaModule, withMeta, metaStatuses, metaStatusesWithId, indexById } from '@/store/helpers'
+import { createMetaModule, withMeta, metaStatuses, metaStatusesWithId, indexById, createRouteError } from '@/store/helpers'
 import router from '@/router'
 
 export const modules = { meta: createMetaModule() }
@@ -67,15 +67,14 @@ export const actions = {
 
   }),
 
-  async selectStore ({ commit, state, dispatch, getters, rootState }, storeId) {
+  async selectStore ({ commit, state, dispatch, getters, rootState }, { storeId }) {
     if (!getters.get(storeId)) {
       try {
         const store = await stores.get(storeId)
         commit(types.RECEIVE_ITEM, { store })
       }
       catch (error) {
-        dispatch('routeError/set', null, { root: true })
-        return
+        throw createRouteError()
       }
     }
     dispatch('pickups/setStoreFilter', storeId, {root: true})

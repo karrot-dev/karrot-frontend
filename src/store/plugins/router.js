@@ -50,27 +50,9 @@ export default store => {
   })
 
   router.beforeEach(async (to, from, next) => {
-    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
+    await maybeDispatchActions(store, to, from)
 
-    // save active group/store/user
-    if (to.params.groupId) {
-      await store.dispatch('groups/selectGroup', parseInt(to.params.groupId, 10))
-    }
-    if (to.params.groupInfoId) {
-      store.dispatch('groups/selectGroupInfo', parseInt(to.params.groupInfoId, 10))
-    }
-    if (to.params.storeId) {
-      store.dispatch('stores/selectStore', parseInt(to.params.storeId, 10))
-    }
-    else {
-      store.dispatch('stores/clearSelectedStore')
-    }
-    if (to.params.userId) {
-      store.dispatch('users/selectUser', parseInt(to.params.userId, 10))
-    }
-    if (to.params.historyId) {
-      store.dispatch('history/setActive', parseInt(to.params.historyId, 10))
-    }
+    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     /* If:
         - the group is not mentioned in the URL
@@ -81,7 +63,7 @@ export default store => {
      */
     if (!to.params.groupId && !hasActiveGroup() && isLoggedIn()) {
       let groupId = getUserGroupId()
-      if (groupId) store.dispatch('groups/selectGroup', groupId)
+      if (groupId) store.dispatch('groups/selectGroup', { groupId })
     }
 
     next()
@@ -104,4 +86,37 @@ export function findBreadcrumbs (matched) {
     }
     return acc
   }, [])
+}
+
+export async function maybeDispatchActions (store, to, from) {
+  for (let m of from.matched.reverse()) {
+    if (m.meta.afterLeave) {
+      await store.dispatch(m.meta.afterLeave)
+    }
+  }
+  for (let m of to.matched) {
+    if (m.meta.beforeEnter) {
+      try {
+        await store.dispatch(m.meta.beforeEnter, parseAsIntegers(to.params))
+      }
+      catch (error) {
+        if (error.type === 'RouteError') {
+          await store.dispatch('routeError/set', error.data)
+          // no further loading should be done
+          return
+        }
+        else {
+          // can't be handled here
+          throw error
+        }
+      }
+    }
+  }
+}
+
+export function parseAsIntegers (obj) {
+  return Object.entries(obj).reduce((acc, [k, v]) => {
+    acc[k] = parseInt(v, 10)
+    return acc
+  }, {})
 }

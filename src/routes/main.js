@@ -47,6 +47,8 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { type: 'activeGroupInfo' },
       ],
+      beforeEnter: 'groups/selectGroupInfo',
+      afterLeave: 'groups/clearGroupInfo',
     },
     components: {
       default: GroupInfo,
@@ -61,6 +63,7 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { translation: 'GROUP.CREATE_TITLE', route: { name: 'groupCreate' } },
       ],
+      beforeEnter: 'groups/fetchTimezones',
     },
     components: {
       default: GroupCreate,
@@ -77,6 +80,8 @@ export default [
       breadcrumbs: [
         { translation: 'HISTORY.DETAILS', route: { name: 'historyDetail' } },
       ],
+      beforeEnter: 'history/setActive',
+      afterLeave: 'history/clearActive',
     },
   },
   {
@@ -87,6 +92,7 @@ export default [
       breadcrumbs: [
         { type: 'activeGroup' },
       ],
+      beforeEnter: 'groups/selectGroup',
     },
     components: {
       default: GroupLayout,
@@ -160,6 +166,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvitations' } },
           ],
+          beforeEnter: 'invitations/fetch',
         },
         components: {
           default: GroupInvitations,
@@ -173,6 +180,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
           ],
+          beforeEnter: 'groups/fetchTimezones',
         },
         components: {
           default: GroupEdit,
@@ -225,6 +233,8 @@ export default [
           breadcrumbs: [
             { type: 'activeStore' },
           ],
+          beforeEnter: 'stores/selectStore',
+          afterLeave: 'stores/clearSelectedStore',
         },
         props: {
           sidenav: true,
@@ -252,6 +262,8 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
               ],
+              beforeEnter: 'pickupSeries/fetchListForActiveStore',
+              afterLeave: 'pickupSeries/clearList',
             },
           },
           {
@@ -325,6 +337,8 @@ export default [
       breadcrumbs: [
         { type: 'activeUser' },
       ],
+      beforeEnter: 'users/selectUser',
+      afterLeave: 'users/clearSelectedUser',
     },
     components: {
       default: User,

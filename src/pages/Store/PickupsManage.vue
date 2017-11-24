@@ -189,12 +189,6 @@ export default {
       seriesCreateStatus: 'pickupSeries/createStatus',
     }),
   },
-  mounted () {
-    this.$store.dispatch('pickupSeries/fetchListForActiveStore')
-  },
-  destroyed () {
-    this.$store.dispatch('pickupSeries/clearList')
-  },
 }
 </script>
 

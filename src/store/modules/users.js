@@ -2,7 +2,7 @@ import Vue from 'vue'
 import users from '@/services/api/users'
 import authUser from '@/services/api/authUser'
 import auth from '@/services/api/auth'
-import { indexById, onlyHandleAPIError } from '@/store/helpers'
+import { indexById, onlyHandleAPIError, createRouteError } from '@/store/helpers'
 
 export const types = {
 
@@ -88,19 +88,22 @@ export const getters = {
 }
 
 export const actions = {
-  async selectUser ({ commit, getters, dispatch }, userId) {
+  async selectUser ({ commit, getters, dispatch }, { userId }) {
     if (!getters.get(userId).id) {
       try {
         const user = await users.get(userId)
         commit(types.RECEIVE_USER, { user })
       }
       catch (error) {
-        const message = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
-        dispatch('routeError/set', message, { root: true })
-        return
+        const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+        throw createRouteError(data)
       }
     }
     commit(types.SELECT_USER, { userId })
+  },
+
+  clearSelectedUser ({ commit }) {
+    commit(types.SELECT_USER, { userId: null })
   },
 
   async signup ({ commit, dispatch }, userData) {

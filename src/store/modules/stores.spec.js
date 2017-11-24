@@ -9,12 +9,6 @@ const pickups = {
   },
 }
 
-const routeError = {
-  actions: {
-    set: jest.fn(),
-  },
-}
-
 describe('stores module', () => {
   beforeEach(() => jest.resetModules())
 
@@ -25,7 +19,6 @@ describe('stores module', () => {
     store = createStore({
       stores: require('./stores'),
       pickups,
-      routeError,
     })
   })
 
@@ -39,10 +32,9 @@ describe('stores module', () => {
     store.commit('stores/Receive Stores', { stores: [store1, store2, store3] })
   })
 
-  it('sets routeError if store is not accessible', () => {
+  it('throws routeError if store is not accessible', async () => {
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-    store.dispatch('stores/selectStore', 9999)
-    expect(routeError.actions.set).toBeCalled()
+    await expect(store.dispatch('stores/selectStore', { storeId: 9999 })).rejects.toHaveProperty('type', 'RouteError')
     expect(pickups.actions.setStoreFilter).not.toBeCalled()
   })
 })

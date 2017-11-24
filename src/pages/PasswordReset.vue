@@ -10,8 +10,5 @@ export default connect({
   actionsToEvents: {
     submit: 'users/resetPassword',
   },
-  lifecycle: {
-    destroyed: ({ dispatch }) => dispatch('users/cleanPasswordreset'),
-  },
 })('PasswordReset', PasswordReset)
 </script>

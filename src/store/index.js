@@ -7,6 +7,7 @@ import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
 import * as groups from './modules/groups'
+import * as conversations from './modules/conversations'
 import * as stores from './modules/stores'
 import * as users from './modules/users'
 import * as pickups from './modules/pickups'

@@ -6,7 +6,6 @@ import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
-import * as auth from './modules/auth'
 import * as conversations from './modules/conversations'
 import * as groups from './modules/groups'
 import * as stores from './modules/stores'
@@ -26,6 +25,7 @@ import * as routeError from './modules/routeError'
 import about from './modules/about'
 import agreements from './modules/agreements'
 import alerts from './modules/alerts'
+import auth from './modules/auth'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 
 Vue.use(Vuex)

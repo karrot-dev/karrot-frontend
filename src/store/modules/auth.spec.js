@@ -22,7 +22,7 @@ describe('auth', () => {
       },
     }
     store = createStore({
-      auth: require('./auth'),
+      auth: require('./auth').default,
       ...storeMocks,
     })
   })

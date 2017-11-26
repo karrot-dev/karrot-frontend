@@ -5,18 +5,17 @@ set -e
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
 
-BRANCH=$1
-name=
+name=$1
+BRANCH=$2
 
-if [ -z "$BRANCH" ]; then
-  echo "Please pass branch to deploy as first argument"
+if [ -z "$name" ]; then
+  echo "Please pass name to deploy as first argument"
   exit 1
 fi
 
-if [ "$BRANCH" = "production" ]; then
-  name=foodsaving-world
-else
-  name=foodsaving-world-dev
+if [ -z "$BRANCH" ]; then
+  echo "Please pass branch to deploy as second argument"
+  exit 1
 fi
 
 function restart-workers() {

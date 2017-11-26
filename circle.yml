@@ -18,6 +18,11 @@ test:
     - pip install codecov && codecov
 deployment:
   dev:
-    branch: [master, production]
+    branch: master
     commands:
-      - ./deploy.sh
+      - ./deploy.sh foodsaving-world-dev
+  production:
+    branch: production
+    commands:
+      - ./deploy.sh foodsaving-world
+      - ./deploy.sh foodsharing-taiwan

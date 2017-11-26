@@ -1,30 +1,29 @@
 <template>
-    <WallCard>
-      <template slot="icon">
-        <div class="icon">
-          <i class="fa fa-shopping-cart"/>
-        </div>
-      </template>
-      <template slot="header">
-        <div><ProfilePicture :user="feedback.givenBy"/></div>
-        <div>picked up food</div>
-      </template>
-      <template slot="time">
-        {{ $d(feedback.createdAt, 'long') }}
-      </template>
-      <AmountBox :amount="feedback.weight"/>
-      <div class="comment"> {{ feedback.comment }} </div>
-    </WallCard>
+  <div>
+    <template slot="icon">
+      <div class="icon">
+        <i class="fa fa-shopping-cart"/>
+      </div>
+    </template>
+    <template slot="header">
+      <div><ProfilePicture :user="feedback.givenBy"/></div>
+      <div>picked up food</div>
+    </template>
+    <template slot="time">
+      {{ $d(feedback.createdAt, 'long') }}
+    </template>
+    <AmountBox :amount="feedback.weight"/>
+    <div class="comment"> {{ feedback.comment }} </div>
+  </div>
 </template>
 
 <script>
-import WallCard from './WallCard'
 import AmountBox from '@/components/Statistics/AmountBox'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   components: {
-    WallCard, ProfilePicture, AmountBox,
+    ProfilePicture, AmountBox,
   },
   props: {
     feedback: { required: true },

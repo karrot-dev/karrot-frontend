@@ -247,7 +247,7 @@ describe('groups', () => {
       })
     })
 
-    it.only('throws routeError if group does not exist', async () => {
+    it('throws routeError if group does not exist', async () => {
       await expect(store.dispatch('groups/selectGroupInfo', { groupInfoId: 9999 }))
         .rejects.toHaveProperty('type', 'RouteError')
       expect(store.getters['groups/activeGroupInfo']).toBeUndefined()

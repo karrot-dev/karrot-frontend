@@ -8,8 +8,8 @@
         :handler="loadMore"
         ref="infiniteScroll">
         <q-list :highlight="false" class="bg-white desktop-margin">
-          <Compose :status="data.sendStatus" @send="$emit('send', arguments[0])" :placeholder="messagePrompt" :user="user" />
-          <CMessage v-for="message in data.messages" :key="message.id" :message="message"/>
+          <ConversationCompose :status="data.sendStatus" @send="$emit('send', arguments[0])" :placeholder="messagePrompt" :user="user" />
+          <ConversationMessage v-for="message in data.messages" :key="message.id" :message="message"/>
         </q-list>
         <div slot="message" style="width: 100%; text-align: center">
           <q-spinner-dots :size="40"></q-spinner-dots>
@@ -23,15 +23,15 @@
 </template>
 
 <script>
-import CMessage from './CMessage'
-import Compose from './Compose'
+import ConversationMessage from './ConversationMessage'
+import ConversationCompose from './ConversationCompose'
 import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert } from 'quasar'
 
 export default {
   name: 'Conversation',
   components: {
-    CMessage,
-    Compose,
+    ConversationMessage,
+    ConversationCompose,
     QBtn,
     QInfiniteScroll,
     QSpinnerDots,

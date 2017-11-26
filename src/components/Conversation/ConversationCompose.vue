@@ -25,7 +25,7 @@ import { QItem, QItemMain, QInput, QBtn, QItemSide, QItemTile } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
 
 export default {
-  name: 'Compose',
+  name: 'ConversationCompose',
   components: { QItem, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture },
   mixins: [statusMixin],
   props: {

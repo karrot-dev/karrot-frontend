@@ -39,10 +39,10 @@ export default {
   },
   actions: {
     ...withMeta({
-      async send ({ commit, state, dispatch }, conversationId, messageData) {
+      async send ({ commit, state, dispatch }, { id, messageData }) {
         const message = await messageAPI.create({
           content: messageData,
-          conversation: conversationId,
+          conversation: id,
         })
         commit('prependMessage', { message })
       },
@@ -58,8 +58,8 @@ export default {
       },
     }),
 
-    async sendInActiveConversation ({ state, dispatch }, message) {
-      dispatch('send', state.activeConversationId, message)
+    async sendInActiveConversation ({ state, dispatch }, messageData) {
+      dispatch('send', { id: state.activeConversationId, messageData })
     },
 
     async fetchMoreForActiveConversation ({ state, dispatch }) {
@@ -101,6 +101,7 @@ export default {
       Vue.set(state.cursors, conversationId, cursor)
     },
     appendMessages (state, { conversationId, messages, cursor }) {
+      // e.g. when loading more (older) messages from the backend
       if (state.messages[conversationId]) {
         state.messages[conversationId].push(...messages)
         Vue.set(state.cursors, conversationId, cursor)
@@ -110,6 +111,7 @@ export default {
       Vue.set(state.entries, conversation.id, conversation)
     },
     prependMessage (state, { message }) {
+      // e.g. when adding new messages from the current user or via websocket
       const { conversation } = message
       if (state.messages[conversation]) {
         state.messages[conversation].unshift(message)

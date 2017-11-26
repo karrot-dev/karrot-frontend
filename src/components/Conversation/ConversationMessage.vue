@@ -25,7 +25,7 @@ import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
-  name: 'CMessage',
+  name: 'ConversationMessage',
   components: {
     ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords,
   },

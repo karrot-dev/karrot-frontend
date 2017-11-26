@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module'
   },
   env: {
@@ -10,11 +10,10 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [
-    'standard'
+    'standard',
+    'plugin:vue/essential'
   ],
-  // required to lint *.vue files
   plugins: [
-    'html',
     'import'
   ],
   globals: {

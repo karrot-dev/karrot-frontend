@@ -1,0 +1,8 @@
+{
+  "name": "foodsharing-taiwan",
+  "domain" : "tw.foodsaving.world",
+  "user": "foodsaving-taiwan",
+  "group": "foodsaving-taiwan",
+  "frontend": "release",
+  "workers": 4
+}

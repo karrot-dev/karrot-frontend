@@ -2,7 +2,7 @@
 
 set -e
 
-names="foodsaving-world foodsaving-world-dev foodsaving-world-channels"
+names="foodsaving-world foodsaving-world-dev foodsharing-taiwan"
 
 dest=out
 

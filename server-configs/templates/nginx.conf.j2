@@ -15,6 +15,18 @@ server {
 
     root /home/deploy/foodsaving-frontend/{{ frontend }};
 
+    location /js {
+      expires max;
+    }
+
+    location /img {
+      expires max;
+    }
+
+    location ~* ^.+\.css$ {
+      expires max;
+    }
+
     location / {
         try_files $uri /index.html;
     }
@@ -29,6 +41,10 @@ server {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $connection_upgrade;
+        proxy_set_header Sec-WebSocket-Extensions $http_sec_websocket_extensions;
+        proxy_set_header Sec-WebSocket-Key $http_sec_websocket_key;
+        proxy_set_header Sec-WebSocket-Protocol $http_sec_websocket_protocol;
+        proxy_set_header Sec-WebSocket-Version $http_sec_websocket_version;
     }
 
     location /static/ {

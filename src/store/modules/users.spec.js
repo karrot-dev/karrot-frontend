@@ -24,7 +24,7 @@ describe('users', () => {
       auth,
       groups: {
         getters: {
-          activeGroup: () => ({ members: [1, 2] }),
+          currentGroup: () => ({ members: [1, 2] }),
         },
       },
     })
@@ -53,7 +53,7 @@ describe('users', () => {
   })
 
   it('can get users by active group id', () => {
-    expect(store.getters['users/byActiveGroup'].map(e => e.id)).toEqual([user1.id, user2.id])
+    expect(store.getters['users/byCurrentGroup'].map(e => e.id)).toEqual([user1.id, user2.id])
   })
 
   it('can select user', async () => {

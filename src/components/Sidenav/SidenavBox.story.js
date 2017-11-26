@@ -12,7 +12,7 @@ import { createStore } from '>/helpers'
 const store = createStore({
   groups: {
     getters: {
-      activeGroupId: () => 1,
+      currentGroupId: () => 1,
     },
   },
   stores: {

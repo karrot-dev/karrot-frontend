@@ -3,11 +3,6 @@ import { withMeta, createMetaModule } from '@/store/helpers'
 
 function initialState () {
   return {
-    entries: {},
-    idsList: [],
-    activeGroupId: null,
-    activeGroup: null, // full group details
-    activeGroupPreviewId: null,
     timezones: null,
   }
 }

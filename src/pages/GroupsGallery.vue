@@ -8,7 +8,7 @@ export default connect({
     myGroups: 'groups/myGroups',
     otherGroups: 'groups/otherGroups',
     isLoggedIn: 'auth/isLoggedIn',
-    activeGroupId: 'groups/activeGroupId',
+    currentGroupId: 'currentGroup/id',
   },
   methodsToEvents: {
     preview: (store, { groupId }) => router.push({ name: 'groupInfo', params: { groupInfoId: groupId } }),

@@ -72,9 +72,9 @@ export const getters = {
   all: (state, getters, rootState, rootGetters) => {
     return state.idList.map(getters.get)
   },
-  byActiveGroup: (state, getters, rootState, rootGetters) => {
-    const activeGroup = rootGetters['groups/activeGroup']
-    return activeGroup.members ? activeGroup.members.map(getters.get) : []
+  byCurrentGroup: (state, getters, rootState, rootGetters) => {
+    const currentGroup = rootGetters['currentGroup/get']
+    return currentGroup.members ? currentGroup.members.map(getters.get) : []
   },
   activeUser: (state, getters, rootState, rootGetters) => {
     return state.activeUserId && getters.get(state.activeUserId)

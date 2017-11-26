@@ -12,8 +12,8 @@ export default {
   getters: {
     all: (state, getters, rootState, rootGetters) => {
       return state.breadcrumbs.map((item, idx) => {
-        if (item.type === 'activeGroup') {
-          let group = rootGetters['groups/activeGroup']
+        if (item.type === 'currentGroup') {
+          let group = rootGetters['currentGroup/get']
           if (group) {
             return {
               name: group.name,

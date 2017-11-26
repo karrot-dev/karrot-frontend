@@ -13,7 +13,7 @@ const style = {
   height: '200px',
 }
 
-const activeGroup = { latitude: 52.5198535, longitude: 13.4385964 }
+const currentGroup = { latitude: 52.5198535, longitude: 13.4385964 }
 
 storiesOf('Map', module)
   .add('StandardMap', () => ({
@@ -77,7 +77,7 @@ storiesOf('Map', module)
         stores: storesMock,
         showStores: true,
         showUsers: true,
-        activeGroup,
+        currentGroup,
       },
       style,
     }),
@@ -92,7 +92,7 @@ storiesOf('Map', module)
         showStores: true,
         showUsers: true,
         selectedStoreId: storesMock[0].id,
-        activeGroup,
+        currentGroup,
       },
       style,
     }),
@@ -107,7 +107,7 @@ storiesOf('Map', module)
         showStores: true,
         showUsers: true,
         selectedStoreId: 999,
-        activeGroup,
+        currentGroup,
       },
       style,
     }),
@@ -121,7 +121,7 @@ storiesOf('Map', module)
         stores: [],
         showStores: true,
         showUsers: true,
-        activeGroup: {},
+        currentGroup: {},
       },
       style,
     }),
@@ -135,7 +135,7 @@ storiesOf('Map', module)
         stores: [],
         showStores: true,
         showUsers: true,
-        activeGroup,
+        currentGroup,
       },
       style,
     }),

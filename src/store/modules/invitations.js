@@ -31,7 +31,7 @@ export const actions = {
      * Fetch sent invitations for active group
      */
     async fetch ({ commit, dispatch, rootGetters }) {
-      const groupId = rootGetters['group/activeGroupId']
+      const groupId = rootGetters['group/currentGroupId']
       commit(types.RECEIVE, { list: await invitations.listByGroupId(groupId) })
     },
 
@@ -41,7 +41,7 @@ export const actions = {
     async send ({ commit, rootGetters }, email) {
       const invited = await invitations.create({
         email,
-        group: rootGetters['groups/activeGroupId'],
+        group: rootGetters['currentGroup/id'],
       })
       commit(types.APPEND, { invited })
     },

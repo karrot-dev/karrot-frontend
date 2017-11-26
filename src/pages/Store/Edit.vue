@@ -9,7 +9,7 @@ export default connect({
   },
   gettersToProps: {
     value: 'stores/activeStore',
-    allStores: 'stores/byActiveGroup',
+    allStores: 'stores/byCurrentGroup',
   },
   actionsToEvents: {
     save: 'stores/save',

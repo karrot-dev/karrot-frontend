@@ -4,10 +4,10 @@ import GroupEdit from '@/components/Group/GroupEdit'
 
 export default connect({
   gettersToProps: {
-    value: 'groups/activeGroup',
+    value: 'currentGroup/get',
     timezones: 'timezones/autocompleteData',
     allGroups: 'groups/all',
-    status: 'groups/activeGroupSaveStatus',
+    status: 'currentGroup/saveStatus',
   },
   actionsToEvents: {
     save: 'groups/save',

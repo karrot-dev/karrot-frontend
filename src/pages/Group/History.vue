@@ -16,7 +16,7 @@ export default {
   components: { QCard, QCardTitle, HistoryList },
   computed: {
     ...mapGetters({
-      group: 'groups/activeGroup',
+      group: 'currentGroup/get',
     }),
   },
 }

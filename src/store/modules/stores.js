@@ -35,7 +35,7 @@ export const state = initialState()
 
 export const getters = {
   all: (state, getters) => state.idList.map(getters.get).sort(sortByName),
-  byActiveGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['groups/activeGroupId']),
+  byCurrentGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['currentGroup/id']),
   get: (state, getters) => id => getters.enrich(state.entries[id]),
   enrich: (state, getters) => store => {
     return store && {
@@ -59,7 +59,7 @@ export const actions = {
     async create ({ commit, dispatch, rootGetters }, store) {
       const createdStore = await stores.create({
         ...store,
-        group: rootGetters['groups/activeGroupId'],
+        group: rootGetters['currentGroup/id'],
       })
       commit(types.RECEIVE_ITEM, { store: createdStore })
       router.push({ name: 'store', params: { storeId: createdStore.id } })

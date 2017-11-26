@@ -16,7 +16,7 @@ const defaultProps = {
   stores: storesMock,
   showUsers: true,
   showStores: true,
-  activeGroup: {},
+  currentGroup: {},
 }
 
 describe('GroupMap', () => {

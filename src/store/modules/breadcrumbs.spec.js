@@ -12,7 +12,7 @@ describe('breadcrumbs', () => {
     storeMocks = {
       groups: {
         getters: {
-          activeGroup: () => ({ id: 1, name: 'my active group' }),
+          currentGroup: () => ({ id: 1, name: 'my active group' }),
           activeGroupInfo: () => ({ id: 4, name: 'my active group info' }),
         },
       },
@@ -33,8 +33,8 @@ describe('breadcrumbs', () => {
     })
   })
 
-  it('can create an activeGroup item', async () => {
-    await store.dispatch('breadcrumbs/setAll', [{ type: 'activeGroup' }])
+  it('can create an currentGroup item', async () => {
+    await store.dispatch('breadcrumbs/setAll', [{ type: 'currentGroup' }])
     expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my active group', route: { name: 'group', groupId: 1 } }])
   })
 

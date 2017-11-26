@@ -18,7 +18,7 @@ export default {
   components: { UserList, QCard },
   computed: {
     ...mapGetters({
-      users: 'users/byActiveGroup',
+      users: 'users/byCurrentGroup',
     }),
   },
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="placeholder"/>
-    <GroupMap class="map" :users="users" :stores="stores" :active-group="activeGroup" />
+    <GroupMap class="map" :users="users" :stores="stores" :active-group="currentGroup" />
   </div>
 </template>
 
@@ -15,9 +15,9 @@ export default {
   components: { GroupMap },
   computed: {
     ...mapGetters({
-      stores: 'stores/byActiveGroup',
-      users: 'users/byActiveGroup',
-      activeGroup: 'groups/activeGroup',
+      stores: 'stores/byCurrentGroup',
+      users: 'users/byCurrentGroup',
+      currentGroup: 'currentGroup/get',
     }),
   },
 }

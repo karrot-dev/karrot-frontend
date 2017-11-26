@@ -90,7 +90,7 @@ export default [
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
-        { type: 'activeGroup' },
+        { type: 'currentGroup' },
       ],
       beforeEnter: 'groups/selectGroup',
     },
@@ -308,7 +308,7 @@ export default [
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
-        { type: 'activeGroup' },
+        { type: 'currentGroup' },
         { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
       ],
     },

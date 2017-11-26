@@ -4,12 +4,12 @@ import SidenavMapUI from './SidenavMapUI'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/byActiveGroup',
-    users: 'users/byActiveGroup',
+    stores: 'stores/byCurrentGroup',
+    users: 'users/byCurrentGroup',
     showStores: 'sidenav/showMapStores',
     showUsers: 'sidenav/showMapUsers',
     selectedStoreId: 'stores/activeStoreId',
-    activeGroup: 'groups/activeGroup',
+    currentGroup: 'currentGroup/get',
   },
   actionsToEvents: {
     toggleStores: 'sidenav/toggleMapStores',

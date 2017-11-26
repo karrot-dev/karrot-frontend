@@ -4,7 +4,7 @@ import SidenavStoresUI from './SidenavStoresUI'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/byActiveGroup',
+    stores: 'stores/byCurrentGroup',
   },
 })('SidenavStores', SidenavStoresUI)
 </script>

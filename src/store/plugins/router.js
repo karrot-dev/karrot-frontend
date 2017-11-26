@@ -2,7 +2,7 @@ import router from '@/router'
 
 export default store => {
   let isLoggedIn = () => store.getters['auth/isLoggedIn']
-  let hasActiveGroup = () => !!store.getters['groups/activeGroup']
+  let hasActiveGroup = () => !!store.getters['currentGroup/get']
   let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 

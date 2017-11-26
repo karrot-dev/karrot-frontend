@@ -20,14 +20,14 @@ import HistoryEntry from '@/components/History/HistoryEntry'
 
 export default {
   props: {
-    user: { required: false },
-    store: { required: false },
-    group: { required: false },
+    user: { default: null },
+    store: { default: null },
+    group: { default: null },
     history: { required: true },
     status: { required: true },
     canLoadMore: { required: true },
     fetchMore: { required: true },
-    striped: { required: false },
+    striped: { default: false },
   },
   computed: {
     tableClass () {

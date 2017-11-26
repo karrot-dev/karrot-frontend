@@ -47,7 +47,9 @@ export default {
     showAttribution: {
       default: true,
     },
-    defaultCenter: {},
+    defaultCenter: {
+      default: null,
+    },
   },
   data () {
     return {

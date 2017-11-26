@@ -79,7 +79,10 @@ export default {
   props: {
     status: { required: true },
     requestError: { required: true },
-    prefillEmail: {},
+    prefillEmail: {
+      required: true,
+      type: Function,
+    },
   },
   data () {
     return {

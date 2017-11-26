@@ -11,9 +11,9 @@ import HistoryListUI from '@/components/History/HistoryListUI'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   props: {
-    user: { required: false },
-    store: { required: false },
-    group: { required: false },
+    user: { default: null },
+    store: { default: null },
+    group: { default: null },
   },
   computed: mapGetters({
     history: 'history/all',

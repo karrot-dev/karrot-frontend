@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="group">
     <q-alert v-if="!group.isMember" color="tertiary" icon="info">
       {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
     </q-alert>
@@ -64,8 +64,14 @@ export default {
     return { password: '' }
   },
   props: {
-    group: { required: true },
-    isLoggedIn: {},
+    group: {
+      default: null,
+      type: Object,
+    },
+    isLoggedIn: {
+      default: false,
+      type: Boolean,
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
 }

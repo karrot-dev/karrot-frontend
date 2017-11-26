@@ -31,7 +31,9 @@ import AgreementForm from '@/components/Group/AgreementForm'
 export default {
   name: 'GroupManageAgreement',
   props: {
-    agreement: { required: false },
+    agreement: {
+      default: null,
+    },
   },
   components: {
     QCard, QCardMain, QCardActions, QCardSeparator, QBtn, AgreementForm,

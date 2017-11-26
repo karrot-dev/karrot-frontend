@@ -54,12 +54,29 @@ export default {
     SidenavBox, QBtn, QTooltip, GroupMap,
   },
   props: {
-    stores: { required: false },
-    users: { required: false },
-    showStores: { default: true },
-    showUsers: { default: true },
-    selectedStoreId: { required: false },
-    activeGroup: { required: true },
+    stores: {
+      default: () => [],
+      type: Array,
+    },
+    users: {
+      default: () => [],
+      type: Array,
+    },
+    selectedStoreId: {
+      default: null,
+    },
+    showStores: {
+      default: true,
+      type: Boolean,
+    },
+    showUsers: {
+      default: true,
+      type: Boolean,
+    },
+    activeGroup: {
+      required: true,
+      type: Object,
+    },
   },
 }
 </script>

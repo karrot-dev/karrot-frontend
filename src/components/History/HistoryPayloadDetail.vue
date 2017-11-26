@@ -25,8 +25,13 @@
 
 export default {
   props: {
-    label: {},
-    value: {},
+    label: {
+      required: true,
+      type: String,
+    },
+    value: {
+      required: true,
+    },
   },
 }
 </script>

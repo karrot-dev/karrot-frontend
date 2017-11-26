@@ -47,7 +47,9 @@ export default {
     otherGroups: {
       required: true,
     },
-    isLoggedIn: {},
+    isLoggedIn: {
+      required: true,
+    },
     activeGroupId: {
       default: -1,
     },

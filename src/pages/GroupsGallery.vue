@@ -5,13 +5,13 @@ import GroupPreviewGallery from '@/components/GroupJoin/GroupPreviewGallery'
 
 export default connect({
   gettersToProps: {
-    myGroups: 'groups/myGroups',
-    otherGroups: 'groups/otherGroups',
+    myGroups: 'groups/my',
+    otherGroups: 'groups/other',
     isLoggedIn: 'auth/isLoggedIn',
     currentGroupId: 'currentGroup/id',
   },
   methodsToEvents: {
-    preview: (store, { groupId }) => router.push({ name: 'groupInfo', params: { groupInfoId: groupId } }),
+    preview: (store, { groupId }) => router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }),
     visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),
   },
 })('GroupsGallery', GroupPreviewGallery)

@@ -28,7 +28,7 @@ export const getters = {
 export const actions = {
   ...withMeta({
     /**
-     * Fetch sent invitations for active group
+     * Fetch sent invitations for current group
      */
     async fetch ({ commit, dispatch, rootGetters }) {
       const groupId = rootGetters['group/currentGroupId']

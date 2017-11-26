@@ -53,7 +53,7 @@ Quite a bit in the future (~1 year), haven't been discussed very much. If one of
 
 Rough ideas, have been mentioned by someone.
 
-- Public landing page for groups (improvement of groupInfo page)
+- Public landing page for groups (improvement of groupPreview page)
 - Add "to do" events (generalized from pickup date) https://github.com/yunity/karrot-frontend/issues/359
 - Make stores groupable in custom categories, offer different colored map markers per category and history filter options
 - Sharing of things: text+image with a tag system

@@ -29,7 +29,7 @@ const PickupFeedback = () => import('@/pages/Group/Feedback')
 export default [
   {
     name: 'groupsGallery',
-    path: '/groupInfo',
+    path: '/groupPreview',
     meta: {
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
@@ -40,14 +40,14 @@ export default [
     },
   },
   {
-    name: 'groupInfo',
-    path: '/groupInfo/:groupInfoId',
+    name: 'groupPreview',
+    path: '/groupPreview/:groupPreviewId',
     meta: {
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
-        { type: 'activeGroupInfo' },
+        { type: 'activeGroupPreview' },
       ],
-      beforeEnter: 'groups/selectGroupInfo',
+      beforeEnter: 'groups/selectPreview',
       afterLeave: 'groups/clearGroupInfo',
     },
     components: {
@@ -92,7 +92,7 @@ export default [
       breadcrumbs: [
         { type: 'currentGroup' },
       ],
-      beforeEnter: 'groups/selectGroup',
+      beforeEnter: 'groups/select',
     },
     components: {
       default: GroupLayout,

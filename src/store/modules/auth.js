@@ -61,7 +61,7 @@ export default {
             if (group().joinStatus.hasValidationErrors) {
               // go back to goup preview if error occured
               // it should show the error status on group preview, thanks to persistent state!
-              router.push({ name: 'groupInfo', params: { groupInfoId: joinParams.id } })
+              router.push({ name: 'groupPreview', params: { groupPreviewId: joinParams.id } })
             }
           }
         }

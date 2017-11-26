@@ -39,12 +39,12 @@ export default {
             }
           }
         }
-        if (item.type === 'activeGroupInfo') {
-          let group = rootGetters['groups/activeGroupInfo']
+        if (item.type === 'activeGroupPreview') {
+          let group = rootGetters['groups/activePreview']
           if (group) {
             return {
               name: group.name,
-              route: { name: 'groupInfo', groupInfoId: group.id },
+              route: { name: 'groupPreview', groupPreviewId: group.id },
             }
           }
         }

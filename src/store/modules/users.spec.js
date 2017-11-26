@@ -22,9 +22,9 @@ describe('users', () => {
     store = createStore({
       users: require('./users'),
       auth,
-      groups: {
+      currentGroup: {
         getters: {
-          currentGroup: () => ({ members: [1, 2] }),
+          get: () => ({ members: [1, 2] }),
         },
       },
     })
@@ -52,7 +52,7 @@ describe('users', () => {
     expect(store.getters['users/all'].map(e => e.id)).toEqual([user1.id, user2.id, user3.id])
   })
 
-  it('can get users by active group id', () => {
+  it('can get users by current group id', () => {
     expect(store.getters['users/byCurrentGroup'].map(e => e.id)).toEqual([user1.id, user2.id])
   })
 

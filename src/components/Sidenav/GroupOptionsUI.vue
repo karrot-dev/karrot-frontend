@@ -9,7 +9,7 @@
         <q-icon size="1em" name="fa-file-text-o fa-fw on-left" />
         {{ $t('GROUP.MANAGE_AGREEMENT') }}
       </q-item>
-      <q-item :to="{name: 'groupInfo', params: {groupInfoId: currentGroupId}}" @click.native="$refs.popover.close()">
+      <q-item :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}" @click.native="$refs.popover.close()">
         <q-icon size="1em" name="fa-info-circle fa-fw on-left" />
         {{ $t('GROUPINFO.META') }}
       </q-item>

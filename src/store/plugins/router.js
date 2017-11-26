@@ -56,14 +56,14 @@ export default store => {
 
     /* If:
         - the group is not mentioned in the URL
-        - we do not have an active group
+        - we do not have an current group
         - the user has a currentGroup
       Then:
         - set the users current group to be the active one
      */
     if (!to.params.groupId && !hasActiveGroup() && isLoggedIn()) {
       let groupId = getUserGroupId()
-      if (groupId) store.dispatch('groups/selectGroup', { groupId })
+      if (groupId) store.dispatch('groups/select', { groupId })
     }
 
     next()

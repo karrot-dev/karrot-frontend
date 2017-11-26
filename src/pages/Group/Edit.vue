@@ -7,7 +7,7 @@ export default connect({
     value: 'currentGroup/get',
     timezones: 'timezones/autocompleteData',
     allGroups: 'groups/all',
-    status: 'currentGroup/saveStatus',
+    status: 'groups/saveStatus',
   },
   actionsToEvents: {
     save: 'groups/save',

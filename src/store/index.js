@@ -27,7 +27,7 @@ import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
-import groupsInfo from './modules/groupsInfo'
+import groups from './modules/groups'
 import timezones from './modules/timezones'
 
 Vue.use(Vuex)
@@ -38,7 +38,7 @@ const options = ({
   modules: {
     auth,
     conversations,
-    groupsInfo,
+    groups,
     currentGroup,
     timezones,
     stores,

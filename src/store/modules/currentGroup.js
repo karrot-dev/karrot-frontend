@@ -12,7 +12,7 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    get: (state, getters) => getters.enrich(state.active) || {},
+    get: (state, getters) => getters.enrich(state.current) || {},
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
       const userId = rootGetters['auth/userId']
@@ -27,8 +27,8 @@ export default {
       }
     },
     roles: (state, getters) => getters.get.membership ? getters.get.membership.roles : [],
-    agreement: (state, getters) => getters.get && getters.get.activeAgreement,
-    id: (state) => state.current.id,
+    agreement: (state, getters) => getters.get.activeAgreement,
+    id: (state) => state.current && state.current.id,
   },
   actions: {
     ...withMeta({
@@ -68,13 +68,13 @@ export default {
 
     }),
 
-    async selectGroup ({ commit, state, dispatch, getters, rootState, rootGetters }, { groupId }) {
+    async select ({ commit, state, dispatch, getters, rootState, rootGetters }, { groupId }) {
       if (getters.id === groupId) return
 
       await dispatch('fetch', groupId)
       const hasError = getters['meta/status']('fetch', groupId).hasValidationErrors
       if (hasError) {
-        const groupExists = !!rootGetters.get('groups/get')(groupId)
+        const groupExists = !!rootGetters['groups/get'](groupId)
         const data = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
         throw createRouteError(data)
       }
@@ -93,7 +93,7 @@ export default {
     },
   },
   mutations: {
-    'set' (state, group) {
+    set (state, group) {
       state.current = group
     },
   },

@@ -1,5 +1,5 @@
 <template>
-   <div class="notice">
+  <div class="notice">
     <q-card color="secondary" class="generic-padding row no-wrap">
       <div>
         <div class="icon">

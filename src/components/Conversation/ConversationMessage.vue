@@ -1,22 +1,22 @@
 <template>
-    <q-item multiline>
-      <q-item-side>
-        <ProfilePicture :user="message.author" :size="40" />
-      </q-item-side>
-      <q-item-main>
-        <q-item-tile>
-          <router-link :to="{ name: 'user', params: {userId: message.author.id} }">
-            <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
-          </router-link>
-          <span class="content">{{ message.content }}</span>
-        </q-item-tile>
-        <q-item-tile class="row light-paragraph" style="padding-top: 5px">
-          <small>
-            <DateAsWords :date="message.createdAt" />
-          </small>
-        </q-item-tile>
-      </q-item-main>
-    </q-item>
+  <q-item multiline>
+    <q-item-side>
+      <ProfilePicture :user="message.author" :size="40" />
+    </q-item-side>
+    <q-item-main>
+      <q-item-tile>
+        <router-link :to="{ name: 'user', params: {userId: message.author.id} }">
+          <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
+        </router-link>
+        <span class="content">{{ message.content }}</span>
+      </q-item-tile>
+      <q-item-tile class="row light-paragraph" style="padding-top: 5px">
+        <small>
+          <DateAsWords :date="message.createdAt" />
+        </small>
+      </q-item-tile>
+    </q-item-main>
+  </q-item>
 </template>
 
 <script>

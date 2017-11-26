@@ -15,7 +15,7 @@
             <q-icon name="fa-bullhorn" />
           </q-item-side>
           <q-item-main>
-            {{ $t("GROUP.WALL")}}
+            {{ $t("GROUP.WALL") }}
           </q-item-main>
         </q-item>
         <q-item :to="{name: 'groupPickups'}">
@@ -23,7 +23,7 @@
             <q-icon name="fa-shopping-basket" />
           </q-item-side>
           <q-item-main>
-            {{ $t("GROUP.PICKUPS")}}
+            {{ $t("GROUP.PICKUPS") }}
           </q-item-main>
         </q-item>
         <q-item :to="{name: 'groupDescription'}">
@@ -31,7 +31,7 @@
             <q-icon name="fa-vcard" />
           </q-item-side>
           <q-item-main>
-            {{ $t("GROUP.DESCRIPTION")}}
+            {{ $t("GROUP.DESCRIPTION") }}
           </q-item-main>
         </q-item>
         <q-item :to="{name: 'groupMembers'}">
@@ -39,7 +39,7 @@
             <q-icon name="fa-users" />
           </q-item-side>
           <q-item-main>
-            {{ $t("GROUP.MEMBERS")}}
+            {{ $t("GROUP.MEMBERS") }}
           </q-item-main>
         </q-item>
         <q-item :to="{name: 'groupHistory'}">
@@ -47,7 +47,7 @@
             <q-icon name="fa-clock-o" />
           </q-item-side>
           <q-item-main>
-            {{ $t("GROUP.HISTORY")}}
+            {{ $t("GROUP.HISTORY") }}
           </q-item-main>
         </q-item>
       </q-list>

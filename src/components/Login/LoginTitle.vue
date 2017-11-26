@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="loginImage"></img>
+    <img :src="loginImage">
     <h4>{{ $t('LOGIN.TITLE') }}</h4>
   </div>
 </template>

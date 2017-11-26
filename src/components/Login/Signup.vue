@@ -16,12 +16,12 @@
             icon="fa-user"
             :error="!!requestError('displayName')"
             :error-label="requestError('displayName')"
-            >
+          >
             <q-input
-            :autofocus="true"
-            v-model="user.displayName"
-            :float-label="$t('USERDATA.USERNAME')"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
+              :autofocus="true"
+              v-model="user.displayName"
+              :float-label="$t('USERDATA.USERNAME')"
+              autocorrect="off" autocapitalize="off" spellcheck="false"
             />
           </q-field>
         </div>
@@ -30,12 +30,12 @@
             icon="fa-envelope"
             :error="!!requestError('email')"
             :error-label="requestError('email')"
-            >
+          >
             <q-input
-            v-model="user.email"
-            type="email"
-            :float-label="$t('USERDATA.EMAIL')"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
+              v-model="user.email"
+              type="email"
+              :float-label="$t('USERDATA.EMAIL')"
+              autocorrect="off" autocapitalize="off" spellcheck="false"
             />
           </q-field>
         </div>
@@ -44,12 +44,12 @@
             icon="fa-lock"
             :error="!!requestError('password')"
             :error-label="requestError('password')"
-            >
+          >
             <q-input
-            v-model="user.password"
-            type="password"
-            :float-label="$t('USERDATA.PASSWORD')"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
+              v-model="user.password"
+              type="password"
+              :float-label="$t('USERDATA.PASSWORD')"
+              autocorrect="off" autocapitalize="off" spellcheck="false"
             />
           </q-field>
         </div>

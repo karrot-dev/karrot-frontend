@@ -5,9 +5,9 @@
     <q-popover ref="popover">
       <q-list>
         <q-item v-for="locale in localeOptions" :key="locale.value"
-          @click="setLocale(locale.value), $refs.popover.close()"
-          highlight
-          >
+                @click="setLocale(locale.value), $refs.popover.close()"
+                highlight
+        >
           <q-item-main>
             <q-item-tile label>
               {{ locale.label }}
@@ -20,10 +20,10 @@
         </q-item>
         <q-item-separator />
         <q-item tag="a" @click="$refs.popover.close()"
-          href="https://www.transifex.com/yunity-1/karrot/dashboard/"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-          >
+                href="https://www.transifex.com/yunity-1/karrot/dashboard/"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+        >
           <q-item-main>
             <q-icon name="fa-external-link" />
             <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>

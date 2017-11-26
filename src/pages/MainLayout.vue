@@ -67,7 +67,6 @@ export default {
 }
 </script>
 
-
 <style scoped lang="stylus">
 .sidenav-desktop
   margin-right 1em

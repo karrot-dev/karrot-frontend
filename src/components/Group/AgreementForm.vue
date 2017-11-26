@@ -22,7 +22,7 @@
           @blur="$v.edit.content.$touch"
           type="textarea"
           :min-rows="20"
-          />
+        />
       </q-field>
 
       <q-btn type="submit" color="primary" :disable="!canSave">

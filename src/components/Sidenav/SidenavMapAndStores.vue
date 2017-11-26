@@ -1,7 +1,7 @@
 <template>
   <span>
     <SidenavMap/>
-    <router-view name="sidenav"></router-view>
+    <router-view name="sidenav"/>
     <SidenavStores/>
   </span>
 </template>

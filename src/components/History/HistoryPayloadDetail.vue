@@ -3,7 +3,7 @@
     <td>{{ label }}</td>
     <td>
       <router-link style="margin-right: .4em" :key="user" v-for="user in value" :to="{name:'user', params: {userId: user}}">
-        {{user}}
+        {{ user }}
       </router-link>
     </td>
   </tr>

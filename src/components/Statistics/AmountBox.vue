@@ -1,6 +1,6 @@
 <template>
   <div class="amount shadow-1">
-    {{amount}}<span>kg</span>
+    {{ amount }}<span>kg</span>
   </div>
 </template>
 

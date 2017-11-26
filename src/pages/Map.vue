@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="placeholder"/>
-    <GroupMap class="map" :users="users" :stores="stores" :activeGroup="activeGroup" />
+    <GroupMap class="map" :users="users" :stores="stores" :active-group="activeGroup" />
   </div>
 </template>
 

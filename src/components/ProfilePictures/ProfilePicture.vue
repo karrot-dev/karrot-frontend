@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <router-link v-if="user" :to="{name:'user', params: {userId: user.id}}">
-      <RandomPicture :name="user.displayName" :seed="user.id" :size="size"></RandomPicture>
+      <RandomPicture :name="user.displayName" :seed="user.id" :size="size"/>
       <q-tooltip>
         {{ user.displayName }}
       </q-tooltip>
@@ -10,7 +10,7 @@
     <span v-if="!user">
       <span>?</span>
       <q-tooltip>
-        <span>{{$t('PROFILE.INACCESSIBLE_OR_DELETED')}}</span>
+        <span>{{ $t('PROFILE.INACCESSIBLE_OR_DELETED') }}</span>
       </q-tooltip>
     </span>
   </div>

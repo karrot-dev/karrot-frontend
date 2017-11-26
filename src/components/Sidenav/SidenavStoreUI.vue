@@ -15,7 +15,7 @@
             <q-icon name="fa-calendar-o" />
           </q-item-side>
           <q-item-main>
-            {{ $t("GROUP.PICKUPS")}}
+            {{ $t("GROUP.PICKUPS") }}
           </q-item-main>
         </q-item>
         <q-item :to="{name: 'storeHistory', params: { storeId }}">
@@ -23,7 +23,7 @@
             <q-icon name="fa-clock-o" />
           </q-item-side>
           <q-item-main>
-            {{ $t("GROUP.HISTORY")}}
+            {{ $t("GROUP.HISTORY") }}
           </q-item-main>
         </q-item>
       </q-list>

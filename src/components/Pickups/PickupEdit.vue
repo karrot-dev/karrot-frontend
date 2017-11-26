@@ -7,7 +7,7 @@
         :helper="$t('CREATEPICKUP.TIME_HELPER')"
         :error="hasError('time')"
         :error-label="firstError('time')"
-        >
+      >
         <q-datetime type="time"
                     v-model="edit.date"
                     :format24h="is24h"
@@ -20,7 +20,7 @@
         :helper="$t('CREATEPICKUP.DATE_HELPER')"
         :error="hasError('date')"
         :error-label="firstError('date')"
-        >
+      >
         <q-datetime type="date" v-model="edit.date" :min="now" :display-value="$d(edit.date, 'dateShort')"/>
       </q-field>
 
@@ -30,7 +30,7 @@
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
-        >
+      >
         <q-slider v-model="edit.maxCollectors" :min="1" :max="10" label label-always />
       </q-field>
 
@@ -38,7 +38,7 @@
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
-        >
+      >
         <q-input v-model="edit.description" type="textarea" max-length="500" />
       </q-field>
 

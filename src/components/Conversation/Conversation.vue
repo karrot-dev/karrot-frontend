@@ -12,7 +12,7 @@
           <ConversationMessage v-for="message in data.messages" :key="message.id" :message="message"/>
         </q-list>
         <div slot="message" style="width: 100%; text-align: center">
-          <q-spinner-dots :size="40"></q-spinner-dots>
+          <q-spinner-dots :size="40"/>
         </div>
       </q-infinite-scroll>
       <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">

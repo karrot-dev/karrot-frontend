@@ -3,17 +3,17 @@
     <div v-if="$q.platform.is.mobile" slot="navigation" class="shadow-14 inset-shadow row">
       <q-tabs align="center" color="tertiary" hide="icon" class="col">
         <q-route-tab
-            :to="{name: 'storePickups'}"
-            exact
-            slot="title"
-            name="pickups"
-        >{{ $t('GROUP.PICKUPS' )}}</q-route-tab>
+          :to="{name: 'storePickups'}"
+          exact
+          slot="title"
+          name="pickups"
+        >{{ $t('GROUP.PICKUPS' ) }}</q-route-tab>
         <q-route-tab
-            :to="{name: 'storeHistory'}"
-            exact
-            slot="title"
-            name="history"
-        >{{ $t('GROUP.HISTORY' )}}</q-route-tab>
+          :to="{name: 'storeHistory'}"
+          exact
+          slot="title"
+          name="history"
+        >{{ $t('GROUP.HISTORY' ) }}</q-route-tab>
       </q-tabs>
       <q-btn flat class="bg-tertiary text-white">
         <q-icon name="fa-ellipsis-v" />
@@ -21,7 +21,7 @@
         <StoreOptions/>
       </q-btn>
     </div>
-    <router-view></router-view>
+    <router-view/>
   </div>
   <div v-else>
     <q-card>

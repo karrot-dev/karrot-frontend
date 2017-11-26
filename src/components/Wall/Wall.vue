@@ -19,7 +19,7 @@
     <Conversation
       :data="conversation"
       :user="user"
-      :fetchMore="fetchMore"
+      :fetch-more="fetchMore"
       @send="$emit('send', arguments[0])"
     />
   </div>

@@ -5,7 +5,7 @@
       <a place="resend" @click="resend" class="underline">{{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}</a>
     </i18n>
     <span v-if="status.success">{{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}</span>
-    <p v-if="status.error">Error: {{status.error}}</p>
+    <p v-if="status.error">Error: {{ status.error }}</p>
   </q-alert>
 </template>
 
@@ -35,4 +35,3 @@ export default {
 .underline
   text-decoration underline
 </style>
-

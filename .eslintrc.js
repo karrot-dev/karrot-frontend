@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module'
   },
   env: {
@@ -10,11 +10,10 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [
-    'standard'
+    'standard',
+    'plugin:vue/strongly-recommended'
   ],
-  // required to lint *.vue files
   plugins: [
-    'html',
     'import'
   ],
   globals: {
@@ -26,6 +25,12 @@ module.exports = {
   },
   // add your custom rules here
   'rules': {
+    // We relax some of the vue rules for now as they require a lot of manual changes
+    // TODO: comply with the rules, then remove these lines
+    'vue/max-attributes-per-line': 0,
+    'vue/require-prop-types': 0,
+    'vue/require-default-prop': 0,
+
     // allow paren-less arrow functions
     'arrow-parens': 0,
     'one-var': 0,

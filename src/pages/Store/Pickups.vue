@@ -13,7 +13,7 @@
       <router-link :to="{ name: 'storePickupsManage', params: { storeId: store.id } }">
         <q-btn style="background-color: white">
           <i class="fa fa-clock-o on-left"/>
-          {{$t('STOREDETAIL.MANAGE')}}
+          {{ $t('STOREDETAIL.MANAGE') }}
         </q-btn>
       </router-link>
     </div>

@@ -2,7 +2,7 @@
   <div class="footer bg-neutral font-primary">
     <div style="margin-top: 5em" class="footer-max-width row generic-padding">
       <div class="generic-padding col-md-4" style="margin-top: -5em; text-align: center;">
-        <img class="shadow" src="~@/assets/carrot-logo.svg"/>
+        <img class="shadow" src="~@/assets/carrot-logo.svg">
       </div>
       <div class="column col-md-4">
         <div><a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-fw fa-github on-left" /> {{ $t('GLOBAL.GITHUB_NOTE') }}</a></div>

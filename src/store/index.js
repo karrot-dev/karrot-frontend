@@ -6,7 +6,6 @@ import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
-import * as groups from './modules/groups'
 import * as stores from './modules/stores'
 import * as users from './modules/users'
 import * as pickups from './modules/pickups'
@@ -26,7 +25,10 @@ import alerts from './modules/alerts'
 import auth from './modules/auth'
 import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
+import currentGroup from './modules/currentGroup'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
+import groupsInfo from './modules/groupsInfo'
+import timezones from './modules/timezones'
 
 Vue.use(Vuex)
 
@@ -36,7 +38,9 @@ const options = ({
   modules: {
     auth,
     conversations,
-    groups,
+    groupsInfo,
+    currentGroup,
+    timezones,
     stores,
     users,
     pickups,

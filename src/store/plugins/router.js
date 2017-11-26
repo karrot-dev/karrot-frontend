@@ -2,7 +2,7 @@ import router from '@/router'
 
 export default store => {
   let isLoggedIn = () => store.getters['auth/isLoggedIn']
-  let hasActiveGroup = () => !!store.getters['currentGroup/get']
+  let hasCurrentGroup = () => !!store.getters['currentGroup/get']
   let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
@@ -59,11 +59,11 @@ export default store => {
         - we do not have an current group
         - the user has a currentGroup
       Then:
-        - set the users current group to be the active one
+        - set the users current group
      */
-    if (!to.params.groupId && !hasActiveGroup() && isLoggedIn()) {
+    if (!to.params.groupId && !hasCurrentGroup() && isLoggedIn()) {
       let groupId = getUserGroupId()
-      if (groupId) store.dispatch('groups/select', { groupId })
+      if (groupId) store.dispatch('currentGroup/select', { groupId })
     }
 
     next()

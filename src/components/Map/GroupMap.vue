@@ -28,10 +28,10 @@ export default {
   props: {
     users: { required: true, type: Array },
     stores: { required: true, type: Array },
-    selectedStoreId: { default: null },
-    showUsers: { default: false },
-    showStores: { default: true },
-    currentGroup: { required: true },
+    selectedStoreId: { default: null, type: Number },
+    showUsers: { default: false, type: Boolean },
+    showStores: { default: true, type: Boolean },
+    currentGroup: { type: Object, default: () => {} },
   },
   methods: {
     userMarkerId (userId) {

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import GroupPreviewGallery from './GroupPreviewGallery'
+import GroupsGallery from './GroupsGalleryUI'
 import i18n from '@/i18n'
 import router from '@/router'
 import { groupsMock } from '>/mockdata'
@@ -11,18 +11,18 @@ const methods = {
   visit: action('visit group'),
 }
 
-storiesOf('GroupPreviewGallery', module)
+storiesOf('GroupsGallery', module)
   .add('signup view', () => ({
-    components: { GroupPreviewGallery },
-    template: '<GroupPreviewGallery :otherGroups="otherGroups" @preview="preview" />',
+    components: { GroupsGallery },
+    template: '<GroupsGallery :otherGroups="otherGroups" @preview="preview" />',
     data () { return { otherGroups: groupsMock } },
     methods,
     i18n,
     router,
   }))
   .add('switch and explore', () => ({
-    components: { GroupPreviewGallery },
-    template: '<GroupPreviewGallery :myGroups="myGroups" :otherGroups="otherGroups" @preview="preview" @visit="visit" />',
+    components: { GroupsGallery },
+    template: '<GroupsGallery :myGroups="myGroups" :otherGroups="otherGroups" @preview="preview" @visit="visit" />',
     data () { return { myGroups: groupsMock.slice(0, 3), otherGroups: groupsMock } },
     methods,
     i18n,

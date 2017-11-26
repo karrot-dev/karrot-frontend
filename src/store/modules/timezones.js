@@ -27,8 +27,7 @@ export default {
   actions: {
     ...withMeta({
       async fetch ({ commit }) {
-        const timezones = await groups.timezones()
-        commit('set', { timezones })
+        commit('set', await groups.timezones())
       },
     }),
   },

@@ -5,7 +5,7 @@ const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
 const GroupCreate = () => import('@/pages/Group/Create')
-const GroupInfo = () => import('@/pages/GroupInfo')
+const GroupPreview = () => import('@/pages/GroupPreview')
 const GroupsGallery = () => import('@/pages/GroupsGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
@@ -48,10 +48,10 @@ export default [
         { type: 'activeGroupPreview' },
       ],
       beforeEnter: 'groups/selectPreview',
-      afterLeave: 'groups/clearGroupInfo',
+      afterLeave: 'groups/clearGroupPreview',
     },
     components: {
-      default: GroupInfo,
+      default: GroupPreview,
     },
   },
   {
@@ -92,7 +92,7 @@ export default [
       breadcrumbs: [
         { type: 'currentGroup' },
       ],
-      beforeEnter: 'groups/select',
+      beforeEnter: 'currentGroup/select',
     },
     components: {
       default: GroupLayout,

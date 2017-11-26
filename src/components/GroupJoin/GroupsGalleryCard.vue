@@ -1,6 +1,6 @@
 <template>
   <q-card class="groupPreviewCard">
-    <q-card-title>
+    <q-card-title class="ellipsis">
       {{ group.name }}
       <span slot="subtitle">
         {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}

@@ -10,7 +10,7 @@ Pages are the views of the app, each of them is defined in a route object. It ca
     // custom properties like data loading and breadcrumb definitions
   },
   components: {
-    default: GroupInfo,
+    default: GroupPreview,
   },
 },
 ```
@@ -27,10 +27,10 @@ The action gets the route `params` object passed as first argument. In the examp
   path: '/groupPreview/:groupPreviewId',
   meta: {
     beforeEnter: 'groups/selectPreview',
-    afterLeave: 'groups/clearGroupInfo',
+    afterLeave: 'groups/clearGroupPreview',
   },
   components: {
-    default: GroupInfo,
+    default: GroupPreview,
   },
 },
 ```
@@ -60,10 +60,10 @@ Similar to `beforeEnter`, you specify an `afterLeave` property on the `meta` obj
   name: 'groupPreview',
   path: '/groupPreview/:groupPreviewId',
   meta: {
-    afterLeave: 'groups/clearGroupInfo',
+    afterLeave: 'groups/clearGroupPreview',
   },
   components: {
-    default: GroupInfo,
+    default: GroupPreview,
   },
 },
 ```

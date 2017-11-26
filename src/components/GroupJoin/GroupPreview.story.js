@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import GroupInfoCard from './GroupInfoCard'
+import GroupPreviewUI from './GroupPreviewUI'
 import i18n from '@/i18n'
 
 import { groupsMock } from '>/mockdata'
@@ -11,9 +11,9 @@ const methods = {
   visit: action('visit group'),
 }
 
-storiesOf('GroupInfoCard', module)
+storiesOf('GroupPreviewUI', module)
   .add('is not member', () => ({
-    render: h => h(GroupInfoCard, {
+    render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], isMember: false },
         status: { error: null, isWaiting: false },
@@ -23,7 +23,7 @@ storiesOf('GroupInfoCard', module)
     i18n,
   }))
   .add('is member', () => ({
-    render: h => h(GroupInfoCard, {
+    render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], isMember: true },
         status: { error: null, isWaiting: false },
@@ -33,7 +33,7 @@ storiesOf('GroupInfoCard', module)
     i18n,
   }))
   .add('without public description', () => ({
-    render: h => h(GroupInfoCard, {
+    render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], publicDescription: '', isMember: true },
         status: { error: null, isWaiting: false },
@@ -43,7 +43,7 @@ storiesOf('GroupInfoCard', module)
     i18n,
   }))
   .add('waiting', () => ({
-    render: h => h(GroupInfoCard, {
+    render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[4], isMember: false },
         status: { error: null, isWaiting: true },
@@ -53,7 +53,7 @@ storiesOf('GroupInfoCard', module)
     i18n,
   }))
   .add('error', () => ({
-    render: h => h(GroupInfoCard, {
+    render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[4], isMember: false },
         status: { error: 'asdfasdf', isWaiting: false },

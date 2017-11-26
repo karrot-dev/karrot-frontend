@@ -12,7 +12,7 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    get: (state, getters) => getters.enrich(state.current) || {},
+    get: (state, getters) => getters.enrich(state.current),
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
       const userId = rootGetters['auth/userId']
@@ -26,8 +26,8 @@ export default {
         __unenriched: group,
       }
     },
-    roles: (state, getters) => getters.get.membership ? getters.get.membership.roles : [],
-    agreement: (state, getters) => getters.get.activeAgreement,
+    roles: (state, getters) => (getters.get && getters.get.membership) ? getters.get.membership.roles : [],
+    agreement: (state, getters) => getters.get && getters.get.activeAgreement,
     id: (state) => state.current && state.current.id,
   },
   actions: {
@@ -90,6 +90,10 @@ export default {
       }
 
       dispatch('auth/update', { currentGroup: groupId }, { root: true })
+    },
+
+    update ({ commit }, group) {
+      commit('set', group)
     },
   },
   mutations: {

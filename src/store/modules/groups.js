@@ -23,7 +23,7 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
       const userId = rootGetters['auth/userId']
-      const isMember = userId ? group.members.includes(userId) : false
+      const isMember = userId && group.members ? group.members.includes(userId) : false
       return {
         ...group,
         isMember,
@@ -40,7 +40,7 @@ export default {
     my: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
     // A de-duplicated list of member ids of all groups the user is part of
     myMemberIds: (state, getters) => {
-      return Object.keys(getters.myGroups.reduce((obj, group) => {
+      return Object.keys(getters.my.reduce((obj, group) => {
         for (let member of group.members) {
           obj[member] = true
         }
@@ -58,7 +58,8 @@ export default {
   actions: {
     ...withMeta({
       async save ({ commit, dispatch }, group) {
-        commit('update', { group: await groups.save(group) })
+        commit('update', await groups.save(group))
+        dispatch('currentGroup/update', group, { root: true })
         router.push({ name: 'group', params: { groupId: group.id } })
       },
 
@@ -93,7 +94,7 @@ export default {
       if (!getters.get(groupPreviewId)) {
         try {
           const group = await groupsInfo.get(groupPreviewId)
-          commit('update', { group })
+          commit('update', group)
         }
         catch (error) {
           throw createRouteError()
@@ -101,7 +102,7 @@ export default {
       }
       commit('setActivePreview', groupPreviewId)
     },
-    clearGroupInfo ({ commit }) {
+    clearGroupPreview ({ commit }) {
       commit('setActivePreview', null)
     },
   },

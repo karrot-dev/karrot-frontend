@@ -1,7 +1,6 @@
 <template>
   <div class="error-page window-height window-width bg-light column items-center no-wrap">
-    <div class="error-code bg-primary flex items-center justify-center">
-    </div>
+    <div class="error-code bg-primary flex items-center justify-center"/>
     <div>
       <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
         <q-icon name="error_outline" color="grey-5" />

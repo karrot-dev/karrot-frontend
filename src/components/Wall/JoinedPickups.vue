@@ -2,8 +2,8 @@
   <div>
     <q-card @click="showPickups = !showPickups" color="secondary" class="generic-padding notice">
       <i class="fa fa-shopping-basket on-left"/>
-      {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length })}}
-      <div class="card-arrow" v-bind:class="{ upsideDown: showPickups }">
+      {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length }) }}
+      <div class="card-arrow" :class="{ upsideDown: showPickups }">
         <i class="fa fa-arrow-circle-down"/>
       </div>
     </q-card>
@@ -14,7 +14,7 @@
         :pickup="pickup"
         @join="$emit('join', arguments[0])"
         @leave="$emit('leave', arguments[0])"
-        >
+      >
         <strong v-if="pickup.store">
           <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">{{ pickup.store.name }}</router-link>
         </strong> {{ $d(pickup.date, 'dateWithDayName') }}

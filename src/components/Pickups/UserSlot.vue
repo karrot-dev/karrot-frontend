@@ -1,13 +1,11 @@
 <template>
   <div class="user-slot-wrapper" :class="{ greyedOut: !showJoin, active: showJoin }" :style="{ width: size + 'px', height: size + 'px' }">
-    <div :class="{ hoverHide: showJoin }">
-    </div>
+    <div :class="{ hoverHide: showJoin }"/>
     <div v-if="hoverUser && showJoin" :class="{ hoverShow: showJoin }">
       <RandomPicture @click.native="$emit('join')"
-        :name="hoverUser.displayName"
-        :seed="hoverUser.id"
-        :size="size">
-      </RandomPicture>
+                     :name="hoverUser.displayName"
+                     :seed="hoverUser.id"
+                     :size="size"/>
       <q-tooltip>
         <span>{{ $t('PICKUPLIST.ITEM.JOIN') }}</span>
       </q-tooltip>

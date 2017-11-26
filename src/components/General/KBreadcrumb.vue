@@ -19,8 +19,7 @@
     <div v-if="lastElement">
       <div class="label lastElement" v-if="lastElement.name">{{ lastElement.name }}</div>
     </div>
-    <div v-if="secondlastElement" class="xs" style="min-width: 20px">
-    </div>
+    <div v-if="secondlastElement" class="xs" style="min-width: 20px"/>
   </div>
 </template>
 

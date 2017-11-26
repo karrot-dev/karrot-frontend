@@ -13,7 +13,7 @@
       <q-item-side><i class="fa fa-cog fa-fw"/></q-item-side>
       <q-item-main :label="$t('SETTINGS.TITLE')" />
     </q-side-link>
-    <q-item  @click="$emit('logout'), $emit('toggleSidenav')">
+    <q-item @click="$emit('logout'), $emit('toggleSidenav')">
       <q-item-side><i class="fa fa-sign-out fa-fw"/></q-item-side>
       <q-item-main :label="$t('TOPBAR.LOGOUT')" />
     </q-item>

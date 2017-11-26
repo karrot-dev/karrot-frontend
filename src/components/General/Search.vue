@@ -7,7 +7,7 @@
       v-model="terms"
       :placeholder="$t('BUTTON.SEARCH')"
       @blur="hideIfEmpty"
-      >
+    >
       <q-autocomplete @search="search" @selected="selected" />
     </q-search>
   </div>

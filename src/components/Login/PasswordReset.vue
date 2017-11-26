@@ -8,13 +8,13 @@
         <div class="white-box">
           <q-field icon="fa-envelope">
             <q-input
-            :autofocus="true"
-            :float-label="$t('PASSWORDRESET.EMAIL')"
-            type="email"
-            v-model="email"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
-            :error="!!requestError('email')"
-            :error-label="requestError('email')"
+              :autofocus="true"
+              :float-label="$t('PASSWORDRESET.EMAIL')"
+              type="email"
+              v-model="email"
+              autocorrect="off" autocapitalize="off" spellcheck="false"
+              :error="!!requestError('email')"
+              :error-label="requestError('email')"
             />
           </q-field>
         </div>

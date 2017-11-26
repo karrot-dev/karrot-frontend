@@ -4,23 +4,23 @@
       <div class="white-box" :class="{ shake: hasAnyError }">
         <q-field icon="fa-envelope">
           <q-input
-          :autofocus="true"
-          :error="hasError('email')"
-          :float-label="$t('USERDATA.EMAIL')"
-          type="email"
-          v-model="email"
-          autocorrect="off" autocapitalize="off" spellcheck="false"
+            :autofocus="true"
+            :error="hasError('email')"
+            :float-label="$t('USERDATA.EMAIL')"
+            type="email"
+            v-model="email"
+            autocorrect="off" autocapitalize="off" spellcheck="false"
           />
         </q-field>
       </div>
       <div class="white-box" :class="{ shake: hasAnyError }">
         <q-field icon="fa-lock">
           <q-input
-          :error="hasError('password')"
-          v-model="password"
-          type="password"
-          :float-label="$t('USERDATA.PASSWORD')"
-          autocorrect="off" autocapitalize="off" spellcheck="false"
+            :error="hasError('password')"
+            v-model="password"
+            type="password"
+            :float-label="$t('USERDATA.PASSWORD')"
+            autocorrect="off" autocapitalize="off" spellcheck="false"
           />
         </q-field>
       </div>

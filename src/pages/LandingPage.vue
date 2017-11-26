@@ -1,7 +1,7 @@
 <template>
-    <div>
-      <Login @loginDo="loginDo" :error="error"/>
-    </div>
+  <div>
+    <Login @loginDo="loginDo" :error="error"/>
+  </div>
 </template>
 
 <script>

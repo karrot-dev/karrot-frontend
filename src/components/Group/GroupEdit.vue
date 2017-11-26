@@ -8,7 +8,7 @@
             :label="$t('GROUP.TITLE')"
             :error="hasNameError"
             :error-label="nameError"
-            >
+          >
             <q-input
               id="group-title"
               v-model="edit.name"
@@ -23,7 +23,7 @@
             :label="$t('GROUP.PUBLIC_DESCRIPTION')"
             :error="hasError('publicDescription')"
             :error-label="firstError('publicDescription')"
-            >
+          >
             <MarkdownInput :value="edit.publicDescription">
               <q-input
                 v-model="edit.publicDescription"
@@ -38,7 +38,7 @@
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             :error="hasError('description')"
             :error-label="firstError('description')"
-            >
+          >
             <MarkdownInput :value="edit.description">
               <q-input
                 v-model="edit.description"
@@ -53,7 +53,7 @@
             :label="$t('GROUP.ADDRESS')"
             :error="hasAddressError"
             :error-label="addressError"
-            >
+          >
             <address-picker
               v-model="edit"
               :map="true"
@@ -65,7 +65,7 @@
             :label="$t('GROUP.PASSWORD')"
             :error="hasError('password')"
             :error-label="firstError('password')"
-            >
+          >
             <q-input v-model="edit.password"/>
           </q-field>
 
@@ -74,11 +74,11 @@
             :label="$t('GROUP.TIMEZONE')"
             :error="hasTimezoneError"
             :error-label="timezoneError"
-            >
+          >
             <q-input
               v-model="edit.timezone"
               @blur="$v.edit.timezone.$touch"
-              >
+            >
               <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" :filter="timezoneFilter"/>
             </q-input>
           </q-field>

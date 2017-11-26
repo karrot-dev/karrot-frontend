@@ -18,7 +18,7 @@
         v-for="group in myGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupPreviewCard :class="{highlight: group.id === activeGroupId}" :group="group" :isMember="true" @preview="$emit('preview', { groupId: group.id })" @visit="$emit('visit', { groupId: group.id })" />
+        <GroupPreviewCard :class="{highlight: group.id === activeGroupId}" :group="group" :is-member="true" @preview="$emit('preview', { groupId: group.id })" @visit="$emit('visit', { groupId: group.id })" />
       </div>
     </div>
     <h4 class="text-primary" v-if="otherGroups.length>0">
@@ -29,7 +29,7 @@
         v-for="group in otherGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupPreviewCard :group="group" :isMember="false" @preview="$emit('preview', { groupId: group.id })" />
+        <GroupPreviewCard :group="group" :is-member="false" @preview="$emit('preview', { groupId: group.id })" />
       </div>
     </div>
   </div>

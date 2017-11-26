@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper row">
     <AmountBox class="amount" :amount="amount"/>
-    <img v-for="(photoSrc, idx) in photosArray" :src="photoSrc" :key="idx"/>
+    <img v-for="(photoSrc, idx) in photosArray" :src="photoSrc" :key="idx">
   </div>
 </template>
 

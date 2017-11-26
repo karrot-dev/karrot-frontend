@@ -13,8 +13,8 @@
           :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
           :loading="status.isWaiting"
           @keyup.ctrl.enter="send"
-          />
-        </q-item-tile>
+        />
+      </q-item-tile>
     </q-item-main>
   </q-item>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <StandardMap :markers="markers" :selectedMarkerIds="selectedMarkerIds" :style="style" :defaultCenter="center" />
+    <StandardMap :markers="markers" :selected-marker-ids="selectedMarkerIds" :style="style" :default-center="center" />
     <div v-if="showOverlay" class="overlay row justify-center content-center">
       <router-link v-if="showStoreLocationPrompt" :to="{ name: 'storeEdit', params: { storeId: this.selectedStoreId } }">
         <q-btn color="primary">

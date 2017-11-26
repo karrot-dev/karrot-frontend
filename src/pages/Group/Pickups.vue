@@ -6,7 +6,7 @@
       :pickup="pickup"
       @join="join"
       @leave="leave"
-      >
+    >
       <strong v-if="pickup.store">
         <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">{{ pickup.store.name }}</router-link>
       </strong> {{ $d(pickup.date, 'dateWithDayName') }}

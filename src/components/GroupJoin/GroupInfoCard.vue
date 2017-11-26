@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-alert v-if="!group.isMember" color="tertiary" icon="info">
-      {{ $t('JOINGROUP.PROFILE_NOTE' )}}
+      {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
     </q-alert>
     <q-card>
       <q-card-title>
@@ -31,7 +31,7 @@
               :helper="$t('JOINGROUP.PASSWORD_LABEL')"
               :error="this.group.joinStatus.hasValidationErrors"
               :error-label="$t('JOINGROUP.PASSWORD_WRONG')"
-              >
+            >
               <q-input v-model="password" type="password" />
             </q-field>
             <q-btn type="submit" loader :value="group.joinStatus.pending" >

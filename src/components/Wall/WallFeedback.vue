@@ -1,20 +1,20 @@
 <template>
-    <WallCard>
-      <template slot="icon">
-        <div class="icon">
-          <i class="fa fa-shopping-cart"/>
-        </div>
-      </template>
-      <template slot="header">
-        <div><ProfilePicture :user="feedback.givenBy"/></div>
-        <div>picked up food</div>
-      </template>
-      <template slot="time">
-        {{ $d(feedback.createdAt, 'long') }}
-      </template>
-      <AmountBox :amount="feedback.weight"/>
-      <div class="comment"> {{ feedback.comment }} </div>
-    </WallCard>
+  <WallCard>
+    <template slot="icon">
+      <div class="icon">
+        <i class="fa fa-shopping-cart"/>
+      </div>
+    </template>
+    <template slot="header">
+      <div><ProfilePicture :user="feedback.givenBy"/></div>
+      <div>picked up food</div>
+    </template>
+    <template slot="time">
+      {{ $d(feedback.createdAt, 'long') }}
+    </template>
+    <AmountBox :amount="feedback.weight"/>
+    <div class="comment"> {{ feedback.comment }} </div>
+  </WallCard>
 </template>
 
 <script>

@@ -1,13 +1,13 @@
 <template>
   <div class="splashlayout-wrapper">
     <div class="splashlayout-header">
-      <router-view name="header"></router-view>
+      <router-view name="header"/>
     </div>
     <div class="splashlayout">
       <div class="splashlayout-content">
-      <transition name="fade" mode="out-in">
-        <router-view></router-view>
-      </transition>
+        <transition name="fade" mode="out-in">
+          <router-view/>
+        </transition>
       </div>
     </div>
   </div>

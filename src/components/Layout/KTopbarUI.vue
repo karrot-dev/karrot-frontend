@@ -6,9 +6,9 @@
     </router-link>
     <q-toolbar-title>
       <div class="row justify-between no-wrap">
-        <div></div>
+        <div/>
         <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs"/>
-        <div></div>
+        <div/>
       </div>
     </q-toolbar-title>
     <q-transition duration="310" name="search-slide-in" appear>
@@ -39,15 +39,15 @@
           <q-list item-separator link>
             <q-item :to="{name: 'groupsGallery'}" @click.native="$refs.popover.close()">
               <q-icon size="1em" name="fa-home fa-fw" />
-              {{ $t('TOPBAR.CHANGE_GROUP')  }}
+              {{ $t('TOPBAR.CHANGE_GROUP') }}
             </q-item>
             <q-item :to="{name: 'settings'}" @click.native="$refs.popover.close()">
               <q-icon size="1em" name="fa-cog fa-fw" />
-              {{$t('SETTINGS.TITLE')}}
+              {{ $t('SETTINGS.TITLE') }}
             </q-item>
             <q-item @click="$emit('logout'), $refs.popover.close()">
               <q-icon size="1em" name="fa-sign-out fa-fw" />
-              {{$t('TOPBAR.LOGOUT')}}
+              {{ $t('TOPBAR.LOGOUT') }}
             </q-item>
           </q-list>
         </q-popover>

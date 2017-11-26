@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="~@/assets/carrot-logo.svg"/>
+    <img src="~@/assets/carrot-logo.svg">
   </div>
 </template>
 

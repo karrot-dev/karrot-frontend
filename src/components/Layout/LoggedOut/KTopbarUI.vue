@@ -5,9 +5,9 @@
     </router-link>
     <q-toolbar-title>
       <div class="row justify-between no-wrap">
-        <div></div>
+        <div/>
         <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs" />
-        <div></div>
+        <div/>
       </div>
     </q-toolbar-title>
     <div class="actions">

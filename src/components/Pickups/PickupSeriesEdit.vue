@@ -7,7 +7,7 @@
         :helper="$t('CREATEPICKUP.TIME_HELPER')"
         :error="hasError('startDate')"
         :error-label="firstError('startDate')"
-        >
+      >
         <q-datetime type="time"
                     v-model="edit.startDate"
                     :format24h="is24h"
@@ -20,7 +20,7 @@
         :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
         :error="hasError('rule')"
         :error-label="firstError('rule')"
-        >
+      >
         <q-select multiple toggle v-model="edit.rule.byDay" :options="dayOptions"/>
       </q-field>
 
@@ -30,7 +30,7 @@
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
-        >
+      >
         <q-slider v-model="edit.maxCollectors" :min="1" :max="10" label label-always />
       </q-field>
 
@@ -38,13 +38,13 @@
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
-        >
+      >
         <q-input v-model="edit.description" type="textarea" max-length="500" />
       </q-field>
 
       <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
 
-      <div class="row"  v-if="!isNew">
+      <div class="row" v-if="!isNew">
         <div class="col-6 actionButton">
           <q-btn type="button" class="full-width" @click="reset" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="userMapPreview" style="position: relative">
-    <StandardMap :markers="markers" :showAttribution="false"/>
+    <StandardMap :markers="markers" :show-attribution="false"/>
     <router-link class="overlay" :to="{name: 'map', params: {userId: user.id}}"/>
   </div>
 </template>

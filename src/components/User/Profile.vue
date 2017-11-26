@@ -9,7 +9,7 @@
         </q-transition>
       </div>
       <div style="overflow: hidden">
-        <h1 class="accent-font">{{user.displayName}}</h1>
+        <h1 class="accent-font">{{ user.displayName }}</h1>
         <p class="subtitle">
           <span v-for="(group, indx) in groups" :key="group.id">
             <router-link :to="{name: 'group', params: { groupId: group.id }}">
@@ -36,7 +36,7 @@
           {{ user.address }}
         </div>
       </div>
-      <q-card-separator v-if="user.description != ''"/><br/>
+      <q-card-separator v-if="user.description != ''"/><br>
       <Markdown
         v-if="user.description"
         :source="user.description"

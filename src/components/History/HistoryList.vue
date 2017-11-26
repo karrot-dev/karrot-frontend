@@ -2,9 +2,9 @@
   <HistoryListUI
     :history="history"
     :status="status"
-    :canLoadMore="canLoadMore"
-    :fetchMore="fetchMore"
-    />
+    :can-load-more="canLoadMore"
+    :fetch-more="fetchMore"
+  />
 </template>
 <script>
 import HistoryListUI from '@/components/History/HistoryListUI'

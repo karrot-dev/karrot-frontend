@@ -18,7 +18,7 @@
       appear
       :duration="{ enter: 500, leave: 0 }"
       name="bounce"
-      >
+    >
       <CurrentUser
         v-if="pickup.isUserMember && !isJoiningOrLeaving(pickup)"
         :size="size"
@@ -32,8 +32,8 @@
       v-for="n in emptySlots"
       :key="n"
       :size="size"
-      :hoverUser="currentUser"
-      :showJoin="!pickup.isUserMember && n == 1"
+      :hover-user="currentUser"
+      :show-join="!pickup.isUserMember && n == 1"
       v-if="n > 1 || !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
       class="profilePic"
       :class="{clickable: !pickup.isUserMember && n == 1}"
@@ -41,7 +41,7 @@
     />
 
     <div v-if="noNotShownEmptySlots > 0" class="emptySlots profilePic" :style="{ width: size + 'px', height: size + 'px' }">
-      <div></div>
+      <div/>
       <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
       <span v-if="noNotShownEmptySlots > 99">...</span>
     </div>

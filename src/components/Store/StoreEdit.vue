@@ -8,7 +8,7 @@
             :label="$t('STOREEDIT.NAME')"
             :error="hasNameError"
             :error-label="nameError"
-            >
+          >
             <q-input
               v-model="edit.name"
               :autofocus="true"
@@ -21,11 +21,11 @@
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-label="firstError('status')"
-            >
-              <q-select
-               v-model="edit.status"
-               :options="statusOptions"
-             />
+          >
+            <q-select
+              v-model="edit.status"
+              :options="statusOptions"
+            />
           </q-field>
 
           <q-field
@@ -33,7 +33,7 @@
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-label="firstError('description')"
-            >
+          >
             <MarkdownInput :value="edit.description">
               <q-input v-model="edit.description" type="textarea" :min-rows="3" />
             </MarkdownInput>
@@ -44,7 +44,7 @@
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-label="addressError"
-            >
+          >
             <address-picker v-model="edit" :map="true" />
           </q-field>
 
@@ -53,7 +53,7 @@
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
             :error-label="firstError('weeksInAdvance')"
-            >
+          >
             <q-slider v-model="edit.weeksInAdvance" :min="1" :max="10" label label-always />
           </q-field>
 

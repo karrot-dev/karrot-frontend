@@ -21,9 +21,11 @@ export const getters = {
       groups = rootGetters['groups/all'],
       users = rootGetters['users/all']
 
-    const storeRes = stores.filter((store) => store.name.toLowerCase().match(getters.terms.toLowerCase()))
-    const groupRes = groups.filter((group) => group.name.toLowerCase().match(getters.terms.toLowerCase()))
-    const userRes = users.filter((user) => user.displayName.toLowerCase().match(getters.terms.toLowerCase()))
+    const matches = (name) => name.toLowerCase().includes(getters.terms.toLowerCase())
+
+    const storeRes = stores.filter((store) => matches(store.name))
+    const groupRes = groups.filter((group) => matches(group.name))
+    const userRes = users.filter((user) => matches(user.displayName))
 
     return [
       ...storeRes.map(e => ({

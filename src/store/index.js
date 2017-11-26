@@ -7,7 +7,6 @@ import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
 import * as groups from './modules/groups'
-import * as conversations from './modules/conversations'
 import * as stores from './modules/stores'
 import * as users from './modules/users'
 import * as pickups from './modules/pickups'
@@ -26,6 +25,7 @@ import agreements from './modules/agreements'
 import alerts from './modules/alerts'
 import auth from './modules/auth'
 import breadcrumbs from './modules/breadcrumbs'
+import conversations from './modules/conversations'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 
 Vue.use(Vuex)

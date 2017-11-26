@@ -1,5 +1,5 @@
 <template>
-  <WallCard>
+  <div>
     <template slot="icon">
       <div class="icon">
         <i class="fa fa-shopping-cart"/>
@@ -14,17 +14,16 @@
     </template>
     <AmountBox :amount="feedback.weight"/>
     <div class="comment"> {{ feedback.comment }} </div>
-  </WallCard>
+  </div>
 </template>
 
 <script>
-import WallCard from './WallCard'
 import AmountBox from '@/components/Statistics/AmountBox'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   components: {
-    WallCard, ProfilePicture, AmountBox,
+    ProfilePicture, AmountBox,
   },
   props: {
     feedback: { required: true },

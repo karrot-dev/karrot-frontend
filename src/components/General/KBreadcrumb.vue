@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="prevBread gt-xs" v-for="breadcrumb in prevElements">
+    <div class="prevBread gt-xs" v-for="breadcrumb in prevElements" :key="breadcrumb.name">
       <router-link v-if="breadcrumb.route" :to="breadcrumb.route" class="no-hover">
         <q-btn class="text-white" flat small v-if="breadcrumb.name">{{ breadcrumb.name }}</q-btn>
       </router-link>
@@ -20,7 +20,7 @@
       <div class="label lastElement" v-if="lastElement.name">{{ lastElement.name }}</div>
     </div>
     <div v-if="secondlastElement" class="xs" style="min-width: 20px">
-    </div>   
+    </div>
   </div>
 </template>
 

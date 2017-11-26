@@ -33,7 +33,7 @@ export default {
     .name
       margin auto 0
       font-weight 500
-      font-size 1.3em 
+      font-size 1.3em
   .content
     padding .6em
 

@@ -34,13 +34,13 @@ export default {
     .name
       margin auto 0
       font-weight 500
-      font-size 1.3em 
+      font-size 1.3em
   .content
     padding 4px
   .name .fa
     margin-right .4em
     font-size .9em
-    
+
   .router-link-exact-active
     background-color $neutral
 </style>

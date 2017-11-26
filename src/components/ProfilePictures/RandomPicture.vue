@@ -1,4 +1,5 @@
 <template>
+  <span/>
 </template>
 
 <script>

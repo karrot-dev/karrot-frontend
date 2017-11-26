@@ -21,7 +21,7 @@
       </div>
     </div>
     <q-card class="generic-padding">
-      <UserMapPreview v-if="user.latitude && user.longitude" :user="user"class="map"/>
+      <UserMapPreview v-if="user.latitude && user.longitude" :user="user" class="map"/>
       <div class="info">
         <div class="info-item">
           <strong><i class="fa fa-fw fa-envelope-o on-left" /> </strong>

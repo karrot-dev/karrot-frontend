@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
@@ -193,7 +194,13 @@ export const actions = {
 
   async selectGroupInfo ({ commit, getters, dispatch }, { groupInfoId }) {
     if (!getters.get(groupInfoId)) {
-      throw createRouteError()
+      try {
+        const user = await groupsInfo.get(groupInfoId)
+        commit('appendGroup', { user })
+      }
+      catch (error) {
+        throw createRouteError()
+      }
     }
     commit(types.SET_ACTIVE_PREVIEW, { groupPreviewId: groupInfoId })
   },
@@ -219,6 +226,10 @@ export const mutations = {
   [types.RECEIVE_GROUPS] (state, { groups }) {
     state.idsList = groups.map((group) => group.id)
     state.entries = indexById(groups)
+  },
+  appendGroup (state, group) {
+    state.idsList.push(group.id)
+    Vue.set(state.entries, group.id, group)
   },
   [types.RECEIVE_JOIN] (state, { groupId, userId }) {
     let { members } = state.entries[groupId]

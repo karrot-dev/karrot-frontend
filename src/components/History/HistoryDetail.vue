@@ -72,7 +72,9 @@ import HistoryPayloadDetail from '@/components/History/HistoryPayloadDetail'
 
 export default {
   props: {
-    entry: {},
+    entry: {
+      default: null,
+    },
   },
   components: { QIcon, QBtn, QCard, QCardTitle, ProfilePicture, DateAsWords, HistoryPayloadDetail },
   methods: {

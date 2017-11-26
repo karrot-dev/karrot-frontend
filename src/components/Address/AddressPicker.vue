@@ -16,8 +16,13 @@ import geocoding from '@/services/geocoding'
 
 export default {
   props: {
-    value: {},
-    map: Boolean,
+    value: {
+      required: true,
+    },
+    map: {
+      default: true,
+      type: Boolean,
+    },
   },
   components: { QSearch, QAutocomplete, StandardMap },
   watch: {

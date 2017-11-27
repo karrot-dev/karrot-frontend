@@ -12,8 +12,8 @@ export default {
   getters: {
     all: (state, getters, rootState, rootGetters) => {
       return state.breadcrumbs.map((item, idx) => {
-        if (item.type === 'activeGroup') {
-          let group = rootGetters['groups/activeGroup']
+        if (item.type === 'currentGroup') {
+          let group = rootGetters['currentGroup/value']
           if (group) {
             return {
               name: group.name,
@@ -39,12 +39,12 @@ export default {
             }
           }
         }
-        if (item.type === 'activeGroupInfo') {
-          let group = rootGetters['groups/activeGroupInfo']
+        if (item.type === 'activeGroupPreview') {
+          let group = rootGetters['groups/activePreview']
           if (group) {
             return {
               name: group.name,
-              route: { name: 'groupInfo', groupInfoId: group.id },
+              route: { name: 'groupPreview', groupPreviewId: group.id },
             }
           }
         }

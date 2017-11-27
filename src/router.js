@@ -22,7 +22,7 @@ const router = new VueRouter({
    * build publicPath back to '' so Cordova builds work again.
    *
    * BREADCRUMBS - Available types:
-   *  - activeGroup
+   *  - currentGroup
    *  - activeStore
    * ...you can define other ones in KBreadcrumb.
    */

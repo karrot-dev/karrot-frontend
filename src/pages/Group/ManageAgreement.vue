@@ -4,12 +4,12 @@ import GroupManageAgreement from '@/components/Group/GroupManageAgreement'
 
 export default connect({
   gettersToProps: {
-    agreement: 'groups/activeGroupAgreement',
+    agreement: 'currentGroup/agreement',
   },
   actionsToEvents: {
-    save: 'groups/activeGroupAgreementSave',
-    replace: 'groups/activeGroupAgreementReplace',
-    remove: 'groups/activeGroupAgreementRemove',
+    save: 'currentGroup/agreementSave',
+    replace: 'currentGroup/agreementReplace',
+    remove: 'currentGroup/agreementRemove',
   },
 })('GroupManageAgreement', GroupManageAgreement)
 </script>

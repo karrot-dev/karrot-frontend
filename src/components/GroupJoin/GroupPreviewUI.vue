@@ -35,12 +35,7 @@
               <q-input v-model="password" type="password" />
             </q-field>
             <q-btn type="submit" loader :value="group.joinStatus.pending" >
-              <span v-if="isLoggedIn">
-                {{ $t('BUTTON.JOIN') }}
-              </span>
-              <span v-else>
-                {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
-              </span>
+              {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
             </q-btn>
           </form>
         </span>

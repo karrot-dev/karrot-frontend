@@ -4,7 +4,7 @@ import MobileNavigationUI from './MobileNavigationUI'
 
 export default connect({
   gettersToProps: {
-    activeGroupId: 'groups/activeGroupId',
+    currentGroupId: 'currentGroup/id',
   },
 })('MobileNavigation', MobileNavigationUI)
 </script>

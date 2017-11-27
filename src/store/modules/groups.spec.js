@@ -1,14 +1,10 @@
-const mockGet = jest.fn()
 const mockJoin = jest.fn()
 const mockLeave = jest.fn()
 const mockSave = jest.fn()
-const mockConversation = jest.fn()
 jest.mock('@/services/api/groups', () => ({
-  get: mockGet,
   join: mockJoin,
   leave: mockLeave,
   save: mockSave,
-  conversation: mockConversation,
 }))
 
 const mockFetchGroupsPreview = jest.fn()
@@ -29,11 +25,7 @@ function enrich (group) {
   return {
     ...group,
     isMember: false,
-    awaitingAgreement: false,
-    activeAgreement: undefined,
-    membership: {},
     ...defaultActionStatusesFor('save', 'join', 'leave'),
-    __unenriched: group,
   }
 }
 
@@ -88,36 +80,23 @@ describe('groups', () => {
     },
   }
 
-  const pickups = {
-    actions: {
-      clear: jest.fn(),
-      fetchListByGroupId: jest.fn(),
-    },
-  }
-
-  const conversations = {
-    actions: {
-      setActive: jest.fn(),
-    },
-  }
-
   describe('logged out', () => {
     beforeEach(() => {
       store = createStore({
-        groups: require('./groups'),
+        groups: require('./groups').default,
         agreements,
       })
     })
 
     it('can fetch the group list', async () => {
       mockFetchGroupsPreview.mockReturnValueOnce([group1])
-      await store.dispatch('groups/fetchGroupsPreview')
+      await store.dispatch('groups/fetch')
       expect(store.getters['groups/all']).toEqual([enrich(group1)])
     })
 
     it('can not join a group', async () => {
       mockJoin.mockImplementationOnce(throws(new Error('some error')))
-      store.commit('groups/Receive Groups', { groups: [group1] })
+      store.commit('groups/set', [group1])
       await expect(store.dispatch('groups/join', { id: group1.id })).rejects.toHaveProperty('message', 'some error')
     })
   })
@@ -125,7 +104,7 @@ describe('groups', () => {
   describe('logged in', () => {
     beforeEach(() => {
       store = createStore({
-        groups: require('./groups'),
+        groups: require('./groups').default,
         auth,
         agreements,
         alerts,
@@ -133,26 +112,26 @@ describe('groups', () => {
     })
 
     beforeEach(() => {
-      store.commit('groups/Receive Groups', { groups: [group1, group2, group3] })
+      store.commit('groups/set', [group1, group2, group3])
     })
 
     it('can fetch my group list', async () => {
-      expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
     })
 
     it('can join a group', async () => {
       mockJoin.mockReturnValueOnce({})
-      expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
       await store.dispatch('groups/join', { id: group1.id })
       expect(mockRouterPush).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
-      expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group1.id, group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group1.id, group2.id, group3.id])
     })
 
     it('can leave a group', async () => {
       mockLeave.mockReturnValueOnce({})
-      expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
       await store.dispatch('groups/leave', group2.id)
-      expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group3.id])
     })
 
     it('can save a group', async () => {
@@ -174,7 +153,7 @@ describe('groups', () => {
   describe('getters', () => {
     beforeEach(() => {
       store = createStore({
-        groups: require('./groups'),
+        groups: require('./groups').default,
         agreements,
         auth,
         users,
@@ -182,9 +161,7 @@ describe('groups', () => {
     })
 
     beforeEach(() => {
-      store.commit('groups/Receive Groups', { groups: [group1, group2, group3] })
-      store.commit('groups/Set Active', { groupId: group2.id })
-      store.commit('groups/Receive Group', { group: group2 })
+      store.commit('groups/set', [group1, group2, group3])
     })
 
     it('can get a group', () => {
@@ -192,65 +169,25 @@ describe('groups', () => {
     })
 
     it('can get myGroups', () => {
-      expect(store.getters['groups/myGroups']).toEqual([group2, group3].map(enrichAsMember))
+      expect(store.getters['groups/mine']).toEqual([group2, group3].map(enrichAsMember))
     })
 
     it('can get otherGroups', () => {
-      expect(store.getters['groups/otherGroups']).toEqual([group1].map(enrich))
-    })
-
-    it('can get activeGroupId', () => {
-      expect(store.getters['groups/activeGroupId']).toBe(group2.id)
-    })
-
-    it('can get activeGroup', () => {
-      expect(store.getters['groups/activeGroup']).toEqual(enrichAsMember(group2))
+      expect(store.getters['groups/other']).toEqual([group1].map(enrich))
     })
   })
 
-  describe('with lots of mock stuff', () => {
-    beforeEach(() => {
-      store.commit('groups/Receive Groups', { groups: [group1, group2, group3] })
-    })
-
+  describe('groupPreview', () => {
     beforeEach(() => {
       store = createStore({
-        groups: require('./groups'),
-        agreements,
-        auth,
-        pickups,
-        conversations,
-      })
-    })
-
-    it('can select a group', async () => {
-      mockConversation.mockReturnValueOnce({ id: 66 })
-      mockGet.mockReturnValueOnce(group2)
-      await store.dispatch('groups/selectGroup', { groupId: group2.id })
-      expect(store.getters['groups/myGroups'].map(e => e.id)).toEqual([])
-      expect(pickups.actions.clear).toBeCalled()
-      expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group2.id)
-      expect(conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
-    })
-
-    it('throws routeError if not group does not exist or user is not member of the group', async () => {
-      mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-      await expect(store.dispatch('groups/selectGroup', { groupId: 9999 }))
-        .rejects.toHaveProperty('type', 'RouteError')
-    })
-  })
-
-  describe('groupInfo', () => {
-    beforeEach(() => {
-      store = createStore({
-        groups: require('./groups'),
+        groups: require('./groups').default,
       })
     })
 
     it('throws routeError if group does not exist', async () => {
-      await expect(store.dispatch('groups/selectGroupInfo', { groupInfoId: 9999 }))
+      await expect(store.dispatch('groups/selectPreview', { groupPreviewId: 9999 }))
         .rejects.toHaveProperty('type', 'RouteError')
-      expect(store.getters['groups/activeGroupInfo']).toBeUndefined()
+      expect(store.getters['groups/activePreview']).toBeUndefined()
     })
   })
 })

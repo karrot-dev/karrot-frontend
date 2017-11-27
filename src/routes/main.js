@@ -5,8 +5,8 @@ const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
 const GroupCreate = () => import('@/pages/Group/Create')
-const GroupInfo = () => import('@/pages/GroupInfo')
-const GroupsGallery = () => import('@/pages/GroupsGallery')
+const GroupPreview = () => import('@/pages/GroupPreview')
+const GroupGallery = () => import('@/pages/GroupGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
@@ -29,29 +29,29 @@ const PickupFeedback = () => import('@/pages/Group/Feedback')
 export default [
   {
     name: 'groupsGallery',
-    path: '/groupInfo',
+    path: '/groupPreview',
     meta: {
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
     },
     components: {
-      default: GroupsGallery,
+      default: GroupGallery,
     },
   },
   {
-    name: 'groupInfo',
-    path: '/groupInfo/:groupInfoId',
+    name: 'groupPreview',
+    path: '/groupPreview/:groupPreviewId',
     meta: {
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
-        { type: 'activeGroupInfo' },
+        { type: 'activeGroupPreview' },
       ],
-      beforeEnter: 'groups/selectGroupInfo',
-      afterLeave: 'groups/clearGroupInfo',
+      beforeEnter: 'groups/selectPreview',
+      afterLeave: 'groups/clearGroupPreview',
     },
     components: {
-      default: GroupInfo,
+      default: GroupPreview,
     },
   },
   {
@@ -63,7 +63,7 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { translation: 'GROUP.CREATE_TITLE', route: { name: 'groupCreate' } },
       ],
-      beforeEnter: 'groups/fetchTimezones',
+      beforeEnter: 'timezones/fetch',
     },
     components: {
       default: GroupCreate,
@@ -90,9 +90,9 @@ export default [
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
-        { type: 'activeGroup' },
+        { type: 'currentGroup' },
       ],
-      beforeEnter: 'groups/selectGroup',
+      beforeEnter: 'currentGroup/select',
     },
     components: {
       default: GroupLayout,
@@ -180,7 +180,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
           ],
-          beforeEnter: 'groups/fetchTimezones',
+          beforeEnter: 'timezones/fetch',
         },
         components: {
           default: GroupEdit,
@@ -308,7 +308,7 @@ export default [
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
-        { type: 'activeGroup' },
+        { type: 'currentGroup' },
         { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
       ],
     },

@@ -7,7 +7,9 @@
       class="alert"
     >
       <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
-        <router-link place="login" :to="{ name: 'login' }" class="underline">{{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}</router-link>
+        <router-link place="login" :to="{ name: 'login' }" class="underline">
+          {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
+        </router-link>
       </i18n>
     </q-alert>
     <h4 v-if="myGroups.length>0" class="text-primary">
@@ -18,7 +20,13 @@
         v-for="group in myGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupPreviewCard :class="{highlight: group.id === activeGroupId}" :group="group" :is-member="true" @preview="$emit('preview', { groupId: group.id })" @visit="$emit('visit', { groupId: group.id })" />
+        <GroupGalleryCard
+          :class="{highlight: group.id === currentGroupId}"
+          :group="group"
+          :is-member="true"
+          @preview="$emit('preview', { groupId: group.id })"
+          @visit="$emit('visit', { groupId: group.id })"
+        />
       </div>
     </div>
     <h4 class="text-primary" v-if="otherGroups.length>0">
@@ -29,32 +37,40 @@
         v-for="group in otherGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupPreviewCard :group="group" :is-member="false" @preview="$emit('preview', { groupId: group.id })" />
+        <GroupGalleryCard
+          :group="group"
+          :is-member="false"
+          @preview="$emit('preview', { groupId: group.id })"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import GroupPreviewCard from './GroupPreviewCard'
+import GroupGalleryCard from './GroupGalleryCard'
 import { QAlert } from 'quasar'
 
 export default {
   props: {
     myGroups: {
       default: () => [],
+      type: Array,
     },
     otherGroups: {
       required: true,
+      type: Array,
     },
     isLoggedIn: {
       required: true,
+      type: Boolean,
     },
-    activeGroupId: {
+    currentGroupId: {
       default: -1,
+      type: Number,
     },
   },
-  components: { GroupPreviewCard, QAlert },
+  components: { GroupGalleryCard, QAlert },
 }
 </script>
 

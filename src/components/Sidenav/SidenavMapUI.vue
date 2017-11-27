@@ -1,47 +1,39 @@
 <template>
-  <span>
-    <SidenavBox>
-      <div slot="name"><i class="fa fa-fw fa-map" />{{ $t('GROUPMAP.TITLE') }}</div>
-      <div slot="tools" class="tools">
-        <q-btn flat small @click="$emit('toggleStores')">
-          <span class="fa-stack" v-if="!showStores">
-            <i class="fa fa-shopping-cart fa-stack-1x" />
-            <i class="fa fa-times fa-bot-right fa-stack-1x" />
-          </span>
-          <span class="fa-stack" v-if="showStores">
-            <i class="fa fa-shopping-cart fa-stack-1x" />
-            <i class="fa fa-check fa-bot-right fa-stack-1x" />
-          </span>
-          <q-tooltip v-if="!showStores">
-            <span>{{ $t('GROUPMAP.SHOW_STORES') }}</span>
-          </q-tooltip>
-          <q-tooltip v-if="showStores">
-            <span>{{ $t('GROUPMAP.HIDE_STORES') }}</span>
-          </q-tooltip>
-        </q-btn>
+  <SidenavBox>
+    <div slot="name"><i class="fa fa-fw fa-map" />{{ $t('GROUPMAP.TITLE') }}</div>
+    <div slot="tools" class="tools">
+      <q-btn flat small @click="$emit('toggleStores')">
+        <span class="fa-stack">
+          <i class="fa fa-shopping-cart fa-stack-1x" />
+          <i v-if="showStores" class="fa fa-check fa-bot-right fa-stack-1x" />
+          <i v-else class="fa fa-times fa-bot-right fa-stack-1x" />
+        </span>
+        <q-tooltip>
+          {{ $t( showStores ? 'GROUPMAP.HIDE_STORES' : 'GROUPMAP.SHOW_STORES') }}
+        </q-tooltip>
+      </q-btn>
 
-        <q-btn flat small @click="$emit('toggleUsers')">
-          <span class="fa-stack" v-if="!showUsers">
-            <i class="fa fa-user fa-stack-1x" />
-            <i class="fa fa-times fa-bot-right fa-stack-1x" />
-          </span>
-          <span class="fa-stack" v-if="showUsers">
-            <i class="fa fa-user fa-stack-1x" />
-            <i class="fa fa-check fa-bot-right fa-stack-1x" />
-          </span>
-          <q-tooltip v-if="!showUsers">
-            <span>{{ $t('GROUPMAP.SHOW_USERS') }}</span>
-          </q-tooltip>
-          <q-tooltip v-if="showUsers">
-            <span>{{ $t('GROUPMAP.HIDE_USERS') }}</span>
-          </q-tooltip>
-        </q-btn>
-      </div>
-      <div>
-        <GroupMap class="map" :stores="stores" :users="users" :show-users="showUsers" :show-stores="showStores" :selected-store-id="selectedStoreId" :active-group="activeGroup" />
-      </div>
-    </SidenavBox>
-  </span>
+      <q-btn flat small @click="$emit('toggleUsers')">
+        <span class="fa-stack">
+          <i class="fa fa-user fa-stack-1x" />
+          <i v-if="showUsers" class="fa fa-check fa-bot-right fa-stack-1x" />
+          <i v-else class="fa fa-times fa-bot-right fa-stack-1x" />
+        </span>
+        <q-tooltip>
+          {{ $t( showUsers ? 'GROUPMAP.HIDE_USERS' : 'GROUPMAP.SHOW_USERS') }}
+        </q-tooltip>
+      </q-btn>
+    </div>
+    <GroupMap
+      class="map"
+      :stores="stores"
+      :users="users"
+      :show-users="showUsers"
+      :show-stores="showStores"
+      :selected-store-id="selectedStoreId"
+      :current-group="currentGroup"
+    />
+  </SidenavBox>
 </template>
 
 <script>
@@ -73,7 +65,7 @@ export default {
       default: true,
       type: Boolean,
     },
-    activeGroup: {
+    currentGroup: {
       required: true,
       type: Object,
     },

@@ -4,13 +4,13 @@ Pages are the views of the app, each of them is defined in a route object. It ca
 
 ```js
 {
-  name: 'groupInfo',
-  path: '/groupInfo/:groupInfoId',
+  name: 'groupPreview',
+  path: '/groupPreview/:groupPreviewId',
   meta: {
     // custom properties like data loading and breadcrumb definitions
   },
   components: {
-    default: GroupInfo,
+    default: GroupPreview,
   },
 },
 ```
@@ -19,18 +19,18 @@ Pages are the views of the app, each of them is defined in a route object. It ca
 
 Quite often, you will find that a page needs data from the API to show something meaningful. We use a declarative approach to do this. By specifying a vuex action `beforeEnter` properties on the route `meta` object, the action will run before the page loads.
 
-The action gets the route `params` object passed as first argument. In the example below, you can use the `groupInfoId` in the action.
+The action gets the route `params` object passed as first argument. In the example below, you can use the `groupPreviewId` in the action.
 
 ```js
 {
-  name: 'groupInfo',
-  path: '/groupInfo/:groupInfoId',
+  name: 'groupPreview',
+  path: '/groupPreview/:groupPreviewId',
   meta: {
-    beforeEnter: 'groups/selectGroupInfo',
-    afterLeave: 'groups/clearGroupInfo',
+    beforeEnter: 'groups/selectPreview',
+    afterLeave: 'groups/clearGroupPreview',
   },
   components: {
-    default: GroupInfo,
+    default: GroupPreview,
   },
 },
 ```
@@ -57,13 +57,13 @@ Similar to `beforeEnter`, you specify an `afterLeave` property on the `meta` obj
 
 ```js
 {
-  name: 'groupInfo',
-  path: '/groupInfo/:groupInfoId',
+  name: 'groupPreview',
+  path: '/groupPreview/:groupPreviewId',
   meta: {
-    afterLeave: 'groups/clearGroupInfo',
+    afterLeave: 'groups/clearGroupPreview',
   },
   components: {
-    default: GroupInfo,
+    default: GroupPreview,
   },
 },
 ```

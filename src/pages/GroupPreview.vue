@@ -1,11 +1,11 @@
 <script>
 import { connect } from 'vuex-connect'
 import router from '@/router'
-import GroupInfoCard from '@/components/GroupJoin/GroupInfoCard'
+import GroupPreviewUI from '@/components/GroupJoin/GroupPreviewUI'
 
 export default connect({
   gettersToProps: {
-    group: 'groups/activeGroupInfo',
+    group: 'groups/activePreview',
     isLoggedIn: 'auth/isLoggedIn',
   },
   methodsToEvents: {
@@ -20,5 +20,5 @@ export default connect({
       }
     },
   },
-})('GroupInfo', GroupInfoCard)
+})('GroupPreview', GroupPreviewUI)
 </script>

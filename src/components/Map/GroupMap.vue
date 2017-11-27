@@ -7,7 +7,7 @@
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
       </router-link>
-      <router-link v-else :to="{ name: 'groupEdit', params: { groupId: this.activeGroup.id, storeId: this.selectedStoreId } }">
+      <router-link v-else :to="{ name: 'groupEdit', params: { groupId: this.currentGroup.id, storeId: this.selectedStoreId } }">
         <q-btn color="primary">
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
@@ -28,10 +28,10 @@ export default {
   props: {
     users: { required: true, type: Array },
     stores: { required: true, type: Array },
-    selectedStoreId: { default: null },
-    showUsers: { default: false },
-    showStores: { default: true },
-    activeGroup: { required: true },
+    selectedStoreId: { default: null, type: Number },
+    showUsers: { default: false, type: Boolean },
+    showStores: { default: true, type: Boolean },
+    currentGroup: { type: Object, default: () => {} },
   },
   methods: {
     userMarkerId (userId) {
@@ -70,13 +70,13 @@ export default {
       return this.selectedStoreId && !(this.storesWithLocation.findIndex(e => e.id === this.selectedStoreId) >= 0)
     },
     showGroupLocationPrompt () {
-      return !this.selectedStoreId && this.markers.length === 0 && !(this.activeGroup.latitude && this.activeGroup.longitude)
+      return !this.selectedStoreId && this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
     },
     showOverlay () {
       return this.showStoreLocationPrompt || this.showGroupLocationPrompt
     },
     center () {
-      if (this.activeGroup.latitude && this.activeGroup.longitude) return this.activeGroup
+      if (this.currentGroup.latitude && this.currentGroup.longitude) return this.currentGroup
     },
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }

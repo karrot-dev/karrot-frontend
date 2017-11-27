@@ -8,7 +8,11 @@
       :placeholder="$t('BUTTON.SEARCH')"
       @blur="hideIfEmpty"
     >
-      <q-autocomplete @search="search" @selected="selected" />
+      <q-autocomplete
+        @search="search"
+        @selected="selected"
+        :debounce="50"
+      />
     </q-search>
   </div>
 </template>

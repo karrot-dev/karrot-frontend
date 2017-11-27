@@ -4,8 +4,8 @@ import GroupOptionsUI from './GroupOptionsUI'
 
 export default connect({
   gettersToProps: {
-    activeGroupId: 'groups/activeGroupId',
-    roles: 'groups/activeGroupRoles',
+    currentGroupId: 'currentGroup/id',
+    roles: 'currentGroup/roles',
   },
   actionsToEvents: {
     leave: 'groups/leave',

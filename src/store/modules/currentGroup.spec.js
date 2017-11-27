@@ -83,7 +83,7 @@ describe('currentGroup', () => {
     })
 
     it('can get currentGroup', () => {
-      expect(store.getters['currentGroup/get']).toEqual(enrich(group3))
+      expect(store.getters['currentGroup/value']).toEqual(enrich(group3))
     })
   })
 

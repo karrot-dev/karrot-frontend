@@ -22,7 +22,7 @@ export default {
     ...mapGetters({
       stores: 'stores/byCurrentGroup',
       users: 'users/byCurrentGroup',
-      currentGroup: 'currentGroup/get',
+      currentGroup: 'currentGroup/value',
     }),
   },
 }

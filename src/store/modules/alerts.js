@@ -20,7 +20,7 @@ export default {
 
       // Derived state alerts
 
-      const currentGroup = rootGetters['currentGroup/get']
+      const currentGroup = rootGetters['currentGroup/value']
       if (currentGroup && currentGroup.awaitingAgreement) {
         alerts.push({
           type: 'awaitingAgreement',

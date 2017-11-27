@@ -18,7 +18,7 @@ export default {
   components: { QCard, Markdown },
   computed: {
     ...mapGetters({
-      group: 'currentGroup/get',
+      group: 'currentGroup/value',
     }),
   },
 }

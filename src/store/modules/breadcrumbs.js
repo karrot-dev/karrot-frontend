@@ -13,7 +13,7 @@ export default {
     all: (state, getters, rootState, rootGetters) => {
       return state.breadcrumbs.map((item, idx) => {
         if (item.type === 'currentGroup') {
-          let group = rootGetters['currentGroup/get']
+          let group = rootGetters['currentGroup/value']
           if (group) {
             return {
               name: group.name,

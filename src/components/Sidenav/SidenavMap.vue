@@ -9,7 +9,7 @@ export default connect({
     showStores: 'sidenav/showMapStores',
     showUsers: 'sidenav/showMapUsers',
     selectedStoreId: 'stores/activeStoreId',
-    currentGroup: 'currentGroup/get',
+    currentGroup: 'currentGroup/value',
   },
   actionsToEvents: {
     toggleStores: 'sidenav/toggleMapStores',

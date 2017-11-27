@@ -59,8 +59,14 @@ export default {
     return { password: '' }
   },
   props: {
-    group: { required: true, type: Object },
-    isLoggedIn: Boolean,
+    group: {
+      default: null,
+      type: Object,
+    },
+    isLoggedIn: {
+      default: false,
+      type: Boolean,
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
 }

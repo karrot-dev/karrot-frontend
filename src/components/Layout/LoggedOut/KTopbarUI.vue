@@ -34,7 +34,6 @@ export default {
   },
   props: {
     breadcrumbs: { required: false, default: () => [] },
-    currentUserId: {},
   },
 }
 </script>

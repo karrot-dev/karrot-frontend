@@ -70,7 +70,6 @@ export default {
   props: {
     breadcrumbs: { required: false, default: () => [] },
     searchOpen: { required: true },
-    currentUserId: {},
     user: { required: true },
   },
 }

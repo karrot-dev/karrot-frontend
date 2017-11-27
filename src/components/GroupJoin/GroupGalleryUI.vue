@@ -61,7 +61,10 @@ export default {
       required: true,
       type: Array,
     },
-    isLoggedIn: Boolean,
+    isLoggedIn: {
+      required: true,
+      type: Boolean,
+    },
     currentGroupId: {
       default: -1,
       type: Number,

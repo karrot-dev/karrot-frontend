@@ -19,9 +19,17 @@ import RandomPicture from '@/components/ProfilePictures/RandomPicture'
 
 export default {
   props: {
-    size: { default: 20 },
-    hoverUser: { required: false },
-    showJoin: { default: false },
+    size: {
+      default: 20,
+    },
+    hoverUser: {
+      default: null,
+      type: Object,
+    },
+    showJoin: {
+      default: false,
+      type: Boolean,
+    },
   },
   components: {
     QTooltip, RandomPicture,

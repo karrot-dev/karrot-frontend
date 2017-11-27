@@ -29,7 +29,6 @@ module.exports = {
     // TODO: comply with the rules, then remove these lines
     'vue/max-attributes-per-line': 0,
     'vue/require-prop-types': 0,
-    'vue/require-default-prop': 0,
 
     // allow paren-less arrow functions
     'arrow-parens': 0,

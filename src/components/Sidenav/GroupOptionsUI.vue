@@ -34,7 +34,10 @@ export default {
   },
   props: {
     currentGroupId: {required: true},
-    roles: { type: Array, required: true },
+    roles: {
+      default: () => [],
+      type: Array,
+    },
   },
   computed: {
     isAgreementManager () {

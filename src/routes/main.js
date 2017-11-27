@@ -6,7 +6,7 @@ const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
 const GroupCreate = () => import('@/pages/Group/Create')
 const GroupPreview = () => import('@/pages/GroupPreview')
-const GroupsGallery = () => import('@/pages/GroupsGallery')
+const GroupGallery = () => import('@/pages/GroupGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
@@ -36,7 +36,7 @@ export default [
       ],
     },
     components: {
-      default: GroupsGallery,
+      default: GroupGallery,
     },
   },
   {

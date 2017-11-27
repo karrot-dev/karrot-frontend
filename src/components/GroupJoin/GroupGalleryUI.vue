@@ -20,7 +20,7 @@
         v-for="group in myGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupsGalleryCard
+        <GroupGalleryCard
           :class="{highlight: group.id === currentGroupId}"
           :group="group"
           :is-member="true"
@@ -37,7 +37,7 @@
         v-for="group in otherGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupsGalleryCard
+        <GroupGalleryCard
           :group="group"
           :is-member="false"
           @preview="$emit('preview', { groupId: group.id })"
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import GroupsGalleryCard from './GroupsGalleryCard'
+import GroupGalleryCard from './GroupGalleryCard'
 import { QAlert } from 'quasar'
 
 export default {
@@ -67,7 +67,7 @@ export default {
       type: Number,
     },
   },
-  components: { GroupsGalleryCard, QAlert },
+  components: { GroupGalleryCard, QAlert },
 }
 </script>
 

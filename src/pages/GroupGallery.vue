@@ -1,7 +1,7 @@
 <script>
 import { connect } from 'vuex-connect'
 import router from '@/router'
-import GroupsGalleryUI from '@/components/GroupJoin/GroupsGalleryUI'
+import GroupGalleryUI from '@/components/GroupJoin/GroupGalleryUI'
 
 export default connect({
   gettersToProps: {
@@ -14,5 +14,5 @@ export default connect({
     preview: (store, { groupId }) => router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }),
     visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),
   },
-})('GroupsGallery', GroupsGalleryUI)
+})('GroupGallery', GroupGalleryUI)
 </script>

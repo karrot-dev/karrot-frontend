@@ -10,7 +10,7 @@ describe('history module', () => {
 
   beforeEach(() => {
     store = createStore({
-      history: require('./history').default,
+      history: require('./history'),
     })
   })
 

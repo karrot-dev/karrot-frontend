@@ -5,7 +5,7 @@ import GroupGalleryUI from '@/components/GroupJoin/GroupGalleryUI'
 
 export default connect({
   gettersToProps: {
-    myGroups: 'groups/my',
+    myGroups: 'groups/mine',
     otherGroups: 'groups/other',
     isLoggedIn: 'auth/isLoggedIn',
     currentGroupId: 'currentGroup/id',

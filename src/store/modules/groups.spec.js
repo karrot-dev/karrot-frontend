@@ -116,22 +116,22 @@ describe('groups', () => {
     })
 
     it('can fetch my group list', async () => {
-      expect(store.getters['groups/my'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
     })
 
     it('can join a group', async () => {
       mockJoin.mockReturnValueOnce({})
-      expect(store.getters['groups/my'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
       await store.dispatch('groups/join', { id: group1.id })
       expect(mockRouterPush).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
-      expect(store.getters['groups/my'].map(e => e.id)).toEqual([group1.id, group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group1.id, group2.id, group3.id])
     })
 
     it('can leave a group', async () => {
       mockLeave.mockReturnValueOnce({})
-      expect(store.getters['groups/my'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
       await store.dispatch('groups/leave', group2.id)
-      expect(store.getters['groups/my'].map(e => e.id)).toEqual([group3.id])
+      expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group3.id])
     })
 
     it('can save a group', async () => {
@@ -169,7 +169,7 @@ describe('groups', () => {
     })
 
     it('can get myGroups', () => {
-      expect(store.getters['groups/my']).toEqual([group2, group3].map(enrichAsMember))
+      expect(store.getters['groups/mine']).toEqual([group2, group3].map(enrichAsMember))
     })
 
     it('can get otherGroups', () => {

@@ -9,7 +9,7 @@
   },
   "USERDATA": {
     "EMAIL": "Correo",
-    "PROFILE_TITLE": "Profile",
+    "PROFILE_TITLE": "Perfil",
     "PASSWORD": "Contraseña",
     "USERNAME": "Nombre",
     "WHERE_FROM": "Where you are from (not required)"
@@ -22,33 +22,33 @@
     "JOIN": "Unirse",
     "LEAVE": "Salir",
     "PREVIEW": "Vista previa",
-    "BACK": "Back",
+    "BACK": "Atrás",
     "MORE_OPTIONS": "Más opciones",
     "SEARCH": "Buscar",
-    "OF_COURSE": "Yes, of course!",
+    "OF_COURSE": "Si, claro!",
     "YES": "Si",
-    "SAVE_CHANGES": "Save changes",
+    "SAVE_CHANGES": "Guardar cambios",
     "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "AGREE": "I agree",
+    "CHANGE_PASSWORD": "Nueva contraseña",
+    "CHANGE_EMAIL": "Cambiar correo electrónico",
+    "AGREE": "Estoy de acuerdo ",
     "REMOVE": "Remove",
-    "ARCHIVE": "Archive"
+    "ARCHIVE": "Archivo"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",
     "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Name already exists, please choose another.",
+    "UNIQUE": "Este nombre ya existe, por favor elige otro. ",
     "REQUIRED": "This field is required.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "VALID_EMAIL": "Introduce un correo electrónico válido.",
+    "VALID_TIMEZONE": "Introduce una zona horaria válida."
   },
   "GROUP": {
-    "WALL": "Wall",
+    "WALL": "Muro ",
     "GROUP": "Grupo",
     "LEAVE": "Abandonar grupo...",
     "LEAVE_TEXT": "¿De verdad quiere abandonar este grupo?",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
+    "LEAVE_CONFIRMATION": "Has salido de {groupName}",
     "NONMEMBER_REDIRECT": "No eres un miembro de este grupo. ",
     "EDIT": "Editar grupo",
     "CREATE_TITLE": "Crear un grupo nuevo",
@@ -57,27 +57,27 @@
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
-    "PICKUPS": "Recogidas",
+    "PICKUPS": "Recolecciones",
     "MEMBERS": "Miembros",
     "STORES": "Tiendas",
     "HISTORY": "Historia",
     "DESCRIPTION": "Descripción",
     "ADDRESS": "Dirección",
     "TIMEZONE": "Zona horaria del grupo",
-    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_EMAIL": "Introducir un correo electrónico",
     "INVITE_SEND": "Enviar invitación",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
+    "INVITE_TITLE": "Invitar usuarios a tu grupo",
+    "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
+    "SHOW_USERS": "Enseñar usuarios",
+    "HIDE_USERS": "Ocultar usuarios",
     "SHOW_STORES": "Enseñar tiendas",
-    "HIDE_STORES": "Hide stores",
+    "HIDE_STORES": "Ocultar tiendas",
     "SET_LOCATION": "Set location"
   },
   "STOREDETAIL": {
@@ -101,7 +101,7 @@
     "RESTORE": "Restore"
   },
   "PICKUPMANAGE": {
-    "TITLE": "Manage pickups",
+    "TITLE": "Manejar re-colecciones ",
     "SERIES": "Recurring",
     "SINGLE": "One-time pickups",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
@@ -130,12 +130,12 @@
     "MY_GROUPS": "Mis grupos",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOG_IN": "Iniciar sesión para ver tus grupos!"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
+    "PROFILE_NOTE": "Si te unes a este grupo tus datos de perfil serán visibles para otros miembros del grupo. "
   },
   "GROUPINFO": {
-    "META": "Show public group information",
+    "META": "Enseñar información pública del grupo",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "TOPBAR": {
@@ -162,9 +162,9 @@
   "CREATEPICKUP": {
     "WEEKDAYS": "Día de la semana",
     "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
-    "TIME": "Fecha",
+    "TIME": "Hora",
     "TIME_HELPER": "When should the pick-up take place?",
-    "DATE": "Date",
+    "DATE": "Fecha",
     "DATE_HELPER": "When should the pick-up take place?",
     "MAX_COLLECTORS": "Máx ranuras",
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
@@ -192,7 +192,7 @@
     "HEADER": "Thank you for your pickup!",
     "SUBTITLE": "You can provide feedback for your pickup here",
     "AMOUNT": "Amount of food you took home (in kg)",
-    "COMMENT": "Comment",
+    "COMMENT": "Comentario",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
   },
   "PASSWORDRESET": {
@@ -246,8 +246,7 @@
     "HOME": "Take me home"
   },
   "SETTINGS": {
-    "TITLE": "Settings",
-    "LANGUAGE": "Lengua "
+    "TITLE": "Settings"
   },
   "AGREEMENT": {
     "NEW": "New agreement",

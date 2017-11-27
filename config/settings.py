@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'foodsaving.history.HistoryConfig',
     'foodsaving.groups.GroupsConfig',
     'foodsaving.stores.StoresConfig',
+    'foodsaving.pickups.PickupsConfig',
     'foodsaving.invitations.InvitationsConfig',
 
     # removed app, it's just here that the migration can run

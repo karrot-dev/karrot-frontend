@@ -4,7 +4,7 @@ from django.core.management import call_command
 from django.utils import timezone
 from rest_framework.test import APITestCase
 
-from foodsaving.stores.factories import PickupDateFactory
+from foodsaving.pickups.factories import PickupDateFactory
 
 
 class TestSendNotifications(APITestCase):

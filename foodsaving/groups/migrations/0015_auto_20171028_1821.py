@@ -44,11 +44,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='agreement',
             name='users',
-            field=models.ManyToManyField(related_name='agreements', through='groups.UserAgreement', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(related_name='agreements', through='groups.UserAgreement',
+                                         to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='group',
             name='active_agreement',
-            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='active_group', to='groups.Agreement'),
+            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE,
+                                       related_name='active_group', to='groups.Agreement'),
         ),
     ]

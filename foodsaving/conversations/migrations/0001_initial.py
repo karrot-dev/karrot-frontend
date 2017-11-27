@@ -4,8 +4,6 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.utils.timezone
-import django_enumfield.db.fields
-import foodsaving.conversations.models
 
 
 class Migration(migrations.Migration):
@@ -21,7 +19,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
-                #('type', django_enumfield.db.fields.EnumField(default=0, enum=foodsaving.conversations.models.ConversationType)),
+                # ('type', django_enumfield.db.fields.EnumField(default=0,
+                # enum=foodsaving.conversations.models.ConversationType)),
                 ('type', models.TextField(null=True)),
                 ('topic', models.TextField(null=True)),
             ],

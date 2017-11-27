@@ -16,6 +16,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='feedback',
             name='weight',
-            field=models.FloatField(blank=True, null=True, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(10000)]),
+            field=models.FloatField(blank=True, null=True,
+                                    validators=[django.core.validators.MinValueValidator(0),
+                                                django.core.validators.MaxValueValidator(10000)]),
         ),
     ]

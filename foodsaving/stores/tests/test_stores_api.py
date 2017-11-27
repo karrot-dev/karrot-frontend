@@ -1,15 +1,15 @@
 from copy import deepcopy
-
-from dateutil.parser import parse
-from dateutil.relativedelta import relativedelta
-from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
+from dateutil.relativedelta import relativedelta
+from django.utils import timezone
+from dateutil.parser import parse
 
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.stores.factories import StoreFactory, PickupDateSeriesFactory, PickupDateFactory
+from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
+from foodsaving.pickups.factories import PickupDateSeriesFactory, PickupDateFactory
 
 
 class TestStoresAPI(APITestCase):

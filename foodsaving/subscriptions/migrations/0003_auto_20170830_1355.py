@@ -19,10 +19,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='pushsubscription',
             name='platform',
-            field=django_enumfield.db.fields.EnumField(default=1, enum=foodsaving.subscriptions.models.PushSubscriptionPlatform),
+            field=django_enumfield.db.fields.EnumField(default=1,
+                                                       enum=foodsaving.subscriptions.models.PushSubscriptionPlatform),
         ),
         migrations.AlterUniqueTogether(
             name='pushsubscription',
-            unique_together=set([('user', 'token')]),
+            unique_together={('user', 'token')},
         ),
     ]

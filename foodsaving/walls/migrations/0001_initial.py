@@ -32,7 +32,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                             to=settings.AUTH_USER_MODEL)),
                 ('wall', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='walls.Wall')),
             ],
             options={
@@ -45,7 +46,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('body', models.TextField()),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                             to=settings.AUTH_USER_MODEL)),
                 ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='walls.WallPost')),
             ],
             options={

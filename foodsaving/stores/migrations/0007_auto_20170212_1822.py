@@ -59,16 +59,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='pickupdate',
             name='store',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pickup_dates', to='stores.Store'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pickup_dates',
+                                    to='stores.Store'),
         ),
         migrations.AddField(
             model_name='pickupdateseries',
             name='store',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='series', to='stores.Store'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='series',
+                                    to='stores.Store'),
         ),
         migrations.AddField(
             model_name='pickupdate',
             name='series',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='pickup_dates', to='stores.PickupDateSeries'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL,
+                                    related_name='pickup_dates', to='stores.PickupDateSeries'),
         ),
     ]

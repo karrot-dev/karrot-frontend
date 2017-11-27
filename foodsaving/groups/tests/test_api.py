@@ -8,7 +8,8 @@ from rest_framework.test import APITestCase
 from foodsaving.groups import roles
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement, UserAgreement
-from foodsaving.stores.factories import PickupDateFactory, StoreFactory
+from foodsaving.pickups.factories import PickupDateFactory
+from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 

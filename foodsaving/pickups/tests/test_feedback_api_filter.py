@@ -4,9 +4,10 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.stores.factories import StoreFactory, PickupDateFactory
-from foodsaving.stores.models import Feedback
+from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory
+from foodsaving.pickups.models import Feedback
+from foodsaving.pickups.factories import PickupDateFactory
 
 
 class TestFeedbackAPIFilter(APITestCase):

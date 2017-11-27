@@ -27,10 +27,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('typus', django_enumfield.db.fields.EnumField(default=0, enum=foodsaving.history.models.HistoryTypus)),
+                ('typus', django_enumfield.db.fields.EnumField(default=0,
+                                                               enum=foodsaving.history.models.HistoryTypus)),
                 ('payload', django.contrib.postgres.fields.jsonb.JSONField(null=True)),
                 ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='groups.Group')),
-                ('store', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='stores.Store')),
+                ('store', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE,
+                                            to='stores.Store')),
                 ('users', models.ManyToManyField(to=settings.AUTH_USER_MODEL)),
             ],
             options={

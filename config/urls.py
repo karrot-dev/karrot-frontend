@@ -25,11 +25,12 @@ from foodsaving.conversations.api import ConversationMessageViewSet, Conversatio
 from foodsaving.groups.api import GroupViewSet, AgreementViewSet, GroupInfoViewSet
 from foodsaving.history.api import HistoryViewSet
 from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewSet
-from foodsaving.stores.api import StoreViewSet, PickupDateViewSet, PickupDateSeriesViewSet, FeedbackViewSet
+from foodsaving.pickups.api import PickupDateViewSet, PickupDateSeriesViewSet, FeedbackViewSet
 from foodsaving.subscriptions.api import PushSubscriptionViewSet
 from foodsaving.userauth.api import AuthUserView, AuthView, LogoutView, VerifyMailView, ResendVerificationView, \
     ResetPasswordView
 from foodsaving.users.api import UserViewSet
+from foodsaving.stores.api import StoreViewSet
 
 router = routers.DefaultRouter()
 

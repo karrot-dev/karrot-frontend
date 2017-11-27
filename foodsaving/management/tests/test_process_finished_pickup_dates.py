@@ -4,8 +4,8 @@ from django.utils import timezone
 from rest_framework.test import APITestCase
 
 from foodsaving.history.models import History
-from foodsaving.stores.factories import PickupDateFactory
-from foodsaving.stores.models import PickupDate
+from foodsaving.pickups.factories import PickupDateFactory
+from foodsaving.pickups.models import PickupDate
 
 
 class TestProcessFinishedPickupDatesCommand(APITestCase):

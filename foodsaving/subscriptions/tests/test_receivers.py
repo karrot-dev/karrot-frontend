@@ -4,7 +4,7 @@ import requests_mock
 from channels.test import ChannelTestCase, WSClient
 from dateutil.parser import parse
 from django.utils import timezone
-from pyfcm.baseapi import BaseAPI as FCMAPI
+from pyfcm.baseapi import BaseAPI as FCMApi
 
 from foodsaving.conversations.factories import ConversationFactory
 from foodsaving.conversations.models import ConversationMessage
@@ -93,7 +93,7 @@ class ReceiverPushTests(ChannelTestCase):
             self.assertEqual(data['to'], self.token)
             return True
 
-        m.post(FCMAPI.FCM_END_POINT, json={}, additional_matcher=check_json_data)
+        m.post(FCMApi.FCM_END_POINT, json={}, additional_matcher=check_json_data)
 
         # add a message to the conversation
         ConversationMessage.objects.create(conversation=self.conversation, content=self.content, author=self.author)
@@ -116,7 +116,7 @@ class ReceiverPushTests(ChannelTestCase):
             self.assertEqual(data['to'], self.token)
             return True
 
-        m.post(FCMAPI.FCM_END_POINT, json={}, additional_matcher=check_json_data)
+        m.post(FCMApi.FCM_END_POINT, json={}, additional_matcher=check_json_data)
 
         # add a channel subscription to prevent the push being sent
         ChannelSubscription.objects.create(user=self.user, reply_channel='foo', away_at=timezone.now())
@@ -150,7 +150,7 @@ class GroupConversationReceiverPushTests(ChannelTestCase):
             self.assertEqual(data['to'], self.token)
             return True
 
-        m.post(FCMAPI.FCM_END_POINT, json={}, additional_matcher=check_json_data)
+        m.post(FCMApi.FCM_END_POINT, json={}, additional_matcher=check_json_data)
 
         # add a message to the conversation
         ConversationMessage.objects.create(conversation=self.conversation, content=self.content, author=self.author)

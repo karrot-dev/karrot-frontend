@@ -16,6 +16,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='conversationparticipant',
             name='seen_up_to',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='conversations.ConversationMessage'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    to='conversations.ConversationMessage'),
         ),
     ]

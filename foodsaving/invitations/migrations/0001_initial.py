@@ -29,7 +29,8 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254, unique=True)),
                 ('expires_at', models.DateTimeField(default=foodsaving.invitations.models.get_default_expiry_date)),
                 ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='groups.Group')),
-                ('inviter', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('inviter', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                              to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'abstract': False,

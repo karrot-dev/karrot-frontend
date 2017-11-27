@@ -36,8 +36,10 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('content', models.TextField()),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('conversation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='messages', to='conversations.Conversation')),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                             to=settings.AUTH_USER_MODEL)),
+                ('conversation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                                   related_name='messages', to='conversations.Conversation')),
             ],
             options={
                 'abstract': False,
@@ -48,7 +50,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
-                ('conversation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='conversations.Conversation')),
+                ('conversation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                                   to='conversations.Conversation')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -63,6 +66,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='conversation',
             name='target_type',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='contenttypes.ContentType'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    to='contenttypes.ContentType'),
         ),
     ]

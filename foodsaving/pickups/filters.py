@@ -4,7 +4,7 @@ from django.utils.encoding import force_str
 from django_filters.fields import RangeField
 from django_filters.rest_framework import FilterSet, RangeFilter, NumberFilter
 
-from foodsaving.stores.models import PickupDate, PickupDateSeries, Feedback
+from foodsaving.pickups.models import PickupDate, PickupDateSeries, Feedback
 
 
 class ISODateTimeField(forms.DateTimeField):

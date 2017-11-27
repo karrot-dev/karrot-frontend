@@ -3,7 +3,7 @@ from django.dispatch import receiver
 from django.utils import timezone
 
 from foodsaving.groups.models import GroupMembership
-from foodsaving.stores.models import PickupDate
+from foodsaving.pickups.models import PickupDate
 
 
 @receiver(pre_delete, sender=GroupMembership)

@@ -11,9 +11,10 @@ from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import GroupMembership
-from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
-from foodsaving.stores.models import PickupDate
+from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory
+from foodsaving.pickups.models import PickupDate
 from foodsaving.users.factories import UserFactory
+from foodsaving.stores.factories import StoreFactory
 
 
 def shift_date_in_local_time(old_date, delta, tz):

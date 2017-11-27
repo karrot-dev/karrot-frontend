@@ -6,7 +6,8 @@ from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import GroupMembership
-from foodsaving.stores.factories import StoreFactory, PickupDateFactory, PickupDateSeriesFactory
+from foodsaving.stores.factories import StoreFactory
+from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.users.factories import UserFactory
 
 history_url = '/api/history/'
@@ -31,7 +32,6 @@ class TestHistoryAPICreateGroup(PaginatedResponseTestCase):
 
 
 class TestHistoryAPIOrdering(PaginatedResponseTestCase):
-    @classmethod
     def setUp(self):
         self.member = UserFactory()
 

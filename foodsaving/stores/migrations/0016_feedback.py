@@ -24,7 +24,8 @@ class Migration(migrations.Migration):
                 ('weight', models.PositiveIntegerField()),
                 ('comment', models.CharField(max_length=80)),
                 ('about', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stores.PickupDate')),
-                ('given_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_feedback', to=settings.AUTH_USER_MODEL)),
+                ('given_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                               related_name='user_feedback', to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'abstract': False,

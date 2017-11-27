@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from foodsaving.stores.models import PickupDateSeries
+from foodsaving.pickups.models import PickupDateSeries
 
 
 class Command(BaseCommand):

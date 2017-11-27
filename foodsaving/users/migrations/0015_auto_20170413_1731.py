@@ -3,9 +3,10 @@
 from __future__ import unicode_literals
 import logging
 
-logger = logging.getLogger(__name__)
-
 from django.db import migrations
+
+
+logger = logging.getLogger(__name__)
 
 
 def copy_mail_address(apps, schema_editor):
@@ -25,3 +26,4 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(copy_mail_address, migrations.RunPython.noop)
     ]
+

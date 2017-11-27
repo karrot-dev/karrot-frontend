@@ -18,10 +18,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='feedback',
             name='weight',
-            field=models.FloatField(blank=True, null=True, validators=[django.core.validators.MinValueValidator(-0.01), django.core.validators.MaxValueValidator(10000.0)]),
+            field=models.FloatField(blank=True, null=True,
+                                    validators=[django.core.validators.MinValueValidator(-0.01),
+                                                django.core.validators.MaxValueValidator(10000.0)]),
         ),
         migrations.AlterUniqueTogether(
             name='feedback',
-            unique_together=set([('about', 'given_by')]),
+            unique_together={('about', 'given_by')},
         ),
     ]

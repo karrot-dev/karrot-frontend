@@ -12,7 +12,7 @@ describe('breadcrumbs', () => {
     storeMocks = {
       currentGroup: {
         getters: {
-          get: () => ({ id: 1, name: 'my current group' }),
+          value: () => ({ id: 1, name: 'my current group' }),
         },
       },
       groups: {

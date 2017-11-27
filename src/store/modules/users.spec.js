@@ -24,7 +24,7 @@ describe('users', () => {
       auth,
       currentGroup: {
         getters: {
-          get: () => ({ members: [1, 2] }),
+          value: () => ({ members: [1, 2] }),
         },
       },
     })

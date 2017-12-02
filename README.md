@@ -206,7 +206,7 @@ pip-tools is used to manage requirements. To use the latest possible requirement
 - `pip-compile --upgrade`
 
 ## IDE
-We use (PyCharm)[https://www.jetbrains.com/pycharm/download/] for development. We have some licenses available for the professional version which includes Django support specifically. The free community edition also works well.
+We use [PyCharm](https://www.jetbrains.com/pycharm/download/) for development. We have some licenses available for the professional version which includes Django support specifically. The free community edition also works well.
 
 You can use whatever you want of course.
 

@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-24 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Cille worm <cewor2@gmail.com>, 2017\n"
 "Language-Team: Danish (https://www.transifex.com/yunity-1/teams/68631/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,30 +25,32 @@ msgstr ""
 
 #: foodsaving/base/templates/base-text.jinja:2
 msgid "Hello,"
-msgstr ""
+msgstr "Hej,"
 
 #: foodsaving/base/templates/base-text.jinja:5
 msgid ""
 "Yours,\n"
 "the foodsaving.world team"
 msgstr ""
+"Dit,\n"
+"foodsaving.world teamet"
 
 #: foodsaving/groups/api.py:20 foodsaving/invitations/serializers.py:25
 #: foodsaving/stores/serializers.py:234
 msgid "You are not a member of this group."
-msgstr ""
+msgstr "Du er ikke medlem af denne gruppe"
 
 #: foodsaving/groups/api.py:27
 msgid "You are already a member."
-msgstr ""
+msgstr "Du er allerede medlem"
 
 #: foodsaving/groups/serializers.py:20
 msgid "Unknown timezone"
-msgstr ""
+msgstr "Ukendt tidszone"
 
 #: foodsaving/groups/serializers.py:110
 msgid "Group password is wrong"
-msgstr ""
+msgstr "Gruppekodeordet er forkert"
 
 #: foodsaving/invitations/serializers.py:30
 msgid "User is already member of group"
@@ -68,11 +71,11 @@ msgstr ""
 
 #: foodsaving/stores/permissions.py:9
 msgid "The pickup date is in the past."
-msgstr ""
+msgstr "Afhentningstidspunktet er fortid"
 
 #: foodsaving/stores/permissions.py:19
 msgid "You can only delete empty pickup dates."
-msgstr ""
+msgstr "Du kan kun slette tomme afhentningsdatoer."
 
 #: foodsaving/stores/permissions.py:26
 msgid "You have not joined this pickup date."

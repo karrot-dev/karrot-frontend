@@ -20,7 +20,7 @@ deployment:
   dev:
     branch: master
     commands:
-      - ./deploy.sh foodsaving-world-dev
+      - ./deploy.sh karrot-dev
   production:
     branch: production
     commands:

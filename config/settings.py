@@ -72,13 +72,12 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'foodsaving.utils.misc.custom_exception_handler'
 }
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'influxdb_metrics.middleware.InfluxDBRequestMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

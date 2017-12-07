@@ -4,6 +4,7 @@ from anymail.message import AnymailMessage
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import transaction
+from django.db import models
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
 from django.template.loader import render_to_string
 from django.utils import crypto
@@ -79,7 +80,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
     deleted = BooleanField(default=False)
     deleted_at = DateTimeField(default=None, null=True)
-    current_group = ForeignKey('groups.Group', blank=True, null=True)
+    current_group = ForeignKey('groups.Group', blank=True, null=True, on_delete=models.SET_NULL)
 
     objects = UserManager()
 

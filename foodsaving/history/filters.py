@@ -30,7 +30,7 @@ def filter_history_typus(qs, field, value):
 
 class HistoryFilter(FilterSet):
     typus = filters.ChoiceFilter(choices=HistoryTypus.items(), method=filter_history_typus)
-    date = DateTimeFromToRangeFilter(name='date')
+    date = DateTimeFromToRangeFilter(field_name='date')
 
     class Meta:
         model = History

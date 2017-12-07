@@ -52,9 +52,9 @@ class Conversation(BaseModel):
 
 class ConversationParticipant(BaseModel):
     """The join table between Conversation and User."""
-    user = ForeignKey(settings.AUTH_USER_MODEL)
-    conversation = ForeignKey(Conversation)
-    seen_up_to = ForeignKey('ConversationMessage', null=True)
+    user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    conversation = ForeignKey(Conversation, on_delete=models.CASCADE)
+    seen_up_to = ForeignKey('ConversationMessage', null=True, on_delete=models.SET_NULL)
 
 
 class ConversationMessage(BaseModel):

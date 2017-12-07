@@ -1,5 +1,6 @@
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
+from django.db import models
 from django.db.models import ForeignKey, TextField, DateTimeField, Manager
 from django.utils import timezone
 from django_enumfield import enum
@@ -17,7 +18,7 @@ class ChannelSubscriptionManager(Manager):
 
 class ChannelSubscription(BaseModel):
     """A subscription to receive messages over a django channel."""
-    user = ForeignKey(settings.AUTH_USER_MODEL)
+    user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     reply_channel = TextField()  # django channels channel
     lastseen_at = DateTimeField(default=timezone.now, null=True)
     away_at = DateTimeField(null=True)
@@ -34,6 +35,6 @@ class PushSubscription(BaseModel):
     class Meta:
         unique_together = ('user', 'token')
 
-    user = ForeignKey(settings.AUTH_USER_MODEL)
+    user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     token = TextField()  # FCM device registration token
     platform = enum.EnumField(PushSubscriptionPlatform)

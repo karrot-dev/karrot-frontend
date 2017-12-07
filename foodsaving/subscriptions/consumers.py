@@ -26,7 +26,7 @@ def check_for_auth_token_header(message):
 
 
 def check_for_token_user(message):
-    if not message.user or message.user.is_anonymous():
+    if not message.user or message.user.is_anonymous:
         auth_token = message.channel_session.get('auth_token', None)
         if auth_token:
             user, _ = token_auth.authenticate_credentials(auth_token)
@@ -42,7 +42,7 @@ class Consumer(JsonWebsocketConsumer):
         check_for_auth_token_header(message)
         check_for_token_user(message)
         user = message.user
-        if not user.is_anonymous():
+        if not user.is_anonymous:
             ChannelSubscription.objects.create(user=user, reply_channel=message.reply_channel)
         message.reply_channel.send({"accept": True})
 
@@ -50,7 +50,7 @@ class Consumer(JsonWebsocketConsumer):
         """They sent us a websocket message!"""
         check_for_token_user(self.message)
         user = self.message.user
-        if not user.is_anonymous():
+        if not user.is_anonymous:
             reply_channel = self.message.reply_channel.name
             subscriptions = ChannelSubscription.objects.filter(user=user, reply_channel=reply_channel)
             update_attrs = {'lastseen_at': timezone.now()}
@@ -64,5 +64,5 @@ class Consumer(JsonWebsocketConsumer):
     def disconnect(self, message, **kwargs):
         """The user has disconnected so we remove all their ChannelSubscriptions"""
         user = message.user
-        if not user.is_anonymous():
+        if not user.is_anonymous:
             ChannelSubscription.objects.filter(user=user, reply_channel=message.reply_channel).delete()

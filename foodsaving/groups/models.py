@@ -28,7 +28,12 @@ class Group(BaseModel, LocationModel, ConversationMixin):
     public_description = models.TextField(blank=True)
     timezone = TimeZoneField(default='Europe/Berlin', null=True, blank=True)
     slack_webhook = models.CharField(max_length=255, blank=True)
-    active_agreement = models.OneToOneField('groups.Agreement', related_name='active_group', null=True)
+    active_agreement = models.OneToOneField(
+        'groups.Agreement',
+        related_name='active_group',
+        null=True,
+        on_delete=models.SET_NULL
+    )
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -61,11 +66,11 @@ class Group(BaseModel, LocationModel, ConversationMixin):
         GroupMembership.objects.filter(group=self, user=user).delete()
 
     def is_member(self, user):
-        return not user.is_anonymous() and GroupMembership.objects.filter(group=self, user=user).exists()
+        return not user.is_anonymous and GroupMembership.objects.filter(group=self, user=user).exists()
 
     def is_member_with_role(self, user, role_name):
-        return not user.is_anonymous() and GroupMembership.objects.filter(group=self, user=user,
-                                                                          roles__contains=[role_name]).exists()
+        return not user.is_anonymous and GroupMembership.objects.filter(group=self, user=user,
+                                                                        roles__contains=[role_name]).exists()
 
     def accept_invite(self, user, invited_by, invited_at):
         self.add_member(user, history_payload={

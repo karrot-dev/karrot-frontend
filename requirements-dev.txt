@@ -17,12 +17,12 @@ jedi==0.11.0              # via ipython
 parso==0.1.0              # via jedi
 pexpect==4.3.0            # via ipython
 pickleshare==0.7.4        # via ipython
-pip-tools==1.10.2
+pip-tools==1.11.0
 prompt-toolkit==1.0.15    # via ipython
 ptyprocess==0.5.2         # via pexpect
 pycodestyle==2.3.1        # via autopep8
 pygments==2.2.0           # via ipython
-requests-mock==1.3.0
+requests-mock==1.4.0
 requests==2.18.4          # via requests-mock
 simplegeneric==0.8.1      # via ipython
 six==1.11.0               # via pip-tools, prompt-toolkit, requests-mock, traitlets

@@ -31,9 +31,9 @@ class PickupDateSeriesFilter(FilterSet):
 
 
 class PickupDatesFilter(FilterSet):
-    store = NumberFilter(name='store')
-    group = NumberFilter(name='store__group__id')
-    date = DateTimeFromToRangeFilter(name='date')
+    store = NumberFilter(field_name='store')
+    group = NumberFilter(field_name='store__group__id')
+    date = DateTimeFromToRangeFilter(field_name='date')
 
     class Meta:
         model = PickupDate
@@ -41,9 +41,9 @@ class PickupDatesFilter(FilterSet):
 
 
 class FeedbackFilter(FilterSet):
-    store = NumberFilter(name='about__store__id')
-    about = NumberFilter(name='about')
-    given_by = NumberFilter(name='given_by')
+    store = NumberFilter(field_name='about__store__id')
+    about = NumberFilter(field_name='about')
+    given_by = NumberFilter(field_name='given_by')
 
     class Meta:
         model = Feedback

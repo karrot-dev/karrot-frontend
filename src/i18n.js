@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import status from '@/locales/status-frontend.json'
 
 Vue.use(VueI18n)
 
@@ -21,6 +22,12 @@ export const locales = [
   { locale: 'zh', name: '中文' },
   { locale: 'cs', name: 'Čeština' },
 ]
+
+export const localeOptions = locales.map(({ name, locale }) => ({
+  label: name,
+  value: locale,
+  percentage: parseInt(status[locale].completed.replace('%', ''), 10),
+})).sort((a, b) => b.percentage - a.percentage)
 
 const defaultDateTimeFormat = {
   timeShort: {

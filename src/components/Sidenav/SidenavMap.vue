@@ -6,14 +6,14 @@ export default connect({
   gettersToProps: {
     stores: 'stores/byCurrentGroup',
     users: 'users/byCurrentGroup',
-    showStores: 'sidenav/showMapStores',
-    showUsers: 'sidenav/showMapUsers',
+    showStores: 'map/showStores',
+    showUsers: 'map/showUsers',
     selectedStoreId: 'stores/activeStoreId',
     currentGroup: 'currentGroup/value',
   },
-  actionsToEvents: {
-    toggleStores: 'sidenav/toggleMapStores',
-    toggleUsers: 'sidenav/toggleMapUsers',
+  mutationsToEvents: {
+    toggleStores: 'map/toggleStores',
+    toggleUsers: 'map/toggleUsers',
   },
 })('SidenavMap', SidenavMapUI)
 </script>

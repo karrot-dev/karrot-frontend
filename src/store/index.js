@@ -8,7 +8,6 @@ import dependentState from './plugins/dependentState'
 
 import * as stores from './modules/stores'
 import * as users from './modules/users'
-import * as sidenav from './modules/sidenav'
 import * as verifymail from './modules/verifymail'
 import about from './modules/about'
 import agreements from './modules/agreements'
@@ -23,6 +22,7 @@ import history from './modules/history'
 import i18n from './modules/i18n'
 import invitations from './modules/invitations'
 import loadingprogress from './modules/loadingprogress'
+import map from './modules/map'
 import pickups from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
 import route from './modules/route'
@@ -46,7 +46,7 @@ const options = ({
     pickups,
     pickupSeries,
     i18n,
-    sidenav,
+    map,
     about,
     breadcrumbs,
     verifymail,

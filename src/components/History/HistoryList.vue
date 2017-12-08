@@ -1,41 +1,61 @@
 <template>
-  <HistoryListUI
-    :history="history"
-    :status="status"
-    :can-load-more="canLoadMore"
-    :fetch-more="fetchMore"
-  />
+  <q-card>
+    <q-card-title v-if="showTitle">
+      {{ $t('GROUP.HISTORY') }}
+    </q-card-title>
+    <q-card-main>
+      <q-infinite-scroll :handler="loadMore">
+        <table class="q-table highlight striped-odd">
+          <tbody>
+            <HistoryEntry
+              v-for="entry in history"
+              :entry="entry"
+              :key="entry.id"
+            />
+          </tbody>
+        </table>
+        <div v-if="empty"><q-icon name="fa-bug" />{{ $t('HISTORY.NOTHING_HAPPENEND') }}</div>
+        <q-spinner-dots v-if="this.fetchStatus.pending" :size="40"/>
+        <div slot="message" style="width: 100%; text-align: center">
+          <q-spinner-dots :size="40"/>
+        </div>
+      </q-infinite-scroll>
+    </q-card-main>
+  </q-card>
 </template>
+
 <script>
-import HistoryListUI from '@/components/History/HistoryListUI'
-import { mapActions, mapGetters } from 'vuex'
+import { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain, QCard, QCardTitle } from 'quasar'
+import HistoryEntry from '@/components/History/HistoryEntry'
+
 export default {
   props: {
-    user: { default: null },
-    store: { default: null },
-    group: { default: null },
+    history: { required: true, type: Array },
+    fetchStatus: { required: true, type: Object },
+    canLoadMore: { required: true, type: Boolean },
+    fetchMore: { required: true, type: Function },
+    showTitle: { default: false, type: Boolean },
   },
-  computed: mapGetters({
-    history: 'history/all',
-    status: 'history/receiveStatus',
-    canLoadMore: 'history/canLoadMore',
-  }),
-  methods: mapActions({
-    fetchMore: 'history/fetchMore',
-    fetchForUser: 'history/fetchForUser',
-    fetchForGroup: 'history/fetchForGroup',
-    fetchForStore: 'history/fetchForStore',
-  }),
-  mounted () {
-    if (this.user) this.fetchForUser(this.user)
-    else if (this.group) this.fetchForGroup(this.group)
-    else if (this.store) this.fetchForStore(this.store)
+  components: { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain, QCard, QCardTitle, HistoryEntry },
+  computed: {
+    empty () {
+      return !this.history.length && !this.fetchStatus.pending && !this.fetchStatus.hasValidationErrors
+    },
   },
-  watch: {
-    user () { this.fetchForUser(this.user) },
-    group () { this.fetchForGroup(this.group) },
-    store () { this.fetchForGroup(this.store) },
+  methods: {
+    loadMore (index, done) {
+      if (!this.canLoadMore) {
+        done()
+        return
+      }
+      this.fetchMore().then(done)
+    },
   },
-  components: { HistoryListUI },
 }
 </script>
+
+<style scoped lang="stylus">
+table {
+  width: 100%;
+}
+</style>

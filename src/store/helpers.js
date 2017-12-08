@@ -48,7 +48,7 @@ export function isRequestError (error) {
   return false
 }
 
-const defaultStatus = { pending: false, validationErrors: {}, hasValidationErrors: false }
+const defaultStatus = { pending: false, validationErrors: {} }
 
 export function createMetaModule () {
   return {

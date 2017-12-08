@@ -11,6 +11,12 @@ const auth = {
   },
 }
 
+const history = {
+  actions: {
+    fetchForUser: jest.fn(),
+  },
+}
+
 describe('users', () => {
   beforeEach(() => jest.resetModules())
   beforeEach(() => jest.resetAllMocks())
@@ -22,6 +28,7 @@ describe('users', () => {
     store = createStore({
       users: require('./users'),
       auth,
+      history,
       currentGroup: {
         getters: {
           value: () => ({ members: [1, 2] }),
@@ -60,6 +67,7 @@ describe('users', () => {
     mockGet.mockReturnValueOnce(user1)
     await store.dispatch('users/selectUser', { userId: user1.id })
     expect(store.getters['users/activeUser'].id).toEqual(user1.id)
+    expect(history.actions.fetchForUser).toBeCalled()
   })
 
   it('throws routeError if user is not accessible', async () => {

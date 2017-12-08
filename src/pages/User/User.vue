@@ -1,21 +1,17 @@
 <template>
   <div v-if="user && user.id">
     <UserProfile :user="user" :groups="groups" />
-    <q-card>
-      <q-card-title>{{ $t('GROUP.HISTORY') }}</q-card-title>
-      <History :user="user" />
-    </q-card>
+    <History show-title />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import UserProfile from '@/components/User/Profile'
-import History from '@/components/History/HistoryList'
-import { QCard, QCardTitle } from 'quasar'
+import History from '@/pages/History'
 
 export default {
-  components: { History, UserProfile, QCard, QCardTitle },
+  components: { History, UserProfile },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',

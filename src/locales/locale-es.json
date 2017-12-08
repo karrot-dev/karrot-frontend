@@ -28,18 +28,18 @@
     "OF_COURSE": "Si, claro!",
     "YES": "Si",
     "SAVE_CHANGES": "Guardar cambios",
-    "RESET": "Reset",
+    "RESET": "Reiniciar",
     "CHANGE_PASSWORD": "Nueva contraseña",
     "CHANGE_EMAIL": "Cambiar correo electrónico",
     "AGREE": "Estoy de acuerdo ",
-    "REMOVE": "Remove",
+    "REMOVE": "Quitar",
     "ARCHIVE": "Archivo"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
+    "MINLENGTH": "Por favor introduce más que {min} caracteres.",
+    "MAXLENGTH": "Demasiado largo, por favor, usa menos que {max} caracteres.",
     "UNIQUE": "Este nombre ya existe, por favor elige otro. ",
-    "REQUIRED": "This field is required.",
+    "REQUIRED": "Este campo es obligado. ",
     "VALID_EMAIL": "Introduce un correo electrónico válido.",
     "VALID_TIMEZONE": "Introduce una zona horaria válida."
   },
@@ -57,7 +57,7 @@
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
-    "PICKUPS": "Recolecciones",
+    "PICKUPS": "Recogidas",
     "MEMBERS": "Miembros",
     "STORES": "Tiendas",
     "HISTORY": "Historia",
@@ -66,11 +66,11 @@
     "TIMEZONE": "Zona horaria del grupo",
     "INVITE_EMAIL": "Introducir un correo electrónico",
     "INVITE_SEND": "Enviar invitación",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITED_LIST": "Ya se enviaron invitaciones a los siguientes correos electrónicos: ",
+    "ALREADY_INVITED": "Ya se envió una invitación a este correo electrónico. ",
     "INVITE_TITLE": "Invitar usuarios a tu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
+    "INVITATION_ACCEPT_ERROR": "Ooops, no se podía aceptar la invitación!"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -83,7 +83,7 @@
   "STOREDETAIL": {
     "EDIT": "Editar tienda",
     "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "This store has been archived"
+    "ARCHIVED": "Esta tienda se archivó."
   },
   "STOREEDIT": {
     "NAME": "Nombre",
@@ -93,15 +93,15 @@
     "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive store",
+        "TITLE": "Archivar tienda",
         "MESSAGE": "Estás segur@?",
-        "CONFIRM": "Yes, archive store"
+        "CONFIRM": "Si, archivar tienda"
       }
     },
     "RESTORE": "Restore"
   },
   "PICKUPMANAGE": {
-    "TITLE": "Manejar re-colecciones ",
+    "TITLE": "Manejar recogidas",
     "SERIES": "Recurring",
     "SINGLE": "One-time pickups",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
@@ -167,7 +167,7 @@
     "DATE": "Fecha",
     "DATE_HELPER": "When should the pick-up take place?",
     "MAX_COLLECTORS": "Máx ranuras",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
+    "MAX_COLLECTORS_HELPER": "Cuántas personas deberían participar en la recogida?",
     "COMMENT": "Información adicional",
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
   },
@@ -176,24 +176,24 @@
   },
   "PICKUPLIST": {
     "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
+    "JOINEDNOTICE": "Tienes una recogida pendiente | Tienes {count} recogidas pendientes",
     "ITEM": {
       "LEAVE": "Salir",
       "JOIN": "Unirse",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+      "JOIN_CONFIRMATION_HEADER": "Unirse a la recogida",
+      "JOIN_CONFIRMATION_TEXT": "Estás segurx que tienes tiempo para hacer la recogida el {date}?",
+      "LEAVE_CONFIRMATION_HEADER": "Dejar la recogida",
+      "LEAVE_CONFIRMATION_TEXT": "Estás segurx que lxs otrxs pueden hacer la recogida sin ti?"
     },
     "NONE": "Ninguna recogida inminente",
     "NONE_HINT": "Puede crear una nueva recogida en la página de la tienda"
   },
   "PICKUP_FEEDBACK": {
-    "HEADER": "Thank you for your pickup!",
+    "HEADER": "Gracias por tu recogida!",
     "SUBTITLE": "You can provide feedback for your pickup here",
-    "AMOUNT": "Amount of food you took home (in kg)",
+    "AMOUNT": "Cantidad de alimentos que te llevaste (en kg)",
     "COMMENT": "Comentario",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+    "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí..."
   },
   "PASSWORDRESET": {
     "TITLE": "Resetear contraseña",
@@ -223,65 +223,65 @@
     "STORE_DELETE": "borró la tienda {name}",
     "PICKUP_CREATE": "created a new one-time pick-up",
     "PICKUP_MODIFY": "changed the settings of a pick-up",
-    "PICKUP_DELETE": "deleted a pick-up",
+    "PICKUP_DELETE": "eliminó una recogida",
     "SERIES_CREATE": "created a new recurring pick-up",
     "SERIES_MODIFY": "changed the settings of a recurring pick-up",
     "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
+    "PICKUP_DONE": "hizo una recogida en {storeName}",
+    "PICKUP_MISSED": "Faltó una recogida en {storeName}!",
+    "PICKUP_JOIN": "se apuntó a una recogida en {storeName}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
+    "NOTHING_HAPPENEND": "Todavía nada ha pasado...",
     "DETAILS": "Más información "
   },
   "NOTIFICATIONS": {
     "TITLE": "Notificatiónes",
     "NOT_VERIFIED": "{email} no está verificado ",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
+    "CHECK_YOUR_MAILS": "Por favor, chequea tu correo electrónico o {enviar de nuevo}",
     "RESEND_VERIFICATION": "Enviar verificación de correo otra vez",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+    "VERIFICATION_EMAIL_SENT": "Se te envió otro correo electrónico de verificación. Por favor, chequea tu buzón. "
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
-    "HOME": "Take me home"
+    "EXPLANATION": "¡Perdona! No podíamos encontrar esta página. ",
+    "HOME": "Volver al inicio"
   },
   "SETTINGS": {
     "TITLE": "Settings"
   },
   "AGREEMENT": {
-    "NEW": "New agreement",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
+    "NEW": "Nuevo acuerdo",
+    "AGREE": "Tienes que aceptar {title}",
+    "VIEW": "Ver acuerdo",
     "TITLE": "Título",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
+    "TITLE_HELPER": "Dále un título a tu acuerdo, p. ej. Reglas del Grupo",
     "CONTENT": "Contenido",
-    "CONTENT_HELPER": "The text of your agreement",
+    "CONTENT_HELPER": "El texto para vuestro acuerdo",
     "MINOR_EDIT": "Minor edit?",
     "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "BLURB1": "Todavia no hay un acuerdo!",
+    "BLURB2": "Si añades un acuerdo la gente tendrá que aceptarlo antes de poder hacer recogidas. ",
     "DIALOGS": {
       "REPLACE": {
-        "TITLE": "Change agreement?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
+        "TITLE": "Cambiar el acuerdo?",
+        "MESSAGE": "Todxs tendrán que aceptar el acuerdo de nuevo antes de poder apuntarse a las recogidas",
+        "CONFIRM": "Si, cambiar el acuerdo"
       },
       "REMOVE": {
-        "TITLE": "Remove agreement?",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "CONFIRM": "Yes, remove agreement"
+        "TITLE": "Eliminar el acuerdo?",
+        "MESSAGE": "Esto significa que todxs podrán hacer recogidas",
+        "CONFIRM": "Si, eliminar el acuerdo"
       }
     }
   },
   "WALL": {
     "WRITE_MESSAGE": "Escribir un mensaje...",
-    "WRITE_FIRST_MESSAGE": "Write the first message..."
+    "WRITE_FIRST_MESSAGE": "Enviar el primer mensaje..."
   },
   "STORESTATUS":{
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
+    "ACTIVE": "En cooperación",
+    "CREATED": "Recien creado",
+    "NEGOTIATING": "En negociación",
     "DECLINED": "No está dispuesta a cooperar",
-    "ARCHIVED": "Archived"
+    "ARCHIVED": "Archivado"
   }
 }

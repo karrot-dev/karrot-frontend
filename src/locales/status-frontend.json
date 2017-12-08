@@ -66,15 +66,15 @@
     "untranslated_words": 628
   },
   "es": {
-    "completed": "74%",
+    "completed": "86%",
     "last_commiter": "fridohokkaido0",
-    "last_update": "2017-11-29 17:56:14",
+    "last_update": "2017-12-06 18:24:17",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 153,
-    "translated_words": 542,
-    "untranslated_entities": 54,
-    "untranslated_words": 347
+    "translated_entities": 178,
+    "translated_words": 689,
+    "untranslated_entities": 29,
+    "untranslated_words": 200
   },
   "fr": {
     "completed": "52%",

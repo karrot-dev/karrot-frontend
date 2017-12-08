@@ -15,7 +15,7 @@
           </tbody>
         </table>
         <div v-if="empty"><q-icon name="fa-bug" />{{ $t('HISTORY.NOTHING_HAPPENEND') }}</div>
-        <q-spinner-dots v-if="this.fetchStatus.pending" :size="40"/>
+        <q-spinner-dots v-if="this.status.pending" :size="40"/>
         <div slot="message" style="width: 100%; text-align: center">
           <q-spinner-dots :size="40"/>
         </div>
@@ -31,7 +31,7 @@ import HistoryEntry from '@/components/History/HistoryEntry'
 export default {
   props: {
     history: { required: true, type: Array },
-    fetchStatus: { required: true, type: Object },
+    status: { required: true, type: Object },
     canLoadMore: { required: true, type: Boolean },
     fetchMore: { required: true, type: Function },
     showTitle: { default: false, type: Boolean },
@@ -39,7 +39,7 @@ export default {
   components: { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain, QCard, QCardTitle, HistoryEntry },
   computed: {
     empty () {
-      return !this.history.length && !this.fetchStatus.pending && !this.fetchStatus.hasValidationErrors
+      return !this.history.length && !this.status.pending && !this.status.hasValidationErrors
     },
   },
   methods: {

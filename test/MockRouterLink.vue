@@ -1,9 +1,9 @@
 <template>
-  <div><slot></slot></div>
+  <div><slot /></div>
 </template>
 
 <script>
 export default {
-  name: 'router-link',
+  name: 'RouterLink',
 }
 </script>

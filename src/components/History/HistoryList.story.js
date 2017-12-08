@@ -3,14 +3,14 @@ import { historyMock } from '>/mockdata'
 import i18n from '@/i18n'
 import router from '@/router'
 
-import HistoryListUI from './HistoryListUI'
+import HistoryList from './HistoryList'
 
 storiesOf('History List', module)
   .add('Default', () => ({
-    render: h => h(HistoryListUI, {
+    render: h => h(HistoryList, {
       props: {
         history: historyMock,
-        status: { isWaiting: false, error: null },
+        status: { pending: false, hasValidationErrors: false },
         canLoadMore: true,
         fetchMore: () => {},
       },

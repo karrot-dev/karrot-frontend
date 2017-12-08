@@ -8,7 +8,6 @@ import dependentState from './plugins/dependentState'
 
 import * as stores from './modules/stores'
 import * as users from './modules/users'
-import * as pickupSeries from './modules/pickupSeries'
 import * as sidenav from './modules/sidenav'
 import * as verifymail from './modules/verifymail'
 import * as route from './modules/route'
@@ -28,6 +27,7 @@ import i18n from './modules/i18n'
 import invitations from './modules/invitations'
 import loadingprogress from './modules/loadingprogress'
 import pickups from './modules/pickups'
+import pickupSeries from './modules/pickupSeries'
 import timezones from './modules/timezones'
 
 Vue.use(Vuex)

@@ -17,7 +17,7 @@ describe('stores module', () => {
   let store1, store2, store3
   beforeEach(() => {
     store = createStore({
-      stores: require('./stores'),
+      stores: require('./stores').default,
       pickups,
     })
   })
@@ -29,7 +29,7 @@ describe('stores module', () => {
   })
 
   beforeEach(() => {
-    store.commit('stores/Receive Stores', { stores: [store1, store2, store3] })
+    store.commit('stores/set', [store1, store2, store3])
   })
 
   it('throws routeError if store is not accessible', async () => {

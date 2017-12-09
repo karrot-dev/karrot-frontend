@@ -9,7 +9,7 @@ jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
 
 import { createValidationError } from '>/helpers'
-import { withMeta, createMetaModule } from '@/store/helpers'
+import { withMeta, createMetaModule, defaultFindId } from '@/store/helpers'
 
 Vue.use(Vuex)
 
@@ -67,6 +67,22 @@ describe('helpers', () => {
       const runPromise = store.dispatch('run', { id })
       await expect(store.dispatch('run', { id })).rejects.toHaveProperty('message', `action already pending for run/${id}`)
       await runPromise
+    })
+  })
+
+  describe('defaultFindId', () => {
+    it('returns undefined on fals-y input', () => {
+      expect(defaultFindId(null)).toBeUndefined()
+      expect(defaultFindId(undefined)).toBeUndefined()
+      expect(defaultFindId({})).toBeUndefined()
+      expect(defaultFindId([])).toBeUndefined()
+    })
+    it('finds id in object', () => {
+      expect(defaultFindId({ id: 5 })).toBe(5)
+    })
+
+    it('passes number unchanged', () => {
+      expect(defaultFindId(5)).toBe(5)
     })
   })
 })

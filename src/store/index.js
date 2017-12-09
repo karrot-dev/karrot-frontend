@@ -6,7 +6,6 @@ import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
-import * as stores from './modules/stores'
 import * as users from './modules/users'
 import * as verifymail from './modules/verifymail'
 import about from './modules/about'
@@ -28,6 +27,7 @@ import pickupSeries from './modules/pickupSeries'
 import route from './modules/route'
 import routeError from './modules/routeError'
 import search from './modules/search'
+import stores from './modules/stores'
 import timezones from './modules/timezones'
 
 Vue.use(Vuex)

@@ -109,7 +109,8 @@ export function withPrefixedIdMeta (idPrefix, actions, options) {
   return withMeta(actions, { ...options, idPrefix })
 }
 
-function defaultFindId (data) {
+export function defaultFindId (data) {
+  if (!data) return undefined
   if (typeof data === 'number') {
     return data
   }

@@ -14,8 +14,8 @@
         <div class="white-box">
           <q-field
             icon="fa-user"
-            :error="!!requestError('displayName')"
-            :error-label="requestError('displayName')"
+            :error="hasError('displayName')"
+            :error-label="firstError('displayName')"
           >
             <q-input
               :autofocus="true"
@@ -28,8 +28,8 @@
         <div class="white-box">
           <q-field
             icon="fa-envelope"
-            :error="!!requestError('email')"
-            :error-label="requestError('email')"
+            :error="hasError('email')"
+            :error-label="firstError('email')"
           >
             <q-input
               v-model="user.email"
@@ -42,8 +42,8 @@
         <div class="white-box">
           <q-field
             icon="fa-lock"
-            :error="!!requestError('password')"
-            :error-label="requestError('password')"
+            :error="hasError('password')"
+            :error-label="firstError('password')"
           >
             <q-input
               v-model="user.password"
@@ -54,13 +54,16 @@
           </q-field>
         </div>
 
-        <div class="text-negative">{{ requestError('nonFieldErrors') }}</div>
+        <div v-if="hasNonFieldErrors" class="error">
+          <i class="fa fa-exclamation-triangle"/>
+          <div>{{ nonFieldErrors }}</div>
+        </div>
 
         <div class="actions">
           <q-btn type="button" @click="$router.push({ name: 'login' })" flat>
             {{ $t('SIGNUP.BACK') }}
           </q-btn>
-          <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
+          <q-btn type="submit" class="submit shadow-4" loader :value="isPending">
             {{ $t('SIGNUP.OK') }}
           </q-btn>
         </div>
@@ -73,12 +76,12 @@
 <script>
 import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner } from 'quasar'
 import loginImage from '@/assets/people/cherry.png'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
   components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },
+  mixins: [statusMixin],
   props: {
-    status: { required: true },
-    requestError: { required: true },
     prefillEmail: {
       required: true,
       type: Function,
@@ -96,7 +99,7 @@ export default {
   },
   methods: {
     submit () {
-      if (!this.status.isWaiting) {
+      if (!this.isPending) {
         this.$emit('submit', this.user)
       }
     },

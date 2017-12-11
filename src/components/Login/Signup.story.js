@@ -1,15 +1,21 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
+import deepmerge from 'deepmerge'
 
 import Signup from './Signup'
 import i18n from '@/i18n'
 
+function getProps (override) {
+  return deepmerge({
+    status: { pending: false, validationErrors: {}, hasValidationErrors: false },
+    prefillEmail: () => 'default@example.com',
+  }, override || {})
+}
+
 storiesOf('Signup', module)
   .add('empty', () => ({
     render: h => h(Signup, {
-      props: {
-        status: { error: null, isWaiting: false },
-      },
+      props: getProps(),
       on: {
         submit: action('signup'),
       },
@@ -19,9 +25,7 @@ storiesOf('Signup', module)
 
   .add('waiting', () => ({
     render: h => h(Signup, {
-      props: {
-        status: { error: null, isWaiting: true },
-      },
+      props: getProps({ status: { pending: true } }),
       on: {
         submit: action('signup'),
       },
@@ -31,9 +35,7 @@ storiesOf('Signup', module)
 
   .add('error', () => ({
     render: h => h(Signup, {
-      props: {
-        status: { error: 'some error', isWaiting: false },
-      },
+      props: getProps({ status: { validationErrors: { email: [ 'some error' ], nonFieldErrors: [ 'some non field error' ] }, hasValidationErrors: true } }),
       on: {
         submit: action('signup'),
       },

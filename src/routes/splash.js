@@ -31,7 +31,7 @@ export default [
       breadcrumbs: [
         { translation: 'PASSWORDRESET.TITLE', route: { name: 'passwordreset' } },
       ],
-      afterLeave: 'users/cleanPasswordreset',
+      afterLeave: 'users/clearPasswordReset',
     },
     components: {
       default: PasswordReset,
@@ -61,7 +61,7 @@ export default [
       breadcrumbs: [
         { translation: 'SIGNUP.TITLE', route: { name: 'signup' } },
       ],
-      afterLeave: 'users/cleanSignup',
+      afterLeave: 'users/clearSignup',
     },
     components: {
       default: Signup,

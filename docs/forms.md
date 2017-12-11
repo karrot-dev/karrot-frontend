@@ -77,7 +77,7 @@ There is one action, `clear`, which has the same signature:
 dispatch('meta/clear', ['create'])
 
 // for an action with an id
-dispatch('meta/clear',['save', id])
+dispatch('meta/clear', ['save', id])
 ```
 
 ### Using meta in Vuex modules

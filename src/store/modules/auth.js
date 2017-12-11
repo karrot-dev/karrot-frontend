@@ -1,7 +1,6 @@
 import auth from '@/services/api/auth'
 import authUser from '@/services/api/authUser'
 import router from '@/router'
-import { types as userTypes } from '@/store/modules/users'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 
 function initialState () {
@@ -95,7 +94,7 @@ export default {
         const savedUser = await authUser.save({ ...data })
 
         commit('setUser', { user: savedUser })
-        commit(`users/${userTypes.RECEIVE_USER}`, { user: savedUser }, { root: true })
+        commit('users/update', savedUser, { root: true })
       },
 
       async changePassword ({ commit, state, dispatch }, { newPassword }) {

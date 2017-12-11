@@ -1,6 +1,6 @@
 {
   "GLOBAL": {
-    "GITHUB_NOTE": "開發\n",
+    "GITHUB_NOTE": "開發",
     "FACEBOOK_NOTE": "加入我們的臉書社團！",
     "WARNING": "警告",
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
@@ -9,10 +9,10 @@
   },
   "USERDATA": {
     "EMAIL": "電子信箱",
-    "PROFILE_TITLE": "Profile",
+    "PROFILE_TITLE": "個人資料",
     "PASSWORD": "密碼",
     "USERNAME": "名稱",
-    "WHERE_FROM": "Where you are from (not required)"
+    "WHERE_FROM": "請問你來自哪裡(選填)"
   },
   "BUTTON": {
     "CREATE": "創建",
@@ -24,40 +24,40 @@
     "PREVIEW": "預覽",
     "BACK": "退回",
     "MORE_OPTIONS": "更多選項",
-    "SEARCH": "Search",
-    "OF_COURSE": "Yes, of course!",
-    "YES": "Yes",
-    "SAVE_CHANGES": "Save changes",
-    "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "AGREE": "I agree",
-    "REMOVE": "Remove",
-    "ARCHIVE": "Archive"
+    "SEARCH": "搜尋",
+    "OF_COURSE": "是的，當然！",
+    "YES": "是",
+    "SAVE_CHANGES": "儲存變更",
+    "RESET": "重新設定",
+    "CHANGE_PASSWORD": "變更密碼",
+    "CHANGE_EMAIL": "變更電子郵件地址",
+    "AGREE": "我同意",
+    "REMOVE": "移除",
+    "ARCHIVE": "歸檔"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Name already exists, please choose another.",
-    "REQUIRED": "This field is required.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "MINLENGTH": "請輸入至少 {最少} 個字。",
+    "MAXLENGTH": "太長囉！請勿超過 {最多} 個字。",
+    "UNIQUE": "此名稱已經存在，請選擇另一個。",
+    "REQUIRED": "此欄必須填寫。",
+    "VALID_EMAIL": "請輸入一個有效的Email電子信箱。",
+    "VALID_TIMEZONE": "請輸入一個有效的時區。"
   },
   "GROUP": {
-    "WALL": "Wall",
-    "GROUP": "Group",
+    "WALL": "留言板",
+    "GROUP": "社團",
     "LEAVE": "離開社團...",
     "LEAVE_TEXT": "您是否確定要離開這個社團？",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
+    "LEAVE_CONFIRMATION": "你已經退出 {社團名稱}",
     "NONMEMBER_REDIRECT": "您並非此社團的成員。",
     "EDIT": "編輯社團",
     "CREATE_TITLE": "創建新社團",
-    "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_AGREEMENT": "管理協議",
     "TITLE": "社團名稱",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
     "PASSWORD": "如果想設定為私密社團，請在此輸入密碼",
-    "PICKUPS": "開放外帶",
+    "PICKUPS": "開放領取食物",
     "MEMBERS": "成員",
     "STORES": "店面",
     "HISTORY": "歷史",
@@ -65,50 +65,50 @@
     "ADDRESS": "地址",
     "TIMEZONE": "社團時區",
     "INVITE_EMAIL": "輸入電子郵件位址",
-    "INVITE_SEND": "寄發 邀請",
-    "INVITED_LIST": "邀請已被寄送至下列這些電子郵件位址：",
-    "ALREADY_INVITED": "邀請 已被寄送至下列這個電子郵件位址：",
-    "INVITE_TITLE": "邀請使用者到你的社團",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
+    "INVITE_SEND": "寄發邀請",
+    "INVITED_LIST": "邀請信已寄送至下列電子郵件信箱：",
+    "ALREADY_INVITED": "邀請信已寄送至下列電子郵件信箱：",
+    "INVITE_TITLE": "邀請用戶到你的社團",
+    "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
+    "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
-    "SHOW_STORES": "Show stores",
-    "HIDE_STORES": "Hide stores",
-    "SET_LOCATION": "Set location"
+    "TITLE": "地圖",
+    "SHOW_USERS": "顯示用戶",
+    "HIDE_USERS": "隱藏用戶",
+    "SHOW_STORES": "顯示店家",
+    "HIDE_STORES": "隱藏店家",
+    "SET_LOCATION": "設定地點"
   },
   "STOREDETAIL": {
-    "EDIT": "編輯店面",
+    "EDIT": "編輯店家",
     "MANAGE": "檢查與管理外帶品",
-    "ARCHIVED": "This store has been archived"
+    "ARCHIVED": "此店家已被封存"
   },
   "STOREEDIT": {
     "NAME": "名稱",
-    "STATUS":"Status",
+    "STATUS":"狀態",
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
     "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放外帶的日期？",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive store",
-        "MESSAGE": "Are you sure?",
-        "CONFIRM": "Yes, archive store"
+        "TITLE": "封存店家",
+        "MESSAGE": "你確定嗎？",
+        "CONFIRM": "是的，封存店家"
       }
     },
-    "RESTORE": "Restore"
+    "RESTORE": "恢復"
   },
   "PICKUPMANAGE": {
-    "TITLE": "管理開放外帶\n",
+    "TITLE": "管理食物領取",
     "SERIES": "循環出現",
     "SINGLE": "一次性開放外帶",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
+    "UPCOMING_PICKUPS_IN_SERIES": "此系列接下來的開放外帶日期"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "刪除循環出現的開放外帶日期",
-    "DELETE_SERIES_TEXT": "你真的想要刪除這個循環出現的開放外帶日期？這也將會刪除所有屬於這個循環出現開放外帶日期的一次性的開放外帶日期(除非人們在刪除前就已經加入的日期將會保留)。"
+    "DELETE_SERIES_TEXT": "你真的想要刪除此固定開放食物領取日期？這也將刪除所有屬於此固定食物領取日期的一次性的開放食物領取日期（已有夥伴排班的日期將會保留）。"
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "名稱",
@@ -116,23 +116,23 @@
     "PASSWORD": "輸入你的新密碼"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(使用者無法登入或遭到刪除)"
+    "INACCESSIBLE_OR_DELETED": "(用戶無法登入或已被刪除)"
   },
   "JOINGROUP": {
     "WHICHGROUP": "你想要加入哪一個社團？",
-    "NUM_MEMBERS": "Member | Members",
+    "NUM_MEMBERS": "成員 | 成員",
     "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
     "PASSWORD_LABEL": "輸入私密社團的密碼",
     "PASSWORD_REQUIRED": "此社團需要密碼",
     "PASSWORD_WRONG": "你輸入了錯誤的密碼",
     "ALL_GROUPS": "所有社團",
     "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
-    "MY_GROUPS": "My groups",
+    "MY_GROUPS": "我的社團",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOGGED_OUT": "你已經登出。 {登入}",
+      "LOG_IN": "請登入檢視你的社團！"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
+    "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。"
   },
   "GROUPINFO": {
     "META": "顯示公開的社團資訊",
@@ -140,8 +140,8 @@
   },
   "TOPBAR": {
     "LOGOUT": "登出",
-    "USERPROFILE": "進入你的個人資料頁",
-    "CHANGE_GROUP": "Change group"
+    "USERPROFILE": "進入你的個人檔案",
+    "CHANGE_GROUP": "變更社團"
   },
   "LOGIN": {
     "TITLE": "登入",
@@ -160,40 +160,40 @@
     "ERROR": "出錯了。或許你已經認證過了你的地址？"
   },
   "CREATEPICKUP": {
-    "WEEKDAYS": "週間日",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
+    "WEEKDAYS": "平日",
+    "WEEKDAYS_HELPER": "領取食物應該在哪些天發生？",
     "TIME": "時間",
-    "TIME_HELPER": "When should the pick-up take place?",
-    "DATE": "Date",
-    "DATE_HELPER": "When should the pick-up take place?",
+    "TIME_HELPER": "領取食物應該在何時發生？",
+    "DATE": "日期",
+    "DATE_HELPER": "領取食物應該在何時發生？",
     "MAX_COLLECTORS": "最大值",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
+    "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
     "COMMENT": "更多資訊",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？"
   },
   "CREATESTORE": {
-    "TITLE": "創建新店面"
+    "TITLE": "創建新的店家資料"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
+    "EMPTYNOTICE": "在接下來的日期中尚有一個食物領取的空位！在接下來的日期中尚有 {count} 個食物領取的空位！",
+    "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
     "ITEM": {
       "LEAVE": "離開",
       "JOIN": "加入",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+      "JOIN_CONFIRMATION_HEADER": "加入排班領取食物",
+      "JOIN_CONFIRMATION_TEXT": "你確定你在 {date} 的時候有時間領取食物嗎？",
+      "LEAVE_CONFIRMATION_HEADER": "退出食物領取",
+      "LEAVE_CONFIRMATION_TEXT": "你真的確定其他人能夠在沒有你的情況下領取食物嗎？"
     },
     "NONE": "沒有後續的開放外帶",
     "NONE_HINT": "你可以在店面頁創建新的開放外帶"
   },
   "PICKUP_FEEDBACK": {
-    "HEADER": "Thank you for your pickup!",
-    "SUBTITLE": "You can provide feedback for your pickup here",
-    "AMOUNT": "Amount of food you took home (in kg)",
-    "COMMENT": "Comment",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+    "HEADER": "謝謝你領取食物！",
+    "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
+    "AMOUNT": "你拿回去的食物量(公斤數)",
+    "COMMENT": "留言",
+    "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言..."
   },
   "PASSWORDRESET": {
     "TITLE": "重新設定密碼",
@@ -218,70 +218,70 @@
     "GROUP_MODIFY": "變更此社團的設定",
     "GROUP_JOIN": "加入此社團",
     "GROUP_LEAVE": "離開此社團",
-    "STORE_CREATE": "created store {name}",
-    "STORE_MODIFY": "changed the settings of store {name}",
-    "STORE_DELETE": "deleted store {name}",
+    "STORE_CREATE": "創建店家 {名稱}",
+    "STORE_MODIFY": "變更店家設定 {名稱}",
+    "STORE_DELETE": "刪除商店{名字}",
     "PICKUP_CREATE": "創建新的一次性開放外帶",
     "PICKUP_MODIFY": "變更開放外帶的設定",
     "PICKUP_DELETE": "刪除開放外帶",
     "SERIES_CREATE": "創建新的循環出現開放外帶",
     "SERIES_MODIFY": "變更循環出現的開放外帶設定",
     "SERIES_DELETE": "刪除循環出現的開放外帶",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "DETAILS": "More information"
+    "PICKUP_DONE": "有去{商店名稱}拿取食物",
+    "PICKUP_MISSED": "在{商店名稱}的取貨被放鳥了！",
+    "PICKUP_JOIN": "註冊以在{商店名稱}取貨",
+    "PICKUP_LEAVE": "取消開放領取食物",
+    "NOTHING_HAPPENEND": "目前沒有任何事情發生",
+    "DETAILS": "更多資訊"
   },
   "NOTIFICATIONS": {
     "TITLE": "通知",
-    "NOT_VERIFIED": "{email} not verified",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resend verification email",
+    "NOT_VERIFIED": "{email} 尚未驗證",
+    "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
+    "RESEND_VERIFICATION": "重新寄送驗證信",
     "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。"
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
-    "HOME": "Take me home"
+    "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",
+    "HOME": "帶我回家"
   },
   "SETTINGS": {
-    "TITLE": "Settings"
+    "TITLE": "設定"
   },
   "AGREEMENT": {
-    "NEW": "New agreement",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
-    "TITLE": "Title",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
-    "MINOR_EDIT": "Minor edit?",
+    "NEW": "建立新版同意書",
+    "AGREE": "你必須同意 {title}",
+    "VIEW": "查看同意書",
+    "TITLE": "標題",
+    "TITLE_HELPER": "請為同意書下一個標題，例如：社群規範",
+    "CONTENT": "內文",
+    "CONTENT_HELPER": "同意書內文",
+    "MINOR_EDIT": "稍微修改？",
     "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
+    "BLURB1": "你還沒有簽署合約！",
     "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
     "DIALOGS": {
       "REPLACE": {
-        "TITLE": "Change agreement?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
+        "TITLE": "變更同意書？",
+        "MESSAGE": "每個人都將必須再次確認同意，才能排班領取食物",
+        "CONFIRM": "是的，變更同意書"
       },
       "REMOVE": {
-        "TITLE": "Remove agreement?",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "CONFIRM": "Yes, remove agreement"
+        "TITLE": "移除同意書？",
+        "MESSAGE": "這代表任何人都可以領取食物",
+        "CONFIRM": "是的，取消合作"
       }
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message..."
+    "WRITE_MESSAGE": "留個言吧...",
+    "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧..."
   },
   "STORESTATUS":{
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "合作中",
+    "CREATED": "新建立",
+    "NEGOTIATING": "交涉洽談中",
+    "DECLINED": "無意願合作",
+    "ARCHIVED": "已封存"
   }
 }

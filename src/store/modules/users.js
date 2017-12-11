@@ -100,6 +100,7 @@ export const actions = {
       }
     }
     commit(types.SELECT_USER, { userId })
+    await dispatch('history/fetchForUser', { userId }, { root: true })
   },
 
   clearSelectedUser ({ commit }) {

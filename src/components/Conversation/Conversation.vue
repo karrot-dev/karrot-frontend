@@ -49,9 +49,7 @@ export default {
         done()
         return
       }
-      this.fetchMore().then((data) => {
-        done()
-      })
+      this.fetchMore().then(done)
     },
   },
   computed: {

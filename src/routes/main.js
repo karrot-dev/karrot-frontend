@@ -10,11 +10,10 @@ const GroupGallery = () => import('@/pages/GroupGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
-const StoreHistory = () => import('@/pages/Store/History')
 const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
 const StoreList = () => import('@/pages/Store/Stores')
-const GroupHistory = () => import('@/pages/Group/History')
+const History = () => import('@/pages/History')
 const HistoryDetail = () => import('@/pages/HistoryDetail')
 const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
@@ -153,9 +152,10 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } },
           ],
+          beforeEnter: 'history/fetchForGroup',
         },
         components: {
-          default: GroupHistory,
+          default: History,
           sidenav: GroupGroupSidenav,
         },
       },
@@ -269,11 +269,12 @@ export default [
           {
             name: 'storeHistory',
             path: 'history',
-            component: StoreHistory,
+            component: History,
             meta: {
               breadcrumbs: [
                 { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
               ],
+              beforeEnter: 'history/fetchForStore',
             },
           },
           {

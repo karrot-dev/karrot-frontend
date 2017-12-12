@@ -57,7 +57,7 @@
             <q-slider v-model="edit.weeksInAdvance" :min="1" :max="10" label label-always />
           </q-field>
 
-          <div v-if="hasNonFieldErrors" class="text-negative">{{ nonFieldErrors }}</div>
+          <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
 
           <q-btn type="submit" color="primary" :disable="!canSave" loader :value="isPending">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}

@@ -26,7 +26,7 @@ describe('users', () => {
   let user1, user2, user3
   beforeEach(() => {
     store = createStore({
-      users: require('./users'),
+      users: require('./users').default,
       auth,
       history,
       currentGroup: {
@@ -44,7 +44,7 @@ describe('users', () => {
   })
 
   beforeEach(() => {
-    store.commit('users/Receive Users', { users: [user1, user2, user3] })
+    store.commit('users/set', [user1, user2, user3])
   })
 
   it('can signup', async () => {

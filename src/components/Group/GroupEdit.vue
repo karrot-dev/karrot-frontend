@@ -83,7 +83,7 @@
             </q-input>
           </q-field>
 
-          <div v-if="hasNonFieldErrors" class="text-negative">{{ nonFieldErrors }}</div>
+          <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
 
           <q-btn class="actionButton" type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
             {{ $t('BUTTON.RESET') }}

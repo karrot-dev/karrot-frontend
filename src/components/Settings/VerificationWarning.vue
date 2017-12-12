@@ -5,7 +5,7 @@
       <a place="resend" @click="resend" class="underline">{{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}</a>
     </i18n>
     <span v-else>{{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}</span>
-    <p v-if="hasAnyError" class="text-negative">{{ anyError }}</p>
+    <p v-if="hasAnyError" class="text-negative">{{ anyFirstError }}</p>
   </q-alert>
 </template>
 
@@ -23,14 +23,6 @@ export default {
       status: 'users/resendVerificationStatus',
       success: 'users/resendVerificationSuccess',
     }),
-    hasAnyError () {
-      return !!this.anyError
-    },
-    anyError () {
-      for (let value in Object.values(this.status.validationErrors)) {
-        return value[0]
-      }
-    },
   },
   methods: {
     ...mapActions({

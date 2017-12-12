@@ -54,9 +54,9 @@
           </q-field>
         </div>
 
-        <div v-if="hasNonFieldErrors" class="error">
+        <div v-if="hasNonFieldError" class="error">
           <i class="fa fa-exclamation-triangle"/>
-          <div>{{ nonFieldErrors }}</div>
+          <div>{{ firstNonFieldError }}</div>
         </div>
 
         <div class="actions">

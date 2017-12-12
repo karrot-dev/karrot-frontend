@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Quasar from 'quasar'
 import raf from 'raf'
 import { createLocalVue, mount } from 'vue-test-utils'
+import deepmerge from 'deepmerge'
 
 import MockRouterLink from '>/MockRouterLink'
 import i18n from '@/i18n'
@@ -118,4 +119,15 @@ export function defaultActionStatusesFor (...actions) {
 
 export function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+export function statusMock (override) {
+  const defaults = {
+    pending: false,
+    firstNonFieldError: undefined,
+    hasValidationErrors: false,
+    firstValidationError: undefined,
+    validationErrors: {},
+  }
+  return deepmerge(defaults, override || {})
 }

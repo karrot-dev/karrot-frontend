@@ -61,8 +61,31 @@ export function createMetaModule () {
       status: state => (actionName, id) => {
         const actual = id ? (state.byId[id] && state.byId[id][actionName]) : state.byAction[actionName]
         const composed = { ...defaultStatus, ...actual }
-        composed.hasValidationErrors = Object.keys(composed.validationErrors).length > 0
-        return composed
+
+        // errorCode is not intended to be shown to the user
+        delete composed.validationErrors.errorCode
+
+        // enrich with a shortcut to first error message, if any
+        function firstError (errList) {
+          for (const value of errList) {
+            if (typeof value === 'string') {
+              return value
+            }
+            return value[0]
+          }
+        }
+        const firstValidationError = firstError(Object.values(composed.validationErrors))
+        const firstNonFieldError = firstError([
+          composed.validationErrors.nonFieldErrors,
+          composed.validationErrors.detail,
+        ].filter(e => !!e))
+
+        return {
+          ...composed,
+          firstValidationError,
+          hasValidationErrors: !!firstValidationError,
+          firstNonFieldError,
+        }
       },
     },
     actions: {

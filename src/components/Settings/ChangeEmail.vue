@@ -6,7 +6,7 @@
       icon="fa-star"
       :label="$t('USERDATA.EMAIL')"
       :error="hasAnyError"
-      :error-label="anyError">
+      :error-label="anyFirstError">
       <q-input type="email" v-model="newEmail"/>
     </q-field>
 
@@ -38,16 +38,6 @@ export default {
     setEmail () {
       if (this.user) {
         this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
-      }
-    },
-  },
-  computed: {
-    hasAnyError () {
-      return !!this.anyError
-    },
-    anyError () {
-      for (let field of ['email', 'nonFieldErrors', 'detail']) {
-        if (this.hasError(field)) return this.firstError(field)
       }
     },
   },

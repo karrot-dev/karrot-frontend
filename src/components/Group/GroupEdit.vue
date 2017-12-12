@@ -89,7 +89,7 @@
             {{ $t('BUTTON.RESET') }}
           </q-btn>
 
-          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" :loader="isPending">
+          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" loader :value="isPending">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <div style="clear: both"/>

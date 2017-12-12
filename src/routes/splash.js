@@ -46,7 +46,7 @@ export default [
       breadcrumbs: [
         { translation: 'VERIFYMAIL.TITLE', route: { name: 'verifymail' } },
       ],
-      afterLeave: 'verifymail/clean',
+      afterLeave: 'verifymail/clear',
     },
     components: {
       default: VerifyMail,

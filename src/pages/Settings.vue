@@ -4,7 +4,7 @@
       <q-list-header>{{ $t('USERDATA.PROFILE_TITLE') }}</q-list-header>
 
       <q-item>
-        <ProfileEdit :value="user" @save="saveUser"/>
+        <ProfileEdit :value="user" :status="profileEditStatus" @save="saveUser"/>
       </q-item>
 
       <q-list-header>{{ $t('USERDATA.EMAIL') }}</q-list-header>
@@ -37,8 +37,9 @@ export default {
   computed: {
     ...mapGetters({
       user: 'auth/user',
-      changeEmailStatus: 'auth/changeEmailStatus',
+      profileEditStatus: 'auth/updateStatus',
       changePasswordStatus: 'auth/changePasswordStatus',
+      changeEmailStatus: 'auth/changeEmailStatus',
     }),
   },
   methods: {

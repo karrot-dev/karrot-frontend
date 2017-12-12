@@ -325,6 +325,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
+      afterLeave: 'auth/clearSettingsStatus',
     },
     components: {
       default: Settings,

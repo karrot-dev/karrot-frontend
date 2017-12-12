@@ -1,22 +1,12 @@
 """URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.8/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Add an import:  from blog import urls as blog_urls
-    2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
+    https://docs.djangoproject.com/en/2.0/topics/http/urls/
 """
 from django.conf import settings
-from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
@@ -63,20 +53,20 @@ router.register('invitations', InvitationsViewSet)
 router.register('invitations', InvitationAcceptViewSet)
 
 # Feedback endpoints
-router.register(r'feedback', FeedbackViewSet)
+router.register('feedback', FeedbackViewSet)
 
 urlpatterns = [
-    url(r'^api/auth/token/$', obtain_auth_token),
-    url(r'^api/auth/logout/$', LogoutView.as_view()),
-    url(r'^api/auth/user/$', AuthUserView.as_view()),
-    url(r'^api/auth/verify_mail/$', VerifyMailView.as_view()),
-    url(r'^api/auth/resend_verification/$', ResendVerificationView.as_view()),
-    url(r'^api/auth/reset_password/$', ResetPasswordView.as_view()),
-    url(r'^api/auth/$', AuthView.as_view()),
-    url(r'^api/', include(router.urls, namespace='api')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^docs/', get_swagger_view()),
+    path('api/auth/token/', obtain_auth_token),
+    path('api/auth/logout/', LogoutView.as_view()),
+    path('api/auth/user/', AuthUserView.as_view()),
+    path('api/auth/verify_mail/', VerifyMailView.as_view()),
+    path('api/auth/resend_verification/', ResendVerificationView.as_view()),
+    path('api/auth/reset_password/', ResetPasswordView.as_view()),
+    path('api/auth/', AuthView.as_view()),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('admin/', admin.site.urls),
+    path('docs/', get_swagger_view()),
 ]
 
 if settings.DEBUG:

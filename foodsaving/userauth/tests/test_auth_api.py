@@ -18,7 +18,7 @@ class TestUserAuthAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['email'], self.user.email)
         user = auth.get_user(self.client)
-        self.assertTrue(user.is_authenticated())
+        self.assertTrue(user.is_authenticated)
 
     def test_login_with_similar_email_succeeds(self):
         data = {'email': 'User98@example.com', 'password': self.user.display_name}
@@ -26,7 +26,7 @@ class TestUserAuthAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['email'], self.user.email)
         user = auth.get_user(self.client)
-        self.assertTrue(user.is_authenticated())
+        self.assertTrue(user.is_authenticated)
 
     def test_no_credentials(self):
         data = {}
@@ -53,7 +53,7 @@ class TestUserAuthAPI(APITestCase):
         self.assertEqual(response.data['non_field_errors'], ['Unable to login with provided credentials.', ])
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         user = auth.get_user(self.client)
-        self.assertFalse(user.is_authenticated())
+        self.assertFalse(user.is_authenticated)
 
     def test_status_not_logged_in(self):
         response = self.client.get('/api/auth/user/')
@@ -69,11 +69,11 @@ class TestUserAuthAPI(APITestCase):
     def test_logout(self):
         self.client.login(email=self.user.email, password=self.user.display_name)
         user = auth.get_user(self.client)
-        self.assertTrue(user.is_authenticated())
+        self.assertTrue(user.is_authenticated)
         response = self.client.post('/api/auth/logout/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         user = auth.get_user(self.client)
-        self.assertFalse(user.is_authenticated())
+        self.assertFalse(user.is_authenticated)
 
 
 class TestTokenAuthAPI(APITestCase):

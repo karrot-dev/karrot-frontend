@@ -1,5 +1,5 @@
 coverage
-django[argon2]==1.11.7
+django[argon2]
 django-cors-headers
 django-enumfield==1.3b2
 django-extensions

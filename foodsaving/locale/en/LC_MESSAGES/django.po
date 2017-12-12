@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-20 17:17+0000\n"
+"POT-Creation-Date: 2017-12-08 09:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,8 +65,7 @@ msgstr ""
 msgid "Group password is wrong"
 msgstr ""
 
-#: foodsaving/invitations/serializers.py:25
-#: foodsaving/stores/serializers.py:235
+#: foodsaving/invitations/serializers.py:25 foodsaving/stores/serializers.py:62
 msgid "You are not a member of this group."
 msgstr ""
 
@@ -88,64 +87,64 @@ msgstr ""
 msgid "Invitation to join %(group_name)s"
 msgstr ""
 
-#: foodsaving/stores/permissions.py:6
+#: foodsaving/pickups/permissions.py:6
 msgid "The pickup date is in the past."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:17
+#: foodsaving/pickups/permissions.py:17
 msgid "You can only delete empty pickup dates."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:24
+#: foodsaving/pickups/permissions.py:24
 msgid "You have not joined this pickup date."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:31
+#: foodsaving/pickups/permissions.py:31
 msgid "You have already joined this pickup date."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:38
+#: foodsaving/pickups/permissions.py:38
 msgid "Pickup date is already full."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:45
+#: foodsaving/pickups/permissions.py:45
 msgid "This feedback is given by another user."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:38 foodsaving/stores/serializers.py:170
-#: foodsaving/stores/serializers.py:261
+#: foodsaving/pickups/serializers.py:35 foodsaving/pickups/serializers.py:167
+#: foodsaving/pickups/serializers.py:198
 msgid "You are not member of the store's group."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:87
+#: foodsaving/pickups/serializers.py:84
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:180
+#: foodsaving/pickups/serializers.py:177
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:240
-msgid "Set at least one week in advance"
-msgstr ""
-
-#: foodsaving/stores/serializers.py:263
+#: foodsaving/pickups/serializers.py:200
 msgid "The pickup is not done yet"
 msgstr ""
 
-#: foodsaving/stores/serializers.py:265
+#: foodsaving/pickups/serializers.py:202
 msgid "You aren't assigned to the pickup."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:267
+#: foodsaving/pickups/serializers.py:204
 msgid "You can't give feedback for pickups more than 30 days ago."
 msgstr ""
 
-#: foodsaving/stores/templates/upcoming_pickup_slack.jinja:1
+#: foodsaving/pickups/templates/upcoming_pickup_slack.jinja:1
 #, python-format
 msgid ""
 "Food pick-up in %(number_of_hours)s hours, <%(store_page_url)s|click here> "
 "and save the food!"
+msgstr ""
+
+#: foodsaving/stores/serializers.py:67
+msgid "Set at least one week in advance"
 msgstr ""
 
 #: foodsaving/userauth/permissions.py:6
@@ -164,11 +163,11 @@ msgstr ""
 msgid "Key is invalid"
 msgstr ""
 
-#: foodsaving/users/models.py:184
+#: foodsaving/users/models.py:185
 msgid "New password"
 msgstr ""
 
-#: foodsaving/users/models.py:185
+#: foodsaving/users/models.py:186
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."

@@ -1,69 +1,36 @@
+import Vue from 'vue'
 import auth from '@/services/api/auth'
-import { onlyHandleAPIError } from '@/store/helpers'
-
-export const types = {
-  REQUEST: 'Request',
-  RECEIVE: 'Receive',
-  RECEIVE_ERROR: 'Receive Error',
-  CLEAN: 'Clean',
-}
+import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 
 function initialState () {
   return {
-    status: {
-      isWaiting: false,
-      error: null,
-      success: false,
-    },
+    success: false,
   }
 }
 
-export const state = initialState()
-
-export const getters = {
-  status: state => state.status,
-}
-
-export const actions = {
-  async verify ({ commit }, key) {
-    commit(types.REQUEST)
-    try {
-      await auth.verifyMail(key)
-      commit(types.RECEIVE)
-    }
-    catch (error) {
-      onlyHandleAPIError(error, data => commit(types.RECEIVE_ERROR, data))
-    }
+export default {
+  namespaced: true,
+  modules: { meta: createMetaModule() },
+  state: initialState(),
+  getters: {
+    success: state => state.success,
+    ...metaStatuses(['verify']),
   },
-}
-
-export const mutations = {
-  [types.REQUEST] (state) {
-    state.status = {
-      isWaiting: true,
-      error: null,
-      success: false,
-    }
+  actions: {
+    ...withMeta({
+      async verify ({ commit }, key) {
+        await auth.verifyMail(key)
+        commit('setSuccess', true)
+      },
+    }),
+    clear ({ commit, dispatch }) {
+      dispatch('meta/clear', ['verify'])
+      commit('setSuccess', false)
+    },
   },
-  [types.RECEIVE] (state) {
-    state.status = {
-      isWaiting: false,
-      error: null,
-      success: true,
-    }
-  },
-  [types.RECEIVE_ERROR] (state, { error }) {
-    state.status = {
-      isWaiting: false,
-      error,
-      success: false,
-    }
-  },
-  [types.CLEAN] (state) {
-    state.status = {
-      isWaiting: false,
-      error: null,
-      success: false,
-    }
+  mutations: {
+    setSuccess (state, status) {
+      Vue.set(state, 'success', status)
+    },
   },
 }

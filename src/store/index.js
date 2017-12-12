@@ -6,7 +6,6 @@ import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
-import * as verifymail from './modules/verifymail'
 import about from './modules/about'
 import agreements from './modules/agreements'
 import alerts from './modules/alerts'
@@ -29,6 +28,7 @@ import search from './modules/search'
 import stores from './modules/stores'
 import timezones from './modules/timezones'
 import users from './modules/users'
+import verifymail from './modules/verifymail'
 
 Vue.use(Vuex)
 

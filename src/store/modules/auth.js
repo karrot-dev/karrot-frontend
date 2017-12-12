@@ -20,7 +20,6 @@ export default {
     isLoggedIn: state => !!state.user,
     user: state => state.user,
     userId: state => state.user && state.user.id,
-    status: state => state.status,
     redirectTo: state => state.redirectTo,
     ...metaStatuses(['login', 'update', 'changePassword', 'changeEmail']),
   },
@@ -80,23 +79,6 @@ export default {
         router.push({ name: 'groupsGallery' })
       },
 
-      async update ({ commit, state, dispatch }, data) {
-        let user = state.user
-        if (!user) return
-
-        // TODO use objectDiff in component, remove from here
-        let changed = Object.keys(data).some(key => user[key] !== data[key])
-
-        if (!changed) {
-          return
-        }
-
-        const savedUser = await authUser.save({ ...data })
-
-        commit('setUser', { user: savedUser })
-        commit('users/update', savedUser, { root: true })
-      },
-
       async changePassword ({ commit, state, dispatch }, { newPassword }) {
         await authUser.save({ password: newPassword })
         dispatch('logout')
@@ -106,6 +88,17 @@ export default {
         const savedUser = await authUser.save({ email })
         commit('setUser', { user: savedUser })
       },
+    }),
+
+    ...withMeta({
+      async update ({ commit, state, dispatch }, data) {
+        const savedUser = await authUser.save(data)
+        commit('setUser', { user: savedUser })
+        commit('users/update', savedUser, { root: true })
+      },
+    }, {
+      // ignore ID to have simple updateStatus
+      findId: () => undefined,
     }),
 
     setRedirectTo ({ commit }, redirectTo) {
@@ -123,6 +116,13 @@ export default {
     afterLoggedIn ({ state, dispatch }) {
       const { user } = state
       dispatch('i18n/setLocale', user.language || 'en', { root: true })
+    },
+
+    clearSettingsStatus ({ commit, dispatch }) {
+      dispatch('meta/clear', ['changeEmail'])
+      dispatch('meta/clear', ['changePassword'])
+      dispatch('meta/clear', ['update'])
+      dispatch('users/clearResendVerification', null, { root: true })
     },
   },
   mutations: {

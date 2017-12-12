@@ -85,6 +85,9 @@ export default {
     },
     clearSignup ({ commit, dispatch }) {
       dispatch('meta/clear', ['signup'])
+    },
+    clearResendVerification ({ commit, dispatch }) {
+      dispatch('meta/clear', ['resendVerification'])
       commit('resendVerificationSuccess', false)
     },
     clearResetPassword ({ commit, dispatch }) {
@@ -93,7 +96,7 @@ export default {
     },
   },
   mutations: {
-    select (state, { userId }) {
+    select (state, userId) {
       state.activeUserId = userId
     },
     set (state, users) {
@@ -107,10 +110,10 @@ export default {
       }
     },
     resetPasswordSuccess (state, status) {
-      state.resetPasswordSuccess = status
+      Vue.set(state, 'resetPasswordSuccess', status)
     },
     resendVerificationSuccess (state, status) {
-      status.resendVerificationSuccess = status
+      Vue.set(state, 'resendVerificationSuccess', status)
     },
 
   },

@@ -4,7 +4,8 @@ import VerifyMail from '@/components/Login/VerifyMail'
 
 export default connect({
   gettersToProps: {
-    status: 'verifymail/status',
+    status: 'verifymail/verifyStatus',
+    success: 'verifymail/success',
     user: 'auth/user',
   },
   lifecycle: {

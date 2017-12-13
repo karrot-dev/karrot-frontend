@@ -40,6 +40,7 @@ export default {
   },
 }
 </script>
+
 <!-- UNSCOPED -->
 <style lang="stylus">
 .markdown-input > .q-tabs-head

@@ -119,7 +119,7 @@ function notArchived (store) {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 .container
   position relative
 .overlay

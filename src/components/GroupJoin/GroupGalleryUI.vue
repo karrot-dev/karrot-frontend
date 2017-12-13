@@ -84,7 +84,7 @@ body.desktop .alert
   border 2px solid $positive
 </style>
 
-<style lang="stylus" scoped>
+<style scoped lang="stylus">
 .underline
   text-decoration underline
 </style>

@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style scoped lang="stylus">
 .underline
   text-decoration underline
 </style>

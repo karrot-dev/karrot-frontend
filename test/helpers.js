@@ -121,7 +121,10 @@ export function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-export function statusMock (override) {
+/**
+ * Helper for the interface of `withMeta` status and components (`statusMixin`)
+ */
+function statusMock (override) {
   const defaults = {
     pending: false,
     firstNonFieldError: undefined,
@@ -130,4 +133,26 @@ export function statusMock (override) {
     validationErrors: {},
   }
   return deepmerge(defaults, override || {})
+}
+
+export const statusMocks = {
+  default: statusMock,
+  pending () {
+    return statusMock({ pending: true })
+  },
+  validationError (field, message) {
+    return statusMock({
+      hasValidationErrors: true,
+      firstValidationError: message,
+      validationErrors: { [field]: [message] },
+    })
+  },
+  nonFieldError (message) {
+    return statusMock({
+      firstNonFieldError: message,
+      hasValidationErrors: true,
+      firstValidationError: message,
+      validationErrors: { nonFieldErrors: [message] },
+    })
+  },
 }

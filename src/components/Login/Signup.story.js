@@ -1,21 +1,21 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import deepmerge from 'deepmerge'
 
 import Signup from './Signup'
 import i18n from '@/i18n'
+import { statusMocks } from '>/helpers'
 
-function getProps (override) {
-  return deepmerge({
-    status: { pending: false, validationErrors: {}, hasValidationErrors: false },
-    prefillEmail: () => 'default@example.com',
-  }, override || {})
+const defaultProps = {
+  prefillEmail: () => 'default@example.com',
 }
 
 storiesOf('Signup', module)
   .add('empty', () => ({
     render: h => h(Signup, {
-      props: getProps(),
+      props: {
+        ...defaultProps,
+        status: statusMocks.default(),
+      },
       on: {
         submit: action('signup'),
       },
@@ -23,9 +23,12 @@ storiesOf('Signup', module)
     i18n,
   }))
 
-  .add('waiting', () => ({
+  .add('pending', () => ({
     render: h => h(Signup, {
-      props: getProps({ status: { pending: true } }),
+      props: {
+        ...defaultProps,
+        status: statusMocks.pending(),
+      },
       on: {
         submit: action('signup'),
       },
@@ -35,7 +38,10 @@ storiesOf('Signup', module)
 
   .add('error', () => ({
     render: h => h(Signup, {
-      props: getProps({ status: { validationErrors: { email: [ 'some error' ], nonFieldErrors: [ 'some non field error' ] }, hasValidationErrors: true } }),
+      props: {
+        ...defaultProps,
+        status: statusMocks.validationError('email', 'error message'),
+      },
       on: {
         submit: action('signup'),
       },

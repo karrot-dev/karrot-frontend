@@ -5,18 +5,17 @@ import KFooter from './KFooter'
 import i18n from '@/i18n'
 import router from '@/router'
 import { createStore } from '>/helpers'
-import { groupsMock, storesMock, usersMock } from '>/mockdata'
+import { groupsMock, storesMock, usersMock, currentUserMock } from '>/mockdata'
 
 const store = createStore({
-  about: {
-    actions: { fetch () {} },
-  },
+  about: { actions: { fetch () {} } },
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },
   users: { getters: { all: () => usersMock } },
-  search: require('@/store/modules/search'),
+  search: require('@/store/modules/search').default,
   breadcrumbs: { getters: { all: () => [] } },
-  auth: { getters: { userId: () => 1 } },
+  auth: { getters: { user: () => currentUserMock } },
+  i18n: { getters: { locale: () => 'en' } },
 })
 
 storiesOf('Layout', module)

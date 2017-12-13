@@ -19,7 +19,7 @@ jest.mock('@/router', () => ({
   replace: mockRouterReplace,
 }))
 
-import { createStore, createValidationError, defaultActionStatusesFor, throws, statusMock } from '>/helpers'
+import { createStore, createValidationError, defaultActionStatusesFor, throws, statusMocks } from '>/helpers'
 
 function enrich (group) {
   return {
@@ -152,11 +152,7 @@ describe('groups', () => {
       await store.dispatch('groups/save', { id: group2.id, name: 'new name' })
       expect(store.getters['groups/get'](group2.id)).toEqual({
         ...enrichAsMember(group2),
-        saveStatus: statusMock({
-          hasValidationErrors: true,
-          firstValidationError: 'bar',
-          validationErrors,
-        }),
+        saveStatus: statusMocks.validationError('foo', 'bar'),
       })
     })
   })

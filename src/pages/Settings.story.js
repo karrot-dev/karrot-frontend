@@ -6,14 +6,15 @@ import Settings from '@/pages/Settings'
 import VerificationWarning from '@/components/Settings/VerificationWarning'
 import { currentUserMock } from '>/mockdata'
 
-import { createStore } from '>/helpers'
+import { createStore, statusMocks } from '>/helpers'
 
 const store = createStore({
   auth: {
     getters: {
       user: () => currentUserMock,
-      changeEmailStatus: () => ({ pending: false, validationErrors: {}, hasValidationErrors: false }),
-      changePasswordStatus: () => ({ pending: false, validationErrors: {}, hasValidationErrors: false }),
+      updateStatus: () => statusMocks.default(),
+      changeEmailStatus: () => statusMocks.default(),
+      changePasswordStatus: () => statusMocks.default(),
     },
     actions: {
       update: action('update'),
@@ -23,7 +24,7 @@ const store = createStore({
   },
   users: {
     getters: {
-      resendVerificationStatus: () => ({ pending: false, validationErrors: {}, hasValidationErrors: false }),
+      resendVerificationStatus: () => statusMocks.default(),
       resendVerificationSuccess: () => false,
     },
     actions: {

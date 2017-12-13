@@ -16,7 +16,7 @@ storiesOf('GroupPreviewUI', module)
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], isMember: false },
-        status: { error: null, isWaiting: false },
+        isLoggedIn: true,
       },
       on: { join: methods.join },
     }),
@@ -26,7 +26,7 @@ storiesOf('GroupPreviewUI', module)
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], isMember: true },
-        status: { error: null, isWaiting: false },
+        isLoggedIn: true,
       },
       on: { visit: methods.visit },
     }),
@@ -36,17 +36,17 @@ storiesOf('GroupPreviewUI', module)
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], publicDescription: '', isMember: true },
-        status: { error: null, isWaiting: false },
+        isLoggedIn: true,
       },
       on: { visit: methods.visit },
     }),
     i18n,
   }))
-  .add('waiting', () => ({
+  .add('pending', () => ({
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[4], isMember: false },
-        status: { error: null, isWaiting: true },
+        isLoggedIn: true,
       },
       on: { join: methods.join },
     }),
@@ -56,7 +56,7 @@ storiesOf('GroupPreviewUI', module)
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[4], isMember: false },
-        status: { error: 'asdfasdf', isWaiting: false },
+        isLoggedIn: true,
       },
       on: { join: methods.join },
     }),

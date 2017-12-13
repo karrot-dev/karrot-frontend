@@ -4,7 +4,7 @@ import ProfileEdit from './ProfileEdit'
 import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, polyfillRequestAnimationFrame, statusMock } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>/helpers'
 
 polyfillRequestAnimationFrame()
 
@@ -14,7 +14,7 @@ describe('ProfileEdit', () => {
 
   beforeEach(() => {
     user = cloneDeep(usersMock[0])
-    wrapper = mountWithDefaults(ProfileEdit, { propsData: { value: user, status: statusMock() } })
+    wrapper = mountWithDefaults(ProfileEdit, { propsData: { value: user, status: statusMocks.default() } })
   })
 
   it('renders', () => {

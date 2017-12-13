@@ -8,7 +8,7 @@ jest.mock('@/router', () => ({ push: mockRouterPush }))
 jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
 
-import { createValidationError, statusMock } from '>/helpers'
+import { createValidationError, statusMocks } from '>/helpers'
 import { withMeta, createMetaModule, defaultFindId } from '@/store/helpers'
 
 Vue.use(Vuex)
@@ -41,15 +41,11 @@ describe('helpers', () => {
     })
 
     it('handles validation errors', async () => {
-      const validationErrors = { foo: 'bar' }
+      const validationErrors = { foo: ['bar'] }
       run.mockImplementationOnce(() => { throw createValidationError(validationErrors) })
       await store.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id)).toEqual(statusMock({
-        hasValidationErrors: true,
-        firstValidationError: 'bar',
-        validationErrors,
-      }))
+      expect(store.getters['meta/status']('run', id)).toEqual(statusMocks.validationError('foo', 'bar'))
     })
 
     it('throws any other errors back atcha', async () => {
@@ -57,7 +53,7 @@ describe('helpers', () => {
       run.mockImplementationOnce(() => { throw error })
       await expect(store.dispatch('run', { id })).rejects.toBe(error)
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id)).toEqual(statusMock())
+      expect(store.getters['meta/status']('run', id)).toEqual(statusMocks.default())
     })
 
     it('goes into pending state during request', async () => {

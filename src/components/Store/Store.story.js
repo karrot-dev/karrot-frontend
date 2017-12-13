@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { storesMock as stores } from '>/mockdata'
+import { statusMocks } from '>/helpers'
 
 import StoreList from './StoreList'
 import StoreEdit from './StoreEdit'
@@ -19,10 +20,9 @@ storiesOf('Stores', module)
   .add('StoreEdit', () => ({
     render: h => h(StoreEdit, {
       props: {
-        store,
+        value: store,
         allStores: otherStores,
-        status: {},
-        requestError () {},
+        status: statusMocks.default(),
       },
     }),
     i18n,
@@ -32,13 +32,9 @@ storiesOf('Stores', module)
   .add('StoreEdit (with server error)', () => ({
     render: h => h(StoreEdit, {
       props: {
-        store,
+        value: store,
         allStores: otherStores,
-        status: {},
-        requestError (field) {
-          const error = { name: ['a nice server error', 'and another one'] }
-          return error[field] && error[field][0]
-        },
+        status: statusMocks.validationError('name', 'a nice server error'),
       },
     }),
     i18n,

@@ -1,3 +1,5 @@
+import { statusMocks } from '>/helpers'
+
 export const currentUserMock = { 'id': 5, 'displayName': 'Current User', 'email': 'current@user.de', 'unverifiedEmail': 'current@user.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8980022441358, 'longitude': 8.66015739059448, 'description': 'I am the current User!', 'mailVerified': true, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'de', isCurrentUser: true }
 
 export const usersMockWithoutCurrent = [
@@ -15,12 +17,18 @@ export const storesMock = [
   { 'id': 56, 'name': 'Supermarkt Arheilgen', 'description': 'blabla', 'group': 1, 'address': 'Frankfurter Landstraße 147 Arheilgen', 'latitude': 49.9105778076202, 'longitude': 8.65834236145019, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 2, 'name': 'asd', 'description': 'asd', 'group': 1, 'address': 'Luisenplatz, Darmstadt, Regierungsbezirk Darmstadt, Hessen, 64283, Deutschland', 'latitude': 49.8728175, 'longitude': 8.65062690796964, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 61, 'name': 'Griesheimer Markt', 'description': 'Frisches Essen dies das', 'group': 1, 'address': 'Griesheim Marktplatz', 'latitude': 49.8615586173026, 'longitude': 8.57465744018555, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
-]
+].map(e => ({
+  ...e,
+  saveStatus: statusMocks.default(),
+}))
 
 function enrichPickup (e) {
   e.date = new Date(e.date)
   e.collectors = e.collectorIds.map(i => usersMock.find(u => u.id === i))
   e.store = storesMock.find(s => e.store === s.id)
+  e.saveStatus = statusMocks.default()
+  e.joinStatus = statusMocks.default()
+  e.leaveStatus = statusMocks.default()
   return e
 }
 
@@ -33,7 +41,11 @@ export const pickupsMock = [ joinablePickup, leavablePickup, fullPickup, emptyPi
 
 export const pickupSeriesMock = [
   { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': {'freq': 'WEEKLY', 'byDay': ['TH', 'SU']}, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },
-]
+].map(e => ({
+  ...e,
+  saveStatus: statusMocks.default(),
+  destroyStatus: statusMocks.default(),
+}))
 
 export const messagesMock = [
   { 'id': 1, 'author': 1, 'content': 'first messsage', 'conversation': 1, 'createdAt': '2017-08-11T15:43:37.419305Z' },
@@ -66,7 +78,12 @@ export const groupsMock = [
   {'id': 4, 'name': '03_testgroup', 'publicDescription': '', 'address': 'Grönland', 'latitude': 77.6192349, 'longitude': -42.8125966, 'members': [184, 37, 43, 60, 68, 76, 66, 90, 17, 29, 45, 22], 'protected': false},
   {'id': 6, 'name': '01_testgroup_with_maps_and_password', 'publicDescription': 'To enter this group, type "abc" as password (if nobody changed it!)', 'address': '19, Nordenskiöldsgatan, Olivedal, Majorna-Linné, Gothenburg, Göteborg, Västra Götalands län, Götaland, 41309, Sweden', 'latitude': 57.6927122, 'longitude': 11.9510521, 'members': [139, 140, 141, 142, 144, 146, 149, 145, 136, 10, 162, 163, 180, 143, 28, 39, 42, 33, 57, 40, 64, 71, 72, 79, 77, 69, 75, 86, 31, 95, 96, 105, 104, 108, 84, 112, 107, 114, 129, 17, 134, 7, 81, 29, 4, 45, 185, 32, 1, 202, 8, 189, 194], 'protected': true},
   {'id': 13, 'name': '04_testgroup', 'publicDescription': 'Hi there! This it the public description!', 'address': 'Algeciras, Cádiz, Andalusia, Spain', 'latitude': 36.1445288570277, 'longitude': -5.45059204101562, 'members': [184, 151, 148, 159, 10, 34, 28, 67, 120, 17, 7, 29, 4, 45, 187, 1, 22, 8], 'protected': false},
-]
+].map(e => ({
+  ...e,
+  joinStatus: statusMocks.default(),
+  saveStatus: statusMocks.default(),
+  leaveStatus: statusMocks.default(),
+}))
 
 export const historyMock = [
   {'id': 4155, 'date': '2017-10-02T09:15:42.484Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [1], 'payload': {'description': 'This is default...', 'store': 56, 'id': 1037, 'series': 31, 'maxCollectors': 4, 'date': '2017-10-03T17:00:00.000Z', 'collectorIds': [1]}},

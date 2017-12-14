@@ -154,14 +154,14 @@
     "untranslated_words": 889
   },
   "zh": {
-    "completed": "52%",
-    "last_commiter": "tilmann",
-    "last_update": "2017-11-27 16:46:22",
+    "completed": "99%",
+    "last_commiter": "Foodsharing_Taiwan",
+    "last_update": "2017-12-11 14:32:20",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 108,
-    "translated_words": 440,
-    "untranslated_entities": 99,
-    "untranslated_words": 449
+    "translated_entities": 205,
+    "translated_words": 862,
+    "untranslated_entities": 2,
+    "untranslated_words": 27
   }
 }

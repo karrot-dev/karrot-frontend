@@ -1,6 +1,6 @@
 <template>
   <div class="splashlayout-wrapper">
-    <div class="splashlayout-header desktop-only">
+    <div class="splashlayout-header">
       <router-view name="header"/>
     </div>
     <div class="splashlayout">
@@ -20,32 +20,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.splashlayout-header
-  padding 0.1em 1em
-.splashlayout-content
-  overflow hidden
-  border-radius $borderRadius
-  width 100%
-  min-height 5em
-  background-color $primary
-  color white
-  padding 1em 1em
-.splashlayout
-  .fade-enter-active, .fade-leave-active
-    transition: all .1s
-  .fade-enter, .fade-leave-to
-    transform:rotateX(90deg)
-body.mobile .splashlayout
-  padding .3em
-body.desktop .splashlayout-wrapper
-  margin-top 3em
-</style>
-
 <!-- NOT SCOPED! -->
 <style lang="stylus">
 @import '~variables'
 .splashlayout-header
+  padding 0.1em 1em
   img
     height 40px
     vertical-align middle
@@ -57,7 +36,14 @@ body.desktop .splashlayout-wrapper
     color $primary
     .fa
       margin-right .3em
-.splashlayout-contents
+.splashlayout-content
+  overflow hidden
+  border-radius $borderRadius
+  width 100%
+  min-height 5em
+  background-color $primary
+  color white
+  padding 1em 1em
   .white-box
     background-color white
     border-radius $borderRadiusSmall
@@ -78,4 +64,15 @@ body.desktop .splashlayout-wrapper
       background-color $secondary
     .submit:hover
       background-color $positive
+body.mobile .splashlayout-header
+  display none
+body.mobile .splashlayout
+  padding .3em
+body.desktop .splashlayout-wrapper
+  margin-top 3em
+.splashlayout
+  .fade-enter-active, .fade-leave-active
+    transition: all .1s
+  .fade-enter, .fade-leave-to
+    transform:rotateX(90deg)
 </style>

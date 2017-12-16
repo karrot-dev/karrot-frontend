@@ -72,6 +72,14 @@ export function mountWithDefaults (Component, options = {}) {
   return wrapper
 }
 
+export function storybookDefaults (options) {
+  i18n.locale = 'en'
+  return {
+    i18n,
+    ...options,
+  }
+}
+
 export function createValidationError (data) {
   return Object.assign(new Error(), {
     response: {

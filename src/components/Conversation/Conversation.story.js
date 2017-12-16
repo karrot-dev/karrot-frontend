@@ -2,9 +2,7 @@ import { storiesOf } from '@storybook/vue'
 
 import Conversation from './Conversation'
 import { messagesMock, currentUserMock } from '>/mockdata'
-import { statusMocks } from '>/helpers'
-import i18n from '@/i18n'
-import router from '@/router'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const defaultProps = {
   data: {
@@ -19,10 +17,8 @@ const defaultProps = {
 }
 
 storiesOf('Conversation', module)
-  .add('Conversation', () => ({
+  .add('Conversation', () => defaults({
     render: h => h(Conversation, {
       props: defaultProps,
     }),
-    i18n,
-    router,
   }))

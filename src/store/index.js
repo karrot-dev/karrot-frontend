@@ -34,7 +34,7 @@ Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
-const options = ({
+export default new Vuex.Store({
   modules: {
     auth,
     conversations,
@@ -70,14 +70,3 @@ const options = ({
   ],
   strict: debug,
 })
-
-// Set all modules to be namespaces
-
-for (let k of Object.keys(options.modules)) {
-  let m = options.modules[k]
-
-  // Enforce use of namespaced modules
-  m.namespaced = true
-}
-
-export default new Vuex.Store(options)

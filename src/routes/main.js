@@ -312,6 +312,7 @@ export default [
         { type: 'currentGroup' },
         { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
       ],
+      beforeEnter: 'currentGroup/select',
     },
     components: {
       default: GroupMap,

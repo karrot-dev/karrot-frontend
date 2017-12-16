@@ -23,6 +23,12 @@ export default {
       status: 'users/resendVerificationStatus',
       success: 'users/resendVerificationSuccess',
     }),
+    hasAnyError () {
+      return this.status.hasValidationErrors
+    },
+    anyFirstError () {
+      return this.status.firstValidationError
+    },
   },
   methods: {
     ...mapActions({

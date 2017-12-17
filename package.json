@@ -24,9 +24,9 @@
     "build": "node build/script.build.js",
     "build:cordova": "CORDOVA=true node build/script.build.js",
     "serve": "node build/script.serve.js",
-    "test": "jest",
-    "test:update": "jest --verbose --updateSnapshot",
-    "test:watch": "jest --verbose --watchAll --notify",
+    "test": "node test/jestUTC.js",
+    "test:update": "node test/jestUTC.js --verbose --updateSnapshot",
+    "test:watch": "node test/jestUTC.js --verbose --watchAll --notify",
     "e2e": "node e2e/testcafe.js",
     "lint": "eslint --ext .js,.vue src",
     "fix": "eslint --ext .js,.vue --fix src",
@@ -171,7 +171,6 @@
     "setupFiles": [
       "<rootDir>/test/setup/unhandledPromiseRejectionHandler.js",
       "<rootDir>/test/setup/mockRandom.js",
-      "<rootDir>/test/setup/setUTC.js",
       "jest-localstorage-mock"
     ],
     "globals": {

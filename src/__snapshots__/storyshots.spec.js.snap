@@ -2878,7 +2878,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                                     <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
                                         <!---->
                                         <div class="q-datetime-time row flex-center">
-                                            <div class="q-datetime-clockstring col-auto col-md-12"><span class="q-datetime-link col-auto col-md-12 active">   9 </span> <span style="opacity:0.6;">:</span> <span class="q-datetime-link col-auto col-md-12"> 00 </span></div>
+                                            <div class="q-datetime-clockstring col-auto col-md-12"><span class="q-datetime-link col-auto col-md-12 active">   8 </span> <span style="opacity:0.6;">:</span> <span class="q-datetime-link col-auto col-md-12"> 00 </span></div>
                                             <div class="q-datetime-ampm column col-auto col-md-12 justify-around">
                                                 <div class="q-datetime-link active">AM</div>
                                                 <div class="q-datetime-link">PM</div>
@@ -2894,7 +2894,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                                                 <div class="q-datetime-clock cursor-pointer">
                                                     <div class="q-datetime-clock-circle full-width full-height">
                                                         <div class="q-datetime-clock-center"></div>
-                                                        <div class="q-datetime-clock-pointer" style="transform:rotate(90deg);-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);"><span></span></div>
+                                                        <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);-webkit-transform:rotate(60deg);-moz-transform:rotate(60deg);-ms-transform:rotate(60deg);-o-transform:rotate(60deg);"><span></span></div>
                                                         <div>
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
@@ -2903,8 +2903,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-8"><span>8</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-9 active"><span>9</span></div>
+                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
+                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
                                                             <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>

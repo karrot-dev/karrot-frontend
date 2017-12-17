@@ -83,13 +83,13 @@
             </q-input>
           </q-field>
 
-          <div v-if="hasNonFieldErrors" class="text-negative">{{ nonFieldErrors }}</div>
+          <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
 
           <q-btn class="actionButton" type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
             {{ $t('BUTTON.RESET') }}
           </q-btn>
 
-          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" :loader="isPending">
+          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" loader :value="isPending">
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <div style="clear: both"/>

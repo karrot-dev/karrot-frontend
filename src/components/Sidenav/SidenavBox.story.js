@@ -4,7 +4,7 @@ import SidenavBox from './SidenavBox'
 import SidenavMapUI from './SidenavMapUI'
 import SidenavGroup from './SidenavGroup'
 import SidenavStoresUI from './SidenavStoresUI'
-import { storesMock as stores, usersMock as users } from '>/mockdata'
+import { storesMock as stores, usersMock as users, groupsMock } from '>/mockdata'
 import i18n from '@/i18n'
 import router from '@/router'
 import { createStore } from '>/helpers'
@@ -26,6 +26,13 @@ storiesOf('Sidenav Boxes', module)
   .add('Default', () => SidenavBox)
 
   .add('Map', () => ({
+    render (h) {
+      let { showStores, showUsers, toggleUsers, toggleStores } = this
+      return h(SidenavMapUI, {
+        props: { stores, users, showStores, showUsers, currentGroup: groupsMock[0] },
+        on: { toggleStores, toggleUsers },
+      })
+    },
     data () {
       return {
         showStores: true,
@@ -40,14 +47,8 @@ storiesOf('Sidenav Boxes', module)
         this.showUsers = !this.showUsers
       },
     },
-    render (h) {
-      let { showStores, showUsers, toggleUsers, toggleStores } = this
-      return h(SidenavMapUI, {
-        props: { stores, users, showStores, showUsers },
-        on: { toggleStores, toggleUsers },
-      })
-    },
     i18n,
+    store,
   }))
 
   .add('Group', () => ({

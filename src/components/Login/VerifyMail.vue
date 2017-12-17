@@ -2,13 +2,13 @@
   <div>
     <div>
       <h5>{{ user.email }}</h5>
-      <q-spinner v-if="status.isWaiting" />
-      <p v-if="status.success">
+      <q-spinner v-if="isPending" />
+      <p v-if="success">
         {{ $t('VERIFYMAIL.SUCCESS') }}
       </p>
-      <p v-if="status.error">
-        {{ $t('VERIFYMAIL.ERROR') }}
-        {{ status.error.data }}
+      <p v-if="status.hasValidationErrors">
+        <i class="fa fa-exclamation-triangle"/>
+        {{ status.firstValidationError }}
       </p>
     </div>
   </div>
@@ -16,12 +16,14 @@
 
 <script>
 import { QSpinner } from 'quasar'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
   components: { QSpinner },
+  mixins: [statusMixin],
   props: {
-    status: { required: true },
-    user: { required: true },
+    success: { required: true, type: Boolean },
+    user: { required: true, type: Object },
   },
 }
 </script>

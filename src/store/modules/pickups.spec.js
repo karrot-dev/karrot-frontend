@@ -14,7 +14,6 @@ describe('pickups', () => {
 
   let storeMocks
   let vstore
-  let type
 
   let userId = 10
 
@@ -52,8 +51,7 @@ describe('pickups', () => {
           },
         },
       }
-      let pickups = require('./pickups')
-      type = name => `pickups/${pickups.types[name]}`
+      let pickups = require('./pickups').default
       vstore = createStore({
         pickups,
         ...storeMocks,
@@ -61,7 +59,7 @@ describe('pickups', () => {
     })
 
     beforeEach(() => {
-      vstore.commit(type('RECEIVE_LIST'), { pickups: [pickup1, pickup2, pickup3] })
+      vstore.commit('pickups/set', { pickups: [pickup1, pickup2, pickup3] })
     })
 
     it('can enrich', async () => {
@@ -89,7 +87,7 @@ describe('pickups', () => {
     })
 
     it('can get filtered', async () => {
-      vstore.commit(type('SET_STORE_ID_FILTER'), { storeId: pickup2.store })
+      vstore.commit('pickups/setStoreIdFilter', pickup2.store)
       expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup2].map(getId))
     })
 

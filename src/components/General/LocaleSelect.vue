@@ -37,15 +37,20 @@
 <script>
 import { QProgress, QIcon, QBtn, QPopover, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
+import { localeOptions } from '@/i18n'
 
 export default {
   name: 'LocaleSelect',
   components: { QProgress, QIcon, QBtn, QPopover, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain },
+  data () {
+    return {
+      localeOptions,
+    }
+  },
   computed: {
     ...mapGetters({
       user: 'auth/user',
       current: 'i18n/locale',
-      localeOptions: 'i18n/localeOptions',
     }),
   },
   methods: {

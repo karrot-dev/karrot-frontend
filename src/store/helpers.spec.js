@@ -8,8 +8,8 @@ jest.mock('@/router', () => ({ push: mockRouterPush }))
 jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
 
-import { createValidationError } from '>/helpers'
-import { withMeta, createMetaModule } from '@/store/helpers'
+import { createValidationError, statusMocks } from '>/helpers'
+import { withMeta, createMetaModule, defaultFindId } from '@/store/helpers'
 
 Vue.use(Vuex)
 
@@ -41,11 +41,11 @@ describe('helpers', () => {
     })
 
     it('handles validation errors', async () => {
-      const validationErrors = { foo: 'bar' }
+      const validationErrors = { foo: ['bar'] }
       run.mockImplementationOnce(() => { throw createValidationError(validationErrors) })
       await store.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id)).toEqual({ pending: false, validationErrors, hasValidationErrors: true })
+      expect(store.getters['meta/status']('run', id)).toEqual(statusMocks.validationError('foo', 'bar'))
     })
 
     it('throws any other errors back atcha', async () => {
@@ -53,7 +53,7 @@ describe('helpers', () => {
       run.mockImplementationOnce(() => { throw error })
       await expect(store.dispatch('run', { id })).rejects.toBe(error)
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id)).toEqual({ pending: false, validationErrors: {}, hasValidationErrors: false })
+      expect(store.getters['meta/status']('run', id)).toEqual(statusMocks.default())
     })
 
     it('goes into pending state during request', async () => {
@@ -67,6 +67,22 @@ describe('helpers', () => {
       const runPromise = store.dispatch('run', { id })
       await expect(store.dispatch('run', { id })).rejects.toHaveProperty('message', `action already pending for run/${id}`)
       await runPromise
+    })
+  })
+
+  describe('defaultFindId', () => {
+    it('returns undefined on fals-y input', () => {
+      expect(defaultFindId(null)).toBeUndefined()
+      expect(defaultFindId(undefined)).toBeUndefined()
+      expect(defaultFindId({})).toBeUndefined()
+      expect(defaultFindId([])).toBeUndefined()
+    })
+    it('finds id in object', () => {
+      expect(defaultFindId({ id: 5 })).toBe(5)
+    })
+
+    it('passes number unchanged', () => {
+      expect(defaultFindId(5)).toBe(5)
     })
   })
 })

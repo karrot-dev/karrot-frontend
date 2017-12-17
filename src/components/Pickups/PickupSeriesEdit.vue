@@ -42,7 +42,7 @@
         <q-input v-model="edit.description" type="textarea" max-length="500" />
       </q-field>
 
-      <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
+      <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
 
       <div class="row" v-if="!isNew">
         <div class="col-6 actionButton">

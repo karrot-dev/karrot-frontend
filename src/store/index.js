@@ -6,18 +6,6 @@ import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
-import * as stores from './modules/stores'
-import * as users from './modules/users'
-import * as pickups from './modules/pickups'
-import * as pickupSeries from './modules/pickupSeries'
-import * as i18n from './modules/i18n'
-import * as sidenav from './modules/sidenav'
-import * as verifymail from './modules/verifymail'
-import * as route from './modules/route'
-import * as invitations from './modules/invitations'
-import * as loadingprogress from './modules/loadingprogress'
-import * as search from './modules/search'
-import * as routeError from './modules/routeError'
 import about from './modules/about'
 import agreements from './modules/agreements'
 import alerts from './modules/alerts'
@@ -28,13 +16,25 @@ import currentGroup from './modules/currentGroup'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 import groups from './modules/groups'
 import history from './modules/history'
+import i18n from './modules/i18n'
+import invitations from './modules/invitations'
+import loadingprogress from './modules/loadingprogress'
+import map from './modules/map'
+import pickups from './modules/pickups'
+import pickupSeries from './modules/pickupSeries'
+import route from './modules/route'
+import routeError from './modules/routeError'
+import search from './modules/search'
+import stores from './modules/stores'
 import timezones from './modules/timezones'
+import users from './modules/users'
+import verifymail from './modules/verifymail'
 
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
-const options = ({
+export default new Vuex.Store({
   modules: {
     auth,
     conversations,
@@ -46,7 +46,7 @@ const options = ({
     pickups,
     pickupSeries,
     i18n,
-    sidenav,
+    map,
     about,
     breadcrumbs,
     verifymail,
@@ -70,14 +70,3 @@ const options = ({
   ],
   strict: debug,
 })
-
-// Set all modules to be namespaces
-
-for (let k of Object.keys(options.modules)) {
-  let m = options.modules[k]
-
-  // Enforce use of namespaced modules
-  m.namespaced = true
-}
-
-export default new Vuex.Store(options)

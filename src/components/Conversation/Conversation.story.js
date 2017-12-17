@@ -2,15 +2,16 @@ import { storiesOf } from '@storybook/vue'
 
 import Conversation from './Conversation'
 import { messagesMock, currentUserMock } from '>/mockdata'
+import { statusMocks } from '>/helpers'
 import i18n from '@/i18n'
 import router from '@/router'
 
 const defaultProps = {
   data: {
-    message: messagesMock,
-    sendStatus: { pending: false },
-    fetchStatus: { pending: false, hasValidationErrors: false },
-    fetchMoreStatus: { pending: false, hasValidationErrors: false },
+    messages: messagesMock,
+    sendStatus: statusMocks.default(),
+    fetchStatus: statusMocks.default(),
+    fetchMoreStatus: statusMocks.default(),
     canLoadMore: false,
   },
   user: currentUserMock,

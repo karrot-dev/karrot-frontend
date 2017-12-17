@@ -1,11 +1,11 @@
 <template>
   <q-alert color="warning">
     <h6>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</h6>
-    <i18n v-if="!status.success" path="NOTIFICATIONS.CHECK_YOUR_MAILS" tag="span">
+    <i18n v-if="!success" path="NOTIFICATIONS.CHECK_YOUR_MAILS" tag="span">
       <a place="resend" @click="resend" class="underline">{{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}</a>
     </i18n>
-    <span v-if="status.success">{{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}</span>
-    <p v-if="status.error">Error: {{ status.error }}</p>
+    <span v-else>{{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}</span>
+    <p v-if="hasAnyError" class="text-negative">{{ anyFirstError }}</p>
   </q-alert>
 </template>
 
@@ -21,17 +21,24 @@ export default {
     ...mapGetters({
       user: 'auth/user',
       status: 'users/resendVerificationStatus',
+      success: 'users/resendVerificationSuccess',
     }),
+    hasAnyError () {
+      return this.status.hasValidationErrors
+    },
+    anyFirstError () {
+      return this.status.firstValidationError
+    },
   },
   methods: {
     ...mapActions({
-      resend: 'users/resendVerificationmail',
+      resend: 'users/resendVerification',
     }),
   },
 }
 </script>
 
-<style lang="stylus" scoped>
+<style scoped lang="stylus">
 .underline
   text-decoration underline
 </style>

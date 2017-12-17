@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Quasar from 'quasar'
 import raf from 'raf'
 import { createLocalVue, mount } from 'vue-test-utils'
+import deepmerge from 'deepmerge'
 
 import MockRouterLink from '>/MockRouterLink'
 import i18n from '@/i18n'
@@ -118,4 +119,40 @@ export function defaultActionStatusesFor (...actions) {
 
 export function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+/**
+ * Helper for the interface of `withMeta` status and components (`statusMixin`)
+ */
+function statusMock (override) {
+  const defaults = {
+    pending: false,
+    firstNonFieldError: undefined,
+    hasValidationErrors: false,
+    firstValidationError: undefined,
+    validationErrors: {},
+  }
+  return deepmerge(defaults, override || {})
+}
+
+export const statusMocks = {
+  default: statusMock,
+  pending () {
+    return statusMock({ pending: true })
+  },
+  validationError (field, message) {
+    return statusMock({
+      hasValidationErrors: true,
+      firstValidationError: message,
+      validationErrors: { [field]: [message] },
+    })
+  },
+  nonFieldError (message) {
+    return statusMock({
+      firstNonFieldError: message,
+      hasValidationErrors: true,
+      firstValidationError: message,
+      validationErrors: { nonFieldErrors: [message] },
+    })
+  },
 }

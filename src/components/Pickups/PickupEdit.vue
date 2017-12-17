@@ -42,7 +42,7 @@
         <q-input v-model="edit.description" type="textarea" max-length="500" />
       </q-field>
 
-      <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
+      <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
 
       <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="isPending">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
       <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>

@@ -31,7 +31,7 @@ export default {
     selectedStoreId: { default: null, type: Number },
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
-    currentGroup: { type: Object, default: () => {} },
+    currentGroup: { type: Object, default: () => ({}) },
   },
   methods: {
     userMarkerId (userId) {
@@ -119,7 +119,7 @@ function notArchived (store) {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 .container
   position relative
 .overlay

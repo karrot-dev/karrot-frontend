@@ -16,7 +16,7 @@
         />
       </q-field>
 
-      <div class="text-negative">{{ firstError('nonFieldErrors') }}</div>
+      <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
 
       <q-btn type="submit" loader :value="isPending" :disabled="$v.form.$error">
         <q-icon name="fa-paper-plane" />

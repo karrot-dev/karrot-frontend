@@ -31,7 +31,7 @@ export default [
       breadcrumbs: [
         { translation: 'PASSWORDRESET.TITLE', route: { name: 'passwordreset' } },
       ],
-      afterLeave: 'users/cleanPasswordreset',
+      afterLeave: 'users/clearPasswordReset',
     },
     components: {
       default: PasswordReset,
@@ -46,7 +46,7 @@ export default [
       breadcrumbs: [
         { translation: 'VERIFYMAIL.TITLE', route: { name: 'verifymail' } },
       ],
-      afterLeave: 'verifymail/clean',
+      afterLeave: 'verifymail/clear',
     },
     components: {
       default: VerifyMail,
@@ -61,7 +61,7 @@ export default [
       breadcrumbs: [
         { translation: 'SIGNUP.TITLE', route: { name: 'signup' } },
       ],
-      afterLeave: 'users/cleanSignup',
+      afterLeave: 'users/clearSignup',
     },
     components: {
       default: Signup,

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-if="!status.success" name="passwordreset" @submit.prevent="$emit('submit', email)">
+    <form v-if="!success" name="passwordreset" @submit.prevent="$emit('submit', email)">
       <div>
         <p>
           {{ $t('PASSWORDRESET.INTRO') }}
@@ -13,29 +13,29 @@
               type="email"
               v-model="email"
               autocorrect="off" autocapitalize="off" spellcheck="false"
-              :error="!!requestError('email')"
-              :error-label="requestError('email')"
+              :error="hasError('email')"
+              :error-label="firstError('email')"
             />
           </q-field>
         </div>
 
-        <div v-if="status.error" class="error">
+        <div v-if="hasNonFieldError" class="error">
           <i class="fa fa-exclamation-triangle"/>
-          <div>{{ requestError('nonFieldErrors') }}</div>
+          <div>{{ firstNonFieldError }}</div>
         </div>
 
         <div class="actions">
           <q-btn type="button" @click="$router.push({ name: 'login' })" flat>
             {{ $t('PASSWORDRESET.LOGIN') }}
           </q-btn>
-          <q-btn type="submit" class="submit shadow-4" loader :value="status.isWaiting">
+          <q-btn type="submit" class="submit shadow-4" loader :value="isPending">
             {{ $t('PASSWORDRESET.SUBMIT') }}
           </q-btn>
         </div>
         <div style="clear: both"/>
       </div>
     </form>
-    <p v-if="status.success">
+    <p v-else>
       {{ $t('PASSWORDRESET.SUCCESS') }}
     </p>
   </div>
@@ -43,17 +43,18 @@
 
 <script>
 import { QField, QInput, QBtn } from 'quasar'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
   components: { QField, QInput, QBtn },
+  mixins: [statusMixin],
   data () {
     return {
       email: '',
     }
   },
   props: {
-    status: { required: true },
-    requestError: { required: true },
+    success: { required: true, type: Boolean },
   },
 }
 </script>

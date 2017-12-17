@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
+import { statusMocks } from '>/helpers'
 
 import GroupEdit from './GroupEdit'
 import i18n from '@/i18n'
@@ -20,7 +21,7 @@ storiesOf('GroupEdit', module)
     render: h => h(GroupEdit, {
       props: {
         group: groupsMock[0],
-        status: { error: null, isWaiting: false },
+        status: statusMocks.default(),
         timezones,
         allGroups: groupsMock,
         requestError () {},

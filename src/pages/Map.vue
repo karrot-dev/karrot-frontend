@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <div class="placeholder"/>
+  <div class="placeholder">
     <GroupMap
       class="map"
       :users="users"
@@ -28,14 +27,12 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus">
 .map
-  position absolute
-  height 100vh
-  width 100vw
-  left 0
-  top 0
+  height 100%
+  width 100%
 .placeholder
-  height 100vh
-  width 100vw
+  position absolute
+  height 100%
+  width 100%
 </style>

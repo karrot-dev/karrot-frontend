@@ -56,6 +56,7 @@ export default {
     },
     selectedStoreId: {
       default: null,
+      type: Number,
     },
     showStores: {
       default: true,

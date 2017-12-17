@@ -22,7 +22,7 @@ import { optionsFor } from '@/services/storeStatus'
 export default {
   components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip },
   props: {
-    stores: { required: true },
+    stores: { required: true, type: Array },
   },
   computed: {
     storesSorted () {

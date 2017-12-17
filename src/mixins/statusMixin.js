@@ -1,18 +1,22 @@
 export default {
   props: {
-    status: { required: true },
+    status: { required: true, type: Object },
   },
   computed: {
     isPending () {
       return this.status.pending
     },
-    hasNonFieldErrors () {
-      return !!this.nonFieldErrors
+    hasNonFieldError () {
+      return !!this.status.firstNonFieldError
     },
-    nonFieldErrors () {
-      for (let field of ['nonFieldErrors', 'detail']) {
-        if (this.hasError(field)) return this.firstError(field)
-      }
+    firstNonFieldError () {
+      return this.status.firstNonFieldError
+    },
+    hasAnyError () {
+      return this.status.hasValidationErrors
+    },
+    anyFirstError () {
+      return this.status.firstValidationError
     },
   },
   methods: {

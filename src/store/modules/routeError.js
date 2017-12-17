@@ -1,8 +1,3 @@
-export const types = {
-  SET: 'Set',
-  CLEAR: 'Clear',
-}
-
 function initialState () {
   return {
     hasError: false,
@@ -10,29 +5,27 @@ function initialState () {
   }
 }
 
-export const state = initialState()
-
-export const getters = {
-  status: (state, getters, rootState, rootGetters) => state,
-}
-
-export const actions = {
-  set ({ commit }, message) {
-    return commit(types.SET, { message })
+export default {
+  namespaced: true,
+  state: initialState(),
+  getters: {
+    status: state => state,
   },
-
-  clear ({ commit }) {
-    commit(types.CLEAR)
+  actions: {
+    set ({ commit }, message) {
+      return commit('set', message)
+    },
+    clear ({ commit }) {
+      commit('clear')
+    },
   },
-}
-
-export const mutations = {
-  [types.SET] (state, { message }) {
-    state.hasError = true
-    state.message = message
-  },
-
-  [types.CLEAR] (state) {
-    Object.assign(state, initialState())
+  mutations: {
+    set (state, message) {
+      state.hasError = true
+      state.message = message
+    },
+    clear (state) {
+      Object.assign(state, initialState())
+    },
   },
 }

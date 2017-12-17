@@ -6,25 +6,30 @@ import i18n from '@/i18n'
 import router from '@/router'
 import { groupsMock } from '>/mockdata'
 
-const methods = {
+const defaultOn = {
   preview: action('view group preview'),
   visit: action('visit group'),
 }
 
 storiesOf('GroupGallery', module)
   .add('signup view', () => ({
-    components: { GroupGallery },
-    template: '<GroupGallery :otherGroups="otherGroups" @preview="preview" />',
-    data () { return { otherGroups: groupsMock } },
-    methods,
+    render: h => h(GroupGallery, {
+      props: {
+        otherGroups: groupsMock,
+      },
+      on: defaultOn,
+    }),
     i18n,
     router,
   }))
   .add('switch and explore', () => ({
-    components: { GroupGallery },
-    template: '<GroupGallery :myGroups="myGroups" :otherGroups="otherGroups" @preview="preview" @visit="visit" />',
-    data () { return { myGroups: groupsMock.slice(0, 3), otherGroups: groupsMock } },
-    methods,
+    render: h => h(GroupGallery, {
+      props: {
+        myGroups: groupsMock.slice(0, 3),
+        otherGroups: groupsMock,
+      },
+      on: defaultOn,
+    }),
     i18n,
     router,
   }))

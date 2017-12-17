@@ -11,7 +11,7 @@ const store = createStore({
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },
   users: { getters: { all: () => usersMock } },
-  search: require('@/store/modules/search'),
+  search: require('@/store/modules/search').default,
 })
 
 storiesOf('General Components', module)

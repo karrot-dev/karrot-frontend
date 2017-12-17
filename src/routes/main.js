@@ -312,6 +312,7 @@ export default [
         { type: 'currentGroup' },
         { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
       ],
+      beforeEnter: 'currentGroup/select',
     },
     components: {
       default: GroupMap,
@@ -325,6 +326,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
+      afterLeave: 'auth/clearSettingsStatus',
     },
     components: {
       default: Settings,

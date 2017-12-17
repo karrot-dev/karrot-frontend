@@ -25,6 +25,14 @@ They require additional props to the component:
 - `editMixin` requires `value`: the object you are editing, which must have an `__enriched` field
 - `statusMixin` requires `status` from the meta module
 
+`statusMixin` provides helpers to quickly access the validation error status, e.g. by field name:
+
+```vue
+<div v-if="hasError('password')">
+  {{ firstError('password') }}
+</div>
+```
+
 ## Request status and server validation errors
 
 Request status and server validation errors are handled using the `meta` module.
@@ -67,6 +75,9 @@ It will always return a value, by default it will be:
 {
   pending: false,
   validationErrors: {}
+  hasValidationErrors: false,
+  firstValidationError: undefined, // contains first validation error, if any
+  firstNonFieldError: undefined, // contains `nonFieldErrors` or permission errors, if any
 }
 ```
 
@@ -77,7 +88,7 @@ There is one action, `clear`, which has the same signature:
 dispatch('meta/clear', ['create'])
 
 // for an action with an id
-dispatch('meta/clear',['save', id])
+dispatch('meta/clear', ['save', id])
 ```
 
 ### Using meta in Vuex modules

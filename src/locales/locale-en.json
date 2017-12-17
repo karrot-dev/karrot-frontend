@@ -155,9 +155,8 @@
     "OK": "Join"
   },
   "VERIFYMAIL": {
-    "TITLE": "Mail verification",
-    "SUCCESS": "Your mail address was successfully verified!",
-    "ERROR": "Something went wrong. Perhaps you already verified your address?"
+    "TITLE": "E-Mail verification",
+    "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
     "WEEKDAYS": "Weekdays",

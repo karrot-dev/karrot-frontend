@@ -25,7 +25,7 @@
         </q-field>
       </div>
       <div class="error" v-if="hasAnyError">
-        <i class="fa fa-exclamation-triangle"/>{{ anyError }}
+        <i class="fa fa-exclamation-triangle"/>{{ firstValidationError }}
       </div>
       <div class="actions">
         <q-btn type="button" @click.prevent="$router.push({ name: 'passwordreset' })" flat>
@@ -67,16 +67,6 @@ export default {
   methods: {
     submit () {
       this.$emit('submit', { email: this.email, password: this.password })
-    },
-  },
-  computed: {
-    hasAnyError () {
-      return !!this.anyError
-    },
-    anyError () {
-      for (let field of ['email', 'password', 'nonFieldErrors', 'detail']) {
-        if (this.hasError(field)) return this.firstError(field)
-      }
     },
   },
 }

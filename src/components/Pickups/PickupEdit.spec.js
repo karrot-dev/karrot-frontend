@@ -4,18 +4,17 @@ import PickupEdit from './PickupEdit'
 import { pickupsMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>/helpers'
 
 polyfillRequestAnimationFrame()
 
 describe('PickupEdit', () => {
-  let wrapper, pickup, unenriched, status
+  let wrapper, pickup, unenriched
 
   beforeEach(() => {
     pickup = cloneDeep(pickupsMock[0])
     unenriched = cloneDeep(pickupsMock[0])
-    status = { pending: false, validationErrors: {} }
-    wrapper = mountWithDefaults(PickupEdit, { propsData: { value: pickup, status } })
+    wrapper = mountWithDefaults(PickupEdit, { propsData: { value: pickup, status: statusMocks.default() } })
   })
 
   it('renders', () => {

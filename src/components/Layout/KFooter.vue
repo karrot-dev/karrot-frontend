@@ -37,17 +37,25 @@ export default {
           name: 'local dev version',
         }
       }
-      if (this.about.env === 'production') {
-        return {
-          link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
-          name: 'Release 3',
+      if (this.about) {
+        if (this.about.env === 'production') {
+          return {
+            link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
+            name: 'Release 3',
+          }
+        }
+        if (this.about.env === 'development') {
+          const sha = this.about.commitSHA
+          return {
+            link: `https://github.com/yunity/karrot-frontend/tree/${sha}`,
+            name: 'beta version',
+          }
         }
       }
-      if (this.about.env === 'development') {
-        const sha = this.about.commitSHA
+      else {
         return {
-          link: `https://github.com/yunity/karrot-frontend/tree/${sha}`,
-          name: 'beta version',
+          link: '',
+          name: '',
         }
       }
     },

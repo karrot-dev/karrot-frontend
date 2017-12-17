@@ -3,7 +3,10 @@
  * Joins the `route` namespace
  */
 
-export const getters = {
-  params: state => state.params,
-  query: state => state.query,
+export default {
+  namespaced: true,
+  getters: {
+    params: state => state.params,
+    query: state => state.query,
+  },
 }

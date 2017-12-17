@@ -31,13 +31,16 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-.userMapPreview .leaflet-top.leaflet-left
-  display none
+<style scoped lang="stylus">
 .overlay
   position absolute
   top 0
   left 0
   width 100%
   height 100%
+</style>
+
+<style lang="stylus">
+.userMapPreview .leaflet-top.leaflet-left
+  display none
 </style>

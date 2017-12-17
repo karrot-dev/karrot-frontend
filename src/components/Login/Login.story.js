@@ -3,12 +3,13 @@ import { action } from '@storybook/addon-actions'
 
 import Login from './Login'
 import i18n from '@/i18n'
+import { statusMocks } from '>/helpers'
 
 storiesOf('Login', module)
   .add('empty', () => ({
     render: h => h(Login, {
       props: {
-        status: { error: null, isWaiting: false },
+        status: statusMocks.default(),
       },
       on: {
         submit: action('login'),
@@ -16,10 +17,10 @@ storiesOf('Login', module)
     }),
     i18n,
   }))
-  .add('waiting', () => ({
+  .add('pending', () => ({
     render: h => h(Login, {
       props: {
-        status: { error: null, isWaiting: true },
+        status: statusMocks.pending(),
       },
       on: {
         submit: action('login'),
@@ -30,7 +31,7 @@ storiesOf('Login', module)
   .add('error', () => ({
     render: h => h(Login, {
       props: {
-        status: { error: { email: [ 'is missing' ], password: [ 'is wrong' ] }, isWaiting: false },
+        status: statusMocks.validationError('email', 'is missing'),
       },
       on: {
         submit: action('login'),

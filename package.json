@@ -171,6 +171,7 @@
     "setupFiles": [
       "<rootDir>/test/setup/unhandledPromiseRejectionHandler.js",
       "<rootDir>/test/setup/mockRandom.js",
+      "<rootDir>/test/setup/setUTC.js",
       "jest-localstorage-mock"
     ],
     "globals": {

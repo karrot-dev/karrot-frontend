@@ -6,7 +6,7 @@
 #
 argon2-cffi==16.3.0       # via django
 asgi-redis==1.4.3
-asgiref==1.1.2            # via asgi-redis, channels, daphne
+asgiref==2.0.1            # via asgi-redis, channels, daphne
 attrs==17.3.0             # via automat
 autobahn==17.10.1         # via daphne
 automat==0.6.0            # via twisted

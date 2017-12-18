@@ -1,33 +1,34 @@
 <template>
   <div>
-    <q-card>
-      <q-card-title v-if="$q.platform.is.desktop">
-        {{ $t('GROUP.DESCRIPTION') }}
-        <router-link
-          slot="right"
-          :to="{name: 'storeEdit', params: { storeId: store.id }}"
-        >
-          <q-icon name="fa-pencil" />
-        </router-link>
-      </q-card-title>
-      <div
-        class="generic-padding overflow"
-        v-if="store.description"
-      >
-        <Markdown
-          v-if="store.description"
-          :source="store.description"
-        />
-      </div>
+    <q-card class="no-shadow generic-padding grey-border">
+      <q-item multiline>
+        <q-item-main>
+          <Markdown
+            v-if="store.description"
+            :source="store.description"
+          />
+        </q-item-main>
+        <q-item-side right class="group">
+          <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="fa-pencil"
+            />
+          </router-link>
+          <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="fa-clock-o"
+            />
+          </router-link>
+        </q-item-side>
+      </q-item>
     </q-card>
-    <div class="manage">
-      <router-link :to="{ name: 'storePickupsManage', params: { storeId: store.id } }">
-        <q-btn style="background-color: white">
-          <i class="fa fa-clock-o on-left"/>
-          {{ $t('STOREDETAIL.MANAGE') }}
-        </q-btn>
-      </router-link>
-    </div>
+
     <PickupList
       :pickups="pickups"
       @join="join"
@@ -55,10 +56,10 @@ import {
   mapActions,
 } from 'vuex'
 
-import { QCard, QCardTitle, QCardActions, QBtn, QTabs, QRouteTab, QIcon } from 'quasar'
+import { QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon } from 'quasar'
 
 export default {
-  components: { PickupList, QCard, QCardTitle, QCardActions, QBtn, QTabs, QRouteTab, QIcon, KNotice, Markdown },
+  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, KNotice, Markdown },
   methods: {
     ...mapActions({
       join: 'pickups/join',
@@ -89,9 +90,4 @@ export default {
   transform: translateZ(1px) rotate(-3deg);
   h5
     padding 0
-.manage
-  padding 8px
-  q-btn
-    display inline-block
-    padding .3em
 </style>

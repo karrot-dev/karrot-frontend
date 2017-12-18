@@ -17,7 +17,9 @@
             round
             color="secondary"
             icon="fa-pencil"
-          />
+          >
+            <q-tooltip v-t="'GROUP.EDIT'" />
+          </q-btn>
         </router-link>
       </q-item-side>
     </q-item>
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-import { QCard, QItem, QItemMain, QItemSide, QBtn } from 'quasar'
+import { QCard, QItem, QItemMain, QItemSide, QBtn, QTooltip } from 'quasar'
 import Markdown from '@/components/Markdown'
 
 import {
@@ -33,7 +35,7 @@ import {
 } from 'vuex'
 
 export default {
-  components: { QCard, QItem, QItemMain, QItemSide, QBtn, Markdown },
+  components: { QCard, QItem, QItemMain, QItemSide, QBtn, QTooltip, Markdown },
   computed: {
     ...mapGetters({
       group: 'currentGroup/value',

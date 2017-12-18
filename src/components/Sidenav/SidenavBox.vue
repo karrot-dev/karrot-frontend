@@ -1,50 +1,29 @@
 <template>
-  <div class="wrapper">
-    <div class="row justify-between toolbar">
-      <div class="name">
-        <slot name="name">"name"-Slot</slot>
-      </div>
-      <div>
-        <slot name="tools">"tools"-Slot</slot>
-      </div>
-    </div>
+  <q-card class="no-shadow grey-border">
+    <q-toolbar class="toolbar">
+      <slot name="icon" />
+      <q-toolbar-title>
+        <slot name="name" />
+      </q-toolbar-title>
+      <slot name="tools" />
+    </q-toolbar>
     <div class="content">
-      <slot>Primary Slot</slot>
+      <slot />
     </div>
-  </div>
+  </q-card>
 </template>
 
 <script>
+import { QCard, QToolbar, QToolbarTitle } from 'quasar'
 export default {
-  components: {
-  },
+  components: { QCard, QToolbar, QToolbarTitle },
 }
 </script>
 
 <style scoped lang="stylus">
 @import '~variables'
 
-.wrapper
-  width 100%
-  margin .6em
-  border 1px solid grey
-  border-radius $borderRadius
-  background-color $white
-  .toolbar
-    border-radius $borderRadius $borderRadius 0 0
-    background-color $primary
-    padding .1em .6em
-    color white
-    .name
-      margin auto 0
-      font-weight 500
-      font-size 1.3em
-  .content
-    padding 4px
-  .name .fa
-    margin-right .4em
-    font-size .9em
-
-  .router-link-exact-active
-    background-color $neutral
+.toolbar
+  min-height 40px
+  height 40px
 </style>

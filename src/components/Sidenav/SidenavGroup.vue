@@ -1,20 +1,19 @@
 <template>
   <SidenavBox>
-    <div slot="name">
-      <i class="fa fa-fw fa-home" />
-      {{ $t('GROUP.GROUP') }}
-    </div>
-
-    <div slot="tools">
-      <q-btn flat>
-        <i
-          class="fa fa-ellipsis-v"
-          aria-hidden="true"
-        />
+    <template slot="icon">
+      <q-icon name="fa-home" />
+    </template>
+    <template slot="tools">
+      <q-btn
+        flat
+        small
+        round
+      >
+        <q-icon name="fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <GroupOptions/>
       </q-btn>
-    </div>
+    </template>
 
     <div>
       <q-list

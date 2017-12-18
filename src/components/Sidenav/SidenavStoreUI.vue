@@ -1,18 +1,19 @@
 <template>
   <SidenavBox>
-    <div slot="name">
-      <i class="fa fa-fw fa-home" />
-    </div>
-    <div slot="tools">
-      <q-btn flat>
-        <i
-          class="fa fa-ellipsis-v"
-          aria-hidden="true"
-        />
+    <template slot="icon">
+      <q-icon name="fa-shopping-cart" />
+    </template>
+    <template slot="tools">
+      <q-btn
+        flat
+        small
+        round
+      >
+        <q-icon name="fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
-    </div>
+    </template>
 
     <div>
       <q-list

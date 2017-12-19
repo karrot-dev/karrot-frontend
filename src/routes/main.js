@@ -1,6 +1,7 @@
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
+const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
@@ -116,6 +117,19 @@ export default [
         },
         components: {
           default: GroupPickups,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupFeedback',
+        path: 'feedback',
+        meta: {
+          breadcrumbs: [
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
+          ],
+        },
+        components: {
+          default: GroupFeedback,
           sidenav: GroupGroupSidenav,
         },
       },
@@ -291,7 +305,7 @@ export default [
       },
       {
         name: 'pickupFeedback',
-        path: 'feedback',
+        path: 'give-feedback',
         meta: {
           breadcrumbs: [
             { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },

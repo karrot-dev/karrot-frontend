@@ -65,6 +65,8 @@ export const messagesMock = [
 
 export const feedbackMock = [
   { 'id': 1, 'givenBy': 1, 'comment': 'All worked out perfectly!', 'weight': 2.5, 'about': 1, 'createdAt': '2017-08-11T15:43:37.419305Z' },
+  { 'id': 2, 'givenBy': 1, 'comment': '', 'weight': 11, 'about': 2, 'createdAt': '2017-09-11T15:40:37.419305Z' },
+  { 'id': 3, 'givenBy': 2, 'comment': 'They did not have anything today', 'weight': 0, 'about': 3, 'createdAt': '2017-09-18T12:12:37.419305Z' },
 ].map(e => {
   e.givenBy = usersMock.find(u => u.id === e.givenBy)
   e.createdAt = new Date(e.createdAt)

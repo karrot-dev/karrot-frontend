@@ -1,25 +1,14 @@
 <template>
-  <div class="wrapper shadow-1">
+  <q-card class="no-shadow generic-padding grey-border" style="width: 100%">
     <PickupFeedback/>
-  </div>
+  </q-card>
 </template>
 
 <script>
 import PickupFeedback from '@/components/Statistics/PickupFeedback'
+import { QCard } from 'quasar'
 
 export default {
-  components: {
-    PickupFeedback,
-  },
+  components: { PickupFeedback, QCard },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~variables'
-.wrapper
-  background-color white
-  border-radius 10px
-.wrapper
-  @media (min-width: $breakpoint-sm)
-    padding 1em
-</style>

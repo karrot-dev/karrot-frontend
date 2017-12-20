@@ -6,10 +6,25 @@
       </div>
       <div class="image-and-text-right">
         <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-        <p>{{ $t('PICKUP_FEEDBACK.SUBTITLE') }}</p>
+        <p v-if="select">{{ select.store.name + ', ' + this.$d(select.date, 'dateShort') }}
+          <q-btn flat @click="select = false">Andere Abholung</q-btn>
+        </p>
+        <p v-if="!select">{{ $t('PICKUP_FEEDBACK.SUBTITLE') }}</p>
       </div>
     </div>
-    <div style="padding: 0 1.5em">
+    <div v-if="!singlePicked">
+      <q-field
+        style="margin-top: 2em; padding: 0 .5em"
+        icon="fa-shopping-bag"
+        label="Please select the pickup you want to feedback first">
+        <q-select
+          v-model="select"
+          :options="feedbackOptions"
+          @change="selectChanged"
+        />
+      </q-field>
+    </div>
+    <div style="padding: 0 1.5em" v-if="singlePicked">
       <AmountPicker/>
       <q-field
         style="margin-top: 2em; padding: 0 .5em"
@@ -32,24 +47,49 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import { QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
 import cartImg from 'assets/people/cart.png'
 
 export default {
-  components: { QField, QInput, QBtn, AmountPicker },
+  components: { QField, QInput, QBtn, QSelect, AmountPicker },
   data () {
     return {
       comment: '',
       cartImg,
+      select: false,
     }
+  },
+  methods: {
+    selectChanged () {
+      console.log(this.select)
+    },
+  },
+  computed: {
+    singlePicked () {
+      return this.select
+    },
+    feedbackOptions () {
+      return this.donePickups.map((e) => {
+        return {
+          label: e.store.name + ', ' + this.$d(e.date, 'dateShort'),
+          value: e,
+        }
+      })
+    },
+    donePickups () {
+      return [
+        { 'id': 237, 'date': new Date('2017-08-12T08:00:00Z'), 'store': { 'id': 1, 'name': 'Teststore1', 'description': 'all the good stuff', 'group': 1, 'address': 'Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany', 'latitude': 49.8965397, 'longitude': 8.6847644, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 } },
+        { 'id': 238, 'date': new Date('2017-08-19T08:00:00Z'), 'store': { 'id': 1, 'name': 'Teststore1', 'description': 'all the good stuff', 'group': 1, 'address': 'Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany', 'latitude': 49.8965397, 'longitude': 8.6847644, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 } },
+      ]
+    },
   },
 }
 </script>
 
 <style scoped lang="stylus">
 .image-and-text
-  margin-bottom 4.5em
+  margin-bottom 3.5em
   .image-and-text-left
     width 30%
     max-width 10em

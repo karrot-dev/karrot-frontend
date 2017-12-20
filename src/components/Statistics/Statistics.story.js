@@ -1,11 +1,11 @@
 import { storiesOf } from '@storybook/vue'
-import { action } from '@storybook/addon-actions'
 
 import AmountPicker from './AmountPicker'
 import AmountBox from './AmountBox'
 import PickupFeedback from './PickupFeedback'
+import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
-import { feedbackMock, storesMock, currentUserMock } from '>/mockdata'
+import { usersMock, feedbackMock, storesMock, currentUserMock } from '>/mockdata'
 
 import i18n from '@/i18n'
 import router from '@/router'
@@ -32,22 +32,30 @@ storiesOf('Statistics', module)
   }))
   .add('AmountBox', () => ({
     components: { AmountBox },
-    template: '<div style="padding: 2em"><AmountBox :amount="20"/></div>',
+    template: '<div><AmountBox :amount="20"/></div>',
   }))
   .add('PickupFeedback', () => ({
     components: { PickupFeedback },
     template: '<div style="padding: 2em"><PickupFeedback/></div>',
     i18n,
   }))
+  .add('FeedbackItem', () => ({
+    render: h => h(FeedbackItem, {
+      props: {
+        members: usersMock,
+        store: storesMock[0],
+        feedback: feedbackMock[0],
+      },
+    }),
+    i18n,
+    router,
+    store,
+  }))
   .add('FeedbackList', () => ({
     render: h => h(FeedbackList, {
       props: {
         feedback: feedbackMock,
         store: storesMock[0],
-      },
-      on: {
-        join: action('join'),
-        leave: action('leave'),
       },
     }),
     i18n,

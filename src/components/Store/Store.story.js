@@ -1,23 +1,19 @@
 import { storiesOf } from '@storybook/vue'
 import { storesMock as stores } from '>/mockdata'
-import { statusMocks } from '>/helpers'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 import StoreList from './StoreList'
 import StoreEdit from './StoreEdit'
-import i18n from '@/i18n'
-import router from '@/router'
 
 const store = stores[0]
 const otherStores = stores.slice(1)
 
 storiesOf('Stores', module)
-  .add('StoreList', () => ({
+  .add('StoreList', () => defaults({
     render: h => h(StoreList, { props: { stores } }),
-    i18n,
-    router,
   }))
 
-  .add('StoreEdit', () => ({
+  .add('StoreEdit', () => defaults({
     render: h => h(StoreEdit, {
       props: {
         value: store,
@@ -25,11 +21,9 @@ storiesOf('Stores', module)
         status: statusMocks.default(),
       },
     }),
-    i18n,
-    router,
   }))
 
-  .add('StoreEdit (with server error)', () => ({
+  .add('StoreEdit (with server error)', () => defaults({
     render: h => h(StoreEdit, {
       props: {
         value: store,
@@ -37,6 +31,4 @@ storiesOf('Stores', module)
         status: statusMocks.validationError('name', 'a nice server error'),
       },
     }),
-    i18n,
-    router,
   }))

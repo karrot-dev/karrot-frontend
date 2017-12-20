@@ -2,13 +2,11 @@ import { storiesOf } from '@storybook/vue'
 
 import KTopbar from './KTopbar'
 import KFooter from './KFooter'
-import i18n from '@/i18n'
-import router from '@/router'
-import { createStore } from '>/helpers'
+import { createStore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, storesMock, usersMock, currentUserMock } from '>/mockdata'
 
 const store = createStore({
-  about: { actions: { fetch () {} } },
+  about: { getters: { get: () => ({}) }, actions: { fetch () {} } },
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },
   users: { getters: { all: () => usersMock } },
@@ -19,14 +17,11 @@ const store = createStore({
 })
 
 storiesOf('Layout', module)
-  .add('KTopbar', () => ({
+  .add('KTopbar', () => defaults({
     render: h => h(KTopbar),
-    i18n,
-    router,
     store,
   }))
-  .add('KFooter', () => ({
+  .add('KFooter', () => defaults({
     render: h => h(KFooter),
-    i18n,
     store,
   }))

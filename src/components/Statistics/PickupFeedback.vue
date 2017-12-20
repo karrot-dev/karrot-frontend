@@ -25,7 +25,7 @@
 <script>
 import { QField, QInput } from 'quasar'
 import AmountPicker from './AmountPicker'
-import cartImg from '@/assets/people/cart.png'
+import cartImg from 'assets/people/cart.png'
 
 export default {
   components: { QField, QInput, AmountPicker },

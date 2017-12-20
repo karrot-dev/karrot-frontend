@@ -1,3 +1,4 @@
+import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 
 import MapDemo from './MapDemo'
@@ -6,8 +7,6 @@ import UserMapPreview from './UserMapPreview'
 import StandardMap from './StandardMap'
 import { usersMock, storesMock } from '>/mockdata'
 import L from 'leaflet'
-import router from '@/router'
-import i18n from '@/i18n'
 
 const style = {
   height: '200px',
@@ -16,7 +15,7 @@ const style = {
 const currentGroup = { latitude: 52.5198535, longitude: 13.4385964 }
 
 storiesOf('Map', module)
-  .add('StandardMap', () => ({
+  .add('StandardMap', () => defaults({
     components: { StandardMap },
     template: '<StandardMap :markers="markers" style="height: 600px" />',
     data () {
@@ -35,7 +34,7 @@ storiesOf('Map', module)
       }
     },
   }))
-  .add('StandardMap (selected marker)', () => ({
+  .add('StandardMap (selected marker)', () => defaults({
     components: { StandardMap },
     template: '<StandardMap :markers="markers" :selectedMarkerIds="selectedMarkerIds" style="height: 600px" />',
     data () {
@@ -66,11 +65,11 @@ storiesOf('Map', module)
       }
     },
   }))
-  .add('Demo', () => ({
+  .add('Demo', () => defaults({
     components: { MapDemo },
     template: '<MapDemo style="height: 600px" />',
   }))
-  .add('GroupMap', () => ({
+  .add('GroupMap', () => defaults({
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
@@ -81,10 +80,8 @@ storiesOf('Map', module)
       },
       style,
     }),
-    router,
-    i18n,
   }))
-  .add('GroupMap (selected store)', () => ({
+  .add('GroupMap (selected store)', () => defaults({
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
@@ -96,10 +93,8 @@ storiesOf('Map', module)
       },
       style,
     }),
-    router,
-    i18n,
   }))
-  .add('GroupMap (store has no location)', () => ({
+  .add('GroupMap (store has no location)', () => defaults({
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
@@ -111,10 +106,8 @@ storiesOf('Map', module)
       },
       style,
     }),
-    router,
-    i18n,
   }))
-  .add('GroupMap (group has no location)', () => ({
+  .add('GroupMap (group has no location)', () => defaults({
     render: h => h(GroupMap, {
       props: {
         users: [],
@@ -125,10 +118,8 @@ storiesOf('Map', module)
       },
       style,
     }),
-    router,
-    i18n,
   }))
-  .add('GroupMap (only group location)', () => ({
+  .add('GroupMap (only group location)', () => defaults({
     render: h => h(GroupMap, {
       props: {
         users: [],
@@ -139,13 +130,10 @@ storiesOf('Map', module)
       },
       style,
     }),
-    router,
-    i18n,
   }))
-  .add('UserMapPreview', () => ({
+  .add('UserMapPreview', () => defaults({
     components: { UserMapPreview },
     template: '<UserMapPreview :user="user" style="height: 600px" />',
-    router,
     data () {
       return {
         user: usersMock[0],

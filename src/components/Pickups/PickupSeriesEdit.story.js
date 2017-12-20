@@ -2,12 +2,11 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import PickupSeriesEdit from './PickupSeriesEdit'
-import i18n from '@/i18n'
 import { pickupSeriesMock } from '>/mockdata'
-import { statusMocks } from '>/helpers'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 storiesOf('PickupSeriesEdit', module)
-  .add('Default', () => ({
+  .add('Default', () => defaults({
     render (h) {
       return h(PickupSeriesEdit, {
         props: {
@@ -21,5 +20,4 @@ storiesOf('PickupSeriesEdit', module)
         },
       })
     },
-    i18n,
   }))

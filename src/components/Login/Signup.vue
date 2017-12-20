@@ -75,7 +75,7 @@
 
 <script>
 import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner } from 'quasar'
-import loginImage from '@/assets/people/cherry.png'
+import loginImage from 'assets/people/cherry.png'
 import statusMixin from '@/mixins/statusMixin'
 
 export default {

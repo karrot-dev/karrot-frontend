@@ -1,12 +1,11 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import i18n from '@/i18n'
 
 import Settings from '@/pages/Settings'
 import VerificationWarning from '@/components/Settings/VerificationWarning'
 import { currentUserMock } from '>/mockdata'
 
-import { createStore, statusMocks } from '>/helpers'
+import { createStore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const store = createStore({
   auth: {
@@ -34,17 +33,15 @@ const store = createStore({
 })
 
 storiesOf('Settings Page', module)
-  .add('Default', () => ({
+  .add('Default', () => defaults({
     render (h) {
       return h(Settings)
     },
-    i18n,
     store,
   }))
-  .add('verification warning', () => ({
+  .add('verification warning', () => defaults({
     render (h) {
       return h(VerificationWarning)
     },
-    i18n,
     store,
   }))

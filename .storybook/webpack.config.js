@@ -16,8 +16,8 @@ module.exports = (baseConfig, env) => {
   // set Storybook entrypoint
   mergedConfig.entry = storybookConfig.entry
 
-  // allow relative module resolution as used in Storybook
-  mergedConfig.resolve.modules = storybookConfig.resolve.modules
+  // remove absolute node_modules path, it causes errors with some storybook dependency
+  mergedConfig.resolve.modules = mergedConfig.resolve.modules.filter(e => !e.includes('/node_modules'))
 
   // only use Quasars loaders
   mergedConfig.module.rules = quasarConfig.module.rules

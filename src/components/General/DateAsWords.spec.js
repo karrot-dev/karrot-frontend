@@ -14,7 +14,7 @@ describe('DateAsWords', () => {
     clock = clock.uninstall()
   })
 
-  it('renders 1 day ago', () => {
+  it('renders 1 second ago', () => {
     const wrapper = mountWithDefaults(DateAsWords, {
       propsData: { date },
     })

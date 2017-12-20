@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-20 22:33+0000\n"
+"POT-Creation-Date: 2017-12-20 22:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,15 +155,19 @@ msgstr ""
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:52
+#: foodsaving/userauth/serializers.py:53
 msgid "Similar e-mail exists: "
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:77
+#: foodsaving/userauth/serializers.py:60 foodsaving/userauth/serializers.py:70
+msgid "We could not send you an e-mail."
+msgstr ""
+
+#: foodsaving/userauth/serializers.py:84
 msgid "Key has expired"
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:79
+#: foodsaving/userauth/serializers.py:86
 msgid "Key is invalid"
 msgstr ""
 

@@ -72,6 +72,7 @@ class TestUserModel(TestCase):
 
 class TestSendMail(TestCase):
     def setUp(self):
+        # Mock AnymailMessage to throw error on send
         self.mail_class = models.AnymailMessage
         self._original_send = self.mail_class.send
         self.mail_class.send = MagicMock(side_effect=AnymailAPIError())

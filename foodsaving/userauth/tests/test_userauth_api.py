@@ -1,5 +1,7 @@
 from datetime import timedelta
+from unittest.mock import MagicMock
 
+from anymail.exceptions import AnymailAPIError
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.core import mail
@@ -10,6 +12,7 @@ from rest_framework.test import APITestCase
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.pickups.factories import PickupDateFactory
+from foodsaving.users import models
 from foodsaving.users.factories import UserFactory, VerifiedUserFactory
 from foodsaving.utils.tests.fake import faker
 
@@ -120,6 +123,33 @@ class TestCreateUserErrors(APITestCase):
         })
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
         self.assertEqual(response.data['email'], ['Similar e-mail exists: fancy@example.com'])
+
+
+class TestRejectedAddress(APITestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.url = '/api/auth/user/'
+
+        # Mock AnymailMessage to throw error on send
+        self.mail_class = models.AnymailMessage
+        self._original_send = self.mail_class.send
+        self.mail_class.send = MagicMock(side_effect=AnymailAPIError())
+
+    def tearDown(self):
+        self.mail_class.send = self._original_send
+
+    def test_sign_up_with_rejected_address_fails(self):
+        response = self.client.post(self.url, {
+            'email': 'bad@test.com',
+            'password': faker.name(),
+            'display_name': faker.name()
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+
+    def test_change_to_rejected_address_fails(self):
+        self.client.force_login(user=self.user)
+        response = self.client.patch(self.url, {'email': 'bad@test.com'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
 
 
 class TestChangePassword(APITestCase):

@@ -1,3 +1,4 @@
+from anymail.exceptions import AnymailAPIError
 from django.conf import settings
 from django.contrib.auth import authenticate, login, get_user_model
 from django.utils import timezone
@@ -53,14 +54,20 @@ class AuthUserSerializer(serializers.ModelSerializer):
         return email
 
     def create(self, validated_data):
-        user = self.Meta.model.objects.create_user(**validated_data)
+        try:
+            user = self.Meta.model.objects.create_user(**validated_data)
+        except AnymailAPIError:
+            raise serializers.ValidationError(_('We could not send you an e-mail.'))
         return user
 
     def update(self, user, validated_data):
         if 'email' in validated_data:
             latest_email = user.email if user.email == user.unverified_email else user.unverified_email
             if validated_data['email'] != latest_email:
-                user.update_email(validated_data.pop('email'))
+                try:
+                    user.update_email(validated_data.pop('email'))
+                except AnymailAPIError:
+                    raise serializers.ValidationError(_('We could not send you an e-mail.'))
         if 'password' in validated_data:
             user.set_password(validated_data.pop('password'))
         if 'language' in validated_data and validated_data['language'] != user.language:

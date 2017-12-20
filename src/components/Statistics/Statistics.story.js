@@ -6,19 +6,10 @@ import AmountBox from './AmountBox'
 import PickupFeedback from './PickupFeedback'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
-import { usersMock, feedbackMock, storesMock, currentUserMock } from '>/mockdata'
+import { usersMock, feedbackMock, storesMock } from '>/mockdata'
 
 import i18n from '@/i18n'
 import router from '@/router'
-import { createStore } from '>/helpers'
-
-const store = createStore({
-  auth: {
-    getters: {
-      user: () => currentUserMock,
-    },
-  },
-})
 
 const amountPicker = `
 <div style="padding: 2em">
@@ -49,7 +40,6 @@ storiesOf('Statistics', module)
     }),
     i18n,
     router,
-    store,
   }))
   .add('FeedbackList', () => ({
     render: h => h(FeedbackList, {
@@ -60,5 +50,4 @@ storiesOf('Statistics', module)
     }),
     i18n,
     router,
-    store,
   }))

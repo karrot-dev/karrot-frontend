@@ -1,34 +1,43 @@
 <template>
   <div class="wrapper">
     <div class="row justify-inbetween no-wrap image-and-text">
-      <div class="image-and-text-left">
-        <img style="width: 100%" :src="cartImg">
+      <div class="image-and-text-left gt-sm">
+        <img style="width: 100%;" :src="cartImg">
       </div>
       <div class="image-and-text-right">
-        <h3>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h3>
+        <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
         <p>{{ $t('PICKUP_FEEDBACK.SUBTITLE') }}</p>
       </div>
     </div>
-    <AmountPicker/>
-    <q-field
-      icon="fa-star"
-      :label="$t('PICKUP_FEEDBACK.COMMENT')"
-      :helper="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')">
-      <q-input
-        v-model="comment"
-        autocomplete="off"
-      />
-    </q-field>
+    <div style="padding: 0 1.5em">
+      <AmountPicker/>
+      <q-field
+        style="margin-top: 2em; padding: 0 .5em"
+        icon="fa-star"
+        :label="$t('PICKUP_FEEDBACK.COMMENT')">
+        <q-input
+          v-model="comment"
+          type="textarea"
+          :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
+          autocomplete="off"
+          :min-rows="2"
+        />
+      </q-field>
+      <div style="margin-top: 1.5em; padding-bottom: 1em">
+        <q-btn type="submit" class="actionButton" color="primary">{{ $t('BUTTON.CREATE') }}</q-btn>
+        <div style="clear: both"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { QField, QInput } from 'quasar'
+import { QField, QInput, QBtn } from 'quasar'
 import AmountPicker from './AmountPicker'
 import cartImg from 'assets/people/cart.png'
 
 export default {
-  components: { QField, QInput, AmountPicker },
+  components: { QField, QInput, QBtn, AmountPicker },
   data () {
     return {
       comment: '',
@@ -43,8 +52,12 @@ export default {
   margin-bottom 4.5em
   .image-and-text-left
     width 30%
-    max-width 20em
-    padding 2em
-  .image-and-text-right
+    max-width 10em
     margin auto
+    padding 1em
+  .image-and-text-right
+    width: 70%
+    margin 0 auto
+.actionButton
+  float: right
 </style>

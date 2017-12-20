@@ -15,8 +15,11 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .wrapper
   background-color white
   border-radius 10px
-  padding 1em
+.wrapper
+  @media (min-width: $breakpoint-sm)
+    padding 1em
 </style>

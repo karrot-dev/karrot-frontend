@@ -16,7 +16,7 @@ def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
 
     # add in the error code so we can distinguish better in the frontend
-    if 'detail' in response.data and hasattr(exc, 'default_code'):
+    if hasattr(response, 'data') and 'detail' in response.data and hasattr(exc, 'default_code'):
         response.data['error_code'] = exc.default_code
 
     return response

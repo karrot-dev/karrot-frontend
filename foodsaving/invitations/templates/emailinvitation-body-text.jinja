@@ -1,7 +1,7 @@
 {% extends "base-text.jinja" %}
 
 {% block content %}
-{% trans url=invite_url|safe %}{{ invited_by_name }} invited you ({{ email }}) to join the "{{ group_name }}" community on foodsaving.world.
+{% trans url=invite_url|safe, site_name=site_name() %}{{ invited_by_name }} invited you ({{ email }}) to join the "{{ group_name }}" community on {{ site_name }}.
 
 If you'd like to join, please go to {{ url }}{% endtrans %}
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base-text.jinja" %}
 
 {% block content %}
-{% trans new_mail=user.unverified_email %}Your email address got changed on foodsaving.world.
+{% trans new_mail=user.unverified_email, site_name=site_name() %}Your email address got changed on {{ site_name }}.
 The new email address is {{ new_mail }}.{% endtrans %}
 {% endblock %}

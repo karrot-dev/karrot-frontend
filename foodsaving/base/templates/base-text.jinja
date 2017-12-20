@@ -2,5 +2,5 @@
 {% else %}{% trans %}Hello,{% endtrans %}
 {% endif %}
 {% block content %}{% endblock %}
-{% trans %}Yours,
-the foodsaving.world team{% endtrans %}
+{% trans site_name=site_name() %}Yours,
+the {{ site_name }} team{% endtrans %}

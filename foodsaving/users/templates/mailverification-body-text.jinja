@@ -1,7 +1,7 @@
 {% extends "base-text.jinja" %}
 
 {% block content %}
-{% trans %}Thank you for signing up to foodsaving.world!
+{% trans site_name=site_name() %}Thank you for signing up to {{ site_name }}!
 Please click the following link to confirm your email:
 
 {{ url }}

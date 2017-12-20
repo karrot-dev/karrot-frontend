@@ -1,5 +1,5 @@
 {% extends "base-text.jinja" %}
 
 {% block content %}
-{% trans %}Your account on foodsaving.world was successfully deleted.{% endtrans %}
+{% trans site_name=site_name() %}Your account on {{ site_name }} was successfully deleted.{% endtrans %}
 {% endblock %}

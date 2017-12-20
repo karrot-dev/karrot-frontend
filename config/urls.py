@@ -65,6 +65,7 @@ urlpatterns = [
     path('api/auth/', AuthView.as_view()),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('admin/docs/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('docs/', get_swagger_view()),
 ]

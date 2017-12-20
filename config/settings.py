@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'foodsaving.walls',
 
     # Django packages
+    'django.contrib.admindocs',
     'django_extensions',
     'corsheaders',
     'rest_framework',

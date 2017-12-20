@@ -120,7 +120,6 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
     """
 
     def setUp(self):
-
         self.now = timezone.now()
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
@@ -409,6 +408,12 @@ class TestPickupDateSeriesChangeAPI(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(parse(response.data['date']), original_date, "time shouldn't change!")
+
+    def test_invalid_rule_fails(self):
+        url = '/api/pickup-date-series/{}/'.format(self.series.id)
+        self.client.force_login(user=self.member)
+        response = self.client.patch(url, {'rule': 'FREQ=WEEKLY;BYDAY='})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
 
 
 class TestPickupDateSeriesAPIAuth(APITestCase):

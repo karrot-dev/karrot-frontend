@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-08 09:41+0000\n"
+"POT-Creation-Date: 2017-12-20 22:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,7 +112,7 @@ msgid "This feedback is given by another user."
 msgstr ""
 
 #: foodsaving/pickups/serializers.py:35 foodsaving/pickups/serializers.py:167
-#: foodsaving/pickups/serializers.py:198
+#: foodsaving/pickups/serializers.py:201
 msgid "You are not member of the store's group."
 msgstr ""
 
@@ -120,19 +120,23 @@ msgstr ""
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:177
+#: foodsaving/pickups/serializers.py:178
+msgid "Invalid recurrence rule."
+msgstr ""
+
+#: foodsaving/pickups/serializers.py:180
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:200
+#: foodsaving/pickups/serializers.py:203
 msgid "The pickup is not done yet"
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:202
+#: foodsaving/pickups/serializers.py:205
 msgid "You aren't assigned to the pickup."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:204
+#: foodsaving/pickups/serializers.py:207
 msgid "You can't give feedback for pickups more than 30 days ago."
 msgstr ""
 

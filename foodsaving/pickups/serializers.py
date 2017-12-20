@@ -172,7 +172,10 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
         return date
 
     def validate_rule(self, rule_string):
-        rrule = dateutil.rrule.rrulestr(rule_string)
+        try:
+            rrule = dateutil.rrule.rrulestr(rule_string)
+        except ValueError:
+            raise serializers.ValidationError(_('Invalid recurrence rule.'))
         if not isinstance(rrule, dateutil.rrule.rrule):
             raise serializers.ValidationError(_('Only single recurrence rules are allowed.'))
         return rule_string

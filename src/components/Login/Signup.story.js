@@ -2,15 +2,14 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import Signup from './Signup'
-import i18n from '@/i18n'
-import { statusMocks } from '>/helpers'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const defaultProps = {
   prefillEmail: () => 'default@example.com',
 }
 
 storiesOf('Signup', module)
-  .add('empty', () => ({
+  .add('empty', () => defaults({
     render: h => h(Signup, {
       props: {
         ...defaultProps,
@@ -20,10 +19,9 @@ storiesOf('Signup', module)
         submit: action('signup'),
       },
     }),
-    i18n,
   }))
 
-  .add('pending', () => ({
+  .add('pending', () => defaults({
     render: h => h(Signup, {
       props: {
         ...defaultProps,
@@ -33,10 +31,9 @@ storiesOf('Signup', module)
         submit: action('signup'),
       },
     }),
-    i18n,
   }))
 
-  .add('error', () => ({
+  .add('error', () => defaults({
     render: h => h(Signup, {
       props: {
         ...defaultProps,
@@ -46,5 +43,4 @@ storiesOf('Signup', module)
         submit: action('signup'),
       },
     }),
-    i18n,
   }))

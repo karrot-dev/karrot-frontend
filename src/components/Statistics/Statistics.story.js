@@ -1,3 +1,4 @@
+import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 
 import AmountPicker from './AmountPicker'
@@ -26,18 +27,17 @@ const amountPicker = `
 `
 
 storiesOf('Statistics', module)
-  .add('AmountPicker', () => ({
+  .add('AmountPicker', () => defaults({
     components: { AmountPicker },
     template: amountPicker,
   }))
-  .add('AmountBox', () => ({
+  .add('AmountBox', () => defaults({
     components: { AmountBox },
     template: '<div><AmountBox :amount="20"/></div>',
   }))
-  .add('PickupFeedback', () => ({
+  .add('PickupFeedback', () => defaults({
     components: { PickupFeedback },
     template: '<div style="padding: 2em"><PickupFeedback/></div>',
-    i18n,
   }))
   .add('FeedbackItem', () => ({
     render: h => h(FeedbackItem, {

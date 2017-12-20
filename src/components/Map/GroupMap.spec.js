@@ -26,7 +26,9 @@ describe('GroupMap', () => {
     })
     expect(wrapper.findAll(Vue2Leaflet.Map).length).toBe(1)
     expect(wrapper.findAll(Vue2Leaflet.Marker).length).toBe(usersMock.length + storesMock.length)
-    expect(wrapper.findAll(Vue2Leaflet.Marker).hasProp('visible', true)).toBe(true)
+    for (const marker of wrapper.findAll(Vue2Leaflet.Marker)) {
+      expect(marker.props().opacity).toEqual(1)
+    }
     expect(wrapper.findAll(Vue2Leaflet.Popup).length).toBe(usersMock.length + storesMock.length)
   })
 

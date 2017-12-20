@@ -3,9 +3,7 @@ import { action } from '@storybook/addon-actions'
 
 import PickupUsers from './PickupUsers'
 import { joinablePickup, leavablePickup, fullPickup, emptyPickup, currentUserMock } from '>/mockdata'
-import i18n from '@/i18n'
-import router from '@/router'
-import { createStore } from '>/helpers'
+import { createStore, storybookDefaults as defaults } from '>/helpers'
 
 const store = createStore({
   auth: {
@@ -16,7 +14,7 @@ const store = createStore({
 })
 
 storiesOf('PickupUsers', module)
-  .add('joinable', () => ({
+  .add('joinable', () => defaults({
     render: h => h(PickupUsers, {
       props: {
         pickup: joinablePickup,
@@ -25,11 +23,9 @@ storiesOf('PickupUsers', module)
         join: action('join'),
       },
     }),
-    i18n,
-    router,
     store,
   }))
-  .add('leavable', () => ({
+  .add('leavable', () => defaults({
     render: h => h(PickupUsers, {
       props: {
         pickup: leavablePickup,
@@ -38,21 +34,17 @@ storiesOf('PickupUsers', module)
         leave: action('leave'),
       },
     }),
-    i18n,
-    router,
     store,
   }))
-  .add('full', () => ({
+  .add('full', () => defaults({
     render: h => h(PickupUsers, {
       props: {
         pickup: fullPickup,
       },
     }),
-    i18n,
-    router,
     store,
   }))
-  .add('empty', () => ({
+  .add('empty', () => defaults({
     render: h => h(PickupUsers, {
       props: {
         pickup: emptyPickup,
@@ -61,7 +53,5 @@ storiesOf('PickupUsers', module)
         join: action('join'),
       },
     }),
-    i18n,
-    router,
     store,
   }))

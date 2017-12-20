@@ -2,15 +2,14 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import PasswordReset from './PasswordReset'
-import i18n from '@/i18n'
-import { statusMocks } from '>/helpers'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const methods = {
   reset: action('send reset request'),
 }
 
 storiesOf('Password Reset', module)
-  .add('empty', () => ({
+  .add('empty', () => defaults({
     render: h => h(PasswordReset, {
       props: {
         status: statusMocks.default(),
@@ -20,9 +19,8 @@ storiesOf('Password Reset', module)
         submit: methods.reset,
       },
     }),
-    i18n,
   }))
-  .add('pending', () => ({
+  .add('pending', () => defaults({
     render: h => h(PasswordReset, {
       props: {
         status: statusMocks.pending(),
@@ -32,9 +30,8 @@ storiesOf('Password Reset', module)
         submit: methods.reset,
       },
     }),
-    i18n,
   }))
-  .add('success', () => ({
+  .add('success', () => defaults({
     render: h => h(PasswordReset, {
       props: {
         status: statusMocks.default(),
@@ -44,9 +41,8 @@ storiesOf('Password Reset', module)
         submit: methods.reset,
       },
     }),
-    i18n,
   }))
-  .add('error', () => ({
+  .add('error', () => defaults({
     render: h => h(PasswordReset, {
       props: {
         status: statusMocks.validationError('email', 'some error'),
@@ -56,5 +52,4 @@ storiesOf('Password Reset', module)
         submit: methods.reset,
       },
     }),
-    i18n,
   }))

@@ -3,9 +3,7 @@ import { action } from '@storybook/addon-actions'
 
 import PickupList from './PickupList'
 import { pickupsMock, storesMock, currentUserMock } from '>/mockdata'
-import i18n from '@/i18n'
-import router from '@/router'
-import { createStore } from '>/helpers'
+import { createStore, storybookDefaults as defaults } from '>/helpers'
 
 const store = createStore({
   auth: {
@@ -16,7 +14,7 @@ const store = createStore({
 })
 
 storiesOf('PickupList', module)
-  .add('Default', () => ({
+  .add('Default', () => defaults({
     render: h => h(PickupList, {
       props: {
         pickups: pickupsMock,
@@ -27,7 +25,5 @@ storiesOf('PickupList', module)
         leave: action('leave'),
       },
     }),
-    i18n,
-    router,
     store,
   }))

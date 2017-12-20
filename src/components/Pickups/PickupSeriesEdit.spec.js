@@ -61,7 +61,7 @@ describe('PickupSeriesEdit', () => {
     wrapper.vm.edit.maxCollectors++
     expect(wrapper.vm.hasChanged).toBe(true)
     return Vue.nextTick(() => {
-      expect(wrapper.hasClass('changed')).toBe(true)
+      expect(wrapper.classes()).toContain('changed')
     })
   })
 

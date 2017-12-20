@@ -1,10 +1,10 @@
+import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
-import i18n from '@/i18n'
 
 import AddressPicker from './AddressPicker'
 
 storiesOf('AddressPicker', module)
-  .add('Default', () => ({
+  .add('Default', () => defaults({
     components: { AddressPicker },
     template: '<AddressPicker v-model="item" />',
     data () {
@@ -16,9 +16,8 @@ storiesOf('AddressPicker', module)
         },
       }
     },
-    i18n,
   }))
-  .add('With map', () => ({
+  .add('With map', () => defaults({
     components: { AddressPicker },
     template: '<AddressPicker v-model="item" :map="true" />',
     data () {
@@ -30,5 +29,4 @@ storiesOf('AddressPicker', module)
         },
       }
     },
-    i18n,
   }))

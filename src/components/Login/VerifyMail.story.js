@@ -1,11 +1,10 @@
 import { storiesOf } from '@storybook/vue'
-import { statusMocks } from '>/helpers'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 import VerifyMail from './VerifyMail'
-import i18n from '@/i18n'
 
 storiesOf('VerifyMail', module)
-  .add('pending', () => ({
+  .add('pending', () => defaults({
     render: h => h(VerifyMail, {
       props: {
         status: statusMocks.pending(),
@@ -13,9 +12,8 @@ storiesOf('VerifyMail', module)
         user: { email: 'my@email.com' },
       },
     }),
-    i18n,
   }))
-  .add('success', () => ({
+  .add('success', () => defaults({
     render: h => h(VerifyMail, {
       props: {
         status: statusMocks.default(),
@@ -23,9 +21,8 @@ storiesOf('VerifyMail', module)
         user: { email: 'my@email.com' },
       },
     }),
-    i18n,
   }))
-  .add('error', () => ({
+  .add('error', () => defaults({
     render: h => h(VerifyMail, {
       props: {
         status: statusMocks.nonFieldError('this error is returned by the server'),
@@ -33,5 +30,4 @@ storiesOf('VerifyMail', module)
         user: { email: 'my@email.com' },
       },
     }),
-    i18n,
   }))

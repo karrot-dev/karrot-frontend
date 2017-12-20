@@ -1,9 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { statusMocks } from '>/helpers'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 import GroupEdit from './GroupEdit'
-import i18n from '@/i18n'
 
 import { groupsMock, timezones as tzlist } from '>/mockdata'
 
@@ -17,7 +16,7 @@ const timezones = {
 }
 
 storiesOf('GroupEdit', module)
-  .add('create', () => ({
+  .add('create', () => defaults({
     render: h => h(GroupEdit, {
       props: {
         group: groupsMock[0],
@@ -28,5 +27,4 @@ storiesOf('GroupEdit', module)
       },
       on: { save: methods.save },
     }),
-    i18n,
   }))

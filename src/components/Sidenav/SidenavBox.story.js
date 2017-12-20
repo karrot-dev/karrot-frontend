@@ -5,27 +5,17 @@ import SidenavMapUI from './SidenavMapUI'
 import SidenavGroup from './SidenavGroup'
 import SidenavStoresUI from './SidenavStoresUI'
 import { storesMock as stores, usersMock as users, groupsMock } from '>/mockdata'
-import i18n from '@/i18n'
-import router from '@/router'
-import { createStore } from '>/helpers'
+import { createStore, storybookDefaults as defaults } from '>/helpers'
 
 const store = createStore({
-  groups: {
-    getters: {
-      currentGroupId: () => 1,
-    },
-  },
-  stores: {
-    getters: {
-      all: () => stores,
-    },
-  },
+  currentGroup: { getters: { id: () => 1, roles: () => [] } },
+  stores: { getters: { all: () => stores } },
 })
 
 storiesOf('Sidenav Boxes', module)
   .add('Default', () => SidenavBox)
 
-  .add('Map', () => ({
+  .add('Map', () => defaults({
     render (h) {
       let { showStores, showUsers, toggleUsers, toggleStores } = this
       return h(SidenavMapUI, {
@@ -47,20 +37,15 @@ storiesOf('Sidenav Boxes', module)
         this.showUsers = !this.showUsers
       },
     },
-    i18n,
     store,
   }))
 
-  .add('Group', () => ({
+  .add('Group', () => defaults({
     render: h => h(SidenavGroup),
-    i18n,
-    router,
     store,
   }))
 
-  .add('Stores', () => ({
+  .add('Stores', () => defaults({
     render: h => h(SidenavStoresUI, { props: { stores } }),
-    i18n,
-    router,
     store,
   }))

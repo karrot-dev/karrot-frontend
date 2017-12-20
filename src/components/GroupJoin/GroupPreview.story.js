@@ -1,8 +1,8 @@
+import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import GroupPreviewUI from './GroupPreviewUI'
-import i18n from '@/i18n'
 
 import { groupsMock } from '>/mockdata'
 
@@ -12,7 +12,7 @@ const methods = {
 }
 
 storiesOf('GroupPreviewUI', module)
-  .add('is not member', () => ({
+  .add('is not member', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], isMember: false },
@@ -20,9 +20,8 @@ storiesOf('GroupPreviewUI', module)
       },
       on: { join: methods.join },
     }),
-    i18n,
   }))
-  .add('is member', () => ({
+  .add('is member', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], isMember: true },
@@ -30,9 +29,8 @@ storiesOf('GroupPreviewUI', module)
       },
       on: { visit: methods.visit },
     }),
-    i18n,
   }))
-  .add('without public description', () => ({
+  .add('without public description', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[0], publicDescription: '', isMember: true },
@@ -40,9 +38,8 @@ storiesOf('GroupPreviewUI', module)
       },
       on: { visit: methods.visit },
     }),
-    i18n,
   }))
-  .add('pending', () => ({
+  .add('pending', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[4], isMember: false },
@@ -50,9 +47,8 @@ storiesOf('GroupPreviewUI', module)
       },
       on: { join: methods.join },
     }),
-    i18n,
   }))
-  .add('error', () => ({
+  .add('error', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
         group: { ...groupsMock[4], isMember: false },
@@ -60,5 +56,4 @@ storiesOf('GroupPreviewUI', module)
       },
       on: { join: methods.join },
     }),
-    i18n,
   }))

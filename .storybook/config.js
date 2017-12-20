@@ -6,12 +6,13 @@ import '../src/themes/app.mat.styl'
 import Vue from 'vue'
 import Quasar from 'quasar'
 import Vuex from 'vuex'
-import VueI18n from 'vue-i18n'
+import MockRouterLink from '>/MockRouterLink'
 
 Vue.config.productionTip = false
 Vue.use(Quasar) // Install Quasar Framework
 Vue.use(Vuex) // Install Vuex
-Vue.use(VueI18n)
+
+Vue.component('router-link', MockRouterLink)
 
 import 'quasar-extras/roboto-font'
 import 'quasar-extras/material-icons'
@@ -22,10 +23,10 @@ import 'quasar-extras/animate'
 // Storybook config
 import { configure } from '@storybook/vue'
 
-const req = require.context("../src", true, /\.story\.js$/);
+const req = require.context('../src', true, /\.story\.js$/)
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach(filename => req(filename))
 }
 
 configure(loadStories, module)

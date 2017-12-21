@@ -1,5 +1,8 @@
 <template>
-  <div class="edit" :class="{ changed: hasChanged }">
+  <div
+    class="edit"
+    :class="{ changed: hasChanged }"
+  >
     <form @submit.prevent="maybeSave">
       <q-field
         icon="fa-star"
@@ -25,21 +28,46 @@
         />
       </q-field>
 
-      <q-btn type="submit" color="primary" :disable="!canSave">
+      <q-btn
+        type="submit"
+        color="primary"
+        :disable="!canSave"
+      >
         {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
       </q-btn>
 
-      <q-checkbox v-if="!isNew" class="minor" v-model="minor" :label="$t('AGREEMENT.MINOR_EDIT')">
+      <q-checkbox
+        v-if="!isNew"
+        class="minor"
+        v-model="minor"
+        :label="$t('AGREEMENT.MINOR_EDIT')"
+      >
         <q-tooltip>{{ $t('AGREEMENT.MINOR_EDIT_HELPER') }}</q-tooltip>
       </q-checkbox>
 
-      <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
+      <q-btn
+        type="button"
+        @click="reset"
+        v-if="!isNew"
+        :disable="!hasChanged"
+      >
         {{ $t('BUTTON.RESET') }}
       </q-btn>
-      <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
+
+      <q-btn
+        type="button"
+        @click="$emit('cancel')"
+        v-if="isNew"
+      >
         {{ $t('BUTTON.CANCEL') }}
       </q-btn>
-      <q-btn type="button" color="red" @click="$emit('remove', agreement.id)" v-if="!isNew">
+
+      <q-btn
+        type="button"
+        color="red"
+        @click="$emit('remove', agreement.id)"
+        v-if="!isNew"
+      >
         {{ $t('BUTTON.REMOVE') }}
       </q-btn>
     </form>

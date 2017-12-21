@@ -4,8 +4,15 @@
       <q-icon name="fa-user-plus" />
       {{ $t('GROUP.INVITE_TITLE') }}
     </h5>
-    <InvitationsForm :invitations="invitations" :status="sendStatus" @submit="$emit('submit', arguments[0])" />
-    <InvitationsList :invitations="invitations" :status="fetchStatus" />
+    <InvitationsForm
+      :invitations="invitations"
+      :status="sendStatus"
+      @submit="$emit('submit', arguments[0])"
+    />
+    <InvitationsList
+      :invitations="invitations"
+      :status="fetchStatus"
+    />
   </div>
 </template>
 

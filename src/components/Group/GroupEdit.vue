@@ -1,7 +1,10 @@
 <template>
   <div>
     <q-card>
-      <div class="edit" :class="{ changed: hasChanged }">
+      <div
+        class="edit"
+        :class="{ changed: hasChanged }"
+      >
         <form @submit.prevent="maybeSave">
           <q-field
             icon="fa-fw fa-star"
@@ -79,17 +82,40 @@
               v-model="edit.timezone"
               @blur="$v.edit.timezone.$touch"
             >
-              <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" :filter="timezoneFilter"/>
+              <q-autocomplete
+                :static-data="timezones"
+                :max-results="10"
+                :debounce="300"
+                :filter="timezoneFilter"
+              />
             </q-input>
           </q-field>
 
-          <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
+          <div
+            v-if="hasNonFieldError"
+            class="text-negative"
+          >
+            {{ firstNonFieldError }}
+          </div>
 
-          <q-btn class="actionButton" type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
+          <q-btn
+            class="actionButton"
+            type="button"
+            @click="reset"
+            v-if="!isNew"
+            :disable="!hasChanged"
+          >
             {{ $t('BUTTON.RESET') }}
           </q-btn>
 
-          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" loader :value="isPending">
+          <q-btn
+            class="actionButton"
+            type="submit"
+            color="primary"
+            :disable="!canSave"
+            loader
+            :value="isPending"
+          >
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <div style="clear: both"/>

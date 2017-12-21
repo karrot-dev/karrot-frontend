@@ -1,26 +1,40 @@
 <template>
-  <div slot="navigation" class="shadow-14 inset-shadow row">
-    <q-tabs color="tertiary" hide="icon" class="col" ref="groupnav">
+  <div
+    slot="navigation"
+    class="shadow-14 inset-shadow row"
+  >
+    <q-tabs
+      color="tertiary"
+      hide="icon"
+      class="col"
+      ref="groupnav"
+    >
       <q-route-tab
         :to="{name: 'group'}"
         exact
-        slot="title">
+        slot="title"
+      >
         {{ $t('GROUP.WALL') }}
       </q-route-tab>
       <q-route-tab
         :to="{name: 'groupDescription'}"
         exact
-        slot="title">
+        slot="title"
+      >
         {{ $t('GROUP.DESCRIPTION') }}
       </q-route-tab>
       <q-route-tab
         :to="{name: 'groupHistory'}"
         exact
-        slot="title">
+        slot="title"
+      >
         {{ $t('GROUP.HISTORY') }}
       </q-route-tab>
     </q-tabs>
-    <q-btn flat class="bg-tertiary text-white">
+    <q-btn
+      flat
+      class="bg-tertiary text-white"
+    >
       <q-icon name="fa-ellipsis-v" />
       <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
       <GroupOptions/>

@@ -10,15 +10,27 @@
         <q-input
           v-model="form.email"
           type="email"
-          autocorrect="off" autocapitalize="off" spellcheck="false"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
           @keyup.enter="submit"
           @blur="$v.form.email.$touch"
         />
       </q-field>
 
-      <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
+      <div
+        v-if="hasNonFieldError"
+        class="text-negative"
+      >
+        {{ firstNonFieldError }}
+      </div>
 
-      <q-btn type="submit" loader :value="isPending" :disabled="$v.form.$error">
+      <q-btn
+        type="submit"
+        loader
+        :value="isPending"
+        :disabled="$v.form.$error"
+      >
         <q-icon name="fa-paper-plane" />
         <q-tooltip>
           {{ $t('GROUP.INVITE_SEND') }}

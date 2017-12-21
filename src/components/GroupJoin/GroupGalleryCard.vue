@@ -7,7 +7,10 @@
       </span>
     </q-card-title>
     <q-card-main class="fixed-height">
-      <div v-if="group.publicDescription" class="smaller-text">
+      <div
+        v-if="group.publicDescription"
+        class="smaller-text"
+      >
         <Markdown :source="group.publicDescription.slice(0, 150)" />
       </div>
       <span v-else class="text-italic">
@@ -16,13 +19,20 @@
     </q-card-main>
     <q-card-separator />
     <q-card-actions>
-      <q-btn v-if="isMember" @click="$emit('visit')" class="q-btn-flat">
+      <q-btn
+        v-if="isMember"
+        @click="$emit('visit')"
+        class="q-btn-flat"
+      >
         <q-icon name="fa-home" />
         <q-tooltip>
           {{ $t('GROUPINFO.MEMBER_VIEW') }}
         </q-tooltip>
       </q-btn>
-      <q-btn @click="$emit('preview')" class="q-btn-flat">
+      <q-btn
+        @click="$emit('preview')"
+        class="q-btn-flat"
+      >
         <q-icon name="fa-info-circle" />
         <q-tooltip>
           {{ $t('GROUPINFO.META') }}

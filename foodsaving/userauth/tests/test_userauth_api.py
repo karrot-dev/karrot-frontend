@@ -38,7 +38,7 @@ class TestUsersAPI(APITestCase):
         self.assertAlmostEqual(response.data['latitude'], float(self.user_data['latitude']))
         self.assertEqual(response.data['description'], '')
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Verify your email address')
+        self.assertEqual(mail.outbox[0].subject, 'Please verify your email')
         self.assertEqual(mail.outbox[0].to, [self.user_data['email']])
         self.assertIn('Thank you for signing up', mail.outbox[0].body)
 

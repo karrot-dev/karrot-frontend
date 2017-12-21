@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-24 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: 上官良治 <shangkuanlc@gmail.com>, 2017\n"
+"Last-Translator: Stefan Simon <foodsharingtaiwan@gmail.com>, 2017\n"
 "Language-Team: Chinese (https://www.transifex.com/yunity-1/teams/68631/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr "你並不是此社團的成員。"
 
 #: foodsaving/groups/api.py:27
 msgid "You are already a member."
-msgstr "你已經加入為成員了。"
+msgstr "你已經是成員的一份子了。"
 
 #: foodsaving/groups/serializers.py:20
 msgid "Unknown timezone"
@@ -54,7 +54,7 @@ msgstr "社團密碼錯誤"
 
 #: foodsaving/invitations/serializers.py:30
 msgid "User is already member of group"
-msgstr "使用者已經是社團的成員了"
+msgstr "用戶已經是社團的成員了"
 
 #: foodsaving/invitations/templates/emailinvitation-body-text.jinja:4
 #, python-format
@@ -74,27 +74,27 @@ msgstr "加入 %(group_name)s 的 邀請 "
 
 #: foodsaving/stores/permissions.py:9
 msgid "The pickup date is in the past."
-msgstr "開放外帶日期已過"
+msgstr "開放領取食物的日期已過。"
 
 #: foodsaving/stores/permissions.py:19
 msgid "You can only delete empty pickup dates."
-msgstr "你只能刪除空白的開放外帶日期。"
+msgstr "你只能刪除空白的開放領取食物日期。"
 
 #: foodsaving/stores/permissions.py:26
 msgid "You have not joined this pickup date."
-msgstr "你還沒有加入此開放外帶日期。"
+msgstr "你還沒有加入此開放領取食物之日期。"
 
 #: foodsaving/stores/permissions.py:33
 msgid "You have already joined this pickup date."
-msgstr "你已經加入此開放外帶日期。"
+msgstr "你已經加入此食物外帶領取日期。"
 
 #: foodsaving/stores/permissions.py:40
 msgid "Pickup date is already full."
-msgstr "開放外帶日期已滿。"
+msgstr "開放食物外帶領取日期已滿。"
 
 #: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:172
 msgid "You are not member of the store's group."
-msgstr "你不是此店面社團的成員。"
+msgstr "你不是此店面之志工社團成員。"
 
 #: foodsaving/stores/serializers.py:92
 msgid "The date should be in the future."
@@ -114,7 +114,7 @@ msgid ""
 "Food pickup at *%(store_name)s* in %(number_of_hours)s hours! "
 "<%(store_page_url)s|Click here> and save the food!"
 msgstr ""
-"在 *%(store_name)s* 的食物 外帶 倒數 %(number_of_hours)s 小時！ "
+"在 *%(store_name)s* 的食物外帶領取 倒數 %(number_of_hours)s 小時！ "
 "<%(store_page_url)s|點擊這裡> 來拯救這些食物吧！"
 
 #: foodsaving/users/models.py:156
@@ -145,7 +145,7 @@ msgstr "金鑰無效"
 
 #: foodsaving/users/templates/accountdelete_request-subject.jinja:1
 msgid "Request to delete your account"
-msgstr "要求刪除你的帳戶"
+msgstr "請求刪除帳戶"
 
 #: foodsaving/users/templates/accountdelete_success-body-text.jinja:4
 msgid "Your account on foodsaving.world was successfully deleted."
@@ -185,15 +185,15 @@ msgid ""
 msgstr ""
 "你在foodsaving.world上的電子郵件地址已經被更改。\n"
 "原本的電子郵件地址為%(old_mail)s。\n"
-"要認證新的電子郵件地址，請點擊下列連結：\n"
+"要驗證新的電子郵件地址，請點擊下列連結：\n"
 "\n"
 "%(url)s\n"
 "\n"
-"如果你不知道為何你會收到此訊息，你可以忽略這則訊息。"
+"如果你不知道為何收到此信，請忽略這則訊息。"
 
 #: foodsaving/users/templates/changemail_success-subject.jinja:1
 msgid "Please verify your new email address"
-msgstr "請認證新的電子郵件地址"
+msgstr "請驗證新的電子郵件地址"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:3
 msgid "WELCOME"
@@ -218,7 +218,7 @@ msgstr "認證你的電子郵件地址，以繼續後續步驟！"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:195
 msgid "Activation Link"
-msgstr "啟動連結"
+msgstr "啟用連結"
 
 #: foodsaving/users/templates/mailverification-body-html.jinja:206
 msgid "The link will be valid for 7 days."
@@ -251,7 +251,7 @@ msgstr ""
 
 #: foodsaving/users/templates/mailverification-subject.jinja:1
 msgid "Verify your email address"
-msgstr "認證你的電子郵件地址"
+msgstr "驗證你的電子郵件地址"
 
 #: foodsaving/users/templates/passwordreset_request-body-text.jinja:4
 #, python-format
@@ -295,12 +295,12 @@ msgid ""
 "\n"
 "You can ignore this message if you did not request it."
 msgstr ""
-"此為你可以確認電子郵件的連結：\n"
+"此為Email信箱驗證連結：\n"
 "\n"
 "%(url)s\n"
 "\n"
-"如果你沒有申請確認電子郵件，你可以忽略這則訊息。"
+"如果你沒有申請Email驗證，請忽略這則訊息。"
 
 #: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
 msgid "Please verify your email"
-msgstr "請認證你的電子信箱"
+msgstr "請驗證你的電子信箱"

@@ -1,6 +1,9 @@
 <template>
   <div class="notice">
-    <q-card color="secondary" class="generic-padding row no-wrap">
+    <q-card
+      color="secondary"
+      class="generic-padding row no-wrap"
+    >
       <div>
         <div class="icon">
           <slot name="icon"/>

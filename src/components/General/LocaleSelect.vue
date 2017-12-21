@@ -1,12 +1,17 @@
 <template>
   <q-btn flat>
-    <q-icon class="globe" name="fa-globe" />
+    <q-icon
+      class="globe"
+      name="fa-globe"
+    />
     {{ current }}
     <q-popover ref="popover">
       <q-list>
-        <q-item v-for="locale in localeOptions" :key="locale.value"
-                @click="setLocale(locale.value), $refs.popover.close()"
-                highlight
+        <q-item
+          v-for="locale in localeOptions"
+          :key="locale.value"
+          @click="setLocale(locale.value), $refs.popover.close()"
+          highlight
         >
           <q-item-main>
             <q-item-tile label>
@@ -14,15 +19,20 @@
               <small>({{ locale.percentage }}%)</small>
             </q-item-tile>
             <q-item-tile sublabel>
-              <q-progress v-if="locale.percentage < 100" :percentage="locale.percentage" />
+              <q-progress
+                v-if="locale.percentage < 100"
+                :percentage="locale.percentage"
+              />
             </q-item-tile>
           </q-item-main>
         </q-item>
         <q-item-separator />
-        <q-item tag="a" @click="$refs.popover.close()"
-                href="https://www.transifex.com/yunity-1/karrot/dashboard/"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
+        <q-item
+          tag="a"
+          @click="$refs.popover.close()"
+          href="https://www.transifex.com/yunity-1/karrot/dashboard/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
         >
           <q-item-main>
             <q-icon name="fa-external-link" />

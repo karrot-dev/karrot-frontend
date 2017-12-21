@@ -1,7 +1,10 @@
 <template>
   <q-item multiline>
     <q-item-side style="margin-top: 16px">
-      <ProfilePicture :user="user" :size="40" />
+      <ProfilePicture
+        :user="user"
+        :size="40"
+      />
     </q-item-side>
     <q-item-main>
       <q-item-tile>

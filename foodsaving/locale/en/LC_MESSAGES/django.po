@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-20 23:49+0000\n"
+"POT-Creation-Date: 2017-12-21 11:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -223,43 +223,6 @@ msgstr ""
 
 #: foodsaving/users/templates/changemail_success-subject.jinja:1
 msgid "Please verify your new email address"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:3
-msgid "WELCOME"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:142
-msgid "home"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:142
-msgid "Contact Us"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:172
-#, python-format
-msgid "Welcome, %(display_name)s"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:178
-msgid "Verify your e-mail address to continue!"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:195
-msgid "Activation Link"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:206
-msgid "The link will be valid for 7 days."
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:243
-msgid "PRIVACY STATEMENT"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:243
-msgid "TERMS OF SERVICE"
 msgstr ""
 
 #: foodsaving/users/templates/mailverification-body-text.jinja:4

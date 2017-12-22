@@ -1,11 +1,32 @@
 <template>
   <div>
-    <q-tabs class="markdown-input" inverted align="right" position="top" v-model="tab">
-      <q-tab class="markdown-input-tab" default name="edit" slot="title" :label="$t('BUTTON.EDIT')"/>
-      <q-tab class="markdown-input-tab" v-if="value" name="preview" slot="title" :label="$t('BUTTON.PREVIEW')"/>
+    <q-tabs
+      class="markdown-input"
+      inverted
+      align="right"
+      position="top"
+      v-model="tab"
+    >
+      <q-tab
+        class="markdown-input-tab"
+        default
+        name="edit"
+        slot="title"
+        :label="$t('BUTTON.EDIT')"
+      />
+      <q-tab
+        class="markdown-input-tab"
+        v-if="value"
+        name="preview"
+        slot="title"
+        :label="$t('BUTTON.PREVIEW')"
+      />
       <q-tab-pane name="edit">
         <slot />
-        <small v-if="!$q.platform.is.mobile && tab === 'edit'" class="row group pull-right light-paragraph">
+        <small
+          v-if="!$q.platform.is.mobile && tab === 'edit'"
+          class="row group pull-right light-paragraph"
+        >
           <b>**{{ $t('MARKDOWN_INPUT.BOLD') }}**</b>
           <i>_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</i>
           <span>~~{{ $t('MARKDOWN_INPUT.STRIKE') }}~~</span>
@@ -18,7 +39,10 @@
         <div style="clear: both"/>
       </q-tab-pane>
       <q-tab-pane name="preview">
-        <Markdown v-if="value" :source="value" />
+        <Markdown
+          v-if="value"
+          :source="value"
+        />
       </q-tab-pane>
     </q-tabs>
   </div>

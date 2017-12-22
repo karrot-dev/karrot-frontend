@@ -1,8 +1,12 @@
 <template>
   <div class="wrapper">
     <div class="row justify-between toolbar">
-      <div class="name"><slot name="name">"name"-Slot</slot></div>
-      <div><slot name="tools">"tools"-Slot</slot></div>
+      <div class="name">
+        <slot name="name">"name"-Slot</slot>
+      </div>
+      <div>
+        <slot name="tools">"tools"-Slot</slot>
+      </div>
     </div>
     <div class="content">
       <slot>Primary Slot</slot>

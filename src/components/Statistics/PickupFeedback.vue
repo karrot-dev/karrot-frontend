@@ -2,18 +2,26 @@
   <div class="wrapper">
     <div class="row justify-inbetween no-wrap image-and-text">
       <div class="image-and-text-left">
-        <img style="width: 100%" :src="cartImg">
+        <img
+          style="width: 100%"
+          :src="cartImg"
+        >
       </div>
       <div class="image-and-text-right">
-        <h3>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h3>
-        <p>{{ $t('PICKUP_FEEDBACK.SUBTITLE') }}</p>
+        <h3>
+          {{ $t('PICKUP_FEEDBACK.HEADER') }}
+        </h3>
+        <p>
+          {{ $t('PICKUP_FEEDBACK.SUBTITLE') }}
+        </p>
       </div>
     </div>
     <AmountPicker/>
     <q-field
       icon="fa-star"
       :label="$t('PICKUP_FEEDBACK.COMMENT')"
-      :helper="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')">
+      :helper="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
+    >
       <q-input
         v-model="comment"
         autocomplete="off"

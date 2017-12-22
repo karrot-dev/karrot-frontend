@@ -1,6 +1,12 @@
 <template>
-  <div class="row justify-start" ref="wrapperDiv">
-    <q-resize-observable style="width: 100%" @resize="calculateSlotsPerRow" />
+  <div
+    class="row justify-start"
+    ref="wrapperDiv"
+  >
+    <q-resize-observable
+      style="width: 100%"
+      @resize="calculateSlotsPerRow"
+    />
     <ProfilePicture
       v-for="user in pickup.collectors"
       v-if="!user.isCurrentUser"
@@ -10,7 +16,12 @@
       class="profilePic clickable"
     />
 
-    <div v-if="isJoiningOrLeaving(pickup)" class="emptySlots profilePic" style="border-color: black" :style="{ width: size + 'px', height: size + 'px' }">
+    <div
+      v-if="isJoiningOrLeaving(pickup)"
+      class="emptySlots profilePic"
+      style="border-color: black"
+      :style="{ width: size + 'px', height: size + 'px' }"
+    >
       <q-spinner />
     </div>
 
@@ -40,7 +51,11 @@
       @join="$emit('join')"
     />
 
-    <div v-if="noNotShownEmptySlots > 0" class="emptySlots profilePic" :style="{ width: size + 'px', height: size + 'px' }">
+    <div
+      v-if="noNotShownEmptySlots > 0"
+      class="emptySlots profilePic"
+      :style="{ width: size + 'px', height: size + 'px' }"
+    >
       <div/>
       <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
       <span v-if="noNotShownEmptySlots > 99">...</span>

@@ -1,5 +1,8 @@
 <template>
-  <div class="edit" :class="{ changed: hasChanged }">
+  <div
+    class="edit"
+    :class="{ changed: hasChanged }"
+  >
     <form @submit.prevent="save">
       <q-field
         icon="access time"
@@ -8,10 +11,12 @@
         :error="hasError('time')"
         :error-label="firstError('time')"
       >
-        <q-datetime type="time"
-                    v-model="edit.date"
-                    :format24h="is24h"
-                    :display-value="$d(edit.date, 'timeShort')"/>
+        <q-datetime
+          type="time"
+          v-model="edit.date"
+          :format24h="is24h"
+          :display-value="$d(edit.date, 'timeShort')"
+        />
       </q-field>
 
       <q-field
@@ -21,7 +26,12 @@
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
-        <q-datetime type="date" v-model="edit.date" :min="now" :display-value="$d(edit.date, 'dateShort')"/>
+        <q-datetime
+          type="date"
+          v-model="edit.date"
+          :min="now"
+          :display-value="$d(edit.date, 'dateShort')"
+        />
       </q-field>
 
       <q-field
@@ -31,7 +41,13 @@
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
       >
-        <q-slider v-model="edit.maxCollectors" :min="1" :max="10" label label-always />
+        <q-slider
+          v-model="edit.maxCollectors"
+          :min="1"
+          :max="10"
+          label
+          label-always
+        />
       </q-field>
 
       <q-field
@@ -39,15 +55,56 @@
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
       >
-        <q-input v-model="edit.description" type="textarea" max-length="500" />
+        <q-input
+          v-model="edit.description"
+          type="textarea"
+          max-length="500"
+        />
       </q-field>
 
-      <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
+      <div
+        v-if="hasNonFieldError"
+        class="text-negative"
+      >
+        {{ firstNonFieldError }}
+      </div>
 
-      <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="isPending">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
-      <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
-      <q-btn type="button" @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
-      <q-btn type="button" color="red" @click="destroy" v-if="!isNew" :disabled="value.collectorIds.length !== 0">{{ $t('BUTTON.DELETE') }}</q-btn>
+      <q-btn
+        type="submit"
+        color="primary"
+        :disable="!isNew && !hasChanged"
+        loader
+        :value="isPending"
+      >
+        {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+      </q-btn>
+
+      <q-btn
+        type="button"
+        @click="reset"
+        v-if="!isNew"
+        :disable="!hasChanged"
+      >
+        {{ $t('BUTTON.RESET') }}
+      </q-btn>
+
+      <q-btn
+        type="button"
+        @click="$emit('cancel')"
+        v-if="isNew"
+      >
+        {{ $t('BUTTON.CANCEL') }}
+      </q-btn>
+
+      <q-btn
+        type="button"
+        color="red"
+        @click="destroy"
+        v-if="!isNew"
+        :disabled="value.collectorIds.length !== 0"
+      >
+        {{ $t('BUTTON.DELETE') }}
+      </q-btn>
     </form>
   </div>
 </template>

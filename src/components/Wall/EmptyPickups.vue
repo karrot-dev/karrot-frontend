@@ -1,13 +1,24 @@
 <template>
   <div>
-    <q-card @click="showPickups = !showPickups" color="warning" class="generic-padding notice">
+    <q-card
+      @click="showPickups = !showPickups"
+      color="warning"
+      class="generic-padding notice"
+    >
       <i class="fa fa-exclamation-triangle on-left"/>
       {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length }) }}
-      <div class="card-arrow" :class="{ upsideDown: showPickups }">
+      <div
+        class="card-arrow"
+        :class="{ upsideDown: showPickups }"
+      >
         <i class="fa fa-arrow-circle-down"/>
       </div>
     </q-card>
-    <transition-group name="list" tag="div" v-if="showPickups">
+    <transition-group
+      name="list"
+      tag="div"
+      v-if="showPickups"
+    >
       <PickupItem
         v-for="pickup in pickups"
         :key="pickup.id"
@@ -16,8 +27,11 @@
         @leave="$emit('leave', arguments[0])"
       >
         <strong v-if="pickup.store">
-          <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">{{ pickup.store.name }}</router-link>
-        </strong> {{ $d(pickup.date, 'dateWithDayName') }}
+          <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
+            {{ pickup.store.name }}
+          </router-link>
+        </strong>
+        {{ $d(pickup.date, 'dateWithDayName') }}
       </PickupItem>
     </transition-group>
     <hr v-if="showPickups">

@@ -1,7 +1,13 @@
 <template>
   <div>
-    <form name="login" @submit.prevent="submit">
-      <div class="white-box" :class="{ shake: hasAnyError }">
+    <form
+      name="login"
+      @submit.prevent="submit"
+    >
+      <div
+        class="white-box"
+        :class="{ shake: hasAnyError }"
+      >
         <q-field icon="fa-envelope">
           <q-input
             :autofocus="true"
@@ -9,32 +15,56 @@
             :float-label="$t('USERDATA.EMAIL')"
             type="email"
             v-model="email"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
           />
         </q-field>
       </div>
-      <div class="white-box" :class="{ shake: hasAnyError }">
+      <div
+        class="white-box"
+        :class="{ shake: hasAnyError }"
+      >
         <q-field icon="fa-lock">
           <q-input
             :error="hasError('password')"
             v-model="password"
             type="password"
             :float-label="$t('USERDATA.PASSWORD')"
-            autocorrect="off" autocapitalize="off" spellcheck="false"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
           />
         </q-field>
       </div>
-      <div class="error" v-if="hasAnyError">
-        <i class="fa fa-exclamation-triangle"/>{{ firstValidationError }}
+      <div
+        class="error"
+        v-if="hasAnyError"
+      >
+        <i class="fa fa-exclamation-triangle"/>
+        {{ firstValidationError }}
       </div>
       <div class="actions">
-        <q-btn type="button" @click.prevent="$router.push({ name: 'passwordreset' })" flat>
+        <q-btn
+          type="button"
+          @click.prevent="$router.push({ name: 'passwordreset' })"
+          flat
+        >
           {{ $t('LOGIN.FORGOT_PASSWORD') }}
         </q-btn>
-        <q-btn type="button" @click.prevent="$router.push({ name: 'signup' })" flat>
+        <q-btn
+          type="button"
+          @click.prevent="$router.push({ name: 'signup' })"
+          flat
+        >
           {{ $t('LOGIN.SIGNUP') }}
         </q-btn>
-        <q-btn type="submit" class="submit shadow-4" loader :value="isPending">
+        <q-btn
+          type="submit"
+          class="submit shadow-4"
+          loader
+          :value="isPending"
+        >
           {{ $t('LOGIN.SUBMIT') }}
         </q-btn>
       </div>

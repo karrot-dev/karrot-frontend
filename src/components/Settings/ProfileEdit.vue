@@ -1,5 +1,8 @@
 <template>
-  <div class="edit" :class="{ changed: hasChanged }">
+  <div
+    class="edit"
+    :class="{ changed: hasChanged }"
+  >
     <form @submit.prevent="save">
       <q-field
         icon="fa-star"
@@ -17,7 +20,11 @@
         :error-label="firstError('description')"
       >
         <MarkdownInput :value="edit.description">
-          <q-input v-model="edit.description" type="textarea" :min-rows="1" />
+          <q-input
+            v-model="edit.description"
+            type="textarea"
+            :min-rows="1"
+          />
         </MarkdownInput>
       </q-field>
 
@@ -27,11 +34,29 @@
         :error="hasAddressError"
         :error-label="addressError"
       >
-        <address-picker v-model="edit" :map="true" />
+        <address-picker
+          v-model="edit"
+          :map="true"
+        />
       </q-field>
 
-      <q-btn type="submit" color="primary" :disable="!hasChanged" loader :value="isPending">{{ $t('BUTTON.SAVE_CHANGES') }}</q-btn>
-      <q-btn type="button" @click="reset" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
+      <q-btn
+        type="submit"
+        color="primary"
+        :disable="!hasChanged"
+        loader
+        :value="isPending"
+      >
+        {{ $t('BUTTON.SAVE_CHANGES') }}
+      </q-btn>
+
+      <q-btn
+        type="button"
+        @click="reset"
+        :disable="!hasChanged"
+      >
+        {{ $t('BUTTON.RESET') }}
+      </q-btn>
     </form>
   </div>
 </template>

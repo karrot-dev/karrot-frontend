@@ -2,16 +2,28 @@
   <div>
     <div class="row margin-sides no-wrap">
       <div class="">
-        <q-transition duration="510" name="turn-in" appear>
+        <q-transition
+          duration="510"
+          name="turn-in"
+          appear
+        >
           <div class="photoCard shadow-2">
-            <ProfilePicture :user="user" :size="profilePictureSize"/>
+            <ProfilePicture
+              :user="user"
+              :size="profilePictureSize"
+            />
           </div>
         </q-transition>
       </div>
       <div style="overflow: hidden">
-        <h1 class="accent-font">{{ user.displayName }}</h1>
+        <h1 class="accent-font">
+          {{ user.displayName }}
+        </h1>
         <p class="subtitle">
-          <span v-for="(group, indx) in groups" :key="group.id">
+          <span
+            v-for="(group, indx) in groups"
+            :key="group.id"
+          >
             <router-link :to="{name: 'group', params: { groupId: group.id }}">
               {{ group.name }}
             </router-link>
@@ -21,18 +33,31 @@
       </div>
     </div>
     <q-card class="generic-padding">
-      <UserMapPreview v-if="user.latitude && user.longitude" :user="user" class="map"/>
+      <UserMapPreview
+        v-if="user.latitude && user.longitude"
+        :user="user"
+        class="map"
+      />
       <div class="info">
         <div class="info-item">
-          <strong><i class="fa fa-fw fa-envelope-o on-left" /> </strong>
+          <strong>
+            <i class="fa fa-fw fa-envelope-o on-left" />
+          </strong>
           {{ user.email }}
           <span v-if="user.email !== user.unverifiedEmail">
             <i class="fa fa-arrow-right"/>
-            <router-link :to="{name: 'settings'}">{{ user.unverifiedEmail }}</router-link>
+            <router-link :to="{name: 'settings'}">
+              {{ user.unverifiedEmail }}
+            </router-link>
           </span>
         </div>
-        <div class="info-item" v-if="user.address">
-          <strong class="info-item"><i class="fa fa-fw fa-map-marker on-left" /> </strong>
+        <div
+          class="info-item"
+          v-if="user.address"
+        >
+          <strong class="info-item">
+            <i class="fa fa-fw fa-map-marker on-left" />
+          </strong>
           {{ user.address }}
         </div>
       </div>

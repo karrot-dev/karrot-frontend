@@ -1,13 +1,27 @@
 <template>
   <div class="container">
-    <StandardMap :markers="markers" :selected-marker-ids="selectedMarkerIds" :style="style" :default-center="center" />
-    <div v-if="showOverlay" class="overlay row justify-center content-center">
-      <router-link v-if="showStoreLocationPrompt" :to="{ name: 'storeEdit', params: { storeId: this.selectedStoreId } }">
+    <StandardMap
+      :markers="markers"
+      :selected-marker-ids="selectedMarkerIds"
+      :style="style"
+      :default-center="center"
+    />
+    <div
+      v-if="showOverlay"
+      class="overlay row justify-center content-center"
+    >
+      <router-link
+        v-if="showStoreLocationPrompt"
+        :to="{ name: 'storeEdit', params: { storeId: this.selectedStoreId } }"
+      >
         <q-btn color="primary">
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
       </router-link>
-      <router-link v-else :to="{ name: 'groupEdit', params: { groupId: this.currentGroup.id, storeId: this.selectedStoreId } }">
+      <router-link
+        v-else
+        :to="{ name: 'groupEdit', params: { groupId: this.currentGroup.id, storeId: this.selectedStoreId } }"
+      >
         <q-btn color="primary">
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>

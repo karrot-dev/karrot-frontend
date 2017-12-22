@@ -1,15 +1,24 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-home" /></div>
+    <div slot="name">
+      <i class="fa fa-fw fa-home" />
+    </div>
     <div slot="tools">
       <q-btn flat>
-        <i class="fa fa-ellipsis-v" aria-hidden="true" />
+        <i
+          class="fa fa-ellipsis-v"
+          aria-hidden="true"
+        />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
     </div>
+
     <div>
-      <q-list highlight no-border>
+      <q-list
+        highlight
+        no-border
+      >
         <q-item :to="{name: 'storePickups', params: { storeId }}">
           <q-item-side class="text-center">
             <q-icon name="fa-calendar-o" />
@@ -28,6 +37,7 @@
         </q-item>
       </q-list>
     </div>
+
   </SidenavBox>
 </template>
 

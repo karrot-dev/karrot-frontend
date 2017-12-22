@@ -14,9 +14,18 @@
             />
           </tbody>
         </table>
-        <div v-if="empty"><q-icon name="fa-bug" />{{ $t('HISTORY.NOTHING_HAPPENEND') }}</div>
-        <q-spinner-dots v-if="this.status.pending" :size="40"/>
-        <div slot="message" style="width: 100%; text-align: center">
+        <div v-if="empty">
+          <q-icon name="fa-bug" />
+          {{ $t('HISTORY.NOTHING_HAPPENEND') }}
+        </div>
+        <q-spinner-dots
+          v-if="this.status.pending"
+          :size="40"
+        />
+        <div
+          slot="message"
+          style="width: 100%; text-align: center"
+        >
           <q-spinner-dots :size="40"/>
         </div>
       </q-infinite-scroll>

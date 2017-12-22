@@ -6,11 +6,22 @@
       icon="fa-star"
       :label="$t('USERDATA.EMAIL')"
       :error="hasAnyError"
-      :error-label="anyFirstError">
-      <q-input type="email" v-model="newEmail"/>
+      :error-label="anyFirstError"
+    >
+      <q-input
+        type="email"
+        v-model="newEmail"
+      />
     </q-field>
 
-    <q-btn color="primary" @click="save" loader :value="isPending">{{ $t('BUTTON.CHANGE_EMAIL') }}</q-btn>
+    <q-btn
+      color="primary"
+      @click="save"
+      loader
+      :value="isPending"
+    >
+      {{ $t('BUTTON.CHANGE_EMAIL') }}
+    </q-btn>
 
   </div>
 </template>

@@ -1,7 +1,10 @@
 <template>
   <div>
     <q-card>
-      <div class="edit" :class="{ changed: hasChanged }">
+      <div
+        class="edit"
+        :class="{ changed: hasChanged }"
+      >
         <form @submit.prevent="maybeSave">
           <q-field
             icon="fa-star"
@@ -35,7 +38,11 @@
             :error-label="firstError('description')"
           >
             <MarkdownInput :value="edit.description">
-              <q-input v-model="edit.description" type="textarea" :min-rows="3" />
+              <q-input
+                v-model="edit.description"
+                type="textarea"
+                :min-rows="3"
+              />
             </MarkdownInput>
           </q-field>
 
@@ -45,7 +52,10 @@
             :error="hasAddressError"
             :error-label="addressError"
           >
-            <address-picker v-model="edit" :map="true" />
+            <address-picker
+              v-model="edit"
+              :map="true"
+            />
           </q-field>
 
           <q-field
@@ -54,21 +64,52 @@
             :error="hasError('weeksInAdvance')"
             :error-label="firstError('weeksInAdvance')"
           >
-            <q-slider v-model="edit.weeksInAdvance" :min="1" :max="10" label label-always />
+            <q-slider
+              v-model="edit.weeksInAdvance"
+              :min="1"
+              :max="10"
+              label
+              label-always
+            />
           </q-field>
 
-          <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
+          <div
+            v-if="hasNonFieldError"
+            class="text-negative"
+          >
+            {{ firstNonFieldError }}
+          </div>
 
-          <q-btn type="submit" color="primary" :disable="!canSave" loader :value="isPending">
+          <q-btn
+            type="submit"
+            color="primary"
+            :disable="!canSave"
+            loader
+            :value="isPending"
+          >
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
-          <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
+          <q-btn
+            type="button"
+            @click="reset"
+            v-if="!isNew"
+            :disable="!hasChanged"
+          >
             {{ $t('BUTTON.RESET') }}
           </q-btn>
-          <q-btn type="button" @click="$emit('cancel')" v-if="isNew">
+          <q-btn
+            type="button"
+            @click="$emit('cancel')"
+            v-if="isNew"
+          >
             {{ $t('BUTTON.CANCEL') }}
           </q-btn>
-          <q-btn type="button" color="red" @click="archive" v-if="!isNew">
+          <q-btn
+            type="button"
+            color="red"
+            @click="archive"
+            v-if="!isNew"
+          >
             {{ $t('BUTTON.ARCHIVE') }}
           </q-btn>
 

@@ -1,8 +1,25 @@
 <template>
-  <v-map ref="map" :bounds="bounds" :center="center" :zoom="zoom">
-    <v-tile-layer :url="url" :attribution="attribution"/>
-    <v-marker v-for="marker in markers" :key="marker.id" v-bind="marker" @l-dragend="$emit('markerMoved', $event.target._latlng, marker)" :opacity="opacityFor(marker)">
-      <v-popup v-if="marker.popupcontent" :content="marker.popupcontent"/>
+  <v-map
+    ref="map"
+    :bounds="bounds"
+    :center="center"
+    :zoom="zoom"
+  >
+    <v-tile-layer
+      :url="url"
+      :attribution="attribution"
+    />
+    <v-marker
+      v-for="marker in markers"
+      :key="marker.id"
+      v-bind="marker"
+      @l-dragend="$emit('markerMoved', $event.target._latlng, marker)"
+      :opacity="opacityFor(marker)"
+    >
+      <v-popup
+        v-if="marker.popupcontent"
+        :content="marker.popupcontent"
+      />
     </v-marker>
   </v-map>
 </template>

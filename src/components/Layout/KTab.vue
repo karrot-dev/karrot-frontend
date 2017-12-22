@@ -1,5 +1,10 @@
 <template>
-  <q-route-tab class="ktab" :to="to" slot="title" name="messages">
+  <q-route-tab
+    class="ktab"
+    :to="to"
+    slot="title"
+    name="messages"
+  >
     <slot name="icon"/>
     <div class="label">
       <slot/>

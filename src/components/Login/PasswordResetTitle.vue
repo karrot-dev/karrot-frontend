@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h4><i class="fa fa-question-circle" /> {{ $t('PASSWORDRESET.TITLE') }}</h4>
+    <h4>
+      <i class="fa fa-question-circle" />
+      {{ $t('PASSWORDRESET.TITLE') }}
+    </h4>
   </div>
 </template>
 

@@ -1,18 +1,59 @@
 <template>
   <div class="footer bg-neutral font-primary">
-    <div style="margin-top: 5em" class="footer-max-width row generic-padding">
-      <div class="generic-padding col-md-4" style="margin-top: -5em; text-align: center;">
-        <img class="shadow" src="~@/assets/carrot-logo.svg">
+    <div
+      style="margin-top: 5em"
+      class="footer-max-width row generic-padding"
+    >
+      <div
+        class="generic-padding col-md-4"
+        style="margin-top: -5em; text-align: center;"
+      >
+        <img
+          class="shadow"
+          src="~@/assets/carrot-logo.svg"
+        >
       </div>
       <div class="column col-md-4">
-        <div><a href="https://github.com/yunity/karrot-frontend"><i class="fa fa-fw fa-github on-left" /> {{ $t('GLOBAL.GITHUB_NOTE') }}</a></div>
-        <div><a href="https://www.facebook.com/groups/foodsaving.worldwide/"><i class="fa fa-fw fa-facebook on-left" /> {{ $t('GLOBAL.FACEBOOK_NOTE') }}</a></div>
-        <div><a href="mail:karrot@foodsaving.world"><i class="fa fa-fw fa-envelope on-left" />karrot@foodsaving.world</a></div>
+        <div>
+          <a href="https://github.com/yunity/karrot-frontend">
+            <i class="fa fa-fw fa-github on-left" />
+            {{ $t('GLOBAL.GITHUB_NOTE') }}
+          </a>
+        </div>
+        <div>
+          <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
+            <i class="fa fa-fw fa-facebook on-left" />
+            {{ $t('GLOBAL.FACEBOOK_NOTE') }}
+          </a>
+        </div>
+        <div>
+          <a href="mail:karrot@foodsaving.world">
+            <i class="fa fa-fw fa-envelope on-left"/>
+            karrot@foodsaving.world
+          </a>
+        </div>
       </div>
       <div class="column col-md-4">
-        <hr style="width: 3em" class="lt-md">
-        <div>karrot <a v-if="release" :href="release.link">{{ release.name }}</a></div>
-        <div>made with <i class="fa fa-heart" /> by <a href="https://foodsaving.world">foodsaving worldwide</a></div>
+        <hr
+          style="width: 3em"
+          class="lt-md"
+        >
+        <div>
+          karrot
+          <a
+            v-if="release"
+            :href="release.link">
+            {{ release.name }}
+          </a>
+        </div>
+        <div>
+          made with
+          <i class="fa fa-heart" />
+          by
+          <a href="https://foodsaving.world">
+            foodsaving worldwide
+          </a>
+        </div>
       </div>
     </div>
   </div>

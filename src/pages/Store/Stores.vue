@@ -1,6 +1,9 @@
 <template>
   <q-card>
-    <StoreList class="white-background" :stores="stores"/>
+    <StoreList
+      class="white-background"
+      :stores="stores"
+    />
   </q-card>
 </template>
 

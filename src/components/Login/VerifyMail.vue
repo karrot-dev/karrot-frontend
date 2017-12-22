@@ -1,7 +1,9 @@
 <template>
   <div>
     <div>
-      <h5>{{ user.email }}</h5>
+      <h5>
+        {{ user.email }}
+      </h5>
       <q-spinner v-if="isPending" />
       <p v-if="success">
         {{ $t('VERIFYMAIL.SUCCESS') }}

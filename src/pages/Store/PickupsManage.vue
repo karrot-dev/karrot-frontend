@@ -3,10 +3,16 @@
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-repeat on-left" aria-hidden="true" />
+          <i
+            class="icon fa fa-repeat on-left"
+            aria-hidden="true"
+          />
           {{ $t('PICKUPMANAGE.SERIES') }}
         </h5>
-        <div slot="right" class="row items-center">
+        <div
+          slot="right"
+          class="row items-center"
+        >
           <q-btn @click="createNewSeries">
             <q-icon name="fa-plus-circle" />
             <q-tooltip v-t="'BUTTON.CREATE'" />
@@ -14,30 +20,63 @@
         </div>
       </q-card-title>
       <q-item v-if="newSeries" >
-        <pickup-series-edit :value="newSeries" @save="saveNewSeries" @cancel="cancelNewSeries" @reset="resetNewSeries" :status="seriesCreateStatus"/>
+        <pickup-series-edit
+          :value="newSeries"
+          @save="saveNewSeries"
+          @cancel="cancelNewSeries"
+          @reset="resetNewSeries"
+          :status="seriesCreateStatus"
+        />
       </q-item>
 
-      <q-list class="pickups" separator no-border highlight sparse>
-        <q-collapsible v-for="series in pickupSeries"
-                       @open="makeVisible('series', series.id)"
-                       :key="series.id"
-                       :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
-                       :sublabel="$d(series.startDate, 'timeShort')"
-                       icon="fa-calendar" sparse>
+      <q-list
+        class="pickups"
+        separator
+        no-border
+        highlight
+        sparse
+      >
+        <q-collapsible
+          v-for="series in pickupSeries"
+          @open="makeVisible('series', series.id)"
+          :key="series.id"
+          :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
+          :sublabel="$d(series.startDate, 'timeShort')"
+          icon="fa-calendar"
+          sparse
+        >
 
           <q-item v-if="visible.series[series.id]">
-            <pickup-series-edit :value="series" @save="saveSeries" @destroy="destroySeries" @reset="resetPickup" :status="series.saveStatus" />
+            <pickup-series-edit
+              :value="series"
+              @save="saveSeries"
+              @destroy="destroySeries"
+              @reset="resetPickup"
+              :status="series.saveStatus"
+            />
           </q-item>
 
-          <q-list no-border seperator>
+          <q-list
+            no-border
+            seperator
+          >
             <q-list-header v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
 
-            <q-collapsible v-for="pickup in series.pickups"
-                           @open="makeVisible('pickup', pickup.id)"
-                           :key="pickup.id"
-                           :label="seriesPickupLabel(series, pickup)"
-                           icon="fa-calendar">
-              <pickup-edit v-if="visible.pickup[pickup.id]" :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
+            <q-collapsible
+              v-for="pickup in series.pickups"
+              @open="makeVisible('pickup', pickup.id)"
+              :key="pickup.id"
+              :label="seriesPickupLabel(series, pickup)"
+              icon="fa-calendar"
+            >
+              <pickup-edit
+                v-if="visible.pickup[pickup.id]"
+                :value="pickup"
+                @save="savePickup"
+                @destroy="destroyPickup"
+                @reset="resetPickup"
+                :status="pickup.saveStatus"
+              />
             </q-collapsible>
           </q-list>
 
@@ -48,10 +87,16 @@
     <q-card>
       <q-card-title>
         <h5>
-          <i class="icon fa fa-shopping-basket on-left" aria-hidden="true" />
+          <i
+            class="icon fa fa-shopping-basket on-left"
+            aria-hidden="true"
+          />
           {{ $t('PICKUPMANAGE.SINGLE') }}
         </h5>
-        <div slot="right" class="row items-center">
+        <div
+          slot="right"
+          class="row items-center"
+        >
           <q-btn @click="createNewPickup">
             <q-icon name="fa-plus-circle" />
             <q-tooltip v-t="'BUTTON.CREATE'" />
@@ -60,17 +105,37 @@
       </q-card-title>
 
       <q-item v-if="newPickup" >
-        <pickup-edit :value="newPickup" @save="saveNewPickup" @cancel="cancelNewPickup" @reset="resetNewPickup" :status="pickupCreateStatus" />
+        <pickup-edit
+          :value="newPickup"
+          @save="saveNewPickup"
+          @cancel="cancelNewPickup"
+          @reset="resetNewPickup"
+          :status="pickupCreateStatus"
+        />
       </q-item>
 
-      <q-list class="pickups" separator no-border>
-        <q-collapsible v-for="pickup in oneTimePickups"
-                       @open="makeVisible('pickup', pickup.id)"
-                       :key="pickup.id"
-                       :label="$d(pickup.date, 'dateWithDayName')"
-                       :sublabel="$d(pickup.date, 'timeShort')"
-                       icon="fa-calendar" sparse>
-          <pickup-edit v-if="visible.pickup[pickup.id]" :value="pickup" @save="savePickup" @destroy="destroyPickup" @reset="resetPickup" :status="pickup.saveStatus" />
+      <q-list
+        class="pickups"
+        separator
+        no-border
+      >
+        <q-collapsible
+          v-for="pickup in oneTimePickups"
+          @open="makeVisible('pickup', pickup.id)"
+          :key="pickup.id"
+          :label="$d(pickup.date, 'dateWithDayName')"
+          :sublabel="$d(pickup.date, 'timeShort')"
+          icon="fa-calendar"
+          sparse
+        >
+          <pickup-edit
+            v-if="visible.pickup[pickup.id]"
+            :value="pickup"
+            @save="savePickup"
+            @destroy="destroyPickup"
+            @reset="resetPickup"
+            :status="pickup.saveStatus"
+          />
         </q-collapsible>
       </q-list>
     </q-card>

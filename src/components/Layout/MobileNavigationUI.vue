@@ -1,20 +1,59 @@
 <template>
-  <q-tabs v-model="selectedTab" align="center" class="mobileNavigation">
-    <KTab slot="title" :to="{name: 'group', params: {groupId: currentGroupId}}" name="group">
-      <template slot="icon"><i class="fa fa-home q-tab-icon" /></template>
-      <template>{{ $t('GROUP.GROUP') }}</template>
+  <q-tabs
+    v-model="selectedTab"
+    align="center"
+    class="mobileNavigation"
+  >
+    <KTab
+      slot="title"
+      :to="{name: 'group', params: {groupId: currentGroupId}}"
+      name="group"
+    >
+      <template slot="icon">
+        <i class="fa fa-home q-tab-icon" />
+      </template>
+      <template>
+        {{ $t('GROUP.GROUP') }}
+      </template>
     </KTab>
-    <KTab slot="title" :to="{name: 'groupPickups', params: {groupId: currentGroupId}}" name="pickups">
-      <template slot="icon"><i class="fa fa-shopping-basket q-tab-icon" /></template>
-      <template>{{ $t('GROUP.PICKUPS') }}</template>
+
+    <KTab
+      slot="title"
+      :to="{name: 'groupPickups', params: {groupId: currentGroupId}}"
+      name="pickups"
+    >
+      <template slot="icon">
+        <i class="fa fa-shopping-basket q-tab-icon" />
+      </template>
+      <template>
+        {{ $t('GROUP.PICKUPS') }}
+      </template>
     </KTab>
-    <KTab slot="title" :to="{name: 'stores', params: {groupId: currentGroupId}}" name="stores">
-      <template slot="icon"><i class="fa fa-shopping-cart q-tab-icon" /></template>
-      <template>{{ $t('GROUP.STORES') }}</template>
+
+    <KTab
+      slot="title"
+      :to="{name: 'stores', params: {groupId: currentGroupId}}"
+      name="stores"
+    >
+      <template slot="icon">
+        <i class="fa fa-shopping-cart q-tab-icon" />
+      </template>
+      <template>
+        {{ $t('GROUP.STORES') }}
+      </template>
     </KTab>
-    <KTab slot="title" :to="{name: 'map', params: {groupId: currentGroupId}}" name="profile">
-      <template slot="icon"><i class="fa fa-map q-tab-icon" /></template>
-      <template class="q-tab-label">{{ $t('GROUPMAP.TITLE') }}</template>
+
+    <KTab
+      slot="title"
+      :to="{name: 'map', params: {groupId: currentGroupId}}"
+      name="profile"
+    >
+      <template slot="icon">
+        <i class="fa fa-map q-tab-icon" />
+      </template>
+      <template class="q-tab-label">
+        {{ $t('GROUPMAP.TITLE') }}
+      </template>
     </KTab>
   </q-tabs>
 </template>

@@ -5,11 +5,22 @@
       icon="fa-star"
       :label="$t('USERDETAIL.PASSWORD')"
       :error="hasAnyError"
-      :error-label="anyFirstError">
-      <q-input type="password" v-model="newPassword"/>
+      :error-label="anyFirstError"
+    >
+      <q-input
+        type="password"
+        v-model="newPassword"
+      />
     </q-field>
 
-    <q-btn color="primary" @click="save" loader :value="isPending">{{ $t('BUTTON.CHANGE_PASSWORD') }}</q-btn>
+    <q-btn
+      color="primary"
+      @click="save"
+      loader
+      :value="isPending"
+    >
+      {{ $t('BUTTON.CHANGE_PASSWORD') }}
+    </q-btn>
 
   </div>
 </template>

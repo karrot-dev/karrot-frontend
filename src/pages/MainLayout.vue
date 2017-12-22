@@ -2,28 +2,58 @@
   <div>
     <template v-if="routeError.hasError">
       <RouteError>
-        <p v-if="routeError.message" class="caption text-center">
-          <span v-if="routeError.message.translation" v-t="routeError.message.translation" />
+        <p
+          v-if="routeError.message"
+          class="caption text-center"
+        >
+          <span
+            v-if="routeError.message.translation"
+            v-t="routeError.message.translation"
+          />
         </p>
       </RouteError>
     </template>
-    <div v-else class="background mainLayoutDesktop">
-      <q-layout :reveal="$q.platform.is.mobile" class="wrapper" ref="layout" :view="layoutView" :right-breakpoint="1100">
+
+    <div
+      v-else
+      class="background mainLayoutDesktop"
+    >
+      <q-layout
+        :reveal="$q.platform.is.mobile"
+        class="wrapper"
+        ref="layout"
+        :view="layoutView"
+        :right-breakpoint="1100"
+      >
         <div slot="header">
-          <KTopbar @toggleSidenav="$refs.layout.toggleLeft()" v-if="isLoggedIn">
-            <q-btn flat @click="$refs.layout.toggleLeft()" class="mobile-only">
+          <KTopbar
+            @toggleSidenav="$refs.layout.toggleLeft()"
+            v-if="isLoggedIn"
+          >
+            <q-btn
+              flat
+              @click="$refs.layout.toggleLeft()"
+              class="mobile-only"
+            >
               <i class="fa fa-bars" />
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </div>
-        <template slot="left" v-if="$q.platform.is.mobile && isLoggedIn">
+        <template
+          slot="left"
+          v-if="$q.platform.is.mobile && isLoggedIn"
+        >
           <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
         </template>
         <MainAlerts />
         <div class="mainContent row justify-between no-wrap">
           <div class="whiteSpace gt-sm" />
-          <router-view v-if="!$q.platform.is.mobile" class="sidenav-desktop" name="sidenav" />
+          <router-view
+            v-if="!$q.platform.is.mobile"
+            class="sidenav-desktop"
+            name="sidenav"
+          />
           <div class="mainContent-page">
             <router-view />
           </div>
@@ -31,8 +61,14 @@
         </div>
         <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 
-        <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" slot="footer" />
-        <KFooter v-if="!$q.platform.is.mobile" slot="footer" />
+        <MobileNavigation
+          v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open"
+          slot="footer"
+        />
+        <KFooter
+          v-if="!$q.platform.is.mobile"
+          slot="footer"
+        />
       </q-layout>
     </div>
   </div>

@@ -5,7 +5,10 @@
     </div>
     <div class="splashlayout">
       <div class="splashlayout-content">
-        <transition name="fade" mode="out-in">
+        <transition
+          name="fade"
+          mode="out-in"
+        >
           <router-view/>
         </transition>
       </div>

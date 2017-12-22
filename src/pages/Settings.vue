@@ -4,19 +4,30 @@
       <q-list-header>{{ $t('USERDATA.PROFILE_TITLE') }}</q-list-header>
 
       <q-item>
-        <ProfileEdit :value="user" :status="profileEditStatus" @save="saveUser"/>
+        <ProfileEdit
+          :value="user"
+          :status="profileEditStatus"
+          @save="saveUser"
+        />
       </q-item>
 
       <q-list-header>{{ $t('USERDATA.EMAIL') }}</q-list-header>
 
       <q-item>
-        <ChangeEmail :user="user" :status="changeEmailStatus" @save="changeEmail" />
+        <ChangeEmail
+          :user="user"
+          :status="changeEmailStatus"
+          @save="changeEmail"
+        />
       </q-item>
 
       <q-list-header>{{ $t('USERDATA.PASSWORD') }}</q-list-header>
 
       <q-item>
-        <ChangePassword :status="changePasswordStatus" @save="changePassword" />
+        <ChangePassword
+          :status="changePasswordStatus"
+          @save="changePassword"
+        />
       </q-item>
 
     </q-list>

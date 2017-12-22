@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Login @loginDo="loginDo" :error="error"/>
+    <Login
+      @loginDo="loginDo"
+      :error="error"
+    />
   </div>
 </template>
 

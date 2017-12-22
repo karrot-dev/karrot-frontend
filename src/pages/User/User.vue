@@ -1,6 +1,9 @@
 <template>
   <div v-if="user && user.id">
-    <UserProfile :user="user" :groups="groups" />
+    <UserProfile
+      :user="user"
+      :groups="groups"
+    />
     <History show-title />
   </div>
 </template>

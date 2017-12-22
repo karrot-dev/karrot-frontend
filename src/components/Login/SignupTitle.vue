@@ -1,7 +1,9 @@
 <template>
   <div>
     <img :src="loginImage">
-    <h4>{{ $t('SIGNUP.TITLE') }}</h4>
+    <h4>
+      {{ $t('SIGNUP.TITLE') }}
+    </h4>
   </div>
 </template>
 

@@ -17,19 +17,19 @@
         <div>
           <a href="https://github.com/yunity/karrot-frontend">
             <i class="fa fa-fw fa-github on-left" />
-              {{ $t('GLOBAL.GITHUB_NOTE') }}
+            {{ $t('GLOBAL.GITHUB_NOTE') }}
           </a>
         </div>
         <div>
           <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
             <i class="fa fa-fw fa-facebook on-left" />
-              {{ $t('GLOBAL.FACEBOOK_NOTE') }}
+            {{ $t('GLOBAL.FACEBOOK_NOTE') }}
           </a>
         </div>
         <div>
           <a href="mail:karrot@foodsaving.world">
             <i class="fa fa-fw fa-envelope on-left"/>
-              karrot@foodsaving.world
+            karrot@foodsaving.world
           </a>
         </div>
       </div>
@@ -43,7 +43,7 @@
           <a
             v-if="release"
             :href="release.link">
-              {{ release.name }}
+            {{ release.name }}
           </a>
         </div>
         <div>

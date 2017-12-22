@@ -16,8 +16,8 @@
         </table>
         <div v-if="empty">
           <q-icon name="fa-bug" />
-            {{ $t('HISTORY.NOTHING_HAPPENEND') }}
-          </div>
+          {{ $t('HISTORY.NOTHING_HAPPENEND') }}
+        </div>
         <q-spinner-dots
           v-if="this.status.pending"
           :size="40"

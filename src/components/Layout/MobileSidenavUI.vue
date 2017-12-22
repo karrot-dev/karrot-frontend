@@ -36,8 +36,7 @@
     </q-side-link>
 
     <q-item
-      @click="$emit('logout'),
-      $emit('toggleSidenav')"
+      @click="$emit('logout'), $emit('toggleSidenav')"
     >
       <q-item-side>
         <i class="fa fa-sign-out fa-fw"/>

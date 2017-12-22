@@ -90,8 +90,7 @@
               {{ $t('SETTINGS.TITLE') }}
             </q-item>
             <q-item
-              @click="$emit('logout'),
-              $refs.popover.close()"
+              @click="$emit('logout'), $refs.popover.close()"
             >
               <q-icon
                 size="1em"

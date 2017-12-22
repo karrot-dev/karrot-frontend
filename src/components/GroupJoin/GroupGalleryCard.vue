@@ -13,7 +13,10 @@
       >
         <Markdown :source="group.publicDescription.slice(0, 150)" />
       </div>
-      <span v-else class="text-italic">
+      <span
+        v-else
+        class="text-italic"
+      >
         {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
       </span>
     </q-card-main>

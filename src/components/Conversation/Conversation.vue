@@ -54,9 +54,18 @@ export default {
     QAlert,
   },
   props: {
-    data: { required: true },
-    fetchMore: { required: true },
-    user: { required: true },
+    data: {
+      type: Boolean,
+      required: true,
+    },
+    fetchMore: {
+      type: Boolean,
+      required: true,
+    },
+    user: {
+      type: Boolean,
+      required: true,
+    },
   },
   methods: {
     loadMore (index, done) {

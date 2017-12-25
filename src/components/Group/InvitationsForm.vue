@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="submit">
+    <form @submit.prevent="maybeSave">
       <q-field
         icon="fa-envelope"
         :helper="$t('GROUP.INVITE_EMAIL')"
@@ -13,7 +13,6 @@
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
-          @keyup.enter="submit"
           @blur="$v.form.email.$touch"
         />
       </q-field>
@@ -29,7 +28,7 @@
         type="submit"
         loader
         :value="isPending"
-        :disabled="$v.form.$error"
+        :disable="!canSave"
       >
         <q-icon name="fa-paper-plane" />
         <q-tooltip>
@@ -55,7 +54,7 @@ export default {
   data () {
     return {
       form: {
-        email: '',
+        email: null,
       },
     }
   },
@@ -73,17 +72,22 @@ export default {
   },
   computed: {
     emailErrorMessage () {
-      const m = this.$v.form.email
-      if (!m.required) return this.$t('VALIDATION.REQUIRED')
-      if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')
-      if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
+      if (this.$v.form.$dirty) {
+        const m = this.$v.form.email
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')
+        if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
+      }
       if (this.hasError('email')) return this.firstError('email')
+    },
+    canSave () {
+      return !this.$v.form.$error
     },
   },
   methods: {
-    submit () {
+    maybeSave () {
       this.$v.form.$touch()
-      if (this.$v.form.$error) return
+      if (!this.canSave) return
       this.$emit('submit', this.form.email)
       this.$v.form.$reset()
       this.form.email = ''

@@ -38,8 +38,8 @@
         </q-field>
       </div>
       <div
-        class="error"
         v-if="hasAnyError"
+        class="error"
       >
         <i class="fa fa-exclamation-triangle"/>
         {{ anyFirstError }}

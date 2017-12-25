@@ -40,6 +40,13 @@
         />
       </q-field>
 
+      <div
+        v-if="hasNonFieldError"
+        class="text-negative"
+      >
+        {{ firstNonFieldError }}
+      </div>
+
       <q-btn
         type="submit"
         color="primary"

@@ -42,7 +42,7 @@
         v-if="hasAnyError"
       >
         <i class="fa fa-exclamation-triangle"/>
-        {{ firstValidationError }}
+        {{ anyFirstError }}
       </div>
       <div class="actions">
         <q-btn

@@ -21,13 +21,13 @@ class TestPasswordReset(APITestCase):
 
     def test_reset_password_fails_if_wrong_mail(self):
         response = self.client.post(self.url, {'email': 'wrong@example.com'})
-        self.assertIsNone(response.data)
+        self.assertEqual(response.data, {'email': ['e-mail address is not registered']})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(len(mail.outbox), 0)
 
     def test_reset_password_fails_if_no_email(self):
         response = self.client.post(self.url)
-        self.assertEqual(response.data, {'error': 'mail address is not provided'})
+        self.assertEqual(response.data, {'email': ['this field is required']})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(len(mail.outbox), 0)
 

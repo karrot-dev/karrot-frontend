@@ -128,11 +128,12 @@ class ResetPasswordView(views.APIView):
         request_email = request.data.get('email')
         if not request_email:
             return Response(status=status.HTTP_400_BAD_REQUEST,
-                            data={'error': 'mail address is not provided'})
+                            data={'email': ['this field is required']})
         try:
             user = get_user_model().objects.get(email__iexact=request_email)
         except get_user_model().DoesNotExist:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_400_BAD_REQUEST,
+                            data={'email': ['e-mail address is not registered']})
 
         user.reset_password()
         return Response(status=status.HTTP_204_NO_CONTENT, data={})

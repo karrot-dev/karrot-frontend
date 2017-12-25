@@ -72,7 +72,7 @@ export default {
   },
   computed: {
     emailErrorMessage () {
-      if (this.$v.form.$dirty) {
+      if (this.$v.form.email.$error) {
         const m = this.$v.form.email
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')

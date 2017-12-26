@@ -27,7 +27,7 @@ They require additional props to the component:
 
 `statusMixin` provides helpers to quickly access the validation error status, e.g. by field name:
 
-```vue
+```html
 <div v-if="hasError('password')">
   {{ firstError('password') }}
 </div>

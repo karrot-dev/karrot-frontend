@@ -52,7 +52,7 @@
     "markdown-it": "^8.4.0",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^2.0.0",
-    "quasar-extras": "1.0.1",
+    "quasar-extras": "0.x",
     "quasar-framework": "^0.14.1",
     "raven-js": "^3.20.1",
     "reconnecting-websocket": "^3.2.1",

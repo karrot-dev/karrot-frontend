@@ -3,7 +3,7 @@
     class="edit"
     :class="{ changed: hasChanged }"
   >
-    <form @submit.prevent="save">
+    <form @submit.prevent="maybeSave">
       <q-field
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
@@ -54,6 +54,8 @@
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
+        :error="hasError('description')"
+        :error-label="firstError('description')"
       >
         <q-input
           v-model="edit.description"
@@ -107,9 +109,9 @@
         type="submit"
         class="full-width actionButton"
         color="primary"
-        :disable="!isNew && !hasChanged"
+        :disable="!canSave"
         loader
-        :value="status.pending"
+        :value="isPending"
       >
         {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
       </q-btn>
@@ -143,8 +145,18 @@ export default {
   computed: {
     dayOptions,
     is24h,
+    canSave () {
+      if (!this.isNew && !this.hasChanged) {
+        return false
+      }
+      return true
+    },
   },
   methods: {
+    maybeSave () {
+      if (!this.canSave) return
+      this.save()
+    },
     destroy (event) {
       Dialog.create({
         title: this.$t('PICKUPDELETE.DELETE_SERIES_TITLE'),

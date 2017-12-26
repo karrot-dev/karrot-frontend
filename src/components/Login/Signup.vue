@@ -68,9 +68,7 @@
           class="error"
         >
           <i class="fa fa-exclamation-triangle"/>
-          <div>
-            {{ firstNonFieldError }}
-          </div>
+          {{ firstNonFieldError }}
         </div>
 
         <div class="actions">

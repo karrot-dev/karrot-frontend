@@ -8,9 +8,9 @@
       <p v-if="success">
         {{ $t('VERIFYMAIL.SUCCESS') }}
       </p>
-      <p v-if="status.hasValidationErrors">
+      <p v-if="hasAnyError">
         <i class="fa fa-exclamation-triangle"/>
-        {{ status.firstValidationError }}
+        {{ anyFirstError }}
       </p>
     </div>
   </div>

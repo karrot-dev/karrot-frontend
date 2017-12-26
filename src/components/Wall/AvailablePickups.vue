@@ -6,7 +6,7 @@
       class="generic-padding notice"
     >
       <i class="fa fa-exclamation-triangle on-left"/>
-      {{ $tc('PICKUPLIST.EMPTYNOTICE', pickups.length, { count: pickups.length }) }}
+      {{ $tc('PICKUPLIST.AVAILABLE', pickups.length, { count: pickups.length }) }}
       <div
         class="card-arrow"
         :class="{ upsideDown: showPickups }"

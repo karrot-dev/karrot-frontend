@@ -12,7 +12,7 @@
     "PROFILE_TITLE": "Perfil",
     "PASSWORD": "Contraseña",
     "USERNAME": "Nombre",
-    "WHERE_FROM": "Where you are from (not required)"
+    "WHERE_FROM": "De donde vienes (no obligado)"
   },
   "BUTTON": {
     "CREATE": "Crear",
@@ -103,7 +103,7 @@
   "PICKUPMANAGE": {
     "TITLE": "Manejar recogidas",
     "SERIES": "Recurring",
-    "SINGLE": "One-time pickups",
+    "SINGLE": "Recogidas únicas",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },
   "PICKUPDELETE": {
@@ -221,7 +221,7 @@
     "STORE_CREATE": "creyó la tienda {name}",
     "STORE_MODIFY": "cambió los ajustes de la tienda {name}",
     "STORE_DELETE": "borró la tienda {name}",
-    "PICKUP_CREATE": "created a new one-time pick-up",
+    "PICKUP_CREATE": "creó una nueva recogida única ",
     "PICKUP_MODIFY": "changed the settings of a pick-up",
     "PICKUP_DELETE": "eliminó una recogida",
     "SERIES_CREATE": "created a new recurring pick-up",

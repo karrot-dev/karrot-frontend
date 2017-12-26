@@ -39,8 +39,8 @@
               icon="fa-lock"
               :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
               :helper="$t('JOINGROUP.PASSWORD_LABEL')"
-              :error="this.group.joinStatus.hasValidationErrors"
-              :error-label="$t('JOINGROUP.PASSWORD_WRONG')"
+              :error="hasAnyError"
+              :error-label="anyFirstError"
             >
               <q-input
                 v-model="password"
@@ -90,6 +90,17 @@ export default {
     },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
+  computed: {
+    joinStatus () {
+      return this.group && this.group.joinStatus
+    },
+    hasAnyError () {
+      return this.joinStatus && this.joinStatus.hasValidationErrors
+    },
+    anyFirstError () {
+      return this.joinStatus && this.joinStatus.firstValidationError
+    },
+  },
 }
 </script>
 

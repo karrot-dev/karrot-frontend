@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .fa
-    margin-right: .3em
+@import '~variables'
+.fa
+  margin-right: .3em
+.router-link-active
+  background-color $primary !important
 </style>

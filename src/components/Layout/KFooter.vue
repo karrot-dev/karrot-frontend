@@ -82,7 +82,7 @@ export default {
         if (this.about.env === 'production') {
           return {
             link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
-            name: 'Release 3',
+            name: 'Release 4',
           }
         }
         if (this.about.env === 'development') {

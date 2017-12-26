@@ -20,19 +20,16 @@
               autocapitalize="off"
               spellcheck="false"
               :error="hasError('email')"
-              :error-label="firstError('email')"
             />
           </q-field>
         </div>
 
         <div
-          v-if="hasNonFieldError"
+          v-if="hasAnyError"
           class="error"
         >
           <i class="fa fa-exclamation-triangle"/>
-          <div>
-            {{ firstNonFieldError }}
-          </div>
+          {{ anyFirstError }}
         </div>
 
         <div class="actions">

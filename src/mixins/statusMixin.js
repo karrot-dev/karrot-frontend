@@ -4,27 +4,27 @@ export default {
   },
   computed: {
     isPending () {
-      return this.status.pending
+      return this.status && this.status.pending
     },
     hasNonFieldError () {
-      return !!this.status.firstNonFieldError
+      return this.status && !!this.status.firstNonFieldError
     },
     firstNonFieldError () {
-      return this.status.firstNonFieldError
+      return this.status && this.status.firstNonFieldError
     },
     hasAnyError () {
-      return this.status.hasValidationErrors
+      return this.status && this.status.hasValidationErrors
     },
     anyFirstError () {
-      return this.status.firstValidationError
+      return this.status && this.status.firstValidationError
     },
   },
   methods: {
     hasError (field) {
-      return !!this.status.validationErrors[field]
+      return !!this.firstError(field)
     },
     firstError (field) {
-      const errors = this.status.validationErrors[field]
+      const errors = this.status && this.status.validationErrors && this.status.validationErrors[field]
       return errors && errors[0]
     },
   },

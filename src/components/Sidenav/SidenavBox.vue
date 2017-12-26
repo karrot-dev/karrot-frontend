@@ -7,7 +7,7 @@
       </q-toolbar-title>
       <slot name="tools" />
     </q-toolbar>
-    <div class="content">
+    <div>
       <slot />
     </div>
   </q-card>

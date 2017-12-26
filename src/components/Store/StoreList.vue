@@ -8,7 +8,7 @@
       v-for="store in stores"
       :key="store.id"
       link
-      :to="{name: 'store', params: { storeId: store.id }}"
+      :to="{name: linkTo, params: { storeId: store.id }}"
     >
       <q-item-side class="text-center">
         <q-icon
@@ -50,6 +50,7 @@ export default {
   components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip },
   props: {
     stores: { required: true, type: Array },
+    linkTo: { default: 'store', type: String },
   },
   computed: {
     hasStores () {

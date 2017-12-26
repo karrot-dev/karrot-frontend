@@ -17,7 +17,7 @@
       </q-btn>
     </template>
 
-    <store-list :stores="stores"/>
+    <StoreList :stores="stores"/>
   </SidenavBox>
 </template>
 

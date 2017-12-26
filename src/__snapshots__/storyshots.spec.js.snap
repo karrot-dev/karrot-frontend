@@ -2216,11 +2216,130 @@ exports[`Storyshots Map GroupMap (only group location) 1`] = `
 </div>
 `;
 
-exports[`Storyshots Map GroupMap (selected store) 1`] = `<!---->`;
+exports[`Storyshots Map GroupMap (selected store) 1`] = `
+<div class="container" style="height:200px;">
+    <div class="vue2leaflet-map" style="opacity:1;">
+        <div></div>
+        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+            <div></div>
+        </div>
+    </div>
+    <!---->
+</div>
+`;
 
-exports[`Storyshots Map GroupMap (store has no location) 1`] = `<!---->`;
+exports[`Storyshots Map GroupMap (store has no location) 1`] = `
+<div class="container" style="height:200px;">
+    <div class="vue2leaflet-map" style="opacity:0.5;">
+        <div></div>
+        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+            <div></div>
+        </div>
+    </div>
+    <div class="overlay row justify-center content-center">
+        <div to="[object Object]">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> 
+        Set location
+       <!----></span></button>
+        </div>
+    </div>
+</div>
+`;
 
-exports[`Storyshots Map GroupMap 1`] = `<!---->`;
+exports[`Storyshots Map GroupMap 1`] = `
+<div class="container" style="height:200px;">
+    <div class="vue2leaflet-map" style="opacity:1;">
+        <div></div>
+        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+            <div></div>
+        </div>
+        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+            <div></div>
+        </div>
+    </div>
+    <!---->
+</div>
+`;
 
 exports[`Storyshots Map StandardMap (selected marker) 1`] = `
 <div class="vue2leaflet-map" style="height:600px;">
@@ -3654,7 +3773,42 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         </div>
     </div>
     <div>
-        <!---->
+        <div class="container map">
+            <div class="vue2leaflet-map" style="opacity:1;">
+                <div></div>
+                <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+                    <div></div>
+                </div>
+                <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+                    <div></div>
+                </div>
+            </div>
+            <!---->
+        </div>
     </div>
 </div>
 `;
@@ -3674,7 +3828,59 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         </button>
     </div>
     <div>
-        <!---->
+        <div class="no-padding q-list no-border q-list-highlight">
+            <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-side q-item-side-left q-item-section text-center">
+                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div class="q-item-label">
+                        Teststore1
+                    </div>
+                </div>
+            </div>
+            <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-side q-item-side-left q-item-section text-center">
+                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div class="q-item-label">
+                        New Tienda
+                    </div>
+                </div>
+            </div>
+            <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-side q-item-side-left q-item-section text-center">
+                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div class="q-item-label">
+                        Supermarkt Arheilgen
+                    </div>
+                </div>
+            </div>
+            <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-side q-item-side-left q-item-section text-center">
+                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div class="q-item-label">
+                        asd
+                    </div>
+                </div>
+            </div>
+            <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-side q-item-side-left q-item-section text-center">
+                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div class="q-item-label">
+                        Griesheimer Markt
+                    </div>
+                </div>
+            </div>
+            <!---->
+        </div>
     </div>
 </div>
 `;
@@ -4908,7 +5114,61 @@ exports[`Storyshots Stores StoreEdit 1`] = `
 </div>
 `;
 
-exports[`Storyshots Stores StoreList 1`] = `<!---->`;
+exports[`Storyshots Stores StoreList 1`] = `
+<div class="no-padding q-list no-border q-list-highlight">
+    <div class="q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-side-left q-item-section text-center">
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+        </div>
+        <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+                Teststore1
+            </div>
+        </div>
+    </div>
+    <div class="q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-side-left q-item-section text-center">
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+        </div>
+        <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+                New Tienda
+            </div>
+        </div>
+    </div>
+    <div class="q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-side-left q-item-section text-center">
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+        </div>
+        <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+                Supermarkt Arheilgen
+            </div>
+        </div>
+    </div>
+    <div class="q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-side-left q-item-section text-center">
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+        </div>
+        <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+                asd
+            </div>
+        </div>
+    </div>
+    <div class="q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-side-left q-item-section text-center">
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+        </div>
+        <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+                Griesheimer Markt
+            </div>
+        </div>
+    </div>
+    <!---->
+</div>
+`;
 
 exports[`Storyshots VerifyMail error 1`] = `
 <div>

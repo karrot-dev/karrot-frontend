@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import stores from '@/services/api/stores'
+import { optionsFor } from '@/services/storeStatus'
 import { createMetaModule, withMeta, metaStatuses, metaStatusesWithId, indexById, createRouteError } from '@/store/helpers'
 import router from '@/router'
 
@@ -16,13 +17,15 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    all: (state, getters) => state.idList.map(getters.get).sort(sortByName),
-    byCurrentGroup: (state, getters, rootState, rootGetters) => getters.all.filter(e => e.group === rootGetters['currentGroup/id']),
+    all: (state, getters) => state.idList.map(getters.get).sort(sortByStatus).sort(sortByName),
+    active: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
+    byCurrentGroup: (state, getters, rootState, rootGetters) => getters.active.filter(e => e.group === rootGetters['currentGroup/id']),
     get: (state, getters) => id => getters.enrich(state.entries[id]),
     enrich: (state, getters) => store => {
       return store && {
         ...store,
         ...metaStatusesWithId(getters, ['save'], store.id),
+        ui: optionsFor(store),
       }
     },
     activeStore: (state, getters) => getters.get(state.activeStoreId) || {},
@@ -95,6 +98,10 @@ export default {
       }
     },
   },
+}
+
+export function sortByStatus (a, b) {
+  return a.ui.sort - b.ui.sort
 }
 
 export function sortByName (a, b) {

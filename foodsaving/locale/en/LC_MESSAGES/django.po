@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-21 11:00+0000\n"
+"POT-Creation-Date: 2017-12-26 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,11 +66,15 @@ msgstr ""
 msgid "Group password is wrong"
 msgstr ""
 
-#: foodsaving/invitations/serializers.py:25 foodsaving/stores/serializers.py:62
+#: foodsaving/invitations/serializers.py:20
+msgid "An invitation has already been sent to this e-mail address"
+msgstr ""
+
+#: foodsaving/invitations/serializers.py:26 foodsaving/stores/serializers.py:62
 msgid "You are not a member of this group."
 msgstr ""
 
-#: foodsaving/invitations/serializers.py:30
+#: foodsaving/invitations/serializers.py:31
 msgid "User is already member of group"
 msgstr ""
 
@@ -238,7 +242,8 @@ msgid ""
 msgstr ""
 
 #: foodsaving/users/templates/mailverification-subject.jinja:1
-msgid "Verify your email address"
+#: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
+msgid "Please verify your email"
 msgstr ""
 
 #: foodsaving/users/templates/passwordreset_request-body-text.jinja:4
@@ -274,8 +279,4 @@ msgid ""
 "%(url)s\n"
 "\n"
 "You can ignore this message if you did not request it."
-msgstr ""
-
-#: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
-msgid "Please verify your email"
 msgstr ""

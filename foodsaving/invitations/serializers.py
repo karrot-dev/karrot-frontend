@@ -16,7 +16,8 @@ class InvitationSerializer(serializers.ModelSerializer):
         validators = [
             UniqueTogetherValidator(
                 queryset=Invitation.objects.filter(expires_at__gte=timezone.now()),
-                fields=('email', 'group')
+                fields=('email', 'group'),
+                message=_('An invitation has already been sent to this e-mail address')
             )
         ]
 

@@ -257,9 +257,9 @@
     "CONTENT": "內文",
     "CONTENT_HELPER": "同意書內文",
     "MINOR_EDIT": "稍微修改？",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
+    "MINOR_EDIT_HELPER": "錯字或格式等⋯⋯人們將不會被要求再次同意",
     "BLURB1": "你還沒有簽署合約！",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "BLURB2": "如果你有新增，那人們將會需要在他們領取食物前先行同意。",
     "DIALOGS": {
       "REPLACE": {
         "TITLE": "變更同意書？",

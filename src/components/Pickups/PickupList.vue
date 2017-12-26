@@ -18,7 +18,10 @@ import PickupItem from './PickupItem'
 
 export default {
   props: {
-    pickups: { required: true },
+    pickups: {
+      type: Array,
+      required: true,
+    },
   },
   components: {
     QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon, PickupItem,

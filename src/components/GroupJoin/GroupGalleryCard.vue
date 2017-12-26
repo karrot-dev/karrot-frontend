@@ -52,7 +52,7 @@ import Markdown from '@/components/Markdown'
 export default {
   props: {
     group: {
-      type: Boolean,
+      type: Object,
       required: true,
     },
     isMember: {

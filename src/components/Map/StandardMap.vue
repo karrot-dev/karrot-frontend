@@ -58,13 +58,16 @@ export default {
       type: Array,
     },
     selectedMarkerIds: {
+      type: Array,
       required: false,
       default: () => [],
     },
     showAttribution: {
+      type: Boolean,
       default: true,
     },
     defaultCenter: {
+      type: Object,
       default: null,
     },
   },

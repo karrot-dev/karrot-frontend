@@ -21,7 +21,10 @@ import L from 'leaflet'
 export default {
   components: { StandardMap },
   props: {
-    user: { required: true },
+    user: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     markers () {

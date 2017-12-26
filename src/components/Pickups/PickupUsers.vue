@@ -72,9 +72,16 @@ import { QSpinner, QResizeObservable } from 'quasar'
 
 export default {
   props: {
-    pickup: { required: true },
-    size: { default: 36 },
+    pickup: {
+      type: Object,
+      required: true,
+    },
+    size: {
+      type: Number,
+      default: 36,
+    },
     maxEmptyNumToShow: {
+      type: Number,
       default: 1,
     },
   },

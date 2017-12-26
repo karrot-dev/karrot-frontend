@@ -31,6 +31,7 @@ import RandomPicture from '@/components/ProfilePictures/RandomPicture'
 export default {
   props: {
     size: {
+      type: Number,
       default: 20,
     },
     hoverUser: {

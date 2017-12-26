@@ -159,3 +159,14 @@ export const getters = {
 
 The convention is to name the fields `<actionName>Status`,
 e.g. the status about a `save` action would be available as `saveStatus` or the `join` action as `joinStatus`
+
+## Checklist for creating new forms
+
+- Does the form edit an existing object? -> use `editMixin`
+- Does the form show server-side validation errors? -> `statusMixin`?
+    - uses `hasAnyError` and `anyFirstError` to show any server-side validation error?
+    - uses `hasError(field)` & `firstError(field)` methods to check for field-specific server-side validation errors?
+    - uses `hasNonFieldError` & `firstNonFieldError` to show errors unrelated to fields?
+    - sets `:loader="isPending"` on submit button?
+    - uses pending status for non-submit actions? (e.g. destroy)
+- Does the form use [vuelidate](https://monterail.github.io/vuelidate/) (`$v`) to check for validation errors client-side?

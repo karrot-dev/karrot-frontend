@@ -15,29 +15,28 @@
       </q-btn>
     </template>
 
-    <div>
-      <q-list
-        highlight
-        no-border
-      >
-        <q-item :to="{name: 'storePickups', params: { storeId }}">
-          <q-item-side class="text-center">
-            <q-icon name="fa-calendar-o" />
-          </q-item-side>
-          <q-item-main>
-            {{ $t("GROUP.PICKUPS") }}
-          </q-item-main>
-        </q-item>
-        <q-item :to="{name: 'storeHistory', params: { storeId }}">
-          <q-item-side class="text-center">
-            <q-icon name="fa-clock-o" />
-          </q-item-side>
-          <q-item-main>
-            {{ $t("GROUP.HISTORY") }}
-          </q-item-main>
-        </q-item>
-      </q-list>
-    </div>
+    <q-list
+      highlight
+      no-border
+      class="no-padding"
+    >
+      <q-item :to="{name: 'storePickups', params: { storeId }}">
+        <q-item-side class="text-center">
+          <q-icon name="fa-calendar-o" />
+        </q-item-side>
+        <q-item-main>
+          {{ $t("GROUP.PICKUPS") }}
+        </q-item-main>
+      </q-item>
+      <q-item :to="{name: 'storeHistory', params: { storeId }}">
+        <q-item-side class="text-center">
+          <q-icon name="fa-clock-o" />
+        </q-item-side>
+        <q-item-main>
+          {{ $t("GROUP.HISTORY") }}
+        </q-item-main>
+      </q-item>
+    </q-list>
 
   </SidenavBox>
 </template>

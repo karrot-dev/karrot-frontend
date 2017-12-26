@@ -19,6 +19,7 @@
       <q-list
         highlight
         no-border
+        class="no-padding"
       >
         <q-item :to="{name: 'group'}">
           <q-item-side class="text-center">

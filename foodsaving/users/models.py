@@ -40,6 +40,9 @@ class UserManager(BaseUserManager):
     def filter_by_similar_email(self, email):
         return self.filter(email__iexact=email)
 
+    def active(self):
+        return self.filter(deleted=False, is_active=True)
+
     def get_by_natural_key(self, email):
         """
         As we don't allow sign-ups with similarly cased email addresses,

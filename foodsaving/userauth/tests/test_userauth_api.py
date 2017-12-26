@@ -102,6 +102,17 @@ class TestUserDeleteAPI(APITestCase):
         self.assertFalse(self.pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
         self.assertTrue(self.past_pickupdate.collectors.get_queryset().filter(id=self.user.id).exists())
 
+        # actions are disabled when user is deleted
+        self.client.logout()
+        self.assertEqual(
+            self.client.post('/api/auth/', {'email': self.user.email, 'password': self.user.display_name}).status_code,
+            status.HTTP_400_BAD_REQUEST
+        )
+        self.assertEqual(
+            self.client.post('/api/auth/reset_password/', {'email': self.user.email}).status_code,
+            status.HTTP_400_BAD_REQUEST
+        )
+
 
 class TestCreateUserErrors(APITestCase):
     def setUp(self):

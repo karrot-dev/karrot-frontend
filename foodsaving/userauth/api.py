@@ -130,7 +130,7 @@ class ResetPasswordView(views.APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'email': ['this field is required']})
         try:
-            user = get_user_model().objects.get(email__iexact=request_email)
+            user = get_user_model().objects.active().get(email__iexact=request_email)
         except get_user_model().DoesNotExist:
             return Response(status=status.HTTP_400_BAD_REQUEST,
                             data={'email': ['e-mail address is not registered']})

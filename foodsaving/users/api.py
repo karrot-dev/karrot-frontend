@@ -16,7 +16,7 @@ class UserViewSet(
     """
     User Profiles
     """
-    queryset = get_user_model().objects
+    queryset = get_user_model().objects.active()
     serializer_class = UserSerializer
     filter_backends = (filters.SearchFilter,)
     permission_classes = (IsAuthenticated,)

@@ -4,8 +4,8 @@
       <q-field
         icon="fa-envelope"
         :helper="$t('GROUP.INVITE_EMAIL')"
-        :error="!!emailErrorMessage"
-        :error-label="emailErrorMessage"
+        :error="hasError"
+        :error-label="errorMessage"
       >
         <q-input
           v-model="form.email"
@@ -16,13 +16,6 @@
           @blur="$v.form.email.$touch"
         />
       </q-field>
-
-      <div
-        v-if="hasNonFieldError"
-        class="text-negative"
-      >
-        {{ firstNonFieldError }}
-      </div>
 
       <q-btn
         type="submit"
@@ -71,14 +64,17 @@ export default {
     },
   },
   computed: {
-    emailErrorMessage () {
+    hasError () {
+      return !!this.errorMessage
+    },
+    errorMessage () {
       if (this.$v.form.email.$error) {
         const m = this.$v.form.email
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')
         if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
       }
-      if (this.hasError('email')) return this.firstError('email')
+      if (this.hasNonFieldError) return this.firstNonFieldError
     },
     canSave () {
       return !this.$v.form.$error

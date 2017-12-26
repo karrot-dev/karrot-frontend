@@ -65,29 +65,38 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-">
-                            <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                            <div class="q-field row no-wrap items-start q-field-no-label">
                                 <!---->
-                                <div class="q-if-inner col row no-wrap items-center relative-position">
+                                <div class="row col">
                                     <!---->
-                                    <!---->
-                                    <div class="col row relative-position">
-                                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                            <div class="absolute-full overflow-hidden invisible">
-                                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                    <div class="q-field-content col-xs-12 col-sm">
+                                        <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                                            <!---->
+                                            <div class="q-if-inner col row no-wrap items-center relative-position">
+                                                <!---->
+                                                <!---->
+                                                <div class="col row relative-position">
+                                                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
+                                                        <div class="absolute-full overflow-hidden invisible">
+                                                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                        </div>
+                                                        <div class="absolute-full overflow-hidden invisible">
+                                                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                                    <textarea placeholder="Write a message..." rows="2" class="col q-input-target q-input-area"></textarea>
+                                                </div>
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <!---->
                                             </div>
-                                            <div class="absolute-full overflow-hidden invisible">
-                                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
-                                            </div>
+                                            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">arrow_forward</i>
                                         </div>
-                                        <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                                        <textarea placeholder="Write a message..." rows="2" class="col q-input-target q-input-area"></textarea>
+                                        <!---->
                                     </div>
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
                                 </div>
-                                <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">arrow_forward</i>
                             </div>
                         </div>
                     </div>
@@ -354,14 +363,14 @@ exports[`Storyshots GroupEdit create 1`] = `
     <div class="q-card">
         <div class="edit">
             <form>
-                <div class="q-field row no-wrap items-start q-field-with-error">
+                <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-fw fa-star"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
                             <div class="q-field-label-inner row items-center"><span>Title of this group</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div id="group-title" autocomplete="off" class="q-if row no-wrap items-center relative-position q-input q-if-error text-negative">
+                            <div id="group-title" autocomplete="off" class="q-if row no-wrap items-center relative-position q-input text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
                                     <!---->
@@ -374,10 +383,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                                 </div>
                                 <!---->
                             </div>
-                            <div class="q-field-bottom row no-wrap q-field-no-input">
-                                <div class="q-field-error col">This field is required.</div>
-                                <!---->
-                            </div>
+                            <!---->
                         </div>
                     </div>
                 </div>
@@ -573,14 +579,14 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                     </div>
                 </div>
-                <div class="q-field row no-wrap items-start q-field-with-error">
+                <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-fw fa-globe"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
                             <div class="q-field-label-inner row items-center"><span>Time zone of group</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div class="q-if row no-wrap items-center relative-position q-input q-if-error text-negative">
+                            <div class="q-if row no-wrap items-center relative-position q-input text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
                                     <!---->
@@ -596,10 +602,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                                 </div>
                                 <!---->
                             </div>
-                            <div class="q-field-bottom row no-wrap q-field-no-input">
-                                <div class="q-field-error col">Enter a valid timezone.</div>
-                                <!---->
-                            </div>
+                            <!---->
                         </div>
                     </div>
                 </div>
@@ -2085,7 +2088,7 @@ exports[`Storyshots Login error 1`] = `
         </div>
         <div class="error">
             <i class="fa fa-exclamation-triangle"></i>
-
+            is missing
         </div>
         <div class="actions">
             <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
@@ -2431,7 +2434,7 @@ exports[`Storyshots Password Reset error 1`] = `
                     <div class="row col">
                         <!---->
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div autocorrect="off" autocapitalize="off" spellcheck="false" error-label="some error" class="q-if row no-wrap items-center relative-position q-input q-if-has-label q-if-error text-negative">
+                            <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label q-if-error text-negative">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
                                     <div class="q-if-label ellipsis full-width absolute self-start">Mail address</div>
@@ -2449,7 +2452,10 @@ exports[`Storyshots Password Reset error 1`] = `
                     </div>
                 </div>
             </div>
-            <!---->
+            <div class="error">
+                <i class="fa fa-exclamation-triangle"></i>
+                some error
+            </div>
             <div class="actions">
                 <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
                     <div class="desktop-only q-focus-helper"></div>
@@ -3559,6 +3565,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                             </div>
                         </div>
                     </div>
+                    <!---->
                     <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
                         <div class="desktop-only q-focus-helper"></div>
                         <!----><span class="q-btn-inner row col flex-center"><!----> 

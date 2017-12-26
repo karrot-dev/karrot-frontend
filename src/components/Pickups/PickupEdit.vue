@@ -3,13 +3,13 @@
     class="edit"
     :class="{ changed: hasChanged }"
   >
-    <form @submit.prevent="save">
+    <form @submit.prevent="maybeSave">
       <q-field
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
         :helper="$t('CREATEPICKUP.TIME_HELPER')"
-        :error="hasError('time')"
-        :error-label="firstError('time')"
+        :error="hasError('date')"
+        :error-label="firstError('date')"
       >
         <q-datetime
           type="time"
@@ -54,6 +54,8 @@
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
+        :error="hasError('description')"
+        :error-label="firstError('description')"
       >
         <q-input
           v-model="edit.description"
@@ -72,7 +74,7 @@
       <q-btn
         type="submit"
         color="primary"
-        :disable="!isNew && !hasChanged"
+        :disable="!canSave"
         loader
         :value="isPending"
       >
@@ -101,8 +103,12 @@
         color="red"
         @click="destroy"
         v-if="!isNew"
-        :disabled="value.collectorIds.length !== 0"
+        :disable="!canDestroy"
       >
+        <q-tooltip
+          v-if="!canDestroy"
+          v-t="'CREATEPICKUP.DELETION_FORBIDDEN_HELPER'"
+        />
         {{ $t('BUTTON.DELETE') }}
       </q-btn>
     </form>
@@ -110,7 +116,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip } from 'quasar'
 
 import { is24h } from '@/i18n'
 import editMixin from '@/mixins/editMixin'
@@ -121,12 +127,27 @@ export default {
   name: 'PickupEdit',
   mixins: [editMixin, statusMixin],
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect,
+    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip,
   },
   computed: {
     is24h,
     now () {
       return dateFnsHelper.now
+    },
+    canSave () {
+      if (!this.isNew && !this.hasChanged) {
+        return false
+      }
+      return true
+    },
+    canDestroy () {
+      return this.edit.isEmpty
+    },
+  },
+  methods: {
+    maybeSave () {
+      if (!this.canSave) return
+      this.save()
     },
   },
 }

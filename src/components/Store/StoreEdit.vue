@@ -15,8 +15,8 @@
             <q-input
               v-model="edit.name"
               :autofocus="true"
-              @blur="$v.edit.name.$touch"
               autocomplete="off"
+              @blur="$v.edit.name.$touch"
             />
           </q-field>
           <q-field
@@ -166,11 +166,13 @@ export default {
       return !!this.nameError
     },
     nameError () {
-      const m = this.$v.edit.name
-      if (!m.required) return this.$t('VALIDATION.REQUIRED')
-      if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 2)
-      if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
-      if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
+      if (this.$v.edit.name.$error) {
+        const m = this.$v.edit.name
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 2)
+        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+        if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
+      }
       return this.firstError('name')
     },
     hasAddressError () {

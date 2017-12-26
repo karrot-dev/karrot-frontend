@@ -8,6 +8,7 @@
     </template>
     <template slot="tools">
       <q-btn
+        v-if="hasStores"
         flat
         @click="$router.push({name: 'storeCreate'})"
       >
@@ -16,24 +17,27 @@
       </q-btn>
     </template>
 
-    <div>
-      <store-list :stores="stores"/>
-    </div>
+    <store-list :stores="stores"/>
   </SidenavBox>
 </template>
 
 <script>
 
-import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip } from 'quasar'
+import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, QItemTile } from 'quasar'
 import SidenavBox from './SidenavBox'
 import StoreList from '@/components/Store/StoreList'
 
 export default {
   props: {
-    stores: { required: true },
+    stores: { required: true, type: Array },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoreList,
+    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoreList, QItemTile,
+  },
+  computed: {
+    hasStores () {
+      return this.stores && this.stores.length > 0
+    },
   },
 }
 </script>

@@ -117,9 +117,19 @@ export default {
     QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
   },
   props: {
-    breadcrumbs: { required: false, default: () => [] },
-    searchOpen: { required: true },
-    user: { required: true },
+    breadcrumbs: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    searchOpen: {
+      type: Boolean,
+      required: true,
+    },
+    user: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>

@@ -108,6 +108,7 @@ import HistoryPayloadDetail from '@/components/History/HistoryPayloadDetail'
 export default {
   props: {
     entry: {
+      type: Object,
       default: null,
     },
   },

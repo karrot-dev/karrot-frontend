@@ -52,9 +52,11 @@ import Markdown from '@/components/Markdown'
 export default {
   props: {
     group: {
+      type: Boolean,
       required: true,
     },
     isMember: {
+      type: Boolean,
       required: true,
     },
   },

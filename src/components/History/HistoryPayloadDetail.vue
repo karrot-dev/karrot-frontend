@@ -52,6 +52,7 @@ export default {
       type: String,
     },
     value: {
+      type: Boolean,
       required: true,
     },
   },

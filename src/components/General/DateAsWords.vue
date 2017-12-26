@@ -12,7 +12,7 @@ import dateFnsHelper from '@/services/dateFnsHelper'
 export default {
   props: {
     date: {
-      type: Boolean,
+      type: Date,
       required: true,
     },
   },

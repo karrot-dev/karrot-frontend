@@ -49,7 +49,11 @@ export default {
     QToolbar, QToolbarTitle, QBtn, KarrotLogo, KBreadcrumb, LocaleSelect,
   },
   props: {
-    breadcrumbs: { required: false, default: () => [] },
+    breadcrumbs: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
 }
 </script>

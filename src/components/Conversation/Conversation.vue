@@ -55,15 +55,15 @@ export default {
   },
   props: {
     data: {
-      type: Boolean,
+      type: Object,
       required: true,
     },
     fetchMore: {
-      type: Boolean,
+      type: Function,
       required: true,
     },
     user: {
-      type: Boolean,
+      type: Object,
       required: true,
     },
   },

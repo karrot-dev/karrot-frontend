@@ -98,7 +98,10 @@ import LocaleSelect from '@/components/General/LocaleSelect'
 export default {
   components: { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
   props: {
-    currentUserId: { required: true },
+    currentUserId: {
+      type: Number,
+      required: true,
+    },
   },
 }
 </script>

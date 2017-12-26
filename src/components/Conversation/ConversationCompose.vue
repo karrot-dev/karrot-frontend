@@ -37,7 +37,7 @@ export default {
       default: 'placeholder',
     },
     user: {
-      type: Boolean,
+      type: Object,
       required: true,
     },
   },

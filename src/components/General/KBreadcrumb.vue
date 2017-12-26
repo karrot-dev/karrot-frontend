@@ -64,7 +64,7 @@ export default {
   components: { QBtn },
   props: {
     breadcrumbs: {
-      type: Boolean,
+      type: Array,
       required: true,
     },
   },

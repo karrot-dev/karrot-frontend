@@ -37,7 +37,7 @@ export default {
   },
   props: {
     message: {
-      type: Boolean,
+      type: Object,
       required: true,
     },
   },

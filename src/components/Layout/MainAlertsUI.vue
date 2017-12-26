@@ -22,7 +22,10 @@ import KAlert from '@/components/Layout/KAlert'
 export default {
   components: { KAlert },
   props: {
-    alerts: { required: true },
+    alerts: {
+      type: Array,
+      required: true,
+    },
   },
   methods: {
 

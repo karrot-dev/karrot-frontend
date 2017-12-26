@@ -8,7 +8,10 @@
             :source="store.description"
           />
         </q-item-main>
-        <q-item-side right class="group">
+        <q-item-side
+          right
+          class="group"
+        >
           <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
             <q-btn
               small
@@ -24,7 +27,7 @@
               small
               round
               color="secondary"
-              icon="fa-clock-o"
+              icon="fa-calendar-o"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
@@ -44,7 +47,14 @@
       </template>
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">
-        {{ $t('PICKUPLIST.NONE_HINT') }}
+        <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+          <q-btn
+            small
+            round
+            icon="fa-calendar-o"
+          />
+          {{ $t('PICKUPLIST.NONE_HINT') }}
+        </router-link>
       </template>
     </KNotice>
   </div>

@@ -17,7 +17,7 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    all: (state, getters) => state.idList.map(getters.get).sort(sortByStatus).sort(sortByName),
+    all: (state, getters) => state.idList.map(getters.get).sort(sortByName).sort(sortByStatus),
     active: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
     byCurrentGroup: (state, getters, rootState, rootGetters) => getters.active.filter(e => e.group === rootGetters['currentGroup/id']),
     get: (state, getters) => id => getters.enrich(state.entries[id]),

@@ -50,7 +50,10 @@ export default {
   mixins: [statusMixin, validationMixin],
   components: { QIcon, QField, QInput, QBtn, QTooltip },
   props: {
-    invitations: { required: true },
+    invitations: {
+      type: Boolean,
+      required: true,
+    },
   },
   data () {
     return {

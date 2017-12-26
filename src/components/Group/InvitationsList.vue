@@ -31,7 +31,10 @@ export default {
   components: { QSpinnerDots },
   mixins: [statusMixin],
   props: {
-    invitations: { required: true },
+    invitations: {
+      type: Boolean,
+      required: true,
+    },
   },
 }
 </script>

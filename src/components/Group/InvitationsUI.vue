@@ -24,9 +24,18 @@ import InvitationsList from './InvitationsList'
 export default {
   components: { QIcon, InvitationsForm, InvitationsList },
   props: {
-    invitations: { required: true },
-    fetchStatus: { required: true },
-    sendStatus: { required: true },
+    invitations: {
+      type: Boolean,
+      required: true,
+    },
+    fetchStatus: {
+      type: Boolean,
+      required: true,
+    },
+    sendStatus: {
+      type: Boolean,
+      required: true,
+    },
   },
 }
 </script>

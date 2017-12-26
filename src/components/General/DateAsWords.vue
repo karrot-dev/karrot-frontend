@@ -11,7 +11,10 @@ import dateFnsHelper from '@/services/dateFnsHelper'
 
 export default {
   props: {
-    date: { required: true },
+    date: {
+      type: Boolean,
+      required: true,
+    },
   },
   components: { QTooltip },
   computed: {

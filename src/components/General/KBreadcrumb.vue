@@ -63,7 +63,10 @@ import { QBtn } from 'quasar'
 export default {
   components: { QBtn },
   props: {
-    breadcrumbs: { required: true },
+    breadcrumbs: {
+      type: Boolean,
+      required: true,
+    },
   },
   computed: {
     prevElements () {

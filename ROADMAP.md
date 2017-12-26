@@ -12,7 +12,7 @@ We are working on this either right now or pretty soon in the future. Should be 
   - Group admins https://github.com/yunity/karrot-frontend/issues/356
 - (Hybrid) App for Android and iOS @nicksellen https://github.com/yunity/karrot-frontend/issues/674
 
-[View issues](https://github.com/yunity/karrot-frontend/milestone/11)
+[View issues](https://github.com/yunity/karrot-frontend/milestone/13)
 
 ## Ready for development (lower priority)
 

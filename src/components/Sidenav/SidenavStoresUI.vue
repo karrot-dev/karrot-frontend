@@ -1,10 +1,20 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-shopping-cart" />{{ $t('GROUP.STORES') }}</div>
+    <div slot="name">
+      <i class="fa fa-fw fa-shopping-cart" />
+      {{ $t('GROUP.STORES') }}
+    </div>
     <div slot="tools">
       <router-link :to="{name: 'storeCreate'}">
-        <q-btn class="text-white" small flat>
-          <q-icon size="1em" name="fa-plus-circle" />
+        <q-btn
+          class="text-white"
+          small
+          flat
+        >
+          <q-icon
+            size="1em"
+            name="fa-plus-circle"
+          />
           {{ $t('BUTTON.CREATE') }}
         </q-btn>
       </router-link>
@@ -32,6 +42,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .fa
-    margin-right: .3em
+@import '~variables'
+.fa
+  margin-right: .3em
+.router-link-active
+  background-color $primary !important
 </style>

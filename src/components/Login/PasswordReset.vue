@@ -1,6 +1,10 @@
 <template>
   <div>
-    <form v-if="!success" name="passwordreset" @submit.prevent="$emit('submit', email)">
+    <form
+      v-if="!success"
+      name="passwordreset"
+      @submit.prevent="$emit('submit', email)"
+    >
       <div>
         <p>
           {{ $t('PASSWORDRESET.INTRO') }}
@@ -12,23 +16,36 @@
               :float-label="$t('PASSWORDRESET.EMAIL')"
               type="email"
               v-model="email"
-              autocorrect="off" autocapitalize="off" spellcheck="false"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
               :error="hasError('email')"
-              :error-label="firstError('email')"
             />
           </q-field>
         </div>
 
-        <div v-if="hasNonFieldError" class="error">
+        <div
+          v-if="hasAnyError"
+          class="error"
+        >
           <i class="fa fa-exclamation-triangle"/>
-          <div>{{ firstNonFieldError }}</div>
+          {{ anyFirstError }}
         </div>
 
         <div class="actions">
-          <q-btn type="button" @click="$router.push({ name: 'login' })" flat>
+          <q-btn
+            type="button"
+            @click="$router.push({ name: 'login' })"
+            flat
+          >
             {{ $t('PASSWORDRESET.LOGIN') }}
           </q-btn>
-          <q-btn type="submit" class="submit shadow-4" loader :value="isPending">
+          <q-btn
+            type="submit"
+            class="submit shadow-4"
+            loader
+            :value="isPending"
+          >
             {{ $t('PASSWORDRESET.SUBMIT') }}
           </q-btn>
         </div>

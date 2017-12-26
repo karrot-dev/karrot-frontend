@@ -2,6 +2,7 @@
   "title": "Karrot Developer Documentation",
   "gitbook": ">3.0.0",
   "plugins": [
+    "theme-vuejs-2",
     "edit-link",
     "prism",
     "-fontsettings",

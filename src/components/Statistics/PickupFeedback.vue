@@ -2,21 +2,33 @@
   <div class="wrapper">
     <div class="row justify-inbetween no-wrap image-and-text">
       <div class="image-and-text-left gt-sm">
-        <img style="width: 100%;" :src="cartImg">
+        <img
+          style="width: 100%;"
+          :src="cartImg"
+        >
       </div>
       <div class="image-and-text-right">
         <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-        <p v-if="select">{{ select.store.name + ', ' + this.$d(select.date, 'dateShort') }}
-          <q-btn flat @click="select = false">Andere Abholung</q-btn>
+        <p v-if="select">
+          {{ select.store.name + ', ' + this.$d(select.date, 'dateShort') }}
+          <q-btn
+            flat
+            @click="select = false"
+          >
+            Andere Abholung
+          </q-btn>
         </p>
-        <p v-if="!select">{{ $t('PICKUP_FEEDBACK.SUBTITLE') }}</p>
+        <p v-if="!select">
+          {{ $t('PICKUP_FEEDBACK.SUBTITLE') }}
+        </p>
       </div>
     </div>
     <div v-if="!singlePicked">
       <q-field
         style="margin-top: 2em; padding: 0 .5em"
         icon="fa-shopping-bag"
-        label="Please select the pickup you want to feedback first">
+        label="Please select the pickup you want to feedback first"
+      >
         <q-select
           v-model="select"
           :options="feedbackOptions"
@@ -24,12 +36,16 @@
         />
       </q-field>
     </div>
-    <div style="padding: 0 1.5em" v-if="singlePicked">
+    <div
+      v-if="singlePicked"
+      style="padding: 0 1.5em"
+    >
       <AmountPicker/>
       <q-field
         style="margin-top: 2em; padding: 0 .5em"
         icon="fa-star"
-        :label="$t('PICKUP_FEEDBACK.COMMENT')">
+        :label="$t('PICKUP_FEEDBACK.COMMENT')"
+      >
         <q-input
           v-model="comment"
           type="textarea"
@@ -39,7 +55,13 @@
         />
       </q-field>
       <div style="margin-top: 1.5em; padding-bottom: 1em">
-        <q-btn type="submit" class="actionButton" color="primary">{{ $t('BUTTON.CREATE') }}</q-btn>
+        <q-btn
+          type="submit"
+          class="actionButton"
+          color="primary"
+        >
+          {{ $t('BUTTON.CREATE') }}
+        </q-btn>
         <div style="clear: both"/>
       </div>
     </div>

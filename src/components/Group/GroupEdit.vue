@@ -1,7 +1,10 @@
 <template>
   <div>
     <q-card>
-      <div class="edit" :class="{ changed: hasChanged }">
+      <div
+        class="edit"
+        :class="{ changed: hasChanged }"
+      >
         <form @submit.prevent="maybeSave">
           <q-field
             icon="fa-fw fa-star"
@@ -13,8 +16,8 @@
               id="group-title"
               v-model="edit.name"
               :autofocus="true"
-              @blur="$v.edit.name.$touch"
               autocomplete="off"
+              @blur="$v.edit.name.$touch"
             />
           </q-field>
 
@@ -79,17 +82,40 @@
               v-model="edit.timezone"
               @blur="$v.edit.timezone.$touch"
             >
-              <q-autocomplete :static-data="timezones" :max-results="10" :debounce="300" :filter="timezoneFilter"/>
+              <q-autocomplete
+                :static-data="timezones"
+                :max-results="10"
+                :debounce="300"
+                :filter="timezoneFilter"
+              />
             </q-input>
           </q-field>
 
-          <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
+          <div
+            v-if="hasNonFieldError"
+            class="text-negative"
+          >
+            {{ firstNonFieldError }}
+          </div>
 
-          <q-btn class="actionButton" type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">
+          <q-btn
+            class="actionButton"
+            type="button"
+            @click="reset"
+            v-if="!isNew"
+            :disable="!hasChanged"
+          >
             {{ $t('BUTTON.RESET') }}
           </q-btn>
 
-          <q-btn class="actionButton" type="submit" color="primary" :disable="!canSave" loader :value="isPending">
+          <q-btn
+            class="actionButton"
+            type="submit"
+            color="primary"
+            :disable="!canSave"
+            loader
+            :value="isPending"
+          >
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
           </q-btn>
           <div style="clear: both"/>
@@ -147,20 +173,24 @@ export default {
       return !!this.nameError
     },
     nameError () {
-      const m = this.$v.edit.name
-      if (!m.required) return this.$t('VALIDATION.REQUIRED')
-      if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 4)
-      if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
-      if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
+      if (this.$v.edit.name.$error) {
+        const m = this.$v.edit.name
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 4)
+        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+        if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
+      }
       return this.firstError('name')
     },
     hasTimezoneError () {
       return !!this.timezoneError
     },
     timezoneError () {
-      const m = this.$v.edit.timezone
-      if (!m.required) return this.$t('VALIDATION.REQUIRED')
-      if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
+      if (this.$v.edit.timezone.$error) {
+        const m = this.$v.edit.timezone
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
+      }
       return this.firstError('timezone')
     },
     hasAddressError () {

@@ -1,8 +1,24 @@
 <template>
-  <div class="container" :style="{ width: imgSize, height:imgSize }">
-    <img :width="imgSize" :height="imgSize" :src="scaleImg">
-    <img class="pointer" :width="pointerSize[0]" :height="pointerSize[1]" :src="scalePointerImg" :style="{ transform: pointerRotation, top:pointerSize[2] }">
-    <div class="text-bottom" :style="{ bottom: bottomOffset }">
+  <div
+    class="container"
+    :style="{ width: imgSize, height:imgSize }"
+  >
+    <img
+      :width="imgSize"
+      :height="imgSize"
+      :src="scaleImg"
+    >
+    <img
+      class="pointer"
+      :width="pointerSize[0]"
+      :height="pointerSize[1]"
+      :src="scalePointerImg"
+      :style="{ transform: pointerRotation, top:pointerSize[2] }"
+    >
+    <div
+      class="text-bottom"
+      :style="{ bottom: bottomOffset }"
+    >
       <span :style="{ fontSize: fontSize }">{{ amount }}</span>
       <span :style="{ fontSize: fontSizeSmall }">kg</span>
     </div>

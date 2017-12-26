@@ -8,7 +8,9 @@
       @leave="leave"
     >
       <strong v-if="pickup.store">
-        <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">{{ pickup.store.name }}</router-link>
+        <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
+          {{ pickup.store.name }}
+        </router-link>
       </strong> {{ $d(pickup.date, 'dateWithDayName') }}
     </PickupItem>
     <KNotice v-if="pickups && pickups.length == 0" >

@@ -1,13 +1,15 @@
 <template>
   <div>
     <k-alert
-      v-for="alert in formattedAlerts" :key="alert.id"
+      v-for="alert in formattedAlerts"
+      :key="alert.id"
       :class="alertClasses"
       :color="alert.color"
       :icon="alert.icon"
       :dismissible="isDismissible(alert)"
       @dismiss="isDismissible(alert) && $emit('dismiss', alert.id)"
-      :actions="alert.actions || []">
+      :actions="alert.actions || []"
+    >
       {{ $t(alert.message, alert.context) }}
     </k-alert>
   </div>

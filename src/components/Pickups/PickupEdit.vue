@@ -1,17 +1,22 @@
 <template>
-  <div class="edit" :class="{ changed: hasChanged }">
-    <form @submit.prevent="save">
+  <div
+    class="edit"
+    :class="{ changed: hasChanged }"
+  >
+    <form @submit.prevent="maybeSave">
       <q-field
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
         :helper="$t('CREATEPICKUP.TIME_HELPER')"
-        :error="hasError('time')"
-        :error-label="firstError('time')"
+        :error="hasError('date')"
+        :error-label="firstError('date')"
       >
-        <q-datetime type="time"
-                    v-model="edit.date"
-                    :format24h="is24h"
-                    :display-value="$d(edit.date, 'timeShort')"/>
+        <q-datetime
+          type="time"
+          v-model="edit.date"
+          :format24h="is24h"
+          :display-value="$d(edit.date, 'timeShort')"
+        />
       </q-field>
 
       <q-field
@@ -21,7 +26,12 @@
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
-        <q-datetime type="date" v-model="edit.date" :min="now" :display-value="$d(edit.date, 'dateShort')"/>
+        <q-datetime
+          type="date"
+          v-model="edit.date"
+          :min="now"
+          :display-value="$d(edit.date, 'dateShort')"
+        />
       </q-field>
 
       <q-field
@@ -31,29 +41,82 @@
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
       >
-        <q-slider v-model="edit.maxCollectors" :min="1" :max="10" label label-always />
+        <q-slider
+          v-model="edit.maxCollectors"
+          :min="1"
+          :max="10"
+          label
+          label-always
+        />
       </q-field>
 
       <q-field
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
+        :error="hasError('description')"
+        :error-label="firstError('description')"
       >
-        <q-input v-model="edit.description" type="textarea" max-length="500" />
+        <q-input
+          v-model="edit.description"
+          type="textarea"
+          max-length="500"
+        />
       </q-field>
 
-      <div v-if="hasNonFieldError" class="text-negative">{{ firstNonFieldError }}</div>
+      <div
+        v-if="hasNonFieldError"
+        class="text-negative"
+      >
+        {{ firstNonFieldError }}
+      </div>
 
-      <q-btn type="submit" color="primary" :disable="!isNew && !hasChanged" loader :value="isPending">{{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}</q-btn>
-      <q-btn type="button" @click="reset" v-if="!isNew" :disable="!hasChanged">{{ $t('BUTTON.RESET') }}</q-btn>
-      <q-btn type="button" @click="$emit('cancel')" v-if="isNew">{{ $t('BUTTON.CANCEL') }}</q-btn>
-      <q-btn type="button" color="red" @click="destroy" v-if="!isNew" :disabled="value.collectorIds.length !== 0">{{ $t('BUTTON.DELETE') }}</q-btn>
+      <q-btn
+        type="submit"
+        color="primary"
+        :disable="!canSave"
+        loader
+        :value="isPending"
+      >
+        {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+      </q-btn>
+
+      <q-btn
+        type="button"
+        @click="reset"
+        v-if="!isNew"
+        :disable="!hasChanged"
+      >
+        {{ $t('BUTTON.RESET') }}
+      </q-btn>
+
+      <q-btn
+        type="button"
+        @click="$emit('cancel')"
+        v-if="isNew"
+      >
+        {{ $t('BUTTON.CANCEL') }}
+      </q-btn>
+
+      <q-btn
+        type="button"
+        color="red"
+        @click="destroy"
+        v-if="!isNew"
+        :disable="!canDestroy"
+      >
+        <q-tooltip
+          v-if="!canDestroy"
+          v-t="'CREATEPICKUP.DELETION_FORBIDDEN_HELPER'"
+        />
+        {{ $t('BUTTON.DELETE') }}
+      </q-btn>
     </form>
   </div>
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect } from 'quasar'
+import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip } from 'quasar'
 
 import { is24h } from '@/i18n'
 import editMixin from '@/mixins/editMixin'
@@ -64,12 +127,27 @@ export default {
   name: 'PickupEdit',
   mixins: [editMixin, statusMixin],
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect,
+    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip,
   },
   computed: {
     is24h,
     now () {
       return dateFnsHelper.now
+    },
+    canSave () {
+      if (!this.isNew && !this.hasChanged) {
+        return false
+      }
+      return true
+    },
+    canDestroy () {
+      return this.edit.isEmpty
+    },
+  },
+  methods: {
+    maybeSave () {
+      if (!this.canSave) return
+      this.save()
     },
   },
 }

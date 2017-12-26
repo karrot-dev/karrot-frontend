@@ -8,7 +8,7 @@
     "SERVER_ERROR": "Server error"
   },
   "USERDATA": {
-    "EMAIL": "Mail",
+    "EMAIL": "E-mail",
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Heslo",
     "USERNAME": "Jméno",
@@ -86,7 +86,7 @@
     "ARCHIVED": "This store has been archived"
   },
   "STOREEDIT": {
-    "NAME": "Name",
+    "NAME": "Jméno",
     "STATUS":"Status",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
@@ -111,7 +111,7 @@
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
-    "DISPLAY_NAME": "Name",
+    "DISPLAY_NAME": "Jméno",
     "DESCRIPTION": "About you",
     "PASSWORD": "Enter your new password"
   },

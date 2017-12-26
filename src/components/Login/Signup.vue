@@ -9,7 +9,10 @@
         {{ $t('GLOBAL.BETA_WARNING') }}
       </q-card-main>
     </q-card>
-    <form name="signup" @submit.prevent="submit">
+    <form
+      name="signup"
+      @submit.prevent="submit"
+    >
       <div class="content">
         <div class="white-box">
           <q-field
@@ -21,7 +24,9 @@
               :autofocus="true"
               v-model="user.displayName"
               :float-label="$t('USERDATA.USERNAME')"
-              autocorrect="off" autocapitalize="off" spellcheck="false"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
             />
           </q-field>
         </div>
@@ -35,7 +40,9 @@
               v-model="user.email"
               type="email"
               :float-label="$t('USERDATA.EMAIL')"
-              autocorrect="off" autocapitalize="off" spellcheck="false"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
             />
           </q-field>
         </div>
@@ -49,21 +56,35 @@
               v-model="user.password"
               type="password"
               :float-label="$t('USERDATA.PASSWORD')"
-              autocorrect="off" autocapitalize="off" spellcheck="false"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
             />
           </q-field>
         </div>
 
-        <div v-if="hasNonFieldError" class="error">
+        <div
+          v-if="hasNonFieldError"
+          class="error"
+        >
           <i class="fa fa-exclamation-triangle"/>
-          <div>{{ firstNonFieldError }}</div>
+          {{ firstNonFieldError }}
         </div>
 
         <div class="actions">
-          <q-btn type="button" @click="$router.push({ name: 'login' })" flat>
+          <q-btn
+            type="button"
+            @click="$router.push({ name: 'login' })"
+            flat
+          >
             {{ $t('SIGNUP.BACK') }}
           </q-btn>
-          <q-btn type="submit" class="submit shadow-4" loader :value="isPending">
+          <q-btn
+            type="submit"
+            class="submit shadow-4"
+            loader
+            :value="isPending"
+          >
             {{ $t('SIGNUP.OK') }}
           </q-btn>
         </div>

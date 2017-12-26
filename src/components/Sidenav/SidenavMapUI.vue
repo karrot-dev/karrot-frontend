@@ -1,23 +1,49 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-map" />{{ $t('GROUPMAP.TITLE') }}</div>
-    <div slot="tools" class="tools">
-      <q-btn flat small @click="$emit('toggleStores')">
+    <div slot="name">
+      <i class="fa fa-fw fa-map" />
+      {{ $t('GROUPMAP.TITLE') }}
+    </div>
+    <div
+      slot="tools"
+      class="tools"
+    >
+      <q-btn
+        flat
+        small
+        @click="$emit('toggleStores')"
+      >
         <span class="fa-stack">
           <i class="fa fa-shopping-cart fa-stack-1x" />
-          <i v-if="showStores" class="fa fa-check fa-bot-right fa-stack-1x" />
-          <i v-else class="fa fa-times fa-bot-right fa-stack-1x" />
+          <i
+            v-if="showStores"
+            class="fa fa-check fa-bot-right fa-stack-1x"
+          />
+          <i
+            v-else
+            class="fa fa-times fa-bot-right fa-stack-1x"
+          />
         </span>
         <q-tooltip>
           {{ $t( showStores ? 'GROUPMAP.HIDE_STORES' : 'GROUPMAP.SHOW_STORES') }}
         </q-tooltip>
       </q-btn>
 
-      <q-btn flat small @click="$emit('toggleUsers')">
+      <q-btn
+        flat
+        small
+        @click="$emit('toggleUsers')"
+      >
         <span class="fa-stack">
           <i class="fa fa-user fa-stack-1x" />
-          <i v-if="showUsers" class="fa fa-check fa-bot-right fa-stack-1x" />
-          <i v-else class="fa fa-times fa-bot-right fa-stack-1x" />
+          <i
+            v-if="showUsers"
+            class="fa fa-check fa-bot-right fa-stack-1x"
+          />
+          <i
+            v-else
+            class="fa fa-times fa-bot-right fa-stack-1x"
+          />
         </span>
         <q-tooltip>
           {{ $t( showUsers ? 'GROUPMAP.HIDE_USERS' : 'GROUPMAP.SHOW_USERS') }}

@@ -1,5 +1,8 @@
 <template>
-  <q-card class="no-shadow generic-padding grey-border" style="width: 100%">
+  <q-card
+    class="no-shadow generic-padding grey-border"
+    style="width: 100%"
+  >
     <PickupFeedback/>
   </q-card>
 </template>

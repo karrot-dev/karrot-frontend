@@ -1,22 +1,38 @@
 <template>
   <q-toolbar>
-    <router-link :to="{name: 'group'}" class="logo">
+    <router-link
+      :to="{name: 'group'}"
+      class="logo"
+    >
       <KarrotLogo />
     </router-link>
     <q-toolbar-title>
       <div class="row justify-between no-wrap">
         <div/>
-        <KBreadcrumb class="bread" :breadcrumbs="breadcrumbs" />
+        <KBreadcrumb
+          class="bread"
+          :breadcrumbs="breadcrumbs"
+        />
         <div/>
       </div>
     </q-toolbar-title>
     <div class="actions">
       <LocaleSelect />
       <router-link :to="{ name: 'login' }">
-        <q-btn class="text-white">{{ $t('LOGIN.SUBMIT') }}</q-btn>
+        <q-btn class="text-white">
+          {{ $t('LOGIN.SUBMIT') }}
+        </q-btn>
       </router-link>
-      <router-link v-if="!$q.platform.is.mobile" :to="{ name: 'signup' }">
-        <q-btn flat class="submit shadow-4">{{ $t('LOGIN.SIGNUP') }}</q-btn>
+      <router-link
+        v-if="!$q.platform.is.mobile"
+        :to="{ name: 'signup' }"
+      >
+        <q-btn
+          flat
+          class="submit shadow-4"
+        >
+          {{ $t('LOGIN.SIGNUP') }}
+        </q-btn>
       </router-link>
     </div>
   </q-toolbar>

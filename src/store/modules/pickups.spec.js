@@ -78,8 +78,8 @@ describe('pickups', () => {
       expect(vstore.getters['pickups/all'].map(getId)).toEqual([pickup1, pickup2, pickup3].map(getId))
     })
 
-    it('can get empty pickups', async () => {
-      expect(vstore.getters['pickups/empty'].map(getId)).toEqual([pickup1].map(getId))
+    it('can get available pickups', async () => {
+      expect(vstore.getters['pickups/available'].map(getId)).toEqual([pickup1].map(getId))
     })
 
     it('can get my pickups', async () => {

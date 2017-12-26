@@ -5,7 +5,7 @@ import Wall from '@/components/Wall/Wall'
 export default connect({
   gettersToProps: {
     joinedPickups: 'pickups/joined',
-    emptyPickups: 'pickups/empty',
+    availablePickups: 'pickups/available',
     conversation: 'conversations/active',
     user: 'auth/user',
   },

@@ -27,8 +27,8 @@
 
 <script>
 
-import scaleImg from '@/assets/feedback/scale_body.svg'
-import scalePointerImg from '@/assets/feedback/scale_pointer.svg'
+import scaleImg from 'assets/feedback/scale_body.svg'
+import scalePointerImg from 'assets/feedback/scale_pointer.svg'
 
 export default {
   props: {

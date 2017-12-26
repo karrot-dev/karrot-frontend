@@ -31,7 +31,7 @@ var proxyTable = config.dev.proxyTable
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
-  quiet: true
+  logLevel: 'silent'
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {

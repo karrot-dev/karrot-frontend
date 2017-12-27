@@ -47,7 +47,7 @@
           :key="series.id"
           :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
           :sublabel="$d(series.startDate, 'timeShort')"
-          icon="fa-calendar"
+          icon="fa-repeat"
           sparse
         >
 
@@ -72,7 +72,7 @@
               @open="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
               :label="seriesPickupLabel(series, pickup)"
-              icon="fa-calendar"
+              icon="fa-shopping-basket"
             >
               <pickup-edit
                 v-if="visible.pickup[pickup.id]"
@@ -135,7 +135,7 @@
           :key="pickup.id"
           :label="$d(pickup.date, 'dateWithDayName')"
           :sublabel="$d(pickup.date, 'timeShort')"
-          icon="fa-calendar"
+          icon="fa-shopping-basket"
           sparse
         >
           <pickup-edit

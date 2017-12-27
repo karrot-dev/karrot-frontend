@@ -26,7 +26,7 @@
               small
               round
               color="secondary"
-              icon="fa-calendar-o"
+              icon="fa-shopping-basket"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
@@ -50,7 +50,7 @@
           <q-btn
             small
             round
-            icon="fa-calendar-o"
+            icon="fa-shopping-basket"
           />
           {{ $t('PICKUPLIST.NONE_HINT') }}
         </router-link>

@@ -22,7 +22,7 @@
     >
       <q-item :to="{name: 'storePickups', params: { storeId }}">
         <q-item-side class="text-center">
-          <q-icon name="fa-calendar-o" />
+          <q-icon name="fa-shopping-basket" />
         </q-item-side>
         <q-item-main>
           {{ $t("GROUP.PICKUPS") }}

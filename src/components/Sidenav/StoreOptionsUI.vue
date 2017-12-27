@@ -17,7 +17,7 @@
       <q-item :to="{name: 'storePickupsManage', params: { storeId }}">
         <q-icon
           size="1em"
-          name="fa-calendar-o on-left"
+          name="fa-shopping-basket on-left"
         />
         {{ $t('STOREDETAIL.MANAGE') }}
       </q-item>

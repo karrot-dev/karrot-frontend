@@ -9,7 +9,6 @@
           />
         </q-item-main>
         <q-item-side
-          right
           class="group"
         >
           <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">

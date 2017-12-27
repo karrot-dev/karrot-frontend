@@ -2,12 +2,16 @@
   <div class="wrapper">
     <div class="row justify-inbetween no-wrap image-and-text">
       <div class="image-and-text-left gt-sm">
-        <img style="width: 100%;" :src="cartImg">
+        <img
+          style="width: 100%;"
+          :src="cartImg">
       </div>
       <div class="image-and-text-right">
         <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
         <p v-if="select">{{ select.store.name + ', ' + this.$d(select.date, 'dateShort') }}
-          <q-btn flat @click="select = false">
+          <q-btn
+            @click="select = false"
+            flat>
             {{ this.$t("PICKUP_FEEDBACK.OTHER") }}
           </q-btn>
         </p>
@@ -26,7 +30,9 @@
         />
       </q-field>
     </div>
-    <div style="padding: 0 1.5em" v-if="singlePicked">
+    <div
+      style="padding: 0 1.5em"
+      v-if="singlePicked">
       <AmountPicker/>
       <q-field
         style="margin-top: 2em; padding: 0 .5em"
@@ -41,7 +47,11 @@
         />
       </q-field>
       <div style="margin-top: 1.5em; padding-bottom: 1em">
-        <q-btn type="submit" class="actionButton" color="primary">{{ $t('BUTTON.CREATE') }}</q-btn>
+        <q-btn
+          type="submit"
+          class="actionButton"
+          color="primary"
+        >{{ $t('BUTTON.CREATE') }}</q-btn>
         <div style="clear: both"/>
       </div>
     </div>

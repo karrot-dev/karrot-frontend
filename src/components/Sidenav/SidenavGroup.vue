@@ -1,15 +1,26 @@
 <template>
   <SidenavBox>
-    <div slot="name"><i class="fa fa-fw fa-home" />{{ $t('GROUP.GROUP') }}</div>
+    <div slot="name">
+      <i class="fa fa-fw fa-home" />
+      {{ $t('GROUP.GROUP') }}
+    </div>
+
     <div slot="tools">
       <q-btn flat>
-        <i class="fa fa-ellipsis-v" aria-hidden="true" />
+        <i
+          class="fa fa-ellipsis-v"
+          aria-hidden="true"
+        />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <GroupOptions/>
       </q-btn>
     </div>
+
     <div>
-      <q-list highlight no-border>
+      <q-list
+        highlight
+        no-border
+      >
         <q-item :to="{name: 'group'}">
           <q-item-side class="text-center">
             <q-icon name="fa-bullhorn" />

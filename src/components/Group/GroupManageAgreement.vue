@@ -2,23 +2,30 @@
   <div>
     <h3><i class="fa fa-edit" /> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>
     <q-card v-if="agreementEdit">
-      <agreement-form :value="agreementEdit"
-                      @save="$emit('save', arguments[0])"
-                      @replace="$emit('replace', arguments[0])"
-                      @cancel="cancel()"
-                      @destroy="remove()"/>
+      <agreement-form
+        :value="agreementEdit"
+        @save="$emit('save', arguments[0])"
+        @replace="$emit('replace', arguments[0])"
+        @cancel="cancel()"
+        @destroy="remove()"
+      />
     </q-card>
+
     <q-card v-else>
       <q-card-main class="generic-padding">
         <p>{{ $t('AGREEMENT.BLURB1') }}</p>
         <p>{{ $t('AGREEMENT.BLURB2') }}</p>
       </q-card-main>
       <q-card-actions class="generic-padding">
-        <q-btn color="primary" @click="newAgreement()">
+        <q-btn
+          color="primary"
+          @click="newAgreement()"
+        >
           {{ $t('AGREEMENT.NEW') }}
         </q-btn>
       </q-card-actions>
     </q-card>
+
   </div>
 </template>
 

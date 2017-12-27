@@ -124,7 +124,6 @@
     "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
     "PASSWORD_LABEL": "Enter password for private group",
     "PASSWORD_REQUIRED": "This group requires a password",
-    "PASSWORD_WRONG": "You entered the wrong password",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "My groups",
@@ -168,13 +167,14 @@
     "MAX_COLLECTORS": "Max Slots",
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
     "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
+    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Leave",

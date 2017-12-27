@@ -1,19 +1,27 @@
 <template>
   <q-item multiline>
     <q-item-side style="margin-top: 16px">
-      <ProfilePicture :user="user" :size="40" />
+      <ProfilePicture
+        :user="user"
+        :size="40"
+      />
     </q-item-side>
     <q-item-main>
       <q-item-tile>
-        <q-input
-          type="textarea"
-          v-model="message"
-          :placeholder="placeholder"
-          :min-rows="2"
-          :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
-          :loading="isPending"
-          @keyup.ctrl.enter="send"
-        />
+        <q-field
+          :error="hasAnyError"
+          :error-label="anyFirstError"
+        >
+          <q-input
+            type="textarea"
+            v-model="message"
+            :placeholder="placeholder"
+            :min-rows="2"
+            :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
+            :loading="isPending"
+            @keyup.ctrl.enter="send"
+          />
+        </q-field>
       </q-item-tile>
     </q-item-main>
   </q-item>
@@ -21,12 +29,12 @@
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
-import { QItem, QItemMain, QInput, QBtn, QItemSide, QItemTile } from 'quasar'
+import { QItem, QItemMain, QInput, QField, QBtn, QItemSide, QItemTile } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
 
 export default {
   name: 'ConversationCompose',
-  components: { QItem, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture },
+  components: { QItem, QField, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture },
   mixins: [statusMixin],
   props: {
     placeholder: { default: 'placeholder' },

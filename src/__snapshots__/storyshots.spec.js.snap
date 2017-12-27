@@ -65,29 +65,38 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-">
-                            <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                            <div class="q-field row no-wrap items-start q-field-no-label">
                                 <!---->
-                                <div class="q-if-inner col row no-wrap items-center relative-position">
+                                <div class="row col">
                                     <!---->
-                                    <!---->
-                                    <div class="col row relative-position">
-                                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                            <div class="absolute-full overflow-hidden invisible">
-                                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                    <div class="q-field-content col-xs-12 col-sm">
+                                        <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                                            <!---->
+                                            <div class="q-if-inner col row no-wrap items-center relative-position">
+                                                <!---->
+                                                <!---->
+                                                <div class="col row relative-position">
+                                                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
+                                                        <div class="absolute-full overflow-hidden invisible">
+                                                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                        </div>
+                                                        <div class="absolute-full overflow-hidden invisible">
+                                                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                                    <textarea placeholder="Write a message..." rows="2" class="col q-input-target q-input-area"></textarea>
+                                                </div>
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <!---->
                                             </div>
-                                            <div class="absolute-full overflow-hidden invisible">
-                                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
-                                            </div>
+                                            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">arrow_forward</i>
                                         </div>
-                                        <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                                        <textarea placeholder="Write a message..." rows="2" class="col q-input-target q-input-area"></textarea>
+                                        <!---->
                                     </div>
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
                                 </div>
-                                <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">arrow_forward</i>
                             </div>
                         </div>
                     </div>
@@ -320,7 +329,9 @@ exports[`Storyshots General Components KBreadcrumb 1`] = `
         <!---->
     </div>
     <div>
-        <div class="label lastElement">SirPlus</div>
+        <div class="label lastElement">
+            SirPlus
+        </div>
     </div>
     <div class="xs" style="min-width:20px;"></div>
 </div>
@@ -352,14 +363,14 @@ exports[`Storyshots GroupEdit create 1`] = `
     <div class="q-card">
         <div class="edit">
             <form>
-                <div class="q-field row no-wrap items-start q-field-with-error">
+                <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-fw fa-star"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
                             <div class="q-field-label-inner row items-center"><span>Title of this group</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div id="group-title" autocomplete="off" class="q-if row no-wrap items-center relative-position q-input q-if-error text-negative">
+                            <div id="group-title" autocomplete="off" class="q-if row no-wrap items-center relative-position q-input text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
                                     <!---->
@@ -372,10 +383,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                                 </div>
                                 <!---->
                             </div>
-                            <div class="q-field-bottom row no-wrap q-field-no-input">
-                                <div class="q-field-error col">This field is required.</div>
-                                <!---->
-                            </div>
+                            <!---->
                         </div>
                     </div>
                 </div>
@@ -571,14 +579,14 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                     </div>
                 </div>
-                <div class="q-field row no-wrap items-start q-field-with-error">
+                <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-fw fa-globe"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
                             <div class="q-field-label-inner row items-center"><span>Time zone of group</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div class="q-if row no-wrap items-center relative-position q-input q-if-error text-negative">
+                            <div class="q-if row no-wrap items-center relative-position q-input text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
                                     <!---->
@@ -594,10 +602,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                                 </div>
                                 <!---->
                             </div>
-                            <div class="q-field-bottom row no-wrap q-field-no-input">
-                                <div class="q-field-error col">Enter a valid timezone.</div>
-                                <!---->
-                            </div>
+                            <!---->
                         </div>
                     </div>
                 </div>
@@ -1578,7 +1583,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
@@ -1601,7 +1608,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
@@ -1624,7 +1633,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
@@ -1647,7 +1658,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
@@ -1670,7 +1683,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
@@ -1686,7 +1701,9 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section"></div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 8:00 AM</span></div>
@@ -1727,7 +1744,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
@@ -1750,7 +1769,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
@@ -1773,7 +1794,9 @@ exports[`Storyshots History List Default 1`] = `
                                     </div>
                                 </div>
                                 <div class="q-item-main q-item-section">
-                                    <div class="q-item-"><span class="content">did something</span></div>
+                                    <div class="q-item-"><span class="content">
+          did something
+        </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
                                             3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:27 PM</span></div>
@@ -1822,25 +1845,36 @@ exports[`Storyshots Layout KFooter 1`] = `
         <div class="column col-md-4">
             <div>
                 <a href="https://github.com/yunity/karrot-frontend">
-                    <i class="fa fa-fw fa-github on-left"></i> Development</a>
+                    <i class="fa fa-fw fa-github on-left"></i>
+                    Development
+                </a>
             </div>
             <div>
                 <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-                    <i class="fa fa-fw fa-facebook on-left"></i> Join our Facebook Group!</a>
+                    <i class="fa fa-fw fa-facebook on-left"></i>
+                    Join our Facebook Group!
+                </a>
             </div>
             <div>
                 <a href="mail:karrot@foodsaving.world">
-                    <i class="fa fa-fw fa-envelope on-left"></i>karrot@foodsaving.world</a>
+                    <i class="fa fa-fw fa-envelope on-left"></i>
+                    karrot@foodsaving.world
+                </a>
             </div>
         </div>
         <div class="column col-md-4">
             <hr class="lt-md" style="width:3em;">
-            <div>karrot
+            <div>
+                karrot
                 <!---->
             </div>
-            <div>made with
-                <i class="fa fa-heart"></i> by
-                <a href="https://foodsaving.world">foodsaving worldwide</a>
+            <div>
+                made with
+                <i class="fa fa-heart"></i>
+                by
+                <a href="https://foodsaving.world">
+                    foodsaving worldwide
+                </a>
             </div>
         </div>
     </div>
@@ -1879,21 +1913,21 @@ exports[`Storyshots Layout KTopbar 1`] = `
             English
             <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             中文
-            <small>(99%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:99%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Español
             <small>(86%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:86%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Français
-            <small>(52%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:52%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(49%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:49%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Svenska
-            <small>(52%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:52%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(43%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:43%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Esperanto
             <small>(37%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:37%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
-            Italiano
-            <small>(27%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:27%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Русский
             <small>(26%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:26%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            Italiano
+            <small>(25%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:25%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
-            <small>(3%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:3%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <!----></span></button>
+            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <!----></span></button>
     <div to="[object Object]" class="defaulthover">
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
@@ -2054,6 +2088,7 @@ exports[`Storyshots Login error 1`] = `
         </div>
         <div class="error">
             <i class="fa fa-exclamation-triangle"></i>
+            is missing
         </div>
         <div class="actions">
             <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
@@ -2399,7 +2434,7 @@ exports[`Storyshots Password Reset error 1`] = `
                     <div class="row col">
                         <!---->
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div autocorrect="off" autocapitalize="off" spellcheck="false" error-label="some error" class="q-if row no-wrap items-center relative-position q-input q-if-has-label q-if-error text-negative">
+                            <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label q-if-error text-negative">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
                                     <div class="q-if-label ellipsis full-width absolute self-start">Mail address</div>
@@ -2417,7 +2452,10 @@ exports[`Storyshots Password Reset error 1`] = `
                     </div>
                 </div>
             </div>
-            <!---->
+            <div class="error">
+                <i class="fa fa-exclamation-triangle"></i>
+                some error
+            </div>
             <div class="actions">
                 <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
                     <div class="desktop-only q-focus-helper"></div>
@@ -2497,7 +2535,9 @@ exports[`Storyshots PickupItem Full 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">this pickup is already full!</div>
+            <div class="description multiline">
+                this pickup is already full!
+            </div>
             <div class="people full-width">
                 <div class="row justify-start">
                     <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2541,7 +2581,9 @@ exports[`Storyshots PickupItem Join 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">you can join this pickup</div>
+            <div class="description multiline">
+                you can join this pickup
+            </div>
             <div class="people full-width">
                 <div class="row justify-start">
                     <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2574,7 +2616,9 @@ exports[`Storyshots PickupItem Join 1`] = `
                     <!---->
                     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                         <div class="hoverHide"></div>
-                        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Join</span></span>
+                        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+        Join
+      </span></span>
                         </div>
                     </div>
                     <!---->
@@ -2590,7 +2634,9 @@ exports[`Storyshots PickupItem Leave 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">you are collector and can leave this pickup</div>
+            <div class="description multiline">
+                you are collector and can leave this pickup
+            </div>
             <div class="people full-width">
                 <div class="row justify-start">
                     <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2638,7 +2684,9 @@ exports[`Storyshots PickupItem pending 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">you can join this pickup</div>
+            <div class="description multiline">
+                you can join this pickup
+            </div>
             <div class="people full-width">
                 <div class="row justify-start">
                     <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2687,7 +2735,9 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
                 </div>
-                <div class="description multiline">you can join this pickup</div>
+                <div class="description multiline">
+                    you can join this pickup
+                </div>
                 <div class="people full-width">
                     <div class="row justify-start">
                         <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2720,7 +2770,9 @@ exports[`Storyshots PickupList Default 1`] = `
                         <!---->
                         <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                             <div class="hoverHide"></div>
-                            <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Join</span></span>
+                            <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+        Join
+      </span></span>
                             </div>
                         </div>
                         <!---->
@@ -2734,7 +2786,9 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
                 </div>
-                <div class="description multiline">you are collector and can leave this pickup</div>
+                <div class="description multiline">
+                    you are collector and can leave this pickup
+                </div>
                 <div class="people full-width">
                     <div class="row justify-start">
                         <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2780,7 +2834,9 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
                 </div>
-                <div class="description multiline">this pickup is already full!</div>
+                <div class="description multiline">
+                    this pickup is already full!
+                </div>
                 <div class="people full-width">
                     <div class="row justify-start">
                         <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2822,7 +2878,9 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
                 </div>
-                <div class="description multiline">this pickup is fresh and empty</div>
+                <div class="description multiline">
+                    this pickup is fresh and empty
+                </div>
                 <div class="people full-width">
                     <div class="row justify-start">
                         <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
@@ -2837,7 +2895,9 @@ exports[`Storyshots PickupList Default 1`] = `
                         <!---->
                         <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                             <div class="hoverHide"></div>
-                            <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Join</span></span>
+                            <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+        Join
+      </span></span>
                             </div>
                         </div>
                         <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
@@ -3196,18 +3256,24 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             <div class="col-6 actionButton">
                 <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position full-width q-btn-rectangle q-btn-standard disabled">
                     <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> Reset <!----></span></button>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+          Reset
+         <!----></span></button>
             </div>
             <div class="col-6 actionButton">
                 <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position full-width q-btn-rectangle q-btn-standard bg-red text-white">
                     <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> Delete <!----></span></button>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+          Delete
+         <!----></span></button>
             </div>
         </div>
         <!---->
         <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position full-width actionButton q-btn-rectangle q-btn-standard disabled bg-primary text-white">
             <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> Save changes <!----></span></button>
+            <!----><span class="q-btn-inner row col flex-center"><!----> 
+      Save changes
+     <!----></span></button>
     </form>
 </div>
 `;
@@ -3226,7 +3292,9 @@ exports[`Storyshots PickupUsers empty 1`] = `
     <!---->
     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
         <div class="hoverHide"></div>
-        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Join</span></span>
+        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+        Join
+      </span></span>
         </div>
     </div>
     <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
@@ -3307,7 +3375,9 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     <!---->
     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
         <div class="hoverHide"></div>
-        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Join</span></span>
+        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+        Join
+      </span></span>
         </div>
     </div>
     <!---->
@@ -3495,12 +3565,17 @@ exports[`Storyshots Settings Page Default 1`] = `
                             </div>
                         </div>
                     </div>
+                    <!---->
                     <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
                         <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> Save changes <!----></span></button>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+      Save changes
+     <!----></span></button>
                     <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
                         <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> Reset <!----></span></button>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+      Reset
+     <!----></span></button>
                 </form>
             </div>
         </div>
@@ -3534,7 +3609,9 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
                 <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
                     <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> Change e-mail address <!----></span></button>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+    Change e-mail address
+   <!----></span></button>
             </div>
         </div>
         <div class="q-list-header ">Password</div>
@@ -3566,7 +3643,9 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
                 <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
                     <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> Change password <!----></span></button>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+    Change password
+   <!----></span></button>
             </div>
         </div>
     </div>
@@ -3580,7 +3659,11 @@ exports[`Storyshots Settings Page verification warning 1`] = `
             <i aria-hidden="true" class="q-icon material-icons">priority_high</i>
         </div>
         <div class="q-alert-content col self-center">
-            <h6>current@user.de not verified</h6> <span>Please check your emails or <a place="resend" class="underline">resend verification email</a></span>
+            <h6>
+                current@user.de not verified
+            </h6> <span>Please check your emails or <a place="resend" class="underline">
+      resend verification email
+    </a></span>
             <!---->
             <!---->
         </div>
@@ -3604,7 +3687,9 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
     <div class="row justify-between toolbar">
         <div class="name">
             <div>
-                <i class="fa fa-fw fa-home"></i>Group</div>
+                <i class="fa fa-fw fa-home"></i>
+                Group
+            </div>
         </div>
         <div>
             <div>
@@ -3693,7 +3778,9 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
     <div class="row justify-between toolbar">
         <div class="name">
             <div>
-                <i class="fa fa-fw fa-map"></i>Map</div>
+                <i class="fa fa-fw fa-map"></i>
+                Map
+            </div>
         </div>
         <div>
             <div class="tools">
@@ -3762,7 +3849,9 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
     <div class="row justify-between toolbar">
         <div class="name">
             <div>
-                <i class="fa fa-fw fa-shopping-cart"></i>Stores</div>
+                <i class="fa fa-fw fa-shopping-cart"></i>
+                Stores
+            </div>
         </div>
         <div>
             <div>
@@ -3781,42 +3870,62 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
             <div class="q-list no-border q-list-highlight">
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
                     </div>
                     <div class="q-item-main q-item-section">
-                        <div class="q-item-label">Teststore1</div>
+                        <div class="q-item-label">
+                            Teststore1
+                        </div>
                     </div>
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
                     </div>
                     <div class="q-item-main q-item-section">
-                        <div class="q-item-label">New Tienda</div>
+                        <div class="q-item-label">
+                            New Tienda
+                        </div>
                     </div>
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
                     </div>
                     <div class="q-item-main q-item-section">
-                        <div class="q-item-label">Supermarkt Arheilgen</div>
+                        <div class="q-item-label">
+                            Supermarkt Arheilgen
+                        </div>
                     </div>
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
                     </div>
                     <div class="q-item-main q-item-section">
-                        <div class="q-item-label">asd</div>
+                        <div class="q-item-label">
+                            asd
+                        </div>
                     </div>
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
                     </div>
                     <div class="q-item-main q-item-section">
-                        <div class="q-item-label">Griesheimer Markt</div>
+                        <div class="q-item-label">
+                            Griesheimer Markt
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4343,8 +4452,12 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <img src="test-file-stub" style="width:100%;">
             </div>
             <div class="image-and-text-right">
-                <h3>Thank you for your pickup!</h3>
-                <p>You can provide feedback for your pickup here</p>
+                <h3>
+                    Thank you for your pickup!
+                </h3>
+                <p>
+                    You can provide feedback for your pickup here
+                </p>
             </div>
         </div>
         <div class="wrapper"><span></span>
@@ -5054,42 +5167,62 @@ exports[`Storyshots Stores StoreList 1`] = `
 <div class="q-list no-border q-list-highlight">
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-side-left q-item-section text-center">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
         </div>
         <div class="q-item-main q-item-section">
-            <div class="q-item-label">Teststore1</div>
+            <div class="q-item-label">
+                Teststore1
+            </div>
         </div>
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-side-left q-item-section text-center">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
         </div>
         <div class="q-item-main q-item-section">
-            <div class="q-item-label">New Tienda</div>
+            <div class="q-item-label">
+                New Tienda
+            </div>
         </div>
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-side-left q-item-section text-center">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
         </div>
         <div class="q-item-main q-item-section">
-            <div class="q-item-label">Supermarkt Arheilgen</div>
+            <div class="q-item-label">
+                Supermarkt Arheilgen
+            </div>
         </div>
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-side-left q-item-section text-center">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
         </div>
         <div class="q-item-main q-item-section">
-            <div class="q-item-label">asd</div>
+            <div class="q-item-label">
+                asd
+            </div>
         </div>
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-side-left q-item-section text-center">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Just created</span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle-o text-gray"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Just created
+        </span></i>
         </div>
         <div class="q-item-main q-item-section">
-            <div class="q-item-label">Griesheimer Markt</div>
+            <div class="q-item-label">
+                Griesheimer Markt
+            </div>
         </div>
     </div>
 </div>
@@ -5098,7 +5231,9 @@ exports[`Storyshots Stores StoreList 1`] = `
 exports[`Storyshots VerifyMail error 1`] = `
 <div>
     <div>
-        <h5>my@email.com</h5>
+        <h5>
+            my@email.com
+        </h5>
         <!---->
         <!---->
         <p>
@@ -5112,7 +5247,9 @@ exports[`Storyshots VerifyMail error 1`] = `
 exports[`Storyshots VerifyMail pending 1`] = `
 <div>
     <div>
-        <h5>my@email.com</h5>
+        <h5>
+            my@email.com
+        </h5>
         <q-spinner-undefined size="1rem"></q-spinner-undefined>
         <!---->
         <!---->
@@ -5123,7 +5260,9 @@ exports[`Storyshots VerifyMail pending 1`] = `
 exports[`Storyshots VerifyMail success 1`] = `
 <div>
     <div>
-        <h5>my@email.com</h5>
+        <h5>
+            my@email.com
+        </h5>
         <!---->
         <p>
             Your e-mail address was successfully verified!

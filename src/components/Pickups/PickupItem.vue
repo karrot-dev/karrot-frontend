@@ -1,13 +1,20 @@
 <template>
   <q-card :class="{ full: pickup.isFull }">
-    <q-card-main class="row inline no-padding justify-between content"
-                 :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }">
+    <q-card-main
+      class="row inline no-padding justify-between content"
+      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }"
+    >
       <div class="column padding full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
           <slot>Date or Store Slot</slot>
         </div>
-        <div class="description multiline" v-if="pickup.description">{{ pickup.description }}</div>
+        <div
+          class="description multiline"
+          v-if="pickup.description"
+        >
+          {{ pickup.description }}
+        </div>
         <div class="people full-width">
           <PickupUsers
             :pickup="pickup"

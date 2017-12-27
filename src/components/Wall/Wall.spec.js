@@ -14,7 +14,7 @@ const defaultProps = {
   user: currentUserMock,
   fetchMore: jest.fn(),
   joinedPickups: [],
-  emptyPickups: [],
+  availablePickups: [],
 }
 
 polyfillRequestAnimationFrame()

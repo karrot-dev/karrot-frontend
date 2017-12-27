@@ -41,12 +41,11 @@ export default {
       return getters.filtered.filter(e => !e.series)
     },
     joined: (state, getters) => getters.all.filter(e => e.isUserMember),
-    empty: (state, getters) => {
-      return getters.all.filter((e) => {
-        let nextWeek = new Date(+new Date() + 6096e5)
-        return e.collectorIds.length < 1 && e.date < nextWeek
-      })
-    },
+    available: (state, getters) =>
+      getters.all
+        .filter(isWithinOneWeek)
+        .filter(e => !e.isFull)
+        .filter(e => !e.isUserMember),
     mine: (state, getters, rootState, rootGetters) => {
       if (!rootGetters['auth/isLoggedIn']) return []
       return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
@@ -167,4 +166,8 @@ export default {
     },
 
   },
+}
+
+export function isWithinOneWeek (pickup) {
+  return pickup.date < new Date(+new Date() + 6096e5)
 }

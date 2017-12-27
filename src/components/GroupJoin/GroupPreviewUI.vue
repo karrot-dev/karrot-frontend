@@ -1,6 +1,10 @@
 <template>
   <div v-if="group">
-    <q-alert v-if="!group.isMember" color="tertiary" icon="info">
+    <q-alert
+      v-if="!group.isMember"
+      color="tertiary"
+      icon="info"
+    >
       {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
     </q-alert>
     <q-card>
@@ -16,30 +20,47 @@
           class="quote"
           :source="group.publicDescription"
         />
-        <span v-else class="text-italic">
+        <span
+          v-else
+          class="text-italic"
+        >
           {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
         </span>
       </q-card-main>
       <q-card-separator />
       <q-card-actions>
         <span v-if="!group.isMember">
-          <form name="joingroup" @submit.prevent="$emit('join', { groupId: group.id, password })">
+          <form
+            name="joingroup"
+            @submit.prevent="$emit('join', { groupId: group.id, password })"
+          >
             <q-field
               v-if="group.protected"
               icon="fa-lock"
               :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
               :helper="$t('JOINGROUP.PASSWORD_LABEL')"
-              :error="this.group.joinStatus.hasValidationErrors"
-              :error-label="$t('JOINGROUP.PASSWORD_WRONG')"
+              :error="hasAnyError"
+              :error-label="anyFirstError"
             >
-              <q-input v-model="password" type="password" />
+              <q-input
+                v-model="password"
+                type="password"
+              />
             </q-field>
-            <q-btn type="submit" loader :value="group.joinStatus.pending" >
+            <q-btn
+              type="submit"
+              loader
+              :value="group.joinStatus.pending"
+            >
               {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
             </q-btn>
           </form>
         </span>
-        <q-btn v-if="group.isMember" @click="$emit('visit', { groupId: group.id })" class="q-btn-flat">
+        <q-btn
+          v-if="group.isMember"
+          @click="$emit('visit', { groupId: group.id })"
+          class="q-btn-flat"
+        >
           <q-icon name="fa-home" />
           <q-tooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
@@ -69,6 +90,17 @@ export default {
     },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
+  computed: {
+    joinStatus () {
+      return this.group && this.group.joinStatus
+    },
+    hasAnyError () {
+      return this.joinStatus && this.joinStatus.hasValidationErrors
+    },
+    anyFirstError () {
+      return this.joinStatus && this.joinStatus.firstValidationError
+    },
+  },
 }
 </script>
 

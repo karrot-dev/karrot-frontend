@@ -2,7 +2,10 @@
   <q-card>
     <q-card-main>
       <div class="row no-wrap">
-        <AmountBox class="amount-box" size="100" :amount="feedback.weight"/>
+        <AmountBox
+          class="amount-box"
+          size="100"
+          :amount="feedback.weight"/>
         <div class="content">
           <div>
             <strong v-if="store">{{ store.name }},</strong>
@@ -11,9 +14,17 @@
           <div>by {{ feedback.givenBy.displayName }} on {{ $d(feedback.createdAt, 'dateShort') }}</div>
           <div class="comment">{{ feedback.comment }}</div>
           <div>
-            <ProfilePicture user="feedback.givenBy" size="22"/>
-            <span class="members" v-if="membersWithoutGiver.length > 0">
-              <ProfilePicture user="member" size="15" v-for="member in membersWithoutGiver" :key="member.id"/>
+            <ProfilePicture
+              user="feedback.givenBy"
+              size="22"/>
+            <span
+              class="members"
+              v-if="membersWithoutGiver.length > 0">
+              <ProfilePicture
+                user="member"
+                size="15"
+                v-for="member in membersWithoutGiver"
+                :key="member.id"/>
             </span>
           </div>
         </div>

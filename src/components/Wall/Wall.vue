@@ -8,9 +8,9 @@
           @leave="$emit('leave', arguments[0])"
         />
       </div>
-      <div v-if="emptyPickups.length > 0">
-        <EmptyPickups
-          :pickups="emptyPickups"
+      <div v-if="availablePickups.length > 0">
+        <AvailablePickups
+          :pickups="availablePickups"
           @join="$emit('join', arguments[0])"
           @leave="$emit('leave', arguments[0])"
         />
@@ -26,19 +26,19 @@
 </template>
 
 <script>
-import EmptyPickups from './EmptyPickups'
+import AvailablePickups from './AvailablePickups'
 import JoinedPickups from './JoinedPickups'
 import Conversation from '@/components/Conversation/Conversation'
 
 export default {
   components: {
     JoinedPickups,
-    EmptyPickups,
+    AvailablePickups,
     Conversation,
   },
   props: {
     joinedPickups: { required: true },
-    emptyPickups: { required: true },
+    availablePickups: { required: true },
     conversation: { required: true },
     fetchMore: { required: true },
     user: { required: true },

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <q-card class="no-shadow grey-border" style="width: 100%">
+    <q-card
+      class="no-shadow grey-border"
+      style="width: 100%"
+    >
       <UserList :users="users" />
     </q-card>
   </div>

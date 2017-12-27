@@ -1,17 +1,28 @@
 <template>
   <div class="wrapper">
-    <q-list highlight no-border>
-      <q-item link :to="{name: 'user', params: { userId: user.id }}" v-for="user in users" :key="user.id">
+    <q-list
+      highlight
+      no-border
+    >
+      <q-item
+        link
+        :to="{name: 'user', params: { userId: user.id }}"
+        v-for="user in users"
+        :key="user.id"
+      >
 
         <q-item-side right>
           <ProfilePicture
             :key="user.id"
             :user="user"
             size="30"
-            class="profilePic"/>
+            class="profilePic"
+          />
         </q-item-side>
         <q-item-main>
-          <q-item-tile label>{{ user.displayName }}</q-item-tile>
+          <q-item-tile label>
+            {{ user.displayName }}
+          </q-item-tile>
         </q-item-main>
       </q-item>
     </q-list>

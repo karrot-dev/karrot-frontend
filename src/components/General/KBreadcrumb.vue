@@ -1,25 +1,59 @@
 <template>
   <div class="wrapper">
-    <div class="prevBread gt-xs" v-for="breadcrumb in prevElements" :key="breadcrumb.name">
-      <router-link v-if="breadcrumb.route" :to="breadcrumb.route" class="no-hover">
-        <q-btn class="text-white" flat small v-if="breadcrumb.name">{{ breadcrumb.name }}</q-btn>
+    <div
+      class="prevBread gt-xs"
+      v-for="breadcrumb in prevElements"
+      :key="breadcrumb.name"
+    >
+      <router-link
+        v-if="breadcrumb.route"
+        :to="breadcrumb.route"
+        class="no-hover"
+      >
+        <q-btn
+          class="text-white"
+          flat
+          small
+          v-if="breadcrumb.name"
+        >
+          {{ breadcrumb.name }}
+        </q-btn>
       </router-link>
-      <div class="label" v-if="!breadcrumb.route">
+      <div
+        class="label"
+        v-if="!breadcrumb.route"
+      >
         <span v-if="breadcrumb.name">{{ breadcrumb.name }}</span>
       </div>
       <div> <i class="fa fa-fw fa-angle-right"/> </div>
     </div>
-    <div v-if="secondlastElement" class="xs">
-      <router-link v-if="secondlastElement.route" :to="secondlastElement.route" class="no-hover">
+    <div
+      v-if="secondlastElement"
+      class="xs"
+    >
+      <router-link
+        v-if="secondlastElement.route"
+        :to="secondlastElement.route"
+        class="no-hover"
+      >
         <div style="min-width: 20px; text-align: right; padding: 4px">
           <i class="fa fa-fw fa-angle-left"/>
         </div>
       </router-link>
     </div>
     <div v-if="lastElement">
-      <div class="label lastElement" v-if="lastElement.name">{{ lastElement.name }}</div>
+      <div
+        class="label lastElement"
+        v-if="lastElement.name"
+      >
+        {{ lastElement.name }}
+      </div>
     </div>
-    <div v-if="secondlastElement" class="xs" style="min-width: 20px"/>
+    <div
+      v-if="secondlastElement"
+      class="xs"
+      style="min-width: 20px"
+    />
   </div>
 </template>
 

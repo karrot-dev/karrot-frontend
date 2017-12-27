@@ -1,8 +1,18 @@
 import glob from 'glob'
+import lolex from 'lolex'
 import { configure, getStorybook } from '@storybook/vue'
 import { createRenderer } from 'vue-server-renderer'
 import { polyfillRequestAnimationFrame, mountWithDefaults } from '>/helpers'
 polyfillRequestAnimationFrame()
+
+// fake Date object MUST be installed before importing stories
+const now = new Date('2017-12-24T12:00:00Z')
+let clock
+clock = lolex.install({ now, toFake: ['Date'] })
+
+afterAll(() => {
+  clock.uninstall()
+})
 
 function loadStories () {
   const files = glob.sync('**/*.story.js', { absolute: true })

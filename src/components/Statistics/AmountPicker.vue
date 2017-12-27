@@ -1,10 +1,16 @@
 <template>
   <div class="wrapper">
     <div class="row no-wrap">
-      <AmountBox class="amount" :amount="selectedValue"/>
+      <AmountBox
+        class="amount"
+        :amount="selectedValue"/>
       <div style="margin-left: .6em">
-        <div v-t="'PICKUP_FEEDBACK.AMOUNT'" style="padding-bottom: .3em"/>
-        <AmountViewer v-if="!$q.platform.is.mobile" :amount="selectedValue"/>
+        <div
+          v-t="'PICKUP_FEEDBACK.AMOUNT'"
+          style="padding-bottom: .3em"/>
+        <AmountViewer
+          v-if="!$q.platform.is.mobile"
+          :amount="selectedValue"/>
       </div>
     </div>
     <div>

@@ -1,5 +1,9 @@
 <template>
-  <q-tabs color="tertiary" hide="icon" class="col" ref="groupnav">
+  <q-tabs
+    color="tertiary"
+    hide="icon"
+    class="col"
+    ref="groupnav">
     <q-route-tab
       :to="{name: 'groupPickups'}"
       exact

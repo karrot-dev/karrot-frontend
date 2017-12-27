@@ -3,9 +3,14 @@
     <div class="error-code bg-primary flex items-center justify-center"/>
     <div>
       <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
-        <q-icon name="error_outline" color="grey-5" />
+        <q-icon
+          name="error_outline"
+          color="grey-5"
+        />
         <slot>
-          <p class="caption text-center">{{ $t('NOT_FOUND.EXPLANATION') }}</p>
+          <p class="caption text-center">
+            {{ $t('NOT_FOUND.EXPLANATION') }}
+          </p>
         </slot>
         <p class="text-center group">
           <q-btn

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card class="no-shadow grey-border">
       <q-card-title>
         <h5>
           <i
@@ -13,8 +13,12 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn @click="createNewSeries">
-            <q-icon name="fa-plus-circle" />
+          <q-btn
+            @click="createNewSeries"
+            small
+            round
+            color="secondary"
+            icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
@@ -84,7 +88,7 @@
       </q-list>
     </q-card>
 
-    <q-card>
+    <q-card class="no-shadow grey-border">
       <q-card-title>
         <h5>
           <i
@@ -97,8 +101,12 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn @click="createNewPickup">
-            <q-icon name="fa-plus-circle" />
+          <q-btn
+            @click="createNewPickup"
+            small
+            round
+            color="secondary"
+            icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>

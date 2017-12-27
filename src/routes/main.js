@@ -308,7 +308,7 @@ export default [
         path: 'give-feedback',
         meta: {
           breadcrumbs: [
-            { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
           ],
         },
         components: {

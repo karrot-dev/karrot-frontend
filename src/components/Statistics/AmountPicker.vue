@@ -28,7 +28,7 @@ import AmountBox from './AmountBox'
 export default {
   data () {
     return {
-      selectedValue: 3.0,
+      selectedValue: 0.0,
     }
   },
   components: {

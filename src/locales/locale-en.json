@@ -193,7 +193,9 @@
     "SUBTITLE": "You can provide feedback for your pickup here",
     "AMOUNT": "Amount of food you took home (in kg)",
     "COMMENT": "Comment",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
+    "OTHER": "Other pickup",
+    "SELECT_PICKUP": "Please select a pickup you want to feedback"
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",

@@ -7,7 +7,9 @@
       <div class="image-and-text-right">
         <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
         <p v-if="select">{{ select.store.name + ', ' + this.$d(select.date, 'dateShort') }}
-          <q-btn flat @click="select = false">Andere Abholung</q-btn>
+          <q-btn flat @click="select = false">
+            {{ this.$t("PICKUP_FEEDBACK.OTHER") }}
+          </q-btn>
         </p>
         <p v-if="!select">{{ $t('PICKUP_FEEDBACK.SUBTITLE') }}</p>
       </div>
@@ -15,8 +17,8 @@
     <div v-if="!singlePicked">
       <q-field
         style="margin-top: 2em; padding: 0 .5em"
-        icon="fa-shopping-bag"
-        label="Please select the pickup you want to feedback first">
+        icon="fa-shopping-basket"
+        :label="$t('PICKUP_FEEDBACK.SELECT_PICKUP')">
         <q-select
           v-model="select"
           :options="feedbackOptions"

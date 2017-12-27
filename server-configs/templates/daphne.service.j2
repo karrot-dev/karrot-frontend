@@ -9,7 +9,6 @@ Group={{ group }}
 WorkingDirectory=/var/www/{{ name }}/www
 ExecStart=/var/www/{{ name }}/www/env/bin/daphne \
 	-u /tmp/{{ name }}.sock \
-	--root-path=/var/www/{{ name }}/www \
 	--ws-protocol karrot.token \
 	--proxy-headers \
 	config.asgi:channel_layer

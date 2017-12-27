@@ -1,33 +1,34 @@
 <template>
   <div
     class="container"
-    :style="{ width: imgSize, height:imgSize }">
+    :style="{ width: imgSize, height:imgSize }"
+  >
     <img
       :width="imgSize"
       :height="imgSize"
-      :src="scaleImg">
+      :src="scaleImg"
+    >
     <img
       class="pointer"
       :width="pointerSize[0]"
       :height="pointerSize[1]"
       :src="scalePointerImg"
-      :style="{ transform: pointerRotation, top:pointerSize[2] }">
+      :style="{ transform: pointerRotation, top:pointerSize[2] }"
+    >
     <div
       class="text-bottom"
-      :style="{ bottom: bottomOffset }">
-      <span
-      :style="{ fontSize: fontSize }">
-      {{ amount }}</span>
-      <span
-      :style="{ fontSize: fontSizeSmall }">kg</span>
+      :style="{ bottom: bottomOffset }"
+    >
+      <span :style="{ fontSize: fontSize }">{{ amount }}</span>
+      <span :style="{ fontSize: fontSizeSmall }">kg</span>
     </div>
   </div>
 </template>
 
 <script>
 
-import scaleImg from '@/assets/feedback/scale_body.svg'
-import scalePointerImg from '@/assets/feedback/scale_pointer.svg'
+import scaleImg from 'assets/feedback/scale_body.svg'
+import scalePointerImg from 'assets/feedback/scale_pointer.svg'
 
 export default {
   props: {

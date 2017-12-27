@@ -5,7 +5,8 @@
         <AmountBox
           class="amount-box"
           size="100"
-          :amount="feedback.weight"/>
+          :amount="feedback.weight
+        "/>
         <div class="content">
           <div>
             <strong v-if="store">{{ store.name }},</strong>
@@ -16,15 +17,18 @@
           <div>
             <ProfilePicture
               user="feedback.givenBy"
-              size="22"/>
+              size="22"
+            />
             <span
+              v-if="membersWithoutGiver.length > 0"
               class="members"
-              v-if="membersWithoutGiver.length > 0">
+            >
               <ProfilePicture
+                v-for="member in membersWithoutGiver"
+                :key="member.id"
                 user="member"
                 size="15"
-                v-for="member in membersWithoutGiver"
-                :key="member.id"/>
+              />
             </span>
           </div>
         </div>

@@ -4266,21 +4266,32 @@ exports[`Storyshots Signup pending 1`] = `
 `;
 
 exports[`Storyshots Statistics AmountBox 1`] = `
-<div style="padding:2em;">
-    <div class="amount shadow-1">
-        20<span>kg</span></div>
+<div>
+    <div class="container" style="width:100px;height:100px;">
+        <img width="100px" height="100px" src="test-file-stub">
+        <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(12deg);top:10px;">
+        <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">20</span> <span style="font-size:14px;">kg</span></div>
+    </div>
 </div>
 `;
 
 exports[`Storyshots Statistics AmountPicker 1`] = `
 <div style="padding:2em;">
-    <div class="wrapper"><span></span>
-        <div class="wrapper row">
-            <div class="amount shadow-1 amount">
-                3<span>kg</span></div>
-            <img src="test-file-stub">
-            <img src="test-file-stub">
-            <img src="test-file-stub">
+    <div class="wrapper">
+        <div class="row no-wrap">
+            <div class="container amount" style="width:100px;height:100px;">
+                <img width="100px" height="100px" src="test-file-stub">
+                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-39deg);top:10px;">
+                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">3</span> <span style="font-size:14px;">kg</span></div>
+            </div>
+            <div style="margin-left:.6em;">
+                <div style="padding-bottom:.3em;"></div>
+                <div class="wrapper row">
+                    <img src="test-file-stub">
+                    <img src="test-file-stub">
+                    <img src="test-file-stub">
+                </div>
+            </div>
         </div>
         <div>
             <div class="q-slider non-selectable">
@@ -4444,216 +4455,195 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
 </div>
 `;
 
+exports[`Storyshots Statistics FeedbackItem 1`] = `
+<div class="q-card">
+    <div class="q-card-main q-card-container">
+        <div class="row no-wrap">
+            <div class="container amount-box" style="width:100px;height:100px;">
+                <img width="100px" height="100px" src="test-file-stub">
+                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+            </div>
+            <div class="content">
+                <div><strong>Teststore1,</strong> <strong>12. Dezember, 15:00</strong></div>
+                <div>by Mira Bellenbaum on August 11, 2017</div>
+                <div class="comment">All worked out perfectly!</div>
+                <div>
+                    <div class="wrapper">
+                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                        <!---->
+                    </div> <span class="members"><div class="wrapper"><div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                <!---->
+            </div>
+            <div class="wrapper">
+                <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                <!---->
+            </div>
+            <div class="wrapper">
+                <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                <!---->
+            </div>
+            <div class="wrapper">
+                <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                <!---->
+            </div>
+            </span>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+`;
+
+exports[`Storyshots Statistics FeedbackList 1`] = `
+<div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div>
+                        <!----><strong>12. Dezember, 15:00</strong></div>
+                    <div>by Mira Bellenbaum on August 11, 2017</div>
+                    <div class="comment">All worked out perfectly!</div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div>
+                        <!----><strong>12. Dezember, 15:00</strong></div>
+                    <div>by Mira Bellenbaum on September 11, 2017</div>
+                    <div class="comment"></div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div>
+                        <!----><strong>12. Dezember, 15:00</strong></div>
+                    <div>by Max Mustermann on September 18, 2017</div>
+                    <div class="comment">They did not have anything today</div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      
+    </span></div>
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
 exports[`Storyshots Statistics PickupFeedback 1`] = `
 <div style="padding:2em;">
     <div class="wrapper">
         <div class="row justify-inbetween no-wrap image-and-text">
-            <div class="image-and-text-left">
+            <div class="image-and-text-left gt-sm">
                 <img src="test-file-stub" style="width:100%;">
             </div>
             <div class="image-and-text-right">
-                <h3>
-                    Thank you for your pickup!
-                </h3>
+                <h4>Thank you for your pickup!</h4>
+                <!---->
                 <p>
                     You can provide feedback for your pickup here
                 </p>
             </div>
         </div>
-        <div class="wrapper"><span></span>
-            <div class="wrapper row">
-                <div class="amount shadow-1 amount">
-                    3<span>kg</span></div>
-                <img src="test-file-stub">
-                <img src="test-file-stub">
-                <img src="test-file-stub">
-            </div>
-            <div>
-                <div class="q-slider non-selectable">
-                    <div class="q-slider-handle-container">
-                        <div class="q-slider-track"></div>
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <div class="q-slider-track active-track" style="width:4.285714285714286%;"></div>
-                        <div class="q-slider-handle" style="left:4.285714285714286%;border-radius:50%;">
-                            <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
+        <div>
+            <div class="q-field row no-wrap items-start" style="margin-top:2em;padding:0 .5em;">
+                <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-shopping-bag"> </i>
+                <div class="row col">
+                    <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
+                        <div class="q-field-label-inner row items-center"><span>Please select the pickup you want to feedback first</span> </div>
+                    </div>
+                    <div class="q-field-content col-xs-12 col-sm">
+                        <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
+                            <!---->
+                            <div class="q-if-inner col row no-wrap items-center relative-position">
                                 <!---->
-                                <div class="q-chip-main"> 3 </div>
                                 <!---->
+                                <div class="col row items-center q-input-target justify-start"></div>
+                                <!---->
+                                <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
+                                    <div></div>
+                                    <div class="no-border scroll q-list q-list-link">
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Teststore1, August 12, 2017</div>
+                                            </div>
+                                        </div>
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Teststore1, August 19, 2017</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!---->
                             </div>
-                            <div class="q-slider-ring"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="q-field row no-wrap items-start">
-            <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
-            <div class="row col">
-                <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                    <div class="q-field-label-inner row items-center"><span>Comment</span> </div>
-                </div>
-                <div class="q-field-content col-xs-12 col-sm">
-                    <div autocomplete="off" class="q-if row no-wrap items-center relative-position q-input text-primary">
-                        <!---->
-                        <div class="q-if-inner col row no-wrap items-center relative-position">
-                            <!---->
-                            <!---->
-                            <input type="text" value="" class="col q-input-target text-left">
-                            <!---->
-                            <!---->
-                            <!---->
+                            <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
                             <!---->
                         </div>
-                        <!---->
-                    </div>
-                    <div class="q-field-bottom row no-wrap q-field-no-input">
-                        <div class="q-field-helper col">Was everything fine? Did everyone show up? Your comment here...</div>
                         <!---->
                     </div>
                 </div>
             </div>
         </div>
+        <!---->
     </div>
 </div>
 `;

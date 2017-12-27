@@ -3,7 +3,8 @@
     color="tertiary"
     hide="icon"
     class="col"
-    ref="groupnav">
+    ref="groupnav"
+  >
     <q-route-tab
       :to="{name: 'groupPickups'}"
       exact

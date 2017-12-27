@@ -15,7 +15,6 @@
             {{ this.$t("PICKUP_FEEDBACK.OTHER") }}
           </q-btn>
         </p>
-        <p v-if="!select">{{ $t('PICKUP_FEEDBACK.SUBTITLE') }}</p>
       </div>
     </div>
     <div v-if="!singlePicked">
@@ -37,7 +36,8 @@
       <q-field
         style="margin-top: 2em; padding: 0 .5em"
         icon="fa-star"
-        :label="$t('PICKUP_FEEDBACK.COMMENT')">
+        :label="$t('PICKUP_FEEDBACK.COMMENT')"
+      >
         <q-input
           v-model="comment"
           type="textarea"
@@ -51,7 +51,9 @@
           type="submit"
           class="actionButton"
           color="primary"
-        >{{ $t('BUTTON.CREATE') }}</q-btn>
+        >
+          {{ $t('BUTTON.CREATE') }}
+        </q-btn>
         <div style="clear: both"/>
       </div>
     </div>

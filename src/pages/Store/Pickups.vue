@@ -103,4 +103,6 @@ export default {
   transform: translateZ(1px) rotate(-3deg);
   h5
     padding 0
+.q-btn-round
+  margin-bottom .5em
 </style>

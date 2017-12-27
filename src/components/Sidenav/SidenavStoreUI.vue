@@ -1,7 +1,7 @@
 <template>
   <SidenavBox>
     <template slot="icon">
-      <q-icon name="fa-shopping-cart" />
+      <q-icon name="fa-fw fa-shopping-cart" />
     </template>
     <template slot="tools">
       <q-btn

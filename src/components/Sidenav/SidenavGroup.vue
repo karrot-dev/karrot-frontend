@@ -1,7 +1,7 @@
 <template>
   <SidenavBox>
     <template slot="icon">
-      <q-icon name="fa-home" />
+      <q-icon name="fa-fw fa-home" />
     </template>
     <template slot="tools">
       <q-btn

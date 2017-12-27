@@ -14,6 +14,7 @@
           class="row items-center"
         >
           <q-btn
+            v-if="!newSeries"
             @click="createNewSeries"
             small
             round
@@ -102,6 +103,7 @@
           class="row items-center"
         >
           <q-btn
+            v-if="!newPickup"
             @click="createNewPickup"
             small
             round

@@ -10,6 +10,7 @@ const GroupPreview = () => import('@/pages/GroupPreview')
 const GroupGallery = () => import('@/pages/GroupGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
+const StoreFeedback = () => import('@/pages/Store/Feedbacks')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
 const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
@@ -278,6 +279,18 @@ export default [
               ],
               beforeEnter: 'pickupSeries/fetchListForActiveStore',
               afterLeave: 'pickupSeries/clearList',
+            },
+          },
+          {
+            name: 'storeFeedback',
+            path: 'feedback',
+            meta: {
+              breadcrumbs: [
+                { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
+              ],
+            },
+            components: {
+              default: StoreFeedback,
             },
           },
           {

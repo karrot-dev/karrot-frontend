@@ -28,6 +28,14 @@
           {{ $t("GROUP.PICKUPS") }}
         </q-item-main>
       </q-item>
+      <q-item :to="{name: 'storeFeedback', params: { storeId }}">
+        <q-item-side class="text-center">
+          <q-icon name="fa-balance-scale" />
+        </q-item-side>
+        <q-item-main>
+          {{ $t("PICKUP_FEEDBACK.TITLE") }}
+        </q-item-main>
+      </q-item>
       <q-item :to="{name: 'storeHistory', params: { storeId }}">
         <q-item-side class="text-center">
           <q-icon name="fa-clock-o" />

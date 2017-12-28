@@ -20,6 +20,14 @@
           {{ $t('GROUP.PICKUPS' ) }}
         </q-route-tab>
         <q-route-tab
+          :to="{name: 'storeFeedback'}"
+          exact
+          slot="title"
+          name="feedback"
+        >
+          {{ $t('PICKUP_FEEDBACK.TITLE' ) }}
+        </q-route-tab>
+        <q-route-tab
           :to="{name: 'storeHistory'}"
           exact
           slot="title"

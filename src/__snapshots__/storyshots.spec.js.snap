@@ -3683,6 +3683,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             <div class="q-popover animate-scale"
                 style="transform-origin:top left 0px;">
                 <div item-separator="" class="q-list q-list-link">
+                    <!---->
                     <div class="q-item q-item-division relative-position q-item-link">
                         <i aria-hidden="true" class="q-icon fa fa-pencil fa-fw on-left" style="font-size:1em;"> </i>
                         Edit group

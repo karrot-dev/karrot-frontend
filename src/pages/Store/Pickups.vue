@@ -54,12 +54,21 @@
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">
         <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+          {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
           <q-btn
             small
             round
-            icon="fa-shopping-basket"
-          />
-          {{ $t('PICKUPLIST.NONE_HINT') }}
+            flat
+          >
+            <span class="fa-stack fa-lg">
+              <i
+                class="fa fa-shopping-basket
+                fa-stack-2x bottom-icon"/>
+              <i
+                style="font-size: 1.6em"
+                class="fa fa-clock-o fa-stack-1x top-icon"/>
+            </span>
+          </q-btn>
         </router-link>
       </template>
     </KNotice>

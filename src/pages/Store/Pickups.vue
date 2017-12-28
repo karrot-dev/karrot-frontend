@@ -10,6 +10,7 @@
         </q-item-main>
         <q-item-side
           class="group"
+          v-if="!$q.platform.is.mobile"
         >
           <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
             <q-btn

@@ -10,7 +10,9 @@
           :source="group.description"
         />
       </q-item-main>
-      <q-item-side right>
+      <q-item-side
+        right
+        v-if="!$q.platform.is.mobile">
         <router-link :to="{name: 'groupEdit'}">
           <q-btn
             small

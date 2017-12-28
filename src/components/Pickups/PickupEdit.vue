@@ -41,7 +41,12 @@
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
       >
+        <q-input
+          v-model="edit.maxCollectors"
+          type="number"
+        />
         <q-slider
+          v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
           v-model="edit.maxCollectors"
           :min="1"
           :max="10"

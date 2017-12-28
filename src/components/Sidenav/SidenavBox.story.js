@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 
-import SidenavBox from './SidenavBox'
 import SidenavMapUI from './SidenavMapUI'
 import SidenavGroup from './SidenavGroup'
 import SidenavStoresUI from './SidenavStoresUI'
@@ -13,8 +12,6 @@ const store = createStore({
 })
 
 storiesOf('Sidenav Boxes', module)
-  .add('Default', () => SidenavBox)
-
   .add('Map', () => defaults({
     render (h) {
       let { showStores, showUsers, toggleUsers, toggleStores } = this

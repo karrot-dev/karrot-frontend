@@ -1,42 +1,42 @@
 <template>
   <SidenavBox>
-    <div slot="name">
-      <i class="fa fa-fw fa-home" />
-    </div>
-    <div slot="tools">
-      <q-btn flat>
-        <i
-          class="fa fa-ellipsis-v"
-          aria-hidden="true"
-        />
+    <template slot="icon">
+      <q-icon name="fa-fw fa-shopping-cart" />
+    </template>
+    <template slot="tools">
+      <q-btn
+        flat
+        small
+        round
+      >
+        <q-icon name="fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
-    </div>
+    </template>
 
-    <div>
-      <q-list
-        highlight
-        no-border
-      >
-        <q-item :to="{name: 'storePickups', params: { storeId }}">
-          <q-item-side class="text-center">
-            <q-icon name="fa-calendar-o" />
-          </q-item-side>
-          <q-item-main>
-            {{ $t("GROUP.PICKUPS") }}
-          </q-item-main>
-        </q-item>
-        <q-item :to="{name: 'storeHistory', params: { storeId }}">
-          <q-item-side class="text-center">
-            <q-icon name="fa-clock-o" />
-          </q-item-side>
-          <q-item-main>
-            {{ $t("GROUP.HISTORY") }}
-          </q-item-main>
-        </q-item>
-      </q-list>
-    </div>
+    <q-list
+      highlight
+      no-border
+      class="no-padding"
+    >
+      <q-item :to="{name: 'storePickups', params: { storeId }}">
+        <q-item-side class="text-center">
+          <q-icon name="fa-shopping-basket" />
+        </q-item-side>
+        <q-item-main>
+          {{ $t("GROUP.PICKUPS") }}
+        </q-item-main>
+      </q-item>
+      <q-item :to="{name: 'storeHistory', params: { storeId }}">
+        <q-item-side class="text-center">
+          <q-icon name="fa-clock-o" />
+        </q-item-side>
+        <q-item-main>
+          {{ $t("GROUP.HISTORY") }}
+        </q-item-main>
+      </q-item>
+    </q-list>
 
   </SidenavBox>
 </template>

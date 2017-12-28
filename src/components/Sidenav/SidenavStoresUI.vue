@@ -10,9 +10,10 @@
       <q-btn
         v-if="hasStores"
         flat
+        small
         @click="$router.push({name: 'storeCreate'})"
       >
-        <q-icon name="add circle" />
+        <q-icon name="fa-fw fa-plus-circle" />
         <q-tooltip v-t="'BUTTON.CREATE'" />
       </q-btn>
     </template>

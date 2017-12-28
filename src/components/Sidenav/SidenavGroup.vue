@@ -7,9 +7,8 @@
       <q-btn
         flat
         small
-        round
       >
-        <q-icon name="fa-ellipsis-v" />
+        <q-icon name="fa-fw fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <GroupOptions/>
       </q-btn>

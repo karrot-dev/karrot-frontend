@@ -241,7 +241,12 @@ export default [
         },
         components: {
           default: StoreLayout,
+          secondSidenav: GroupGroupSidenav,
           sidenav: GroupStoreSidenav,
+        },
+        beforeEnter: (to, from, next) => {
+          console.log('close group sidenav')
+          next()
         },
         children: [
           {

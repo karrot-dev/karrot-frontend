@@ -10,10 +10,10 @@
       <q-btn
         flat
         small
-        round
         @click="$emit('toggleStores')"
+        style="padding: 0 5px"
       >
-        <span class="fa-stack">
+        <span class="fa-fw fa-stack">
           <i class="fa fa-shopping-cart fa-stack-1x" />
           <i
             v-if="showStores"
@@ -32,10 +32,10 @@
       <q-btn
         flat
         small
-        round
         @click="$emit('toggleUsers')"
+        style="padding: 0 5px"
       >
-        <span class="fa-stack">
+        <span class="fa-fw fa-stack">
           <i class="fa fa-user fa-stack-1x" />
           <i
             v-if="showUsers"

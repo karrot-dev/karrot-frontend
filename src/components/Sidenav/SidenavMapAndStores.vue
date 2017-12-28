@@ -2,6 +2,7 @@
   <span>
     <SidenavMap/>
     <router-view name="sidenav"/>
+    <router-view name="secondSidenav"/>
     <SidenavStores/>
   </span>
 </template>

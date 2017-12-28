@@ -22,11 +22,10 @@
         {{ $t('PICKUPLIST.NONE_HINT') }}
       </template>
     </KNotice>
-    <q-card>
+    <q-card v-if="!hasPickups">
       <q-card-title v-t="'GROUP.STORES'" />
       <q-card-main>
         <StoreList
-          v-if="!hasPickups"
           :stores="stores"
           link-to="storePickupsManage"
         />

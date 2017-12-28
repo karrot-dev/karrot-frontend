@@ -47,7 +47,7 @@
           :key="series.id"
           :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
           :sublabel="$d(series.startDate, 'timeShort')"
-          icon="fa-repeat"
+          icon="fa-calendar"
           sparse
         >
 
@@ -135,7 +135,7 @@
           :key="pickup.id"
           :label="$d(pickup.date, 'dateWithDayName')"
           :sublabel="$d(pickup.date, 'timeShort')"
-          icon="fa-shopping-basket"
+          icon="fa-calendar"
           sparse
         >
           <pickup-edit

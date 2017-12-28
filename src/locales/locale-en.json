@@ -102,7 +102,7 @@
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
-    "SERIES": "Recurring",
+    "SERIES": "Recurring pickups",
     "SINGLE": "One-time pickups",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },
@@ -185,7 +185,8 @@
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
     "NONE": "No upcoming pickups",
-    "NONE_HINT": "You can create a new pickup on the store page."
+    "NONE_HINT": "You can create a new pickup on the store page.",
+    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
   },
   "PICKUP_FEEDBACK": {
     "HEADER": "Thank you for your pickup!",

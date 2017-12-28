@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="list-wrapper">
     <q-list
       highlight
       no-border
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.wrapper
+.list-wrapper
   margin .3em
   .profilePic
     margin-right .5em

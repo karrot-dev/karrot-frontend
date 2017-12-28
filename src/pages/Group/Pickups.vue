@@ -13,7 +13,7 @@
         </router-link>
       </strong> {{ $d(pickup.date, 'dateWithDayName') }}
     </PickupItem>
-    <KNotice v-if="pickups && pickups.length == 0" >
+    <KNotice v-if="!hasPickups" >
       <template slot="icon">
         <i class="fa fa-bed"/>
       </template>
@@ -22,12 +22,24 @@
         {{ $t('PICKUPLIST.NONE_HINT') }}
       </template>
     </KNotice>
+    <q-card>
+      <q-card-title v-t="'GROUP.STORES'" />
+      <q-card-main>
+        <StoreList
+          v-if="!hasPickups"
+          :stores="stores"
+          link-to="storePickupsManage"
+        />
+      </q-card-main>
+    </q-card>
   </div>
 </template>
 
 <script>
 import PickupItem from '@/components/Pickups/PickupItem'
 import KNotice from '@/components/General/KNotice'
+import StoreList from '@/components/Store/StoreList'
+import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 import {
   mapGetters,
@@ -35,7 +47,7 @@ import {
 } from 'vuex'
 
 export default {
-  components: { PickupItem, KNotice },
+  components: { QCard, QCardTitle, QCardMain, PickupItem, KNotice, StoreList },
   methods: {
     ...mapActions({
       join: 'pickups/join',
@@ -45,7 +57,11 @@ export default {
   computed: {
     ...mapGetters({
       pickups: 'pickups/all',
+      stores: 'stores/byCurrentGroup',
     }),
+    hasPickups () {
+      return this.pickups && this.pickups.length > 0
+    },
   },
 }
 </script>

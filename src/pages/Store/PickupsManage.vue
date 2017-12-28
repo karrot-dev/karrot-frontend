@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card class="no-shadow grey-border">
       <q-card-title>
         <h5>
           <i
@@ -13,8 +13,13 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn @click="createNewSeries">
-            <q-icon name="fa-plus-circle" />
+          <q-btn
+            v-if="!newSeries"
+            @click="createNewSeries"
+            small
+            round
+            color="secondary"
+            icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
@@ -42,7 +47,7 @@
           :key="series.id"
           :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
           :sublabel="$d(series.startDate, 'timeShort')"
-          icon="fa-calendar"
+          icon="fa-repeat"
           sparse
         >
 
@@ -67,7 +72,7 @@
               @open="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
               :label="seriesPickupLabel(series, pickup)"
-              icon="fa-calendar"
+              icon="fa-shopping-basket"
             >
               <pickup-edit
                 v-if="visible.pickup[pickup.id]"
@@ -84,7 +89,7 @@
       </q-list>
     </q-card>
 
-    <q-card>
+    <q-card class="no-shadow grey-border">
       <q-card-title>
         <h5>
           <i
@@ -97,8 +102,13 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn @click="createNewPickup">
-            <q-icon name="fa-plus-circle" />
+          <q-btn
+            v-if="!newPickup"
+            @click="createNewPickup"
+            small
+            round
+            color="secondary"
+            icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
@@ -125,7 +135,7 @@
           :key="pickup.id"
           :label="$d(pickup.date, 'dateWithDayName')"
           :sublabel="$d(pickup.date, 'timeShort')"
-          icon="fa-calendar"
+          icon="fa-shopping-basket"
           sparse
         >
           <pickup-edit

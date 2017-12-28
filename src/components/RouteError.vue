@@ -13,7 +13,7 @@
       <p class="text-center group">
         <q-btn
           v-if="canGoBack"
-          color="primary"
+          color="secondary"
           push
           @click="goBack"
           icon="keyboard_arrow_left"
@@ -21,10 +21,10 @@
           {{ $t('BUTTON.BACK') }}
         </q-btn>
         <q-btn
-          color="primary"
+          color="secondary"
           push
           @click="$router.replace('/')"
-          icon-right="home"
+          icon-right="fa-home"
         >
           {{ $t('NOT_FOUND.HOME') }}
         </q-btn>

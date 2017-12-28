@@ -8,6 +8,17 @@
       link
     >
       <q-item
+        v-if="$q.platform.is.mobile"
+        :to="{name: 'groupMembers', params: {groupId: currentGroupId}}"
+        @click.native="$refs.popover.close()"
+      >
+        <q-icon
+          size="1em"
+          name="fa-users fa-fw on-left"
+        />
+        {{ $t('GROUP.MEMBERS') }}
+      </q-item>
+      <q-item
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
         @click.native="$refs.popover.close()"
       >

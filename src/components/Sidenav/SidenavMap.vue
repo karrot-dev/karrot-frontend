@@ -10,10 +10,12 @@ export default connect({
     showUsers: 'map/showUsers',
     selectedStoreId: 'stores/activeStoreId',
     currentGroup: 'currentGroup/value',
+    collapsed: 'sidenavBoxes/mapCollapsed',
   },
   mutationsToEvents: {
     toggleStores: 'map/toggleStores',
     toggleUsers: 'map/toggleUsers',
+    toggleBoxCollapsed: 'sidenavBoxes/toggleMapCollapsed',
   },
 })('SidenavMap', SidenavMapUI)
 </script>

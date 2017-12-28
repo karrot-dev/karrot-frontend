@@ -62,11 +62,13 @@ export default {
         }
       }
       dispatch('pickups/setStoreFilter', storeId, {root: true})
+      dispatch('sidenavBoxes/hideGroupSidenav', null, {root: true})
       commit('select', storeId)
     },
 
     async clearSelectedStore ({ commit, dispatch }) {
       dispatch('pickups/clearStoreFilter', null, { root: true })
+      dispatch('sidenavBoxes/showGroupSidenav', null, {root: true})
       commit('clearSelected')
     },
 

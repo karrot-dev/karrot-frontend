@@ -1,5 +1,8 @@
 <template>
-  <SidenavBox>
+  <SidenavBox
+    @toggleBoxCollapsed="$emit('toggleBoxCollapsed')"
+    :collapsible="collapsible"
+    :collapsed="collapsed">
     <template slot="icon">
       <q-icon name="fa-fw fa-shopping-cart" />
     </template>
@@ -31,6 +34,8 @@ import StoreList from '@/components/Store/StoreList'
 export default {
   props: {
     stores: { required: true, type: Array },
+    collapsible: { default: true },
+    collapsed: { required: true },
   },
   components: {
     SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoreList, QItemTile,

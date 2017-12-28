@@ -102,7 +102,7 @@
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
-    "SERIES": "Recurring",
+    "SERIES": "Recurring pickups",
     "SINGLE": "One-time pickups",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },

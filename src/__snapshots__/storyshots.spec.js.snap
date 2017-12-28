@@ -4240,16 +4240,12 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
         <div class="row no-wrap">
             <div class="container amount" style="width:100px;height:100px;">
                 <img width="100px" height="100px" src="test-file-stub">
-                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-39deg);top:10px;">
-                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">3</span> <span style="font-size:14px;">kg</span></div>
+                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
             </div>
             <div style="margin-left:.6em;">
                 <div style="padding-bottom:.3em;"></div>
-                <div class="wrapper row">
-                    <img src="test-file-stub">
-                    <img src="test-file-stub">
-                    <img src="test-file-stub">
-                </div>
+                <div class="wrapper row"></div>
             </div>
         </div>
         <div>
@@ -4397,11 +4393,11 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
                     <!---->
                     <!---->
                     <!---->
-                    <div class="q-slider-track active-track" style="width:4.285714285714286%;"></div>
-                    <div class="q-slider-handle" style="left:4.285714285714286%;border-radius:50%;">
+                    <div class="q-slider-track active-track handle-at-minimum" style="width:0%;"></div>
+                    <div class="q-slider-handle handle-at-minimum" style="left:0%;border-radius:50%;">
                         <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
                             <!---->
-                            <div class="q-chip-main"> 3 </div>
+                            <div class="q-chip-main"> 0 </div>
                             <!---->
                             <!---->
                         </div>
@@ -4557,17 +4553,14 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
             <div class="image-and-text-right">
                 <h4>Thank you for your pickup!</h4>
                 <!---->
-                <p>
-                    You can provide feedback for your pickup here
-                </p>
             </div>
         </div>
         <div>
             <div class="q-field row no-wrap items-start" style="margin-top:2em;padding:0 .5em;">
-                <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-shopping-bag"> </i>
+                <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-shopping-basket"> </i>
                 <div class="row col">
                     <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                        <div class="q-field-label-inner row items-center"><span>Please select the pickup you want to feedback first</span> </div>
+                        <div class="q-field-label-inner row items-center"><span>Please select a pickup you want to feedback</span> </div>
                     </div>
                     <div class="q-field-content col-xs-12 col-sm">
                         <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">

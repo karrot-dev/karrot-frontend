@@ -39,7 +39,9 @@
         class="map"
       />
       <div class="info">
-        <div class="info-item">
+        <div
+          class="info-item"
+          style="word-break: break-all">
           <strong>
             <i class="fa fa-fw fa-envelope-o on-left" />
           </strong>

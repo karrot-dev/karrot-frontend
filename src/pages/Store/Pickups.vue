@@ -7,6 +7,9 @@
             v-if="store.description"
             :source="store.description"
           />
+          <i v-if="!store.description">
+            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+          </i>
         </q-item-main>
         <q-item-side
           class="group"

@@ -83,7 +83,8 @@
   "STOREDETAIL": {
     "EDIT": "Edit store",
     "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "This store has been archived"
+    "ARCHIVED": "This store has been archived",
+    "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Name",

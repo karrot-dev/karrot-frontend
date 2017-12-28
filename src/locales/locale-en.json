@@ -175,6 +175,7 @@
   },
   "PICKUPLIST": {
     "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can feedback a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Leave",

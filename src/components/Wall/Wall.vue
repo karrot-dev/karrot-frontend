@@ -15,6 +15,7 @@
           @leave="$emit('leave', arguments[0])"
         />
       </div>
+      <FeedbackNotice/>
     </div>
     <Conversation
       :data="conversation"
@@ -27,6 +28,7 @@
 
 <script>
 import AvailablePickups from './AvailablePickups'
+import FeedbackNotice from './FeedbackNotice'
 import JoinedPickups from './JoinedPickups'
 import Conversation from '@/components/Conversation/Conversation'
 
@@ -35,6 +37,7 @@ export default {
     JoinedPickups,
     AvailablePickups,
     Conversation,
+    FeedbackNotice,
   },
   props: {
     joinedPickups: { required: true },

@@ -1,41 +1,39 @@
 <template>
-  <div class="grey-border">
-    <q-list no-border>
-      <q-list-header>{{ $t('USERDATA.PROFILE_TITLE') }}</q-list-header>
-
-      <q-item>
+  <div>
+    <q-card class="no-shadow grey-border">
+      <q-card-title>{{ $t('USERDATA.PROFILE_TITLE') }}</q-card-title>
+      <q-card-main>
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
           @save="saveUser"
         />
-      </q-item>
-
-      <q-list-header>{{ $t('USERDATA.EMAIL') }}</q-list-header>
-
-      <q-item>
+      </q-card-main>
+    </q-card>
+    <q-card class="no-shadow grey-border">
+      <q-card-title>{{ $t('USERDATA.EMAIL') }}</q-card-title>
+      <q-card-main>
         <ChangeEmail
           :user="user"
           :status="changeEmailStatus"
           @save="changeEmail"
         />
-      </q-item>
-
-      <q-list-header>{{ $t('USERDATA.PASSWORD') }}</q-list-header>
-
-      <q-item>
+      </q-card-main>
+    </q-card>
+    <q-card class="no-shadow grey-border">
+      <q-card-title>{{ $t('USERDATA.PASSWORD') }}</q-card-title>
+      <q-card-main>
         <ChangePassword
           :status="changePasswordStatus"
           @save="changePassword"
         />
-      </q-item>
-
-    </q-list>
+      </q-card-main>
+    </q-card>
   </div>
 </template>
 
 <script>
-import { QList, QItem, QListHeader } from 'quasar'
+import { QCard, QCardTitle, QCardMain } from 'quasar'
 import ProfileEdit from '@/components/Settings/ProfileEdit'
 import ChangePassword from '@/components/Settings/ChangePassword'
 import ChangeEmail from '@/components/Settings/ChangeEmail'
@@ -44,7 +42,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Settings',
-  components: { QList, QItem, QListHeader, ProfileEdit, ChangePassword, ChangeEmail },
+  components: { QCard, QCardTitle, QCardMain, ProfileEdit, ChangePassword, ChangeEmail },
   computed: {
     ...mapGetters({
       user: 'auth/user',

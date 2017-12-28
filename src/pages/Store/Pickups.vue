@@ -26,7 +26,7 @@
               small
               round
               color="secondary"
-              icon="fa-shopping-basket"
+              icon="fa-calendar"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
@@ -47,12 +47,13 @@
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">
         <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+          {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
           <q-btn
             small
             round
-            icon="fa-shopping-basket"
+            flat
+            icon="fa-calendar"
           />
-          {{ $t('PICKUPLIST.NONE_HINT') }}
         </router-link>
       </template>
     </KNotice>
@@ -90,10 +91,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.card
-  margin 0
-.padding
-  padding 1em
+@import '~variables'
 .notice
   .icon
     margin .1em 0 0 0

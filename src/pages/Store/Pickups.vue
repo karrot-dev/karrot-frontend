@@ -26,15 +26,8 @@
               small
               round
               color="secondary"
+              icon="fa-calendar"
             >
-              <span class="fa-stack fa-lg">
-                <i
-                  class="fa fa-shopping-basket
-                  fa-stack-2x bottom-icon"/>
-                <i
-                  style="font-size: 1.6em"
-                  class="fa fa-clock-o fa-stack-1x top-icon"/>
-              </span>
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
           </router-link>
@@ -59,16 +52,8 @@
             small
             round
             flat
-          >
-            <span class="fa-stack fa-lg">
-              <i
-                class="fa fa-shopping-basket
-                fa-stack-2x bottom-icon"/>
-              <i
-                style="font-size: 1.6em"
-                class="fa fa-clock-o fa-stack-1x top-icon"/>
-            </span>
-          </q-btn>
+            icon="fa-calendar"
+          />
         </router-link>
       </template>
     </KNotice>
@@ -107,10 +92,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.card
-  margin 0
-.padding
-  padding 1em
 .notice
   .icon
     margin .1em 0 0 0
@@ -122,16 +103,4 @@ export default {
     padding 0
 .q-btn-round
   margin-bottom .5em
-
-.fa-stack
-  font-size 0.85em
-  padding-right 20px
-  padding-bottom 20px
-  .bottom-icon
-    color white
-  .top-icon
-    padding-left 11px
-    padding-top 9px
-    color $primary
-    -webkit-text-stroke: 0.04em $primary;
 </style>

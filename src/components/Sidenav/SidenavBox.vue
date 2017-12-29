@@ -1,6 +1,9 @@
 <template>
   <q-card class="no-shadow grey-border">
-    <q-toolbar class="toolbar">
+    <q-toolbar
+      class="toolbar"
+      @click.self="$emit('toggleBoxCollapsed')"
+    >
       <slot name="icon" />
       <q-toolbar-title>
         <slot name="name" />

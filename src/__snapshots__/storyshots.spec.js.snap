@@ -306,16 +306,6 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 `;
 
-exports[`Storyshots General Components KBox 1`] = `
-<div class="wrapper">
-    <div class="row justify-between toolbar">
-        <div class="name">&quot;name&quot;-Slot</div>
-        <div>&quot;tools&quot;-Slot</div>
-    </div>
-    <div class="content">Primary Slot</div>
-</div>
-`;
-
 exports[`Storyshots General Components KBreadcrumb 1`] = `
 <div class="wrapper">
     <div class="prevBread gt-xs">

@@ -11,7 +11,7 @@
         class="card-arrow"
         :class="{ upsideDown: showPickups }"
       >
-        <i class="fa fa-arrow-circle-down"/>
+        <i class="fa fa-angle-down"/>
       </div>
     </q-card>
     <transition-group

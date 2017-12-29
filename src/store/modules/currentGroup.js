@@ -82,12 +82,15 @@ export default {
       dispatch('pickups/clear', {}, { root: true })
 
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
+      dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
       try {
         dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
       }
       catch (error) {
         dispatch('conversations/clearActive', {}, { root: true })
       }
+
+      dispatch('feedback/fetch', null, { root: true })
 
       dispatch('auth/update', { currentGroup: groupId }, { root: true })
     },

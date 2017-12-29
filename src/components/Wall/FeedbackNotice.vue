@@ -6,7 +6,7 @@
         class="generic-padding notice"
       >
         <i class="fa fa-balance-scale on-left"/>
-        {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', 2, { count: 2 }) }}
+        {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
       </q-card>
     </router-link>
   </div>
@@ -17,6 +17,9 @@ import { QCard } from 'quasar'
 
 export default {
   components: { QCard },
+  props: {
+    feedbackPossible: { required: true, type: Array },
+  },
 }
 </script>
 

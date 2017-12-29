@@ -17,7 +17,7 @@ import FeedbackItem from './FeedbackItem'
 
 export default {
   props: {
-    feedback: { required: true },
+    feedback: { required: true, type: Array },
   },
   components: {
     FeedbackItem,

@@ -6,6 +6,7 @@ import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
+// Alphabetical
 import about from './modules/about'
 import agreements from './modules/agreements'
 import alerts from './modules/alerts'
@@ -14,6 +15,7 @@ import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
+import feedback from './modules/feedback'
 import groups from './modules/groups'
 import history from './modules/history'
 import i18n from './modules/i18n'
@@ -36,29 +38,31 @@ const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
   modules: {
+    // Alphabetical, too
+    about,
+    agreements,
+    alerts,
     auth,
+    breadcrumbs,
     conversations,
-    groups,
     currentGroup,
-    timezones,
-    stores,
-    users,
+    fcm,
+    feedback,
+    groups,
+    history,
+    i18n,
+    invitations,
+    loadingprogress,
+    map,
     pickups,
     pickupSeries,
-    i18n,
-    map,
-    about,
-    breadcrumbs,
-    verifymail,
     route,
-    invitations,
-    alerts,
-    loadingprogress,
-    history,
-    search,
-    agreements,
     routeError,
-    fcm,
+    search,
+    stores,
+    timezones,
+    users,
+    verifymail,
   },
   plugins: [
     i18nPlugin,

@@ -1,26 +1,10 @@
-<template>
-  <div>
-    <KNotice>
-      <template slot="icon">
-        <i class="fa fa-alert"/>
-      </template>
-      Not created yet
-      <template slot="desc">
-        The FeedbackList still needs feedback from the store
-      </template>
-    </KNotice>
-    <FeedbackList :feedback="[]"/>
-  </div>
-</template>
-
 <script>
-import KNotice from '@/components/General/KNotice'
+import { connect } from 'vuex-connect'
 import FeedbackList from '@/components/Statistics/FeedbackList'
 
-export default {
-  components: { KNotice, FeedbackList },
-}
+export default connect({
+  gettersToProps: {
+    feedback: 'feedback/filtered',
+  },
+})('StoreFeedbackList', FeedbackList)
 </script>
-
-<style scoped lang="stylus">
-</style>

@@ -15,7 +15,10 @@
           @leave="$emit('leave', arguments[0])"
         />
       </div>
-      <FeedbackNotice/>
+      <FeedbackNotice
+        v-if="feedbackPossible.length > 0"
+        :feedback-possible="feedbackPossible"
+      />
     </div>
     <Conversation
       :data="conversation"
@@ -42,6 +45,7 @@ export default {
   props: {
     joinedPickups: { required: true },
     availablePickups: { required: true },
+    feedbackPossible: { required: true, type: Array },
     conversation: { required: true },
     fetchMore: { required: true },
     user: { required: true },

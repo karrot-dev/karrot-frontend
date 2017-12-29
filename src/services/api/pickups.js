@@ -26,6 +26,10 @@ export default {
     return convertDate((await axios.get('/api/pickup-dates/', { params: { series: seriesId, 'date_0': new Date() } })).data)
   },
 
+  async listFeedbackPossible (groupId) {
+    return convertDate((await axios.get('/api/pickup-dates/feedback_possible/', { params: { group: groupId } })).data)
+  },
+
   async save (pickup) {
     return convertDate((await axios.patch(`/api/pickup-dates/${pickup.id}/`, pickup)).data)
   },

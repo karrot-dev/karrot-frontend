@@ -1,6 +1,9 @@
 <template>
-  <div class="wrapper">
-    <div class="row justify-inbetween no-wrap image-and-text">
+  <q-card
+    class="no-shadow generic-padding grey-border"
+    style="width: 100%"
+  >
+    <div class="row no-wrap image-and-text">
       <div class="image-and-text-left gt-sm">
         <img
           style="width: 100%;"
@@ -8,7 +11,7 @@
       </div>
       <div class="image-and-text-right">
         <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-        <p v-if="select">{{ select.store.name + ', ' + this.$d(select.date, 'dateShort') }}
+        <p v-if="select">{{ select.store.name + ': ' + this.$d(select.date, 'dateShort') }}
           <q-btn
             @click="select = false"
             flat>
@@ -17,85 +20,109 @@
         </p>
       </div>
     </div>
-    <div v-if="!singlePicked">
-      <q-field
-        style="margin-top: 2em; padding: 0 .5em"
-        icon="fa-shopping-basket"
-        :label="$t('PICKUP_FEEDBACK.SELECT_PICKUP')">
-        <q-select
-          v-model="select"
-          :options="feedbackOptions"
-          @change="selectChanged"
-        />
-      </q-field>
-    </div>
-    <div
+    <q-field
+      v-if="!select"
+      style="margin-top: 2em; padding: 0 .5em"
+      icon="fa-shopping-basket"
+      :label="$t('PICKUP_FEEDBACK.SELECT_PICKUP')">
+      <q-select
+        v-model="select"
+        :options="feedbackOptions"
+      />
+    </q-field>
+    <form
+      v-else
+      @submit="save"
       style="padding: 0 1.5em"
-      v-if="singlePicked">
-      <AmountPicker/>
+    >
+      <AmountPicker v-model="feedback.weight"/>
       <q-field
         style="margin-top: 2em; padding: 0 .5em"
         icon="fa-star"
         :label="$t('PICKUP_FEEDBACK.COMMENT')"
+        :error="hasError('comment')"
+        :error-label="firstError('comment')"
       >
         <q-input
-          v-model="comment"
+          v-model="feedback.comment"
           type="textarea"
           :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
           autocomplete="off"
           :min-rows="2"
         />
       </q-field>
-      <div style="margin-top: 1.5em; padding-bottom: 1em">
+      <div class="row justify-end generic-margin group">
         <q-btn
           type="submit"
-          class="actionButton"
           color="primary"
-        >
-          {{ $t('BUTTON.CREATE') }}
-        </q-btn>
-        <div style="clear: both"/>
+          v-t="'BUTTON.CREATE'"
+        />
       </div>
+      <FeedbackList :feedback="feedbackForStore" />
+    </form>
+
+    <div
+      v-if="hasNonFieldError"
+      class="text-negative"
+    >
+      <i class="fa fa-exclamation-triangle"/>
+      {{ firstNonFieldError }}
     </div>
-  </div>
+  </q-card>
 </template>
 
 <script>
-import { QField, QInput, QBtn, QSelect } from 'quasar'
+import { QCard, QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
+import FeedbackList from './FeedbackList'
 import cartImg from 'assets/people/cart.png'
+import statusMixin from '@/mixins/statusMixin'
+
+function first (a) {
+  return a && a[0]
+}
 
 export default {
-  components: { QField, QInput, QBtn, QSelect, AmountPicker },
+  components: { QCard, QField, QInput, QBtn, QSelect, AmountPicker, FeedbackList },
+  mixins: [statusMixin],
+  props: {
+    feedbackPossible: { required: true, type: Array },
+    feedbackList: { required: true, type: Array },
+  },
   data () {
     return {
-      comment: '',
+      feedback: {
+        weight: 1,
+        comment: '',
+      },
       cartImg,
-      select: false,
+      select: first(this.feedbackPossible),
     }
   },
   methods: {
-    selectChanged () {
-      console.log(this.select)
+    save () {
+      this.feedback.about = this.select.id
+      this.$emit('save', this.feedback)
+    },
+  },
+  watch: {
+    feedbackPossible (val) {
+      this.select = first(val)
     },
   },
   computed: {
-    singlePicked () {
-      return this.select
-    },
     feedbackOptions () {
-      return this.donePickups.map((e) => {
+      if (!this.feedbackPossible) return []
+      return this.feedbackPossible.map((e) => {
         return {
-          label: e.store.name + ', ' + this.$d(e.date, 'dateShort'),
+          label: e.store.name + ': ' + this.$d(e.date, 'dateShort'),
           value: e,
         }
       })
     },
-    donePickups () {
-      return [
-        { 'id': 237, 'date': new Date('2017-08-12T08:00:00Z'), 'store': { 'id': 1, 'name': 'Teststore1', 'description': 'all the good stuff', 'group': 1, 'address': 'Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany', 'latitude': 49.8965397, 'longitude': 8.6847644, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 } },
-        { 'id': 238, 'date': new Date('2017-08-19T08:00:00Z'), 'store': { 'id': 1, 'name': 'Teststore1', 'description': 'all the good stuff', 'group': 1, 'address': 'Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany', 'latitude': 49.8965397, 'longitude': 8.6847644, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 } },
-      ]
+    feedbackForStore () {
+      if (!this.select) return []
+      return this.feedbackList.filter(e => e.about && e.about.store.id === this.select.id)
     },
   },
 }
@@ -112,6 +139,4 @@ export default {
   .image-and-text-right
     width: 70%
     margin 0 auto
-.actionButton
-  float: right
 </style>

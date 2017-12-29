@@ -288,6 +288,8 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
               ],
+              beforeEnter: 'feedback/setStoreFilter',
+              afterLeave: 'feedback/clearStoreFilter',
             },
             components: {
               default: StoreFeedback,

@@ -1,17 +1,15 @@
-<template>
-  <q-card
-    class="no-shadow generic-padding grey-border"
-    style="width: 100%"
-  >
-    <PickupFeedback/>
-  </q-card>
-</template>
-
 <script>
+import { connect } from 'vuex-connect'
 import PickupFeedback from '@/components/Statistics/PickupFeedback'
-import { QCard } from 'quasar'
 
-export default {
-  components: { PickupFeedback, QCard },
-}
+export default connect({
+  gettersToProps: {
+    feedbackPossible: 'pickups/feedbackPossible',
+    feedbackList: 'feedback/all',
+    status: 'feedback/saveStatus',
+  },
+  actionsToEvents: {
+    save: 'feedback/save',
+  },
+})('PickupFeedback', PickupFeedback)
 </script>

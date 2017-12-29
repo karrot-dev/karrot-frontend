@@ -3,7 +3,7 @@
     <div class="row no-wrap">
       <AmountBox
         class="amount"
-        :amount="selectedValue"
+        :amount="value"
       />
       <div style="margin-left: .6em">
         <div
@@ -12,13 +12,14 @@
         />
         <AmountViewer
           v-if="!$q.platform.is.mobile"
-          :amount="selectedValue"
+          :amount="value"
         />
       </div>
     </div>
     <div>
       <q-slider
-        v-model="selectedValue"
+        :value="value"
+        @input="$emit('input', arguments[0])"
         :min="0"
         :max="70"
         :step="0.5"
@@ -35,14 +36,8 @@ import AmountViewer from './AmountViewer'
 import AmountBox from './AmountBox'
 
 export default {
-  data () {
-    return {
-      selectedValue: 0.0,
-    }
-  },
-  components: {
-    QSlider, AmountViewer, AmountBox,
-  },
+  props: { value: { default: 0, type: Number } },
+  components: { QSlider, AmountViewer, AmountBox },
 }
 </script>
 

@@ -5,18 +5,21 @@
         <AmountBox
           class="amount-box"
           size="100"
-          :amount="feedback.weight
-        "/>
+          :amount="weight"
+        />
         <div class="content">
           <div>
-            <strong v-if="store">{{ store.name }},</strong>
-            <strong>12. Dezember, 15:00</strong>
+            <strong v-if="storeName">{{ storeName }}:</strong>
+            <strong>{{ $d(pickupDate, 'long') }}</strong>
           </div>
-          <div>by {{ feedback.givenBy.displayName }} on {{ $d(feedback.createdAt, 'dateShort') }}</div>
-          <div class="comment">{{ feedback.comment }}</div>
+          <i18n path="PICKUP_FEEDBACK.GIVEN_BY">
+            <span place="user">{{ userName }}</span>
+            <span place="date">{{ $d(createdAt, 'dateShort') }}</span>
+          </i18n>
+          <div class="comment">{{ comment }}</div>
           <div>
             <ProfilePicture
-              user="feedback.givenBy"
+              :user="feedback.givenBy"
               size="22"
             />
             <span
@@ -48,14 +51,32 @@ export default {
   },
   props: {
     feedback: { required: true },
-    store: { default: false },
-    members: { default: [] },
   },
   computed: {
     membersWithoutGiver () {
-      return this.members.filter((el) => {
+      const { pickup: { collectors = [] } = {} } = this.feedback
+      return collectors.filter((el) => {
         return el.id !== this.feedback.givenBy.id
       })
+    },
+    weight () {
+      return this.feedback && this.feedback.weight
+    },
+    comment () {
+      return this.feedback && this.feedback.comment
+    },
+    createdAt () {
+      return this.feedback && this.feedback.createdAt
+    },
+    storeName () {
+      const { about: { store: { name } = {} } = {} } = this.feedback
+      return name
+    },
+    userName () {
+      return this.feedback && this.feedback.givenBy && this.feedback.givenBy.displayName
+    },
+    pickupDate () {
+      return this.feedback && this.feedback.about && this.feedback.about.date
     },
   },
 }

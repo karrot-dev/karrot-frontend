@@ -175,7 +175,7 @@
   },
   "PICKUPLIST": {
     "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can feedback a pickup | {count} pickups await your feedback",
+    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Leave",
@@ -197,7 +197,8 @@
     "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "OTHER": "Other pickup",
-    "SELECT_PICKUP": "Please select a pickup you want to feedback"
+    "SELECT_PICKUP": "Please select a pickup date",
+    "GIVEN_BY": "by {user} on {date}"
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",

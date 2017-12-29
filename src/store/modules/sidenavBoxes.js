@@ -1,5 +1,3 @@
-import { withMeta, createMetaModule } from '@/store/helpers'
-
 function initialState () {
   return {
     mapCollapsed: false,
@@ -11,7 +9,6 @@ function initialState () {
 
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
     mapCollapsed: state => state.mapCollapsed,
@@ -20,16 +17,14 @@ export default {
     groupCollapsed: state => state.groupCollapsed,
   },
   actions: {
-    ...withMeta({
-      hideGroupSidenav ({ commit }) {
-        console.log('test1')
-        commit('hideGroup')
-      },
-      showGroupSidenav ({ commit }) {
-        console.log('test2')
-        commit('showGroup')
-      },
-    }),
+    hideGroupSidenav ({ commit }) {
+      console.log('test1')
+      commit('hideGroup')
+    },
+    showGroupSidenav ({ commit }) {
+      console.log('test2')
+      commit('showGroup')
+    },
   },
   mutations: {
     toggleMapCollapsed (state) { state.mapCollapsed = !state.mapCollapsed },

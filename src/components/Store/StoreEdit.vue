@@ -2,7 +2,7 @@
   <div>
     <q-card>
       <div
-        class="edit"
+        class="edit-box"
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
@@ -80,39 +80,40 @@
             {{ firstNonFieldError }}
           </div>
 
-          <q-btn
-            type="submit"
-            color="primary"
-            :disable="!canSave"
-            loader
-            :value="isPending"
-          >
-            {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-          </q-btn>
-          <q-btn
-            type="button"
-            @click="reset"
-            v-if="!isNew"
-            :disable="!hasChanged"
-          >
-            {{ $t('BUTTON.RESET') }}
-          </q-btn>
-          <q-btn
-            type="button"
-            @click="$emit('cancel')"
-            v-if="isNew"
-          >
-            {{ $t('BUTTON.CANCEL') }}
-          </q-btn>
-          <q-btn
-            type="button"
-            color="red"
-            @click="archive"
-            v-if="!isNew"
-          >
-            {{ $t('BUTTON.ARCHIVE') }}
-          </q-btn>
-
+          <div class="actionButtons">
+            <q-btn
+              type="submit"
+              color="primary"
+              :disable="!canSave"
+              loader
+              :value="isPending"
+            >
+              {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+            </q-btn>
+            <q-btn
+              type="button"
+              color="red"
+              @click="archive"
+              v-if="!isNew"
+            >
+              {{ $t('BUTTON.ARCHIVE') }}
+            </q-btn>
+            <q-btn
+              type="button"
+              @click="reset"
+              v-if="!isNew"
+              :disable="!hasChanged"
+            >
+              {{ $t('BUTTON.RESET') }}
+            </q-btn>
+            <q-btn
+              type="button"
+              @click="$emit('cancel')"
+              v-if="isNew"
+            >
+              {{ $t('BUTTON.CANCEL') }}
+            </q-btn>
+          </div>
         </form>
       </div>
     </q-card>
@@ -235,10 +236,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.edit
-  width 100%
-  padding 20px
-  &.changed
-    background-color $yellow-1
 </style>

@@ -2,7 +2,7 @@
   <div>
     <q-card>
       <div
-        class="edit"
+        class="edit-box"
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
@@ -97,28 +97,26 @@
           >
             {{ firstNonFieldError }}
           </div>
+          <div class="actionButtons">
+            <q-btn
+              type="button"
+              @click="reset"
+              v-if="!isNew"
+              :disable="!hasChanged"
+            >
+              {{ $t('BUTTON.RESET') }}
+            </q-btn>
 
-          <q-btn
-            class="actionButton"
-            type="button"
-            @click="reset"
-            v-if="!isNew"
-            :disable="!hasChanged"
-          >
-            {{ $t('BUTTON.RESET') }}
-          </q-btn>
-
-          <q-btn
-            class="actionButton"
-            type="submit"
-            color="primary"
-            :disable="!canSave"
-            loader
-            :value="isPending"
-          >
-            {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-          </q-btn>
-          <div style="clear: both"/>
+            <q-btn
+              type="submit"
+              color="primary"
+              :disable="!canSave"
+              loader
+              :value="isPending"
+            >
+              {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+            </q-btn>
+          </div>
         </form>
       </div>
     </q-card>
@@ -242,13 +240,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.edit
-  width 100%
-  padding 20px
-  &.changed
-    background-color $yellow-1
-.actionButton
-  float: right
-  margin: 2px
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="edit"
+    class="edit-box"
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="maybeSave">
@@ -76,50 +76,39 @@
         {{ firstNonFieldError }}
       </div>
 
-      <div
-        class="row"
-        v-if="!isNew"
-      >
-        <div class="col-6 actionButton">
-          <q-btn
-            type="button"
-            class="full-width"
-            @click="reset"
-            :disable="!hasChanged"
-          >
-            {{ $t('BUTTON.RESET') }}
-          </q-btn>
-        </div>
-        <div class="col-6 actionButton">
-          <q-btn
-            type="button"
-            class="full-width"
-            color="red"
-            @click="destroy"
-            v-if="!isNew"
-          >
-            {{ $t('BUTTON.DELETE') }}
-          </q-btn>
-        </div>
+      <div class="actionButtons">
+        <q-btn
+          type="submit"
+          color="primary"
+          :disable="!canSave"
+          loader
+          :value="isPending"
+        >
+          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+        </q-btn>
+        <q-btn
+          type="button"
+          @click="$emit('cancel')"
+          v-if="isNew"
+        >
+          {{ $t('BUTTON.CANCEL') }}
+        </q-btn>
+        <q-btn
+          type="button"
+          color="red"
+          @click="destroy"
+          v-if="!isNew"
+        >
+          {{ $t('BUTTON.DELETE') }}
+        </q-btn>
+        <q-btn
+          type="button"
+          @click="reset"
+          :disable="!hasChanged"
+        >
+          {{ $t('BUTTON.RESET') }}
+        </q-btn>
       </div>
-      <q-btn
-        type="button"
-        class="full-width actionButton"
-        @click="$emit('cancel')"
-        v-if="isNew"
-      >
-        {{ $t('BUTTON.CANCEL') }}
-      </q-btn>
-      <q-btn
-        type="submit"
-        class="full-width actionButton"
-        color="primary"
-        :disable="!canSave"
-        loader
-        :value="isPending"
-      >
-        {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-      </q-btn>
     </form>
   </div>
 </template>
@@ -182,13 +171,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.edit
-  width 100%
-  padding 20px
-  background-color $grey-1
-  &.changed
-    background-color $yellow-1
-  .actionButton
-    padding: 3px
 </style>

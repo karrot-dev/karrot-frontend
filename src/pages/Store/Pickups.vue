@@ -1,38 +1,45 @@
 <template>
   <div>
-    <q-card class="no-shadow generic-padding grey-border">
-      <q-item multiline>
-        <q-item-main>
-          <Markdown
-            v-if="store.description"
-            :source="store.description"
-          />
-        </q-item-main>
-        <q-item-side
-          class="group"
-        >
-          <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
-            <q-btn
-              small
-              round
-              color="secondary"
-              icon="fa-pencil"
-            >
-              <q-tooltip v-t="'STOREDETAIL.EDIT'" />
-            </q-btn>
-          </router-link>
-          <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
-            <q-btn
-              small
-              round
-              color="secondary"
-              icon="fa-calendar"
-            >
-              <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
-            </q-btn>
-          </router-link>
-        </q-item-side>
-      </q-item>
+    <q-card class="no-shadow no-padding grey-border">
+      <RandomBanner
+        size="800"
+        :seed="store.id"
+        style="width: 100%; height: auto"
+      />
+      <div class="generic-padding">
+        <q-item multiline>
+          <q-item-main>
+            <Markdown
+              v-if="store.description"
+              :source="store.description"
+            />
+          </q-item-main>
+          <q-item-side
+            class="group"
+          >
+            <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
+              <q-btn
+                small
+                round
+                color="secondary"
+                icon="fa-pencil"
+              >
+                <q-tooltip v-t="'STOREDETAIL.EDIT'" />
+              </q-btn>
+            </router-link>
+            <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+              <q-btn
+                small
+                round
+                color="secondary"
+                icon="fa-calendar"
+              >
+                <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
+              </q-btn>
+            </router-link>
+          </q-item-side>
+        </q-item>
+      </div>
     </q-card>
 
     <PickupList
@@ -64,6 +71,7 @@
 import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
 import Markdown from '@/components/Markdown'
+import RandomBanner from '@/components/General/RandomBanner'
 
 import {
   mapGetters,
@@ -73,7 +81,7 @@ import {
 import { QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip } from 'quasar'
 
 export default {
-  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown },
+  components: { RandomBanner, PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown },
   methods: {
     ...mapActions({
       join: 'pickups/join',

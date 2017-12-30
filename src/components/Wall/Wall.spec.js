@@ -15,6 +15,7 @@ const defaultProps = {
   fetchMore: jest.fn(),
   joinedPickups: [],
   availablePickups: [],
+  feedbackPossible: [],
 }
 
 polyfillRequestAnimationFrame()

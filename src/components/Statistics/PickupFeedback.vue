@@ -32,7 +32,7 @@
     </q-field>
     <form
       v-else
-      @submit="save"
+      @submit.prevent="save"
       style="padding: 0 1.5em"
     >
       <AmountPicker v-model="feedback.weight"/>
@@ -90,8 +90,8 @@ export default {
   components: { QCard, QField, QInput, QBtn, QSelect, AmountPicker, FeedbackList },
   mixins: [statusMixin],
   props: {
-    feedbackPossible: { required: true, type: Array },
-    feedbackList: { required: true, type: Array },
+    pickups: { required: true, type: Array },
+    existingFeedback: { required: true, type: Array },
   },
   data () {
     return {
@@ -100,7 +100,7 @@ export default {
         comment: '',
       },
       cartImg,
-      select: first(this.feedbackPossible),
+      select: first(this.pickups),
     }
   },
   methods: {
@@ -113,14 +113,14 @@ export default {
     },
   },
   watch: {
-    feedbackPossible (val) {
+    pickups (val) {
       this.select = first(val)
     },
   },
   computed: {
     feedbackOptions () {
-      if (!this.feedbackPossible) return []
-      return this.feedbackPossible.map((e) => {
+      if (!this.pickups) return []
+      return this.pickups.map((e) => {
         return {
           label: this.getDateWithStore(e),
           value: e,
@@ -129,7 +129,7 @@ export default {
     },
     feedbackForStore () {
       if (!this.select) return []
-      return this.feedbackList.filter(e => e.about && e.about.store.id === this.select.store.id)
+      return this.existingFeedback.filter(e => e.about && e.about.store.id === this.select.store.id)
     },
   },
 }

@@ -1,4 +1,4 @@
-import { storybookDefaults as defaults } from '>/helpers'
+import { storybookDefaults as defaults, statusMocks } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 
 import AmountPicker from './AmountPicker'
@@ -6,48 +6,44 @@ import AmountBox from './AmountBox'
 import PickupFeedback from './PickupFeedback'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
-import { usersMock, feedbackMock, storesMock } from '>/mockdata'
-
-import i18n from '@/i18n'
-import router from '@/router'
-
-const amountPicker = `
-<div style="padding: 2em">
-  <AmountPicker/>
-</div>
-`
+import { feedbackMock, storesMock, pickupsMock } from '>/mockdata'
 
 storiesOf('Statistics', module)
   .add('AmountPicker', () => defaults({
-    components: { AmountPicker },
-    template: amountPicker,
+    render: h => h(AmountPicker, {
+      props: {
+        value: 1,
+      },
+    }),
   }))
   .add('AmountBox', () => defaults({
-    components: { AmountBox },
-    template: '<div><AmountBox :amount="20"/></div>',
+    render: h => h(AmountBox, {
+      props: {
+        amount: 20,
+      },
+    }),
   }))
   .add('PickupFeedback', () => defaults({
-    components: { PickupFeedback },
-    template: '<div style="padding: 2em"><PickupFeedback/></div>',
+    render: h => h(PickupFeedback, {
+      props: {
+        pickups: pickupsMock,
+        existingFeedback: feedbackMock,
+        status: statusMocks.default(),
+      },
+    }),
   }))
-  .add('FeedbackItem', () => ({
+  .add('FeedbackItem', () => defaults({
     render: h => h(FeedbackItem, {
       props: {
-        members: usersMock,
-        store: storesMock[0],
         feedback: feedbackMock[0],
       },
     }),
-    i18n,
-    router,
   }))
-  .add('FeedbackList', () => ({
+  .add('FeedbackList', () => defaults({
     render: h => h(FeedbackList, {
       props: {
         feedback: feedbackMock,
         store: storesMock[0],
       },
     }),
-    i18n,
-    router,
   }))

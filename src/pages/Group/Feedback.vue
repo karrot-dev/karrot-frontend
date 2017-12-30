@@ -4,8 +4,8 @@ import PickupFeedback from '@/components/Statistics/PickupFeedback'
 
 export default connect({
   gettersToProps: {
-    feedbackPossible: 'pickups/feedbackPossible',
-    feedbackList: 'feedback/all',
+    pickups: 'pickups/feedbackPossible',
+    existingFeedback: 'feedback/all',
     status: 'feedback/saveStatus',
   },
   actionsToEvents: {

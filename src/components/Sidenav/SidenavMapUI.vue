@@ -1,5 +1,8 @@
 <template>
-  <SidenavBox>
+  <SidenavBox
+    @toggleBoxCollapsed="$emit('toggleBoxCollapsed')"
+    :collapsible="collapsible"
+    :collapsed="collapsed">
     <template slot="icon">
       <q-icon name="fa-fw fa-map" />
     </template>
@@ -10,10 +13,10 @@
       <q-btn
         flat
         small
-        round
         @click="$emit('toggleStores')"
+        style="padding: 0 5px"
       >
-        <span class="fa-stack">
+        <span class="fa-fw fa-stack">
           <i class="fa fa-shopping-cart fa-stack-1x" />
           <i
             v-if="showStores"
@@ -32,10 +35,10 @@
       <q-btn
         flat
         small
-        round
         @click="$emit('toggleUsers')"
+        style="padding: 0 5px"
       >
-        <span class="fa-stack">
+        <span class="fa-fw fa-stack">
           <i class="fa fa-user fa-stack-1x" />
           <i
             v-if="showUsers"
@@ -96,6 +99,8 @@ export default {
       required: true,
       type: Object,
     },
+    collapsible: { default: true },
+    collapsed: { required: true },
   },
 }
 </script>

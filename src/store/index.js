@@ -25,6 +25,7 @@ import pickupSeries from './modules/pickupSeries'
 import route from './modules/route'
 import routeError from './modules/routeError'
 import search from './modules/search'
+import sidenavBoxes from './modules/sidenavBoxes'
 import stores from './modules/stores'
 import timezones from './modules/timezones'
 import users from './modules/users'
@@ -56,6 +57,7 @@ export default new Vuex.Store({
     loadingprogress,
     history,
     search,
+    sidenavBoxes,
     agreements,
     routeError,
     fcm,

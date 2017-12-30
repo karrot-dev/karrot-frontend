@@ -241,7 +241,8 @@ export default [
         },
         components: {
           default: StoreLayout,
-          sidenav: GroupStoreSidenav,
+          sidenav: GroupGroupSidenav,
+          secondSidenav: GroupStoreSidenav,
         },
         children: [
           {

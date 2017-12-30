@@ -46,10 +46,10 @@ export default {
       // box.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
       // box.setAttribute('width', size)
       // box.setAttribute('height', sizeHeight)
-      box.setAttribute('width', '100%')
-      box.setAttribute('height', '100%')
+      // box.setAttribute('width', '100%')
+      // box.setAttribute('height', '100%')
       // box.setAttribute('style', 'width: 100%; height: auto')
-      box.setAttribute('viewBox', '0 0 100 4')
+      box.setAttribute('viewBox', '0 0 100 100')
       box.setAttribute('class', 'box')
 
       const g = document.createElementNS(svgns, 'g')

@@ -2,7 +2,7 @@ import axios, { parseCursor } from '@/services/axios'
 
 export default {
   async create (feedback) {
-    return (await axios.post('/api/feedback/', feedback)).data
+    return convertDate((await axios.post('/api/feedback/', feedback)).data)
   },
 
   async get (feedbackId) {
@@ -19,7 +19,7 @@ export default {
   },
 
   async save (feedback) {
-    return (await axios.patch(`/api/feedback/${feedback.id}/`)).data
+    return convertDate((await axios.patch(`/api/feedback/${feedback.id}/`)).data)
   },
 }
 

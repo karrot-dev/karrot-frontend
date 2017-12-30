@@ -11,11 +11,11 @@
       </div>
       <div class="image-and-text-right">
         <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-        <p v-if="select">{{ select.store.name + ': ' + this.$d(select.date, 'dateShort') }}
+        <p v-if="select">{{ getDateWithStore(select) }}
           <q-btn
             @click="select = false"
             flat>
-            {{ this.$t("PICKUP_FEEDBACK.OTHER") }}
+            {{ $t("PICKUP_FEEDBACK.OTHER") }}
           </q-btn>
         </p>
       </div>
@@ -104,6 +104,9 @@ export default {
       this.feedback.about = this.select.id
       this.$emit('save', this.feedback)
     },
+    getDateWithStore (pickup) {
+      return `${this.$d(pickup.date, 'long')} (${pickup.store.name})`
+    },
   },
   watch: {
     feedbackPossible (val) {
@@ -115,7 +118,7 @@ export default {
       if (!this.feedbackPossible) return []
       return this.feedbackPossible.map((e) => {
         return {
-          label: e.store.name + ': ' + this.$d(e.date, 'dateShort'),
+          label: this.getDateWithStore(e),
           value: e,
         }
       })

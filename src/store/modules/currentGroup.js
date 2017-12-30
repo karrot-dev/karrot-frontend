@@ -90,7 +90,7 @@ export default {
         dispatch('conversations/clearActive', {}, { root: true })
       }
 
-      dispatch('feedback/fetch', null, { root: true })
+      dispatch('feedback/fetchForGroup', { groupId }, { root: true })
 
       dispatch('auth/update', { currentGroup: groupId }, { root: true })
     },

@@ -116,6 +116,12 @@ export default {
 
     }),
 
+    async maybeFetch ({ getters, dispatch }, pickupId) {
+      if (!getters.get(pickupId)) {
+        await dispatch('fetch', pickupId)
+      }
+    },
+
     clear ({ commit }) {
       commit('clear')
     },

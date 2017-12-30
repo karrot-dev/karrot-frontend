@@ -6,7 +6,7 @@
 export default {
   props: {
     seed: { default: 2 },
-    size: { default: 1000 },
+    text: { default: false },
   },
   mounted () {
     this.$el.appendChild(this.box)
@@ -28,7 +28,6 @@ export default {
 
       let seed = pseudoRandom(this.seed)
       let size = 100
-      // let sizeHeight = Math.floor(size / ratio)
 
       function getRandomRange (min, max, add = 1000) {
         return Math.floor(pseudoRandom(seed * add) * (max - min) + min)
@@ -89,6 +88,28 @@ export default {
       overlay.setAttribute('x', 0)
       overlay.setAttribute('y', 0)
       box.appendChild(overlay)
+
+      let initialsText = this.text
+
+      if (initialsText) {
+        let initials = document.createTextNode(initialsText)
+        let textOverlay = document.createElementNS(svgns, 'text')
+        textOverlay.setAttribute('width', size)
+        textOverlay.setAttribute('height', 20)
+        textOverlay.setAttribute('fill', 'rgba(' +
+          getRandomRange(210, 250, 1) + ',' +
+          getRandomRange(210, 250, 2) + ',' +
+          getRandomRange(210, 250, 3) + ',1)',
+        )
+        textOverlay.setAttribute('font-size', 5)
+        textOverlay.setAttribute('font-weight', 'bold')
+        textOverlay.setAttribute('text-anchor', 'start')
+        textOverlay.setAttribute('x', 3)
+        textOverlay.setAttribute('y', 4.5)
+        textOverlay.appendChild(initials)
+        box.appendChild(textOverlay)
+      }
+
       return box
     },
   },

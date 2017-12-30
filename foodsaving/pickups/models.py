@@ -143,14 +143,6 @@ class PickupDateManager(models.Manager):
             _.done_and_processed = True
             _.save()
 
-    def feedback_possible(self, user, queryset=None):
-        qs = queryset if queryset else self
-        return qs.filter(deleted=False) \
-            .filter(date__lte=timezone.now()) \
-            .filter(date__gte=timezone.now() - relativedelta(days=30)) \
-            .filter(collectors=user) \
-            .exclude(feedback__given_by=user)
-
     def feedback_possible_q(self, user):
         return Q(date__lte=timezone.now()) \
             & Q(date__gte=timezone.now() - relativedelta(days=30)) \

@@ -1,10 +1,9 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework import viewsets
-from rest_framework.decorators import detail_route, list_route
+from rest_framework.decorators import detail_route
 from rest_framework.pagination import CursorPagination
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.history.models import History, HistoryTypus
@@ -153,11 +152,3 @@ class PickupDateViewSet(
     )
     def remove(self, request, pk=None):
         return self.partial_update(request)
-
-    @list_route()
-    def feedback_possible(self, request):
-        qs = PickupDateModel.objects.feedback_possible(request.user)
-        queryset = self.filter_queryset(qs)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)

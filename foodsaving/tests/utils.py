@@ -6,6 +6,8 @@ from django.test import TestCase
 
 # Mostly based on this nice persons article:
 #   https://www.caktusgroup.com/blog/2016/02/02/writing-unit-tests-django-migrations/
+from rest_framework.test import APITestCase
+
 
 class TestMigrations(TestCase):
     @property
@@ -36,3 +38,10 @@ class TestMigrations(TestCase):
 
     def setUpBeforeMigration(self, apps):
         pass
+
+
+class PaginatedResponseTestCase(APITestCase):
+    def get_results(self, *args, **kwargs):
+        response = self.client.get(*args, **kwargs)
+        response.data = response.data['results']
+        return response

@@ -1,16 +1,16 @@
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
-from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.pickups.models import Feedback
+from foodsaving.tests.utils import PaginatedResponseTestCase
 from foodsaving.users.factories import UserFactory
 from foodsaving.pickups.factories import PickupDateFactory
 
 
-class FeedbackTest(APITestCase):
+class FeedbackTest(PaginatedResponseTestCase):
     def setUp(self):
         self.url = '/api/feedback/'
 
@@ -175,7 +175,7 @@ class FeedbackTest(APITestCase):
         """
         Non-User is NOT allowed to see list of feedback
         """
-        response = self.client.get(self.url)
+        response = self.get_results(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
 
     def test_list_feedback_works_as_non_group_member(self):
@@ -183,7 +183,7 @@ class FeedbackTest(APITestCase):
         Non-Member doesn't see feedback but an empty list
         """
         self.client.force_login(user=self.user)
-        response = self.client.get(self.url)
+        response = self.get_results(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(len(response.data), 0)
 
@@ -192,7 +192,7 @@ class FeedbackTest(APITestCase):
         Member is allowed to see list of feedback (DOUBLE CHECK!!)
         """
         self.client.force_login(user=self.member)
-        response = self.client.get(self.url)
+        response = self.get_results(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(len(response.data), 2)
 
@@ -201,7 +201,7 @@ class FeedbackTest(APITestCase):
         Collector is allowed to see list of feedback
         """
         self.client.force_login(user=self.collector)
-        response = self.client.get(self.url)
+        response = self.get_results(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(len(response.data), 2)
 
@@ -209,7 +209,7 @@ class FeedbackTest(APITestCase):
         """
         Non-User is NOT allowed to see single feedback
         """
-        response = self.client.get(self.feedback_url)
+        response = self.get_results(self.feedback_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
 
     def test_retrieve_feedback_fails_as_non_group_member(self):
@@ -217,7 +217,7 @@ class FeedbackTest(APITestCase):
         Non-Member is NOT allowed to see single feedback
         """
         self.client.force_login(user=self.user)
-        response = self.client.get(self.feedback_url)
+        response = self.get_results(self.feedback_url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND, response.data)
 
     def test_retrieve_feedback_works_as_group_member(self):
@@ -225,7 +225,7 @@ class FeedbackTest(APITestCase):
         Member is allowed to see single feedback
         """
         self.client.force_login(user=self.member)
-        response = self.client.get(self.feedback_url)
+        response = self.get_results(self.feedback_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
 
     def test_retrieve_feedback_works_as_collector(self):
@@ -233,7 +233,7 @@ class FeedbackTest(APITestCase):
         Collector is allowed to see list of feedback
         """
         self.client.force_login(user=self.collector)
-        response = self.client.get(self.feedback_url)
+        response = self.get_results(self.feedback_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
 
     def test_create_future_feedback_fails_as_collector(self):

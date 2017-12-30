@@ -1,8 +1,10 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework import viewsets
-from rest_framework.decorators import detail_route
+from rest_framework.decorators import detail_route, list_route
+from rest_framework.pagination import CursorPagination
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.history.models import History, HistoryTypus
@@ -23,6 +25,12 @@ from foodsaving.pickups.serializers import (
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 
+class FeedbackPagination(CursorPagination):
+    # TODO: create an index on 'createdAt' for increased speed
+    page_size = 20
+    ordering = '-createdAt'
+
+
 class FeedbackViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
@@ -37,12 +45,15 @@ class FeedbackViewSet(
     - `?given_by` - filter by user id
     - `?about` - filter by pickup id
     - `?store` - filter by store id
+    - `?group` - filter by group id
+    - `?created_at_0` and `?created_at_1` - filter by creation date
     """
     serializer_class = FeedbackSerializer
     queryset = FeedbackModel.objects.all()
     filter_backends = (DjangoFilterBackend,)
     filter_class = FeedbackFilter
     permission_classes = (IsAuthenticated,)
+    pagination_class = FeedbackPagination
 
     def get_queryset(self):
         return self.queryset.filter(about__store__group__members=self.request.user)
@@ -92,7 +103,9 @@ class PickupDateViewSet(
 ):
     """
     Pickup Dates
-    # Query parameters
+
+    list:
+    Query parameters
     - `?series` - filter by pickup date series id
     - `?store` - filter by store id
     - `?group` - filter by group id
@@ -140,3 +153,11 @@ class PickupDateViewSet(
     )
     def remove(self, request, pk=None):
         return self.partial_update(request)
+
+    @list_route()
+    def feedback_possible(self, request):
+        qs = PickupDateModel.objects.feedback_possible(request.user)
+        queryset = self.filter_queryset(qs)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

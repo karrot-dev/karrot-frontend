@@ -184,8 +184,8 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedbackModel
-        fields = ['id', 'weight', 'comment', 'about', 'given_by']
-        read_only_fields = ['given_by', ]
+        fields = ['id', 'weight', 'comment', 'about', 'given_by', 'created_at']
+        read_only_fields = ['given_by', 'created_at']
         extra_kwargs = {'given_by': {'default': serializers.CurrentUserDefault()}}
         validators = [
             UniqueTogetherValidator(

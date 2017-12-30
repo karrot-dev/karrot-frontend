@@ -2,22 +2,15 @@ from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from django.core.management import call_command
 from django.utils import timezone
-from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import GroupMembership
-from foodsaving.stores.factories import StoreFactory
 from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory
+from foodsaving.stores.factories import StoreFactory
+from foodsaving.tests.utils import PaginatedResponseTestCase
 from foodsaving.users.factories import UserFactory
 
 history_url = '/api/history/'
-
-
-class PaginatedResponseTestCase(APITestCase):
-    def get_results(self, *args, **kwargs):
-        response = self.client.get(*args, **kwargs)
-        response.data = response.data['results']
-        return response
 
 
 class TestHistoryAPICreateGroup(PaginatedResponseTestCase):

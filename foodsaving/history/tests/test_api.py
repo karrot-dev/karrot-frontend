@@ -2,18 +2,19 @@ from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from django.core.management import call_command
 from django.utils import timezone
+from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import GroupMembership
 from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.stores.factories import StoreFactory
-from foodsaving.tests.utils import PaginatedResponseTestCase
+from foodsaving.tests.utils import ExtractPaginationMixin
 from foodsaving.users.factories import UserFactory
 
 history_url = '/api/history/'
 
 
-class TestHistoryAPICreateGroup(PaginatedResponseTestCase):
+class TestHistoryAPICreateGroup(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
 
@@ -24,7 +25,7 @@ class TestHistoryAPICreateGroup(PaginatedResponseTestCase):
         self.assertEqual(response.data[0]['typus'], 'GROUP_CREATE')
 
 
-class TestHistoryAPIOrdering(PaginatedResponseTestCase):
+class TestHistoryAPIOrdering(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
 
@@ -36,7 +37,7 @@ class TestHistoryAPIOrdering(PaginatedResponseTestCase):
         self.assertEqual(response.data[0]['payload']['name'], 'Group 2')
 
 
-class TestHistoryAPIWithExistingGroup(PaginatedResponseTestCase):
+class TestHistoryAPIWithExistingGroup(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
@@ -79,7 +80,7 @@ class TestHistoryAPIWithExistingGroup(PaginatedResponseTestCase):
         self.assertEqual(response.data[0]['typus'], 'STORE_CREATE')
 
 
-class TestHistoryAPIWithExistingStore(PaginatedResponseTestCase):
+class TestHistoryAPIWithExistingStore(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
@@ -130,7 +131,7 @@ class TestHistoryAPIWithExistingStore(PaginatedResponseTestCase):
         self.assertEqual(response.data[0]['typus'], 'SERIES_CREATE')
 
 
-class TestHistoryAPIWithExistingPickups(PaginatedResponseTestCase):
+class TestHistoryAPIWithExistingPickups(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
@@ -194,7 +195,7 @@ class TestHistoryAPIWithExistingPickups(PaginatedResponseTestCase):
         self.assertEqual(parse(response.data[0]['payload']['date']), self.pickup.date)
 
 
-class TestHistoryAPIWithDonePickup(PaginatedResponseTestCase):
+class TestHistoryAPIWithDonePickup(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
@@ -221,7 +222,7 @@ class TestHistoryAPIWithDonePickup(PaginatedResponseTestCase):
         self.assertEqual(len(response.data), 0)
 
 
-class TestHistoryAPIWithMissedPickup(PaginatedResponseTestCase):
+class TestHistoryAPIWithMissedPickup(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
@@ -247,7 +248,7 @@ class TestHistoryAPIWithMissedPickup(PaginatedResponseTestCase):
         self.assertEqual(len(response.data), 0)
 
 
-class TestHistoryAPIWithDeletedPickup(PaginatedResponseTestCase):
+class TestHistoryAPIWithDeletedPickup(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
@@ -265,7 +266,7 @@ class TestHistoryAPIWithDeletedPickup(PaginatedResponseTestCase):
         self.assertEqual(len(response.data), 0)
 
 
-class TestHistoryAPIDateFiltering(PaginatedResponseTestCase):
+class TestHistoryAPIDateFiltering(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.member = UserFactory()
 

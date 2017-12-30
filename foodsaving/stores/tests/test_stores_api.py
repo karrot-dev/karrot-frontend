@@ -7,12 +7,13 @@ from dateutil.parser import parse
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory
+from foodsaving.tests.utils import ExtractPaginationMixin
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 from foodsaving.pickups.factories import PickupDateSeriesFactory, PickupDateFactory
 
 
-class TestStoresAPI(APITestCase):
+class TestStoresAPI(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.url = '/api/stores/'
 
@@ -145,13 +146,13 @@ class TestStoresAPI(APITestCase):
         self.assertEqual(len(response.data), 0)
 
         # should also delete pickup dates & series
-        response = self.client.get('/api/pickup-dates/')
+        response = self.get_results('/api/pickup-dates/')
         self.assertEqual(len(response.data), 0)
         response = self.client.get('/api/pickup-date-series/')
         self.assertEqual(len(response.data), 0)
 
 
-class TestStoreChangesPickupDateSeriesAPI(APITestCase):
+class TestStoreChangesPickupDateSeriesAPI(APITestCase, ExtractPaginationMixin):
     def setUp(self):
 
         self.now = timezone.now()
@@ -167,7 +168,7 @@ class TestStoreChangesPickupDateSeriesAPI(APITestCase):
         self.client.force_login(user=self.member)
 
         url = '/api/pickup-dates/'
-        response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
+        response = self.get_results(url, {'series': self.series.id, 'date_0': self.now})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
 
         response = self.client.patch(self.store_url, {'weeks_in_advance': 2})
@@ -175,7 +176,7 @@ class TestStoreChangesPickupDateSeriesAPI(APITestCase):
         self.assertEqual(response.data['weeks_in_advance'], 2)
 
         url = '/api/pickup-dates/'
-        response = self.client.get(url, {'series': self.series.id})
+        response = self.get_results(url, {'series': self.series.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for _ in response.data:
             self.assertLessEqual(parse(_['date']), self.now + relativedelta(weeks=2, hours=1))
@@ -184,7 +185,7 @@ class TestStoreChangesPickupDateSeriesAPI(APITestCase):
         self.client.force_login(user=self.member)
 
         url = '/api/pickup-dates/'
-        response = self.client.get(url, {'series': self.series.id, 'date_0': self.now})
+        response = self.get_results(url, {'series': self.series.id, 'date_0': self.now})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         original_dates = [parse(_['date']) for _ in response.data]
 
@@ -193,7 +194,7 @@ class TestStoreChangesPickupDateSeriesAPI(APITestCase):
         self.assertEqual(response.data['weeks_in_advance'], 10)
 
         url = '/api/pickup-dates/'
-        response = self.client.get(url, {'series': self.series.id})
+        response = self.get_results(url, {'series': self.series.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertGreater(len(response.data), len(original_dates))
         for return_date in response.data:

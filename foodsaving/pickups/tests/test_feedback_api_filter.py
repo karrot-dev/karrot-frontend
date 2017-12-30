@@ -1,16 +1,17 @@
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
+from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.stores.factories import StoreFactory
-from foodsaving.tests.utils import PaginatedResponseTestCase
+from foodsaving.tests.utils import ExtractPaginationMixin
 from foodsaving.users.factories import UserFactory
 from foodsaving.pickups.models import Feedback
 from foodsaving.pickups.factories import PickupDateFactory
 
 
-class TestFeedbackAPIFilter(PaginatedResponseTestCase):
+class TestFeedbackAPIFilter(APITestCase, ExtractPaginationMixin):
     def setUp(self):
         self.url = '/api/feedback/'
 

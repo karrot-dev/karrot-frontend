@@ -92,6 +92,15 @@ class PickupDateSeriesViewSet(
         super().perform_destroy(series)
 
 
+class PickupDatePagination(CursorPagination):
+    """Pagination with a high number of pickup dates in order to not break
+    frontend assumptions of getting all upcoming pickup dates per group.
+    Could be reduced and add pagination handling in frontend when speed becomes an issue"""
+    # TODO: create an index on 'date' for increased speed
+    page_size = 400
+    ordering = 'date'
+
+
 class PickupDateViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
@@ -115,6 +124,7 @@ class PickupDateViewSet(
     filter_backends = (DjangoFilterBackend,)
     filter_class = PickupDatesFilter
     permission_classes = (IsAuthenticated, IsUpcoming)
+    pagination_class = PickupDatePagination
 
     def get_permissions(self):
         if self.action == 'destroy':

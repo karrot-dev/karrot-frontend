@@ -7,11 +7,12 @@ from rest_framework.test import APITestCase
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.pickups.models import PickupDate as PickupDateModel
+from foodsaving.tests.utils import ExtractPaginationMixin
 from foodsaving.users.factories import UserFactory
 from foodsaving.stores.factories import StoreFactory
 
 
-class TestPickupdatesAPIFilter(APITestCase):
+class TestPickupdatesAPIFilter(APITestCase, ExtractPaginationMixin):
     def setUp(self):
 
         self.url = '/api/pickup-dates/'
@@ -37,7 +38,7 @@ class TestPickupdatesAPIFilter(APITestCase):
 
     def test_filter_by_store(self):
         self.client.force_login(user=self.member)
-        response = self.client.get(self.url, {'store': self.store.id})
+        response = self.get_results(self.url, {'store': self.store.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for _ in response.data:
             self.assertEqual(_['store'], self.store.id)
@@ -45,7 +46,7 @@ class TestPickupdatesAPIFilter(APITestCase):
 
     def test_filter_by_group(self):
         self.client.force_login(user=self.member)
-        response = self.client.get(self.url, {'group': self.group.id})
+        response = self.get_results(self.url, {'group': self.group.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         store_ids = [_.id for _ in self.group.store.all()]
         for _ in response.data:
@@ -57,7 +58,7 @@ class TestPickupdatesAPIFilter(APITestCase):
 
     def test_filter_by_series(self):
         self.client.force_login(user=self.member)
-        response = self.client.get(self.url, {'series': self.series.id})
+        response = self.get_results(self.url, {'series': self.series.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for _ in response.data:
             self.assertEqual(_['series'], self.series.id)
@@ -66,7 +67,7 @@ class TestPickupdatesAPIFilter(APITestCase):
     def test_filter_after_date(self):
         self.client.force_login(user=self.member)
         query_date = self.pickup.date + timedelta(days=1)
-        response = self.client.get(self.url, {'date_0': query_date})
+        response = self.get_results(self.url, {'date_0': query_date})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for _ in response.data:
             self.assertGreater(parse(_['date']), query_date)
@@ -77,7 +78,7 @@ class TestPickupdatesAPIFilter(APITestCase):
     def test_filter_before_date(self):
         self.client.force_login(user=self.member)
         query_date = self.pickup.date + timedelta(days=10)
-        response = self.client.get(self.url, {'date_1': query_date})
+        response = self.get_results(self.url, {'date_1': query_date})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         for _ in response.data:
             self.assertLess(parse(_['date']), query_date)

@@ -2,7 +2,6 @@ from django.apps import apps
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
 from django.test import TestCase
-from rest_framework.test import APITestCase
 
 
 # Mostly based on this nice persons article:
@@ -38,7 +37,7 @@ class TestMigrations(TestCase):
         pass
 
 
-class PaginatedResponseTestCase(APITestCase):
+class ExtractPaginationMixin(object):
     def get_results(self, *args, **kwargs):
         """Overrides response.data to remove the pagination control in tests"""
         response = self.client.get(*args, **kwargs)

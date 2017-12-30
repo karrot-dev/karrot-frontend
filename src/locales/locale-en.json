@@ -198,7 +198,8 @@
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "OTHER": "Other pickup",
     "SELECT_PICKUP": "Please select a pickup date",
-    "GIVEN_BY": "by {user} on {date}"
+    "GIVEN_BY": "by {user} on {date}",
+    "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",

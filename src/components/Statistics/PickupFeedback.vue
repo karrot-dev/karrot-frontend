@@ -58,6 +58,10 @@
           v-t="'BUTTON.CREATE'"
         />
       </div>
+      <h4
+        v-if="select"
+        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.store.name } }"
+      />
       <FeedbackList :feedback="feedbackForStore" />
     </form>
 

@@ -125,7 +125,7 @@ export default {
     },
     feedbackForStore () {
       if (!this.select) return []
-      return this.feedbackList.filter(e => e.about && e.about.store.id === this.select.id)
+      return this.feedbackList.filter(e => e.about && e.about.store.id === this.select.store.id)
     },
   },
 }

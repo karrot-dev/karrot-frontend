@@ -2,38 +2,34 @@
   <div>
     <q-card class="no-shadow no-padding grey-border">
       <div class="generic-padding">
-        <q-item multiline>
-          <q-item-main>
-            <Markdown
-              v-if="store.description"
-              :source="store.description"
-            />
-          </q-item-main>
-          <q-item-side
-            class="group"
-          >
-            <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
-              <q-btn
-                small
-                round
-                color="secondary"
-                icon="fa-pencil"
-              >
-                <q-tooltip v-t="'STOREDETAIL.EDIT'" />
-              </q-btn>
-            </router-link>
-            <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
-              <q-btn
-                small
-                round
-                color="secondary"
-                icon="fa-calendar"
-              >
-                <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
-              </q-btn>
-            </router-link>
-          </q-item-side>
-        </q-item>
+        <div class="actionButtons">
+          <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="fa-pencil"
+            >
+              <q-tooltip v-t="'STOREDETAIL.EDIT'" />
+            </q-btn>
+          </router-link>
+          <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="fa-calendar"
+            >
+              <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
+            </q-btn>
+          </router-link>
+        </div>
+        <span>
+          <Markdown
+            v-if="store.description"
+            :source="store.description"
+          />
+        </span>
       </div>
     </q-card>
 
@@ -105,4 +101,14 @@ export default {
     padding 0
 .q-btn-round
   margin-bottom .5em
+.actionButtons
+  margin-top -36px
+  float right
+  .q-btn
+    margin 3px
+    transition transform .1s ease
+  .q-btn:hover
+    transform scale(1.1)
+.textcontent
+  margin-top 0
 </style>

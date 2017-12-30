@@ -98,14 +98,21 @@ class TestFeedbackPossibleFilter(APITestCase, ExtractPaginationMixin):
         self.tooLongAgo = timezone.now() - relativedelta(days=settings.FEEDBACK_POSSIBLE_DAYS + 1)
 
         self.member = UserFactory()
-        self.group = GroupFactory(members=[self.member, ])
+        self.member2 = UserFactory()
+        self.group = GroupFactory(members=[self.member, self.member2])
         self.store = StoreFactory(group=self.group)
+
+        # not member (anymore)
+        self.group2 = GroupFactory(members=[])
+        self.store2 = StoreFactory(group=self.group2)
 
         self.pickupFeedbackPossible = PickupDateFactory(
             store=self.store,
             collectors=[self.member, ],
             date=self.oneWeekAgo
         )
+
+        # now the cases where no feedback can be given
         self.pickupUpcoming = PickupDateFactory(store=self.store, collectors=[self.member, ])
         self.pickupNotCollector = PickupDateFactory(store=self.store, date=self.oneWeekAgo)
         self.pickupTooLongAgo = PickupDateFactory(store=self.store, date=self.tooLongAgo)
@@ -114,6 +121,13 @@ class TestFeedbackPossibleFilter(APITestCase, ExtractPaginationMixin):
             store=self.store, collectors=[self.member, ], date=self.oneWeekAgo
         )
         self.feedback = FeedbackFactory(about=self.pickupFeedbackAlreadyGiven, given_by=self.member)
+
+        self.pickupCollectorLeftGroup = PickupDateFactory(
+            store=self.store2, collectors=[self.member, ], date=self.oneWeekAgo
+        )
+        self.pickupDoneByAnotherUser = PickupDateFactory(
+            store=self.store, collectors=[self.member2, ], date=self.oneWeekAgo
+        )
 
     def test_filter_feedback_possible(self):
         self.client.force_login(user=self.member)

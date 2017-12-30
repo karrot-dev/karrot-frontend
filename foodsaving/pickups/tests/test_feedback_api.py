@@ -1,4 +1,5 @@
 from dateutil.relativedelta import relativedelta
+from django.conf import settings
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -8,7 +9,7 @@ from foodsaving.stores.factories import StoreFactory
 from foodsaving.pickups.models import Feedback
 from foodsaving.tests.utils import ExtractPaginationMixin
 from foodsaving.users.factories import UserFactory
-from foodsaving.pickups.factories import PickupDateFactory
+from foodsaving.pickups.factories import PickupDateFactory, FeedbackFactory
 
 
 class FeedbackTest(APITestCase, ExtractPaginationMixin):
@@ -20,25 +21,35 @@ class FeedbackTest(APITestCase, ExtractPaginationMixin):
         self.collector2 = UserFactory()
         self.collector3 = UserFactory()
         self.evil_collector = UserFactory()
-        self.group = GroupFactory(members=[
-            self.member, self.collector, self.evil_collector, self.collector2, self.collector3
-        ])
+        self.group = GroupFactory(
+            members=[self.member, self.collector, self.evil_collector, self.collector2, self.collector3]
+        )
         self.store = StoreFactory(group=self.group)
-        self.pickup = PickupDateFactory(store=self.store, date=timezone.now() + relativedelta(days=1))
+        self.pickup = PickupDateFactory(
+            store=self.store,
+            date=timezone.now() + relativedelta(days=1),
+            collectors=[self.collector, self.collector2, self.collector3],
+        )
 
         # not a member of the group
         self.user = UserFactory()
 
         # past pickup date
-        self.past_pickup = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=1))
+        self.past_pickup = PickupDateFactory(
+            store=self.store,
+            date=timezone.now() - relativedelta(days=1),
+            collectors=[self.collector, self.evil_collector, self.collector2, self.collector3],
+        )
 
-        # old pickup date
-        self.old_pickup = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=32))
-
-        # transforms the member into a collector
-        self.past_pickup.collectors.add(self.collector, self.evil_collector, self.collector2, self.collector3)
-        self.pickup.collectors.add(self.collector, self.collector2, self.collector3)
-        self.old_pickup.collectors.add(self.collector3)
+        # old pickup date with feedback
+        self.old_pickup = PickupDateFactory(
+            store=self.store,
+            date=timezone.now() - relativedelta(days=settings.FEEDBACK_POSSIBLE_DAYS + 2),
+            collectors=[self.collector3, ]
+        )
+        self.old_feedback = FeedbackFactory(
+            about=self.old_pickup, given_by=self.collector3
+        )
 
         # create feedback for POST method
         self.feedback_post = {
@@ -86,6 +97,7 @@ class FeedbackTest(APITestCase, ExtractPaginationMixin):
         Feedback.objects.create(**self.feedback_get_2)
 
         self.feedback_url = self.url + str(self.feedback.id) + '/'
+        self.old_feedback_url = self.url + str(self.old_feedback.id) + '/'
 
     def test_create_feedback_fails_as_non_user(self):
         """
@@ -141,7 +153,8 @@ class FeedbackTest(APITestCase, ExtractPaginationMixin):
         response = self.client.post(self.url, self.feedback_for_old_pickup, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
         self.assertEqual(
-            response.data, {'about': ['You can\'t give feedback for pickups more than 30 days ago.']}
+            response.data, {'about': ['You can\'t give feedback for pickups more than {} days ago.'
+                                      .format(settings.FEEDBACK_POSSIBLE_DAYS)]}
         )
 
     def test_create_feedback_without_weight(self):
@@ -195,7 +208,7 @@ class FeedbackTest(APITestCase, ExtractPaginationMixin):
         self.client.force_login(user=self.member)
         response = self.get_results(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-        self.assertEqual(len(response.data), 2)
+        self.assertEqual(len(response.data), 3)
 
     def test_list_feedback_works_as_collector(self):
         """
@@ -204,7 +217,7 @@ class FeedbackTest(APITestCase, ExtractPaginationMixin):
         self.client.force_login(user=self.collector)
         response = self.get_results(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-        self.assertEqual(len(response.data), 2)
+        self.assertEqual(len(response.data), 3)
 
     def test_retrieve_feedback_fails_as_non_user(self):
         """
@@ -293,3 +306,15 @@ class FeedbackTest(APITestCase, ExtractPaginationMixin):
         self.client.force_login(user=self.collector)
         response = self.client.patch(self.feedback_url, {'weight': -1}, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
+
+    def test_patch_feedback_fails_if_pickup_too_old(self):
+        """
+        A collector is not allowed to change feedback if he didn't created it
+        """
+        self.client.force_login(user=self.collector3)
+        response = self.client.patch(self.old_feedback_url, {'weight': 499}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
+        self.assertEqual(
+            response.data['detail'], 'You can\'t give feedback for pickups more than {} days ago.'
+                                     .format(settings.FEEDBACK_POSSIBLE_DAYS)
+        )

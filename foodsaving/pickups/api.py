@@ -17,7 +17,7 @@ from foodsaving.pickups.models import (
 )
 from foodsaving.pickups.permissions import (
     IsUpcoming, HasNotJoinedPickupDate, HasJoinedPickupDate, IsEmptyPickupDate,
-    IsNotFull, IsSameCollector)
+    IsNotFull, IsSameCollector, IsRecentPickupDate)
 from foodsaving.pickups.serializers import (
     PickupDateSerializer, PickupDateSeriesSerializer,
     PickupDateJoinSerializer, PickupDateLeaveSerializer, FeedbackSerializer)
@@ -59,7 +59,7 @@ class FeedbackViewSet(
 
     def get_permissions(self):
         if self.action == 'partial_update':
-            self.permission_classes = (IsAuthenticated, IsSameCollector,)
+            self.permission_classes = (IsAuthenticated, IsSameCollector, IsRecentPickupDate)
 
         return super().get_permissions()
 

@@ -1,6 +1,7 @@
 from datetime import timedelta
 
 import dateutil.rrule
+from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
@@ -184,7 +185,7 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedbackModel
-        fields = ['id', 'weight', 'comment', 'about', 'given_by', 'created_at']
+        fields = ['id', 'weight', 'comment', 'about', 'given_by', 'created_at', 'is_editable']
         read_only_fields = ['given_by', 'created_at']
         extra_kwargs = {'given_by': {'default': serializers.CurrentUserDefault()}}
         validators = [
@@ -193,6 +194,11 @@ class FeedbackSerializer(serializers.ModelSerializer):
                 fields=FeedbackModel._meta.unique_together[0]
             )
         ]
+
+    is_editable = serializers.SerializerMethodField()
+
+    def get_is_editable(self, feedback):
+        return feedback.about.is_recent() and feedback.given_by == self.context['request'].user
 
     def validate_about(self, about):
         user = self.context['request'].user
@@ -204,7 +210,10 @@ class FeedbackSerializer(serializers.ModelSerializer):
         if not about.is_collector(user):
             raise serializers.ValidationError(_('You aren\'t assigned to the pickup.'))
         if not about.is_recent():
-            raise serializers.ValidationError(_('You can\'t give feedback for pickups more than 30 days ago.'))
+            raise serializers.ValidationError(
+                _('You can\'t give feedback for pickups more than %(days_number)s days ago.') %
+                {'days_number': settings.FEEDBACK_POSSIBLE_DAYS}
+            )
         return about
 
     def validate(self, data):

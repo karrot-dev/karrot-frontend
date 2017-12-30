@@ -1,3 +1,4 @@
+from django.conf import settings
 from rest_framework import permissions
 from django.utils.translation import ugettext_lazy as _
 
@@ -46,3 +47,11 @@ class IsSameCollector(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         return obj.given_by == request.user
+
+
+class IsRecentPickupDate(permissions.BasePermission):
+    message = _('You can\'t give feedback for pickups more than %(days_number)s days ago.') % \
+        {'days_number': settings.FEEDBACK_POSSIBLE_DAYS}
+
+    def has_object_permission(self, request, view, obj):
+        return obj.about.is_recent()

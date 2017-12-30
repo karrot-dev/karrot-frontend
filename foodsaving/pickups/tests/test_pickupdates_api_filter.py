@@ -2,12 +2,12 @@ from datetime import timedelta
 
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
+from django.conf import settings
 from rest_framework import status
 from rest_framework.test import APITestCase
 
 from django.utils import timezone
 
-from config import settings
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory, FeedbackFactory
 from foodsaving.pickups.models import PickupDate as PickupDateModel

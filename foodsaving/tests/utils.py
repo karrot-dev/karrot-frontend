@@ -2,13 +2,11 @@ from django.apps import apps
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
 from django.test import TestCase
+from rest_framework.test import APITestCase
 
 
 # Mostly based on this nice persons article:
 #   https://www.caktusgroup.com/blog/2016/02/02/writing-unit-tests-django-migrations/
-from rest_framework.test import APITestCase
-
-
 class TestMigrations(TestCase):
     @property
     def app(self):

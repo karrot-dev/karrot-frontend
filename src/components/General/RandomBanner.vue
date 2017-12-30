@@ -24,10 +24,7 @@ export default {
         return random
       }
 
-      const ratio = 1.2
-
       let seed = pseudoRandom(this.seed)
-      let size = 100
 
       function getRandomRange (min, max, add = 1000) {
         return Math.floor(pseudoRandom(seed * add) * (max - min) + min)
@@ -38,16 +35,13 @@ export default {
 
       const rows = 10
       const columns = 10
+      const ratio = 1.2
+      const size = 100
       const blockSize = Math.floor(size / rows * 2)
       const blockSizeHeight = Math.floor(blockSize / ratio)
       const rotate = blockSize * rows / 2
 
-      // box.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
-      // box.setAttribute('width', size)
-      // box.setAttribute('height', sizeHeight)
-      // box.setAttribute('width', '100%')
-      // box.setAttribute('height', '100%')
-      // box.setAttribute('style', 'width: 100%; height: auto')
+      box.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
       box.setAttribute('viewBox', '0 0 100 100')
       box.setAttribute('class', 'box')
 
@@ -89,10 +83,8 @@ export default {
       overlay.setAttribute('y', 0)
       box.appendChild(overlay)
 
-      let initialsText = this.text
-
-      if (initialsText) {
-        let initials = document.createTextNode(initialsText)
+      if (this.text) {
+        let initials = document.createTextNode(this.text)
         let textOverlay = document.createElementNS(svgns, 'text')
         textOverlay.setAttribute('width', size)
         textOverlay.setAttribute('height', 20)

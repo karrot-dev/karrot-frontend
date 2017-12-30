@@ -1,4 +1,4 @@
-import axios from '@/services/axios'
+import axios, { parseCursor } from '@/services/axios'
 
 export default {
   async create (feedback) {
@@ -10,7 +10,12 @@ export default {
   },
 
   async list (filter) {
-    return convertDate((await axios.get('/api/feedback/', { params: filter })).data)
+    const response = (await axios.get('/api/feedback/', { params: filter })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convertDate(response.results),
+    }
   },
 
   async save (feedback) {

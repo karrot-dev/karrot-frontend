@@ -62,7 +62,8 @@ export default {
       },
 
       async fetchList ({ commit }) {
-        commit('set', { pickups: await pickups.list() })
+        // TODO implement pagination
+        commit('set', { pickups: (await pickups.list()).results })
       },
 
       async join ({ commit, dispatch, rootGetters }, pickupId) {
@@ -102,7 +103,7 @@ export default {
       },
 
       async fetchFeedbackPossible ({ commit }, groupId) {
-        commit('setFeedbackPossible', await pickups.listFeedbackPossible(groupId))
+        commit('setFeedbackPossible', (await pickups.listFeedbackPossible(groupId)).results)
       },
 
     }),
@@ -110,7 +111,7 @@ export default {
     ...withPrefixedIdMeta('group/', {
 
       async fetchListByGroupId ({ commit }, groupId) {
-        commit('set', { pickups: await pickups.listByGroupId(groupId), groupId })
+        commit('set', { pickups: (await pickups.listByGroupId(groupId)).results, groupId })
       },
 
     }),

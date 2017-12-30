@@ -47,7 +47,7 @@ export default {
        * Fetch existing feedback
        */
       async fetch ({ commit, dispatch, getters }) {
-        const feedback = await feedbackAPI.list()
+        const feedback = (await feedbackAPI.list()).results
         commit('set', feedback)
 
         // Fetch related pickups

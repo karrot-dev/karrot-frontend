@@ -42,6 +42,8 @@ class TestMigrations(TestCase):
 
 class PaginatedResponseTestCase(APITestCase):
     def get_results(self, *args, **kwargs):
+        """Overrides response.data to remove the pagination control in tests"""
         response = self.client.get(*args, **kwargs)
-        response.data = response.data['results']
+        if 'results' in response.data:
+            response.data = response.data['results']
         return response

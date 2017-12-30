@@ -25,9 +25,9 @@ from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 
 class FeedbackPagination(CursorPagination):
-    # TODO: create an index on 'createdAt' for increased speed
+    # TODO: create an index on 'created_at' for increased speed
     page_size = 20
-    ordering = '-createdAt'
+    ordering = '-created_at'
 
 
 class FeedbackViewSet(

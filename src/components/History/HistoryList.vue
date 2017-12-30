@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card class="no-shadow grey-border">
     <q-card-title v-if="showTitle">
       {{ $t('GROUP.HISTORY') }}
     </q-card-title>

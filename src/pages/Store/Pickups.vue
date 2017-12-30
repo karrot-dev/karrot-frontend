@@ -1,11 +1,6 @@
 <template>
   <div>
     <q-card class="no-shadow no-padding grey-border">
-      <RandomBanner
-        size="800"
-        :seed="store.id"
-        style="width: 100%; height: auto"
-      />
       <div class="generic-padding">
         <q-item multiline>
           <q-item-main>
@@ -71,7 +66,6 @@
 import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
 import Markdown from '@/components/Markdown'
-import RandomBanner from '@/components/General/RandomBanner'
 
 import {
   mapGetters,
@@ -81,7 +75,7 @@ import {
 import { QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip } from 'quasar'
 
 export default {
-  components: { RandomBanner, PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown },
+  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown },
   methods: {
     ...mapActions({
       join: 'pickups/join',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card class="no-shadow grey-border">
       <div
         class="edit"
         :class="{ changed: hasChanged }"

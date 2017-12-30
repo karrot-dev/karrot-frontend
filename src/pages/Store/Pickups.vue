@@ -9,6 +9,7 @@
               round
               color="secondary"
               icon="fa-pencil"
+              class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.EDIT'" />
             </q-btn>
@@ -19,6 +20,7 @@
               round
               color="secondary"
               icon="fa-calendar"
+              class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
@@ -106,9 +108,6 @@ export default {
   float right
   .q-btn
     margin 3px
-    transition transform .1s ease
-  .q-btn:hover
-    transform scale(1.1)
 .textcontent
   margin-top 0
 </style>

@@ -18,7 +18,7 @@
             @click="createNewSeries"
             small
             round
-            class="bannerButton"
+            class="bannerButton hoverScale"
             color="secondary"
             icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
@@ -111,7 +111,7 @@
             @click="createNewPickup"
             small
             round
-            class="bannerButton"
+            class="bannerButton hoverScale"
             color="secondary"
             icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />

@@ -1565,7 +1565,7 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 `;
 
 exports[`Storyshots History List Default 1`] = `
-<div class="q-card">
+<div class="q-card no-shadow grey-border">
     <!---->
     <div class="q-card-main q-card-container">
         <div class="q-infinite-scroll">
@@ -4619,7 +4619,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
 
 exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
 <div>
-    <div class="q-card">
+    <div class="q-card no-shadow grey-border">
         <div class="edit">
             <form>
                 <div class="q-field row no-wrap items-start q-field-with-error">
@@ -4873,7 +4873,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
 
 exports[`Storyshots Stores StoreEdit 1`] = `
 <div>
-    <div class="q-card">
+    <div class="q-card no-shadow grey-border">
         <div class="edit">
             <form>
                 <div class="q-field row no-wrap items-start">

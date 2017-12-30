@@ -48,7 +48,7 @@ class PickupDatesFilter(FilterSet):
 
 
 class FeedbackFilter(FilterSet):
-    group = NumberFilter(field_name='about_store__group__id')
+    group = NumberFilter(field_name='about__store__group__id')
     store = NumberFilter(field_name='about__store__id')
     about = NumberFilter(field_name='about')
     given_by = NumberFilter(field_name='given_by')

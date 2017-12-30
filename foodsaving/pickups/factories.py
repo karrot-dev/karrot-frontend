@@ -1,16 +1,17 @@
 from datetime import timedelta
+from random import randint
 
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
-from factory import DjangoModelFactory, SubFactory, LazyFunction
-from factory import LazyAttribute
-from factory import post_generation
+from factory import DjangoModelFactory, SubFactory, LazyFunction, LazyAttribute, post_generation
 
 from foodsaving.pickups.models import (
     PickupDate as PickupDateModel,
-    PickupDateSeries as PickupDateSeriesModel
+    PickupDateSeries as PickupDateSeriesModel,
+    Feedback as FeedbackModel,
 )
 from foodsaving.stores.factories import StoreFactory
+from foodsaving.utils.tests.fake import faker
 
 
 def in_one_day():
@@ -43,3 +44,12 @@ class PickupDateSeriesFactory(DjangoModelFactory):
     store = SubFactory(StoreFactory)
     start_date = LazyAttribute(lambda _: timezone.now().replace(second=0, microsecond=0) + relativedelta(minutes=15))
     rule = 'FREQ=WEEKLY'
+
+
+class FeedbackFactory(DjangoModelFactory):
+
+    class Meta:
+        model = FeedbackModel
+
+    comment = LazyAttribute(lambda x: faker.sentence(nb_words=4))
+    weight = LazyAttribute(lambda x: randint(0, 32))

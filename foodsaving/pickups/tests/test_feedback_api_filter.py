@@ -19,6 +19,7 @@ class TestFeedbackAPIFilter(APITestCase, ExtractPaginationMixin):
         self.collector = UserFactory()
         self.collector2 = UserFactory()
         self.group = GroupFactory(members=[self.collector, self.collector2, ])
+        self.group2 = GroupFactory(members=[self.collector, self.collector2, ])
         self.store = StoreFactory(group=self.group)
         self.store2 = StoreFactory(group=self.group)
         self.pickup = PickupDateFactory(store=self.store, date=timezone.now() - relativedelta(days=1))
@@ -86,3 +87,32 @@ class TestFeedbackAPIFilter(APITestCase, ExtractPaginationMixin):
         self.assertEqual(response.data[0]['about'], self.pickup2.id)
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_filter_by_group(self):
+        """
+        Filter the two feedbacks by the stores' group
+        """
+        self.client.force_login(user=self.collector)
+        response = self.get_results(self.url, {'group': self.group.id})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)
+        response = self.get_results(self.url, {'group': self.group2.id})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 0)
+
+    def test_filter_by_created_at(self):
+        """
+        Filter the two feedbacks by creation date
+        """
+        self.client.force_login(user=self.collector)
+        # self.feedback is older than self.feedback2
+        # first, get all that are newer than self.feedback
+        response = self.get_results(self.url, {'created_at_0': self.feedback.created_at})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)
+        self.assertEqual(response.data[0]['id'], self.feedback2.id)
+        # second, get all that are older than self.feedback
+        response = self.get_results(self.url, {'created_at_1': self.feedback.created_at})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['id'], self.feedback.id)

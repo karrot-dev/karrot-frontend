@@ -3168,7 +3168,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                         <div class="q-if-inner col row no-wrap items-center relative-position">
                             <!---->
                             <!---->
-                            <input pattern="[0-9]*" step="1" type="number" value="2" class="col q-input-target text-left">
+                            <input placeholder="unlimited" pattern="[0-9]*" step="1" type="number" value="2" class="col q-input-target text-left">
                             <!---->
                             <!---->
                             <!---->

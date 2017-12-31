@@ -44,6 +44,7 @@
         <q-input
           v-model="edit.maxCollectors"
           type="number"
+          :placeholder="$t('CREATEPICKUP.UNLIMITED')"
         />
         <q-slider
           v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"

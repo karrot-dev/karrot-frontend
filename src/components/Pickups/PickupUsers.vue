@@ -102,7 +102,7 @@ export default {
       currentUser: 'auth/user',
     }),
     hasUnlimitedPlaces () {
-      return !this.pickup.maxCollectors && this.pickup.maxCollectors !== 0
+      return this.pickup.maxCollectors === null
     },
     emptyPlaces () {
       if (this.hasUnlimitedPlaces) {

@@ -1,4 +1,4 @@
-import axios from '@/services/axios'
+import axios, { parseCursor } from '@/services/axios'
 
 export default {
 
@@ -10,20 +10,30 @@ export default {
     return convertDate((await axios.get(`/api/pickup-dates/${pickupId}/`)).data)
   },
 
-  async list () {
-    return convertDate((await axios.get('/api/pickup-dates/', { params: { 'date_0': new Date() } })).data)
+  async list (filter) {
+    const params = filter || { 'date_0': new Date() }
+    const response = (await axios.get('/api/pickup-dates/', { params })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convertDate(response.results),
+    }
   },
 
   async listByGroupId (groupId) {
-    return convertDate((await axios.get('/api/pickup-dates/', { params: { group: groupId, 'date_0': new Date() } })).data)
+    return this.list({ group: groupId, 'date_0': new Date() })
   },
 
   async listByStoreId (storeId) {
-    return convertDate((await axios.get('/api/pickup-dates/', { params: { store: storeId, 'date_0': new Date() } })).data)
+    return this.list({ store: storeId, 'date_0': new Date() })
   },
 
   async listBySeriesId (seriesId) {
-    return convertDate((await axios.get('/api/pickup-dates/', { params: { series: seriesId, 'date_0': new Date() } })).data)
+    return this.list({ series: seriesId, 'date_0': new Date() })
+  },
+
+  async listFeedbackPossible (groupId) {
+    return this.list({ feedback_possible: true, group: groupId })
   },
 
   async save (pickup) {

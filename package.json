@@ -164,9 +164,10 @@
       "jest-serializer-vue"
     ],
     "transformIgnorePatterns": [
-      "/node_modules/(?!(@storybook|quasar-framework))"
+      "/node_modules/(?!quasar-framework)"
     ],
     "coverageDirectory": "./coverage/",
+    "coverageReporters": ["json", "lcov"],
     "collectCoverage": true,
     "setupFiles": [
       "<rootDir>/test/setup/unhandledPromiseRejectionHandler.js",

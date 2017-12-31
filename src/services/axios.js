@@ -36,3 +36,7 @@ axios.interceptors.response.use(response => {
 })
 
 export default axios
+
+export function parseCursor (c) {
+  return c ? c.substr(c.indexOf('/api')) : null
+}

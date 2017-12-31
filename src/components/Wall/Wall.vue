@@ -15,6 +15,10 @@
           @leave="$emit('leave', arguments[0])"
         />
       </div>
+      <FeedbackNotice
+        v-if="feedbackPossible.length > 0"
+        :feedback-possible="feedbackPossible"
+      />
     </div>
     <Conversation
       :data="conversation"
@@ -27,6 +31,7 @@
 
 <script>
 import AvailablePickups from './AvailablePickups'
+import FeedbackNotice from './FeedbackNotice'
 import JoinedPickups from './JoinedPickups'
 import Conversation from '@/components/Conversation/Conversation'
 
@@ -35,10 +40,12 @@ export default {
     JoinedPickups,
     AvailablePickups,
     Conversation,
+    FeedbackNotice,
   },
   props: {
     joinedPickups: { required: true },
     availablePickups: { required: true },
+    feedbackPossible: { required: true, type: Array },
     conversation: { required: true },
     fetchMore: { required: true },
     user: { required: true },

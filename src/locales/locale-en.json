@@ -177,6 +177,7 @@
   },
   "PICKUPLIST": {
     "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Leave",
@@ -191,11 +192,16 @@
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
   },
   "PICKUP_FEEDBACK": {
+    "TITLE": "Feedback",
     "HEADER": "Thank you for your pickup!",
     "SUBTITLE": "You can provide feedback for your pickup here",
     "AMOUNT": "Amount of food you took home (in kg)",
     "COMMENT": "Comment",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
+    "OTHER": "Other pickup",
+    "SELECT_PICKUP": "Please select a pickup date",
+    "GIVEN_BY": "by {user} on {date}",
+    "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",

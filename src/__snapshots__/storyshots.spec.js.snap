@@ -2166,15 +2166,6 @@ exports[`Storyshots Login pending 1`] = `
 </div>
 `;
 
-exports[`Storyshots Map Demo 1`] = `
-<div class="vue2leaflet-map" style="height:600px;">
-    <div></div>
-    <div popupcontent="&lt;a href=&quot;https://foodsaving.world&quot;&gt;go there&lt;/a&gt;">
-        <div></div>
-    </div>
-</div>
-`;
-
 exports[`Storyshots Map GroupMap (group has no location) 1`] = `
 <div class="container" style="height:200px;">
     <div class="vue2leaflet-map" style="opacity:0.5;">
@@ -2766,7 +2757,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card">
         <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+                <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
                 </div>
                 <div class="description multiline">
                     you are collector and can leave this pickup
@@ -2814,7 +2805,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card full">
         <div class="q-card-main q-card-container row inline no-padding justify-between content">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+                <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
                 </div>
                 <div class="description multiline">
                     this pickup is already full!
@@ -2858,7 +2849,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card">
         <div class="q-card-main q-card-container row inline no-padding justify-between content isEmpty">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+                <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
                 </div>
                 <div class="description multiline">
                     this pickup is fresh and empty
@@ -4253,176 +4244,285 @@ exports[`Storyshots Signup pending 1`] = `
 `;
 
 exports[`Storyshots Statistics AmountBox 1`] = `
-<div style="padding:2em;">
-    <div class="amount shadow-1">
-        20<span>kg</span></div>
+<div class="container" style="width:100px;height:100px;">
+    <img width="100px" height="100px" src="test-file-stub">
+    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(12deg);top:10px;">
+    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">20</span> <span style="font-size:14px;">kg</span></div>
 </div>
 `;
 
 exports[`Storyshots Statistics AmountPicker 1`] = `
-<div style="padding:2em;">
-    <div class="wrapper"><span></span>
-        <div class="wrapper row">
-            <div class="amount shadow-1 amount">
-                3<span>kg</span></div>
-            <img src="test-file-stub">
-            <img src="test-file-stub">
-            <img src="test-file-stub">
+<div class="wrapper">
+    <div class="row no-wrap">
+        <div class="container amount" style="width:100px;height:100px;">
+            <img width="100px" height="100px" src="test-file-stub">
+            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
+            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1</span> <span style="font-size:14px;">kg</span></div>
         </div>
-        <div>
-            <div class="q-slider non-selectable">
-                <div class="q-slider-handle-container">
-                    <div class="q-slider-track"></div>
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <div class="q-slider-track active-track" style="width:4.285714285714286%;"></div>
-                    <div class="q-slider-handle" style="left:4.285714285714286%;border-radius:50%;">
-                        <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
-                            <!---->
-                            <div class="q-chip-main"> 3 </div>
-                            <!---->
+        <div style="margin-left:.6em;">
+            <div style="padding-bottom:.3em;"></div>
+            <div class="wrapper row">
+                <img src="test-file-stub">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="q-slider non-selectable">
+            <div class="q-slider-handle-container">
+                <div class="q-slider-track"></div>
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
+                <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
+                    <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
+                        <!---->
+                        <div class="q-chip-main"> 1 </div>
+                        <!---->
+                        <!---->
+                    </div>
+                    <div class="q-slider-ring"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+exports[`Storyshots Statistics FeedbackItem 1`] = `
+<div class="q-card">
+    <div class="q-card-main q-card-container">
+        <div class="row no-wrap">
+            <div class="container amount-box" style="width:100px;height:100px;">
+                <img width="100px" height="100px" src="test-file-stub">
+                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+            </div>
+            <div class="content">
+                <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                <div class="comment">All worked out perfectly!</div>
+                <div>
+                    <div class="wrapper">
+                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                        <!---->
+                    </div>
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+exports[`Storyshots Statistics FeedbackList 1`] = `
+<div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                    <div class="comment">All worked out perfectly!</div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
                             <!---->
                         </div>
-                        <div class="q-slider-ring"></div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
+                    <div class="comment"></div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
+                    <div class="comment">They did not have anything today</div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Max Mustermann
+    </span></div>
+                            <!---->
+                        </div>
+                        <!---->
                     </div>
                 </div>
             </div>
@@ -4432,28 +4532,36 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
 `;
 
 exports[`Storyshots Statistics PickupFeedback 1`] = `
-<div style="padding:2em;">
-    <div class="wrapper">
-        <div class="row justify-inbetween no-wrap image-and-text">
-            <div class="image-and-text-left">
-                <img src="test-file-stub" style="width:100%;">
-            </div>
-            <div class="image-and-text-right">
-                <h3>
-                    Thank you for your pickup!
-                </h3>
-                <p>
-                    You can provide feedback for your pickup here
-                </p>
-            </div>
+<div class="q-card no-shadow generic-padding grey-border" style="width:100%;">
+    <div class="row no-wrap image-and-text">
+        <div class="image-and-text-left gt-sm">
+            <img src="test-file-stub" style="width:100%;">
         </div>
-        <div class="wrapper"><span></span>
-            <div class="wrapper row">
-                <div class="amount shadow-1 amount">
-                    3<span>kg</span></div>
-                <img src="test-file-stub">
-                <img src="test-file-stub">
-                <img src="test-file-stub">
+        <div class="image-and-text-right">
+            <h4>Thank you for your pickup!</h4>
+            <p>Aug 12, 2017, 8:00 AM (Griesheimer Markt)
+                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
+                    <div class="desktop-only q-focus-helper"></div>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+          Other pickup
+         <!----></span></button>
+            </p>
+        </div>
+    </div>
+    <form style="padding:0 1.5em;">
+        <div class="wrapper">
+            <div class="row no-wrap">
+                <div class="container amount" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div style="margin-left:.6em;">
+                    <div style="padding-bottom:.3em;"></div>
+                    <div class="wrapper row">
+                        <img src="test-file-stub">
+                    </div>
+                </div>
             </div>
             <div>
                 <div class="q-slider non-selectable">
@@ -4600,11 +4708,11 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <!---->
                         <!---->
                         <!---->
-                        <div class="q-slider-track active-track" style="width:4.285714285714286%;"></div>
-                        <div class="q-slider-handle" style="left:4.285714285714286%;border-radius:50%;">
+                        <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
+                        <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
                             <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
                                 <!---->
-                                <div class="q-chip-main"> 3 </div>
+                                <div class="q-chip-main"> 1 </div>
                                 <!---->
                                 <!---->
                             </div>
@@ -4614,7 +4722,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 </div>
             </div>
         </div>
-        <div class="q-field row no-wrap items-start">
+        <div class="q-field row no-wrap items-start" style="margin-top:2em;padding:0 .5em;">
             <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
             <div class="row col">
                 <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
@@ -4626,7 +4734,18 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <div class="q-if-inner col row no-wrap items-center relative-position">
                             <!---->
                             <!---->
-                            <input type="text" value="" class="col q-input-target text-left">
+                            <div class="col row relative-position">
+                                <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
+                                    <div class="absolute-full overflow-hidden invisible">
+                                        <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                    </div>
+                                    <div class="absolute-full overflow-hidden invisible">
+                                        <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                    </div>
+                                </div>
+                                <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                <textarea placeholder="Was everything fine? Did everyone show up? Your comment here..." rows="2" class="col q-input-target q-input-area"></textarea>
+                            </div>
                             <!---->
                             <!---->
                             <!---->
@@ -4634,14 +4753,92 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         </div>
                         <!---->
                     </div>
-                    <div class="q-field-bottom row no-wrap q-field-no-input">
-                        <div class="q-field-helper col">Was everything fine? Did everyone show up? Your comment here...</div>
-                        <!---->
+                    <!---->
+                </div>
+            </div>
+        </div>
+        <div class="row justify-end generic-margin group">
+            <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
+        </div>
+        <h4></h4>
+        <div>
+            <div class="q-card">
+                <div class="q-card-main q-card-container">
+                    <div class="row no-wrap">
+                        <div class="container amount-box" style="width:100px;height:100px;">
+                            <img width="100px" height="100px" src="test-file-stub">
+                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+                        </div>
+                        <div class="content">
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                            <div class="comment">All worked out perfectly!</div>
+                            <div>
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="q-card">
+                <div class="q-card-main q-card-container">
+                    <div class="row no-wrap">
+                        <div class="container amount-box" style="width:100px;height:100px;">
+                            <img width="100px" height="100px" src="test-file-stub">
+                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:10px;">
+                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
+                        </div>
+                        <div class="content">
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
+                            <div class="comment"></div>
+                            <div>
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="q-card">
+                <div class="q-card-main q-card-container">
+                    <div class="row no-wrap">
+                        <div class="container amount-box" style="width:100px;height:100px;">
+                            <img width="100px" height="100px" src="test-file-stub">
+                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
+                        </div>
+                        <div class="content">
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
+                            <div class="comment">They did not have anything today</div>
+                            <div>
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Max Mustermann
+    </span></div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
+    <!---->
 </div>
 `;
 

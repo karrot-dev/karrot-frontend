@@ -1,31 +1,46 @@
+// Load full build instead of runtime-only to have the compiler available
+// jest.mock('vue', () => require('vue/dist/vue.common.js'))
+
+/** Storybook has some unwanted side effects and we actually don't need it to test the stories
+ * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
+*/
+let mockStories = []
+jest.mock('@storybook/vue', () => ({
+  storiesOf: (kind) => {
+    const api = { kind }
+    const kindStories = { kind, stories: [] }
+    mockStories.push(kindStories)
+    api.add = (storyName, getStory) => {
+      kindStories.stories.push({
+        name: storyName,
+        render: getStory,
+      })
+      return api
+    }
+    return api
+  },
+}))
+
 import glob from 'glob'
 import lolex from 'lolex'
-import { configure, getStorybook } from '@storybook/vue'
 import { createRenderer } from 'vue-server-renderer'
 import { polyfillRequestAnimationFrame, mountWithDefaults } from '>/helpers'
 polyfillRequestAnimationFrame()
 
-// fake Date object MUST be installed before importing stories
+// To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')
-let clock
-clock = lolex.install({ now, toFake: ['Date'] })
+const clock = lolex.install({ now, toFake: ['Date'] })
 
 afterAll(() => {
   clock.uninstall()
 })
 
-function loadStories () {
-  const files = glob.sync('**/*.story.js', { absolute: true })
-  for (const f of files) {
-    require(f)
-  }
+const files = glob.sync('**/*.story.js', { absolute: true })
+for (const f of files) {
+  require(f)
 }
 
-configure(loadStories, module)
-
-const stories = getStorybook()
-
-for (const group of stories) {
+for (const group of mockStories) {
   describe('Storyshots', () => {
     describe(group.kind, () => {
       for (const story of group.stories) {

@@ -1,6 +1,7 @@
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
+const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
@@ -9,6 +10,7 @@ const GroupPreview = () => import('@/pages/GroupPreview')
 const GroupGallery = () => import('@/pages/GroupGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
+const StoreFeedback = () => import('@/pages/Store/Feedbacks')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
 const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
@@ -116,6 +118,19 @@ export default [
         },
         components: {
           default: GroupPickups,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupFeedback',
+        path: 'feedback',
+        meta: {
+          breadcrumbs: [
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
+          ],
+        },
+        components: {
+          default: GroupFeedback,
           sidenav: GroupGroupSidenav,
         },
       },
@@ -268,6 +283,20 @@ export default [
             },
           },
           {
+            name: 'storeFeedback',
+            path: 'feedback',
+            meta: {
+              breadcrumbs: [
+                { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
+              ],
+              beforeEnter: 'feedback/setStoreFilter',
+              afterLeave: 'feedback/clearStoreFilter',
+            },
+            components: {
+              default: StoreFeedback,
+            },
+          },
+          {
             name: 'storeHistory',
             path: 'history',
             component: History,
@@ -292,10 +321,10 @@ export default [
       },
       {
         name: 'pickupFeedback',
-        path: 'feedback',
+        path: 'give-feedback',
         meta: {
           breadcrumbs: [
-            { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
           ],
         },
         components: {

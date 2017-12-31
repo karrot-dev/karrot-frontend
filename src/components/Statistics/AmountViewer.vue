@@ -1,9 +1,5 @@
 <template>
   <div class="wrapper row">
-    <AmountBox
-      class="amount"
-      :amount="amount"
-    />
     <img
       v-for="(photoSrc, idx) in photosArray"
       :src="photoSrc"
@@ -19,11 +15,9 @@ import bagImg from 'assets/feedback/bag.png'
 import flourImg from 'assets/feedback/flour.png'
 import flourGuyImg from 'assets/feedback/flourGuy.png'
 import milkImg from 'assets/feedback/milk.png'
-
-import AmountBox from './AmountBox'
+import cartImg from 'assets/people/cart.png'
 
 export default {
-  components: { AmountBox },
   data () {
     return {
       selectedValue: 3.0,
@@ -40,6 +34,11 @@ export default {
       let amount = this.amount
       let amountImages = []
       while (amount >= 0.15) {
+        if (amount >= 50.0) {
+          amountImages.push(cartImg)
+          amount -= 50.0
+          continue
+        }
         if (amount >= 6.0) {
           amountImages.push(bagImg)
           amount -= 6.0

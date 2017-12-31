@@ -1,22 +1,15 @@
-<template>
-  <div class="wrapper shadow-1">
-    <PickupFeedback/>
-  </div>
-</template>
-
 <script>
+import { connect } from 'vuex-connect'
 import PickupFeedback from '@/components/Statistics/PickupFeedback'
 
-export default {
-  components: {
-    PickupFeedback,
+export default connect({
+  gettersToProps: {
+    pickups: 'pickups/feedbackPossible',
+    existingFeedback: 'feedback/all',
+    status: 'feedback/saveStatus',
   },
-}
+  actionsToEvents: {
+    save: 'feedback/save',
+  },
+})('PickupFeedback', PickupFeedback)
 </script>
-
-<style scoped lang="stylus">
-.wrapper
-  background-color white
-  border-radius 10px
-  padding 1em
-</style>

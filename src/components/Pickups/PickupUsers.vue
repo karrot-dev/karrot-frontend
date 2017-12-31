@@ -58,7 +58,8 @@
     >
       <div/>
       <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
-      <span v-if="noNotShownEmptySlots > 99">...</span>
+      <span v-if="noNotShownEmptySlots > 99 && !hasUnlimitedPlaces">...</span>
+      <span v-if="noNotShownEmptySlots > 99 && hasUnlimitedPlaces">+ ∞</span>
     </div>
   </div>
 </template>
@@ -100,7 +101,13 @@ export default {
     ...mapGetters({
       currentUser: 'auth/user',
     }),
+    hasUnlimitedPlaces () {
+      return this.pickup.maxCollectors === null
+    },
     emptyPlaces () {
+      if (this.hasUnlimitedPlaces) {
+        return 9999999999
+      }
       if (this.pickup.collectors) {
         return this.pickup.maxCollectors - this.pickup.collectors.length
       }

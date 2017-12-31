@@ -1,6 +1,6 @@
 <template>
   <div
-    class="edit"
+    class="edit-box"
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="maybeSave">
@@ -41,7 +41,13 @@
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
       >
+        <q-input
+          v-model="edit.maxCollectors"
+          type="number"
+          :placeholder="$t('CREATEPICKUP.UNLIMITED')"
+        />
         <q-slider
+          v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
           v-model="edit.maxCollectors"
           :min="1"
           :max="10"
@@ -70,47 +76,48 @@
       >
         {{ firstNonFieldError }}
       </div>
+      <div class="actionButtons">
+        <q-btn
+          type="submit"
+          color="primary"
+          :disable="!canSave"
+          loader
+          :value="isPending"
+        >
+          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+        </q-btn>
 
-      <q-btn
-        type="submit"
-        color="primary"
-        :disable="!canSave"
-        loader
-        :value="isPending"
-      >
-        {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-      </q-btn>
+        <q-btn
+          type="button"
+          color="red"
+          @click="destroy"
+          v-if="!isNew"
+          :disable="!canDestroy"
+        >
+          <q-tooltip
+            v-if="!canDestroy"
+            v-t="'CREATEPICKUP.DELETION_FORBIDDEN_HELPER'"
+          />
+          {{ $t('BUTTON.DELETE') }}
+        </q-btn>
 
-      <q-btn
-        type="button"
-        @click="reset"
-        v-if="!isNew"
-        :disable="!hasChanged"
-      >
-        {{ $t('BUTTON.RESET') }}
-      </q-btn>
+        <q-btn
+          type="button"
+          @click="reset"
+          v-if="!isNew"
+          :disable="!hasChanged"
+        >
+          {{ $t('BUTTON.RESET') }}
+        </q-btn>
 
-      <q-btn
-        type="button"
-        @click="$emit('cancel')"
-        v-if="isNew"
-      >
-        {{ $t('BUTTON.CANCEL') }}
-      </q-btn>
-
-      <q-btn
-        type="button"
-        color="red"
-        @click="destroy"
-        v-if="!isNew"
-        :disable="!canDestroy"
-      >
-        <q-tooltip
-          v-if="!canDestroy"
-          v-t="'CREATEPICKUP.DELETION_FORBIDDEN_HELPER'"
-        />
-        {{ $t('BUTTON.DELETE') }}
-      </q-btn>
+        <q-btn
+          type="button"
+          @click="$emit('cancel')"
+          v-if="isNew"
+        >
+          {{ $t('BUTTON.CANCEL') }}
+        </q-btn>
+      </div>
     </form>
   </div>
 </template>
@@ -154,11 +161,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.edit
-  width 100%
-  padding 20px
-  background-color $grey-1
-  &.changed
-    background-color $yellow-1
 </style>

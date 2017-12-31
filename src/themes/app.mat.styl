@@ -28,10 +28,7 @@ h5
 h1.generic-padding, h2.generic-padding, h3.generic-padding, h4.generic-padding, h5.generic-padding
   padding .2em
   padding-left .5em
-// h1, h2, h3, h4, h5
-  // font-family $accentFont
-  // font-weight 700
-  // padding-left .5em
+
 a
   color inherit
 .q-card
@@ -66,3 +63,22 @@ body.desktop .desktop-margin
 // For large bits of text inside a modal/dialog body (e.g. the agreement dialog)
 .modal-body
   white-space pre-line
+
+
+.edit-box
+  width 100%
+  padding 20px
+  background-color $grey-1
+  transition background-color .3s ease
+  &.changed
+    background-color $yellow-1
+  .actionButtons
+    .q-btn
+      margin 20px 0 0 5px
+      float right
+  .actionButtons:after
+    content "."
+    clear both
+    display block
+    visibility hidden
+    height 0px

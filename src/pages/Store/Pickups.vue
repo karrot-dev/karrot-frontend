@@ -7,9 +7,13 @@
             v-if="store.description"
             :source="store.description"
           />
+          <i v-if="!store.description">
+            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+          </i>
         </q-item-main>
         <q-item-side
           class="group"
+          v-if="!$q.platform.is.mobile"
         >
           <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
             <q-btn

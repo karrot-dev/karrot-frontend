@@ -1,7 +1,7 @@
 <template>
   <q-card class="no-margin">
     <table
-      class="q-table"
+      class="q-table full-width"
       v-if="entry"
     >
       <colgroup>
@@ -126,7 +126,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-table {
-  width: 100%;
-}
 </style>

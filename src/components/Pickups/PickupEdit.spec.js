@@ -18,7 +18,7 @@ describe('PickupEdit', () => {
   })
 
   it('renders', () => {
-    expect(wrapper.element.className).toBe('edit')
+    expect(wrapper.element.className).toBe('edit-box')
   })
 
   it('can reset to initial state', () => {

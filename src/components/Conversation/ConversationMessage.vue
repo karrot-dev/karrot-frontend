@@ -8,19 +8,18 @@
     </q-item-side>
     <q-item-main>
       <q-item-tile>
-        <router-link :to="{ name: 'user', params: {userId: message.author.id} }">
-          <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
-        </router-link>
-        <span class="content">{{ message.content }}</span>
+        <div class="no-wrap">
+          <router-link :to="{ name: 'user', params: {userId: message.author.id} }">
+            <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
+          </router-link>
+          <span class="message-date">
+            <small class="light-paragraph">
+              <DateAsWords :date="message.createdAt" />
+            </small>
+          </span>
+        </div>
       </q-item-tile>
-      <q-item-tile
-        class="row light-paragraph"
-        style="padding-top: 5px"
-      >
-        <small>
-          <DateAsWords :date="message.createdAt" />
-        </small>
-      </q-item-tile>
+      <span class="content">{{ message.content }}</span>
     </q-item-main>
   </q-item>
 </template>
@@ -47,4 +46,7 @@ export default {
 .content
   white-space pre-line
   word-wrap break-word
+.message-date
+  display inline-block
+  margin-left 2px
 </style>

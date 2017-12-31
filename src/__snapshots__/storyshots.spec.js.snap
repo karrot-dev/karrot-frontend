@@ -3696,9 +3696,9 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
     <div class="q-toolbar row no-wrap items-center relative-position q-toolbar-normal toolbar">
         <i aria-hidden="true" class="q-icon fa fa-fw fa-home"> </i>
         <div class="q-toolbar-title"></div>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-round q-btn-small q-btn-flat">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-ellipsis-v"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
             <div class="q-popover animate-scale"
                 style="transform-origin:top left 0px;">
                 <div item-separator="" class="q-list q-list-link">
@@ -3725,8 +3725,11 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             <!---->
             </span>
         </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position card-arrow q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
+    <div class="content-div">
         <div>
             <div class="no-padding q-list no-border q-list-highlight">
                 <div class="q-item q-item-division relative-position q-item-link">
@@ -3781,25 +3784,28 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <i aria-hidden="true" class="q-icon fa fa-fw fa-map"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-round q-btn-small q-btn-flat">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
                 <div class="desktop-only q-focus-helper"></div>
-                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide stores
       </span>
                 <!---->
                 </span>
             </button>
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-round q-btn-small q-btn-flat">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
                 <div class="desktop-only q-focus-helper"></div>
-                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-stack"><i class="fa fa-user fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-user fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide users
       </span>
                 <!---->
                 </span>
             </button>
         </div>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position card-arrow q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
+    <div class="content-div">
         <div class="container map">
             <div class="vue2leaflet-map" style="opacity:1;">
                 <div></div>
@@ -3847,14 +3853,17 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         <div class="q-toolbar-title">
             Stores
         </div>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">add_circle</i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
             <!---->
             </span>
         </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position card-arrow q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
+    <div class="content-div">
         <div class="no-padding q-list no-border q-list-highlight">
             <div class="q-item q-item-division relative-position q-item-link">
                 <div class="q-item-side q-item-side-left q-item-section text-center">

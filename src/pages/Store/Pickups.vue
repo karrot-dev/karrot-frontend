@@ -31,6 +31,9 @@
             v-if="store.description"
             :source="store.description"
           />
+          <i v-if="!store.description">
+            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+          </i>
         </span>
       </div>
     </q-card>

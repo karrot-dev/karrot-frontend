@@ -2,7 +2,7 @@
   <div class="notice">
     <q-card
       color="secondary"
-      class="generic-padding row no-wrap"
+      class="generic-padding row no-wrap card"
     >
       <div>
         <div class="icon">
@@ -29,11 +29,9 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.card
-  margin 0
-.padding
-  padding 1em
 .notice
+  .card > div
+    margin-bottom 1em
   .icon
     font-size 4rem
     margin .1em 0 0 0

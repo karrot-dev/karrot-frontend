@@ -112,207 +112,188 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mira Bellenbaum</span></div> <span class="content">first messsage</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+                            <div class="no-wrap">
+                                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mira Bellenbaum</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
                             </small>
+                            </span>
                         </div>
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                    </div> <span class="content">first messsage</span></div>
+            </div>
+            <div class="q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-side-left q-item-section">
+                    <div class="wrapper">
+                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="content">second messsage</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
-                            </small>
-                        </div>
+                        <!---->
                     </div>
                 </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <div class="q-item-main q-item-section">
+                    <div class="q-item-">
+                        <div class="no-wrap">
+                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
+                        </small>
+                        </span>
+                    </div>
+                </div> <span class="content">second messsage</span></div>
+        </div>
+        <div class="q-item q-item-division relative-position q-item-multiline">
+            <div class="q-item-side q-item-side-left q-item-section">
+                <div class="wrapper">
+                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="content">first messsage</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
-                            </small>
-                        </div>
-                    </div>
+                    <!---->
                 </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            </div>
+            <div class="q-item-main q-item-section">
+                <div class="q-item-">
+                    <div class="no-wrap">
+                        <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
+                    </small>
+                    </span>
+                </div>
+            </div> <span class="content">first messsage</span></div>
+    </div>
+    <div class="q-item q-item-division relative-position q-item-multiline">
+        <div class="q-item-side q-item-side-left q-item-section">
+            <div class="wrapper">
+                <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="content">welcome to fs chat</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:49 PM</span></div>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <!---->
+            </div>
+        </div>
+        <div class="q-item-main q-item-section">
+            <div class="q-item-">
+                <div class="no-wrap">
+                    <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:49 PM</span></div>
+                </small>
+                </span>
+            </div>
+        </div> <span class="content">welcome to fs chat</span></div>
+</div>
+<div class="q-item q-item-division relative-position q-item-multiline">
+    <div class="q-item-side q-item-side-left q-item-section">
+        <div class="wrapper">
+            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Karl Karlson</span></div> <span class="content">heyo!</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:51 PM</span></div>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Max Mustermann
-    </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="content">you made it!</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mona Mohnblume
-    </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="content">amazing!</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mona Mohnblume
-    </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="content">oh let me try something :)</span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Max Mustermann
-    </span></div>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="content">I dont think we need to implement another UI, this is fine right? </span></div>
-                        <div class="q-item- row light-paragraph" style="padding-top:5px;">
-                            <small>
-                                <div>
-                                    4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="q-infinite-scroll-message" style="display:none;">
-            <div style="width:100%;text-align:center;">
-                <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-                    <circle cx="15" cy="15" r="15">
-                        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-                        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-                    </circle>
-                    <circle cx="60" cy="15" r="9" fill-opacity=".3">
-                        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-                        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-                    </circle>
-                    <circle cx="105" cy="15" r="15">
-                        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-                        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-                    </circle>
-                </svg>
-            </div>
+            <!---->
         </div>
     </div>
-    <!---->
+    <div class="q-item-main q-item-section">
+        <div class="q-item-">
+            <div class="no-wrap">
+                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Karl Karlson</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:51 PM</span></div>
+            </small>
+            </span>
+        </div>
+    </div> <span class="content">heyo!</span></div>
 </div>
-`;
-
-exports[`Storyshots General Components KBox 1`] = `
-<div class="wrapper">
-    <div class="row justify-between toolbar">
-        <div class="name">&quot;name&quot;-Slot</div>
-        <div>&quot;tools&quot;-Slot</div>
+<div class="q-item q-item-division relative-position q-item-multiline">
+    <div class="q-item-side q-item-side-left q-item-section">
+        <div class="wrapper">
+            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Max Mustermann
+    </span></div>
+            <!---->
+        </div>
     </div>
-    <div class="content">Primary Slot</div>
+    <div class="q-item-main q-item-section">
+        <div class="q-item-">
+            <div class="no-wrap">
+                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+            </small>
+            </span>
+        </div>
+    </div> <span class="content">you made it!</span></div>
+</div>
+<div class="q-item q-item-division relative-position q-item-multiline">
+    <div class="q-item-side q-item-side-left q-item-section">
+        <div class="wrapper">
+            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mona Mohnblume
+    </span></div>
+            <!---->
+        </div>
+    </div>
+    <div class="q-item-main q-item-section">
+        <div class="q-item-">
+            <div class="no-wrap">
+                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+            </small>
+            </span>
+        </div>
+    </div> <span class="content">amazing!</span></div>
+</div>
+<div class="q-item q-item-division relative-position q-item-multiline">
+    <div class="q-item-side q-item-side-left q-item-section">
+        <div class="wrapper">
+            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mona Mohnblume
+    </span></div>
+            <!---->
+        </div>
+    </div>
+    <div class="q-item-main q-item-section">
+        <div class="q-item-">
+            <div class="no-wrap">
+                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+            </small>
+            </span>
+        </div>
+    </div> <span class="content">oh let me try something :)</span></div>
+</div>
+<div class="q-item q-item-division relative-position q-item-multiline">
+    <div class="q-item-side q-item-side-left q-item-section">
+        <div class="wrapper">
+            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Max Mustermann
+    </span></div>
+            <!---->
+        </div>
+    </div>
+    <div class="q-item-main q-item-section">
+        <div class="q-item-">
+            <div class="no-wrap">
+                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+            </small>
+            </span>
+        </div>
+    </div> <span class="content">I dont think we need to implement another UI, this is fine right? </span></div>
+</div>
+</div>
+</div>
+<div class="q-infinite-scroll-message" style="display:none;">
+    <div style="width:100%;text-align:center;">
+        <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+            <circle cx="15" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="60" cy="15" r="9" fill-opacity=".3">
+                <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="105" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+        </svg>
+    </div>
+</div>
+</div>
+<!---->
 </div>
 `;
 
@@ -361,7 +342,7 @@ exports[`Storyshots General Components Search 1`] = `
 exports[`Storyshots GroupEdit create 1`] = `
 <div>
     <div class="q-card">
-        <div class="edit">
+        <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-fw fa-star"> </i>
@@ -607,13 +588,14 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                 </div>
                 <!---->
-                <!---->
-                <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position actionButton q-btn-rectangle q-btn-standard bg-primary text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Create
-         <!----></span></button>
-                <div style="clear:both;"></div>
+                <div class="actionButtons">
+                    <!---->
+                    <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+            Create
+           <!----></span></button>
+                </div>
             </form>
         </div>
     </div>
@@ -1570,7 +1552,7 @@ exports[`Storyshots History List Default 1`] = `
     <div class="q-card-main q-card-container">
         <div class="q-infinite-scroll">
             <div class="q-infinite-scroll-content">
-                <table class="q-table highlight striped-odd">
+                <table class="q-table full-width highlight striped-odd">
                     <tbody>
                         <div>
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
@@ -2184,15 +2166,6 @@ exports[`Storyshots Login pending 1`] = `
 </div>
 `;
 
-exports[`Storyshots Map Demo 1`] = `
-<div class="vue2leaflet-map" style="height:600px;">
-    <div></div>
-    <div popupcontent="&lt;a href=&quot;https://foodsaving.world&quot;&gt;go there&lt;/a&gt;">
-        <div></div>
-    </div>
-</div>
-`;
-
 exports[`Storyshots Map GroupMap (group has no location) 1`] = `
 <div class="container" style="height:200px;">
     <div class="vue2leaflet-map" style="opacity:0.5;">
@@ -2784,7 +2757,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card">
         <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+                <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
                 </div>
                 <div class="description multiline">
                     you are collector and can leave this pickup
@@ -2832,7 +2805,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card full">
         <div class="q-card-main q-card-container row inline no-padding justify-between content">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+                <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
                 </div>
                 <div class="description multiline">
                     this pickup is already full!
@@ -2876,7 +2849,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card">
         <div class="q-card-main q-card-container row inline no-padding justify-between content isEmpty">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+                <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
                 </div>
                 <div class="description multiline">
                     this pickup is fresh and empty
@@ -2918,7 +2891,7 @@ exports[`Storyshots PickupList Default 1`] = `
 `;
 
 exports[`Storyshots PickupSeriesEdit Default 1`] = `
-<div class="edit">
+<div class="edit-box">
     <form>
         <div class="q-field row no-wrap items-start">
             <i aria-hidden="true" class="q-field-icon q-field-margin q-icon material-icons">access_time</i>
@@ -3181,6 +3154,19 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                     <div class="q-field-label-inner row items-center"><span>Max Slots</span> </div>
                 </div>
                 <div class="q-field-content col-xs-12 col-sm">
+                    <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                        <!---->
+                        <div class="q-if-inner col row no-wrap items-center relative-position">
+                            <!---->
+                            <!---->
+                            <input placeholder="unlimited" pattern="[0-9]*" step="1" type="number" value="2" class="col q-input-target text-left">
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
                     <div class="q-slider non-selectable label-always">
                         <div class="q-slider-handle-container">
                             <div class="q-slider-track"></div>
@@ -3252,28 +3238,24 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             </div>
         </div>
         <!---->
-        <div class="row">
-            <div class="col-6 actionButton">
-                <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position full-width q-btn-rectangle q-btn-standard disabled">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Reset
-         <!----></span></button>
-            </div>
-            <div class="col-6 actionButton">
-                <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position full-width q-btn-rectangle q-btn-standard bg-red text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Delete
-         <!----></span></button>
-            </div>
+        <div class="actionButtons">
+            <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> 
+        Save changes
+       <!----></span></button>
+            <!---->
+            <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-red text-white">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> 
+        Delete
+       <!----></span></button>
+            <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> 
+        Reset
+       <!----></span></button>
         </div>
-        <!---->
-        <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position full-width actionButton q-btn-rectangle q-btn-standard disabled bg-primary text-white">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> 
-      Save changes
-     <!----></span></button>
     </form>
 </div>
 `;
@@ -3432,11 +3414,17 @@ exports[`Storyshots ProfilePicture Profile Pictures 1`] = `
 `;
 
 exports[`Storyshots Settings Page Default 1`] = `
-<div class="grey-border">
-    <div class="q-list no-border">
-        <div class="q-list-header ">Profile</div>
-        <div class="q-item q-item-division relative-position">
-            <div class="edit">
+<div>
+    <div class="q-card no-shadow grey-border">
+        <div class="q-card-primary q-card-container row no-wrap">
+            <div class="col column">
+                <div class="q-card-title">Profile</div>
+                <div class="q-card-subtitle"></div>
+            </div>
+            <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
+        <div class="q-card-main q-card-container">
+            <div class="edit-box">
                 <form>
                     <div class="q-field row no-wrap items-start">
                         <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
@@ -3566,22 +3554,32 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                     <!---->
-                    <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> 
-      Save changes
-     <!----></span></button>
-                    <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> 
-      Reset
-     <!----></span></button>
+                    <div class="actionButtons">
+                        <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
+                            <div class="desktop-only q-focus-helper"></div>
+                            <!----><span class="q-btn-inner row col flex-center"><!----> 
+        Save changes
+       <!----></span></button>
+                        <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
+                            <div class="desktop-only q-focus-helper"></div>
+                            <!----><span class="q-btn-inner row col flex-center"><!----> 
+        Reset
+       <!----></span></button>
+                    </div>
                 </form>
             </div>
         </div>
-        <div class="q-list-header ">Mail</div>
-        <div class="q-item q-item-division relative-position">
-            <div class="edit">
+    </div>
+    <div class="q-card no-shadow grey-border">
+        <div class="q-card-primary q-card-container row no-wrap">
+            <div class="col column">
+                <div class="q-card-title">Mail</div>
+                <div class="q-card-subtitle"></div>
+            </div>
+            <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
+        <div class="q-card-main q-card-container">
+            <div class="edit-box">
                 <!---->
                 <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
@@ -3607,16 +3605,26 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                 </div>
-                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-    Change e-mail address
-   <!----></span></button>
+                <div class="actionButtons">
+                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+      Change e-mail address
+     <!----></span></button>
+                </div>
             </div>
         </div>
-        <div class="q-list-header ">Password</div>
-        <div class="q-item q-item-division relative-position">
-            <div class="edit">
+    </div>
+    <div class="q-card no-shadow grey-border">
+        <div class="q-card-primary q-card-container row no-wrap">
+            <div class="col column">
+                <div class="q-card-title">Password</div>
+                <div class="q-card-subtitle"></div>
+            </div>
+            <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
+        <div class="q-card-main q-card-container">
+            <div class="edit-box">
                 <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
                     <div class="row col">
@@ -3641,11 +3649,13 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                 </div>
-                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-    Change password
-   <!----></span></button>
+                <div class="actionButtons">
+                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+      Change password
+     <!----></span></button>
+                </div>
             </div>
         </div>
     </div>
@@ -3677,9 +3687,9 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
     <div class="q-toolbar row no-wrap items-center relative-position q-toolbar-normal toolbar">
         <i aria-hidden="true" class="q-icon fa fa-fw fa-home"> </i>
         <div class="q-toolbar-title"></div>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-round q-btn-small q-btn-flat">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-ellipsis-v"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
             <div class="q-popover animate-scale"
                 style="transform-origin:top left 0px;">
                 <div item-separator="" class="q-list q-list-link">
@@ -3706,8 +3716,11 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             <!---->
             </span>
         </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position card-arrow q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
+    <div class="content-div">
         <div>
             <div class="no-padding q-list no-border q-list-highlight">
                 <div class="q-item q-item-division relative-position q-item-link">
@@ -3762,25 +3775,28 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <i aria-hidden="true" class="q-icon fa fa-fw fa-map"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-round q-btn-small q-btn-flat">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
                 <div class="desktop-only q-focus-helper"></div>
-                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide stores
       </span>
                 <!---->
                 </span>
             </button>
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-round q-btn-small q-btn-flat">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
                 <div class="desktop-only q-focus-helper"></div>
-                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-stack"><i class="fa fa-user fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-user fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide users
       </span>
                 <!---->
                 </span>
             </button>
         </div>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position card-arrow q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
+    <div class="content-div">
         <div class="container map">
             <div class="vue2leaflet-map" style="opacity:1;">
                 <div></div>
@@ -3828,14 +3844,17 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         <div class="q-toolbar-title">
             Stores
         </div>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">add_circle</i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
             <!---->
             </span>
         </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position card-arrow q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
+    <div class="content-div">
         <div class="no-padding q-list no-border q-list-highlight">
             <div class="q-item q-item-division relative-position q-item-link">
                 <div class="q-item-side q-item-side-left q-item-section text-center">
@@ -4225,176 +4244,285 @@ exports[`Storyshots Signup pending 1`] = `
 `;
 
 exports[`Storyshots Statistics AmountBox 1`] = `
-<div style="padding:2em;">
-    <div class="amount shadow-1">
-        20<span>kg</span></div>
+<div class="container" style="width:100px;height:100px;">
+    <img width="100px" height="100px" src="test-file-stub">
+    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(12deg);top:10px;">
+    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">20</span> <span style="font-size:14px;">kg</span></div>
 </div>
 `;
 
 exports[`Storyshots Statistics AmountPicker 1`] = `
-<div style="padding:2em;">
-    <div class="wrapper"><span></span>
-        <div class="wrapper row">
-            <div class="amount shadow-1 amount">
-                3<span>kg</span></div>
-            <img src="test-file-stub">
-            <img src="test-file-stub">
-            <img src="test-file-stub">
+<div class="wrapper">
+    <div class="row no-wrap">
+        <div class="container amount" style="width:100px;height:100px;">
+            <img width="100px" height="100px" src="test-file-stub">
+            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
+            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1</span> <span style="font-size:14px;">kg</span></div>
         </div>
-        <div>
-            <div class="q-slider non-selectable">
-                <div class="q-slider-handle-container">
-                    <div class="q-slider-track"></div>
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <div class="q-slider-track active-track" style="width:4.285714285714286%;"></div>
-                    <div class="q-slider-handle" style="left:4.285714285714286%;border-radius:50%;">
-                        <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
-                            <!---->
-                            <div class="q-chip-main"> 3 </div>
-                            <!---->
+        <div style="margin-left:.6em;">
+            <div style="padding-bottom:.3em;"></div>
+            <div class="wrapper row">
+                <img src="test-file-stub">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="q-slider non-selectable">
+            <div class="q-slider-handle-container">
+                <div class="q-slider-track"></div>
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
+                <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
+                    <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
+                        <!---->
+                        <div class="q-chip-main"> 1 </div>
+                        <!---->
+                        <!---->
+                    </div>
+                    <div class="q-slider-ring"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+exports[`Storyshots Statistics FeedbackItem 1`] = `
+<div class="q-card">
+    <div class="q-card-main q-card-container">
+        <div class="row no-wrap">
+            <div class="container amount-box" style="width:100px;height:100px;">
+                <img width="100px" height="100px" src="test-file-stub">
+                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+            </div>
+            <div class="content">
+                <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                <div class="comment">All worked out perfectly!</div>
+                <div>
+                    <div class="wrapper">
+                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                        <!---->
+                    </div>
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+exports[`Storyshots Statistics FeedbackList 1`] = `
+<div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                    <div class="comment">All worked out perfectly!</div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
                             <!---->
                         </div>
-                        <div class="q-slider-ring"></div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
+                    <div class="comment"></div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card">
+        <div class="q-card-main q-card-container">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
+                    <div class="comment">They did not have anything today</div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Max Mustermann
+    </span></div>
+                            <!---->
+                        </div>
+                        <!---->
                     </div>
                 </div>
             </div>
@@ -4404,28 +4532,36 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
 `;
 
 exports[`Storyshots Statistics PickupFeedback 1`] = `
-<div style="padding:2em;">
-    <div class="wrapper">
-        <div class="row justify-inbetween no-wrap image-and-text">
-            <div class="image-and-text-left">
-                <img src="test-file-stub" style="width:100%;">
-            </div>
-            <div class="image-and-text-right">
-                <h3>
-                    Thank you for your pickup!
-                </h3>
-                <p>
-                    You can provide feedback for your pickup here
-                </p>
-            </div>
+<div class="q-card no-shadow generic-padding grey-border" style="width:100%;">
+    <div class="row no-wrap image-and-text">
+        <div class="image-and-text-left gt-sm">
+            <img src="test-file-stub" style="width:100%;">
         </div>
-        <div class="wrapper"><span></span>
-            <div class="wrapper row">
-                <div class="amount shadow-1 amount">
-                    3<span>kg</span></div>
-                <img src="test-file-stub">
-                <img src="test-file-stub">
-                <img src="test-file-stub">
+        <div class="image-and-text-right">
+            <h4>Thank you for your pickup!</h4>
+            <p>Aug 12, 2017, 8:00 AM (Griesheimer Markt)
+                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
+                    <div class="desktop-only q-focus-helper"></div>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+          Other pickup
+         <!----></span></button>
+            </p>
+        </div>
+    </div>
+    <form style="padding:0 1.5em;">
+        <div class="wrapper">
+            <div class="row no-wrap">
+                <div class="container amount" style="width:100px;height:100px;">
+                    <img width="100px" height="100px" src="test-file-stub">
+                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
+                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1</span> <span style="font-size:14px;">kg</span></div>
+                </div>
+                <div style="margin-left:.6em;">
+                    <div style="padding-bottom:.3em;"></div>
+                    <div class="wrapper row">
+                        <img src="test-file-stub">
+                    </div>
+                </div>
             </div>
             <div>
                 <div class="q-slider non-selectable">
@@ -4572,11 +4708,11 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <!---->
                         <!---->
                         <!---->
-                        <div class="q-slider-track active-track" style="width:4.285714285714286%;"></div>
-                        <div class="q-slider-handle" style="left:4.285714285714286%;border-radius:50%;">
+                        <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
+                        <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
                             <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
                                 <!---->
-                                <div class="q-chip-main"> 3 </div>
+                                <div class="q-chip-main"> 1 </div>
                                 <!---->
                                 <!---->
                             </div>
@@ -4586,7 +4722,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 </div>
             </div>
         </div>
-        <div class="q-field row no-wrap items-start">
+        <div class="q-field row no-wrap items-start" style="margin-top:2em;padding:0 .5em;">
             <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
             <div class="row col">
                 <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
@@ -4598,7 +4734,18 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <div class="q-if-inner col row no-wrap items-center relative-position">
                             <!---->
                             <!---->
-                            <input type="text" value="" class="col q-input-target text-left">
+                            <div class="col row relative-position">
+                                <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
+                                    <div class="absolute-full overflow-hidden invisible">
+                                        <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                    </div>
+                                    <div class="absolute-full overflow-hidden invisible">
+                                        <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                    </div>
+                                </div>
+                                <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                <textarea placeholder="Was everything fine? Did everyone show up? Your comment here..." rows="2" class="col q-input-target q-input-area"></textarea>
+                            </div>
                             <!---->
                             <!---->
                             <!---->
@@ -4606,21 +4753,99 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         </div>
                         <!---->
                     </div>
-                    <div class="q-field-bottom row no-wrap q-field-no-input">
-                        <div class="q-field-helper col">Was everything fine? Did everyone show up? Your comment here...</div>
-                        <!---->
+                    <!---->
+                </div>
+            </div>
+        </div>
+        <div class="row justify-end generic-margin group">
+            <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
+        </div>
+        <h4></h4>
+        <div>
+            <div class="q-card">
+                <div class="q-card-main q-card-container">
+                    <div class="row no-wrap">
+                        <div class="container amount-box" style="width:100px;height:100px;">
+                            <img width="100px" height="100px" src="test-file-stub">
+                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
+                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+                        </div>
+                        <div class="content">
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                            <div class="comment">All worked out perfectly!</div>
+                            <div>
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="q-card">
+                <div class="q-card-main q-card-container">
+                    <div class="row no-wrap">
+                        <div class="container amount-box" style="width:100px;height:100px;">
+                            <img width="100px" height="100px" src="test-file-stub">
+                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:10px;">
+                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
+                        </div>
+                        <div class="content">
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
+                            <div class="comment"></div>
+                            <div>
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="q-card">
+                <div class="q-card-main q-card-container">
+                    <div class="row no-wrap">
+                        <div class="container amount-box" style="width:100px;height:100px;">
+                            <img width="100px" height="100px" src="test-file-stub">
+                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
+                        </div>
+                        <div class="content">
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
+                            <div class="comment">They did not have anything today</div>
+                            <div>
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Max Mustermann
+    </span></div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
+    <!---->
 </div>
 `;
 
 exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
 <div>
-    <div class="q-card no-shadow grey-border">
-        <div class="edit">
+    <div class="q-card">
+        <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start q-field-with-error">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
@@ -4849,22 +5074,24 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     </div>
                 </div>
                 <!---->
-                <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Save changes
-         <!----></span></button>
-                <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Reset
-         <!----></span></button>
-                <!---->
-                <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-red text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Archive
-         <!----></span></button>
+                <div class="actionButtons">
+                    <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+            Save changes
+           <!----></span></button>
+                    <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-red text-white">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+            Archive
+           <!----></span></button>
+                    <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+            Reset
+           <!----></span></button>
+                    <!---->
+                </div>
             </form>
         </div>
     </div>
@@ -4873,8 +5100,8 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
 
 exports[`Storyshots Stores StoreEdit 1`] = `
 <div>
-    <div class="q-card no-shadow grey-border">
-        <div class="edit">
+    <div class="q-card">
+        <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
@@ -5100,22 +5327,24 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     </div>
                 </div>
                 <!---->
-                <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Save changes
-         <!----></span></button>
-                <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Reset
-         <!----></span></button>
-                <!---->
-                <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-red text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Archive
-         <!----></span></button>
+                <div class="actionButtons">
+                    <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled bg-primary text-white">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+            Save changes
+           <!----></span></button>
+                    <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-red text-white">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+            Archive
+           <!----></span></button>
+                    <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard disabled">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> 
+            Reset
+           <!----></span></button>
+                    <!---->
+                </div>
             </form>
         </div>
     </div>

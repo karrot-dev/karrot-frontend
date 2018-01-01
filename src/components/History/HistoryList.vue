@@ -5,7 +5,7 @@
     </q-card-title>
     <q-card-main>
       <q-infinite-scroll :handler="loadMore">
-        <table class="q-table highlight striped-odd">
+        <table class="q-table full-width highlight striped-odd">
           <tbody>
             <HistoryEntry
               v-for="entry in history"
@@ -64,7 +64,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-table {
-  width: 100%;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="edit">
+  <div class="edit-box">
 
     <q-field
       icon="fa-star"
@@ -12,16 +12,16 @@
         v-model="newPassword"
       />
     </q-field>
-
-    <q-btn
-      color="primary"
-      @click="save"
-      loader
-      :value="isPending"
-    >
-      {{ $t('BUTTON.CHANGE_PASSWORD') }}
-    </q-btn>
-
+    <div class="actionButtons">
+      <q-btn
+        color="primary"
+        @click="save"
+        loader
+        :value="isPending"
+      >
+        {{ $t('BUTTON.CHANGE_PASSWORD') }}
+      </q-btn>
+    </div>
   </div>
 </template>
 
@@ -48,11 +48,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.edit
-  width 100%
-  padding 20px
-  background-color $grey-1
-  &.changed
-    background-color $yellow-1
 </style>

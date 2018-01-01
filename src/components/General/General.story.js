@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
 
-import KBox from './KBox'
 import KBreadcrumb from './KBreadcrumb'
 import Search from './Search'
 import { createStore, storybookDefaults as defaults } from '>/helpers'
@@ -14,9 +13,6 @@ const store = createStore({
 })
 
 storiesOf('General Components', module)
-  .add('KBox', () => defaults({
-    render: h => h(KBox),
-  }))
 
   .add('KBreadcrumb', () => defaults({
     render: h => h(KBreadcrumb, {

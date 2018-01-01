@@ -1,5 +1,8 @@
 <template>
-  <SidenavBox>
+  <SidenavBox
+    @toggleBoxCollapsed="$emit('toggleBoxCollapsed')"
+    :collapsible="collapsible"
+    :collapsed="collapsed">
     <template slot="icon">
       <q-icon name="fa-fw fa-shopping-cart" />
     </template>
@@ -7,9 +10,8 @@
       <q-btn
         flat
         small
-        round
       >
-        <q-icon name="fa-ellipsis-v" />
+        <q-icon name="fa-fw fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
@@ -26,6 +28,14 @@
         </q-item-side>
         <q-item-main>
           {{ $t("GROUP.PICKUPS") }}
+        </q-item-main>
+      </q-item>
+      <q-item :to="{name: 'storeFeedback', params: { storeId }}">
+        <q-item-side class="text-center">
+          <q-icon name="fa-balance-scale" />
+        </q-item-side>
+        <q-item-main>
+          {{ $t("PICKUP_FEEDBACK.TITLE") }}
         </q-item-main>
       </q-item>
       <q-item :to="{name: 'storeHistory', params: { storeId }}">
@@ -49,6 +59,8 @@ import StoreOptions from './StoreOptions'
 export default {
   props: {
     storeId: { required: true },
+    collapsible: { default: true },
+    collapsed: { required: true },
   },
   components: {
     SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain, QTooltip,

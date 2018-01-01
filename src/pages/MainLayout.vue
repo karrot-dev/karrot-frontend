@@ -48,7 +48,7 @@
         </template>
         <MainAlerts />
         <div class="mainContent row justify-between no-wrap">
-          <div class="whiteSpace gt-sm" />
+          <div class="whiteSpace gt-lg" />
           <router-view
             v-if="!$q.platform.is.mobile"
             class="sidenav-desktop"
@@ -57,7 +57,8 @@
           <div class="mainContent-page">
             <router-view />
           </div>
-          <div class="whiteSpace gt-sm desktop-only"/>
+          <div class="whiteSpace gt-lg desktop-only"/>
+          <div class="whiteSpace gt-lg desktop-only"/>
         </div>
         <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 
@@ -104,6 +105,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .sidenav-desktop
   margin-right 1em
   width 30%
@@ -116,10 +118,21 @@ body.desktop .mainContent-page
   width 100%
   margin-bottom 4.5em
 .whiteSpace
-  width 5%
+  width 1%
+@media screen and (min-width: 1500px)
+  .whiteSpace
+    width 10%
 
 .background
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px
   background-attachment:fixed
+</style>
+
+<style lang="stylus">
+@import '~variables'
+
+@media screen and (max-width: $breakpoint-lg)
+  .sidenav-desktop > .q-card
+    margin 5px 0
 </style>

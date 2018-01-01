@@ -83,7 +83,8 @@
   "STOREDETAIL": {
     "EDIT": "Edit store",
     "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "This store has been archived"
+    "ARCHIVED": "This store has been archived",
+    "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Name",
@@ -168,13 +169,15 @@
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
     "COMMENT": "Additional information",
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it",
+    "UNLIMITED": "unlimited"
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
     "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Leave",
@@ -189,11 +192,16 @@
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
   },
   "PICKUP_FEEDBACK": {
+    "TITLE": "Feedback",
     "HEADER": "Thank you for your pickup!",
     "SUBTITLE": "You can provide feedback for your pickup here",
     "AMOUNT": "Amount of food you took home (in kg)",
     "COMMENT": "Comment",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
+    "OTHER": "Other pickup",
+    "SELECT_PICKUP": "Please select a pickup date",
+    "GIVEN_BY": "by {user} on {date}",
+    "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",

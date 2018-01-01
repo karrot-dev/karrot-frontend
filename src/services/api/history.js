@@ -1,4 +1,4 @@
-import axios from '@/services/axios'
+import axios, { parseCursor } from '@/services/axios'
 
 export default {
   async get (id) {
@@ -47,8 +47,4 @@ function convertDates (val) {
     }
     return { ...val, date, payload }
   }
-}
-
-export function parseCursor (c) {
-  return c ? c.substr(c.indexOf('/api')) : null
 }

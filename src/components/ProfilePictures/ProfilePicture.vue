@@ -4,12 +4,16 @@
       v-if="user"
       :to="{name:'user', params: {userId: user.id}}"
     >
-      <RandomPicture
-        :name="user.displayName"
+      <RandomArt
+        :text="user.displayName"
         :seed="user.id"
         :size="size"
+        :width="size + 'px'"
+        :height="size + 'px'"
+        style="display: block; overflow: hidden"
+        :style="{ width: size + 'px' , height: size + 'px' }"
       />
-      <q-tooltip>
+      <q-tooltip v-if="showTooltip">
         {{ user.displayName }}
       </q-tooltip>
     </router-link>
@@ -27,17 +31,16 @@
 
 <script>
 import { QTooltip } from 'quasar'
-import RandomPicture from './RandomPicture'
+import RandomArt from '@/components/General/RandomArt'
 
 export default {
   props: {
     user: { required: true },
-    size: {
-      default: 20,
-    },
+    size: { default: 20 },
+    showTooltip: { default: true },
   },
   components: {
-    QTooltip, RandomPicture,
+    QTooltip, RandomArt,
   },
 }
 </script>

@@ -7,6 +7,7 @@ export default {
   props: {
     seed: { default: 2 },
     text: { default: false },
+    type: { default: 'profile' },
   },
   mounted () {
     this.$el.appendChild(this.box)
@@ -17,6 +18,14 @@ export default {
     },
   },
   computed: {
+    initials () {
+      if (!this.text) return
+      let parts = this.text.split(' ').map(s => s[0])
+      if (parts.length > 2) {
+        parts = [parts[0], parts[parts.length - 1]]
+      }
+      return parts.join('').toUpperCase()
+    },
     box () {
       function pseudoRandom (seed) {
         let random = Math.sin(seed) * 10000
@@ -33,11 +42,18 @@ export default {
       const svgns = 'http://www.w3.org/2000/svg'
       const box = document.createElementNS(svgns, 'svg')
 
-      const rows = 10
-      const columns = 10
-      const ratio = 1.2
+      let rows = 3
+      let columns = 3
+      let ratio = 1.0
+
+      if (this.type === 'banner') {
+        rows = 7
+        columns = 7
+        ratio = 1.3
+      }
+
       const size = 100
-      const blockSize = Math.floor(size / rows * 2)
+      const blockSize = Math.floor(size / rows * 1.5)
       const blockSizeHeight = Math.floor(blockSize / ratio)
       const rotate = blockSize * rows / 2
 
@@ -83,11 +99,11 @@ export default {
       overlay.setAttribute('y', 0)
       box.appendChild(overlay)
 
-      if (this.text) {
-        let initials = document.createTextNode(this.text)
-        let textOverlay = document.createElementNS(svgns, 'text')
-        textOverlay.setAttribute('width', size)
-        textOverlay.setAttribute('height', 20)
+      let textOverlay = document.createElementNS(svgns, 'text')
+      textOverlay.setAttribute('width', size)
+
+      if (this.text && this.type === 'banner') {
+        let text = document.createTextNode(this.text)
         textOverlay.setAttribute('fill', 'rgba(' +
           getRandomRange(210, 250, 1) + ',' +
           getRandomRange(210, 250, 2) + ',' +
@@ -98,10 +114,20 @@ export default {
         textOverlay.setAttribute('text-anchor', 'start')
         textOverlay.setAttribute('x', 3)
         textOverlay.setAttribute('y', 4.5)
-        textOverlay.appendChild(initials)
-        box.appendChild(textOverlay)
+        textOverlay.appendChild(text)
       }
 
+      if (this.text && this.type === 'profile') {
+        let text = document.createTextNode(this.initials)
+        textOverlay.setAttribute('fill', 'rgba(255,255,255,1)')
+        textOverlay.setAttribute('font-size', 50)
+        textOverlay.setAttribute('text-anchor', 'middle')
+        textOverlay.setAttribute('x', 50)
+        textOverlay.setAttribute('y', 66)
+        textOverlay.appendChild(text)
+      }
+
+      box.appendChild(textOverlay)
       return box
     },
   },

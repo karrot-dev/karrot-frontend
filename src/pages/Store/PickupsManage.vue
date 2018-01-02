@@ -91,9 +91,10 @@
     </q-card>
 
     <q-card class="no-shadow grey-border secondCard">
-      <RandomBanner
+      <RandomArt
         class="secondBanner"
-        :seed="storeId"/>
+        :seed="storeId"
+        type="banner"/>
       <q-card-title>
         <h5>
           <i
@@ -162,13 +163,13 @@ import { mapGetters, mapActions } from 'vuex'
 import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
-import RandomBanner from '@/components/General/RandomBanner'
+import RandomArt from '@/components/General/RandomArt'
 
 import { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
   components: {
-    RandomBanner, QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
+    RandomArt, QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
   },
   data () {
     return {

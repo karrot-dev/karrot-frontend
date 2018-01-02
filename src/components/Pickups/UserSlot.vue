@@ -9,11 +9,11 @@
       v-if="hoverUser && showJoin"
       :class="{ hoverShow: showJoin }"
     >
-      <RandomPicture
+      <ProfilePicture
         @click.native="$emit('join')"
-        :name="hoverUser.displayName"
-        :seed="hoverUser.id"
+        :user="hoverUser"
         :size="size"
+        :show-tooltip="false"
       />
       <q-tooltip>
         <span>
@@ -26,7 +26,7 @@
 
 <script>
 import { QTooltip } from 'quasar'
-import RandomPicture from '@/components/ProfilePictures/RandomPicture'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   props: {
@@ -43,7 +43,7 @@ export default {
     },
   },
   components: {
-    QTooltip, RandomPicture,
+    QTooltip, ProfilePicture,
   },
 
 }

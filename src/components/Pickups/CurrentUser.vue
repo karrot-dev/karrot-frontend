@@ -14,10 +14,10 @@
       <span>{{ $t('PICKUPLIST.ITEM.LEAVE') }}</span>
     </q-tooltip>
     <div class="hoverHide">
-      <RandomPicture
-        :name="user.displayName"
-        :seed="user.id"
+      <ProfilePicture
+        :user="user"
         :size="size"
+        :show-tooltip="false"
       />
     </div>
   </a>
@@ -25,7 +25,7 @@
 
 <script>
 import { QTooltip } from 'quasar'
-import RandomPicture from '@/components/ProfilePictures/RandomPicture'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   props: {
@@ -33,7 +33,7 @@ export default {
     user: { required: true },
   },
   components: {
-    QTooltip, RandomPicture,
+    QTooltip, ProfilePicture,
   },
 
 }

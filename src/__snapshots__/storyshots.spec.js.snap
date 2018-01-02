@@ -57,7 +57,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                 <div class="q-item q-item-division relative-position q-item-multiline">
                     <div class="q-item-side q-item-side-left q-item-section" style="margin-top:16px;">
                         <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Current User
     </span></div>
                             <!---->
@@ -104,7 +104,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                 <div class="q-item q-item-division relative-position q-item-multiline">
                     <div class="q-item-side q-item-side-left q-item-section">
                         <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -123,7 +123,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
             <div class="q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-side-left q-item-section">
                     <div class="wrapper">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -142,7 +142,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <div class="q-item q-item-division relative-position q-item-multiline">
             <div class="q-item-side q-item-side-left q-item-section">
                 <div class="wrapper">
-                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                    <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                     <!---->
@@ -161,7 +161,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-side-left q-item-section">
             <div class="wrapper">
-                <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                 <!---->
@@ -180,7 +180,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
 <div class="q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
-            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
             <!---->
@@ -199,7 +199,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
 <div class="q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
-            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
             <!---->
@@ -218,7 +218,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
 <div class="q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
-            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
             <!---->
@@ -237,7 +237,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
 <div class="q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
-            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
             <!---->
@@ -256,7 +256,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
 <div class="q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
-            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div to="[object Object]"><span size="40" width="40px" height="40px" style="display:block;overflow:hidden;width:40px;height:40px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
             <!---->
@@ -1558,7 +1558,7 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                         <!---->
@@ -1583,7 +1583,7 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                         <!---->
@@ -1608,7 +1608,7 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                                         <!---->
@@ -1633,7 +1633,7 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
                                         <!---->
@@ -1658,7 +1658,7 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Current User
     </span></div>
                                         <!---->
@@ -1701,25 +1701,25 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                         <!---->
                                     </div>
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                         <!---->
                                     </div>
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                                         <!---->
                                     </div>
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
                                         <!---->
@@ -1744,7 +1744,7 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                         <!---->
@@ -1769,7 +1769,7 @@ exports[`Storyshots History List Default 1`] = `
                             <div class="q-item q-item-division relative-position q-item-multiline q-item-link">
                                 <div class="q-item-side q-item-side-left q-item-section">
                                     <div class="wrapper">
-                                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div to="[object Object]"><span size="25" width="25px" height="25px" style="display:block;overflow:hidden;width:25px;height:25px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                         <!---->
@@ -2522,19 +2522,19 @@ exports[`Storyshots PickupItem Full 1`] = `
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2568,19 +2568,19 @@ exports[`Storyshots PickupItem Join 1`] = `
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2589,7 +2589,13 @@ exports[`Storyshots PickupItem Join 1`] = `
                     <!---->
                     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                         <div class="hoverHide"></div>
-                        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+                        <div class="hoverShow">
+                            <div class="wrapper">
+                                <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
         Join
       </span></span>
                         </div>
@@ -2621,13 +2627,13 @@ exports[`Storyshots PickupItem Leave 1`] = `
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -2638,7 +2644,14 @@ exports[`Storyshots PickupItem Leave 1`] = `
                         <div class="hoverShow">
                             <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
                         </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
-                        <div class="hoverHide"><span></span></div>
+                        <div class="hoverHide">
+                            <div class="wrapper">
+                                <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
                     </a>
                     <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
                         <div></div>
@@ -2671,19 +2684,19 @@ exports[`Storyshots PickupItem pending 1`] = `
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2722,19 +2735,19 @@ exports[`Storyshots PickupList Default 1`] = `
                             </div>
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                             <!---->
@@ -2743,7 +2756,13 @@ exports[`Storyshots PickupList Default 1`] = `
                         <!---->
                         <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                             <div class="hoverHide"></div>
-                            <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+                            <div class="hoverShow">
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                                        <!---->
+                                    </div>
+                                    <!---->
+                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
         Join
       </span></span>
                             </div>
@@ -2773,13 +2792,13 @@ exports[`Storyshots PickupList Default 1`] = `
                             </div>
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -2790,7 +2809,14 @@ exports[`Storyshots PickupList Default 1`] = `
                             <div class="hoverShow">
                                 <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
                             </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
-                            <div class="hoverHide"><span></span></div>
+                            <div class="hoverHide">
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                                        <!---->
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
                         </a>
                         <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
                             <div></div>
@@ -2821,19 +2847,19 @@ exports[`Storyshots PickupList Default 1`] = `
                             </div>
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
                         </div>
                         <div class="wrapper profilePic clickable">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                             <!---->
@@ -2868,7 +2894,13 @@ exports[`Storyshots PickupList Default 1`] = `
                         <!---->
                         <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                             <div class="hoverHide"></div>
-                            <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+                            <div class="hoverShow">
+                                <div class="wrapper">
+                                    <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                                        <!---->
+                                    </div>
+                                    <!---->
+                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
         Join
       </span></span>
                             </div>
@@ -3274,7 +3306,13 @@ exports[`Storyshots PickupUsers empty 1`] = `
     <!---->
     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
         <div class="hoverHide"></div>
-        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+        <div class="hoverShow">
+            <div class="wrapper">
+                <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                    <!---->
+                </div>
+                <!---->
+            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
         Join
       </span></span>
         </div>
@@ -3302,19 +3340,19 @@ exports[`Storyshots PickupUsers full 1`] = `
         </div>
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
         <!---->
@@ -3336,19 +3374,19 @@ exports[`Storyshots PickupUsers joinable 1`] = `
         </div>
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
         <!---->
@@ -3357,7 +3395,13 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     <!---->
     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
         <div class="hoverHide"></div>
-        <div class="hoverShow"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
+        <div class="hoverShow">
+            <div class="wrapper">
+                <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                    <!---->
+                </div>
+                <!---->
+            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
         Join
       </span></span>
         </div>
@@ -3377,13 +3421,13 @@ exports[`Storyshots PickupUsers leavable 1`] = `
         </div>
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
     </div>
     <div class="wrapper profilePic clickable">
-        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
@@ -3394,7 +3438,14 @@ exports[`Storyshots PickupUsers leavable 1`] = `
         <div class="hoverShow">
             <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
         </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
-        <div class="hoverHide"><span></span></div>
+        <div class="hoverHide">
+            <div class="wrapper">
+                <div to="[object Object]"><span size="36" width="36px" height="36px" style="display:block;overflow:hidden;width:36px;height:36px;"></span>
+                    <!---->
+                </div>
+                <!---->
+            </div>
+        </div>
     </a>
     <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
         <div></div>
@@ -3406,7 +3457,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
 
 exports[`Storyshots ProfilePicture Profile Pictures 1`] = `
 <div class="wrapper">
-    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+    <div to="[object Object]"><span size="100" width="100px" height="100px" style="display:block;overflow:hidden;width:100px;height:100px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
     <!---->
@@ -4441,7 +4492,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
                 <div class="comment">All worked out perfectly!</div>
                 <div>
                     <div class="wrapper">
-                        <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div to="[object Object]"><span size="22" width="22px" height="22px" style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -4469,7 +4520,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="comment">All worked out perfectly!</div>
                     <div>
                         <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="22" width="22px" height="22px" style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -4493,7 +4544,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="comment"></div>
                     <div>
                         <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="22" width="22px" height="22px" style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -4517,7 +4568,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="comment">They did not have anything today</div>
                     <div>
                         <div class="wrapper">
-                            <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div to="[object Object]"><span size="22" width="22px" height="22px" style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -4777,7 +4828,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="comment">All worked out perfectly!</div>
                             <div>
                                 <div class="wrapper">
-                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div to="[object Object]"><span size="22" width="22px" height="22px" style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                     <!---->
@@ -4801,7 +4852,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="comment"></div>
                             <div>
                                 <div class="wrapper">
-                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div to="[object Object]"><span size="22" width="22px" height="22px" style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                     <!---->
@@ -4825,7 +4876,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="comment">They did not have anything today</div>
                             <div>
                                 <div class="wrapper">
-                                    <div to="[object Object]"><span></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div to="[object Object]"><span size="22" width="22px" height="22px" style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                     <!---->
@@ -4844,7 +4895,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
 
 exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
 <div>
-    <div class="q-card">
+    <div class="q-card no-shadow grey-border">
         <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start q-field-with-error">
@@ -5100,7 +5151,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
 
 exports[`Storyshots Stores StoreEdit 1`] = `
 <div>
-    <div class="q-card">
+    <div class="q-card no-shadow grey-border">
         <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start">

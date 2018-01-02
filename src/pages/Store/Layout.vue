@@ -47,7 +47,6 @@
     </div>
     <div class="grey-border store-banner">
       <RandomArt
-        style="display: block; height: 5vw; min-height: 30px; max-height: 48px; overflow: hidden"
         :seed="store.id"
         type="banner"/>
     </div>
@@ -98,9 +97,16 @@ export default {
   max-height 120px
 .store-banner
   margin: 8px 8px -13px 8px
+  > span
+    display: block
+    height 5vw
+    min-height 30px
+    max-height 48px
+    overflow hidden
+
 body.mobile .store-banner
-    margin: 0px 0px -13px 0px
-    border 0
-    max-height: 30px
-    overflow: hidden
+  margin: 0px 0px -13px 0px
+  border 0
+  max-height: 30px
+  overflow: hidden
 </style>

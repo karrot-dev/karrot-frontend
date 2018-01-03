@@ -18,7 +18,7 @@ from foodsaving.invitations.api import InvitationsViewSet, InvitationAcceptViewS
 from foodsaving.pickups.api import PickupDateViewSet, PickupDateSeriesViewSet, FeedbackViewSet
 from foodsaving.subscriptions.api import PushSubscriptionViewSet
 from foodsaving.userauth.api import AuthUserView, AuthView, LogoutView, VerifyMailView, ResendVerificationView, \
-    ResetPasswordView
+    ResetPasswordView, ChangePasswordView
 from foodsaving.users.api import UserViewSet
 from foodsaving.stores.api import StoreViewSet
 
@@ -62,6 +62,7 @@ urlpatterns = [
     path('api/auth/verify_mail/', VerifyMailView.as_view()),
     path('api/auth/resend_verification/', ResendVerificationView.as_view()),
     path('api/auth/reset_password/', ResetPasswordView.as_view()),
+    path('api/auth/change_password/', ChangePasswordView.as_view()),
     path('api/auth/', AuthView.as_view()),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),

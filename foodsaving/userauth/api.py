@@ -6,14 +6,15 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
 from foodsaving.userauth.permissions import IsNotVerified
-from foodsaving.userauth.serializers import AuthLoginSerializer, AuthUserSerializer, VerifyMailSerializer
+from foodsaving.userauth.serializers import AuthLoginSerializer, AuthUserSerializer, VerifyMailSerializer, \
+    ChangePasswordSerializer
 
 
 class LogoutView(views.APIView):
     def post(self, request, **kwargs):
         """ Log out """
         logout(request)
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_200_OK, data={})
 
 
 class AuthView(generics.GenericAPIView):
@@ -137,3 +138,18 @@ class ResetPasswordView(views.APIView):
 
         user.reset_password()
         return Response(status=status.HTTP_204_NO_CONTENT, data={})
+
+
+class ChangePasswordView(generics.GenericAPIView):
+    permission_classes = (IsAuthenticated, )
+    serializer_class = ChangePasswordSerializer
+
+    def post(self, request):
+        """
+        Change your password
+        """
+        self.check_object_permissions(request, request.user)
+        serializer = self.get_serializer(request.user, request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=status.HTTP_200_OK, data=AuthUserSerializer(instance=request.user).data)

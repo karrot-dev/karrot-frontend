@@ -166,34 +166,34 @@ class TestRejectedAddress(APITestCase):
 class TestChangePassword(APITestCase):
     def setUp(self):
         self.user = UserFactory()
-        self.url = '/api/auth/user/'
-        self.data = {'password': 'new_password'}
+        self.url = '/api/auth/change_password/'
+        self.data = {'new_password': 'new_password', 'old_password': self.user.display_name}
 
-    def test_change_with_patch_succeeds(self):
+    def test_change_succeeds(self):
         self.client.force_login(user=self.user)
-        response = self.client.patch(self.url, self.data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        response = self.client.post(self.url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response)
 
         # logged out
-        response = self.client.patch(self.url, self.data, format='json')
+        response = self.client.post(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
         # test new password
         self.assertTrue(self.client.login(email=self.user.email, password='new_password'))
 
-    def test_change_with_all_data_succeeds(self):
+    def test_change_with_wrong_password_fails(self):
         self.client.force_login(user=self.user)
-        data = self.client.get(self.url).data
+        data = {'new_password': self.data['new_password'], 'old_password': 'this_is_wrong'}
+        response = self.client.post(self.url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response)
+        self.assertTrue(self.client.login(email=self.user.email, password=self.user.display_name))
+
+    def test_change_at_user_endpoint_has_no_effect(self):
+        self.client.force_login(user=self.user)
+        data = self.client.get('/api/auth/user/').data
         data['password'] = 'really_new_shiny'
-        response = self.client.patch(self.url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
-
-        # logged out
-        response = self.client.patch(self.url, self.data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-        # test new password
-        self.assertTrue(self.client.login(email=self.user.email, password='really_new_shiny'))
+        self.client.patch('/api/auth/user/', data, format='json')
+        self.assertTrue(self.client.login(email=self.user.email, password=self.user.display_name))
 
 
 class TestChangeEMail(APITestCase):

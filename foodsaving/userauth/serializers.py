@@ -25,22 +25,18 @@ class AuthLoginSerializer(serializers.Serializer):
 class AuthUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ['id', 'display_name', 'email', 'unverified_email', 'password',
+        fields = ['id', 'display_name', 'email', 'unverified_email',
                   'address', 'latitude', 'longitude', 'description', 'mail_verified',
                   'key_expires_at', 'current_group', 'language']
-        read_only_fields = ('unverified_email', 'key_expires_at')
+        read_only_fields = ('unverified_email', 'key_expires_at', 'mail_verified')
         extra_kwargs = {
             'email': {
                 'required': True
-            },
-            'password': {
-                'write_only': True
             },
             'description': {
                 'trim_whitespace': False,
                 'max_length': settings.DESCRIPTION_MAX_LENGTH},
             'mail_verified': {
-                'read_only': True,
                 'default': False
             },
         }
@@ -68,8 +64,6 @@ class AuthUserSerializer(serializers.ModelSerializer):
                     user.update_email(validated_data.pop('email'))
                 except AnymailAPIError:
                     raise serializers.ValidationError(_('We could not send you an e-mail.'))
-        if 'password' in validated_data:
-            user.set_password(validated_data.pop('password'))
         if 'language' in validated_data and validated_data['language'] != user.language:
             user.update_language(validated_data.pop('language'))
         return super().update(user, validated_data)
@@ -88,4 +82,19 @@ class VerifyMailSerializer(serializers.Serializer):
 
     def update(self, user, validated_data):
         user.verify_mail()
+        return user
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField()
+    new_password = serializers.CharField()
+
+    def validate_old_password(self, old_password):
+        if not self.instance.check_password(old_password):
+            raise serializers.ValidationError()
+        return old_password
+
+    def update(self, user, validated_data):
+        user.set_password(validated_data['new_password'])
+        user.save()
         return user

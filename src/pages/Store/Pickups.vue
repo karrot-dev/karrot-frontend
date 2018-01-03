@@ -1,26 +1,15 @@
 <template>
   <div>
-    <q-card class="no-shadow generic-padding grey-border">
-      <q-item multiline>
-        <q-item-main>
-          <Markdown
-            v-if="store.description"
-            :source="store.description"
-          />
-          <i v-if="!store.description">
-            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-          </i>
-        </q-item-main>
-        <q-item-side
-          class="group"
-          v-if="!$q.platform.is.mobile"
-        >
+    <q-card class="no-shadow no-padding grey-border">
+      <div class="generic-padding">
+        <div class="actionButtons">
           <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
             <q-btn
               small
               round
               color="secondary"
               icon="fa-pencil"
+              class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.EDIT'" />
             </q-btn>
@@ -31,12 +20,20 @@
               round
               color="secondary"
               icon="fa-calendar"
+              class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
           </router-link>
-        </q-item-side>
-      </q-item>
+        </div>
+        <Markdown
+          v-if="store.description"
+          :source="store.description"
+        />
+        <i v-else>
+          {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+        </i>
+      </div>
     </q-card>
 
     <PickupList
@@ -107,4 +104,11 @@ export default {
     padding 0
 .q-btn-round
   margin-bottom .5em
+.actionButtons
+  margin-top -36px
+  float right
+  .q-btn
+    margin 3px
+.textcontent
+  margin-top 0
 </style>

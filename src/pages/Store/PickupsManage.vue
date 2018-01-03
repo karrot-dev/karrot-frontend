@@ -18,6 +18,7 @@
             @click="createNewSeries"
             small
             round
+            class="bannerButton hoverScale"
             color="secondary"
             icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
@@ -89,7 +90,11 @@
       </q-list>
     </q-card>
 
-    <q-card class="no-shadow grey-border">
+    <q-card class="no-shadow grey-border secondCard">
+      <RandomArt
+        class="secondBanner"
+        :seed="storeId"
+        type="banner"/>
       <q-card-title>
         <h5>
           <i
@@ -107,6 +112,7 @@
             @click="createNewPickup"
             small
             round
+            class="bannerButton hoverScale"
             color="secondary"
             icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
@@ -157,12 +163,13 @@ import { mapGetters, mapActions } from 'vuex'
 import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
+import RandomArt from '@/components/General/RandomArt'
 
 import { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
   components: {
-    QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
+    RandomArt, QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
   },
   data () {
     return {
@@ -273,4 +280,19 @@ export default {
   background-color white
 button.selected
   background-color $grey-4
+
+.bannerButton
+  margin-top -64px
+
+.secondCard
+  margin-top 24px !important
+  .secondBanner
+    display: block
+    height: 26px
+    overflow: hidden
+</style>
+
+<style lang="stylus">
+.secondCard .secondBanner > svg
+    margin-top -15%
 </style>

@@ -45,6 +45,11 @@
         <StoreOptions/>
       </q-btn>
     </div>
+    <div class="grey-border store-banner">
+      <RandomArt
+        :seed="store.id"
+        type="banner"/>
+    </div>
     <router-view/>
   </div>
   <div v-else>
@@ -68,9 +73,10 @@ import StoreOptions from '@/components/Sidenav/StoreOptions'
 
 import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon, QTooltip } from 'quasar'
 import KAlert from '@/components/Layout/KAlert'
+import RandomArt from '@/components/General/RandomArt'
 
 export default {
-  components: { QCard, QTabs, QRouteTab, QScrollArea, KAlert, QBtn, QIcon, QTooltip, StoreOptions, Markdown },
+  components: { RandomArt, QCard, QTabs, QRouteTab, QScrollArea, KAlert, QBtn, QIcon, QTooltip, StoreOptions, Markdown },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',
@@ -85,7 +91,22 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .overflow
   overflow-y auto
   max-height 120px
+.store-banner
+  margin: 8px 8px -13px 8px
+  > span
+    display: block
+    height 5vw
+    min-height 30px
+    max-height 48px
+    overflow hidden
+
+body.mobile .store-banner
+  margin: 0px 0px -13px 0px
+  border 0
+  max-height: 30px
+  overflow: hidden
 </style>

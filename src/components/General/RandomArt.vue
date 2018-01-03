@@ -5,9 +5,9 @@
 <script>
 export default {
   props: {
-    name: { required: true },
     seed: { default: 2 },
-    size: { required: true },
+    text: { default: false },
+    type: { default: 'profile' },
   },
   mounted () {
     this.$el.appendChild(this.box)
@@ -19,8 +19,8 @@ export default {
   },
   computed: {
     initials () {
-      if (!this.name) return
-      let parts = this.name.split(' ').map(s => s[0])
+      if (!this.text) return
+      let parts = this.text.split(' ').map(s => s[0])
       if (parts.length > 2) {
         parts = [parts[0], parts[parts.length - 1]]
       }
@@ -34,7 +34,6 @@ export default {
       }
 
       let seed = pseudoRandom(this.seed)
-      let size = this.size
 
       function getRandomRange (min, max, add = 1000) {
         return Math.floor(pseudoRandom(seed * add) * (max - min) + min)
@@ -43,15 +42,23 @@ export default {
       const svgns = 'http://www.w3.org/2000/svg'
       const box = document.createElementNS(svgns, 'svg')
 
-      const rows = 3
-      const columns = 3
-      const blockSize = Math.floor(size / 2)
+      let rows = 3
+      let columns = 3
+      let ratio = 1.0
+
+      if (this.type === 'banner') {
+        rows = 7
+        columns = 7
+        ratio = 1.3
+      }
+
+      const size = 100
+      const blockSize = Math.floor(size / rows * 1.5)
+      const blockSizeHeight = Math.floor(blockSize / ratio)
       const rotate = blockSize * rows / 2
 
       box.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
-      box.setAttribute('width', size)
-      box.setAttribute('height', size)
-      box.setAttribute('viewbox', '0 0 100 100')
+      box.setAttribute('viewBox', '0 0 100 100')
       box.setAttribute('class', 'box')
 
       const g = document.createElementNS(svgns, 'g')
@@ -66,14 +73,14 @@ export default {
         for (let j = 0; j < rows; j++) {
           let rect = document.createElementNS(svgns, 'rect')
           rect.setAttribute('width', blockSize)
-          rect.setAttribute('height', blockSize)
+          rect.setAttribute('height', blockSizeHeight)
           rect.setAttribute('fill', 'rgba(' +
             getRandomRange(100, 255, (i + 1) * (j + 1) * 1) + ',' +
             getRandomRange(100, 255, (i + 1) * (j + 1) * 2) + ',' +
             getRandomRange(100, 255, (i + 1) * (j + 1) * 3) + ',1)',
           )
           rect.setAttribute('x', i * blockSize)
-          rect.setAttribute('y', j * blockSize)
+          rect.setAttribute('y', j * blockSizeHeight)
 
           g.appendChild(rect)
         }
@@ -92,20 +99,35 @@ export default {
       overlay.setAttribute('y', 0)
       box.appendChild(overlay)
 
-      if (this.initials) {
-        let initials = document.createTextNode(this.initials)
-        let textOverlay = document.createElementNS(svgns, 'text')
-        textOverlay.setAttribute('width', size)
-        textOverlay.setAttribute('height', size)
-        textOverlay.setAttribute('fill', 'rgba(255,255,255,1)')
-        textOverlay.setAttribute('font-size', blockSize)
-        textOverlay.setAttribute('text-anchor', 'middle')
-        textOverlay.setAttribute('x', blockSize)
-        textOverlay.setAttribute('y', blockSize * 1.3)
-        textOverlay.appendChild(initials)
-        box.appendChild(textOverlay)
+      let textOverlay = document.createElementNS(svgns, 'text')
+      textOverlay.setAttribute('width', size)
+
+      if (this.text && this.type === 'banner') {
+        let text = document.createTextNode(this.text)
+        textOverlay.setAttribute('fill', 'rgba(' +
+          getRandomRange(210, 250, 1) + ',' +
+          getRandomRange(210, 250, 2) + ',' +
+          getRandomRange(210, 250, 3) + ',1)',
+        )
+        textOverlay.setAttribute('font-size', 5)
+        textOverlay.setAttribute('font-weight', 'bold')
+        textOverlay.setAttribute('text-anchor', 'start')
+        textOverlay.setAttribute('x', 3)
+        textOverlay.setAttribute('y', 4.5)
+        textOverlay.appendChild(text)
       }
 
+      if (this.text && this.type === 'profile') {
+        let text = document.createTextNode(this.initials)
+        textOverlay.setAttribute('fill', 'rgba(255,255,255,1)')
+        textOverlay.setAttribute('font-size', 50)
+        textOverlay.setAttribute('text-anchor', 'middle')
+        textOverlay.setAttribute('x', 50)
+        textOverlay.setAttribute('y', 66)
+        textOverlay.appendChild(text)
+      }
+
+      box.appendChild(textOverlay)
       return box
     },
   },

@@ -33,7 +33,7 @@ export default {
   .card > div
     margin-bottom 1em
   .icon
-    font-size 4rem
+    font-size 4.5rem
     margin .1em 0 0 0
     padding-right .3em
   padding 2em 3em

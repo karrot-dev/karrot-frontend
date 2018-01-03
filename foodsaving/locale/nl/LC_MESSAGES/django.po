@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 09:43+0000\n"
+"POT-Creation-Date: 2017-12-26 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Dutch (https://www.transifex.com/yunity-1/teams/68631/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -27,36 +27,62 @@ msgid "Hello,"
 msgstr ""
 
 #: foodsaving/base/templates/base-text.jinja:5
+#, python-format
 msgid ""
 "Yours,\n"
-"the foodsaving.world team"
+"the %(site_name)s team"
 msgstr ""
 
-#: foodsaving/groups/api.py:20 foodsaving/invitations/serializers.py:25
-#: foodsaving/stores/serializers.py:234
-msgid "You are not a member of this group."
+#: foodsaving/conversations/api.py:28
+#: foodsaving/conversations/serializers.py:68
+msgid "You are not in this conversation"
 msgstr ""
 
-#: foodsaving/groups/api.py:27
+#: foodsaving/groups/api.py:24
 msgid "You are already a member."
 msgstr ""
 
-#: foodsaving/groups/serializers.py:20
+#: foodsaving/groups/api.py:31
+msgid "You do not have permission to update memberships."
+msgstr ""
+
+#: foodsaving/groups/serializers.py:21
 msgid "Unknown timezone"
 msgstr ""
 
-#: foodsaving/groups/serializers.py:110
+#: foodsaving/groups/serializers.py:85 foodsaving/groups/serializers.py:148
+msgid "You cannot manage agreements"
+msgstr ""
+
+#: foodsaving/groups/serializers.py:87
+msgid "Agreement is not for this group"
+msgstr ""
+
+#: foodsaving/groups/serializers.py:146
+msgid "You are not in this group"
+msgstr ""
+
+#: foodsaving/groups/serializers.py:212
 msgid "Group password is wrong"
 msgstr ""
 
-#: foodsaving/invitations/serializers.py:30
+#: foodsaving/invitations/serializers.py:20
+msgid "An invitation has already been sent to this e-mail address"
+msgstr ""
+
+#: foodsaving/invitations/serializers.py:26
+#: foodsaving/stores/serializers.py:62
+msgid "You are not a member of this group."
+msgstr ""
+
+#: foodsaving/invitations/serializers.py:31
 msgid "User is already member of group"
 msgstr ""
 
 #: foodsaving/invitations/templates/emailinvitation-body-text.jinja:4
 #, python-format
 msgid ""
-"%(invited_by_name)s invited you (%(email)s) to join the \"%(group_name)s\" community on foodsaving.world.\n"
+"%(invited_by_name)s invited you (%(email)s) to join the \"%(group_name)s\" community on %(site_name)s.\n"
 "\n"
 "If you'd like to join, please go to %(url)s"
 msgstr ""
@@ -66,73 +92,98 @@ msgstr ""
 msgid "Invitation to join %(group_name)s"
 msgstr ""
 
-#: foodsaving/stores/permissions.py:9
+#: foodsaving/pickups/permissions.py:6
 msgid "The pickup date is in the past."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:19
+#: foodsaving/pickups/permissions.py:17
 msgid "You can only delete empty pickup dates."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:26
+#: foodsaving/pickups/permissions.py:24
 msgid "You have not joined this pickup date."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:33
+#: foodsaving/pickups/permissions.py:31
 msgid "You have already joined this pickup date."
 msgstr ""
 
-#: foodsaving/stores/permissions.py:40
+#: foodsaving/pickups/permissions.py:38
 msgid "Pickup date is already full."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:43 foodsaving/stores/serializers.py:172
+#: foodsaving/pickups/permissions.py:45
+msgid "This feedback is given by another user."
+msgstr ""
+
+#: foodsaving/pickups/serializers.py:35 foodsaving/pickups/serializers.py:167
+#: foodsaving/pickups/serializers.py:201
 msgid "You are not member of the store's group."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:92
+#: foodsaving/pickups/serializers.py:84
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:182
+#: foodsaving/pickups/serializers.py:178
+msgid "Invalid recurrence rule."
+msgstr ""
+
+#: foodsaving/pickups/serializers.py:180
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/stores/serializers.py:239
+#: foodsaving/pickups/serializers.py:203
+msgid "The pickup is not done yet"
+msgstr ""
+
+#: foodsaving/pickups/serializers.py:205
+msgid "You aren't assigned to the pickup."
+msgstr ""
+
+#: foodsaving/pickups/serializers.py:207
+msgid "You can't give feedback for pickups more than 30 days ago."
+msgstr ""
+
+#: foodsaving/pickups/templates/upcoming_pickup_slack.jinja:1
+#, python-format
+msgid ""
+"Food pick-up in %(number_of_hours)s hours, <%(store_page_url)s|click here> "
+"and save the food!"
+msgstr ""
+
+#: foodsaving/stores/serializers.py:67
 msgid "Set at least one week in advance"
 msgstr ""
 
-#: foodsaving/stores/templates/upcoming_pickup_slack.jinja:1
-#, python-format
-msgid ""
-"Food pickup at *%(store_name)s* in %(number_of_hours)s hours! "
-"<%(store_page_url)s|Click here> and save the food!"
-msgstr ""
-
-#: foodsaving/users/models.py:156
-msgid "New password"
-msgstr ""
-
-#: foodsaving/users/models.py:157
-msgid ""
-"Here is your new temporary password: {}. You can use it to login. Please "
-"change it soon."
-msgstr ""
-
-#: foodsaving/users/permissions.py:6
-msgid "You can modify only your own user data."
-msgstr ""
-
-#: foodsaving/users/permissions.py:13
+#: foodsaving/userauth/permissions.py:6
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/users/serializers.py:59
+#: foodsaving/userauth/serializers.py:53
+msgid "Similar e-mail exists: "
+msgstr ""
+
+#: foodsaving/userauth/serializers.py:60 foodsaving/userauth/serializers.py:70
+msgid "We could not send you an e-mail."
+msgstr ""
+
+#: foodsaving/userauth/serializers.py:84
 msgid "Key has expired"
 msgstr ""
 
-#: foodsaving/users/serializers.py:61
+#: foodsaving/userauth/serializers.py:86
 msgid "Key is invalid"
+msgstr ""
+
+#: foodsaving/users/models.py:185
+msgid "New password"
+msgstr ""
+
+#: foodsaving/users/models.py:186
+msgid ""
+"Here is your new temporary password: {}. You can use it to login. Please "
+"change it soon."
 msgstr ""
 
 #: foodsaving/users/templates/accountdelete_request-subject.jinja:1
@@ -140,7 +191,8 @@ msgid "Request to delete your account"
 msgstr ""
 
 #: foodsaving/users/templates/accountdelete_success-body-text.jinja:4
-msgid "Your account on foodsaving.world was successfully deleted."
+#, python-format
+msgid "Your account on %(site_name)s was successfully deleted."
 msgstr ""
 
 #: foodsaving/users/templates/accountdelete_success-subject.jinja:1
@@ -150,7 +202,7 @@ msgstr ""
 #: foodsaving/users/templates/changemail_notice-body-text.jinja:4
 #, python-format
 msgid ""
-"Your email address got changed on foodsaving.world.\n"
+"Your email address got changed on %(site_name)s.\n"
 "The new email address is %(new_mail)s."
 msgstr ""
 
@@ -163,7 +215,7 @@ msgstr ""
 #: foodsaving/users/templates/changemail_success-body-text.jinja:4
 #, python-format
 msgid ""
-"Your email address got changed on foodsaving.world.\n"
+"Your email address got changed on %(site_name)s.\n"
 "The old email address was %(old_mail)s.\n"
 "To verify this email address as your new one, please click the following link:\n"
 "\n"
@@ -176,47 +228,10 @@ msgstr ""
 msgid "Please verify your new email address"
 msgstr ""
 
-#: foodsaving/users/templates/mailverification-body-html.jinja:3
-msgid "WELCOME"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:142
-msgid "home"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:142
-msgid "Contact Us"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:172
-#, python-format
-msgid "Welcome, %(display_name)s"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:178
-msgid "Verify your e-mail address to continue!"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:195
-msgid "Activation Link"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:206
-msgid "The link will be valid for 7 days."
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:243
-msgid "PRIVACY STATEMENT"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification-body-html.jinja:243
-msgid "TERMS OF SERVICE"
-msgstr ""
-
 #: foodsaving/users/templates/mailverification-body-text.jinja:4
 #, python-format
 msgid ""
-"Thank you for signing up to foodsaving.world!\n"
+"Thank you for signing up to %(site_name)s!\n"
 "Please click the following link to confirm your email:\n"
 "\n"
 "%(url)s\n"
@@ -225,7 +240,8 @@ msgid ""
 msgstr ""
 
 #: foodsaving/users/templates/mailverification-subject.jinja:1
-msgid "Verify your email address"
+#: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
+msgid "Please verify your email"
 msgstr ""
 
 #: foodsaving/users/templates/passwordreset_request-body-text.jinja:4
@@ -261,8 +277,4 @@ msgid ""
 "%(url)s\n"
 "\n"
 "You can ignore this message if you did not request it."
-msgstr ""
-
-#: foodsaving/users/templates/send_new_verification_code-subject.jinja:1
-msgid "Please verify your email"
 msgstr ""

@@ -9,7 +9,7 @@ jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
 
 import { createValidationError, statusMocks } from '>/helpers'
-import { withMeta, createMetaModule, defaultFindId } from '@/store/helpers'
+import { withMeta, createMetaModule, defaultFindId, toggles } from '@/store/helpers'
 
 Vue.use(Vuex)
 
@@ -83,6 +83,34 @@ describe('helpers', () => {
 
     it('passes number unchanged', () => {
       expect(defaultFindId(5)).toBe(5)
+    })
+  })
+
+  describe('toggles', () => {
+    let store
+    beforeEach(() => {
+      store = new Vuex.Store({
+        modules: { toggle: toggles({
+          something: true,
+          notSomething: false,
+        }) },
+      })
+    })
+    it('inits toggles', () => {
+      expect(store.getters['toggle/something']).toEqual(true)
+      expect(store.getters['toggle/notSomething']).toEqual(false)
+    })
+    it('toggles with action', () => {
+      store.dispatch('toggle/something')
+      expect(store.getters['toggle/something']).toEqual(false)
+      store.dispatch('toggle/notSomething')
+      expect(store.getters['toggle/notSomething']).toEqual(true)
+    })
+    it('forces a value', () => {
+      store.dispatch('toggle/something', true)
+      expect(store.getters['toggle/something']).toEqual(true)
+      store.dispatch('toggle/something', true)
+      expect(store.getters['toggle/something']).toEqual(true)
     })
   })
 })

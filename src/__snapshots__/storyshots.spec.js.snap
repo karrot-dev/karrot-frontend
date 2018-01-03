@@ -3812,7 +3812,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div class="content-div">
+    <div>
         <div>
             <div class="no-padding q-list no-border q-list-highlight">
                 <div class="q-item q-item-division relative-position q-item-link">
@@ -3888,7 +3888,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div class="content-div">
+    <div>
         <div class="container map">
             <div class="vue2leaflet-map" style="opacity:1;">
                 <div></div>
@@ -3946,7 +3946,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div class="content-div">
+    <div>
         <div class="no-padding q-list no-border q-list-highlight">
             <div class="q-item q-item-division relative-position q-item-link">
                 <div class="q-item-side q-item-side-left q-item-section text-center">

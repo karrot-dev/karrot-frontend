@@ -61,14 +61,14 @@ export default {
           throw createRouteError()
         }
       }
-      dispatch('pickups/setStoreFilter', storeId, {root: true})
-      dispatch('sidenavBoxes/hideGroupSidenav', null, {root: true})
+      dispatch('pickups/setStoreFilter', storeId, { root: true })
+      dispatch('sidenavBoxes/toggle/group', false, { root: true })
       commit('select', storeId)
     },
 
     async clearSelectedStore ({ commit, dispatch }) {
       dispatch('pickups/clearStoreFilter', null, { root: true })
-      dispatch('sidenavBoxes/showGroupSidenav', null, {root: true})
+      dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')
     },
 

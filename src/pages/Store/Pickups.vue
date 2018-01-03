@@ -30,7 +30,7 @@
           v-if="store.description"
           :source="store.description"
         />
-        <i v-if="!store.description">
+        <i v-else>
           {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
         </i>
       </div>

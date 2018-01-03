@@ -13,7 +13,7 @@
         @click.native="$emit('join')"
         :user="hoverUser"
         :size="size"
-        :show-tooltip="false"
+        :is-link="false"
       />
       <q-tooltip>
         <span>

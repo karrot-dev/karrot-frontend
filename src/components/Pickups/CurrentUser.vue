@@ -17,7 +17,7 @@
       <ProfilePicture
         :user="user"
         :size="size"
-        :show-tooltip="false"
+        :is-link="false"
       />
     </div>
   </a>

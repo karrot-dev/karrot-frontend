@@ -1,23 +1,27 @@
 <template>
   <div class="wrapper">
     <router-link
-      v-if="user"
+      v-if="isLink && user"
       :to="{name:'user', params: {userId: user.id}}"
     >
       <RandomArt
         :text="user.displayName"
         :seed="user.id"
-        :size="size"
-        :width="size + 'px'"
-        :height="size + 'px'"
         style="display: block; overflow: hidden"
         :style="{ width: size + 'px' , height: size + 'px' }"
       />
-      <q-tooltip v-if="showTooltip">
+      <q-tooltip>
         {{ user.displayName }}
       </q-tooltip>
     </router-link>
-
+    <div v-if="!isLink && user">
+      <RandomArt
+        :text="user.displayName"
+        :seed="user.id"
+        style="display: block; overflow: hidden"
+        :style="{ width: size + 'px' , height: size + 'px' }"
+      />
+    </div>
     <span v-if="!user">
       <span>?</span>
       <q-tooltip>
@@ -37,7 +41,7 @@ export default {
   props: {
     user: { required: true },
     size: { default: 20 },
-    showTooltip: { default: true },
+    isLink: { default: true },
   },
   components: {
     QTooltip, RandomArt,

@@ -1,20 +1,6 @@
 import Vue from 'vue'
 import distanceInWords from 'date-fns/distance_in_words'
-
-function importLocale (locale) {
-  switch (locale) {
-    case 'de': return import('date-fns/locale/de')
-    case 'en': return import('date-fns/locale/en')
-    case 'fr': return import('date-fns/locale/fr')
-    case 'sv': return import('date-fns/locale/sv')
-    case 'es': return import('date-fns/locale/es')
-    case 'it': return import('date-fns/locale/it')
-    case 'eo': return import('date-fns/locale/eo')
-    case 'ru': return import('date-fns/locale/ru')
-    case 'zh': return import('date-fns/locale/zh_tw')
-    case 'cs': return import('date-fns/locale/cs')
-  }
-}
+import { dateFnsLocale } from '@/locales'
 
 export default new Vue({
   data: {
@@ -27,7 +13,7 @@ export default new Vue({
   },
   watch: {
     async locale (locale) {
-      this.localeData = await importLocale(locale)
+      this.localeData = await dateFnsLocale(locale)
     },
   },
   methods: {

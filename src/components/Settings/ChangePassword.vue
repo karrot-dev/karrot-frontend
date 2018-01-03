@@ -1,17 +1,35 @@
 <template>
   <div class="edit-box">
-
+    <q-field
+      icon="fa-unlock"
+      :label="$t('USERDETAIL.OLD_PASSWORD')"
+      :error="hasError('oldPassword')"
+      :error-label="firstError('oldPassword')"
+    >
+      <q-input
+        type="password"
+        v-model="oldPassword"
+      />
+    </q-field>
     <q-field
       icon="fa-star"
       :label="$t('USERDETAIL.PASSWORD')"
-      :error="hasAnyError"
-      :error-label="anyFirstError"
+      :error="hasError('newPassword')"
+      :error-label="firstError('newPassword')"
     >
       <q-input
         type="password"
         v-model="newPassword"
       />
     </q-field>
+
+    <div
+      v-if="hasNonFieldError"
+      class="text-negative"
+    >
+      {{ firstNonFieldError }}
+    </div>
+
     <div class="actionButtons">
       <q-btn
         color="primary"

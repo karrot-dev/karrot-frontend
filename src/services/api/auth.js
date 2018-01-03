@@ -87,6 +87,10 @@ export default {
     return axios.post('/api/auth/reset_password/', { email })
   },
 
+  changePassword (data) {
+    return axios.post('/api/auth/change_password/', data)
+  },
+
   verifyMail (key) {
     return axios.post('/api/auth/verify_mail/', { key })
   },

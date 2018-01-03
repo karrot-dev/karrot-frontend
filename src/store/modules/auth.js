@@ -79,8 +79,8 @@ export default {
         router.push({ name: 'groupsGallery' })
       },
 
-      async changePassword ({ commit, state, dispatch }, { newPassword }) {
-        await authUser.save({ password: newPassword })
+      async changePassword ({ commit, state, dispatch }, data) {
+        await auth.changePassword(data)
         dispatch('logout')
       },
 

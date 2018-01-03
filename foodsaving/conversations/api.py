@@ -20,7 +20,7 @@ from foodsaving.conversations.serializers import (
 
 class MessagePagination(CursorPagination):
     # TODO: create an index on 'created_at' for increased speed
-    page_size = 50
+    page_size = 10
     ordering = '-created_at'
 
 

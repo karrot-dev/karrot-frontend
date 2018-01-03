@@ -10,7 +10,7 @@ from foodsaving.history.serializers import HistorySerializer
 
 class HistoryPagination(CursorPagination):
     # TODO: create an index on 'date' for increased speed
-    page_size = 100
+    page_size = 10
     ordering = '-date'
 
 

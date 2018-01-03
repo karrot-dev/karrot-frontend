@@ -11,10 +11,12 @@
       </div>
       <div class="image-and-text-right">
         <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-        <p v-if="select">{{ getDateWithStore(select) }}
+        <p v-if="select">
+          {{ getDateWithStore(select) }}
           <q-btn
+            class="generic-margin"
             @click="select = false"
-            flat>
+            color="primary">
             {{ $t("PICKUP_FEEDBACK.OTHER") }}
           </q-btn>
         </p>
@@ -54,12 +56,12 @@
       <div class="row justify-end generic-margin group">
         <q-btn
           type="submit"
-          color="primary"
+          color="secondary"
           v-t="'BUTTON.CREATE'"
         />
       </div>
       <h4
-        v-if="select"
+        v-if="select && feedbackForStore.length !== 0"
         v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.store.name } }"
       />
       <FeedbackList :feedback="feedbackForStore" />

@@ -9,11 +9,19 @@
         />
         <div class="content">
           <div>
-            <strong v-if="storeName">{{ storeName }}:</strong>
+            <router-link
+              v-if="storeName && storeId"
+              :to="{ name: 'store', params: { storeId }}">
+              <strong >{{ storeName }}:</strong>
+            </router-link>
             <strong>{{ $d(pickupDate, 'long') }}</strong>
           </div>
           <i18n path="PICKUP_FEEDBACK.GIVEN_BY">
-            <span place="user">{{ userName }}</span>
+            <router-link
+              place="user"
+              :to="{ name: 'user', params: { userId } }">
+              <span >{{ userName }}</span>
+            </router-link>
             <span place="date">{{ $d(createdAt, 'dateShort') }}</span>
           </i18n>
           <div class="comment">{{ comment }}</div>
@@ -72,8 +80,15 @@ export default {
       const { about: { store: { name } = {} } = {} } = this.feedback
       return name
     },
+    storeId () {
+      const { about: { store: { id } = {} } = {} } = this.feedback
+      return id
+    },
     userName () {
       return this.feedback && this.feedback.givenBy && this.feedback.givenBy.displayName
+    },
+    userId () {
+      return this.feedback && this.feedback.givenBy && this.feedback.givenBy.id
     },
     pickupDate () {
       return this.feedback && this.feedback.about && this.feedback.about.date

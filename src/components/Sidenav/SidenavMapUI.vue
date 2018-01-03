@@ -1,8 +1,8 @@
 <template>
   <SidenavBox
-    @toggleBoxCollapsed="$emit('toggleBoxCollapsed')"
-    :collapsible="collapsible"
-    :collapsed="collapsed">
+    @toggle="$emit('toggleBox')"
+    :expanded="expanded"
+  >
     <template slot="icon">
       <q-icon name="fa-fw fa-map" />
     </template>
@@ -99,8 +99,10 @@ export default {
       required: true,
       type: Object,
     },
-    collapsible: { default: true },
-    collapsed: { required: true },
+    expanded: {
+      default: true,
+      type: Boolean,
+    },
   },
 }
 </script>

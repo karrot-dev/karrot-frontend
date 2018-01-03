@@ -4,10 +4,10 @@ import SidenavGroupUI from './SidenavGroupUI'
 
 export default connect({
   gettersToProps: {
-    collapsed: 'sidenavBoxes/groupCollapsed',
+    expanded: 'sidenavBoxes/toggle/group',
   },
-  mutationsToEvents: {
-    toggleBoxCollapsed: 'sidenavBoxes/toggleGroupCollapsed',
+  actionsToEvents: {
+    toggleBox: 'sidenavBoxes/toggle/group',
   },
 })('SidenavGroup', SidenavGroupUI)
 </script>

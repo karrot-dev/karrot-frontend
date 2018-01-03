@@ -2,7 +2,7 @@
   <q-card class="no-shadow grey-border">
     <q-toolbar
       class="toolbar"
-      @click.self="$emit('toggleBoxCollapsed')"
+      @click.self="$emit('toggle')"
     >
       <slot name="icon" />
       <q-toolbar-title>
@@ -11,19 +11,17 @@
       <slot name="tools" />
       <q-btn
         flat
-        v-if="collapsible"
         class="card-arrow"
-        @click="$emit('toggleBoxCollapsed')"
+        @click="$emit('toggle')"
       >
         <i
           class="fa fa-angle-down arrow"
-          :class="{ upsideDown: !collapsed }"/>
+          :class="{ upsideDown: expanded }"
+        />
       </q-btn>
     </q-toolbar>
     <transition name="slide-toggle">
-      <div
-        class="content-div"
-        v-show="!collapsed">
+      <div v-show="expanded">
         <slot />
       </div>
     </transition>
@@ -35,8 +33,7 @@ import { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn } from 'quasar'
 export default {
   components: { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn },
   props: {
-    collapsible: { default: false },
-    collapsed: { default: false },
+    expanded: { default: true, type: Boolean },
   },
 }
 </script>

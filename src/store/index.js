@@ -21,7 +21,6 @@ import history from './modules/history'
 import i18n from './modules/i18n'
 import invitations from './modules/invitations'
 import loadingprogress from './modules/loadingprogress'
-import map from './modules/map'
 import pickups from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
 import route from './modules/route'
@@ -54,7 +53,6 @@ export default new Vuex.Store({
     i18n,
     invitations,
     loadingprogress,
-    map,
     pickups,
     pickupSeries,
     route,

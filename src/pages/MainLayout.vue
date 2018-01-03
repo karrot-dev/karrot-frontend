@@ -58,7 +58,6 @@
             <router-view />
           </div>
           <div class="whiteSpace gt-lg desktop-only"/>
-          <div class="whiteSpace gt-lg desktop-only"/>
         </div>
         <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 

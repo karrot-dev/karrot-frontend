@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card class="no-shadow grey-border">
     <q-card-main>
       <div class="row no-wrap">
         <AmountBox

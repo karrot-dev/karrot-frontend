@@ -19,7 +19,7 @@
       class="text-bottom"
       :style="{ bottom: bottomOffset }"
     >
-      <span :style="{ fontSize: fontSize }">{{ amount }}</span>
+      <span :style="{ fontSize: fontSize }">{{ amountNumber }}</span>
       <span :style="{ fontSize: fontSizeSmall }">kg</span>
     </div>
   </div>
@@ -65,6 +65,9 @@ export default {
     },
     fontSizeSmall () {
       return Math.floor(this.size / 7) + 'px'
+    },
+    amountNumber () {
+      return Number(this.amount).toFixed(1)
     },
   },
 }

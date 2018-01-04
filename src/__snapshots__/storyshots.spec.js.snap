@@ -2961,255 +2961,290 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
 <div class="edit-box">
     <form>
         <div class="q-field row no-wrap items-start">
-            <i aria-hidden="true" class="q-field-icon q-field-margin q-icon material-icons">access_time</i>
+            <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-repeat"> </i>
             <div class="row col">
                 <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                    <div class="q-field-label-inner row items-center"><span>Time</span> </div>
+                    <div class="q-field-label-inner row items-center"><span>Frequency</span> </div>
                 </div>
                 <div class="q-field-content col-xs-12 col-sm">
-                    <div tabindex="0" class="q-if row no-wrap items-center relative-position q-datetime-input q-if-focusable text-primary">
-                        <!---->
-                        <div class="q-if-inner col row no-wrap items-center relative-position">
-                            <!---->
-                            <!---->
-                            <div class="col row items-center q-input-target justify-start">8:00 AM</div>
-                            <div class="q-popover animate-scale" style="transform-origin:top left 0px;">
-                                <div class="q-datetime inline row no-border text-primary">
-                                    <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
-                                        <!---->
-                                        <div class="q-datetime-time row flex-center">
-                                            <div class="q-datetime-clockstring col-auto col-md-12"><span class="q-datetime-link col-auto col-md-12 active">   8 </span> <span style="opacity:0.6;">:</span> <span class="q-datetime-link col-auto col-md-12"> 00 </span></div>
-                                            <div class="q-datetime-ampm column col-auto col-md-12 justify-around">
-                                                <div class="q-datetime-link active">AM</div>
-                                                <div class="q-datetime-link">PM</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="q-datetime-content col-xs-12 col-md-8 column">
-                                        <div class="q-datetime-selector auto row flex-center">
-                                            <!---->
-                                            <!---->
-                                            <!---->
-                                            <div class="column items-center content-center justify-center">
-                                                <div class="q-datetime-clock cursor-pointer">
-                                                    <div class="q-datetime-clock-circle full-width full-height">
-                                                        <div class="q-datetime-clock-center"></div>
-                                                        <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);-webkit-transform:rotate(60deg);-moz-transform:rotate(60deg);-ms-transform:rotate(60deg);-o-transform:rotate(60deg);"><span></span></div>
-                                                        <div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-4"><span>4</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
-                                                            <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </div>
-                                        </div>
-                                        <div class="row q-datetime-controls modal-buttons-top">
-                                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat text-primary">
-                                                <div class="desktop-only q-focus-helper"></div>
-                                                <!----><span class="q-btn-inner row col flex-center"><!----> <span>Clear</span>
-                                                <!---->
-                                                </span>
-                                            </button>
-                                            <div class="col"></div>
-                                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat text-primary">
-                                                <div class="desktop-only q-focus-helper"></div>
-                                                <!----><span class="q-btn-inner row col flex-center"><!----> <span>Cancel</span>
-                                                <!---->
-                                                </span>
-                                            </button>
-                                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat text-primary">
-                                                <div class="desktop-only q-focus-helper"></div>
-                                                <!----><span class="q-btn-inner row col flex-center"><!----> <span>Set</span>
-                                                <!---->
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
+                    <div class="q-option-group group">
+                        <div>
+                            <div tabindex="0" class="q-radio q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                <div class="q-option-inner relative-position">
+                                    <input type="radio">
+                                    <div class="q-focus-helper"></div>
+                                    <i aria-hidden="true" class="q-radio-unchecked absolute-full cursor-pointer q-icon material-icons">radio_button_unchecked</i>
+                                    <i aria-hidden="true" class="q-radio-checked cursor-pointer absolute-full q-icon material-icons">radio_button_checked</i>
+                                    <div class="q-radial-ripple"></div>
+                                </div> <span class="q-option-label">Weekly</span> </div>
                         </div>
-                        <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
-                        <!---->
+                        <div>
+                            <div tabindex="0" class="q-radio q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                <div class="q-option-inner relative-position">
+                                    <input type="radio" value="true">
+                                    <div class="q-focus-helper"></div>
+                                    <i aria-hidden="true" class="q-radio-unchecked absolute-full cursor-pointer q-icon material-icons">radio_button_unchecked</i>
+                                    <i aria-hidden="true" class="q-radio-checked cursor-pointer absolute-full q-icon material-icons">radio_button_checked</i>
+                                    <div class="q-radial-ripple"></div>
+                                </div> <span class="q-option-label">Custom</span> </div>
+                        </div>
                     </div>
-                    <div class="q-field-bottom row no-wrap q-field-no-input">
-                        <div class="q-field-helper col">When should the pick-up take place?</div>
-                        <!---->
-                    </div>
+                    <!---->
                 </div>
             </div>
         </div>
-        <div class="q-field row no-wrap items-start">
-            <i aria-hidden="true" class="q-field-icon q-field-margin q-icon material-icons">today</i>
-            <div class="row col">
-                <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                    <div class="q-field-label-inner row items-center"><span>Weekdays</span> </div>
-                </div>
-                <div class="q-field-content col-xs-12 col-sm">
-                    <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
-                        <!---->
-                        <div class="q-if-inner col row no-wrap items-center relative-position">
+        <div>
+            <div class="q-field row no-wrap items-start">
+                <i aria-hidden="true" class="q-field-icon q-field-margin q-icon material-icons">access_time</i>
+                <div class="row col">
+                    <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
+                        <div class="q-field-label-inner row items-center"><span>Time</span> </div>
+                    </div>
+                    <div class="q-field-content col-xs-12 col-sm">
+                        <div tabindex="0" class="q-if row no-wrap items-center relative-position q-datetime-input q-if-focusable text-primary">
                             <!---->
-                            <!---->
-                            <div class="col row items-center q-input-target justify-start">Thursday, Sunday</div>
-                            <!---->
-                            <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
-                                <div></div>
-                                <div class="no-border scroll q-list q-list-link">
-                                    <div class="q-item q-item-division relative-position">
-                                        <div class="q-item-main q-item-section">
-                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Monday</div>
-                                        </div>
-                                        <div class="q-item-side q-item-side-right q-item-section">
-                                            <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                                <div class="q-option-inner relative-position">
-                                                    <input type="checkbox">
-                                                    <div class="q-focus-helper"></div>
-                                                    <div class="q-toggle-base"></div>
-                                                    <div class="q-toggle-handle shadow-1 row flex-center">
-                                                        <!---->
-                                                        <div class="q-radial-ripple"></div>
-                                                    </div>
+                            <div class="q-if-inner col row no-wrap items-center relative-position">
+                                <!---->
+                                <!---->
+                                <div class="col row items-center q-input-target justify-start">8:00 AM</div>
+                                <div class="q-popover animate-scale" style="transform-origin:top left 0px;">
+                                    <div class="q-datetime inline row no-border text-primary">
+                                        <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
+                                            <!---->
+                                            <div class="q-datetime-time row flex-center">
+                                                <div class="q-datetime-clockstring col-auto col-md-12"><span class="q-datetime-link col-auto col-md-12 active">   8 </span> <span style="opacity:0.6;">:</span> <span class="q-datetime-link col-auto col-md-12"> 00 </span></div>
+                                                <div class="q-datetime-ampm column col-auto col-md-12 justify-around">
+                                                    <div class="q-datetime-link active">AM</div>
+                                                    <div class="q-datetime-link">PM</div>
                                                 </div>
-                                                <!---->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="q-item q-item-division relative-position">
-                                        <div class="q-item-main q-item-section">
-                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Tuesday</div>
-                                        </div>
-                                        <div class="q-item-side q-item-side-right q-item-section">
-                                            <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                                <div class="q-option-inner relative-position">
-                                                    <input type="checkbox">
-                                                    <div class="q-focus-helper"></div>
-                                                    <div class="q-toggle-base"></div>
-                                                    <div class="q-toggle-handle shadow-1 row flex-center">
-                                                        <!---->
-                                                        <div class="q-radial-ripple"></div>
-                                                    </div>
-                                                </div>
+                                        <div class="q-datetime-content col-xs-12 col-md-8 column">
+                                            <div class="q-datetime-selector auto row flex-center">
                                                 <!---->
+                                                <!---->
+                                                <!---->
+                                                <div class="column items-center content-center justify-center">
+                                                    <div class="q-datetime-clock cursor-pointer">
+                                                        <div class="q-datetime-clock-circle full-width full-height">
+                                                            <div class="q-datetime-clock-center"></div>
+                                                            <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);-webkit-transform:rotate(60deg);-moz-transform:rotate(60deg);-ms-transform:rotate(60deg);-o-transform:rotate(60deg);"><span></span></div>
+                                                            <div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-4"><span>4</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="q-item q-item-division relative-position">
-                                        <div class="q-item-main q-item-section">
-                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Wednesday</div>
-                                        </div>
-                                        <div class="q-item-side q-item-side-right q-item-section">
-                                            <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                                <div class="q-option-inner relative-position">
-                                                    <input type="checkbox">
-                                                    <div class="q-focus-helper"></div>
-                                                    <div class="q-toggle-base"></div>
-                                                    <div class="q-toggle-handle shadow-1 row flex-center">
-                                                        <!---->
-                                                        <div class="q-radial-ripple"></div>
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="q-item q-item-division relative-position">
-                                        <div class="q-item-main q-item-section">
-                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Thursday</div>
-                                        </div>
-                                        <div class="q-item-side q-item-side-right q-item-section">
-                                            <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                                <div class="q-option-inner relative-position active text-primary">
-                                                    <input type="checkbox" checked="checked">
-                                                    <div class="q-focus-helper"></div>
-                                                    <div class="q-toggle-base"></div>
-                                                    <div class="q-toggle-handle shadow-1 row flex-center">
-                                                        <!---->
-                                                        <div class="q-radial-ripple"></div>
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="q-item q-item-division relative-position">
-                                        <div class="q-item-main q-item-section">
-                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Friday</div>
-                                        </div>
-                                        <div class="q-item-side q-item-side-right q-item-section">
-                                            <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                                <div class="q-option-inner relative-position">
-                                                    <input type="checkbox">
-                                                    <div class="q-focus-helper"></div>
-                                                    <div class="q-toggle-base"></div>
-                                                    <div class="q-toggle-handle shadow-1 row flex-center">
-                                                        <!---->
-                                                        <div class="q-radial-ripple"></div>
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="q-item q-item-division relative-position">
-                                        <div class="q-item-main q-item-section">
-                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Saturday</div>
-                                        </div>
-                                        <div class="q-item-side q-item-side-right q-item-section">
-                                            <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                                <div class="q-option-inner relative-position">
-                                                    <input type="checkbox">
-                                                    <div class="q-focus-helper"></div>
-                                                    <div class="q-toggle-base"></div>
-                                                    <div class="q-toggle-handle shadow-1 row flex-center">
-                                                        <!---->
-                                                        <div class="q-radial-ripple"></div>
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="q-item q-item-division relative-position">
-                                        <div class="q-item-main q-item-section">
-                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Sunday</div>
-                                        </div>
-                                        <div class="q-item-side q-item-side-right q-item-section">
-                                            <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                                <div class="q-option-inner relative-position active text-primary">
-                                                    <input type="checkbox" checked="checked">
-                                                    <div class="q-focus-helper"></div>
-                                                    <div class="q-toggle-base"></div>
-                                                    <div class="q-toggle-handle shadow-1 row flex-center">
-                                                        <!---->
-                                                        <div class="q-radial-ripple"></div>
-                                                    </div>
-                                                </div>
-                                                <!---->
+                                            <div class="row q-datetime-controls modal-buttons-top">
+                                                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat text-primary">
+                                                    <div class="desktop-only q-focus-helper"></div>
+                                                    <!----><span class="q-btn-inner row col flex-center"><!----> <span>Clear</span>
+                                                    <!---->
+                                                    </span>
+                                                </button>
+                                                <div class="col"></div>
+                                                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat text-primary">
+                                                    <div class="desktop-only q-focus-helper"></div>
+                                                    <!----><span class="q-btn-inner row col flex-center"><!----> <span>Cancel</span>
+                                                    <!---->
+                                                    </span>
+                                                </button>
+                                                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat text-primary">
+                                                    <div class="desktop-only q-focus-helper"></div>
+                                                    <!----><span class="q-btn-inner row col flex-center"><!----> <span>Set</span>
+                                                    <!---->
+                                                    </span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!---->
                             </div>
+                            <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
                             <!---->
                         </div>
-                        <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
-                        <!---->
+                        <div class="q-field-bottom row no-wrap q-field-no-input">
+                            <div class="q-field-helper col">When should the pick-up take place?</div>
+                            <!---->
+                        </div>
                     </div>
-                    <div class="q-field-bottom row no-wrap q-field-no-input">
-                        <div class="q-field-helper col">On which days should the pick-up take place?</div>
-                        <!---->
+                </div>
+            </div>
+            <div class="q-field row no-wrap items-start">
+                <i aria-hidden="true" class="q-field-icon q-field-margin q-icon material-icons">today</i>
+                <div class="row col">
+                    <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
+                        <div class="q-field-label-inner row items-center"><span>Weekdays</span> </div>
+                    </div>
+                    <div class="q-field-content col-xs-12 col-sm">
+                        <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
+                            <!---->
+                            <div class="q-if-inner col row no-wrap items-center relative-position">
+                                <!---->
+                                <!---->
+                                <div class="col row items-center q-input-target justify-start">Thursday, Sunday</div>
+                                <!---->
+                                <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
+                                    <div></div>
+                                    <div class="no-border scroll q-list q-list-link">
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Monday</div>
+                                            </div>
+                                            <div class="q-item-side q-item-side-right q-item-section">
+                                                <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                                    <div class="q-option-inner relative-position">
+                                                        <input type="checkbox">
+                                                        <div class="q-focus-helper"></div>
+                                                        <div class="q-toggle-base"></div>
+                                                        <div class="q-toggle-handle shadow-1 row flex-center">
+                                                            <!---->
+                                                            <div class="q-radial-ripple"></div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Tuesday</div>
+                                            </div>
+                                            <div class="q-item-side q-item-side-right q-item-section">
+                                                <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                                    <div class="q-option-inner relative-position">
+                                                        <input type="checkbox">
+                                                        <div class="q-focus-helper"></div>
+                                                        <div class="q-toggle-base"></div>
+                                                        <div class="q-toggle-handle shadow-1 row flex-center">
+                                                            <!---->
+                                                            <div class="q-radial-ripple"></div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Wednesday</div>
+                                            </div>
+                                            <div class="q-item-side q-item-side-right q-item-section">
+                                                <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                                    <div class="q-option-inner relative-position">
+                                                        <input type="checkbox">
+                                                        <div class="q-focus-helper"></div>
+                                                        <div class="q-toggle-base"></div>
+                                                        <div class="q-toggle-handle shadow-1 row flex-center">
+                                                            <!---->
+                                                            <div class="q-radial-ripple"></div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Thursday</div>
+                                            </div>
+                                            <div class="q-item-side q-item-side-right q-item-section">
+                                                <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                                    <div class="q-option-inner relative-position active text-primary">
+                                                        <input type="checkbox" checked="checked">
+                                                        <div class="q-focus-helper"></div>
+                                                        <div class="q-toggle-base"></div>
+                                                        <div class="q-toggle-handle shadow-1 row flex-center">
+                                                            <!---->
+                                                            <div class="q-radial-ripple"></div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Friday</div>
+                                            </div>
+                                            <div class="q-item-side q-item-side-right q-item-section">
+                                                <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                                    <div class="q-option-inner relative-position">
+                                                        <input type="checkbox">
+                                                        <div class="q-focus-helper"></div>
+                                                        <div class="q-toggle-base"></div>
+                                                        <div class="q-toggle-handle shadow-1 row flex-center">
+                                                            <!---->
+                                                            <div class="q-radial-ripple"></div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Saturday</div>
+                                            </div>
+                                            <div class="q-item-side q-item-side-right q-item-section">
+                                                <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                                    <div class="q-option-inner relative-position">
+                                                        <input type="checkbox">
+                                                        <div class="q-focus-helper"></div>
+                                                        <div class="q-toggle-base"></div>
+                                                        <div class="q-toggle-handle shadow-1 row flex-center">
+                                                            <!---->
+                                                            <div class="q-radial-ripple"></div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="q-item q-item-division relative-position">
+                                            <div class="q-item-main q-item-section">
+                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Sunday</div>
+                                            </div>
+                                            <div class="q-item-side q-item-side-right q-item-section">
+                                                <div tabindex="0" class="q-toggle q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                                                    <div class="q-option-inner relative-position active text-primary">
+                                                        <input type="checkbox" checked="checked">
+                                                        <div class="q-focus-helper"></div>
+                                                        <div class="q-toggle-base"></div>
+                                                        <div class="q-toggle-handle shadow-1 row flex-center">
+                                                            <!---->
+                                                            <div class="q-radial-ripple"></div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                            </div>
+                            <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
+                            <!---->
+                        </div>
+                        <div class="q-field-bottom row no-wrap q-field-no-input">
+                            <div class="q-field-helper col">On which days should the pick-up take place?</div>
+                            <!---->
+                        </div>
                     </div>
                 </div>
             </div>

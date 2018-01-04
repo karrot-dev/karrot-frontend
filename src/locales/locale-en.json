@@ -114,6 +114,7 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
     "DESCRIPTION": "About you",
+    "OLD_PASSWORD": "Old password",
     "PASSWORD": "Enter your new password"
   },
   "PROFILE": {

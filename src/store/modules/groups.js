@@ -50,8 +50,8 @@ export default {
     other: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {
-      const currentGroupId = rootGetters['currentGroup/id']
-      return getters.get(currentGroupId).saveStatus
+      const currentGroup = getters.get(rootGetters['currentGroup/id'])
+      return currentGroup && currentGroup.saveStatus
     },
     ...metaStatuses(['create']),
   },
@@ -76,7 +76,8 @@ export default {
           type: 'groupLeaveSuccess',
           context: { groupName: getters.get(groupId).name },
         }, { root: true })
-        router.push({ name: 'groupsGallery' })
+        dispatch('currentGroup/clear', null, { root: true })
+        router.replace({ name: 'groupsGallery' })
       },
 
       async create ({ commit, dispatch }, group) {

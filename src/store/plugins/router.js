@@ -2,8 +2,8 @@ import router from '@/router'
 
 export default store => {
   let isLoggedIn = () => store.getters['auth/isLoggedIn']
-  let hasCurrentGroup = () => !!store.getters['currentGroup/value']
   let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
+  let getGroup = (id) => store.getters['groups/get'](id)
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
   router.beforeEach((to, from, next) => {
@@ -24,7 +24,8 @@ export default store => {
 
     // redirect homescreen correctly
     else if (to.path === '/') {
-      if (getUserGroupId()) {
+      const groupId = getUserGroupId()
+      if (groupId && getGroup(groupId).isMember) {
         next({ name: 'group', params: { groupId: getUserGroupId() } })
       }
       else {
@@ -53,18 +54,6 @@ export default store => {
     await maybeDispatchActions(store, to, from)
 
     store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
-
-    /* If:
-        - the group is not mentioned in the URL
-        - we do not have an current group
-        - the user has a currentGroup
-      Then:
-        - set the users current group
-     */
-    if (!to.params.groupId && !hasCurrentGroup() && isLoggedIn()) {
-      let groupId = getUserGroupId()
-      if (groupId) store.dispatch('currentGroup/select', { groupId })
-    }
 
     next()
   })

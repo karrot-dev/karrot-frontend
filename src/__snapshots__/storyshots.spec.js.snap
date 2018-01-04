@@ -5533,44 +5533,53 @@ exports[`Storyshots Stores StoreList 1`] = `
 
 exports[`Storyshots VerifyMail error 1`] = `
 <div>
-    <div>
-        <h5>
-            my@email.com
-        </h5>
-        <!---->
-        <!---->
-        <p>
-            <i class="fa fa-exclamation-triangle"></i>
-            this error is returned by the server
-        </p>
+    <h5>
+        my@email.com
+    </h5>
+    <!---->
+    <!---->
+    <p>
+        <i class="fa fa-exclamation-triangle"></i>
+        this error is returned by the server
+    </p>
+    <div to="/">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-push bg-secondary text-white">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!---->  <i aria-hidden="true" class="on-right q-icon fa fa-home"> </i></span></button>
     </div>
 </div>
 `;
 
 exports[`Storyshots VerifyMail pending 1`] = `
 <div>
-    <div>
-        <h5>
-            my@email.com
-        </h5>
-        <q-spinner-undefined size="1rem"></q-spinner-undefined>
-        <!---->
-        <!---->
+    <h5>
+        my@email.com
+    </h5>
+    <q-spinner-undefined size="1rem"></q-spinner-undefined>
+    <!---->
+    <!---->
+    <div to="/">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-push bg-secondary text-white">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!---->  <i aria-hidden="true" class="on-right q-icon fa fa-home"> </i></span></button>
     </div>
 </div>
 `;
 
 exports[`Storyshots VerifyMail success 1`] = `
 <div>
-    <div>
-        <h5>
-            my@email.com
-        </h5>
-        <!---->
-        <p>
-            Your e-mail address was successfully verified!
-        </p>
-        <!---->
+    <h5>
+        my@email.com
+    </h5>
+    <!---->
+    <p>
+        Your e-mail address was successfully verified!
+    </p>
+    <!---->
+    <div to="/">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-push bg-secondary text-white">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!---->  <i aria-hidden="true" class="on-right q-icon fa fa-home"> </i></span></button>
     </div>
 </div>
 `;

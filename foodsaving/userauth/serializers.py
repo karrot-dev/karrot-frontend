@@ -49,6 +49,12 @@ class AuthUserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(_('Similar e-mail exists: ') + similar.first().email)
         return email
 
+    def validate_current_group(self, group):
+        user = self.context['request'].user
+        if group and not group.is_member(user):
+            raise serializers.ValidationError()
+        return group
+
     def create(self, validated_data):
         try:
             user = self.Meta.model.objects.create_user(**validated_data)

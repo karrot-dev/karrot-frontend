@@ -163,6 +163,27 @@ class TestRejectedAddress(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
 
 
+class TestSetCurrentGroup(APITestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.group = GroupFactory(members=[self.user, ])
+        self.unrelated_group = GroupFactory()
+
+    def test_set_current_group_succeeds(self):
+        self.client.force_login(user=self.user)
+        self.assertEqual(
+            self.client.patch('/api/auth/user/', {'current_group': self.group.id}).status_code,
+            status.HTTP_200_OK
+        )
+
+    def test_set_current_group_as_non_member_fails(self):
+        self.client.force_login(user=self.user)
+        self.assertEqual(
+            self.client.patch('/api/auth/user/', {'current_group': self.unrelated_group.id}).status_code,
+            status.HTTP_400_BAD_REQUEST
+        )
+
+
 class TestChangePassword(APITestCase):
     def setUp(self):
         self.user = UserFactory()

@@ -18,7 +18,10 @@
         <span v-if="feedback && feedback.length != 0">{{ $tc('FEEDBACKLIST.SAVED_FOOD', totalAmount, { amount: totalAmount }) }}</span>
       </div>
     </q-card>
-    <FeedbackList :feedback="feedback"/>
+    <FeedbackList
+      :feedback="feedback"
+      :status="fetchStatus"
+    />
     <KNotice v-if="feedback && feedback.length == 0" >
       <template slot="icon">
         <i class="fa fa-balance-scale"/>
@@ -46,6 +49,7 @@ export default {
   computed: {
     ...mapGetters({
       feedback: 'feedback/filtered',
+      fetchStatus: 'feedback/fetchStatus',
     }),
     totalAmount () {
       let amount = 0

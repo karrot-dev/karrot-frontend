@@ -81,7 +81,10 @@
         class="generic-padding"
         v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.store.name } }"
       />
-      <FeedbackList :feedback="feedbackForStore" />
+      <FeedbackList
+        :feedback="feedbackForStore"
+        :status="fetchStatus"
+      />
     </q-card>
   </div>
 </template>
@@ -104,6 +107,7 @@ export default {
   props: {
     pickups: { required: true, type: Array },
     existingFeedback: { required: true, type: Array },
+    fetchStatus: { required: true, type: Object },
   },
   data () {
     return {

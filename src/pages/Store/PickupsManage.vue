@@ -46,7 +46,7 @@
           v-for="series in pickupSeries"
           @open="makeVisible('series', series.id)"
           :key="series.id"
-          :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
+          :label="seriesLabel(series)"
           :sublabel="$d(series.startDate, 'timeShort')"
           icon="fa-calendar"
           sparse
@@ -165,7 +165,7 @@ import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
 import RandomArt from '@/components/General/RandomArt'
 
-import { dayNameForKey, sortByDay } from '@/i18n'
+import i18n, { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
   components: {
@@ -187,8 +187,13 @@ export default {
       // if we don't do this, the textarea in pickupEdit won't autogrow
       this.$set(this.visible[type], id, true)
     },
-    dayNameForKey,
-    sortByDay,
+    seriesLabel (series) {
+      if (series.rule.isCustom) {
+        const label = i18n.t('CREATEPICKUP.CUSTOM')
+        return `${label} (${series.rule.custom})`
+      }
+      return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
+    },
     seriesPickupLabel (series, pickup) {
       const base = this.$d(pickup.date, 'dateShort')
       const seriesTime = this.$d(series.startDate, 'timeShort')
@@ -211,6 +216,7 @@ export default {
         startDate: new Date(),
         store: this.storeId,
         rule: {
+          isCustom: false,
           byDay: ['MO'],
           freq: 'WEEKLY',
         },

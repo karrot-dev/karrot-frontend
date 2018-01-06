@@ -11,29 +11,17 @@
         </div>
         <div class="image-and-text-right">
           <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-          <p v-if="select">
-            {{ getDateWithStore(select) }}
-            <q-btn
-              class="generic-margin"
-              @click="select = false"
-              color="primary">
-              {{ $t("PICKUP_FEEDBACK.OTHER") }}
-            </q-btn>
+          <p>
+            <q-field>
+              <q-select
+                v-model="select"
+                :options="feedbackOptions"
+              />
+            </q-field>
           </p>
         </div>
       </div>
-      <q-field
-        v-if="!select"
-        style="margin-top: 2em; padding: 0 .5em"
-        icon="fa-shopping-basket"
-        :label="$t('PICKUP_FEEDBACK.SELECT_PICKUP')">
-        <q-select
-          v-model="select"
-          :options="feedbackOptions"
-        />
-      </q-field>
       <form
-        v-else
         @submit.prevent="save"
         style="padding: 0 1.5em"
       >

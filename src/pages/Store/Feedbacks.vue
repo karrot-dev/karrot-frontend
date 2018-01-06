@@ -18,23 +18,15 @@
         <span v-if="feedback && feedback.length != 0">{{ $tc('FEEDBACKLIST.SAVED_FOOD', totalAmount, { amount: totalAmount }) }}</span>
       </div>
     </q-card>
-    <FeedbackList :feedback="feedback"/>
-    <KNotice v-if="feedback && feedback.length == 0" >
-      <template slot="icon">
-        <i class="fa fa-balance-scale"/>
-      </template>
-      {{ $t('FEEDBACKLIST.NONE') }}
-      <template slot="desc">
-        {{ $t('FEEDBACKLIST.NONE_HINT') }}
-      </template>
-    </KNotice>
+    <FeedbackList
+      :feedback="feedback"
+      :status="fetchStatus"
+    />
   </div>
 </template>
 
 <script>
 import FeedbackList from '@/components/Statistics/FeedbackList'
-import KNotice from '@/components/General/KNotice'
-
 import { QCard, QTooltip, QBtn } from 'quasar'
 
 import {
@@ -42,10 +34,11 @@ import {
 } from 'vuex'
 
 export default {
-  components: { FeedbackList, KNotice, QCard, QTooltip, QBtn },
+  components: { FeedbackList, QCard, QTooltip, QBtn },
   computed: {
     ...mapGetters({
       feedback: 'feedback/filtered',
+      fetchStatus: 'feedback/fetchStatus',
     }),
     totalAmount () {
       let amount = 0

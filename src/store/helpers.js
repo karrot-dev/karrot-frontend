@@ -200,3 +200,35 @@ export function createRouteError (data) {
     data,
   })
 }
+
+export function createPaginationModule () {
+  return {
+    namespaced: true,
+    state: {
+      prevCursor: null,
+      nextCursor: null,
+    },
+    getters: {
+      hasMore: state => typeof state.nextCursor === 'string',
+    },
+    actions: {
+      async fetchMore ({ state, getters, dispatch }, fetchFn) {
+        if (!getters.hasMore) return []
+        const rawData = fetchFn(state.nextCursor)
+        const data = await dispatch('extractCursor', rawData)
+        return data
+      },
+      async extractCursor ({ commit }, data) {
+        data = await data
+        commit('setCursor', { prevCursor: data.prev, nextCursor: data.next })
+        return data.results
+      },
+    },
+    mutations: {
+      setCursor (state, { prevCursor, nextCursor }) {
+        state.prevCursor = prevCursor
+        state.nextCursor = nextCursor
+      },
+    },
+  }
+}

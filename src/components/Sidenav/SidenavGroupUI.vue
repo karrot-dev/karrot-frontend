@@ -39,6 +39,14 @@
             {{ $t("GROUP.PICKUPS") }}
           </q-item-main>
         </q-item>
+        <q-item :to="{name: 'groupFeedback'}">
+          <q-item-side class="text-center">
+            <q-icon name="fa-balance-scale" />
+          </q-item-side>
+          <q-item-main>
+            {{ $t("PICKUP_FEEDBACK.TITLE") }}
+          </q-item-main>
+        </q-item>
         <q-item :to="{name: 'groupDescription'}">
           <q-item-side class="text-center">
             <q-icon name="fa-vcard" />

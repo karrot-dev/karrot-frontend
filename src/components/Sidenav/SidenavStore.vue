@@ -5,10 +5,10 @@ import SidenavStoreUI from './SidenavStoreUI'
 export default connect({
   gettersToProps: {
     storeId: 'stores/activeStoreId',
-    collapsed: 'sidenavBoxes/storeCollapsed',
+    expanded: 'sidenavBoxes/toggle/store',
   },
-  mutationsToEvents: {
-    toggleBoxCollapsed: 'sidenavBoxes/toggleStoreCollapsed',
+  actionsToEvents: {
+    toggleBox: 'sidenavBoxes/toggle/store',
   },
 })('SidenavStore', SidenavStoreUI)
 </script>

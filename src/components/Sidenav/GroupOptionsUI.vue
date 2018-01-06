@@ -82,7 +82,10 @@ export default {
     QList, QItem, QIcon, QPopover,
   },
   props: {
-    currentGroupId: {required: true},
+    currentGroupId: {
+      default: null,
+      type: Number,
+    },
     roles: {
       default: () => [],
       type: Array,

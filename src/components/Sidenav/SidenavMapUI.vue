@@ -1,8 +1,8 @@
 <template>
   <SidenavBox
-    @toggleBoxCollapsed="$emit('toggleBoxCollapsed')"
-    :collapsible="collapsible"
-    :collapsed="collapsed">
+    @toggle="$emit('toggleBox')"
+    :expanded="expanded"
+  >
     <template slot="icon">
       <q-icon name="fa-fw fa-map" />
     </template>
@@ -56,6 +56,7 @@
     </div>
 
     <GroupMap
+      v-if="currentGroup"
       class="map"
       :stores="stores"
       :users="users"
@@ -96,11 +97,13 @@ export default {
       type: Boolean,
     },
     currentGroup: {
-      required: true,
+      default: null,
       type: Object,
     },
-    collapsible: { default: true },
-    collapsed: { required: true },
+    expanded: {
+      default: true,
+      type: Boolean,
+    },
   },
 }
 </script>

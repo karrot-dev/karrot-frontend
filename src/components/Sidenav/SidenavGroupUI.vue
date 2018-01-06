@@ -1,8 +1,8 @@
 <template>
   <SidenavBox
-    @toggleBoxCollapsed="$emit('toggleBoxCollapsed')"
-    :collapsible="collapsible"
-    :collapsed="collapsed">
+    @toggle="$emit('toggleBox')"
+    :expanded="expanded"
+  >
     <template slot="icon">
       <q-icon name="fa-fw fa-home" />
     </template>
@@ -86,8 +86,7 @@ export default {
     SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip,
   },
   props: {
-    collapsible: { default: true },
-    collapsed: { required: true },
+    expanded: { default: true, type: Boolean },
   },
 }
 </script>

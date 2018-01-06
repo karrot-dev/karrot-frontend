@@ -114,6 +114,7 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
     "DESCRIPTION": "About you",
+    "OLD_PASSWORD": "Old password",
     "PASSWORD": "Enter your new password"
   },
   "PROFILE": {
@@ -159,8 +160,18 @@
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
+    "FREQUENCY": "Frequency",
+    "WEEKLY": "Weekly",
+    "CUSTOM": "Custom",
     "WEEKDAYS": "Weekdays",
     "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
+    "RRULE": "Recurrence rule",
+    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender rule",
+    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
+    "RRULE_EXAMPLE2": "every second Monday",
+    "STARTDATE": "Start date",
+    "STARTDATE_HELPER": "When should the series start?",
     "TIME": "Time",
     "TIME_HELPER": "When should the pick-up take place?",
     "DATE": "Date",

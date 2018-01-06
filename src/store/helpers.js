@@ -232,3 +232,47 @@ export function createPaginationModule () {
     },
   }
 }
+
+/**
+ * Returns a module that can toggle values
+ *
+ * ```
+ *  modules: {
+ *   toggle: toggles({
+ *     myToggleName: true, // defaults to `true`
+ *   }),
+ *  },
+ * ```
+ *
+ * toggle:
+ * dispatch('myModule/toggle/myToggleName')
+ *
+ * set to `true`, no matter the previous state:
+ * dispatch('myModule/toggle/myToggleName', true)
+ */
+
+export function toggles (config) {
+  let result = {
+    namespaced: true,
+    state: {},
+    getters: {},
+    actions: {},
+    mutations: {
+      set (state, { key, value }) {
+        Vue.set(state, key, value)
+      },
+    },
+  }
+  for (let key in config) {
+    result.state[key] = config[key]
+    result.getters[key] = state => state[key]
+    result.actions[key] = ({ state, commit }, forceValue) => {
+      let nextValue = !state[key]
+      if (forceValue) {
+        nextValue = forceValue
+      }
+      commit('set', { key, value: nextValue })
+    }
+  }
+  return result
+}

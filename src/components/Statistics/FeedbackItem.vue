@@ -1,10 +1,10 @@
 <template>
   <q-card class="no-shadow grey-border">
-    <q-card-main>
+    <q-card-main class="generic-padding">
       <div class="row no-wrap">
         <AmountBox
           class="amount-box"
-          size="100"
+          size="80"
           :amount="weight"
         />
         <div class="content">

@@ -10,7 +10,7 @@
           <slot>Date or Store Slot</slot>
         </div>
         <div
-          class="description multiline"
+          class="description"
           v-if="pickup.description"
         >
           {{ pickup.description }}

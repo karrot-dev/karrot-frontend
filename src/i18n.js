@@ -1,33 +1,9 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import status from '@/locales/status-frontend.json'
+import locales from '@/locales'
 
 Vue.use(VueI18n)
-
-// Just need to include 'en' here as it is the fallback locale
-// All other locales are loaded on demand in store/plugins/i18n
-export const messages = {
-  en: require('@/locales/locale-en.json'),
-}
-
-export const locales = [
-  { locale: 'de', name: 'Deutsch' },
-  { locale: 'en', name: 'English' },
-  { locale: 'fr', name: 'Français' },
-  { locale: 'sv', name: 'Svenska' },
-  { locale: 'es', name: 'Español' },
-  { locale: 'it', name: 'Italiano' },
-  { locale: 'eo', name: 'Esperanto' },
-  { locale: 'ru', name: 'Русский' },
-  { locale: 'zh', name: '中文' },
-  { locale: 'cs', name: 'Čeština' },
-]
-
-export const localeOptions = locales.map(({ name, locale }) => ({
-  label: name,
-  value: locale,
-  percentage: parseInt(status[locale].completed.replace('%', ''), 10),
-})).sort((a, b) => b.percentage - a.percentage)
 
 const defaultDateTimeFormat = {
   timeShort: {
@@ -63,15 +39,20 @@ const defaultDateTimeFormat = {
 }
 
 let dateTimeFormats = {}
-for (const locale of locales) {
+for (const locale of Object.values(locales)) {
   dateTimeFormats[locale.locale] = defaultDateTimeFormat
 }
 
 const i18n = new VueI18n({
-  messages,
+  // Just need to include 'en' here as it is the fallback locale
+  // All other locales are loaded on demand in store/plugins/i18n
+  messages: {
+    en: require('@/locales/locale-en.json'),
+  },
   dateTimeFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
+export default i18n
 
 const TEN_PM = new Date()
 TEN_PM.setHours(22, 0)
@@ -107,8 +88,14 @@ export function sortByDay (a, b) {
   return DAY_INDEX[a] - DAY_INDEX[b]
 }
 
-export default i18n
+export const localeOptions = Object.values(locales).map(({ name, locale }) => ({
+  label: name,
+  value: locale,
+  percentage: parseInt(status[locale].completed.replace('%', ''), 10),
+})).sort((a, b) => b.percentage - a.percentage)
 
+// Does not work, pls fix
+/*
 if (module.hot) {
   module.hot.accept([
     '@/locales/locale-en.json',
@@ -116,3 +103,4 @@ if (module.hot) {
     i18n.setLocaleMessage('en', require('@/locales/locale-en.json'))
   })
 }
+*/

@@ -95,6 +95,15 @@ export default {
       dispatch('auth/update', { currentGroup: groupId }, { root: true })
     },
 
+    clear ({ commit, dispatch }) {
+      commit('clear')
+      dispatch('auth/update', { currentGroup: null }, { root: true })
+      dispatch('agreements/clear', null, { root: true })
+      dispatch('pickups/clear', {}, { root: true })
+      dispatch('conversations/clearActive', null, { root: true })
+      dispatch('feedback/clear', null, { root: true })
+    },
+
     update ({ commit }, group) {
       commit('set', group)
     },
@@ -102,6 +111,9 @@ export default {
   mutations: {
     set (state, group) {
       state.current = group
+    },
+    clear (state) {
+      Object.assign(state, initialState())
     },
   },
 }

@@ -56,6 +56,7 @@
     </div>
 
     <GroupMap
+      v-if="currentGroup"
       class="map"
       :stores="stores"
       :users="users"
@@ -96,7 +97,7 @@ export default {
       type: Boolean,
     },
     currentGroup: {
-      required: true,
+      default: null,
       type: Object,
     },
     expanded: {

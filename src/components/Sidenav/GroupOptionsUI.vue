@@ -83,7 +83,7 @@ export default {
   },
   props: {
     currentGroupId: {
-      required: true,
+      default: null,
       type: Number,
     },
     roles: {

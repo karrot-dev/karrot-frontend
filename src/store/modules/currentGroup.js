@@ -23,7 +23,6 @@ export default {
         membership,
         activeAgreement,
         awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
-        __unenriched: group,
       }
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],

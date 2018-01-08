@@ -1905,7 +1905,10 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <!---->
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
-        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <!----></span></button>
+        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <!---->
+        </span>
+    </button>
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="globe q-icon fa fa-globe"> </i>
@@ -1930,13 +1933,19 @@ exports[`Storyshots Layout KTopbar 1`] = `
             Italiano
             <small>(25%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:25%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
-            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <!----></span></button>
+            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <!---->
+        </span>
+    </button>
     <div to="[object Object]" class="defaulthover">
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> 
         Current User
-        <i aria-hidden="true" class="q-icon fa fa-fw fa-user"> </i> <!----></span></button>
+        <i aria-hidden="true" class="q-icon fa fa-fw fa-user"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!---->
+            </span>
+        </button>
     </div>
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>

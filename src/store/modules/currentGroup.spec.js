@@ -13,7 +13,6 @@ function enrich (group) {
     membership: {},
     activeAgreement: undefined,
     awaitingAgreement: false,
-    __unenriched: group,
   }
 }
 

@@ -27,7 +27,6 @@ export default {
       return user ? {
         ...user,
         isCurrentUser: user.id === authUserId,
-        __unenriched: user,
       } : {
         isCurrentUser: false,
       }

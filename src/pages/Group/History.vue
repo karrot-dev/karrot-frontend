@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-card
-      class="no-padding no-shadow grey-border"
+      class="no-mobile-margin no-padding no-shadow grey-border"
     >
       <div class="group-banner">
         <RandomArt

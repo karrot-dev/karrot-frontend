@@ -1,6 +1,6 @@
 <template>
   <q-card
-    class="no-padding no-shadow grey-border"
+    class="no-mobile-margin no-padding no-shadow grey-border"
   >
     <div class="group-banner">
       <RandomArt
@@ -8,9 +8,7 @@
         type="circles" />
     </div>
     <div class="generic-padding">
-      <div
-        class="actionButtons"
-        v-if="!$q.platform.is.mobile">
+      <div class="actionButtons">
         <router-link :to="{name: 'groupInvitations', params: {groupId: group.id}}">
           <q-btn
             small

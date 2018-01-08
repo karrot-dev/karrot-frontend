@@ -1,6 +1,6 @@
 <template>
   <q-card
-    class="no-shadow grey-border"
+    class="no-mobile-margin no-shadow grey-border"
   >
     <div class="group-banner">
       <RandomArt
@@ -8,9 +8,7 @@
         type="circles" />
     </div>
     <div class="generic-padding">
-      <div
-        class="actionButtons"
-        v-if="!$q.platform.is.mobile">
+      <div class="actionButtons">
         <router-link :to="{name: 'groupPreview', params: {groupPreviewId: group.id}}">
           <q-btn
             small
@@ -34,7 +32,9 @@
           </q-btn>
         </router-link>
       </div>
-      <q-item multiline>
+      <q-item
+        class="content"
+        multiline>
         <q-item-main>
           <Markdown
             v-if="group.description"
@@ -83,4 +83,7 @@ body.mobile .group-banner
   border 0
   max-height: 30px
   overflow: hidden
+
+.content
+  margin-top 10px
 </style>

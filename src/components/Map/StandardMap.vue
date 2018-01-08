@@ -4,6 +4,7 @@
     :bounds="bounds"
     :center="center"
     :zoom="zoom"
+    @l-click="$emit('mapClick', arguments[0].latlng)"
   >
     <v-tile-layer
       :url="url"
@@ -67,6 +68,9 @@ export default {
     defaultCenter: {
       default: null,
     },
+    preventZoom: {
+      default: false,
+    },
   },
   data () {
     return {
@@ -84,47 +88,54 @@ export default {
   },
   computed: {
     hasSelectedMarkers () {
-      return this.selectedMarkerIds.length > 0
+      return this.selectedMarkers && this.selectedMarkers.length > 0
+    },
+    selectedMarkers () {
+      if (this.selectedMarkerIds.length > 0) {
+        return this.selectedMarkerIds.map(this.getMarker).filter(existsFilter)
+      }
+    },
+    hasMarkers () {
+      return this.markers && this.markers.length > 0
+    },
+    hasOneMarker () {
+      return this.markers && this.markers.length === 1
+    },
+    markersForBound () {
+      if (this.hasSelectedMarkers) {
+        return this.selectedMarkers
+      }
+      return this.markers
     },
     attribution () {
       if (this.showAttribution) {
         return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }
-      else {
-        return ''
-      }
-    },
-    selectedMarkers () {
-      if (this.hasSelectedMarkers) {
-        return this.selectedMarkerIds.map(this.getMarker).filter(existsFilter)
-      }
-      else {
-        return this.markers
-      }
+      return ''
     },
     bounds () {
-      if (this.selectedMarkers.length > 0) {
-        return L.latLngBounds(this.selectedMarkers.map(m => m.latLng)).pad(0.2)
+      if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
+        return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
       }
     },
     center () {
       if (!this.bounds) {
+        if (this.hasOneMarker) {
+          const { lat, lng } = this.markersForBound[0].latLng
+          return [lat, lng]
+        }
         if (this.defaultCenter) {
           return [this.defaultCenter.latitude, this.defaultCenter.longitude]
         }
-        else {
-          return ['49.8990022441358', '8.66415739059448']
-        }
+        return ['49.8990022441358', '8.66415739059448']
       }
     },
     zoom () {
-      if (!this.bounds) {
+      if (!this.preventZoom && !this.bounds) {
         if (this.defaultCenter) {
           return 10
         }
-        else {
-          return 15
-        }
+        return 15
       }
     },
   },

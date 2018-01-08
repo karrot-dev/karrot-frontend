@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-argon2-cffi==16.3.0       # via django
+argon2-cffi==18.1.0       # via django
 asgi-redis==1.4.3
 asgiref==1.1.2            # via asgi-redis, channels, daphne
 attrs==17.4.0             # via automat
@@ -19,7 +19,7 @@ cookies==2.2.1            # via responses
 coreapi==2.3.3            # via django-rest-swagger, openapi-codec
 coreschema==0.0.4         # via coreapi
 coverage==4.4.2
-daphne==1.4.1             # via channels
+daphne==1.4.2             # via channels
 django-anymail==1.2
 django-cors-headers==2.1.0
 django-crispy-forms==1.7.0
@@ -45,7 +45,7 @@ incremental==17.5.0       # via twisted
 influxdb==5.0.0           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
 jinja2==2.10              # via coreschema, django-jinja
-markdown==2.6.10
+markdown==2.6.11
 markupsafe==1.0           # via jinja2
 mccabe==0.6.1             # via flake8
 msgpack-python==0.4.8     # via asgi-redis

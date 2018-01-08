@@ -9,7 +9,7 @@
         />
         <div class="content">
           <div>
-            <strong>{{ $d(pickupDate, 'long') }}</strong>,
+            <strong class="small-margin-right">{{ $d(pickupDate, 'long') }}</strong>
             <router-link
               v-if="storeName && storeId"
               :to="{ name: 'store', params: { storeId }}">
@@ -28,8 +28,12 @@
               <DateAsWords :date="createdAt" />
             </span>
           </small>
-          <div class="comment">{{ comment }}</div>
-          <div>
+          <div
+            v-if="comment"
+            class="comment">
+            {{ comment }}
+          </div>
+          <div class="people">
             <ProfilePicture
               :user="feedback.givenBy"
               size="22"
@@ -109,10 +113,12 @@ export default {
 .content
   padding: .5em
 .comment
-  padding: .5em 0
-.members
-  margin-left: .5em
-.members > div
+  padding: .3em 0 .15em 0
+.people
+  margin-top: .3em
+  .members
+    margin-left: .5em
+.members > div, .small-margin-right
   margin-right: .2em
 .message-date
   display inline-block

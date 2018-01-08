@@ -12,18 +12,22 @@
             <router-link
               v-if="storeName && storeId"
               :to="{ name: 'store', params: { storeId }}">
-              <strong >{{ storeName }}:</strong>
+              <span class="text-bold text-secondary uppercase">{{ storeName }}:</span>
             </router-link>
             <strong>{{ $d(pickupDate, 'long') }}</strong>
           </div>
-          <i18n path="PICKUP_FEEDBACK.GIVEN_BY">
+          <small class="light-paragraph">
             <router-link
               place="user"
               :to="{ name: 'user', params: { userId } }">
               <span >{{ userName }}</span>
             </router-link>
-            <span place="date">{{ $d(createdAt, 'dateShort') }}</span>
-          </i18n>
+            <span
+              class="message-date"
+              place="date">
+              <DateAsWords :date="createdAt" />
+            </span>
+          </small>
           <div class="comment">{{ comment }}</div>
           <div>
             <ProfilePicture
@@ -52,10 +56,11 @@
 import { QCard, QCardMain, QCardTitle } from 'quasar'
 import AmountBox from './AmountBox'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   components: {
-    QCard, QCardMain, QCardTitle, AmountBox, ProfilePicture,
+    QCard, QCardMain, QCardTitle, AmountBox, ProfilePicture, DateAsWords,
   },
   props: {
     feedback: { required: true },
@@ -109,4 +114,6 @@ export default {
   margin-left: .5em
 .members > div
   margin-right: .2em
+.message-date
+  display inline-block
 </style>

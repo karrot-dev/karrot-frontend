@@ -4607,7 +4607,12 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
             </div>
             <div class="content">
                 <div>
-                    <div to="[object Object]"><strong>Griesheimer Markt:</strong></div> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> on <span place="date">August 11, 2017</span></span>
+                    <div to="[object Object]"><span class="text-bold text-secondary uppercase">Griesheimer Markt:</span></div> <strong>Aug 12, 2017, 8:00 AM</strong></div>
+                <small class="light-paragraph">
+                    <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+            </span>
+            </small>
             <div class="comment">All worked out perfectly!</div>
             <div>
                 <div class="wrapper">
@@ -4638,9 +4643,44 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     </div>
                     <div class="content">
                         <div>
-                            <div to="[object Object]"><strong>Griesheimer Markt:</strong></div> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> on <span place="date">August 11, 2017</span></span>
-                    <div
-                        class="comment">All worked out perfectly!</div>
+                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Griesheimer Markt:</span></div> <strong>Aug 12, 2017, 8:00 AM</strong></div>
+                        <small class="light-paragraph">
+                            <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+                    </span>
+                    </small>
+                    <div class="comment">All worked out perfectly!</div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card no-shadow grey-border">
+        <div class="q-card-main q-card-container generic-padding">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:80px;height:80px;">
+                    <img width="80px" height="80px" src="test-file-stub">
+                    <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
+                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div>
+                        <div to="[object Object]"><span class="text-bold text-secondary uppercase">Griesheimer Markt:</span></div> <strong>Aug 13, 2017, 8:00 AM</strong></div>
+                    <small class="light-paragraph">
+                        <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 11, 2017, 3:40 PM</span></div>
+                </span>
+                </small>
+                <div class="comment"></div>
                 <div>
                     <div class="wrapper">
                         <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
@@ -4660,38 +4700,17 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
         <div class="row no-wrap">
             <div class="container amount-box" style="width:80px;height:80px;">
                 <img width="80px" height="80px" src="test-file-stub">
-                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
-            </div>
-            <div class="content">
-                <div>
-                    <div to="[object Object]"><strong>Griesheimer Markt:</strong></div> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> on <span place="date">September 11, 2017</span></span>
-            <div class="comment"></div>
-            <div>
-                <div class="wrapper">
-                    <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mira Bellenbaum
-    </span></div>
-                    <!---->
-                    <!---->
-                </div>
-                <!---->
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<div class="q-card no-shadow grey-border">
-    <div class="q-card-main q-card-container generic-padding">
-        <div class="row no-wrap">
-            <div class="container amount-box" style="width:80px;height:80px;">
-                <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">0.0</span> <span style="font-size:11px;">kg</span></div>
             </div>
             <div class="content">
                 <div>
-                    <div to="[object Object]"><strong>Griesheimer Markt:</strong></div> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <div place="user" to="[object Object]"><span>Max Mustermann</span></div> on <span place="date">September 18, 2017</span></span>
+                    <div to="[object Object]"><span class="text-bold text-secondary uppercase">Griesheimer Markt:</span></div> <strong>Aug 13, 2017, 8:00 AM</strong></div>
+                <small class="light-paragraph">
+                    <div place="user" to="[object Object]"><span>Max Mustermann</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 18, 2017, 12:12 PM</span></div>
+            </span>
+            </small>
             <div class="comment">They did not have anything today</div>
             <div>
                 <div class="wrapper">
@@ -5020,7 +5039,12 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             </div>
                             <div class="content">
                                 <div>
-                                    <div to="[object Object]"><strong>Griesheimer Markt:</strong></div> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> on <span place="date">August 11, 2017</span></span>
+                                    <div to="[object Object]"><span class="text-bold text-secondary uppercase">Griesheimer Markt:</span></div> <strong>Aug 12, 2017, 8:00 AM</strong></div>
+                                <small class="light-paragraph">
+                                    <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+                            </span>
+                            </small>
                             <div class="comment">All worked out perfectly!</div>
                             <div>
                                 <div class="wrapper">
@@ -5046,7 +5070,12 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         </div>
                         <div class="content">
                             <div>
-                                <div to="[object Object]"><strong>Griesheimer Markt:</strong></div> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> on <span place="date">September 11, 2017</span></span>
+                                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Griesheimer Markt:</span></div> <strong>Aug 13, 2017, 8:00 AM</strong></div>
+                            <small class="light-paragraph">
+                                <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 11, 2017, 3:40 PM</span></div>
+                        </span>
+                        </small>
                         <div class="comment"></div>
                         <div>
                             <div class="wrapper">
@@ -5072,7 +5101,12 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     </div>
                     <div class="content">
                         <div>
-                            <div to="[object Object]"><strong>Griesheimer Markt:</strong></div> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <div place="user" to="[object Object]"><span>Max Mustermann</span></div> on <span place="date">September 18, 2017</span></span>
+                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Griesheimer Markt:</span></div> <strong>Aug 13, 2017, 8:00 AM</strong></div>
+                        <small class="light-paragraph">
+                            <div place="user" to="[object Object]"><span>Max Mustermann</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 18, 2017, 12:12 PM</span></div>
+                    </span>
+                    </small>
                     <div class="comment">They did not have anything today</div>
                     <div>
                         <div class="wrapper">

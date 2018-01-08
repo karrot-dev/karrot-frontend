@@ -9,12 +9,12 @@
         />
         <div class="content">
           <div>
+            <strong>{{ $d(pickupDate, 'long') }}</strong>,
             <router-link
               v-if="storeName && storeId"
               :to="{ name: 'store', params: { storeId }}">
-              <span class="text-bold text-secondary uppercase">{{ storeName }}:</span>
+              <span class="text-secondary">{{ storeName }}</span>
             </router-link>
-            <strong>{{ $d(pickupDate, 'long') }}</strong>
           </div>
           <small class="light-paragraph">
             <router-link

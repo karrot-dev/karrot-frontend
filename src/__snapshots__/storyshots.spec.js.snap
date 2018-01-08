@@ -2538,8 +2538,7 @@ exports[`Storyshots PickupItem Full 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description">
-                this pickup is already full!
+            <div class="description multiline">this pickup is already full!
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2587,8 +2586,7 @@ exports[`Storyshots PickupItem Join 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description">
-                you can join this pickup
+            <div class="description multiline">you can join this pickup
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2648,8 +2646,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description">
-                you are collector and can leave this pickup
+            <div class="description multiline">you are collector and can leave this pickup
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2706,8 +2703,7 @@ exports[`Storyshots PickupItem pending 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description">
-                you can join this pickup
+            <div class="description multiline">you can join this pickup
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2760,8 +2756,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
                 </div>
-                <div class="description">
-                    you can join this pickup
+                <div class="description multiline">you can join this pickup
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -2819,8 +2814,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
                 </div>
-                <div class="description">
-                    you are collector and can leave this pickup
+                <div class="description multiline">you are collector and can leave this pickup
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -2875,8 +2869,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
                 </div>
-                <div class="description">
-                    this pickup is already full!
+                <div class="description multiline">this pickup is already full!
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -2922,8 +2915,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
                 </div>
-                <div class="description">
-                    this pickup is fresh and empty
+                <div class="description multiline">this pickup is fresh and empty
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -4606,7 +4598,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
             </div>
             <div class="content">
-                <div><strong>Aug 12, 2017, 8:00 AM</strong>,
+                <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
                     <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                 </div>
                 <small class="light-paragraph">
@@ -4614,8 +4606,10 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
   4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
             </span>
             </small>
-            <div class="comment">All worked out perfectly!</div>
-            <div>
+            <div class="comment">
+                All worked out perfectly!
+            </div>
+            <div class="people">
                 <div class="wrapper">
                     <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
@@ -4643,7 +4637,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                         <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
                     </div>
                     <div class="content">
-                        <div><strong>Aug 12, 2017, 8:00 AM</strong>,
+                        <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
                             <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                         </div>
                         <small class="light-paragraph">
@@ -4651,8 +4645,10 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
   4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
                     </span>
                     </small>
-                    <div class="comment">All worked out perfectly!</div>
-                    <div>
+                    <div class="comment">
+                        All worked out perfectly!
+                    </div>
+                    <div class="people">
                         <div class="wrapper">
                             <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
@@ -4675,7 +4671,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
                 </div>
                 <div class="content">
-                    <div><strong>Aug 13, 2017, 8:00 AM</strong>,
+                    <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
                         <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                     </div>
                     <small class="light-paragraph">
@@ -4683,8 +4679,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
   3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 11, 2017, 3:40 PM</span></div>
                 </span>
                 </small>
-                <div class="comment"></div>
-                <div>
+                <!---->
+                <div class="people">
                     <div class="wrapper">
                         <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
@@ -4707,7 +4703,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">0.0</span> <span style="font-size:11px;">kg</span></div>
             </div>
             <div class="content">
-                <div><strong>Aug 13, 2017, 8:00 AM</strong>,
+                <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
                     <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                 </div>
                 <small class="light-paragraph">
@@ -4715,8 +4711,10 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
   3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 18, 2017, 12:12 PM</span></div>
             </span>
             </small>
-            <div class="comment">They did not have anything today</div>
-            <div>
+            <div class="comment">
+                They did not have anything today
+            </div>
+            <div class="people">
                 <div class="wrapper">
                     <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
@@ -5042,7 +5040,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
                             </div>
                             <div class="content">
-                                <div><strong>Aug 12, 2017, 8:00 AM</strong>,
+                                <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
                                     <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                                 </div>
                                 <small class="light-paragraph">
@@ -5050,8 +5048,10 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
   4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
                             </span>
                             </small>
-                            <div class="comment">All worked out perfectly!</div>
-                            <div>
+                            <div class="comment">
+                                All worked out perfectly!
+                            </div>
+                            <div class="people">
                                 <div class="wrapper">
                                     <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
@@ -5074,7 +5074,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
                         </div>
                         <div class="content">
-                            <div><strong>Aug 13, 2017, 8:00 AM</strong>,
+                            <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
                                 <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                             </div>
                             <small class="light-paragraph">
@@ -5082,8 +5082,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
   3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 11, 2017, 3:40 PM</span></div>
                         </span>
                         </small>
-                        <div class="comment"></div>
-                        <div>
+                        <!---->
+                        <div class="people">
                             <div class="wrapper">
                                 <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
@@ -5106,7 +5106,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">0.0</span> <span style="font-size:11px;">kg</span></div>
                     </div>
                     <div class="content">
-                        <div><strong>Aug 13, 2017, 8:00 AM</strong>,
+                        <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
                             <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                         </div>
                         <small class="light-paragraph">
@@ -5114,8 +5114,10 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
   3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 18, 2017, 12:12 PM</span></div>
                     </span>
                     </small>
-                    <div class="comment">They did not have anything today</div>
-                    <div>
+                    <div class="comment">
+                        They did not have anything today
+                    </div>
+                    <div class="people">
                         <div class="wrapper">
                             <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann

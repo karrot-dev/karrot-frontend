@@ -30,8 +30,7 @@
           </small>
           <div
             v-if="comment"
-            class="comment">
-            {{ comment }}
+            class="comment multiline">{{ comment }}
           </div>
           <div class="people">
             <ProfilePicture

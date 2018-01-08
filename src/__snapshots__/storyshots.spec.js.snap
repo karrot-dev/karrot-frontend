@@ -1905,7 +1905,10 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <!---->
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
-        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <!----></span></button>
+        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <!---->
+        </span>
+    </button>
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="globe q-icon fa fa-globe"> </i>
@@ -1930,13 +1933,19 @@ exports[`Storyshots Layout KTopbar 1`] = `
             Italiano
             <small>(25%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:25%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
-            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <!----></span></button>
+            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <!---->
+        </span>
+    </button>
     <div to="[object Object]" class="defaulthover">
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> 
         Current User
-        <i aria-hidden="true" class="q-icon fa fa-fw fa-user"> </i> <!----></span></button>
+        <i aria-hidden="true" class="q-icon fa fa-fw fa-user"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!---->
+            </span>
+        </button>
     </div>
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
@@ -2529,8 +2538,7 @@ exports[`Storyshots PickupItem Full 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">
-                this pickup is already full!
+            <div class="description multiline">this pickup is already full!
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2578,8 +2586,7 @@ exports[`Storyshots PickupItem Join 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">
-                you can join this pickup
+            <div class="description multiline">you can join this pickup
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2639,8 +2646,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">
-                you are collector and can leave this pickup
+            <div class="description multiline">you are collector and can leave this pickup
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2697,8 +2703,7 @@ exports[`Storyshots PickupItem pending 1`] = `
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
-            <div class="description multiline">
-                you can join this pickup
+            <div class="description multiline">you can join this pickup
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
@@ -2751,8 +2756,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
                 </div>
-                <div class="description multiline">
-                    you can join this pickup
+                <div class="description multiline">you can join this pickup
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -2810,8 +2814,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
                 </div>
-                <div class="description multiline">
-                    you are collector and can leave this pickup
+                <div class="description multiline">you are collector and can leave this pickup
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -2866,8 +2869,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
                 </div>
-                <div class="description multiline">
-                    this pickup is already full!
+                <div class="description multiline">this pickup is already full!
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -2913,8 +2915,7 @@ exports[`Storyshots PickupList Default 1`] = `
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
                 </div>
-                <div class="description multiline">
-                    this pickup is fresh and empty
+                <div class="description multiline">this pickup is fresh and empty
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
@@ -3893,6 +3894,14 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-side-left q-item-section text-center">
+                        <i aria-hidden="true" class="q-icon fa fa-balance-scale"> </i>
+                    </div>
+                    <div class="q-item-main q-item-section">
+                        Feedback
+                    </div>
+                </div>
+                <div class="q-item q-item-division relative-position q-item-link">
+                    <div class="q-item-side q-item-side-left q-item-section text-center">
                         <i aria-hidden="true" class="q-icon fa fa-vcard"> </i>
                     </div>
                     <div class="q-item-main q-item-section">
@@ -4399,7 +4408,7 @@ exports[`Storyshots Statistics AmountBox 1`] = `
 <div class="container" style="width:100px;height:100px;">
     <img width="100px" height="100px" src="test-file-stub">
     <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(12deg);top:10px;">
-    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">20</span> <span style="font-size:14px;">kg</span></div>
+    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">20.0</span> <span style="font-size:14px;">kg</span></div>
 </div>
 `;
 
@@ -4409,7 +4418,7 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
         <div class="container amount" style="width:100px;height:100px;">
             <img width="100px" height="100px" src="test-file-stub">
             <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
-            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1</span> <span style="font-size:14px;">kg</span></div>
+            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1.0</span> <span style="font-size:14px;">kg</span></div>
         </div>
         <div style="margin-left:.6em;">
             <div style="padding-bottom:.3em;"></div>
@@ -4580,18 +4589,96 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
 `;
 
 exports[`Storyshots Statistics FeedbackItem 1`] = `
-<div class="q-card">
-    <div class="q-card-main q-card-container">
+<div class="q-card no-shadow grey-border">
+    <div class="q-card-main q-card-container generic-padding">
         <div class="row no-wrap">
-            <div class="container amount-box" style="width:100px;height:100px;">
-                <img width="100px" height="100px" src="test-file-stub">
-                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
-                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
+            <div class="container amount-box" style="width:80px;height:80px;">
+                <img width="80px" height="80px" src="test-file-stub">
+                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
             </div>
             <div class="content">
-                <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
-                <div class="comment">All worked out perfectly!</div>
-                <div>
+                <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
+                    <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                </div>
+                <small class="light-paragraph">
+                    <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+            </span>
+            </small>
+            <div class="comment multiline">All worked out perfectly!
+            </div>
+            <div class="people">
+                <div class="wrapper">
+                    <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                    <!---->
+                    <!---->
+                </div>
+                <!---->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+`;
+
+exports[`Storyshots Statistics FeedbackList 1`] = `
+<div class="q-infinite-scroll">
+    <div class="q-infinite-scroll-content">
+        <div class="q-card no-shadow grey-border">
+            <div class="q-card-main q-card-container generic-padding">
+                <div class="row no-wrap">
+                    <div class="container amount-box" style="width:80px;height:80px;">
+                        <img width="80px" height="80px" src="test-file-stub">
+                        <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+                        <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
+                    </div>
+                    <div class="content">
+                        <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
+                            <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                        </div>
+                        <small class="light-paragraph">
+                            <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+                    </span>
+                    </small>
+                    <div class="comment multiline">All worked out perfectly!
+                    </div>
+                    <div class="people">
+                        <div class="wrapper">
+                            <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+      Mira Bellenbaum
+    </span></div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-card no-shadow grey-border">
+        <div class="q-card-main q-card-container generic-padding">
+            <div class="row no-wrap">
+                <div class="container amount-box" style="width:80px;height:80px;">
+                    <img width="80px" height="80px" src="test-file-stub">
+                    <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
+                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="content">
+                    <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
+                        <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                    </div>
+                    <small class="light-paragraph">
+                        <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 11, 2017, 3:40 PM</span></div>
+                </span>
+                </small>
+                <!---->
+                <div class="people">
                     <div class="wrapper">
                         <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
@@ -4605,333 +4692,362 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
         </div>
     </div>
 </div>
-`;
-
-exports[`Storyshots Statistics FeedbackList 1`] = `
-<div>
-    <div class="q-card">
-        <div class="q-card-main q-card-container">
-            <div class="row no-wrap">
-                <div class="container amount-box" style="width:100px;height:100px;">
-                    <img width="100px" height="100px" src="test-file-stub">
-                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
-                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
-                </div>
-                <div class="content">
-                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
-                    <div class="comment">All worked out perfectly!</div>
-                    <div>
-                        <div class="wrapper">
-                            <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mira Bellenbaum
-    </span></div>
-                            <!---->
-                            <!---->
-                        </div>
-                        <!---->
-                    </div>
-                </div>
+<div class="q-card no-shadow grey-border">
+    <div class="q-card-main q-card-container generic-padding">
+        <div class="row no-wrap">
+            <div class="container amount-box" style="width:80px;height:80px;">
+                <img width="80px" height="80px" src="test-file-stub">
+                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">0.0</span> <span style="font-size:11px;">kg</span></div>
             </div>
-        </div>
-    </div>
-    <div class="q-card">
-        <div class="q-card-main q-card-container">
-            <div class="row no-wrap">
-                <div class="container amount-box" style="width:100px;height:100px;">
-                    <img width="100px" height="100px" src="test-file-stub">
-                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:10px;">
-                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
+            <div class="content">
+                <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
+                    <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                 </div>
-                <div class="content">
-                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
-                    <div class="comment"></div>
-                    <div>
-                        <div class="wrapper">
-                            <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mira Bellenbaum
-    </span></div>
-                            <!---->
-                            <!---->
-                        </div>
-                        <!---->
-                    </div>
-                </div>
+                <small class="light-paragraph">
+                    <div place="user" to="[object Object]"><span>Max Mustermann</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 18, 2017, 12:12 PM</span></div>
+            </span>
+            </small>
+            <div class="comment multiline">They did not have anything today
             </div>
-        </div>
-    </div>
-    <div class="q-card">
-        <div class="q-card-main q-card-container">
-            <div class="row no-wrap">
-                <div class="container amount-box" style="width:100px;height:100px;">
-                    <img width="100px" height="100px" src="test-file-stub">
-                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
-                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
-                </div>
-                <div class="content">
-                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
-                    <div class="comment">They did not have anything today</div>
-                    <div>
-                        <div class="wrapper">
-                            <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div class="people">
+                <div class="wrapper">
+                    <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
-                            <!---->
-                            <!---->
-                        </div>
-                        <!---->
-                    </div>
+                    <!---->
+                    <!---->
                 </div>
+                <!---->
             </div>
         </div>
     </div>
 </div>
+</div>
+<!---->
+</div>
+<div class="q-infinite-scroll-message" style="display:none;">
+    <div style="width:100%;text-align:center;">
+        <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+            <circle cx="15" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="60" cy="15" r="9" fill-opacity=".3">
+                <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="105" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+        </svg>
+    </div>
+</div>
+</div>
 `;
 
 exports[`Storyshots Statistics PickupFeedback 1`] = `
-<div class="q-card no-shadow generic-padding grey-border" style="width:100%;">
-    <div class="row no-wrap image-and-text">
-        <div class="image-and-text-left gt-sm">
-            <img src="test-file-stub" style="width:100%;">
+<div>
+    <div class="q-card no-shadow generic-padding grey-border">
+        <div class="row no-wrap image-and-text">
+            <div class="image-and-text-left gt-sm">
+                <img src="test-file-stub" style="width:100%;">
+            </div>
+            <div class="image-and-text-right">
+                <h4>Thank you for your pickup!</h4>
+                <p>
+                    <div class="q-field row no-wrap items-start q-field-no-label">
+                        <!---->
+                        <div class="row col">
+                            <!---->
+                            <div class="q-field-content col-xs-12 col-sm">
+                                <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
+                                    <!---->
+                                    <div class="q-if-inner col row no-wrap items-center relative-position">
+                                        <!---->
+                                        <!---->
+                                        <div class="col row items-center q-input-target justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                                        <!---->
+                                        <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
+                                            <div></div>
+                                            <div class="no-border scroll q-list q-list-link">
+                                                <div class="q-item q-item-division relative-position active">
+                                                    <div class="q-item-main q-item-section">
+                                                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                                                    </div>
+                                                </div>
+                                                <div class="q-item q-item-division relative-position">
+                                                    <div class="q-item-main q-item-section">
+                                                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
+                                                    </div>
+                                                </div>
+                                                <div class="q-item q-item-division relative-position">
+                                                    <div class="q-item-main q-item-section">
+                                                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
+                                                    </div>
+                                                </div>
+                                                <div class="q-item q-item-division relative-position">
+                                                    <div class="q-item-main q-item-section">
+                                                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </p>
+            </div>
         </div>
-        <div class="image-and-text-right">
-            <h4>Thank you for your pickup!</h4>
-            <p>Aug 12, 2017, 8:00 AM (Griesheimer Markt)
-                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
+        <form style="padding:0 1.5em;">
+            <div class="wrapper">
+                <div class="row no-wrap">
+                    <div class="container amount" style="width:100px;height:100px;">
+                        <img width="100px" height="100px" src="test-file-stub">
+                        <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
+                        <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1.0</span> <span style="font-size:14px;">kg</span></div>
+                    </div>
+                    <div style="margin-left:.6em;">
+                        <div style="padding-bottom:.3em;"></div>
+                        <div class="wrapper row">
+                            <img src="test-file-stub">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="q-slider non-selectable">
+                        <div class="q-slider-handle-container">
+                            <div class="q-slider-track"></div>
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
+                            <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
+                                <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
+                                    <!---->
+                                    <div class="q-chip-main"> 1 </div>
+                                    <!---->
+                                    <!---->
+                                </div>
+                                <div class="q-slider-ring"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="q-field row no-wrap items-start" style="margin-top:2em;padding:0 .5em;">
+                <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
+                <div class="row col">
+                    <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
+                        <div class="q-field-label-inner row items-center"><span>Comment</span> </div>
+                    </div>
+                    <div class="q-field-content col-xs-12 col-sm">
+                        <div autocomplete="off" class="q-if row no-wrap items-center relative-position q-input text-primary">
+                            <!---->
+                            <div class="q-if-inner col row no-wrap items-center relative-position">
+                                <!---->
+                                <!---->
+                                <div class="col row relative-position">
+                                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
+                                        <div class="absolute-full overflow-hidden invisible">
+                                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                        </div>
+                                        <div class="absolute-full overflow-hidden invisible">
+                                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                        </div>
+                                    </div>
+                                    <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                    <textarea placeholder="Was everything fine? Did everyone show up? Your comment here..." rows="2" class="col q-input-target q-input-area"></textarea>
+                                </div>
+                                <!---->
+                                <!---->
+                                <!---->
+                                <!---->
+                            </div>
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-end generic-margin group">
+                <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white">
                     <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> 
-          Other pickup
-         <!----></span></button>
-            </p>
-        </div>
+                    <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
+            </div>
+        </form>
+        <!---->
     </div>
-    <form style="padding:0 1.5em;">
-        <div class="wrapper">
-            <div class="row no-wrap">
-                <div class="container amount" style="width:100px;height:100px;">
-                    <img width="100px" height="100px" src="test-file-stub">
-                    <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
-                    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1</span> <span style="font-size:14px;">kg</span></div>
-                </div>
-                <div style="margin-left:.6em;">
-                    <div style="padding-bottom:.3em;"></div>
-                    <div class="wrapper row">
-                        <img src="test-file-stub">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="q-slider non-selectable">
-                    <div class="q-slider-handle-container">
-                        <div class="q-slider-track"></div>
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
-                        <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
-                            <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events square pointing text-white pointing-down bg-primary">
-                                <!---->
-                                <div class="q-chip-main"> 1 </div>
-                                <!---->
-                                <!---->
+    <div class="q-card no-shadow grey-border store-feedback"><span class="randomBanner"></span>
+        <h4 class="generic-padding"></h4>
+        <div class="q-infinite-scroll">
+            <div class="q-infinite-scroll-content">
+                <div class="q-card no-shadow grey-border">
+                    <div class="q-card-main q-card-container generic-padding">
+                        <div class="row no-wrap">
+                            <div class="container amount-box" style="width:80px;height:80px;">
+                                <img width="80px" height="80px" src="test-file-stub">
+                                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+                                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
                             </div>
-                            <div class="q-slider-ring"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="q-field row no-wrap items-start" style="margin-top:2em;padding:0 .5em;">
-            <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
-            <div class="row col">
-                <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                    <div class="q-field-label-inner row items-center"><span>Comment</span> </div>
-                </div>
-                <div class="q-field-content col-xs-12 col-sm">
-                    <div autocomplete="off" class="q-if row no-wrap items-center relative-position q-input text-primary">
-                        <!---->
-                        <div class="q-if-inner col row no-wrap items-center relative-position">
-                            <!---->
-                            <!---->
-                            <div class="col row relative-position">
-                                <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                    <div class="absolute-full overflow-hidden invisible">
-                                        <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
-                                    </div>
-                                    <div class="absolute-full overflow-hidden invisible">
-                                        <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
-                                    </div>
+                            <div class="content">
+                                <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
+                                    <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                                 </div>
-                                <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                                <textarea placeholder="Was everything fine? Did everyone show up? Your comment here..." rows="2" class="col q-input-target q-input-area"></textarea>
+                                <small class="light-paragraph">
+                                    <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+                            </span>
+                            </small>
+                            <div class="comment multiline">All worked out perfectly!
                             </div>
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!---->
-                        </div>
-                        <!---->
-                    </div>
-                    <!---->
-                </div>
-            </div>
-        </div>
-        <div class="row justify-end generic-margin group">
-            <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
-                <div class="desktop-only q-focus-helper"></div>
-                <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
-        </div>
-        <h4></h4>
-        <div>
-            <div class="q-card">
-                <div class="q-card-main q-card-container">
-                    <div class="row no-wrap">
-                        <div class="container amount-box" style="width:100px;height:100px;">
-                            <img width="100px" height="100px" src="test-file-stub">
-                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:10px;">
-                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
-                        </div>
-                        <div class="content">
-                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
-                            <div class="comment">All worked out perfectly!</div>
-                            <div>
+                            <div class="people">
                                 <div class="wrapper">
                                     <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
@@ -4945,59 +5061,93 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     </div>
                 </div>
             </div>
-            <div class="q-card">
-                <div class="q-card-main q-card-container">
+            <div class="q-card no-shadow grey-border">
+                <div class="q-card-main q-card-container generic-padding">
                     <div class="row no-wrap">
-                        <div class="container amount-box" style="width:100px;height:100px;">
-                            <img width="100px" height="100px" src="test-file-stub">
-                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:10px;">
-                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
+                        <div class="container amount-box" style="width:80px;height:80px;">
+                            <img width="80px" height="80px" src="test-file-stub">
+                            <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
+                            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
                         </div>
                         <div class="content">
-                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
-                            <div class="comment"></div>
-                            <div>
-                                <div class="wrapper">
-                                    <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
+                                <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                            </div>
+                            <small class="light-paragraph">
+                                <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 11, 2017, 3:40 PM</span></div>
+                        </span>
+                        </small>
+                        <!---->
+                        <div class="people">
+                            <div class="wrapper">
+                                <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
-                                    <!---->
-                                    <!---->
-                                </div>
+                                <!---->
                                 <!---->
                             </div>
+                            <!---->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="q-card">
-                <div class="q-card-main q-card-container">
-                    <div class="row no-wrap">
-                        <div class="container amount-box" style="width:100px;height:100px;">
-                            <img width="100px" height="100px" src="test-file-stub">
-                            <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
-                            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
+        </div>
+        <div class="q-card no-shadow grey-border">
+            <div class="q-card-main q-card-container generic-padding">
+                <div class="row no-wrap">
+                    <div class="container amount-box" style="width:80px;height:80px;">
+                        <img width="80px" height="80px" src="test-file-stub">
+                        <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                        <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">0.0</span> <span style="font-size:11px;">kg</span></div>
+                    </div>
+                    <div class="content">
+                        <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
+                            <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
                         </div>
-                        <div class="content">
-                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
-                            <div class="comment">They did not have anything today</div>
-                            <div>
-                                <div class="wrapper">
-                                    <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <small class="light-paragraph">
+                            <div place="user" to="[object Object]"><span>Max Mustermann</span></div> <span place="date" class="message-date"><div>
+  3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Sep 18, 2017, 12:12 PM</span></div>
+                    </span>
+                    </small>
+                    <div class="comment multiline">They did not have anything today
+                    </div>
+                    <div class="people">
+                        <div class="wrapper">
+                            <div to="[object Object]"><span style="display:block;overflow:hidden;width:22px;height:22px;"></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
-                                    <!---->
-                                    <!---->
-                                </div>
-                                <!---->
-                            </div>
+                            <!---->
+                            <!---->
                         </div>
+                        <!---->
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
     <!---->
+</div>
+<div class="q-infinite-scroll-message" style="display:none;">
+    <div style="width:100%;text-align:center;">
+        <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+            <circle cx="15" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="60" cy="15" r="9" fill-opacity=".3">
+                <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="105" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+        </svg>
+    </div>
+</div>
+</div>
+</div>
 </div>
 `;
 

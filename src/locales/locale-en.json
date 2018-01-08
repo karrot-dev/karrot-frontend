@@ -202,16 +202,19 @@
     "NONE_HINT": "You can create a new pickup on the store page.",
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
   },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
+    "GIVE_FEEDBACK": "Give feedback",
+    "NONE": "No feedback yet",
+    "NONE_HINT": "This page will be filled once more feedback is available"
+  },
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
     "HEADER": "Thank you for your pickup!",
     "SUBTITLE": "You can provide feedback for your pickup here",
-    "AMOUNT": "Amount of food you took home (in kg)",
+    "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "OTHER": "Other pickup",
-    "SELECT_PICKUP": "Please select a pickup date",
-    "GIVEN_BY": "by {user} on {date}",
     "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
@@ -223,7 +226,8 @@
     "SUCCESS": "The request was successfully sent. Have a look at your mails!"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Add more languages!"
+    "ADD_MORE": "Add more languages!",
+    "SWITCH": "Switch language"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "bold",

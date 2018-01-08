@@ -13,7 +13,7 @@ export default {
   components: { GroupNavbar, GroupPickupsNavbar },
   computed: {
     showPickupsNavbar () {
-      return this.$route.name === 'groupPickups' || this.$route.name === 'groupFeedback'
+      return this.$q.platform.is.mobile && (this.$route.name === 'groupPickups' || this.$route.name === 'groupFeedback')
     },
     showGroupNavbar () {
       // quick hack to discover all routes where group navbar should be shown

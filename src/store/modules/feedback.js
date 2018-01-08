@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import router from '@/router'
 import feedbackAPI from '@/services/api/feedback'
-import { indexById, createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
+import { indexById, createMetaModule, withMeta, metaStatuses, createPaginationModule } from '@/store/helpers'
 
 function initialState () {
   return {
@@ -13,7 +13,10 @@ function initialState () {
 
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: {
+    meta: createMetaModule(),
+    pagination: createPaginationModule(),
+  },
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => id => {
@@ -34,30 +37,39 @@ export default {
       }
       return getters.all.filter(e => e.about && stores.includes(e.about.store.id))
     },
-    ...metaStatuses(['save']),
+    ...metaStatuses(['save', 'fetch']),
   },
   actions: {
     ...withMeta({
-      async fetchFiltered ({ dispatch, commit }, filters) {
+      async fetch ({ dispatch, commit }, filters) {
         dispatch('clear')
-        const data = await feedbackAPI.list(filters)
-        commit('update', { entries: data.results, cursor: data.next })
+        const data = await dispatch('pagination/extractCursor', feedbackAPI.list(filters))
+        commit('update', data)
 
         // Fetch related pickups
-        for (const f of data.results) {
+        for (const f of data) {
+          dispatch('pickups/maybeFetch', f.about, { root: true })
+        }
+      },
+      async fetchMore ({ dispatch, commit }) {
+        const data = await dispatch('pagination/fetchMore', feedbackAPI.listMore)
+        commit('update', data)
+
+        // Fetch related pickups
+        for (const f of data) {
           dispatch('pickups/maybeFetch', f.about, { root: true })
         }
       },
 
-      async save ({ commit, state }, feedback) {
+      async save ({ commit }, feedback) {
         const entry = await feedbackAPI.create(feedback)
-        commit('update', { entries: [entry], cursor: state.cursor })
+        commit('update', [entry])
         router.push({ name: 'groupFeedback' })
       },
     }),
 
     async fetchForGroup ({ commit, dispatch, rootGetters }, { groupId }) {
-      dispatch('fetchFiltered', { group: groupId })
+      dispatch('fetch', { group: groupId })
     },
     async setStoreFilter ({ commit }, { storeId }) {
       commit('setStoreFilter', storeId)
@@ -75,7 +87,7 @@ export default {
 
   },
   mutations: {
-    update (state, { entries, cursor }) {
+    update (state, entries) {
       state.entries = {
         ...state.entries,
         ...indexById(entries),
@@ -89,7 +101,6 @@ export default {
         while (i < state.idList.length && state.entries[state.idList[i]].createdAt > createdAt) i++
         state.idList.splice(i, 0, id)
       }
-      state.cursor = cursor
     },
     setStoreFilter (state, storeId) {
       state.storeFilter = storeId

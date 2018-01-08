@@ -44,7 +44,8 @@
       flat
       @click="$emit('showSearch')"
     >
-      <q-icon name="fa-fw fa-search"/>
+      <q-icon name="fa-fw fa-search" />
+      <q-tooltip v-t="'BUTTON.SEARCH'" />
     </q-btn>
     <template v-if="!$q.platform.is.mobile">
       <LocaleSelect />
@@ -55,6 +56,7 @@
         <q-btn flat>
           {{ user.displayName }}
           <q-icon name="fa-fw fa-user" />
+          <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
         </q-btn>
       </router-link>
       <q-btn flat>

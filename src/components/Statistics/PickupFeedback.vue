@@ -1,78 +1,80 @@
 <template>
-  <q-card
-    class="no-shadow generic-padding grey-border"
-    style="width: 100%"
-  >
-    <div class="row no-wrap image-and-text">
-      <div class="image-and-text-left gt-sm">
-        <img
-          style="width: 100%;"
-          :src="cartImg">
-      </div>
-      <div class="image-and-text-right">
-        <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-        <p v-if="select">{{ getDateWithStore(select) }}
-          <q-btn
-            @click="select = false"
-            flat>
-            {{ $t("PICKUP_FEEDBACK.OTHER") }}
-          </q-btn>
-        </p>
-      </div>
-    </div>
-    <q-field
-      v-if="!select"
-      style="margin-top: 2em; padding: 0 .5em"
-      icon="fa-shopping-basket"
-      :label="$t('PICKUP_FEEDBACK.SELECT_PICKUP')">
-      <q-select
-        v-model="select"
-        :options="feedbackOptions"
-      />
-    </q-field>
-    <form
-      v-else
-      @submit.prevent="save"
-      style="padding: 0 1.5em"
+  <div>
+    <q-card
+      class="no-shadow generic-padding grey-border"
     >
-      <AmountPicker v-model="feedback.weight"/>
-      <q-field
-        style="margin-top: 2em; padding: 0 .5em"
-        icon="fa-star"
-        :label="$t('PICKUP_FEEDBACK.COMMENT')"
-        :error="hasError('comment')"
-        :error-label="firstError('comment')"
-      >
-        <q-input
-          v-model="feedback.comment"
-          type="textarea"
-          :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
-          autocomplete="off"
-          :min-rows="2"
-        />
-      </q-field>
-      <div class="row justify-end generic-margin group">
-        <q-btn
-          type="submit"
-          color="primary"
-          v-t="'BUTTON.CREATE'"
-        />
+      <div class="row no-wrap image-and-text">
+        <div class="image-and-text-left gt-sm">
+          <img
+            style="width: 100%;"
+            :src="cartImg">
+        </div>
+        <div class="image-and-text-right">
+          <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
+          <p>
+            <q-field>
+              <q-select
+                v-model="select"
+                :options="feedbackOptions"
+              />
+            </q-field>
+          </p>
+        </div>
       </div>
+      <form
+        @submit.prevent="save"
+        style="padding: 0 1.5em"
+      >
+        <AmountPicker v-model="feedback.weight"/>
+        <q-field
+          style="margin-top: 2em; padding: 0 .5em"
+          icon="fa-star"
+          :label="$t('PICKUP_FEEDBACK.COMMENT')"
+          :error="hasError('comment')"
+          :error-label="firstError('comment')"
+        >
+          <q-input
+            v-model="feedback.comment"
+            type="textarea"
+            :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
+            autocomplete="off"
+            :min-rows="2"
+          />
+        </q-field>
+        <div class="row justify-end generic-margin group">
+          <q-btn
+            type="submit"
+            color="secondary"
+            v-t="'BUTTON.CREATE'"
+          />
+        </div>
+      </form>
+
+      <div
+        v-if="hasNonFieldError"
+        class="text-negative"
+      >
+        <i class="fa fa-exclamation-triangle"/>
+        {{ firstNonFieldError }}
+      </div>
+    </q-card>
+    <q-card
+      class="no-shadow grey-border store-feedback"
+      v-if="select && feedbackForStore.length !== 0">
+      <RandomArt
+        class="randomBanner"
+        :seed="select.store.id"
+        type="banner"/>
       <h4
-        v-if="select"
+        class="generic-padding"
         v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.store.name } }"
       />
-      <FeedbackList :feedback="feedbackForStore" />
-    </form>
-
-    <div
-      v-if="hasNonFieldError"
-      class="text-negative"
-    >
-      <i class="fa fa-exclamation-triangle"/>
-      {{ firstNonFieldError }}
-    </div>
-  </q-card>
+      <FeedbackList
+        :feedback="feedbackForStore"
+        :status="fetchStatus"
+      />
+    </q-card>
+  </div>
 </template>
 
 <script>
@@ -81,17 +83,19 @@ import AmountPicker from './AmountPicker'
 import FeedbackList from './FeedbackList'
 import cartImg from 'assets/people/cart.png'
 import statusMixin from '@/mixins/statusMixin'
+import RandomArt from '@/components/General/RandomArt'
 
 function first (a) {
   return a && a[0]
 }
 
 export default {
-  components: { QCard, QField, QInput, QBtn, QSelect, AmountPicker, FeedbackList },
+  components: { RandomArt, QCard, QField, QInput, QBtn, QSelect, AmountPicker, FeedbackList },
   mixins: [statusMixin],
   props: {
     pickups: { required: true, type: Array },
     existingFeedback: { required: true, type: Array },
+    fetchStatus: { required: true, type: Object },
   },
   data () {
     return {
@@ -146,4 +150,10 @@ export default {
   .image-and-text-right
     width: 70%
     margin 0 auto
+.store-feedback
+  margin-top 2.5em
+  .randomBanner
+    display: block
+    height: 26px
+    overflow: hidden
 </style>

@@ -329,6 +329,7 @@ export default [
         },
         components: {
           default: PickupFeedback,
+          sidenav: GroupGroupSidenav,
         },
       },
     ],

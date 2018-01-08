@@ -7,6 +7,7 @@ export default connect({
     pickups: 'pickups/feedbackPossible',
     existingFeedback: 'feedback/all',
     status: 'feedback/saveStatus',
+    fetchStatus: 'feedback/fetchStatus',
   },
   actionsToEvents: {
     save: 'feedback/save',

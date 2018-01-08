@@ -4,17 +4,25 @@
       :user="user"
       :groups="groups"
     />
-    <History show-title />
+    <q-card class="no-shadow grey-border">
+      <q-card-title>
+        {{ $t('GROUP.HISTORY') }}
+      </q-card-title>
+      <q-card-main>
+        <History />
+      </q-card-main>
+    </q-card>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import UserProfile from '@/components/User/Profile'
-import History from '@/pages/History'
+import History from '@/components/History/HistoryList'
+import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 export default {
-  components: { History, UserProfile },
+  components: { QCard, QCardTitle, QCardMain, History, UserProfile },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',

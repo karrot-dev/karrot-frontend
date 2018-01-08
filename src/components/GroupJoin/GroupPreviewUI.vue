@@ -105,6 +105,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.q-alert-container
+  margin 8px
 .q-card *
   overflow: hidden
 </style>

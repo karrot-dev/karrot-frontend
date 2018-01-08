@@ -1,33 +1,31 @@
 <template>
-  <div>
-    <q-card
-      class="no-padding no-shadow grey-border"
-    >
-      <div class="group-banner">
-        <RandomArt
-          :seed="group.id"
-          type="circles" />
+  <q-card
+    class="no-padding no-shadow grey-border"
+  >
+    <div class="group-banner">
+      <RandomArt
+        :seed="group.id"
+        type="circles" />
+    </div>
+    <div class="generic-padding">
+      <div
+        class="actionButtons"
+        v-if="!$q.platform.is.mobile">
+        <router-link :to="{name: 'groupInvitations', params: {groupId: group.id}}">
+          <q-btn
+            small
+            round
+            color="secondary"
+            icon="fa-user-plus"
+            class="hoverScale"
+          >
+            <q-tooltip v-t="'GROUP.INVITE_TITLE'" />
+          </q-btn>
+        </router-link>
       </div>
-      <div class="generic-padding">
-        <div
-          class="actionButtons"
-          v-if="!$q.platform.is.mobile">
-          <router-link :to="{name: 'groupInvitations', params: {groupId: group.id}}">
-            <q-btn
-              small
-              round
-              color="secondary"
-              icon="fa-user-plus"
-              class="hoverScale"
-            >
-              <q-tooltip v-t="'GROUP.INVITE_TITLE'" />
-            </q-btn>
-          </router-link>
-        </div>
-        <UserList :users="users" />
-      </div>
-    </q-card>
-  </div>
+      <UserList :users="users" />
+    </div>
+  </q-card>
 </template>
 
 <script>

@@ -116,7 +116,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                         <div class="q-item-">
                             <div class="no-wrap">
                                 <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mira Bellenbaum</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:43 PM</span></div>
                             </small>
                             </span>
                         </div>
@@ -136,7 +136,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     <div class="q-item-">
                         <div class="no-wrap">
                             <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:47 PM</span></div>
                         </small>
                         </span>
                     </div>
@@ -156,7 +156,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                 <div class="q-item-">
                     <div class="no-wrap">
                         <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:47 PM</span></div>
                     </small>
                     </span>
                 </div>
@@ -176,7 +176,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
             <div class="q-item-">
                 <div class="no-wrap">
                     <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:49 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:49 PM</span></div>
                 </small>
                 </span>
             </div>
@@ -196,7 +196,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <div class="q-item-">
             <div class="no-wrap">
                 <div to="[object Object]"><span class="text-bold text-secondary uppercase">Karl Karlson</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:51 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:51 PM</span></div>
             </small>
             </span>
         </div>
@@ -216,7 +216,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <div class="q-item-">
             <div class="no-wrap">
                 <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:52 PM</span></div>
             </small>
             </span>
         </div>
@@ -236,7 +236,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <div class="q-item-">
             <div class="no-wrap">
                 <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:52 PM</span></div>
             </small>
             </span>
         </div>
@@ -256,7 +256,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <div class="q-item-">
             <div class="no-wrap">
                 <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:52 PM</span></div>
             </small>
             </span>
         </div>
@@ -276,7 +276,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <div class="q-item-">
             <div class="no-wrap">
                 <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
+  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 5:52 PM</span></div>
             </small>
             </span>
         </div>
@@ -582,7 +582,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
                                     <!---->
                                     <!---->
-                                    <input type="text" value="UTC" class="col q-input-target text-left">
+                                    <input type="text" value="Europe/Brussels" class="col q-input-target text-left">
                                     <!---->
                                     <!---->
                                     <!---->
@@ -1581,12 +1581,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:15 AM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:15 AM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1607,12 +1607,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:15 AM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:15 AM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1633,12 +1633,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:15 AM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:15 AM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1659,12 +1659,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:12 AM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:12 AM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1685,12 +1685,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:12 AM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 11:12 AM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1703,12 +1703,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 8:00 AM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 10:00 AM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 8:00 AM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 10:00 AM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1750,12 +1750,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 6:28 PM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 6:28 PM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1776,12 +1776,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 6:28 PM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 6:28 PM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1802,12 +1802,12 @@ exports[`Storyshots History List Default 1`] = `
         </span></div>
                                     <div class="q-item-stamp mobile-only light-paragraph">
                                         <div>
-                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:27 PM</span></div>
+                                            3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 6:27 PM</span></div>
                                     </div>
                                 </div>
                                 <div class="q-item-side q-item-side-right q-item-section desktop-only">
                                     <div>
-                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:27 PM</span></div>
+                                        3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 6:27 PM</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1905,7 +1905,10 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <!---->
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
-        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <!----></span></button>
+        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <!---->
+        </span>
+    </button>
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="globe q-icon fa fa-globe"> </i>
@@ -1930,13 +1933,19 @@ exports[`Storyshots Layout KTopbar 1`] = `
             Italiano
             <small>(25%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:25%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
-            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <!----></span></button>
+            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <!---->
+        </span>
+    </button>
     <div to="[object Object]" class="defaulthover">
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> 
         Current User
-        <i aria-hidden="true" class="q-icon fa fa-fw fa-user"> </i> <!----></span></button>
+        <i aria-hidden="true" class="q-icon fa fa-fw fa-user"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!---->
+            </span>
+        </button>
     </div>
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
@@ -2528,7 +2537,7 @@ exports[`Storyshots PickupItem Full 1`] = `
 <div class="q-card full">
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
-            <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
+            <div><span class="featured-text">10:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">
                 this pickup is already full!
             </div>
@@ -2577,7 +2586,7 @@ exports[`Storyshots PickupItem Join 1`] = `
 <div class="q-card">
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
-            <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
+            <div><span class="featured-text">10:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">
                 you can join this pickup
             </div>
@@ -2638,7 +2647,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
 <div class="q-card">
     <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
         <div class="column padding full-width">
-            <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
+            <div><span class="featured-text">10:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">
                 you are collector and can leave this pickup
             </div>
@@ -2696,7 +2705,7 @@ exports[`Storyshots PickupItem pending 1`] = `
 <div class="q-card">
     <div class="q-card-main q-card-container row inline no-padding justify-between content">
         <div class="column padding full-width">
-            <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
+            <div><span class="featured-text">10:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">
                 you can join this pickup
             </div>
@@ -2749,7 +2758,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card">
         <div class="q-card-main q-card-container row inline no-padding justify-between content">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+                <div><span class="featured-text">10:00 AM</span> Saturday, August 12, 2017
                 </div>
                 <div class="description multiline">
                     you can join this pickup
@@ -2808,7 +2817,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card">
         <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
+                <div><span class="featured-text">10:00 AM</span> Sunday, August 13, 2017
                 </div>
                 <div class="description multiline">
                     you are collector and can leave this pickup
@@ -2864,7 +2873,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card full">
         <div class="q-card-main q-card-container row inline no-padding justify-between content">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
+                <div><span class="featured-text">10:00 AM</span> Monday, August 14, 2017
                 </div>
                 <div class="description multiline">
                     this pickup is already full!
@@ -2911,7 +2920,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card">
         <div class="q-card-main q-card-container row inline no-padding justify-between content isEmpty">
             <div class="column padding full-width">
-                <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
+                <div><span class="featured-text">10:00 AM</span> Tuesday, August 15, 2017
                 </div>
                 <div class="description multiline">
                     this pickup is fresh and empty
@@ -3006,13 +3015,13 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                             <div class="q-if-inner col row no-wrap items-center relative-position">
                                 <!---->
                                 <!---->
-                                <div class="col row items-center q-input-target justify-start">8:00 AM</div>
+                                <div class="col row items-center q-input-target justify-start">10:00 AM</div>
                                 <div class="q-popover animate-scale" style="transform-origin:top left 0px;">
                                     <div class="q-datetime inline row no-border text-primary">
                                         <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
                                             <!---->
                                             <div class="q-datetime-time row flex-center">
-                                                <div class="q-datetime-clockstring col-auto col-md-12"><span class="q-datetime-link col-auto col-md-12 active">   8 </span> <span style="opacity:0.6;">:</span> <span class="q-datetime-link col-auto col-md-12"> 00 </span></div>
+                                                <div class="q-datetime-clockstring col-auto col-md-12"><span class="q-datetime-link col-auto col-md-12 active">   9 </span> <span style="opacity:0.6;">:</span> <span class="q-datetime-link col-auto col-md-12"> 00 </span></div>
                                                 <div class="q-datetime-ampm column col-auto col-md-12 justify-around">
                                                     <div class="q-datetime-link active">AM</div>
                                                     <div class="q-datetime-link">PM</div>
@@ -3028,7 +3037,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                                                     <div class="q-datetime-clock cursor-pointer">
                                                         <div class="q-datetime-clock-circle full-width full-height">
                                                             <div class="q-datetime-clock-center"></div>
-                                                            <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);-webkit-transform:rotate(60deg);-moz-transform:rotate(60deg);-ms-transform:rotate(60deg);-o-transform:rotate(60deg);"><span></span></div>
+                                                            <div class="q-datetime-clock-pointer" style="transform:rotate(90deg);-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);"><span></span></div>
                                                             <div>
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
@@ -3037,8 +3046,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
-                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
-                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-8"><span>8</span></div>
+                                                                <div class="q-datetime-clock-position q-datetime-clock-pos-9 active"><span>9</span></div>
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
                                                                 <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>
@@ -4589,7 +4598,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
                 <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
             </div>
             <div class="content">
-                <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 10:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
                 <div class="comment">All worked out perfectly!</div>
                 <div>
                     <div class="wrapper">
@@ -4618,7 +4627,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
                 </div>
                 <div class="content">
-                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 10:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
                     <div class="comment">All worked out perfectly!</div>
                     <div>
                         <div class="wrapper">
@@ -4643,7 +4652,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
                 </div>
                 <div class="content">
-                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 10:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
                     <div class="comment"></div>
                     <div>
                         <div class="wrapper">
@@ -4668,7 +4677,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
                 </div>
                 <div class="content">
-                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
+                    <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 10:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
                     <div class="comment">They did not have anything today</div>
                     <div>
                         <div class="wrapper">
@@ -4695,7 +4704,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         </div>
         <div class="image-and-text-right">
             <h4>Thank you for your pickup!</h4>
-            <p>Aug 12, 2017, 8:00 AM (Griesheimer Markt)
+            <p>Aug 12, 2017, 10:00 AM (Griesheimer Markt)
                 <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
                     <div class="desktop-only q-focus-helper"></div>
                     <!----><span class="q-btn-inner row col flex-center"><!----> 
@@ -4929,7 +4938,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">2.5</span> <span style="font-size:14px;">kg</span></div>
                         </div>
                         <div class="content">
-                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 12, 2017, 10:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">August 11, 2017</span></span>
                             <div class="comment">All worked out perfectly!</div>
                             <div>
                                 <div class="wrapper">
@@ -4954,7 +4963,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">11</span> <span style="font-size:14px;">kg</span></div>
                         </div>
                         <div class="content">
-                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 10:00 AM</strong></div> <span>by <span place="user">Mira Bellenbaum</span> on <span place="date">September 11, 2017</span></span>
                             <div class="comment"></div>
                             <div>
                                 <div class="wrapper">
@@ -4979,7 +4988,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">0</span> <span style="font-size:14px;">kg</span></div>
                         </div>
                         <div class="content">
-                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 8:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
+                            <div><strong>Griesheimer Markt:</strong> <strong>Aug 13, 2017, 10:00 AM</strong></div> <span>by <span place="user">Max Mustermann</span> on <span place="date">September 18, 2017</span></span>
                             <div class="comment">They did not have anything today</div>
                             <div>
                                 <div class="wrapper">

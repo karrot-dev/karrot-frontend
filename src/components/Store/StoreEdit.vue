@@ -108,7 +108,7 @@
             </q-btn>
             <q-btn
               type="button"
-              @click="$router.push('/group/' + $route.params.groupId)"
+              @click="cancel()"
               v-if="isNew"
             >
               {{ $t('BUTTON.CANCEL') }}
@@ -215,6 +215,9 @@ export default {
           },
         ],
       })
+    },
+    cancel () {
+      this.$router.go(-1)
     },
   },
   validations: {

@@ -43,7 +43,6 @@ export default {
     totalAmount () {
       let amount = 0
       for (let fb in this.feedback) {
-        console.log(this.feedback[fb])
         amount += this.feedback[fb].weight
       }
       return amount

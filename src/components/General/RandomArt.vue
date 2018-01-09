@@ -1,5 +1,9 @@
 <template>
-  <span/>
+  <div class="art-wrapper">
+    <div>
+      <slot/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -8,9 +12,11 @@ export default {
     seed: { default: 2 },
     text: { default: false },
     type: { default: 'profile' },
+    above: { default: false },
   },
   mounted () {
     this.$el.appendChild(this.box)
+    // this.$el.insertBefore(this.box, this.$el.firstChild)
   },
   watch: {
     box (box, prevBox) {
@@ -59,8 +65,14 @@ export default {
       const opacity = 0.6
 
       box.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
-      box.setAttribute('viewBox', '0 0 100 100')
-      box.setAttribute('class', 'box')
+
+      if (this.above) {
+        box.setAttribute('viewBox', '0 -40 100 40')
+        box.setAttribute('class', 'random-art-box-above')
+      }
+      else {
+        box.setAttribute('viewBox', '0 0 100 100')
+      }
 
       if (this.type === 'lines') {
         box.setAttribute('style', 'background-color:' + 'rgba(' +
@@ -170,14 +182,37 @@ export default {
           textOverlay.setAttribute('y', 66)
           textOverlay.appendChild(text)
         }
-
         box.appendChild(textOverlay)
       }
-      return box
+
+      let wrapper = document.createElement('div')
+      wrapper.setAttribute('style', 'height: 100%; width: 100%; overflow: hidden; position: absolute; top: 0; left: 0; z-index: -1;')
+      wrapper.appendChild(box)
+
+      return wrapper
     },
   },
 }
 </script>
 
 <style scoped lang='stylus'>
+.art-wrapper
+  position relative
+  display: block
+  z-index 0
+  margin 0
+  width 100%
+  > div
+    min-height calc(25px + 1vw)
+    z-index 1
+
+body.mobile .art-wrapper
+  border 0
+  overflow: hidden
+</style>
+
+<style lang='stylus'>
+.random-art-box-above
+  position absolute
+  bottom 0
 </style>

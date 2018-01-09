@@ -3,11 +3,10 @@
     <q-card
       class="no-mobile-margin no-padding no-shadow grey-border"
     >
-      <div class="group-banner">
-        <RandomArt
-          :seed="group.id"
-          type="circles" />
-      </div>
+      <RandomArt
+        v-if="$q.platform.is.desktop"
+        :seed="group.id"
+        type="circles" />
       <div class="generic-padding">
         <HistoryList/>
       </div>
@@ -35,15 +34,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.group-banner > span
-    display: block
-    height 5vw
-    min-height 30px
-    max-height 48px
-    overflow hidden
-
-body.mobile .group-banner
-  border 0
-  max-height: 30px
-  overflow: hidden
+body.mobile .art-overlay
+  width 100%
+  height 30px
+  background linear-gradient(to bottom, rgba(0,0,0,0.34) 0%,rgba(0,0,0,0) 100%)
 </style>

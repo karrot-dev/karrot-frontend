@@ -2,11 +2,20 @@
   <q-card
     class="no-mobile-margin no-padding no-shadow grey-border"
   >
-    <div class="group-banner">
-      <RandomArt
-        :seed="group.id"
-        type="circles" />
-    </div>
+    <RandomArt
+      :seed="group.id"
+      type="circles">
+      <div style="margin: 0; padding: 10px; display: inline-block; color: white; background-color: rgba(0,0,0,.38)">
+        <h1>Members</h1>
+        This could be a very interesting text about members.
+        This could be a very interesting text about members.
+        This could be a very interesting text about members.
+        This could be a very interesting text about members.
+        This could be a very interesting text about members.
+        This could be a very interesting text about members.
+        This could be a very interesting text about members.
+      </div>
+    </RandomArt>
     <div class="generic-padding">
       <div class="actionButtons">
         <router-link :to="{name: 'groupInvitations', params: {groupId: group.id}}">
@@ -52,16 +61,4 @@ export default {
   float right
   .q-btn
     margin 3px
-
-.group-banner > span
-    display: block
-    height 5vw
-    min-height 30px
-    max-height 48px
-    overflow hidden
-
-body.mobile .group-banner
-  border 0
-  max-height: 30px
-  overflow: hidden
 </style>

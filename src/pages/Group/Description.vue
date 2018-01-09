@@ -2,11 +2,11 @@
   <q-card
     class="no-mobile-margin no-shadow grey-border"
   >
-    <div class="group-banner">
-      <RandomArt
-        :seed="group.id"
-        type="circles" />
-    </div>
+    <RandomArt
+      :seed="group.id"
+      type="circles">
+      <div class="art-overlay"/>
+    </RandomArt>
     <div class="generic-padding">
       <div class="actionButtons">
         <router-link :to="{name: 'groupPreview', params: {groupPreviewId: group.id}}">
@@ -72,18 +72,11 @@ export default {
   .q-btn
     margin 3px
 
-.group-banner > span
-    display: block
-    height 5vw
-    min-height 30px
-    max-height 48px
-    overflow hidden
-
-body.mobile .group-banner
-  border 0
-  max-height: 30px
-  overflow: hidden
-
 .content
   margin-top 10px
+
+body.mobile .art-overlay
+  width 100%
+  height 30px
+  background linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)
 </style>

@@ -1,35 +1,85 @@
 <template>
-  <div class="generic-padding bg-white">
-    <h5 class="text-primary generic-padding">
-      <q-icon name="fa-user-plus" />
-      {{ $t('GROUP.INVITE_TITLE') }}
-    </h5>
-    <InvitationsForm
-      :invitations="invitations"
-      :status="sendStatus"
-      @submit="$emit('submit', arguments[0])"
-    />
-    <InvitationsList
-      :invitations="invitations"
-      :status="fetchStatus"
-    />
-  </div>
+  <q-card
+    class="no-mobile-margin no-padding no-shadow grey-border"
+  >
+    <RandomArt
+      :seed="group.id"
+      type="circles">
+      <div class="art-overlay">
+        <div class="header">
+          <span>
+            <i class="fa fa-user-plus" />
+            {{ $t('GROUP.INVITE_TITLE') }}
+          </span>
+        </div>
+        <div class="content">
+          <div class="subtitle">
+            <InvitationsForm
+              :invitations="invitations"
+              :status="sendStatus"
+              @submit="$emit('submit', arguments[0])"
+            />
+          </div>
+        </div>
+      </div>
+    </RandomArt>
+    <div class="generic-padding">
+      <InvitationsList
+        :invitations="invitations"
+        :status="fetchStatus"
+      />
+    </div>
+  </q-card>
 </template>
 
 <script>
-import { QIcon } from 'quasar'
+import { QCard, QBtn, QTooltip, QIcon } from 'quasar'
 import InvitationsForm from './InvitationsForm'
 import InvitationsList from './InvitationsList'
+import RandomArt from '@/components/General/RandomArt'
+
+import {
+  mapGetters,
+} from 'vuex'
 
 export default {
-  components: { QIcon, InvitationsForm, InvitationsList },
+  components: { RandomArt, QCard, QBtn, QTooltip, QIcon, InvitationsForm, InvitationsList },
   props: {
     invitations: { required: true },
     fetchStatus: { required: true },
     sendStatus: { required: true },
   },
+  computed: {
+    ...mapGetters({
+      group: 'currentGroup/value',
+    }),
+  },
 }
 </script>
 
 <style scoped lang="stylus">
+.art-overlay
+  .header
+    color white
+    span
+      font-size 1.3em
+  .content
+    .subtitle
+      color white
+      padding-top 6px
+
+body.desktop .art-overlay
+  .header
+    padding 3em 2em 0em 2em
+    background linear-gradient(to top, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0) 90%)
+  .content
+    padding 0em 2em 2em 2em
+    background rgba(0,0,0,0.38)
+
+body.mobile .art-overlay
+  background rgba(0,0,0,0.38)
+  .header
+    padding 10px 25px 0 25px
+  .content
+    padding 0px 25px 20px 25px
 </style>

@@ -6,6 +6,7 @@
         :helper="$t('GROUP.INVITE_EMAIL')"
         :error="hasError"
         :error-label="errorMessage"
+        dark
       >
         <q-input
           v-model="form.email"
@@ -13,6 +14,8 @@
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
+          class="bg-neutral"
+          style="padding: 2px"
           @blur="$v.form.email.$touch"
         />
       </q-field>
@@ -22,12 +25,15 @@
         loader
         :value="isPending"
         :disable="!canSave"
+        class="bg-secondary float-right"
+        style="min-width: 5.5em"
       >
         <q-icon name="fa-paper-plane" />
         <q-tooltip>
           {{ $t('GROUP.INVITE_SEND') }}
         </q-tooltip>
       </q-btn>
+      <div style="clear:both"/>
     </form>
   </div>
 </template>

@@ -180,7 +180,7 @@ export default [
         path: 'invites',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvitations' } },
+            { translation: 'GROUP.INVITATIONS', route: { name: 'groupInvitations' } },
           ],
           beforeEnter: 'invitations/fetch',
         },

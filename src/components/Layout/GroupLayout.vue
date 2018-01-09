@@ -6,7 +6,7 @@
       :above="true"
       v-if="($q.platform.is.mobile && showGroupNavbar) || showPickupsNavbar">
       <div class="navbar-wrapper">
-        <GroupNavbar />
+        <GroupNavbar v-if="showGroupNavbar"/>
         <GroupPickupsNavbar v-if="showPickupsNavbar" />
       </div>
     </RandomArt>

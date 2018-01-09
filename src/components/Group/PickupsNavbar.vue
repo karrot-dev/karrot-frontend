@@ -1,6 +1,6 @@
 <template>
   <q-tabs
-    color="tertiary"
+    color="transparent"
     hide="icon"
     class="col"
     ref="groupnav"

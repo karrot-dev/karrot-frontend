@@ -5,16 +5,7 @@
     <RandomArt
       :seed="group.id"
       type="circles">
-      <div style="margin: 0; padding: 10px; display: inline-block; color: white; background-color: rgba(0,0,0,.38)">
-        <h1>Members</h1>
-        This could be a very interesting text about members.
-        This could be a very interesting text about members.
-        This could be a very interesting text about members.
-        This could be a very interesting text about members.
-        This could be a very interesting text about members.
-        This could be a very interesting text about members.
-        This could be a very interesting text about members.
-      </div>
+      <div class="art-overlay"/>
     </RandomArt>
     <div class="generic-padding">
       <div class="actionButtons">
@@ -61,4 +52,9 @@ export default {
   float right
   .q-btn
     margin 3px
+
+body.mobile .art-overlay
+  width 100%
+  height 30px
+  background linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)
 </style>

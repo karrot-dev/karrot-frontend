@@ -5,21 +5,28 @@
     <RandomArt
       :seed="group.id"
       type="circles">
-      <div class="art-overlay"/>
+      <div class="art-overlay">
+        <div
+          class="header"
+          v-t="showPublicDescription ? 'GROUPINFO.TITLE' : 'GROUP.DESCRIPTION_VERBOSE'"/>
+        <div
+          class="subtitle"
+          v-if="showPublicDescription"
+          v-t="'GROUP.PUBLIC_DESCRIPTION'"/>
+      </div>
     </RandomArt>
     <div class="generic-padding">
       <div class="actionButtons">
-        <router-link :to="{name: 'groupPreview', params: {groupPreviewId: group.id}}">
-          <q-btn
-            small
-            round
-            color="secondary"
-            icon="fa-info-circle"
-            class="hoverScale"
-          >
-            <q-tooltip v-t="'GROUPINFO.META'" />
-          </q-btn>
-        </router-link>
+        <q-btn
+          small
+          round
+          color="secondary"
+          :icon="showPublicDescription ? 'fa-lock' : 'fa-info-circle'"
+          class="hoverScale"
+          @click="showPublicDescription = !showPublicDescription"
+        >
+          <q-tooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
+        </q-btn>
         <router-link :to="{name: 'groupEdit'}">
           <q-btn
             small
@@ -37,7 +44,11 @@
         multiline>
         <q-item-main>
           <Markdown
-            v-if="group.description"
+            v-if="this.showPublicDescription && group.publicDescription"
+            :source="group.publicDescription"
+          />
+          <Markdown
+            v-if="!this.showPublicDescription && group.description"
             :source="group.description"
           />
         </q-item-main>
@@ -57,6 +68,11 @@ import {
 
 export default {
   components: { QCard, RandomArt, QItem, QItemMain, QItemSide, QBtn, QTooltip, Markdown },
+  data () {
+    return {
+      showPublicDescription: false,
+    }
+  },
   computed: {
     ...mapGetters({
       group: 'currentGroup/value',
@@ -75,8 +91,16 @@ export default {
 .content
   margin-top 10px
 
+.art-overlay
+  color white
+  padding 2em 2em 1em 2em
+  background rgba(0,0,0,0.38)
+  .header
+    font-size 1.3em
+  .subtitle
+    margin-top 6px
 body.mobile .art-overlay
-  width 100%
-  height 30px
-  background linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)
+  padding 10px
+  padding-top 1.6em
+  padding-bottom 20px
 </style>

@@ -144,15 +144,15 @@ export default {
         box.appendChild(g)
 
         let overlay = document.createElementNS(svgns, 'rect')
-        overlay.setAttribute('width', size)
-        overlay.setAttribute('height', size)
+        overlay.setAttribute('width', 2 * size)
+        overlay.setAttribute('height', 2 * size)
         overlay.setAttribute('fill', 'rgba(' +
           getRandomRange(100, 255, 1) + ',' +
           getRandomRange(100, 255, 2) + ',' +
           getRandomRange(100, 255, 3) + ',0.5)',
         )
-        overlay.setAttribute('x', 0)
-        overlay.setAttribute('y', 0)
+        overlay.setAttribute('x', -40)
+        overlay.setAttribute('y', -40)
         box.appendChild(overlay)
 
         let textOverlay = document.createElementNS(svgns, 'text')

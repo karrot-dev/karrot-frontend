@@ -41,11 +41,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .navbar-wrapper
   width 100%
   height 48px
   margin 0
   padding 0 10px
   color white
-  background-color rgba(0,0,0,.38)
+  background-color rgba(0,0,0,$groupNavOverlay)
 </style>

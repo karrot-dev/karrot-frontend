@@ -47,6 +47,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .actionButtons
   margin-top -36px
   float right
@@ -56,5 +57,5 @@ export default {
 body.mobile .art-overlay
   width 100%
   height 30px
-  background linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)
+  background linear-gradient(to bottom, rgba(0,0,0,$groupNavOverlay) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)
 </style>

@@ -82,6 +82,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .actionButtons
   margin-top -36px
   float right
@@ -94,7 +95,7 @@ export default {
 .art-overlay
   color white
   padding 3em 2em 1em 2em
-  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.38) 58%, rgba(0,0,0,0) 90%)
+  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,$groupNavOverlay) 58%, rgba(0,0,0,0) 90%)
   .header
     font-size 1.3em
   .subtitle
@@ -103,5 +104,5 @@ body.mobile .art-overlay
   padding 10px
   padding-top 1.6em
   padding-bottom 20px
-  background rgba(0,0,0,0.38)
+  background rgba(0,0,0,$groupNavOverlay)
 </style>

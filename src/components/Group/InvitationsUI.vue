@@ -58,6 +58,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .art-overlay
   .header
     color white
@@ -71,13 +72,13 @@ export default {
 body.desktop .art-overlay
   .header
     padding 3em 2em 0em 2em
-    background linear-gradient(to top, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0) 90%)
+    background linear-gradient(to top, rgba(0,0,0,$groupNavOverlay) 0%, rgba(0,0,0,0) 90%)
   .content
     padding 0em 2em 2em 2em
-    background rgba(0,0,0,0.38)
+    background rgba(0,0,0,$groupNavOverlay)
 
 body.mobile .art-overlay
-  background rgba(0,0,0,0.38)
+  background rgba(0,0,0,$groupNavOverlay)
   .header
     padding 10px 25px 0 25px
   .content

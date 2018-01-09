@@ -124,7 +124,6 @@
     "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
     "PASSWORD_LABEL": "Ange lösenordet för den privata gruppen",
     "PASSWORD_REQUIRED": "Denna grupp kräver ett lösenord",
-    "PASSWORD_WRONG": "Lösenordet som du angav är fel",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "My groups",
@@ -155,9 +154,8 @@
     "OK": "gå med"
   },
   "VERIFYMAIL": {
-    "TITLE": "Mejl verifiering",
-    "SUCCESS": "Din mejladress har verifierats!",
-    "ERROR": "Något gick fel, du har kanske redan verifierat din mejl adress?"
+    "TITLE": "E-Mail verification",
+    "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
     "WEEKDAYS": "Helg",
@@ -169,13 +167,14 @@
     "MAX_COLLECTORS": "Max Slots",
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
     "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
   },
   "CREATESTORE": {
     "TITLE": "Skapa ny butik"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
+    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Lämna",

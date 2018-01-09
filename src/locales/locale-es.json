@@ -124,7 +124,6 @@
     "NO_PUBLIC_DESCRIPTION": "(Este grupo no tiene una descripción pública... todavía)",
     "PASSWORD_LABEL": "Introducir contraseña para grupo privado",
     "PASSWORD_REQUIRED": "Este grupo requiere contraseña",
-    "PASSWORD_WRONG": "Contraseña errónea",
     "ALL_GROUPS": "Todos los grupos",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "Mis grupos",
@@ -155,9 +154,8 @@
     "OK": "Unirse"
   },
   "VERIFYMAIL": {
-    "TITLE": "Verificación del correo",
-    "SUCCESS": "¡Su dirección de correo ha sido verificada!",
-    "ERROR": "Algo fue mal ¿Quizás su dirección de correo ya está verificada?"
+    "TITLE": "E-Mail verification",
+    "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
     "WEEKDAYS": "Día de la semana",
@@ -169,13 +167,14 @@
     "MAX_COLLECTORS": "Máx ranuras",
     "MAX_COLLECTORS_HELPER": "Cuántas personas deberían participar en la recogida?",
     "COMMENT": "Información adicional",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
   },
   "CREATESTORE": {
     "TITLE": "Crear una nueva tienda"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
+    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
     "JOINEDNOTICE": "Tienes una recogida pendiente | Tienes {count} recogidas pendientes",
     "ITEM": {
       "LEAVE": "Salir",

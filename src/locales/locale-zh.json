@@ -124,7 +124,6 @@
     "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
     "PASSWORD_LABEL": "輸入私密社團的密碼",
     "PASSWORD_REQUIRED": "此社團需要密碼",
-    "PASSWORD_WRONG": "你輸入了錯誤的密碼",
     "ALL_GROUPS": "所有社團",
     "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
     "MY_GROUPS": "我的社團",
@@ -155,9 +154,8 @@
     "OK": "加入"
   },
   "VERIFYMAIL": {
-    "TITLE": "電子郵件認證",
-    "SUCCESS": "你的電子郵件信箱已經被成功認證了！",
-    "ERROR": "出錯了。或許你已經認證過了你的地址？"
+    "TITLE": "E-Mail verification",
+    "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
     "WEEKDAYS": "平日",
@@ -169,13 +167,14 @@
     "MAX_COLLECTORS": "最大值",
     "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
     "COMMENT": "更多資訊",
-    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？"
+    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
   },
   "CREATESTORE": {
     "TITLE": "創建新的店家資料"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "在接下來的日期中尚有一個食物領取的空位！在接下來的日期中尚有 {count} 個食物領取的空位！",
+    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
     "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
     "ITEM": {
       "LEAVE": "離開",

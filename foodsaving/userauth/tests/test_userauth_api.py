@@ -42,6 +42,12 @@ class TestUsersAPI(APITestCase):
         self.assertEqual(mail.outbox[0].to, [self.user_data['email']])
         self.assertIn('Thank you for signing up', mail.outbox[0].body)
 
+        response = self.client.post(
+            '/api/auth/',
+            {'email': self.user_data['email'], 'password': self.user_data['password']}
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
     def test_retrieve_user_forbidden(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

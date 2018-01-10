@@ -58,8 +58,9 @@ export default {
   actions: {
     ...withMeta({
       async save ({ commit, dispatch }, group) {
-        commit('update', await groups.save(group))
-        dispatch('currentGroup/update', group, { root: true })
+        const data = await groups.save(group)
+        commit('update', data)
+        dispatch('currentGroup/update', data, { root: true })
         router.push({ name: 'group', params: { groupId: group.id } })
       },
 

@@ -3,8 +3,8 @@
     <q-card
       class="no-padding no-shadow grey-border"
     >
-      <div class="generic-padding">
-        <HistoryList/>
+      <div>
+        <HistoryList class="padding-top"/>
       </div>
     </q-card>
   </div>
@@ -20,4 +20,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.padding-top
+  padding-top 15px
 </style>

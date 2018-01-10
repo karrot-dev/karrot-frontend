@@ -14,8 +14,9 @@
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
     <q-spinner-dots
-      v-if="this.status.pending"
       :size="40"
+      v-if="this.status.pending"
+      style="margin-left: 50%"
     />
     <div
       slot="message"

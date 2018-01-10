@@ -24,7 +24,7 @@ exports[`Storyshots AddressPicker Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots AddressPicker With map 1`] = `
+exports[`Storyshots AddressPicker Without map 1`] = `
 <div>
     <div class="q-if row no-wrap items-center relative-position q-input q-search text-primary">
         <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
@@ -42,9 +42,7 @@ exports[`Storyshots AddressPicker With map 1`] = `
         </div>
         <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
     </div>
-    <div class="vue2leaflet-map map">
-        <div></div>
-    </div>
+    <!---->
 </div>
 `;
 
@@ -2797,8 +2795,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                     <div class="q-option-group group">
                         <div>
                             <div tabindex="0" class="q-radio q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
-                                <div class="q-option-inner relative-position">
-                                    <input type="radio">
+                                <div class="q-option-inner relative-position active">
+                                    <input type="radio" checked="checked">
                                     <div class="q-focus-helper"></div>
                                     <i aria-hidden="true" class="q-radio-unchecked absolute-full cursor-pointer q-icon material-icons">radio_button_unchecked</i>
                                     <i aria-hidden="true" class="q-radio-checked cursor-pointer absolute-full q-icon material-icons">radio_button_checked</i>

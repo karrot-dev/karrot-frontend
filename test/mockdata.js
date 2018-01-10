@@ -42,7 +42,7 @@ export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-15T08:00:0
 export const pickupsMock = [ joinablePickup, leavablePickup, fullPickup, emptyPickup ]
 
 export const pickupSeriesMock = [
-  { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': {'freq': 'WEEKLY', 'byDay': ['TH', 'SU']}, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },
+  { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': {'freq': 'WEEKLY', 'byDay': ['TH', 'SU'], 'isCustom': false, 'rule': 'FREQ=WEEKLY;BYDAY=TH,SU'}, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },
 ].map(e => ({
   ...e,
   saveStatus: statusMocks.default(),

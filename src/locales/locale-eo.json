@@ -124,7 +124,6 @@
     "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribo… ankoraŭ)",
     "PASSWORD_LABEL": "Entajpu pasvorton por privatan grupon",
     "PASSWORD_REQUIRED": "Ĉi tiu grupo bezonas pasvorton",
-    "PASSWORD_WRONG": "Vi misentajpis la pasvorton",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "My groups",
@@ -155,9 +154,8 @@
     "OK": "Aliĝi"
   },
   "VERIFYMAIL": {
-    "TITLE": "Retpostkontrolo",
-    "SUCCESS": "Via retadreso estis sukcese konfirmita!",
-    "ERROR": "Io misfunkciis. Ĉu eble via retadreso jam estis konfirmita?"
+    "TITLE": "E-Mail verification",
+    "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
     "WEEKDAYS": "Semajntagoj",
@@ -169,13 +167,14 @@
     "MAX_COLLECTORS": "Maks Lokoj",
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
     "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
   },
   "CREATESTORE": {
     "TITLE": "Krei novan vendejon"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
+    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Forlasi",

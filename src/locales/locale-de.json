@@ -124,7 +124,6 @@
     "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
     "PASSWORD_LABEL": "Gib das Passwort für diese geschlossene Gruppe ein.",
     "PASSWORD_REQUIRED": "Diese Gruppe verlangt ein Passwort.",
-    "PASSWORD_WRONG": "Das von dir eingegebene Passwort ist falsch.",
     "ALL_GROUPS": "Alle Gruppen",
     "SIGNUP_OR_LOGIN": "Anmelden, um dieser Gruppe beizutreten!",
     "MY_GROUPS": "Meine Gruppen",
@@ -155,9 +154,8 @@
     "OK": "Beitreten"
   },
   "VERIFYMAIL": {
-    "TITLE": "Verifizierung der Mailadresse",
-    "SUCCESS": "Deine Mailadresse wurde verifiziert!",
-    "ERROR": "Etwas ging schief. Ist deine Mailadresse vielleicht schon verifiziert?"
+    "TITLE": "Verifizierung der E-Mail-Adresse",
+    "SUCCESS": "Deine E-Mail-Adresse wurde verifiziert!"
   },
   "CREATEPICKUP": {
     "WEEKDAYS": "Wochentage",
@@ -169,13 +167,14 @@
     "MAX_COLLECTORS": "Anzahl Abholer",
     "MAX_COLLECTORS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
     "COMMENT": "Zusätzliche Informationen",
-    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?"
+    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?",
+    "DELETION_FORBIDDEN_HELPER": "Dieser Abholtermin kann nicht gelöscht werden, weil sich bereits jemand eingetragen hat"
   },
   "CREATESTORE": {
     "TITLE": "Neuen Betrieb anlegen"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "In den nächsten Tagen wartet eine offene Abholung auf dich! | In den nächsten Tagen warten {count} offene Abholungen auf dich! ",
+    "AVAILABLE": "In den nächsten Tagen wartet eine Abholung auf dich! | In den nächsten Tagen warten {count} Abholungen auf dich! ",
     "JOINEDNOTICE": "Du hast dich für eine Abholung gemeldet | Du hast dich für {count} Abholungen gemeldet",
     "ITEM": {
       "LEAVE": "Nicht mehr abholen",

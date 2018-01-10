@@ -78,12 +78,12 @@ export default {
           getRandomRange(140, 200, 1) + ',' +
           getRandomRange(140, 180, 2) + ',' +
           getRandomRange(140, 180, 3) + ',.6)')
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 20; i++) {
           let randomMultipl = i * 6
           let line = document.createElementNS(svgns, 'line')
           line.setAttribute('stroke', 'rgba(' +
-            getRandomRange(100, 250, 1 + randomMultipl) + ',' +
             getRandomRange(100, 250, 2 + randomMultipl) + ',' +
+            getRandomRange(100, 250, 4 + randomMultipl) + ',' +
             getRandomRange(100, 250, 3 + randomMultipl) + ',1)',
           )
           line.setAttribute('stroke-width', getRandomRange(2, 5, 1 + i))

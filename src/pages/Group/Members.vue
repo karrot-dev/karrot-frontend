@@ -1,28 +1,28 @@
 <template>
   <q-card
-    class="no-mobile-margin no-padding no-shadow grey-border"
+    class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
-      :seed="group.id"
+      :seed="groupId"
       type="circles">
       <div class="art-overlay"/>
     </RandomArt>
-    <div class="generic-padding">
-      <div class="actionButtons">
-        <router-link :to="{name: 'groupInvitations', params: {groupId: group.id}}">
-          <q-btn
-            small
-            round
-            color="secondary"
-            icon="fa-user-plus"
-            class="hoverScale"
-          >
-            <q-tooltip v-t="'GROUP.INVITE_TITLE'" />
-          </q-btn>
-        </router-link>
-      </div>
-      <UserList :users="users" />
+    <div class="generic-padding actionButtons">
+      <router-link :to="{name: 'groupInvitations', params: { groupId }}">
+        <q-btn
+          small
+          round
+          color="secondary"
+          icon="fa-user-plus"
+          class="hoverScale"
+        >
+          <q-tooltip v-t="'GROUP.INVITE_TITLE'" />
+        </q-btn>
+      </router-link>
     </div>
+    <UserList
+      class="padding-top"
+      :users="users" />
   </q-card>
 </template>
 
@@ -40,7 +40,7 @@ export default {
   computed: {
     ...mapGetters({
       users: 'users/byCurrentGroup',
-      group: 'currentGroup/value',
+      groupId: 'currentGroup/id',
     }),
   },
 }
@@ -53,6 +53,9 @@ export default {
   float right
   .q-btn
     margin 3px
+
+.padding-top
+  padding-top 8px
 
 body.mobile .art-overlay
   width 100%

@@ -6,7 +6,7 @@
         type="banner"
         :above="true"
         v-if="$q.platform.is.mobile">
-        <div class="navbar-wrapper row">
+        <div class="navbar-wrapper row no-wrap">
           <q-tabs
             align="center"
             color="transparent"
@@ -115,5 +115,7 @@ body.mobile .store-banner
   overflow: hidden
 
 .navbar-wrapper
-  background linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0) 100%)
+  background linear-gradient(to bottom, rgba(0,0,0,0.38) 20%, rgba(0,0,0,0) 100%)
+  width: 100%
+  overflow auto
 </style>

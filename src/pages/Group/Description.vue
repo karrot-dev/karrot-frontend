@@ -15,45 +15,43 @@
           v-t="'GROUP.PUBLIC_DESCRIPTION'"/>
       </div>
     </RandomArt>
-    <div class="generic-padding">
-      <div class="actionButtons">
+    <div class="generic-padding actionButtons">
+      <q-btn
+        small
+        round
+        color="secondary"
+        :icon="showPublicDescription ? 'fa-lock' : 'fa-info-circle'"
+        class="hoverScale"
+        @click="showPublicDescription = !showPublicDescription"
+      >
+        <q-tooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
+      </q-btn>
+      <router-link :to="{name: 'groupEdit'}">
         <q-btn
           small
           round
           color="secondary"
-          :icon="showPublicDescription ? 'fa-lock' : 'fa-info-circle'"
+          icon="fa-pencil"
           class="hoverScale"
-          @click="showPublicDescription = !showPublicDescription"
         >
-          <q-tooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
+          <q-tooltip v-t="'GROUP.EDIT'" />
         </q-btn>
-        <router-link :to="{name: 'groupEdit'}">
-          <q-btn
-            small
-            round
-            color="secondary"
-            icon="fa-pencil"
-            class="hoverScale"
-          >
-            <q-tooltip v-t="'GROUP.EDIT'" />
-          </q-btn>
-        </router-link>
-      </div>
-      <q-item
-        class="content"
-        multiline>
-        <q-item-main>
-          <Markdown
-            v-if="this.showPublicDescription && group.publicDescription"
-            :source="group.publicDescription"
-          />
-          <Markdown
-            v-if="!this.showPublicDescription && group.description"
-            :source="group.description"
-          />
-        </q-item-main>
-      </q-item>
+      </router-link>
     </div>
+    <q-item
+      class="padding-top"
+      multiline>
+      <q-item-main>
+        <Markdown
+          v-if="this.showPublicDescription && group.publicDescription"
+          :source="group.publicDescription"
+        />
+        <Markdown
+          v-if="!this.showPublicDescription && group.description"
+          :source="group.description"
+        />
+      </q-item-main>
+    </q-item>
   </q-card>
 </template>
 
@@ -89,12 +87,12 @@ export default {
   .q-btn
     margin 3px
 
-.content
-  margin-top 10px
+.padding-top
+  padding-top 25px
 
 .art-overlay
   color white
-  padding 3em 2em 1em 2em
+  padding 3em 2em 1em 1em
   background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,$groupNavOverlay) 58%, rgba(0,0,0,0) 90%)
   .header
     font-size 1.3em

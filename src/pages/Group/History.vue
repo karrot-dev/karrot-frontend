@@ -1,15 +1,13 @@
 <template>
   <div>
     <q-card
-      class="no-mobile-margin no-padding no-shadow grey-border"
+      class="no-mobile-margin no-shadow grey-border"
     >
       <RandomArt
         v-if="$q.platform.is.desktop"
         :seed="group.id"
         type="circles" />
-      <div class="generic-padding">
-        <HistoryList/>
-      </div>
+      <HistoryList class="padding-top"/>
     </q-card>
   </div>
 </template>
@@ -38,4 +36,6 @@ body.mobile .art-overlay
   width 100%
   height 30px
   background linear-gradient(to bottom, rgba(0,0,0,0.34) 0%,rgba(0,0,0,0) 100%)
+.padding-top
+  padding-top 10px
 </style>

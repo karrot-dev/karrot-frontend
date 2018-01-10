@@ -47,6 +47,7 @@ export default {
   height 48px
   margin 0
   padding 0 10px
+  overflow auto
   color white
   background-color rgba(0,0,0,$groupNavOverlay)
 </style>

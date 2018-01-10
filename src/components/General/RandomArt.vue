@@ -16,7 +16,6 @@ export default {
   },
   mounted () {
     this.$el.appendChild(this.box)
-    // this.$el.insertBefore(this.box, this.$el.firstChild)
   },
   watch: {
     box (box, prevBox) {
@@ -62,7 +61,7 @@ export default {
       const blockSize = Math.floor(size / rows * 1.5)
       const blockSizeHeight = Math.floor(blockSize / ratio)
       const rotate = blockSize * rows / 2
-      const opacity = 0.6
+      const opacity = 0.2
 
       box.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
 
@@ -101,13 +100,13 @@ export default {
           getRandomRange(120, 160, 1) + ',' +
           getRandomRange(130, 170, 3) + ',' +
           getRandomRange(120, 170, 5) + ',1)')
-        for (i = 0; i < 90; i++) {
+        for (i = 0; i < 80; i++) {
           let randomMultipl = i * 6
           let circle = document.createElementNS(svgns, 'circle')
           circle.setAttribute('fill', 'rgba(' +
             getRandomRange(100, 250, 3 + randomMultipl) + ',' +
             getRandomRange(100, 250, 3 + randomMultipl) + ',' +
-            getRandomRange(100, 250, 3 + randomMultipl) + ',.4)',
+            getRandomRange(100, 250, 3 + randomMultipl) + ',1)',
           )
           circle.setAttribute('cx', getRandomRange(-50, 150, 1 + randomMultipl))
           circle.setAttribute('cy', getRandomRange(-50, 150, 2 + randomMultipl))

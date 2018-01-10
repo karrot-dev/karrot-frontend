@@ -3,7 +3,7 @@
     class="no-mobile-margin no-padding no-shadow grey-border"
   >
     <RandomArt
-      :seed="group.id"
+      :seed="groupid"
       type="circles">
       <div class="art-overlay">
         <div class="header">
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      group: 'currentGroup/value',
+      groupid: 'currentGroup/id',
     }),
   },
 }

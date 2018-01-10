@@ -17,9 +17,9 @@ storiesOf('AddressPicker', module)
       }
     },
   }))
-  .add('With map', () => defaults({
+  .add('Without map', () => defaults({
     components: { AddressPicker },
-    template: '<AddressPicker v-model="item" :map="true" />',
+    template: '<AddressPicker v-model="item" :map="false" />',
     data () {
       return {
         item: {

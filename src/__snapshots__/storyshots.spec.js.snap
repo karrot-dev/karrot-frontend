@@ -24,7 +24,7 @@ exports[`Storyshots AddressPicker Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots AddressPicker With map 1`] = `
+exports[`Storyshots AddressPicker Without map 1`] = `
 <div>
     <div class="q-if row no-wrap items-center relative-position q-input q-search text-primary">
         <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
@@ -42,9 +42,7 @@ exports[`Storyshots AddressPicker With map 1`] = `
         </div>
         <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
     </div>
-    <div class="vue2leaflet-map map">
-        <div></div>
-    </div>
+    <!---->
 </div>
 `;
 

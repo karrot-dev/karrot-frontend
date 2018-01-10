@@ -3,9 +3,7 @@
     <form @submit.prevent="maybeSave">
       <q-field
         icon="fa-envelope"
-        :helper="$t('GROUP.INVITE_EMAIL')"
-        :error="hasError"
-        :error-label="errorMessage"
+        :helper="errorMessage"
         dark
       >
         <q-input
@@ -15,7 +13,7 @@
           autocapitalize="off"
           spellcheck="false"
           class="bg-neutral"
-          style="padding: 2px"
+          style="padding: 4px;"
           @blur="$v.form.email.$touch"
         />
       </q-field>
@@ -81,6 +79,7 @@ export default {
         if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
       }
       if (this.hasNonFieldError) return this.firstNonFieldError
+      return this.$t('GROUP.INVITE_EMAIL')
     },
     canSave () {
       return !this.$v.form.$error
@@ -97,6 +96,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

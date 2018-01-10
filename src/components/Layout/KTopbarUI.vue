@@ -29,10 +29,11 @@
       >
         <q-btn
           flat
+          small
           color="primary"
           @click="$emit('hideSearch')"
         >
-          <q-icon name="fa-fw fa-window-close-o"/>
+          <q-icon name="fa-fw fa-arrow-right"/>
         </q-btn>
         <div>
           <Search style="margin-top: .2em; vertical-align: middle"/>
@@ -66,6 +67,8 @@
           :touch-position="false"
           fit
           ref="popover"
+          anchor="bottom right"
+          self="top right"
         >
           <q-list
             item-separator
@@ -77,6 +80,7 @@
             >
               <q-icon
                 size="1em"
+                class="on-left"
                 name="fa-home fa-fw"
               />
               {{ $t('TOPBAR.CHANGE_GROUP') }}
@@ -87,6 +91,7 @@
             >
               <q-icon
                 size="1em"
+                class="on-left"
                 name="fa-cog fa-fw"
               />
               {{ $t('SETTINGS.TITLE') }}
@@ -96,6 +101,7 @@
             >
               <q-icon
                 size="1em"
+                class="on-left"
                 name="fa-sign-out fa-fw"
               />
               {{ $t('TOPBAR.LOGOUT') }}

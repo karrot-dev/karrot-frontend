@@ -76,9 +76,9 @@ export default {
 
       if (this.type === 'lines') {
         box.setAttribute('style', 'background-color:' + 'rgba(' +
-          getRandomRange(140, 230, 1) + ',' +
-          getRandomRange(140, 230, 2) + ',' +
-          getRandomRange(140, 230, 3) + ',.6)')
+          getRandomRange(140, 200, 1) + ',' +
+          getRandomRange(140, 180, 2) + ',' +
+          getRandomRange(140, 180, 3) + ',.6)')
         for (var i = 0; i < 100; i++) {
           let randomMultipl = i * 6
           let line = document.createElementNS(svgns, 'line')
@@ -98,16 +98,16 @@ export default {
       }
       if (this.type === 'circles') {
         box.setAttribute('style', 'background-color:' + 'rgba(' +
-          getRandomRange(80, 200, 1) + ',' +
-          getRandomRange(110, 200, 2) + ',' +
-          getRandomRange(110, 200, 3) + ',.95)')
+          getRandomRange(120, 160, 1) + ',' +
+          getRandomRange(130, 170, 3) + ',' +
+          getRandomRange(120, 170, 5) + ',1)')
         for (i = 0; i < 90; i++) {
           let randomMultipl = i * 6
           let circle = document.createElementNS(svgns, 'circle')
           circle.setAttribute('fill', 'rgba(' +
             getRandomRange(100, 250, 3 + randomMultipl) + ',' +
             getRandomRange(100, 250, 3 + randomMultipl) + ',' +
-            getRandomRange(100, 250, 3 + randomMultipl) + ',1)',
+            getRandomRange(100, 250, 3 + randomMultipl) + ',.4)',
           )
           circle.setAttribute('cx', getRandomRange(-50, 150, 1 + randomMultipl))
           circle.setAttribute('cy', getRandomRange(-50, 150, 2 + randomMultipl))

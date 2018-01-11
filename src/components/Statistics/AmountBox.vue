@@ -19,7 +19,16 @@
       class="text-bottom"
       :style="{ bottom: bottomOffset }"
     >
-      <span :style="{ fontSize: fontSize }">{{ amountNumber }}</span>
+      <span
+        v-if="amountNumber < 1000"
+        :style="{ fontSize: fontSize }">
+        {{ amountNumber }}
+      </span>
+      <span
+        v-else
+        :style="{ fontSize: fontSize }">
+        999+
+      </span>
       <span :style="{ fontSize: fontSizeSmall }">kg</span>
     </div>
   </div>

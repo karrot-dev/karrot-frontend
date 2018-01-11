@@ -33,6 +33,9 @@ export default {
     photosArray () {
       let amount = this.amount
       let amountImages = []
+      if (amount > 1000) {
+        return [ cartImg ]
+      }
       while (amount >= 0.15) {
         if (amount >= 50.0) {
           amountImages.push(cartImg)
@@ -66,6 +69,9 @@ export default {
           amountImages.push(appleImg)
         }
         amount -= 0.15
+      }
+      if (amountImages.length > 6) {
+        return amountImages.slice(0, 9)
       }
       return amountImages
     },

@@ -11,12 +11,12 @@
           style="padding-bottom: .3em"
         />
         <AmountViewer
-          v-if="!$q.platform.is.mobile && value < 5001"
+          v-if="!$q.platform.is.mobile"
           :amount="value"
         />
       </div>
     </div>
-    <div class="row">
+    <div class="row no-wrap">
       <q-slider
         :value="limitedValue"
         @input="$emit('input', arguments[0])"
@@ -29,9 +29,11 @@
       <!-- don't use type="number" here because browsers might enforce different decimal setting
        depending on browser locale-->
       <q-input
-        style="width: 5em"
+        style="width: 5em; margin: 0 5px 0 2em; text-align: right"
         v-model="valueToNumber"
+        align="right"
       />
+      <span style="padding: 3px">kg</span>
     </div>
   </div>
 </template>
@@ -58,7 +60,7 @@ export default {
         return this.value
       },
       set (v) {
-        const value = parseInt(v, 10)
+        const value = parseFloat(v, 10)
         this.value = isNaN(value) ? 0 : Math.max(0, value)
       },
     },

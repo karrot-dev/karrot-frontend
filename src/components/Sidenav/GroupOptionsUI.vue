@@ -2,6 +2,8 @@
   <q-popover
     fit
     ref="popover"
+    anchor="bottom right"
+    self="top right"
   >
     <q-list
       item-separator

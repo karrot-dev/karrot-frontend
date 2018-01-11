@@ -61,9 +61,10 @@ export default {
         }
       },
 
-      async save ({ commit }, feedback) {
+      async save ({ commit, dispatch }, feedback) {
         const entry = await feedbackAPI.create(feedback)
         commit('update', [entry])
+        dispatch('pickups/removeFeedbackPossible', entry.about, { root: true })
         router.push({ name: 'groupFeedback' })
       },
     }),

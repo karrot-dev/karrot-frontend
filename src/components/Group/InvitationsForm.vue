@@ -5,6 +5,7 @@
         icon="fa-envelope"
         :helper="errorMessage"
         dark
+        class="white-font"
       >
         <q-input
           v-model="form.email"
@@ -96,3 +97,9 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus">
+.q-field-dark.white-font
+  .q-field-label, .q-field-icon, .q-field-counter, .q-field-bottom
+    color white
+</style>

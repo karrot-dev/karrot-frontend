@@ -19,10 +19,10 @@ export default {
 }
 
 function parseImageURLs (data) {
-  if (data.photo) {
+  if (data.photoUrls) {
     data = {
       ...data,
-      photo: Object.entries(data.photo).reduce((acc, cur) => {
+      photoUrls: Object.entries(data.photoUrls).reduce((acc, cur) => {
         const [key, value] = cur
         acc[key] = parseImageURL(value)
         return acc

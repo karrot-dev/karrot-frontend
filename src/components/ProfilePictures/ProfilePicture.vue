@@ -69,8 +69,8 @@ export default {
       return !!this.photo
     },
     photo () {
-      if (this.user && this.user.photo) {
-        const p = this.user.photo
+      if (this.user && this.user.photoUrls) {
+        const p = this.user.photoUrls
         return this.bigPhoto ? p.fullSize : p.thumbnail
       }
     },

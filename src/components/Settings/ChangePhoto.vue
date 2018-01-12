@@ -63,7 +63,7 @@ export default {
       return !!this.photo
     },
     photo () {
-      return this.value.photo && this.value.photo.fullSize
+      return this.value.photoUrls && this.value.photoUrls.fullSize
     },
   },
   methods: {

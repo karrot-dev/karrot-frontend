@@ -144,8 +144,8 @@ export default {
       return !!this.photo
     },
     photo () {
-      if (this.user && this.user.photo) {
-        return this.user.photo.thumbnail
+      if (this.user && this.user.photoUrls) {
+        return this.user.photoUrls.thumbnail
       }
     },
   },

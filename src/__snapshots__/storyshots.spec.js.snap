@@ -4271,7 +4271,9 @@ exports[`Storyshots Statistics AmountBox 1`] = `
 <div class="container" style="width:100px;height:100px;">
     <img width="100px" height="100px" src="test-file-stub">
     <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(12deg);top:10px;">
-    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">20.0</span> <span style="font-size:14px;">kg</span></div>
+    <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
+      20.0
+    </span> <span style="font-size:14px;">kg</span></div>
 </div>
 `;
 
@@ -4281,7 +4283,9 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
         <div class="container amount" style="width:100px;height:100px;">
             <img width="100px" height="100px" src="test-file-stub">
             <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
-            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1.0</span> <span style="font-size:14px;">kg</span></div>
+            <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
+      1.0
+    </span> <span style="font-size:14px;">kg</span></div>
         </div>
         <div style="margin-left:.6em;">
             <div style="padding-bottom:.3em;"></div>
@@ -4290,7 +4294,7 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
             </div>
         </div>
     </div>
-    <div>
+    <div class="row no-wrap">
         <div class="q-slider non-selectable">
             <div class="q-slider-handle-container">
                 <div class="q-slider-track"></div>
@@ -4447,7 +4451,19 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
                 </div>
             </div>
         </div>
-    </div>
+        <div class="q-if row no-wrap items-center relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
+            <!---->
+            <div class="q-if-inner col row no-wrap items-center relative-position">
+                <!---->
+                <!---->
+                <input type="text" value="1" class="col q-input-target text-right">
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+            </div>
+            <!---->
+        </div> <span style="padding:3px;">kg</span></div>
 </div>
 `;
 
@@ -4458,7 +4474,9 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
             <div class="container amount-box" style="width:80px;height:80px;">
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+      2.5
+    </span> <span style="font-size:11px;">kg</span></div>
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -4499,7 +4517,9 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="container amount-box" style="width:80px;height:80px;">
                         <img width="80px" height="80px" src="test-file-stub">
                         <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-                        <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
+                        <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+      2.5
+    </span> <span style="font-size:11px;">kg</span></div>
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -4535,7 +4555,9 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                 <div class="container amount-box" style="width:80px;height:80px;">
                     <img width="80px" height="80px" src="test-file-stub">
                     <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
-                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
+                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+      11.0
+    </span> <span style="font-size:11px;">kg</span></div>
                 </div>
                 <div class="content">
                     <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -4570,7 +4592,9 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <div class="container amount-box" style="width:80px;height:80px;">
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">0.0</span> <span style="font-size:11px;">kg</span></div>
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+      0
+    </span> <span style="font-size:11px;">g</span></div>
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -4688,7 +4712,9 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     <div class="container amount" style="width:100px;height:100px;">
                         <img width="100px" height="100px" src="test-file-stub">
                         <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
-                        <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">1.0</span> <span style="font-size:14px;">kg</span></div>
+                        <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
+      1.0
+    </span> <span style="font-size:14px;">kg</span></div>
                     </div>
                     <div style="margin-left:.6em;">
                         <div style="padding-bottom:.3em;"></div>
@@ -4697,7 +4723,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="row no-wrap">
                     <div class="q-slider non-selectable">
                         <div class="q-slider-handle-container">
                             <div class="q-slider-track"></div>
@@ -4854,7 +4880,19 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="q-if row no-wrap items-center relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
+                        <!---->
+                        <div class="q-if-inner col row no-wrap items-center relative-position">
+                            <!---->
+                            <!---->
+                            <input type="text" value="1" class="col q-input-target text-right">
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                        </div>
+                        <!---->
+                    </div> <span style="padding:3px;">kg</span></div>
             </div>
             <div class="q-field row no-wrap items-start" style="margin-top:2em;padding:0 .5em;">
                 <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
@@ -4912,7 +4950,9 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="container amount-box" style="width:80px;height:80px;">
                                 <img width="80px" height="80px" src="test-file-stub">
                                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-                                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">2.5</span> <span style="font-size:11px;">kg</span></div>
+                                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+      2.5
+    </span> <span style="font-size:11px;">kg</span></div>
                             </div>
                             <div class="content">
                                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -4948,7 +4988,9 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <div class="container amount-box" style="width:80px;height:80px;">
                             <img width="80px" height="80px" src="test-file-stub">
                             <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
-                            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">11.0</span> <span style="font-size:11px;">kg</span></div>
+                            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+      11.0
+    </span> <span style="font-size:11px;">kg</span></div>
                         </div>
                         <div class="content">
                             <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -4983,7 +5025,9 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     <div class="container amount-box" style="width:80px;height:80px;">
                         <img width="80px" height="80px" src="test-file-stub">
                         <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-                        <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">0.0</span> <span style="font-size:11px;">kg</span></div>
+                        <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+      0
+    </span> <span style="font-size:11px;">g</span></div>
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>

@@ -52,7 +52,7 @@ export default {
         return Math.min(70, this.value)
       },
       set (v) {
-        this.value = v
+        this.$emit('input', v)
       },
     },
     valueToNumber: {
@@ -60,8 +60,9 @@ export default {
         return this.value
       },
       set (v) {
-        const value = parseFloat(v, 10)
-        this.value = isNaN(value) ? 0 : Math.max(0, value)
+        let value = parseFloat(v, 10)
+        value = isNaN(value) ? 0 : Math.max(0, value)
+        this.$emit('input', value)
       },
     },
   },

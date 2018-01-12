@@ -48,7 +48,7 @@
         </template>
         <MainAlerts />
         <div class="mainContent row justify-between no-wrap">
-          <div class="whiteSpace gt-lg" />
+          <div class="whiteSpace" />
           <router-view
             v-if="!$q.platform.is.mobile"
             class="sidenav-desktop"
@@ -57,7 +57,7 @@
           <div class="mainContent-page">
             <router-view />
           </div>
-          <div class="whiteSpace gt-lg desktop-only"/>
+          <div class="whiteSpace desktop-only"/>
         </div>
         <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 

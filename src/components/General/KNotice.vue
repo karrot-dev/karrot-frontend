@@ -29,7 +29,14 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+@keyframes rotateIn
+  0%
+    transform: translateZ(1px) rotate(0deg)
+  100%
+    transform: translateZ(1px) rotate(-3deg)
+
 .notice
+  animation: .3s ease-out 0s 1 rotateIn;
   .card > div
     margin-bottom 1em
   .icon

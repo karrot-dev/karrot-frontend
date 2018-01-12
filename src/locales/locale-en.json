@@ -54,6 +54,7 @@
     "CREATE_TITLE": "Create new group",
     "MANAGE_AGREEMENT": "Manage agreement",
     "TITLE": "Title of this group",
+    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
     "PASSWORD": "Enter a password here if you want to make the group private",
@@ -68,6 +69,7 @@
     "INVITE_SEND": "Send invitation",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Invite users to your group",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
@@ -136,6 +138,7 @@
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
   },
   "GROUPINFO": {
+    "TITLE": "Public group information",
     "META": "Show public group information",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },

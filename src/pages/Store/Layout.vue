@@ -1,49 +1,53 @@
 <template>
   <div v-if="store.status != 'archived'">
-    <div
-      v-if="$q.platform.is.mobile"
-      slot="navigation"
-      class="shadow-14 inset-shadow row"
-    >
-      <q-tabs
-        align="center"
-        color="tertiary"
-        hide="icon"
-        class="col"
-      >
-        <q-route-tab
-          :to="{name: 'storePickups'}"
-          exact
-          slot="title"
-          name="pickups"
-        >
-          {{ $t('GROUP.PICKUPS' ) }}
-        </q-route-tab>
-        <q-route-tab
-          :to="{name: 'storeFeedback'}"
-          exact
-          slot="title"
-          name="feedback"
-        >
-          {{ $t('PICKUP_FEEDBACK.TITLE' ) }}
-        </q-route-tab>
-        <q-route-tab
-          :to="{name: 'storeHistory'}"
-          exact
-          slot="title"
-          name="history"
-        >
-          {{ $t('GROUP.HISTORY' ) }}
-        </q-route-tab>
-      </q-tabs>
-      <q-btn
-        flat
-        class="bg-tertiary text-white"
-      >
-        <q-icon name="fa-ellipsis-v" />
-        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
-        <StoreOptions/>
-      </q-btn>
+    <div slot="navigation">
+      <RandomArt
+        :seed="store.id"
+        type="banner"
+        :above="true"
+        v-if="$q.platform.is.mobile">
+        <div class="navbar-wrapper row no-wrap">
+          <q-tabs
+            align="center"
+            color="transparent"
+            hide="icon"
+            class="col"
+          >
+            <q-route-tab
+              :to="{name: 'storePickups'}"
+              exact
+              slot="title"
+              name="pickups"
+            >
+              {{ $t('GROUP.PICKUPS' ) }}
+            </q-route-tab>
+            <q-route-tab
+              :to="{name: 'storeFeedback'}"
+              exact
+              slot="title"
+              name="feedback"
+            >
+              {{ $t('PICKUP_FEEDBACK.TITLE' ) }}
+            </q-route-tab>
+            <q-route-tab
+              :to="{name: 'storeHistory'}"
+              exact
+              slot="title"
+              name="history"
+            >
+              {{ $t('GROUP.HISTORY' ) }}
+            </q-route-tab>
+          </q-tabs>
+          <q-btn
+            flat
+            class="text-white"
+          >
+            <q-icon name="fa-ellipsis-v" />
+            <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
+            <StoreOptions/>
+          </q-btn>
+        </div>
+      </RandomArt>
     </div>
     <div class="grey-border store-banner">
       <RandomArt
@@ -109,4 +113,9 @@ body.mobile .store-banner
   border 0
   max-height: 30px
   overflow: hidden
+
+.navbar-wrapper
+  background linear-gradient(to bottom, rgba(0,0,0,0.38) 20%, rgba(0,0,0,0) 100%)
+  width: 100%
+  overflow auto
 </style>

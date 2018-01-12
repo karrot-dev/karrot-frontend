@@ -13,7 +13,7 @@
         v-else
         :text="user.displayName"
         :seed="user.id"
-        style="random-art"
+        class="randomArt"
         :style="pictureStyle"
       />
       <q-tooltip>
@@ -30,7 +30,7 @@
         v-else
         :text="user.displayName"
         :seed="user.id"
-        class="random-art"
+        class="randomArt"
         :style="pictureStyle"
       />
     </div>
@@ -81,7 +81,7 @@ export default {
 <style scoped lang="stylus">
 .wrapper
   display inline-block
-.random-art
+.randomArt
   display block
   overflow hidden
 </style>

@@ -3724,6 +3724,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container">
+            <!---->
             <div class="edit-box">
                 <form>
                     <div class="q-field row no-wrap items-start">

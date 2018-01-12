@@ -2,6 +2,21 @@ var path = require('path')
 
 const backend = (process.env.BACKEND || 'https://dev.karrot.world').replace(/\/$/, '') // no trailing slash
 
+const backendProxy = {
+  target: backend,
+  changeOrigin: true,
+  ws: true,
+  onProxyReq: (proxyReq) => {
+    if (/^https:/.test(backend)) {
+      // For secure backends we must set the referer to make django happy
+      // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226
+      // If the backend tries to use this referer for anything useful it will break
+      // as it is a blatant lie, but I don't think it does...
+      proxyReq.setHeader("referer", backend);
+    }
+  }
+}
+
 module.exports = {
   // Webpack aliases
   aliases: {
@@ -49,21 +64,9 @@ module.exports = {
     // Also see /build/script.dev.js and search for "proxy api requests"
     // https://github.com/chimurai/http-proxy-middleware
     proxyTable: {
-      '/api': {
-        target: backend,
-        changeOrigin: true,
-        ws: true,
-        onProxyReq: (proxyReq) => {
-          if (/^https:/.test(backend)) {
-            // For secure backends we must set the referer to make django happy
-            // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226
-            // If the backend tries to use this referer for anything useful it will break
-            // as it is a blatant lie, but I don't think it does...
-            proxyReq.setHeader("referer", backend);
-          }
-        }
-      }
-    }
+      '/api': backendProxy,
+      '/media': backendProxy,
+    },
   }
 }
 

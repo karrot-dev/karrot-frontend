@@ -12,7 +12,9 @@
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
     "USERNAME": "Name",
-    "WHERE_FROM": "Where you are from (not required)"
+    "WHERE_FROM": "Where you are from (not required)",
+    "PHOTO": "Profile photo",
+    "SET_PHOTO": "Set your profile photo..."
   },
   "BUTTON": {
     "CREATE": "Create",
@@ -31,6 +33,7 @@
     "RESET": "Reset",
     "CHANGE_PASSWORD": "Change password",
     "CHANGE_EMAIL": "Change e-mail address",
+    "SAVE_PHOTO": "Save photo",
     "AGREE": "I agree",
     "REMOVE": "Remove",
     "ARCHIVE": "Archive"

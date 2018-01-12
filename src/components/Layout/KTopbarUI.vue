@@ -53,7 +53,23 @@
         :to="{name: 'user', params: {userId: user.id}}"
         class="defaulthover"
       >
-        <q-btn flat>
+        <q-btn
+          v-if="hasPhoto"
+          flat
+        >
+          <div class="row items-center no-wrap">
+            <span>{{ user.displayName }}</span>
+            <img
+              :src="photo"
+              class="profilePicture"
+            >
+          </div>
+          <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
+        </q-btn>
+        <q-btn
+          v-else
+          flat
+        >
           {{ user.displayName }}
           <q-icon name="fa-fw fa-user" />
           <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
@@ -123,12 +139,25 @@ export default {
     searchOpen: { required: true },
     user: { required: true },
   },
+  computed: {
+    hasPhoto () {
+      return !!this.photo
+    },
+    photo () {
+      if (this.user && this.user.photo) {
+        return this.user.photo.thumbnail
+      }
+    },
+  },
 }
 </script>
 
 <style scoped lang="stylus">
 @import '~variables'
 .logo
+  margin-left 1em
+  height 36px
+.profilePicture
   margin-left 1em
   height 36px
 .searchbar

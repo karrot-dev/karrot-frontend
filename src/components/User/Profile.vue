@@ -45,12 +45,6 @@
           <i class="fa fa-fw fa-envelope-o on-left" />
         </strong>
         <a :href='"mailto:" + user.email'>{{ user.email }}</a>
-        <span v-if="user.email !== user.unverifiedEmail && user.unverifiedEmail">
-          <i class="fa fa-arrow-right"/>
-          <router-link :to="{name: 'settings'}">
-            {{ user.unverifiedEmail }}
-          </router-link>
-        </span>
       </div>
       <div class="info">
         <div

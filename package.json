@@ -83,6 +83,7 @@
     "babel-plugin-transform-runtime": "^6.0.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.0.0",
+    "canvas": "^1.6.9",
     "colors": "^1.1.2",
     "connect-history-api-fallback": "^1.1.0",
     "cross-env": "^5.1.3",

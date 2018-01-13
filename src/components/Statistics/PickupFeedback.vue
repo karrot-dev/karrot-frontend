@@ -45,6 +45,8 @@
           <q-btn
             type="submit"
             color="secondary"
+            loader
+            :value="isPending"
             v-t="'BUTTON.CREATE'"
           />
         </div>

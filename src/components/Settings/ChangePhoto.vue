@@ -5,18 +5,25 @@
       :label="$t('USERDATA.PHOTO')"
       :error="hasError('photo')"
       :error-label="firstError('photo')"
+      :helper="$t('USERDATA.SET_PHOTO')"
     >
       <croppa
         ref="croppaPhoto"
         :width="300"
         :height="300"
-        :placeholder="$t('USERDATA.SET_PHOTO')"
+        placeholder=""
+        canvas-color="#fff"
         :prevent-white-space="true"
+        :show-loading="true"
       >
         <img
           v-if="hasPhoto"
           slot="initial"
           :src="photo"
+        >
+        <img
+          slot="placeholder"
+          src="statics/ic_person_black_24px.svg"
         >
       </croppa>
     </q-field>
@@ -34,9 +41,8 @@
         @click="save"
         loader
         :value="isPending"
-      >
-        {{ $t('BUTTON.SAVE_PHOTO') }}
-      </q-btn>
+        v-t="'BUTTON.SAVE_CHANGES'"
+      />
     </div>
   </div>
 </template>
@@ -83,4 +89,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+</style>
+
+<style lang="stylus">
+.croppa-container canvas
+  width 100% !important
+  height 100% !important
+  max-width 300px
+  max-height 300px
 </style>

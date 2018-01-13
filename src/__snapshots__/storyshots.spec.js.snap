@@ -3734,12 +3734,17 @@ exports[`Storyshots Settings Page Default 1`] = `
                         <div class="q-field-content col-xs-12 col-sm">
                             <div class="croppa-container     ">
                                 <input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
-                                <div class="slots" style="width:0;height:0;visibility:hidden;"> </div>
+                                <div class="slots" style="width:0;height:0;visibility:hidden;">
+                                    <img src="statics/ic_person_black_24px.svg">
+                                </div>
                                 <canvas></canvas>
                                 <!---->
                                 <!---->
                             </div>
-                            <!---->
+                            <div class="q-field-bottom row no-wrap q-field-no-input">
+                                <div class="q-field-helper col">Set your profile photo...</div>
+                                <!---->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3747,9 +3752,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 <div class="actionButtons">
                     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
                         <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> 
-      Save photo
-     <!----></span></button>
+                        <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
                 </div>
             </div>
             <div class="edit-box">

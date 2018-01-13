@@ -27,5 +27,8 @@ myvenv
 # Static build of frontend (obtained via command)
 foodsaving/frontend/static/*
 
+# Media files
+uploads
+
 # Mac files
 .DS_Store

@@ -3,13 +3,14 @@ from datetime import timedelta
 from anymail.message import AnymailMessage
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db import transaction
 from django.db import models
+from django.db import transaction
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
 from django.template.loader import render_to_string
 from django.utils import crypto
 from django.utils import timezone
 from django.utils.translation import ugettext as _
+from versatileimagefield.fields import VersatileImageField
 
 from foodsaving.base.base_models import BaseModel, LocationModel
 
@@ -85,6 +86,12 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     deleted_at = DateTimeField(default=None, null=True)
     current_group = ForeignKey('groups.Group', blank=True, null=True, on_delete=models.SET_NULL)
 
+    photo = VersatileImageField(
+        'Photo',
+        upload_to='user__photos',
+        null=True,
+    )
+
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
@@ -94,6 +101,12 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
     def get_short_name(self):
         return self.display_name
+
+    def delete_photo(self):
+        # Deletes Image Renditions
+        self.photo.delete_all_created_images()
+        # Deletes Original Image
+        self.photo.delete(save=False)
 
     @transaction.atomic
     def verify_mail(self):

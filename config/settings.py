@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'django_jinja',
     'channels',
+    'versatileimagefield',
 )
 
 REST_FRAMEWORK = {
@@ -145,6 +146,17 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'django.contrib.auth.hashers.BCryptPasswordHasher',
 ]
+
+VERSATILEIMAGEFIELD_SETTINGS = {
+    'image_key_post_processor': 'versatileimagefield.processors.md5',
+}
+
+VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
+    'user_profile': [
+        ('full_size', 'url'),
+        ('thumbnail', 'thumbnail__120x120'),
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/

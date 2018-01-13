@@ -1,6 +1,7 @@
 from datetime import timedelta
 from unittest.mock import MagicMock
 
+import os
 from anymail.exceptions import AnymailAPIError
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
@@ -140,6 +141,34 @@ class TestCreateUserErrors(APITestCase):
         })
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
         self.assertEqual(response.data['email'], ['Similar e-mail exists: fancy@example.com'])
+
+
+class TestUploadPhoto(APITestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.url = '/api/auth/user/'
+        self.photo_file = os.path.join(os.path.dirname(__file__), './photo.jpg')
+
+    def test_upload_and_delete_photo(self):
+        self.client.force_login(user=self.user)
+        response = self.client.get(self.url)
+        self.assertTrue('full_size' not in response.data['photo_urls'])
+
+        with open(self.photo_file, 'rb') as photo:
+            response = self.client.patch(self.url, {'photo': photo})
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        response = self.client.get(self.url)
+        self.assertTrue('full_size' in response.data['photo_urls'])
+        self.assertTrue('thumbnail' in response.data['photo_urls'])
+
+        # delete photo
+        response = self.client.patch(self.url, {'photo': None}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+
+        response = self.client.get(self.url)
+        self.assertTrue('full_size' not in response.data['photo_urls'])
+        self.assertTrue('thumbnail' not in response.data['photo_urls'])
 
 
 class TestRejectedAddress(APITestCase):

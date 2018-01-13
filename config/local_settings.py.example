@@ -20,6 +20,9 @@ DEBUG = True
 # STATIC_ROOT = './static/'
 # ALLOWED_HOSTS = ['*']
 
+# Uploaded files location, e.g. user photos
+MEDIA_ROOT = './uploads/'
+MEDIA_URL = '/media/'
 
 ######
 # Mail configuration

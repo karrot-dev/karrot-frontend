@@ -6,7 +6,8 @@ The `urlpatterns` list routes URLs to views. For more information please see:
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import path, include
+from django.urls import path, re_path, include
+from django.views.static import serve
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
@@ -73,3 +74,9 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += [
+        re_path(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+            'show_indexes': True,
+        }),
+    ]

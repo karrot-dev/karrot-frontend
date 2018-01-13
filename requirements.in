@@ -27,3 +27,4 @@ furl
 channels
 asgi_redis
 pyfcm
+django-versatileimagefield

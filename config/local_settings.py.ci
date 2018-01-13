@@ -13,6 +13,8 @@ DEFAULT_FROM_EMAIL = "testing@example.com"
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 HOSTNAME = ''
 SITE_NAME = 'fakekarrot.example.com'
+MEDIA_ROOT = './uploads/'
+MEDIA_URL = '/media/'
 
 INFLUXDB_DISABLED = True
 INFLUXDB_HOST = ''

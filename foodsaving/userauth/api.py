@@ -85,6 +85,8 @@ class AuthUserView(generics.GenericAPIView):
         user.unverified_email = None
         user.deleted_at = timezone.now()
         user.deleted = True
+        user.delete_photo()
+
         user.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)

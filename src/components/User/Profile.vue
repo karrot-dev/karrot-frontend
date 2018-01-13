@@ -86,7 +86,7 @@ export default {
       if (this.$q.platform.is.mobile) {
         return 60
       }
-      return 90
+      return 180
     },
   },
 }

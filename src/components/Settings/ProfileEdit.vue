@@ -1,6 +1,6 @@
 <template>
   <div
-    class="edit"
+    class="edit-box"
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="save">
@@ -47,23 +47,25 @@
         {{ firstNonFieldError }}
       </div>
 
-      <q-btn
-        type="submit"
-        color="primary"
-        :disable="!hasChanged"
-        loader
-        :value="isPending"
-      >
-        {{ $t('BUTTON.SAVE_CHANGES') }}
-      </q-btn>
+      <div class="actionButtons">
+        <q-btn
+          type="submit"
+          color="primary"
+          :disable="!hasChanged"
+          loader
+          :value="isPending"
+        >
+          {{ $t('BUTTON.SAVE_CHANGES') }}
+        </q-btn>
 
-      <q-btn
-        type="button"
-        @click="reset"
-        :disable="!hasChanged"
-      >
-        {{ $t('BUTTON.RESET') }}
-      </q-btn>
+        <q-btn
+          type="button"
+          @click="reset"
+          :disable="!hasChanged"
+        >
+          {{ $t('BUTTON.RESET') }}
+        </q-btn>
+      </div>
     </form>
   </div>
 </template>
@@ -94,11 +96,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.edit
-  width 100%
-  padding 20px
-  background-color $grey-1
-  &.changed
-    background-color $yellow-1
 </style>

@@ -1,6 +1,7 @@
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
+const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
@@ -9,15 +10,17 @@ const GroupPreview = () => import('@/pages/GroupPreview')
 const GroupGallery = () => import('@/pages/GroupGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
+const StoreFeedback = () => import('@/pages/Store/Feedbacks')
+const StoreHistory = () => import('@/pages/Store/History')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
 const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
 const StoreList = () => import('@/pages/Store/Stores')
-const History = () => import('@/pages/History')
 const HistoryDetail = () => import('@/pages/HistoryDetail')
 const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
+const GroupHistory = () => import('@/pages/Group/History')
 const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores')
 const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup')
 const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
@@ -120,6 +123,19 @@ export default [
         },
       },
       {
+        name: 'groupFeedback',
+        path: 'feedback',
+        meta: {
+          breadcrumbs: [
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
+          ],
+        },
+        components: {
+          default: GroupFeedback,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
         name: 'groupDescription',
         path: 'description',
         meta: {
@@ -155,7 +171,7 @@ export default [
           beforeEnter: 'history/fetchForGroup',
         },
         components: {
-          default: History,
+          default: GroupHistory,
           sidenav: GroupGroupSidenav,
         },
       },
@@ -164,7 +180,7 @@ export default [
         path: 'invites',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvitations' } },
+            { translation: 'GROUP.INVITATIONS', route: { name: 'groupInvitations' } },
           ],
           beforeEnter: 'invitations/fetch',
         },
@@ -241,7 +257,8 @@ export default [
         },
         components: {
           default: StoreLayout,
-          sidenav: GroupStoreSidenav,
+          sidenav: GroupGroupSidenav,
+          secondSidenav: GroupStoreSidenav,
         },
         children: [
           {
@@ -267,9 +284,23 @@ export default [
             },
           },
           {
+            name: 'storeFeedback',
+            path: 'feedback',
+            meta: {
+              breadcrumbs: [
+                { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
+              ],
+              beforeEnter: 'feedback/setStoreFilter',
+              afterLeave: 'feedback/clearStoreFilter',
+            },
+            components: {
+              default: StoreFeedback,
+            },
+          },
+          {
             name: 'storeHistory',
             path: 'history',
-            component: History,
+            component: StoreHistory,
             meta: {
               breadcrumbs: [
                 { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
@@ -291,14 +322,15 @@ export default [
       },
       {
         name: 'pickupFeedback',
-        path: 'feedback',
+        path: 'give-feedback',
         meta: {
           breadcrumbs: [
-            { translation: 'FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
           ],
         },
         components: {
           default: PickupFeedback,
+          sidenav: GroupGroupSidenav,
         },
       },
     ],

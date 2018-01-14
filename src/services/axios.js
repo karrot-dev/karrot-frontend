@@ -15,6 +15,9 @@ const axios = Axios.create({
 })
 
 axios.interceptors.request.use(request => {
+  if (request.data instanceof FormData) {
+    return request
+  }
   request.data = underscorizeKeys(request.data)
   return request
 }, error => {
@@ -36,3 +39,7 @@ axios.interceptors.response.use(response => {
 })
 
 export default axios
+
+export function parseCursor (c) {
+  return c ? c.substr(c.indexOf('/api')) : null
+}

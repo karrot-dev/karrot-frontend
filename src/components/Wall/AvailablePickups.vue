@@ -11,7 +11,7 @@
         class="card-arrow"
         :class="{ upsideDown: showPickups }"
       >
-        <i class="fa fa-arrow-circle-down"/>
+        <i class="fa fa-angle-down"/>
       </div>
     </q-card>
     <transition-group
@@ -56,6 +56,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .list-leave-active
   transition: all .5s
 .list-leave-to
@@ -64,6 +65,7 @@ export default {
 .q-card.notice
   cursor pointer
   transition: all .2s ease;
+  color $primary !important
   .card-arrow
     float: right
     transition: all .3s ease;

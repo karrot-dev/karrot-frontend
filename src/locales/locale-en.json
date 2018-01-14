@@ -12,7 +12,9 @@
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
     "USERNAME": "Name",
-    "WHERE_FROM": "Where you are from (not required)"
+    "WHERE_FROM": "Where you are from (not required)",
+    "PHOTO": "Profile photo",
+    "SET_PHOTO": "Set your profile photo..."
   },
   "BUTTON": {
     "CREATE": "Create",
@@ -54,6 +56,7 @@
     "CREATE_TITLE": "Create new group",
     "MANAGE_AGREEMENT": "Manage agreement",
     "TITLE": "Title of this group",
+    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
     "PASSWORD": "Enter a password here if you want to make the group private",
@@ -68,6 +71,7 @@
     "INVITE_SEND": "Send invitation",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Invite users to your group",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
@@ -83,7 +87,8 @@
   "STOREDETAIL": {
     "EDIT": "Edit store",
     "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "This store has been archived"
+    "ARCHIVED": "This store has been archived",
+    "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Name",
@@ -102,7 +107,7 @@
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
-    "SERIES": "Recurring",
+    "SERIES": "Recurring pickups",
     "SINGLE": "One-time pickups",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },
@@ -113,6 +118,7 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
     "DESCRIPTION": "About you",
+    "OLD_PASSWORD": "Old password",
     "PASSWORD": "Enter your new password"
   },
   "PROFILE": {
@@ -134,6 +140,7 @@
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
   },
   "GROUPINFO": {
+    "TITLE": "Public group information",
     "META": "Show public group information",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
@@ -158,8 +165,18 @@
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
+    "FREQUENCY": "Frequency",
+    "WEEKLY": "Weekly",
+    "CUSTOM": "Custom",
     "WEEKDAYS": "Weekdays",
     "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
+    "RRULE": "Recurrence rule",
+    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender rule",
+    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
+    "RRULE_EXAMPLE2": "every second Monday",
+    "STARTDATE": "Start date",
+    "STARTDATE_HELPER": "When should the series start?",
     "TIME": "Time",
     "TIME_HELPER": "When should the pick-up take place?",
     "DATE": "Date",
@@ -168,13 +185,15 @@
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
     "COMMENT": "Additional information",
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it",
+    "UNLIMITED": "unlimited"
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
     "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Leave",
@@ -185,14 +204,23 @@
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
     "NONE": "No upcoming pickups",
-    "NONE_HINT": "You can create a new pickup on the store page."
+    "NONE_HINT": "You can create a new pickup on the store page.",
+    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+  },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
+    "GIVE_FEEDBACK": "Give feedback",
+    "NONE": "No feedback yet",
+    "NONE_HINT": "This page will be filled once more feedback is available"
   },
   "PICKUP_FEEDBACK": {
+    "TITLE": "Feedback",
     "HEADER": "Thank you for your pickup!",
     "SUBTITLE": "You can provide feedback for your pickup here",
-    "AMOUNT": "Amount of food you took home (in kg)",
+    "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comment",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here..."
+    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
+    "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",
@@ -203,7 +231,8 @@
     "SUCCESS": "The request was successfully sent. Have a look at your mails!"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Add more languages!"
+    "ADD_MORE": "Add more languages!",
+    "SWITCH": "Switch language"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "bold",

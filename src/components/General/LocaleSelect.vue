@@ -41,17 +41,18 @@
         </q-item>
       </q-list>
     </q-popover>
+    <q-tooltip v-t="'LANGUAGECHOOSER.SWITCH'" />
   </q-btn>
 </template>
 
 <script>
-import { QProgress, QIcon, QBtn, QPopover, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain } from 'quasar'
+import { QProgress, QIcon, QBtn, QPopover, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain, QTooltip } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 import { localeOptions } from '@/i18n'
 
 export default {
   name: 'LocaleSelect',
-  components: { QProgress, QIcon, QBtn, QPopover, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain },
+  components: { QProgress, QIcon, QBtn, QPopover, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain, QTooltip },
   data () {
     return {
       localeOptions,

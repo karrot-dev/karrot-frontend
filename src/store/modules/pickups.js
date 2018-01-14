@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import pickups from '@/services/api/pickups'
-import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/store/helpers'
+import { indexById, createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/store/helpers'
 
 function initialState () {
   return {
@@ -8,6 +8,7 @@ function initialState () {
     idList: [],
     idListGroupId: null,
     storeIdFilter: null,
+    feedbackPossibleIds: [],
   }
 }
 
@@ -50,6 +51,7 @@ export default {
       if (!rootGetters['auth/isLoggedIn']) return []
       return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
     },
+    feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get), // TODO filter by current group id
     ...metaStatuses(['create']),
   },
   actions: {
@@ -60,7 +62,8 @@ export default {
       },
 
       async fetchList ({ commit }) {
-        commit('set', { pickups: await pickups.list() })
+        // TODO implement pagination
+        commit('set', { pickups: (await pickups.list()).results })
       },
 
       async join ({ commit, dispatch, rootGetters }, pickupId) {
@@ -99,15 +102,25 @@ export default {
         dispatch('refresh')
       },
 
+      async fetchFeedbackPossible ({ commit }, groupId) {
+        commit('setFeedbackPossible', (await pickups.listFeedbackPossible(groupId)).results)
+      },
+
     }),
 
     ...withPrefixedIdMeta('group/', {
 
       async fetchListByGroupId ({ commit }, groupId) {
-        commit('set', { pickups: await pickups.listByGroupId(groupId), groupId })
+        commit('set', { pickups: (await pickups.listByGroupId(groupId)).results, groupId })
       },
 
     }),
+
+    async maybeFetch ({ getters, dispatch }, pickupId) {
+      if (!getters.get(pickupId)) {
+        await dispatch('fetch', pickupId)
+      }
+    },
 
     clear ({ commit }) {
       commit('clear')
@@ -119,6 +132,10 @@ export default {
 
     setStoreFilter ({ commit }, storeId) {
       commit('setStoreIdFilter', storeId)
+    },
+
+    removeFeedbackPossible ({ commit }, pickupId) {
+      commit('removeFeedbackPossible', pickupId)
     },
 
     refresh ({ state, dispatch }) {
@@ -146,14 +163,12 @@ export default {
       Vue.set(state.entries, pickup.id, pickup)
     },
     set (state, { pickups, groupId }) {
-      let entries = {}
-      let ids = []
-      for (let pickup of pickups) {
-        entries[pickup.id] = pickup
-        ids.push(pickup.id)
+      // TODO clear if necessary
+      state.entries = {
+        ...state.entries,
+        ...indexById(pickups),
       }
-      state.entries = entries
-      state.idList = ids
+      state.idList = pickups.map(e => e.id)
       state.idListGroupId = groupId
     },
     join (state, { pickupId, userId }) {
@@ -163,6 +178,19 @@ export default {
       let { collectorIds } = state.entries[pickupId]
       let idx = collectorIds.indexOf(userId)
       if (idx !== -1) collectorIds.splice(idx, 1)
+    },
+
+    setFeedbackPossible (state, pickups) {
+      state.entries = {
+        ...state.entries,
+        ...indexById(pickups),
+      }
+      state.feedbackPossibleIds = pickups.map(e => e.id)
+    },
+    removeFeedbackPossible (state, pickupId) {
+      const pickups = state.feedbackPossibleIds
+      const idx = pickups.indexOf(pickupId)
+      if (idx !== -1) pickups.splice(idx, 1)
     },
 
   },

@@ -1,4 +1,5 @@
 import { statusMocks } from '>/helpers'
+import { optionsFor } from '@/services/storeStatus'
 
 export const currentUserMock = { 'id': 5, 'displayName': 'Current User', 'email': 'current@user.de', 'unverifiedEmail': 'current@user.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8980022441358, 'longitude': 8.66015739059448, 'description': 'I am the current User!', 'mailVerified': true, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'de', isCurrentUser: true }
 
@@ -20,6 +21,7 @@ export const storesMock = [
 ].map(e => ({
   ...e,
   saveStatus: statusMocks.default(),
+  ui: optionsFor(e),
 }))
 
 function enrichPickup (e) {
@@ -33,14 +35,14 @@ function enrichPickup (e) {
 }
 
 export const joinablePickup = enrichPickup({ 'id': 234, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 3], 'description': 'you can join this pickup', isFull: false, isUserMember: false })
-export const leavablePickup = enrichPickup({ 'id': 235, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 5], 'description': 'you are collector and can leave this pickup', isFull: false, isUserMember: true })
-export const fullPickup = enrichPickup({ 'id': 236, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [1, 2, 3], 'description': 'this pickup is already full!', isFull: true, isUserMember: false })
-export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [], 'description': 'this pickup is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
+export const leavablePickup = enrichPickup({ 'id': 235, 'date': '2017-08-13T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 5], 'description': 'you are collector and can leave this pickup', isFull: false, isUserMember: true })
+export const fullPickup = enrichPickup({ 'id': 236, 'date': '2017-08-14T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [1, 2, 3], 'description': 'this pickup is already full!', isFull: true, isUserMember: false })
+export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-15T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [], 'description': 'this pickup is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
 
 export const pickupsMock = [ joinablePickup, leavablePickup, fullPickup, emptyPickup ]
 
 export const pickupSeriesMock = [
-  { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': {'freq': 'WEEKLY', 'byDay': ['TH', 'SU']}, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },
+  { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': {'freq': 'WEEKLY', 'byDay': ['TH', 'SU'], 'isCustom': false, 'rule': 'FREQ=WEEKLY;BYDAY=TH,SU'}, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },
 ].map(e => ({
   ...e,
   saveStatus: statusMocks.default(),
@@ -64,9 +66,12 @@ export const messagesMock = [
 })
 
 export const feedbackMock = [
-  { 'id': 1, 'givenBy': 1, 'comment': 'All worked out perfectly!', 'weight': 2.5, 'about': 1, 'createdAt': '2017-08-11T15:43:37.419305Z' },
+  { 'id': 1, 'givenBy': 1, 'comment': 'All worked out perfectly!', 'weight': 2.5, 'about': 234, 'createdAt': '2017-08-11T15:43:37.419305Z' },
+  { 'id': 2, 'givenBy': 1, 'comment': '', 'weight': 11, 'about': 235, 'createdAt': '2017-09-11T15:40:37.419305Z' },
+  { 'id': 3, 'givenBy': 2, 'comment': 'They did not have anything today', 'weight': 0, 'about': 235, 'createdAt': '2017-09-18T12:12:37.419305Z' },
 ].map(e => {
   e.givenBy = usersMock.find(u => u.id === e.givenBy)
+  e.about = pickupsMock.find(p => p.id === e.about)
   e.createdAt = new Date(e.createdAt)
   return e
 })

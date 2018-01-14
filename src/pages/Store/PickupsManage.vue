@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card class="no-shadow grey-border">
       <q-card-title>
         <h5>
           <i
@@ -13,8 +13,14 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn @click="createNewSeries">
-            <q-icon name="fa-plus-circle" />
+          <q-btn
+            v-if="!newSeries"
+            @click="createNewSeries"
+            small
+            round
+            class="bannerButton hoverScale"
+            color="secondary"
+            icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
@@ -40,7 +46,7 @@
           v-for="series in pickupSeries"
           @open="makeVisible('series', series.id)"
           :key="series.id"
-          :label="series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')"
+          :label="seriesLabel(series)"
           :sublabel="$d(series.startDate, 'timeShort')"
           icon="fa-calendar"
           sparse
@@ -67,7 +73,7 @@
               @open="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
               :label="seriesPickupLabel(series, pickup)"
-              icon="fa-calendar"
+              icon="fa-shopping-basket"
             >
               <pickup-edit
                 v-if="visible.pickup[pickup.id]"
@@ -84,7 +90,11 @@
       </q-list>
     </q-card>
 
-    <q-card>
+    <q-card class="no-shadow grey-border secondCard">
+      <RandomArt
+        class="randomBanner"
+        :seed="storeId"
+        type="banner"/>
       <q-card-title>
         <h5>
           <i
@@ -97,8 +107,14 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn @click="createNewPickup">
-            <q-icon name="fa-plus-circle" />
+          <q-btn
+            v-if="!newPickup"
+            @click="createNewPickup"
+            small
+            round
+            class="bannerButton hoverScale"
+            color="secondary"
+            icon="fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
@@ -147,12 +163,13 @@ import { mapGetters, mapActions } from 'vuex'
 import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
 import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
 import PickupEdit from '@/components/Pickups/PickupEdit'
+import RandomArt from '@/components/General/RandomArt'
 
-import { dayNameForKey, sortByDay } from '@/i18n'
+import i18n, { dayNameForKey, sortByDay } from '@/i18n'
 
 export default {
   components: {
-    QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
+    RandomArt, QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
   },
   data () {
     return {
@@ -170,8 +187,13 @@ export default {
       // if we don't do this, the textarea in pickupEdit won't autogrow
       this.$set(this.visible[type], id, true)
     },
-    dayNameForKey,
-    sortByDay,
+    seriesLabel (series) {
+      if (series.rule.isCustom) {
+        const label = i18n.t('CREATEPICKUP.CUSTOM')
+        return `${label} (${series.rule.custom})`
+      }
+      return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
+    },
     seriesPickupLabel (series, pickup) {
       const base = this.$d(pickup.date, 'dateShort')
       const seriesTime = this.$d(series.startDate, 'timeShort')
@@ -194,6 +216,7 @@ export default {
         startDate: new Date(),
         store: this.storeId,
         rule: {
+          isCustom: false,
           byDay: ['MO'],
           freq: 'WEEKLY',
         },
@@ -263,4 +286,14 @@ export default {
   background-color white
 button.selected
   background-color $grey-4
+
+.bannerButton
+  margin-top -64px
+
+.secondCard
+  margin-top 24px !important
+  .randomBanner
+    display: block
+    height: 26px
+    overflow: hidden
 </style>

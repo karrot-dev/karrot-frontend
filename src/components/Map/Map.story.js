@@ -1,7 +1,6 @@
 import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 
-import MapDemo from './MapDemo'
 import GroupMap from './GroupMap'
 import UserMapPreview from './UserMapPreview'
 import StandardMap from './StandardMap'
@@ -12,18 +11,19 @@ const style = {
   height: '200px',
 }
 
+function latLng (store) {
+  return L.latLng(store.latitude, store.longitude)
+}
+
 const currentGroup = { latitude: 52.5198535, longitude: 13.4385964 }
 
 storiesOf('Map', module)
   .add('StandardMap', () => defaults({
-    components: { StandardMap },
-    template: '<StandardMap :markers="markers" style="height: 600px" />',
-    data () {
-      const store = storesMock[0]
-      return {
+    render: h => h(StandardMap, {
+      props: {
         markers: [
           {
-            latLng: L.latLng(store.latitude, store.longitude),
+            latLng: latLng(storesMock[0]),
             icon: L.AwesomeMarkers.icon({
               icon: 'shopping-cart',
               markerColor: 'blue',
@@ -31,20 +31,16 @@ storiesOf('Map', module)
             }),
           },
         ],
-      }
-    },
+      },
+      style: { height: '600px' },
+    }),
   }))
   .add('StandardMap (selected marker)', () => defaults({
-    components: { StandardMap },
-    template: '<StandardMap :markers="markers" :selectedMarkerIds="selectedMarkerIds" style="height: 600px" />',
-    data () {
-      const store1 = storesMock[1]
-      const store2 = storesMock[3]
-      return {
-        selectedMarkerIds: ['marker1'],
+    render: h => h(StandardMap, {
+      props: {
         markers: [
           {
-            latLng: L.latLng(store1.latitude, store1.longitude),
+            latLng: latLng(storesMock[1]),
             id: 'marker1',
             icon: L.AwesomeMarkers.icon({
               icon: 'shopping-cart',
@@ -53,7 +49,7 @@ storiesOf('Map', module)
             }),
           },
           {
-            latLng: L.latLng(store2.latitude, store2.longitude),
+            latLng: latLng(storesMock[3]),
             id: 'marker2',
             icon: L.AwesomeMarkers.icon({
               icon: 'shopping-cart',
@@ -62,12 +58,10 @@ storiesOf('Map', module)
             }),
           },
         ],
-      }
-    },
-  }))
-  .add('Demo', () => defaults({
-    components: { MapDemo },
-    template: '<MapDemo style="height: 600px" />',
+        selectedMarkerIds: ['marker1'],
+      },
+      style: { height: '600px' },
+    }),
   }))
   .add('GroupMap', () => defaults({
     render: h => h(GroupMap, {
@@ -132,11 +126,10 @@ storiesOf('Map', module)
     }),
   }))
   .add('UserMapPreview', () => defaults({
-    components: { UserMapPreview },
-    template: '<UserMapPreview :user="user" style="height: 600px" />',
-    data () {
-      return {
+    render: h => h(UserMapPreview, {
+      props: {
         user: usersMock[0],
-      }
-    },
+      },
+      style: { height: '600px' },
+    }),
   }))

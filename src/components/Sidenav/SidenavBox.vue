@@ -1,22 +1,39 @@
 <template>
-  <div class="wrapper">
-    <div class="row justify-between toolbar">
-      <div class="name">
-        <slot name="name">"name"-Slot</slot>
+  <q-card class="no-shadow grey-border">
+    <q-toolbar
+      class="toolbar"
+      @click.self="$emit('toggle')"
+    >
+      <slot name="icon" />
+      <q-toolbar-title>
+        <slot name="name" />
+      </q-toolbar-title>
+      <slot name="tools" />
+      <q-btn
+        flat
+        class="card-arrow"
+        @click="$emit('toggle')"
+      >
+        <i
+          class="fa fa-angle-down arrow"
+          :class="{ upsideDown: expanded }"
+        />
+      </q-btn>
+    </q-toolbar>
+    <transition name="slide-toggle">
+      <div v-show="expanded">
+        <slot />
       </div>
-      <div>
-        <slot name="tools">"tools"-Slot</slot>
-      </div>
-    </div>
-    <div class="content">
-      <slot>Primary Slot</slot>
-    </div>
-  </div>
+    </transition>
+  </q-card>
 </template>
 
 <script>
+import { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn } from 'quasar'
 export default {
-  components: {
+  components: { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn },
+  props: {
+    expanded: { default: true, type: Boolean },
   },
 }
 </script>
@@ -24,27 +41,27 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 
-.wrapper
-  width 100%
-  margin .6em
-  border 1px solid grey
-  border-radius $borderRadius
-  background-color $white
-  .toolbar
-    border-radius $borderRadius $borderRadius 0 0
-    background-color $primary
-    padding .1em .6em
-    color white
-    .name
-      margin auto 0
-      font-weight 500
-      font-size 1.3em
-  .content
-    padding 4px
-  .name .fa
-    margin-right .4em
-    font-size .9em
+.toolbar
+  min-height 40px
+  height 40px
+.card-arrow
+  margin-left 1em
+  cursor pointer
+  min-width 30px
+  .arrow
+    transition: all .3s ease;
+.upsideDown
+  transform rotate(180deg)
 
-  .router-link-exact-active
-    background-color $neutral
+.slide-toggle-enter-active,
+.slide-toggle-leave-active
+  transition max-height .2s
+  overflow hidden
+.slide-toggle-enter-active
+    max-height 1000px
+.slide-toggle-enter,
+.slide-toggle-leave-active
+    max-height 0
+.slide-toggle-leave
+    max-height 1000px
 </style>

@@ -83,6 +83,7 @@ describe('groups', () => {
   const currentGroup = {
     actions: {
       update: jest.fn(),
+      clear: jest.fn(),
     },
   }
 
@@ -139,6 +140,7 @@ describe('groups', () => {
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
       await store.dispatch('groups/leave', group2.id)
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group3.id])
+      expect(currentGroup.actions.clear).toBeCalled()
     })
 
     it('can save a group', async () => {

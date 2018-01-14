@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import locales, { intlLocale } from '@/locales'
 
 export default new Vue({
   data () {
@@ -9,18 +10,7 @@ export default new Vue({
   watch: {
     locale (locale) {
       if (!window.IntlPolyfill) return
-      switch (locale) {
-        case 'de': return import('intl/locale-data/jsonp/de')
-        case 'en': return import('intl/locale-data/jsonp/en')
-        case 'fr': return import('intl/locale-data/jsonp/fr')
-        case 'sv': return import('intl/locale-data/jsonp/sv')
-        case 'es': return import('intl/locale-data/jsonp/es')
-        case 'it': return import('intl/locale-data/jsonp/it')
-        case 'eo': return import('intl/locale-data/jsonp/eo')
-        case 'ru': return import('intl/locale-data/jsonp/ru')
-        case 'zh': return import('intl/locale-data/jsonp/zh')
-        case 'cs': return import('intl/locale-data/jsonp/cs')
-      }
+      return intlLocale(locale)
     },
   },
   methods: {
@@ -28,7 +18,7 @@ export default new Vue({
       if (window.Intl) return
       await Promise.all([
         import('intl'),
-        import('intl/locale-data/jsonp/en.js'),
+        locales.en.intlLocale(),
       ])
     },
   },

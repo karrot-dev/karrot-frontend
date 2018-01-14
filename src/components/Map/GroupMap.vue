@@ -35,7 +35,6 @@
 import StandardMap from '@/components/Map/StandardMap'
 import L from 'leaflet'
 import { QBtn } from 'quasar'
-import { optionsFor } from '@/services/storeStatus'
 
 export default {
   components: { StandardMap, QBtn },
@@ -96,7 +95,7 @@ export default {
       return { opacity: this.showOverlay ? 0.5 : 1 }
     },
     storesWithLocation () {
-      return this.stores.filter(hasLocation).filter(notArchived).map(store => ({ ...store, ui: optionsFor(store) }))
+      return this.stores.filter(hasLocation)
     },
     usersWithLocation () {
       return this.users.filter(hasLocation)
@@ -126,10 +125,6 @@ export default {
 
 function hasLocation (item) {
   return item.latitude && item.longitude
-}
-
-function notArchived (store) {
-  return store.status !== 'archived'
 }
 </script>
 

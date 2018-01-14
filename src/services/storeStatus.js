@@ -32,6 +32,7 @@ const statusOptions = {
     color: 'grey',
     icon: 'fa-trash',
     selectable: false,
+    sort: 5,
   },
 }
 

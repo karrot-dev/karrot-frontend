@@ -5,12 +5,12 @@
       size="40"
     />
     <template v-else>
-      <h5
-        class="text-primary generic-padding"
+      <h6
+        class="generic-padding"
         v-if="invitations.length > 0"
       >
         {{ $t('GROUP.INVITED_LIST') }}
-      </h5>
+      </h6>
       <ul>
         <li
           v-for="invite in invitations"

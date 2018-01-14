@@ -13,7 +13,6 @@ function enrich (group) {
     membership: {},
     activeAgreement: undefined,
     awaitingAgreement: false,
-    __unenriched: group,
   }
 }
 
@@ -56,6 +55,13 @@ describe('currentGroup', () => {
     actions: {
       clear: jest.fn(),
       fetchListByGroupId: jest.fn(),
+      fetchFeedbackPossible: jest.fn(),
+    },
+  }
+
+  const feedback = {
+    actions: {
+      fetchForGroup: jest.fn(),
     },
   }
 
@@ -94,6 +100,7 @@ describe('currentGroup', () => {
         agreements,
         auth,
         pickups,
+        feedback,
         conversations,
       })
     })
@@ -105,6 +112,8 @@ describe('currentGroup', () => {
       expect(pickups.actions.clear).toBeCalled()
       expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group3.id)
       expect(conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
+      expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
+      expect(feedback.actions.fetchForGroup.mock.calls[0][1]).toEqual({ groupId: group3.id })
     })
   })
 

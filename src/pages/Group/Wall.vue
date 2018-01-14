@@ -6,6 +6,7 @@ export default connect({
   gettersToProps: {
     joinedPickups: 'pickups/joined',
     availablePickups: 'pickups/available',
+    feedbackPossible: 'pickups/feedbackPossible',
     conversation: 'conversations/active',
     user: 'auth/user',
   },

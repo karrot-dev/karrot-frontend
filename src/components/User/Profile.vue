@@ -38,19 +38,15 @@
         :user="user"
         class="map"
       />
+      <div
+        class="info-item"
+        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
+        <strong>
+          <i class="fa fa-fw fa-envelope-o on-left" />
+        </strong>
+        <a :href='"mailto:" + user.email'>{{ user.email }}</a>
+      </div>
       <div class="info">
-        <div class="info-item">
-          <strong>
-            <i class="fa fa-fw fa-envelope-o on-left" />
-          </strong>
-          {{ user.email }}
-          <span v-if="user.email !== user.unverifiedEmail">
-            <i class="fa fa-arrow-right"/>
-            <router-link :to="{name: 'settings'}">
-              {{ user.unverifiedEmail }}
-            </router-link>
-          </span>
-        </div>
         <div
           class="info-item"
           v-if="user.address"
@@ -90,7 +86,7 @@ export default {
       if (this.$q.platform.is.mobile) {
         return 60
       }
-      return 90
+      return 180
     },
   },
 }
@@ -116,6 +112,7 @@ p.subtitle
   height 200px
   width 200px
   float right
+  max-width: 40%
 
 body.mobile .map
   height 150px

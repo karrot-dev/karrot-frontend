@@ -1,9 +1,11 @@
 <template>
-  <SidenavBox>
-    <div slot="name">
-      <i class="fa fa-fw fa-map" />
-      {{ $t('GROUPMAP.TITLE') }}
-    </div>
+  <SidenavBox
+    @toggle="$emit('toggleBox')"
+    :expanded="expanded"
+  >
+    <template slot="icon">
+      <q-icon name="fa-fw fa-map" />
+    </template>
     <div
       slot="tools"
       class="tools"
@@ -12,8 +14,9 @@
         flat
         small
         @click="$emit('toggleStores')"
+        style="padding: 0 5px"
       >
-        <span class="fa-stack">
+        <span class="fa-fw fa-stack">
           <i class="fa fa-shopping-cart fa-stack-1x" />
           <i
             v-if="showStores"
@@ -33,8 +36,9 @@
         flat
         small
         @click="$emit('toggleUsers')"
+        style="padding: 0 5px"
       >
-        <span class="fa-stack">
+        <span class="fa-fw fa-stack">
           <i class="fa fa-user fa-stack-1x" />
           <i
             v-if="showUsers"
@@ -50,7 +54,9 @@
         </q-tooltip>
       </q-btn>
     </div>
+
     <GroupMap
+      v-if="currentGroup"
       class="map"
       :stores="stores"
       :users="users"
@@ -63,14 +69,12 @@
 </template>
 
 <script>
-import { QBtn, QTooltip } from 'quasar'
+import { QBtn, QTooltip, QIcon } from 'quasar'
 import SidenavBox from './SidenavBox'
 import GroupMap from '@/components/Map/GroupMap'
 
 export default {
-  components: {
-    SidenavBox, QBtn, QTooltip, GroupMap,
-  },
+  components: { SidenavBox, QBtn, QTooltip, GroupMap, QIcon },
   props: {
     stores: {
       default: () => [],
@@ -93,8 +97,12 @@ export default {
       type: Boolean,
     },
     currentGroup: {
-      required: true,
+      default: null,
       type: Object,
+    },
+    expanded: {
+      default: true,
+      type: Boolean,
     },
   },
 }

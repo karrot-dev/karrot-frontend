@@ -23,7 +23,7 @@ describe('PickupSeriesEdit', () => {
   })
 
   it('renders', () => {
-    expect(wrapper.element.className).toBe('edit')
+    expect(wrapper.element.className).toBe('edit-box')
   })
 
   it('can toggle the days', () => {

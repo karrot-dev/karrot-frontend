@@ -1,20 +1,12 @@
 import { storiesOf } from '@storybook/vue'
 
-import SidenavBox from './SidenavBox'
 import SidenavMapUI from './SidenavMapUI'
-import SidenavGroup from './SidenavGroup'
+import SidenavGroupUI from './SidenavGroupUI'
 import SidenavStoresUI from './SidenavStoresUI'
 import { storesMock as stores, usersMock as users, groupsMock } from '>/mockdata'
 import { createStore, storybookDefaults as defaults } from '>/helpers'
 
-const store = createStore({
-  currentGroup: { getters: { id: () => 1, roles: () => [] } },
-  stores: { getters: { all: () => stores } },
-})
-
 storiesOf('Sidenav Boxes', module)
-  .add('Default', () => SidenavBox)
-
   .add('Map', () => defaults({
     render (h) {
       let { showStores, showUsers, toggleUsers, toggleStores } = this
@@ -37,15 +29,16 @@ storiesOf('Sidenav Boxes', module)
         this.showUsers = !this.showUsers
       },
     },
-    store,
   }))
 
   .add('Group', () => defaults({
-    render: h => h(SidenavGroup),
-    store,
+    render: h => h(SidenavGroupUI),
+    store: createStore({
+      currentGroup: { getters: { id: () => 1, roles: () => [] } },
+      stores: { getters: { all: () => stores } },
+    }),
   }))
 
   .add('Stores', () => defaults({
     render: h => h(SidenavStoresUI, { props: { stores } }),
-    store,
   }))

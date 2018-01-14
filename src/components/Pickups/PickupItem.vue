@@ -12,8 +12,7 @@
         <div
           class="description multiline"
           v-if="pickup.description"
-        >
-          {{ pickup.description }}
+        >{{ pickup.description }}
         </div>
         <div class="people full-width">
           <PickupUsers

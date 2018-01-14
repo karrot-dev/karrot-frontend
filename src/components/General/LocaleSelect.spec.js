@@ -3,7 +3,8 @@ jest.mock('@/store/plugins/persistedState', () => {
 })
 
 import LocaleSelect from './LocaleSelect'
-import { locales, localeOptions } from '@/i18n'
+import locales from '@/locales'
+import { localeOptions } from '@/i18n'
 import { mountWithDefaults, polyfillRequestAnimationFrame, mockActionOnce } from '>/helpers'
 
 import store from '@/store'
@@ -13,8 +14,8 @@ polyfillRequestAnimationFrame()
 describe('LocaleSelect', () => {
   it('renders all the available locales', () => {
     const wrapper = mountWithDefaults(LocaleSelect, { store })
-    expect(wrapper.findAll('.q-item-label').length).toBe(locales.length)
-    for (let locale of locales) {
+    expect(wrapper.findAll('.q-item-label').length).toBe(Object.keys(locales).length)
+    for (let locale of Object.values(locales)) {
       expect(wrapper.html()).toContain(locale.name)
     }
   })

@@ -23,7 +23,6 @@ export default {
         membership,
         activeAgreement,
         awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
-        __unenriched: group,
       }
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],
@@ -82,6 +81,7 @@ export default {
       dispatch('pickups/clear', {}, { root: true })
 
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
+      dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
       try {
         dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
       }
@@ -89,7 +89,18 @@ export default {
         dispatch('conversations/clearActive', {}, { root: true })
       }
 
+      dispatch('feedback/fetchForGroup', { groupId }, { root: true })
+
       dispatch('auth/update', { currentGroup: groupId }, { root: true })
+    },
+
+    clear ({ commit, dispatch }) {
+      commit('clear')
+      dispatch('auth/update', { currentGroup: null }, { root: true })
+      dispatch('agreements/clear', null, { root: true })
+      dispatch('pickups/clear', {}, { root: true })
+      dispatch('conversations/clearActive', null, { root: true })
+      dispatch('feedback/clear', null, { root: true })
     },
 
     update ({ commit }, group) {
@@ -99,6 +110,9 @@ export default {
   mutations: {
     set (state, group) {
       state.current = group
+    },
+    clear (state) {
+      Object.assign(state, initialState())
     },
   },
 }

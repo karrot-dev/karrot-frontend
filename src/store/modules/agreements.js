@@ -33,11 +33,17 @@ export default {
         commit('set', agreement)
         return agreement
       },
+      clear ({commit}) {
+        commit('clear')
+      },
     }),
   },
   mutations: {
     set (state, agreement) {
       Vue.set(state.entries, agreement.id, agreement)
+    },
+    clear (state) {
+      Object.assign(state, initialState())
     },
   },
 }

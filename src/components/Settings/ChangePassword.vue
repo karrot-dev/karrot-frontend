@@ -1,11 +1,21 @@
 <template>
-  <div class="edit">
-
+  <div class="edit-box">
+    <q-field
+      icon="fa-unlock"
+      :label="$t('USERDETAIL.OLD_PASSWORD')"
+      :error="hasError('oldPassword')"
+      :error-label="firstError('oldPassword')"
+    >
+      <q-input
+        type="password"
+        v-model="oldPassword"
+      />
+    </q-field>
     <q-field
       icon="fa-star"
       :label="$t('USERDETAIL.PASSWORD')"
-      :error="hasAnyError"
-      :error-label="anyFirstError"
+      :error="hasError('newPassword')"
+      :error-label="firstError('newPassword')"
     >
       <q-input
         type="password"
@@ -13,15 +23,23 @@
       />
     </q-field>
 
-    <q-btn
-      color="primary"
-      @click="save"
-      loader
-      :value="isPending"
+    <div
+      v-if="hasNonFieldError"
+      class="text-negative"
     >
-      {{ $t('BUTTON.CHANGE_PASSWORD') }}
-    </q-btn>
+      {{ firstNonFieldError }}
+    </div>
 
+    <div class="actionButtons">
+      <q-btn
+        color="primary"
+        @click="save"
+        loader
+        :value="isPending"
+      >
+        {{ $t('BUTTON.CHANGE_PASSWORD') }}
+      </q-btn>
+    </div>
   </div>
 </template>
 
@@ -48,11 +66,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.edit
-  width 100%
-  padding 20px
-  background-color $grey-1
-  &.changed
-    background-color $yellow-1
 </style>

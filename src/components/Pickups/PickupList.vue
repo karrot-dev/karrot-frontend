@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import { QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon } from 'quasar'
 import PickupItem from './PickupItem'
 
 export default {
@@ -24,7 +23,7 @@ export default {
     },
   },
   components: {
-    QCardTitle, QCard, QCardMain, QCardSeparator, QCardActions, QBtn, QIcon, PickupItem,
+    PickupItem,
   },
 }
 </script>

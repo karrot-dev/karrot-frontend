@@ -19,7 +19,6 @@ export default {
   components: { QRouteTab, QChip },
   props: {
     to: {
-      type: Object,,
       required: false,
       default: '',
     },

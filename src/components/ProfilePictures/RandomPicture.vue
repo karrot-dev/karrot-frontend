@@ -5,9 +5,18 @@
 <script>
 export default {
   props: {
-    name: { required: true },
-    seed: { default: 2 },
-    size: { required: true },
+    name: {
+      type: String,
+      required: true,
+    },
+    seed: {
+      type: Number,
+      default: 2,
+    },
+    size: {
+      type: String,
+      required: true,
+    },
   },
   mounted () {
     this.$el.appendChild(this.box)

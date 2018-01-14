@@ -38,6 +38,7 @@ export default {
   components: { ProfilePicture, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
   props: {
     users: {
+      type: Array,
       required: true,
     },
   },

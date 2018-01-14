@@ -31,8 +31,12 @@ import RandomPicture from './RandomPicture'
 
 export default {
   props: {
-    user: { required: true },
+    user: {
+      type: Object,
+      required: true,
+    },
     size: {
+      type: Number,
       default: 20,
     },
   },

@@ -79,6 +79,12 @@ export function receiveMessage ({ topic, payload }) {
   }
 }
 
+store.watch(getter('presence/toggle/away'), away => {
+  if (ws) {
+    ws.send(JSON.stringify({ type: away ? 'away' : 'back' }))
+  }
+})
+
 store.watch(getter('auth/isLoggedIn'), isLoggedIn => {
   if (isLoggedIn) {
     if (CORDOVA) {

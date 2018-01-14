@@ -24,6 +24,7 @@
         </div>
       </div>
       <FeedbackForm
+        style="padding: 0 1.5em"
         :value="feedback"
         :status="saveStatus"
         @save="$emit('save', arguments[0])"

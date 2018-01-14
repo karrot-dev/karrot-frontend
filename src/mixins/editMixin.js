@@ -4,7 +4,7 @@ import { objectDiff } from '@/services/utils'
 
 export default {
   props: {
-    value: { required: true },
+    value: { required: true, type: Object },
   },
   data () {
     return {

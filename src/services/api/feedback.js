@@ -29,7 +29,7 @@ export default {
   },
 
   async save (feedback) {
-    return convertDate((await axios.patch(`/api/feedback/${feedback.id}/`)).data)
+    return convertDate((await axios.patch(`/api/feedback/${feedback.id}/`, feedback)).data)
   },
 }
 

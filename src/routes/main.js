@@ -322,11 +322,13 @@ export default [
       },
       {
         name: 'pickupFeedback',
-        path: 'give-feedback',
+        path: 'give-feedback/:feedbackId?',
         meta: {
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
           ],
+          beforeEnter: 'feedback/select',
+          afterLeave: 'feedback/clearForm',
         },
         components: {
           default: PickupFeedback,

@@ -13,7 +13,16 @@
             <router-link
               v-if="storeName && storeId"
               :to="{ name: 'store', params: { storeId }}">
-              <span class="text-secondary">{{ storeName }}</span>
+              <span class="text-secondary small-margin-right">{{ storeName }}</span>
+            </router-link>
+            <router-link
+              v-if="feedback.isEditable"
+              class="edit-button"
+              :to="{ name: 'pickupFeedback', params: { feedbackId: feedback.id }}"
+            >
+              <q-icon name="fa-pencil">
+                <q-tooltip v-t="'BUTTON.EDIT'" />
+              </q-icon>
             </router-link>
           </div>
           <small class="light-paragraph">
@@ -56,14 +65,14 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QCardTitle } from 'quasar'
+import { QCard, QCardMain, QCardTitle, QTooltip, QIcon } from 'quasar'
 import AmountBox from './AmountBox'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   components: {
-    QCard, QCardMain, QCardTitle, AmountBox, ProfilePicture, DateAsWords,
+    QCard, QCardMain, QCardTitle, QTooltip, QIcon, AmountBox, ProfilePicture, DateAsWords,
   },
   props: {
     feedback: { required: true },
@@ -121,4 +130,8 @@ export default {
   margin-right: .2em
 .message-date
   display inline-block
+.edit-button
+  opacity .7
+.q-card:hover .edit-button
+  opacity 1
 </style>

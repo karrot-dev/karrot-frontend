@@ -216,6 +216,7 @@
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
     "HEADER": "Thank you for your pickup!",
+    "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comment",

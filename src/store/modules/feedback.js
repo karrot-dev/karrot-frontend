@@ -8,6 +8,7 @@ function initialState () {
     entries: {},
     idList: [],
     storeFilter: null,
+    selectedFeedbackId: null,
   }
 }
 
@@ -30,6 +31,7 @@ export default {
       }
     },
     all: (state, getters) => state.idList.map(getters.get),
+    selected: (state, getters) => getters.get(state.selectedFeedbackId),
     filtered: (state, getters, rootState, rootGetters) => {
       let stores = rootGetters['stores/all']
       if (state.storeFilter) {
@@ -62,11 +64,20 @@ export default {
       },
 
       async save ({ commit, dispatch }, feedback) {
-        const entry = await feedbackAPI.create(feedback)
+        let entry
+        if (feedback.id) {
+          entry = await feedbackAPI.save(feedback)
+        }
+        else {
+          entry = await feedbackAPI.create(feedback)
+        }
         commit('update', [entry])
         dispatch('pickups/removeFeedbackPossible', entry.about, { root: true })
         router.push({ name: 'groupFeedback' })
       },
+    }, {
+      // ignore ID to have simple saveStatus
+      findId: () => undefined,
     }),
 
     async fetchForGroup ({ commit, dispatch, rootGetters }, { groupId }) {
@@ -77,6 +88,16 @@ export default {
     },
     async clearStoreFilter ({ commit }) {
       commit('setStoreFilter', null)
+    },
+
+    select ({ commit }, { feedbackId }) {
+      if (feedbackId) {
+        commit('select', feedbackId)
+      }
+    },
+    clearForm ({ commit, dispatch }) {
+      dispatch('meta/clear', ['save'])
+      commit('select', null)
     },
 
     /**
@@ -105,6 +126,9 @@ export default {
     },
     setStoreFilter (state, storeId) {
       state.storeFilter = storeId
+    },
+    select (state, feedbackId) {
+      state.selectedFeedbackId = feedbackId
     },
     clear (state) {
       Object.entries(initialState())

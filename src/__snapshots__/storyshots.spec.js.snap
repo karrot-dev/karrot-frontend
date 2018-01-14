@@ -4820,7 +4820,8 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
-                    <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                    <div to="[object Object]"><span class="text-secondary small-margin-right">Griesheimer Markt</span></div>
+                    <!---->
                 </div>
                 <small class="light-paragraph">
                     <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
@@ -4851,6 +4852,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
 exports[`Storyshots Statistics FeedbackList 1`] = `
 <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
+        <!---->
         <div class="q-card no-shadow grey-border">
             <div class="q-card-main q-card-container generic-padding">
                 <div class="row no-wrap">
@@ -4863,7 +4865,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
-                            <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                            <div to="[object Object]"><span class="text-secondary small-margin-right">Griesheimer Markt</span></div>
+                            <!---->
                         </div>
                         <small class="light-paragraph">
                             <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
@@ -4901,7 +4904,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                 </div>
                 <div class="content">
                     <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-                        <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                        <div to="[object Object]"><span class="text-secondary small-margin-right">Griesheimer Markt</span></div>
+                        <!---->
                     </div>
                     <small class="light-paragraph">
                         <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
@@ -4938,7 +4942,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-                    <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                    <div to="[object Object]"><span class="text-secondary small-margin-right">Griesheimer Markt</span></div>
+                    <!---->
                 </div>
                 <small class="light-paragraph">
                     <div place="user" to="[object Object]"><span>Max Mustermann</span></div> <span place="date" class="message-date"><div>
@@ -5269,13 +5274,13 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     </div>
                 </div>
             </div>
+            <!---->
             <div class="row justify-end generic-margin group">
                 <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white">
                     <div class="desktop-only q-focus-helper"></div>
                     <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
             </div>
         </form>
-        <!---->
     </div>
     <div class="q-card no-shadow grey-border store-feedback">
         <div class="art-wrapper randomBanner">
@@ -5284,6 +5289,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         <h4 class="generic-padding"></h4>
         <div class="q-infinite-scroll">
             <div class="q-infinite-scroll-content">
+                <!---->
                 <div class="q-card no-shadow grey-border">
                     <div class="q-card-main q-card-container generic-padding">
                         <div class="row no-wrap">
@@ -5296,7 +5302,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             </div>
                             <div class="content">
                                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
-                                    <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                                    <div to="[object Object]"><span class="text-secondary small-margin-right">Griesheimer Markt</span></div>
+                                    <!---->
                                 </div>
                                 <small class="light-paragraph">
                                     <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
@@ -5334,7 +5341,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         </div>
                         <div class="content">
                             <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-                                <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                                <div to="[object Object]"><span class="text-secondary small-margin-right">Griesheimer Markt</span></div>
+                                <!---->
                             </div>
                             <small class="light-paragraph">
                                 <div place="user" to="[object Object]"><span>Mira Bellenbaum</span></div> <span place="date" class="message-date"><div>
@@ -5371,7 +5379,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-                            <div to="[object Object]"><span class="text-secondary">Griesheimer Markt</span></div>
+                            <div to="[object Object]"><span class="text-secondary small-margin-right">Griesheimer Markt</span></div>
+                            <!---->
                         </div>
                         <small class="light-paragraph">
                             <div place="user" to="[object Object]"><span>Max Mustermann</span></div> <span place="date" class="message-date"><div>

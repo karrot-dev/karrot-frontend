@@ -31,6 +31,7 @@ import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 export default {
   props: {
     size: {
+      type: Number,
       default: 20,
     },
     hoverUser: {

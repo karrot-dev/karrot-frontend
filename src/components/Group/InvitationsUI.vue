@@ -45,9 +45,18 @@ import {
 export default {
   components: { RandomArt, QCard, QBtn, QTooltip, QIcon, InvitationsForm, InvitationsList },
   props: {
-    invitations: { required: true },
-    fetchStatus: { required: true },
-    sendStatus: { required: true },
+    invitations: {
+      type: Array,
+      required: true,
+    },
+    fetchStatus: {
+      type: Object,
+      required: true,
+    },
+    sendStatus: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     ...mapGetters({

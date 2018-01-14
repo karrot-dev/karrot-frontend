@@ -78,8 +78,8 @@ import { QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator } fr
 export default {
   components: { Markdown, UserMapPreview, QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
   props: {
-    user: { required: true },
-    groups: { required: true },
+    user: { required: true, type: Object },
+    groups: { required: true, type: Array },
   },
   computed: {
     profilePictureSize () {

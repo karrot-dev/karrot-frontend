@@ -55,7 +55,10 @@ import Markdown from '@/components/Markdown'
 export default {
   components: { QTabs, QTab, QTabPane, QIcon, QTooltip, Markdown },
   props: {
-    value: { required: true },
+    value: {
+      default: '',
+      type: String,
+    },
   },
   data () {
     return {

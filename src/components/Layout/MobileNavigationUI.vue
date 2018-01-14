@@ -70,7 +70,10 @@ export default {
     }
   },
   props: {
-    currentGroupId: { required: true },
+    currentGroupId: {
+      type: Number,
+      default: null,
+    },
   },
 }
 </script>

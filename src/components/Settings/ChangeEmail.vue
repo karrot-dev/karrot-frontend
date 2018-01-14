@@ -35,7 +35,7 @@ export default {
   components: { QField, QInput, QBtn, VerificationWarning },
   mixins: [statusMixin],
   props: {
-    user: { required: true },
+    user: { required: true, type: Object },
   },
   data () {
     return {

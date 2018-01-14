@@ -4,7 +4,7 @@
       <div class="row no-wrap">
         <AmountBox
           class="amount-box"
-          size="80"
+          :size="80"
           :amount="weight"
         />
         <div class="content">
@@ -44,7 +44,7 @@
           <div class="people">
             <ProfilePicture
               :user="feedback.givenBy"
-              size="22"
+              :size="22"
             />
             <span
               v-if="membersWithoutGiver.length > 0"
@@ -54,7 +54,7 @@
                 v-for="member in membersWithoutGiver"
                 :key="member.id"
                 user="member"
-                size="15"
+                :size="15"
               />
             </span>
           </div>
@@ -75,7 +75,7 @@ export default {
     QCard, QCardMain, QCardTitle, QTooltip, QIcon, AmountBox, ProfilePicture, DateAsWords,
   },
   props: {
-    feedback: { required: true },
+    feedback: { required: true, type: Object },
   },
   computed: {
     membersWithoutGiver () {

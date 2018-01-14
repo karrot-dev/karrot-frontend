@@ -34,9 +34,13 @@ import scalePointerImg from 'assets/feedback/scale_pointer.svg'
 
 export default {
   props: {
-    amount: { required: true },
+    amount: {
+      required: true,
+      type: Number,
+    },
     size: {
       default: 100,
+      type: Number,
     },
   },
   data () {

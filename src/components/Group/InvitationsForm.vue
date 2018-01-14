@@ -48,7 +48,7 @@ export default {
   components: { QIcon, QField, QInput, QBtn, QTooltip },
   props: {
     invitations: {
-      type: Boolean,
+      type: Array,
       required: true,
     },
   },

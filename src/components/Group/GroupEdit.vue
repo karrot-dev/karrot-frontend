@@ -139,7 +139,7 @@ export default {
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
     value: {
-      type: Boolean,
+      type: Object,
       required: false,
       default: () => ({
         name: undefined,
@@ -153,11 +153,11 @@ export default {
       }),
     },
     timezones: {
-      type: Boolean,
+      type: Array,
       required: true,
     },
     allGroups: {
-      type: Boolean,
+      type: Array,
       required: true,
     },
   },

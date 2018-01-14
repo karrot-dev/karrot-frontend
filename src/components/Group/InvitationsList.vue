@@ -32,7 +32,7 @@ export default {
   mixins: [statusMixin],
   props: {
     invitations: {
-      type: Boolean,
+      type: Array,
       required: true,
     },
   },

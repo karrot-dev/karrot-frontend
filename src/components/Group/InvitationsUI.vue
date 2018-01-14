@@ -46,15 +46,15 @@ export default {
   components: { RandomArt, QCard, QBtn, QTooltip, QIcon, InvitationsForm, InvitationsList },
   props: {
     invitations: {
-      type: Boolean,
+      type: Array,
       required: true,
     },
     fetchStatus: {
-      type: Boolean,
+      type: Object,
       required: true,
     },
     sendStatus: {
-      type: Boolean,
+      type: Object,
       required: true,
     },
   },

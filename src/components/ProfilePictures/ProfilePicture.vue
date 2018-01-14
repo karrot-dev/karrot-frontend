@@ -51,9 +51,9 @@ import RandomArt from '@/components/General/RandomArt'
 
 export default {
   props: {
-    user: { required: true },
-    size: { default: 20 },
-    isLink: { default: true },
+    user: { required: true, type: Object },
+    size: { default: 20, type: Number },
+    isLink: { default: true, type: Boolean },
   },
   components: {
     QTooltip, RandomArt,

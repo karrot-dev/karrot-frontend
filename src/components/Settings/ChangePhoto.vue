@@ -57,7 +57,7 @@ export default {
   components: { QField, QInput, QBtn, Croppa },
   mixins: [statusMixin],
   props: {
-    value: { required: true },
+    value: { required: true, type: Object },
   },
   watch: {
     photo () {

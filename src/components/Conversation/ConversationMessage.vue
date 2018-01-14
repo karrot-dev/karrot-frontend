@@ -35,7 +35,10 @@ export default {
     ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords,
   },
   props: {
-    message: { required: true },
+    message: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>

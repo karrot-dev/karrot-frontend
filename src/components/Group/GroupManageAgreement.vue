@@ -39,6 +39,7 @@ export default {
   name: 'GroupManageAgreement',
   props: {
     agreement: {
+      type: Object,
       default: null,
     },
   },

@@ -30,6 +30,7 @@ import geocoding from '@/services/geocoding'
 export default {
   props: {
     value: {
+      type: Object,
       required: true,
     },
     map: {

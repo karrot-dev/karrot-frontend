@@ -3,7 +3,7 @@
     <form @submit.prevent="maybeSave">
       <q-field
         icon="fa-envelope"
-        :helper="errorMessage"
+        :helper="helperMessage"
         dark
         class="white-font"
       >
@@ -47,7 +47,10 @@ export default {
   mixins: [statusMixin, validationMixin],
   components: { QIcon, QField, QInput, QBtn, QTooltip },
   props: {
-    invitations: { required: true },
+    invitations: {
+      type: Array,
+      required: true,
+    },
   },
   data () {
     return {
@@ -69,10 +72,7 @@ export default {
     },
   },
   computed: {
-    hasError () {
-      return !!this.errorMessage
-    },
-    errorMessage () {
+    helperMessage () {
       if (this.$v.form.email.$error) {
         const m = this.$v.form.email
         if (!m.required) return this.$t('VALIDATION.REQUIRED')

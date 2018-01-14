@@ -17,7 +17,10 @@ import PickupItem from './PickupItem'
 
 export default {
   props: {
-    pickups: { required: true },
+    pickups: {
+      type: Array,
+      required: true,
+    },
   },
   components: {
     PickupItem,

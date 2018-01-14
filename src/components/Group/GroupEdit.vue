@@ -139,6 +139,7 @@ export default {
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
     value: {
+      type: Object,
       required: false,
       default: () => ({
         name: undefined,
@@ -151,8 +152,14 @@ export default {
         address: undefined,
       }),
     },
-    timezones: { required: true },
-    allGroups: { required: true },
+    timezones: {
+      type: Object,
+      required: true,
+    },
+    allGroups: {
+      type: Array,
+      required: true,
+    },
   },
   components: {
     QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker, MarkdownInput,

@@ -2,11 +2,11 @@ import axios, { parseCursor } from '@/services/axios'
 
 export default {
   async create (feedback) {
-    return convertDate((await axios.post('/api/feedback/', feedback)).data)
+    return parse((await axios.post('/api/feedback/', feedback)).data)
   },
 
   async get (feedbackId) {
-    return convertDate((await axios.get(`/api/feedback/${feedbackId}/`)).data)
+    return parse((await axios.get(`/api/feedback/${feedbackId}/`)).data)
   },
 
   async list (filter) {
@@ -14,7 +14,7 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertDate(response.results),
+      results: parse(response.results),
     }
   },
 
@@ -24,20 +24,24 @@ export default {
       ...response,
       next: parseCursor(response.next),
       prev: parseCursor(response.prev),
-      results: convertDate(response.results),
+      results: parse(response.results),
     }
   },
 
   async save (feedback) {
-    return convertDate((await axios.patch(`/api/feedback/${feedback.id}/`)).data)
+    return parse((await axios.patch(`/api/feedback/${feedback.id}/`)).data)
   },
 }
 
-function convertDate (val) {
+function parse (val) {
   if (Array.isArray(val)) {
-    return val.map(convertDate)
+    return val.map(parse)
   }
   else {
-    return { ...val, createdAt: new Date(val.createdAt) }
+    return {
+      ...val,
+      createdAt: new Date(val.createdAt),
+      weight: val.weight ? parseFloat(val.weight) : undefined,
+    }
   }
 }

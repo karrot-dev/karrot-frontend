@@ -9,7 +9,7 @@
           v-for="user in entry.users"
           :key="user.id"
           :user="user"
-          size="25"
+          :size="25"
         />
       </q-item-side>
       <q-item-main>
@@ -42,7 +42,12 @@ import DateAsWords from '@/components/General/DateAsWords'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 
 export default {
-  props: ['entry'],
+  props: {
+    entry: {
+      required: true,
+      type: Object,
+    },
+  },
   components: { ProfilePicture, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
 }
 </script>

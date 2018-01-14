@@ -42,7 +42,12 @@ import DateAsWords from '@/components/General/DateAsWords'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 
 export default {
-  props: ['entry'],
+  props: {
+    entry: {
+      required: true,
+      type: Object,
+    },
+  },
   components: { ProfilePicture, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
 }
 </script>

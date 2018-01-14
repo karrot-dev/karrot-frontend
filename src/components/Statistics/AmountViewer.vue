@@ -27,6 +27,7 @@ export default {
   props: {
     amount: {
       required: true,
+      type: Number,
     },
   },
   computed: {

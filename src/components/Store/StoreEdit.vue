@@ -148,7 +148,7 @@ export default {
         status: 'created',
       }),
     },
-    allStores: { required: true },
+    allStores: { required: true, type: Array },
   },
   components: {
     QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,

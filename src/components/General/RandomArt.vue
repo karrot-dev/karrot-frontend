@@ -9,10 +9,10 @@
 <script>
 export default {
   props: {
-    seed: { default: 2 },
-    text: { default: false },
-    type: { default: 'profile' },
-    above: { default: false },
+    seed: { default: 2, type: Number },
+    text: { default: false, type: Boolean },
+    type: { default: 'profile', type: String },
+    above: { default: false, type: Boolean },
   },
   mounted () {
     this.$el.appendChild(this.box)

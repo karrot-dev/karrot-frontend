@@ -66,7 +66,7 @@ export default {
     QCard, QCardMain, QCardTitle, AmountBox, ProfilePicture, DateAsWords,
   },
   props: {
-    feedback: { required: true },
+    feedback: { required: true, type: Object },
   },
   computed: {
     membersWithoutGiver () {

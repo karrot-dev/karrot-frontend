@@ -72,6 +72,7 @@ export default {
       default: null,
     },
     preventZoom: {
+      type: Boolean,
       default: false,
     },
   },

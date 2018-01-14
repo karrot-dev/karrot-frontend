@@ -10,7 +10,7 @@
 export default {
   props: {
     seed: { default: 2, type: Number },
-    text: { default: false, type: Boolean },
+    text: { default: '', type: String },
     type: { default: 'profile', type: String },
     above: { default: false, type: Boolean },
   },

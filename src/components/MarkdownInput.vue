@@ -56,8 +56,8 @@ export default {
   components: { QTabs, QTab, QTabPane, QIcon, QTooltip, Markdown },
   props: {
     value: {
+      default: '',
       type: String,
-      required: true,
     },
   },
   data () {

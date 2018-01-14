@@ -153,7 +153,7 @@ export default {
       }),
     },
     timezones: {
-      type: Array,
+      type: Object,
       required: true,
     },
     allGroups: {

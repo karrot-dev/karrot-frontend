@@ -73,10 +73,10 @@
             </td>
           </tr>
           <HistoryPayloadDetail
-            :label="key"
-            :value="value"
             v-for="(value, key) in entry.payload"
             :key="key"
+            :label="key"
+            :value="value"
           />
         </template>
         <tr class="bg-neutral text-white">

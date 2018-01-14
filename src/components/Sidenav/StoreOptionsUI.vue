@@ -33,7 +33,7 @@ export default {
     QList, QItem, QIcon, QPopover,
   },
   props: {
-    storeId: { required: true, type: Number },
+    storeId: { default: null, type: Number },
   },
 }
 </script>

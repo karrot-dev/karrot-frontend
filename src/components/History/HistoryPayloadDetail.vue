@@ -52,7 +52,7 @@ export default {
       type: String,
     },
     value: {
-      type: Object,
+      type: String | Date | Number,
       required: true,
     },
   },

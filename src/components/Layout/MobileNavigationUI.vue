@@ -72,7 +72,7 @@ export default {
   props: {
     currentGroupId: {
       type: Number,
-      required: true,
+      default: null,
     },
   },
 }

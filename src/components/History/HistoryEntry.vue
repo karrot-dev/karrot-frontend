@@ -9,7 +9,7 @@
           v-for="user in entry.users"
           :key="user.id"
           :user="user"
-          size="25"
+          :size="25"
         />
       </q-item-side>
       <q-item-main>

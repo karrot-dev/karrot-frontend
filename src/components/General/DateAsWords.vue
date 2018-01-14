@@ -12,7 +12,7 @@ import dateFnsHelper from '@/services/dateFnsHelper'
 export default {
   props: {
     date: {
-      type: Date,
+      type: Date | String, // TODO remove string, always convert to date before
       required: true,
     },
   },

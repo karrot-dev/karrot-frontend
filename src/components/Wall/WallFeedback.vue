@@ -7,7 +7,9 @@
       </div>
     </template>
     <template slot="header">
-      <div><ProfilePicture :user="feedback.givenBy"/></div>
+      <div>
+        <ProfilePicture :user="feedback.givenBy" />
+      </div>
       <div>picked up food</div>
     </template>
     <template slot="time">

@@ -77,6 +77,10 @@ export function receiveMessage ({ topic, payload }) {
       createdAt: new Date(message.createdAt),
     })
   }
+  else if (topic === 'conversations:conversation') {
+    const conversation = camelizeKeys(payload)
+    store.dispatch('conversations/receiveConversation', conversation)
+  }
 }
 
 store.watch(getter('presence/toggle/away'), away => {

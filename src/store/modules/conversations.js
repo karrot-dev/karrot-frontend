@@ -77,7 +77,7 @@ export default {
 
       async mark ({ dispatch }, { id, seenUpTo }) {
         await conversationsAPI.mark(id, { seenUpTo })
-        dispatch('fetchConversation', id)
+        // dispatch('fetchConversation', id)
       },
     }),
 
@@ -104,16 +104,20 @@ export default {
       await dispatch('fetch', conversation.id)
     },
 
-    async clearActive ({ commit }) {
+    clearActive ({ commit }) {
       commit('clearActive')
     },
 
-    async receiveMessage ({ commit, state, getters }, message) {
+    receiveMessage ({ commit, state, getters }, message) {
       // only add if messages doesn't exist yet
 
       if (!getters.activeMessages.find(e => e.id === message.id)) {
         commit('prependMessage', { message })
       }
+    },
+
+    receiveConversation ({ commit }, conversation) {
+      commit('setConversation', { conversation })
     },
   },
   mutations: {

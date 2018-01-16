@@ -13,6 +13,6 @@ export default connect({
   },
   methodsToEvents: {
     cancel: () => router.go(-1),
-  }
+  },
 })('StoreCreate', StoreEdit)
 </script>

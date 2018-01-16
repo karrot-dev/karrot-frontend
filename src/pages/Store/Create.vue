@@ -1,5 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
+import router from '@/router'
 import StoreEdit from '@/components/Store/StoreEdit'
 
 export default connect({
@@ -9,6 +10,9 @@ export default connect({
   },
   actionsToEvents: {
     save: 'stores/create',
+  },
+  methodsToEvents: {
+    cancel: () => router.go(-1),
   },
 })('StoreCreate', StoreEdit)
 </script>

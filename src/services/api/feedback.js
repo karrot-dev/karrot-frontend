@@ -29,7 +29,7 @@ export default {
   },
 
   async save (feedback) {
-    return parse((await axios.patch(`/api/feedback/${feedback.id}/`)).data)
+    return parse((await axios.patch(`/api/feedback/${feedback.id}/`, feedback)).data)
   },
 }
 

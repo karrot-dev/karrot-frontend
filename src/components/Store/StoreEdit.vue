@@ -108,7 +108,7 @@
             </q-btn>
             <q-btn
               type="button"
-              @click="cancel()"
+              @click="$emit('cancel')"
               v-if="isNew"
             >
               {{ $t('BUTTON.CANCEL') }}
@@ -215,9 +215,6 @@ export default {
           },
         ],
       })
-    },
-    cancel () {
-      this.$router.go(-1)
     },
   },
   validations: {

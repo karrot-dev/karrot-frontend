@@ -1,4 +1,5 @@
 <template>
+  <!-- unused component; remove? -->
   <div>
     <template slot="icon">
       <div class="icon">
@@ -6,7 +7,9 @@
       </div>
     </template>
     <template slot="header">
-      <div><ProfilePicture :user="feedback.givenBy"/></div>
+      <div>
+        <ProfilePicture :user="feedback.givenBy" />
+      </div>
       <div>picked up food</div>
     </template>
     <template slot="time">
@@ -26,7 +29,7 @@ export default {
     ProfilePicture, AmountBox,
   },
   props: {
-    feedback: { required: true },
+    feedback: { required: true, type: Object },
   },
 }
 </script>

@@ -25,7 +25,7 @@ export default store => {
     // redirect homescreen correctly
     else if (to.path === '/') {
       const groupId = getUserGroupId()
-      if (groupId && getGroup(groupId).isMember) {
+      if (groupId && getGroup(groupId) && getGroup(groupId).isMember) {
         next({ name: 'group', params: { groupId: getUserGroupId() } })
       }
       else {

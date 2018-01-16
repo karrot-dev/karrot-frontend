@@ -92,7 +92,7 @@
 
     <q-card class="no-shadow grey-border secondCard">
       <RandomArt
-        class="secondBanner"
+        class="randomBanner"
         :seed="storeId"
         type="banner"/>
       <q-card-title>
@@ -292,13 +292,8 @@ button.selected
 
 .secondCard
   margin-top 24px !important
-  .secondBanner
+  .randomBanner
     display: block
     height: 26px
     overflow: hidden
-</style>
-
-<style lang="stylus">
-.secondCard .secondBanner > svg
-    margin-top -15%
 </style>

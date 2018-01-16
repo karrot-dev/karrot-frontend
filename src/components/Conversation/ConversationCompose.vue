@@ -37,8 +37,14 @@ export default {
   components: { QItem, QField, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture },
   mixins: [statusMixin],
   props: {
-    placeholder: { default: 'placeholder' },
-    user: { required: true },
+    placeholder: {
+      type: String,
+      default: 'placeholder',
+    },
+    user: {
+      type: Object,
+      required: true,
+    },
   },
   data () {
     return {

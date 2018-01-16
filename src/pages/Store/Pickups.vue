@@ -92,16 +92,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.notice
-  .icon
-    margin .1em 0 0 0
-    .fa
-      font-size 10vw
-  padding 2em 3em
-  transform: translateZ(1px) rotate(-3deg);
-  h5
-    padding 0
 .q-btn-round
   margin-bottom .5em
 .actionButtons

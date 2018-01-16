@@ -83,7 +83,8 @@
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
     "MANAGE": "Abholzeiten prüfen und ändern",
-    "ARCHIVED": "Dieser Betrieb wurde archiviert"
+    "ARCHIVED": "Dieser Betrieb wurde archiviert",
+    "NO_DESCRIPTION": "Dieser Betrieb hat noch keine Beschreibung."
   },
   "STOREEDIT": {
     "NAME": "Name",
@@ -102,7 +103,7 @@
   },
   "PICKUPMANAGE": {
     "TITLE": "Abholzeiten-Editor",
-    "SERIES": "Regelmäßige Abholungen",
+    "SERIES": "Wiederkehrende Abholungen",
     "SINGLE": "Einmalige Abholungen",
     "UPCOMING_PICKUPS_IN_SERIES": "Kommende Einzelabholungen"
   },
@@ -113,6 +114,7 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
     "DESCRIPTION": "Über dich",
+    "OLD_PASSWORD": "Altes Passwort",
     "PASSWORD": "Neues Passwort eingeben"
   },
   "PROFILE": {
@@ -124,7 +126,6 @@
     "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
     "PASSWORD_LABEL": "Gib das Passwort für diese geschlossene Gruppe ein.",
     "PASSWORD_REQUIRED": "Diese Gruppe verlangt ein Passwort.",
-    "PASSWORD_WRONG": "Das von dir eingegebene Passwort ist falsch.",
     "ALL_GROUPS": "Alle Gruppen",
     "SIGNUP_OR_LOGIN": "Anmelden, um dieser Gruppe beizutreten!",
     "MY_GROUPS": "Meine Gruppen",
@@ -155,13 +156,22 @@
     "OK": "Beitreten"
   },
   "VERIFYMAIL": {
-    "TITLE": "Verifizierung der Mailadresse",
-    "SUCCESS": "Deine Mailadresse wurde verifiziert!",
-    "ERROR": "Etwas ging schief. Ist deine Mailadresse vielleicht schon verifiziert?"
+    "TITLE": "Verifizierung der E-Mail-Adresse",
+    "SUCCESS": "Deine E-Mail-Adresse wurde verifiziert!"
   },
   "CREATEPICKUP": {
+    "FREQUENCY": "Häufigkeit",
+    "WEEKLY": "Wöchentlich",
+    "CUSTOM": "Benutzerdefiniert",
     "WEEKDAYS": "Wochentage",
     "WEEKDAYS_HELPER": "An welchen Tagen soll die Abholung stattfinden?",
+    "RRULE": "Regelmäßigkeit",
+    "RRULE_HELPER": "Gib eine gültige {ruleHelper} ein, z.B. {ruleExample} oder {ruleExample2}.",
+    "RRULE_HELPER_URL": "RRULE",
+    "RRULE_EXAMPLE": "'letzter Werktag eines jeden Monats'",
+    "RRULE_EXAMPLE2": "'jeder zweite Montag'",
+    "STARTDATE": "Anfangsdatum",
+    "STARTDATE_HELPER": "Wann sollen die Abholungen beginnen?",
     "TIME": "Uhrzeit",
     "TIME_HELPER": "Wann soll die Abholung stattfinden?",
     "DATE": "Datum",
@@ -169,13 +179,16 @@
     "MAX_COLLECTORS": "Anzahl Abholer",
     "MAX_COLLECTORS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
     "COMMENT": "Zusätzliche Informationen",
-    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?"
+    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?",
+    "DELETION_FORBIDDEN_HELPER": "Dieser Abholtermin kann nicht gelöscht werden, weil sich bereits jemand eingetragen hat",
+    "UNLIMITED": "unbegrenzt"
   },
   "CREATESTORE": {
     "TITLE": "Neuen Betrieb anlegen"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "In den nächsten Tagen wartet eine offene Abholung auf dich! | In den nächsten Tagen warten {count} offene Abholungen auf dich! ",
+    "AVAILABLE": "In den nächsten Tagen wartet eine Abholung auf dich! | In den nächsten Tagen warten {count} Abholungen auf dich! ",
+    "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Abholung geben | {count} Abholungen warten auf dein Feedback.",
     "JOINEDNOTICE": "Du hast dich für eine Abholung gemeldet | Du hast dich für {count} Abholungen gemeldet",
     "ITEM": {
       "LEAVE": "Nicht mehr abholen",
@@ -186,14 +199,23 @@
       "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen die Abholung ohne dich schaffen?"
     },
     "NONE": "Es stehen keine Abholungen an.",
-    "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen."
+    "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen.",
+    "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen."
+  },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "Mindestens 1 kg Essen wurde hier gerettet. Dankeschön! Es haben bereits Leute für {amount} kg gerettetes Essen Feedback gegeben! Weiter so!",
+    "GIVE_FEEDBACK": "Gib Feedback",
+    "NONE": "Bisher kein Fedback",
+    "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde"
   },
   "PICKUP_FEEDBACK": {
+    "TITLE": "Feedback",
     "HEADER": "Danke für deine Abholung!",
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
-    "AMOUNT": "Wie viel hast du abgeholt (in kg)?",
+    "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
     "COMMENT": "Kommentar",
-    "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte..."
+    "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
+    "PREVIOUS": "Bisheriges Feedback für {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Passwort zurücksetzen",
@@ -204,7 +226,8 @@
     "SUCCESS": "Deine Anfrage wurde übermittelt. Schau in deinem Postfach nach!"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Füge mehr Sprachen hinzu!"
+    "ADD_MORE": "Füge mehr Sprachen hinzu!",
+    "SWITCH": "Sprache wechseln"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "fett",

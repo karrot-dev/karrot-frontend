@@ -124,7 +124,6 @@
     "NO_PUBLIC_DESCRIPTION": "(У этой группы пока нет описания)",
     "PASSWORD_LABEL": "Введите пароль частной группы",
     "PASSWORD_REQUIRED": "Для входа в эту группу требуется ввести пароль",
-    "PASSWORD_WRONG": "Вы ввели неправильный пароль",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "MY_GROUPS": "My groups",
@@ -155,9 +154,8 @@
     "OK": "Зарегистрироваться"
   },
   "VERIFYMAIL": {
-    "TITLE": "Подтверждение электронного адреса",
-    "SUCCESS": "Ваш электронный адрес успешно подтверждён!",
-    "ERROR": "Что-то пошло не так. Возможно вы уже подтвердили ваш электронный адрес?"
+    "TITLE": "E-Mail verification",
+    "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
     "WEEKDAYS": "Weekdays",
@@ -169,13 +167,14 @@
     "MAX_COLLECTORS": "Максимальное количество слотов",
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
     "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?"
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
   },
   "CREATESTORE": {
     "TITLE": "Создать новую точку"
   },
   "PICKUPLIST": {
-    "EMPTYNOTICE": "There is one empty pickup in the next days waiting for you! | There are {count} empty pickups in the next days waiting for you!",
+    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "ITEM": {
       "LEAVE": "Выйти",

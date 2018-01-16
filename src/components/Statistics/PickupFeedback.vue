@@ -1,78 +1,52 @@
 <template>
-  <q-card
-    class="no-shadow generic-padding grey-border"
-    style="width: 100%"
-  >
-    <div class="row no-wrap image-and-text">
-      <div class="image-and-text-left gt-sm">
-        <img
-          style="width: 100%;"
-          :src="cartImg">
+  <div>
+    <q-card class="no-shadow generic-padding grey-border">
+      <div class="row no-wrap image-and-text">
+        <div class="image-and-text-left gt-sm">
+          <img
+            style="width: 100%;"
+            :src="cartImg"
+          >
+        </div>
+        <div class="image-and-text-right">
+          <h4>{{ $t(editFeedback ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
+          <p>
+            <q-field v-if="!editFeedback">
+              <q-select
+                v-model="select"
+                :options="feedbackOptions"
+              />
+            </q-field>
+            <span v-else>
+              {{ getDateWithStore(editFeedback.about) }}
+            </span>
+          </p>
+        </div>
       </div>
-      <div class="image-and-text-right">
-        <h4>{{ $t('PICKUP_FEEDBACK.HEADER') }}</h4>
-        <p v-if="select">{{ getDateWithStore(select) }}
-          <q-btn
-            @click="select = false"
-            flat>
-            {{ $t("PICKUP_FEEDBACK.OTHER") }}
-          </q-btn>
-        </p>
-      </div>
-    </div>
-    <q-field
-      v-if="!select"
-      style="margin-top: 2em; padding: 0 .5em"
-      icon="fa-shopping-basket"
-      :label="$t('PICKUP_FEEDBACK.SELECT_PICKUP')">
-      <q-select
-        v-model="select"
-        :options="feedbackOptions"
+      <FeedbackForm
+        style="padding: 0 1.5em"
+        :value="feedback"
+        :status="saveStatus"
+        @save="$emit('save', arguments[0])"
       />
-    </q-field>
-    <form
-      v-else
-      @submit.prevent="save"
-      style="padding: 0 1.5em"
-    >
-      <AmountPicker v-model="feedback.weight"/>
-      <q-field
-        style="margin-top: 2em; padding: 0 .5em"
-        icon="fa-star"
-        :label="$t('PICKUP_FEEDBACK.COMMENT')"
-        :error="hasError('comment')"
-        :error-label="firstError('comment')"
-      >
-        <q-input
-          v-model="feedback.comment"
-          type="textarea"
-          :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
-          autocomplete="off"
-          :min-rows="2"
-        />
-      </q-field>
-      <div class="row justify-end generic-margin group">
-        <q-btn
-          type="submit"
-          color="primary"
-          v-t="'BUTTON.CREATE'"
-        />
-      </div>
+    </q-card>
+    <q-card
+      class="no-shadow grey-border store-feedback"
+      v-if="select && feedbackForStore.length !== 0">
+      <RandomArt
+        class="randomBanner"
+        :seed="select.store.id"
+        type="banner"/>
       <h4
-        v-if="select"
+        class="generic-padding"
         v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.store.name } }"
       />
-      <FeedbackList :feedback="feedbackForStore" />
-    </form>
-
-    <div
-      v-if="hasNonFieldError"
-      class="text-negative"
-    >
-      <i class="fa fa-exclamation-triangle"/>
-      {{ firstNonFieldError }}
-    </div>
-  </q-card>
+      <FeedbackList
+        :feedback="feedbackForStore"
+        :status="fetchStatus"
+      />
+    </q-card>
+  </div>
 </template>
 
 <script>
@@ -80,47 +54,53 @@ import { QCard, QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
 import FeedbackList from './FeedbackList'
 import cartImg from 'assets/people/cart.png'
-import statusMixin from '@/mixins/statusMixin'
-
-function first (a) {
-  return a && a[0]
-}
+import RandomArt from '@/components/General/RandomArt'
+import FeedbackForm from './FeedbackForm'
 
 export default {
-  components: { QCard, QField, QInput, QBtn, QSelect, AmountPicker, FeedbackList },
-  mixins: [statusMixin],
+  components: { RandomArt, QCard, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList },
   props: {
     pickups: { required: true, type: Array },
+    editFeedback: { default: null, type: Object },
     existingFeedback: { required: true, type: Array },
+    saveStatus: { required: true, type: Object },
+    fetchStatus: { required: true, type: Object },
   },
   data () {
     return {
-      feedback: {
-        weight: 1,
-        comment: '',
-      },
       cartImg,
-      select: first(this.pickups),
+      selectedPickup: null,
     }
   },
   methods: {
-    save () {
-      this.feedback.about = this.select.id
-      this.$emit('save', this.feedback)
-    },
     getDateWithStore (pickup) {
+      if (!pickup) return ''
       return `${this.$d(pickup.date, 'long')} (${pickup.store.name})`
     },
   },
-  watch: {
-    pickups (val) {
-      this.select = first(val)
-    },
-  },
   computed: {
+    feedback () {
+      if (this.editFeedback) return this.editFeedback
+      return {
+        about: this.select.id,
+        weight: 1,
+        comment: '',
+      }
+    },
+    select: {
+      get () {
+        if (this.editFeedback) return this.editFeedback.about
+        if (this.selectedPickup) return this.selectedPickup
+        return this.pickups && this.pickups[0]
+      },
+      set (v) {
+        this.selectedPickup = v
+      },
+    },
     feedbackOptions () {
-      if (!this.pickups) return []
-      return this.pickups.map((e) => {
+      let list = this.pickups
+      if (!list) return []
+      return list.map((e) => {
         return {
           label: this.getDateWithStore(e),
           value: e,
@@ -129,7 +109,11 @@ export default {
     },
     feedbackForStore () {
       if (!this.select) return []
-      return this.existingFeedback.filter(e => e.about && e.about.store.id === this.select.store.id)
+      let filtered = this.existingFeedback.filter(e => e.about && e.about.store.id === this.select.store.id)
+      if (this.editFeedback) {
+        filtered = filtered.filter(e => e.id !== this.editFeedback.id)
+      }
+      return filtered
     },
   },
 }
@@ -146,4 +130,10 @@ export default {
   .image-and-text-right
     width: 70%
     margin 0 auto
+.store-feedback
+  margin-top 2.5em
+  .randomBanner
+    display: block
+    height: 26px
+    overflow: hidden
 </style>

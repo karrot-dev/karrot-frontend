@@ -29,8 +29,14 @@ import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   props: {
-    size: { default: 20 },
-    user: { required: true },
+    size: {
+      type: Number,
+      default: 20,
+    },
+    user: {
+      type: Object,
+      required: true,
+    },
   },
   components: {
     QTooltip, ProfilePicture,

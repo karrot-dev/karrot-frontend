@@ -12,8 +12,7 @@
         <div
           class="description multiline"
           v-if="pickup.description"
-        >
-          {{ pickup.description }}
+        >{{ pickup.description }}
         </div>
         <div class="people full-width">
           <PickupUsers
@@ -33,7 +32,10 @@ import PickupUsers from './PickupUsers'
 
 export default {
   props: {
-    pickup: { required: true },
+    pickup: {
+      type: Object,
+      required: true,
+    },
   },
   components: {
     QCard, QCardMain, QBtn, PickupUsers,

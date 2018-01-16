@@ -13,7 +13,9 @@
       v-if="map"
       class="map"
       :markers="marker ? [marker] : []"
+      :prevent-zoom="preventZoom"
       @markerMoved="mapMarkerMoved"
+      @mapClick="mapMarkerMoved"
     />
   </div>
 </template>
@@ -28,12 +30,18 @@ import geocoding from '@/services/geocoding'
 export default {
   props: {
     value: {
+      type: Object,
       required: true,
     },
     map: {
       default: true,
       type: Boolean,
     },
+  },
+  data () {
+    return {
+      preventZoom: false,
+    }
   },
   components: { QSearch, QAutocomplete, StandardMap },
   watch: {
@@ -56,9 +64,11 @@ export default {
       }))
     },
     autocompleteSelected ({ result: { address, latitude, longitude } }) {
+      this.preventZoom = false
       this.$emit('input', { ...this.value, latitude, longitude, address })
     },
     mapMarkerMoved ({ lat: latitude, lng: longitude }) {
+      this.preventZoom = true
       this.$emit('input', { ...this.value, latitude, longitude })
     },
   },

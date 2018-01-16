@@ -43,12 +43,12 @@ export default {
     FeedbackNotice,
   },
   props: {
-    joinedPickups: { required: true },
-    availablePickups: { required: true },
+    joinedPickups: { required: true, type: Array },
+    availablePickups: { required: true, type: Array },
     feedbackPossible: { required: true, type: Array },
-    conversation: { required: true },
-    fetchMore: { required: true },
-    user: { required: true },
+    conversation: { required: true, type: Object },
+    fetchMore: { required: true, type: Function },
+    user: { required: true, type: Object },
   },
 }
 </script>

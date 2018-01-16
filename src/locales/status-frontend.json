@@ -2,166 +2,166 @@
   "ar": {
     "completed": "0%",
     "last_commiter": "tilmann",
-    "last_update": "2017-11-27 16:46:22",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
     "translated_entities": 0,
     "translated_words": 0,
-    "untranslated_entities": 207,
-    "untranslated_words": 889
+    "untranslated_entities": 234,
+    "untranslated_words": 1017
   },
   "cs": {
-    "completed": "6%",
+    "completed": "5%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-26 17:45:44",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
     "translated_entities": 12,
     "translated_words": 15,
-    "untranslated_entities": 195,
-    "untranslated_words": 874
+    "untranslated_entities": 222,
+    "untranslated_words": 1002
   },
   "da": {
     "completed": "0%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-21 11:40:10",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
     "translated_entities": 1,
     "translated_words": 8,
-    "untranslated_entities": 206,
-    "untranslated_words": 881
+    "untranslated_entities": 233,
+    "untranslated_words": 1009
   },
   "de": {
-    "completed": "100%",
+    "completed": "99%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-21 11:40:10",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 207,
-    "translated_words": 889,
-    "untranslated_entities": 0,
-    "untranslated_words": 0
+    "translated_entities": 231,
+    "translated_words": 1009,
+    "untranslated_entities": 3,
+    "untranslated_words": 8
   },
   "en": {
     "completed": "100%",
     "last_commiter": "tilmann",
-    "last_update": "2017-11-27 16:46:22",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 207,
-    "translated_words": 889,
+    "translated_entities": 234,
+    "translated_words": 1017,
     "untranslated_entities": 0,
     "untranslated_words": 0
   },
   "eo": {
-    "completed": "37%",
+    "completed": "31%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-26 17:56:15",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 77,
-    "translated_words": 269,
-    "untranslated_entities": 130,
-    "untranslated_words": 620
+    "translated_entities": 73,
+    "translated_words": 247,
+    "untranslated_entities": 161,
+    "untranslated_words": 770
   },
   "es": {
-    "completed": "86%",
+    "completed": "74%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-26 17:57:50",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 177,
-    "translated_words": 687,
-    "untranslated_entities": 30,
-    "untranslated_words": 202
+    "translated_entities": 172,
+    "translated_words": 657,
+    "untranslated_entities": 62,
+    "untranslated_words": 360
   },
   "fr": {
-    "completed": "49%",
+    "completed": "41%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-26 17:53:45",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 101,
-    "translated_words": 376,
-    "untranslated_entities": 106,
-    "untranslated_words": 513
+    "translated_entities": 96,
+    "translated_words": 353,
+    "untranslated_entities": 138,
+    "untranslated_words": 664
   },
   "it": {
-    "completed": "25%",
+    "completed": "21%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-26 17:51:33",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 52,
-    "translated_words": 205,
-    "untranslated_entities": 155,
-    "untranslated_words": 684
+    "translated_entities": 48,
+    "translated_words": 183,
+    "untranslated_entities": 186,
+    "untranslated_words": 834
   },
   "nl": {
     "completed": "0%",
     "last_commiter": "tilmann",
-    "last_update": "2017-11-27 16:46:22",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
     "translated_entities": 0,
     "translated_words": 0,
-    "untranslated_entities": 207,
-    "untranslated_words": 889
+    "untranslated_entities": 234,
+    "untranslated_words": 1017
   },
   "pl": {
     "completed": "0%",
     "last_commiter": "tilmann",
-    "last_update": "2017-11-27 16:46:22",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
     "translated_entities": 0,
     "translated_words": 0,
-    "untranslated_entities": 207,
-    "untranslated_words": 889
+    "untranslated_entities": 234,
+    "untranslated_words": 1017
   },
   "ru": {
-    "completed": "26%",
+    "completed": "21%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-26 17:44:58",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 53,
-    "translated_words": 199,
-    "untranslated_entities": 154,
-    "untranslated_words": 690
+    "translated_entities": 49,
+    "translated_words": 177,
+    "untranslated_entities": 185,
+    "untranslated_words": 840
   },
   "sv": {
-    "completed": "43%",
+    "completed": "36%",
     "last_commiter": "tilmann",
-    "last_update": "2017-12-26 17:48:50",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 90,
-    "translated_words": 317,
-    "untranslated_entities": 117,
-    "untranslated_words": 572
+    "translated_entities": 85,
+    "translated_words": 294,
+    "untranslated_entities": 149,
+    "untranslated_words": 723
   },
   "yo": {
     "completed": "0%",
     "last_commiter": "tilmann",
-    "last_update": "2017-11-27 16:46:22",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
     "translated_entities": 0,
     "translated_words": 0,
-    "untranslated_entities": 207,
-    "untranslated_words": 889
+    "untranslated_entities": 234,
+    "untranslated_words": 1017
   },
   "zh": {
-    "completed": "100%",
-    "last_commiter": "shangkuanlc",
-    "last_update": "2017-12-21 11:40:10",
+    "completed": "85%",
+    "last_commiter": "tilmann",
+    "last_update": "2018-01-16 17:52:27",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 207,
-    "translated_words": 889,
-    "untranslated_entities": 0,
-    "untranslated_words": 0
+    "translated_entities": 200,
+    "translated_words": 833,
+    "untranslated_entities": 34,
+    "untranslated_words": 184
   }
 }

@@ -12,7 +12,9 @@
     "PROFILE_TITLE": "Profil",
     "PASSWORD": "Passwort",
     "USERNAME": "Name",
-    "WHERE_FROM": "Wo kommst du her? (Angabe nicht erforderlich)"
+    "WHERE_FROM": "Wo kommst du her? (Angabe nicht erforderlich)",
+    "PHOTO": "Profile photo",
+    "SET_PHOTO": "Set your profile photo..."
   },
   "BUTTON": {
     "CREATE": "Erstellen",
@@ -54,6 +56,7 @@
     "CREATE_TITLE": "Neue Gruppe erstellen",
     "MANAGE_AGREEMENT": "Vereinbarung verwalten",
     "TITLE": "Name der Gruppe",
+    "PRIVATE_DESCRIPTION_TITLE": "Interne Gruppenbeschreibung",
     "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
     "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
     "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
@@ -68,6 +71,7 @@
     "INVITE_SEND": "Send invitation",
     "INVITED_LIST": "Einladungen wurden bereits an diese E-Mail-Adressen versendet:",
     "ALREADY_INVITED": "Eine Einladung wurde bereits an diese E-Mail-Adresse versendet",
+    "INVITATIONS": "Einladungen",
     "INVITE_TITLE": "Einladungen zur Gruppe",
     "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!"
@@ -136,6 +140,7 @@
     "PROFILE_NOTE": "Wenn du dieser Gruppe beitrittst, wird dein Benutzerprofil für andere Gruppenmitglieder sichtbar."
   },
   "GROUPINFO": {
+    "TITLE": "Öffentliche Gruppenbeschreibung",
     "META": "Öffentliche Gruppeninfos",
     "MEMBER_VIEW": "Du bist ein Mitglied der Gruppe. Klicke hier, um zur vollen Ansicht zu gelangen."
   },
@@ -211,6 +216,7 @@
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
     "HEADER": "Danke für deine Abholung!",
+    "EDIT": "Edit feedback",
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
     "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
     "COMMENT": "Kommentar",

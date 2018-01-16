@@ -12,7 +12,9 @@
     "PROFILE_TITLE": "個人資料",
     "PASSWORD": "密碼",
     "USERNAME": "名稱",
-    "WHERE_FROM": "請問你來自哪裡(選填)"
+    "WHERE_FROM": "請問你來自哪裡(選填)",
+    "PHOTO": "Profile photo",
+    "SET_PHOTO": "Set your profile photo..."
   },
   "BUTTON": {
     "CREATE": "創建",
@@ -54,6 +56,7 @@
     "CREATE_TITLE": "創建新社團",
     "MANAGE_AGREEMENT": "管理協議",
     "TITLE": "社團名稱",
+    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
     "PASSWORD": "如果想設定為私密社團，請在此輸入密碼",
@@ -68,6 +71,7 @@
     "INVITE_SEND": "寄發邀請",
     "INVITED_LIST": "邀請信已寄送至下列電子郵件信箱：",
     "ALREADY_INVITED": "邀請信已寄送至下列電子郵件信箱：",
+    "INVITATIONS": "Invitations",
     "INVITE_TITLE": "邀請用戶到你的社團",
     "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！"
@@ -83,7 +87,8 @@
   "STOREDETAIL": {
     "EDIT": "編輯店家",
     "MANAGE": "檢查與管理外帶品",
-    "ARCHIVED": "此店家已被封存"
+    "ARCHIVED": "此店家已被封存",
+    "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "名稱",
@@ -102,7 +107,7 @@
   },
   "PICKUPMANAGE": {
     "TITLE": "管理食物領取",
-    "SERIES": "循環出現",
+    "SERIES": "Recurring pickups",
     "SINGLE": "一次性開放外帶",
     "UPCOMING_PICKUPS_IN_SERIES": "此系列接下來的開放外帶日期"
   },
@@ -113,6 +118,7 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "名稱",
     "DESCRIPTION": "關於你",
+    "OLD_PASSWORD": "Old password",
     "PASSWORD": "輸入你的新密碼"
   },
   "PROFILE": {
@@ -134,6 +140,7 @@
     "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。"
   },
   "GROUPINFO": {
+    "TITLE": "Public group information",
     "META": "顯示公開的社團資訊",
     "MEMBER_VIEW": "你是社團成員之一。點擊這裡來切換成全螢幕。"
   },
@@ -158,8 +165,18 @@
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
+    "FREQUENCY": "Frequency",
+    "WEEKLY": "Weekly",
+    "CUSTOM": "Custom",
     "WEEKDAYS": "平日",
     "WEEKDAYS_HELPER": "領取食物應該在哪些天發生？",
+    "RRULE": "Recurrence rule",
+    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender rule",
+    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
+    "RRULE_EXAMPLE2": "every second Monday",
+    "STARTDATE": "Start date",
+    "STARTDATE_HELPER": "When should the series start?",
     "TIME": "時間",
     "TIME_HELPER": "領取食物應該在何時發生？",
     "DATE": "日期",
@@ -168,13 +185,15 @@
     "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
     "COMMENT": "更多資訊",
     "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
-    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it",
+    "UNLIMITED": "unlimited"
   },
   "CREATESTORE": {
     "TITLE": "創建新的店家資料"
   },
   "PICKUPLIST": {
     "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
     "ITEM": {
       "LEAVE": "離開",
@@ -185,14 +204,24 @@
       "LEAVE_CONFIRMATION_TEXT": "你真的確定其他人能夠在沒有你的情況下領取食物嗎？"
     },
     "NONE": "沒有後續的開放外帶",
-    "NONE_HINT": "你可以在店面頁創建新的開放外帶"
+    "NONE_HINT": "你可以在店面頁創建新的開放外帶",
+    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+  },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
+    "GIVE_FEEDBACK": "Give feedback",
+    "NONE": "No feedback yet",
+    "NONE_HINT": "This page will be filled once more feedback is available"
   },
   "PICKUP_FEEDBACK": {
+    "TITLE": "Feedback",
     "HEADER": "謝謝你領取食物！",
+    "EDIT": "Edit feedback",
     "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
-    "AMOUNT": "你拿回去的食物量(公斤數)",
+    "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "留言",
-    "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言..."
+    "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
+    "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "重新設定密碼",
@@ -203,7 +232,8 @@
     "SUCCESS": "申請成功送出。請收信！"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "增加更多語言！"
+    "ADD_MORE": "增加更多語言！",
+    "SWITCH": "Switch language"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "粗體",

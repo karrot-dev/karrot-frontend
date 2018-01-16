@@ -1970,26 +1970,26 @@ exports[`Storyshots Layout KTopbar 1`] = `
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="globe q-icon fa fa-globe"> </i>
   en
   <div class="q-popover animate-scale" style="transform-origin:top left 0px;"><div class="q-list"><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
-            Deutsch
-            <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             English
             <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            Deutsch
+            <small>(99%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:99%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             中文
-            <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(85%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:85%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Español
-            <small>(86%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:86%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(74%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:74%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Français
-            <small>(49%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:49%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(41%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:41%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Svenska
-            <small>(43%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:43%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(36%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:36%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Esperanto
-            <small>(37%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:37%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
-            Русский
-            <small>(26%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:26%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(31%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:31%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Italiano
-            <small>(25%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:25%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(21%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:21%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            Русский
+            <small>(21%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:21%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
-            <small>(6%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:6%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <small>(5%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:5%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
         <!---->
         </span>
     </button>
@@ -2282,34 +2282,34 @@ exports[`Storyshots Map GroupMap (selected store) 1`] = `
 <div class="container" style="height:200px;">
     <div class="vue2leaflet-map" style="opacity:1;">
         <div></div>
-        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
     </div>
@@ -2321,34 +2321,34 @@ exports[`Storyshots Map GroupMap (store has no location) 1`] = `
 <div class="container" style="height:200px;">
     <div class="vue2leaflet-map" style="opacity:0.5;">
         <div></div>
-        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
     </div>
@@ -2368,34 +2368,34 @@ exports[`Storyshots Map GroupMap 1`] = `
 <div class="container" style="height:200px;">
     <div class="vue2leaflet-map" style="opacity:1;">
         <div></div>
-        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
-        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
     </div>
@@ -2406,15 +2406,15 @@ exports[`Storyshots Map GroupMap 1`] = `
 exports[`Storyshots Map StandardMap (selected marker) 1`] = `
 <div class="vue2leaflet-map" style="height:600px;">
     <div></div>
-    <div id="marker1"></div>
-    <div id="marker2"></div>
+    <div id="marker1" style="display:none;"></div>
+    <div id="marker2" style="display:none;"></div>
 </div>
 `;
 
 exports[`Storyshots Map StandardMap 1`] = `
 <div class="vue2leaflet-map" style="height:600px;">
     <div></div>
-    <div></div>
+    <div style="display:none;"></div>
 </div>
 `;
 
@@ -2422,7 +2422,7 @@ exports[`Storyshots Map UserMapPreview 1`] = `
 <div class="userMapPreview" style="position:relative;height:600px;">
     <div class="vue2leaflet-map">
         <div></div>
-        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
             <div></div>
         </div>
     </div>
@@ -3877,7 +3877,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                                     </div>
                                     <div class="vue2leaflet-map map">
                                         <div></div>
-                                        <div></div>
+                                        <div style="display:none;"></div>
                                     </div>
                                 </div>
                                 <!---->
@@ -4164,34 +4164,34 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <div class="container map">
             <div class="vue2leaflet-map" style="opacity:1;">
                 <div></div>
-                <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;">
+                <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;">
+                <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;">
+                <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;">
+                <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;">
+                <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;">
+                <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;">
+                <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;">
+                <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;">
+                <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
-                <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;">
+                <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
                     <div></div>
                 </div>
             </div>
@@ -5620,7 +5620,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                 </div>
                                 <div class="vue2leaflet-map map">
                                     <div></div>
-                                    <div></div>
+                                    <div style="display:none;"></div>
                                 </div>
                             </div>
                             <!---->
@@ -5873,7 +5873,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                 </div>
                                 <div class="vue2leaflet-map map">
                                     <div></div>
-                                    <div></div>
+                                    <div style="display:none;"></div>
                                 </div>
                             </div>
                             <!---->

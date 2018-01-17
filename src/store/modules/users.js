@@ -38,7 +38,7 @@ export default {
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       const currentGroup = rootGetters['currentGroup/value']
-      return (currentGroup && currentGroup.members) ? currentGroup.members.map(getters.get) : []
+      return (currentGroup && currentGroup.members) ? currentGroup.members.map(getters.get).sort(sortByName) : []
     },
     activeUser: (state, getters, rootState, rootGetters) => {
       return state.activeUserId && getters.get(state.activeUserId)
@@ -118,4 +118,8 @@ export default {
     },
 
   },
+}
+
+export function sortByName (a, b) {
+  return a.displayName.localeCompare(b.displayName)
 }

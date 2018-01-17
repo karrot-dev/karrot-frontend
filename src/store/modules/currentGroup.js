@@ -38,6 +38,16 @@ export default {
         }
         commit('set', group)
       },
+
+      async changeRole ({ commit, getters, dispatch }, { user, role, action }) {
+        if (action === 'add') {
+          await groups.addRole(getters.id, user.id, role)
+        }
+        if (action === 'delete') {
+          await groups.deleteRole(getters.id, user.id, role)
+        }
+        await dispatch('fetch', getters.id)
+      },
     }),
 
     ...withPrefixedIdMeta('agreements/', {

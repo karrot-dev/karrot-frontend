@@ -55,6 +55,7 @@
     "EDIT": "Edit group",
     "CREATE_TITLE": "Create new group",
     "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_MEMBERSHIP": "Manage memberships",
     "TITLE": "Title of this group",
     "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",

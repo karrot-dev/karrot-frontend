@@ -42,6 +42,18 @@
       </q-item>
 
       <q-item
+        v-if="isMembershipManager"
+        :to="{name: 'groupManageMembership', params: {groupId: currentGroupId}}"
+        @click.native="$refs.popover.close()"
+      >
+        <q-icon
+          size="1em"
+          name="fa-file-text-o fa-fw on-left"
+        />
+        {{ $t('GROUP.MANAGE_MEMBERSHIP') }}
+      </q-item>
+
+      <q-item
         :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
         @click.native="$refs.popover.close()
       ">
@@ -94,6 +106,9 @@ export default {
   computed: {
     isAgreementManager () {
       return this.roles && this.roles.includes('agreement_manager')
+    },
+    isMembershipManager () {
+      return this.roles && this.roles.includes('membership_manager')
     },
   },
   methods: {

@@ -2,7 +2,8 @@
   <div>
     <q-item
       multiline
-      :to="{ name: 'historyDetail', params: { historyId: entry.id } }"
+      class="clickable"
+      @click="detailIsShown = !detailIsShown"
     >
       <q-item-side>
         <ProfilePicture
@@ -33,12 +34,18 @@
         <DateAsWords :date="entry.date" />
       </q-item-side>
     </q-item>
+    <transition name="slide-toggle">
+      <HistoryDetail
+        v-if="detailIsShown"
+        :entry="entry"/>
+    </transition>
   </div>
 </template>
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
+import HistoryDetail from '@/components/History/HistoryDetail'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 
 export default {
@@ -48,8 +55,17 @@ export default {
       type: Object,
     },
   },
-  components: { ProfilePicture, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
+  data () {
+    return {
+      detailIsShown: false,
+    }
+  },
+  components: { HistoryDetail, ProfilePicture, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
 }
 </script>
 <style scoped lang="stylus">
+.clickable
+  &:hover
+    cursor pointer
+    background-color rgb(235, 235, 235)
 </style>

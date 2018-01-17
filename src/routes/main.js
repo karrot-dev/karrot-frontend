@@ -16,7 +16,6 @@ const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
 const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
 const StoreList = () => import('@/pages/Store/Stores')
-const HistoryDetail = () => import('@/pages/HistoryDetail')
 const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
@@ -69,21 +68,6 @@ export default [
     },
     components: {
       default: GroupCreate,
-    },
-  },
-  {
-    name: 'historyDetail',
-    path: '/history/:historyId',
-    components: {
-      default: HistoryDetail,
-    },
-    meta: {
-      requireLoggedIn: true,
-      breadcrumbs: [
-        { translation: 'HISTORY.DETAILS', route: { name: 'historyDetail' } },
-      ],
-      beforeEnter: 'history/setActive',
-      afterLeave: 'history/clearActive',
     },
   },
   {

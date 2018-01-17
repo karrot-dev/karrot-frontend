@@ -15,6 +15,9 @@ const axios = Axios.create({
 })
 
 axios.interceptors.request.use(request => {
+  if (request.data instanceof FormData) {
+    return request
+  }
   request.data = underscorizeKeys(request.data)
   return request
 }, error => {

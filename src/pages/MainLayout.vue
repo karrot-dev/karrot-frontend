@@ -48,7 +48,6 @@
         </template>
         <MainAlerts />
         <div class="mainContent row justify-between no-wrap">
-          <div class="whiteSpace gt-lg" />
           <router-view
             v-if="!$q.platform.is.mobile"
             class="sidenav-desktop"
@@ -57,7 +56,6 @@
           <div class="mainContent-page">
             <router-view />
           </div>
-          <div class="whiteSpace gt-lg desktop-only"/>
         </div>
         <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
 
@@ -111,17 +109,13 @@ export default {
   min-width 250px
   max-width 30em
 body.desktop .mainContent-page
-  min-width 400px
+  min-width 350px
   max-width: 57em
 .mainContent-page
   width 100%
   margin-bottom 4.5em
-.whiteSpace
-  width 1%
-@media screen and (min-width: 1500px)
-  .whiteSpace
-    width 10%
-
+  margin-left auto
+  margin-right auto
 .background
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px

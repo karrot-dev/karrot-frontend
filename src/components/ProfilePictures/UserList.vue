@@ -15,7 +15,7 @@
           <ProfilePicture
             :key="user.id"
             :user="user"
-            size="30"
+            :size="30"
             class="profilePic"
           />
         </q-item-side>
@@ -38,6 +38,7 @@ export default {
   components: { ProfilePicture, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
   props: {
     users: {
+      type: Array,
       required: true,
     },
   },

@@ -19,8 +19,10 @@
       class="text-bottom"
       :style="{ bottom: bottomOffset }"
     >
-      <span :style="{ fontSize: fontSize }">{{ amountNumber }}</span>
-      <span :style="{ fontSize: fontSizeSmall }">kg</span>
+      <span :style="{ fontSize: fontSize }">
+        {{ amountNumber[0] }}
+      </span>
+      <span :style="{ fontSize: fontSizeSmall }">{{ amountNumber[1] }}</span>
     </div>
   </div>
 </template>
@@ -32,9 +34,13 @@ import scalePointerImg from 'assets/feedback/scale_pointer.svg'
 
 export default {
   props: {
-    amount: { required: true },
+    amount: {
+      required: true,
+      type: Number,
+    },
     size: {
       default: 100,
+      type: Number,
     },
   },
   data () {
@@ -67,7 +73,16 @@ export default {
       return Math.floor(this.size / 7) + 'px'
     },
     amountNumber () {
-      return Number(this.amount).toFixed(1)
+      if (this.amount >= 1000000) {
+        return ['999+', 't']
+      }
+      if (this.amount >= 1000) {
+        return [Number(this.amount / 1000.0).toFixed(1), 't']
+      }
+      if (this.amount >= 1) {
+        return [Number(this.amount).toFixed(1), 'kg']
+      }
+      return [Number(this.amount * 1000).toFixed(0), 'g']
     },
   },
 }

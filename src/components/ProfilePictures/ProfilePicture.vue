@@ -4,22 +4,34 @@
       v-if="isLink && user"
       :to="{name:'user', params: {userId: user.id}}"
     >
+      <img
+        v-if="hasPhoto"
+        :src="photo"
+        :style="pictureStyle"
+      >
       <RandomArt
+        v-else
         :text="user.displayName"
         :seed="user.id"
-        style="display: block; overflow: hidden"
-        :style="{ width: size + 'px' , height: size + 'px' }"
+        class="randomArt"
+        :style="pictureStyle"
       />
       <q-tooltip>
         {{ user.displayName }}
       </q-tooltip>
     </router-link>
     <div v-if="!isLink && user">
+      <img
+        v-if="hasPhoto"
+        :src="photo"
+        :style="pictureStyle"
+      >
       <RandomArt
+        v-else
         :text="user.displayName"
         :seed="user.id"
-        style="display: block; overflow: hidden"
-        :style="{ width: size + 'px' , height: size + 'px' }"
+        class="randomArt"
+        :style="pictureStyle"
       />
     </div>
     <span v-if="!user">
@@ -39,17 +51,37 @@ import RandomArt from '@/components/General/RandomArt'
 
 export default {
   props: {
-    user: { required: true },
-    size: { default: 20 },
-    isLink: { default: true },
+    user: { required: true, type: Object },
+    size: { default: 20, type: Number },
+    isLink: { default: true, type: Boolean },
   },
   components: {
     QTooltip, RandomArt,
+  },
+  computed: {
+    pictureStyle () {
+      return { width: this.size + 'px', height: this.size + 'px' }
+    },
+    bigPhoto () {
+      return this.size > 120
+    },
+    hasPhoto () {
+      return !!this.photo
+    },
+    photo () {
+      if (this.user && this.user.photoUrls) {
+        const p = this.user.photoUrls
+        return this.bigPhoto ? p.fullSize : p.thumbnail
+      }
+    },
   },
 }
 </script>
 
 <style scoped lang="stylus">
-  .wrapper
-    display inline-block
+.wrapper
+  display inline-block
+.randomArt
+  display block
+  overflow hidden
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div
     slot="navigation"
-    class="shadow-14 inset-shadow row"
+    class="row no-wrap"
   >
     <q-tabs
-      color="tertiary"
+      color="transparent"
       hide="icon"
       class="col"
       ref="groupnav"
@@ -33,7 +33,7 @@
     </q-tabs>
     <q-btn
       flat
-      class="bg-tertiary text-white"
+      class="text-white"
     >
       <q-icon name="fa-ellipsis-v" />
       <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />

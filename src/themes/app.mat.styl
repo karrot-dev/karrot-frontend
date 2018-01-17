@@ -15,15 +15,15 @@
 
 
 h1
-  font-size 3.0rem
-h2
   font-size 2.4rem
-h3
+h2
   font-size 2.0rem
-h4
+h3
   font-size 1.7rem
-h5
+h4
   font-size 1.5rem
+h5
+  font-size 1.2rem
 
 h1.generic-padding, h2.generic-padding, h3.generic-padding, h4.generic-padding, h5.generic-padding
   padding .2em
@@ -37,7 +37,14 @@ a
 body.mobile .q-card
   margin 5px 0
 
+body.mobile .no-mobile-margin
+  margin 0
+  border 0
+
 .generic-padding
+  padding 1em
+
+body.mobile .generic-padding
   padding 1em
 
 .grey-border
@@ -47,6 +54,9 @@ body.mobile .q-card
 
 .bg-neutral
   background-color $neutral
+
+.bg-transparent
+  background rgba(0,0,0,0)
 
 .accent-font
   font-family $accentFont
@@ -64,7 +74,14 @@ body.desktop .desktop-margin
 .modal-body
   white-space pre-line
 
+@keyframes makeBigger
+  0%
+    transform scale(.8)
+  100%
+    transform scale(1)
+
 .hoverScale
+  animation: .3s ease-out 0s 1 makeBigger;
   transition transform .1s ease
 .hoverScale:hover
   transform scale(1.1)

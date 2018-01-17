@@ -134,6 +134,10 @@ export default {
       commit('setStoreIdFilter', storeId)
     },
 
+    removeFeedbackPossible ({ commit }, pickupId) {
+      commit('removeFeedbackPossible', pickupId)
+    },
+
     refresh ({ state, dispatch }) {
       if (state.idListGroupId) {
         dispatch('fetchListByGroupId', state.idListGroupId)
@@ -182,6 +186,11 @@ export default {
         ...indexById(pickups),
       }
       state.feedbackPossibleIds = pickups.map(e => e.id)
+    },
+    removeFeedbackPossible (state, pickupId) {
+      const pickups = state.feedbackPossibleIds
+      const idx = pickups.indexOf(pickupId)
+      if (idx !== -1) pickups.splice(idx, 1)
     },
 
   },

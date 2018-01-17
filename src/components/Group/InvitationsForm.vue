@@ -3,9 +3,9 @@
     <form @submit.prevent="maybeSave">
       <q-field
         icon="fa-envelope"
-        :helper="$t('GROUP.INVITE_EMAIL')"
-        :error="hasError"
-        :error-label="errorMessage"
+        :helper="helperMessage"
+        dark
+        class="white-font"
       >
         <q-input
           v-model="form.email"
@@ -13,6 +13,8 @@
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
+          class="bg-neutral"
+          style="padding: 4px;"
           @blur="$v.form.email.$touch"
         />
       </q-field>
@@ -22,12 +24,15 @@
         loader
         :value="isPending"
         :disable="!canSave"
+        class="bg-secondary float-right"
+        style="min-width: 5.5em"
       >
         <q-icon name="fa-paper-plane" />
         <q-tooltip>
           {{ $t('GROUP.INVITE_SEND') }}
         </q-tooltip>
       </q-btn>
+      <div style="clear:both"/>
     </form>
   </div>
 </template>
@@ -42,7 +47,10 @@ export default {
   mixins: [statusMixin, validationMixin],
   components: { QIcon, QField, QInput, QBtn, QTooltip },
   props: {
-    invitations: { required: true },
+    invitations: {
+      type: Array,
+      required: true,
+    },
   },
   data () {
     return {
@@ -64,10 +72,7 @@ export default {
     },
   },
   computed: {
-    hasError () {
-      return !!this.errorMessage
-    },
-    errorMessage () {
+    helperMessage () {
       if (this.$v.form.email.$error) {
         const m = this.$v.form.email
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
@@ -75,6 +80,7 @@ export default {
         if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
       }
       if (this.hasNonFieldError) return this.firstNonFieldError
+      return this.$t('GROUP.INVITE_EMAIL')
     },
     canSave () {
       return !this.$v.form.$error
@@ -92,5 +98,8 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus">
+.q-field-dark.white-font
+  .q-field-label, .q-field-icon, .q-field-counter, .q-field-bottom
+    color white
 </style>

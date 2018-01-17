@@ -3,6 +3,11 @@
     <q-card class="no-shadow grey-border">
       <q-card-title>{{ $t('USERDATA.PROFILE_TITLE') }}</q-card-title>
       <q-card-main>
+        <ChangePhoto
+          :value="user"
+          :status="profileEditStatus"
+          @save="saveUser"
+        />
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
@@ -37,12 +42,13 @@ import { QCard, QCardTitle, QCardMain } from 'quasar'
 import ProfileEdit from '@/components/Settings/ProfileEdit'
 import ChangePassword from '@/components/Settings/ChangePassword'
 import ChangeEmail from '@/components/Settings/ChangeEmail'
+import ChangePhoto from '@/components/Settings/ChangePhoto'
 
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Settings',
-  components: { QCard, QCardTitle, QCardMain, ProfileEdit, ChangePassword, ChangeEmail },
+  components: { QCard, QCardTitle, QCardMain, ProfileEdit, ChangePassword, ChangeEmail, ChangePhoto },
   computed: {
     ...mapGetters({
       user: 'auth/user',

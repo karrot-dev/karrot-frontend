@@ -12,7 +12,9 @@
     "PROFILE_TITLE": "Perfil",
     "PASSWORD": "Contraseña",
     "USERNAME": "Nombre",
-    "WHERE_FROM": "De donde vienes (no obligado)"
+    "WHERE_FROM": "De donde vienes (no obligado)",
+    "PHOTO": "Profile photo",
+    "SET_PHOTO": "Set your profile photo..."
   },
   "BUTTON": {
     "CREATE": "Crear",
@@ -54,6 +56,7 @@
     "CREATE_TITLE": "Crear un grupo nuevo",
     "MANAGE_AGREEMENT": "Manage agreement",
     "TITLE": "Título de este grupo",
+    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
@@ -68,6 +71,7 @@
     "INVITE_SEND": "Enviar invitación",
     "INVITED_LIST": "Ya se enviaron invitaciones a los siguientes correos electrónicos: ",
     "ALREADY_INVITED": "Ya se envió una invitación a este correo electrónico. ",
+    "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Invitar usuarios a tu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
     "INVITATION_ACCEPT_ERROR": "Ooops, no se podía aceptar la invitación!"
@@ -83,7 +87,8 @@
   "STOREDETAIL": {
     "EDIT": "Editar tienda",
     "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "Esta tienda se archivó."
+    "ARCHIVED": "Esta tienda se archivó.",
+    "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Nombre",
@@ -102,7 +107,7 @@
   },
   "PICKUPMANAGE": {
     "TITLE": "Manejar recogidas",
-    "SERIES": "Recurring",
+    "SERIES": "Recurring pickups",
     "SINGLE": "Recogidas únicas",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
   },
@@ -113,6 +118,7 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Nombre",
     "DESCRIPTION": "Sobre usted",
+    "OLD_PASSWORD": "Old password",
     "PASSWORD": "Introducir contraseña nueva"
   },
   "PROFILE": {
@@ -134,6 +140,7 @@
     "PROFILE_NOTE": "Si te unes a este grupo tus datos de perfil serán visibles para otros miembros del grupo. "
   },
   "GROUPINFO": {
+    "TITLE": "Public group information",
     "META": "Enseñar información pública del grupo",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
@@ -158,8 +165,18 @@
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "CREATEPICKUP": {
+    "FREQUENCY": "Frequency",
+    "WEEKLY": "Weekly",
+    "CUSTOM": "Custom",
     "WEEKDAYS": "Día de la semana",
     "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
+    "RRULE": "Recurrence rule",
+    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender rule",
+    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
+    "RRULE_EXAMPLE2": "every second Monday",
+    "STARTDATE": "Start date",
+    "STARTDATE_HELPER": "When should the series start?",
     "TIME": "Hora",
     "TIME_HELPER": "When should the pick-up take place?",
     "DATE": "Fecha",
@@ -168,13 +185,15 @@
     "MAX_COLLECTORS_HELPER": "Cuántas personas deberían participar en la recogida?",
     "COMMENT": "Información adicional",
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it"
+    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it",
+    "UNLIMITED": "unlimited"
   },
   "CREATESTORE": {
     "TITLE": "Crear una nueva tienda"
   },
   "PICKUPLIST": {
     "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "Tienes una recogida pendiente | Tienes {count} recogidas pendientes",
     "ITEM": {
       "LEAVE": "Salir",
@@ -185,14 +204,24 @@
       "LEAVE_CONFIRMATION_TEXT": "Estás segurx que lxs otrxs pueden hacer la recogida sin ti?"
     },
     "NONE": "Ninguna recogida inminente",
-    "NONE_HINT": "Puede crear una nueva recogida en la página de la tienda"
+    "NONE_HINT": "Puede crear una nueva recogida en la página de la tienda",
+    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+  },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
+    "GIVE_FEEDBACK": "Give feedback",
+    "NONE": "No feedback yet",
+    "NONE_HINT": "This page will be filled once more feedback is available"
   },
   "PICKUP_FEEDBACK": {
+    "TITLE": "Feedback",
     "HEADER": "Gracias por tu recogida!",
+    "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
-    "AMOUNT": "Cantidad de alimentos que te llevaste (en kg)",
+    "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comentario",
-    "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí..."
+    "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
+    "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Resetear contraseña",
@@ -203,7 +232,8 @@
     "SUCCESS": "Se ha enviado la solicitud correctamente. Compruebe su correo electrónico."
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "¡Añadir más idiomas!"
+    "ADD_MORE": "¡Añadir más idiomas!",
+    "SWITCH": "Switch language"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "negrita",

@@ -25,10 +25,6 @@ module.exports = {
   },
   // add your custom rules here
   'rules': {
-    // We relax some of the vue rules for now as they require a lot of manual changes
-    // TODO: comply with the rules, then remove these lines
-    'vue/require-prop-types': 0,
-
     // allow paren-less arrow functions
     'arrow-parens': 0,
     'one-var': 0,

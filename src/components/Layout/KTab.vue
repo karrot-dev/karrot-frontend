@@ -18,7 +18,10 @@ import { QRouteTab, QChip } from 'quasar'
 export default {
   components: { QRouteTab, QChip },
   props: {
-    to: { required: false, default: '' },
+    to: {
+      default: '',
+      type: Object | String,
+    },
   },
 }
 </script>

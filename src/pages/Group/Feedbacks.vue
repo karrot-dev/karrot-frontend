@@ -7,6 +7,7 @@ export default connect({
     feedback: 'feedback/all',
     status: 'feedback/fetchStatus',
     hasMore: 'feedback/pagination/hasMore',
+    feedbackPossible: 'pickups/feedbackPossible',
   },
   actionsToProps: {
     fetchMore: 'feedback/fetchMore',

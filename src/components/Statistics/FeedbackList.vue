@@ -1,5 +1,9 @@
 <template>
   <q-infinite-scroll :handler="loadMore">
+    <FeedbackNotice
+      v-if="feedbackPossible.length > 0"
+      :feedback-possible="feedbackPossible"
+    />
     <FeedbackItem
       v-for="feedbackitem in feedback"
       :key="feedbackitem.id"
@@ -35,14 +39,16 @@ import statusMixin from '@/mixins/statusMixin'
 import paginationMixin from '@/mixins/paginationMixin'
 import { QSpinnerDots, QInfiniteScroll } from 'quasar'
 import KNotice from '@/components/General/KNotice'
+import FeedbackNotice from '@/components/Wall/FeedbackNotice'
 
 export default {
   mixins: [statusMixin, paginationMixin],
   components: {
-    QSpinnerDots, QInfiniteScroll, FeedbackItem, KNotice,
+    QSpinnerDots, QInfiniteScroll, FeedbackItem, KNotice, FeedbackNotice,
   },
   props: {
     feedback: { required: true, type: Array },
+    feedbackPossible: { default: () => [], type: Array },
   },
   computed: {
     empty () {

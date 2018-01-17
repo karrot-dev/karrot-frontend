@@ -46,12 +46,12 @@ import 'typeface-cabin-sketch'
 
 Quasar.start(async () => {
   sync(store, router)
-  store.dispatch('groups/fetch')
 
   const [App] = await Promise.all([
     import('./App'),
     polyfill.init(),
     store.dispatch('auth/check'),
+    store.dispatch('groups/fetch'),
   ])
 
   const app = App.default

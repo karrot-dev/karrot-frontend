@@ -45,7 +45,7 @@ import { QCard } from 'quasar'
 export default {
   components: { PickupItem, QCard },
   props: {
-    pickups: { required: true },
+    pickups: { required: true, type: Array },
   },
   data () {
     return {

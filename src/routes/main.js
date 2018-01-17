@@ -11,15 +11,16 @@ const GroupGallery = () => import('@/pages/GroupGallery')
 const StoreLayout = () => import('@/pages/Store/Layout')
 const StorePickups = () => import('@/pages/Store/Pickups')
 const StoreFeedback = () => import('@/pages/Store/Feedbacks')
+const StoreHistory = () => import('@/pages/Store/History')
 const StorePickupsManage = () => import('@/pages/Store/PickupsManage')
 const StoreEdit = () => import('@/pages/Store/Edit')
 const StoreCreate = () => import('@/pages/Store/Create')
 const StoreList = () => import('@/pages/Store/Stores')
-const History = () => import('@/pages/History')
 const HistoryDetail = () => import('@/pages/HistoryDetail')
 const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
+const GroupHistory = () => import('@/pages/Group/History')
 const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores')
 const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup')
 const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
@@ -170,7 +171,7 @@ export default [
           beforeEnter: 'history/fetchForGroup',
         },
         components: {
-          default: History,
+          default: GroupHistory,
           sidenav: GroupGroupSidenav,
         },
       },
@@ -179,7 +180,7 @@ export default [
         path: 'invites',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.INVITE_TITLE', route: { name: 'groupInvitations' } },
+            { translation: 'GROUP.INVITATIONS', route: { name: 'groupInvitations' } },
           ],
           beforeEnter: 'invitations/fetch',
         },
@@ -299,7 +300,7 @@ export default [
           {
             name: 'storeHistory',
             path: 'history',
-            component: History,
+            component: StoreHistory,
             meta: {
               breadcrumbs: [
                 { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
@@ -321,11 +322,13 @@ export default [
       },
       {
         name: 'pickupFeedback',
-        path: 'give-feedback',
+        path: 'give-feedback/:feedbackId?',
         meta: {
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
           ],
+          beforeEnter: 'feedback/select',
+          afterLeave: 'feedback/clearForm',
         },
         components: {
           default: PickupFeedback,

@@ -27,13 +27,14 @@ export default {
   props: {
     amount: {
       required: true,
+      type: Number,
     },
   },
   computed: {
     photosArray () {
       let amount = this.amount
       let amountImages = []
-      while (amount >= 0.15) {
+      while (amount >= 0.15 && amountImages.length < 7) {
         if (amount >= 50.0) {
           amountImages.push(cartImg)
           amount -= 50.0

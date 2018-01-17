@@ -27,6 +27,8 @@ export default {
       return user ? {
         ...user,
         isCurrentUser: user.id === authUserId,
+        joinedAt: rootGetters['currentGroup/value'].memberships[user.id].createdAt,
+        rolesInGroup: rootGetters['currentGroup/value'].memberships[user.id].roles,
       } : {
         isCurrentUser: false,
       }

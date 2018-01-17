@@ -23,7 +23,18 @@
           <q-item-tile label>
             {{ user.displayName }}
           </q-item-tile>
+          <q-item-tile sublabel>
+            <div class="row">{{ $t('HISTORY.GROUP_JOIN') }}&nbsp;<DateAsWords :date="user.joinedAt" /></div>
+          </q-item-tile>
         </q-item-main>
+        <q-item-side left>
+          <span
+            v-for="role in user.rolesInGroup"
+            :key="role"
+          >
+            {{ role }}
+          </span>
+        </q-item-side>
       </q-item>
     </q-list>
   </div>
@@ -33,15 +44,17 @@
 
 import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
 import ProfilePicture from './ProfilePicture'
+import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
-  components: { ProfilePicture, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
+  components: { ProfilePicture, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, DateAsWords },
   props: {
     users: {
       type: Array,
       required: true,
     },
   },
+
 }
 </script>
 

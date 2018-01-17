@@ -3,6 +3,7 @@
     <q-item
       multiline
       class="clickable"
+      :class="{'greyed': detailIsShown}"
       @click="detailIsShown = !detailIsShown"
     >
       <q-item-side>
@@ -35,9 +36,15 @@
       </q-item-side>
     </q-item>
     <transition name="slide-toggle">
-      <HistoryDetail
-        v-if="detailIsShown"
-        :entry="entry"/>
+      <div
+        @click.self="detailIsShown = !detailIsShown"
+        class="detail-wrapper greyed"
+        style="cursor: pointer"
+        v-if="detailIsShown">
+        <HistoryDetail
+          style="cursor: initial"
+          :entry="entry"/>
+      </div>
     </transition>
   </div>
 </template>
@@ -65,7 +72,15 @@ export default {
 </script>
 <style scoped lang="stylus">
 .clickable
+  transition padding .5s ease
   &:hover
     cursor pointer
     background-color rgb(235, 235, 235)
+.clickable.greyed
+  padding 1em 3em 10px 3em
+.greyed
+  background-color rgb(235, 235, 235)
+.detail-wrapper
+  padding: 0 2em
+  padding-bottom 2em
 </style>

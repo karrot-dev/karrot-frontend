@@ -103,19 +103,23 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+.mainContent-page
+  width 100%
 .sidenav-desktop
-  margin-right 1em
   width 30%
   min-width 250px
   max-width 30em
-body.desktop .mainContent-page
-  min-width 350px
-  max-width: 57em
-.mainContent-page
-  width 100%
-  margin-bottom 4.5em
   margin-left auto
-  margin-right auto
+  margin-right .4em
+body.desktop .mainContent
+  max-width 1500px
+  margin auto
+  .mainContent-page
+    min-width 350px
+    max-width: 57em
+    margin-bottom 4.5em
+    margin-left .4em
+    margin-right auto
 .background
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px

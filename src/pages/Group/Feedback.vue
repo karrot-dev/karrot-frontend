@@ -9,6 +9,7 @@ export default connect({
     existingFeedback: 'feedback/all',
     saveStatus: 'feedback/saveStatus',
     fetchStatus: 'feedback/fetchStatus',
+    seedId: 'currentGroup/id',
   },
   actionsToEvents: {
     save: 'feedback/save',

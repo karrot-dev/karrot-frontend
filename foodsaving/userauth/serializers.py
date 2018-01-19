@@ -1,10 +1,11 @@
 from anymail.exceptions import AnymailAPIError
 from django.conf import settings
 from django.contrib.auth import authenticate, login, get_user_model
-from django.utils import timezone
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
 from versatileimagefield.serializers import VersatileImageFieldSerializer
+
+from foodsaving.userauth.models import VerificationCode
 
 
 class AuthLoginSerializer(serializers.Serializer):
@@ -41,8 +42,8 @@ class AuthUserSerializer(serializers.ModelSerializer):
         model = get_user_model()
         fields = ['id', 'display_name', 'email', 'unverified_email', 'password',
                   'address', 'latitude', 'longitude', 'description', 'mail_verified',
-                  'key_expires_at', 'current_group', 'language', 'photo', 'photo_urls']
-        read_only_fields = ('unverified_email', 'key_expires_at', 'mail_verified')
+                  'current_group', 'language', 'photo', 'photo_urls']
+        read_only_fields = ('unverified_email', 'mail_verified')
         extra_kwargs = {
             'password': {
                 'write_only': True
@@ -98,15 +99,21 @@ class AuthUserSerializer(serializers.ModelSerializer):
 
 
 class VerifyMailSerializer(serializers.Serializer):
-    key = serializers.CharField(max_length=40, min_length=40)
+    # TODO: Rename to 'verification_code' (will change the API!)
+    key = serializers.CharField(max_length=50, min_length=20)
 
-    def validate_key(self, key):
+    def validate_key(self, code):  # TODO: Rename to 'validate_code'
         user = self.instance
-        if user.key_expires_at < timezone.now():
-            raise serializers.ValidationError(_('Key has expired'))
-        if key != user.activation_key:
-            raise serializers.ValidationError(_('Key is invalid'))
-        return key
+
+        try:
+            matched_code = VerificationCode.objects.get(user=user, type=VerificationCode.EMAIL_VERIFICATION, code=code)
+        except VerificationCode.DoesNotExist:
+            raise serializers.ValidationError(_('Verification code is invalid'))
+
+        if matched_code.has_expired():
+            raise serializers.ValidationError(_('Verification code has expired'))
+
+        return code
 
     def update(self, user, validated_data):
         user.verify_mail()

@@ -1,18 +1,14 @@
-from datetime import timedelta
-
 from anymail.message import AnymailMessage
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db import models
-from django.db import transaction
+from django.db import transaction, models
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
 from django.template.loader import render_to_string
-from django.utils import crypto
-from django.utils import timezone
 from django.utils.translation import ugettext as _
 from versatileimagefield.fields import VersatileImageField
 
 from foodsaving.base.base_models import BaseModel, LocationModel
+from foodsaving.userauth.models import VerificationCode
 
 MAX_DISPLAY_NAME_LENGTH = 80
 
@@ -76,9 +72,6 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     display_name = CharField(max_length=settings.NAME_MAX_LENGTH)
     description = TextField(blank=True)
     language = CharField(max_length=7, default='en')
-
-    activation_key = CharField(max_length=40, blank=True)
-    key_expires_at = DateTimeField(null=True)
     mail_verified = BooleanField(default=False)
     unverified_email = EmailField(null=True)
 
@@ -110,17 +103,16 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
 
     @transaction.atomic
     def verify_mail(self):
-        self.mail_verified = True
-        self.activation_key = ''
-        self.key_expires_at = None
+        VerificationCode.objects.filter(user=self, type=VerificationCode.EMAIL_VERIFICATION).delete()
         self.email = self.unverified_email
+        self.mail_verified = True
         self.save()
 
+    @transaction.atomic
     def _unverify_mail(self):
-        key = crypto.get_random_string(length=40)
+        VerificationCode.objects.filter(user=self, type=VerificationCode.EMAIL_VERIFICATION).delete()
+        VerificationCode.objects.create(user=self, type=VerificationCode.EMAIL_VERIFICATION)
         self.mail_verified = False
-        self.activation_key = key
-        self.key_expires_at = timezone.now() + timedelta(days=7)
         self.save()
 
     @transaction.atomic
@@ -149,9 +141,9 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     def _send_welcome_mail(self):
         self._unverify_mail()
 
-        url = '{hostname}/#/verify-mail?key={key}'.format(
+        url = '{hostname}/#/verify-mail?key={code}'.format(
             hostname=settings.HOSTNAME,
-            key=self.activation_key
+            code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION).code
         )
 
         context = {
@@ -172,9 +164,9 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     def send_new_verification_code(self):
         self._unverify_mail()
 
-        url = '{hostname}/#/verify-mail?key={key}'.format(
+        url = '{hostname}/#/verify-mail?key={code}'.format(
             hostname=settings.HOSTNAME,
-            key=self.activation_key
+            code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION).code
         )
 
         context = {

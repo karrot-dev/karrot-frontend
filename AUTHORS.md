@@ -3,6 +3,7 @@
 - [Douglas Webb](https://github.com/bbew/), dmhwebb@gmail.com
 - [Florian Gössele](https://github.com/goessek/), goessek@posteo.de
 - [Kristijan Miklobusec](https://github.com/Sliverriver), kristijan80@web.de
+- [Lukas Gebhard](https://github.com/mr-kojo), freerunningapps@gmail.com
 - [Matthias Larisch](https://github.com/NerdyProjects/), yunity@matthias-larisch.de
 - [Michael Dougherty](https://github.com/maackle/), maackle.d@gmail.com
 - [Neel Peters](https://github.com/neeljp/), njp@riseup.net

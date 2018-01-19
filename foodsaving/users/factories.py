@@ -22,7 +22,6 @@ class UserFactory(DjangoModelFactory):
     def _create(cls, model_class, *args, **kwargs):
         manager = cls._get_manager(model_class)
         user = manager.create_user(*args, **kwargs)
-        user._unverify_mail()
         return user
 
 

@@ -16,6 +16,7 @@ from foodsaving.pickups.factories import PickupDateFactory
 from foodsaving.users import models
 from foodsaving.users.factories import UserFactory, VerifiedUserFactory
 from foodsaving.utils.tests.fake import faker
+from foodsaving.userauth.models import VerificationCode
 
 
 class TestUsersAPI(APITestCase):
@@ -349,9 +350,6 @@ class TestChangeEMail(APITestCase):
         response = self.client.patch(self.url, {'unverified_email': faker.email()})
         self.assertEqual(response.data['unverified_email'], original['unverified_email'])
 
-        response = self.client.patch(self.url, {'key_expires_at': timezone.now()})
-        self.assertEqual(response.data['key_expires_at'], original['key_expires_at'])
-
         response = self.client.patch(self.url, {'mail_verified': False})
         self.assertEqual(response.data['mail_verified'], True)
 
@@ -359,50 +357,54 @@ class TestChangeEMail(APITestCase):
 class TestEMailVerification(APITestCase):
     def setUp(self):
         self.user = UserFactory()
-        self.verified_user = VerifiedUserFactory()
         self.url = '/api/auth/verify_mail/'
 
     def test_verify_mail_succeeds(self):
         self.client.force_login(user=self.user)
-        response = self.client.post(self.url, {'key': self.user.activation_key})
+        code = VerificationCode.objects.get(user=self.user, type=VerificationCode.EMAIL_VERIFICATION).code
+        response = self.client.post(self.url, {'key': code})
         self.assertEqual(response.data, {})
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_verify_mail_fails_if_not_logged_in(self):
-        response = self.client.post(self.url, {'key': self.user.activation_key})
+        code = VerificationCode.objects.get(user=self.user, type=VerificationCode.EMAIL_VERIFICATION).code
+        response = self.client.post(self.url, {'key': code})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_verify_mail_fails_with_wrong_key(self):
+    def test_verify_mail_fails_with_wrong_verification_code(self):
         self.client.force_login(user=self.user)
         response = self.client.post(self.url, {'key': 'w' * 40})
-        self.assertEqual(response.data, {'key': ['Key is invalid']})
+        self.assertEqual(response.data, {'key': ['Verification code is invalid']})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_verify_mail_fails_if_key_too_old(self):
+    def test_verify_mail_fails_if_verification_code_too_old(self):
         self.client.force_login(user=self.user)
-        backup = self.user.key_expires_at
-        self.user.key_expires_at = timezone.now() - timedelta(days=1)
-        self.user.save()
-        response = self.client.post(self.url, {'key': self.user.activation_key})
-        self.assertEqual(response.data, {'key': ['Key has expired']})
+        verification_code = VerificationCode.objects.get(user=self.user, type=VerificationCode.EMAIL_VERIFICATION)
+        backup = verification_code.created_at
+        verification_code.created_at = timezone.now() - timedelta(days=8)
+        verification_code.save()
+        response = self.client.post(self.url, {'key': verification_code.code})
+        self.assertEqual(response.data, {'key': ['Verification code has expired']})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.user.key_expires_at = backup
-        self.user.save()
+        verification_code.created_at = backup
+        verification_code.save()
 
     def test_verify_mail_fails_if_already_verified(self):
-        self.client.force_login(user=self.verified_user)
-        response = self.client.post(self.url, {'key': self.user.activation_key})
+        self.client.force_login(user=self.user)
+        code = VerificationCode.objects.get(user=self.user, type=VerificationCode.EMAIL_VERIFICATION).code
+        self.client.post(self.url, {'key': code})
+        response = self.client.post(self.url, {'key': code})
         self.assertEqual(response.data['detail'], 'Mail is already verified.')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_verify_mail_fails_without_key(self):
+    def test_verify_mail_fails_without_verification_code(self):
         self.client.force_login(user=self.user)
         response = self.client.post(self.url)
         self.assertEqual(response.data, {'key': ['This field is required.']})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class TestResendEMailVerificationKey(APITestCase):
+class TestResendEMailVerificationCode(APITestCase):
     def setUp(self):
         self.user = UserFactory()
         self.verified_user = VerifiedUserFactory()

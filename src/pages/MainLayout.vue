@@ -118,7 +118,7 @@ body.desktop .mainContent
     min-width 350px
     max-width: 57em
     margin-bottom 4.5em
-    margin-left .4em
+    margin-left auto
     margin-right auto
 .background
   background-image url('../assets/repeating_grey.jpg')

@@ -43,6 +43,30 @@
         {{ $t('GROUP.MANAGE_AGREEMENT') }}
       </q-item>
 
+      <q-item
+        v-if="$q.platform.is.desktop"
+        :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
+        @click.native="$refs.popover.close()
+      ">
+        <q-icon
+          size="1em"
+          name="fa-info-circle fa-fw on-left"
+        />
+        {{ $t('GROUPINFO.META') }}
+      </q-item>
+
+      <q-item
+        v-if="$q.platform.is.desktop"
+        :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
+        @click.native="$refs.popover.close()"
+      >
+        <q-icon
+          size="1em"
+          name="fa-user-plus fa-fw on-left"
+        />
+        {{ $t('GROUP.INVITE_TITLE') }}
+      </q-item>
+
       <q-item @click="leave">
         <q-icon
           size="1em"
@@ -56,7 +80,6 @@
 
 <script>
 import { QList, QItem, QIcon, QPopover, Dialog } from 'quasar'
-
 export default {
   components: {
     QList, QItem, QIcon, QPopover,

@@ -1,6 +1,8 @@
 <template>
   <q-item multiline>
-    <q-item-side style="margin-top: 16px">
+    <q-item-side
+      v-if="user.id"
+      style="margin-top: 16px">
       <ProfilePicture
         :user="user"
         :size="40"
@@ -16,7 +18,7 @@
             type="textarea"
             v-model="message"
             :placeholder="placeholder"
-            :min-rows="2"
+            :min-rows="1"
             :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
             :loading="isPending"
             @keyup.ctrl.enter="send"
@@ -43,7 +45,9 @@ export default {
     },
     user: {
       type: Object,
-      required: true,
+      default: () => {
+        return { }
+      },
     },
   },
   data () {

@@ -68,6 +68,9 @@
           slot="footer"
         />
       </q-layout>
+      <span class="chat-floater">
+        <ChatFloater />
+      </span>
     </div>
   </div>
 </template>
@@ -80,12 +83,13 @@ import KFooter from '@/components/Layout/KFooter'
 import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
+import ChatFloater from '@/components/Conversation/ChatFloater'
 import RouteError from '@/components/RouteError'
 import { QLayout, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn, MainAlerts, RouteError },
+  components: { KTopbar, ChatFloater, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn, MainAlerts, RouteError },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
@@ -120,6 +124,12 @@ body.desktop .mainContent-page
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px
   background-attachment:fixed
+
+.chat-floater
+  position fixed
+  right 0
+  bottom 0
+  z-index 100000
 </style>
 
 <style lang="stylus">

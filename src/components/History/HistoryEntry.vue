@@ -4,7 +4,7 @@
       multiline
       class="clickable"
       :class="{'greyed': detailIsShown}"
-      @click="detailIsShown = !detailIsShown"
+      @click="toggleDetail"
     >
       <q-item-side>
         <ProfilePicture
@@ -37,7 +37,7 @@
     </q-item>
     <transition name="slide-toggle">
       <div
-        @click.self="detailIsShown = !detailIsShown"
+        @click.self="toggleDetail"
         class="detail-wrapper greyed"
         style="cursor: pointer"
         v-if="detailIsShown">
@@ -66,6 +66,17 @@ export default {
     return {
       detailIsShown: false,
     }
+  },
+  methods: {
+    toggleDetail (event) {
+      if (this.detailIsShown) {
+        window.history.replaceState({}, null, `#${this.$route.path}`)
+      }
+      else {
+        window.history.replaceState({}, null, `#/history/${this.entry.id}`)
+      }
+      this.detailIsShown = !this.detailIsShown
+    },
   },
   components: { HistoryDetail, ProfilePicture, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
 }

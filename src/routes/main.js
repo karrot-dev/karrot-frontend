@@ -47,7 +47,7 @@ export default [
     children: [
       {
         name: 'chatDetail',
-        path: ':chatId',
+        path: ':userId',
         components: {
           detail: ChatDetail,
         },

@@ -20,7 +20,7 @@
       class="no-border">
       <q-item
         v-for="item in [1, 2, 3, 4, 5]"
-        :to="{name: 'chatDetail', params: {chatId: item}}"
+        :to="{name: 'chatDetail', params: {userId: item}}"
         :key="item">
         <q-item-side>
           <ProfilePicture

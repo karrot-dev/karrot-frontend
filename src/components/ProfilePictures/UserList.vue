@@ -9,6 +9,7 @@
         :to="{name: 'user', params: { userId: user.id }}"
         v-for="user in users"
         :key="user.id"
+        class="list-item"
       >
 
         <q-item-side right>
@@ -24,6 +25,17 @@
             {{ user.displayName }}
           </q-item-tile>
         </q-item-main>
+        <q-item-side
+          class="right-item"
+          right>
+          <router-link :to="{name: 'chatDetail', params: {userId: user.id}}">
+            <q-btn
+              flat
+              small>
+              <i class="fa fa-comment" />
+            </q-btn>
+          </router-link>
+        </q-item-side>
       </q-item>
     </q-list>
   </div>
@@ -31,11 +43,11 @@
 
 <script>
 
-import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
+import { QBtn, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
 import ProfilePicture from './ProfilePicture'
 
 export default {
-  components: { ProfilePicture, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
+  components: { ProfilePicture, QBtn, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
   props: {
     users: {
       type: Array,
@@ -50,4 +62,8 @@ export default {
   margin .3em
   .profilePic
     margin-right .5em
+body.desktop .list-item .right-item
+    display none
+body.desktop .list-item:hover .right-item
+    display inline-block
 </style>

@@ -63,6 +63,16 @@
         :source="user.description"
       />
       <div style="clear: both; margin-bottom: 8px"/>
+      <q-card-separator />
+      <q-card-actions align="end">
+        <router-link :to="{name: 'chatDetail', params: {userId: user.id}}">
+          <q-btn
+            icon="fa-comments"
+            color="secondary">
+            {{ $t('CHAT.MESSAGE') }}
+          </q-btn>
+        </router-link>
+      </q-card-actions>
     </q-card>
   </div>
 </template>

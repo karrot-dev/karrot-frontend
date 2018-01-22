@@ -50,12 +50,13 @@ export default {
 @import '~variables'
 .actionButtons
   margin-top -36px
+  padding-bottom 0
   float right
   .q-btn
     margin 3px
 
 .padding-top
-  padding-top 8px
+  padding-top 30px
 
 body.mobile .art-overlay
   width 100%

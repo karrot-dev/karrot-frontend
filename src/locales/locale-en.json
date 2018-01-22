@@ -1,6 +1,7 @@
 {
   "CHAT": {
-    "TITLE": "Chat"
+    "TITLE": "Chat",
+    "MESSAGE": "Message"
   },
   "GLOBAL": {
     "GITHUB_NOTE": "Development",

@@ -10,7 +10,7 @@ asgiref==1.1.2            # via asgi-redis, channels, daphne
 attrs==17.4.0             # via automat
 autobahn==17.10.1         # via daphne
 automat==0.6.0            # via twisted
-certifi==2017.11.5        # via requests
+certifi==2018.1.18        # via requests
 cffi==1.11.4              # via argon2-cffi
 channels==1.1.8
 chardet==3.0.4            # via requests
@@ -63,7 +63,7 @@ pyflakes==1.6.0           # via flake8
 python-dateutil==2.6.1    # via faker, influxdb
 python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2017.3
-raven==6.4.0
+raven==6.5.0
 redis==2.10.6
 requests-toolbelt==0.8.0  # via pyfcm
 requests==2.18.4          # via coreapi, django-anymail, influxdb, pyfcm, requests-toolbelt, responses, sparkpost

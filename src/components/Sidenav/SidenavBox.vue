@@ -40,6 +40,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+@import '~slidetoggle'
 
 .toolbar
   min-height 40px

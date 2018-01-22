@@ -58,6 +58,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~slidetoggle'
 .list-leave-active
   transition: all .5s
 .list-leave-to

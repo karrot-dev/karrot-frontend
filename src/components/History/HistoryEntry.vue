@@ -82,6 +82,7 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
+@import '~slidetoggle'
 .clickable
   transition padding .5s ease
   &:hover

@@ -85,33 +85,3 @@ body.desktop .desktop-margin
   transition transform .1s ease
 .hoverScale:hover
   transform scale(1.1)
-
-.edit-box
-  width 100%
-  padding 20px
-  background-color $grey-1
-  transition background-color .3s ease
-  &.changed
-    background-color $yellow-1
-  .actionButtons
-    .q-btn
-      margin 20px 0 0 5px
-      float right
-  .actionButtons:after
-    content "."
-    clear both
-    display block
-    visibility hidden
-    height 0px
-
-.slide-toggle-enter-active,
-.slide-toggle-leave-active
-  transition max-height .2s
-  overflow hidden
-.slide-toggle-enter-active
-    max-height 1000px
-.slide-toggle-enter,
-.slide-toggle-leave-active
-    max-height 0
-.slide-toggle-leave
-    max-height 1000px

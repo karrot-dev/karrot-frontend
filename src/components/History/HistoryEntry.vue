@@ -73,7 +73,7 @@ export default {
         window.history.replaceState({}, null, `#${this.$route.path}`)
       }
       else {
-        window.history.replaceState({}, null, `#/history/${this.entry.id}`)
+        window.history.replaceState({}, null, this.$router.resolve({ name: 'historyDetail', params: { historyId: this.entry.id } }).href)
       }
       this.detailIsShown = !this.detailIsShown
     },

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pickup-feedback-wrapper">
     <q-card class="no-mobile-margin no-shadow grey-border">
       <RandomArt
         :seed="seedId"
@@ -152,7 +152,7 @@ export default {
 </style>
 
 <style lang="stylus">
-.q-field-dark.grey-font
+.pickup-feedback-wrapper .q-field-dark.grey-font
   background-color white
   padding 4px 7px
   border-radius 4px

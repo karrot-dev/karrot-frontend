@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-26 10:54+0000\n"
+"POT-Creation-Date: 2017-12-30 19:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Arabic (https://www.transifex.com/yunity-1/teams/68631/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -92,57 +92,59 @@ msgstr ""
 msgid "Invitation to join %(group_name)s"
 msgstr ""
 
-#: foodsaving/pickups/permissions.py:6
+#: foodsaving/pickups/permissions.py:7
 msgid "The pickup date is in the past."
 msgstr ""
 
-#: foodsaving/pickups/permissions.py:17
+#: foodsaving/pickups/permissions.py:18
 msgid "You can only delete empty pickup dates."
 msgstr ""
 
-#: foodsaving/pickups/permissions.py:24
+#: foodsaving/pickups/permissions.py:25
 msgid "You have not joined this pickup date."
 msgstr ""
 
-#: foodsaving/pickups/permissions.py:31
+#: foodsaving/pickups/permissions.py:32
 msgid "You have already joined this pickup date."
 msgstr ""
 
-#: foodsaving/pickups/permissions.py:38
+#: foodsaving/pickups/permissions.py:39
 msgid "Pickup date is already full."
 msgstr ""
 
-#: foodsaving/pickups/permissions.py:45
+#: foodsaving/pickups/permissions.py:46
 msgid "This feedback is given by another user."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:35 foodsaving/pickups/serializers.py:167
-#: foodsaving/pickups/serializers.py:201
+#: foodsaving/pickups/permissions.py:53 foodsaving/pickups/serializers.py:214
+#, python-format
+msgid ""
+"You can't give feedback for pickups more than %(days_number)s days ago."
+msgstr ""
+
+#: foodsaving/pickups/serializers.py:36 foodsaving/pickups/serializers.py:168
+#: foodsaving/pickups/serializers.py:207
 msgid "You are not member of the store's group."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:84
+#: foodsaving/pickups/serializers.py:85
 msgid "The date should be in the future."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:178
+#: foodsaving/pickups/serializers.py:179
 msgid "Invalid recurrence rule."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:180
+#: foodsaving/pickups/serializers.py:181
 msgid "Only single recurrence rules are allowed."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:203
+#: foodsaving/pickups/serializers.py:209
 msgid "The pickup is not done yet"
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:205
+#: foodsaving/pickups/serializers.py:211
 msgid "You aren't assigned to the pickup."
-msgstr ""
-
-#: foodsaving/pickups/serializers.py:207
-msgid "You can't give feedback for pickups more than 30 days ago."
 msgstr ""
 
 #: foodsaving/pickups/templates/upcoming_pickup_slack.jinja:1
@@ -176,11 +178,11 @@ msgstr ""
 msgid "Key is invalid"
 msgstr ""
 
-#: foodsaving/users/models.py:185
+#: foodsaving/users/models.py:188
 msgid "New password"
 msgstr ""
 
-#: foodsaving/users/models.py:186
+#: foodsaving/users/models.py:189
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."

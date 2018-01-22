@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-26 10:54+0000\n"
+"POT-Creation-Date: 2017-12-30 19:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Carlos Pesquera Alonso <fydus@hotmail.com>, 2017\n"
 "Language-Team: Esperanto (https://www.transifex.com/yunity-1/teams/68631/eo/)\n"
@@ -93,57 +93,59 @@ msgstr ""
 msgid "Invitation to join %(group_name)s"
 msgstr ""
 
-#: foodsaving/pickups/permissions.py:6
+#: foodsaving/pickups/permissions.py:7
 msgid "The pickup date is in the past."
 msgstr "La forkolekta rendevuo estas en la pasinteco."
 
-#: foodsaving/pickups/permissions.py:17
+#: foodsaving/pickups/permissions.py:18
 msgid "You can only delete empty pickup dates."
 msgstr "Vi nur povas forigi malplenajn forkolektajn rendevuojn."
 
-#: foodsaving/pickups/permissions.py:24
+#: foodsaving/pickups/permissions.py:25
 msgid "You have not joined this pickup date."
 msgstr "Vi ne aliĝis ĉi tiun forkolektan rendevuon."
 
-#: foodsaving/pickups/permissions.py:31
+#: foodsaving/pickups/permissions.py:32
 msgid "You have already joined this pickup date."
 msgstr "Vi jam aliĝis ĉi tiun forkolektan rendevuon."
 
-#: foodsaving/pickups/permissions.py:38
+#: foodsaving/pickups/permissions.py:39
 msgid "Pickup date is already full."
 msgstr "Forkolektan rendevuon jam plenas."
 
-#: foodsaving/pickups/permissions.py:45
+#: foodsaving/pickups/permissions.py:46
 msgid "This feedback is given by another user."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:35 foodsaving/pickups/serializers.py:167
-#: foodsaving/pickups/serializers.py:201
+#: foodsaving/pickups/permissions.py:53 foodsaving/pickups/serializers.py:214
+#, python-format
+msgid ""
+"You can't give feedback for pickups more than %(days_number)s days ago."
+msgstr ""
+
+#: foodsaving/pickups/serializers.py:36 foodsaving/pickups/serializers.py:168
+#: foodsaving/pickups/serializers.py:207
 msgid "You are not member of the store's group."
 msgstr "Vi ne estas membro de ĉi tiu vendeja grupo."
 
-#: foodsaving/pickups/serializers.py:84
+#: foodsaving/pickups/serializers.py:85
 msgid "The date should be in the future."
 msgstr "La rendevuo devas esti estontece."
 
-#: foodsaving/pickups/serializers.py:178
+#: foodsaving/pickups/serializers.py:179
 msgid "Invalid recurrence rule."
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:180
+#: foodsaving/pickups/serializers.py:181
 msgid "Only single recurrence rules are allowed."
 msgstr "Nur unuperiodaj reguloj estas permesitaj."
 
-#: foodsaving/pickups/serializers.py:203
+#: foodsaving/pickups/serializers.py:209
 msgid "The pickup is not done yet"
 msgstr ""
 
-#: foodsaving/pickups/serializers.py:205
+#: foodsaving/pickups/serializers.py:211
 msgid "You aren't assigned to the pickup."
-msgstr ""
-
-#: foodsaving/pickups/serializers.py:207
-msgid "You can't give feedback for pickups more than 30 days ago."
 msgstr ""
 
 #: foodsaving/pickups/templates/upcoming_pickup_slack.jinja:1
@@ -177,11 +179,11 @@ msgstr "Ŝlosilo posttempas"
 msgid "Key is invalid"
 msgstr "Ŝlosilo malvalidas"
 
-#: foodsaving/users/models.py:185
+#: foodsaving/users/models.py:188
 msgid "New password"
 msgstr "Novan pasvorton"
 
-#: foodsaving/users/models.py:186
+#: foodsaving/users/models.py:189
 msgid ""
 "Here is your new temporary password: {}. You can use it to login. Please "
 "change it soon."

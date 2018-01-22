@@ -29,8 +29,12 @@
           />
         </q-item-side>
         <q-item-main
+          class="one-lined"
           label="Max Mustermann"
           sublabel="Hey! This was my last message! It was very nice to hear from you recently" />
+        <q-item-side right>
+          <small>10min</small>
+        </q-item-side>
       </q-item>
     </q-list>
   </div>
@@ -54,4 +58,12 @@ export default {
   min-width 200px
   .q-list
     padding-top 0
+</style>
+
+<style lang="stylus">
+.chat-list .one-lined .q-item-sublabel
+  overflow hidden
+  display block !important
+  white-space nowrap
+  text-overflow ellipsis
 </style>

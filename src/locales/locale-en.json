@@ -1,4 +1,7 @@
 {
+  "CHAT": {
+    "TITLE": "Chat"
+  },
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FACEBOOK_NOTE": "Join our Facebook Group!",

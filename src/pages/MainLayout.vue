@@ -68,7 +68,10 @@
           slot="footer"
         />
       </q-layout>
-      <span class="chat-floater">
+      <span
+        v-if="!$q.platform.is.mobile"
+        class="chat-floater row items-end no-wrap ">
+        <ChatFloater />
         <ChatFloater />
       </span>
     </div>

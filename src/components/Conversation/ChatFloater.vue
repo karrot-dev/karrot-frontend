@@ -10,7 +10,7 @@
           @click.self="toggleOpen()"
         >
           <ProfilePicture
-            user="{ displayName: 'Max Mustermann', id: 2 }"
+            :user="{ displayName: 'Max Mustermann', id: 2 }"
             :size="24"
           />
           <q-toolbar-title>
@@ -31,36 +31,9 @@
         <transition name="slide-toggle">
           <div
             v-if="isOpen"
+            v-chat-scroll="{always: false}"
             class="content-wrapper">
-            <div class="content generic-padding">
-              <q-chat-message
-                name="Jane"
-                avatar="statics/linux-avatar.png"
-                :text="['hey, if you type in your pw asd asd as', 'it will show as stars']"
-                stamp="7 minutes ago"
-              />
-              <q-chat-message
-                name="me"
-                avatar="statics/linux-avatar.png"
-                :text="['test', 'it will show as star as dasds']"
-                stamp="7 minutes ago"
-                sent
-              />
-              <q-chat-message
-                name="Jane"
-                avatar="statics/linux-avatar.png"
-                :text="['hey, if you type', 'it will show as stars']"
-                stamp="7 minutes ago"
-              />
-              <q-chat-message
-                name="me"
-                avatar="statics/linux-avatar.png"
-                :text="['test', 'it will show as star as dasds']"
-                stamp="7 minutes ago"
-                sent
-              />
-              <div style="height: 20px"/>
-            </div>
+            <ChatMessages />
           </div>
         </transition>
         <div
@@ -74,16 +47,17 @@
 </template>
 
 <script>
-import { QCard, QChatMessage, QToolbar, QToolbarTitle, QBtn } from 'quasar'
+import { QCard, QToolbar, QToolbarTitle, QBtn } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import ConversationCompose from '@/components/Conversation/ConversationCompose'
+import ChatMessages from '@/components/Conversation/ChatMessages'
 
 export default {
   name: 'ChatFloater',
-  components: { ProfilePicture, ConversationCompose, QCard, QChatMessage, QToolbar, QToolbarTitle, QBtn },
+  components: { ProfilePicture, ConversationCompose, QCard, ChatMessages, QToolbar, QToolbarTitle, QBtn },
   data () {
     return {
-      isOpen: true,
+      isOpen: false,
     }
   },
   methods: {
@@ -138,6 +112,4 @@ export default {
 <style lang="stylus">
 .chat-floater .new-message .q-field
   margin 6px 0
-.chat-floater .content .q-message-avatar
-  display none
 </style>

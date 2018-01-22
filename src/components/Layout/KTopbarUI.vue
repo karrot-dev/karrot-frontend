@@ -48,6 +48,19 @@
       <q-tooltip v-t="'BUTTON.SEARCH'" />
     </q-btn>
     <template v-if="!$q.platform.is.mobile">
+      <q-btn flat>
+        <q-icon name="fa-fw fa-comments" />
+        <q-tooltip v-t="'CHAT.TITLE'" />
+        <q-popover
+          :touch-position="false"
+          ref="chatpopover"
+          class="chat-popover"
+        >
+          <div class="content">
+            <ChatList />
+          </div>
+        </q-popover>
+      </q-btn>
       <LocaleSelect />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
@@ -129,10 +142,11 @@ import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
 import LocaleSelect from '@/components/General/LocaleSelect'
+import ChatList from '@/components/Conversation/ChatList'
 
 export default {
   components: {
-    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
+    QTransition, ChatList, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
   },
   props: {
     breadcrumbs: {
@@ -175,9 +189,23 @@ export default {
   padding-right .2em
   margin-right .2em
   border-radius $borderRadiusSmall
-
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
+.chat-popover
+  max-width 450px
+  background none
+  overflow-y hidden
+.chat-popover .content
+  margin-top 10px
+  background white
+  overflow-y auto
+.chat-popover:before
+    position: absolute;
+    z-index: 6000;
+    content: '';
+    right: 8px;
+    top: 0px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent $neutral transparent;
 
 .search-slide-in-leave, .search-slide-in-enter-to
   width: 17em

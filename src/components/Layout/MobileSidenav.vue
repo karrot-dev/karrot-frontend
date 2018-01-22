@@ -8,6 +8,7 @@ export default connect({
   },
   gettersToProps: {
     currentUserId: 'auth/userId',
+    currentGroupId: 'currentGroup/id',
   },
   methodsToEvents: {
     toggleSidenav ({ commit }) {

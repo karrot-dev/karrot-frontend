@@ -2,6 +2,8 @@
   <q-popover
     fit
     ref="popover"
+    anchor="bottom right"
+    self="top right"
   >
     <q-list
       item-separator
@@ -42,6 +44,7 @@
       </q-item>
 
       <q-item
+        v-if="$q.platform.is.desktop"
         :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
         @click.native="$refs.popover.close()
       ">
@@ -53,6 +56,7 @@
       </q-item>
 
       <q-item
+        v-if="$q.platform.is.desktop"
         :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
         @click.native="$refs.popover.close()"
       >
@@ -76,7 +80,6 @@
 
 <script>
 import { QList, QItem, QIcon, QPopover, Dialog } from 'quasar'
-
 export default {
   components: {
     QList, QItem, QIcon, QPopover,

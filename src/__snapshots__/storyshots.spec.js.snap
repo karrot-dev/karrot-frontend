@@ -5002,7 +5002,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
 `;
 
 exports[`Storyshots Statistics PickupFeedback 1`] = `
-<div>
+<div class="pickup-feedback-wrapper">
     <div class="q-card no-mobile-margin no-shadow grey-border">
         <div class="art-wrapper" style="color:white;">
             <div>

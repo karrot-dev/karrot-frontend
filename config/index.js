@@ -23,7 +23,9 @@ module.exports = {
     quasar: path.resolve(__dirname, '../node_modules/quasar-framework/'),
     '@': path.resolve(__dirname, '../src'),
     '>': path.resolve(__dirname, '../test'),
-    variables: path.resolve(__dirname, '../src/themes/quasar.variables.styl')
+    variables: path.resolve(__dirname, '../src/themes/quasar.variables.styl'),
+    slidetoggle: path.resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
+    editbox: path.resolve(__dirname, '../src/themes/karrot.editbox.styl')
   },
 
   // Progress Bar Webpack plugin format

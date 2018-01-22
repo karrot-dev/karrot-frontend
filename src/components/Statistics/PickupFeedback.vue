@@ -1,34 +1,44 @@
 <template>
-  <div>
-    <q-card class="no-shadow generic-padding grey-border">
-      <div class="row no-wrap image-and-text">
-        <div class="image-and-text-left gt-sm">
-          <img
-            style="width: 100%;"
-            :src="cartImg"
-          >
+  <div class="pickup-feedback-wrapper">
+    <q-card class="no-mobile-margin no-shadow grey-border">
+      <RandomArt
+        :seed="seedId"
+        style="color: white"
+        type="circles">
+        <div class="row no-wrap image-and-text">
+          <div class="image-and-text-left gt-sm">
+            <img
+              style="width: 100%;"
+              :src="cartImg"
+            >
+          </div>
+          <div class="image-and-text-right">
+            <h4>{{ $t(editFeedback ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
+            <p>
+              <q-field
+                v-if="!editFeedback"
+                dark
+                class="grey-font">
+                <q-select
+                  v-model="select"
+                  :options="feedbackOptions"
+                />
+              </q-field>
+              <span v-else>
+                {{ getDateWithStore(editFeedback.about) }}
+              </span>
+            </p>
+          </div>
         </div>
-        <div class="image-and-text-right">
-          <h4>{{ $t(editFeedback ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
-          <p>
-            <q-field v-if="!editFeedback">
-              <q-select
-                v-model="select"
-                :options="feedbackOptions"
-              />
-            </q-field>
-            <span v-else>
-              {{ getDateWithStore(editFeedback.about) }}
-            </span>
-          </p>
-        </div>
+      </RandomArt>
+      <div class="generic-padding">
+        <FeedbackForm
+          style="padding: 1.5em 0"
+          :value="feedback"
+          :status="saveStatus"
+          @save="$emit('save', arguments[0])"
+        />
       </div>
-      <FeedbackForm
-        style="padding: 0 1.5em"
-        :value="feedback"
-        :status="saveStatus"
-        @save="$emit('save', arguments[0])"
-      />
     </q-card>
     <q-card
       class="no-shadow grey-border store-feedback"
@@ -65,6 +75,7 @@ export default {
     existingFeedback: { required: true, type: Array },
     saveStatus: { required: true, type: Object },
     fetchStatus: { required: true, type: Object },
+    seedId: { required: true, type: Number },
   },
   data () {
     return {
@@ -121,19 +132,30 @@ export default {
 
 <style scoped lang="stylus">
 .image-and-text
-  margin-bottom 3.5em
+  padding-bottom 1.5em
+  padding-top 1.5em
   .image-and-text-left
     width 30%
     max-width 10em
     margin auto
     padding 1em
   .image-and-text-right
-    width: 70%
+    width: 100%
+    padding 0 1em
     margin 0 auto
 .store-feedback
-  margin-top 2.5em
+  margin-top 2.5em !important
   .randomBanner
     display: block
     height: 26px
     overflow: hidden
+</style>
+
+<style lang="stylus">
+.pickup-feedback-wrapper .q-field-dark.grey-font
+  background-color white
+  padding 4px 7px
+  border-radius 4px
+  .q-input-target, .q-input-shadow, .q-if-control
+    color rgb(40, 40, 40)
 </style>

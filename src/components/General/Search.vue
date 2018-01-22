@@ -11,7 +11,6 @@
       <q-autocomplete
         @search="search"
         @selected="selected"
-        :debounce="50"
       />
     </q-search>
   </div>
@@ -37,7 +36,7 @@ export default {
     search (terms, done) {
       if (!terms) done([])
       this.setTerms(terms)
-      done(this.results)
+      setTimeout(() => done(this.results), 50)
     },
     selected (item) {
       this.terms = item.label

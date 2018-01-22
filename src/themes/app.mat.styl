@@ -39,7 +39,7 @@ body.mobile .q-card
 
 body.mobile .no-mobile-margin
   margin 0
-  border 0
+  border-top 0
 
 .generic-padding
   padding 1em
@@ -85,21 +85,3 @@ body.desktop .desktop-margin
   transition transform .1s ease
 .hoverScale:hover
   transform scale(1.1)
-
-.edit-box
-  width 100%
-  padding 20px
-  background-color $grey-1
-  transition background-color .3s ease
-  &.changed
-    background-color $yellow-1
-  .actionButtons
-    .q-btn
-      margin 20px 0 0 5px
-      float right
-  .actionButtons:after
-    content "."
-    clear both
-    display block
-    visibility hidden
-    height 0px

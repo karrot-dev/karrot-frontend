@@ -40,6 +40,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+@import '~slidetoggle'
 
 .toolbar
   min-height 40px
@@ -52,16 +53,4 @@ export default {
     transition: all .3s ease;
 .upsideDown
   transform rotate(180deg)
-
-.slide-toggle-enter-active,
-.slide-toggle-leave-active
-  transition max-height .2s
-  overflow hidden
-.slide-toggle-enter-active
-    max-height 1000px
-.slide-toggle-enter,
-.slide-toggle-leave-active
-    max-height 0
-.slide-toggle-leave
-    max-height 1000px
 </style>

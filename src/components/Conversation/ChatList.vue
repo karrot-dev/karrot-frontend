@@ -2,12 +2,11 @@
   <div class="chat-list">
     <q-toolbar
       class="toolbar"
-      color="primary">
+      color="chat">
       <q-toolbar-title style="padding: 0px">
         <q-search
-          color="primary"
+          color="chat"
           inverted
-          dark
           v-model="searchModel"
           :debounce="600"
           placeholder="Find user"
@@ -58,6 +57,11 @@ export default {
   min-width 200px
   .q-list
     padding-top 0
+  .q-search
+    background rgba(0,0,0,0)
+    border 0
+  .q-search.q-if-focused
+    background rgba(0,0,0,0.35)
 </style>
 
 <style lang="stylus">

@@ -30,6 +30,7 @@
           right>
           <router-link :to="{name: 'chatDetail', params: {userId: user.id}}">
             <q-btn
+              class="comment-button"
               flat
               small>
               <i class="fa fa-comment" />
@@ -58,6 +59,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .list-wrapper
   margin .3em
   .profilePic
@@ -66,4 +68,6 @@ body.desktop .list-item .right-item
     display none
 body.desktop .list-item:hover .right-item
     display inline-block
+.comment-button:hover
+  color $chat
 </style>

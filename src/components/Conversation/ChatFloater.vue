@@ -6,7 +6,7 @@
       <div class="column no-wrap justify-between">
         <q-toolbar
           class="toolbar"
-          color="secondary"
+          color="chat"
           @click.self="toggleOpen()"
         >
           <ProfilePicture

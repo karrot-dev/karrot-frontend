@@ -4,7 +4,7 @@
       <q-card class="chat-wrapper-desktop no-shadow grey-border">
         <div class="messages">
           <div class="column no-wrap">
-            <q-toolbar color="secondary">
+            <q-toolbar color="chat">
               <ProfilePicture
                 :user="{ displayName: 'Max Mustermann', id: 2 }"
                 :size="24"
@@ -29,7 +29,7 @@
       <q-card class="no-mobile-margin chat-wrapper no-shadow grey-border">
         <ChatList/>
         <q-btn
-          color="primary"
+          color="chat"
           @click="open = true">
           Open Chat (since list is not working yet)
         </q-btn>
@@ -43,7 +43,7 @@
         ref="chatlayoutMobile"
       >
         <div slot="header">
-          <q-toolbar color="secondary">
+          <q-toolbar color="chat">
             <q-toolbar-title>
               Max Mustermann
             </q-toolbar-title>

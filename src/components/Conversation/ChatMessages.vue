@@ -5,6 +5,7 @@
       avatar="statics/linux-avatar.png"
       :text="['hey, if you type in your pw asd asd as', 'it will show as stars']"
       stamp="1 day ago"
+      bg-color="chat"
     />
     <q-chat-message
       name="me"
@@ -18,6 +19,7 @@
       avatar="statics/linux-avatar.png"
       :text="['hey, if you type', 'it will show as stars']"
       stamp="10 hours ago"
+      bg-color="chat"
     />
     <q-chat-message
       name="me"
@@ -31,6 +33,7 @@
       avatar="statics/linux-avatar.png"
       :text="['hey, if you type in your pw asd asd as', 'it will show as stars']"
       stamp="1 hour ago"
+      bg-color="chat"
     />
     <q-chat-message
       name=""
@@ -44,6 +47,7 @@
       avatar="statics/linux-avatar.png"
       :text="['hey, if you type', 'it will show as stars']"
       stamp="10 minutes ago"
+      bg-color="chat"
     />
     <q-chat-message
       name=""

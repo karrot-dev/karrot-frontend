@@ -17,7 +17,6 @@
             <div class="new-message bg-neutral shadow-1">
               <ConversationCompose
                 @send="$emit('send', arguments[0])"
-                :user="user"
                 :status="data.sendStatus"
                 :placeholder="$t('WALL.WRITE_MESSAGE')"/>
             </div>
@@ -60,7 +59,6 @@
           class="new-message bg-neutral">
           <ConversationCompose
             @send="$emit('send', arguments[0])"
-            :user="user"
             :status="data.sendStatus"
             :placeholder="$t('WALL.WRITE_MESSAGE')"/>
         </div>

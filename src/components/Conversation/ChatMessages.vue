@@ -13,10 +13,10 @@
       <div
         class="no-more-messages"
         v-if="!data.canLoadMore">
-        <span class="bg-chat">
+        <div class="bg-chat">
           <i class="fa fa-times" />
           {{ $t('CHAT.NO_MORE_MESSAGES') }}
-        </span>
+        </div>
       </div>
       <q-chat-message
         v-for="message in filteredMessages"
@@ -129,10 +129,11 @@ export default {
   width 100%
   text-align: center
   margin-bottom 2em
-  > span
+  > div
     color white
     padding 6px 10px
     border-radius 4px
+    display inline-block
 </style>
 
 <style lang="stylus">

@@ -1,77 +1,143 @@
 <template>
-  <div class="chat-messages-wrapper generic-padding">
-    <q-chat-message
-      name="Jane"
-      avatar="statics/linux-avatar.png"
-      :text="['hey, if you type in your pw asd asd as', 'it will show as stars']"
-      stamp="1 day ago"
-      bg-color="chat"
-    />
-    <q-chat-message
-      name="me"
-      avatar="statics/linux-avatar.png"
-      :text="['test', 'it will show as star as dasds']"
-      stamp="20 hours ago"
-      sent
-    />
-    <q-chat-message
-      name="Jane"
-      avatar="statics/linux-avatar.png"
-      :text="['hey, if you type', 'it will show as stars']"
-      stamp="10 hours ago"
-      bg-color="chat"
-    />
-    <q-chat-message
-      name="me"
-      avatar="statics/linux-avatar.png"
-      :text="['test', 'Hey! This was my last message! It was very nice to hear from you recently']"
-      stamp="7 hours ago"
-      sent
-    />
-    <q-chat-message
-      name="Jane"
-      avatar="statics/linux-avatar.png"
-      :text="['hey, if you type in your pw asd asd as', 'it will show as stars']"
-      stamp="1 hour ago"
-      bg-color="chat"
-    />
-    <q-chat-message
-      name=""
-      avatar="statics/linux-avatar.png"
-      :text="['test', 'it will show as star as dasds']"
-      stamp="20 minutes ago"
-      sent
-    />
-    <q-chat-message
-      name="Jane"
-      avatar="statics/linux-avatar.png"
-      :text="['hey, if you type', 'it will show as stars']"
-      stamp="10 minutes ago"
-      bg-color="chat"
-    />
-    <q-chat-message
-      name=""
-      avatar="statics/linux-avatar.png"
-      :text="['test', 'Hey! This was my last message! It was very nice to hear from you recently']"
-      stamp="7 minutes ago"
-      sent
-    />
-    <div style="height: 20px"/>
+  <div
+    class="scroll"
+    v-chat-scroll="{always: false}"
+    style="overflow-y: auto; height: 100%; width: 100%">
+    <q-alert v-if="data.fetchStatus.hasValidationErrors">
+      {{ data.fetchStatus.validationErrors }}
+    </q-alert>
+    <div
+      v-if="hasLoaded"
+      class="chat-messages-wrapper generic-padding">
+      <q-scroll-observable @scroll="userHasScrolled" />
+      <div
+        class="no-more-messages"
+        v-if="!data.canLoadMore">
+        <span class="bg-chat">
+          <i class="fa fa-times" />
+          {{ $t('CHAT.NO_MORE_MESSAGES') }}
+        </span>
+      </div>
+      <q-chat-message
+        v-for="message in filteredMessages"
+        :key="message.id"
+        v-if="message.display"
+        :message="message"
+        avatar="statics/linux-avatar.png"
+        :name="message.author.displayName"
+        :text="message.content"
+        :stamp="message.createdLabel"
+        :bg-color="isSenderUser(message) ? '' : 'chat'"
+        :sent="isSenderUser(message)"
+      />
+      <div style="height: 20px"/>
+    </div>
   </div>
 </template>
 
 <script>
-import { QChatMessage } from 'quasar'
+import { QChatMessage, QAlert, QScrollObservable } from 'quasar'
+
+import dateFnsHelper from '@/services/dateFnsHelper'
 
 export default {
-  components: { QChatMessage },
+  name: 'Chat',
+  components: { QChatMessage, QAlert, QScrollObservable },
+  props: {
+    data: {
+      type: Object,
+      required: true,
+    },
+    fetchMore: {
+      type: Function,
+      required: true,
+    },
+    user: {
+      type: Object,
+      required: true,
+    },
+  },
+  methods: {
+    loadMore () {
+      if (!this.data.canLoadMore) {
+        return
+      }
+      this.fetchMore()
+    },
+    dateInWords (date) {
+      return dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true, disallowFuture: true })
+    },
+    isSenderUser (message) {
+      return message.author.id === this.user.id
+    },
+    shouldMessagesBeAppended (message, otherMessage) {
+      return message.author.id === otherMessage.author.id && this.dateInWords(message.createdAt) === this.dateInWords(otherMessage.createdAt)
+    },
+    displayMessage (message, index) {
+      let prevMessage = this.data.messages.slice().reverse()[index - 1]
+      if (!prevMessage) {
+        return true
+      }
+      return !(this.shouldMessagesBeAppended(message, prevMessage))
+    },
+    getMessageContent (message, index) {
+      let nextMessage = this.messages[index + 1]
+      if (!nextMessage) {
+        return [message.content]
+      }
+      if (this.shouldMessagesBeAppended(message, nextMessage)) {
+        const i = index + 1
+        let messageArray = [message.content]
+        let nextElements = this.getMessageContent(nextMessage, i)
+        messageArray = messageArray.concat(nextElements)
+        return messageArray
+      }
+      return [message.content]
+    },
+    userHasScrolled (scroll) {
+      if (scroll.position < 100 && scroll.direction === 'up') {
+        this.loadMore()
+      }
+    },
+  },
+  computed: {
+    hasLoaded () {
+      const s = this.data.fetchStatus
+      return !s.pending && !s.hasValidationErrors
+    },
+    messages () {
+      return this.data.messages.slice().reverse()
+    },
+    filteredMessages () {
+      let allMessages = this.messages.map((m, index) => {
+        let displayed = this.displayMessage(m, index)
+        return {
+          'author': m.author,
+          'display': displayed,
+          'content': displayed ? this.getMessageContent(m, index) : '',
+          'createdLabel': displayed ? this.dateInWords(m.createdAt) : '',
+        }
+      })
+      return allMessages
+    },
+  },
 }
 </script>
 
 <style scoped lang="stylus">
+.no-more-messages
+  width 100%
+  text-align: center
+  margin-bottom 2em
+  > span
+    color white
+    padding 6px 10px
+    border-radius 4px
 </style>
 
 <style lang="stylus">
 .chat-messages-wrapper .q-message-avatar
   display none
+.chat-messages-wrapper .q-message-text-content
+  word-break break-all
 </style>

@@ -31,7 +31,6 @@
         <transition name="slide-toggle">
           <div
             v-if="isOpen"
-            v-chat-scroll="{always: false}"
             class="content-wrapper">
             <ChatMessages />
           </div>

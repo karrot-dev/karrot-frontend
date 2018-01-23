@@ -1,7 +1,8 @@
 {
   "CHAT": {
     "TITLE": "Chat",
-    "MESSAGE": "Message"
+    "MESSAGE": "Message",
+    "NO_MORE_MESSAGES": "No more messages to show you"
   },
   "GLOBAL": {
     "GITHUB_NOTE": "Development",

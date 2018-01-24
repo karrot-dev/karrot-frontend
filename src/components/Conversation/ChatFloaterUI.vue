@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-card
-      class="grey-border chat-floater"
+      class="chat-floater"
     >
       <div class="column no-wrap justify-between">
         <q-toolbar
@@ -89,11 +89,12 @@ export default {
 
 <style scoped lang="stylus">
 .chat-floater
-  width 300px
+  width 270px
+  font-size .9em
   margin-bottom 0
   position relative
   .column
-    max-height 450px
+    max-height 420px
   .toolbar
     min-height 40px
     height 40px

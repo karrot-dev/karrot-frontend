@@ -28,14 +28,13 @@
         <q-item-side
           class="right-item"
           right>
-          <router-link :to="{name: 'chatDetail', params: {userId: user.id}}">
-            <q-btn
-              class="comment-button"
-              flat
-              small>
-              <i class="fa fa-comment" />
-            </q-btn>
-          </router-link>
+          <ChatLink
+            :user-id="user.id"
+            color="neutral"
+            :flat="true"
+            :small="true">
+            <i class="fa fa-comment" />
+          </ChatLink>
         </q-item-side>
       </q-item>
     </q-list>
@@ -46,9 +45,10 @@
 
 import { QBtn, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
 import ProfilePicture from './ProfilePicture'
+import ChatLink from '@/components/Conversation/ChatLink'
 
 export default {
-  components: { ProfilePicture, QBtn, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
+  components: { ChatLink, ProfilePicture, QBtn, QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide },
   props: {
     users: {
       type: Array,
@@ -59,7 +59,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
 .list-wrapper
   margin .3em
   .profilePic
@@ -68,6 +67,4 @@ body.desktop .list-item .right-item
     display none
 body.desktop .list-item:hover .right-item
     display inline-block
-.comment-button:hover
-  color $chat
 </style>

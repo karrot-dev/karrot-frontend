@@ -9,6 +9,7 @@ export default connect({
   },
   actionsToEvents: {
     send: 'conversations/sendInActiveConversation',
+    close: 'chatFloaters/remove',
   },
   actionsToProps: {
     fetchMore: 'conversations/fetchMoreForActiveConversation',

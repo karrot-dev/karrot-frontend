@@ -71,8 +71,11 @@
       <span
         v-if="!$q.platform.is.mobile"
         class="chat-floater row items-end no-wrap ">
-        <ChatFloater />
-        <ChatFloater />
+        <ChatFloater
+          v-for="floater in chatFloaters"
+          v-if="$route.name !== 'chat' && $route.name !== 'chatDetail'"
+          :key="floater"
+          :conversation-id="floater"/>
       </span>
     </div>
   </div>
@@ -97,6 +100,7 @@ export default {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
+      chatFloaters: 'chatFloaters/all',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

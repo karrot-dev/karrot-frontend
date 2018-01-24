@@ -10,11 +10,11 @@
           @click.self="toggleOpen()"
         >
           <ProfilePicture
-            :user="{ displayName: 'Max Mustermann', id: 2 }"
+            :user="{ displayName: 'Max Mustermann', id: conversationId }"
             :size="24"
           />
-          <q-toolbar-title>
-            Max Mustermann
+          <q-toolbar-title @click="toggleOpen()">
+            {{ conversationId }} Max Mustermann
           </q-toolbar-title>
           <slot name="tools" />
           <q-btn
@@ -25,6 +25,14 @@
             <i
               class="fa fa-angle-up arrow"
               :class="{ upsideDown: isOpen }"
+            />
+          </q-btn>
+          <q-btn
+            flat
+            @click="$emit('close', conversationId)"
+          >
+            <i
+              class="fa fa-times"
             />
           </q-btn>
         </q-toolbar>
@@ -76,6 +84,10 @@ export default {
     },
     user: {
       type: Object,
+      required: true,
+    },
+    conversationId: {
+      type: Number,
       required: true,
     },
   },

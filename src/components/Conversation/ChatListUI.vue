@@ -13,9 +13,22 @@
           icon="search"
         />
       </q-toolbar-title>
+      <router-link
+        v-if="showExpand"
+        :to="{name: 'chat'}">
+        <q-btn
+          flat
+          :disabled="$route.name === 'chat' || $route.name === 'chatDetail'"
+        >
+          <i
+            class="fa fa-expand"
+          />
+        </q-btn>
+      </router-link>
     </q-toolbar>
     <q-list
       highlight
+      v-if="data"
       class="no-border">
       <q-item
         style="cursor: pointer"
@@ -38,6 +51,14 @@
         </q-item-side>
       </q-item>
     </q-list>
+    <q-list v-else>
+      <q-item>
+        <q-item-main
+          class="multi-lined"
+          label="No data"
+          sublabel="You will have to click on GroupWall for now to see something" />
+      </q-item>
+    </q-list>
   </div>
 </template>
 
@@ -53,9 +74,14 @@ export default {
       type: Object,
       required: true,
     },
-    openFloater: {
+    showExpand: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    openFloater () {
+      return this.$q.platform.is.desktop && this.$route.name !== 'chat' && this.$route.name !== 'chatDetail'
     },
   },
 }

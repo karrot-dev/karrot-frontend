@@ -17,8 +17,8 @@
             <div class="new-message bg-neutral shadow-1">
               <ConversationCompose
                 @send="$emit('send', arguments[0])"
-                :status="data.sendStatus"
-                :placeholder="$t('WALL.WRITE_MESSAGE')"/>
+                :status="data ? data.sendStatus : false"
+                :placeholder="data ? $t('WALL.WRITE_MESSAGE') : $t('WALL.WRITE_FIRST_MESSAGE')"/>
             </div>
           </div>
         </div>

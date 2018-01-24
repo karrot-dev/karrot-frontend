@@ -13,13 +13,15 @@
             :user="{ displayName: 'Max Mustermann', id: conversationId }"
             :size="24"
           />
-          <q-toolbar-title @click="toggleOpen()">
+          <q-toolbar-title
+            style="padding-left: 7px"
+            @click="toggleOpen()">
             {{ conversationId }} Max Mustermann
           </q-toolbar-title>
           <slot name="tools" />
           <q-btn
             flat
-            class="card-arrow"
+            class="card-button"
             @click="toggleOpen()"
           >
             <i
@@ -27,8 +29,23 @@
               :class="{ upsideDown: isOpen }"
             />
           </q-btn>
+          <router-link
+            class="card-button"
+            :to="{name: 'chatDetail', params: { userId: conversationId }}">
+            <q-btn
+              flat
+              small
+              class="card-button"
+            >
+              <i
+                class="fa fa-expand"
+              />
+            </q-btn>
+          </router-link>
           <q-btn
             flat
+            class="card-button"
+            small
             @click="$emit('close', conversationId)"
           >
             <i
@@ -51,8 +68,8 @@
           class="new-message bg-neutral">
           <ConversationCompose
             @send="$emit('send', arguments[0])"
-            :status="data.sendStatus"
-            :placeholder="$t('WALL.WRITE_MESSAGE')"/>
+            :status="data ? data.sendStatus : false"
+            :placeholder="data ? $t('WALL.WRITE_MESSAGE') : $t('WALL.WRITE_FIRST_MESSAGE')"/>
         </div>
       </div>
     </q-card>
@@ -101,7 +118,7 @@ export default {
 
 <style scoped lang="stylus">
 .chat-floater
-  width 270px
+  width 290px
   font-size .9em
   margin-bottom 0
   position relative
@@ -110,10 +127,11 @@ export default {
   .toolbar
     min-height 40px
     height 40px
-  .card-arrow
-    margin-left 1em
+  .card-button
     cursor pointer
+    margin 0
     min-width 30px
+    width 30px
     .arrow
       transition: all .3s ease;
   .upsideDown

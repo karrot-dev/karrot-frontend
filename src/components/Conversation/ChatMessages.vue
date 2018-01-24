@@ -1,36 +1,48 @@
 <template>
-  <div
-    class="scroll"
-    v-chat-scroll="{always: false}"
-    style="overflow-y: auto; height: 100%; width: 100%">
-    <q-alert v-if="data.fetchStatus.hasValidationErrors">
-      {{ data.fetchStatus.validationErrors }}
-    </q-alert>
+  <div>
     <div
-      v-if="hasLoaded"
-      class="chat-messages-wrapper generic-padding">
-      <q-scroll-observable @scroll="userHasScrolled" />
+      v-if="data && fetchMore && user"
+      class="scroll"
+      v-chat-scroll="{always: false}"
+      style="overflow-y: auto; height: 100%; width: 100%">
+      <q-alert v-if="data.fetchStatus.hasValidationErrors">
+        {{ data.fetchStatus.validationErrors }}
+      </q-alert>
       <div
-        class="no-more-messages"
-        v-if="!data.canLoadMore">
+        v-if="hasLoaded"
+        class="chat-messages-wrapper generic-padding">
+        <q-scroll-observable @scroll="userHasScrolled" />
+        <div
+          class="no-more-messages"
+          v-if="!data.canLoadMore">
+          <div class="bg-chat">
+            <i class="fa fa-times" />
+            {{ $t('CHAT.NO_MORE_MESSAGES') }}
+          </div>
+        </div>
+        <q-chat-message
+          v-for="message in filteredMessages"
+          :key="message.id"
+          v-if="message.display"
+          :message="message"
+          avatar="statics/linux-avatar.png"
+          :name="message.author.displayName"
+          :text="message.content"
+          :stamp="message.createdLabel"
+          :bg-color="isSenderUser(message) ? '' : 'chat'"
+          :sent="isSenderUser(message)"
+        />
+        <div style="height: 20px"/>
+      </div>
+    </div>
+    <div v-else>
+      <div
+        style="height: 20em"
+        class="generic-padding no-more-messages">
         <div class="bg-chat">
-          <i class="fa fa-times" />
-          {{ $t('CHAT.NO_MORE_MESSAGES') }}
+          {{ $t('CHAT.NO_MESSAGES_YET', {user: 'Max Mustermann'}) }}
         </div>
       </div>
-      <q-chat-message
-        v-for="message in filteredMessages"
-        :key="message.id"
-        v-if="message.display"
-        :message="message"
-        avatar="statics/linux-avatar.png"
-        :name="message.author.displayName"
-        :text="message.content"
-        :stamp="message.createdLabel"
-        :bg-color="isSenderUser(message) ? '' : 'chat'"
-        :sent="isSenderUser(message)"
-      />
-      <div style="height: 20px"/>
     </div>
   </div>
 </template>

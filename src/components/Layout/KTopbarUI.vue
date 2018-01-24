@@ -58,7 +58,7 @@
           class="chat-popover"
         >
           <div class="content">
-            <ChatList :open-floater="true"/>
+            <ChatList :show-expand="true"/>
           </div>
         </q-popover>
       </q-btn>

@@ -1,6 +1,7 @@
 function initialState () {
   return {
-    floaters: [1, 2],
+    floaters: [{id: 2, isOpen: false}, {id: 3, isOpen: false}],
+    ids: [2, 3],
   }
 }
 
@@ -12,7 +13,14 @@ export default {
   },
   actions: {
     add ({ commit }, userId) {
+      commit('open', userId)
       return commit('set', userId)
+    },
+    open ({ commit }, userId) {
+      return commit('open', userId)
+    },
+    toggleOpen ({ commit }, userId) {
+      return commit('toggleOpen', userId)
     },
     remove ({ commit }, userId) {
       return commit('remove', userId)
@@ -23,16 +31,34 @@ export default {
   },
   mutations: {
     set (state, userId) {
-      if (state.floaters.indexOf(userId) === -1) {
-        if (state.floaters.length > 2) {
+      if (state.ids.indexOf(userId) === -1) {
+        if (state.ids.length > 2) {
           state.floaters.shift()
+          state.ids.shift()
         }
-        state.floaters.push(userId)
+        state.ids.push(userId)
+        state.floaters.push({id: userId, isOpen: true})
+      }
+      else {
+        this.mutations.open(state, userId)
+      }
+    },
+    open (state, userId) {
+      let index = state.ids.indexOf(userId)
+      if (index > -1) {
+        state.floaters[index].isOpen = true
+      }
+    },
+    toggleOpen (state, userId) {
+      let index = state.ids.indexOf(userId)
+      if (index > -1) {
+        state.floaters[index].isOpen = !(state.floaters[index].isOpen)
       }
     },
     remove (state, userId) {
-      let index = state.floaters.indexOf(userId)
+      let index = state.ids.indexOf(userId)
       if (index > -1) {
+        state.ids.splice(index, 1)
         state.floaters.splice(index, 1)
       }
     },

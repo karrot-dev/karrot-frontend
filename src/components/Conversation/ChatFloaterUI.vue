@@ -7,7 +7,7 @@
         <q-toolbar
           class="toolbar"
           color="chat"
-          @click.self="toggleOpen()"
+          @click.self="$emit('toggleOpen', conversationId)"
         >
           <ProfilePicture
             :user="{ displayName: 'Max Mustermann', id: conversationId }"
@@ -15,14 +15,14 @@
           />
           <q-toolbar-title
             style="padding-left: 7px"
-            @click="toggleOpen()">
+            @click="$emit('toggleOpen', conversationId)">
             {{ conversationId }} Max Mustermann
           </q-toolbar-title>
           <slot name="tools" />
           <q-btn
             flat
             class="card-button"
-            @click="toggleOpen()"
+            @click="$emit('toggleOpen', conversationId)"
           >
             <i
               class="fa fa-angle-up arrow"
@@ -85,11 +85,6 @@ import ChatMessages from '@/components/Conversation/ChatMessages'
 export default {
   name: 'ChatFloater',
   components: { ProfilePicture, ConversationCompose, QCard, ChatMessages, QToolbar, QToolbarTitle, QBtn },
-  data () {
-    return {
-      isOpen: false,
-    }
-  },
   props: {
     data: {
       type: Object,
@@ -107,10 +102,9 @@ export default {
       type: Number,
       required: true,
     },
-  },
-  methods: {
-    toggleOpen (event) {
-      this.isOpen = !this.isOpen
+    isOpen: {
+      type: Boolean,
+      required: true,
     },
   },
 }

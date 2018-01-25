@@ -72,10 +72,11 @@
         v-if="!$q.platform.is.mobile"
         class="chat-floater row items-end no-wrap ">
         <ChatFloater
-          v-for="floater in chatFloaters"
+          v-for="floater in chatFloaters.slice().reverse()"
           v-if="$route.name !== 'chat' && $route.name !== 'chatDetail'"
-          :key="floater"
-          :conversation-id="floater"/>
+          :key="floater.id"
+          :is-open="floater.isOpen"
+          :conversation-id="floater.id"/>
       </span>
     </div>
   </div>

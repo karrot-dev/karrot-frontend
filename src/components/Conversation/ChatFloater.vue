@@ -10,6 +10,7 @@ export default connect({
   actionsToEvents: {
     send: 'conversations/sendInActiveConversation',
     close: 'chatFloaters/remove',
+    toggleOpen: 'chatFloaters/toggleOpen',
   },
   actionsToProps: {
     fetchMore: 'conversations/fetchMoreForActiveConversation',

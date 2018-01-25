@@ -30,9 +30,9 @@
           right>
           <ChatLink
             :user-id="user.id"
-            color="neutral"
+            color="primary"
             :flat="true"
-            :small="true">
+            :small="false">
             <i class="fa fa-comment" />
           </ChatLink>
         </q-item-side>

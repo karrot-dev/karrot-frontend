@@ -65,7 +65,7 @@
       <div style="clear: both; margin-bottom: 8px"/>
       <q-card-separator />
       <q-card-actions align="end">
-        <ChatLink color="secondary">
+        <ChatLink color="chat">
           <i class="fa fa-fw fa-comments on-left" />
           {{ $t('CHAT.MESSAGE') }}
         </ChatLink>

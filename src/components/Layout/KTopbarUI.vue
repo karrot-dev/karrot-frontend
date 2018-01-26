@@ -58,6 +58,11 @@
           flat
         >
           <div class="row items-center no-wrap">
+            <q-icon
+              :name="presence.icon"
+              :color="presence.color"
+              class="presence-indicator"
+            />
             <span>{{ user.displayName }}</span>
             <img
               :src="photo"
@@ -70,6 +75,11 @@
           v-else
           flat
         >
+          <q-icon
+            :name="presence.icon"
+            :color="presence.color"
+            class="presence-indicator"
+          />
           {{ user.displayName }}
           <q-icon name="fa-fw fa-user" />
           <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
@@ -148,6 +158,10 @@ export default {
       type: Object,
       required: true,
     },
+    away: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     hasPhoto () {
@@ -156,6 +170,18 @@ export default {
     photo () {
       if (this.user && this.user.photoUrls) {
         return this.user.photoUrls.thumbnail
+      }
+    },
+    presence () {
+      if (this.away) {
+        return {
+          color: 'grey',
+          icon: 'fa-circle-o',
+        }
+      }
+      return {
+        color: 'green',
+        icon: 'fa-circle',
       }
     },
   },
@@ -175,6 +201,9 @@ export default {
   padding-right .2em
   margin-right .2em
   border-radius $borderRadiusSmall
+.presence-indicator
+  margin-right .3em
+  font-size 100%
 
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */

@@ -82,11 +82,22 @@ class TestConversationsSeenUpToAPI(APITestCase):
     def setUp(self):
         self.conversation = ConversationFactory()
         self.user = UserFactory()
+        self.user2 = UserFactory()
         self.conversation.join(self.user)
+        self.conversation.join(self.user2)
         self.participant = ConversationParticipant.objects.get(conversation=self.conversation, user=self.user)
 
-    def test_conversation_get(self):
+    def test_message_marked_seen_for_author(self):
         message = self.conversation.messages.create(author=self.user, content='yay')
+        self.client.force_login(user=self.user)
+
+        response = self.client.get('/api/conversations/{}/'.format(self.conversation.id), format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['seen_up_to'], message.id)
+        self.assertEqual(response.data['unread_message_count'], 0)
+
+    def test_conversation_get(self):
+        message = self.conversation.messages.create(author=self.user2, content='yay')
         self.client.force_login(user=self.user)
 
         response = self.client.get('/api/conversations/{}/'.format(self.conversation.id), format='json')
@@ -114,7 +125,7 @@ class TestConversationsSeenUpToAPI(APITestCase):
         self.assertEqual(response.data[0]['seen_up_to'], message.id)
 
     def test_mark_seen_up_to(self):
-        message = self.conversation.messages.create(author=self.user, content='yay')
+        message = self.conversation.messages.create(author=self.user2, content='yay')
         self.client.force_login(user=self.user)
 
         response = self.client.get('/api/conversations/{}/'.format(self.conversation.id), format='json')
@@ -139,8 +150,10 @@ class TestConversationsSeenUpToAPI(APITestCase):
 
     def test_mark_seen_up_to_fails_for_message_in_other_conversation(self):
         conversation = ConversationFactory()
+        conversation.join(self.user)
         message = conversation.messages.create(author=self.user, content='yay')
         self.client.force_login(user=self.user)
+
         data = {'seen_up_to': message.id}
         response = self.client.post('/api/conversations/{}/mark/'.format(self.conversation.id), data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

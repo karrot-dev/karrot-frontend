@@ -1,4 +1,5 @@
 import json
+from collections import namedtuple
 
 from channels import Channel
 from django.db.models import Q
@@ -6,10 +7,13 @@ from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 
 from foodsaving.conversations.models import ConversationParticipant, ConversationMessage
-from foodsaving.conversations.serializers import ConversationMessageSerializer
+from foodsaving.conversations.serializers import ConversationMessageSerializer, ConversationSerializer
 from foodsaving.groups.models import Group
 from foodsaving.subscriptions.fcm import notify_multiple_devices
 from foodsaving.subscriptions.models import ChannelSubscription, PushSubscription
+
+
+MockRequest = namedtuple('Request', ['user'])
 
 
 @receiver(post_save, sender=ConversationMessage)
@@ -25,9 +29,8 @@ def send_messages(sender, instance, **kwargs):
     push_exclude_users = []
 
     for subscription in ChannelSubscription.objects.recent().filter(user__in=conversation.participants.all()):
-        # TODO: add back in once https://github.com/yunity/karrot-frontend/issues/770 is implemented
-        # if not subscription.away_at:
-        #     push_exclude_users.append(subscription.user)
+        if not subscription.away_at:
+            push_exclude_users.append(subscription.user)
 
         Channel(subscription.reply_channel).send({
             "text": json.dumps({
@@ -55,6 +58,41 @@ def send_messages(sender, instance, **kwargs):
             # fancier would be to make the new notifications show a summary not just the latest message
             tag='conversation:{}'.format(conversation.id)
         )
+
+    # Send conversations object to participants after sending a message
+    # (important for unread_message_count)
+    # Exclude the author because their seen_up_to status gets updated,
+    # so they will receive the `send_conversation_update` message
+    topic = 'conversations:conversation'
+
+    for subscription in ChannelSubscription.objects.recent()\
+            .filter(user__in=conversation.participants.all())\
+            .exclude(user=message.author):
+        payload = ConversationSerializer(conversation, context={'request': MockRequest(user=subscription.user)}).data
+        Channel(subscription.reply_channel).send({
+            'text': json.dumps({
+                'topic': topic,
+                'payload': payload
+            })
+        })
+
+
+@receiver(post_save, sender=ConversationParticipant)
+def send_conversation_update(sender, instance, **kwargs):
+    # Update conversations object for user after updating their participation
+    # (important for seen_up_to and unread_message_count)
+    conversation = instance.conversation
+
+    topic = 'conversations:conversation'
+    payload = ConversationSerializer(conversation, context={'request': MockRequest(user=instance.user)}).data
+
+    for subscription in ChannelSubscription.objects.recent().filter(user=instance.user):
+        Channel(subscription.reply_channel).send({
+            'text': json.dumps({
+                'topic': topic,
+                'payload': payload
+            })
+        })
 
 
 @receiver(pre_delete, sender=ConversationParticipant)

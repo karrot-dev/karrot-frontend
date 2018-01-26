@@ -9,14 +9,8 @@ export default store => {
     timer = setTimeout(setAway, 30 * 1000) // 30 seconds
   }
 
-  // listen on events
-  document.onload = resetTimer
-  document.onmousemove = resetTimer
-  document.onmousedown = resetTimer // touchscreen presses
-  document.ontouchstart = resetTimer
-  document.onclick = resetTimer // touchpad clicks
-  document.onscroll = resetTimer // scrolling with arrow keys
-  document.onkeypress = resetTimer
+  ['load', 'mousemove', 'keydown', 'DOMMouseScroll', 'mousewheel', 'mousedown', 'touchstart', 'touchmove', 'click']
+    .forEach(event => document.addEventListener(event, resetTimer))
 
   // listen on tab & window visibility, mostly works on desktop browser
   Events.$on('app:visibility', state => {

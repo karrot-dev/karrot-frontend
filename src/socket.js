@@ -79,7 +79,15 @@ export function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'conversations:conversation') {
     const conversation = camelizeKeys(payload)
-    store.dispatch('conversations/receiveConversation', conversation)
+    store.dispatch('conversations/receiveConversation', parseDates(conversation))
+  }
+}
+
+function parseDates (obj) {
+  return {
+    ...obj,
+    createdAt: new Date(obj.createdAt),
+    updatedAt: new Date(obj.updatedAt),
   }
 }
 

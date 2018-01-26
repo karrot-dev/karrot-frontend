@@ -125,8 +125,11 @@ export default {
       })
     },
 
-    receiveConversation ({ commit }, conversation) {
-      commit('setConversation', { conversation })
+    receiveConversation ({ state, commit }, conversation) {
+      const existing = state.entries[conversation.id]
+      if (!existing || existing.updatedAt <= conversation.updatedAt) {
+        commit('setConversation', { conversation })
+      }
     },
   },
   mutations: {

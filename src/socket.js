@@ -117,7 +117,6 @@ export function receiveMessage ({ topic, payload }) {
     store.commit('users/update', camelizeKeys(payload))
   }
   else if (topic === 'history:history') {
-    console.log('history', payload)
     store.dispatch('history/update', convertHistory(camelizeKeys(payload)))
   }
 }

@@ -33,7 +33,7 @@ export default {
       }
     },
     all: (state, getters, rootState, rootGetters) => {
-      return state.idList.map(getters.get)
+      return state.idList.map(getters.get).sort(sortByDate)
     },
     filtered: (state, getters) => {
       return getters.all.filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
@@ -233,4 +233,8 @@ export default {
 
 export function isWithinOneWeek (pickup) {
   return pickup.date < new Date(+new Date() + 6096e5)
+}
+
+export function sortByDate (a, b) {
+  return a.date > b.date
 }

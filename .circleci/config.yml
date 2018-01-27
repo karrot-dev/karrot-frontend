@@ -147,7 +147,11 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: yarn build:cordova
+      - run:
+          name: build cordova app
+          environment:
+            BACKEND: https://dev.karrot.world
+          command: yarn build:cordova
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -217,9 +221,56 @@ workflows:
   all-the-things:
     jobs:
       - install-dependencies
+      - test:
+          requires:
+            - install-dependencies
+      - lint:
+          requires:
+            - install-dependencies
+      - build:
+          requires:
+            - install-dependencies
+      - build-storybook:
+          requires:
+            - install-dependencies
+      - build-docs:
+          requires:
+            - install-dependencies
       - build-cordova:
           requires:
             - install-dependencies
       - build-android:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - build-cordova
+      - deploy-dev:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
+            - lint
+            - build
+            - build-storybook
+            - build-docs
+      - approval:
+          type: approval
+          requires:
+            - deploy-dev
+      - install-e2e-dependencies:
+          requires:
+            - approval
+      - e2e-test:
+          requires:
+            - install-e2e-dependencies
+      - deploy-release:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - e2e-test

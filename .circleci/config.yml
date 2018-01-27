@@ -181,9 +181,9 @@ jobs:
             ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
             rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
       - save_cache:
-        paths:
-          - ~/.gradle
-        key: gradle-cache
+          paths:
+            - ~/.gradle
+          key: gradle-cache
       - store_artifacts:
           path: /tmp/android-release.apk
           destination: android-release.apk

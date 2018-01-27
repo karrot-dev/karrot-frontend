@@ -104,8 +104,7 @@ export function receiveMessage ({ topic, payload }) {
     store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'pickups:feedback') {
-    // TODO: check how it behaves when update comes in from different group
-    store.commit('feedback/update', convertFeedback(camelizeKeys(payload)))
+    store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))
   }
 }
 

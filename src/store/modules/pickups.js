@@ -141,8 +141,10 @@ export default {
       commit('setStoreIdFilter', storeId)
     },
 
-    removeFeedbackPossible ({ commit }, pickupId) {
-      commit('removeFeedbackPossible', pickupId)
+    removeFeedbackPossible ({ state, commit }, pickupId) {
+      if (state.feedbackPossibleIds.includes(pickupId)) {
+        commit('removeFeedbackPossible', pickupId)
+      }
     },
 
     refresh ({ state, dispatch }) {
@@ -168,6 +170,8 @@ export default {
     },
     update (state, pickup) {
       Vue.set(state.entries, pickup.id, pickup)
+
+      // only add to idList if upcoming and not already in list
       const now = new Date()
       const idList = state.idList
       const entries = state.entries

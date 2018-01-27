@@ -51,7 +51,7 @@ export default {
       if (!rootGetters['auth/isLoggedIn']) return []
       return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
     },
-    feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get), // TODO filter by current group id
+    feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
     ...metaStatuses(['create']),
   },
   actions: {
@@ -122,8 +122,9 @@ export default {
       }
     },
 
-    update ({ state, commit, rootGetters }, pickup) {
-      const store = rootGetters['stores/get'](pickup.store)
+    update ({ state, commit, getters }, pickup) {
+      // does it belong to the current group?
+      const store = getters.enricht(pickup).store
       if (store.group === state.idListGroupId) {
         commit('update', pickup)
       }
@@ -141,6 +142,13 @@ export default {
       commit('setStoreIdFilter', storeId)
     },
 
+    addFeedbackPossible ({ state, commit, getters }, pickup) {
+      // does it belong to the current group?
+      const store = getters.enrich(pickup).store
+      if (store.group === state.idListGroupId) {
+        commit('setFeedbackPossible', [pickup])
+      }
+    },
     removeFeedbackPossible ({ state, commit }, pickupId) {
       if (state.feedbackPossibleIds.includes(pickupId)) {
         commit('removeFeedbackPossible', pickupId)
@@ -209,7 +217,10 @@ export default {
         ...state.entries,
         ...indexById(pickups),
       }
-      state.feedbackPossibleIds = pickups.map(e => e.id)
+      state.feedbackPossibleIds = [
+        ...state.feedbackPossibleIds,
+        ...pickups.map(e => e.id),
+      ]
     },
     removeFeedbackPossible (state, pickupId) {
       const pickups = state.feedbackPossibleIds

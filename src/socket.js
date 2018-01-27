@@ -105,8 +105,12 @@ export function receiveMessage ({ topic, payload }) {
   else if (topic === 'pickups:series_deleted') {
     store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
-  else if (topic === 'pickups:feedback') {
+  else if (topic === 'feedback:feedback') {
     store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))
+  }
+  else if (topic === 'pickups:feedback_possible') {
+    const pickup = convertPickup(camelizeKeys(payload))
+    store.dispatch('pickups/addFeedbackPossible', pickup)
   }
   else if (topic === 'auth:user') {
     const user = convertAuthUser(camelizeKeys(payload))

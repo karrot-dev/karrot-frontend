@@ -5,7 +5,7 @@ import { indexById, createMetaModule, withMeta, isValidationError, withPrefixedI
 function initialState () {
   return {
     entries: {},
-    idList: [],
+    idList: [], // all upcoming pickups, in the current group
     idListGroupId: null,
     storeIdFilter: null,
     feedbackPossibleIds: [],
@@ -72,7 +72,7 @@ export default {
           commit('join', { pickupId, userId: rootGetters['auth/userId'] })
         }
         catch (error) {
-          if (isValidationError(error)) dispatch('fetch', { pickupId })
+          if (isValidationError(error)) dispatch('fetch', pickupId)
           throw error
         }
       },
@@ -83,7 +83,7 @@ export default {
           commit('leave', { pickupId, userId: rootGetters['auth/userId'] })
         }
         catch (error) {
-          if (isValidationError(error)) dispatch('fetch', { pickupId })
+          if (isValidationError(error)) dispatch('fetch', pickupId)
           throw error
         }
       },
@@ -119,6 +119,13 @@ export default {
     async maybeFetch ({ getters, dispatch }, pickupId) {
       if (!getters.get(pickupId)) {
         await dispatch('fetch', pickupId)
+      }
+    },
+
+    update ({ state, commit, rootGetters }, pickup) {
+      const store = rootGetters['stores/get'](pickup.store)
+      if (store.group === state.idListGroupId) {
+        commit('update', pickup)
       }
     },
 
@@ -161,6 +168,14 @@ export default {
     },
     update (state, pickup) {
       Vue.set(state.entries, pickup.id, pickup)
+      const now = new Date()
+      const idList = state.idList
+      const entries = state.entries
+      if (pickup.date > now && !idList.includes(pickup.id)) {
+        let i = 0
+        while (i < idList.length && entries[idList[i]].date < pickup.date) i++
+        idList.splice(i, 0, pickup.id)
+      }
     },
     set (state, { pickups, groupId }) {
       // TODO clear if necessary
@@ -170,6 +185,11 @@ export default {
       }
       state.idList = pickups.map(e => e.id)
       state.idListGroupId = groupId
+    },
+    delete (state, pickupId) {
+      const idx = state.idList.indexOf(pickupId)
+      if (idx !== -1) state.idList.splice(idx, 1)
+      if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)
     },
     join (state, { pickupId, userId }) {
       state.entries[pickupId].collectorIds.push(userId)

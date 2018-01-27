@@ -4,7 +4,13 @@ import store from '@/store'
 import log from '@/services/log'
 import auth from '@/services/api/auth'
 import { getter } from '@/store/storeHelpers'
+
 import { camelizeKeys } from '@/services/utils'
+import { convertDate as convertMessage } from '@/services/api/messages'
+import { parseDates as convertConversation } from '@/services/api/conversations'
+import { convertDate as convertPickup } from '@/services/api/pickups'
+import { convert as convertSeries } from '@/services/api/pickupSeriesHelpers'
+import { parse as convertFeedback } from '@/services/api/feedback'
 
 let WEBSOCKET_ENDPOINT
 
@@ -71,23 +77,35 @@ const socket = {
 
 export function receiveMessage ({ topic, payload }) {
   if (topic === 'conversations:message') {
-    const message = camelizeKeys(payload)
-    store.dispatch('conversations/receiveMessage', {
-      ...message,
-      createdAt: new Date(message.createdAt),
-    })
+    store.dispatch('conversations/receiveMessage', convertMessage(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:conversation') {
-    const conversation = camelizeKeys(payload)
-    store.dispatch('conversations/receiveConversation', parseDates(conversation))
+    store.dispatch('conversations/receiveConversation', convertConversation(camelizeKeys(payload)))
   }
-}
-
-function parseDates (obj) {
-  return {
-    ...obj,
-    createdAt: new Date(obj.createdAt),
-    updatedAt: new Date(obj.updatedAt),
+  else if (topic === 'groups:group_detail') {
+    store.dispatch('currentGroup/update', camelizeKeys(payload))
+  }
+  else if (topic === 'groups:group_preview') {
+    store.commit('groups/update', camelizeKeys(payload))
+  }
+  else if (topic === 'stores:store') {
+    store.commit('stores/update', camelizeKeys(payload))
+  }
+  else if (topic === 'pickups:pickupdate') {
+    store.dispatch('pickups/update', convertPickup(camelizeKeys(payload)))
+  }
+  else if (topic === 'pickups:pickupdate_deleted') {
+    store.commit('pickups/delete', convertPickup(camelizeKeys(payload)).id)
+  }
+  else if (topic === 'pickups:series') {
+    store.dispatch('pickupSeries/update', convertSeries(camelizeKeys(payload)))
+  }
+  else if (topic === 'pickups:series_deleted') {
+    store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
+  }
+  else if (topic === 'pickups:feedback') {
+    // TODO: check how it behaves when update comes in from different group
+    store.commit('feedback/update', convertFeedback(camelizeKeys(payload)))
   }
 }
 

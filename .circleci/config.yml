@@ -177,7 +177,7 @@ jobs:
             cordova platform add android
             cordova build android --release \
               -- --password=$CORDOVA_PASSWORD --storePassword=$CORDOVA_PASSWORD
-            mv cordova/platforms/android/build/outputs/apk/release/android-release.apk /tmp
+            mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
             ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
             rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
       - save_cache:

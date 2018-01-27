@@ -1,5 +1,8 @@
 <template>
-  <q-item multiline>
+  <q-item
+    multiline
+    :class="{ isUnread: message.isUnread }"
+  >
     <q-item-side>
       <ProfilePicture
         :user="message.author"
@@ -9,7 +12,7 @@
     <q-item-main>
       <q-item-tile>
         <div class="no-wrap">
-          <router-link :to="{ name: 'user', params: {userId: message.author.id} }">
+          <router-link :to="{ name: 'user', params: { userId: message.author.id } }">
             <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
           </router-link>
           <span class="message-date">
@@ -44,6 +47,10 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+// same as PickupItem colors
+$lightGreen = #E7FFE0
+$lighterGreen = #F0FFF0
+
 .left
   margin-right 1em
 .content
@@ -52,4 +59,6 @@ export default {
 .message-date
   display inline-block
   margin-left 2px
+.isUnread
+  background linear-gradient(to right, $lightGreen, $lighterGreen)
 </style>

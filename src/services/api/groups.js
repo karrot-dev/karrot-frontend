@@ -43,6 +43,14 @@ export default {
   },
 
   async conversation (groupId) {
-    return (await axios.get(`/api/groups/${groupId}/conversation/`)).data
+    return parseDates((await axios.get(`/api/groups/${groupId}/conversation/`)).data)
   },
+}
+
+function parseDates (obj) {
+  return {
+    ...obj,
+    createdAt: new Date(obj.createdAt),
+    updatedAt: new Date(obj.updatedAt),
+  }
 }

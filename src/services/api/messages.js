@@ -1,4 +1,4 @@
-import axios from '@/services/axios'
+import axios, { parseCursor } from '@/services/axios'
 
 export default {
 
@@ -34,8 +34,4 @@ function convertDate (val) {
     const createdAt = new Date(val.createdAt)
     return { ...val, createdAt }
   }
-}
-
-export function parseCursor (c) {
-  return c ? c.substr(c.indexOf('/api')) : null
 }

@@ -1,7 +1,7 @@
 const statusOptions = {
   created: {
     label: 'STORESTATUS.CREATED',
-    color: 'gray',
+    color: 'grey',
     icon: 'fa-circle-o',
     selectable: true,
     sort: 3,

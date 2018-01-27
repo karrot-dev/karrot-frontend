@@ -25,6 +25,7 @@
       :user="user"
       :fetch-more="fetchMore"
       @send="$emit('send', arguments[0])"
+      @markAllRead="$emit('markAllRead')"
     />
   </div>
 </template>

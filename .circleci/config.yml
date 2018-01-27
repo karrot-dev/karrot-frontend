@@ -161,8 +161,14 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
+      - restore_cache:
+          keys:
+          - gradle-cache
       - run:
           name: build android apk
+          environment:
+            HOST: yuca.yunity.org
+            DIR: master
           command: |
             curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
             sudo apt install -y gradle nodejs
@@ -171,8 +177,15 @@ jobs:
             cordova platform add android
             cordova build android --release \
               -- --password=$CORDOVA_PASSWORD --storePassword=$CORDOVA_PASSWORD
+            mv cordova/platforms/android/build/outputs/apk/release/android-release.apk /tmp
+            ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+            rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
+      - save_cache:
+        paths:
+          - ~/.gradle
+        key: gradle-cache
       - store_artifacts:
-          path: cordova/platforms/android/build/outputs/apk/release/android-release.apk
+          path: /tmp/android-release.apk
           destination: android-release.apk
 
   deploy-dev:

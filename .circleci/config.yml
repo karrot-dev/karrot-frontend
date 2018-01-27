@@ -173,6 +173,7 @@ jobs:
               -- --password=$CORDOVA_PASSWORD --storePassword=$CORDOVA_PASSWORD
       - store_artifacts:
           path: cordova/platforms/android/build/outputs/apk/release/android-release.apk
+          destination: android-release.apk
 
   deploy-dev:
     <<: *defaults

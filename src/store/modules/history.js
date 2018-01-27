@@ -101,7 +101,6 @@ export default {
       const fitsGroupScope = () => type === 'group' && entry.group === id
       const fitsStoreScope = () => type === 'store' && entry.store === id
       const fitsUserScope = () => type === 'user' && entry.users && entry.users.includes(id)
-      console.log(state.idListScope, entry, fitsGroupScope())
       if (fitsGroupScope() || fitsStoreScope() || fitsUserScope()) {
         commit('update', { entries: [entry], cursor: state.cursor })
       }

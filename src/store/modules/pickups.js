@@ -124,7 +124,7 @@ export default {
 
     update ({ state, commit, getters }, pickup) {
       // does it belong to the current group?
-      const store = getters.enricht(pickup).store
+      const store = getters.enrich(pickup).store
       if (store.group === state.idListGroupId) {
         commit('update', pickup)
       }

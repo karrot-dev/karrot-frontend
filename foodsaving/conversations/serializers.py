@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.fields import DateTimeField
 
 from foodsaving.conversations.models import Conversation, ConversationMessage, ConversationParticipant
 
@@ -12,12 +13,14 @@ class ConversationSerializer(serializers.ModelSerializer):
             'id',
             'participants',
             'created_at',
+            'updated_at',
             'seen_up_to',
             'unread_message_count'
         ]
 
     seen_up_to = serializers.SerializerMethodField()
     unread_message_count = serializers.SerializerMethodField()
+    updated_at = serializers.SerializerMethodField()
 
     def get_seen_up_to(self, conversation):
         user = self.context['request'].user
@@ -33,6 +36,15 @@ class ConversationSerializer(serializers.ModelSerializer):
         if participant.seen_up_to:
             messages = messages.filter(id__gt=participant.seen_up_to.id)
         return messages.count()
+
+    def get_updated_at(self, conversation):
+        user = self.context['request'].user
+        participant = conversation.conversationparticipant_set.get(user=user)
+        if participant.updated_at > conversation.updated_at:
+            date = participant.updated_at
+        else:
+            date = conversation.updated_at
+        return DateTimeField().to_representation(date)
 
 
 class ConversationMarkSerializer(serializers.ModelSerializer):

@@ -1,10 +1,10 @@
+from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.db.models import ForeignKey, TextField, ManyToManyField
 
-from django.conf import settings
-from foodsaving.base.base_models import BaseModel
+from foodsaving.base.base_models import BaseModel, UpdatedAtMixin
 
 
 class ConversationManager(models.Manager):
@@ -18,7 +18,7 @@ class ConversationManager(models.Manager):
         return Conversation.objects.get_for_target(target) or Conversation.objects.create(target=target)
 
 
-class Conversation(BaseModel):
+class Conversation(BaseModel, UpdatedAtMixin):
     """A conversation between one or more users."""
 
     class Meta:
@@ -50,7 +50,7 @@ class Conversation(BaseModel):
                 self.leave(user)
 
 
-class ConversationParticipant(BaseModel):
+class ConversationParticipant(BaseModel, UpdatedAtMixin):
     """The join table between Conversation and User."""
     user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     conversation = ForeignKey(Conversation, on_delete=models.CASCADE)

@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='photo',
-            field=versatileimagefield.fields.VersatileImageField(null=True, upload_to='uploads/user__photos/',
+            field=versatileimagefield.fields.VersatileImageField(null=True, upload_to='user__photos',
                                                                  verbose_name='Photo'),
         ),
     ]

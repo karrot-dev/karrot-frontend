@@ -52,12 +52,14 @@ class ReceiverTests(ChannelTestCase):
         # and they should get an updated conversation object
         response = client.receive(json=True)
         response['payload']['created_at'] = parse(response['payload']['created_at'])
+        response['payload']['updated_at'] = parse(response['payload']['updated_at'])
         del response['payload']['participants']
         self.assertEqual(response, {
             'topic': 'conversations:conversation',
             'payload': {
                 'id': conversation.id,
                 'created_at': conversation.created_at,
+                'updated_at': conversation.updated_at,
                 'seen_up_to': None,
                 'unread_message_count': 1,
             }
@@ -77,14 +79,19 @@ class ReceiverTests(ChannelTestCase):
             }
         })
 
+        # Author receives more recent `update_at` time,
+        # because their `seen_up_to` status is set after sending the message.
+        author_participant = conversation.conversationparticipant_set.get(user=author)
         response = author_client.receive(json=True)
         response['payload']['created_at'] = parse(response['payload']['created_at'])
+        response['payload']['updated_at'] = parse(response['payload']['updated_at'])
         del response['payload']['participants']
         self.assertEqual(response, {
             'topic': 'conversations:conversation',
             'payload': {
                 'id': conversation.id,
                 'created_at': conversation.created_at,
+                'updated_at': author_participant.updated_at,
                 'seen_up_to': message.id,
                 'unread_message_count': 0,
             }

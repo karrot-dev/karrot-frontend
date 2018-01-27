@@ -36,6 +36,13 @@ class BaseModel(NicelyFormattedModel):
     created_at = DateTimeField(default=timezone.now)
 
 
+class UpdatedAtMixin(Model):
+    class Meta:
+        abstract = True
+
+    updated_at = DateTimeField(auto_now=True)
+
+
 class LocationModel(Model):
     class Meta:
         abstract = True

@@ -171,7 +171,7 @@ jobs:
             DIR: master
           command: |
             curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-            sudo apt install -y gradle nodejs
+            sudo apt install -y gradle nodejs rsync
             (cd / && sudo npm install -g cordova)
             cd cordova
             cordova platform add android

@@ -11,6 +11,8 @@ import { parseDates as convertConversation } from '@/services/api/conversations'
 import { convertDate as convertPickup } from '@/services/api/pickups'
 import { convert as convertSeries } from '@/services/api/pickupSeriesHelpers'
 import { parse as convertFeedback } from '@/services/api/feedback'
+import { parseImageURLs as convertAuthUser } from '@/services/api/authUser'
+import { convertDates as convertHistory } from '@/services/api/history'
 
 let WEBSOCKET_ENDPOINT
 
@@ -105,6 +107,18 @@ export function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'pickups:feedback') {
     store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))
+  }
+  else if (topic === 'auth:user') {
+    const user = convertAuthUser(camelizeKeys(payload))
+    store.commit('auth/setUser', { user })
+    store.commit('users/update', user)
+  }
+  else if (topic === 'users:user') {
+    store.commit('users/update', camelizeKeys(payload))
+  }
+  else if (topic === 'history:history') {
+    console.log('history', payload)
+    store.dispatch('history/update', convertHistory(camelizeKeys(payload)))
   }
 }
 

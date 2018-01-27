@@ -18,7 +18,7 @@ export default {
   },
 }
 
-function parseImageURLs (data) {
+export function parseImageURLs (data) {
   if (data.photoUrls) {
     data = {
       ...data,

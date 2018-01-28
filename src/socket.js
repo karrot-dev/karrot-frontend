@@ -82,7 +82,7 @@ export function receiveMessage ({ topic, payload }) {
     store.dispatch('conversations/receiveMessage', convertMessage(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:conversation') {
-    store.dispatch('conversations/receiveConversation', convertConversation(camelizeKeys(payload)))
+    store.dispatch('conversations/updateConversation', convertConversation(camelizeKeys(payload)))
   }
   else if (topic === 'groups:group_detail') {
     store.dispatch('currentGroup/update', camelizeKeys(payload))

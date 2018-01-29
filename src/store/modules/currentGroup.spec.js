@@ -115,6 +115,15 @@ describe('currentGroup', () => {
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
       expect(feedback.actions.fetchForGroup.mock.calls[0][1]).toEqual({ groupId: group3.id })
     })
+
+    it('can update a group', async () => {
+      mockConversation.mockReturnValueOnce({ id: 66 })
+      mockGet.mockReturnValueOnce(group3)
+      await store.dispatch('currentGroup/select', { groupId: group3.id })
+      const changed = { ...group3, name: 'new name' }
+      store.dispatch('currentGroup/update', changed)
+      expect(store.getters['currentGroup/value'].name).toEqual(changed.name)
+    })
   })
 
   describe('error handling', () => {

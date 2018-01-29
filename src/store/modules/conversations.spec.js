@@ -15,12 +15,12 @@ describe('conversations', () => {
   })
   describe('conversation update', () => {
     let oneHourAgo, initialConversation
-    beforeEach(() => {
+    beforeEach(async () => {
       oneHourAgo = new Date()
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
       initialConversation = { id: 1, updatedAt: oneHourAgo }
-      store.dispatch('conversations/setActive', initialConversation)
+      await store.dispatch('conversations/setActive', initialConversation)
     })
 
     it('updates the conversation', () => {
@@ -45,12 +45,12 @@ describe('conversations', () => {
 
   describe('message update', () => {
     let oneHourAgo, initialConversation
-    beforeEach(() => {
+    beforeEach(async () => {
       oneHourAgo = new Date()
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
       initialConversation = { id: 1, updatedAt: oneHourAgo }
-      store.dispatch('conversations/setActive', initialConversation)
+      await store.dispatch('conversations/setActive', initialConversation)
     })
 
     it('receives new message', () => {

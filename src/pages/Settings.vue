@@ -8,6 +8,7 @@
           :status="profileEditStatus"
           @save="saveUser"
         />
+        <q-card-separator />
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
@@ -38,7 +39,7 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QCardSeparator } from 'quasar'
 import ProfileEdit from '@/components/Settings/ProfileEdit'
 import ChangePassword from '@/components/Settings/ChangePassword'
 import ChangeEmail from '@/components/Settings/ChangeEmail'
@@ -48,18 +49,18 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Settings',
-  components: { QCard, QCardTitle, QCardMain, ProfileEdit, ChangePassword, ChangeEmail, ChangePhoto },
+  components: { QCard, QCardTitle, QCardMain, QCardSeparator, ProfileEdit, ChangePassword, ChangeEmail, ChangePhoto },
   computed: {
     ...mapGetters({
       user: 'auth/user',
-      profileEditStatus: 'auth/updateStatus',
+      profileEditStatus: 'auth/saveStatus',
       changePasswordStatus: 'auth/changePasswordStatus',
       changeEmailStatus: 'auth/changeEmailStatus',
     }),
   },
   methods: {
     ...mapActions({
-      saveUser: 'auth/update',
+      saveUser: 'auth/save',
       changePassword: 'auth/changePassword',
       changeEmail: 'auth/changeEmail',
     }),

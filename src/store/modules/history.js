@@ -76,19 +76,19 @@ export default {
       commit('setActive', { id: null })
     },
 
-    async fetchForGroup ({ commit, dispatch, rootGetters }, { groupId }) {
+    async fetchForGroup ({ dispatch }, { groupId }) {
       dispatch('fetchFiltered', {
         filters: { group: groupId },
         scope: { type: 'group', id: groupId },
       })
     },
-    async fetchForUser ({ commit, dispatch, rootGetters }, { userId }) {
+    async fetchForUser ({ dispatch }, { userId }) {
       dispatch('fetchFiltered', {
         filters: { users: userId },
         scope: { type: 'user', id: userId },
       })
     },
-    async fetchForStore ({ commit, dispatch, rootGetters }, { storeId }) {
+    async fetchForStore ({ dispatch }, { storeId }) {
       dispatch('fetchFiltered', {
         filters: { store: storeId },
         scope: { type: 'store', id: storeId },

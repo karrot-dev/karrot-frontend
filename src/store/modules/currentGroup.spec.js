@@ -47,7 +47,7 @@ describe('currentGroup', () => {
       userId: () => userId,
     },
     actions: {
-      update: jest.fn(),
+      save: jest.fn(),
     },
   }
 

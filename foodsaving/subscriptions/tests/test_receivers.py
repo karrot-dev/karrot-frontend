@@ -3,18 +3,22 @@ import json
 import requests_mock
 from channels.test import ChannelTestCase, WSClient
 from dateutil.parser import parse
+from dateutil.relativedelta import relativedelta
+from django.core.management import call_command
 from django.utils import timezone
 from pyfcm.baseapi import BaseAPI as FCMApi
 
 from foodsaving.conversations.factories import ConversationFactory
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory, FeedbackFactory
+from foodsaving.stores.factories import StoreFactory
 from foodsaving.subscriptions.models import PushSubscriptionPlatform, PushSubscription, ChannelSubscription
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 
 
-class ReceiverTests(ChannelTestCase):
+class ConversationReceiverTests(ChannelTestCase):
     def test_receives_messages(self):
         client = WSClient()
         user = UserFactory()
@@ -117,6 +121,257 @@ class ReceiverTests(ChannelTestCase):
                 'id': conversation.id
             }
         })
+
+
+class GroupReceiverTests(ChannelTestCase):
+    def setUp(self):
+        self.client = WSClient()
+        self.member = UserFactory()
+        self.user = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+
+    def test_receive_group_changes(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        name = faker.name()
+        self.group.name = name
+        self.group.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'groups:group_detail')
+        self.assertEqual(response['payload']['name'], name)
+        self.assertTrue('description' in response['payload'])
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'groups:group_preview')
+        self.assertEqual(response['payload']['name'], name)
+        self.assertTrue('description' not in response['payload'])
+
+        self.assertIsNone(self.client.receive(json=True))
+
+    def test_receive_group_changes_as_nonmember(self):
+        self.client.force_login(self.user)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        name = faker.name()
+        self.group.name = name
+        self.group.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'groups:group_preview')
+        self.assertEqual(response['payload']['name'], name)
+        self.assertTrue('description' not in response['payload'])
+
+        self.assertIsNone(self.client.receive(json=True))
+
+
+class StoreReceiverTests(ChannelTestCase):
+    def setUp(self):
+        self.client = WSClient()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+        self.store = StoreFactory(group=self.group)
+
+    def test_receive_store_changes(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        name = faker.name()
+        self.store.name = name
+        self.store.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'stores:store')
+        self.assertEqual(response['payload']['name'], name)
+
+        self.assertIsNone(self.client.receive(json=True))
+
+
+class PickupDateReceiverTests(ChannelTestCase):
+    def setUp(self):
+        self.client = WSClient()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store)
+
+    def test_receive_pickup_changes(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        # change property
+        date = faker.future_datetime(end_date='+30d', tzinfo=timezone.utc)
+        self.pickup.date = date
+        self.pickup.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'pickups:pickupdate')
+        self.assertEqual(parse(response['payload']['date']), date)
+
+        # join
+        self.pickup.collectors.add(self.member)
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'pickups:pickupdate')
+        self.assertEqual(response['payload']['collector_ids'], [self.member.id])
+
+        # leave
+        self.pickup.collectors.remove(self.member)
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'pickups:pickupdate')
+        self.assertEqual(response['payload']['collector_ids'], [])
+
+        self.assertIsNone(self.client.receive(json=True))
+
+    def test_receive_pickup_delete(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        self.pickup.deleted = True
+        self.pickup.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'pickups:pickupdate_deleted')
+        self.assertEqual(response['payload']['id'], self.pickup.id)
+
+        self.assertIsNone(self.client.receive(json=True))
+
+
+class PickupDateSeriesReceiverTests(ChannelTestCase):
+    def setUp(self):
+        self.client = WSClient()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+        self.store = StoreFactory(group=self.group)
+
+        # Create far in the future to generate no pickup dates
+        # They would lead to interfering websocket messages
+        self.series = PickupDateSeriesFactory(store=self.store, start_date=timezone.now() + relativedelta(months=2))
+
+    def test_receive_series_changes(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        date = faker.future_datetime(end_date='+30d', tzinfo=timezone.utc) + relativedelta(months=2)
+        self.series.start_date = date
+        self.series.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'pickups:series')
+        self.assertEqual(parse(response['payload']['start_date']), date)
+
+        self.assertIsNone(self.client.receive(json=True))
+
+    def test_receive_series_delete(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        id = self.series.id
+        self.series.delete()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'pickups:series_deleted')
+        self.assertEqual(response['payload']['id'], id)
+
+        self.assertIsNone(self.client.receive(json=True))
+
+
+class FeedbackReceiverTests(ChannelTestCase):
+    def setUp(self):
+        self.client = WSClient()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store)
+
+    def test_receive_feedback_changes(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        feedback = FeedbackFactory(given_by=self.member, about=self.pickup)
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'feedback:feedback')
+        self.assertEqual(response['payload']['weight'], feedback.weight)
+
+        self.assertIsNone(self.client.receive(json=True))
+
+
+class FinishedPickupReceiverTest(ChannelTestCase):
+    def setUp(self):
+        self.client = WSClient()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+        self.store = StoreFactory(group=self.group)
+        self.pickup = PickupDateFactory(store=self.store, collectors=[self.member])
+
+    def test_receive_feedback_possible_and_history(self):
+        self.pickup.date = timezone.now() - relativedelta(days=1)
+        self.pickup.save()
+
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+        call_command('process_finished_pickup_dates')
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'history:history')
+        self.assertEqual(response['payload']['typus'], 'PICKUP_DONE')
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'pickups:feedback_possible')
+        self.assertEqual(response['payload']['id'], self.pickup.id)
+
+        self.assertIsNone(self.client.receive(json=True))
+
+
+class UserReceiverTest(ChannelTestCase):
+    def setUp(self):
+        self.client = WSClient()
+        self.member = UserFactory()
+        self.other_member = UserFactory()
+        self.unrelated_user = UserFactory()
+        self.group = GroupFactory(members=[self.member, self.other_member])
+
+    def test_receive_own_user_changes(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        name = faker.name()
+        self.member.display_name = name
+        self.member.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'auth:user')
+        self.assertEqual(response['payload']['display_name'], name)
+        self.assertTrue('current_group' in response['payload'])
+
+        self.assertIsNone(self.client.receive(json=True))
+
+    def test_receive_changes_of_other_user(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        name = faker.name()
+        self.other_member.display_name = name
+        self.other_member.save()
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'users:user')
+        self.assertEqual(response['payload']['display_name'], name)
+        self.assertTrue('current_group' not in response['payload'])
+
+        self.assertIsNone(self.client.receive(json=True))
+
+    def test_unrelated_user_receives_no_changes(self):
+        self.client.force_login(self.unrelated_user)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        self.member.display_name = faker.name()
+        self.member.save()
+
+        self.assertIsNone(self.client.receive(json=True))
 
 
 @requests_mock.Mocker()

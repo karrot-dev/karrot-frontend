@@ -8,12 +8,16 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.db import transaction
 from django.db.models import Count, Q
+from django.dispatch import Signal
 from django.template.loader import render_to_string
 from django.utils import timezone
 
 from foodsaving.base.base_models import BaseModel
 from foodsaving.history.models import History, HistoryTypus
 from django.core.validators import MinValueValidator, MaxValueValidator
+
+
+pickup_done = Signal()
 
 
 class PickupDateSeriesManager(models.Manager):
@@ -38,10 +42,12 @@ class PickupDateSeries(BaseModel):
 
     @transaction.atomic
     def delete(self, *args, **kwargs):
-        self.pickup_dates.filter(date__gte=timezone.now()).\
-            annotate(Count('collectors')).\
-            filter(collectors__count=0).\
-            delete()
+        for pickup in self.pickup_dates.\
+                filter(date__gte=timezone.now()).\
+                annotate(Count('collectors')).\
+                filter(collectors__count=0):
+            pickup.deleted = True
+            pickup.save()
         return super().delete(*args, **kwargs)
 
     def get_dates_for_rule(self, start_date):
@@ -99,18 +105,17 @@ class PickupDateSeries(BaseModel):
                     pickup.save()
 
     def __str__(self):
-        return '{} - {}'.format(self.date, self.store)
+        return 'PickupDateSeries {} - {}'.format(self.rule, self.store)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.update_pickup_dates()
 
 
 class PickupDateManager(models.Manager):
     @transaction.atomic
     def process_finished_pickup_dates(self):
-        """find all pickup dates that are in the past and didn't get processed yet
-
-        if they have at least one collector: send out the pickup_done signal
-        else send out pickup_missed
-
-        currently only used by the history component
+        """find all pickup dates that are in the past and didn't get processed yet and add them to history
         """
         for _ in self.filter(
                 done_and_processed=False,
@@ -142,6 +147,8 @@ class PickupDateManager(models.Manager):
                 )
             _.done_and_processed = True
             _.save()
+
+            pickup_done.send(sender=PickupDate.__class__, instance=_)
 
     def feedback_possible_q(self, user):
         return Q(date__lte=timezone.now()) \
@@ -190,7 +197,7 @@ class PickupDate(BaseModel):
     notifications_sent = JSONField(default=dict)
 
     def __str__(self):
-        return '{} - {}'.format(self.date, self.store)
+        return 'PickupDate {} - {}'.format(self.date, self.store)
 
     def notify_upcoming_via_slack(self):
         if 'upcoming' not in self.notifications_sent:

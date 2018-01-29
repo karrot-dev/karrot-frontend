@@ -1,10 +1,13 @@
 from django.contrib.postgres.fields import JSONField
 from django.db import models
+from django.dispatch import Signal
 from django.utils import timezone
 from django_enumfield import enum
 
 from foodsaving.base.base_models import NicelyFormattedModel
 from foodsaving.history.utils import without_keys
+
+history_created = Signal()
 
 
 class HistoryTypus(enum.Enum):
@@ -36,7 +39,8 @@ class HistoryManager(models.Manager):
         )
         if kwargs.get('users') is not None:
             a.users.add(*kwargs['users'])
-            a.save()
+
+        history_created.send(sender=History.__class__, instance=a)
 
 
 class History(NicelyFormattedModel):
@@ -53,4 +57,5 @@ class History(NicelyFormattedModel):
     payload = JSONField(null=True)
 
     def __str__(self):
-        return '{} - {} ({})'.format(self.date, HistoryTypus.name(self.typus), self.group)
+        return 'History {} - {} ({})'.format(self.date, HistoryTypus.name(self.typus), self.group)
+

@@ -132,7 +132,6 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         series = super().create(validated_data)
-        series.update_pickup_dates()
 
         History.objects.create(
             typus=HistoryTypus.SERIES_CREATE,
@@ -151,7 +150,6 @@ class PickupDateSeriesSerializer(serializers.ModelSerializer):
 
         changed_data = get_changed_data(series, selected_validated_data)
         super().update(series, selected_validated_data)
-        series.update_pickup_dates()
 
         if changed_data:
             History.objects.create(

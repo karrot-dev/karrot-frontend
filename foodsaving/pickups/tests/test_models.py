@@ -105,5 +105,5 @@ class TestPickupDateSeriesModel(TestCase):
         past_date_count = pickup_dates.filter(date__lt=now).count()
         self.assertGreater(pickup_dates.count(), 2)
         series.delete()
-        self.assertEqual(PickupDate.objects.filter(date__gte=now).count(), 0)
+        self.assertEqual(PickupDate.objects.filter(date__gte=now, deleted=False).count(), 0)
         self.assertEqual(PickupDate.objects.filter(date__lt=now).count(), past_date_count)

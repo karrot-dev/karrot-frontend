@@ -36,7 +36,7 @@ class Group(BaseModel, LocationModel, ConversationMixin):
     )
 
     def __str__(self):
-        return '{}'.format(self.name)
+        return 'Group {}'.format(self.name)
 
     def send_notifications(self):
         if self.slack_webhook.startswith('https://hooks.slack.com/services/'):

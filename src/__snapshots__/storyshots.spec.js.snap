@@ -78,12 +78,12 @@ exports[`Storyshots Conversation Conversation 1`] = `
                                                 <!---->
                                                 <!---->
                                                 <div class="col row relative-position">
-                                                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                                        <div class="absolute-full overflow-hidden invisible">
-                                                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                                         </div>
-                                                        <div class="absolute-full overflow-hidden invisible">
-                                                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                                         </div>
                                                     </div>
                                                     <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
@@ -441,12 +441,12 @@ exports[`Storyshots GroupEdit create 1`] = `
                                                     <!---->
                                                     <!---->
                                                     <div class="col row relative-position">
-                                                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
                                                         </div>
                                                         <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
@@ -509,12 +509,12 @@ exports[`Storyshots GroupEdit create 1`] = `
                                                     <!---->
                                                     <!---->
                                                     <div class="col row relative-position">
-                                                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
                                                         </div>
                                                         <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
@@ -2608,12 +2608,12 @@ exports[`Storyshots PickupItem Full 1`] = `
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
-                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
@@ -2665,12 +2665,12 @@ exports[`Storyshots PickupItem Join 1`] = `
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
-                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
@@ -2738,12 +2738,12 @@ exports[`Storyshots PickupItem Leave 1`] = `
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
-                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
@@ -2805,12 +2805,12 @@ exports[`Storyshots PickupItem pending 1`] = `
             </div>
             <div class="people full-width">
                 <div class="row justify-start">
-                    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
-                        <div class="absolute-full overflow-hidden invisible">
-                            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                         </div>
                     </div>
                     <div class="wrapper profilePic clickable">
@@ -2867,12 +2867,12 @@ exports[`Storyshots PickupList Default 1`] = `
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
-                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
                         </div>
                         <div class="wrapper profilePic clickable">
@@ -2938,12 +2938,12 @@ exports[`Storyshots PickupList Default 1`] = `
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
-                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
                         </div>
                         <div class="wrapper profilePic clickable">
@@ -3003,12 +3003,12 @@ exports[`Storyshots PickupList Default 1`] = `
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
-                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
                         </div>
                         <div class="wrapper profilePic clickable">
@@ -3058,12 +3058,12 @@ exports[`Storyshots PickupList Default 1`] = `
                 </div>
                 <div class="people full-width">
                     <div class="row justify-start">
-                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
-                            <div class="absolute-full overflow-hidden invisible">
-                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                             </div>
                         </div>
                         <!---->
@@ -3458,12 +3458,12 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                             <!---->
                             <!---->
                             <div class="col row relative-position">
-                                <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                    <div class="absolute-full overflow-hidden invisible">
-                                        <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                        <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                     </div>
-                                    <div class="absolute-full overflow-hidden invisible">
-                                        <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                        <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                     </div>
                                 </div>
                                 <textarea class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
@@ -3508,12 +3508,12 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
 
 exports[`Storyshots PickupUsers empty 1`] = `
 <div class="row justify-start">
-    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
     </div>
     <!---->
@@ -3548,12 +3548,12 @@ exports[`Storyshots PickupUsers empty 1`] = `
 
 exports[`Storyshots PickupUsers full 1`] = `
 <div class="row justify-start">
-    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
     </div>
     <div class="wrapper profilePic clickable">
@@ -3594,12 +3594,12 @@ exports[`Storyshots PickupUsers full 1`] = `
 
 exports[`Storyshots PickupUsers joinable 1`] = `
 <div class="row justify-start">
-    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
     </div>
     <div class="wrapper profilePic clickable">
@@ -3656,12 +3656,12 @@ exports[`Storyshots PickupUsers joinable 1`] = `
 
 exports[`Storyshots PickupUsers leavable 1`] = `
 <div class="row justify-start">
-    <div class="absolute-full overflow-hidden invisible" style="z-index:-1;width:100%;">
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
-        <div class="absolute-full overflow-hidden invisible">
-            <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
         </div>
     </div>
     <div class="wrapper profilePic clickable">
@@ -3742,7 +3742,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                             <div class="q-field-label-inner row items-center"><span>Profile photo</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div class="croppa-container     ">
+                            <div class="croppa-container      ">
                                 <input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
                                 <div class="slots" style="width:0;height:0;visibility:hidden;">
                                     <img src="statics/ic_person_black_24px.svg">
@@ -3827,12 +3827,12 @@ exports[`Storyshots Settings Page Default 1`] = `
                                                         <!---->
                                                         <!---->
                                                         <div class="col row relative-position">
-                                                            <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                                                <div class="absolute-full overflow-hidden invisible">
-                                                                    <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                            <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                    <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                                                 </div>
-                                                                <div class="absolute-full overflow-hidden invisible">
-                                                                    <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                                <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                    <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                                                 </div>
                                                             </div>
                                                             <textarea rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
@@ -5267,12 +5267,12 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                                     <!---->
                                     <!---->
                                     <div class="col row relative-position">
-                                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                            <div class="absolute-full overflow-hidden invisible">
-                                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                             </div>
-                                            <div class="absolute-full overflow-hidden invisible">
-                                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                             </div>
                                         </div>
                                         <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
@@ -5576,12 +5576,12 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                                     <!---->
                                                     <!---->
                                                     <div class="col row relative-position">
-                                                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
                                                         </div>
                                                         <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
@@ -5829,12 +5829,12 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                                     <!---->
                                                     <!---->
                                                     <div class="col row relative-position">
-                                                        <div class="absolute-full overflow-hidden invisible" style="z-index:-1;">
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:100000px;height:100000px;"></div>
+                                                        <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
-                                                            <div class="absolute-full overflow-hidden invisible">
-                                                                <div class="absolute-top-left transition-0" style="width:200%;height:200%;"></div>
+                                                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                                                                <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                                             </div>
                                                         </div>
                                                         <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>

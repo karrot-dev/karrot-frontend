@@ -71,9 +71,23 @@ export default {
         else {
           entry = await feedbackAPI.create(feedback)
         }
-        commit('update', [entry])
-        dispatch('pickups/removeFeedbackPossible', entry.about, { root: true })
+        await dispatch('update', entry)
         router.push({ name: 'groupFeedback' })
+      },
+
+      async update ({ commit, rootGetters, dispatch }, feedback) {
+        await dispatch('pickups/maybeFetch', feedback.about, { root: true })
+        const pickup = rootGetters['pickups/get'](feedback.about)
+        const currentGroupId = rootGetters['currentGroup/id']
+        const currentUserId = rootGetters['auth/userId']
+
+        // make sure that feedback belongs into this group
+        if (pickup.store && pickup.store.group === currentGroupId) {
+          commit('update', [feedback])
+          if (feedback.givenBy === currentUserId) {
+            dispatch('pickups/removeFeedbackPossible', feedback.about, { root: true })
+          }
+        }
       },
     }, {
       // ignore ID to have simple saveStatus

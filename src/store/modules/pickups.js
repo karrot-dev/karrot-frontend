@@ -5,7 +5,7 @@ import { indexById, createMetaModule, withMeta, isValidationError, withPrefixedI
 function initialState () {
   return {
     entries: {},
-    idList: [],
+    idList: [], // all upcoming pickups, in the current group
     idListGroupId: null,
     storeIdFilter: null,
     feedbackPossibleIds: [],
@@ -33,7 +33,7 @@ export default {
       }
     },
     all: (state, getters, rootState, rootGetters) => {
-      return state.idList.map(getters.get)
+      return state.idList.map(getters.get).sort(sortByDate)
     },
     filtered: (state, getters) => {
       return getters.all.filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
@@ -51,7 +51,7 @@ export default {
       if (!rootGetters['auth/isLoggedIn']) return []
       return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
     },
-    feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get), // TODO filter by current group id
+    feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
     ...metaStatuses(['create']),
   },
   actions: {
@@ -72,7 +72,7 @@ export default {
           commit('join', { pickupId, userId: rootGetters['auth/userId'] })
         }
         catch (error) {
-          if (isValidationError(error)) dispatch('fetch', { pickupId })
+          if (isValidationError(error)) dispatch('fetch', pickupId)
           throw error
         }
       },
@@ -83,7 +83,7 @@ export default {
           commit('leave', { pickupId, userId: rootGetters['auth/userId'] })
         }
         catch (error) {
-          if (isValidationError(error)) dispatch('fetch', { pickupId })
+          if (isValidationError(error)) dispatch('fetch', pickupId)
           throw error
         }
       },
@@ -122,6 +122,18 @@ export default {
       }
     },
 
+    update ({ state, commit, getters }, pickup) {
+      // does it belong to the current group?
+      const store = getters.enrich(pickup).store
+      if (store.group === state.idListGroupId) {
+        commit('update', pickup)
+      }
+    },
+
+    delete ({ commit }, pickupId) {
+      commit('delete', pickupId)
+    },
+
     clear ({ commit }) {
       commit('clear')
     },
@@ -134,8 +146,17 @@ export default {
       commit('setStoreIdFilter', storeId)
     },
 
-    removeFeedbackPossible ({ commit }, pickupId) {
-      commit('removeFeedbackPossible', pickupId)
+    addFeedbackPossible ({ state, commit, getters }, pickup) {
+      // does it belong to the current group?
+      const store = getters.enrich(pickup).store
+      if (store.group === state.idListGroupId) {
+        commit('setFeedbackPossible', [pickup])
+      }
+    },
+    removeFeedbackPossible ({ state, commit }, pickupId) {
+      if (state.feedbackPossibleIds.includes(pickupId)) {
+        commit('removeFeedbackPossible', pickupId)
+      }
     },
 
     refresh ({ state, dispatch }) {
@@ -161,6 +182,16 @@ export default {
     },
     update (state, pickup) {
       Vue.set(state.entries, pickup.id, pickup)
+
+      // only add to idList if upcoming and not already in list
+      const now = new Date()
+      const idList = state.idList
+      const entries = state.entries
+      if (pickup.date > now && !idList.includes(pickup.id)) {
+        let i = 0
+        while (i < idList.length && entries[idList[i]].date < pickup.date) i++
+        idList.splice(i, 0, pickup.id)
+      }
     },
     set (state, { pickups, groupId }) {
       // TODO clear if necessary
@@ -170,6 +201,11 @@ export default {
       }
       state.idList = pickups.map(e => e.id)
       state.idListGroupId = groupId
+    },
+    delete (state, pickupId) {
+      const idx = state.idList.indexOf(pickupId)
+      if (idx !== -1) state.idList.splice(idx, 1)
+      if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)
     },
     join (state, { pickupId, userId }) {
       state.entries[pickupId].collectorIds.push(userId)
@@ -185,7 +221,10 @@ export default {
         ...state.entries,
         ...indexById(pickups),
       }
-      state.feedbackPossibleIds = pickups.map(e => e.id)
+      state.feedbackPossibleIds = [
+        ...state.feedbackPossibleIds,
+        ...pickups.map(e => e.id),
+      ]
     },
     removeFeedbackPossible (state, pickupId) {
       const pickups = state.feedbackPossibleIds
@@ -198,4 +237,8 @@ export default {
 
 export function isWithinOneWeek (pickup) {
   return pickup.date < new Date(+new Date() + 6096e5)
+}
+
+export function sortByDate (a, b) {
+  return a.date > b.date
 }

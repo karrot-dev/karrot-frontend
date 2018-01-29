@@ -33,7 +33,7 @@ export default {
   },
 }
 
-function parse (val) {
+export function parse (val) {
   if (Array.isArray(val)) {
     return val.map(parse)
   }

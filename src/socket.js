@@ -4,7 +4,15 @@ import store from '@/store'
 import log from '@/services/log'
 import auth from '@/services/api/auth'
 import { getter } from '@/store/storeHelpers'
+
 import { camelizeKeys } from '@/services/utils'
+import { convertDate as convertMessage } from '@/services/api/messages'
+import { parseDates as convertConversation } from '@/services/api/conversations'
+import { convertDate as convertPickup } from '@/services/api/pickups'
+import { convert as convertSeries } from '@/services/api/pickupSeries'
+import { parse as convertFeedback } from '@/services/api/feedback'
+import { parseImageURLs as convertAuthUser } from '@/services/api/authUser'
+import { convertDates as convertHistory } from '@/services/api/history'
 
 let WEBSOCKET_ENDPOINT
 
@@ -71,23 +79,49 @@ const socket = {
 
 export function receiveMessage ({ topic, payload }) {
   if (topic === 'conversations:message') {
-    const message = camelizeKeys(payload)
-    store.dispatch('conversations/receiveMessage', {
-      ...message,
-      createdAt: new Date(message.createdAt),
-    })
+    store.dispatch('conversations/receiveMessage', convertMessage(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:conversation') {
-    const conversation = camelizeKeys(payload)
-    store.dispatch('conversations/receiveConversation', parseDates(conversation))
+    store.dispatch('conversations/updateConversation', convertConversation(camelizeKeys(payload)))
   }
-}
-
-function parseDates (obj) {
-  return {
-    ...obj,
-    createdAt: new Date(obj.createdAt),
-    updatedAt: new Date(obj.updatedAt),
+  else if (topic === 'groups:group_detail') {
+    store.dispatch('currentGroup/update', camelizeKeys(payload))
+  }
+  else if (topic === 'groups:group_preview') {
+    store.dispatch('groups/update', camelizeKeys(payload))
+  }
+  else if (topic === 'stores:store') {
+    store.dispatch('stores/update', camelizeKeys(payload))
+  }
+  else if (topic === 'pickups:pickupdate') {
+    store.dispatch('pickups/update', convertPickup(camelizeKeys(payload)))
+  }
+  else if (topic === 'pickups:pickupdate_deleted') {
+    store.dispatch('pickups/delete', convertPickup(camelizeKeys(payload)).id)
+  }
+  else if (topic === 'pickups:series') {
+    store.dispatch('pickupSeries/update', convertSeries(camelizeKeys(payload)))
+  }
+  else if (topic === 'pickups:series_deleted') {
+    store.dispatch('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
+  }
+  else if (topic === 'feedback:feedback') {
+    store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))
+  }
+  else if (topic === 'pickups:feedback_possible') {
+    const pickup = convertPickup(camelizeKeys(payload))
+    store.dispatch('pickups/addFeedbackPossible', pickup)
+  }
+  else if (topic === 'auth:user') {
+    const user = convertAuthUser(camelizeKeys(payload))
+    store.dispatch('auth/update', user)
+    store.dispatch('users/update', user)
+  }
+  else if (topic === 'users:user') {
+    store.dispatch('users/update', camelizeKeys(payload))
+  }
+  else if (topic === 'history:history') {
+    store.dispatch('history/update', convertHistory(camelizeKeys(payload)))
   }
 }
 

@@ -72,6 +72,10 @@ export default {
       commit('clearSelected')
     },
 
+    update ({ commit }, update) {
+      commit('update', update)
+    },
+
     clear ({ commit, dispatch }) {
       commit('clear')
     },

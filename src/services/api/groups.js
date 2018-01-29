@@ -1,4 +1,5 @@
 import axios from '@/services/axios'
+import { parseDates as convertConversation } from '@/services/api/conversations'
 
 export default {
   async create (data) {
@@ -43,14 +44,6 @@ export default {
   },
 
   async conversation (groupId) {
-    return parseDates((await axios.get(`/api/groups/${groupId}/conversation/`)).data)
+    return convertConversation((await axios.get(`/api/groups/${groupId}/conversation/`)).data)
   },
-}
-
-function parseDates (obj) {
-  return {
-    ...obj,
-    createdAt: new Date(obj.createdAt),
-    updatedAt: new Date(obj.updatedAt),
-  }
 }

@@ -54,7 +54,7 @@ export default {
 
 }
 
-function convertDate (val) {
+export function convertDate (val) {
   if (Array.isArray(val)) {
     return val.map(convertDate)
   }

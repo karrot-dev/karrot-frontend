@@ -125,9 +125,9 @@ export default {
       })
     },
 
-    receiveConversation ({ state, commit }, conversation) {
+    updateConversation ({ state, commit }, conversation) {
       const existing = state.entries[conversation.id]
-      if (!existing || existing.updatedAt <= conversation.updatedAt) {
+      if (existing && existing.updatedAt <= conversation.updatedAt) {
         commit('setConversation', { conversation })
       }
     },

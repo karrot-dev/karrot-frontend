@@ -103,8 +103,11 @@ export default {
       dispatch('feedback/clear', null, { root: true })
     },
 
-    update ({ commit }, group) {
-      commit('set', group)
+    update ({ state, commit }, group) {
+      // update group values, do not replace group
+      if (group.id === state.current.id) {
+        commit('set', group)
+      }
     },
   },
   mutations: {

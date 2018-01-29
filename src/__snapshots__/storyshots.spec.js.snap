@@ -1983,21 +1983,21 @@ exports[`Storyshots Layout KTopbar 1`] = `
             English
             <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Deutsch
-            <small>(99%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:99%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(98%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:98%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             中文
             <small>(85%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:85%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Español
-            <small>(74%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:74%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(73%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:73%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Français
             <small>(41%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:41%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Svenska
             <small>(36%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:36%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Esperanto
             <small>(31%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:31%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
-            Italiano
-            <small>(21%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:21%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Русский
             <small>(21%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:21%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            Italiano
+            <small>(20%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:20%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
             <small>(5%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:5%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
         <!---->
@@ -3765,6 +3765,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                         <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
                 </div>
             </div>
+            <div class="q-card-separator"></div>
             <div class="edit-box">
                 <form>
                     <div class="q-field row no-wrap items-start">

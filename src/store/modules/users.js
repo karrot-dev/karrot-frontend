@@ -79,6 +79,9 @@ export default {
       commit('select', userId)
       await dispatch('history/fetchForUser', { userId }, { root: true })
     },
+    update ({ commit }, user) {
+      commit('update', user)
+    },
     clearSelectedUser ({ commit }) {
       commit('select', null)
     },

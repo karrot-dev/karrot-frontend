@@ -88,22 +88,22 @@ export function receiveMessage ({ topic, payload }) {
     store.dispatch('currentGroup/update', camelizeKeys(payload))
   }
   else if (topic === 'groups:group_preview') {
-    store.commit('groups/update', camelizeKeys(payload))
+    store.dispatch('groups/update', camelizeKeys(payload))
   }
   else if (topic === 'stores:store') {
-    store.commit('stores/update', camelizeKeys(payload))
+    store.dispatch('stores/update', camelizeKeys(payload))
   }
   else if (topic === 'pickups:pickupdate') {
     store.dispatch('pickups/update', convertPickup(camelizeKeys(payload)))
   }
   else if (topic === 'pickups:pickupdate_deleted') {
-    store.commit('pickups/delete', convertPickup(camelizeKeys(payload)).id)
+    store.dispatch('pickups/delete', convertPickup(camelizeKeys(payload)).id)
   }
   else if (topic === 'pickups:series') {
     store.dispatch('pickupSeries/update', convertSeries(camelizeKeys(payload)))
   }
   else if (topic === 'pickups:series_deleted') {
-    store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
+    store.dispatch('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'feedback:feedback') {
     store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))
@@ -114,11 +114,11 @@ export function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'auth:user') {
     const user = convertAuthUser(camelizeKeys(payload))
-    store.commit('auth/setUser', { user })
-    store.commit('users/update', user)
+    store.dispatch('auth/update', user)
+    store.dispatch('users/update', user)
   }
   else if (topic === 'users:user') {
-    store.commit('users/update', camelizeKeys(payload))
+    store.dispatch('users/update', camelizeKeys(payload))
   }
   else if (topic === 'history:history') {
     store.dispatch('history/update', convertHistory(camelizeKeys(payload)))

@@ -134,6 +134,22 @@ describe('pickups', () => {
       vstore.dispatch('pickups/clearStoreFilter')
       expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup1, pickup2, pickup3].map(getId))
     })
+
+    it('can update a pickup', () => {
+      const changed = { ...pickup1, maxCollectors: 987 }
+      vstore.dispatch('pickups/update', changed)
+      expect(vstore.getters['pickups/get'](changed.id).maxCollectors).toEqual(changed.maxCollectors)
+    })
+
+    it('can delete a pickup', () => {
+      vstore.dispatch('pickups/delete', pickup1.id)
+      expect(vstore.getters['pickups/get'](pickup1.id)).toBeUndefined()
+    })
+
+    it('can add possible feedback', () => {
+      vstore.dispatch('pickups/addFeedbackPossible', pickup1)
+      expect(vstore.getters['pickups/feedbackPossible'][0].date).toEqual(pickup1.date)
+    })
   })
 })
 

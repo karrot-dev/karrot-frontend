@@ -130,6 +130,10 @@ export default {
       }
     },
 
+    delete ({ commit }, pickupId) {
+      commit('delete', pickupId)
+    },
+
     clear ({ commit }) {
       commit('clear')
     },

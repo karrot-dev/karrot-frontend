@@ -118,6 +118,10 @@ export default {
       dispatch('i18n/setLocale', user.language || 'en', { root: true })
     },
 
+    update ({ commit }, user) {
+      commit('setUser', { user })
+    },
+
     clearSettingsStatus ({ commit, dispatch }) {
       dispatch('meta/clear', ['changeEmail'])
       dispatch('meta/clear', ['changePassword'])

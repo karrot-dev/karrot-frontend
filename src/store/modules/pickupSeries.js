@@ -66,6 +66,10 @@ export default {
       }
     },
 
+    delete ({ commit }, seriesId) {
+      commit('delete', seriesId)
+    },
+
     clearList ({ commit }) {
       commit('clearList')
     },

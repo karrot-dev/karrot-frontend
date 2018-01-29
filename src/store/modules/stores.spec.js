@@ -32,6 +32,12 @@ describe('stores module', () => {
     store.commit('stores/set', [store1, store2, store3])
   })
 
+  it('can update store', () => {
+    const changed = { ...store1, name: 'new name' }
+    store.dispatch('stores/update', changed)
+    expect(store.getters['stores/get'](changed.id).name).toEqual(changed.name)
+  })
+
   it('throws routeError if store is not accessible', async () => {
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
     await expect(store.dispatch('stores/selectStore', { storeId: 9999 }))

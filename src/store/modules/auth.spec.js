@@ -27,7 +27,7 @@ describe('auth', () => {
     })
   })
 
-  const user = () => ({ name: 'Alex' })
+  const user = () => ({ displayName: 'Alex' })
 
   it('can check login status', async () => {
     mockStatus.mockReturnValueOnce(user())
@@ -43,6 +43,12 @@ describe('auth', () => {
     expect(store.getters['auth/isLoggedIn']).toBe(true)
     expect(store.getters['auth/user']).toBeDefined()
     expect(mockRouterPush).toBeCalledWith('/')
+  })
+
+  it('can update user', () => {
+    const changed = { ...user(), displayName: 'Alex2' }
+    store.dispatch('auth/update', changed)
+    expect(store.getters['auth/user'].displayName).toEqual(changed.displayName)
   })
 
   it('will not be logged when status throws', async () => {

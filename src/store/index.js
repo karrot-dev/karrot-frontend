@@ -5,6 +5,7 @@ import i18nPlugin from './plugins/i18n'
 import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
+import presenceReporter from './plugins/presenceReporter'
 
 // Alphabetical
 import about from './modules/about'
@@ -24,6 +25,7 @@ import invitations from './modules/invitations'
 import loadingprogress from './modules/loadingprogress'
 import pickups from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
+import presence from './modules/presence'
 import route from './modules/route'
 import routeError from './modules/routeError'
 import search from './modules/search'
@@ -57,6 +59,7 @@ export default new Vuex.Store({
     loadingprogress,
     pickups,
     pickupSeries,
+    presence,
     route,
     routeError,
     search,
@@ -73,6 +76,7 @@ export default new Vuex.Store({
     loadingProgressReporter,
     dependentState,
     fcmPlugin,
+    presenceReporter,
   ],
   strict: debug,
 })

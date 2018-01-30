@@ -266,12 +266,15 @@ export function toggles (config) {
   for (let key in config) {
     result.state[key] = config[key]
     result.getters[key] = state => state[key]
-    result.actions[key] = ({ state, commit }, forceValue) => {
-      let nextValue = !state[key]
-      if (forceValue) {
-        nextValue = forceValue
+    result.actions[key] = ({ state, commit, getters }, forceValue) => {
+      if (forceValue !== undefined) {
+        if (getters[key] !== forceValue) {
+          commit('set', { key, value: forceValue })
+        }
       }
-      commit('set', { key, value: nextValue })
+      else {
+        commit('set', { key, value: !state[key] })
+      }
     }
   }
   return result

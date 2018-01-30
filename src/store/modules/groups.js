@@ -92,6 +92,10 @@ export default {
       },
     }),
 
+    update ({ commit }, group) {
+      commit('update', group)
+    },
+
     async selectPreview ({ commit, getters, dispatch }, { groupPreviewId }) {
       if (!getters.get(groupPreviewId)) {
         try {

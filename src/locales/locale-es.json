@@ -306,6 +306,10 @@
     "WRITE_MESSAGE": "Escribir un mensaje...",
     "WRITE_FIRST_MESSAGE": "Enviar el primer mensaje..."
   },
+  "CONVERSATION": {
+    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
+    "MARK_READ": "Mark all as read"
+  },
   "STORESTATUS":{
     "ACTIVE": "En cooperación",
     "CREATED": "Recien creado",

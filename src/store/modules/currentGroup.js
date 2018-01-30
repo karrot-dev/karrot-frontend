@@ -91,20 +91,23 @@ export default {
 
       dispatch('feedback/fetchForGroup', { groupId }, { root: true })
 
-      dispatch('auth/update', { currentGroup: groupId }, { root: true })
+      dispatch('auth/save', { currentGroup: groupId }, { root: true })
     },
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('auth/update', { currentGroup: null }, { root: true })
+      dispatch('auth/save', { currentGroup: null }, { root: true })
       dispatch('agreements/clear', null, { root: true })
       dispatch('pickups/clear', {}, { root: true })
       dispatch('conversations/clearActive', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 
-    update ({ commit }, group) {
-      commit('set', group)
+    update ({ state, commit }, group) {
+      // update group values, do not replace group
+      if (group.id === state.current.id) {
+        commit('set', group)
+      }
     },
   },
   mutations: {

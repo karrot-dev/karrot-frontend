@@ -27,7 +27,7 @@ export default {
   },
   actions: {
     async setLocale ({ commit, dispatch }, locale) {
-      dispatch('auth/update', { language: locale }, { root: true })
+      dispatch('auth/save', { language: locale }, { root: true })
       commit('set', locale)
     },
   },

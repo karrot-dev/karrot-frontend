@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import messageAPI from '@/services/api/messages'
+import conversationsAPI from '@/services/api/conversations'
 import { createMetaModule, withMeta, metaStatusesWithId } from '@/store/helpers'
+
+export function isUnread (message, conversation) {
+  if (!message || !conversation) return
+  if (!conversation.seenUpTo) return true
+  return message.id > conversation.seenUpTo
+}
 
 function initialState () {
   return {
@@ -17,13 +24,19 @@ export default {
   state: initialState(),
   getters: {
     enrichMessage: (state, getters, rootState, rootGetters) => message => {
+      if (!message) return
       return {
         ...message,
         author: rootGetters['users/get'](message.author),
+        isUnread: isUnread(message, getters.activeConversation),
       }
     },
     activeMessages: (state, getters) => {
       return (state.messages[state.activeConversationId] || []).map(getters.enrichMessage)
+    },
+    activeConversation: state => {
+      if (!state.activeConversationId) return
+      return state.entries[state.activeConversationId]
     },
     active: (state, getters) => {
       const id = state.activeConversationId
@@ -31,6 +44,7 @@ export default {
 
       const canLoadMore = typeof state.cursors[state.activeConversationId] === 'string'
       return {
+        ...getters.activeConversation,
         messages: getters.activeMessages,
         canLoadMore,
         ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchMore'], id),
@@ -44,22 +58,45 @@ export default {
           content: messageData,
           conversation: id,
         })
-        commit('prependMessage', { message })
+        commit('updateMessages', {
+          messages: [message],
+          conversationId: message.conversation,
+        })
       },
       async fetch ({ commit }, conversationId) {
         const data = await messageAPI.list(conversationId)
-        commit('setMessages', { conversationId, messages: data.results, cursor: data.next })
+        commit('updateMessages', {
+          messages: data.results,
+          conversationId,
+          cursor: data.next,
+        })
       },
 
       async fetchMore ({ state, commit }, conversationId) {
         const currentCursor = state.cursors[conversationId]
         const data = await messageAPI.listMore(currentCursor)
-        commit('appendMessages', { conversationId, messages: data.results, cursor: data.next })
+        commit('updateMessages', {
+          messages: data.results,
+          conversationId,
+          cursor: data.next,
+        })
+      },
+
+      async fetchConversation ({ commit }, conversationId) {
+        commit('setConversation', { conversation: await conversationsAPI.get(conversationId) })
+      },
+
+      async mark ({ dispatch }, { id, seenUpTo }) {
+        await conversationsAPI.mark(id, { seenUpTo })
       },
     }),
 
     async sendInActiveConversation ({ state, dispatch }, messageData) {
       dispatch('send', { id: state.activeConversationId, messageData })
+    },
+    async markAllReadInActiveConversation ({ state, dispatch, getters }) {
+      const newestMessage = getters.activeMessages[0]
+      dispatch('mark', { id: state.activeConversationId, seenUpTo: newestMessage.id })
     },
 
     async fetchMoreForActiveConversation ({ state, dispatch }) {
@@ -77,15 +114,21 @@ export default {
       await dispatch('fetch', conversation.id)
     },
 
-    async clearActive ({ commit }) {
+    clearActive ({ commit }) {
       commit('clearActive')
     },
 
-    async receiveMessage ({ commit, state, getters }, message) {
-      // only add if messages doesn't exist yet
+    receiveMessage ({ commit, state, getters }, message) {
+      commit('updateMessages', {
+        messages: [message],
+        conversationId: message.conversation,
+      })
+    },
 
-      if (!getters.activeMessages.find(e => e.id === message.id)) {
-        commit('prependMessage', { message })
+    updateConversation ({ state, commit }, conversation) {
+      const existing = state.entries[conversation.id]
+      if (existing && existing.updatedAt <= conversation.updatedAt) {
+        commit('setConversation', { conversation })
       }
     },
   },
@@ -96,26 +139,27 @@ export default {
     clearActive (state) {
       state.activeConversationId = null
     },
-    setMessages (state, { conversationId, messages, cursor }) {
-      Vue.set(state.messages, conversationId, messages)
-      Vue.set(state.cursors, conversationId, cursor)
-    },
-    appendMessages (state, { conversationId, messages, cursor }) {
-      // e.g. when loading more (older) messages from the backend
-      if (state.messages[conversationId]) {
-        state.messages[conversationId].push(...messages)
+    updateMessages (state, { conversationId, messages, cursor }) {
+      if (!state.messages[conversationId]) {
+        Vue.set(state.messages, conversationId, messages)
+        return
+      }
+      // simple insertion sort for new messages
+      // assumes that existing messages are sorted AND incoming messages are sorted
+      let i = 0
+      for (let message of messages) {
+        const stateMessages = state.messages[conversationId]
+        while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
+        if (i >= stateMessages.length || stateMessages[i].id !== message.id) {
+          stateMessages.splice(i, 0, message)
+        }
+      }
+      if (cursor !== undefined) {
         Vue.set(state.cursors, conversationId, cursor)
       }
     },
     setConversation (state, { conversation }) {
       Vue.set(state.entries, conversation.id, conversation)
-    },
-    prependMessage (state, { message }) {
-      // e.g. when adding new messages from the current user or via websocket
-      const { conversation } = message
-      if (state.messages[conversation]) {
-        state.messages[conversation].unshift(message)
-      }
     },
   },
 }

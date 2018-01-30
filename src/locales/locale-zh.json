@@ -306,6 +306,10 @@
     "WRITE_MESSAGE": "留個言吧...",
     "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧..."
   },
+  "CONVERSATION": {
+    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
+    "MARK_READ": "Mark all as read"
+  },
   "STORESTATUS":{
     "ACTIVE": "合作中",
     "CREATED": "新建立",

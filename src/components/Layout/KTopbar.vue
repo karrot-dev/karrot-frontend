@@ -12,6 +12,7 @@ export default connect({
     breadcrumbs: 'breadcrumbs/all',
     user: 'auth/user',
     searchOpen: 'search/open',
+    away: 'presence/toggle/away',
   },
   methodsToEvents: {
     toggleSidenav ({ commit }) {

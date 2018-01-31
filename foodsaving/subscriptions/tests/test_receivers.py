@@ -1,9 +1,13 @@
 import json
 
+import os
+import pathlib
 import requests_mock
+from shutil import copyfile
 from channels.test import ChannelTestCase, WSClient
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
+from django.conf import settings
 from django.core.management import call_command
 from django.utils import timezone
 from pyfcm.baseapi import BaseAPI as FCMApi
@@ -333,6 +337,13 @@ class UserReceiverTest(ChannelTestCase):
         self.other_member = UserFactory()
         self.unrelated_user = UserFactory()
         self.group = GroupFactory(members=[self.member, self.other_member])
+        pathlib.Path(settings.MEDIA_ROOT).mkdir(exist_ok=True)
+        copyfile(os.path.join(os.path.dirname(__file__), './photo.jpg'),
+                 os.path.join(settings.MEDIA_ROOT, 'photo.jpg'))
+        self.member.photo = 'photo.jpg'
+        self.member.save()
+        self.other_member.photo = 'photo.jpg'
+        self.other_member.save()
 
     def test_receive_own_user_changes(self):
         self.client.force_login(self.member)
@@ -346,6 +357,7 @@ class UserReceiverTest(ChannelTestCase):
         self.assertEqual(response['topic'], 'auth:user')
         self.assertEqual(response['payload']['display_name'], name)
         self.assertTrue('current_group' in response['payload'])
+        self.assertTrue(response['payload']['photo_urls']['full_size'].startswith(settings.HOSTNAME))
 
         self.assertIsNone(self.client.receive(json=True))
 
@@ -361,6 +373,7 @@ class UserReceiverTest(ChannelTestCase):
         self.assertEqual(response['topic'], 'users:user')
         self.assertEqual(response['payload']['display_name'], name)
         self.assertTrue('current_group' not in response['payload'])
+        self.assertTrue(response['payload']['photo_urls']['full_size'].startswith(settings.HOSTNAME))
 
         self.assertIsNone(self.client.receive(json=True))
 

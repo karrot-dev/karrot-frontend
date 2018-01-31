@@ -25,6 +25,12 @@ from foodsaving.users.serializers import UserSerializer
 MockRequest = namedtuple('Request', ['user'])
 
 
+class AbsoluteURIBuildingRequest:
+
+    def build_absolute_uri(self, path):
+        return settings.HOSTNAME + path
+
+
 def send_in_channel(channel, topic, payload):
     Channel(channel).send({
         'text': json.dumps({
@@ -201,7 +207,7 @@ def send_feedback_possible_updates(sender, instance, **kwargs):
 def send_auth_user_updates(sender, instance, **kwargs):
     """Send full details to the user"""
     user = instance
-    payload = AuthUserSerializer(user).data
+    payload = AuthUserSerializer(user, context={'request': AbsoluteURIBuildingRequest()}).data
     for subscription in ChannelSubscription.objects.recent().filter(user=user):
         send_in_channel(subscription.reply_channel, topic='auth:user', payload=payload)
 
@@ -210,7 +216,7 @@ def send_auth_user_updates(sender, instance, **kwargs):
 def send_user_updates(sender, instance, **kwargs):
     """Send profile updates to everyone except the user"""
     user = instance
-    payload = UserSerializer(user).data
+    payload = UserSerializer(user, context={'request': AbsoluteURIBuildingRequest()}).data
     users_groups = user.groups.values('id')
     for subscription in ChannelSubscription.objects.recent().filter(user__groups__in=users_groups).exclude(user=user):
         send_in_channel(subscription.reply_channel, topic='users:user', payload=payload)

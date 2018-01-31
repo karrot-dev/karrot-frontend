@@ -180,7 +180,8 @@
       "jest-localstorage-mock"
     ],
     "globals": {
-      "CORDOVA": false
+      "CORDOVA": false,
+      "DEV": true
     }
   }
 }

@@ -11,7 +11,6 @@ import { parseDates as convertConversation } from '@/services/api/conversations'
 import { convertDate as convertPickup } from '@/services/api/pickups'
 import { convert as convertSeries } from '@/services/api/pickupSeries'
 import { parse as convertFeedback } from '@/services/api/feedback'
-import { parseImageURLs as convertAuthUser } from '@/services/api/authUser'
 import { convertDates as convertHistory } from '@/services/api/history'
 
 let WEBSOCKET_ENDPOINT
@@ -113,7 +112,7 @@ export function receiveMessage ({ topic, payload }) {
     store.dispatch('pickups/addFeedbackPossible', pickup)
   }
   else if (topic === 'auth:user') {
-    const user = convertAuthUser(camelizeKeys(payload))
+    const user = camelizeKeys(payload)
     store.dispatch('auth/update', user)
     store.dispatch('users/update', user)
   }

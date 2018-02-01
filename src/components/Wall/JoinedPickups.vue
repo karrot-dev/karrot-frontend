@@ -3,7 +3,7 @@
     <q-card
       @click="showPickups = !showPickups"
       color="secondary"
-      class="generic-padding notice"
+      class="generic-padding notice no-margin-bottom"
     >
       <i class="fa fa-shopping-basket on-left"/>
       {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length }) }}
@@ -14,26 +14,28 @@
         <i class="fa fa-angle-down"/>
       </div>
     </q-card>
-    <transition-group
-      name="list"
-      tag="div"
-      v-if="showPickups"
-    >
-      <PickupItem
-        v-for="pickup in pickups"
-        :key="pickup.id"
-        :pickup="pickup"
-        @join="$emit('join', arguments[0])"
-        @leave="$emit('leave', arguments[0])"
+    <transition name="slide-toggle">
+      <transition-group
+        name="list"
+        tag="div"
+        v-if="showPickups"
       >
-        <strong v-if="pickup.store">
-          <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
-            {{ pickup.store.name }}
-          </router-link>
-        </strong>
-        {{ $d(pickup.date, 'dateWithDayName') }}
-      </PickupItem>
-    </transition-group>
+        <PickupItem
+          v-for="pickup in pickups"
+          :key="pickup.id"
+          :pickup="pickup"
+          @join="$emit('join', arguments[0])"
+          @leave="$emit('leave', arguments[0])"
+        >
+          <strong v-if="pickup.store">
+            <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
+              {{ pickup.store.name }}
+            </router-link>
+          </strong>
+          {{ $d(pickup.date, 'dateWithDayName') }}
+        </PickupItem>
+      </transition-group>
+    </transition>
     <hr v-if="showPickups">
   </div>
 </template>
@@ -56,6 +58,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~slidetoggle'
 .list-leave-active
   transition: all .5s
 .list-leave-to
@@ -74,4 +77,6 @@ export default {
 hr
   margin 1em 2em
   border solid lightgrey 1px;
+.no-margin-bottom
+  margin-bottom 0
 </style>

@@ -29,10 +29,11 @@
       >
         <q-btn
           flat
+          small
           color="primary"
           @click="$emit('hideSearch')"
         >
-          <q-icon name="fa-fw fa-window-close-o"/>
+          <q-icon name="fa-fw fa-arrow-right"/>
         </q-btn>
         <div>
           <Search style="margin-top: .2em; vertical-align: middle"/>
@@ -58,6 +59,11 @@
           flat
         >
           <div class="row items-center no-wrap">
+            <q-icon
+              :name="presence.icon"
+              :color="presence.color"
+              class="presence-indicator"
+            />
             <span>{{ user.displayName }}</span>
             <img
               :src="photo"
@@ -70,6 +76,11 @@
           v-else
           flat
         >
+          <q-icon
+            :name="presence.icon"
+            :color="presence.color"
+            class="presence-indicator"
+          />
           {{ user.displayName }}
           <q-icon name="fa-fw fa-user" />
           <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
@@ -82,6 +93,8 @@
           :touch-position="false"
           fit
           ref="popover"
+          anchor="bottom right"
+          self="top right"
         >
           <q-list
             item-separator
@@ -93,6 +106,7 @@
             >
               <q-icon
                 size="1em"
+                class="on-left"
                 name="fa-home fa-fw"
               />
               {{ $t('TOPBAR.CHANGE_GROUP') }}
@@ -103,6 +117,7 @@
             >
               <q-icon
                 size="1em"
+                class="on-left"
                 name="fa-cog fa-fw"
               />
               {{ $t('SETTINGS.TITLE') }}
@@ -112,6 +127,7 @@
             >
               <q-icon
                 size="1em"
+                class="on-left"
                 name="fa-sign-out fa-fw"
               />
               {{ $t('TOPBAR.LOGOUT') }}
@@ -148,6 +164,10 @@ export default {
       type: Object,
       required: true,
     },
+    away: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     hasPhoto () {
@@ -156,6 +176,18 @@ export default {
     photo () {
       if (this.user && this.user.photoUrls) {
         return this.user.photoUrls.thumbnail
+      }
+    },
+    presence () {
+      if (this.away) {
+        return {
+          color: 'grey',
+          icon: 'fa-circle-o',
+        }
+      }
+      return {
+        color: 'green',
+        icon: 'fa-circle',
       }
     },
   },
@@ -175,6 +207,9 @@ export default {
   padding-right .2em
   margin-right .2em
   border-radius $borderRadiusSmall
+.presence-indicator
+  margin-right .3em
+  font-size 100%
 
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */

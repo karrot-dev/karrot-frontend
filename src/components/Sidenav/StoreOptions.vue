@@ -6,8 +6,5 @@ export default connect({
   gettersToProps: {
     storeId: 'stores/activeStoreId',
   },
-  actionsToEvents: {
-    // leave: 'groups/leave',
-  },
 })('StoreOptions', StoreOptionsUI)
 </script>

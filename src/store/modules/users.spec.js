@@ -38,9 +38,9 @@ describe('users', () => {
   })
 
   beforeEach(() => {
-    user1 = { id: 1, name: 'user 1' }
-    user2 = { id: 2, name: 'user 2' }
-    user3 = { id: 3, name: 'user 3' }
+    user1 = { id: 1, displayName: 'user 1' }
+    user2 = { id: 2, displayName: 'user 2' }
+    user3 = { id: 3, displayName: 'user 3' }
   })
 
   beforeEach(() => {
@@ -68,6 +68,12 @@ describe('users', () => {
     await store.dispatch('users/selectUser', { userId: user1.id })
     expect(store.getters['users/activeUser'].id).toEqual(user1.id)
     expect(history.actions.fetchForUser).toBeCalled()
+  })
+
+  it('can update user', () => {
+    const changed = { ...user1, displayName: 'new user 1' }
+    store.dispatch('users/update', changed)
+    expect(store.getters['users/get'](changed.id).displayName).toEqual(changed.displayName)
   })
 
   it('throws routeError if user is not accessible', async () => {

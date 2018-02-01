@@ -25,7 +25,7 @@ export default {
   },
 }
 
-function convertDates (val) {
+export function convertDates (val) {
   if (Array.isArray(val)) {
     return val.map(convertDates)
   }

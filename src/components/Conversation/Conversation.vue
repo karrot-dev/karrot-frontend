@@ -17,6 +17,18 @@
             :placeholder="messagePrompt"
             :user="user"
           />
+          <q-alert
+            v-if="data.unreadMessageCount > 0"
+            color="secondary"
+            icon="star"
+          >
+            {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}
+            <q-btn
+              no-caps
+              @click="$emit('markAllRead')"
+              v-t="'CONVERSATION.MARK_READ'"
+            />
+          </q-alert>
           <ConversationMessage
             v-for="message in data.messages"
             :key="message.id"
@@ -40,7 +52,7 @@
 <script>
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
-import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert } from 'quasar'
+import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem } from 'quasar'
 
 export default {
   name: 'Conversation',
@@ -52,6 +64,7 @@ export default {
     QSpinnerDots,
     QList,
     QAlert,
+    QItem,
   },
   props: {
     data: {

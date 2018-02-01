@@ -21,7 +21,7 @@ export default {
     user: state => state.user,
     userId: state => state.user && state.user.id,
     redirectTo: state => state.redirectTo,
-    ...metaStatuses(['login', 'update', 'changePassword', 'changeEmail']),
+    ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),
   },
   actions: {
     clearLoginStatus: ({ dispatch }) => dispatch('meta/clear', ['login']),
@@ -91,13 +91,13 @@ export default {
     }),
 
     ...withMeta({
-      async update ({ commit, state, dispatch }, data) {
+      async save ({ commit, state, dispatch }, data) {
         const savedUser = await authUser.save(data)
         commit('setUser', { user: savedUser })
-        commit('users/update', savedUser, { root: true })
+        dispatch('users/update', savedUser, { root: true })
       },
     }, {
-      // ignore ID to have simple updateStatus
+      // ignore ID to have simple saveStatus
       findId: () => undefined,
     }),
 
@@ -118,10 +118,14 @@ export default {
       dispatch('i18n/setLocale', user.language || 'en', { root: true })
     },
 
+    update ({ commit }, user) {
+      commit('setUser', { user })
+    },
+
     clearSettingsStatus ({ commit, dispatch }) {
       dispatch('meta/clear', ['changeEmail'])
       dispatch('meta/clear', ['changePassword'])
-      dispatch('meta/clear', ['update'])
+      dispatch('meta/clear', ['save'])
       dispatch('users/clearResendVerification', null, { root: true })
     },
   },

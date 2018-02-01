@@ -8,6 +8,7 @@ function initialState () {
     activeId: null,
     entries: {},
     idList: [], // sorted, most recent on top
+    idListScope: { type: null, id: null }, // what kind of data currently is loaded in idList
     cursor: null,
   }
 }
@@ -39,15 +40,20 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetchFiltered ({ dispatch, commit }, filters) {
-        dispatch('clear')
-        const data = await historyAPI.list(filters)
-        commit('update', { entries: data.results, cursor: data.next })
+      async fetchFiltered ({ state, dispatch, commit }, { filters, scope }) {
+        // only clear and refetch if scope changed
+        const {type, id} = state.idListScope
+        if (scope.type !== type || scope.id !== id) {
+          dispatch('clear')
+          commit('setScope', scope)
+          const data = await historyAPI.list(filters)
+          commit('update', { entries: data.results, cursor: data.next })
+        }
       },
       async fetchById ({ commit, state }, id) {
-        // add entry by ID, keep cursor the same as before
+        // add entry by ID, not add to list
         const entry = await historyAPI.get(id)
-        commit('update', { entries: [entry], cursor: state.cursor })
+        commit('addEntry', entry)
       },
       async fetchMore ({ state, commit }) {
         if (!state.cursor) return
@@ -69,14 +75,35 @@ export default {
     clearActive ({ commit }) {
       commit('setActive', { id: null })
     },
-    async fetchForGroup ({ dispatch, rootGetters }, { groupId }) {
-      dispatch('fetchFiltered', { group: groupId })
+
+    async fetchForGroup ({ dispatch }, { groupId }) {
+      dispatch('fetchFiltered', {
+        filters: { group: groupId },
+        scope: { type: 'group', id: groupId },
+      })
     },
-    async fetchForUser ({ dispatch, rootGetters }, { userId }) {
-      dispatch('fetchFiltered', { users: userId })
+    async fetchForUser ({ dispatch }, { userId }) {
+      dispatch('fetchFiltered', {
+        filters: { users: userId },
+        scope: { type: 'user', id: userId },
+      })
     },
-    async fetchForStore ({ dispatch, rootGetters }, { storeId }) {
-      dispatch('fetchFiltered', { store: storeId })
+    async fetchForStore ({ dispatch }, { storeId }) {
+      dispatch('fetchFiltered', {
+        filters: { store: storeId },
+        scope: { type: 'store', id: storeId },
+      })
+    },
+
+    update ({ state, commit }, entry) {
+      // add entry if it fits current scope
+      const {type, id} = state.idListScope
+      const fitsGroupScope = () => type === 'group' && entry.group === id
+      const fitsStoreScope = () => type === 'store' && entry.store === id
+      const fitsUserScope = () => type === 'user' && entry.users && entry.users.includes(id)
+      if (fitsGroupScope() || fitsStoreScope() || fitsUserScope()) {
+        commit('update', { entries: [entry], cursor: state.cursor })
+      }
     },
 
     clear ({ commit }) {
@@ -86,6 +113,15 @@ export default {
   mutations: {
     setActive (state, { id }) {
       state.activeId = id
+    },
+    setScope (state, { type, id }) {
+      state.idListScope.type = type
+      state.idListScope.id = id
+    },
+    addEntry (state, entry) {
+      // add entry without adding it to list
+      // used for history detail view
+      state.entries[entry.id] = entry
     },
     update (state, { entries, cursor }) {
       state.entries = {

@@ -11,7 +11,7 @@ const store = createStore({
   auth: {
     getters: {
       user: () => currentUserMock,
-      updateStatus: () => statusMocks.default(),
+      saveStatus: () => statusMocks.default(),
       changeEmailStatus: () => statusMocks.default(),
       changePasswordStatus: () => statusMocks.default(),
     },

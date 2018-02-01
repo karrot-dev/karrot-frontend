@@ -142,6 +142,56 @@ jobs:
           paths:
             - docs-dist
 
+  build-cordova:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: build cordova app
+          environment:
+            BACKEND: https://dev.karrot.world
+          command: yarn build:cordova
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - dist
+
+  build-android:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/android:api-26-alpha
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          keys:
+          - gradle-cache
+      - run:
+          name: build android apk
+          environment:
+            HOST: yuca.yunity.org
+            DIR: master
+          command: |
+            curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+            sudo apt install -y gradle nodejs rsync
+            (cd / && sudo npm install -g cordova)
+            cd cordova
+            cordova platform add android
+            cordova build android --release \
+              -- --password=$CORDOVA_PASSWORD --storePassword=$CORDOVA_PASSWORD
+            mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
+            ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+            rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: gradle-cache
+      - store_artifacts:
+          path: /tmp/android-release.apk
+          destination: android-release.apk
+
   deploy-dev:
     <<: *defaults
     steps:
@@ -186,6 +236,16 @@ workflows:
       - build-docs:
           requires:
             - install-dependencies
+      - build-cordova:
+          requires:
+            - install-dependencies
+      - build-android:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-cordova
       - deploy-dev:
           filters:
             branches:

@@ -14,6 +14,7 @@ export default connect({
     join: 'pickups/join',
     leave: 'pickups/leave',
     send: 'conversations/sendInActiveConversation',
+    markAllRead: 'conversations/markAllReadInActiveConversation',
   },
   actionsToProps: {
     fetchMore: 'conversations/fetchMoreForActiveConversation',

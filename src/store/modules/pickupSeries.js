@@ -5,7 +5,7 @@ import { createMetaModule, withMeta, metaStatusesWithId, metaStatuses } from '@/
 function initialState () {
   return {
     entries: {},
-    idList: [],
+    idList: [], // all series in the current store
     idListStoreId: null,
   }
 }
@@ -60,6 +60,16 @@ export default {
 
     }),
 
+    update ({ state, commit }, series) {
+      if (series.store === state.idListStoreId) {
+        commit('update', series)
+      }
+    },
+
+    delete ({ commit }, seriesId) {
+      commit('delete', seriesId)
+    },
+
     clearList ({ commit }) {
       commit('clearList')
     },
@@ -83,6 +93,14 @@ export default {
     },
     update (state, series) {
       Vue.set(state.entries, series.id, series)
+      if (!state.idList.includes(series.id)) {
+        state.idList.push(series.id)
+      }
+    },
+    delete (state, seriesId) {
+      const idx = state.idList.indexOf(seriesId)
+      if (idx !== -1) state.idList.splice(idx, 1)
+      if (state.entries[seriesId]) Vue.delete(state.entries, seriesId)
     },
   },
 }

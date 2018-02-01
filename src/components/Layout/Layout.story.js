@@ -14,6 +14,7 @@ const store = createStore({
   breadcrumbs: { getters: { all: () => [] } },
   auth: { getters: { user: () => currentUserMock } },
   i18n: { getters: { locale: () => 'en' } },
+  presence: require('@/store/modules/presence').default,
 })
 
 storiesOf('Layout', module)

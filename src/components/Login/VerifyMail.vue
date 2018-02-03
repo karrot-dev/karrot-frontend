@@ -1,7 +1,7 @@
 <template>
   <div>
     <h5>
-      {{ user.email }}
+      {{ user.unverifiedEmail }}
     </h5>
     <q-spinner v-if="isPending" />
     <p v-if="success">

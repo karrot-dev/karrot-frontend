@@ -58,15 +58,15 @@ export default {
           content: messageData,
           conversation: id,
         })
-        commit('updateMessages', {
-          messages: [message],
-          conversationId: message.conversation,
-        })
+        dispatch('receiveMessage', message)
       },
       async fetch ({ commit }, conversationId) {
         const data = await messageAPI.list(conversationId)
         commit('updateMessages', {
           messages: data.results,
+          conversationId,
+        })
+        commit('setCursor', {
           conversationId,
           cursor: data.next,
         })
@@ -77,6 +77,9 @@ export default {
         const data = await messageAPI.listMore(currentCursor)
         commit('updateMessages', {
           messages: data.results,
+          conversationId,
+        })
+        commit('setCursor', {
           conversationId,
           cursor: data.next,
         })
@@ -139,7 +142,7 @@ export default {
     clearActive (state) {
       state.activeConversationId = null
     },
-    updateMessages (state, { conversationId, messages, cursor }) {
+    updateMessages (state, { conversationId, messages }) {
       if (!state.messages[conversationId]) {
         Vue.set(state.messages, conversationId, messages)
         return
@@ -154,9 +157,9 @@ export default {
           stateMessages.splice(i, 0, message)
         }
       }
-      if (cursor !== undefined) {
-        Vue.set(state.cursors, conversationId, cursor)
-      }
+    },
+    setCursor (state, { conversationId, cursor }) {
+      Vue.set(state.cursors, conversationId, cursor)
     },
     setConversation (state, { conversation }) {
       Vue.set(state.entries, conversation.id, conversation)

@@ -9,7 +9,7 @@ storiesOf('VerifyMail', module)
       props: {
         status: statusMocks.pending(),
         success: false,
-        user: { email: 'my@email.com' },
+        user: { unverifiedEmail: 'my@email.com' },
       },
     }),
   }))
@@ -18,7 +18,7 @@ storiesOf('VerifyMail', module)
       props: {
         status: statusMocks.default(),
         success: true,
-        user: { email: 'my@email.com' },
+        user: { unverifiedEmail: 'my@email.com' },
       },
     }),
   }))
@@ -27,7 +27,7 @@ storiesOf('VerifyMail', module)
       props: {
         status: statusMocks.nonFieldError('this error is returned by the server'),
         success: false,
-        user: { email: 'my@email.com' },
+        user: { unverifiedEmail: 'my@email.com' },
       },
     }),
   }))

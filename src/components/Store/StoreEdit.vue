@@ -170,8 +170,8 @@ export default {
       if (this.$v.edit.name.$error) {
         const m = this.$v.edit.name
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', 2)
-        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', 81)
+        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', {min: 2})
+        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', {max: 81})
         if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       }
       return this.firstError('name')

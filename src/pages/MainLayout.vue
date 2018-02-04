@@ -69,7 +69,7 @@
         />
       </q-layout>
       <span
-        v-if="!$q.platform.is.mobile"
+        v-if="!$q.platform.is.mobile && isLoggedIn"
         class="chat-floater row items-end no-wrap ">
         <ChatFloater
           v-for="floater in chatFloaters.slice().reverse()"

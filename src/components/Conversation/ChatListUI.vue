@@ -4,20 +4,21 @@
       class="toolbar"
       color="chat">
       <q-toolbar-title style="padding: 0px">
-        <q-search
+        <!--<q-search
           color="chat"
           inverted
           v-model="searchModel"
           :debounce="600"
           placeholder="Find user"
           icon="search"
-        />
+        />-->
       </q-toolbar-title>
       <router-link
         v-if="showExpand"
         :to="{name: 'chat'}">
         <q-btn
           flat
+          small
           :disabled="$route.name === 'chat' || $route.name === 'chatDetail'"
         >
           <i
@@ -43,6 +44,7 @@
           />
         </q-item-side>
         <q-item-main
+          v-if="data && data.messages && data.messages[0]"
           class="one-lined"
           :label="data.messages[0].author.displayName"
           :sublabel="data.messages[0].content" />
@@ -63,12 +65,12 @@
 </template>
 
 <script>
-import { QList, QSearch, QToolbar, QToolbarTitle, QItem, QItemMain, QItemSide } from 'quasar'
+import { QList, QSearch, QToolbar, QBtn, QToolbarTitle, QItem, QItemMain, QItemSide } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
-  name: 'ChatFloater',
-  components: { ProfilePicture, QSearch, QToolbar, QToolbarTitle, QList, QItem, QItemMain, QItemSide },
+  name: 'ChatListUI',
+  components: { ProfilePicture, QSearch, QToolbar, QToolbarTitle, QList, QBtn, QItem, QItemMain, QItemSide },
   props: {
     data: {
       type: Object,

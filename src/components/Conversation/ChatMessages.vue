@@ -1,6 +1,7 @@
 <template>
   <div
     class="scroll"
+    ref="myscroll"
     style="overflow-y: auto; height: 100%; width: 100%">
     <div
       v-if="data && fetchMore && user"
@@ -74,7 +75,13 @@ export default {
       if (!this.data.canLoadMore) {
         return
       }
-      this.fetchMore()
+      const prevHeight = this.$refs.myscroll.scrollHeight
+      this.fetchMore().then(() => {
+        setTimeout(() => {
+          const newHeight = this.$refs.myscroll.scrollHeight
+          this.$refs.myscroll.scrollTop = newHeight - prevHeight
+        }, 500)
+      })
     },
     dateInWords (date) {
       return dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true, disallowFuture: true })
@@ -125,6 +132,7 @@ export default {
         let displayed = this.displayMessage(m, index)
         return {
           'author': m.author,
+          'id': m.id,
           'display': displayed,
           'content': displayed ? this.getMessageContent(m, index) : '',
           'createdLabel': displayed ? this.dateInWords(m.createdAt) : '',

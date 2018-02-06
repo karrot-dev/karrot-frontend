@@ -15,7 +15,18 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    list: state => state.idList.map(i => state.entries[i]),
+    get: (state, getters) => id => {
+      return getters.enrich(state.entries[id])
+    },
+    enrich: (state, getters, rootState, rootGetters) => invitation => {
+      return invitation && {
+        ...invitation,
+        invitedBy: rootGetters['users/get'](invitation.invitedBy),
+      }
+    },
+    list: (state, getters, rootState, rootGetters) => {
+      return state.idList.map(getters.get)
+    },
     ...metaStatuses(['fetch', 'send', 'accept']),
   },
   actions: {
@@ -65,6 +76,16 @@ export default {
       commit('clear')
     },
 
+    update ({ state, commit }, invitation) {
+      if (!state.idList.includes(invitation.id)) {
+        commit('append', invitation)
+      }
+    },
+
+    delete ({ commit }, id) {
+      commit('delete', id)
+    },
+
   },
   mutations: {
     set (state, list) {
@@ -74,6 +95,11 @@ export default {
     append (state, invited) {
       Vue.set(state.entries, invited.id, invited)
       state.idList.push(invited.id)
+    },
+    delete (state, id) {
+      Vue.delete(state.entries, id)
+      const idx = state.idList.indexOf(id)
+      if (idx !== -1) state.idList.splice(idx, 1)
     },
     clear (state) {
       Object.entries(initialState())

@@ -16,7 +16,7 @@
           v-for="invite in invitations"
           :key="invite.id"
         >
-          {{ invite.email }}
+          {{ $t('GROUP.INVITATION_LIST_ENTRY', { email: invite.email, inviter: invite.invitedBy.displayName }) }}
         </li>
       </ul>
     </template>

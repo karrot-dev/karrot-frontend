@@ -21,3 +21,15 @@ export default {
     return (await axios.post(`/api/invitations/${token}/accept/`)).data
   },
 }
+
+export function convertEntry (val) {
+  if (Array.isArray(val)) {
+    return val.map(convertEntry)
+  }
+  else {
+    return {
+      ...val,
+      expiresAt: new Date(val.expiresAt),
+    }
+  }
+}

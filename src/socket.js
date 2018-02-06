@@ -89,6 +89,13 @@ export function receiveMessage ({ topic, payload }) {
   else if (topic === 'groups:group_preview') {
     store.dispatch('groups/update', camelizeKeys(payload))
   }
+  else if (topic === 'invitations:invitation') {
+    store.dispatch('invitations/update', camelizeKeys(payload))
+  }
+  else if (topic === 'invitations:invitation_accept') {
+    // delete invitation from list until there is a better way to display it
+    store.dispatch('invitations/delete', camelizeKeys(payload).id)
+  }
   else if (topic === 'stores:store') {
     store.dispatch('stores/update', camelizeKeys(payload))
   }

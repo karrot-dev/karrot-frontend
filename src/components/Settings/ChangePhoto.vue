@@ -15,6 +15,7 @@
         canvas-color="#fff"
         :prevent-white-space="true"
         :show-loading="true"
+        @file-choose="saveDisabled = false"
       >
         <img
           v-if="hasPhoto"
@@ -41,6 +42,7 @@
         @click="save"
         loader
         :value="isPending"
+        :disabled = "saveDisabled"
         v-t="'BUTTON.SAVE_CHANGES'"
       />
     </div>
@@ -58,6 +60,11 @@ export default {
   mixins: [statusMixin],
   props: {
     value: { required: true, type: Object },
+  },
+  data () {
+    return {
+      saveDisabled: true,
+    }
   },
   watch: {
     photo () {
@@ -90,6 +97,7 @@ export default {
       else {
         this.$emit('save', { photo: null })
       }
+      this.saveDisabled = true
     },
   },
 }

@@ -3760,7 +3760,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
                 <!---->
                 <div class="actionButtons">
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
+                    <button disabled="disabled" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
                         <div class="desktop-only q-focus-helper"></div>
                         <!----><span class="q-btn-inner row col flex-center"><!---->  <!----></span></button>
                 </div>

@@ -30,6 +30,7 @@ export function convertEntry (val) {
     return {
       ...val,
       expiresAt: new Date(val.expiresAt),
+      createdAt: new Date(val.createdAt),
     }
   }
 }

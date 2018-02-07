@@ -23,12 +23,10 @@
         </div>
       </div>
     </RandomArt>
-    <div class="generic-padding">
-      <InvitationsList
-        :invitations="invitations"
-        :status="fetchStatus"
-      />
-    </div>
+    <InvitationsList
+      :invitations="invitations"
+      :status="fetchStatus"
+    />
   </q-card>
 </template>
 

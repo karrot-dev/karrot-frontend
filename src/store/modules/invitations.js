@@ -25,7 +25,7 @@ export default {
       }
     },
     list: (state, getters, rootState, rootGetters) => {
-      return state.idList.map(getters.get)
+      return state.idList.map(getters.get).sort(sortByCreatedAt)
     },
     ...metaStatuses(['fetch', 'send', 'accept']),
   },
@@ -106,4 +106,8 @@ export default {
         .forEach(([prop, value]) => Vue.set(state, prop, value))
     },
   },
+}
+
+export function sortByCreatedAt (a, b) {
+  return a.createdAt < b.createdAt
 }

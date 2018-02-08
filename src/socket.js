@@ -12,6 +12,7 @@ import { convertDate as convertPickup } from '@/services/api/pickups'
 import { convert as convertSeries } from '@/services/api/pickupSeries'
 import { parse as convertFeedback } from '@/services/api/feedback'
 import { convertDates as convertHistory } from '@/services/api/history'
+import { convertEntry as convertInvitation } from '@/services/api/invitations'
 
 let WEBSOCKET_ENDPOINT
 
@@ -90,11 +91,11 @@ export function receiveMessage ({ topic, payload }) {
     store.dispatch('groups/update', camelizeKeys(payload))
   }
   else if (topic === 'invitations:invitation') {
-    store.dispatch('invitations/update', camelizeKeys(payload))
+    store.dispatch('invitations/update', convertInvitation(camelizeKeys(payload)))
   }
   else if (topic === 'invitations:invitation_accept') {
     // delete invitation from list until there is a better way to display it
-    store.dispatch('invitations/delete', camelizeKeys(payload).id)
+    store.dispatch('invitations/delete', payload.id)
   }
   else if (topic === 'stores:store') {
     store.dispatch('stores/update', camelizeKeys(payload))

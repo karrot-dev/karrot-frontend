@@ -1,9 +1,9 @@
 import json
-
 import os
 import pathlib
-import requests_mock
 from shutil import copyfile
+
+import requests_mock
 from channels.test import ChannelTestCase, WSClient
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
@@ -15,9 +15,11 @@ from pyfcm.baseapi import BaseAPI as FCMApi
 from foodsaving.conversations.factories import ConversationFactory
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.invitations.models import Invitation
 from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory, FeedbackFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.subscriptions.models import PushSubscriptionPlatform, PushSubscription, ChannelSubscription
+from foodsaving.tests.utils import ReceiveAllWSClient
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
 
@@ -168,6 +170,46 @@ class GroupReceiverTests(ChannelTestCase):
         self.assertTrue('description' not in response['payload'])
 
         self.assertIsNone(self.client.receive(json=True))
+
+
+class InvitationReceiverTests(ChannelTestCase):
+    def setUp(self):
+        self.client = ReceiveAllWSClient()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+
+    def test_receive_invitation_updates(self):
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        invitation = Invitation.objects.create(
+            email='bla@bla.com',
+            group=self.group,
+            invited_by=self.member
+        )
+
+        response = self.client.receive(json=True)
+        self.assertEqual(response['topic'], 'invitations:invitation')
+        self.assertEqual(response['payload']['email'], invitation.email)
+
+        self.assertIsNone(self.client.receive(json=True))
+
+    def test_receive_invitation_accept(self):
+        invitation = Invitation.objects.create(
+            email='bla@bla.com',
+            group=self.group,
+            invited_by=self.member
+        )
+        user = UserFactory()
+
+        self.client.force_login(self.member)
+        self.client.send_and_consume('websocket.connect', path='/')
+
+        id = invitation.id
+        invitation.accept(user)
+
+        response = next(r for r in self.client.receive_all(json=True) if r['topic'] == 'invitations:invitation_accept')
+        self.assertEqual(response['payload']['id'], id)
 
 
 class StoreReceiverTests(ChannelTestCase):

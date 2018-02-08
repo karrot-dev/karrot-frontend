@@ -13,6 +13,8 @@ from foodsaving.groups.models import Group
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer
 from foodsaving.history.models import history_created
 from foodsaving.history.serializers import HistorySerializer
+from foodsaving.invitations.models import Invitation
+from foodsaving.invitations.serializers import InvitationSerializer
 from foodsaving.pickups.models import PickupDate, PickupDateSeries, Feedback, pickup_done
 from foodsaving.pickups.serializers import PickupDateSerializer, PickupDateSeriesSerializer, FeedbackSerializer
 from foodsaving.stores.models import Store
@@ -131,6 +133,23 @@ def send_group_updates(sender, instance, **kwargs):
     preview_payload = GroupPreviewSerializer(group).data
     for subscription in ChannelSubscription.objects.recent():
         send_in_channel(subscription.reply_channel, topic='groups:group_preview', payload=preview_payload)
+
+
+# Invitations
+@receiver(post_save, sender=Invitation)
+def send_invitation_updates(sender, instance, **kwargs):
+    invitation = instance
+    payload = InvitationSerializer(invitation).data
+    for subscription in ChannelSubscription.objects.recent().filter(user__in=invitation.group.members.all()):
+        send_in_channel(subscription.reply_channel, topic='invitations:invitation', payload=payload)
+
+
+@receiver(pre_delete, sender=Invitation)
+def send_invitation_accept(sender, instance, **kwargs):
+    invitation = instance
+    payload = InvitationSerializer(invitation).data
+    for subscription in ChannelSubscription.objects.recent().filter(user__in=invitation.group.members.all()):
+        send_in_channel(subscription.reply_channel, topic='invitations:invitation_accept', payload=payload)
 
 
 # Store

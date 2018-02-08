@@ -1,3 +1,4 @@
+from channels.test import WSClient
 from django.apps import apps
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
@@ -44,3 +45,12 @@ class ExtractPaginationMixin(object):
         if 'results' in response.data:
             response.data = response.data['results']
         return response
+
+
+class ReceiveAllWSClient(WSClient):
+    def receive_all(self, *args, **kwargs):
+        while True:
+            response = self.receive(*args, **kwargs)
+            if response is None:
+                break
+            yield response

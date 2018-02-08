@@ -171,7 +171,7 @@ export default {
   },
   mutations: {
     setStoreIdFilter (state, storeId) {
-      state.storeIdFilter = parseInt(storeId)
+      state.storeIdFilter = parseInt(storeId, 10)
     },
     clearStoreIdFilter (state) {
       state.storeIdFilter = null

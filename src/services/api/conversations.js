@@ -2,7 +2,7 @@ import axios from '@/services/axios'
 
 export default {
   async get (id) {
-    return parseDates((await axios.get(`/api/conversations/${id}/`)).data)
+    return convert((await axios.get(`/api/conversations/${id}/`)).data)
   },
 
   async mark (id, data) {
@@ -10,7 +10,7 @@ export default {
   },
 }
 
-export function parseDates (obj) {
+export function convert (obj) {
   return {
     ...obj,
     createdAt: new Date(obj.createdAt),

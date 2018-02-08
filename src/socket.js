@@ -6,13 +6,13 @@ import auth from '@/services/api/auth'
 import { getter } from '@/store/storeHelpers'
 
 import { camelizeKeys } from '@/services/utils'
-import { convertDate as convertMessage } from '@/services/api/messages'
-import { parseDates as convertConversation } from '@/services/api/conversations'
-import { convertDate as convertPickup } from '@/services/api/pickups'
+import { convert as convertMessage } from '@/services/api/messages'
+import { convert as convertConversation } from '@/services/api/conversations'
+import { convert as convertPickup } from '@/services/api/pickups'
 import { convert as convertSeries } from '@/services/api/pickupSeries'
-import { parse as convertFeedback } from '@/services/api/feedback'
-import { convertDates as convertHistory } from '@/services/api/history'
-import { convertEntry as convertInvitation } from '@/services/api/invitations'
+import { convert as convertFeedback } from '@/services/api/feedback'
+import { convert as convertHistory } from '@/services/api/history'
+import { convert as convertInvitation } from '@/services/api/invitations'
 
 let WEBSOCKET_ENDPOINT
 

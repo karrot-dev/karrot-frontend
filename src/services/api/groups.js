@@ -1,5 +1,5 @@
 import axios from '@/services/axios'
-import { parseDates as convertConversation } from '@/services/api/conversations'
+import { convert as convertConversation } from '@/services/api/conversations'
 
 export default {
   async create (data) {

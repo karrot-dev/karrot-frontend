@@ -76,7 +76,7 @@ export default {
       commit('clear')
     },
 
-    update ({ state, commit }, invitation) {
+    add ({ state, commit }, invitation) {
       if (!state.idList.includes(invitation.id)) {
         commit('append', invitation)
       }

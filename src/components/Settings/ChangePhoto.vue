@@ -16,6 +16,7 @@
         :prevent-white-space="true"
         :show-loading="true"
         @file-choose="saveDisabled = false"
+        @image-remove="saveDisabled = false"
       >
         <img
           v-if="hasPhoto"

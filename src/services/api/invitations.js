@@ -2,19 +2,19 @@ import axios from '@/services/axios'
 
 export default {
   async create (invitation) {
-    return (await axios.post('/api/invitations/', invitation)).data
+    return convert((await axios.post('/api/invitations/', invitation)).data)
   },
 
   async get (invitationId) {
-    return (await axios.get(`/api/invitations/${invitationId}/`)).data
+    return convert((await axios.get(`/api/invitations/${invitationId}/`)).data)
   },
 
   async list () {
-    return (await axios.get('/api/invitations/')).data
+    return convert((await axios.get('/api/invitations/')).data)
   },
 
   async listByGroupId (groupId) {
-    return (await axios.get('/api/invitations/', { params: { group: groupId } })).data
+    return convert((await axios.get('/api/invitations/', { params: { group: groupId } })).data)
   },
 
   async accept (token) {
@@ -22,9 +22,9 @@ export default {
   },
 }
 
-export function convertEntry (val) {
+export function convert (val) {
   if (Array.isArray(val)) {
-    return val.map(convertEntry)
+    return val.map(convert)
   }
   else {
     return {

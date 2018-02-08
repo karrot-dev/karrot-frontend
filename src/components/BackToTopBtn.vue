@@ -33,5 +33,5 @@ export default {
 
 <style scoped lang = "stylus">
   .btt-btn
-    margin: 0 15px 80px 0
+    margin: 0 15px 40px 0
 </style>

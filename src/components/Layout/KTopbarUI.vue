@@ -36,7 +36,7 @@
           <q-icon name="fa-fw fa-arrow-right"/>
         </q-btn>
         <div>
-          <Search style="margin-top: .2em; vertical-align: middle"/>
+          <Search style="margin-top: .2em; vertical-align: middle;  width: 245px"/>
         </div>
       </div>
     </q-transition>

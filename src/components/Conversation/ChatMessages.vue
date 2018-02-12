@@ -2,10 +2,9 @@
   <div
     class="scroll"
     ref="myscroll"
-    style="overflow-y: auto; height: 100%; width: 100%">
-    <div
-      v-if="data && fetchMore && user"
-      v-chat-scroll="{always: false}">
+    style="overflow-y: auto; height: 100%; width: 100%"
+    v-chat-scroll="{always: false}">
+    <div v-if="data && fetchMore && user">
       <q-alert v-if="data.fetchStatus.hasValidationErrors">
         {{ data.fetchStatus.validationErrors }}
       </q-alert>

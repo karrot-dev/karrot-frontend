@@ -2,11 +2,11 @@ import axios, { parseCursor } from '@/services/axios'
 
 export default {
   async create (feedback) {
-    return parse((await axios.post('/api/feedback/', feedback)).data)
+    return convert((await axios.post('/api/feedback/', feedback)).data)
   },
 
   async get (feedbackId) {
-    return parse((await axios.get(`/api/feedback/${feedbackId}/`)).data)
+    return convert((await axios.get(`/api/feedback/${feedbackId}/`)).data)
   },
 
   async list (filter) {
@@ -14,7 +14,7 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: parse(response.results),
+      results: convert(response.results),
     }
   },
 
@@ -24,18 +24,18 @@ export default {
       ...response,
       next: parseCursor(response.next),
       prev: parseCursor(response.prev),
-      results: parse(response.results),
+      results: convert(response.results),
     }
   },
 
   async save (feedback) {
-    return parse((await axios.patch(`/api/feedback/${feedback.id}/`, feedback)).data)
+    return convert((await axios.patch(`/api/feedback/${feedback.id}/`, feedback)).data)
   },
 }
 
-export function parse (val) {
+export function convert (val) {
   if (Array.isArray(val)) {
-    return val.map(parse)
+    return val.map(convert)
   }
   else {
     return {

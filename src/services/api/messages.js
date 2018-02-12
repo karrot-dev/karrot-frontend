@@ -3,7 +3,7 @@ import axios, { parseCursor } from '@/services/axios'
 export default {
 
   async create (data) {
-    return convertDate((await axios.post('/api/messages/', data)).data)
+    return convert((await axios.post('/api/messages/', data)).data)
   },
 
   async list (conversationId) {
@@ -11,7 +11,7 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertDate(response.results),
+      results: convert(response.results),
     }
   },
 
@@ -21,14 +21,14 @@ export default {
       ...response,
       next: parseCursor(response.next),
       prev: parseCursor(response.prev),
-      results: convertDate(response.results),
+      results: convert(response.results),
     }
   },
 }
 
-export function convertDate (val) {
+export function convert (val) {
   if (Array.isArray(val)) {
-    return val.map(convertDate)
+    return val.map(convert)
   }
   else {
     const createdAt = new Date(val.createdAt)

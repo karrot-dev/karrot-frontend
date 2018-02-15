@@ -14,6 +14,7 @@
         :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
         autocomplete="off"
         :min-rows="2"
+        @keyup.ctrl.enter="send" 
       />
     </q-field>
 

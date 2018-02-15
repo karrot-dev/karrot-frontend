@@ -73,6 +73,7 @@
           <q-input
             v-model="edit.rule.custom"
             type="textarea"
+            @keyup.ctrl.enter="send" 
           />
           <div class="q-field-bottom">
             <i18n path="CREATEPICKUP.RRULE_HELPER">
@@ -138,6 +139,7 @@
           v-model="edit.description"
           type="textarea"
           max-length="500"
+          @keyup.ctrl.enter="send" 
         />
       </q-field>
 

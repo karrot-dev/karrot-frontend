@@ -47,6 +47,7 @@
                 v-model="edit.description"
                 type="textarea"
                 :min-rows="3"
+                @keyup.ctrl.enter="send"
               />
             </MarkdownInput>
           </q-field>

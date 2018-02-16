@@ -35,9 +35,7 @@
         >
           <q-icon name="fa-fw fa-arrow-right"/>
         </q-btn>
-        <div>
-          <Search style="margin-top: .2em; vertical-align: middle; width: 245px"/>
-        </div>
+        <Search style="margin-top: .2em; vertical-align: middle; width: 100%"/>
       </div>
     </q-transition>
     <q-btn
@@ -207,6 +205,9 @@ export default {
   padding-right .2em
   margin-right .2em
   border-radius $borderRadiusSmall
+  width: 100%
+  min-width: 200px
+  max-width: 400px
 .presence-indicator
   margin-right .3em
   font-size 100%

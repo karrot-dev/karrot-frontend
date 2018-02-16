@@ -5,6 +5,7 @@
       :users="users"
       :stores="stores"
       :current-group="currentGroup"
+      @mapZoomed="mapZoomed"
     />
   </div>
 </template>
@@ -24,6 +25,17 @@ export default {
       currentGroup: 'currentGroup/value',
     }),
   },
+  data () {
+    return {
+      zoomLvl: null,
+    }
+  },
+  methods: {
+    mapZoomed (zoomLvl) {
+      this.$router.replace({ query: {zoom: zoomLvl} })
+      this.zoomLvl = Number(zoomLvl)
+    },
+  },
 }
 </script>
 
@@ -32,7 +44,11 @@ export default {
   height 100%
   width 100%
 .placeholder
-  position absolute
-  height 100%
-  width 100%
+  width: 100vw;
+  height 100vh
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 </style>

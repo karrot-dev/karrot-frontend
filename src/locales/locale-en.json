@@ -82,7 +82,8 @@
     "HIDE_USERS": "Hide users",
     "SHOW_STORES": "Show stores",
     "HIDE_STORES": "Hide stores",
-    "SET_LOCATION": "Set location"
+    "SET_LOCATION": "Set location", 
+    "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",

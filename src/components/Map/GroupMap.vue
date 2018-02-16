@@ -5,6 +5,7 @@
       :selected-marker-ids="selectedMarkerIds"
       :style="style"
       :default-center="center"
+      @mapZoomed="mapZoomed"
     />
     <div
       v-if="showOverlay"
@@ -76,6 +77,9 @@ export default {
         }),
         popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
       }
+    },
+    mapZoomed (zoomLvl) {
+      this.$emit('mapZoomed', zoomLvl)
     },
   },
   computed: {

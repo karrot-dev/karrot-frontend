@@ -4156,6 +4156,14 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <div class="tools">
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
                 <div class="desktop-only q-focus-helper"></div>
+                      <!----><span class="q-btn-inner row col flex-center"><!----> <div to="[object Object]" tag="span" class="fa-fw fa-stack"><i class="fa fa-arrows-alt fa-stack-1x"></i></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        Show full screen
+      </span>
+                <!---->
+                </span>
+            </button>
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+                <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide stores
       </span>

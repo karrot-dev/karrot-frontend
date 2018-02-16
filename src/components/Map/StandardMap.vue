@@ -5,6 +5,7 @@
     :center="center"
     :zoom="zoom"
     @l-click="$emit('mapClick', arguments[0].latlng)"
+    @l-zoom="$emit('mapZoomed', arguments[0].target._zoom)"
   >
     <v-tile-layer
       :url="url"

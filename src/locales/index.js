@@ -48,6 +48,14 @@ const locales = {
     dateFnsLocale: () => import('date-fns/locale/fr'),
   },
 
+  hi: {
+    name: 'हिन्दी',
+    locale: 'hi',
+    messages: () => import('@/locales/locale-hi.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/hi'),
+    dateFnsLocale: () => import('date-fns/locale/en'), // TODO switch to Hindi when datefns supports it
+  },
+
   it: {
     name: 'Italiano',
     locale: 'it',
@@ -95,6 +103,7 @@ export function messages (locale) {
     case 'eo': return locales.eo.messages()
     case 'es': return locales.es.messages()
     case 'fr': return locales.fr.messages()
+    case 'hi': return locales.hi.messages()
     case 'it': return locales.it.messages()
     case 'ru': return locales.ru.messages()
     case 'sv': return locales.sv.messages()
@@ -110,6 +119,7 @@ export function intlLocale (locale) {
     case 'eo': return locales.eo.IntlData()
     case 'es': return locales.es.IntlData()
     case 'fr': return locales.fr.IntlData()
+    case 'hi': return locales.hi.IntlData()
     case 'it': return locales.it.IntlData()
     case 'ru': return locales.ru.IntlData()
     case 'sv': return locales.sv.IntlData()
@@ -125,6 +135,7 @@ export function dateFnsLocale (locale) {
     case 'eo': return locales.eo.dateFnsLocale()
     case 'es': return locales.es.dateFnsLocale()
     case 'fr': return locales.fr.dateFnsLocale()
+    case 'hi': return locales.hi.dateFnsLocale()
     case 'it': return locales.it.dateFnsLocale()
     case 'ru': return locales.ru.dateFnsLocale()
     case 'sv': return locales.sv.dateFnsLocale()

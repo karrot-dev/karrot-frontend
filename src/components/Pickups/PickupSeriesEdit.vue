@@ -73,7 +73,7 @@
           <q-input
             v-model="edit.rule.custom"
             type="textarea"
-            @keyup.ctrl.enter="send"
+            @keyup.ctrl.enter="maybeSave"
           />
           <div class="q-field-bottom">
             <i18n path="CREATEPICKUP.RRULE_HELPER">

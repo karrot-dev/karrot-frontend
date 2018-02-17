@@ -15,7 +15,7 @@
             <q-input
               v-model="edit.name"
               :autofocus="true"
-              :autocomplete="off"
+              autocomplete="off"
               @blur="$v.edit.name.$touch"
             />
           </q-field>
@@ -42,7 +42,7 @@
                 v-model="edit.description"
                 type="textarea"
                 :min-rows="3"
-                @keyup.ctrl.enter="send"
+                @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
           </q-field>

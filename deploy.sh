@@ -17,8 +17,8 @@ fi
 
 echo "deploying branch [$BRANCH] to [$name]"
 
-git clone https://github.com/yunity/yuca
+git clone https://github.com/yunity/yuca yuca
 pip install ansible
 
 export ANSIBLE_HOST_KEY_CHECKING=False
-ansible-playbook -i yuca/inventory -u "$name"-deploy --become-user "$name"-deploy ansible/playbooks/"$name"/deploy.playbook.yml -v
+ansible-playbook -i yuca/inventory -u "$name"-deploy --become-user "$name"-deploy yuca/playbooks/"$name"/deploy.playbook.yml -v

@@ -19,5 +19,8 @@ fi
 
 echo "deploying branch [$BRANCH] to [$name] on [$HOST]"
 
-scp deploy/deploy-systemd.sh deploy@$HOST:deploy-systemd.sh
-ssh deploy@$HOST ./deploy-systemd.sh "$name" "$BRANCH"
+git pull https://github.com/yunity/yuca
+pip install ansible
+
+export ANSIBLE_HOST_KEY_CHECKING=False
+ansible-playbook -i yuca/inventory -u "$name"-deploy --become-user "$name"-deploy ansible/playbooks/"$name"/deploy.playbook.yml -v

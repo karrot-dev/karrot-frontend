@@ -3,7 +3,7 @@
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
-    <form @submit.prevent="maybeSave">
+    <form @submit.prevent="save">
       <q-field
         icon="fa-star"
         :label="$t('USERDETAIL.DISPLAY_NAME')"
@@ -24,7 +24,7 @@
             v-model="edit.description"
             type="textarea"
             :min-rows="1"
-            @keyup.ctrl.enter="maybeSave"
+            @keyup.ctrl.enter="save"
           />
         </MarkdownInput>
       </q-field>
@@ -91,12 +91,6 @@ export default {
       for (let field of ['address', 'latitude', 'longitude']) {
         if (this.hasError(field)) return this.firstError(field)
       }
-    },
-  },
-  methods: {
-    maybeSave () {
-      if (!this.canSave) return
-      this.save()
     },
   },
 }

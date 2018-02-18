@@ -2,8 +2,6 @@
 
 set -e
 
-HOST=yuca.yunity.org
-
 name=$1
 
 if [ -z "$name" ]; then
@@ -17,9 +15,9 @@ if [ -z "$BRANCH" ]; then
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
 fi
 
-echo "deploying branch [$BRANCH] to [$name] on [$HOST]"
+echo "deploying branch [$BRANCH] to [$name]"
 
-git pull https://github.com/yunity/yuca
+git clone https://github.com/yunity/yuca
 pip install ansible
 
 export ANSIBLE_HOST_KEY_CHECKING=False

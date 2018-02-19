@@ -172,7 +172,7 @@ jobs:
           paths:
             - dist
 
-  build-cordova-dev:
+  build-cordova-prod:
     <<: *defaults
     steps:
       - attach_workspace:

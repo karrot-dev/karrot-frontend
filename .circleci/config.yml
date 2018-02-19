@@ -136,7 +136,11 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: yarn build-docs
+      - run:
+          name: build docs
+          command: |
+            set +e
+            yarn build-docs
       - persist_to_workspace:
           root: ~/repo
           paths:

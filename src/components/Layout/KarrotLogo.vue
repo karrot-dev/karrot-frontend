@@ -1,13 +1,17 @@
 <template>
   <div>
-    <img src="~@/assets/carrot-logo.svg">
+    <img :src="logo">
   </div>
 </template>
 
 <script>
-
 export default {
-  components: { },
+  components: {},
+  computed: {
+    logo () {
+      return DEV ? require('@/assets/carrot-logo.dev.svg') : require('@/assets/carrot-logo.svg')
+    },
+  },
 }
 </script>
 

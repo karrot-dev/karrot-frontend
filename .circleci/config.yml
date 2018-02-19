@@ -183,8 +183,7 @@ jobs:
             (cd / && sudo npm install -g cordova)
             cd cordova
             cordova platform add android
-            cordova build android --release \
-              -- --password=$CORDOVA_PASSWORD --storePassword=$CORDOVA_PASSWORD
+            ./build android prod release "$CORDOVA_PASSWORD"
             mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
             ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
             rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"

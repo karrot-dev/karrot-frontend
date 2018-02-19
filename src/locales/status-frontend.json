@@ -87,6 +87,17 @@
     "untranslated_entities": 140,
     "untranslated_words": 679
   },
+  "gu": {
+    "completed": "100%",
+    "last_commiter": "Yashvi",
+    "last_update": "2018-02-19 15:02:33",
+    "reviewed": 0,
+    "reviewed_percentage": "0%",
+    "translated_entities": 236,
+    "translated_words": 1032,
+    "untranslated_entities": 0,
+    "untranslated_words": 0
+  },
   "hi": {
     "completed": "100%",
     "last_commiter": "Hardiki",
@@ -97,6 +108,17 @@
     "translated_words": 1032,
     "untranslated_entities": 0,
     "untranslated_words": 0
+  },
+  "hr": {
+    "completed": "0%",
+    "last_commiter": "",
+    "last_update": "2018-02-18 18:40:02",
+    "reviewed": 0,
+    "reviewed_percentage": "0%",
+    "translated_entities": 0,
+    "translated_words": 0,
+    "untranslated_entities": 236,
+    "untranslated_words": 1032
   },
   "it": {
     "completed": "20%",

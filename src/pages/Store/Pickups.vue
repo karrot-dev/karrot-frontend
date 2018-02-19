@@ -41,7 +41,24 @@
       @join="join"
       @leave="leave"
     />
-    <KNotice v-if="pickups && pickups.length == 0" >
+    <KNotice v-if="isInactive" >
+      <template slot="icon">
+        <i class="fa fa-handshake-o"/>
+      </template>
+      {{ $t('STOREDETAIL.INACTIVE') }}
+      <template slot="desc">
+        <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
+          {{ $t('STOREDETAIL.CHANGE_STATUS') }}
+          <q-btn
+            small
+            round
+            flat
+            icon="fa-pencil"
+          />
+        </router-link>
+      </template>
+    </KNotice>
+    <KNotice v-else-if="hasNoPickups" >
       <template slot="icon">
         <i class="fa fa-bed"/>
       </template>
@@ -87,6 +104,12 @@ export default {
       pickups: 'pickups/filtered',
       currentUser: 'auth/user',
     }),
+    hasNoPickups () {
+      return this.pickups && this.pickups.length === 0
+    },
+    isInactive () {
+      return this.store && this.store.status !== 'active'
+    },
   },
 }
 </script>

@@ -14,3 +14,4 @@ class StoreFactory(DjangoModelFactory):
     group = SubFactory(GroupFactory)
     name = LazyAttribute(lambda x: faker.sentence(nb_words=4))
     description = LazyAttribute(lambda x: faker.name())
+    status = 'active'

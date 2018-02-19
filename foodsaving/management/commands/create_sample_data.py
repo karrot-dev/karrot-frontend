@@ -115,7 +115,8 @@ class Command(BaseCommand):
                 'group': group,
                 'address': faker.street_address(),
                 'latitude': faker.latitude(),
-                'longitude': faker.longitude()
+                'longitude': faker.longitude(),
+                'status': 'active'
             }).data
             print('created store: ', data['id'], data['name'])
             return data

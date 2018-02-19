@@ -5,6 +5,7 @@ import requests
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.contrib.postgres.fields import JSONField
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db import transaction
 from django.db.models import Count, Q
@@ -14,8 +15,6 @@ from django.utils import timezone
 
 from foodsaving.base.base_models import BaseModel
 from foodsaving.history.models import History, HistoryTypus
-from django.core.validators import MinValueValidator, MaxValueValidator
-
 
 pickup_done = Signal()
 
@@ -117,38 +116,40 @@ class PickupDateManager(models.Manager):
     def process_finished_pickup_dates(self):
         """find all pickup dates that are in the past and didn't get processed yet and add them to history
         """
-        for _ in self.filter(
+        for pickup in self.filter(
                 done_and_processed=False,
                 date__lt=timezone.now(),
                 deleted=False,
         ):
-            payload = {}
-            payload['pickup_date'] = _.id
-            if _.series:
-                payload['series'] = _.series.id
-            if _.max_collectors:
-                payload['max_collectors'] = _.max_collectors
-            if _.collectors.count() == 0:
-                History.objects.create(
-                    typus=HistoryTypus.PICKUP_MISSED,
-                    group=_.store.group,
-                    store=_.store,
-                    date=_.date,
-                    payload=payload,
-                )
-            else:
-                History.objects.create(
-                    typus=HistoryTypus.PICKUP_DONE,
-                    group=_.store.group,
-                    store=_.store,
-                    users=_.collectors.all(),
-                    date=_.date,
-                    payload=payload,
-                )
-            _.done_and_processed = True
-            _.save()
+            if pickup.store.is_active():
+                payload = {}
+                payload['pickup_date'] = pickup.id
+                if pickup.series:
+                    payload['series'] = pickup.series.id
+                if pickup.max_collectors:
+                    payload['max_collectors'] = pickup.max_collectors
+                if pickup.collectors.count() == 0:
+                    History.objects.create(
+                        typus=HistoryTypus.PICKUP_MISSED,
+                        group=pickup.store.group,
+                        store=pickup.store,
+                        date=pickup.date,
+                        payload=payload,
+                    )
+                else:
+                    History.objects.create(
+                        typus=HistoryTypus.PICKUP_DONE,
+                        group=pickup.store.group,
+                        store=pickup.store,
+                        users=pickup.collectors.all(),
+                        date=pickup.date,
+                        payload=payload,
+                    )
 
-            pickup_done.send(sender=PickupDate.__class__, instance=_)
+            pickup.done_and_processed = True
+            pickup.save()
+
+            pickup_done.send(sender=PickupDate.__class__, instance=pickup)
 
     def feedback_possible_q(self, user):
         return Q(date__lte=timezone.now()) \

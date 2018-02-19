@@ -105,12 +105,6 @@ class TestHistoryAPIWithExistingStore(APITestCase, ExtractPaginationMixin):
         response = self.get_results(history_url)
         self.assertEqual(len(response.data), 0)
 
-    def test_delete_store(self):
-        self.client.force_login(self.member)
-        self.client.delete(self.store_url, {'name': 'new'})
-        response = self.get_results(history_url)
-        self.assertEqual(response.data[0]['typus'], 'STORE_DELETE')
-
     def test_create_pickup(self):
         self.client.force_login(self.member)
         self.client.post('/api/pickup-dates/', {
@@ -204,7 +198,6 @@ class TestHistoryAPIWithDonePickup(APITestCase, ExtractPaginationMixin):
             store=self.store,
             date=timezone.now() - relativedelta(days=1)
         )
-        self.pickup_url = '/api/pickup-dates/{}/'.format(self.pickup.id)
         self.pickup.collectors.add(self.member)
         call_command('process_finished_pickup_dates')
 
@@ -245,6 +238,34 @@ class TestHistoryAPIWithMissedPickup(APITestCase, ExtractPaginationMixin):
         response = self.get_results(history_url, {'typus': 'PICKUP_MISSED'})
         self.assertEqual(response.data[0]['typus'], 'PICKUP_MISSED')
         response = self.get_results(history_url, {'typus': 'GROUP_JOIN'})  # unrelated event should give no result
+        self.assertEqual(len(response.data), 0)
+
+
+class TestHistoryAPIPickupForInactiveStore(APITestCase, ExtractPaginationMixin):
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member, ])
+        self.store = StoreFactory(group=self.group, status='archived')
+        self.pickup = PickupDateFactory(
+            store=self.store,
+            date=timezone.now() - relativedelta(days=1)
+        )
+        self.pickup.collectors.add(self.member)
+
+        PickupDateFactory(
+            store=self.store,
+            date=timezone.now() - relativedelta(days=1)
+        )
+        call_command('process_finished_pickup_dates')
+
+    def test_no_pickup_done_for_inactive_store(self):
+        self.client.force_login(self.member)
+        response = self.get_results(history_url, {'typus': 'PICKUP_DONE'})
+        self.assertEqual(len(response.data), 0)
+
+    def test_no_pickup_missed_for_inactive_store(self):
+        self.client.force_login(self.member)
+        response = self.get_results(history_url, {'typus': 'PICKUP_MISSED'})
         self.assertEqual(len(response.data), 0)
 
 

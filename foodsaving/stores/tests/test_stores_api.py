@@ -1,16 +1,17 @@
 from copy import deepcopy
-from rest_framework import status
-from rest_framework.test import APITestCase
+
+from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
-from dateutil.parser import parse
+from rest_framework import status
+from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.pickups.factories import PickupDateSeriesFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.tests.utils import ExtractPaginationMixin
 from foodsaving.users.factories import UserFactory
 from foodsaving.utils.tests.fake import faker
-from foodsaving.pickups.factories import PickupDateSeriesFactory, PickupDateFactory
 
 
 class TestStoresAPI(APITestCase, ExtractPaginationMixin):
@@ -133,23 +134,12 @@ class TestStoresAPI(APITestCase, ExtractPaginationMixin):
     def test_delete_stores_as_user(self):
         self.client.force_login(user=self.user)
         response = self.client.delete(self.store_url)
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def test_delete_stores_as_group_member(self):
-        PickupDateSeriesFactory(store=self.store)
-        PickupDateFactory(store=self.store)
-
         self.client.force_login(user=self.member)
         response = self.client.delete(self.store_url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        response = self.client.get(self.url)
-        self.assertEqual(len(response.data), 0)
-
-        # should also delete pickup dates & series
-        response = self.get_results('/api/pickup-dates/')
-        self.assertEqual(len(response.data), 0)
-        response = self.client.get('/api/pickup-date-series/')
-        self.assertEqual(len(response.data), 0)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
 class TestStoreChangesPickupDateSeriesAPI(APITestCase, ExtractPaginationMixin):

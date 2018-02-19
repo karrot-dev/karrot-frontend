@@ -22,3 +22,15 @@ class TestStoreModel(TestCase):
     def test_create_store_with_same_name_in_different_groups_works(self):
         Store.objects.create(name='abcdef', group=self.group)
         Store.objects.create(name='abcdef', group=GroupFactory())
+
+    def test_get_active_status(self):
+        s = Store.objects.create(name='my store', group=self.group)
+        self.assertFalse(s.is_active())
+
+        s.status = 'active'
+        s.save()
+        self.assertTrue(s.is_active())
+
+        s.status = 'declined'
+        s.save()
+        self.assertFalse(s.is_active())

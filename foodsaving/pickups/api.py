@@ -133,7 +133,7 @@ class PickupDateViewSet(
         return super().get_permissions()
 
     def get_queryset(self):
-        return self.queryset.filter(store__group__members=self.request.user)
+        return self.queryset.filter(store__group__members=self.request.user, store__status='active')
 
     def perform_destroy(self, pickup):
         # set deleted flag to make the pickup date invisible

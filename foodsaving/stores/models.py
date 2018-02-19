@@ -22,3 +22,6 @@ class Store(BaseModel, LocationModel):
 
     def __str__(self):
         return 'Store {} ({})'.format(self.name, self.group)
+
+    def is_active(self):
+        return self.status == 'active'

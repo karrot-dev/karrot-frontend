@@ -24,8 +24,10 @@ class StoreSerializer(serializers.ModelSerializer):
             }
         }
 
-    status = serializers.ChoiceField(choices=StoreModel.STATUSES,
-                                     default=StoreModel.DEFAULT_STATUS)
+    status = serializers.ChoiceField(
+        choices=StoreModel.STATUSES,
+        default=StoreModel.DEFAULT_STATUS
+    )
 
     def create(self, validated_data):
         store = super().create(validated_data)

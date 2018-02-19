@@ -4,12 +4,7 @@ from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
-from foodsaving.history.models import History, HistoryTypus
 from foodsaving.stores.models import Store as StoreModel
-from foodsaving.pickups.models import (
-    PickupDate as PickupDateModel,
-    PickupDateSeries as PickupDateSeriesModel
-)
 from foodsaving.stores.serializers import StoreSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
@@ -18,7 +13,6 @@ class StoreViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
     PartialUpdateModelMixin,
-    mixins.DestroyModelMixin,
     mixins.ListModelMixin,
     GenericViewSet
 ):
@@ -38,16 +32,3 @@ class StoreViewSet(
 
     def get_queryset(self):
         return self.queryset.filter(group__members=self.request.user)
-
-    def perform_destroy(self, store):
-        store.deleted = True
-        store.save()
-        History.objects.create(
-            typus=HistoryTypus.STORE_DELETE,
-            group=store.group,
-            store=store,
-            users=[self.request.user, ],
-        )
-        # implicit action: delete all pickups and series, but don't send out signals for them
-        PickupDateModel.objects.filter(store=store).delete()
-        PickupDateSeriesModel.objects.filter(store=store).delete()

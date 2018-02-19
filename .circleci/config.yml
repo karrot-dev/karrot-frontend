@@ -3,6 +3,19 @@ defaults: &defaults
   docker:
     - image: circleci/node:8.5
 
+build-android: &build-android
+  name: build android
+  command: |
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+    sudo apt install -y gradle nodejs rsync
+    (cd / && sudo npm install -g cordova)
+    cd cordova
+    cordova platform add android
+    ./build android $CORDOVA_ENV release "$CORDOVA_PASSWORD"
+    mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
+    ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+    rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
+
 version: 2
 jobs:
   install-dependencies:
@@ -146,22 +159,33 @@ jobs:
           paths:
             - docs-dist
 
-  build-cordova:
+  build-cordova-dev:
     <<: *defaults
     steps:
       - attach_workspace:
           at: .
       - run:
           name: build cordova app
-          environment:
-            BACKEND: https://dev.karrot.world
-          command: yarn build:cordova
+          command: yarn build:cordova:dev
       - persist_to_workspace:
           root: ~/repo
           paths:
             - dist
 
-  build-android:
+  build-cordova-dev:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: build cordova app
+          command: yarn build:cordova:prod
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - dist
+
+  build-android-dev:
     working_directory: ~/repo
     docker:
       - image: circleci/android:api-26-alpha
@@ -173,20 +197,38 @@ jobs:
           keys:
           - gradle-cache
       - run:
+        <<: *build-android
+        name: build android apk
+        environment:
+          HOST: yuca.yunity.org
+          DIR: master
+          CORDOVA_ENV: dev
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: gradle-cache
+      - store_artifacts:
+          path: /tmp/android-release.apk
+          destination: android-release.apk
+
+  build-android-prod:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/android:api-26-alpha
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          keys:
+          - gradle-cache
+      - run:
+          <<: *build-android
           name: build android apk
           environment:
             HOST: yuca.yunity.org
-            DIR: master
-          command: |
-            curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-            sudo apt install -y gradle nodejs rsync
-            (cd / && sudo npm install -g cordova)
-            cd cordova
-            cordova platform add android
-            ./build android prod release "$CORDOVA_PASSWORD"
-            mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
-            ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
-            rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
+            DIR: release
+            CORDOVA_ENV: prod
       - save_cache:
           paths:
             - ~/.gradle
@@ -239,16 +281,16 @@ workflows:
       - build-docs:
           requires:
             - install-dependencies
-      - build-cordova:
+      - build-cordova-dev:
           requires:
             - install-dependencies
-      - build-android:
+      - build-android-dev:
           filters:
             branches:
               only:
                 - master
           requires:
-            - build-cordova
+            - build-cordova-dev
       - deploy-dev:
           filters:
             branches:
@@ -264,6 +306,16 @@ workflows:
           type: approval
           requires:
             - deploy-dev
+      - build-cordova-prod:
+          requires:
+            - approval
+      - build-android-prod:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-cordova-prod
       - install-e2e-dependencies:
           requires:
             - approval

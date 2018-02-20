@@ -6,9 +6,6 @@ defaults: &defaults
 build-android: &build-android
   name: build android
   command: |
-    curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-    sudo apt install -y gradle nodejs rsync
-    (cd / && sudo npm install -g cordova)
     cd ~/repo/cordova 
     echo "current dir [$(pwd)]"
     ls -la
@@ -204,7 +201,7 @@ jobs:
   build-android-dev:
     working_directory: ~/repo
     docker:
-      - image: circleci/android:api-26-alpha
+      - image: karrot/android-build:api-26-alpha
     steps:
       - checkout
       - attach_workspace:
@@ -230,7 +227,7 @@ jobs:
   build-android-prod:
     working_directory: ~/repo
     docker:
-      - image: circleci/android:api-26-alpha
+      - image: karrot/android-build:api-26-alpha
     steps:
       - checkout
       - attach_workspace:

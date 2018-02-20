@@ -10,6 +10,8 @@ build-android: &build-android
     sudo apt install -y gradle nodejs rsync
     (cd / && sudo npm install -g cordova)
     cd ~/repo/cordova 
+    echo "current dir [$(pwd)]"
+    ls -la
     cordova platform add android
     ./build android $CORDOVA_ENV release "$CORDOVA_PASSWORD"
     mv platforms/android/build/outputs/apk/release/android-release.apk /tmp

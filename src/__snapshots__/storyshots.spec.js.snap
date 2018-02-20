@@ -1954,7 +1954,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
 <div class="q-toolbar row no-wrap items-center relative-position q-toolbar-normal bg-primary">
     <div to="[object Object]" class="logo">
         <div>
-            <img src="~@/assets/carrot-logo.svg">
+            <img src="test-file-stub">
         </div>
     </div>
     <div class="q-toolbar-title">

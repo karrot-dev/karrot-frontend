@@ -9,7 +9,7 @@ build-android: &build-android
     cd ~/repo/cordova
     echo "current dir [$(pwd)]"
     ls -la
-    ls -la www
+    ls -la www/
     cordova platform add android
     ./build android $CORDOVA_ENV release "$CORDOVA_PASSWORD"
     mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
@@ -202,7 +202,7 @@ jobs:
   build-android-dev:
     working_directory: ~/repo
     docker:
-      - image: karrot/android-build:api-26-alpha
+      - image: karrot/android-build:api-27-node8-alpha
     steps:
       - checkout
       - attach_workspace:
@@ -228,7 +228,7 @@ jobs:
   build-android-prod:
     working_directory: ~/repo
     docker:
-      - image: karrot/android-build:api-26-alpha
+      - image: karrot/android-build:api-27-node8-alpha
     steps:
       - checkout
       - attach_workspace:

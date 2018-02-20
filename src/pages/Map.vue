@@ -5,7 +5,9 @@
       :users="users"
       :stores="stores"
       :current-group="currentGroup"
-      @mapZoomed="mapZoomed"
+      :center-url="center"
+      :zoom-url="zoom"
+      @mapMoveEnd="mapMoveEnd"
     />
   </div>
 </template>
@@ -24,16 +26,16 @@ export default {
       users: 'users/byCurrentGroup',
       currentGroup: 'currentGroup/value',
     }),
-  },
-  data () {
-    return {
-      zoomLvl: null,
-    }
+    center () {
+      return {lat: Number(this.$route.query.lat), lng: Number(this.$route.query.lng)}
+    },
+    zoom () {
+      return Number(this.$route.query.zoom)
+    },
   },
   methods: {
-    mapZoomed (zoomLvl) {
-      this.$router.replace({ query: {zoom: zoomLvl} })
-      this.zoomLvl = Number(zoomLvl)
+    mapMoveEnd (target) {
+      this.$router.replace({query: {lat: target.getCenter().lat, lng: target.getCenter().lng, zoom: target.getZoom()}})
     },
   },
 }
@@ -46,9 +48,9 @@ export default {
 .placeholder
   width: 100vw;
   height 100vh
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  position absolute
+  left 50%
+  right 50%
+  margin-left -50vw
+  margin-right -50vw
 </style>

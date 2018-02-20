@@ -5,7 +5,7 @@
     :center="center"
     :zoom="zoom"
     @l-click="$emit('mapClick', arguments[0].latlng)"
-    @l-zoom="$emit('mapZoomed', arguments[0].target._zoom)"
+    @l-moveend="$emit('mapMoveEnd', arguments[0].target)"
   >
     <v-tile-layer
       :url="url"
@@ -76,6 +76,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    centerUrl: {
+      type: Object,
+      default: null,
+    },
+    zoomUrl: {
+      type: Number,
+      default: null,
+    },
   },
   data () {
     return {
@@ -119,11 +127,13 @@ export default {
       return ''
     },
     bounds () {
+      if (this.centerUrl && !Number.isNaN(this.centerUrl.lat)) return null
       if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
         return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
       }
     },
     center () {
+      if (this.centerUrl && !Number.isNaN(this.centerUrl.lat)) return [this.centerUrl.lat, this.centerUrl.lng]
       if (!this.bounds) {
         if (this.hasOneMarker) {
           const { lat, lng } = this.markersForBound[0].latLng
@@ -136,6 +146,9 @@ export default {
       }
     },
     zoom () {
+      if (!Number.isNaN(this.zoomUrl)) {
+        return this.zoomUrl
+      }
       if (!this.preventZoom && !this.bounds) {
         if (this.defaultCenter) {
           return 10

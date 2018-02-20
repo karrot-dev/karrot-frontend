@@ -5,7 +5,9 @@
       :selected-marker-ids="selectedMarkerIds"
       :style="style"
       :default-center="center"
-      @mapZoomed="mapZoomed"
+      :center-url="centerUrl"
+      :zoom-url="zoomUrl"
+      @mapMoveEnd="mapMoveEnd"
     />
     <div
       v-if="showOverlay"
@@ -46,6 +48,8 @@ export default {
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
+    centerUrl: { type: Object, default: null },
+    zoomUrl: { type: Number, default: null },
   },
   methods: {
     userMarkerId (userId) {
@@ -78,8 +82,8 @@ export default {
         popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
       }
     },
-    mapZoomed (zoomLvl) {
-      this.$emit('mapZoomed', zoomLvl)
+    mapMoveEnd (target) {
+      this.$emit('mapMoveEnd', target)
     },
   },
   computed: {

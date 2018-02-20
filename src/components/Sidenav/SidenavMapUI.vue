@@ -16,7 +16,7 @@
         style="padding: 0 5px"
       >
         <router-link
-          :to="{name: 'map'}"
+          :to="{name: 'map', params: {groupId: currentGroup.id}}"
           class="fa-fw fa-stack"
           tag="span"
         >

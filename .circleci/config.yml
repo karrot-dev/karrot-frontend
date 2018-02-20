@@ -62,6 +62,7 @@ jobs:
             cd karrot-backend
             virtualenv -p python3 env
             env/bin/pip install --upgrade pip
+            env/bin/pip install pip-sync
             env/bin/pip-sync requirements*.txt
             cp config/local_settings.py.ci config/local_settings.py
       - save_cache:

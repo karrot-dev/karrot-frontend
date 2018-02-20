@@ -62,7 +62,6 @@ jobs:
             cd karrot-backend
             virtualenv -p python3 env
             env/bin/pip install --upgrade pip
-            env/bin/pip install -r requirements-dev.txt
             env/bin/pip-sync requirements*.txt
             cp config/local_settings.py.ci config/local_settings.py
       - save_cache:
@@ -309,6 +308,7 @@ workflows:
                 - master
           requires:
             - build-cordova-dev
+            - deploy-dev
       - deploy-dev:
           filters:
             branches:
@@ -329,7 +329,7 @@ workflows:
             - approval
       - build-cordova-prod:
           requires:
-            - build-prod
+            - e2e-test
       - build-android-prod:
           filters:
             branches:
@@ -337,6 +337,7 @@ workflows:
                 - master
           requires:
             - build-cordova-prod
+            - deploy-release
       - install-e2e-dependencies:
           requires:
             - build-prod

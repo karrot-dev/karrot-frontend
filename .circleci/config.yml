@@ -7,7 +7,8 @@ build-android: &build-android
   name: build android
   command: |
     cd ~/repo/cordova
-    ln -s "config/$CORDOVA_ENV" config/current
+    rm -f config/current
+    ln -s "$CORDOVA_ENV" config/current
     cordova platform add android
     ./build android "$CORDOVA_ENV" release "$CORDOVA_PASSWORD"
     mv platforms/android/build/outputs/apk/release/android-release.apk /tmp

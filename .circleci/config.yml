@@ -46,18 +46,18 @@ jobs:
   install-e2e-dependencies:
     working_directory: ~/repo
     docker:
-      - image: node:8.5
+      - image: karrot/e2e:1.0
     steps:
       - attach_workspace:
           at: ~/repo
+      - restore_cache:
+          key: python-cache
       - run:
           name: prepare backend
           command: |
             set -x
             export LC_ALL=C.UTF-8
             export LANG=C.UTF-8
-            apt-get update
-            apt-get install -y python3 python3-dev virtualenv
             git clone https://github.com/yunity/karrot-backend
             cd karrot-backend
             virtualenv -p python3 env
@@ -65,6 +65,11 @@ jobs:
             env/bin/pip install -r requirements-dev.txt
             env/bin/pip-sync requirements*.txt
             cp config/local_settings.py.ci config/local_settings.py
+      - save_cache:
+          paths:
+            - env
+            - ~/.cache/pip
+          key: python-cache
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -73,7 +78,7 @@ jobs:
   e2e-test:
     working_directory: ~/repo
     docker:
-      - image: node:8.5
+      - image: karrot/e2e:1.0
         environment:
           PGHOST: 127.0.0.1
       - image: circleci/postgres:9.6.2
@@ -90,8 +95,6 @@ jobs:
             set -x
             export LC_ALL=C.UTF-8
             export LANG=C.UTF-8
-            apt-get update
-            apt-get install -y python3 python3-dev virtualenv
             cd karrot-backend
             env/bin/python manage.py migrate
             env/bin/python manage.py runserver

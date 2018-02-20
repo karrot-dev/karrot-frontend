@@ -182,7 +182,8 @@
     ],
     "globals": {
       "CORDOVA": false,
-      "DEV": true
+      "DEV": true,
+      "KARROT_THEME": "dev"
     }
   }
 }

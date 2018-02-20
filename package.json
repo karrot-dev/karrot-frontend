@@ -22,7 +22,8 @@
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
-    "build:cordova": "CORDOVA=true node build/script.build.js",
+    "build:cordova:dev": "KARROT_THEME=dev BACKEND=https://dev.karrot.world CORDOVA=true node build/script.build.js",
+    "build:cordova:prod": "BACKEND=https://karrot.world CORDOVA=true node build/script.build.js",
     "serve": "node build/script.serve.js",
     "test": "node test/jestUTC.js",
     "test:update": "node test/jestUTC.js --verbose --updateSnapshot",
@@ -146,11 +147,11 @@
       "<rootDir>/src"
     ],
     "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/test/styleMock.js",
       "@/(.*)$": "<rootDir>/src/$1",
       ">/(.*)$": "<rootDir>/test/$1",
-      "^quasar$": "<rootDir>/node_modules/quasar-framework",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/test/styleMock.js"
+      "^quasar$": "<rootDir>/node_modules/quasar-framework"
     },
     "moduleFileExtensions": [
       "js",
@@ -181,7 +182,8 @@
     ],
     "globals": {
       "CORDOVA": false,
-      "DEV": true
+      "DEV": true,
+      "KARROT_THEME": "dev"
     }
   }
 }

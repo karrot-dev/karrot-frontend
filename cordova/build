@@ -54,7 +54,7 @@ function setconfig() {
   ln -s $name config/current
 }
 
-setconfig "$config_env" && cordova run "$platform" \
+setconfig "$config_env" && cordova build "$platform" \
   --"$build_type" -- \
   --password "$password" \
   --storePassword "$password"

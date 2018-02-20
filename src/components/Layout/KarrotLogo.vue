@@ -9,7 +9,7 @@ export default {
   components: {},
   computed: {
     logo () {
-      return DEV ? require('@/assets/carrot-logo.dev.svg') : require('@/assets/carrot-logo.svg')
+      return KARROT_THEME === 'dev' ? require('@/assets/carrot-logo.dev.svg') : require('@/assets/carrot-logo.svg')
     },
   },
 }

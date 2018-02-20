@@ -21,6 +21,7 @@ module.exports = {
     'PROD': true,
     'CORDOVA': true,
     'BACKEND': true,
+    'KARROT_THEME': true,
     '__THEME': true
   },
   // add your custom rules here

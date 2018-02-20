@@ -22,7 +22,7 @@
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
-    "build:cordova:dev": "BACKEND=https://dev.karrot.world CORDOVA=true node build/script.build.js",
+    "build:cordova:dev": "KARROT_THEME=dev BACKEND=https://dev.karrot.world CORDOVA=true node build/script.build.js",
     "build:cordova:prod": "BACKEND=https://karrot.world CORDOVA=true node build/script.build.js",
     "serve": "node build/script.serve.js",
     "test": "node test/jestUTC.js",

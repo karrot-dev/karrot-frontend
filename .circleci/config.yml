@@ -122,7 +122,21 @@ jobs:
           at: ~/repo
       - run: yarn lint
 
-  build:
+  build-dev:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          environment:
+            KARROT_THEME: dev
+          command: yarn build
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - dist
+
+  build-prod:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -272,7 +286,7 @@ workflows:
       - lint:
           requires:
             - install-dependencies
-      - build:
+      - build-dev:
           requires:
             - install-dependencies
       - build-storybook:
@@ -306,9 +320,12 @@ workflows:
           type: approval
           requires:
             - deploy-dev
-      - build-cordova-prod:
+      - build-prod:
           requires:
             - approval
+      - build-cordova-prod:
+          requires:
+            - build-prod
       - build-android-prod:
           filters:
             branches:
@@ -318,7 +335,7 @@ workflows:
             - build-cordova-prod
       - install-e2e-dependencies:
           requires:
-            - approval
+            - build-prod
       - e2e-test:
           requires:
             - install-e2e-dependencies

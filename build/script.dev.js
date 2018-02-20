@@ -1,4 +1,5 @@
 process.env.NODE_ENV = 'development'
+process.env.KARROT_THEME = 'dev'
 
 require('dotenv').config()
 

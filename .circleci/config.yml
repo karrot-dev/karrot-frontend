@@ -10,7 +10,7 @@ build-android: &build-android
     rm -f config/current
     ln -s "$CORDOVA_ENV" config/current
     cordova platform add android
-    ./build android "$CORDOVA_ENV" release "$CORDOVA_PASSWORD"
+    ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
     mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
     ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
     rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
@@ -219,6 +219,7 @@ jobs:
             HOST: yuca.yunity.org
             DIR: master
             CORDOVA_ENV: dev
+            PASSWORD_VAR: CORDOVA_DEV_PASSWORD
       - save_cache:
           paths:
             - ~/.gradle
@@ -245,6 +246,7 @@ jobs:
             HOST: yuca.yunity.org
             DIR: release
             CORDOVA_ENV: prod
+            PASSWORD_VAR: CORDOVA_PROD_PASSWORD
       - save_cache:
           paths:
             - ~/.gradle

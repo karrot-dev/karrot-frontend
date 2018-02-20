@@ -7,13 +7,9 @@ build-android: &build-android
   name: build android
   command: |
     cd ~/repo/cordova
-    echo "current dir [$(pwd)]"
-    ls -la
-    ls -la www/
-    ls -la config/
-    ls -la config/current/
+    ln -s "config/$CORDOVA_ENV" config/current
     cordova platform add android
-    ./build android $CORDOVA_ENV release "$CORDOVA_PASSWORD"
+    ./build android "$CORDOVA_ENV" release "$CORDOVA_PASSWORD"
     mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
     ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
     rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"

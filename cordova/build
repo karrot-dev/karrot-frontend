@@ -14,17 +14,17 @@ function usage() {
 if [ -z "$platform" ]; then
   usage
   exit 1
-fi 
+fi
 
 if [ -z "$config_env" ]; then
   usage
   exit 1
-fi 
+fi
 
 if [ -z "$build_type" ]; then
   usage
   exit 1
-fi 
+fi
 
 export CORDOVA_ENV="$config_env"
 
@@ -47,7 +47,10 @@ function setconfig() {
     exit 1
   fi
 
-  rm config/current
+  if [ -f config/current ]; then
+    rm config/current
+  fi
+
   ln -s $name config/current
 }
 

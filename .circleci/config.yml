@@ -313,7 +313,7 @@ workflows:
           requires:
             - test
             - lint
-            - build
+            - build-dev
             - build-storybook
             - build-docs
       - approval:

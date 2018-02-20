@@ -211,12 +211,12 @@ jobs:
           keys:
           - gradle-cache
       - run:
-        <<: *build-android
-        name: build android apk
-        environment:
-          HOST: yuca.yunity.org
-          DIR: master
-          CORDOVA_ENV: dev
+          <<: *build-android
+          name: build android apk
+          environment:
+            HOST: yuca.yunity.org
+            DIR: master
+            CORDOVA_ENV: dev
       - save_cache:
           paths:
             - ~/.gradle

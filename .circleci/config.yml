@@ -10,6 +10,8 @@ build-android: &build-android
     echo "current dir [$(pwd)]"
     ls -la
     ls -la www/
+    ls -la config/
+    ls -la config/current/
     cordova platform add android
     ./build android $CORDOVA_ENV release "$CORDOVA_PASSWORD"
     mv platforms/android/build/outputs/apk/release/android-release.apk /tmp

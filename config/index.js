@@ -4,7 +4,12 @@ const backend = (process.env.BACKEND || 'https://dev.karrot.world').replace(/\/$
 
 const backendProxy = {
   target: backend,
-  changeOrigin: true,
+
+  // If we are proxying to an https:// backend we need to change the origin to the target
+  // domain so that we make the request with the correct hostname
+  // However, when we are running inside docker the backend is not accessible from the client
+  // so we need to use the origin origin (localhost).
+  changeOrigin: /^https:/.test(backend),
   ws: true,
   onProxyReq: (proxyReq) => {
     if (/^https:/.test(backend)) {

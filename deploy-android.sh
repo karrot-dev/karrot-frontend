@@ -50,7 +50,7 @@ ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
 echo "deploying app [$APK] to [$HOST] in [$DIR] dir"
 
-rsync -avz ~/android-dev.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
+rsync -avz "$APK" "deploy@$HOST:karrot-app/$DIR/app.apk"
 
 if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 

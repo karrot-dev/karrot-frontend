@@ -335,6 +335,7 @@ workflows:
                 - master
           requires:
             - build-android-dev
+            - test
       - deploy-dev:
           filters:
             branches:

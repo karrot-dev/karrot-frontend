@@ -237,6 +237,7 @@ jobs:
   deploy-android-dev:
     <<: *defaults
     steps:
+      - run: sudo apt install -y rsync
       - attach_workspace:
           at: .
       - run:
@@ -247,6 +248,7 @@ jobs:
   deploy-android-prod:
     <<: *defaults
     steps:
+      - run: sudo apt install -y rsync
       - attach_workspace:
           at: .
       - run:

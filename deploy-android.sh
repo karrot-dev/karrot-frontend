@@ -36,9 +36,9 @@ else
 
   # nothing
 
-  echo "Not deploying"
+  echo "Not deploying [$APK] to [$DIR] as it has not been configured in deploy-android.sh"
 
-  exit 0
+  exit 1
 
 fi
 

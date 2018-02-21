@@ -26,5 +26,10 @@
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
+    <universal-links>
+        <host event="karrot" name="karrot.world" scheme="https">
+            <path url="/" />
+        </host>
+    </universal-links>
     <engine name="android" spec="^6.4.0" />
 </widget>

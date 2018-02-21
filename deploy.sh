@@ -46,6 +46,7 @@ fi
 REF_URL="$REPO_URL/tree/$REF"
 COMMIT_URL="$REPO_URL/tree/$COMMIT_SHA"
 
+mkdir -p ~/.ssh
 ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
 echo "deploying frontend branch [$REF] to [$HOST] in [$DIR] dir"

@@ -16,7 +16,7 @@ build-android: &build-android
     ln -s "$CORDOVA_ENV" config/current
     cordova platform add android
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
-    mv platforms/android/build/outputs/apk/release/android-release.apk ~/android-${CORDOVA_ENV}.apk
+    mv platforms/android/build/outputs/apk/release/android-release.apk ~/repo/android-${CORDOVA_ENV}.apk
 
 version: 2
 jobs:
@@ -226,7 +226,7 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - ~/android-dev.apk
+            - android-dev.apk
 
     deploy-android-dev:
       <<: *defaults
@@ -235,7 +235,7 @@ jobs:
             at: .
         - name: deploy apk
           command: |
-            ./deploy-android.sh ~/android-dev.apk "${CIRCLE_BRANCH}"
+            ./deploy-android.sh android-dev.apk "${CIRCLE_BRANCH}"
 
     deploy-android-prod:
       <<: *defaults
@@ -244,7 +244,7 @@ jobs:
             at: .
         - name: deploy apk
           command: |
-            ./deploy-android.sh ~/android-prod.apk release
+            ./deploy-android.sh android-prod.apk release
 
   build-android-prod:
     <<: *android-defaults
@@ -268,7 +268,7 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - ~/android-prod.apk
+            - android-prod.apk
 
   deploy-dev:
     <<: *defaults

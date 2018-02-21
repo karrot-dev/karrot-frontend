@@ -11,6 +11,8 @@ android-defaults: &android-defaults
 build-android: &build-android
   name: build android
   command: |
+    rm -f cordova/www
+    mv dist-app-${CORDOVA_ENV} cordova/www
     cd ~/repo/cordova
     rm -f config/current
     ln -s "$CORDOVA_ENV" config/current
@@ -185,11 +187,13 @@ jobs:
           at: .
       - run:
           name: build cordova app
-          command: yarn build:cordova:dev
+          command: |
+            yarn build:cordova:dev
+            mv dist dist-app-dev
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - dist
+            - dist-app-dev
 
   build-cordova-prod:
     <<: *defaults
@@ -198,11 +202,13 @@ jobs:
           at: .
       - run:
           name: build cordova app
-          command: yarn build:cordova:prod
+          command: |
+            yarn build:cordova:prod
+            mv dist dist-app-prod
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - dist
+            - dist-app-prod
 
   build-android-dev:
     <<: *android-defaults

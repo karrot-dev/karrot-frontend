@@ -1,7 +1,7 @@
 <template>
   <div>
     <PickupItem
-      v-for="pickup in sortedPickups"
+      v-for="pickup in pickups"
       :key="pickup.id"
       :pickup="pickup"
       @join="join"
@@ -60,14 +60,6 @@ export default {
     }),
     hasPickups () {
       return this.pickups && this.pickups.length > 0
-    },
-    sortedPickups: function () {
-      function compare (a, b) {
-        if (a.date < b.date) { return -1 }
-        if (a.date > b.date) { return 1 }
-        return 0
-      }
-      return this.pickups.slice(0).sort(compare)
     },
   },
 }

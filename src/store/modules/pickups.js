@@ -239,8 +239,6 @@ export function isWithinOneWeek (pickup) {
   return pickup.date < new Date(+new Date() + 6096e5)
 }
 
-// export function sortByDate (a, b) {
-//   if (a.date > b.date) { return a }
-//   if (a.date < b.date) { return b }
-//   return 0
-// }
+export function sortByDate (a, b) {
+  return a.date - b.date
+}

@@ -24,7 +24,7 @@ if [ "$DIR" == "release" ]; then
   DEPLOY_EMOJI=":rocket:"
   URL="https://karrot.world/app.apk"
 
-elif [ "$REF" == "master" ]; then
+elif [ "$DIR" == "master" ]; then
 
   # dev
 
@@ -35,6 +35,8 @@ elif [ "$REF" == "master" ]; then
 else
 
   # nothing
+
+  echo "Not deploying"
 
   exit 0
 

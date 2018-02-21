@@ -84,7 +84,7 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
   fi
 
   ATTACHMENT_TEXT+="\n:webpack: <$WEBPACK_URL|Visit the webpack bundle analyzer>"
-  ATTACHMENT_TEXT+="\n:circleci: <$CIRCLE_WORKFLOW_URL|Visit CircleCI>"
+  ATTACHMENT_TEXT+="\n:white_check_mark: <$CIRCLE_WORKFLOW_URL|Visit circleci>"
 
   if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist ]; then
     DOCBOOK_URL="https://docs.karrot.world"
@@ -96,7 +96,7 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
   payload=$(printf '{
       "channel": "#karrot-git",
       "username": "deploy",
-      "text": ":sparkles: Successful deployment of :karrot: *karrot* to _%s_ %s",
+      "text": ":sparkles: Successful deployment of *karrot* to _%s_ %s",
       "attachments": [
         {
           "text": "%s",

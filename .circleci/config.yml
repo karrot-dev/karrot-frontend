@@ -3,6 +3,11 @@ defaults: &defaults
   docker:
     - image: circleci/node:8.5
 
+android-defaults: &android-defaults
+  working_directory: ~/repo
+  docker:
+    - image: karrot/android-build:api-27-node8-alpha
+
 build-android: &build-android
   name: build android
   command: |
@@ -11,9 +16,7 @@ build-android: &build-android
     ln -s "$CORDOVA_ENV" config/current
     cordova platform add android
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
-    mv platforms/android/build/outputs/apk/release/android-release.apk /tmp
-    ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
-    rsync -avz /tmp/android-release.apk "deploy@$HOST:karrot-app/$DIR/app.apk"
+    mv platforms/android/build/outputs/apk/release/android-release.apk ~/android-${CORDOVA_ENV}.apk
 
 version: 2
 jobs:
@@ -202,9 +205,7 @@ jobs:
             - dist
 
   build-android-dev:
-    working_directory: ~/repo
-    docker:
-      - image: karrot/android-build:api-27-node8-alpha
+    <<: *android-defaults
     steps:
       - checkout
       - attach_workspace:
@@ -216,22 +217,37 @@ jobs:
           <<: *build-android
           name: build android apk
           environment:
-            HOST: yuca.yunity.org
-            DIR: master
             CORDOVA_ENV: dev
             PASSWORD_VAR: CORDOVA_DEV_PASSWORD
       - save_cache:
           paths:
             - ~/.gradle
           key: gradle-cache
-      - store_artifacts:
-          path: /tmp/android-release.apk
-          destination: android-release.apk
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - ~/android-dev.apk
+
+    deploy-android-dev:
+      <<: *defaults
+      steps:
+        - attach_workspace:
+            at: .
+        - name: deploy apk
+          command: |
+            ./deploy-android.sh ~/android-dev.apk "${CIRCLE_BRANCH}"
+
+    deploy-android-prod:
+      <<: *defaults
+      steps:
+        - attach_workspace:
+            at: .
+        - name: deploy apk
+          command: |
+            ./deploy-android.sh ~/android-prod.apk release
 
   build-android-prod:
-    working_directory: ~/repo
-    docker:
-      - image: karrot/android-build:api-27-node8-alpha
+    <<: *android-defaults
     steps:
       - checkout
       - attach_workspace:
@@ -243,17 +259,16 @@ jobs:
           <<: *build-android
           name: build android apk
           environment:
-            HOST: yuca.yunity.org
-            DIR: release
             CORDOVA_ENV: prod
             PASSWORD_VAR: CORDOVA_PROD_PASSWORD
       - save_cache:
           paths:
             - ~/.gradle
           key: gradle-cache
-      - store_artifacts:
-          path: /tmp/android-release.apk
-          destination: android-release.apk
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - ~/android-prod.apk
 
   deploy-dev:
     <<: *defaults
@@ -303,12 +318,15 @@ workflows:
           requires:
             - install-dependencies
       - build-android-dev:
+          requires:
+            - build-cordova-dev
+      - deploy-android-dev:
           filters:
             branches:
               only:
                 - master
           requires:
-            - build-cordova-dev
+            - build-android-dev
       - deploy-dev:
           filters:
             branches:
@@ -329,20 +347,24 @@ workflows:
             - approval
       - build-cordova-prod:
           requires:
-            - e2e-test
+            - approval
       - build-android-prod:
+          requires:
+            - build-cordova-prod
+      - install-e2e-dependencies:
+          requires:
+            - build-android-prod
+            - build-prod
+      - e2e-test:
+          requires:
+            - install-e2e-dependencies
+      - deploy-android-prod:
           filters:
             branches:
               only:
                 - master
           requires:
-            - build-cordova-prod
-      - install-e2e-dependencies:
-          requires:
-            - build-prod
-      - e2e-test:
-          requires:
-            - install-e2e-dependencies
+            - e2e-test
       - deploy-release:
           filters:
             branches:

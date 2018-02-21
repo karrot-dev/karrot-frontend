@@ -15,11 +15,19 @@ export default new Vue({
   },
   methods: {
     async init () {
-      if (window.Intl) return
-      await Promise.all([
-        import('intl'),
-        locales.en.intlLocale(),
-      ])
+      const promises = []
+      if (!window.Intl) {
+        promises.push(
+          import('intl'),
+          locales.en.intlLocale(),
+        )
+      }
+      if (!window.requestAnimationFrame) {
+        promises.push(
+          import('raf').then(raf => raf.polyfill()),
+        )
+      }
+      await Promise.all(promises)
     },
   },
 })

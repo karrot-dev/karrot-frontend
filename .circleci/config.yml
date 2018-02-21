@@ -228,23 +228,23 @@ jobs:
           paths:
             - android-dev.apk
 
-    deploy-android-dev:
-      <<: *defaults
-      steps:
-        - attach_workspace:
-            at: .
-        - name: deploy apk
-          command: |
-            ./deploy-android.sh android-dev.apk "${CIRCLE_BRANCH}"
+  deploy-android-dev:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - name: deploy apk
+        command: |
+          ./deploy-android.sh android-dev.apk "${CIRCLE_BRANCH}"
 
-    deploy-android-prod:
-      <<: *defaults
-      steps:
-        - attach_workspace:
-            at: .
-        - name: deploy apk
-          command: |
-            ./deploy-android.sh android-prod.apk release
+  deploy-android-prod:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - name: deploy apk
+        command: |
+          ./deploy-android.sh android-prod.apk release
 
   build-android-prod:
     <<: *android-defaults

@@ -362,7 +362,6 @@ workflows:
             - build-cordova-prod
       - install-e2e-dependencies:
           requires:
-            - build-android-prod
             - build-prod
       - e2e-test:
           requires:
@@ -373,6 +372,7 @@ workflows:
               only:
                 - master
           requires:
+            - build-android-prod
             - e2e-test
       - deploy-release:
           filters:

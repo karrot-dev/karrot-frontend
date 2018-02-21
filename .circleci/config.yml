@@ -243,7 +243,7 @@ jobs:
       - run:
           name: deploy apk
           command: |
-            ./deploy-android.sh android-dev.apk "${CIRCLE_BRANCH}"
+            ./deploy-android.sh "${CIRCLE_BRANCH}" android-dev.apk "${CIRCLE_BRANCH}"
 
   deploy-android-prod:
     <<: *defaults
@@ -254,7 +254,7 @@ jobs:
       - run:
           name: deploy apk
           command: |
-            ./deploy-android.sh android-prod.apk release
+            ./deploy-android.sh "${CIRCLE_BRANCH}" android-prod.apk release
 
   build-android-prod:
     <<: *android-defaults

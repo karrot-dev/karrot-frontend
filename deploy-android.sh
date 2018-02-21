@@ -4,11 +4,12 @@ set -e
 
 HOST=yuca.yunity.org
 
-APK=$1
-DIR=$2
+REF=$1
+APK=$2
+DIR=$3
 
-if [ -z "$APK" ] || [ -z "$DIR" ]; then
-  echo "Usage: <apk> <dir>"
+if [ -z "$REF" ] || [ -z "$APK" ] || [ -z "$DIR" ]; then
+  echo "Usage: <ref> <apk> <dir>"
   exit 1
 fi
 

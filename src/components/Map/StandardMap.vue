@@ -76,11 +76,11 @@ export default {
       type: Boolean,
       default: false,
     },
-    centerUrl: {
+    forceCenter: {
       type: Object,
       default: null,
     },
-    zoomUrl: {
+    forceZoom: {
       type: Number,
       default: null,
     },
@@ -127,13 +127,13 @@ export default {
       return ''
     },
     bounds () {
-      if (this.centerUrl && !Number.isNaN(this.centerUrl.lat)) return null
+      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return null
       if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
         return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
       }
     },
     center () {
-      if (this.centerUrl && !Number.isNaN(this.centerUrl.lat)) return [this.centerUrl.lat, this.centerUrl.lng]
+      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return [this.forceCenter.lat, this.forceCenter.lng]
       if (!this.bounds) {
         if (this.hasOneMarker) {
           const { lat, lng } = this.markersForBound[0].latLng
@@ -146,8 +146,8 @@ export default {
       }
     },
     zoom () {
-      if (!Number.isNaN(this.zoomUrl)) {
-        return this.zoomUrl
+      if (!Number.isNaN(this.forceZoom)) {
+        return this.forceZoom
       }
       if (!this.preventZoom && !this.bounds) {
         if (this.defaultCenter) {

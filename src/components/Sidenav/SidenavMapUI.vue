@@ -14,14 +14,9 @@
         flat
         small
         style="padding: 0 5px"
+        @click="$router.push({name: 'map', params: {groupId: currentGroup.id}})"
       >
-        <router-link
-          :to="{name: 'map', params: {groupId: currentGroup.id}}"
-          class="fa-fw fa-stack"
-          tag="span"
-        >
-          <i class="fa fa-arrows-alt fa-stack-1x" />
-        </router-link>
+        <i class="fa fa-arrows-alt fa-stack-1x" />
         <q-tooltip>
           {{ $t('GROUPMAP.FULL_SCREEN') }}
         </q-tooltip>

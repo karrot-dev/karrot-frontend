@@ -5,8 +5,8 @@
       :users="users"
       :stores="stores"
       :current-group="currentGroup"
-      :center-url="center"
-      :zoom-url="zoom"
+      :force-center="center"
+      :force-zoom="zoom"
       @mapMoveEnd="mapMoveEnd"
     />
   </div>
@@ -46,7 +46,7 @@ export default {
   height 100%
   width 100%
 .placeholder
-  width: 100vw;
+  width 100vw
   height 100vh
   position absolute
   left 50%

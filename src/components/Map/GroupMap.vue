@@ -5,8 +5,8 @@
       :selected-marker-ids="selectedMarkerIds"
       :style="style"
       :default-center="center"
-      :center-url="centerUrl"
-      :zoom-url="zoomUrl"
+      :force-center="forceCenter"
+      :force-zoom="forceZoom"
       @mapMoveEnd="mapMoveEnd"
     />
     <div
@@ -48,8 +48,8 @@ export default {
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
-    centerUrl: { type: Object, default: null },
-    zoomUrl: { type: Number, default: null },
+    forceCenter: { type: Object, default: null },
+    forceZoom: { type: Number, default: null },
   },
   methods: {
     userMarkerId (userId) {

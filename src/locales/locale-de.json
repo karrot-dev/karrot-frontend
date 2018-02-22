@@ -13,8 +13,8 @@
     "PASSWORD": "Passwort",
     "USERNAME": "Name",
     "WHERE_FROM": "Wo kommst du her? (Angabe nicht erforderlich)",
-    "PHOTO": "Profile photo",
-    "SET_PHOTO": "Set your profile photo..."
+    "PHOTO": "Profilbild",
+    "SET_PHOTO": "Lade ein Profilbild hoch..."
   },
   "BUTTON": {
     "CREATE": "Erstellen",
@@ -216,7 +216,7 @@
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
     "HEADER": "Danke für deine Abholung!",
-    "EDIT": "Edit feedback",
+    "EDIT": "Rückmeldung bearbeiten",
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
     "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
     "COMMENT": "Kommentar",
@@ -307,8 +307,8 @@
     "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht..."
   },
   "CONVERSATION": {
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "MARK_READ": "Mark all as read"
+    "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
+    "MARK_READ": "Als gelesen markieren"
   },
   "STORESTATUS":{
     "ACTIVE": "Kooperiert",

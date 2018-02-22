@@ -1954,7 +1954,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
 <div class="q-toolbar row no-wrap items-center relative-position q-toolbar-normal bg-primary">
     <div to="[object Object]" class="logo">
         <div>
-            <img src="~@/assets/carrot-logo.svg">
+            <img src="test-file-stub">
         </div>
     </div>
     <div class="q-toolbar-title">
@@ -1992,14 +1992,18 @@ exports[`Storyshots Layout KTopbar 1`] = `
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="globe q-icon fa fa-globe"> </i>
   en
   <div class="q-popover animate-scale" style="transform-origin:top left 0px;"><div class="q-list"><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            ગુજરાતી
+            <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             English
             <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            हिन्दी
+            <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Deutsch
-            <small>(98%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:98%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             中文
             <small>(85%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:85%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Español
-            <small>(73%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:73%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(75%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:75%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Français
             <small>(41%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:41%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Svenska
@@ -4162,6 +4166,14 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <i aria-hidden="true" class="q-icon fa fa-fw fa-map"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-arrows-alt fa-stack-1x"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        Show full screen
+      </span>
+                <!---->
+                </span>
+            </button>
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">

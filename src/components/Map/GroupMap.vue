@@ -5,6 +5,9 @@
       :selected-marker-ids="selectedMarkerIds"
       :style="style"
       :default-center="center"
+      :force-center="forceCenter"
+      :force-zoom="forceZoom"
+      @mapMoveEnd="mapMoveEnd"
     />
     <div
       v-if="showOverlay"
@@ -45,6 +48,8 @@ export default {
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
+    forceCenter: { type: Object, default: null },
+    forceZoom: { type: Number, default: null },
   },
   methods: {
     userMarkerId (userId) {
@@ -76,6 +81,9 @@ export default {
         }),
         popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
       }
+    },
+    mapMoveEnd (target) {
+      this.$emit('mapMoveEnd', target)
     },
   },
   computed: {

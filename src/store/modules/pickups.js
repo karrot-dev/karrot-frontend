@@ -240,5 +240,5 @@ export function isWithinOneWeek (pickup) {
 }
 
 export function sortByDate (a, b) {
-  return a.date > b.date
+  return a.date - b.date
 }

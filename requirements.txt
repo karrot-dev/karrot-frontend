@@ -18,7 +18,6 @@ constantly==15.1.0        # via twisted
 cookies==2.2.1            # via responses
 coreapi==2.3.3            # via django-rest-swagger, openapi-codec
 coreschema==0.0.4         # via coreapi
-coverage==4.4.2
 daphne==1.4.2             # via channels
 django-anymail==1.2
 django-cors-headers==2.1.0

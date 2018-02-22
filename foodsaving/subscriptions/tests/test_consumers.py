@@ -79,7 +79,7 @@ class ConsumerTests(ChannelTestCase):
         self.assertEqual(ChannelSubscription.objects.filter(user=user).count(), 0, 'Did not remove subscription')
 
 
-class TestMessage(dict):
+class MockMessage(dict):
     def __init__(self, *args, **kwargs):
         self.update(*args, **kwargs)
         self.session = {}
@@ -92,7 +92,7 @@ class TestMessage(dict):
 
 class TokenUtilTests(TestCase):
     def test_check_for_auth_token_header(self):
-        message = TestMessage({
+        message = MockMessage({
             'headers': [
                 [b'sec-websocket-protocol', b'karrot.token,karrot.token.value.Zm9v']
             ]
@@ -101,7 +101,7 @@ class TokenUtilTests(TestCase):
         self.assertEqual(message.channel_session['auth_token'], 'foo')
 
     def test_check_for_auth_token_header_with_removed_base64_padding(self):
-        message = TestMessage({
+        message = MockMessage({
             'headers': [
                 [b'sec-websocket-protocol', b'karrot.token,karrot.token.value.Zm9vMQ']
             ]
@@ -112,7 +112,7 @@ class TokenUtilTests(TestCase):
     def test_check_for_token_user(self):
         user = UserFactory()
         token = Token.objects.create(user=user)
-        message = TestMessage()
+        message = MockMessage()
         message.channel_session['auth_token'] = token.key
         check_for_token_user(message)
         self.assertEqual(message.user, user)

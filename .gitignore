@@ -1,7 +1,10 @@
 # Python
 **/__pycache__/
+.pytest_cache
 env
 myvenv
+test-results
+.coverage
 
 # Project
 /config/local_settings.py

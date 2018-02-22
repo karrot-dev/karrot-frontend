@@ -9,16 +9,9 @@ if [ -z "$name" ]; then
   exit 1
 fi
 
-BRANCH=$CIRCLE_BRANCH
-
-if [ -z "$BRANCH" ]; then
-  BRANCH=$(git rev-parse --abbrev-ref HEAD)
-fi
-
-echo "deploying branch [$BRANCH] to [$name]"
+echo "deploying branch [$name]"
 
 git clone https://github.com/yunity/yuca yuca
-pip install ansible
 
 export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook -i yuca/inventory -u "$name"-deploy --become-user "$name"-deploy yuca/playbooks/"$name"/deploy.playbook.yml -v

@@ -45,12 +45,20 @@
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
+    <!-- <Search
+      class="searchbar"
+      v-model="search"
+    /> -->
+    <q-search
+      class="searchbar"
+      v-model="search"
+    />
     <div
       class="row"
       v-if="otherGroups.length>0"
     >
       <div
-        v-for="group in otherGroups"
+        v-for="group in filteredGroups"
         :key="group.id"
         class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
       >
@@ -66,9 +74,15 @@
 
 <script>
 import GroupGalleryCard from './GroupGalleryCard'
-import { QAlert } from 'quasar'
+import Search from '@/components/General/Search'
+import { QAlert, QSearch } from 'quasar'
 
 export default {
+  data () {
+    return {
+      search: '',
+    }
+  },
   props: {
     myGroups: {
       default: () => [],
@@ -87,7 +101,14 @@ export default {
       type: Number,
     },
   },
-  components: { GroupGalleryCard, QAlert },
+  computed: {
+    filteredGroups () {
+      return this.otherGroups.filter(group => {
+        return group.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    },
+  },
+  components: { GroupGalleryCard, QAlert, Search, QSearch },
 }
 </script>
 
@@ -99,6 +120,11 @@ body.desktop .alert
   margin-left .2em
 .highlight
   border 2px solid $positive
+.searchbar
+  margin-top .2em
+  vertical-align middle
+  border-style solid
+  border-width 2px
 </style>
 
 <style scoped lang="stylus">

@@ -116,7 +116,7 @@ export default {
         return 9999999999
       }
       if (this.pickup.collectors) {
-        return this.pickup.maxCollectors - this.pickup.collectors.length
+        return Math.max(this.pickup.maxCollectors - this.pickup.collectors.length, 0)
       }
       return 0
     },

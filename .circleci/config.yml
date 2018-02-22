@@ -51,16 +51,19 @@ jobs:
   deploy-dev:
     <<: *defaults
     steps:
+      - checkout
       - run: ./deploy.sh karrot-dev
 
   deploy-karrot-world:
     <<: *defaults
     steps:
+      - checkout
       - run: ./deploy.sh karrot-world
             
   deploy-foodsharing-taiwan:
     <<: *defaults
     steps:
+      - checkout
       - run: ./deploy.sh foodsharing-taiwan
 
 workflows:

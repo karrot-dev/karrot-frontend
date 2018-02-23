@@ -72,6 +72,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     language = CharField(max_length=7, default='en')
     mail_verified = BooleanField(default=False)
     unverified_email = EmailField(null=True)
+    mobile_number = CharField(max_length=255, blank=True)
 
     deleted = BooleanField(default=False)
     deleted_at = DateTimeField(default=None, null=True)

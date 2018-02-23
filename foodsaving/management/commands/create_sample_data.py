@@ -75,7 +75,8 @@ class Command(BaseCommand):
                 'email': str(timezone.now().microsecond) + faker.email(),
                 'password': password,
                 'display_name': faker.name(),
-                'description': 'I am a fake user'
+                'description': 'I am a fake user',
+                'mobile_number': faker.phone_number()
             }).data
             print('created user:', data['email'])
             return data

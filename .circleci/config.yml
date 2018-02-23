@@ -55,7 +55,7 @@ jobs:
             yarn test \
               --ci \
               --runInBand \
-              --testResultsProcessor="./node_modules/jest-junit-reporter
+              --testResultsProcessor="./node_modules/jest-junit-reporter"
       - run: bash <(curl -s https://codecov.io/bash)
       - store_test_results:
           path: test-reports

@@ -45,8 +45,22 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: yarn test --ci --runInBand
+      - run:
+          environment:
+            TEST_REPORT_PATH: test-reports
+            TEST_REPORT_FILENAME: junit.xml
+          command: |
+            mkdir -p test-reports
+            yarn add jest-junit-reporter
+            yarn test \
+              --ci \
+              --runInBand \
+              --testResultsProcessor="./node_modules/jest-junit-reporter
       - run: bash <(curl -s https://codecov.io/bash)
+      - store_test_results:
+          path: test-reports
+      - store_artifacts:
+          path: test-reports
 
   install-e2e-dependencies:
     working_directory: ~/repo

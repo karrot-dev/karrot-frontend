@@ -6,19 +6,6 @@ from foodsaving.invitations.models import Invitation
 from foodsaving.users.factories import UserFactory
 
 
-class TestInvitationsModel(TestCase):
-    def test_dont_escape_url_parameters(self):
-        g = GroupFactory()
-        u = UserFactory()
-        i = Invitation.objects.create(
-            email='bla@bla.com',
-            group=g,
-            invited_by=u
-        )
-        b = i.get_email_body()
-        self.assertNotIn('&amp;', b)
-
-
 class TestAcceptInvite(TestCase):
     def test_invite_accepted_joins_group_and_adds_history(self):
         g = GroupFactory()
@@ -43,4 +30,3 @@ class TestAcceptInvite(TestCase):
         self.assertEqual(h.payload['invited_via'], 'e-mail')
 
         self.assertEqual(Invitation.objects.count(), 0)
-

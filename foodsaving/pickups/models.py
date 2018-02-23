@@ -213,7 +213,7 @@ class PickupDate(BaseModel):
                     {
                         'title': self.store.name,
                         'title_link': store_page_url,
-                        'text': render_to_string('upcoming_pickup_slack.jinja', {
+                        'text': render_to_string('upcoming_pickup.slack.jinja2', {
                             'number_of_hours': self.store.upcoming_notification_hours,
                             'store_page_url': store_page_url
                         }),

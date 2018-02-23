@@ -1,16 +1,13 @@
 import uuid
 from datetime import timedelta
 
-from anymail.message import AnymailMessage
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models import Q
-from django.template.loader import render_to_string
 from django.utils import timezone
-from furl import furl
 
-from django.conf import settings
 from foodsaving.base.base_models import BaseModel
+from foodsaving.utils import email_utils
 
 
 class InvitationManager(models.Manager):
@@ -41,6 +38,7 @@ def get_default_expiry_date():
 class Invitation(BaseModel):
     class Meta:
         unique_together = ('email', 'group')
+
     token = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
     email = models.EmailField()
     invited_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
@@ -49,31 +47,8 @@ class Invitation(BaseModel):
 
     objects = InvitationManager()
 
-    def get_email_body(self):
-        invite_url = furl('{hostname}/#/signup'.format(hostname=settings.HOSTNAME))
-        invite_url.fragment.args = {
-            'invite': self.token,
-            'email': self.email
-        }
-
-        context = {
-            'group_name': self.group.name,
-            'invite_url': invite_url,
-            'email': self.email,
-            'invited_by_name': self.invited_by.display_name,
-        }
-
-        return render_to_string('emailinvitation-body-text.jinja', context)
-
     def send_mail(self):
-        AnymailMessage(
-            subject=render_to_string('emailinvitation-subject.jinja').replace('\n', ''),
-            body=self.get_email_body(),
-            to=[self.email],
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            track_clicks=False,
-            track_opens=False
-        ).send()
+        email_utils.prepare_emailinvitation_email(self).send()
 
     def accept(self, user):
         # add user to group

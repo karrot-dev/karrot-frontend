@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+
+const find = require('find');
+const { readFileSync, writeFileSync } = require('fs');
+const mjml = require('mjml');
+const path = require('path');
+const BASEDIR = path.resolve(path.join(__dirname, '..'));
+const watch = require('node-watch');
+const ws = require('ws');
+const http = require('http');
+const FOODSAVING_BASE = path.join(BASEDIR, 'foodsaving')
+
+const websocketPort = 8001;
+
+const listeners = [];
+
+if (process.argv.indexOf('--watch') !== -1) {
+  
+  console.log('watching for changes to mjml files in', FOODSAVING_BASE);
+  watch(FOODSAVING_BASE, { recursive: true, filter: /\.mjml$/ }, (event, file) => {
+    // We could just compile the specific one but then would not handle when just partials change
+    compileAll();
+    // setTimeout(() => {
+    //   listeners.forEach(fn => fn());
+    // }, 1000);
+  });
+
+  watch(FOODSAVING_BASE, { recursive: true, filter: /\.jinja2$/ }, (event, file) => {    
+    console.log('jinja2 change', event, file);
+    listeners.forEach(fn => fn());
+  });
+
+  console.log('websocket server listening on port', websocketPort);
+  const server = new ws.Server({ port: websocketPort });
+  server.on('connection', ws => {
+    listeners.push(() => {
+      if (ws.readyState === ws.OPEN) {
+        ws.send('update')
+      }
+    });
+    ws.on('close', () => {
+      const idx = listeners.indexOf(ws);
+      if (idx !== -1) listeners.splice(idx, 1);
+    })
+  });
+
+} else {
+  compileAll();
+}
+
+function compileAll () {
+  find.file(/\/templates\/[^_][^\/]*\.mjml$/, FOODSAVING_BASE , files => {
+    files.forEach(compile);
+  })
+}
+
+function compile (file) {
+  const name = file.substring(BASEDIR.length + 1);
+  const contents = readFileSync(file, 'utf8');
+  try {
+    const rendered = mjml.mjml2html(contents, {
+      level: 'strict',
+      filePath: file
+    });
+    const output = file.replace(/\.mjml$/, '.html.jinja2');
+    console.log('converted', name, '->', '.html.jinja2');
+    writeFileSync(output, rendered.html);
+  } catch (err) {
+    console.log(err);
+  }
+}

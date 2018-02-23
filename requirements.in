@@ -27,3 +27,4 @@ channels
 asgi_redis
 pyfcm
 django-versatileimagefield
+Jinja2

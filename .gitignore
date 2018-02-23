@@ -6,6 +6,9 @@ myvenv
 test-results
 .coverage
 
+# HTML emails are generated from mjml files
+foodsaving/*/templates/*.html.jinja2
+
 # Project
 /config/local_settings.py
 /config/secrets.py
@@ -13,6 +16,7 @@ test-results
 /db.sqlite3
 *.pid
 *.mo
+mjml/node_modules
 
 # IDE
 /.idea

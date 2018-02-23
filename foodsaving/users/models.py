@@ -1,14 +1,12 @@
-from anymail.message import AnymailMessage
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import transaction, models
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
-from django.template.loader import render_to_string
-from django.utils.translation import ugettext as _
 from versatileimagefield.fields import VersatileImageField
 
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.userauth.models import VerificationCode
+from foodsaving.utils.email_utils import prepare_mailverification_email, prepare_email
 
 MAX_DISPLAY_NAME_LENGTH = 80
 
@@ -125,79 +123,31 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
         self.language = language
 
     def _send_mail_change_notification(self):
-        context = {
-            'user': self,
-        }
-
-        AnymailMessage(
-            subject=render_to_string('changemail_notice-subject.jinja').replace('\n', ''),
-            body=render_to_string('changemail_notice-body-text.jinja', context),
-            to=[self.email],
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            track_clicks=False,
-            track_opens=False
-        ).send()
+        prepare_email('changemail_notice', self, {}).send()
 
     def _send_welcome_mail(self):
         self._unverify_mail()
-
-        url = '{hostname}/#/verify-mail?key={code}'.format(
-            hostname=settings.HOSTNAME,
-            code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION).code
-        )
-
-        context = {
-            'user': self,
-            'url': url,
-        }
-
-        AnymailMessage(
-            subject=render_to_string('mailverification-subject.jinja').replace('\n', ''),
-            body=render_to_string('mailverification-body-text.jinja', context),
-            to=[self.unverified_email],
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            track_clicks=False,
-            track_opens=False
+        prepare_mailverification_email(
+            user=self,
+            verification_code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION)
         ).send()
 
     @transaction.atomic
     def send_new_verification_code(self):
         self._unverify_mail()
-
-        url = '{hostname}/#/verify-mail?key={code}'.format(
-            hostname=settings.HOSTNAME,
-            code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION).code
-        )
-
-        context = {
-            'user': self,
-            'url': url,
-        }
-
-        AnymailMessage(
-            subject=render_to_string('send_new_verification_code-subject.jinja').replace('\n', ''),
-            body=render_to_string('send_new_verification_code-body-text.jinja', context),
-            to=[self.unverified_email],
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            track_clicks=False,
-            track_opens=False
-        ).send()
+        prepare_email('send_new_verification_code', self, {
+            'url': '{hostname}/#/verify-mail?key={code}'.format(
+                hostname=settings.HOSTNAME,
+                code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION).code
+            )
+        }, to=self.unverified_email).send()
 
     @transaction.atomic
     def reset_password(self):
         new_password = User.objects.make_random_password(length=20)
         self.set_password(new_password)
         self.save()
-
-        AnymailMessage(
-            subject=_('New password'),
-            body=_('Here is your new temporary password: {}. ' +
-                   'You can use it to login. Please change it soon.').format(new_password),
-            to=[self.email],
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            track_clicks=False,
-            track_opens=False
-        ).send()
+        prepare_email('newpassword', self, {'password': new_password}).send()
 
     def has_perm(self, perm, obj=None):
         # temporarily only allow access for admins

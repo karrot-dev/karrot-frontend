@@ -23,6 +23,8 @@ from foodsaving.userauth.api import AuthUserView, AuthView, LogoutView, VerifyMa
 from foodsaving.users.api import UserViewSet
 from foodsaving.stores.api import StoreViewSet
 
+from foodsaving.template_previews import views as template_preview_views
+
 router = routers.DefaultRouter()
 
 router.register('groups', GroupViewSet)
@@ -79,4 +81,8 @@ if settings.DEBUG:
             'document_root': settings.MEDIA_ROOT,
             'show_indexes': True,
         }),
+    ]
+    urlpatterns += [
+        path('_templates', template_preview_views.list_templates),
+        path('_templates/show', template_preview_views.show_template),
     ]

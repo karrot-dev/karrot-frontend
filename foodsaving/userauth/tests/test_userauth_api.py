@@ -1,7 +1,7 @@
+import os
 from datetime import timedelta
 from unittest.mock import MagicMock
 
-import os
 from anymail.exceptions import AnymailAPIError
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
@@ -11,12 +11,12 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.stores.factories import StoreFactory
 from foodsaving.pickups.factories import PickupDateFactory
-from foodsaving.users import models
-from foodsaving.users.factories import UserFactory, VerifiedUserFactory
-from foodsaving.utils.tests.fake import faker
+from foodsaving.stores.factories import StoreFactory
 from foodsaving.userauth.models import VerificationCode
+from foodsaving.users.factories import UserFactory, VerifiedUserFactory
+from foodsaving.utils import email_utils
+from foodsaving.utils.tests.fake import faker
 
 
 class TestUsersAPI(APITestCase):
@@ -179,7 +179,7 @@ class TestRejectedAddress(APITestCase):
         self.url = '/api/auth/user/'
 
         # Mock AnymailMessage to throw error on send
-        self.mail_class = models.AnymailMessage
+        self.mail_class = email_utils.AnymailMessage
         self._original_send = self.mail_class.send
         self.mail_class.send = MagicMock(side_effect=AnymailAPIError())
 

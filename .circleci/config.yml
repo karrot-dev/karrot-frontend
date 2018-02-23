@@ -22,6 +22,7 @@ build-android: &build-android
 
 version: 2
 jobs:
+
   install-dependencies:
     <<: *defaults
     steps:
@@ -39,6 +40,15 @@ jobs:
           root: ~/repo
           paths:
             - .
+
+  try-macos:
+    macos:
+      xcode: "8.3.3"
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: echo Hello World.
 
   test:
     <<: *defaults
@@ -309,6 +319,9 @@ workflows:
   all-the-things:
     jobs:
       - install-dependencies
+      - try-macos:
+          requires:
+            - install-dependencies
       - test:
           requires:
             - install-dependencies

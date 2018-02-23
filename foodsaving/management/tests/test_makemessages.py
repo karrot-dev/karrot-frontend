@@ -15,12 +15,8 @@ class CustomMakeMessagesTest(TestCase):
         }
 
         modified_options = MakeMessagesCommand.update_options(**options)
-        self.assertIn('jinja', modified_options['extensions'])
+        self.assertIn('jinja2', modified_options['extensions'])
         self.assertIn('en', modified_options['locale'])
-
-        options['extensions'] = ['py']
-        modified_options_with_initial_extension = MakeMessagesCommand.update_options(**options)
-        self.assertIn('jinja', modified_options_with_initial_extension['extensions'])
 
     @patch(__name__ + '.django_jinja_makemessages.handle')
     @patch(__name__ + '.makemessages.update_options', return_value={})

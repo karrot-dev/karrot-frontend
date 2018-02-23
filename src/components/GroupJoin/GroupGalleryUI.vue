@@ -45,14 +45,12 @@
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
-    <!-- <Search
-      class="searchbar"
-      v-model="search"
-    /> -->
-    <q-search
-      class="searchbar"
-      v-model="search"
-    />
+    <q-card>
+      <q-search
+        class="searchbar"
+        v-model="search"
+      />
+    </q-card>
     <div
       class="row"
       v-if="otherGroups.length>0"
@@ -74,8 +72,7 @@
 
 <script>
 import GroupGalleryCard from './GroupGalleryCard'
-import Search from '@/components/General/Search'
-import { QAlert, QSearch } from 'quasar'
+import { QAlert, QSearch, QCard } from 'quasar'
 
 export default {
   data () {
@@ -108,7 +105,7 @@ export default {
       })
     },
   },
-  components: { GroupGalleryCard, QAlert, Search, QSearch },
+  components: { GroupGalleryCard, QAlert, QSearch, QCard },
 }
 </script>
 
@@ -123,8 +120,8 @@ body.desktop .alert
 .searchbar
   margin-top .2em
   vertical-align middle
-  border-style solid
-  border-width 2px
+  height 45px
+  padding 5px
 </style>
 
 <style scoped lang="stylus">

@@ -67,6 +67,7 @@
           v-model="edit.description"
           type="textarea"
           max-length="500"
+          @keyup.ctrl.enter="maybeSave"
         />
       </q-field>
 

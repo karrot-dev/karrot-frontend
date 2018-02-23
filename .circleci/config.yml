@@ -47,15 +47,14 @@ jobs:
           at: ~/repo
       - run:
           environment:
-            TEST_REPORT_PATH: test-reports
-            TEST_REPORT_FILENAME: junit.xml
+            JEST_JUNIT_OUTPUT: test-reports/junit.xml
           command: |
             mkdir -p test-reports
-            yarn add jest-junit-reporter
+            yarn add jest-junit
             yarn test \
               --ci \
               --runInBand \
-              --testResultsProcessor="./node_modules/jest-junit-reporter"
+              --testResultsProcessor="./node_modules/jest-junit"
       - run: bash <(curl -s https://codecov.io/bash)
       - store_test_results:
           path: test-reports

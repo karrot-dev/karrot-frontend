@@ -57,7 +57,7 @@ class Handlers:
         return email_utils.prepare_emailinvitation_email(invitation)
 
     def group_summary(self):
-        return email_utils.prepare_group_summary_email(random_group())
+        return email_utils.prepare_group_summary_emails(random_group())[0]
 
     def mailverification(self):
         return email_utils.prepare_mailverification_email(

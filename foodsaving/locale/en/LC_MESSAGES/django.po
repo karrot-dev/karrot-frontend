@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-25 16:33+0000\n"
+"POT-Creation-Date: 2018-02-25 21:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,32 +79,46 @@ msgid "Group password is wrong"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:4
-#: foodsaving/groups/templates/group_summary.subject.jinja2:20
-#: foodsaving/users/templates/mailverification.html.jinja2:4
-#: foodsaving/users/templates/mailverification.html.jinja2:90
-msgid "Verify your email address"
-msgstr ""
-
 #: foodsaving/groups/templates/group_summary.html.jinja2:89
 #, python-format
 msgid "%(group_name)s weekly summary"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.subject.jinja2:9
-msgid "Group summary email!"
-msgstr ""
-
-#: foodsaving/groups/templates/group_summary.subject.jinja2:16
-#: foodsaving/users/templates/mailverification.html.jinja2:89
-#, python-format
-msgid "Welcome to %(site_name)s, %(user_display_name)s!"
-msgstr ""
-
-#: foodsaving/groups/templates/group_summary.subject.jinja2:17
-#: foodsaving/users/templates/mailverification.html.jinja2:90
+#: foodsaving/groups/templates/group_summary.html.jinja2:91
 msgid ""
-"After we get started, please confirm your email address by clicking the link "
-"below:"
+"Hope you are having a good weekend! Here's a summary of what happened in "
+"your group last week"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:95
+#, python-format
+msgid "Your group did %(pickups_done_count)s pickups last week"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:97
+msgid "Your group did no pickups last week"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:101
+#, python-format
+msgid "and %(pickups_missed_count)s were missed."
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:104
+msgid "without missing a single one!"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:111
+#, python-format
+msgid "%(new_user_count)s new people joined the group"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:137
+msgid "Here's what was said last week"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:145
+msgid "No messages were sent last week"
 msgstr ""
 
 #: foodsaving/invitations/serializers.py:20
@@ -266,9 +280,25 @@ msgid ""
 "You can safely ignore this message if you don't know what all this is about."
 msgstr ""
 
+#: foodsaving/users/templates/mailverification.html.jinja2:4
+#: foodsaving/users/templates/mailverification.html.jinja2:90
+msgid "Verify your email address"
+msgstr ""
+
 #: foodsaving/users/templates/mailverification.html.jinja2:89
 #, python-format
 msgid "Thank you for signing up to %(site_name)s!"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification.html.jinja2:89
+#, python-format
+msgid "Welcome to %(site_name)s, %(user_display_name)s!"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification.html.jinja2:90
+msgid ""
+"After we get started, please confirm your email address by clicking the link "
+"below:"
 msgstr ""
 
 #: foodsaving/users/templates/mailverification.subject.jinja2:1

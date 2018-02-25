@@ -1,14 +1,18 @@
+import itertools
 from email.utils import formataddr
 
 import html2text
 from anymail.message import AnymailMessage
+from babel.dates import format_date
 from dateutil.relativedelta import relativedelta
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Count
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string, get_template
-from django.utils import formats, translation
 from django.utils import timezone
+from django.utils import translation
+from django.utils.timezone import get_current_timezone
+from django.utils.translation import to_locale, get_language
 from furl import furl
 from jinja2 import Environment
 
@@ -20,7 +24,7 @@ from foodsaving.webhooks.api import make_local_part
 
 
 def date_filter(value):
-    return formats.date_format(value, 'SHORT_DATE_FORMAT')
+    return format_date(value, format='full', locale=to_locale(get_language()))
 
 
 def jinja2_environment(**options):
@@ -70,7 +74,7 @@ def prepare_conversation_message_notification(user, message):
             from_email=from_email,
             user=user,
             reply_to=[reply_to],
-            extra_context={
+            context={
                 'conversation_name': conversation_name,
                 'author_name': message.author.display_name,
                 'message_content': message.content,
@@ -94,48 +98,68 @@ def prepare_emailinvitation_email(invitation):
     }, to=invitation.email)
 
 
-def prepare_group_summary_email(group):
-    # we do a weekly one...
+def prepare_group_summary_data(group):
+    with timezone.override(group.timezone):
+        tz = get_current_timezone()
 
-    # TODO: round to fixed weekly periods (Monday -> Sunday?)
-    to_date = timezone.now()
-    from_date = to_date - relativedelta(days=7)
+        # midnight last night in the groups local timezone
+        midnight = tz.localize(timezone.now().replace(
+            tzinfo=None, hour=0, minute=0, second=0, microsecond=0
+        ))
 
-    new_users = group.members.filter(
-        groupmembership__created_at__gte=from_date,
-        groupmembership__created_at__lt=to_date,
-    ).all()
+        # 7 days before that
+        from_date = midnight - relativedelta(days=7)
 
-    pickups_done_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors__gt=0).count()
+        # a week after from date
+        # minus a second so only includes full days
+        to_date = from_date + relativedelta(days=7) - relativedelta(seconds=1)
 
-    pickups_missed_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors=0).count()
+        new_users = group.members.filter(
+            groupmembership__created_at__gte=from_date,
+            groupmembership__created_at__lt=to_date,
+        ).all()
 
-    messages = ConversationMessage.objects.filter(
-        conversation__target_type=ContentType.objects.get_for_model(Group),
-        conversation__target_id=group.id,
-        created_at__gte=from_date,
-        created_at__lt=to_date,
-    )
+        pickups_done_count = PickupDate.objects \
+            .annotate(num_collectors=Count('collectors')) \
+            .filter(store__group=group,
+                    date__gte=from_date,
+                    date__lt=to_date,
+                    num_collectors__gt=0).count()
 
-    return prepare_email('group_summary', None, {
-        'to_date': to_date,
-        'from_date': from_date,
-        'group': group,
-        'new_users': new_users,
-        'pickups_done_count': pickups_done_count,
-        'pickups_missed_count': pickups_missed_count,
-        'messages': messages,
-    }, to='NOTSURE@RIGHTNOW.com')
+        pickups_missed_count = PickupDate.objects \
+            .annotate(num_collectors=Count('collectors')) \
+            .filter(store__group=group,
+                    date__gte=from_date,
+                    date__lt=to_date,
+                    num_collectors=0).count()
+
+        messages = ConversationMessage.objects.filter(
+            conversation__target_type=ContentType.objects.get_for_model(Group),
+            conversation__target_id=group.id,
+            created_at__gte=from_date,
+            created_at__lt=to_date,
+        )
+
+        return {
+            'to_date': to_date,
+            'from_date': from_date,
+            'group': group,
+            'new_users': new_users,
+            'pickups_done_count': pickups_done_count,
+            'pickups_missed_count': pickups_missed_count,
+            'messages': messages,
+        }
+
+
+def prepare_group_summary_emails(group):
+    """Prepares one email per language"""
+    with timezone.override(group.timezone):
+        context = prepare_group_summary_data(group)
+        grouped_members = itertools.groupby(group.members.order_by('language'), key=lambda member: member.language)
+        return [prepare_email(template='group_summary',
+                              context=context,
+                              to=[member.email for member in members],
+                              language=language) for (language, members) in grouped_members]
 
 
 def prepare_mailverification_email(user, verification_code):
@@ -180,27 +204,55 @@ def generate_plaintext_from_html(html):
     return h.handle(html)
 
 
-def prepare_email(template, user=None, extra_context=None, to=None, **kwargs):
-    with translation.override(user.language if user else 'en'):
+def prepare_email(template, user=None, context=None, to=None, language=None, **kwargs):
+    context = dict(context) if context else {}
 
-        context = {
-            'site_name': settings.SITE_NAME,
-            'host_name': settings.HOSTNAME
-        }
+    context.update({
+        'site_name': settings.SITE_NAME,
+        'hostname': settings.HOSTNAME,
+    })
 
-        if extra_context:
-            context.update(extra_context)
+    if user:
+        context.update({
+            'user': user,
+            'user_display_name': user.get_full_name(),
+        })
 
-        if user:
-            context.update({
-                'user': user,
-                'user_display_name': user.get_full_name(),
-            })
+    if not to:
+        if not user:
+            raise Exception('Do not know who to send the email to, no "user" or "to" field')
+        to = [user.email]
 
-        if not to:
-            if not user:
-                raise Exception('Do not know who to send the email to, no "user" or "to" field')
-            to = user.email
+    if isinstance(to, str):
+        to = [to]
+
+    if user and not language:
+        language = user.language
+
+    subject, text_content, html_content = prepare_email_content(template, context, language)
+
+    from_email = formataddr((settings.SITE_NAME, settings.DEFAULT_FROM_EMAIL))
+
+    message_kwargs = {
+        'subject': subject,
+        'body': text_content,
+        'to': to,
+        'from_email': from_email,
+        'track_clicks': False,
+        'track_opens': False,
+        **kwargs,
+    }
+
+    email = AnymailMessage(**message_kwargs)
+
+    if html_content:
+        email.attach_alternative(html_content, 'text/html')
+
+    return email
+
+
+def prepare_email_content(template, context, language='en'):
+    with translation.override(language):
 
         html_content = None
 
@@ -219,21 +271,6 @@ def prepare_email(template, user=None, extra_context=None, to=None, **kwargs):
             else:
                 raise Exception('Nothing to use for text content, no text or html templates available.')
 
-        from_email = formataddr((settings.SITE_NAME, settings.DEFAULT_FROM_EMAIL))
+        subject = render_to_string('{}.subject.jinja2'.format(template), context).replace('\n', '')
 
-        message_kwargs = {
-            'subject': render_to_string('{}.subject.jinja2'.format(template), context).replace('\n', ''),
-            'body': text_content,
-            'to': [to],
-            'from_email': from_email,
-            'track_clicks': False,
-            'track_opens': False,
-            **kwargs,
-        }
-
-        email = AnymailMessage(**message_kwargs)
-
-        if html_content:
-            email.attach_alternative(html_content, 'text/html')
-
-        return email
+        return subject, text_content, html_content

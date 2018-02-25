@@ -2,18 +2,12 @@
     <mj-column>
         <mj-image width="40px"
                   src="https://user-images.githubusercontent.com/31616/36565633-517373a4-1821-11e8-9948-5bf6887c667e.png"
-                  href="{{ host_name }}"
+                  href="{{ hostname }}"
         />
-        <mj-text align="center" color="#888888" font-size="16px" line-height="20px">
-
+        <mj-text align="center" color="#aaaaaa" font-size="13px" line-height="20px">
             <p>
-                <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-                    Join our Facebook Group!
-                </a>
-
-            </p>
-            <p>
-                made with love by <a href="https://foodsaving.world">foodsaving worldwide</a>
+                <a class="footer-link" href="https://www.facebook.com/groups/foodsaving.worldwide/">Join our Facebook Group!</a> &bullet;
+                made with love by <a class="footer-link" href="https://foodsaving.world">foodsaving worldwide</a>
             </p>
         </mj-text>
     </mj-column>

@@ -22,7 +22,7 @@
                     </mj-text>
                 </mj-column>
             </mj-section>
-            <mj-include path="../../base/templates/_footer_small.mjml"/>
+            <mj-include path="../../base/templates/_footer.mjml"/>
         </mj-container>
     </mj-body>
 </mjml>

@@ -10,6 +10,7 @@ asgiref==1.1.2            # via asgi-redis, channels, daphne
 attrs==17.4.0             # via automat
 autobahn==17.10.1         # via daphne
 automat==0.6.0            # via twisted
+babel==2.5.3
 cchardet==2.1.1           # via talon
 certifi==2018.1.18        # via requests
 cffi==1.11.4              # via argon2-cffi
@@ -48,7 +49,7 @@ idna==2.6                 # via requests
 incremental==17.5.0       # via twisted
 influxdb==5.0.0           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
-jinja2==2.10
+jinja2==2.10              # via coreschema, django-jinja, jinja2
 lxml==4.1.1               # via talon
 markdown==2.6.11
 markupsafe==1.0           # via jinja2

@@ -6,3 +6,4 @@ autopep8
 pytest-django
 pytest-xdist
 pytest-cov
+freezegun

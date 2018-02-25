@@ -46,10 +46,13 @@
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
     <q-card>
-      <q-search
-        class="searchbar"
-        v-model="search"
-      />
+      <transition name="slide-toggle">
+        <q-search
+          v-if="!previewOpened"
+          class="searchbar"
+          v-model="search"
+        />
+      </transition>
     </q-card>
     <transition-group
       name="list-complete"
@@ -137,6 +140,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+@import '~slidetoggle'
 body.desktop .alert
   margin 2em 8px 2.5em 8px
 .text-primary
@@ -152,7 +156,7 @@ body.desktop .alert
   text-decoration underline
 
 .list-complete-item
-  transition: all .5s
+  transition: all .7s
   display: inline-block
 
 .list-complete-enter, .list-complete-leave-to

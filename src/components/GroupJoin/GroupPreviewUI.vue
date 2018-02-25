@@ -1,6 +1,6 @@
 <template>
   <div v-if="group">
-    <q-card>
+    <q-card class="shadow-6">
       <q-card-title>
         {{ group.name }}
         <span slot="subtitle">

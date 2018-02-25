@@ -32,9 +32,22 @@ MEDIA_URL = '/media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# ANYMAIL = {
-#     "SPARKPOST_API_KEY": "your sparkpost key"
-# }
+
+ANYMAIL = {
+    # Should be a subaccount to receive webhooks scoped to this account
+    # https://app.sparkpost.com/account/subaccounts
+    # Transmissions: Read/Write
+    # Event Webhooks: Read/Write
+    "SPARKPOST_API_KEY": "your subaccount key"
+}
+# to set up a relay webhook for incoming emails
+# https://developers.sparkpost.com/api/relay-webhooks.html
+SPARKPOST_ACCOUNT_KEY = 'your account key'
+SPARKPOST_RELAY_DOMAIN = 'replies.your-karrot-deployment'
+
+# shared secrets, will be used by setup_sparkpost management command
+SPARKPOST_RELAY_SECRET = 'generate a random string'
+SPARKPOST_WEBHOOK_SECRET = 'generate another random string'
 
 DEFAULT_FROM_EMAIL = "your mail domain"  # can be anything if using the console backend
 HOSTNAME = 'https://localhost:8000'  # for constructing the frontend URL

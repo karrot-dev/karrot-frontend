@@ -1,3 +1,5 @@
+from email.utils import formataddr
+
 import html2text
 from anymail.message import AnymailMessage
 from dateutil.relativedelta import relativedelta
@@ -14,6 +16,7 @@ from config import settings
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group
 from foodsaving.pickups.models import PickupDate
+from foodsaving.webhooks.api import make_local_part
 
 
 def date_filter(value):
@@ -42,6 +45,39 @@ def prepare_changemail_success_email(user):
     return prepare_email('changemail_success', user, {
         'url': 'ERROR_URL_HAS_NOT_BEEN_DEFINED'
     })
+
+
+def prepare_conversation_message_notification(user, message):
+    group = message.conversation.target
+    target_type = message.conversation.target_type
+    if group is None or target_type != ContentType.objects.get_for_model(Group):
+        raise Exception('Cannot send message notification if conversation does not belong to a group')
+
+    reply_to_name = group.name
+    conversation_url = '{hostname}/#/group/{group_id}/wall'.format(
+        hostname=settings.HOSTNAME,
+        group_id=group.id
+    )
+    conversation_name = group.name
+
+    local_part = make_local_part(message.conversation, user)
+    reply_to = formataddr((reply_to_name, '{}@{}'.format(local_part, settings.SPARKPOST_RELAY_DOMAIN)))
+    from_email = formataddr((message.author.display_name, 'noreply@{}'.format(settings.HOSTNAME)))
+
+    with translation.override(user.language):
+        return prepare_email(
+            'conversation_message_notification',
+            from_email=from_email,
+            user=user,
+            reply_to=[reply_to],
+            extra_context={
+                'conversation_name': conversation_name,
+                'author_name': message.author.display_name,
+                'message_content': message.content,
+                'conversation_url': conversation_url,
+                'mute_url': conversation_url + '?mute=1'
+            }
+        )
 
 
 def prepare_emailinvitation_email(invitation):
@@ -144,11 +180,12 @@ def generate_plaintext_from_html(html):
     return h.handle(html)
 
 
-def prepare_email(template, user=None, extra_context=None, to=None):
+def prepare_email(template, user=None, extra_context=None, to=None, **kwargs):
     with translation.override(user.language if user else 'en'):
 
         context = {
             'site_name': settings.SITE_NAME,
+            'host_name': settings.HOSTNAME
         }
 
         if extra_context:
@@ -182,14 +219,17 @@ def prepare_email(template, user=None, extra_context=None, to=None):
             else:
                 raise Exception('Nothing to use for text content, no text or html templates available.')
 
-        email = AnymailMessage(
-            subject=render_to_string('{}.subject.jinja2'.format(template), context).replace('\n', ''),
-            body=text_content,
-            to=[to],
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            track_clicks=False,
-            track_opens=False
-        )
+        message_kwargs = {
+            'subject': render_to_string('{}.subject.jinja2'.format(template), context).replace('\n', ''),
+            'body': text_content,
+            'to': [to],
+            'from_email': settings.DEFAULT_FROM_EMAIL,
+            'track_clicks': False,
+            'track_opens': False,
+            **kwargs,
+        }
+
+        email = AnymailMessage(**message_kwargs)
 
         if html_content:
             email.attach_alternative(html_content, 'text/html')

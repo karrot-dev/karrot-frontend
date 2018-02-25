@@ -26,6 +26,7 @@ from foodsaving.utils.tests.fake import faker
 
 class ConversationReceiverTests(ChannelTestCase):
     def test_receives_messages(self):
+        self.maxDiff = None
         client = WSClient()
         user = UserFactory()
         author_client = WSClient()
@@ -72,6 +73,7 @@ class ConversationReceiverTests(ChannelTestCase):
                 'updated_at': conversation.updated_at,
                 'seen_up_to': None,
                 'unread_message_count': 1,
+                'email_notifications': True,
             }
         })
 
@@ -104,6 +106,7 @@ class ConversationReceiverTests(ChannelTestCase):
                 'updated_at': author_participant.updated_at,
                 'seen_up_to': message.id,
                 'unread_message_count': 0,
+                'email_notifications': True,
             }
         })
 

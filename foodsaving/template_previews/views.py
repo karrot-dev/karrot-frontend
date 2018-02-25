@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 from django.template.utils import get_app_template_dirs
 
 from config import settings
+from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group
 from foodsaving.invitations.models import Invitation
 from foodsaving.userauth.models import VerificationCode
@@ -25,6 +26,10 @@ def random_group():
     return Group.objects.order_by('?').first()
 
 
+def random_message():
+    return ConversationMessage.objects.order_by('?').first()
+
+
 class Handlers:
 
     def accountdelete_request(self):
@@ -38,6 +43,9 @@ class Handlers:
 
     def changemail_success(self):
         return email_utils.prepare_changemail_success_email(user=random_user())
+
+    def conversation_message_notification(self):
+        return email_utils.prepare_conversation_message_notification(user=random_user(), message=random_message())
 
     def emailinvitation(self):
         invitation = Invitation.objects.first()

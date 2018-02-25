@@ -1,0 +1,28 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{{ conversation_name }}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-section>
+                <mj-column>
+                    <mj-text>
+                        <div class="message">
+                            <span class="message-author">{{ author_name }}</span><br>
+                            <span class="message-content">{{ message_content }}</span>
+                        </div>
+                    </mj-text>
+                    <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey"/>
+                    <mj-text font-size="13px">
+                        <p>
+                            {% trans %}You are receiving this because you are subscribed to this conversation.{% endtrans %}<br/>
+                            {% trans %}Reply to this email directly, <a href="{{ conversation_url }}">view it on {{ site_name }}</a>, or <a href="{{ mute_url }}">mute the conversation</a>.{% endtrans %}
+                        </p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer_small.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

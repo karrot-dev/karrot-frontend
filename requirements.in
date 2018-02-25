@@ -10,7 +10,7 @@ drf-nested-routers
 factory-boy
 hiredis
 markdown
-psycopg2
+psycopg2-binary
 redis
 flake8
 pytz
@@ -23,9 +23,10 @@ django-timezone-field
 raven
 responses
 furl
-channels
+channels~=1.1
 asgi_redis
 pyfcm
 django-versatileimagefield
-Jinja2
+talon
+jinja2
 html2text

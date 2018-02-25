@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 22:37+0000\n"
+"POT-Creation-Date: 2018-02-25 16:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: foodsaving/base/templates/base-text.jinja2:1
 #, python-format
 msgid "Hello %(full_name)s,"
@@ -34,8 +35,19 @@ msgid ""
 msgstr ""
 
 #: foodsaving/conversations/api.py:28
-#: foodsaving/conversations/serializers.py:80
+#: foodsaving/conversations/serializers.py:93
 msgid "You are not in this conversation"
+msgstr ""
+
+#: foodsaving/conversations/templates/conversation_message_notification.html.jinja2:71
+msgid "You are receiving this because you are subscribed to this conversation."
+msgstr ""
+
+#: foodsaving/conversations/templates/conversation_message_notification.html.jinja2:72
+#, python-format
+msgid ""
+"Reply to this email directly, <a href=\"%(conversation_url)s\">view it on "
+"%(site_name)s</a>, or <a href=\"%(mute_url)s\">mute the conversation</a>."
 msgstr ""
 
 #: foodsaving/groups/api.py:24
@@ -64,6 +76,35 @@ msgstr ""
 
 #: foodsaving/groups/serializers.py:212
 msgid "Group password is wrong"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:4
+#: foodsaving/groups/templates/group_summary.subject.jinja2:20
+#: foodsaving/users/templates/mailverification.html.jinja2:4
+#: foodsaving/users/templates/mailverification.html.jinja2:90
+msgid "Verify your email address"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:89
+#, python-format
+msgid "%(group_name)s weekly summary"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.subject.jinja2:9
+msgid "Group summary email!"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.subject.jinja2:16
+#: foodsaving/users/templates/mailverification.html.jinja2:89
+#, python-format
+msgid "Welcome to %(site_name)s, %(user_display_name)s!"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.subject.jinja2:17
+#: foodsaving/users/templates/mailverification.html.jinja2:90
+msgid ""
+"After we get started, please confirm your email address by clicking the link "
+"below:"
 msgstr ""
 
 #: foodsaving/invitations/serializers.py:20
@@ -161,19 +202,19 @@ msgstr ""
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:67
+#: foodsaving/userauth/serializers.py:68
 msgid "Similar e-mail exists: "
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:80 foodsaving/userauth/serializers.py:92
+#: foodsaving/userauth/serializers.py:81 foodsaving/userauth/serializers.py:93
 msgid "We could not send you an e-mail."
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:111
+#: foodsaving/userauth/serializers.py:112
 msgid "Verification code is invalid"
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:114
+#: foodsaving/userauth/serializers.py:115
 msgid "Verification code has expired"
 msgstr ""
 
@@ -225,25 +266,9 @@ msgid ""
 "You can safely ignore this message if you don't know what all this is about."
 msgstr ""
 
-#: foodsaving/users/templates/mailverification.html.jinja2:4
-#: foodsaving/users/templates/mailverification.html.jinja2:88
-msgid "Verify your email address"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification.html.jinja2:74
+#: foodsaving/users/templates/mailverification.html.jinja2:89
 #, python-format
 msgid "Thank you for signing up to %(site_name)s!"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification.html.jinja2:87
-#, python-format
-msgid "Welcome to %(site_name)s, %(user_display_name)s!"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification.html.jinja2:88
-msgid ""
-"After we get started, please confirm your email address by clicking the link "
-"below:"
 msgstr ""
 
 #: foodsaving/users/templates/mailverification.subject.jinja2:1

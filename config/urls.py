@@ -22,6 +22,7 @@ from foodsaving.userauth.api import AuthUserView, AuthView, LogoutView, VerifyMa
     ResetPasswordView, ChangePasswordView
 from foodsaving.users.api import UserViewSet
 from foodsaving.stores.api import StoreViewSet
+from foodsaving.webhooks.api import IncomingEmailView, EmailEventView
 
 from foodsaving.template_previews import views as template_preview_views
 
@@ -66,6 +67,8 @@ urlpatterns = [
     path('api/auth/resend_verification/', ResendVerificationView.as_view()),
     path('api/auth/reset_password/', ResetPasswordView.as_view()),
     path('api/auth/change_password/', ChangePasswordView.as_view()),
+    path('api/webhooks/incoming_email/', IncomingEmailView.as_view()),
+    path('api/webhooks/email_event/', EmailEventView.as_view()),
     path('api/auth/', AuthView.as_view()),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),

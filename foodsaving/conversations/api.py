@@ -14,8 +14,8 @@ from foodsaving.conversations.models import (
 from foodsaving.conversations.serializers import (
     ConversationSerializer,
     ConversationMessageSerializer,
-    ConversationMarkSerializer
-)
+    ConversationMarkSerializer,
+    ConversationEmailNotificationsSerializer)
 
 
 class MessagePagination(CursorPagination):
@@ -62,6 +62,18 @@ class ConversationViewSet(
         serializer_class=ConversationMarkSerializer
     )
     def mark(self, request, pk=None):
+        conversation = self.get_object()
+        participant = conversation.conversationparticipant_set.get(user=request.user)
+        serializer = self.get_serializer(participant, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+    @detail_route(
+        methods=['POST'],
+        serializer_class=ConversationEmailNotificationsSerializer
+    )
+    def email_notifications(self, request, pk=None):
         conversation = self.get_object()
         participant = conversation.conversationparticipant_set.get(user=request.user)
         serializer = self.get_serializer(participant, data=request.data, partial=True)

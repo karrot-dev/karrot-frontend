@@ -9,24 +9,6 @@ DATABASES = {
     }
 }
 
-DEFAULT_FROM_EMAIL = "testing@example.com"
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-HOSTNAME = ''
-SITE_NAME = 'fakekarrot.example.com'
-MEDIA_ROOT = './uploads/'
-MEDIA_URL = '/media/'
-
-INFLUXDB_DISABLED = True
-INFLUXDB_HOST = ''
-INFLUXDB_PORT = ''
-INFLUXDB_USER = ''
-INFLUXDB_PASSWORD = ''
-INFLUXDB_DATABASE = ''
-INFLUXDB_TAGS_HOST = ''
-INFLUXDB_TIMEOUT = 2
-INFLUXDB_USE_CELERY = False
-INFLUXDB_USE_THREADING = True
-
 FCM_SERVER_KEY = 'cifcmserverkey'
 
 SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'

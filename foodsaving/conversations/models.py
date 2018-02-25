@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.db.models import ForeignKey, TextField, ManyToManyField
+from django.db.models import ForeignKey, TextField, ManyToManyField, BooleanField
 
 from foodsaving.base.base_models import BaseModel, UpdatedAtMixin
 
@@ -55,6 +55,7 @@ class ConversationParticipant(BaseModel, UpdatedAtMixin):
     user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     conversation = ForeignKey(Conversation, on_delete=models.CASCADE)
     seen_up_to = ForeignKey('ConversationMessage', null=True, on_delete=models.SET_NULL)
+    email_notifications = BooleanField(default=True)
 
 
 class ConversationMessage(BaseModel):

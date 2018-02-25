@@ -6,8 +6,8 @@
     <mj-body>
         <mj-container>
             <mj-include path="../../base/templates/_header.mjml"/>
-            <mj-section background-color="#ffffff" padding="40px 0 40px 0">
-                <mj-column width="80%">
+            <mj-section>
+                <mj-column>
                     <mj-text>
                         <h1>{% trans %}Thank you for signing up to {{ site_name }}!{% endtrans %}</h1>
                     </mj-text>

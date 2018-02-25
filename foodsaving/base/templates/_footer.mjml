@@ -1,7 +1,9 @@
-<mj-section padding-top="40px" padding-bottom="40px">
+<mj-section background-color="#f5f5f5" padding-top="40px" padding-bottom="40px">
     <mj-column>
         <mj-image width="40px"
-                  src="https://user-images.githubusercontent.com/31616/36565633-517373a4-1821-11e8-9948-5bf6887c667e.png"/>
+                  src="https://user-images.githubusercontent.com/31616/36565633-517373a4-1821-11e8-9948-5bf6887c667e.png"
+                  href="{{ host_name }}"
+        />
         <mj-text align="center" color="#888888" font-size="16px" line-height="20px">
 
             <p>

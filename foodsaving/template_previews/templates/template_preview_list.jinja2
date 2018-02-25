@@ -111,17 +111,15 @@
     <div id="menu">
         <ul class="templates">
             {% for template in templates %}
-                {% if template.formats|length > 0 %}
-                    <li class="template {{ 'handled' if template.has_handler else 'unhandled' }}">
-                        <span class="template-name">{{ template.name }}</span>
-                        <ul class="formats">
-                            {% for format in template.formats %}
-                                <li><a href="/_templates/show?name={{ template.name }}&format={{ format }}"
-                                       target="preview">{{ format }}</a>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                {% endif %}
+                <li class="template {{ 'handled' if template.has_handler else 'unhandled' }}">
+                    <span class="template-name">{{ template.name }}</span>
+                    <ul class="formats">
+                        {% for format in template.formats %}
+                            <li><a href="/_templates/show?name={{ template.name }}&format={{ format }}"
+                                   target="preview">{{ format }}</a>
+                        {% endfor %}
+                    </ul>
+                </li>
             {% endfor %}
         </ul>
     </div>

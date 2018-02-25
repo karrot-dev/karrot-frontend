@@ -1,26 +1,26 @@
 <mjml>
-    <mj-include path="_head.mjml"/>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans %}Verify your email address{% endtrans %}</mj-title>
+    </mj-head>
     <mj-body>
         <mj-container>
-            <mj-include path="_header.mjml"/>
-            <mj-section>
-                <mj-column width="85%">
-                    <mj-text align="center" font-weight="500" padding="0" font-size="24px">
-                        {% trans %}Thank you for signing up to {{ site_name }}!{% endtrans %}
-                    </mj-text>
-                </mj-column>
-            </mj-section>
-            <mj-section padding-top="20px">
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section background-color="#ffffff" padding="40px 0 40px 0">
                 <mj-column width="80%">
+                    <mj-text>
+                        <h1>{% trans %}Thank you for signing up to {{ site_name }}!{% endtrans %}</h1>
+                    </mj-text>
                     <mj-text>
                         <p>{% trans %}Welcome to {{ site_name }}, {{ user_display_name }}!{% endtrans %}</p>
                         <p>{% trans %}After we get started, please confirm your email address by clicking the link below:{% endtrans %}</p>
                     </mj-text>
-                    <mj-button href="{{ url }}" font-size="18px" font-family="Helvetica" background-color="#c2b140" color="white">
+                    <mj-button href="{{ url }}">
                         {% trans %}Verify your email address{% endtrans %}
                     </mj-button>
                 </mj-column>
             </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
         </mj-container>
     </mj-body>
 </mjml>

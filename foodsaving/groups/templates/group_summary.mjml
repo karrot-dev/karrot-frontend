@@ -1,0 +1,66 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans %}Verify your email address{% endtrans %}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section background-color="#ffffff" padding="40px 0 40px 0">
+                <mj-column>
+                    <mj-text>
+                        <h1>{% trans group_name=group.name %}{{ group_name }} weekly summary{% endtrans %}</h1>
+                        <h2>{{ from_date | date }} to {{ to_date | date }}</h2>
+                    </mj-text>
+                    <mj-text>
+
+                        <p>Hope you are having a good weekend! Here's a summary of what happened on your team last
+                            week:</p>
+
+                        <p>
+                            {{ new_users|length }} members were added
+                            {% for user in new_users %}
+                                {{ user.display_name }}{% if not loop.last %}, {% else %}.{% endif %}
+                            {% endfor %}
+                        </p>
+
+                        {% if pickups_done_count > 0 %}
+                            <p>Your group made a total of {{ pickups_done_count }} pickups last week!</p>
+                        {% else %}
+                            <p>Your group made no pickups last week :/</p>
+                        {% endif %}
+
+                        {% if pickups_missed_count > 0 %}
+                            <p>You missed {{ pickups_missed_count }} pickups though :(</p>
+                        {% else %}
+                            {% if pickups_done_count > 0 %}
+                                <p>Yay, you managed all your pickups!</p>
+                            {% endif %}
+                        {% endif %}
+
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-section padding-top="30px"></mj-section>
+            <mj-section background-color="#ffffff" padding="40px 0 40px 0">
+                <mj-column>
+                    <mj-text>
+                        {% if messages|length > 0 %}
+                            <p>Here's what was said last week:</p>
+                            {% for message in messages %}
+                                <div class="message">
+                                    <span class="message-author">{{ message.author.display_name }}</span><br>
+                                    <span class="message-content">{{ message.content }}</span>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No messages were sent :/</p>
+                        {% endif %}
+
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

@@ -100,6 +100,7 @@ TEMPLATES = [
                 "jinja2.ext.i18n",
             ],
             "autoescape": True,
+            "environment": "foodsaving.utils.email_utils.jinja2_environment"
         }
     },
     {

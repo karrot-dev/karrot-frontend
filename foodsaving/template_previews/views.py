@@ -1,3 +1,4 @@
+import html
 import os
 import re
 
@@ -18,6 +19,10 @@ foodsaving_basedir = os.path.abspath(os.path.join(settings.BASE_DIR, 'foodsaving
 
 def random_user():
     return User.objects.order_by('?').first()
+
+
+def random_group():
+    return Group.objects.order_by('?').first()
 
 
 class Handlers:
@@ -42,6 +47,9 @@ class Handlers:
             invitation = Invitation.objects.create(group=group, invited_by=invited_by,
                                                    email='exampleinvitation@foo.com')
         return email_utils.prepare_emailinvitation_email(invitation)
+
+    def group_summary(self):
+        return email_utils.prepare_group_summary_email(random_group())
 
     def mailverification(self):
         return email_utils.prepare_mailverification_email(
@@ -93,12 +101,18 @@ def list_templates(request):
                         for idx, s in enumerate(['subject', 'text', 'html']):
                             if os.path.isfile('{}.{}.jinja2'.format(os.path.join(directory, name), s)):
                                 formats.append(s)
+                            elif s == 'text':
+                                formats.append('autotext')
 
-                        templates[name] = {
-                            'name': name,
-                            'has_handler': name in dir(handlers),
-                            'formats': formats,
-                        }
+                        # only include if some formats were defined (even empty ones would end up with autotext...)
+                        if len(formats) > 1:
+                            formats.append('raw')
+
+                            templates[name] = {
+                                'name': name,
+                                'has_handler': name in dir(handlers),
+                                'formats': formats,
+                            }
 
     return HttpResponse(render_to_string('template_preview_list.jinja2', {
         'templates': sorted(templates.values(), key=lambda t: t['name'])
@@ -132,8 +146,11 @@ def show_template(request):
 
         return HttpResponse(html_content)
 
-    elif format == 'text':
+    elif format == 'text' or format == 'autotext':
         return HttpResponse('<pre>{}</pre>'.format(email.body))
 
     elif format == 'subject':
         return HttpResponse('<pre>{}</pre>'.format(email.subject))
+
+    elif format == 'raw':
+        return HttpResponse('<pre>{}</pre>'.format(html.escape(email.message().as_string())))

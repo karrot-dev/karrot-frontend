@@ -1,4 +1,7 @@
-<mj-section padding-top="10px" padding-bottom="20px">
+<mj-section padding-top="10px"
+            padding-bottom="20px"
+            background-url="https://karrot.world/img/repeating_grey.c9ea44a.jpg"
+            background-size="600px">
     <mj-column width="180px">
         <mj-image
                 src="https://user-images.githubusercontent.com/31616/36565633-517373a4-1821-11e8-9948-5bf6887c667e.png"/>

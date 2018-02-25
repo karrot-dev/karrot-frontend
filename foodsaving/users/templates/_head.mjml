@@ -1,8 +1,0 @@
-<mj-head>
-    <mj-title>{% trans %}Verify your email address{% endtrans %}</mj-title>
-    <mj-attributes>
-        <mj-all font-family="Helvetica, sans-serif" />
-        <mj-text font-weight="300" font-size="16" color="#616161" line-height="24px" />
-        <mj-section padding="0" />
-    </mj-attributes>
-</mj-head>

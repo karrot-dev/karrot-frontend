@@ -661,6 +661,21 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     <h4 class="text-primary">
         Which group do you want to join?
     </h4>
+    <div class="q-card">
+        <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+            <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+            <div class="q-if-inner col row no-wrap items-center relative-position">
+                <!---->
+                <!---->
+                <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+            </div>
+            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
+        </div>
+    </div>
     <div class="row">
         <div class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
             <div class="q-card groupPreviewCard">
@@ -1006,6 +1021,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     <h4 class="text-primary">
         Which group do you want to join?
     </h4>
+    <div class="q-card">
+        <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+            <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+            <div class="q-if-inner col row no-wrap items-center relative-position">
+                <!---->
+                <!---->
+                <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+            </div>
+            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
+        </div>
+    </div>
     <div class="row">
         <div class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
             <div class="q-card groupPreviewCard">

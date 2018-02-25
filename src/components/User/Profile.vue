@@ -32,6 +32,14 @@
         </p>
       </div>
     </div>
+    <q-btn
+      icon="fa-pencil"
+      small
+      round
+      class="on-right"
+      color="secondary"
+      @click="$router.push('/settings')"
+    />
     <q-card class="generic-padding">
       <UserMapPreview
         v-if="user.latitude && user.longitude"
@@ -64,14 +72,6 @@
       />
       <div style="clear: both; margin-bottom: 8px"/>
     </q-card>
-    <q-btn
-      icon="edit"
-      small
-      color="primary"
-      @click="$router.push('/settings')"
-    >
-      Edit
-    </q-btn>
   </div>
 </template>
 
@@ -121,7 +121,8 @@ p.subtitle
   width 200px
   float right
   max-width: 40%
-
+.on-right
+  float right
 body.mobile .map
   height 150px
   width 150px

@@ -34,16 +34,16 @@ export default {
   },
   actions: {
     ...withMeta({
-      async save ({ commit, dispatch }, store) {
-        commit('update', await stores.save(store))
+      async save ({ dispatch }, store) {
+        dispatch('update', await stores.save(store))
         router.push({ name: 'store', params: { storeId: store.id } })
       },
-      async create ({ commit, dispatch, rootGetters }, store) {
+      async create ({ dispatch, rootGetters }, store) {
         const createdStore = await stores.create({
           ...store,
           group: rootGetters['currentGroup/id'],
         })
-        commit('update', createdStore)
+        dispatch('update', createdStore)
         router.push({ name: 'store', params: { storeId: createdStore.id } })
       },
       async fetch ({ commit }) {
@@ -51,7 +51,7 @@ export default {
       },
     }),
 
-    async selectStore ({ commit, state, dispatch, getters, rootState }, { storeId }) {
+    async selectStore ({ commit, dispatch, getters, rootState }, { storeId }) {
       if (!getters.get(storeId)) {
         try {
           const store = await stores.get(storeId)
@@ -72,7 +72,15 @@ export default {
       commit('clearSelected')
     },
 
-    update ({ commit }, update) {
+    update ({ commit, dispatch, getters }, update) {
+      const old = getters.get(update.id)
+      if (old && old.status !== update.status) {
+        if (old.status === 'active' || update.status === 'active') {
+          dispatch('pickups/clear', {}, { root: true })
+          dispatch('pickups/setStoreFilter', getters.activeStoreId, { root: true })
+          dispatch('pickups/fetchListByGroupId', old.group, { root: true })
+        }
+      }
       commit('update', update)
     },
 

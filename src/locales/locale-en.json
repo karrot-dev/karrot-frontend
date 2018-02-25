@@ -82,12 +82,15 @@
     "HIDE_USERS": "Hide users",
     "SHOW_STORES": "Show stores",
     "HIDE_STORES": "Hide stores",
-    "SET_LOCATION": "Set location"
+    "SET_LOCATION": "Set location", 
+    "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
     "EDIT": "Edit store",
     "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "This store has been archived",
+    "INACTIVE": "This store is currently not cooperating.",
+    "CHANGE_STATUS": "You can change the status on the settings page.",
     "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {

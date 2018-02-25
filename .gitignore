@@ -16,3 +16,6 @@ karrot-backend/
 karrot-docker/
 cordova/platforms
 cordova/plugins
+cordova/config/current
+cordova/getpassword
+cordova/ul_web_hooks

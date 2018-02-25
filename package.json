@@ -22,7 +22,8 @@
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
-    "build:cordova": "CORDOVA=true node build/script.build.js",
+    "build:cordova:dev": "KARROT_THEME=dev BACKEND=https://dev.karrot.world CORDOVA=true node build/script.build.js",
+    "build:cordova:prod": "BACKEND=https://karrot.world CORDOVA=true node build/script.build.js",
     "serve": "node build/script.serve.js",
     "test": "node test/jestUTC.js",
     "test:update": "node test/jestUTC.js --verbose --updateSnapshot",
@@ -74,7 +75,7 @@
     "@storybook/addon-actions": "^3.3.11",
     "@storybook/addon-links": "^3.3.11",
     "@storybook/vue": "^3.3.11",
-    "autoprefixer": "^7.2.4",
+    "autoprefixer": "^8.0.0",
     "axios-mock-adapter": "^1.12.0",
     "babel-core": "^6.0.0",
     "babel-eslint": "^8.2.1",
@@ -88,7 +89,7 @@
     "connect-history-api-fallback": "^1.1.0",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.9",
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.0",
     "es6-promise": "^4.2.4",
     "eslint": "^4.16.0",
     "eslint-config-standard": "^11.0.0-beta.0",
@@ -96,7 +97,7 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-html": "^4.0.2",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "eventsource-polyfill": "^0.9.6",
@@ -127,9 +128,9 @@
     "testcafe": "^0.18.6",
     "testcafe-browser-provider-saucelabs": "^1.3.0",
     "url-loader": "^0.6.2",
-    "vue-loader": "~13.7.0",
+    "vue-loader": "~14.1.1",
     "vue-server-renderer": "^2.5.13",
-    "vue-style-loader": "^3.1.1",
+    "vue-style-loader": "^4.0.2",
     "vue-template-compiler": "~2.5.13",
     "vue-test-utils": "1.0.0-beta.11",
     "webpack": "^3.10.0",
@@ -146,11 +147,11 @@
       "<rootDir>/src"
     ],
     "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/test/styleMock.js",
       "@/(.*)$": "<rootDir>/src/$1",
       ">/(.*)$": "<rootDir>/test/$1",
-      "^quasar$": "<rootDir>/node_modules/quasar-framework",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/test/styleMock.js"
+      "^quasar$": "<rootDir>/node_modules/quasar-framework"
     },
     "moduleFileExtensions": [
       "js",
@@ -181,7 +182,8 @@
     ],
     "globals": {
       "CORDOVA": false,
-      "DEV": true
+      "DEV": true,
+      "KARROT_THEME": "dev"
     }
   }
 }

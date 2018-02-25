@@ -5,30 +5,45 @@
       size="40"
     />
     <template v-else>
-      <h6
-        class="generic-padding"
+      <q-list
         v-if="invitations.length > 0"
+        class="no-border"
       >
-        {{ $t('GROUP.INVITED_LIST') }}
-      </h6>
-      <ul>
-        <li
+        <q-list-header>
+          {{ $t('GROUP.INVITED_LIST') }}
+        </q-list-header>
+        <q-item
           v-for="invite in invitations"
           :key="invite.id"
         >
-          {{ invite.email }}
-        </li>
-      </ul>
+          <q-item-main>
+            <q-item-tile label>
+              {{ invite.email }}
+            </q-item-tile>
+            <q-item-tile sublabel>
+              <DateAsWords :date="invite.createdAt" />
+            </q-item-tile>
+          </q-item-main>
+          <q-item-side right>
+            <ProfilePicture
+              :user="invite.invitedBy"
+              :size="25"
+            />
+          </q-item-side>
+        </q-item>
+      </q-list>
     </template>
   </div>
 </template>
 
 <script>
-import { QSpinnerDots } from 'quasar'
+import { QSpinnerDots, QList, QItem, QItemSide, QItemMain, QItemTile, QListHeader } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
-  components: { QSpinnerDots },
+  components: { QSpinnerDots, QList, QItem, QItemSide, QItemMain, QItemTile, QListHeader, ProfilePicture, DateAsWords },
   mixins: [statusMixin],
   props: {
     invitations: {

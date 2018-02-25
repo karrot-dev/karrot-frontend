@@ -13,6 +13,17 @@
       <q-btn
         flat
         small
+        style="padding: 0 5px"
+        @click="$router.push({name: 'map', params: {groupId: currentGroup.id}})"
+      >
+        <i class="fa fa-arrows-alt fa-stack-1x" />
+        <q-tooltip>
+          {{ $t('GROUPMAP.FULL_SCREEN') }}
+        </q-tooltip>
+      </q-btn>
+      <q-btn
+        flat
+        small
         @click="$emit('toggleStores')"
         style="padding: 0 5px"
       >

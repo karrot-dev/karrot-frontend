@@ -3,11 +3,11 @@ import axios, { parseCursor } from '@/services/axios'
 export default {
 
   async create (pickup) {
-    return convertDate((await axios.post('/api/pickup-dates/', pickup)).data)
+    return convert((await axios.post('/api/pickup-dates/', pickup)).data)
   },
 
   async get (pickupId) {
-    return convertDate((await axios.get(`/api/pickup-dates/${pickupId}/`)).data)
+    return convert((await axios.get(`/api/pickup-dates/${pickupId}/`)).data)
   },
 
   async list (filter) {
@@ -16,7 +16,7 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertDate(response.results),
+      results: convert(response.results),
     }
   },
 
@@ -37,7 +37,7 @@ export default {
   },
 
   async save (pickup) {
-    return convertDate((await axios.patch(`/api/pickup-dates/${pickup.id}/`, pickup)).data)
+    return convert((await axios.patch(`/api/pickup-dates/${pickup.id}/`, pickup)).data)
   },
 
   async delete (pickupId) {
@@ -45,18 +45,18 @@ export default {
   },
 
   async join (pickupId) {
-    return convertDate((await axios.post(`/api/pickup-dates/${pickupId}/add/`, {})).data)
+    return convert((await axios.post(`/api/pickup-dates/${pickupId}/add/`, {})).data)
   },
 
   async leave (pickupId) {
-    return convertDate((await axios.post(`/api/pickup-dates/${pickupId}/remove/`, {})).data)
+    return convert((await axios.post(`/api/pickup-dates/${pickupId}/remove/`, {})).data)
   },
 
 }
 
-export function convertDate (val) {
+export function convert (val) {
   if (Array.isArray(val)) {
-    return val.map(convertDate)
+    return val.map(convert)
   }
   else {
     let date = new Date(val.date)

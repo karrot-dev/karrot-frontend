@@ -1,0 +1,60 @@
+#!/bin/bash
+
+set -e
+
+platform=$1
+config_env=$2
+build_type=$3
+password=$4
+
+function usage() {
+  echo "Usage: ./build <platform> <configenv> <buildtype>"
+}
+
+if [ -z "$platform" ]; then
+  usage
+  exit 1
+fi
+
+if [ -z "$config_env" ]; then
+  usage
+  exit 1
+fi
+
+if [ -z "$build_type" ]; then
+  usage
+  exit 1
+fi
+
+export CORDOVA_ENV="$config_env"
+
+echo "Building with cordova env [$config_env] and build type [$build_type]"
+
+if [ -z "$password" ]; then
+  if [ -f "./getpassword" ]; then
+    password=$(./getpassword)
+  else
+    echo "Either pass in password as last arg, or create an executable 'getpassword' script"
+    exit 1
+  fi
+fi
+
+function setconfig() {
+  local name=$1
+
+  if [ ! -d "config/$name" ]; then
+    echo "Config config/$name does not exist"
+    exit 1
+  fi
+
+  if [ -e config/current ]; then
+    rm config/current
+  fi
+
+  ln -s $name config/current
+}
+
+setconfig "$config_env" && cordova run "$platform" \
+  --"$build_type" -- \
+  --password "$password" \
+  --storePassword "$password"

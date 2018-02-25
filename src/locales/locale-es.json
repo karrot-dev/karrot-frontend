@@ -56,7 +56,7 @@
     "CREATE_TITLE": "Crear un grupo nuevo",
     "MANAGE_AGREEMENT": "Manage agreement",
     "TITLE": "Título de este grupo",
-    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
+    "PRIVATE_DESCRIPTION_TITLE": "Descripción privada del grupo ",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
@@ -71,7 +71,7 @@
     "INVITE_SEND": "Enviar invitación",
     "INVITED_LIST": "Ya se enviaron invitaciones a los siguientes correos electrónicos: ",
     "ALREADY_INVITED": "Ya se envió una invitación a este correo electrónico. ",
-    "INVITATIONS": "Invitations",
+    "INVITATIONS": "Invitaciones",
     "INVITE_TITLE": "Invitar usuarios a tu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
     "INVITATION_ACCEPT_ERROR": "Ooops, no se podía aceptar la invitación!"
@@ -140,7 +140,7 @@
     "PROFILE_NOTE": "Si te unes a este grupo tus datos de perfil serán visibles para otros miembros del grupo. "
   },
   "GROUPINFO": {
-    "TITLE": "Public group information",
+    "TITLE": "Información pública del grupo",
     "META": "Enseñar información pública del grupo",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
@@ -233,7 +233,7 @@
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "¡Añadir más idiomas!",
-    "SWITCH": "Switch language"
+    "SWITCH": "Cambiar lengua"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "negrita",

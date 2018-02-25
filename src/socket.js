@@ -6,12 +6,13 @@ import auth from '@/services/api/auth'
 import { getter } from '@/store/storeHelpers'
 
 import { camelizeKeys } from '@/services/utils'
-import { convertDate as convertMessage } from '@/services/api/messages'
-import { parseDates as convertConversation } from '@/services/api/conversations'
-import { convertDate as convertPickup } from '@/services/api/pickups'
+import { convert as convertMessage } from '@/services/api/messages'
+import { convert as convertConversation } from '@/services/api/conversations'
+import { convert as convertPickup } from '@/services/api/pickups'
 import { convert as convertSeries } from '@/services/api/pickupSeries'
-import { parse as convertFeedback } from '@/services/api/feedback'
-import { convertDates as convertHistory } from '@/services/api/history'
+import { convert as convertFeedback } from '@/services/api/feedback'
+import { convert as convertHistory } from '@/services/api/history'
+import { convert as convertInvitation } from '@/services/api/invitations'
 
 let WEBSOCKET_ENDPOINT
 
@@ -88,6 +89,13 @@ export function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'groups:group_preview') {
     store.dispatch('groups/update', camelizeKeys(payload))
+  }
+  else if (topic === 'invitations:invitation') {
+    store.dispatch('invitations/add', convertInvitation(camelizeKeys(payload)))
+  }
+  else if (topic === 'invitations:invitation_accept') {
+    // delete invitation from list until there is a better way to display it
+    store.dispatch('invitations/delete', payload.id)
   }
   else if (topic === 'stores:store') {
     store.dispatch('stores/update', camelizeKeys(payload))

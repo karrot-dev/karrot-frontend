@@ -92,6 +92,7 @@ module.exports = {
       'PROD': env.prod,
       'CORDOVA': env.cordova,
       'BACKEND': '"' + config.backend + '"',
+      'KARROT_THEME': '"' + env.karrotTheme + '"',
       '__THEME': '"' + env.platform.theme + '"'
     }),
     new webpack.LoaderOptionsPlugin({

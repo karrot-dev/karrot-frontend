@@ -171,7 +171,7 @@ export default {
   },
   mutations: {
     setStoreIdFilter (state, storeId) {
-      state.storeIdFilter = parseInt(storeId)
+      state.storeIdFilter = parseInt(storeId, 10)
     },
     clearStoreIdFilter (state) {
       state.storeIdFilter = null
@@ -240,5 +240,5 @@ export function isWithinOneWeek (pickup) {
 }
 
 export function sortByDate (a, b) {
-  return a.date > b.date
+  return a.date - b.date
 }

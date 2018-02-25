@@ -10,7 +10,7 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertDates(response.results),
+      results: convert(response.results),
     }
   },
 
@@ -20,14 +20,14 @@ export default {
       ...response,
       next: parseCursor(response.next),
       prev: parseCursor(response.prev),
-      results: convertDates(response.results),
+      results: convert(response.results),
     }
   },
 }
 
-export function convertDates (val) {
+export function convert (val) {
   if (Array.isArray(val)) {
-    return val.map(convertDates)
+    return val.map(convert)
   }
   else {
     const date = new Date(val.date)

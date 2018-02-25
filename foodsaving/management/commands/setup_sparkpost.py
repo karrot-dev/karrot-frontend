@@ -6,7 +6,11 @@ from django.core.management.base import BaseCommand
 class Command(BaseCommand):
 
     def log_response(self, response):
-        print(response.request.method, response.request.url, response.status_code, response.json())
+        try:
+            json = response.json()
+        except:  # noqa
+            json = ''
+        print(response.request.method, response.request.url, response.status_code, json)
 
     def handle(self, *args, **options):
         # use subaccounts for sending emails and receiving emailevents

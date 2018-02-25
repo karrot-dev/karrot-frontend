@@ -51,6 +51,7 @@
           v-if="!previewOpened"
           class="searchbar"
           v-model="search"
+          style="min-height: 0"
         />
       </transition>
     </q-card>
@@ -140,7 +141,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-@import '~slidetoggle'
 body.desktop .alert
   margin 2em 8px 2.5em 8px
 .text-primary
@@ -161,8 +161,22 @@ body.desktop .alert
 
 .list-complete-enter, .list-complete-leave-to
   opacity: 0
-  transform: translateY(30px)
+  transform: translateY(2000px)
 
 .list-complete-leave-active
   position: absolute
+
+.slide-toggle-enter-active,
+.slide-toggle-leave-active
+  transition all .2s
+  min-height = 0
+  overflow hidden
+.slide-toggle-enter-to
+    max-height 400px
+.slide-toggle-enter,
+.slide-toggle-leave-active
+    max-height 0
+    opacity 0
+.slide-toggle-leave
+    max-height 400px
 </style>

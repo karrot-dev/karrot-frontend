@@ -64,6 +64,14 @@
       />
       <div style="clear: both; margin-bottom: 8px"/>
     </q-card>
+    <q-btn
+      icon="edit"
+      small
+      color="primary"
+      @click="$router.push('/settings')"
+    >
+      Edit
+    </q-btn>
   </div>
 </template>
 

@@ -40,7 +40,7 @@
       </div>
     </div>
     <h4
-      class="text-primary"
+      class="text-primary generic-padding"
       v-if="otherGroups.length>0"
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
@@ -51,14 +51,14 @@
         v-model="search"
       />
     </q-card>
-    <div
-      class="row"
+    <transition-group
+      name="list-complete"
       v-if="otherGroups.length>0"
-    >
+      class="row">
       <div
         v-for="group in filteredGroups"
         :key="group.id"
-        class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
+        class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
       >
         <GroupGalleryCard
           :group="group"
@@ -66,7 +66,7 @@
           @preview="$emit('preview', { groupId: group.id })"
         />
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -112,7 +112,7 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 body.desktop .alert
-  margin 2em 0 2.5em 0
+  margin 2em 8px 2.5em 8px
 .text-primary
   margin-left .2em
 .highlight
@@ -122,9 +122,17 @@ body.desktop .alert
   vertical-align middle
   height 45px
   padding 5px
-</style>
-
-<style scoped lang="stylus">
 .underline
   text-decoration underline
+
+.list-complete-item
+  transition: all .5s
+  display: inline-block
+
+.list-complete-enter, .list-complete-leave-to
+  opacity: 0
+  transform: translateY(30px)
+
+.list-complete-leave-active
+  position: absolute
 </style>

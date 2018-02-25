@@ -42,7 +42,7 @@
                 v-model="edit.description"
                 type="textarea"
                 :min-rows="3"
-                @keyup.ctrl.enter="maybeSave"
+                @keyup.enter.prevent.ctrl.exact="maybeSave"
               />
             </MarkdownInput>
           </q-field>

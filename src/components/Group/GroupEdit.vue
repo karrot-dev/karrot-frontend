@@ -18,6 +18,7 @@
               :autofocus="true"
               autocomplete="off"
               @blur="$v.edit.name.$touch"
+              @keyup.enter.prevent.ctrl.exact="maybeSave"
             />
           </q-field>
 
@@ -32,7 +33,7 @@
                 v-model="edit.publicDescription"
                 type="textarea"
                 :min-rows="3"
-                @keyup.ctrl.enter="maybeSave"
+                @keyup.enter.prevent.ctrl.exact="maybeSave"
               />
             </MarkdownInput>
           </q-field>
@@ -48,7 +49,7 @@
                 v-model="edit.description"
                 type="textarea"
                 :min-rows="3"
-                @keyup.ctrl.enter="maybeSave"
+                @keyup.enter.prevent.ctrl.exact="maybeSave"
               />
             </MarkdownInput>
           </q-field>
@@ -79,10 +80,12 @@
             :label="$t('GROUP.TIMEZONE')"
             :error="hasTimezoneError"
             :error-label="timezoneError"
+            keyup.enter.prevent.ctrl.exact="maybeSave"
           >
             <q-input
               v-model="edit.timezone"
               @blur="$v.edit.timezone.$touch"
+              keyup.enter.prevent.ctrl.exact="maybeSave"
             >
               <q-autocomplete
                 :static-data="timezones"

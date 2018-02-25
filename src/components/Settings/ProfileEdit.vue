@@ -10,7 +10,10 @@
         :error="hasError('displayName')"
         :error-label="firstError('displayName')"
       >
-        <q-input v-model="edit.displayName"/>
+        <q-input
+          v-model="edit.displayName"
+          @keyup.enter.prevent.ctrl.exact="save"
+        />
       </q-field>
 
       <q-field
@@ -24,7 +27,7 @@
             v-model="edit.description"
             type="textarea"
             :min-rows="1"
-            @keyup.ctrl.enter="save"
+            @keyup.enter.prevent.ctrl.exact="save"
           />
         </MarkdownInput>
       </q-field>
@@ -34,6 +37,7 @@
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
         :error-label="addressError"
+        @keyup.enter.prevent.ctrl.exact="save"
       >
         <address-picker
           v-model="edit"

@@ -27,6 +27,7 @@
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
+              @keyup.enter.prevent.ctrl.exact="submit"
             />
           </q-field>
         </div>
@@ -43,6 +44,7 @@
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
+              @keyup.enter.prevent.ctrl.exact="submit"
             />
           </q-field>
         </div>
@@ -59,6 +61,7 @@
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
+              @keyup.enter.prevent.ctrl.exact="submit"
             />
           </q-field>
         </div>

@@ -14,7 +14,7 @@
         :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
         autocomplete="off"
         :min-rows="2"
-        @keyup.ctrl.enter="maybeSave"
+        @keyup.enter.prevent.ctrl.exact="maybeSave"
       />
     </q-field>
 

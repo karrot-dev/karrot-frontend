@@ -10,7 +10,9 @@ class Command(BaseCommand):
             json = response.json()
         except:  # noqa
             json = ''
-        print(response.request.method, response.request.url, response.status_code, json)
+        print(response.request.method, response.request.url)
+        print(response.status_code, json)
+        print()
 
     def handle(self, *args, **options):
         # use subaccounts for sending emails and receiving emailevents
@@ -35,7 +37,7 @@ class Command(BaseCommand):
         response = s.post(
             'https://api.sparkpost.com/api/v1/webhooks',
             json={
-                "name": "local karrot webhook",
+                "name": settings.SITE_NAME[:23],
                 "target": hostname + "/api/webhooks/email_event/",
                 "auth_type": "basic",
                 "auth_credentials": {"username": "xxx", "password": settings.SPARKPOST_WEBHOOK_SECRET},
@@ -47,12 +49,13 @@ class Command(BaseCommand):
         # set up relay webhook
         s.headers.update({'Authorization': settings.SPARKPOST_ACCOUNT_KEY})
 
-        response = s.post('https://api.sparkpost.com/api/v1/inbound_domain', json={
+        response = s.post('https://api.sparkpost.com/api/v1/inbound_domains', json={
             'domain': settings.SPARKPOST_RELAY_DOMAIN
         })
         self.log_response(response)
 
         response = s.get('https://api.sparkpost.com/api/v1/relay-webhooks')
+        self.log_response(response)
         relay_webhooks = response.json()
         existing_relay = None
         for w in relay_webhooks['results']:
@@ -60,7 +63,7 @@ class Command(BaseCommand):
                 existing_relay = w
 
         relay_webhook_data = {
-            "name": settings.SPARKPOST_RELAY_DOMAIN + ' relay',
+            "name": (settings.SPARKPOST_RELAY_DOMAIN + ' relay')[:23],
             "target": hostname + "/api/webhooks/incoming_email/",
             "auth_token": settings.SPARKPOST_RELAY_SECRET,
             "match": {"domain": settings.SPARKPOST_RELAY_DOMAIN}

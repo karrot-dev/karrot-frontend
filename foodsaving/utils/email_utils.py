@@ -62,7 +62,7 @@ def prepare_conversation_message_notification(user, message):
 
     local_part = make_local_part(message.conversation, user)
     reply_to = formataddr((reply_to_name, '{}@{}'.format(local_part, settings.SPARKPOST_RELAY_DOMAIN)))
-    from_email = formataddr((message.author.display_name, 'noreply@{}'.format(settings.HOSTNAME)))
+    from_email = formataddr((message.author.display_name, settings.DEFAULT_FROM_EMAIL))
 
     with translation.override(user.language):
         return prepare_email(
@@ -219,11 +219,13 @@ def prepare_email(template, user=None, extra_context=None, to=None, **kwargs):
             else:
                 raise Exception('Nothing to use for text content, no text or html templates available.')
 
+        from_email = formataddr((settings.SITE_NAME, settings.DEFAULT_FROM_EMAIL))
+
         message_kwargs = {
             'subject': render_to_string('{}.subject.jinja2'.format(template), context).replace('\n', ''),
             'body': text_content,
             'to': [to],
-            'from_email': settings.DEFAULT_FROM_EMAIL,
+            'from_email': from_email,
             'track_clicks': False,
             'track_opens': False,
             **kwargs,

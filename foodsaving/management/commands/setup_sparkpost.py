@@ -43,6 +43,11 @@ class Command(BaseCommand):
         # set up relay webhook
         s.headers.update({'Authorization': settings.SPARKPOST_ACCOUNT_KEY})
 
+        response = s.post('https://api.sparkpost.com/api/v1/inbound_domain', json={
+            'domain': settings.SPARKPOST_RELAY_DOMAIN
+        })
+        self.log_response(response)
+
         response = s.get('https://api.sparkpost.com/api/v1/relay-webhooks')
         relay_webhooks = response.json()
         existing_relay = None

@@ -59,12 +59,21 @@
         v-for="group in filteredGroups"
         :key="group.id"
         class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
+        v-if="!previewOpened || group.id === openedGroupId || filteredGroups.length == 1"
+        :class="group.id === openedGroupId || filteredGroups.length == 1 ? 'col-xs-12 col-sm-12 col-md-12' : ''"
       >
         <GroupGalleryCard
           :group="group"
+          v-if="!previewOpened && filteredGroups.length != 1"
           :is-member="false"
-          @preview="$emit('preview', { groupId: group.id })"
+          @preview="showPreview(group)"
         />
+        <GroupPreview
+          v-if="previewOpened || filteredGroups.length == 1"
+          :show-close="filteredGroups.length != 1"
+          @close="hidePreview()"
+          :group="group"
+          :is-logged-in="isLoggedIn"/>
       </div>
     </transition-group>
   </div>
@@ -72,13 +81,30 @@
 
 <script>
 import GroupGalleryCard from './GroupGalleryCard'
+import GroupPreview from './GroupPreview'
 import { QAlert, QSearch, QCard } from 'quasar'
 
 export default {
   data () {
     return {
       search: '',
+      previewOpened: false,
+      openedGroupId: -1,
     }
+  },
+  methods: {
+    showPreview (group) {
+      // $emit('preview', { groupId: group.id })
+      window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
+      this.previewOpened = true
+      this.openedGroupId = group.id
+    },
+    hidePreview () {
+      console.log('test')
+      window.history.replaceState({}, null, `#${this.$route.path}`)
+      this.previewOpened = false
+      this.openedGroupId = -1
+    },
   },
   props: {
     myGroups: {
@@ -105,7 +131,7 @@ export default {
       })
     },
   },
-  components: { GroupGalleryCard, QAlert, QSearch, QCard },
+  components: { GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview },
 }
 </script>
 

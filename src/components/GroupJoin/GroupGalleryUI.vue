@@ -98,16 +98,14 @@ export default {
   },
   methods: {
     showPreview (group) {
-      // $emit('preview', { groupId: group.id })
-      window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
       this.previewOpened = true
       this.openedGroupId = group.id
+      window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
     },
     hidePreview () {
-      console.log('test')
-      window.history.replaceState({}, null, `#${this.$route.path}`)
       this.previewOpened = false
       this.openedGroupId = -1
+      window.history.replaceState({}, null, `#${this.$route.path}`)
     },
   },
   props: {

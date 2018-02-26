@@ -28,7 +28,7 @@ class TestEmailReplyAPI(APITestCase):
             HTTP_X_MESSAGESYSTEMS_WEBHOOK_TOKEN='test_key',
             format='json'
         )
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT, response.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(self.conversation.messages.count(), 1)
 
 
@@ -40,13 +40,14 @@ class TestEmailEventAPI(APITestCase):
         response = self.client.post(
             '/api/webhooks/email_event/',
             data=[{'msys': {'message_event': {
+                'event_id': 4,
                 'type': 'bounce',
                 'rcpt_to': 'spam@example.com'
             }}}],
             HTTP_AUTHORIZATION=basic_auth,
             format='json'
         )
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT, response.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         event = EmailEvent.objects.first()
         self.assertEqual(event.address, 'spam@example.com')
         self.assertEqual(event.event, 'bounce')

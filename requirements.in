@@ -30,3 +30,5 @@ django-versatileimagefield
 html2text
 babel
 talon
+huey
+gevent

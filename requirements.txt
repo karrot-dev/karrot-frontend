@@ -41,15 +41,18 @@ factory-boy==2.10.0
 faker==0.8.11             # via factory-boy
 flake8==3.5.0
 furl==1.0.1
+gevent==1.2.2
+greenlet==0.4.13          # via gevent
 hiredis==0.2.0
 html2text==2018.1.9
 html5lib==1.0.1           # via talon
+huey==1.7.0
 hyperlink==17.3.1         # via twisted
 idna==2.6                 # via requests
 incremental==17.5.0       # via twisted
 influxdb==5.0.0           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
-jinja2==2.10              # via coreschema, django-jinja, jinja2
+jinja2==2.10              # via coreschema, django-jinja
 lxml==4.1.1               # via talon
 markdown==2.6.11
 markupsafe==1.0           # via jinja2

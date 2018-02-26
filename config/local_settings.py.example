@@ -92,3 +92,57 @@ FCM_SERVER_KEY = 'your server key'
 #    # release based on the git info.
 #    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
 #}
+
+#LOGGING = {
+#    'version': 1,
+#    'disable_existing_loggers': False,
+#    'formatters': {
+#        'verbose': {
+#            'format': '%(levelname)s %(asctime)s %(module)s '
+#                      '%(process)d %(thread)d %(message)s'
+#        },
+#    },
+#    'handlers': {
+#        'sentry': {
+#            'level': 'WARNING',
+#            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+#        },
+#        'console': {
+#            'level': 'WARNING',
+#            'class': 'logging.StreamHandler',
+#            'formatter': 'verbose'
+#        }
+#
+#    },
+#    'loggers': {
+#        'root': {
+#            'level': 'ERROR',
+#            'handlers': ['sentry'],
+#        },
+#        'raven': {
+#            'level': 'WARNING',
+#            'handlers': ['console'],
+#            'propagate': False,
+#        },
+#        'sentry.errors': {
+#            'level': 'WARNING',
+#            'handlers': ['console'],
+#            'propagate': False,
+#        },
+#        'django': { # Disable django admin email logging by overriding
+#            'level': 'ERROR',
+#            'handlers': ['sentry'],
+#        }
+#    },
+#}
+
+#HUEY = {
+#    'always_eager': False,
+#    'connection': {
+#        'host': REDIS_HOST,
+#    },
+#    'consumer': {
+#        'workers': 8,
+#        'worker_type' : 'greenlet',
+#    },
+#}

@@ -2,6 +2,11 @@
 import os
 import sys
 
+# Apply monkey-patch if we are running the huey consumer.
+if 'run_huey' in sys.argv:
+    from gevent import monkey
+    monkey.patch_all()
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 

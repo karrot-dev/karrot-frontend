@@ -32,14 +32,6 @@
         </p>
       </div>
     </div>
-    <q-btn
-      icon="fa-pencil"
-      small
-      round
-      class="on-right"
-      color="secondary"
-      @click="$router.push('/settings')"
-    />
     <q-card class="generic-padding">
       <UserMapPreview
         v-if="user.latitude && user.longitude"
@@ -47,13 +39,21 @@
         class="map"
       />
       <div
-        class="info-item"
+        class="info-item inlinee"
         style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
         <strong>
           <i class="fa fa-fw fa-envelope-o on-left" />
         </strong>
         <a :href='"mailto:" + user.email'>{{ user.email }}</a>
       </div>
+      <q-btn
+        icon="fa-pencil"
+        small
+        round
+        class="inlinee on-right"
+        color="secondary"
+        @click="$router.push('/settings')"
+      />
       <div class="info">
         <div
           class="info-item"
@@ -122,7 +122,9 @@ p.subtitle
   float right
   max-width: 40%
 .on-right
-  float right
+  margin-left 480px
+.inlinee
+  display inline
 body.mobile .map
   height 150px
   width 150px

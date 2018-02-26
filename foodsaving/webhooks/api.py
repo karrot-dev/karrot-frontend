@@ -13,6 +13,20 @@ from foodsaving.conversations.models import Conversation, ConversationMessage
 from foodsaving.webhooks.models import EmailEvent
 
 
+def parse_local_part(part):
+    signed_part = b64decode(part)
+    signed_part_decoded = signed_part.decode('utf8')
+    conversation_and_user = signing.loads(signed_part_decoded)
+    return conversation_and_user
+
+
+def make_local_part(conversation, user):
+    signed_part = signing.dumps([conversation.id, user.id])
+    signed_part = signed_part.encode('utf8')
+    encoded = b64encode(signed_part)
+    return encoded.decode('utf8')
+
+
 class IncomingEmailView(views.APIView):
     permission_classes = (AllowAny,)
 
@@ -53,21 +67,7 @@ class IncomingEmailView(views.APIView):
                     content=reply_plain,
                 )
 
-        return Response(status=status.HTTP_204_NO_CONTENT, data={})
-
-
-def parse_local_part(part):
-    signed_part = b64decode(part)
-    signed_part_decoded = signed_part.decode('utf8')
-    conversation_and_user = signing.loads(signed_part_decoded)
-    return conversation_and_user
-
-
-def make_local_part(conversation, user):
-    signed_part = signing.dumps([conversation.id, user.id])
-    signed_part = signed_part.encode('utf8')
-    encoded = b64encode(signed_part)
-    return encoded.decode('utf8')
+        return Response(status=status.HTTP_200_OK, data={})
 
 
 class EmailEventView(views.APIView):
@@ -94,10 +94,11 @@ class EmailEventView(views.APIView):
 
         for events in [e['msys'].values() for e in request.data]:
             for event in events:
-                EmailEvent.objects.create(
+                EmailEvent.objects.get_or_create(
+                    id=event['event_id'],
                     address=event['rcpt_to'],
                     event=event['type'],
                     payload=event
                 )
 
-        return Response(status=status.HTTP_204_NO_CONTENT, data={})
+        return Response(status=status.HTTP_200_OK, data={})

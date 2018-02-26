@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-25 21:56+0000\n"
+"POT-Creation-Date: 2018-02-26 13:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,33 +92,38 @@ msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:95
 #, python-format
-msgid "Your group did %(pickups_done_count)s pickups last week"
+msgid "%(pickups_done_count)s pickups were done"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:97
-msgid "Your group did no pickups last week"
+msgid "no pickups were done"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:101
 #, python-format
-msgid "and %(pickups_missed_count)s were missed."
+msgid "%(pickups_missed_count)s pickups were missed"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:104
-msgid "without missing a single one!"
+msgid "no pickups were missed"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:111
+#: foodsaving/groups/templates/group_summary.html.jinja2:110
 #, python-format
-msgid "%(new_user_count)s new people joined the group"
+msgid "%(new_user_count)s people joined the group"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:137
+#: foodsaving/groups/templates/group_summary.html.jinja2:118
+#, python-format
+msgid "%(sent_messages_count)s messages were sent"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:120
+msgid "no messages were sent"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:126
 msgid "Here's what was said last week"
-msgstr ""
-
-#: foodsaving/groups/templates/group_summary.html.jinja2:145
-msgid "No messages were sent last week"
 msgstr ""
 
 #: foodsaving/invitations/serializers.py:20

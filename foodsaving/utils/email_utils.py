@@ -98,7 +98,7 @@ def prepare_emailinvitation_email(invitation):
     }, to=invitation.email)
 
 
-def prepare_group_summary_data(group):
+def calculate_group_summary_dates(group):
     with timezone.override(group.timezone):
         tz = get_current_timezone()
 
@@ -111,55 +111,58 @@ def prepare_group_summary_data(group):
         from_date = midnight - relativedelta(days=7)
 
         # a week after from date
-        # minus a second so only includes full days
-        to_date = from_date + relativedelta(days=7) - relativedelta(seconds=1)
+        to_date = from_date + relativedelta(days=7)
 
-        new_users = group.members.filter(
-            groupmembership__created_at__gte=from_date,
-            groupmembership__created_at__lt=to_date,
-        ).all()
-
-        pickups_done_count = PickupDate.objects \
-            .annotate(num_collectors=Count('collectors')) \
-            .filter(store__group=group,
-                    date__gte=from_date,
-                    date__lt=to_date,
-                    num_collectors__gt=0).count()
-
-        pickups_missed_count = PickupDate.objects \
-            .annotate(num_collectors=Count('collectors')) \
-            .filter(store__group=group,
-                    date__gte=from_date,
-                    date__lt=to_date,
-                    num_collectors=0).count()
-
-        messages = ConversationMessage.objects.filter(
-            conversation__target_type=ContentType.objects.get_for_model(Group),
-            conversation__target_id=group.id,
-            created_at__gte=from_date,
-            created_at__lt=to_date,
-        )
-
-        return {
-            'to_date': to_date,
-            'from_date': from_date,
-            'group': group,
-            'new_users': new_users,
-            'pickups_done_count': pickups_done_count,
-            'pickups_missed_count': pickups_missed_count,
-            'messages': messages,
-        }
+        return from_date, to_date
 
 
-def prepare_group_summary_emails(group):
+def prepare_group_summary_data(group, from_date, to_date):
+    new_users = group.members.filter(
+        groupmembership__created_at__gte=from_date,
+        groupmembership__created_at__lt=to_date,
+    ).all()
+
+    pickups_done_count = PickupDate.objects \
+        .annotate(num_collectors=Count('collectors')) \
+        .filter(store__group=group,
+                date__gte=from_date,
+                date__lt=to_date,
+                num_collectors__gt=0).count()
+
+    pickups_missed_count = PickupDate.objects \
+        .annotate(num_collectors=Count('collectors')) \
+        .filter(store__group=group,
+                date__gte=from_date,
+                date__lt=to_date,
+                num_collectors=0).count()
+
+    messages = ConversationMessage.objects.filter(
+        conversation__target_type=ContentType.objects.get_for_model(Group),
+        conversation__target_id=group.id,
+        created_at__gte=from_date,
+        created_at__lt=to_date,
+    )
+
+    return {
+        # minus one second so it's displayed as the full day
+        'to_date': to_date - relativedelta(seconds=1),
+        'from_date': from_date,
+        'group': group,
+        'new_users': new_users,
+        'pickups_done_count': pickups_done_count,
+        'pickups_missed_count': pickups_missed_count,
+        'messages': messages,
+    }
+
+
+def prepare_group_summary_emails(group, from_date, to_date):
     """Prepares one email per language"""
-    with timezone.override(group.timezone):
-        context = prepare_group_summary_data(group)
-        grouped_members = itertools.groupby(group.members.order_by('language'), key=lambda member: member.language)
-        return [prepare_email(template='group_summary',
-                              context=context,
-                              to=[member.email for member in members],
-                              language=language) for (language, members) in grouped_members]
+    context = prepare_group_summary_data(group, from_date, to_date)
+    grouped_members = itertools.groupby(group.members.order_by('language'), key=lambda member: member.language)
+    return [prepare_email(template='group_summary',
+                          context=context,
+                          to=[member.email for member in members],
+                          language=language) for (language, members) in grouped_members]
 
 
 def prepare_mailverification_email(user, verification_code):

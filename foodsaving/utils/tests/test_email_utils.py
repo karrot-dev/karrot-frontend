@@ -74,7 +74,9 @@ class TestGroupSummaryEmails(APITestCase):
         n = 5
         for i in list(range(n)):
             self.group.add_member(UserFactory(language='en'))
-        emails = email_utils.prepare_group_summary_emails(self.group)
+
+        from_date, to_date = email_utils.calculate_group_summary_dates(self.group)
+        emails = email_utils.prepare_group_summary_emails(self.group, from_date, to_date)
         self.assertEqual(self.group.members.count(), n)
         self.assertEqual(len(emails), 1)
 
@@ -89,7 +91,8 @@ class TestGroupSummaryEmails(APITestCase):
         for _ in list(range(n)):
             self.group.add_member(UserFactory(language='fr'))
 
-        emails = email_utils.prepare_group_summary_emails(self.group)
+        from_date, to_date = email_utils.calculate_group_summary_dates(self.group)
+        emails = email_utils.prepare_group_summary_emails(self.group, from_date, to_date)
         self.assertEqual(self.group.members.count(), n * 3)
         self.assertEqual(len(emails), 3)
 
@@ -123,7 +126,8 @@ class TestGroupSummaryEmails(APITestCase):
             # a fulfilled pickup
             PickupDateFactory(store=store, max_collectors=1, collectors=[user])
 
-        data = email_utils.prepare_group_summary_data(self.group)
+        from_date, to_date = email_utils.calculate_group_summary_dates(self.group)
+        data = email_utils.prepare_group_summary_data(self.group, from_date, to_date)
         self.assertEqual(data['pickups_done_count'], 1)
         self.assertEqual(data['pickups_missed_count'], 1)
         self.assertEqual(len(data['new_users']), 1)

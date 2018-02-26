@@ -13,39 +13,39 @@
                         <h2>{{ from_date | date }} to {{ to_date | date }}</h2>
                         <p>{% trans %}Hope you are having a good weekend! Here's a summary of what happened in your group last week{% endtrans %}:</p>
 
-                        <p>
+                        <ul>
                             {% if pickups_done_count > 0 %}
-                                {% trans %}Your group did {{ pickups_done_count }} pickups last week{% endtrans %}
+                                <li>{% trans %}{{ pickups_done_count }} pickups were done{% endtrans %}</li>
                             {% else %}
-                                {% trans %}Your group did no pickups last week{% endtrans %}
+                                <li>{% trans %}no pickups were done{% endtrans %}</li>
                             {% endif %}
 
                             {% if pickups_missed_count > 0 %}
-                                {% trans %}and {{ pickups_missed_count }} were missed.{% endtrans %}
+                                <li>{% trans %}{{ pickups_missed_count }} pickups were missed{% endtrans %}</li>
                             {% else %}
                                 {% if pickups_done_count > 0 %}
-                                    {% trans %}without missing a single one!{% endtrans %}
+                                    <li>{% trans %}no pickups were missed{% endtrans %}</li>
                                 {% endif %}
                             {% endif %}
-                        </p>
 
-                        {% if new_users|length > 0 %}
-                            <p>
-                                {% trans new_user_count=new_users|length %}{{ new_user_count }} new people joined the group{% endtrans %}
-                                {% for user in new_users %}
-                                    <a href="{{ hostname }}/#/user/{{ user.id }}">{{ user.display_name }}</a>{% if not loop.last %}, {% else %}.{% endif %}
-                                {% endfor %}
-                            </p>
-                        {% endif %}
+                            {% if new_users|length > 0 %}
+                                <li>
+                                    {% trans new_user_count=new_users|length %}{{ new_user_count }} people joined the group{% endtrans %}
+                                    {% for user in new_users %}
+                                        <a href="{{ hostname }}/#/user/{{ user.id }}">{{ user.display_name }}</a>{% if not loop.last %}, {% else %}.{% endif %}
+                                    {% endfor %}
+                                </li>
+                            {% endif %}
 
-                    </mj-text>
-                </mj-column>
-            </mj-section>
-            <mj-section padding="30px 0 0 0" background-color="#f5f5f5"></mj-section>
-            <mj-section background-color="#ffffff" padding="40px 0 40px 0">
-                <mj-column>
-                    <mj-text>
+                            {% if messages|length > 0 %}
+                                <li>{% trans sent_messages_count=messages|length %}{{ sent_messages_count }} messages were sent{% endtrans %}</li>
+                            {% else %}
+                                <li>{% trans %}no messages were sent{% endtrans %}</li>
+                            {% endif %}
+                        </ul>
+
                         {% if messages|length > 0 %}
+                            <div class="divider"></div>
                             <p>{% trans %}Here's what was said last week{% endtrans %}:</p>
                             {% for message in messages %}
                                 <div class="message">
@@ -53,9 +53,8 @@
                                     <span class="message-content">{{ message.content }}</span>
                                 </div>
                             {% endfor %}
-                        {% else %}
-                            <p>{% trans %}No messages were sent last week{% endtrans %}.</p>
                         {% endif %}
+
                     </mj-text>
                 </mj-column>
             </mj-section>

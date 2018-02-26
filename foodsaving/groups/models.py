@@ -2,7 +2,7 @@ from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models, transaction
-from django.db.models import TextField
+from django.db.models import TextField, DateTimeField
 from django.utils import timezone
 from timezone_field import TimeZoneField
 
@@ -26,6 +26,7 @@ class Group(BaseModel, LocationModel, ConversationMixin):
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='groups', through='GroupMembership')
     password = models.CharField(max_length=255, blank=True)
     public_description = models.TextField(blank=True)
+    sent_summary_up_to = DateTimeField(null=True)
     timezone = TimeZoneField(default='Europe/Berlin', null=True, blank=True)
     slack_webhook = models.CharField(max_length=255, blank=True)
     active_agreement = models.OneToOneField(

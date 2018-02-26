@@ -13,7 +13,7 @@
                             <span class="message-content">{{ message_content }}</span>
                         </div>
                     </mj-text>
-                    <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey"/>
+                    <mj-divider/>
                     <mj-text font-size="13px">
                         <p>
                             {% trans %}You are receiving this because you are subscribed to this conversation.{% endtrans %}<br/>

@@ -92,6 +92,11 @@ export default {
       async mark ({ dispatch }, { id, seenUpTo }) {
         await conversationsAPI.mark(id, { seenUpTo })
       },
+
+      async toggleEmailNotifications ({ commit, getters }, { conversationId, value }) {
+        await conversationsAPI.toggleEmailNotifications(conversationId, value)
+        commit('updateEmailNotifications', { conversationId, value })
+      },
     }),
 
     async sendInActiveConversation ({ state, dispatch }, messageData) {
@@ -163,6 +168,9 @@ export default {
     },
     setConversation (state, { conversation }) {
       Vue.set(state.entries, conversation.id, conversation)
+    },
+    updateEmailNotifications (state, { conversationId, value }) {
+      state.entries[conversationId].emailNotifications = value
     },
   },
 }

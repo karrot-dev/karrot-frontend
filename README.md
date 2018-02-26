@@ -98,6 +98,22 @@ All packages should be available in the default repositories `repo-oss` and `rep
 sudo zypper install python-virtualenv postgresql-devel postgresql python-redis redis
 ```
 
+### Setup virtualenv
+
+The backend is meant to be run inside a python virtualenv that is independent from your systems python packages.
+
+As we installed `python3` and `virtualenv` earlier, we can now proceed to create the environment and download the necessary packages:
+
+```
+# inside the karrot-backend folder
+virtualenv --no-site-packages --pyton=python3 env
+. ./env/bin/activate
+pip install pip-tools
+./sync.py
+```
+
+This step might be useful in the docker compose setup as well, to have packages available locally for development.
+
 ## Docker Compose
 
 Head over to [yunity/foodsaving-docker](https://github.com/yunity/foodsaving-docker) for further instructions.

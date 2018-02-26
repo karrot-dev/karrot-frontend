@@ -1,4 +1,5 @@
 from dateutil.relativedelta import relativedelta
+from django.conf import settings
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from django.utils.timezone import now
@@ -30,7 +31,10 @@ def notify_participants(sender, instance, **kwargs):
         return
 
     # exclude emails that had bounces or similar events recently
-    ignored_addresses = EmailEvent.objects.filter(created_at__gte=now() - relativedelta(months=6)).values('address')
+    ignored_addresses = EmailEvent.objects.filter(
+        created_at__gte=now() - relativedelta(months=6),
+        event__in=settings.EMAIL_EVENTS_AVOID
+    ).values('address')
 
     participants_to_notify = ConversationParticipant.objects.filter(
         conversation=message.conversation,

@@ -13,8 +13,8 @@
     "PASSWORD": "Contraseña",
     "USERNAME": "Nombre",
     "WHERE_FROM": "De donde vienes (no obligado)",
-    "PHOTO": "Profile photo",
-    "SET_PHOTO": "Set your profile photo..."
+    "PHOTO": "Foto de perfil",
+    "SET_PHOTO": "Configura tu foto de perfil ..."
   },
   "BUTTON": {
     "CREATE": "Crear",
@@ -54,7 +54,7 @@
     "NONMEMBER_REDIRECT": "No eres un miembro de este grupo. ",
     "EDIT": "Editar grupo",
     "CREATE_TITLE": "Crear un grupo nuevo",
-    "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_AGREEMENT": "Gestionar acuerdo",
     "TITLE": "Título de este grupo",
     "PRIVATE_DESCRIPTION_TITLE": "Descripción privada del grupo ",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
@@ -82,20 +82,20 @@
     "HIDE_USERS": "Ocultar usuarios",
     "SHOW_STORES": "Enseñar tiendas",
     "HIDE_STORES": "Ocultar tiendas",
-    "SET_LOCATION": "Set location"
+    "SET_LOCATION": "Escoger localización"
   },
   "STOREDETAIL": {
     "EDIT": "Editar tienda",
-    "MANAGE": "Check and manage the pickups",
+    "MANAGE": "Controla y administra las pastillas",
     "ARCHIVED": "Esta tienda se archivó.",
-    "NO_DESCRIPTION": "This store does not have a description yet"
+    "NO_DESCRIPTION": "Esta tienda aún no tiene una descripción"
   },
   "STOREEDIT": {
     "NAME": "Nombre",
-    "STATUS":"Status",
+    "STATUS":"Estado",
     "DESCRIPTION": "Descripción",
     "ADDRESS": "Dirección",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
+    "WEEKS_IN_ADVANCE": "¿Con cuántas semanas de anticipación se mostrarán las fechas recurrentes de recolección?",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archivar tienda",
@@ -103,26 +103,26 @@
         "CONFIRM": "Si, archivar tienda"
       }
     },
-    "RESTORE": "Restore"
+    "RESTORE": "Restaurar"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manejar recogidas",
-    "SERIES": "Recurring pickups",
+    "SERIES": "Recolecciones recurrentes",
     "SINGLE": "Recogidas únicas",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
+    "UPCOMING_PICKUPS_IN_SERIES": "Próximas recolecciones en esta serie"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TITLE": "Eliminar fecha de recolección recurrente",
+    "DELETE_SERIES_TEXT": "¿Realmente desea eliminar esta fecha recurrente de recolección? Esto también eliminará todas las fechas de recolección únicas que pertenecen a esta fecha recurrente de recolección (excepto cuando las personas ya se unieron)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Nombre",
     "DESCRIPTION": "Sobre usted",
-    "OLD_PASSWORD": "Old password",
+    "OLD_PASSWORD": "Contraseña anterior",
     "PASSWORD": "Introducir contraseña nueva"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+    "INACCESSIBLE_OR_DELETED": "(Usuario inaccesible o eliminado)"
   },
   "JOINGROUP": {
     "WHICHGROUP": "¿A qué grupo quiere unirse?",
@@ -131,10 +131,10 @@
     "PASSWORD_LABEL": "Introducir contraseña para grupo privado",
     "PASSWORD_REQUIRED": "Este grupo requiere contraseña",
     "ALL_GROUPS": "Todos los grupos",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
+    "SIGNUP_OR_LOGIN": "Inicia sesión o regístrate para unirte a este grupo!",
     "MY_GROUPS": "Mis grupos",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
+      "LOGGED_OUT": "Está desconectado. {iniciar sesión}",
       "LOG_IN": "Iniciar sesión para ver tus grupos!"
     },
     "PROFILE_NOTE": "Si te unes a este grupo tus datos de perfil serán visibles para otros miembros del grupo. "
@@ -142,7 +142,7 @@
   "GROUPINFO": {
     "TITLE": "Información pública del grupo",
     "META": "Enseñar información pública del grupo",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+    "MEMBER_VIEW": "Eres miembro de este grupo. Haga clic aquí para cambiar a vista completa."
   },
   "TOPBAR": {
     "LOGOUT": "Cerrar sesión",
@@ -161,39 +161,39 @@
     "OK": "Unirse"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
-    "SUCCESS": "Your e-mail address was successfully verified!"
+    "TITLE": "Verificacion de email",
+    "SUCCESS": "¡Su dirección de correo electrónico fue verificada con éxito!"
   },
   "CREATEPICKUP": {
-    "FREQUENCY": "Frequency",
-    "WEEKLY": "Weekly",
-    "CUSTOM": "Custom",
+    "FREQUENCY": "Frecuencia",
+    "WEEKLY": "Semanal",
+    "CUSTOM": "Personalizado",
     "WEEKDAYS": "Día de la semana",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
-    "RRULE": "Recurrence rule",
-    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
-    "RRULE_HELPER_URL": "iCalender rule",
-    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
-    "STARTDATE": "Start date",
-    "STARTDATE_HELPER": "When should the series start?",
+    "WEEKDAYS_HELPER": "¿En qué días debería tener lugar el retiro?",
+    "RRULE": "Regla de recurrencia",
+    "RRULE_HELPER": "Escriba un {ruleHelper} válido, p. {ruleExample} o {ruleExample2}",
+    "RRULE_HELPER_URL": "regla iCalender",
+    "RRULE_EXAMPLE": "último día hábil (Mo-Fr) cada mes",
+    "RRULE_EXAMPLE2": "cada segundo lunes",
+    "STARTDATE": "Fecha de inicio",
+    "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
     "TIME": "Hora",
-    "TIME_HELPER": "When should the pick-up take place?",
+    "TIME_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
     "DATE": "Fecha",
-    "DATE_HELPER": "When should the pick-up take place?",
+    "DATE_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
     "MAX_COLLECTORS": "Máx ranuras",
     "MAX_COLLECTORS_HELPER": "Cuántas personas deberían participar en la recogida?",
     "COMMENT": "Información adicional",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it",
-    "UNLIMITED": "unlimited"
+    "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta recogida?",
+    "DELETION_FORBIDDEN_HELPER": "Este retiro no se puede eliminar porque las personas ya se registraron",
+    "UNLIMITED": "ilimitado"
   },
   "CREATESTORE": {
     "TITLE": "Crear una nueva tienda"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
+    "AVAILABLE": "¡Hay una recogida en los próximos días esperándote! | ¡Hay {count} pickups en los próximos días esperándote!",
+    "AVAILABLE_FEEDBACK": "Puedes dar tu opinión sobre una recogida | {count} pickups esperan tus comentarios",
     "JOINEDNOTICE": "Tienes una recogida pendiente | Tienes {count} recogidas pendientes",
     "ITEM": {
       "LEAVE": "Salir",
@@ -205,23 +205,23 @@
     },
     "NONE": "Ninguna recogida inminente",
     "NONE_HINT": "Puede crear una nueva recogida en la página de la tienda",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+    "STORE_NONE_HINT": "Puede crear una nueva recolección en la página de administración de recolección."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
-    "GIVE_FEEDBACK": "Give feedback",
-    "NONE": "No feedback yet",
-    "NONE_HINT": "This page will be filled once more feedback is available"
+    "SAVED_FOOD": "Al menos 1 kg se guardó aquí. ¡Gracias! | ¡Las personas ya han enviado comentarios sobre {cantidad} kg de alimentos guardados! ¡Mantener el buen trabajo!",
+    "GIVE_FEEDBACK": "Dar opinion",
+    "NONE": "Aún no hay comentarios",
+    "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles"
   },
   "PICKUP_FEEDBACK": {
-    "TITLE": "Feedback",
+    "TITLE": "Realimentación",
     "HEADER": "Gracias por tu recogida!",
-    "EDIT": "Edit feedback",
-    "SUBTITLE": "You can provide feedback for your pickup here",
-    "AMOUNT": "Amount of food all of you were able to save (in kg)",
+    "EDIT": "Editar comentarios",
+    "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
+    "AMOUNT": "La cantidad de comida que todos pudieron ahorrar (en kg)",
     "COMMENT": "Comentario",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
-    "PREVIOUS": "Previous feedback for {store}"
+    "PREVIOUS": "Comentarios anteriores para {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Resetear contraseña",
@@ -238,8 +238,8 @@
   "MARKDOWN_INPUT": {
     "BOLD": "negrita",
     "ITALIC": "cursiva",
-    "STRIKE": "strike",
-    "QUOTE": "quote",
+    "STRIKE": "Huelga",
+    "QUOTE": "citar",
     "HELP": "Qué es Markdown?"
   },
   "HISTORY": {
@@ -251,15 +251,15 @@
     "STORE_MODIFY": "cambió los ajustes de la tienda {name}",
     "STORE_DELETE": "borró la tienda {name}",
     "PICKUP_CREATE": "creó una nueva recogida única ",
-    "PICKUP_MODIFY": "changed the settings of a pick-up",
+    "PICKUP_MODIFY": "cambió la configuración de un pick-up",
     "PICKUP_DELETE": "eliminó una recogida",
-    "SERIES_CREATE": "created a new recurring pick-up",
-    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
-    "SERIES_DELETE": "deleted a recurring pick-up",
+    "SERIES_CREATE": "creado una nueva recogida recurrente",
+    "SERIES_MODIFY": "cambió la configuración de un pick-up recurrente",
+    "SERIES_DELETE": "eliminó una recolección recurrente",
     "PICKUP_DONE": "hizo una recogida en {storeName}",
     "PICKUP_MISSED": "Faltó una recogida en {storeName}!",
     "PICKUP_JOIN": "se apuntó a una recogida en {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
+    "PICKUP_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
     "NOTHING_HAPPENEND": "Todavía nada ha pasado...",
     "DETAILS": "Más información "
   },
@@ -275,7 +275,7 @@
     "HOME": "Volver al inicio"
   },
   "SETTINGS": {
-    "TITLE": "Settings"
+    "TITLE": "Configuraciones"
   },
   "AGREEMENT": {
     "NEW": "Nuevo acuerdo",
@@ -285,8 +285,8 @@
     "TITLE_HELPER": "Dále un título a tu acuerdo, p. ej. Reglas del Grupo",
     "CONTENT": "Contenido",
     "CONTENT_HELPER": "El texto para vuestro acuerdo",
-    "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
+    "MINOR_EDIT": "Edición menor?",
+    "MINOR_EDIT_HELPER": "Errores ortográficos, formateo, etc. ... no se les pedirá a las personas que vuelvan a estar de acuerdo",
     "BLURB1": "Todavia no hay un acuerdo!",
     "BLURB2": "Si añades un acuerdo la gente tendrá que aceptarlo antes de poder hacer recogidas. ",
     "DIALOGS": {
@@ -307,8 +307,8 @@
     "WRITE_FIRST_MESSAGE": "Enviar el primer mensaje..."
   },
   "CONVERSATION": {
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "MARK_READ": "Mark all as read"
+    "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",
+    "MARK_READ": "marcar todo como leido"
   },
   "STORESTATUS":{
     "ACTIVE": "En cooperación",

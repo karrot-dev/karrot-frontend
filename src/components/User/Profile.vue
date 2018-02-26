@@ -122,7 +122,7 @@ p.subtitle
   float right
   max-width: 40%
 .on-right
-  margin-left 480px
+  margin-left 55%
 .inlinee
   display inline
 body.mobile .map

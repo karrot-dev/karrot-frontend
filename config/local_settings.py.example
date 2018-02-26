@@ -93,6 +93,12 @@ FCM_SERVER_KEY = 'your server key'
 #    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
 #}
 
+######
+# Logger configuration proposal:
+# Disables most console logging as well as django admin email logging
+# and sends all errors to sentry.
+######
+
 #LOGGING = {
 #    'version': 1,
 #    'disable_existing_loggers': False,
@@ -115,10 +121,6 @@ FCM_SERVER_KEY = 'your server key'
 #
 #    },
 #    'loggers': {
-#        'root': {
-#            'level': 'ERROR',
-#            'handlers': ['sentry'],
-#        },
 #        'raven': {
 #            'level': 'WARNING',
 #            'handlers': ['console'],
@@ -134,6 +136,10 @@ FCM_SERVER_KEY = 'your server key'
 #            'handlers': ['sentry'],
 #        }
 #    },
+#    'root': {
+#        'level': 'ERROR',
+#        'handlers': ['sentry'],
+#     },
 #}
 
 #HUEY = {

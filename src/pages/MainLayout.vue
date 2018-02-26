@@ -47,6 +47,7 @@
           <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
         </template>
         <MainAlerts />
+        <router-view name="fullPage"/>
         <div class="mainContent row justify-between no-wrap">
           <router-view
             v-if="!$q.platform.is.mobile"

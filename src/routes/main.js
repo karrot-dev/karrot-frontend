@@ -38,7 +38,7 @@ export default [
       ],
     },
     components: {
-      default: GroupGallery,
+      fullPage: GroupGallery,
     },
   },
   {

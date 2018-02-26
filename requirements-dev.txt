@@ -19,6 +19,7 @@ idna==2.6                 # via requests
 ipython-genutils==0.2.0   # via traitlets
 ipython==6.2.1
 jedi==0.11.1              # via ipython
+logging-tree==1.7
 parso==0.1.1              # via jedi
 pexpect==4.4.0            # via ipython
 pickleshare==0.7.4        # via ipython

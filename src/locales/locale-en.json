@@ -19,6 +19,7 @@
   "BUTTON": {
     "CREATE": "Create",
     "CANCEL": "Cancel",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "Delete",
     "EDIT": "Edit",

@@ -93,11 +93,21 @@ export default {
         await conversationsAPI.mark(id, { seenUpTo })
       },
 
-      async toggleEmailNotifications ({ commit, getters }, { conversationId, value }) {
+      async toggleEmailNotifications ({ commit, state, getters }, { conversationId, value }) {
         await conversationsAPI.toggleEmailNotifications(conversationId, value)
         commit('updateEmailNotifications', { conversationId, value })
       },
     }),
+
+    async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
+      if (state.entries[conversationId]) {
+        const changed = state.entries[conversationId].emailNotifications !== value
+        const pending = getters['meta/status']('toggleEmailNotifications').pending
+        if (changed && !pending) {
+          await dispatch('toggleEmailNotifications', { conversationId, value })
+        }
+      }
+    },
 
     async sendInActiveConversation ({ state, dispatch }, messageData) {
       dispatch('send', { id: state.activeConversationId, messageData })

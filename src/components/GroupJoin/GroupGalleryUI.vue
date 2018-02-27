@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper row no-wrap">
+  <div class="group-gallery page-wrapper row no-wrap">
     <div class="all-groups col-sm-12 col-md-5">
       <q-alert
         v-if="!isLoggedIn"
@@ -86,7 +86,8 @@
     <div class="map col-md-7 gt-sm">
       <div class="map-absolute">
         <StandardMap
-          :markers="[]"
+          class="group-gallery-map"
+          :markers="markers"
           :force-center="coords"
           :force-zoom="zoom"
           :show-attribution="false"
@@ -101,6 +102,7 @@ import GroupGalleryCard from './GroupGalleryCard'
 import GroupPreview from './GroupPreview'
 import StandardMap from '@/components/Map/StandardMap'
 import { QAlert, QSearch, QCard } from 'quasar'
+import L from 'leaflet'
 
 export default {
   data () {
@@ -134,6 +136,21 @@ export default {
         this.zoom = 10
       }
     },
+    groupMarkerId (id) {
+      return `group_${id}`
+    },
+    createGroupMarker (group) {
+      return {
+        latLng: L.latLng(group.latitude, group.longitude),
+        id: this.groupMarkerId(group.id),
+        icon: L.AwesomeMarkers.icon({
+          icon: 'home',
+          markerColor: 'green',
+          prefix: 'fa',
+        }),
+        popupcontent: `<a href="/#/group/${group.id}/">${group.name}</a>`,
+      }
+    },
   },
   props: {
     myGroups: {
@@ -158,6 +175,11 @@ export default {
       return this.otherGroups.filter(group => {
         return group.name.toLowerCase().includes(this.search.toLowerCase())
       })
+    },
+    markers () {
+      let items = []
+      items.push(...this.filteredGroups.map(this.createGroupMarker))
+      return items
     },
   },
   components: { GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview, StandardMap },
@@ -227,4 +249,12 @@ body.desktop .alert
     opacity 0
 .slide-toggle-leave
     max-height 400px
+</style>
+
+<style lang="stylus">
+@import '~variables'
+
+@media screen and (min-width: $breakpoint-sm)
+  .group-gallery .group-gallery-map .leaflet-control-container .leaflet-left
+    left 42vw
 </style>

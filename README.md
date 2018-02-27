@@ -1,6 +1,7 @@
 [![CodeCov](https://codecov.io/github/yunity/karrot-frontend/coverage.svg)](https://codecov.io/gh/yunity/karrot-frontend)
 [![CircleCI](https://circleci.com/gh/yunity/karrot-frontend.svg?style=shield)](https://circleci.com/gh/yunity/karrot-frontend)
 [![Known Vulnerabilities](https://snyk.io/test/github/yunity/karrot-frontend/e4f6927cccfbde340636d20b863efd508be19ec0/badge.svg)](https://snyk.io/test/github/yunity/karrot-frontend/e4f6927cccfbde340636d20b863efd508be19ec0)
+[![Open Source Helpers](https://www.codetriage.com/yunity/foodsaving-frontend/badges/users.svg)](https://www.codetriage.com/yunity/foodsaving-frontend)
 
 
 # karrot frontend

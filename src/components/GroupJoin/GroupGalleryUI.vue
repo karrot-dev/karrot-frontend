@@ -115,8 +115,10 @@ body.mobile
   .gallery-cards
     margin-top: 0
     min-height 10vh
+    padding-bottom 10em
+    margin-bottom -5em
     transition all .7s
-    z-index 1000
+    z-index 0
   .expanded .gallery-cards
     margin-top: -60vh
     min-height 60vh

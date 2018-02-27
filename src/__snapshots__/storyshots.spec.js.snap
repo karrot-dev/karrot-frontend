@@ -642,46 +642,75 @@ exports[`Storyshots GroupEdit create 1`] = `
 `;
 
 exports[`Storyshots GroupGallery signup view 1`] = `
-<div>
-    <div class="q-alert-container alert">
-        <div class="q-alert row no-wrap shadow-2 bg-info">
-            <div class="q-alert-icon row col-auto flex-center">
-                <i aria-hidden="true" class="q-icon material-icons">star</i>
+<div class="column gallery-wrapper expanded">
+    <div class="map-fixed">
+        <div class="vue2leaflet-map group-gallery-map">
+            <div></div>
+            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
             </div>
-            <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
-        Log in to see your groups!
-      </div></span>
-                <!---->
+            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
             </div>
-            <!---->
+            <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
+            <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
+            <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
         </div>
     </div>
-    <!---->
-    <!---->
-    <h4 class="text-primary generic-padding">
-        Which group do you want to join?
-    </h4>
-    <div class="q-card">
-        <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary" style="min-height:0;">
-            <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
-            <div class="q-if-inner col row no-wrap items-center relative-position">
-                <!---->
-                <!---->
-                <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
-                <!---->
-                <!---->
-                <!---->
+    <div class="all-groups gallery-cards expanded">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-close"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        Close
+      </span>
+            <!---->
+            </span>
+        </button>
+        <div class="q-alert-container alert">
+            <div class="q-alert row no-wrap shadow-2 bg-info">
+                <div class="q-alert-icon row col-auto flex-center">
+                    <i aria-hidden="true" class="q-icon material-icons">star</i>
+                </div>
+                <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
+          Log in to see your groups!
+        </div></span>
+                    <!---->
+                </div>
                 <!---->
             </div>
-            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
         </div>
-    </div> <span class="row"><div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+        <!---->
+        <h4 class="text-primary generic-padding">
+            Which group do you want to join?
+        </h4>
+        <div class="q-card">
+            <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+                <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+                <div class="q-if-inner col row no-wrap items-center relative-position">
+                    <!---->
+                    <!---->
+                    <input placeholder="Search" type="text" class="col q-input-target text-left">
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                </div>
+                <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
+            </div>
+        </div>
+        <div class="groups-container"><span class="row"><div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
     </span></div>
-</div>
-<div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="col-auto self-center q-card-title-extra"></div>
 </div>
 <div class="q-card-main q-card-container fixed-height">
     <div class="smaller-text">
@@ -710,7 +739,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
 </div>
 <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -741,7 +770,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -772,7 +801,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -803,7 +832,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -838,7 +867,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -874,173 +903,213 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     <!---->
 </div>
 </span>
+</div>
+</div>
 </div>
 `;
 
 exports[`Storyshots GroupGallery switch and explore 1`] = `
-<div>
-    <div class="q-alert-container alert">
-        <div class="q-alert row no-wrap shadow-2 bg-info">
-            <div class="q-alert-icon row col-auto flex-center">
-                <i aria-hidden="true" class="q-icon material-icons">star</i>
+<div class="column gallery-wrapper expanded">
+    <div class="map-fixed">
+        <div class="vue2leaflet-map group-gallery-map">
+            <div></div>
+            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
             </div>
-            <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
-        Log in to see your groups!
-      </div></span>
-                <!---->
+            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
             </div>
-            <!---->
+            <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
+            <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
+            <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
+            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
+            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+                <div></div>
+            </div>
         </div>
     </div>
-    <h4 class="text-primary">
-        My groups
-    </h4>
-    <div class="row">
-        <div class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-            <div class="q-card groupPreviewCard">
-                <div class="q-card-primary q-card-container row no-wrap ellipsis">
-                    <div class="col column">
-                        <div class="q-card-title">
-                            05_testgroup
-                        </div>
-                        <div class="q-card-subtitle"><span>
+    <div class="all-groups gallery-cards expanded">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-close"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        Close
+      </span>
+            <!---->
+            </span>
+        </button>
+        <div class="q-alert-container alert">
+            <div class="q-alert row no-wrap shadow-2 bg-info">
+                <div class="q-alert-icon row col-auto flex-center">
+                    <i aria-hidden="true" class="q-icon material-icons">star</i>
+                </div>
+                <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
+          Log in to see your groups!
+        </div></span>
+                    <!---->
+                </div>
+                <!---->
+            </div>
+        </div>
+        <div class="join-groups">
+            <h4 class="text-primary">
+                My groups
+            </h4>
+            <div class="row" style="width:100%;">
+                <div class="inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+                    <div class="q-card groupPreviewCard">
+                        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                            <div class="col column">
+                                <div class="q-card-title">
+                                    05_testgroup
+                                </div>
+                                <div class="q-card-subtitle"><span>
       18 Members
     </span></div>
-                    </div>
-                    <div class="col-auto self-center q-card-title-extra"></div>
-                </div>
-                <div class="q-card-main q-card-container fixed-height">
-                    <div class="smaller-text">
-                        <div class="parsed">
-                            <p>This is the public description
-                                <br> It would make sense if it was markdown</p>
-                            <h1>then this would be a header</h1>
-                            <p>
-                                <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
-                            </p>
+                            </div>
+                            <div class="col-auto self-center q-card-title-extra"></div>
                         </div>
-                    </div>
-                </div>
-                <div class="q-card-separator"></div>
-                <div class="q-card-actions q-card-actions-horiz row justify-start">
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div class="q-card-main q-card-container fixed-height">
+                            <div class="smaller-text">
+                                <div class="parsed">
+                                    <p>This is the public description
+                                        <br> It would make sense if it was markdown</p>
+                                    <h1>then this would be a header</h1>
+                                    <p>
+                                        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="q-card-separator"></div>
+                        <div class="q-card-actions q-card-actions-horiz row justify-start">
+                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                                <div class="desktop-only q-focus-helper"></div>
+                                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         You are member of this group. Click here to switch to full view.
       </span>
-                        <!---->
-                        </span>
-                    </button>
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <!---->
+                                </span>
+                            </button>
+                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                                <div class="desktop-only q-focus-helper"></div>
+                                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Show public group information
       </span>
-                        <!---->
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-            <div class="q-card groupPreviewCard">
-                <div class="q-card-primary q-card-container row no-wrap ellipsis">
-                    <div class="col column">
-                        <div class="q-card-title">
-                            06_testgroup
+                                <!---->
+                                </span>
+                            </button>
                         </div>
-                        <div class="q-card-subtitle"><span>
+                    </div>
+                </div>
+                <div class="inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+                    <div class="q-card groupPreviewCard">
+                        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                            <div class="col column">
+                                <div class="q-card-title">
+                                    06_testgroup
+                                </div>
+                                <div class="q-card-subtitle"><span>
       13 Members
     </span></div>
-                    </div>
-                    <div class="col-auto self-center q-card-title-extra"></div>
-                </div>
-                <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
+                            </div>
+                            <div class="col-auto self-center q-card-title-extra"></div>
+                        </div>
+                        <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
       (This group has no public description... yet)
     </span></div>
-                <div class="q-card-separator"></div>
-                <div class="q-card-actions q-card-actions-horiz row justify-start">
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div class="q-card-separator"></div>
+                        <div class="q-card-actions q-card-actions-horiz row justify-start">
+                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                                <div class="desktop-only q-focus-helper"></div>
+                                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         You are member of this group. Click here to switch to full view.
       </span>
-                        <!---->
-                        </span>
-                    </button>
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <!---->
+                                </span>
+                            </button>
+                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                                <div class="desktop-only q-focus-helper"></div>
+                                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Show public group information
       </span>
-                        <!---->
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-            <div class="q-card groupPreviewCard">
-                <div class="q-card-primary q-card-container row no-wrap ellipsis">
-                    <div class="col column">
-                        <div class="q-card-title">
-                            02_testgroup
+                                <!---->
+                                </span>
+                            </button>
                         </div>
-                        <div class="q-card-subtitle"><span>
+                    </div>
+                </div>
+                <div class="inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+                    <div class="q-card groupPreviewCard">
+                        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                            <div class="col column">
+                                <div class="q-card-title">
+                                    02_testgroup
+                                </div>
+                                <div class="q-card-subtitle"><span>
       33 Members
     </span></div>
-                    </div>
-                    <div class="col-auto self-center q-card-title-extra"></div>
-                </div>
-                <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
+                            </div>
+                            <div class="col-auto self-center q-card-title-extra"></div>
+                        </div>
+                        <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
       (This group has no public description... yet)
     </span></div>
-                <div class="q-card-separator"></div>
-                <div class="q-card-actions q-card-actions-horiz row justify-start">
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div class="q-card-separator"></div>
+                        <div class="q-card-actions q-card-actions-horiz row justify-start">
+                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                                <div class="desktop-only q-focus-helper"></div>
+                                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         You are member of this group. Click here to switch to full view.
       </span>
-                        <!---->
-                        </span>
-                    </button>
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <!---->
+                                </span>
+                            </button>
+                            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                                <div class="desktop-only q-focus-helper"></div>
+                                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Show public group information
       </span>
-                        <!---->
-                        </span>
-                    </button>
+                                <!---->
+                                </span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <h4 class="text-primary generic-padding">
-        Which group do you want to join?
-    </h4>
-    <div class="q-card">
-        <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary" style="min-height:0;">
-            <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
-            <div class="q-if-inner col row no-wrap items-center relative-position">
-                <!---->
-                <!---->
-                <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
-                <!---->
-                <!---->
-                <!---->
-                <!---->
+        <h4 class="text-primary generic-padding">
+            Which group do you want to join?
+        </h4>
+        <div class="q-card">
+            <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+                <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+                <div class="q-if-inner col row no-wrap items-center relative-position">
+                    <!---->
+                    <!---->
+                    <input placeholder="Search" type="text" class="col q-input-target text-left">
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                </div>
+                <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
             </div>
-            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
         </div>
-    </div> <span class="row"><div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+        <div class="groups-container"><span class="row"><div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
     </span></div>
-</div>
-<div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="col-auto self-center q-card-title-extra"></div>
 </div>
 <div class="q-card-main q-card-container fixed-height">
     <div class="smaller-text">
@@ -1069,7 +1138,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
 </div>
 <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1100,7 +1169,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1131,7 +1200,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1162,7 +1231,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1197,7 +1266,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1233,6 +1302,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     <!---->
 </div>
 </span>
+</div>
+</div>
 </div>
 `;
 

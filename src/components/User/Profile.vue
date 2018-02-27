@@ -49,6 +49,17 @@
       <div class="info">
         <div
           class="info-item"
+          v-if="user.mobileNumber"
+        >
+          <strong class="info-item">
+            <i class="fa fa-fw fa-phone on-left" />
+          </strong>
+          {{ user.mobileNumber }}
+        </div>
+      </div>
+      <div class="info">
+        <div
+          class="info-item"
           v-if="user.address"
         >
           <strong class="info-item">

@@ -1,12 +1,14 @@
 import pytz
 from django.utils.translation import ugettext_lazy as _
 from django_filters.rest_framework import DjangoFilterBackend
+from django.utils import timezone
 from rest_framework import mixins
 from rest_framework.decorators import detail_route, list_route
 from rest_framework.filters import SearchFilter
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated, BasePermission
 from rest_framework.response import Response
+from rest_framework import status
 from rest_framework.viewsets import GenericViewSet
 
 from foodsaving.conversations.api import RetrieveConversationMixin
@@ -130,6 +132,16 @@ class GroupViewSet(
     def conversation(self, request, pk=None):
         """Get wall conversation ID of this group"""
         return self.retrieve_conversation(request, pk)
+
+    @detail_route(
+        methods=['POST']
+    )
+    def mark_user_active(self, request, pk=None):
+        """Mark that the logged-in user is active in the group"""
+        gm = get_object_or_404(GroupMembership.objects, group=pk, user=request.user)
+        gm.lastseen_at = timezone.now()
+        gm.save()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     @detail_route(
         methods=['PUT', 'DELETE'],

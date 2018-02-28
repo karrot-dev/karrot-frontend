@@ -285,6 +285,22 @@ class TestGroupMembershipsAPI(APITestCase):
         self.assertNotIn(role, self.membership.roles)
 
 
+class TestGroupMemberLastSeenAPI(APITestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.group = GroupFactory(members=[self.user])
+        self.membership = self.group.groupmembership_set.get(user=self.user)
+
+    def test_mark_user_as_seen_in_group(self):
+        before = timezone.now()
+        self.assertLess(self.membership.lastseen_at, before)
+        self.client.force_login(user=self.user)
+        response = self.client.post('/api/groups/{}/mark_user_active/'.format(self.group.id), format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.membership.refresh_from_db()
+        self.assertGreater(self.membership.lastseen_at, before)
+
+
 class TestDefaultGroupMembership(APITestCase):
     def setUp(self):
         self.creator = UserFactory()

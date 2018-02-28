@@ -97,6 +97,7 @@ class GroupMembership(BaseModel):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     roles = ArrayField(TextField(), default=list)
+    lastseen_at = DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = 'groups_group_members'

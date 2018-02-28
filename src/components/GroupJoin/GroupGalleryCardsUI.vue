@@ -41,7 +41,7 @@
     </transition>
     <transition name="slide-toggle">
       <div
-        v-if="expanded && filteredMyGroups.length>0"
+        v-if="(expanded && filteredMyGroups.length>0) || (filteredOtherGroups.length == 0 && filteredMyGroups.length == 1)"
         class="join-groups">
         <h4 class="text-primary">
           {{ $t('JOINGROUP.MY_GROUPS') }}
@@ -89,7 +89,7 @@
       </q-card>
     </transition>
     <transition name="slide-toggle">
-      <div v-if="expanded && filteredOtherGroups.length > 0">
+      <div v-if="(expanded && filteredOtherGroups.length > 0) || (filteredOtherGroups.length == 1 && filteredMyGroups.length == 0)">
         <transition-group
           name="list-complete"
           v-if="showOtherGroups"

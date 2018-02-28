@@ -9,6 +9,7 @@
   },
   "USERDATA": {
     "EMAIL": "Mail",
+    "MOBILE_NUMBER": "Mobile Number",
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
     "USERNAME": "Name",
@@ -83,7 +84,7 @@
     "HIDE_USERS": "Hide users",
     "SHOW_STORES": "Show stores",
     "HIDE_STORES": "Hide stores",
-    "SET_LOCATION": "Set location", 
+    "SET_LOCATION": "Set location",
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {

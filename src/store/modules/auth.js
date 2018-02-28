@@ -9,6 +9,7 @@ function initialState () {
     redirectTo: null,
     joinGroupAfterLogin: null,
     acceptInviteAfterLogin: null,
+    muteConversationAfterLogin: [],
   }
 }
 
@@ -43,6 +44,17 @@ export default {
         const user = await auth.login(data)
         commit('setUser', { user })
         dispatch('afterLoggedIn')
+
+        state.muteConversationAfterLogin.forEach(conversationId => {
+          try {
+            dispatch('conversations/maybeToggleEmailNotifications', {
+              conversationId,
+              value: false,
+            }, { root: true })
+          }
+          catch (error) {}
+          commit('clearMuteConversationAfterLogin')
+        })
 
         if (state.acceptInviteAfterLogin) {
           await dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
@@ -113,6 +125,10 @@ export default {
       commit('setAcceptInviteAfterLogin', { token })
     },
 
+    setMuteConversationAfterLogin ({ commit }, conversationId) {
+      commit('appendMuteConversationAfterLogin', { conversationId })
+    },
+
     afterLoggedIn ({ state, dispatch }) {
       const { user } = state
       dispatch('i18n/setLocale', user.language || 'en', { root: true })
@@ -159,6 +175,14 @@ export default {
     },
     clearAcceptInviteAfterLogin (state) {
       state.acceptInviteAfterLogin = null
+    },
+
+    // Mute conversation after login
+    appendMuteConversationAfterLogin (state, { conversationId }) {
+      state.muteConversationAfterLogin.push(conversationId)
+    },
+    clearMuteConversationAfterLogin (state) {
+      state.muteConversationAfterLogin = []
     },
   },
 }

@@ -19,6 +19,7 @@
   "BUTTON": {
     "CREATE": "सर्जन करना",
     "CANCEL": "रद्द करना",
+    "CLOSE": "Close",
     "DELETE": "हटाना",
     "EDIT": "संपादित करें",
     "JOIN": "शामिल होना",
@@ -82,12 +83,15 @@
     "HIDE_USERS": "उपयोगकर्ताओं को छुपाएं",
     "SHOW_STORES": "स्टोर दिखाओ ",
     "HIDE_STORES": "स्टोर छिपाएं",
-    "SET_LOCATION": "स्थान तय करें"
+    "SET_LOCATION": "स्थान तय करें",
+    "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
     "EDIT": "स्टोर संपादित करें",
     "MANAGE": "पिकअप को चेक करें और प्रबंधित करें",
     "ARCHIVED": "यह स्टोर संग्रहीत किया गया है",
+    "INACTIVE": "This store is currently not cooperating.",
+    "CHANGE_STATUS": "You can change the status on the settings page.",
     "NO_DESCRIPTION": "इस स्टोर में अभी तक विवरण नहीं है"
   },
   "STOREEDIT": {
@@ -304,7 +308,10 @@
   },
   "WALL": {
     "WRITE_MESSAGE": "एक सन्देश लिखिए...",
-    "WRITE_FIRST_MESSAGE": "पहला संदेश लिखें ..."
+    "WRITE_FIRST_MESSAGE": "पहला संदेश लिखें ...",
+    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
+    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "आपके पास एक अपठित संदेश है | आपके पास {गिनती} अपठित संदेश हैं",

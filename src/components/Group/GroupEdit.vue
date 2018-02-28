@@ -32,6 +32,7 @@
                 v-model="edit.publicDescription"
                 type="textarea"
                 :min-rows="3"
+                @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
           </q-field>
@@ -47,6 +48,7 @@
                 v-model="edit.description"
                 type="textarea"
                 :min-rows="3"
+                @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
           </q-field>

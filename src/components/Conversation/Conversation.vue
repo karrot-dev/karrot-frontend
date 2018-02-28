@@ -11,6 +11,23 @@
           :highlight="false"
           class="bg-white desktop-margin"
         >
+          <q-btn
+            class="actionButton"
+            round
+            small
+            :color="data.emailNotifications ? 'secondary' : 'negative'"
+            @click="toggleNotifications"
+          >
+            <q-icon
+              v-if="data.emailNotifications === true"
+              name="fa-bell-o"
+            />
+            <q-icon
+              v-else
+              name="fa-bell-slash-o"
+            />
+            <q-tooltip v-t="data.emailNotifications ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'" />
+          </q-btn>
           <ConversationCompose
             :status="data.sendStatus"
             @send="$emit('send', arguments[0])"
@@ -52,7 +69,7 @@
 <script>
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
-import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem } from 'quasar'
+import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem, QIcon, QTooltip } from 'quasar'
 
 export default {
   name: 'Conversation',
@@ -65,6 +82,8 @@ export default {
     QList,
     QAlert,
     QItem,
+    QIcon,
+    QTooltip,
   },
   props: {
     data: {
@@ -88,6 +107,12 @@ export default {
       }
       this.fetchMore().then(done)
     },
+    toggleNotifications () {
+      this.$emit('toggleEmailNotifications', {
+        conversationId: this.data.id,
+        value: !this.data.emailNotifications,
+      })
+    },
   },
   computed: {
     hasLoaded () {
@@ -107,4 +132,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.actionButton
+  float right
+  margin-top -25px
+  margin-right 5px
 </style>

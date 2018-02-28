@@ -40,35 +40,74 @@
       </div>
     </div>
     <h4
-      class="text-primary"
+      class="text-primary generic-padding"
       v-if="otherGroups.length>0"
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
-    <div
-      class="row"
+    <q-card>
+      <transition name="slide-toggle">
+        <q-search
+          v-if="!previewOpened"
+          class="searchbar"
+          v-model="search"
+          style="min-height: 0"
+        />
+      </transition>
+    </q-card>
+    <transition-group
+      name="list-complete"
       v-if="otherGroups.length>0"
-    >
+      class="row">
       <div
-        v-for="group in otherGroups"
+        v-for="group in filteredGroups"
         :key="group.id"
-        class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
+        class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
+        v-if="!previewOpened || group.id === openedGroupId || filteredGroups.length == 1"
+        :class="group.id === openedGroupId || filteredGroups.length == 1 ? 'col-xs-12 col-sm-12 col-md-12' : ''"
       >
         <GroupGalleryCard
           :group="group"
+          v-if="!previewOpened && filteredGroups.length != 1"
           :is-member="false"
-          @preview="$emit('preview', { groupId: group.id })"
+          @preview="showPreview(group)"
         />
+        <GroupPreview
+          v-if="previewOpened || filteredGroups.length == 1"
+          :show-close="filteredGroups.length != 1"
+          @close="hidePreview()"
+          :group="group"
+          :is-logged-in="isLoggedIn"/>
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
 <script>
 import GroupGalleryCard from './GroupGalleryCard'
-import { QAlert } from 'quasar'
+import GroupPreview from './GroupPreview'
+import { QAlert, QSearch, QCard } from 'quasar'
 
 export default {
+  data () {
+    return {
+      search: '',
+      previewOpened: false,
+      openedGroupId: -1,
+    }
+  },
+  methods: {
+    showPreview (group) {
+      this.previewOpened = true
+      this.openedGroupId = group.id
+      window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
+    },
+    hidePreview () {
+      this.previewOpened = false
+      this.openedGroupId = -1
+      window.history.replaceState({}, null, `#${this.$route.path}`)
+    },
+  },
   props: {
     myGroups: {
       default: () => [],
@@ -87,21 +126,55 @@ export default {
       type: Number,
     },
   },
-  components: { GroupGalleryCard, QAlert },
+  computed: {
+    filteredGroups () {
+      return this.otherGroups.filter(group => {
+        return group.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    },
+  },
+  components: { GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview },
 }
 </script>
 
 <style scoped lang="stylus">
 @import '~variables'
 body.desktop .alert
-  margin 2em 0 2.5em 0
+  margin 2em 8px 2.5em 8px
 .text-primary
   margin-left .2em
 .highlight
   border 2px solid $positive
-</style>
-
-<style scoped lang="stylus">
+.searchbar
+  margin-top .2em
+  vertical-align middle
+  height 45px
+  padding 5px
 .underline
   text-decoration underline
+
+.list-complete-item
+  transition: all .7s
+  display: inline-block
+
+.list-complete-enter, .list-complete-leave-to
+  opacity: 0
+  transform: translateY(2000px)
+
+.list-complete-leave-active
+  position: absolute
+
+.slide-toggle-enter-active,
+.slide-toggle-leave-active
+  transition all .2s
+  min-height = 0
+  overflow hidden
+.slide-toggle-enter-to
+    max-height 400px
+.slide-toggle-enter,
+.slide-toggle-leave-active
+    max-height 0
+    opacity 0
+.slide-toggle-leave
+    max-height 400px
 </style>

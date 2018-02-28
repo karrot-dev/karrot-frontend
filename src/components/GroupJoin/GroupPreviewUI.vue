@@ -1,18 +1,25 @@
 <template>
   <div v-if="group">
-    <q-alert
-      v-if="!group.isMember"
-      color="tertiary"
-      icon="info"
-    >
-      {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-    </q-alert>
-    <q-card>
+    <q-card class="shadow-6">
       <q-card-title>
         {{ group.name }}
         <span slot="subtitle">
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
         </span>
+        <div
+          v-if="showClose"
+          style="padding: .6em"
+          slot="right">
+          <q-btn
+            @click="$emit('close')"
+            class="q-btn-flat"
+          >
+            <q-icon name="fa-close" />
+            <q-tooltip>
+              {{ $t('BUTTON.CLOSE') }}
+            </q-tooltip>
+          </q-btn>
+        </div>
       </q-card-title>
       <q-card-main>
         <Markdown
@@ -29,11 +36,20 @@
       </q-card-main>
       <q-card-separator />
       <q-card-actions>
-        <span v-if="!group.isMember">
+        <span
+          v-if="!group.isMember"
+          style="width: 100%">
           <form
             name="joingroup"
             @submit.prevent="$emit('join', { groupId: group.id, password })"
           >
+            <q-alert
+              v-if="!group.isMember"
+              color="tertiary"
+              icon="info"
+            >
+              {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
+            </q-alert>
             <q-field
               v-if="group.protected"
               icon="fa-lock"
@@ -49,6 +65,8 @@
             </q-field>
             <q-btn
               type="submit"
+              color="secondary"
+              class="float-right generic-margin"
               loader
               :value="group.joinStatus.pending"
             >
@@ -88,6 +106,10 @@ export default {
       default: false,
       type: Boolean,
     },
+    showClose: {
+      default: false,
+      type: Boolean,
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
   computed: {
@@ -105,8 +127,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.q-alert-container
-  margin 8px
 .q-card *
   overflow: hidden
 </style>

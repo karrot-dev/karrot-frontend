@@ -38,7 +38,11 @@ module.exports = merge(baseWebpackConfig, {
       sourceMap: config.build.productionSourceMap,
       minimize: true,
       compress: {
-        warnings: false
+        warnings: false,
+
+        // Attempt to get the sourcemaps working better https://github.com/webpack/webpack/issues/4084#issuecomment-274495886
+        sequences: false,
+        conditionals: false
       }
     }),
     // Compress extracted CSS. We are using this plugin so that possible

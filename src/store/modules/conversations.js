@@ -92,7 +92,22 @@ export default {
       async mark ({ dispatch }, { id, seenUpTo }) {
         await conversationsAPI.mark(id, { seenUpTo })
       },
+
+      async toggleEmailNotifications ({ commit, state, getters }, { conversationId, value }) {
+        await conversationsAPI.toggleEmailNotifications(conversationId, value)
+        commit('updateEmailNotifications', { conversationId, value })
+      },
     }),
+
+    async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
+      if (state.entries[conversationId]) {
+        const changed = state.entries[conversationId].emailNotifications !== value
+        const pending = getters['meta/status']('toggleEmailNotifications').pending
+        if (changed && !pending) {
+          await dispatch('toggleEmailNotifications', { conversationId, value })
+        }
+      }
+    },
 
     async sendInActiveConversation ({ state, dispatch }, messageData) {
       dispatch('send', { id: state.activeConversationId, messageData })
@@ -163,6 +178,9 @@ export default {
     },
     setConversation (state, { conversation }) {
       Vue.set(state.entries, conversation.id, conversation)
+    },
+    updateEmailNotifications (state, { conversationId, value }) {
+      state.entries[conversationId].emailNotifications = value
     },
   },
 }

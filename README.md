@@ -206,7 +206,9 @@ For more detailled notes on how to implement this in javascript, see https://doc
 
 # Hints
 
-## Speed up testing: relaxed postgres fsync behaviour
+## Speed up testing
+
+### Relaxed postgres fsync behaviour
 On a local setup, you may want to change fsync behaviour to speed up the test running process. You may want to make sure to understand the implications but on a dev machine this should be fine.
 
 Edit /var/lib/postgres/data/postgresql.conf and add or edit
@@ -214,6 +216,16 @@ Edit /var/lib/postgres/data/postgresql.conf and add or edit
 ```
 fsync = off
 ```
+
+### Parallel testing
+Running the tests in parallel process can increase testing speed significantly. 
+To execute the whole test suite on a CPU with 4 kernels, you may want to use:
+
+```
+python manage.py test --parallel=4
+```
+
+For further information, see https://docs.djangoproject.com/en/2.0/ref/django-admin/#cmdoption-test-parallel.
 
 ## Update requirement packages
 pip-tools is used to manage requirements. To use the latest possible requirements, do:

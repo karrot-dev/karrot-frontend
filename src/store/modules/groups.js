@@ -37,7 +37,7 @@ export default {
       let activeUser = rootGetters['users/activeUser']
       return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
     },
-    mine: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
+    mine: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByMemberCount),
     // A de-duplicated list of member ids of all groups the user is part of
     myMemberIds: (state, getters) => {
       return Object.keys(getters.mine.reduce((obj, group) => {

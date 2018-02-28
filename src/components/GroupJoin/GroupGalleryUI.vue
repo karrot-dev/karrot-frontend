@@ -55,7 +55,7 @@ export default {
       this.search = term
     },
     showPreview (group) {
-      console.log('tesadsdas')
+      window.scrollTo(0, 0)
       this.openGroup = group
     },
   },

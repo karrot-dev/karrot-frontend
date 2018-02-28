@@ -16,7 +16,7 @@ class TestPasswordReset(APITestCase):
         self.assertEqual(response.data, {})
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'New password')
+        self.assertIn('New password', mail.outbox[0].subject)
         self.assertEqual(mail.outbox[0].to, [self.verified_user.email])
 
     def test_reset_password_fails_if_wrong_mail(self):

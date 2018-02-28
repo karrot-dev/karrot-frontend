@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.db.models import ForeignKey, TextField, ManyToManyField, BooleanField
+from django.db.models import ForeignKey, TextField, ManyToManyField, BooleanField, CharField
 
 from foodsaving.base.base_models import BaseModel, UpdatedAtMixin
 
@@ -64,6 +64,7 @@ class ConversationMessage(BaseModel):
     conversation = ForeignKey(Conversation, related_name='messages', on_delete=models.CASCADE)
 
     content = TextField()
+    received_via = CharField(max_length=40, blank=True)
 
 
 class ConversationMixin(object):

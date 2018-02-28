@@ -40,7 +40,7 @@ class TestUsersAPI(APITestCase):
         self.assertAlmostEqual(response.data['latitude'], float(self.user_data['latitude']))
         self.assertEqual(response.data['description'], '')
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Please verify your email')
+        self.assertIn('Please verify your email', mail.outbox[0].subject)
         self.assertEqual(mail.outbox[0].to, [self.user_data['email']])
         self.assertIn('Thank you for signing up', mail.outbox[0].body)
 
@@ -276,9 +276,9 @@ class TestChangeEMail(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(response.data['email'], old_email)
         self.assertEqual(len(mail.outbox), 2)
-        self.assertEqual(mail.outbox[0].subject, 'Your email address changed!')
+        self.assertIn('Your email address changed!', mail.outbox[0].subject)
         self.assertEqual(mail.outbox[0].to, [old_email], 'error: change notice sent to wrong address')
-        self.assertEqual(mail.outbox[1].subject, 'Please verify your email')
+        self.assertIn('Please verify your email', mail.outbox[1].subject)
         self.assertEqual(
             mail.outbox[1].to,
             [new_email],
@@ -332,7 +332,7 @@ class TestChangeEMail(APITestCase):
         response = self.client.patch(self.url, {'email': original})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(mail.outbox), 2)
-        self.assertEqual(mail.outbox[0].subject, 'Your email address changed!')
+        self.assertIn('Your email address changed!', mail.outbox[0].subject)
         self.assertEqual(response.data['email'], original)
         self.assertEqual(response.data['mail_verified'], False)
 
@@ -417,7 +417,7 @@ class TestResendEMailVerificationCode(APITestCase):
         response = self.client.post(self.url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Please verify your email')
+        self.assertIn('Please verify your email', mail.outbox[0].subject)
         self.assertEqual(mail.outbox[0].to, [self.user.email])
         self.assertNotIn('Thank you for signing up', mail.outbox[0].body)
 

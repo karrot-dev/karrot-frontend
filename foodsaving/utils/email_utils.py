@@ -62,6 +62,7 @@ def prepare_conversation_message_notification(user, message):
         hostname=settings.HOSTNAME,
         group_id=group.id
     )
+    mute_url = '{}?mute_conversation={}'.format(conversation_url, message.conversation.id)
     conversation_name = group.name
 
     local_part = make_local_part(message.conversation, user)
@@ -79,7 +80,7 @@ def prepare_conversation_message_notification(user, message):
                 'author_name': message.author.display_name,
                 'message_content': message.content,
                 'conversation_url': conversation_url,
-                'mute_url': conversation_url + '?mute=1'
+                'mute_url': mute_url
             }
         )
 

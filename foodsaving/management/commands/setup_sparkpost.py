@@ -1,9 +1,13 @@
 import requests
+import sys
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from rest_framework import status
 
 
 class Command(BaseCommand):
+
+    errors = []
 
     def log_response(self, response):
         try:
@@ -14,41 +18,46 @@ class Command(BaseCommand):
         print(response.status_code, json)
         print()
 
-    def handle(self, *args, **options):
-        # use subaccounts for sending emails and receiving emailevents
-        # use main account for setting up relay
-
-        hostname = settings.HOSTNAME
-
-        s = requests.Session()
-
-        # set up event webhook
-        s.headers.update({'Authorization': settings.ANYMAIL['SPARKPOST_API_KEY']})
-
+    def setup_event_webhook(self, s):
         response = s.get('https://api.sparkpost.com/api/v1/webhooks')
         self.log_response(response)
+        if not status.is_success(response.status_code):
+            self.errors.append('Failed to get existing event webhooks')
 
         webhooks = response.json()
+        event_webhook_data = {
+            "name": settings.SITE_NAME[:23],  # obey sparkpost name length limit
+            "target": settings.HOSTNAME + "/api/webhooks/email_event/",
+            "auth_type": "basic",
+            "auth_credentials": {"username": "xxx", "password": settings.SPARKPOST_WEBHOOK_SECRET},
+            "events": settings.SPARKPOST_EMAIL_EVENTS,
+        }
+        existing_event_webhook = None
         for w in webhooks['results']:
-            w_id = w['id']
-            response = s.delete('https://api.sparkpost.com/api/v1/webhooks/' + w_id)
+            if w['target'] == event_webhook_data['target']:
+                existing_event_webhook = w
+
+        if existing_event_webhook is None:
+            print('WARNING: creating a new event webhook for {}. '
+                  'Please check on sparkpost.com if there are unused ones.'.format(event_webhook_data['target']))
+            response = s.post(
+                'https://api.sparkpost.com/api/v1/webhooks',
+                json=event_webhook_data
+            )
             self.log_response(response)
+            if not status.is_success(response.status_code):
+                self.errors.append('Failed to create new event webhook')
+        else:
+            response = s.put(
+                'https://api.sparkpost.com/api/v1/webhooks/' + existing_event_webhook['id'],
+                json=event_webhook_data
+            )
+            self.log_response(response)
+            if not status.is_success(response.status_code):
+                self.errors.append('Failed to update existing event webhook')
 
-        response = s.post(
-            'https://api.sparkpost.com/api/v1/webhooks',
-            json={
-                "name": settings.SITE_NAME[:23],
-                "target": hostname + "/api/webhooks/email_event/",
-                "auth_type": "basic",
-                "auth_credentials": {"username": "xxx", "password": settings.SPARKPOST_WEBHOOK_SECRET},
-                "events": settings.SPARKPOST_EMAIL_EVENTS,
-            }
-        )
-        self.log_response(response)
-
-        # set up relay webhook
-        s.headers.update({'Authorization': settings.SPARKPOST_ACCOUNT_KEY})
-
+    def setup_relay_webhook(self, s):
+        # create inbound domain with best effort, ignore failures
         response = s.post('https://api.sparkpost.com/api/v1/inbound_domains', json={
             'domain': settings.SPARKPOST_RELAY_DOMAIN
         })
@@ -56,6 +65,9 @@ class Command(BaseCommand):
 
         response = s.get('https://api.sparkpost.com/api/v1/relay-webhooks')
         self.log_response(response)
+        if not status.is_success(response.status_code):
+            self.errors.append('Failed to get existing relay webhooks')
+
         relay_webhooks = response.json()
         existing_relay = None
         for w in relay_webhooks['results']:
@@ -63,8 +75,8 @@ class Command(BaseCommand):
                 existing_relay = w
 
         relay_webhook_data = {
-            "name": (settings.SPARKPOST_RELAY_DOMAIN + ' relay')[:23],
-            "target": hostname + "/api/webhooks/incoming_email/",
+            "name": settings.SPARKPOST_RELAY_DOMAIN + ' relay',
+            "target": settings.HOSTNAME + "/api/webhooks/incoming_email/",
             "auth_token": settings.SPARKPOST_RELAY_SECRET,
             "match": {"domain": settings.SPARKPOST_RELAY_DOMAIN}
         }
@@ -76,9 +88,30 @@ class Command(BaseCommand):
                 json=relay_webhook_data
             )
             self.log_response(response)
+            if not status.is_success(response.status_code):
+                self.errors.append('Failed to create new relay webhook')
         else:
             response = s.put(
                 'https://api.sparkpost.com/api/v1/relay-webhooks/' + existing_relay['id'],
                 json=relay_webhook_data
             )
             self.log_response(response)
+            if not status.is_success(response.status_code):
+                self.errors.append('Failed to update existing relay webhook')
+
+    def handle(self, *args, **options):
+        s = requests.Session()
+
+        # use subaccounts for sending emails and receiving email events
+        s.headers.update({'Authorization': settings.ANYMAIL['SPARKPOST_API_KEY']})
+        self.setup_event_webhook(s)
+
+        # use main account for setting up relay
+        s.headers.update({'Authorization': settings.SPARKPOST_ACCOUNT_KEY})
+        self.setup_relay_webhook(s)
+
+        if len(self.errors) > 0:
+            print('errors:')
+            for e in self.errors:
+                print(e)
+            sys.exit(1)

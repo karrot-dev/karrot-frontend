@@ -14,7 +14,7 @@
                         </div>
                     </mj-text>
                     <mj-divider/>
-                    <mj-text font-size="13px">
+                    <mj-text font-size="13px" line-height="18px" color="#777">
                         <p>
                             {% trans %}You are receiving this because you are subscribed to this conversation.{% endtrans %}<br/>
                             {% trans %}Reply to this email directly, <a href="{{ conversation_url }}">view it on {{ site_name }}</a>, or <a href="{{ mute_url }}">mute the conversation</a>.{% endtrans %}

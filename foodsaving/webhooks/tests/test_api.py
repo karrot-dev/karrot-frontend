@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.conversations.factories import ConversationFactory
+from foodsaving.conversations.models import ConversationMessage
 from foodsaving.users.factories import UserFactory
 from foodsaving.webhooks.api import make_local_part
 from foodsaving.webhooks.models import EmailEvent
@@ -30,6 +31,8 @@ class TestEmailReplyAPI(APITestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
         self.assertEqual(self.conversation.messages.count(), 1)
+        message = ConversationMessage.objects.first()
+        self.assertEqual(message.received_via, 'email')
 
 
 class TestEmailEventAPI(APITestCase):

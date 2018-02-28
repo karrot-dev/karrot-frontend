@@ -65,6 +65,7 @@ class IncomingEmailView(views.APIView):
                     author=user,
                     conversation=conversation,
                     content=reply_plain,
+                    received_via='email'
                 )
 
         return Response(status=status.HTTP_200_OK, data={})

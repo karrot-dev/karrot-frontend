@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-26 13:27+0000\n"
+"POT-Creation-Date: 2018-02-27 18:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid ""
 msgstr ""
 
 #: foodsaving/conversations/api.py:28
-#: foodsaving/conversations/serializers.py:93
+#: foodsaving/conversations/serializers.py:94
 msgid "You are not in this conversation"
 msgstr ""
 
@@ -92,38 +92,33 @@ msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:95
 #, python-format
-msgid "%(pickups_done_count)s pickups were done"
+msgid "Your group did %(pickups_done_count)s pickups last week"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:97
-msgid "no pickups were done"
+msgid "Your group did no pickups last week"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:101
 #, python-format
-msgid "%(pickups_missed_count)s pickups were missed"
+msgid "and %(pickups_missed_count)s were missed."
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:104
-msgid "no pickups were missed"
+msgid "without missing a single one!"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:110
+#: foodsaving/groups/templates/group_summary.html.jinja2:111
 #, python-format
-msgid "%(new_user_count)s people joined the group"
+msgid "%(new_user_count)s new people joined the group"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:118
-#, python-format
-msgid "%(sent_messages_count)s messages were sent"
-msgstr ""
-
-#: foodsaving/groups/templates/group_summary.html.jinja2:120
-msgid "no messages were sent"
-msgstr ""
-
-#: foodsaving/groups/templates/group_summary.html.jinja2:126
+#: foodsaving/groups/templates/group_summary.html.jinja2:137
 msgid "Here's what was said last week"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:145
+msgid "No messages were sent last week"
 msgstr ""
 
 #: foodsaving/invitations/serializers.py:20
@@ -256,9 +251,7 @@ msgid "Your account on %(site_name)s was successfully deleted."
 msgstr ""
 
 #: foodsaving/users/templates/changemail_notice.subject.jinja2:1
-msgid ""
-"\n"
-"Your email address changed!\n"
+msgid "Your email address changed!"
 msgstr ""
 
 #: foodsaving/users/templates/changemail_notice.text.jinja2:4
@@ -324,9 +317,7 @@ msgid ""
 msgstr ""
 
 #: foodsaving/users/templates/passwordreset_request.subject.jinja2:1
-msgid ""
-"\n"
-"Forgot your password?\n"
+msgid "Forgot your password?"
 msgstr ""
 
 #: foodsaving/users/templates/passwordreset_request.text.jinja2:4

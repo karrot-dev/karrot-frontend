@@ -1,11 +1,13 @@
 from dateutil.parser import parse
+from django.core import mail
 from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.conversations.factories import ConversationFactory
-from foodsaving.conversations.models import ConversationParticipant, Conversation
+from foodsaving.conversations.models import ConversationParticipant, Conversation, ConversationMessage
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.users.factories import UserFactory
+from foodsaving.webhooks.models import EmailEvent
 
 
 class TestConversationsAPI(APITestCase):
@@ -206,3 +208,25 @@ class TestConversationsEmailNotificationsAPI(APITestCase):
 
         participant.refresh_from_db()
         self.assertTrue(participant.email_notifications)
+
+    def test_send_email_notifications(self):
+        users = [UserFactory() for _ in range(3)]
+        [self.conversation.join(u) for u in users]
+
+        mail.outbox = []
+        ConversationMessage.objects.create(author=self.user, conversation=self.conversation, content='asdf')
+
+        actual_recipients = set(m.to[0] for m in mail.outbox)
+        expected_recipients = set(u.email for u in users)
+        self.assertEqual(actual_recipients, expected_recipients)
+
+        self.assertEqual(len(mail.outbox), 3)
+
+    def test_exclude_bounced_addresses(self):
+        bounce_user = UserFactory()
+        self.conversation.join(bounce_user)
+        EmailEvent.objects.create(address=bounce_user.email, event='bounce', payload={})
+
+        mail.outbox = []
+        ConversationMessage.objects.create(author=self.user, conversation=self.conversation, content='asdf')
+        self.assertEqual(len(mail.outbox), 0)

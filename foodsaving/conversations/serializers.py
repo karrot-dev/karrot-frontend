@@ -85,8 +85,9 @@ class ConversationMessageSerializer(serializers.ModelSerializer):
             'content',
             'conversation',
             'created_at',
+            'received_via'
         ]
-        read_only_fields = ('author', 'id', 'created_at')
+        read_only_fields = ('author', 'id', 'created_at', 'received_via')
 
     def validate_conversation(self, conversation):
         if self.context['request'].user not in conversation.participants.all():

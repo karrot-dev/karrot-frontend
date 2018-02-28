@@ -55,6 +55,7 @@ export default {
       this.search = term
     },
     showPreview (group) {
+      console.log('tesadsdas')
       this.openGroup = group
     },
   },
@@ -88,14 +89,20 @@ export default {
       })
     },
     myGroupsForMap () {
-      if (this.openGroup !== null && this.openGroup.isMember) {
-        return this.myGroups
+      if (this.openGroup !== null) {
+        if (this.openGroup.isMember) {
+          return [this.openGroup]
+        }
+        return []
       }
       return this.filteredMyGroups
     },
     otherGroupsForMap () {
-      if (this.openGroup !== null && !this.openGroup.isMember) {
-        return [this.openGroup]
+      if (this.openGroup !== null) {
+        if (!this.openGroup.isMember) {
+          return [this.openGroup]
+        }
+        return []
       }
       return this.filteredOtherGroups
     },

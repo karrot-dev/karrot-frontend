@@ -2,25 +2,24 @@
   <div
     :class="{'expanded': expanded}"
     class="all-groups">
-    <div
-      v-if="showMyGroups"
-      class="row no-wrap">
-      <transition name="slide-toggle">
-        <div
-          style="width: 100%; padding: 0"
-          v-if="!previewOpened">
+    <transition name="slide-toggle">
+      <div
+        v-if="showMyGroups && !previewOpened"
+        class="row no-wrap">
+        <div style="width: 100%; padding: 0">
           <q-card style="margin-top: 16px">
             <q-search
               @change="$emit('search', arguments[0])"
               class="searchbar"
+              v-model="search"
             />
           </q-card>
         </div>
-      </transition>
-      <div style="width: 100px">
-        <slot />
+        <div style="width: 100px">
+          <slot />
+        </div>
       </div>
-    </div>
+    </transition>
     <slot v-if="!showMyGroups"/>
     <transition name="slide-toggle">
       <q-alert
@@ -42,33 +41,41 @@
     </transition>
     <transition name="slide-toggle">
       <div
-        v-if="expanded && myGroups.length>0"
+        v-if="expanded && filteredMyGroups.length>0"
         class="join-groups">
         <h4 class="text-primary">
           {{ $t('JOINGROUP.MY_GROUPS') }}
         </h4>
-        <div
-          class="row"
-          style="width: 100%"
-        >
+        <transition-group
+          name="list-complete"
+          v-if="showMyGroups"
+          class="row">
           <div
-            v-for="group in myGroups"
+            v-for="group in filteredMyGroups"
             :key="group.id"
-            class="inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+            class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch"
+            :class="filteredMyGroups.length == 1 ? 'col-xs-12 col-sm-12 col-lg-12' : ''">
             <GroupGalleryCard
+              v-if="filteredMyGroups.length != 1"
               :class="{highlight: group.id === currentGroupId}"
               :group="group"
               :is-member="true"
-              @preview="$emit('preview', { groupId: group.id })"
+              @preview="showPreview(group)"
               @visit="$emit('visit', { groupId: group.id })"
             />
+            <GroupPreview
+              v-if="filteredMyGroups.length == 1"
+              :show-close="previewOpened"
+              @close="hidePreview()"
+              :group="group"
+              :is-logged-in="isLoggedIn"/>
           </div>
-        </div>
+        </transition-group>
       </div>
     </transition>
     <h4
       class="text-primary generic-padding"
-      v-if="showOtherGroups && (expanded || !showMyGroups) && (otherGroups.length > 0 || !showMyGroups)"
+      v-if="(expanded && filteredOtherGroups.length > 0) || !showMyGroups"
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
@@ -77,33 +84,31 @@
         <q-search
           @change="$emit('search', arguments[0])"
           class="searchbar"
+          v-model="search"
         />
       </q-card>
     </transition>
     <transition name="slide-toggle">
-      <div
-        class="groups-container"
-        v-if="expanded || previewOpened || otherGroups.length === 1">
+      <div v-if="expanded && filteredOtherGroups.length > 0">
         <transition-group
           name="list-complete"
           v-if="showOtherGroups"
           class="row">
           <div
-            v-for="group in otherGroups"
+            v-for="group in filteredOtherGroups"
             :key="group.id"
             class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch"
-            v-if="!previewOpened || group.id === openedGroupId || otherGroups.length == 1"
-            :class="group.id === openedGroupId || otherGroups.length == 1 ? 'col-xs-12 col-sm-12 col-lg-12' : ''"
+            :class="filteredOtherGroups.length == 1 ? 'col-xs-12 col-sm-12 col-lg-12' : ''"
           >
             <GroupGalleryCard
               :group="group"
-              v-if="!previewOpened && otherGroups.length != 1"
+              v-if="filteredOtherGroups.length != 1"
               :is-member="false"
               @preview="showPreview(group)"
             />
             <GroupPreview
-              v-if="previewOpened || otherGroups.length == 1"
-              :show-close="otherGroups.length != 1"
+              v-if="filteredOtherGroups.length == 1"
+              :show-close="previewOpened"
               @close="hidePreview()"
               :group="group"
               :is-logged-in="isLoggedIn"/>
@@ -123,13 +128,14 @@ export default {
   data () {
     return {
       previewOpened: false,
-      openedGroupId: -1,
+      openedGroup: null,
+      search: '',
     }
   },
   methods: {
     showPreview (group) {
       this.previewOpened = true
-      this.openedGroupId = group.id
+      this.openedGroup = group
       this.$emit('showPreview', group)
       window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
     },
@@ -138,6 +144,26 @@ export default {
       this.openedGroupId = -1
       this.$emit('showPreview', null)
       window.history.replaceState({}, null, `#${this.$route.path}`)
+    },
+  },
+  computed: {
+    filteredMyGroups () {
+      if (this.previewOpened) {
+        if (this.openedGroup.isMember) {
+          return [this.openedGroup]
+        }
+        return []
+      }
+      return this.myGroups
+    },
+    filteredOtherGroups () {
+      if (this.previewOpened) {
+        if (!this.openedGroup.isMember) {
+          return [this.openedGroup]
+        }
+        return []
+      }
+      return this.otherGroups
     },
   },
   props: {

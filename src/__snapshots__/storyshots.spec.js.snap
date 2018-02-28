@@ -110,7 +110,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     </div>
                 </div>
                 <!---->
-                <div class="q-item q-item-division relative-position q-item-multiline">
+                <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
                     <div class="q-item-side q-item-side-left q-item-section">
                         <div class="wrapper">
                             <div to="[object Object]">
@@ -132,9 +132,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                             </span>
                             <!---->
                         </div>
-                    </div> <span class="content">first messsage</span></div>
+                    </div>
+                    <div class="parsed">
+                        <p>first messsage</p>
+                    </div>
+                </div>
             </div>
-            <div class="q-item q-item-division relative-position q-item-multiline">
+            <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-side-left q-item-section">
                     <div class="wrapper">
                         <div to="[object Object]">
@@ -156,9 +160,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                         </span>
                         <!---->
                     </div>
-                </div> <span class="content">second messsage</span></div>
+                </div>
+                <div class="parsed">
+                    <p>second messsage</p>
+                </div>
+            </div>
         </div>
-        <div class="q-item q-item-division relative-position q-item-multiline">
+        <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
             <div class="q-item-side q-item-side-left q-item-section">
                 <div class="wrapper">
                     <div to="[object Object]">
@@ -180,9 +188,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     </span>
                     <!---->
                 </div>
-            </div> <span class="content">first messsage</span></div>
+            </div>
+            <div class="parsed">
+                <p>first messsage</p>
+            </div>
+        </div>
     </div>
-    <div class="q-item q-item-division relative-position q-item-multiline">
+    <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-side-left q-item-section">
             <div class="wrapper">
                 <div to="[object Object]">
@@ -204,9 +216,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                 </span>
                 <!---->
             </div>
-        </div> <span class="content">welcome to fs chat</span></div>
+        </div>
+        <div class="parsed">
+            <p>welcome to fs chat</p>
+        </div>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -228,9 +244,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">heyo!</span></div>
+    </div>
+    <div class="parsed">
+        <p>heyo!</p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -252,9 +272,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">you made it!</span></div>
+    </div>
+    <div class="parsed">
+        <p>you made it!</p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -276,9 +300,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">amazing!</span></div>
+    </div>
+    <div class="parsed">
+        <p>amazing!</p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -300,9 +328,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">oh let me try something :)</span></div>
+    </div>
+    <div class="parsed">
+        <p>oh let me try something
+            <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/2/72x72/1f603.png" />
+        </p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -324,7 +358,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">I dont think we need to implement another UI, this is fine right? </span></div>
+    </div>
+    <div class="parsed">
+        <p>I dont think we need to implement another UI, this is fine right?</p>
+    </div>
+</div>
 </div>
 </div>
 </div>

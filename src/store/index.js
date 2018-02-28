@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
+import conversationsPlugin from './plugins/conversations'
 import persistedState from './plugins/persistedState'
 import i18nPlugin from './plugins/i18n'
 import router from './plugins/router'
@@ -68,6 +70,7 @@ export default new Vuex.Store({
     verifymail,
   },
   plugins: [
+    conversationsPlugin,
     i18nPlugin,
     persistedState,
     router,

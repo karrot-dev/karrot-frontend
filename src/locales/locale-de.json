@@ -19,6 +19,7 @@
   "BUTTON": {
     "CREATE": "Erstellen",
     "CANCEL": "Abbrechen",
+    "CLOSE": "Close",
     "DELETE": "Löschen",
     "EDIT": "Bearbeiten",
     "JOIN": "Beitreten",
@@ -82,12 +83,15 @@
     "HIDE_USERS": "Mitglieder verstecken",
     "SHOW_STORES": "Betriebe anzeigen",
     "HIDE_STORES": "Betriebe verstecken",
-    "SET_LOCATION": "Ort festlegen"
+    "SET_LOCATION": "Ort festlegen",
+    "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
     "MANAGE": "Abholzeiten prüfen und ändern",
     "ARCHIVED": "Dieser Betrieb wurde archiviert",
+    "INACTIVE": "This store is currently not cooperating.",
+    "CHANGE_STATUS": "You can change the status on the settings page.",
     "NO_DESCRIPTION": "Dieser Betrieb hat noch keine Beschreibung."
   },
   "STOREEDIT": {
@@ -304,7 +308,10 @@
   },
   "WALL": {
     "WRITE_MESSAGE": "Schreibe eine Nachricht...",
-    "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht..."
+    "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht...",
+    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
+    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",

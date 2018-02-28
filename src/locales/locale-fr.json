@@ -19,6 +19,7 @@
   "BUTTON": {
     "CREATE": "Créer",
     "CANCEL": "Annuler",
+    "CLOSE": "Close",
     "DELETE": "Effacer",
     "EDIT": "Traiter",
     "JOIN": "Rejoindre",
@@ -82,12 +83,15 @@
     "HIDE_USERS": "Hide users",
     "SHOW_STORES": "Show stores",
     "HIDE_STORES": "Hide stores",
-    "SET_LOCATION": "Set location"
+    "SET_LOCATION": "Set location",
+    "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
     "EDIT": "Traiter magasin",
     "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "This store has been archived",
+    "INACTIVE": "This store is currently not cooperating.",
+    "CHANGE_STATUS": "You can change the status on the settings page.",
     "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {
@@ -304,7 +308,10 @@
   },
   "WALL": {
     "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message..."
+    "WRITE_FIRST_MESSAGE": "Write the first message...",
+    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
+    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",

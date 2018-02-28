@@ -8,6 +8,11 @@ export default {
   async mark (id, data) {
     return (await axios.post(`/api/conversations/${id}/mark/`, data)).data
   },
+
+  async toggleEmailNotifications (id, value) {
+    const data = { 'emailNotifications': value }
+    return (await axios.post(`/api/conversations/${id}/email_notifications/`, data)).data
+  },
 }
 
 export function convert (obj) {

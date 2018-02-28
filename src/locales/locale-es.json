@@ -19,6 +19,7 @@
   "BUTTON": {
     "CREATE": "Crear",
     "CANCEL": "Cancelar",
+    "CLOSE": "Close",
     "DELETE": "Eliminar",
     "EDIT": "Editar",
     "JOIN": "Unirse",
@@ -82,12 +83,15 @@
     "HIDE_USERS": "Ocultar usuarios",
     "SHOW_STORES": "Enseñar tiendas",
     "HIDE_STORES": "Ocultar tiendas",
-    "SET_LOCATION": "Escoger localización"
+    "SET_LOCATION": "Escoger localización",
+    "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
     "EDIT": "Editar tienda",
     "MANAGE": "Controla y administra las pastillas",
     "ARCHIVED": "Esta tienda se archivó.",
+    "INACTIVE": "This store is currently not cooperating.",
+    "CHANGE_STATUS": "You can change the status on the settings page.",
     "NO_DESCRIPTION": "Esta tienda aún no tiene una descripción"
   },
   "STOREEDIT": {
@@ -304,7 +308,10 @@
   },
   "WALL": {
     "WRITE_MESSAGE": "Escribir un mensaje...",
-    "WRITE_FIRST_MESSAGE": "Enviar el primer mensaje..."
+    "WRITE_FIRST_MESSAGE": "Enviar el primer mensaje...",
+    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
+    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",

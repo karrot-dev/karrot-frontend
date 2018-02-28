@@ -13,6 +13,7 @@
         @selected="selected"
       />
     </q-search>
+    <q-search >No Results</q-search>
   </div>
 </template>
 

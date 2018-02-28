@@ -5,12 +5,12 @@
 
 # karrot frontend
 
-Welcome to _karrot_! _karrot_ is a software to support foodsaving groups worldwide. This is the frontend repository, i.e. the browser-side software that powers [foodsaving worldwide](https://karrot.world).
+Welcome to _karrot_! _karrot_ is a software to support foodsaving groups worldwide. This is the frontend repository, i.e. the browser-side software that powers [karrot.world](https://karrot.world).
 
 
 ## foodsaving worldwide
 
-The [foodsaving worldwide team](https://yunity.atlassian.net/wiki/display/FSINT/) provides additional resources to build up foodsaving.
+The [foodsaving worldwide team](https://foodsaving.world/team) provides additional resources to build up foodsaving, e.g. an infopage on [foodsaving.world](https://foodsaving.world), where all the intel is gathered.
 
 ## Development goals
 

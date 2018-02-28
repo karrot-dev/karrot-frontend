@@ -9,6 +9,20 @@
       class="col"
       ref="groupnav"
     >
+      <div class="">
+        <q-transition
+          duration="510"
+          name="turn-in"
+          appear
+        >
+          <div class="photoCard shadow-2">
+            <ProfilePicture
+              :group="group"
+              :size="groupPictureSize"
+            />
+          </div>
+        </q-transition>
+      </div>
       <q-route-tab
         :to="{name: 'group'}"
         exact

@@ -59,6 +59,7 @@ export default store => {
   })
 
   router.afterEach(() => window.scrollTo(0, 0))
+  router.afterEach(() => store.dispatch('currentGroup/markUserActive'))
 
   store.watch(getBreadcrumbNames, breadcrumbs => {
     let names = getBreadcrumbNames().slice().reverse()

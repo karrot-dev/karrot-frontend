@@ -2,7 +2,26 @@
   <div
     :class="{'expanded': expanded}"
     class="all-groups">
-    <slot />
+    <div
+      v-if="showMyGroups"
+      class="row no-wrap">
+      <transition name="slide-toggle">
+        <div
+          style="width: 100%; padding: 0"
+          v-if="!previewOpened">
+          <q-card style="margin-top: 16px">
+            <q-search
+              @change="$emit('search', arguments[0])"
+              class="searchbar"
+            />
+          </q-card>
+        </div>
+      </transition>
+      <div style="width: 100px">
+        <slot />
+      </div>
+    </div>
+    <slot v-if="!showMyGroups"/>
     <transition name="slide-toggle">
       <q-alert
         v-if="!isLoggedIn && expanded"
@@ -21,7 +40,6 @@
         </i18n>
       </q-alert>
     </transition>
-
     <transition name="slide-toggle">
       <div
         v-if="expanded && myGroups.length>0"
@@ -50,12 +68,12 @@
     </transition>
     <h4
       class="text-primary generic-padding"
-      v-if="showOtherGroups"
+      v-if="showOtherGroups && (expanded || !showMyGroups) && (otherGroups.length > 0 || !showMyGroups)"
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
     <transition name="slide-toggle">
-      <q-card v-if="!previewOpened">
+      <q-card v-if="!previewOpened && !showMyGroups">
         <q-search
           @change="$emit('search', arguments[0])"
           class="searchbar"
@@ -138,6 +156,10 @@ export default {
     currentGroupId: {
       default: -1,
       type: Number,
+    },
+    showMyGroups: {
+      default: true,
+      type: Boolean,
     },
     showOtherGroups: {
       default: true,

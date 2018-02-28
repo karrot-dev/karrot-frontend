@@ -4,19 +4,22 @@
     :class="{'expanded': expanded}">
     <GroupGalleryMap
       class="map-fixed"
-      :filtered-groups="groupsForMap"
-      :my-groups="myGroups"
+      :filtered-other-groups="otherGroupsForMap"
+      :filtered-my-groups="myGroupsForMap"
       :expanded="expanded" />
     <GroupGalleryCards
       class="gallery-cards"
-      :my-groups="myGroups"
-      :other-groups="filteredGroups"
+      :my-groups="filteredMyGroups"
+      :other-groups="filteredOtherGroups"
+      :show-my-groups="myGroups.length > 0"
       :show-other-groups="otherGroups.length > 0"
       :is-logged-in="isLoggedIn"
       :current-group-id="currentGroupId"
       :expanded="expanded"
       @search="filterGroups"
-      @showPreview="showPreview">
+      @showPreview="showPreview"
+      @preview="$emit('preview', arguments[0])"
+      @visit="$emit('visit', arguments[0])">
       <q-btn
         @click="expanded = !expanded"
         flat
@@ -74,16 +77,27 @@ export default {
     },
   },
   computed: {
-    filteredGroups () {
+    filteredMyGroups () {
+      return this.myGroups.filter(group => {
+        return group.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    },
+    filteredOtherGroups () {
       return this.otherGroups.filter(group => {
         return group.name.toLowerCase().includes(this.search.toLowerCase())
       })
     },
-    groupsForMap () {
-      if (this.openGroup !== null) {
+    myGroupsForMap () {
+      if (this.openGroup !== null && this.openGroup.isMember) {
+        return this.myGroups
+      }
+      return this.filteredMyGroups
+    },
+    otherGroupsForMap () {
+      if (this.openGroup !== null && !this.openGroup.isMember) {
         return [this.openGroup]
       }
-      return this.filteredGroups
+      return this.filteredOtherGroups
     },
   },
   components: { GroupGalleryCards, GroupGalleryMap, QBtn, QTooltip, StandardMap },

@@ -15,11 +15,11 @@ import L from 'leaflet'
 
 export default {
   props: {
-    myGroups: {
+    filteredMyGroups: {
       default: () => [],
       type: Array,
     },
-    filteredGroups: {
+    filteredOtherGroups: {
       required: true,
       type: Array,
     },
@@ -54,26 +54,35 @@ export default {
   computed: {
     markers () {
       let items = []
-      let openGroupsWithCoords = this.filteredGroups.filter(group => {
+      let openGroupsWithCoords = this.filteredOtherGroups.filter(group => {
         return group.latitude != null && group.longitude != null
       })
       items.push(...openGroupsWithCoords.map(this.createOpenGroupMarker))
 
-      let joinedGroupsWithCoords = this.myGroups.filter(group => {
+      let joinedGroupsWithCoords = this.filteredMyGroups.filter(group => {
         return group.latitude != null && group.longitude != null
       })
       items.push(...joinedGroupsWithCoords.map(this.createJoinedGroupMarker))
       return items
     },
+    singleGroup () {
+      if (this.filteredOtherGroups.length + this.filteredMyGroups.length === 1) {
+        if (this.filteredOtherGroups.length === 1) {
+          return this.filteredOtherGroups[0]
+        }
+        return this.filteredMyGroups[0]
+      }
+      return false
+    },
     coords () {
-      if (this.filteredGroups.length === 1) {
-        let gp = this.filteredGroups[0]
+      if (this.singleGroup) {
+        let gp = this.singleGroup
         return {lat: gp.latitude + this.offset[0], lng: gp.longitude + this.offset[1]}
       }
       return {lat: 0.0, lng: -100}
     },
     zoom () {
-      if (this.filteredGroups.length === 1) {
+      if (this.singleGroup) {
         return 10
       }
       return window.innerHeight > 767 ? 2 : 1

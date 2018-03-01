@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
+import reactionsAPI from '@/services/api/reactions'
 import { createMetaModule, withMeta, metaStatusesWithId } from '@/store/helpers'
 
 export function isUnread (message, conversation) {
@@ -97,6 +98,26 @@ export default {
         await conversationsAPI.toggleEmailNotifications(conversationId, value)
         commit('updateEmailNotifications', { conversationId, value })
       },
+
+      /**
+       * Add reaction to a message.
+       */
+      async editReaction ({ state, commit }, { action, name, messageId, userId }) {
+        switch (action) {
+          case 'add': {
+            await reactionsAPI.create(messageId, name)
+            commit('addReaction', { messageId, name, userId })
+            break
+          }
+          case 'remove': {
+            await reactionsAPI.remove(messageId, name)
+            commit('removeReaction', { messageId, name, userId })
+            break
+          }
+          default:
+            throw new Error('invalid action')
+        }
+      },
     }),
 
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
@@ -181,6 +202,15 @@ export default {
     },
     updateEmailNotifications (state, { conversationId, value }) {
       state.entries[conversationId].emailNotifications = value
+    },
+    addReaction (state, { userId, name, messageId }) {
+      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+      message.reactions.push({ user: userId, name })
+    },
+    removeReaction (state, { userId, name, messageId }) {
+      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+      const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
+      message.reactions.splice(reactionIndex, 1)
     },
   },
 }

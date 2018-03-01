@@ -27,6 +27,15 @@
           >
             <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
           </q-icon>
+
+          <!-- reactions to the conversation -->
+          <ConversationReactions
+            :message-id="message.id"
+            :reactions="message.reactions"
+            :user="user"
+            @edit="$emit('editReaction', arguments[0])"
+          />
+
         </div>
       </q-item-tile>
       <Markdown
@@ -39,6 +48,7 @@
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import ConversationReactions from '@/components/Conversation/ConversationReactions'
 import { QItem, QItemSide, QItemMain, QItemTile, QIcon, QTooltip } from 'quasar'
 import DateAsWords from '@/components/General/DateAsWords'
 import Markdown from '@/components/Markdown'
@@ -46,10 +56,14 @@ import Markdown from '@/components/Markdown'
 export default {
   name: 'ConversationMessage',
   components: {
-    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
+    ConversationReactions, ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
   },
   props: {
     message: {
+      type: Object,
+      required: true,
+    },
+    user: {
       type: Object,
       required: true,
     },
@@ -69,6 +83,9 @@ $lighterGreen = #F0FFF0
 .message-date
   display inline-block
   margin-left 2px
+.message-reactions
+  float right
+  color gray
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 .conversation-message

@@ -62,6 +62,8 @@
             v-for="message in data.messages"
             :key="message.id"
             :message="message"
+            :user="user"
+            @editReaction="$emit('editReaction', arguments[0])"
           />
         </q-list>
         <div

@@ -107,4 +107,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+
+.q-field
+  margin 3em 0
 </style>

@@ -22,6 +22,7 @@ import log from '@/services/log'
 import './raven'
 import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 import polyfill from '@/polyfill'
+import VueChatScroll from 'vue-chat-scroll'
 
 if (CORDOVA && BACKEND) {
   require('@/cordova')
@@ -30,6 +31,7 @@ if (CORDOVA && BACKEND) {
 Vue.config.productionTip = false
 Vue.use(Quasar)
 Vue.use(DetectMobileKeyboardPlugin)
+Vue.use(VueChatScroll)
 
 if (process.env.NODE_ENV !== 'production') {
   log.setLevel('debug')

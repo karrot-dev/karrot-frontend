@@ -1,4 +1,10 @@
 {
+  "CHAT": {
+    "TITLE": "Chat",
+    "MESSAGE": "Message",
+    "NO_MORE_MESSAGES": "No more messages to show you",
+    "NO_MESSAGES_YET": "You did not write with {user} yet"
+  },
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FACEBOOK_NOTE": "Join our Facebook Group!",

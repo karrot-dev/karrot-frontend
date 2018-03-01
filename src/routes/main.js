@@ -1,5 +1,8 @@
 const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
+const Chat = () => import('@/pages/Chat')
+const ChatList = () => import('@/components/Conversation/ChatSidenav')
+const ChatDetail = () => import('@/pages/ChatDetail')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const GroupMap = () => import('@/pages/Map')
@@ -29,6 +32,28 @@ const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
 
 export default [
+  {
+    name: 'chat',
+    path: '/chat',
+    meta: {
+      breadcrumbs: [
+        { translation: 'CHAT.TITLE' },
+      ],
+    },
+    components: {
+      default: Chat,
+      sidenav: ChatList,
+    },
+    children: [
+      {
+        name: 'chatDetail',
+        path: ':userId',
+        components: {
+          detail: ChatDetail,
+        },
+      },
+    ],
+  },
   {
     name: 'groupsGallery',
     path: '/groupPreview',

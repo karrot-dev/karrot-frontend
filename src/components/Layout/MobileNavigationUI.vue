@@ -45,14 +45,14 @@
 
     <KTab
       slot="title"
-      :to="{name: 'map', params: {groupId: currentGroupId}}"
-      name="profile"
+      :to="{name: 'chat'}"
+      name="chat"
     >
       <template slot="icon">
-        <i class="fa fa-map q-tab-icon" />
+        <i class="fa fa-comments q-tab-icon" />
       </template>
       <template class="q-tab-label">
-        {{ $t('GROUPMAP.TITLE') }}
+        {{ $t('CHAT.TITLE') }}
       </template>
     </KTab>
   </q-tabs>

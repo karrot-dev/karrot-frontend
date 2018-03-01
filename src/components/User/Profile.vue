@@ -71,6 +71,13 @@
         :source="user.description"
       />
       <div style="clear: both; margin-bottom: 8px"/>
+      <q-card-separator />
+      <q-card-actions align="end">
+        <ChatLink color="chat">
+          <i class="fa fa-fw fa-comments on-left" />
+          {{ $t('CHAT.MESSAGE') }}
+        </ChatLink>
+      </q-card-actions>
     </q-card>
   </div>
 </template>
@@ -80,11 +87,12 @@
 import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
+import ChatLink from '@/components/Conversation/ChatLink'
 
 import { QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator } from 'quasar'
 
 export default {
-  components: { Markdown, UserMapPreview, QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
+  components: { ChatLink, Markdown, UserMapPreview, QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
   props: {
     user: { required: true, type: Object },
     groups: { required: true, type: Array },

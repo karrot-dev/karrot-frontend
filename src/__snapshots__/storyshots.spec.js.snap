@@ -92,8 +92,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
                                                             <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
                                                         </div>
                                                     </div>
-                                                    <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                                                    <textarea placeholder="Write a message..." rows="2" class="col q-input-target q-input-area"></textarea>
+                                                    <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                                    <textarea placeholder="Write a message..." rows="1" class="col q-input-target q-input-area"></textarea>
                                                 </div>
                                                 <!---->
                                                 <!---->
@@ -1988,6 +1988,18 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <!---->
+        </span>
+    </button>
+    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
+        <div class="desktop-only q-focus-helper"></div>
+        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-comments"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+        <div class="q-popover animate-scale chat-popover"
+            style="transform-origin:top left 0px;">
+            <div class="content">
+                <!---->
+            </div>
+        </div>
         <!---->
         </span>
     </button>

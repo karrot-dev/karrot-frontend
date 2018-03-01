@@ -27,6 +27,16 @@
 
     <q-side-link
       item
+      :to="{name: 'map', params: {groupId: currentGroupId}}"
+    >
+      <q-item-side>
+        <i class="fa fa-map fa-fw"/>
+      </q-item-side>
+      <q-item-main :label="$t('GROUPMAP.TITLE')" />
+    </q-side-link>
+
+    <q-side-link
+      item
       :to="{name: 'settings'}"
     >
       <q-item-side>
@@ -99,6 +109,10 @@ export default {
   components: { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
   props: {
     currentUserId: {
+      type: Number,
+      required: true,
+    },
+    currentGroupId: {
       type: Number,
       required: true,
     },

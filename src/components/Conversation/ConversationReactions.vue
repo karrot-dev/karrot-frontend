@@ -8,6 +8,7 @@
       :key="reaction.name"
       flat
       small
+      :class="(reaction.reacted) ? 'user-reacted' : ''"
     >
       <Markdown
         :source="':' + reaction.name + ':' + reaction.users.length"
@@ -56,6 +57,7 @@ export default {
   }),
   computed: {
     collectedReactions () {
+      // collect the reactions
       const reactions = []
 
       for (const rawReaction of this.reactions) {
@@ -68,6 +70,11 @@ export default {
           reactions.push({ name: rawReaction.name, users: [rawReaction.user] })
         }
       }
+
+      // mark reactions where user reacted
+      reactions.forEach(reaction => {
+        reaction.reacted = reaction.users.includes(this.user.id)
+      })
       return reactions
     },
   },
@@ -107,4 +114,6 @@ export default {
 .message-reactions
   float right
   color grey
+.user-reacted
+  background-color #ccf
 </style>

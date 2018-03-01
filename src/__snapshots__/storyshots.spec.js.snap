@@ -682,7 +682,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
         <!---->
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-close"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Close
       </span>
             <!---->
@@ -720,7 +720,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                 <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
             </div>
         </div>
-        <div><span class="row"><div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+        <div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
@@ -755,7 +755,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
 </div>
 <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -786,7 +786,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -817,7 +817,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -848,7 +848,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -883,7 +883,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -974,7 +974,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <div style="width:100px;">
                 <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
                     <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-close"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                    <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Close
       </span>
                     <!---->
@@ -999,7 +999,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         <div class="join-groups">
             <h4 class="text-primary">
                 My groups
-            </h4> <span class="row"><div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+            </h4> <span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
@@ -1041,7 +1041,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
 </div>
 <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1079,7 +1079,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1123,7 +1123,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     Which group do you want to join?
 </h4>
 <!---->
-<div><span class="row"><div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+<div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
@@ -1158,7 +1158,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
 </div>
 <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1189,7 +1189,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1220,7 +1220,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1251,7 +1251,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1286,7 +1286,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 col-sm-6 col-lg-4 items-stretch">
+<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">

@@ -7,7 +7,7 @@
       :filtered-other-groups="otherGroupsForMap"
       :filtered-my-groups="myGroupsForMap"
       :expanded="expanded" />
-    <GroupGalleryCards
+    <GroupGalleryCardsLayout
       class="gallery-cards"
       :my-groups="filteredMyGroups"
       :other-groups="filteredOtherGroups"
@@ -27,18 +27,18 @@
       >
         <i
           class="fa fa-2x"
-          :class="{'slightly-rotated': !expanded && $q.platform.is.desktop, 'fa-map': $q.platform.is.mobile, 'fa-close': !$q.platform.is.mobile}"/>
+          :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"/>
         <q-tooltip>
           {{ $t(expanded ? 'BUTTON.CLOSE' : 'BUTTON.OPEN') }}
         </q-tooltip>
       </q-btn>
-    </GroupGalleryCards>
+    </GroupGalleryCardsLayout>
   </div>
 </template>
 
 <script>
 import GroupGalleryMap from './GroupGalleryMap'
-import GroupGalleryCards from './GroupGalleryCardsUI'
+import GroupGalleryCardsLayout from './GroupGalleryCardsLayout'
 import StandardMap from '@/components/Map/StandardMap'
 import { QBtn, QTooltip } from 'quasar'
 
@@ -107,7 +107,7 @@ export default {
       return this.filteredOtherGroups
     },
   },
-  components: { GroupGalleryCards, GroupGalleryMap, QBtn, QTooltip, StandardMap },
+  components: { GroupGalleryCardsLayout, GroupGalleryMap, QBtn, QTooltip, StandardMap },
 }
 </script>
 
@@ -149,7 +149,7 @@ body.mobile
   i
     transition transform .5s
 .slightly-rotated
-  transform rotate(45deg)
+  transform rotate(-180deg)
 </style>
 
 <style lang="stylus">

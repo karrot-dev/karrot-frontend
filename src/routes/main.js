@@ -5,6 +5,7 @@ const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const GroupMap = () => import('@/pages/Map')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
+const GroupManageMembership = () => import('@/pages/Group/ManageMembership')
 const GroupCreate = () => import('@/pages/Group/Create')
 const GroupPreview = () => import('@/pages/GroupPreview')
 const GroupGallery = () => import('@/pages/GroupGallery')
@@ -213,6 +214,19 @@ export default [
         },
         components: {
           default: GroupManageAgreement,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupManageMembership',
+        path: 'memberships',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.MANAGE_MEMBERSHIP', route: { name: 'groupManageMembership' } },
+          ],
+        },
+        components: {
+          default: GroupManageMembership,
           sidenav: GroupGroupSidenav,
         },
       },

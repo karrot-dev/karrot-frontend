@@ -27,6 +27,8 @@ export default {
       return user ? {
         ...user,
         isCurrentUser: user.id === authUserId,
+        joinedAt: rootGetters['currentGroup/value'].memberships[user.id].createdAt,
+        rolesInGroup: rootGetters['currentGroup/value'].memberships[user.id].roles,
       } : {
         isCurrentUser: false,
       }
@@ -36,7 +38,7 @@ export default {
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       const currentGroup = rootGetters['currentGroup/value']
-      return (currentGroup && currentGroup.members) ? currentGroup.members.map(getters.get) : []
+      return (currentGroup && currentGroup.members) ? currentGroup.members.map(getters.get).sort(sortByName) : []
     },
     activeUser: (state, getters, rootState, rootGetters) => {
       return state.activeUserId && getters.get(state.activeUserId)
@@ -119,4 +121,8 @@ export default {
     },
 
   },
+}
+
+export function sortByName (a, b) {
+  return a.displayName.localeCompare(b.displayName)
 }

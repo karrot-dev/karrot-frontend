@@ -46,4 +46,12 @@ export default {
   async conversation (groupId) {
     return convertConversation((await axios.get(`/api/groups/${groupId}/conversation/`)).data)
   },
+
+  async addRole (groupId, userId, roleName) {
+    return (await axios.put(`/api/groups/${groupId}/users/${userId}/roles/${roleName}/`)).data
+  },
+
+  async deleteRole (groupId, userId, roleName) {
+    return (await axios.delete(`/api/groups/${groupId}/users/${userId}/roles/${roleName}/`)).data
+  },
 }

@@ -22,6 +22,7 @@ def notify_participants(message):
     participants_to_notify = ConversationParticipant.objects.filter(
         conversation=message.conversation,
         email_notifications=True,
+        user__mail_verified=True,
     ).exclude(
         user=message.author
     ).exclude(

@@ -6,7 +6,7 @@ from rest_framework.test import APITestCase
 from foodsaving.conversations.factories import ConversationFactory
 from foodsaving.conversations.models import ConversationParticipant, Conversation, ConversationMessage
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.users.factories import UserFactory
+from foodsaving.users.factories import UserFactory, VerifiedUserFactory
 from foodsaving.webhooks.models import EmailEvent
 
 
@@ -165,7 +165,7 @@ class TestConversationsSeenUpToAPI(APITestCase):
 
 class TestConversationsEmailNotificationsAPI(APITestCase):
     def setUp(self):
-        self.user = UserFactory()
+        self.user = VerifiedUserFactory()
         self.group = GroupFactory(members=[self.user])
         self.conversation = Conversation.objects.get_or_create_for_target(self.group)
         self.conversation.join(self.user)
@@ -210,7 +210,7 @@ class TestConversationsEmailNotificationsAPI(APITestCase):
         self.assertTrue(participant.email_notifications)
 
     def test_send_email_notifications(self):
-        users = [UserFactory() for _ in range(3)]
+        users = [VerifiedUserFactory() for _ in range(3)]
         [self.conversation.join(u) for u in users]
 
         mail.outbox = []
@@ -223,9 +223,17 @@ class TestConversationsEmailNotificationsAPI(APITestCase):
         self.assertEqual(len(mail.outbox), 3)
 
     def test_exclude_bounced_addresses(self):
-        bounce_user = UserFactory()
+        bounce_user = VerifiedUserFactory()
         self.conversation.join(bounce_user)
         EmailEvent.objects.create(address=bounce_user.email, event='bounce', payload={})
+
+        mail.outbox = []
+        ConversationMessage.objects.create(author=self.user, conversation=self.conversation, content='asdf')
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_exclude_unverified_addresses(self):
+        user = UserFactory()
+        self.conversation.join(user)
 
         mail.outbox = []
         ConversationMessage.objects.create(author=self.user, conversation=self.conversation, content='asdf')

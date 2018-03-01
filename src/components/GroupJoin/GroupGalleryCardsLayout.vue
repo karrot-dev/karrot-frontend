@@ -183,7 +183,7 @@ export default {
     min-height 100vh
 
 body.desktop .alert
-  margin 2em 8px 2.5em 8px
+  margin 10px 8px 2.5em 8px
 .text-primary
   margin-left .2em
 .searchbar

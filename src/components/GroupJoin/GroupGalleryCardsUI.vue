@@ -6,7 +6,7 @@
       v-for="group in groups"
       :key="group.id"
       class="list-complete-item inline-block col-xs-12 items-stretch"
-      :class="groups.length == 1 ? '' : 'col-sm-6 col-lg-4'">
+      :class="groups.length == 1 ? '' : $q.platform.is.desktop ? 'col-lg-6 col-xl-4' : 'col-sm-6 col-lg-4'">
       <GroupGalleryCard
         v-if="groups.length != 1"
         :class="{highlight: group.id === currentGroupId}"

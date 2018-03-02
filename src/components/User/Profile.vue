@@ -43,10 +43,11 @@
           class="info-item inlinee"
           style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
         >
-        <strong>
-          <i class="fa fa-fw fa-envelope-o on-left" />
-        </strong>
-        <a :href='"mailto:" + user.email'>{{ user.email }}</a>
+          <strong>
+            <i class="fa fa-fw fa-envelope-o on-left" />
+          </strong>
+          <a :href='"mailto:" + user.email'>{{ user.email }}</a>
+        </div>
       </div>
       <q-btn
         icon="fa-pencil"
@@ -58,8 +59,9 @@
       />
       <div class="info">
         <div
-          class="info-item"
-          v-if="user.mobileNumber">
+          class="info-item inlinee"
+          v-if="user.mobileNumber"
+        >
           <strong class="info-item">
             <i class="fa fa-fw fa-phone on-left" />
           </strong>
@@ -69,7 +71,8 @@
       <div class="info">
         <div
           class="info-item"
-          v-if="user.address">
+          v-if="user.address"
+        >
           <strong class="info-item">
             <i class="fa fa-fw fa-map-marker on-left" />
           </strong>

@@ -3995,7 +3995,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         </div>
     </div>
     <div class="q-card no-shadow grey-border">
-        <div class="q-card-primary q-card-container row no-wrap">
+        <div id="change-email" class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">Mail</div>
                 <div class="q-card-subtitle"></div>

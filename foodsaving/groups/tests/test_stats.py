@@ -1,5 +1,3 @@
-from unittest.mock import patch
-
 from dateutil.relativedelta import relativedelta
 from django.test import TestCase
 from django.utils import timezone
@@ -13,8 +11,7 @@ from foodsaving.users.factories import UserFactory
 
 class TestGroupStats(TestCase):
 
-    @patch('foodsaving.groups.stats.write_points')
-    def test_group_members_stats(self, mock_write_points):
+    def test_group_members_stats_foo(self):
         def update_member_activity(user, **kwargs):
             GroupMembership.objects.filter(user=user).update(lastseen_at=timezone.now() - relativedelta(**kwargs))
 
@@ -27,9 +24,9 @@ class TestGroupStats(TestCase):
         update_member_activity(members[3], days=61)
         update_member_activity(members[4], days=91)
 
-        stats.group_members_stats(group)
+        points = stats.get_group_members_stats(group)
 
-        mock_write_points.assert_called_with([{
+        self.assertEqual(points, [{
             'measurement': 'karrot.group.members',
             'tags': {
                 'group': str(group.id),
@@ -44,17 +41,16 @@ class TestGroupStats(TestCase):
             },
         }])
 
-    @patch('foodsaving.groups.stats.write_points')
-    def test_group_stores_stats(self, mock_write_points):
+    def test_group_stores_stats(self):
         group = GroupFactory()
 
         [StoreFactory(group=group, status='active') for _ in range(3)]
         [StoreFactory(group=group, status='negotiating') for _ in range(7)]
         [StoreFactory(group=group, status='archived') for _ in range(10)]
 
-        stats.group_stores_stats(group)
+        points = stats.get_group_stores_stats(group)
 
-        mock_write_points.assert_called_with([{
+        self.assertEqual(points, [{
             'measurement': 'karrot.group.stores',
             'tags': {
                 'group': str(group.id),

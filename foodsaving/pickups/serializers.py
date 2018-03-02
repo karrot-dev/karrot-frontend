@@ -9,6 +9,7 @@ from rest_framework.validators import UniqueTogetherValidator
 
 from foodsaving.history.models import History, HistoryTypus
 from foodsaving.history.utils import get_changed_data
+from foodsaving.pickups import stats
 from foodsaving.pickups.models import (
     PickupDate as PickupDateModel,
     Feedback as FeedbackModel,
@@ -95,6 +96,8 @@ class PickupDateJoinSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         pickupdate.collectors.add(user)
 
+        stats.pickup_joined(pickupdate)
+
         History.objects.create(
             typus=HistoryTypus.PICKUP_JOIN,
             group=pickupdate.store.group,
@@ -113,6 +116,8 @@ class PickupDateLeaveSerializer(serializers.ModelSerializer):
     def update(self, pickupdate, validated_data):
         user = self.context['request'].user
         pickupdate.collectors.remove(user)
+
+        stats.pickup_left(pickupdate)
 
         History.objects.create(
             typus=HistoryTypus.PICKUP_LEAVE,

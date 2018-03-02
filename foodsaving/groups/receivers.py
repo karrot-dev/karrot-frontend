@@ -2,7 +2,7 @@ from django.db.models.signals import post_save, pre_delete, post_init
 from django.dispatch import receiver
 
 from foodsaving.conversations.models import Conversation, ConversationParticipant
-from foodsaving.groups import roles
+from foodsaving.groups import roles, stats
 from foodsaving.groups.models import Group, GroupMembership
 
 
@@ -31,6 +31,7 @@ def group_member_added(sender, instance, **kwargs):
     user = instance.user
     conversation = Conversation.objects.get_or_create_for_target(group)
     conversation.join(user)
+    stats.group_joined(group)
 
 
 @receiver(pre_delete, sender=GroupMembership)
@@ -41,6 +42,7 @@ def group_member_removed(sender, instance, **kwargs):
     conversation = Conversation.objects.get_for_target(group)
     if conversation:
         ConversationParticipant.objects.filter(conversation=conversation, user=user).delete()
+    stats.group_left(group)
 
 
 @receiver(post_init, sender=Group)

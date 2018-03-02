@@ -1,8 +1,8 @@
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 
+from foodsaving.conversations import tasks, stats
 from foodsaving.conversations.models import ConversationParticipant, ConversationMessage
-from foodsaving.conversations import tasks
 
 
 @receiver(post_save, sender=ConversationMessage)
@@ -27,6 +27,13 @@ def notify_participants(sender, instance, **kwargs):
         return
 
     tasks.notify_participants(message)
+
+
+@receiver(post_save, sender=ConversationMessage)
+def message_created(sender, instance, created, **kwargs):
+    if not created:
+        return
+    stats.message_written(instance)
 
 
 @receiver(post_save, sender=ConversationParticipant)

@@ -15,6 +15,7 @@ from django.utils import timezone
 
 from foodsaving.base.base_models import BaseModel
 from foodsaving.history.models import History, HistoryTypus
+from foodsaving.pickups import stats
 
 pickup_done = Signal()
 
@@ -129,6 +130,7 @@ class PickupDateManager(models.Manager):
                 if pickup.max_collectors:
                     payload['max_collectors'] = pickup.max_collectors
                 if pickup.collectors.count() == 0:
+                    stats.pickup_missed(pickup)
                     History.objects.create(
                         typus=HistoryTypus.PICKUP_MISSED,
                         group=pickup.store.group,
@@ -137,6 +139,7 @@ class PickupDateManager(models.Manager):
                         payload=payload,
                     )
                 else:
+                    stats.pickup_done(pickup)
                     History.objects.create(
                         typus=HistoryTypus.PICKUP_DONE,
                         group=pickup.store.group,

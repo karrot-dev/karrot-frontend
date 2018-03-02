@@ -16,6 +16,7 @@
           class="bg-neutral"
           style="padding: 4px;"
           @blur="$v.form.email.$touch"
+          @keyup.enter.ctrl.exact="maybeSave"
         />
       </q-field>
 

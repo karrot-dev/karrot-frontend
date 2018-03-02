@@ -13,6 +13,7 @@
           :autofocus="true"
           @blur="$v.edit.title.$touch"
           autocomplete="off"
+          keyup.enter.prevent.ctrl.exact="maybeSave"
         />
       </q-field>
 
@@ -25,7 +26,7 @@
           @blur="$v.edit.content.$touch"
           type="textarea"
           :min-rows="20"
-          @keyup.ctrl.enter="maybeSave"
+          @keyup.enter.prevent.ctrl.exact="maybeSave"
         />
       </q-field>
 

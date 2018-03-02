@@ -42,7 +42,7 @@
         class="info-item inlinee"
         style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
         <strong>
-          <i class="fa fa-fw fa-envelope-o on-left" />
+          <i class="far fa-fw fa-envelope on-left" />
         </strong>
         <a :href='"mailto:" + user.email'>{{ user.email }}</a>
       </div>
@@ -60,7 +60,7 @@
           v-if="user.address"
         >
           <strong class="info-item">
-            <i class="fa fa-fw fa-map-marker on-left" />
+            <i class="fas fa-fw fa-map-marker-alt on-left" />
           </strong>
           {{ user.address }}
         </div>
@@ -72,6 +72,14 @@
       />
       <div style="clear: both; margin-bottom: 8px"/>
     </q-card>
+    <q-btn
+      icon="fa-pencil"
+      color="primary"
+      small
+      @click="$router.push('/settings')"
+    >
+      edit
+    </q-btn>
   </div>
 </template>
 

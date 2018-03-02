@@ -9,6 +9,7 @@
       <q-input
         type="password"
         v-model="oldPassword"
+        @keyup.enter.prevent.ctrl.exact="save"
       />
     </q-field>
     <q-field
@@ -20,6 +21,7 @@
       <q-input
         type="password"
         v-model="newPassword"
+        @keyup.enter.ctrl.exact="save"
       />
     </q-field>
 

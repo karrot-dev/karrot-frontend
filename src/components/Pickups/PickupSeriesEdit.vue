@@ -73,7 +73,7 @@
           <q-input
             v-model="edit.rule.custom"
             type="textarea"
-            @keyup.ctrl.enter="maybeSave"
+            @keyup.enter.prevent.ctrl.exact="maybeSave"
           />
           <div class="q-field-bottom">
             <i18n path="CREATEPICKUP.RRULE_HELPER">
@@ -117,6 +117,7 @@
           v-model="edit.maxCollectors"
           type="number"
           :placeholder="$t('CREATEPICKUP.UNLIMITED')"
+          @keyup.enter.prevent.ctrl.exact="maybeSave"
         />
         <q-slider
           v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
@@ -139,7 +140,7 @@
           v-model="edit.description"
           type="textarea"
           max-length="500"
-          @keyup.ctrl.enter="maybeSave"
+          @keyup.enter.prevent.ctrl.exact="maybeSave"
         />
       </q-field>
 

@@ -11,6 +11,7 @@
       <q-input
         type="email"
         v-model="newEmail"
+        @keyup.enter.prevent.ctrl.exact="save"
       />
     </q-field>
     <div class="actionButtons">

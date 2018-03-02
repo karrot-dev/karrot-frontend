@@ -62,14 +62,14 @@
     <a
       class="q-item"
       target="_blanc"
-      href="https://blog.karrot.world/team.en.html"
+      href="https://foodsaving.world"
     >
       <q-item-side>
         <i class="fa fa-users"/>
       </q-item-side>
       <q-item-main
-        label="Team"
-        sublabel="Our Team"
+        label="Info"
+        sublabel="How to build your foodsaving group"
       />
     </a>
 

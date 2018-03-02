@@ -6,7 +6,7 @@ from foodsaving.groups import stats
 from foodsaving.groups.models import Group
 
 
-@db_periodic_task(crontab(minute='*'))
+@db_periodic_task(crontab(hour='*'))
 def record_stats():
     points = []
 

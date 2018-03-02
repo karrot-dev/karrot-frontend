@@ -54,16 +54,11 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             'timezone',
             'slack_webhook',
             'active_agreement',
+            'active',
         ]
         extra_kwargs = {
             'name': {
                 'min_length': 5
-            },
-            'members': {
-                'read_only': True
-            },
-            'memberships': {
-                'read_only': True
             },
             'description': {
                 'trim_whitespace': False,
@@ -74,6 +69,7 @@ class GroupDetailSerializer(serializers.ModelSerializer):
                 'max_length': 255
             },
         }
+        read_only_fields = ['active', 'members', 'memberships']
 
     memberships = serializers.SerializerMethodField()
 

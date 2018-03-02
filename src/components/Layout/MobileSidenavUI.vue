@@ -4,7 +4,6 @@
     link
     inset-separator
   >
-    <q-list-header>General</q-list-header>
     <q-side-link
       item
       :to="{name: 'user', params: {userId: currentUserId}}"
@@ -44,21 +43,7 @@
       <q-item-main :label="$t('TOPBAR.LOGOUT')" />
     </q-item>
 
-    <q-list-header>About us</q-list-header>
-    <a
-      class="q-item"
-      target="_blanc"
-      href="https://blog.karrot.world"
-    >
-      <q-item-side>
-        <i class="fa fa-newspaper-o"/>
-      </q-item-side>
-      <q-item-main
-        label="Blog"
-        sublabel="All News around karrot.world"
-      />
-    </a>
-
+    <q-list-header>Info</q-list-header>
     <a
       class="q-item"
       target="_blanc"
@@ -68,8 +53,22 @@
         <i class="fa fa-users"/>
       </q-item-side>
       <q-item-main
-        label="Info"
-        sublabel="How to build your foodsaving group"
+        :label="Info"
+        :sublabel="$t('SIDENAV.INFO_SUB')"
+      />
+    </a>
+
+    <a
+      class="q-item"
+      target="_blanc"
+      href="https://blog.karrot.world"
+    >
+      <q-item-side>
+        <i class="fa fa-newspaper-o"/>
+      </q-item-side>
+      <q-item-main
+        :label="Blog"
+        :sublabel="$t('SIDENAV.BLOG_SUB')"
       />
     </a>
 
@@ -82,8 +81,8 @@
         <i class="fa fa-git"/>
       </q-item-side>
       <q-item-main
-        label="Git"
-        sublabel="See our code!"
+        :label="Git"
+        :sublabel="$t('SIDENAV.GIT_SUB')"
       />
     </a>
     <q-item-separator />

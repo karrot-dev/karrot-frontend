@@ -15,14 +15,11 @@ const websocketPort = 8001;
 const listeners = [];
 
 if (process.argv.indexOf('--watch') !== -1) {
-  
+  compileAll();  
   console.log('watching for changes to mjml files in', FOODSAVING_BASE);
   watch(FOODSAVING_BASE, { recursive: true, filter: /\.mjml$/ }, (event, file) => {
     // We could just compile the specific one but then would not handle when just partials change
     compileAll();
-    // setTimeout(() => {
-    //   listeners.forEach(fn => fn());
-    // }, 1000);
   });
 
   watch(FOODSAVING_BASE, { recursive: true, filter: /\.jinja2$/ }, (event, file) => {    
@@ -55,9 +52,9 @@ function compileAll () {
 }
 
 function compile (file) {
-  const name = file.substring(BASEDIR.length + 1);
-  const contents = readFileSync(file, 'utf8');
   try {
+    const name = file.substring(BASEDIR.length + 1);
+    const contents = readFileSync(file, 'utf8');
     const rendered = mjml.mjml2html(contents, {
       level: 'strict',
       filePath: file

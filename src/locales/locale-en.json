@@ -9,6 +9,7 @@
   },
   "USERDATA": {
     "EMAIL": "Mail",
+    "MOBILE_NUMBER": "Mobile Number",
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
     "USERNAME": "Name",

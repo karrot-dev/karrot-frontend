@@ -38,13 +38,16 @@
         :user="user"
         class="map"
       />
-      <div
-        class="info-item inlinee"
-        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
-        <strong>
-          <i class="fa fa-fw fa-envelope-o on-left" />
-        </strong>
-        <a :href='"mailto:" + user.email'>{{ user.email }}</a>
+      <div class="info">
+        <div
+          class="info-item inlinee"
+          style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
+        >
+          <strong>
+            <i class="fa fa-fw fa-envelope-o on-left" />
+          </strong>
+          <a :href='"mailto:" + user.email'>{{ user.email }}</a>
+        </div>
       </div>
       <q-btn
         icon="fa-pencil"
@@ -54,6 +57,17 @@
         color="secondary"
         @click="$router.push('/settings')"
       />
+      <div class="info">
+        <div
+          class="info-item inlinee"
+          v-if="user.mobileNumber"
+        >
+          <strong class="info-item">
+            <i class="fa fa-fw fa-phone on-left" />
+          </strong>
+          {{ user.mobileNumber }}
+        </div>
+      </div>
       <div class="info">
         <div
           class="info-item"

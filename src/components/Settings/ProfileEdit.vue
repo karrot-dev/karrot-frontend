@@ -30,6 +30,15 @@
       </q-field>
 
       <q-field
+        icon="fa-phone"
+        :label="$t('USERDATA.MOBILE_NUMBER')"
+        :error="hasError('mobileNumber')"
+        :error-label="firstError('mobileNumber')"
+      >
+        <q-input v-model="edit.mobileNumber"/>
+      </q-field>
+
+      <q-field
         icon="fa-map"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
@@ -98,4 +107,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+
+.q-field
+  margin 3em 0
 </style>

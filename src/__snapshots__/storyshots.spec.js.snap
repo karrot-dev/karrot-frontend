@@ -3921,6 +3921,30 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                     <div class="q-field row no-wrap items-start">
+                        <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-phone"> </i>
+                        <div class="row col">
+                            <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
+                                <div class="q-field-label-inner row items-center"><span>Mobile Number</span> </div>
+                            </div>
+                            <div class="q-field-content col-xs-12 col-sm">
+                                <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                                    <!---->
+                                    <div class="q-if-inner col row no-wrap items-center relative-position">
+                                        <!---->
+                                        <!---->
+                                        <input type="text" class="col q-input-target text-left">
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="q-field row no-wrap items-start">
                         <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-map"> </i>
                         <div class="row col">
                             <div class="q-field-label col-xs-12 q-field-margin col-sm-5">

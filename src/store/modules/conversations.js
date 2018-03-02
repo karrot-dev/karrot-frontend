@@ -26,6 +26,13 @@ export default {
   getters: {
     enrichMessage: (state, getters, rootState, rootGetters) => message => {
       if (!message) return
+
+      // resolve users who reacted
+      // clone the message, because original can't be mutated
+      message = JSON.parse(JSON.stringify(message))
+      message.reactions = message.reactions || []
+      message.reactions.forEach(reaction => { reaction.user = rootGetters['users/get'](reaction.user) })
+
       return {
         ...message,
         author: rootGetters['users/get'](message.author),

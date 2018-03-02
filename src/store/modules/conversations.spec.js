@@ -54,7 +54,7 @@ describe('conversations', () => {
     })
 
     it('receives new message', () => {
-      const message = { id: 1, conversation: 1, author: 1 }
+      const message = { id: 1, conversation: 1, author: 1, reactions: [] }
       store.dispatch('conversations/receiveMessage', message)
       expect(store.getters['conversations/activeMessages']).toEqual([{ ...message, isUnread: true }])
     })

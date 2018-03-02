@@ -13,6 +13,9 @@
       <Markdown
         :source="':' + reaction.name + ':' + reaction.users.length"
       />
+
+      <!-- info whoever reacted -->
+      <q-tooltip class="message-who-reacted">{{ reaction.message }}</q-tooltip>
     </q-btn>
     <!-- add a reaction -->
     <q-btn>
@@ -38,12 +41,12 @@
 
 <script>
 import Markdown from '@/components/Markdown'
-import { QBtn, QPopover } from 'quasar'
+import { QBtn, QPopover, QTooltip } from 'quasar'
 
 export default {
   name: 'ConversationReactions',
   components: {
-    Markdown, QBtn, QPopover,
+    Markdown, QBtn, QPopover, QTooltip,
   },
   data: () => ({
     reactionsWhitelist: [
@@ -73,8 +76,17 @@ export default {
 
       // mark reactions where user reacted
       reactions.forEach(reaction => {
-        reaction.reacted = reaction.users.includes(this.user.id)
+        // has logged user reacted?
+        reaction.reacted = Boolean(reaction.users.find(user => user.id === this.user.id))
+
+        // which users reacted?
+        const names = reaction.users.map(user => (user.id === this.user.id) ? 'you' : user.displayName)
+        // form the message which users reacted
+        // i.e. "foo, bar and baz reacted with heart"
+        const namesString = names.slice(0, -2).join(', ') + (names.slice(0, -2).length ? ', ' : '') + names.slice(-2).join(' and ')
+        reaction.message = `${namesString} reacted with ${reaction.name}`
       })
+
       return reactions
     },
   },
@@ -85,7 +97,7 @@ export default {
      */
     toggleReaction (name) {
       // What is the proper action? Are we adding or removing the reaction?
-      const isAlreadyReacted = Boolean(this.reactions.find(reaction => reaction.name === name && reaction.user === this.user.id))
+      const isAlreadyReacted = Boolean(this.reactions.find(reaction => reaction.name === name && reaction.user.id === this.user.id))
       const action = (isAlreadyReacted) ? 'remove' : 'add'
       // emit the action
       this.$emit('edit', { action, name, messageId: this.messageId, userId: this.user.id })
@@ -116,4 +128,6 @@ export default {
   color grey
 .user-reacted
   background-color #ccf
+.message-who-reacted
+  font-size smaller
 </style>

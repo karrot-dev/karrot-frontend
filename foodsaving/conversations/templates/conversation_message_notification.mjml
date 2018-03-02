@@ -10,7 +10,7 @@
                     <mj-text>
                         <div class="message">
                             <span class="message-author">{{ author_name }}</span><br>
-                            <span class="message-content">{{ message_content }}</span>
+                            <div class="message-content">{{ message_content | safe }}</div>
                         </div>
                     </mj-text>
                     <mj-divider/>

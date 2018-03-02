@@ -32,3 +32,6 @@ babel
 talon
 huey
 gevent
+bleach
+bleach_whitelist
+pymdown-extensions

@@ -78,7 +78,7 @@ def prepare_conversation_message_notification(user, message):
             context={
                 'conversation_name': conversation_name,
                 'author_name': message.author.display_name,
-                'message_content': message.content,
+                'message_content': message.content_rendered(),
                 'conversation_url': conversation_url,
                 'mute_url': mute_url
             }

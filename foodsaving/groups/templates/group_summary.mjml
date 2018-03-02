@@ -50,7 +50,7 @@
                             {% for message in messages %}
                                 <div class="message">
                                     <span class="message-author">{{ message.author.display_name }}</span><br>
-                                    <span class="message-content">{{ message.content }}</span>
+                                    <span class="message-content">{{ message.content_rendered(truncate_words=40) | safe }}</span>
                                 </div>
                             {% endfor %}
                         {% endif %}

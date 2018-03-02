@@ -36,6 +36,10 @@
         color: #4a982e;
     }
 
+    .message-content {
+        font-size: 13px;
+    }
+
     .footer-link {
         color: #666666;
         text-decoration: none;
@@ -45,4 +49,21 @@
         border-top: 1px dashed lightgrey;
     }
 
+</mj-style>
+<mj-style>
+    .message-content img.twemoji {
+        height: 1em;
+        width: 1em;
+        margin: 0 .05em 0 .1em;
+        vertical-align: -0.1em;
+    }
+    .message-content h1 {
+        font-size: 1.3em;
+    }
+    .message-content h2 {
+        font-size: 1.2em;
+    }
+    .message-content h3 {
+        font-size: 1.1em;
+    }
 </mj-style>

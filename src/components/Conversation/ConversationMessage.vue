@@ -20,6 +20,12 @@
               <DateAsWords :date="message.createdAt" />
             </small>
           </span>
+          <q-icon
+            v-if="message.receivedVia === 'email'"
+            name="fa-envelope-o"
+          >
+            <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
+          </q-icon>
         </div>
       </q-item-tile>
       <span class="content">{{ message.content }}</span>
@@ -29,13 +35,13 @@
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
-import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
+import { QItem, QItemSide, QItemMain, QItemTile, QIcon, QTooltip } from 'quasar'
 import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   name: 'ConversationMessage',
   components: {
-    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords,
+    ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip,
   },
   props: {
     message: {

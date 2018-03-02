@@ -46,4 +46,8 @@ export default {
   async conversation (groupId) {
     return convertConversation((await axios.get(`/api/groups/${groupId}/conversation/`)).data)
   },
+
+  async markUserActive (groupId) {
+    return axios.post(`/api/groups/${groupId}/mark_user_active/`)
+  },
 }

@@ -146,7 +146,7 @@ export default {
       }
     },
     zoom () {
-      if (!Number.isNaN(this.forceZoom)) {
+      if (this.forceZoom) {
         return this.forceZoom
       }
       if (!this.preventZoom && !this.bounds) {

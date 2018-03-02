@@ -61,43 +61,10 @@ jobs:
       - store_artifacts:
           path: test-reports
 
-  install-e2e-dependencies:
-    working_directory: ~/repo
-    docker:
-      - image: karrot/e2e:1.1
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - restore_cache:
-          key: python-cache-{{ checksum "requirements.txt" }}-{{ checksum "requirements-dev.txt" }}
-          key: python-cache-{{ checksum "requirements.txt" }}-
-          key: python-cache-
-      - run:
-          name: prepare backend
-          command: |
-            set -x
-            export LC_ALL=C.UTF-8
-            export LANG=C.UTF-8
-            git clone https://github.com/yunity/karrot-backend
-            cd karrot-backend
-            virtualenv -p python3 env
-            env/bin/pip install --upgrade pip
-            env/bin/pip install pip-tools
-            env/bin/pip-sync requirements*.txt
-            cp config/local_settings.py.ci config/local_settings.py
-      - save_cache:
-          paths:
-            - env
-          key: python-cache-{{ checksum "requirements.txt" }}-{{ checksum "requirements-dev.txt" }}
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - karrot-backend/*
-
   e2e-test:
     working_directory: ~/repo
     docker:
-      - image: karrot/e2e:1.1
+      - image: karrot/python:1.5
         environment:
           PGHOST: 127.0.0.1
       - image: circleci/postgres:9.6.2
@@ -108,15 +75,39 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - restore_cache:
+          key: python-cache-{{ checksum "requirements.txt" }}-{{ checksum "requirements-dev.txt" }}
+          key: python-cache-{{ checksum "requirements.txt" }}-
+          key: python-cache-
       - run:
-          name: run backend
+          name: prepare backend
+          environment:
+            LC_ALL: C.UTF-8
+            LANG: C.UTF-8
           command: |
             set -x
-            export LC_ALL=C.UTF-8
-            export LANG=C.UTF-8
+            apt-get install wget
+            test -d env/bin || virtualenv -p python3 env
+            source env/bin/activate
+            git clone https://github.com/yunity/karrot-backend
             cd karrot-backend
-            env/bin/python manage.py migrate
-            env/bin/python manage.py runserver
+            pip install --upgrade pip
+            pip install pip-tools
+            pip-sync requirements*.txt
+            cp config/local_settings.py.ci config/local_settings.py
+            (cd mjml && yarn)
+            mjml/convert
+      - run:
+          name: run backend
+          environment:
+            LC_ALL: C.UTF-8
+            LANG: C.UTF-8
+          command: |
+            set -x
+            source env/bin/activate
+            cd karrot-backend
+            python manage.py migrate
+            python manage.py runserver
           background: true
       - run:
           name: run frontend
@@ -135,6 +126,11 @@ jobs:
       - run:
           name: testcafe
           command: yarn e2e --ci
+      - save_cache:
+          paths:
+            - env
+            - ~/.cache/pip
+          key: python-cache-{{ checksum "requirements.txt" }}-{{ checksum "requirements-dev.txt" }}
 
   lint:
     <<: *defaults
@@ -376,12 +372,9 @@ workflows:
       - build-android-prod:
           requires:
             - build-cordova-prod
-      - install-e2e-dependencies:
-          requires:
-            - build-prod
       - e2e-test:
           requires:
-            - install-e2e-dependencies
+            - build-prod
       - deploy-android-prod:
           filters:
             branches:

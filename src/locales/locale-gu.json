@@ -19,6 +19,7 @@
   "BUTTON": {
     "CREATE": "બનાવો",
     "CANCEL": "રદ કરો",
+    "CLOSE": "Close",
     "DELETE": "કાઢી નાંખો",
     "EDIT": "સંપાદિત કરોસંપાદિત કરો",
     "JOIN": "જોડાઓ",
@@ -82,12 +83,15 @@
     "HIDE_USERS": "વપરાશકર્તાઓ છુપાવો",
     "SHOW_STORES": "સ્ટોર્સ બતાવો",
     "HIDE_STORES": "સ્ટોર્સ છુપાવો",
-    "SET_LOCATION": "સ્થાન સેટ કરો"
+    "SET_LOCATION": "સ્થાન સેટ કરો",
+    "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
     "EDIT": "સ્ટોર સંપાદિત કરો",
     "MANAGE": "દુકાનમાંથી તપાસો અને મેનેજ કરો",
     "ARCHIVED": "આ દુકાન આર્કાઇવ કરવામાં આવી છે",
+    "INACTIVE": "This store is currently not cooperating.",
+    "CHANGE_STATUS": "You can change the status on the settings page.",
     "NO_DESCRIPTION": "આ સ્ટોરમાં હજી સુધી કોઈ વર્ણન નથી"
   },
   "STOREEDIT": {
@@ -304,7 +308,10 @@
   },
   "WALL": {
     "WRITE_MESSAGE": "સંદેશ લખો ...",
-    "WRITE_FIRST_MESSAGE": "પ્રથમ સંદેશ લખો ..."
+    "WRITE_FIRST_MESSAGE": "પ્રથમ સંદેશ લખો ...",
+    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
+    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "તમારી પાસે એક ન વાંચેલા સંદેશ છે | તમારી પાસે {ગણતરી} ન વાંચેલા સંદેશા છે",

@@ -15,9 +15,9 @@
         :key="type"
       >
         <q-item-side>
-          <EmittingCheckbox
-            :enabled="notificationIsEnabled(type)"
-            @change="change(type, arguments[0])"
+          <q-checkbox
+            :value="notificationIsEnabled(type)"
+            @input="change(type, arguments[0])"
           />
         </q-item-side>
         <q-item-main>
@@ -33,11 +33,10 @@
 import { QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 
 import RandomArt from '@/components/General/RandomArt'
-import EmittingCheckbox from '@/components/General/EmittingCheckbox'
 
 export default {
   name: 'GroupSettings',
-  components: { RandomArt, EmittingCheckbox, QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile },
+  components: { RandomArt, QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile },
   props: {
     group: {
       type: Object,

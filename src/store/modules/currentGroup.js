@@ -49,7 +49,6 @@ export default {
       },
 
       async changeNotificationType ({ commit, dispatch, getters }, { notificationType, enabled }) {
-        console.log('would change it!', getters.id, notificationType, enabled)
         if (enabled) {
           await groups.addNotificationType(getters.id, notificationType)
         }

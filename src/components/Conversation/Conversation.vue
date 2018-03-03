@@ -13,7 +13,7 @@
         >
           <q-btn
             v-if="!user.mailVerified"
-            class="actionButton"
+            class="actionButton hoverScale"
             round
             small
             color="negative"
@@ -24,7 +24,7 @@
           </q-btn>
           <q-btn
             v-else
-            class="actionButton"
+            class="actionButton hoverScale"
             round
             small
             :color="data.emailNotifications ? 'secondary' : 'negative'"

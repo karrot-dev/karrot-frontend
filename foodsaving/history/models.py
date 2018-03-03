@@ -28,6 +28,7 @@ class HistoryTypus(enum.Enum):
     PICKUP_JOIN = 14
     PICKUP_LEAVE = 15
     PICKUP_MISSED = 16
+    GROUP_APPLY = 17
 
 
 class HistoryManager(models.Manager):

@@ -23,3 +23,16 @@ class TestGroupModel(TestCase):
         group = GroupFactory(members=[user])
         membership = GroupMembership.objects.filter(user=user, group=group).first()
         self.assertIn(roles.GROUP_MEMBERSHIP_MANAGER, membership.roles)
+
+    def test_approved_member_count(self):
+        user = [UserFactory() for _ in range(2)]
+        group = GroupFactory(members=user)
+        self.assertEquals(group.approved_member_count(), 2)
+        # Adding a non-approved user should not increment active count
+        group.add_applicant(UserFactory())
+        self.assertEquals(group.approved_member_count(), 2)
+        # Adding an approved user should not increment active count
+        group.add_member(UserFactory())
+        self.assertEquals(group.approved_member_count(), 3)
+
+

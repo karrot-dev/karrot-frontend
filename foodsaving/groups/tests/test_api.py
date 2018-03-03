@@ -20,6 +20,8 @@ class TestGroupsInfoAPI(APITestCase):
         self.user = UserFactory()
         self.member = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
+        self.applicant = UserFactory()
+        self.group.add_applicant(self.applicant)
         self.url = '/api/groups-info/'
 
     def test_list_groups_as_anon(self):
@@ -59,12 +61,21 @@ class TestGroupsInfoAPI(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertFalse('password' in response.data)
 
+    def test_retrieve_group_as_applicant(self):
+        self.client.force_login(user=self.applicant)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse('password' in response.data)
+
 
 class TestGroupsAPI(APITestCase):
     def setUp(self):
         self.user = UserFactory()
         self.member = UserFactory()
+        self.applicant = UserFactory()
         self.group = GroupFactory(members=[self.member, ])
+        self.group.add_applicant(self.applicant)
         self.group_with_password = GroupFactory(password='abc')
         self.join_password_url = '/api/groups/{}/join/'.format(self.group_with_password.id)
         self.url = '/api/groups/'
@@ -109,6 +120,12 @@ class TestGroupsAPI(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
+    def test_retrieve_group_as_applicant(self):
+        self.client.force_login(user=self.applicant)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
     def test_retrieve_group_as_member(self):
         self.client.force_login(user=self.member)
         url = self.url + str(self.group.id) + '/'
@@ -123,6 +140,12 @@ class TestGroupsAPI(APITestCase):
 
     def test_patch_group_as_user(self):
         self.client.force_login(user=self.user)
+        url = self.url + str(self.group.id) + '/'
+        response = self.client.patch(url, self.group_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_patch_group_as_applicant(self):
+        self.client.force_login(user=self.applicant)
         url = self.url + str(self.group.id) + '/'
         response = self.client.patch(url, self.group_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
@@ -145,6 +168,11 @@ class TestGroupsAPI(APITestCase):
         response = self.client.get('/api/groups/{}/conversation/'.format(self.group.id))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn(self.member.id, response.data['participants'])
+
+    def test_get_conversation_as_applicant(self):
+        self.client.force_login(user=self.applicant)
+        response = self.client.get('/api/groups/{}/conversation/'.format(self.group.id))
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_join_group(self):
         self.client.force_login(user=self.user)
@@ -185,7 +213,7 @@ class TestGroupsAPI(APITestCase):
             date=timezone.now() + relativedelta(weeks=1),
             collectors=[self.member, ],
         )
-        GroupMembership.objects.create(group=unrelated_pickupdate.store.group, user=self.member)
+        unrelated_pickupdate.store.group.add_member(self.member)
 
         self.client.force_login(user=self.member)
         response = self.client.post('/api/groups/{}/leave/'.format(self.group.id))
@@ -316,6 +344,8 @@ class TestDefaultGroupMembership(APITestCase):
         membership = GroupMembership.objects.get(group=group_id, user=self.creator)
         role = roles.GROUP_MEMBERSHIP_MANAGER
         self.assertIn(role, membership.roles)
+        # creator is also seen as a member
+        self.assertTrue(GroupModel.objects.get(id=group_id).is_member(self.creator))
 
         # can't drop management rights as only admin
         self.client.delete('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.creator.id, role))

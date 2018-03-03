@@ -5,7 +5,6 @@ from django.utils import timezone
 from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.groups.models import GroupMembership
 from foodsaving.pickups.factories import PickupDateFactory, PickupDateSeriesFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.tests.utils import ExtractPaginationMixin
@@ -65,7 +64,7 @@ class TestHistoryAPIWithExistingGroup(APITestCase, ExtractPaginationMixin):
 
     def test_leave_group(self):
         user = UserFactory()
-        GroupMembership.objects.create(group=self.group, user=user)
+        self.group.add_member(user)
         self.client.force_login(user)
         self.client.post(self.group_url + 'leave/')
 
@@ -295,6 +294,6 @@ class TestHistoryAPIDateFiltering(APITestCase, ExtractPaginationMixin):
         self.client.force_login(self.member)
         self.client.post('/api/groups/', {'name': 'xyzabc', 'timezone': 'Europe/Berlin'})
         response = self.get_results(history_url, data={'date_1': timezone.now()})
-        self.assertEqual(len(response.data), 1)
+        self.assertEqual(len(response.data), 2)
         response = self.get_results(history_url, data={'date_0': timezone.now()})
         self.assertEqual(len(response.data), 0)

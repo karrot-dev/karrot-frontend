@@ -115,7 +115,7 @@ class GroupDetailSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = self.context['request'].user
         group = GroupModel.objects.create(**validated_data)
-        GroupMembership.objects.create(group=group, user=user)
+        group.add_member(user)
         History.objects.create(
             typus=HistoryTypus.GROUP_CREATE,
             group=group,
@@ -199,7 +199,8 @@ class GroupPreviewSerializer(serializers.ModelSerializer):
             'latitude',
             'longitude',
             'members',
-            'protected'
+            'protected',
+            'approved_member_count'
         ]
 
     protected = serializers.SerializerMethodField()
@@ -261,7 +262,8 @@ class GroupMembershipAddRoleSerializer(serializers.Serializer):
 
 
 class GroupMembershipRemoveRoleSerializer(serializers.Serializer):
-    role_name = serializers.CharField(
+    role_name = serializers.ChoiceField(
+        choices=(roles.GROUP_MEMBERSHIP_MANAGER, roles.GROUP_AGREEMENT_MANAGER,),
         required=True,
         write_only=True
     )

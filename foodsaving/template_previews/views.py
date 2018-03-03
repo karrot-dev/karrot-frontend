@@ -98,7 +98,7 @@ def list_templates(request):
         for directory, dirnames, filenames in os.walk(directory):
             relative_dir = directory[len(foodsaving_basedir) + 1:]
             for filename in filenames:
-                if re.match(r'.*\.jinja2$', filename) and not re.match(r'.*\.slack\.jinja2$', filename):
+                if re.match(r'.*\.jinja2$', filename):
                     path = os.path.join(relative_dir, filename)
 
                     # strip out anything past the first dot for the name

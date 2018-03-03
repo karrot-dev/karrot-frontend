@@ -21,7 +21,6 @@ sparkpost
 django-influxdb-metrics
 django-timezone-field
 raven
-responses
 furl
 channels~=1.1
 asgi_redis

@@ -1,7 +1,6 @@
-from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
-from django.db import models, transaction
+from django.db import models
 from django.db.models import TextField, DateTimeField
 from django.utils import timezone
 from timezone_field import TimeZoneField
@@ -11,16 +10,7 @@ from foodsaving.conversations.models import ConversationMixin
 from foodsaving.history.models import History, HistoryTypus
 
 
-class GroupManager(models.Manager):
-    @transaction.atomic
-    def send_all_notifications(self):
-        for g in self.all():
-            g.send_notifications()
-
-
 class Group(BaseModel, LocationModel, ConversationMixin):
-    objects = GroupManager()
-
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH, unique=True)
     description = models.TextField(blank=True)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='groups', through='GroupMembership')
@@ -29,7 +19,6 @@ class Group(BaseModel, LocationModel, ConversationMixin):
     active = models.BooleanField(default=True)
     sent_summary_up_to = DateTimeField(null=True)
     timezone = TimeZoneField(default='Europe/Berlin', null=True, blank=True)
-    slack_webhook = models.CharField(max_length=255, blank=True)
     active_agreement = models.OneToOneField(
         'groups.Agreement',
         related_name='active_group',
@@ -39,16 +28,6 @@ class Group(BaseModel, LocationModel, ConversationMixin):
 
     def __str__(self):
         return 'Group {}'.format(self.name)
-
-    def send_notifications(self):
-        if self.slack_webhook.startswith('https://hooks.slack.com/services/'):
-            for s in self.store.all():
-                # get all pick-ups within the notification range
-                for p in s.pickup_dates.filter(
-                        date__lt=timezone.now() + relativedelta(hours=s.upcoming_notification_hours),
-                        date__gt=timezone.now()
-                ):
-                    p.notify_upcoming_via_slack()
 
     def add_member(self, user, history_payload=None):
         GroupMembership.objects.create(group=self, user=user)

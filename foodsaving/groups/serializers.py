@@ -53,7 +53,6 @@ class GroupDetailSerializer(serializers.ModelSerializer):
             'longitude',
             'password',
             'timezone',
-            'slack_webhook',
             'active_agreement',
             'active',
             'notification_types',

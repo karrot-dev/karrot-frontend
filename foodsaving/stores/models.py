@@ -15,7 +15,6 @@ class Store(BaseModel, LocationModel):
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH)
     description = models.TextField(blank=True)
     weeks_in_advance = models.PositiveIntegerField(default=4)
-    upcoming_notification_hours = models.PositiveIntegerField(default=4)
     status = models.CharField(max_length=20, default=DEFAULT_STATUS)
 
     deleted = models.BooleanField(default=False)

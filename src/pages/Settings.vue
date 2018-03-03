@@ -17,7 +17,7 @@
       </q-card-main>
     </q-card>
     <q-card class="no-shadow grey-border">
-      <q-card-title>{{ $t('USERDATA.EMAIL') }}</q-card-title>
+      <q-card-title id="change-email">{{ $t('USERDATA.EMAIL') }}</q-card-title>
       <q-card-main>
         <ChangeEmail
           :user="user"

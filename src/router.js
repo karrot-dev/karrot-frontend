@@ -43,6 +43,19 @@ const router = new VueRouter({
     // Always leave this last one
     { path: '*', component: RouteError }, // Not found
   ],
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+      }
+    }
+    if (savedPosition) {
+      return savedPosition
+    }
+    else {
+      return { x: 0, y: 0 }
+    }
+  },
 })
 
 export default router

@@ -4,6 +4,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from foodsaving.groups.factories import GroupFactory
+from foodsaving.groups.models import GroupMembership
 from foodsaving.pickups.factories import PickupDateFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.tests.utils import ExtractPaginationMixin
@@ -158,7 +159,7 @@ class TestPickupDatesAPI(APITestCase, ExtractPaginationMixin):
         self.pickup.max_collectors = 1
         self.pickup.save()
         u2 = UserFactory()
-        self.group.add_member(u2)
+        GroupMembership.objects.create(group=self.group, user=u2)
         self.pickup.collectors.add(u2)
         response = self.client.post(self.join_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)
@@ -215,3 +216,4 @@ class TestPickupDatesListAPI(APITestCase, ExtractPaginationMixin):
         response = self.get_results(self.url, {'store': self.inactive_store.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 0)
+

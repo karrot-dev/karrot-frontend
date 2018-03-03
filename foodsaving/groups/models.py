@@ -9,7 +9,6 @@ from timezone_field import TimeZoneField
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.conversations.models import ConversationMixin
 from foodsaving.history.models import History, HistoryTypus
-from foodsaving.groups.roles import GROUP_APPROVED_MEMBER
 
 
 class GroupManager(models.Manager):
@@ -38,12 +37,6 @@ class Group(BaseModel, LocationModel, ConversationMixin):
         on_delete=models.SET_NULL
     )
 
-    def approved_member_count(self):
-        return self.members_with_all_roles([GROUP_APPROVED_MEMBER]).count()
-
-    def members_with_all_roles(self, roles):
-        return self.members.filter(groupmembership__roles__contains=roles)
-
     def __str__(self):
         return 'Group {}'.format(self.name)
 
@@ -52,19 +45,13 @@ class Group(BaseModel, LocationModel, ConversationMixin):
             for s in self.store.all():
                 # get all pick-ups within the notification range
                 for p in s.pickup_dates.filter(
-                    date__lt=timezone.now() + relativedelta(hours=s.upcoming_notification_hours),
-                    date__gt=timezone.now()
+                        date__lt=timezone.now() + relativedelta(hours=s.upcoming_notification_hours),
+                        date__gt=timezone.now()
                 ):
                     p.notify_upcoming_via_slack()
 
-    def add_applicant(self, user):
-        """Adds a person to the group marked as being an applicant"""
-        GroupMembership.objects.create(group=self, user=user)
-        self.create = History.objects.create(typus=HistoryTypus.GROUP_APPLY, group=self, users=[user, ], )
-
     def add_member(self, user, history_payload=None):
-        """Adds a "full" member to the group, e.g. grants the status of a normal member."""
-        GroupMembership.objects.create(group=self, user=user, roles=[GROUP_APPROVED_MEMBER])
+        GroupMembership.objects.create(group=self, user=user)
         History.objects.create(
             typus=HistoryTypus.GROUP_JOIN,
             group=self,
@@ -73,16 +60,15 @@ class Group(BaseModel, LocationModel, ConversationMixin):
         )
 
     def remove_member(self, user):
-        if self.is_member(user):
-            History.objects.create(
-                typus=HistoryTypus.GROUP_LEAVE,
-                group=self,
-                users=[user, ]
-            )
+        History.objects.create(
+            typus=HistoryTypus.GROUP_LEAVE,
+            group=self,
+            users=[user, ]
+        )
         GroupMembership.objects.filter(group=self, user=user).delete()
 
     def is_member(self, user):
-        return self.is_member_with_role(user, [GROUP_APPROVED_MEMBER])
+        return not user.is_anonymous and GroupMembership.objects.filter(group=self, user=user).exists()
 
     def is_member_with_role(self, user, role_name):
         return not user.is_anonymous and GroupMembership.objects.filter(group=self, user=user,
@@ -119,13 +105,7 @@ def get_default_notification_types():
     return [GroupNotificationType.WEEKLY_SUMMARY]
 
 
-class GroupMembershipManager(models.Manager):
-    pass
-
-
 class GroupMembership(BaseModel):
-    objects = GroupMembershipManager()
-
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     roles = ArrayField(TextField(), default=list)
@@ -140,12 +120,6 @@ class GroupMembership(BaseModel):
         for role in roles:
             if role not in self.roles:
                 self.roles.append(role)
-                if role is GROUP_APPROVED_MEMBER:
-                    History.objects.create(
-                        typus=HistoryTypus.GROUP_JOIN,
-                        group=self.group,
-                        users=[self.user, ],
-                    )
 
     def remove_roles(self, roles):
         for role in roles:

@@ -3,8 +3,6 @@ from rest_framework import viewsets
 from rest_framework.pagination import CursorPagination
 from rest_framework.permissions import IsAuthenticated
 
-from foodsaving.groups.models import GroupMembership
-from foodsaving.groups.roles import GROUP_APPROVED_MEMBER
 from foodsaving.history.filters import HistoryFilter
 from foodsaving.history.models import History
 from foodsaving.history.serializers import HistorySerializer
@@ -28,9 +26,4 @@ class HistoryViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class = HistoryPagination
 
     def get_queryset(self):
-        return self.queryset.filter(
-            group__in=GroupMembership.objects.filter(
-                user=self.request.user,
-                roles__contains=[GROUP_APPROVED_MEMBER]
-            ).values_list('group', flat=True)
-        )
+        return self.queryset.filter(group__members=self.request.user)

@@ -1,10 +1,9 @@
 from django.db.models.signals import post_save, pre_delete, post_init
 from django.dispatch import receiver
 
-from foodsaving.conversations.models import Conversation
+from foodsaving.conversations.models import Conversation, ConversationParticipant
 from foodsaving.groups import roles, stats
 from foodsaving.groups.models import Group, GroupMembership
-from foodsaving.groups.roles import GROUP_APPROVED_MEMBER
 
 
 @receiver(post_save, sender=Group)
@@ -13,7 +12,7 @@ def group_created(**kwargs):
     group = kwargs.get('instance')
     # TODO: limit this to only run on creation
     conversation = Conversation.objects.get_or_create_for_target(group)
-    conversation.sync_users(group.members_with_all_roles([GROUP_APPROVED_MEMBER]))
+    conversation.sync_users(group.members.all())
 
 
 @receiver(pre_delete, sender=Group)
@@ -30,13 +29,9 @@ def group_member_added(sender, instance, **kwargs):
     """When a user is removed from a conversation we will notify them."""
     group = instance.group
     user = instance.user
-    roles = instance.roles
     conversation = Conversation.objects.get_or_create_for_target(group)
-    if GROUP_APPROVED_MEMBER in roles:
-        conversation.join(user)
-        stats.group_joined(group)
-    else:
-        conversation.leave(user)
+    conversation.join(user)
+    stats.group_joined(group)
 
 
 @receiver(pre_delete, sender=GroupMembership)
@@ -46,10 +41,8 @@ def group_member_removed(sender, instance, **kwargs):
     user = instance.user
     conversation = Conversation.objects.get_for_target(group)
     if conversation:
-        conversation.leave(user)
-    if group.is_member(user):
-        # Only send the group left stat is user was full member of the group before
-        stats.group_left(group)
+        ConversationParticipant.objects.filter(conversation=conversation, user=user).delete()
+    stats.group_left(group)
 
 
 @receiver(post_init, sender=Group)

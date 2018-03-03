@@ -27,21 +27,21 @@
           >
             <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
           </q-icon>
-
-          <!-- reactions to the conversation -->
-          <ConversationReactions
-            :message-id="message.id"
-            :reactions="message.reactions"
-            :user="user"
-            @edit="$emit('editReaction', arguments[0])"
-          />
-
         </div>
       </q-item-tile>
       <Markdown
         :source="message.content"
         class="content"
       />
+
+      <!-- reactions to the conversation -->
+      <ConversationReactions
+        :message-id="message.id"
+        :reactions="message.reactions"
+        :user="user"
+        @edit="$emit('editReaction', arguments[0])"
+      />
+
     </q-item-main>
   </q-item>
 </template>
@@ -86,6 +86,7 @@ $lighterGreen = #F0FFF0
 .message-reactions
   float right
   color gray
+  padding-bottom 0.1em
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 .conversation-message

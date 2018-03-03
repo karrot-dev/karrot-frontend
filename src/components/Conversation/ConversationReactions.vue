@@ -3,7 +3,7 @@
   <div class="message-reactions">
     <!-- reactions -->
     <q-btn
-      class="reaction-button"
+      class="reaction-button emoji-button"
       @click.native="toggleReaction(reaction.name)"
       v-for="reaction in collectedReactions"
       :key="reaction.name"
@@ -11,29 +11,35 @@
       small
       :class="{ 'user-reacted': reaction.reacted }"
     >
-      <Markdown
-        :source="':' + reaction.name + ':' + reaction.users.length"
+      <Emoji
+        :emoji="reaction.name"
+        :size="16"
+        set="twitter"
       />
+      <span class="reacted-users-count">{{ reaction.users.length }}</span>
 
       <!-- info whoever reacted -->
       <q-tooltip class="message-who-reacted">{{ reaction.message }}</q-tooltip>
     </q-btn>
     <!-- add a reaction -->
-    <q-btn>
+    <!-- to be replaced with nicer component -->
+    <q-btn class="emoji-button">
       <i class="fa fa-smile-o" /> +
       <q-popover
         ref="popover"
       >
         <q-btn
-          class="reaction-menu-button"
+          class="reaction-menu-button emoji-button"
           @click.native="toggleReaction(reaction)"
           v-for="reaction in reactionsWhitelist"
           :key="reaction"
           flat
           small
         >
-          <Markdown
-            :source="':' + reaction + ':'"
+          <Emoji
+            :emoji="reaction"
+            :size="20"
+            set="twitter"
           />
         </q-btn>
       </q-popover>
@@ -44,17 +50,18 @@
 <script>
 import Markdown from '@/components/Markdown'
 import { QBtn, QPopover, QTooltip } from 'quasar'
+import { Emoji } from 'emoji-mart-vue'
 
 export default {
   name: 'ConversationReactions',
   components: {
-    Markdown, QBtn, QPopover, QTooltip,
+    Emoji, Markdown, QBtn, QPopover, QTooltip,
   },
   data: () => {
     return {
       reactionsWhitelist: [
-        'thumbsup',
-        'thumbsdown',
+        '+1',
+        '-1',
         'laughing',
         'tada',
         'confused',
@@ -134,4 +141,6 @@ export default {
   background-color #ccf
 .message-who-reacted
   font-size smaller
+.emoji-button
+  padding 0.2rem 0.5rem
 </style>

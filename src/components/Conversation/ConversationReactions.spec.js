@@ -20,20 +20,6 @@ describe('Conversation message reactions', () => {
   })
 
   it('renders reactions', () => {
-    /*
-    let wrapper = mount(MessageReactions, {
-      propsData: {
-        messageId: 5,
-        user: currentUserMock,
-        reactions: [
-          { user: usersMockWithoutCurrent[0], name: 'tada' },
-          { user: usersMockWithoutCurrent[1], name: 'tada' },
-          { user: currentUserMock, name: 'heart' },
-        ]
-      }
-    })
-    */
-
     expect(wrapper.findAll('.reaction-button').length).toEqual(2)
   })
 

@@ -112,8 +112,8 @@ export default {
       async editReaction ({ state, commit }, { action, name, messageId, userId }) {
         switch (action) {
           case 'add': {
-            await reactionsAPI.create(messageId, name)
-            commit('addReaction', { messageId, name, userId })
+            const addedReaction = await reactionsAPI.create(messageId, name)
+            commit('addReaction', { messageId, name: addedReaction.name, userId })
             break
           }
           case 'remove': {

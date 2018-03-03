@@ -1,21 +1,39 @@
 <template>
   <div>
-    <img :src="logo">
+    <img
+      :src="logo"
+      :class="{ loading: loading || closing }"
+    >
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  components: {},
   computed: {
     logo () {
       return KARROT_THEME === 'dev' ? require('@/assets/carrot-logo.dev.svg') : require('@/assets/carrot-logo.svg')
     },
+    ...mapGetters({
+      loading: 'loadingprogress/active',
+      closing: 'loadingprogress/closing',
+    }),
   },
 }
 </script>
 
 <style scoped lang="stylus">
-  div, img
-    height: 95%
+@keyframes myanim
+  0%, 100%
+    opacity .5
+    transform scale(.9)
+  50%
+    opacity 1
+    transform scale(1)
+
+img, div
+  height 95%
+.loading
+  animation myanim 1s cubic-bezier(.4, 0, .5, 1) infinite
 </style>

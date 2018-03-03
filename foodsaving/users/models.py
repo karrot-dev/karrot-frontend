@@ -1,12 +1,13 @@
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import transaction, models
-from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey
+from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey, Q
 from versatileimagefield.fields import VersatileImageField
 
 from foodsaving.base.base_models import BaseModel, LocationModel
 from foodsaving.userauth.models import VerificationCode
 from foodsaving.utils.email_utils import prepare_mailverification_email, prepare_email
+from foodsaving.webhooks.models import EmailEvent
 
 MAX_DISPLAY_NAME_LENGTH = 80
 
@@ -34,6 +35,9 @@ class UserManager(BaseUserManager):
 
     def filter_by_similar_email(self, email):
         return self.filter(email__iexact=email)
+
+    def unverified_or_ignored(self):
+        return self.filter(Q(mail_verified=False) | Q(email__in=EmailEvent.objects.ignored_addresses()))
 
     def active(self):
         return self.filter(deleted=False, is_active=True)

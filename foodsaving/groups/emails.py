@@ -1,6 +1,7 @@
 import itertools
 
 from dateutil.relativedelta import relativedelta
+from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Count
 from django.utils import timezone
@@ -54,7 +55,11 @@ def prepare_group_summary_data(group, from_date, to_date):
 def prepare_group_summary_emails(group, from_date, to_date):
     """Prepares one email per language"""
     context = prepare_group_summary_data(group, from_date, to_date)
-    members = group.members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)
+
+    members = group \
+        .members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY) \
+        .exclude(groupmembership__user__in=get_user_model().objects.unverified_or_ignored())
+
     grouped_members = itertools.groupby(members.order_by('language'), key=lambda member: member.language)
     return [prepare_email(template='group_summary',
                           context=context,

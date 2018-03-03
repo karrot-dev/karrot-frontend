@@ -1,4 +1,5 @@
 from dateutil.relativedelta import relativedelta
+from django.contrib.auth import get_user_model
 from django.utils import timezone
 from freezegun import freeze_time
 from rest_framework.test import APITestCase
@@ -9,31 +10,39 @@ from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import GroupNotificationType, GroupMembership
 from foodsaving.pickups.factories import PickupDateFactory
 from foodsaving.stores.factories import StoreFactory
-from foodsaving.users.factories import UserFactory
+from foodsaving.users.factories import VerifiedUserFactory, UserFactory
 
 
 class TestGroupSummaryEmails(APITestCase):
     def setUp(self):
         self.group = GroupFactory()
 
-        self.user_without_notifications = UserFactory(language='en')
+        self.user_without_notifications = VerifiedUserFactory(language='en')
         self.group.add_member(self.user_without_notifications)
         m = GroupMembership.objects.get(group=self.group, user=self.user_without_notifications)
         m.notification_types = []
         m.save()
 
+        unverified_users = [UserFactory(language='en') for i in list(range(3))]
+        for user in unverified_users:
+            self.group.add_member(user)
+
     def test_creates_one_email_for_one_language(self):
         n = 5
         for i in list(range(n)):
-            self.group.add_member(UserFactory(language='en'))
+            self.group.add_member(VerifiedUserFactory(language='en'))
 
         from_date, to_date = foodsaving.groups.emails.calculate_group_summary_dates(self.group)
         emails = foodsaving.groups.emails.prepare_group_summary_emails(self.group, from_date, to_date)
         self.assertEqual(len(emails), 1)
+
+        expected_members = self.group \
+            .members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY) \
+            .exclude(groupmembership__user__in=get_user_model().objects.unverified_or_ignored())
+
         self.assertEqual(
             sorted(emails[0].to),
-            sorted([member.email for member in
-                    self.group.members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)])
+            sorted([member.email for member in expected_members])
         )
         self.assertNotIn(self.user_without_notifications.email, emails[0].to)
 
@@ -41,13 +50,13 @@ class TestGroupSummaryEmails(APITestCase):
         n = 5
 
         for _ in list(range(n)):
-            self.group.add_member(UserFactory(language='en'))
+            self.group.add_member(VerifiedUserFactory(language='en'))
 
         for _ in list(range(n)):
-            self.group.add_member(UserFactory(language='de'))
+            self.group.add_member(VerifiedUserFactory(language='de'))
 
         for _ in list(range(n)):
-            self.group.add_member(UserFactory(language='fr'))
+            self.group.add_member(VerifiedUserFactory(language='fr'))
 
         from_date, to_date = group_emails.calculate_group_summary_dates(self.group)
         emails = group_emails.prepare_group_summary_emails(self.group, from_date, to_date)
@@ -57,10 +66,13 @@ class TestGroupSummaryEmails(APITestCase):
         for email in emails:
             to.extend(email.to)
 
+        expected_members = self.group \
+            .members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY) \
+            .exclude(groupmembership__user__in=get_user_model().objects.unverified_or_ignored())
+
         self.assertEqual(
             sorted(to),
-            sorted([member.email for member in
-                    self.group.members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)])
+            sorted([member.email for member in expected_members])
         )
 
         self.assertNotIn(self.user_without_notifications.email, to)
@@ -71,8 +83,8 @@ class TestGroupSummaryEmails(APITestCase):
         a_few_days_ago = timezone.now() - relativedelta(days=4)
 
         store = StoreFactory(group=self.group)
-        old_user = UserFactory()
-        user = UserFactory()
+        old_user = VerifiedUserFactory(mail_verified=True)
+        user = VerifiedUserFactory(mail_verified=True)
 
         # should not be included in summary email
         with freeze_time(a_couple_of_weeks_ago, tick=True):

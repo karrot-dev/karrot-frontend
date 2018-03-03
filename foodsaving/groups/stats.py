@@ -34,6 +34,24 @@ def group_activity(group):
     }])
 
 
+def group_summary_email(group, recipient_count):
+    write_points([{
+        'measurement': 'karrot.email.group_summary',
+        'tags': {
+            'group': str(group.id)
+        },
+        'fields': {'value': 1, 'recipient_count': recipient_count},
+    }])
+
+
+def periodic_task(name):
+    write_points([{
+        'measurement': 'karrot.periodic',
+        'tags': {'name': name, },
+        'fields': {'value': 1, },
+    }])
+
+
 def get_group_members_stats(group):
     now = timezone.now()
 

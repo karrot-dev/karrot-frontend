@@ -50,4 +50,12 @@ export default {
   async markUserActive (groupId) {
     return axios.post(`/api/groups/${groupId}/mark_user_active/`)
   },
+
+  addNotificationType (groupId, notificationType) {
+    return axios.put(`/api/groups/${groupId}/notification_types/${notificationType}/`)
+  },
+
+  removeNotificationType (groupId, notificationType) {
+    return axios.delete(`/api/groups/${groupId}/notification_types/${notificationType}/`)
+  },
 }

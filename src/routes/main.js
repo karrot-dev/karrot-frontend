@@ -3,6 +3,7 @@ const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const GroupMap = () => import('@/pages/Map')
+const GroupSettings = () => import('@/pages/Group/Settings')
 const GroupEdit = () => import('@/pages/Group/Edit')
 const GroupManageAgreement = () => import('@/pages/Group/ManageAgreement')
 const GroupCreate = () => import('@/pages/Group/Create')
@@ -200,6 +201,19 @@ export default [
         },
         components: {
           default: GroupEdit,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
+        name: 'groupSettings',
+        path: 'settings',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.SETTINGS', route: { name: 'groupSettings' } },
+          ],
+        },
+        components: {
+          default: GroupSettings,
           sidenav: GroupGroupSidenav,
         },
       },

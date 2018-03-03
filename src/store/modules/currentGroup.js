@@ -45,9 +45,20 @@ export default {
          * Should only be triggered when the user visits a group page
          * It currently also gets triggered when the user visits the profile page, but that seems fine.
         */
-        const id = getters['id']
-        if (id) await groups.markUserActive(id)
+        if (getters.id) await groups.markUserActive(getters.id)
       },
+
+      async changeNotificationType ({ commit, dispatch, getters }, { notificationType, enabled }) {
+        console.log('would change it!', getters.id, notificationType, enabled)
+        if (enabled) {
+          await groups.addNotificationType(getters.id, notificationType)
+        }
+        else {
+          await groups.removeNotificationType(getters.id, notificationType)
+        }
+        await dispatch('fetch', getters.id)
+      },
+
     }),
 
     ...withPrefixedIdMeta('agreements/', {

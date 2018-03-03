@@ -1973,6 +1973,12 @@ exports[`Storyshots Layout KFooter 1`] = `
                 </a>
             </div>
             <div>
+                <a href="https://foodsaving.world">
+                    <i class="fa fa-fw fa-globe on-left"></i>
+                    Read our info page!
+                </a>
+            </div>
+            <div>
                 <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
                     <i class="fa fa-fw fa-facebook on-left"></i>
                     Join our Facebook Group!

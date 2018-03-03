@@ -1,25 +1,18 @@
-import itertools
 from email.utils import formataddr
 
 import html2text
 from anymail.message import AnymailMessage
 from babel.dates import format_date
-from dateutil.relativedelta import relativedelta
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import Count
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string, get_template
-from django.utils import timezone
 from django.utils import translation
-from django.utils.timezone import get_current_timezone
 from django.utils.translation import to_locale, get_language
 from furl import furl
 from jinja2 import Environment
 
 from config import settings
-from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group
-from foodsaving.pickups.models import PickupDate
 from foodsaving.webhooks.api import make_local_part
 
 
@@ -97,73 +90,6 @@ def prepare_emailinvitation_email(invitation):
         'email': invitation.email,
         'invited_by_name': invitation.invited_by.display_name,
     }, to=invitation.email)
-
-
-def calculate_group_summary_dates(group):
-    with timezone.override(group.timezone):
-        tz = get_current_timezone()
-
-        # midnight last night in the groups local timezone
-        midnight = tz.localize(timezone.now().replace(
-            tzinfo=None, hour=0, minute=0, second=0, microsecond=0
-        ))
-
-        # 7 days before that
-        from_date = midnight - relativedelta(days=7)
-
-        # a week after from date
-        to_date = from_date + relativedelta(days=7)
-
-        return from_date, to_date
-
-
-def prepare_group_summary_data(group, from_date, to_date):
-    new_users = group.members.filter(
-        groupmembership__created_at__gte=from_date,
-        groupmembership__created_at__lt=to_date,
-    ).all()
-
-    pickups_done_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors__gt=0).count()
-
-    pickups_missed_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors=0).count()
-
-    messages = ConversationMessage.objects.filter(
-        conversation__target_type=ContentType.objects.get_for_model(Group),
-        conversation__target_id=group.id,
-        created_at__gte=from_date,
-        created_at__lt=to_date,
-    )
-
-    return {
-        # minus one second so it's displayed as the full day
-        'to_date': to_date - relativedelta(seconds=1),
-        'from_date': from_date,
-        'group': group,
-        'new_users': new_users,
-        'pickups_done_count': pickups_done_count,
-        'pickups_missed_count': pickups_missed_count,
-        'messages': messages,
-    }
-
-
-def prepare_group_summary_emails(group, from_date, to_date):
-    """Prepares one email per language"""
-    context = prepare_group_summary_data(group, from_date, to_date)
-    grouped_members = itertools.groupby(group.members.order_by('language'), key=lambda member: member.language)
-    return [prepare_email(template='group_summary',
-                          context=context,
-                          to=[member.email for member in members],
-                          language=language) for (language, members) in grouped_members]
 
 
 def prepare_mailverification_email(user, verification_code):

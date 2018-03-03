@@ -81,6 +81,9 @@ class Group(BaseModel, LocationModel, ConversationMixin):
             'invited_via': 'e-mail'
         })
 
+    def members_with_notification_type(self, type):
+        return self.members.filter(groupmembership__notification_types__contains=[type])
+
 
 class Agreement(BaseModel):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
@@ -94,11 +97,20 @@ class UserAgreement(BaseModel):
     agreement = models.ForeignKey(Agreement, on_delete=models.CASCADE)
 
 
+class GroupNotificationType(object):
+    WEEKLY_SUMMARY = 'weekly_summary'
+
+
+def get_default_notification_types():
+    return [GroupNotificationType.WEEKLY_SUMMARY]
+
+
 class GroupMembership(BaseModel):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     roles = ArrayField(TextField(), default=list)
     lastseen_at = DateTimeField(default=timezone.now)
+    notification_types = ArrayField(TextField(), default=get_default_notification_types)
 
     class Meta:
         db_table = 'groups_group_members'
@@ -113,3 +125,13 @@ class GroupMembership(BaseModel):
         for role in roles:
             while role in self.roles:
                 self.roles.remove(role)
+
+    def add_notification_types(self, notification_types):
+        for notification_type in notification_types:
+            if notification_type not in self.notification_types:
+                self.notification_types.append(notification_type)
+
+    def remove_notification_types(self, notification_types):
+        for notification_type in notification_types:
+            while notification_type in self.notification_types:
+                self.notification_types.remove(notification_type)

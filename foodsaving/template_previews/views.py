@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseBadReque
 from django.template.loader import render_to_string
 from django.template.utils import get_app_template_dirs
 
+import foodsaving.groups.emails
 from config import settings
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group
@@ -58,8 +59,8 @@ class Handlers:
 
     def group_summary(self):
         group = random_group()
-        from_date, to_date = email_utils.calculate_group_summary_dates(group)
-        return email_utils.prepare_group_summary_emails(group, from_date, to_date)[0]
+        from_date, to_date = foodsaving.groups.emails.calculate_group_summary_dates(group)
+        return foodsaving.groups.emails.prepare_group_summary_emails(group, from_date, to_date)[0]
 
     def mailverification(self):
         return email_utils.prepare_mailverification_email(

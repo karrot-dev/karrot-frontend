@@ -14,11 +14,12 @@ from rest_framework.viewsets import GenericViewSet
 from foodsaving.conversations.api import RetrieveConversationMixin
 from foodsaving.groups import roles, stats
 from foodsaving.groups.filters import GroupsFilter, GroupsInfoFilter
-from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement
+from foodsaving.groups.models import Agreement, Group as GroupModel, GroupMembership
 from foodsaving.groups.serializers import GroupDetailSerializer, GroupPreviewSerializer, GroupJoinSerializer, \
     GroupLeaveSerializer, TimezonesSerializer, EmptySerializer, \
     GroupMembershipAddRoleSerializer, GroupMembershipRemoveRoleSerializer, GroupMembershipInfoSerializer, \
-    AgreementSerializer, AgreementAgreeSerializer
+    AgreementSerializer, AgreementAgreeSerializer, GroupMembershipAddNotificationTypeSerializer, \
+    GroupMembershipRemoveNotificationTypeSerializer
 from foodsaving.utils.mixins import PartialUpdateModelMixin
 
 
@@ -165,6 +166,28 @@ class GroupViewSet(
         self.perform_update(serializer)
 
         return Response(GroupMembershipInfoSerializer(instance).data)
+
+    @detail_route(
+        methods=['PUT', 'DELETE'],
+        permission_classes=(IsAuthenticated,),
+        url_name='notification_types',
+        url_path='notification_types/(?P<notification_type>[^/.]+)',
+        serializer_class=EmptySerializer  # for Swagger
+    )
+    def modify_notification_types(self, request, pk, notification_type):
+        """add (POST) or remove (DELETE) a notification type"""
+        membership = get_object_or_404(GroupMembership.objects, group=self.get_object(), user=request.user)
+        self.check_object_permissions(request, membership)
+        serializer_class = None
+        if request.method == 'PUT':
+            serializer_class = GroupMembershipAddNotificationTypeSerializer
+        elif request.method == 'DELETE':
+            serializer_class = GroupMembershipRemoveNotificationTypeSerializer
+        serializer = serializer_class(membership, data={'notification_type': notification_type}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        return Response(GroupMembershipInfoSerializer(membership).data)
 
 
 class AgreementViewSet(

@@ -7,7 +7,8 @@ from rest_framework.test import APITestCase
 
 from foodsaving.groups import roles
 from foodsaving.groups.factories import GroupFactory
-from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement, UserAgreement
+from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement, UserAgreement, \
+    GroupNotificationType
 from foodsaving.pickups.factories import PickupDateFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory
@@ -328,6 +329,41 @@ class TestDefaultGroupMembership(APITestCase):
         self.client.delete('/api/groups/{}/users/{}/roles/{}/'.format(group_id, self.creator.id, role))
         membership.refresh_from_db()
         self.assertNotIn(role, membership.roles)
+
+
+class TestGroupNotificationTypes(APITestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.group = GroupFactory(members=[self.user])
+        self.membership = GroupMembership.objects.get(group=self.group, user=self.user)
+
+    def test_add_notification_type(self):
+        self.client.force_login(user=self.user)
+
+        self.membership.notification_types = []
+        self.membership.save()
+
+        self.assertEqual(self.membership.notification_types, [])
+        response = self.client.put(
+            '/api/groups/{}/notification_types/{}/'.format(self.group.id, GroupNotificationType.WEEKLY_SUMMARY))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.membership.refresh_from_db()
+        self.assertEqual(self.membership.notification_types, [GroupNotificationType.WEEKLY_SUMMARY])
+
+    def test_remove_notification_type(self):
+        self.client.force_login(user=self.user)
+        self.assertEqual(self.membership.notification_types, [GroupNotificationType.WEEKLY_SUMMARY])
+        response = self.client.delete(
+            '/api/groups/{}/notification_types/{}/'.format(self.group.id, GroupNotificationType.WEEKLY_SUMMARY))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.membership.refresh_from_db()
+        self.assertEqual(self.membership.notification_types, [])
+
+    def test_appears_in_group_detail(self):
+        self.client.force_login(user=self.user)
+        response = self.client.get(
+            '/api/groups/{}/'.format(self.group.id))
+        self.assertEqual(response.data['notification_types'], [GroupNotificationType.WEEKLY_SUMMARY])
 
 
 class TestAgreementsAPI(APITestCase):

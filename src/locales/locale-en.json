@@ -76,7 +76,15 @@
     "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Invite users to your group",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
+    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "Map",

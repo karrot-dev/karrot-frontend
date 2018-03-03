@@ -1639,6 +1639,37 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 </div>
 `;
 
+exports[`Storyshots GroupSettings show 1`] = `
+<div class="q-card no-mobile-margin no-shadow grey-border">
+    <div class="art-wrapper">
+        <div>
+            <div class="art-overlay"></div>
+        </div>
+    </div>
+    <div class="q-list q-list-link">
+        <div class="q-list-header ">Notifications</div>
+        <label class="q-item q-item-division relative-position">
+            <div class="q-item-side q-item-side-left q-item-section">
+                <div tabindex="0" class="q-checkbox q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                    <div class="q-option-inner relative-position">
+                        <input type="checkbox">
+                        <div class="q-focus-helper"></div>
+                        <i aria-hidden="true" class="q-checkbox-unchecked cursor-pointer q-icon material-icons" style="transition:opacity 1000ms cubic-bezier(0.23, 1, 0.32, 1) 200ms;opacity:1;">check_box_outline_blank</i>
+                        <i aria-hidden="true" class="q-checkbox-checked cursor-pointer absolute-full q-icon material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                        <div class="q-radial-ripple"></div>
+                    </div>
+                    <!---->
+                </div>
+            </div>
+            <div class="q-item-main q-item-section">
+                <div class="q-item-label">Weekly summary</div>
+                <div class="q-item-sublabel">Keep up to date with what's been happening in the group.</div>
+            </div>
+        </label>
+    </div>
+</div>
+`;
+
 exports[`Storyshots History List Default 1`] = `
 <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
@@ -4138,10 +4169,17 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
         <div class="q-toolbar-title"></div>
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-cog fa-fw"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!---->
+            </span>
+        </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
             <div class="q-popover animate-scale"
                 style="transform-origin:top right 0px;">
                 <div item-separator="" class="q-list q-list-link">
+                    <!---->
                     <!---->
                     <div class="q-item q-item-division relative-position q-item-link">
                         <i aria-hidden="true" class="q-icon fa fa-pencil fa-fw on-left" style="font-size:1em;"> </i>

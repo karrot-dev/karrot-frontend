@@ -29,7 +29,8 @@
       <div
         v-for="group in myGroups"
         :key="group.id"
-        class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
+        class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
+      >
         <GroupGalleryCard
           :class="{highlight: group.id === currentGroupId}"
           :group="group"
@@ -58,7 +59,8 @@
     <transition-group
       name="list-complete"
       v-if="otherGroups.length>0"
-      class="row">
+      class="row"
+    >
       <div
         v-for="group in filteredGroups"
         :key="group.id"
@@ -77,7 +79,8 @@
           :show-close="filteredGroups.length != 1"
           @close="hidePreview()"
           :group="group"
-          :is-logged-in="isLoggedIn"/>
+          :is-logged-in="isLoggedIn"
+        />
       </div>
     </transition-group>
   </div>
@@ -128,9 +131,9 @@ export default {
   },
   computed: {
     filteredGroups () {
-      return this.otherGroups.filter(group => {
-        return group.name.toLowerCase().includes(this.search.toLowerCase())
-      })
+      return this.otherGroups
+        .filter(group => group.active !== false)
+        .filter(group => group.name.toLowerCase().includes(this.search.toLowerCase()))
     },
   },
   components: { GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview },

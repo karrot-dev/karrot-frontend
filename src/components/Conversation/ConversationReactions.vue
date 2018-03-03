@@ -3,12 +3,13 @@
   <div class="message-reactions">
     <!-- reactions -->
     <q-btn
+      class="reaction-button"
       @click.native="toggleReaction(reaction.name)"
       v-for="reaction in collectedReactions"
       :key="reaction.name"
       flat
       small
-      :class="(reaction.reacted) ? 'user-reacted' : ''"
+      :class="{ 'user-reacted': reaction.reacted }"
     >
       <Markdown
         :source="':' + reaction.name + ':' + reaction.users.length"
@@ -24,6 +25,7 @@
         ref="popover"
       >
         <q-btn
+          class="reaction-menu-button"
           @click.native="toggleReaction(reaction)"
           v-for="reaction in reactionsWhitelist"
           :key="reaction"
@@ -48,16 +50,18 @@ export default {
   components: {
     Markdown, QBtn, QPopover, QTooltip,
   },
-  data: () => ({
-    reactionsWhitelist: [
-      'thumbsup',
-      'thumbsdown',
-      'laughing',
-      'tada',
-      'confused',
-      'heart',
-    ],
-  }),
+  data: () => {
+    return {
+      reactionsWhitelist: [
+        'thumbsup',
+        'thumbsdown',
+        'laughing',
+        'tada',
+        'confused',
+        'heart',
+      ],
+    }
+  },
   computed: {
     collectedReactions () {
       // collect the reactions

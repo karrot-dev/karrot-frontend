@@ -59,4 +59,13 @@ describe('conversations', () => {
       expect(store.getters['conversations/activeMessages']).toEqual([{ ...message, isUnread: true }])
     })
   })
+
+  /**
+   * TODO test later. Don't know how, yet.
+  describe('message reaction update', () => {
+    it('adds the reaction')
+
+    it('removes the reaction')
+  })
+  */
 })

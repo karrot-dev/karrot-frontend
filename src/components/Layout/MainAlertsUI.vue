@@ -41,6 +41,14 @@ export default {
       }
     },
 
+    resetPasswordSuccess () {
+      return {
+        color: 'positive',
+        icon: 'fa-check-square',
+        message: 'PASSWORD.RESET.SUCCESS',
+      }
+    },
+
     inviteAcceptError () {
       return {
         color: 'negative',

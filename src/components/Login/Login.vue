@@ -47,7 +47,7 @@
       <div class="actions">
         <q-btn
           type="button"
-          @click.prevent="$router.push({ name: 'passwordreset' })"
+          @click.prevent="$router.push({ name: 'requestPasswordReset' })"
           flat
         >
           {{ $t('LOGIN.FORGOT_PASSWORD') }}

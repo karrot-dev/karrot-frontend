@@ -8,5 +8,6 @@ export default {
   getters: {
     params: state => state.params,
     query: state => state.query,
+    code: state => state.query.code,
   },
 }

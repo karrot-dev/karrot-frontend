@@ -3,13 +3,13 @@ import users from '@/services/api/users'
 import authUser from '@/services/api/authUser'
 import auth from '@/services/api/auth'
 import { indexById, createRouteError, createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
+import router from '@/router'
 
 function initialState () {
   return {
     entries: {},
     idList: [],
     activeUserId: null,
-    resetPasswordSuccess: false,
     resendVerificationSuccess: false,
   }
 }
@@ -42,7 +42,7 @@ export default {
       return state.activeUserId && getters.get(state.activeUserId)
     },
     activeUserId: state => state.activeUserId,
-    ...metaStatuses(['signup', 'resetPassword', 'resendVerification']),
+    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerification']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationSuccess: state => state.resendVerificationSuccess,
   },
@@ -55,9 +55,16 @@ export default {
         await authUser.create(userData)
         dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
       },
-      async resetPassword ({ commit }, email) {
-        await auth.resetPassword(email)
-        commit('resetPasswordSuccess', true)
+      async requestResetPassword ({ commit }, email) {
+        await auth.requestResetPassword(email)
+        router.push({ name: 'requestPasswordResetSuccess' })
+      },
+      async resetPassword ({ commit, dispatch, getters }, data) {
+        await auth.resetPassword(data)
+        router.push({ name: 'login' })
+        dispatch('alerts/create', {
+          type: 'resetPasswordSuccess',
+        }, { root: true })
       },
       async resendVerification ({ commit, state }) {
         await auth.resendVerificationRequest()
@@ -92,10 +99,6 @@ export default {
       dispatch('meta/clear', ['resendVerification'])
       commit('resendVerificationSuccess', false)
     },
-    clearResetPassword ({ commit, dispatch }) {
-      dispatch('meta/clear', ['resetPassword'])
-      commit('resetPasswordSuccess', false)
-    },
   },
   mutations: {
     select (state, userId) {
@@ -110,9 +113,6 @@ export default {
       if (!state.idList.includes(user.id)) {
         state.idList.push(user.id)
       }
-    },
-    resetPasswordSuccess (state, status) {
-      Vue.set(state, 'resetPasswordSuccess', status)
     },
     resendVerificationSuccess (state, status) {
       Vue.set(state, 'resendVerificationSuccess', status)

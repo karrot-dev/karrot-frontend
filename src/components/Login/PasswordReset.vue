@@ -1,81 +1,86 @@
 <template>
   <div>
     <form
-      v-if="!success"
-      name="passwordreset"
-      @submit.prevent="$emit('submit', email)"
+      name="passwordReset"
+      @submit.prevent="submit"
     >
-      <div>
-        <p>
-          {{ $t('PASSWORDRESET.INTRO') }}
-        </p>
+      <div class="content">
         <div class="white-box">
-          <q-field icon="fa-envelope">
+          <q-field
+            icon="fa-lock"
+            :error="hasError('newPassword')"
+            :error-label="firstError('newPassword')"
+          >
             <q-input
-              :autofocus="true"
-              :float-label="$t('PASSWORDRESET.EMAIL')"
-              type="email"
-              v-model="email"
+              v-model="newPassword"
+              type="password"
+              :float-label="$t('USERDATA.PASSWORD')"
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
-              :error="hasError('email')"
             />
           </q-field>
         </div>
-
         <div
-          v-if="hasAnyError"
+          v-if="hasError('code')"
           class="error"
         >
           <i class="fa fa-exclamation-triangle"/>
-          {{ anyFirstError }}
+          {{ $t('PASSWORD.RESET.CODE_ERROR') }}
+        </div>
+        <div
+          v-if="hasNonFieldError"
+          class="error"
+        >
+          <i class="fa fa-exclamation-triangle"/>
+          {{ firstNonFieldError }}
         </div>
 
         <div class="actions">
-          <q-btn
-            type="button"
-            @click="$router.push({ name: 'login' })"
-            flat
-          >
-            {{ $t('PASSWORDRESET.LOGIN') }}
-          </q-btn>
           <q-btn
             type="submit"
             class="submit shadow-4"
             loader
             :value="isPending"
           >
-            {{ $t('PASSWORDRESET.SUBMIT') }}
+            {{ $t('PASSWORD.RESET.OK') }}
           </q-btn>
         </div>
         <div style="clear: both"/>
       </div>
     </form>
-    <p v-else>
-      {{ $t('PASSWORDRESET.SUCCESS') }}
-    </p>
   </div>
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
 
 export default {
-  components: { QField, QInput, QBtn },
+  components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },
   mixins: [statusMixin],
+  props: {
+    code: {
+      required: true,
+      type: String,
+    },
+  },
   data () {
     return {
-      email: '',
+      newPassword: null,
     }
   },
-  props: {
-    success: { required: true, type: Boolean },
+  methods: {
+    submit () {
+      if (!this.isPending) {
+        this.$emit('submit', { newPassword: this.newPassword, code: this.code })
+      }
+    },
   },
 }
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
+  .margin-bottom
+    margin 0 0 24px 0
 </style>

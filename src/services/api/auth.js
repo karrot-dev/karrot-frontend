@@ -83,8 +83,12 @@ export default {
     }
   },
 
-  resetPassword (email) {
-    return axios.post('/api/auth/reset_password/', { email })
+  requestResetPassword (email) {
+    return axios.post('/api/auth/password/request_reset/', { email })
+  },
+
+  resetPassword (data) {
+    return axios.post('/api/auth/password/reset/', data)
   },
 
   changePassword (data) {

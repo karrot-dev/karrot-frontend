@@ -236,6 +236,14 @@
     "LOGIN": "Back to login page",
     "SUCCESS": "The request was successfully sent. Have a look at your mails!"
   },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "Reset password",
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved.",
+      "CODE_ERROR": "Sorry, the link you've opened is invalid."
+    }
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Add more languages!",
     "SWITCH": "Switch language"

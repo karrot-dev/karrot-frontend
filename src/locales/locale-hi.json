@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
+    "FSWW_NOTE": "Read our info page!",
     "FACEBOOK_NOTE": "हमारे फेसबुक समूह में शामिल हो",
     "WARNING": "चेतावनी",
     "BETA_WARNING": "यह वेबसाइट सक्रिय विकास के अधीन है और सब कुछ परिवर्तन के अधीन है। हम आपके द्वारा दर्ज किए गए डेटा की सुरक्षा और गोपनीयता की गारंटी नहीं दे सकते (लेकिन हम अपनी पूरी कोशिश करें)।",
@@ -9,6 +10,7 @@
   },
   "USERDATA": {
     "EMAIL": "मेल",
+    "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": " पार्श्व चित्र \\ वर्णन",
     "PASSWORD": "पारण शब्द",
     "USERNAME": "नाम",
@@ -75,7 +77,15 @@
     "INVITATIONS": "निमंत्रण",
     "INVITE_TITLE": "उपयोगकर्ताओं को अपने समूह में आमंत्रित करें",
     "INVITATION_ACCEPT_SUCCESS": "स्वागत हे!आपने आमंत्रण सफलतापूर्वक स्वीकार कर लिया है",
-    "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!"
+    "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "नक्शा",
@@ -152,6 +162,11 @@
     "LOGOUT": "लोग आउट",
     "USERPROFILE": "अपने प्रोफ़ाइल पर जाएं",
     "CHANGE_GROUP": "समूह परिवर्तन"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "How to build your foodsaving group",
+    "BLOG_SUB": "All news around the karrot software",
+    "GIT_SUB": "See our code!"
   },
   "LOGIN": {
     "TITLE": "लॉग इन करें",
@@ -311,6 +326,7 @@
     "WRITE_FIRST_MESSAGE": "पहला संदेश लिखें ...",
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {

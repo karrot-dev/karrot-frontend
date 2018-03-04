@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Desarrollo",
+    "FSWW_NOTE": "Read our info page!",
     "FACEBOOK_NOTE": "Únete a nuestro grupo de Facebook",
     "WARNING": "Advertencia",
     "BETA_WARNING": "Este sitio está en construcción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
@@ -9,6 +10,7 @@
   },
   "USERDATA": {
     "EMAIL": "Correo",
+    "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Perfil",
     "PASSWORD": "Contraseña",
     "USERNAME": "Nombre",
@@ -75,7 +77,15 @@
     "INVITATIONS": "Invitaciones",
     "INVITE_TITLE": "Invitar usuarios a tu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
-    "INVITATION_ACCEPT_ERROR": "Ooops, no se podía aceptar la invitación!"
+    "INVITATION_ACCEPT_ERROR": "Ooops, no se podía aceptar la invitación!",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -152,6 +162,11 @@
     "LOGOUT": "Cerrar sesión",
     "USERPROFILE": "Visitar perfil",
     "CHANGE_GROUP": "Cambiar el grupo"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "How to build your foodsaving group",
+    "BLOG_SUB": "All news around the karrot software",
+    "GIT_SUB": "See our code!"
   },
   "LOGIN": {
     "TITLE": "Iniciar sesión",
@@ -311,6 +326,7 @@
     "WRITE_FIRST_MESSAGE": "Enviar el primer mensaje...",
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {

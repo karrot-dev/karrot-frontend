@@ -2500,7 +2500,7 @@ exports[`Storyshots Map UserMapPreview 1`] = `
 
 exports[`Storyshots Password Reset empty 1`] = `
 <div>
-    <form name="passwordreset">
+    <form name="requestPasswordReset">
         <div>
             <p>
                 Enter your mail address and we will send you a new password (if you have an account registered).
@@ -2550,7 +2550,7 @@ exports[`Storyshots Password Reset empty 1`] = `
 
 exports[`Storyshots Password Reset error 1`] = `
 <div>
-    <form name="passwordreset">
+    <form name="requestPasswordReset">
         <div>
             <p>
                 Enter your mail address and we will send you a new password (if you have an account registered).
@@ -2603,7 +2603,7 @@ exports[`Storyshots Password Reset error 1`] = `
 
 exports[`Storyshots Password Reset pending 1`] = `
 <div>
-    <form name="passwordreset">
+    <form name="requestPasswordReset">
         <div>
             <p>
                 Enter your mail address and we will send you a new password (if you have an account registered).
@@ -2651,9 +2651,51 @@ exports[`Storyshots Password Reset pending 1`] = `
 
 exports[`Storyshots Password Reset success 1`] = `
 <div>
-    <p>
-        The request was successfully sent. Have a look at your mails!
-    </p>
+    <form name="requestPasswordReset">
+        <div>
+            <p>
+                Enter your mail address and we will send you a new password (if you have an account registered).
+            </p>
+            <div class="white-box">
+                <div class="q-field row no-wrap items-start q-field-no-label">
+                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-envelope"> </i>
+                    <div class="row col">
+                        <!---->
+                        <div class="q-field-content col-xs-12 col-sm">
+                            <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
+                                <!---->
+                                <div class="q-if-inner col row no-wrap items-center relative-position">
+                                    <div class="q-if-label ellipsis full-width absolute self-start">Mail address</div>
+                                    <!---->
+                                    <input type="email" value="" class="col q-input-target text-left">
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="actions">
+                <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
+                    <div class="desktop-only q-focus-helper"></div>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+          Back to login page
+         <!----></span></button>
+                <button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position submit shadow-4 q-btn-rectangle q-btn-standard">
+                    <div class="desktop-only q-focus-helper"></div>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> 
+          Get new password
+         <!----></span></button>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </form>
 </div>
 `;
 

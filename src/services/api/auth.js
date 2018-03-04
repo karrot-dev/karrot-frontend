@@ -95,8 +95,8 @@ export default {
     return axios.put('/api/auth/password/', data)
   },
 
-  verifyMail (key) {
-    return axios.post('/api/auth/verify_mail/', { key })
+  verifyMail (code) {
+    return axios.post('/api/auth/email/verify/', { code })
   },
 
   resendVerificationRequest () {

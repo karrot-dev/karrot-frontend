@@ -18,8 +18,8 @@ export default {
   },
   actions: {
     ...withMeta({
-      async verify ({ commit }, key) {
-        await auth.verifyMail(key)
+      async verify ({ commit }, code) {
+        await auth.verifyMail(code)
         commit('setSuccess', true)
       },
     }),

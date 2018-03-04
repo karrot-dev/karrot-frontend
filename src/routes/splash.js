@@ -70,9 +70,9 @@ export default [
   },
   {
     name: 'verifymail',
-    path: '/verify-mail',
+    path: '/email/verify',
     meta: {
-      requireLoggedIn: true,
+      requireLoggedIn: false,
       breadcrumbs: [
         { translation: 'VERIFYMAIL.TITLE', route: { name: 'verifymail' } },
       ],

@@ -36,10 +36,6 @@
         color: #4a982e;
     }
 
-    .message-content {
-        font-size: 13px;
-    }
-
     .footer-link {
         color: #666666;
         text-decoration: none;
@@ -65,5 +61,8 @@
     }
     .message-content h3 {
         font-size: 1.1em;
+    }
+    .message-content p {
+      margin: 0 0 10px 0;
     }
 </mj-style>

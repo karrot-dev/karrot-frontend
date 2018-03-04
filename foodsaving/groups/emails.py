@@ -7,6 +7,7 @@ from django.db.models import Count
 from django.utils import timezone
 from django.utils.timezone import get_current_timezone
 
+from config import settings
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group, GroupNotificationType
 from foodsaving.pickups.models import PickupDate
@@ -40,6 +41,11 @@ def prepare_group_summary_data(group, from_date, to_date):
         created_at__lt=to_date,
     )
 
+    settings_url = '{hostname}/#/group/{group_id}/settings'.format(
+        hostname=settings.HOSTNAME,
+        group_id=group.id,
+    )
+
     return {
         # minus one second so it's displayed as the full day
         'to_date': to_date - relativedelta(seconds=1),
@@ -49,6 +55,7 @@ def prepare_group_summary_data(group, from_date, to_date):
         'pickups_done_count': pickups_done_count,
         'pickups_missed_count': pickups_missed_count,
         'messages': messages,
+        'settings_url': settings_url,
     }
 
 

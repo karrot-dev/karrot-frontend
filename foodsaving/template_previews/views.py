@@ -2,9 +2,11 @@ import html
 import os
 import re
 
+from dateutil.relativedelta import relativedelta
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseBadRequest
 from django.template.loader import render_to_string
 from django.template.utils import get_app_template_dirs
+from django.utils import timezone
 
 import foodsaving.groups.emails
 from config import settings
@@ -59,8 +61,15 @@ class Handlers:
 
     def group_summary(self):
         group = random_group()
-        from_date, to_date = foodsaving.groups.emails.calculate_group_summary_dates(group)
-        return foodsaving.groups.emails.prepare_group_summary_emails(group, from_date, to_date)[0]
+
+        from_date = timezone.now() - relativedelta(days=7)
+        to_date = from_date + relativedelta(days=7)
+
+        summary_emails = foodsaving.groups.emails.prepare_group_summary_emails(group, from_date, to_date)
+        if len(summary_emails) is 0:
+            raise Exception(
+                'No emails were generated, you need at least one verified user in your db, and some activity data...')
+        return summary_emails[0]
 
     def mailverification(self):
         return email_utils.prepare_mailverification_email(

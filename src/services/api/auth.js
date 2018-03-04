@@ -92,7 +92,7 @@ export default {
   },
 
   changePassword (data) {
-    return axios.post('/api/auth/change_password/', data)
+    return axios.put('/api/auth/password/', data)
   },
 
   verifyMail (key) {

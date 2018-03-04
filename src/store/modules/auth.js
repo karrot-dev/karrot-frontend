@@ -93,7 +93,6 @@ export default {
 
       async changePassword ({ commit, state, dispatch }, data) {
         await auth.changePassword(data)
-        dispatch('logout')
       },
 
       async changeEmail ({ commit, dispatch }, email) {

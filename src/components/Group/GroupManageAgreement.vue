@@ -1,13 +1,13 @@
 <template>
   <div>
     <h3><i class="fa fa-edit" /> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>
-    <q-card v-if="agreementEdit">
+    <q-card v-if="showForm">
       <agreement-form
-        :value="agreementEdit"
+        :value="agreement"
         @save="$emit('save', arguments[0])"
         @replace="$emit('replace', arguments[0])"
         @cancel="cancel()"
-        @destroy="remove()"
+        @destroy="$emit('remove', arguments[0])"
       />
     </q-card>
 
@@ -30,8 +30,7 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QCardActions, QCardSeparator, QBtn, Dialog } from 'quasar'
-import cloneDeep from 'clone-deep'
+import { QCard, QCardMain, QCardActions, QCardSeparator, QBtn } from 'quasar'
 
 import AgreementForm from '@/components/Group/AgreementForm'
 
@@ -40,46 +39,37 @@ export default {
   props: {
     agreement: {
       type: Object,
-      default: null,
+      default: () => ({
+        title: undefined,
+        content: undefined,
+      }),
     },
+  },
+  data () {
+    return {
+      create: false,
+    }
   },
   components: {
     QCard, QCardMain, QCardActions, QCardSeparator, QBtn, AgreementForm,
   },
-  data () {
-    return {
-      agreementEdit: this.agreement ? cloneDeep(this.agreement) : null,
-    }
-  },
-  watch: {
-    agreement (val) {
-      this.agreementEdit = cloneDeep(val)
+  computed: {
+    showForm () {
+      return this.create || this.agreement.id
     },
   },
   methods: {
     newAgreement () {
-      this.agreementEdit = {
+      this.create = true
+      /*
+      this.agreement = {
         title: '',
         content: '',
       }
+      */
     },
     cancel () {
-      this.agreementEdit = null
-    },
-    remove (agreementId) {
-      Dialog.create({
-        title: this.$t('AGREEMENT.DIALOGS.REMOVE.TITLE'),
-        message: this.$t('AGREEMENT.DIALOGS.REMOVE.MESSAGE'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('AGREEMENT.DIALOGS.REMOVE.CONFIRM'),
-            handler: () => {
-              this.$emit('remove', agreementId)
-            },
-          },
-        ],
-      })
+      // this.agreement = null
     },
   },
 }

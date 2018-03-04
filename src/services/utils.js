@@ -55,7 +55,8 @@ export function underscorize (val) {
 
 export function objectDiff (a, b) {
   const diff = {}
-  for (let key of Object.keys(a)) {
+  const keys = new Set([...Object.keys(a), ...Object.keys(b)])
+  for (let key of keys) {
     if (!deepEqual(a[key], b[key])) {
       diff[key] = b[key]
     }

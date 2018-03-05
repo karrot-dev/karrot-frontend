@@ -61,15 +61,9 @@ export default {
   methods: {
     newAgreement () {
       this.create = true
-      /*
-      this.agreement = {
-        title: '',
-        content: '',
-      }
-      */
     },
     cancel () {
-      // this.agreement = null
+      this.create = false
     },
   },
 }

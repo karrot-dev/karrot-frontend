@@ -1,23 +1,5 @@
 <script>
-import markdownIt from 'markdown-it'
-import markdownLinkAttributes from 'markdown-it-link-attributes'
-import emoji from 'markdown-it-emoji'
-import twemoji from 'twemoji'
-
-const md = markdownIt({
-  html: false,
-  breaks: true,
-  linkify: true,
-  typopgrapher: true,
-  quotes: '“”‘’', // TODO support locale-specific quotes
-}).use(markdownLinkAttributes, {
-  attrs: {
-    target: '_blank',
-    rel: 'noopener nofollow noreferrer',
-  },
-}).use(emoji)
-
-md.renderer.rules.emoji = (token, idx) => twemoji.parse(token[idx].content)
+import markdown from './markdownRenderer'
 
 export default {
   functional: true,
@@ -27,10 +9,10 @@ export default {
       type: String,
     },
   },
-  render (h, { props: { source } }) {
+  render (h, { props: { inline, source } }) {
     return h('div', {
       class: { parsed: true },
-      domProps: { innerHTML: md.render(source) },
+      domProps: { innerHTML: markdown.render(source) },
     })
   },
 }

@@ -12,7 +12,19 @@
           class="bg-white desktop-margin"
         >
           <q-btn
-            class="actionButton"
+            v-if="!user.mailVerified"
+            class="actionButton hoverScale"
+            round
+            small
+            color="negative"
+            @click="$router.push({ name: 'settings', hash: '#change-email' })"
+          >
+            <q-icon name="fa-exclamation-triangle" />
+            <q-tooltip v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'" />
+          </q-btn>
+          <q-btn
+            v-else
+            class="actionButton hoverScale"
             round
             small
             :color="data.emailNotifications ? 'secondary' : 'negative'"

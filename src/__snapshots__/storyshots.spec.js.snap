@@ -52,7 +52,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="q-infinite-scroll">
         <div class="q-infinite-scroll-content">
             <div class="bg-white desktop-margin q-list">
-                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position actionButton q-btn-round q-btn-small bg-negative text-white">
+                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position actionButton hoverScale q-btn-round q-btn-small bg-negative text-white">
                     <div class="desktop-only q-focus-helper"></div>
                     <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-bell-slash-o"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
                     <!---->
@@ -110,7 +110,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     </div>
                 </div>
                 <!---->
-                <div class="q-item q-item-division relative-position q-item-multiline">
+                <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
                     <div class="q-item-side q-item-side-left q-item-section">
                         <div class="wrapper">
                             <div to="[object Object]">
@@ -132,9 +132,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                             </span>
                             <!---->
                         </div>
-                    </div> <span class="content">first messsage</span></div>
+                    </div>
+                    <div class="parsed">
+                        <p>first messsage</p>
+                    </div>
+                </div>
             </div>
-            <div class="q-item q-item-division relative-position q-item-multiline">
+            <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-side-left q-item-section">
                     <div class="wrapper">
                         <div to="[object Object]">
@@ -156,9 +160,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                         </span>
                         <!---->
                     </div>
-                </div> <span class="content">second messsage</span></div>
+                </div>
+                <div class="parsed">
+                    <p>second messsage</p>
+                </div>
+            </div>
         </div>
-        <div class="q-item q-item-division relative-position q-item-multiline">
+        <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
             <div class="q-item-side q-item-side-left q-item-section">
                 <div class="wrapper">
                     <div to="[object Object]">
@@ -180,9 +188,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                     </span>
                     <!---->
                 </div>
-            </div> <span class="content">first messsage</span></div>
+            </div>
+            <div class="parsed">
+                <p>first messsage</p>
+            </div>
+        </div>
     </div>
-    <div class="q-item q-item-division relative-position q-item-multiline">
+    <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-side-left q-item-section">
             <div class="wrapper">
                 <div to="[object Object]">
@@ -204,9 +216,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
                 </span>
                 <!---->
             </div>
-        </div> <span class="content">welcome to fs chat</span></div>
+        </div>
+        <div class="parsed">
+            <p>welcome to fs chat</p>
+        </div>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -228,9 +244,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">heyo!</span></div>
+    </div>
+    <div class="parsed">
+        <p>heyo!</p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -252,9 +272,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">you made it!</span></div>
+    </div>
+    <div class="parsed">
+        <p>you made it!</p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -276,9 +300,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">amazing!</span></div>
+    </div>
+    <div class="parsed">
+        <p>amazing!</p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -300,9 +328,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">oh let me try something :)</span></div>
+    </div>
+    <div class="parsed">
+        <p>oh let me try something
+            <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/2/72x72/1f603.png" />
+        </p>
+    </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
+</div>
+<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
     <div class="q-item-side q-item-side-left q-item-section">
         <div class="wrapper">
             <div to="[object Object]">
@@ -324,7 +358,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </span>
             <!---->
         </div>
-    </div> <span class="content">I dont think we need to implement another UI, this is fine right? </span></div>
+    </div>
+    <div class="parsed">
+        <p>I dont think we need to implement another UI, this is fine right?</p>
+    </div>
+</div>
 </div>
 </div>
 </div>
@@ -1691,6 +1729,37 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 </div>
 `;
 
+exports[`Storyshots GroupSettings show 1`] = `
+<div class="q-card no-mobile-margin no-shadow grey-border">
+    <div class="art-wrapper">
+        <div>
+            <div class="art-overlay"></div>
+        </div>
+    </div>
+    <div class="q-list q-list-link">
+        <div class="q-list-header ">Notifications</div>
+        <label class="q-item q-item-division relative-position">
+            <div class="q-item-side q-item-side-left q-item-section">
+                <div tabindex="0" class="q-checkbox q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center">
+                    <div class="q-option-inner relative-position">
+                        <input type="checkbox">
+                        <div class="q-focus-helper"></div>
+                        <i aria-hidden="true" class="q-checkbox-unchecked cursor-pointer q-icon material-icons" style="transition:opacity 1000ms cubic-bezier(0.23, 1, 0.32, 1) 200ms;opacity:1;">check_box_outline_blank</i>
+                        <i aria-hidden="true" class="q-checkbox-checked cursor-pointer absolute-full q-icon material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                        <div class="q-radial-ripple"></div>
+                    </div>
+                    <!---->
+                </div>
+            </div>
+            <div class="q-item-main q-item-section">
+                <div class="q-item-label">Weekly summary</div>
+                <div class="q-item-sublabel">Keep up to date with what's been happening in the group.</div>
+            </div>
+        </label>
+    </div>
+</div>
+`;
+
 exports[`Storyshots History List Default 1`] = `
 <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
@@ -2025,6 +2094,12 @@ exports[`Storyshots Layout KFooter 1`] = `
                 </a>
             </div>
             <div>
+                <a href="https://foodsaving.world">
+                    <i class="fa fa-fw fa-globe on-left"></i>
+                    Read our info page!
+                </a>
+            </div>
+            <div>
                 <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
                     <i class="fa fa-fw fa-facebook on-left"></i>
                     Join our Facebook Group!
@@ -2089,25 +2164,25 @@ exports[`Storyshots Layout KTopbar 1`] = `
             English
             <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             ગુજરાતી
-            <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(93%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:93%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             中文
-            <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(93%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:93%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             हिन्दी
-            <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(93%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:93%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Español
-            <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(93%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:93%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Deutsch
-            <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(93%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:93%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Français
-            <small>(40%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:40%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(38%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:38%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Svenska
-            <small>(35%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:35%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(34%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:34%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Esperanto
-            <small>(30%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:30%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(29%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:29%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Italiano
-            <small>(20%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:20%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(19%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:19%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Русский
-            <small>(20%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:20%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(19%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:19%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
             <small>(5%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:5%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
         <!---->
@@ -3979,6 +4054,30 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                     <div class="q-field row no-wrap items-start">
+                        <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-phone"> </i>
+                        <div class="row col">
+                            <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
+                                <div class="q-field-label-inner row items-center"><span>Phone number</span> </div>
+                            </div>
+                            <div class="q-field-content col-xs-12 col-sm">
+                                <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                                    <!---->
+                                    <div class="q-if-inner col row no-wrap items-center relative-position">
+                                        <!---->
+                                        <!---->
+                                        <input type="text" class="col q-input-target text-left">
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="q-field row no-wrap items-start">
                         <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-map"> </i>
                         <div class="row col">
                             <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
@@ -4029,7 +4128,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         </div>
     </div>
     <div class="q-card no-shadow grey-border">
-        <div class="q-card-primary q-card-container row no-wrap">
+        <div id="change-email" class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">Mail</div>
                 <div class="q-card-subtitle"></div>
@@ -4172,10 +4271,17 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
         <div class="q-toolbar-title"></div>
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-cog fa-fw"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
+            <!---->
+            </span>
+        </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
             <div class="q-popover animate-scale"
                 style="transform-origin:top right 0px;">
                 <div item-separator="" class="q-list q-list-link">
+                    <!---->
                     <!---->
                     <div class="q-item q-item-division relative-position q-item-link">
                         <i aria-hidden="true" class="q-icon fa fa-pencil fa-fw on-left" style="font-size:1em;"> </i>

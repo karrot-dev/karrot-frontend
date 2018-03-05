@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
+    "FSWW_NOTE": "Read our info page!",
     "FACEBOOK_NOTE": "加入我們的臉書社團！",
     "WARNING": "警告",
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
@@ -9,6 +10,7 @@
   },
   "USERDATA": {
     "EMAIL": "電子信箱",
+    "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "個人資料",
     "PASSWORD": "密碼",
     "USERNAME": "名稱",
@@ -75,7 +77,15 @@
     "INVITATIONS": "邀請信",
     "INVITE_TITLE": "邀請用戶到你的社團",
     "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
-    "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！"
+    "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "地圖",
@@ -152,6 +162,11 @@
     "LOGOUT": "登出",
     "USERPROFILE": "進入你的個人檔案",
     "CHANGE_GROUP": "變更社團"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "How to build your foodsaving group",
+    "BLOG_SUB": "All news around the karrot software",
+    "GIT_SUB": "See our code!"
   },
   "LOGIN": {
     "TITLE": "登入",
@@ -311,6 +326,7 @@
     "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧...",
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {

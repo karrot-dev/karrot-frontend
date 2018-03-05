@@ -38,6 +38,26 @@ export default {
         }
         commit('set', group)
       },
+
+      async markUserActive ({ getters }) {
+        /**
+         * Marks the user as active in the current group
+         * Should only be triggered when the user visits a group page
+         * It currently also gets triggered when the user visits the profile page, but that seems fine.
+        */
+        if (getters.id) await groups.markUserActive(getters.id)
+      },
+
+      async changeNotificationType ({ commit, dispatch, getters }, { notificationType, enabled }) {
+        if (enabled) {
+          await groups.addNotificationType(getters.id, notificationType)
+        }
+        else {
+          await groups.removeNotificationType(getters.id, notificationType)
+        }
+        await dispatch('fetch', getters.id)
+      },
+
     }),
 
     ...withPrefixedIdMeta('agreements/', {

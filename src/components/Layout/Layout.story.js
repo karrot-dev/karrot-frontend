@@ -15,6 +15,7 @@ const store = createStore({
   auth: { getters: { user: () => currentUserMock } },
   i18n: { getters: { locale: () => 'en' } },
   presence: require('@/store/modules/presence').default,
+  loadingprogress: { getters: { active: () => false, closing: () => false } },
 })
 
 storiesOf('Layout', module)

@@ -1,25 +1,25 @@
 <template>
   <q-progress
-    v-if="active || closing"
-    :indeterminate="!closing"
-    :percentage="closing ? 100 : 0"
+    v-if="loading || closing"
+    indeterminate
     animate
     color="warning"
     class="fixed-top z-alert"
+    style="height: 2px"
   />
 </template>
 
 <script>
 import { QProgress } from 'quasar'
+import { mapGetters } from 'vuex'
 
 export default {
   components: { QProgress },
   computed: {
-    active () { return this.$store.getters['loadingprogress/active'] },
-    closing () { return this.$store.getters['loadingprogress/closing'] },
+    ...mapGetters({
+      loading: 'loadingprogress/active',
+      closing: 'loadingprogress/closing',
+    }),
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

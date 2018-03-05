@@ -90,6 +90,7 @@ export default {
       async fetch ({ commit }) {
         commit('set', await groupsInfo.list())
       },
+
     }),
 
     update ({ commit }, group) {

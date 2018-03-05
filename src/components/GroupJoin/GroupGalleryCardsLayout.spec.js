@@ -5,10 +5,9 @@ import GroupPreview from './GroupPreview'
 
 import { createLocalVue } from 'vue-test-utils'
 
-import { groupsMock, currentUserMock } from '>/mockdata'
+import { groupsMock } from '>/mockdata'
 
 import { mountWithDefaults, mountWithDefaultsAndLocalVue, polyfillRequestAnimationFrame } from '>/helpers'
-
 
 let loggedOutProps = {
   myGroups: [],
@@ -28,10 +27,10 @@ let loggedInProps = {
   expanded: false,
 }
 
-let loggedOutPropsExpanded = Object.assign({}, loggedOutProps);
+let loggedOutPropsExpanded = Object.assign({}, loggedOutProps)
 loggedOutPropsExpanded.expanded = true
 
-let loggedInPropsExpanded = Object.assign({}, loggedInProps);
+let loggedInPropsExpanded = Object.assign({}, loggedInProps)
 loggedInPropsExpanded.expanded = true
 
 polyfillRequestAnimationFrame()
@@ -41,7 +40,7 @@ describe('GroupGalleryCardsLayout', () => {
     const localVue = createLocalVue()
     let wrapper = mountWithDefaultsAndLocalVue(GroupGalleryCardsLayout, localVue, {
       propsData: loggedOutPropsExpanded,
-      methods: { replaceWindowHistory: (group) => {}},
+      methods: { replaceWindowHistory: (group) => {} },
     })
     let groupCards = wrapper.findAll(GroupGalleryCard)
 
@@ -53,7 +52,7 @@ describe('GroupGalleryCardsLayout', () => {
     groupCards.at(0).findAll('button').trigger('click')
     expect(groupCards.at(0).emitted().preview).toBeTruthy()
     expect(wrapper.emitted().showPreview).toBeTruthy()
-    
+
     // check if all cards are closed and preview is open
     localVue.nextTick(() => {
       expect(wrapper.findAll(GroupGalleryCards).length).toBe(1)

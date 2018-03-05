@@ -679,7 +679,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
         </div>
     </div>
     <div class="all-groups gallery-cards expanded">
-        <!---->
+        <div name="slide-toggle"></div>
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
@@ -688,70 +688,75 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <!---->
             </span>
         </button>
-        <div class="q-alert-container alert">
-            <div class="q-alert row no-wrap shadow-2 bg-info">
-                <div class="q-alert-icon row col-auto flex-center">
-                    <i aria-hidden="true" class="q-icon material-icons">star</i>
-                </div>
-                <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
+        <div name="slide-toggle">
+            <div class="q-alert-container alert">
+                <div class="q-alert row no-wrap shadow-2 bg-info">
+                    <div class="q-alert-icon row col-auto flex-center">
+                        <i aria-hidden="true" class="q-icon material-icons">star</i>
+                    </div>
+                    <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
           Log in to see your groups!
         </div></span>
+                        <!---->
+                    </div>
                     <!---->
                 </div>
-                <!---->
             </div>
         </div>
-        <!---->
+        <div name="slide-toggle"></div>
         <h4 class="text-primary generic-padding">
             Which group do you want to join?
         </h4>
-        <div class="q-card">
-            <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
-                <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
-                <div class="q-if-inner col row no-wrap items-center relative-position">
-                    <!---->
-                    <!---->
-                    <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
+        <div name="slide-toggle">
+            <div class="q-card">
+                <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+                    <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+                    <div class="q-if-inner col row no-wrap items-center relative-position">
+                        <!---->
+                        <!---->
+                        <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!---->
+                    </div>
+                    <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
                 </div>
-                <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
             </div>
         </div>
-        <div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+        <div name="slide-toggle">
+            <div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
     </span></div>
+        </div>
+        <div class="col-auto self-center q-card-title-extra"></div>
     </div>
-    <div class="col-auto self-center q-card-title-extra"></div>
-</div>
-<div class="q-card-main q-card-container fixed-height">
-    <div class="smaller-text">
-        <div class="parsed">
-            <p>This is the public description
-                <br> It would make sense if it was markdown</p>
-            <h1>then this would be a header</h1>
-            <p>
-                <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
-            </p>
+    <div class="q-card-main q-card-container fixed-height">
+        <div class="smaller-text">
+            <div class="parsed">
+                <p>This is the public description
+                    <br> It would make sense if it was markdown</p>
+                <h1>then this would be a header</h1>
+                <p>
+                    <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+                </p>
+            </div>
         </div>
     </div>
-</div>
-<div class="q-card-separator"></div>
-<div class="q-card-actions q-card-actions-horiz row justify-start">
-    <!---->
-    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-        <div class="desktop-only q-focus-helper"></div>
-        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+    <div class="q-card-separator"></div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+        <!---->
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Show public group information
       </span>
-        <!---->
-        </span>
-    </button>
-</div>
+            <!---->
+            </span>
+        </button>
+    </div>
 </div>
 <!---->
 </div>
@@ -922,6 +927,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
 </div>
 </div>
 </div>
+</div>
 `;
 
 exports[`Storyshots GroupGallery switch and explore 1`] = `
@@ -953,91 +959,96 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         </div>
     </div>
     <div class="all-groups gallery-cards expanded">
-        <div class="row no-wrap">
-            <div style="width:100%;padding:0;">
-                <div class="q-card" style="margin-top:16px;">
-                    <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
-                        <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
-                        <div class="q-if-inner col row no-wrap items-center relative-position">
-                            <!---->
-                            <!---->
-                            <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!---->
+        <div name="slide-toggle">
+            <div class="row no-wrap">
+                <div style="width:100%;padding:0;">
+                    <div class="q-card" style="margin-top:16px;">
+                        <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+                            <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+                            <div class="q-if-inner col row no-wrap items-center relative-position">
+                                <!---->
+                                <!---->
+                                <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
+                                <!---->
+                                <!---->
+                                <!---->
+                                <!---->
+                            </div>
+                            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
                         </div>
-                        <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
                     </div>
                 </div>
-            </div>
-            <div style="width:100px;">
-                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <div style="width:100px;">
+                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Close
       </span>
-                    <!---->
-                    </span>
-                </button>
+                        <!---->
+                        </span>
+                    </button>
+                </div>
             </div>
         </div>
         <!---->
-        <div class="q-alert-container alert">
-            <div class="q-alert row no-wrap shadow-2 bg-info">
-                <div class="q-alert-icon row col-auto flex-center">
-                    <i aria-hidden="true" class="q-icon material-icons">star</i>
-                </div>
-                <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
+        <div name="slide-toggle">
+            <div class="q-alert-container alert">
+                <div class="q-alert row no-wrap shadow-2 bg-info">
+                    <div class="q-alert-icon row col-auto flex-center">
+                        <i aria-hidden="true" class="q-icon material-icons">star</i>
+                    </div>
+                    <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
           Log in to see your groups!
         </div></span>
+                        <!---->
+                    </div>
                     <!---->
                 </div>
-                <!---->
             </div>
         </div>
-        <div class="join-groups">
-            <h4 class="text-primary">
-                My groups
-            </h4> <span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+        <div name="slide-toggle">
+            <div class="join-groups">
+                <h4 class="text-primary">
+                    My groups
+                </h4> <span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
     </span></div>
+        </div>
+        <div class="col-auto self-center q-card-title-extra"></div>
     </div>
-    <div class="col-auto self-center q-card-title-extra"></div>
-</div>
-<div class="q-card-main q-card-container fixed-height">
-    <div class="smaller-text">
-        <div class="parsed">
-            <p>This is the public description
-                <br> It would make sense if it was markdown</p>
-            <h1>then this would be a header</h1>
-            <p>
-                <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
-            </p>
+    <div class="q-card-main q-card-container fixed-height">
+        <div class="smaller-text">
+            <div class="parsed">
+                <p>This is the public description
+                    <br> It would make sense if it was markdown</p>
+                <h1>then this would be a header</h1>
+                <p>
+                    <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+                </p>
+            </div>
         </div>
     </div>
-</div>
-<div class="q-card-separator"></div>
-<div class="q-card-actions q-card-actions-horiz row justify-start">
-    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-        <div class="desktop-only q-focus-helper"></div>
-        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+    <div class="q-card-separator"></div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         You are member of this group. Click here to switch to full view.
       </span>
-        <!---->
-        </span>
-    </button>
-    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-        <div class="desktop-only q-focus-helper"></div>
-        <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <!---->
+            </span>
+        </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+            <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Show public group information
       </span>
-        <!---->
-        </span>
-    </button>
-</div>
+            <!---->
+            </span>
+        </button>
+    </div>
 </div>
 <!---->
 </div>
@@ -1119,11 +1130,13 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
 </div>
 </span>
 </div>
+</div>
 <h4 class="text-primary generic-padding">
     Which group do you want to join?
 </h4>
-<!---->
-<div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+<div name="slide-toggle"></div>
+<div name="slide-toggle">
+    <div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
     05_testgroup
     </div><div class="q-card-subtitle"><span>
       18 Members
@@ -1322,6 +1335,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     <!---->
 </div>
 </span>
+</div>
 </div>
 </div>
 </div>
@@ -1710,7 +1724,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1740,7 +1754,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1770,7 +1784,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:15 AM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1800,7 +1814,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1830,7 +1844,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 9:12 AM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1849,7 +1863,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 2, 2017, 8:00 AM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1909,7 +1923,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1939,7 +1953,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:28 PM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
                 <div>
                     <div class="clickable q-item q-item-division relative-position q-item-multiline">
@@ -1969,7 +1983,7 @@ exports[`Storyshots History List Default 1`] = `
                                 3 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Oct 1, 2017, 4:27 PM</span></div>
                         </div>
                     </div>
-                    <!---->
+                    <div name="slide-toggle"></div>
                 </div>
             </tbody>
         </table>
@@ -2060,7 +2074,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
             <div></div>
         </div>
     </div>
-    <!---->
+    <div duration="310" appear=""></div>
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
         <div class="desktop-only q-focus-helper"></div>
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
@@ -2743,7 +2757,7 @@ exports[`Storyshots PickupItem Full 1`] = `
                         <!---->
                     </div>
                     <!---->
-                    <!---->
+                    <div appear="" duration="[object Object]" name="bounce"></div>
                     <!---->
                 </div>
             </div>
@@ -2800,7 +2814,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                         <!---->
                     </div>
                     <!---->
-                    <!---->
+                    <div appear="" duration="[object Object]" name="bounce"></div>
                     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                         <div class="hoverHide"></div>
                         <div class="hoverShow">
@@ -2864,22 +2878,24 @@ exports[`Storyshots PickupItem Leave 1`] = `
                     </div>
                     <!---->
                     <!---->
-                    <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
-                        <div class="hoverShow">
-                            <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
-                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
-                        <div class="hoverHide">
-                            <div class="wrapper">
-                                <!---->
-                                <div>
-                                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                        <div></div>
+                    <div appear="" duration="[object Object]" name="bounce">
+                        <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
+                            <div class="hoverShow">
+                                <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
+                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
+                            <div class="hoverHide">
+                                <div class="wrapper">
+                                    <!---->
+                                    <div>
+                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
+                                            <div></div>
+                                        </div>
                                     </div>
+                                    <!---->
                                 </div>
-                                <!---->
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                     <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
                         <div></div>
                         <!---->
@@ -2942,7 +2958,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                     <div class="emptySlots profilePic" style="border-color:black;width:36px;height:36px;">
                         <q-spinner-undefined size="1rem"></q-spinner-undefined>
                     </div>
-                    <!---->
+                    <div appear="" duration="[object Object]" name="bounce"></div>
                     <!---->
                     <!---->
                 </div>
@@ -3002,7 +3018,7 @@ exports[`Storyshots PickupList Default 1`] = `
                             <!---->
                         </div>
                         <!---->
-                        <!---->
+                        <div appear="" duration="[object Object]" name="bounce"></div>
                         <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                             <div class="hoverHide"></div>
                             <div class="hoverShow">
@@ -3064,22 +3080,24 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <!---->
                         <!---->
-                        <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
-                            <div class="hoverShow">
-                                <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
-                            <div class="hoverHide">
-                                <div class="wrapper">
-                                    <!---->
-                                    <div>
-                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                            <div></div>
+                        <div appear="" duration="[object Object]" name="bounce">
+                            <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
+                                <div class="hoverShow">
+                                    <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
+                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
+                                <div class="hoverHide">
+                                    <div class="wrapper">
+                                        <!---->
+                                        <div>
+                                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
+                                                <div></div>
+                                            </div>
                                         </div>
+                                        <!---->
                                     </div>
-                                    <!---->
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                         <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
                             <div></div>
                             <!---->
@@ -3138,7 +3156,7 @@ exports[`Storyshots PickupList Default 1`] = `
                             <!---->
                         </div>
                         <!---->
-                        <!---->
+                        <div appear="" duration="[object Object]" name="bounce"></div>
                         <!---->
                     </div>
                 </div>
@@ -3163,7 +3181,7 @@ exports[`Storyshots PickupList Default 1`] = `
                             </div>
                         </div>
                         <!---->
-                        <!---->
+                        <div appear="" duration="[object Object]" name="bounce"></div>
                         <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
                             <div class="hoverHide"></div>
                             <div class="hoverShow">
@@ -3613,7 +3631,7 @@ exports[`Storyshots PickupUsers empty 1`] = `
         </div>
     </div>
     <!---->
-    <!---->
+    <div appear="" duration="[object Object]" name="bounce"></div>
     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
         <div class="hoverHide"></div>
         <div class="hoverShow">
@@ -3683,7 +3701,7 @@ exports[`Storyshots PickupUsers full 1`] = `
         <!---->
     </div>
     <!---->
-    <!---->
+    <div appear="" duration="[object Object]" name="bounce"></div>
     <!---->
 </div>
 `;
@@ -3729,7 +3747,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
         <!---->
     </div>
     <!---->
-    <!---->
+    <div appear="" duration="[object Object]" name="bounce"></div>
     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
         <div class="hoverHide"></div>
         <div class="hoverShow">
@@ -3782,22 +3800,24 @@ exports[`Storyshots PickupUsers leavable 1`] = `
     </div>
     <!---->
     <!---->
-    <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
-        <div class="hoverShow">
-            <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
-        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
-        <div class="hoverHide">
-            <div class="wrapper">
-                <!---->
-                <div>
-                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                        <div></div>
+    <div appear="" duration="[object Object]" name="bounce">
+        <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
+            <div class="hoverShow">
+                <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
+            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>Leave</span></span>
+            <div class="hoverHide">
+                <div class="wrapper">
+                    <!---->
+                    <div>
+                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
+                            <div></div>
+                        </div>
                     </div>
+                    <!---->
                 </div>
-                <!---->
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
     <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
         <div></div>
         <!---->
@@ -4183,55 +4203,57 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
+    <div name="slide-toggle">
         <div>
-            <div class="no-padding q-list no-border q-list-highlight">
-                <div class="q-item q-item-division relative-position q-item-link">
-                    <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-bullhorn"> </i>
+            <div>
+                <div class="no-padding q-list no-border q-list-highlight">
+                    <div class="q-item q-item-division relative-position q-item-link">
+                        <div class="q-item-side q-item-side-left q-item-section text-center">
+                            <i aria-hidden="true" class="q-icon fa fa-bullhorn"> </i>
+                        </div>
+                        <div class="q-item-main q-item-section">
+                            Wall
+                        </div>
                     </div>
-                    <div class="q-item-main q-item-section">
-                        Wall
+                    <div class="q-item q-item-division relative-position q-item-link">
+                        <div class="q-item-side q-item-side-left q-item-section text-center">
+                            <i aria-hidden="true" class="q-icon fa fa-shopping-basket"> </i>
+                        </div>
+                        <div class="q-item-main q-item-section">
+                            Pickups
+                        </div>
                     </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-link">
-                    <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-shopping-basket"> </i>
+                    <div class="q-item q-item-division relative-position q-item-link">
+                        <div class="q-item-side q-item-side-left q-item-section text-center">
+                            <i aria-hidden="true" class="q-icon fa fa-balance-scale"> </i>
+                        </div>
+                        <div class="q-item-main q-item-section">
+                            Feedback
+                        </div>
                     </div>
-                    <div class="q-item-main q-item-section">
-                        Pickups
+                    <div class="q-item q-item-division relative-position q-item-link">
+                        <div class="q-item-side q-item-side-left q-item-section text-center">
+                            <i aria-hidden="true" class="q-icon fa fa-vcard"> </i>
+                        </div>
+                        <div class="q-item-main q-item-section">
+                            Description
+                        </div>
                     </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-link">
-                    <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-balance-scale"> </i>
+                    <div class="q-item q-item-division relative-position q-item-link">
+                        <div class="q-item-side q-item-side-left q-item-section text-center">
+                            <i aria-hidden="true" class="q-icon fa fa-users"> </i>
+                        </div>
+                        <div class="q-item-main q-item-section">
+                            Members
+                        </div>
                     </div>
-                    <div class="q-item-main q-item-section">
-                        Feedback
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-link">
-                    <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-vcard"> </i>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        Description
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-link">
-                    <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-users"> </i>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        Members
-                    </div>
-                </div>
-                <div class="q-item q-item-division relative-position q-item-link">
-                    <div class="q-item-side q-item-side-left q-item-section text-center">
-                        <i aria-hidden="true" class="q-icon fa fa-clock-o"> </i>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        History
+                    <div class="q-item q-item-division relative-position q-item-link">
+                        <div class="q-item-side q-item-side-left q-item-section text-center">
+                            <i aria-hidden="true" class="q-icon fa fa-clock-o"> </i>
+                        </div>
+                        <div class="q-item-main q-item-section">
+                            History
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4275,42 +4297,44 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
-        <div class="container map">
-            <div class="vue2leaflet-map" style="opacity:1;">
-                <div></div>
-                <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
+    <div name="slide-toggle">
+        <div>
+            <div class="container map">
+                <div class="vue2leaflet-map" style="opacity:1;">
                     <div></div>
+                    <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
+                    <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
+                        <div></div>
+                    </div>
                 </div>
-                <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
-                <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
-                    <div></div>
-                </div>
+                <!---->
             </div>
-            <!---->
         </div>
     </div>
 </div>
@@ -4333,59 +4357,61 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-angle-down arrow upsideDown"></i> <!----></span></button>
     </div>
-    <div>
-        <div class="no-padding q-list no-border q-list-highlight">
-            <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-side q-item-side-left q-item-section text-center">
-                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
-                </div>
-                <div class="q-item-main q-item-section">
-                    <div class="q-item-label">
-                        Teststore1
+    <div name="slide-toggle">
+        <div>
+            <div class="no-padding q-list no-border q-list-highlight">
+                <div class="q-item q-item-division relative-position q-item-link">
+                    <div class="q-item-side q-item-side-left q-item-section text-center">
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                    </div>
+                    <div class="q-item-main q-item-section">
+                        <div class="q-item-label">
+                            Teststore1
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-side q-item-side-left q-item-section text-center">
-                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
-                </div>
-                <div class="q-item-main q-item-section">
-                    <div class="q-item-label">
-                        New Tienda
+                <div class="q-item q-item-division relative-position q-item-link">
+                    <div class="q-item-side q-item-side-left q-item-section text-center">
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                    </div>
+                    <div class="q-item-main q-item-section">
+                        <div class="q-item-label">
+                            New Tienda
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-side q-item-side-left q-item-section text-center">
-                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
-                </div>
-                <div class="q-item-main q-item-section">
-                    <div class="q-item-label">
-                        Supermarkt Arheilgen
+                <div class="q-item q-item-division relative-position q-item-link">
+                    <div class="q-item-side q-item-side-left q-item-section text-center">
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                    </div>
+                    <div class="q-item-main q-item-section">
+                        <div class="q-item-label">
+                            Supermarkt Arheilgen
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-side q-item-side-left q-item-section text-center">
-                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
-                </div>
-                <div class="q-item-main q-item-section">
-                    <div class="q-item-label">
-                        asd
+                <div class="q-item q-item-division relative-position q-item-link">
+                    <div class="q-item-side q-item-side-left q-item-section text-center">
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                    </div>
+                    <div class="q-item-main q-item-section">
+                        <div class="q-item-label">
+                            asd
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-side q-item-side-left q-item-section text-center">
-                    <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
-                </div>
-                <div class="q-item-main q-item-section">
-                    <div class="q-item-label">
-                        Griesheimer Markt
+                <div class="q-item q-item-division relative-position q-item-link">
+                    <div class="q-item-side q-item-side-left q-item-section text-center">
+                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span></i>
+                    </div>
+                    <div class="q-item-main q-item-section">
+                        <div class="q-item-label">
+                            Griesheimer Markt
+                        </div>
                     </div>
                 </div>
+                <!---->
             </div>
-            <!---->
         </div>
     </div>
 </div>

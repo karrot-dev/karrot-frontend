@@ -104,13 +104,21 @@ export default {
       this.previewOpened = true
       this.openedGroup = group
       this.$emit('showPreview', group)
-      window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
+      this.replaceWindowHistory(group)
     },
     hidePreview () {
       this.previewOpened = false
       this.openedGroupId = -1
       this.$emit('showPreview', null)
-      window.history.replaceState({}, null, `#${this.$route.path}`)
+      this.replaceWindowHistory(null)
+    },
+    replaceWindowHistory (group) {
+      if (group) {
+        window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
+      }
+      else {
+        window.history.replaceState({}, null, `#${this.$route.path}`)
+      }
     },
   },
   computed: {
@@ -157,10 +165,6 @@ export default {
       type: Number,
     },
     showMyGroups: {
-      default: true,
-      type: Boolean,
-    },
-    showOtherGroups: {
       default: true,
       type: Boolean,
     },

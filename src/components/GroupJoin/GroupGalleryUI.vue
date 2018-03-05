@@ -12,7 +12,6 @@
       :my-groups="filteredMyGroups"
       :other-groups="filteredOtherGroups"
       :show-my-groups="myGroups.length > 0"
-      :show-other-groups="otherGroups.length > 0"
       :is-logged-in="isLoggedIn"
       :current-group-id="currentGroupId"
       :expanded="expanded"

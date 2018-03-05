@@ -64,8 +64,28 @@ export function polyfillRequestAnimationFrame () {
 
 export function mountWithDefaults (Component, options = {}) {
   const localVue = createLocalVue()
+  return mountWithDefaultsAndLocalVue(Component, localVue, options)
+}
+
+export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
   localVue.component('router-link', MockRouterLink)
   localVue.use(Quasar)
+  localVue.component('transition', {
+    render(createElement) {
+      return createElement(
+        'div',
+        this.$slots.default
+      )
+    },
+  })
+  window.getComputedStyle = () => {
+    return {
+      transitionDelay: '',
+      animationDelay: '',
+      transitionDuration: '',
+      animationDuration: '',
+    };
+  }
   i18n.locale = 'en'
   const wrapper = mount(Component, { localVue, i18n, ...options })
   makeFindAllIterable(wrapper)

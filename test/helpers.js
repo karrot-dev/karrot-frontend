@@ -72,7 +72,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
   localVue.use(Quasar)
   localVue.component('transition', {
     render (createElement) {
-      return createElement (
+      return createElement(
         'div',
         this.$slots.default,
       )

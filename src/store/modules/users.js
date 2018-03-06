@@ -96,6 +96,9 @@ export default {
       dispatch('meta/clear', ['resetPassword'])
       commit('resetPasswordSuccess', false)
     },
+    refresh ({ dispatch }) {
+      dispatch('fetch')
+    },
   },
   mutations: {
     select (state, userId) {

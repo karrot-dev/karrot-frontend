@@ -109,6 +109,15 @@ export default {
     clear ({ commit }) {
       commit('clear')
     },
+
+    refresh ({ state, dispatch }) {
+      const {type, id} = state.idListScope
+      switch (type) {
+        case 'group': return this.fetchForGroup({ groupId: id })
+        case 'user': return this.fetchForUser({ userId: id })
+        case 'store': return this.fetchForStore({ storeId: id })
+      }
+    },
   },
   mutations: {
     setActive (state, { id }) {

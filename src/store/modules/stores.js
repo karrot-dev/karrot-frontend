@@ -51,6 +51,10 @@ export default {
       },
     }),
 
+    async refresh ({ dispatch }) {
+      dispatch('fetch')
+    },
+
     async selectStore ({ commit, dispatch, getters, rootState }, { storeId }) {
       if (!getters.get(storeId)) {
         try {

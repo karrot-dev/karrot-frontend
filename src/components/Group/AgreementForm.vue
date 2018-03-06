@@ -66,7 +66,7 @@
       <q-btn
         type="button"
         color="red"
-        @click="$emit('remove', agreement.id)"
+        @click="maybeDestroy"
         v-if="!isNew"
       >
         {{ $t('BUTTON.REMOVE') }}
@@ -111,7 +111,10 @@ export default {
         this.save()
       }
       else {
-        if (!this.minor) {
+        if (this.minor) {
+          this.save(event)
+        }
+        else {
           Dialog.create({
             title: this.$t('AGREEMENT.DIALOGS.REPLACE.TITLE'),
             message: this.$t('AGREEMENT.DIALOGS.REPLACE.MESSAGE'),
@@ -120,16 +123,28 @@ export default {
               {
                 label: this.$t('AGREEMENT.DIALOGS.REPLACE.CONFIRM'),
                 handler: () => {
-                  this.$emit('replace', { ...this.edit, id: this.agreement.id }, event)
+                  this.$emit('replace', this.edit)
                 },
               },
             ],
           })
         }
-        else {
-          this.save()
-        }
       }
+    },
+    maybeDestroy (event) {
+      Dialog.create({
+        title: this.$t('AGREEMENT.DIALOGS.REMOVE.TITLE'),
+        message: this.$t('AGREEMENT.DIALOGS.REMOVE.MESSAGE'),
+        buttons: [
+          this.$t('BUTTON.CANCEL'),
+          {
+            label: this.$t('AGREEMENT.DIALOGS.REMOVE.CONFIRM'),
+            handler: () => {
+              this.destroy(event)
+            },
+          },
+        ],
+      })
     },
   },
   validations: {

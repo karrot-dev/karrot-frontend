@@ -7,16 +7,20 @@ from rest_framework import status
 
 class Command(BaseCommand):
 
+    def add_arguments(self, parser):
+        parser.add_argument('--quiet', action='store_true', dest='quiet')
+
     errors = []
 
     def log_response(self, response):
-        try:
-            json = response.json()
-        except:  # noqa
-            json = ''
-        print(response.request.method, response.request.url)
-        print(response.status_code, json)
-        print()
+        if not self.quiet:
+            try:
+                json = response.json()
+            except:  # noqa
+                json = ''
+            print(response.request.method, response.request.url)
+            print(response.status_code, json)
+            print()
 
     def setup_event_webhook(self, s):
         response = s.get('https://api.sparkpost.com/api/v1/webhooks')
@@ -101,6 +105,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         s = requests.Session()
+        self.quiet = options['quiet']
 
         # use subaccounts for sending emails and receiving email events
         s.headers.update({'Authorization': settings.ANYMAIL['SPARKPOST_API_KEY']})

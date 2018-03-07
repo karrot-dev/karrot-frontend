@@ -52,6 +52,8 @@ class Command(BaseCommand):
             if not status.is_success(response.status_code):
                 self.errors.append('Failed to create new event webhook')
         else:
+            # TODO fix updating, if fails quite often
+            return
             response = s.put(
                 'https://api.sparkpost.com/api/v1/webhooks/' + existing_event_webhook['id'],
                 json=event_webhook_data
@@ -95,6 +97,8 @@ class Command(BaseCommand):
             if not status.is_success(response.status_code):
                 self.errors.append('Failed to create new relay webhook')
         else:
+            # TODO fix updating, if fails quite often
+            return
             response = s.put(
                 'https://api.sparkpost.com/api/v1/relay-webhooks/' + existing_relay['id'],
                 json=relay_webhook_data

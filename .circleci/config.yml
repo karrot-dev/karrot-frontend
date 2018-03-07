@@ -20,6 +20,20 @@ build-android: &build-android
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
     mv platforms/android/build/outputs/apk/release/android-release.apk ~/repo/android-${CORDOVA_ENV}.apk
 
+ios-defaults: &ios-defaults
+  working_directory: ~/repo
+  macos:
+    xcode: "9.2.0"
+
+build-ios: &build-ios
+  command: |
+    rm -f cordova/www
+    mv dist-app-${CORDOVA_ENV} cordova/www
+    cd ~/repo/cordova
+    rm -f config/current
+    ln -s "${CORDOVA_ENV}" config/current
+    cordova platform add ios
+
 version: 2
 jobs:
 
@@ -40,15 +54,6 @@ jobs:
           root: ~/repo
           paths:
             - .
-
-  try-macos:
-    macos:
-      xcode: "8.3.3"
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          command: echo Hello World.
 
   test:
     <<: *defaults
@@ -290,6 +295,18 @@ jobs:
           paths:
             - android-prod.apk
 
+  build-ios-dev:
+    <<: *ios-defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: yarn global add cordova
+      - run:
+          <<: *build-ios
+          environment:
+            CORDOVA_ENV: dev
+
   deploy-dev:
     <<: *defaults
     steps:
@@ -319,9 +336,6 @@ workflows:
   all-the-things:
     jobs:
       - install-dependencies
-      - try-macos:
-          requires:
-            - install-dependencies
       - test:
           requires:
             - install-dependencies
@@ -341,6 +355,9 @@ workflows:
           requires:
             - install-dependencies
       - build-android-dev:
+          requires:
+            - build-cordova-dev
+      - build-ios-dev:
           requires:
             - build-cordova-dev
       - deploy-android-dev:

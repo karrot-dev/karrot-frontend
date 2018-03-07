@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>819038505585-637dnj03o2gb582lr61rtdi3boegulpa.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.819038505585-637dnj03o2gb582lr61rtdi3boegulpa</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA71iZ7dQBJQOceooJRnFJeCBW4Sk-P28M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>819038505585</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>world.karrot.dev</string>
+	<key>PROJECT_ID</key>
+	<string>karrot-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>karrot-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:819038505585:ios:6f16ad945a2ecf0d</string>
+	<key>DATABASE_URL</key>
+	<string>https://karrot-dev.firebaseio.com</string>
+</dict>
+</plist>

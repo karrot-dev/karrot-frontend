@@ -238,3 +238,349 @@ class TestConversationsEmailNotificationsAPI(APITestCase):
         mail.outbox = []
         ConversationMessage.objects.create(author=self.user, conversation=self.conversation, content='asdf')
         self.assertEqual(len(mail.outbox), 0)
+
+
+class TestConversationsMessageReactionsPostAPI(APITestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.user2 = UserFactory()
+        self.group = GroupFactory(members=[self.user, self.user2])
+        self.conversation = Conversation.objects.get_or_create_for_target(self.group)
+        self.conversation.join(self.user)
+        self.participant = ConversationParticipant.objects.get(conversation=self.conversation, user=self.user)
+        self.message = self.conversation.messages.create(author=self.user, content='hello')
+        self.reaction = self.message.reactions.create(user=self.user, name='thumbsdown')
+
+        self.group2 = GroupFactory(members=[self.user])
+        self.conversation2 = Conversation.objects.get_or_create_for_target(self.group2)
+        self.conversation2.join(self.user)
+        self.message2 = self.conversation2.messages.create(author=self.user, content='hello2')
+
+    # - not logged (403)
+    # - logged
+    # -- not in conversation (403)
+    # -- in conversation
+    # --- invalid data
+    # ---- invalid message id is like nonexistent message (404)
+    # ---- invalid emoji name (400)
+    # --- valid data
+    # ---- non-existent mesage (404)
+    # ---- user already reacted with this emoji (409 Conflict)
+    # ---- all good (201 Created)
+
+    # - not logged (403)
+    def test_not_logged(self):
+        """Non-authenticated user can't add emoji."""
+
+        # log in is missing
+
+        data = {'name': 'thumbsup'}
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    # - logged
+    # -- not in conversation (403)
+    def test_add_emoji_to_message_of_other_group(self):
+        """It should be impossible to add emoji to a message from group user is not member of."""
+
+        # log in as user who didn't join the conversation
+        self.client.force_login(user=self.user2)
+        data = {'name': 'thumbsup'}
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message2.id),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    # -- in conversation
+    # --- invalid data
+    # ---- invalid message id is like nonexistent message (404)
+    def test_add_to_message_with_invalid_id(self):
+        """It should fail predictably when message has invalid id. (respond status 404)"""
+
+        # it is simply nonexistent message, response status 404. No need to implement 400 for this.
+
+        # log in
+        self.client.force_login(user=self.user)
+        data = {'name': 'thumbsup'}
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format('invalid'),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    # ---- invalid emoji name (400)
+    def test_add_nonexistent_emoji(self):
+        """It should be impossible to add an unsupported emoji. (respond 400)"""
+
+        # log in
+        self.client.force_login(user=self.user)
+        data = {'name': 'nonexistent_emoji'}
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    # --- valid data
+    # ---- non-existent message (404)
+    def test_reaction_to_nonexistent_message(self):
+        """It should error with 404 when trying to react to nonexistent message."""
+
+        # log in as user who didn't join the conversation
+        self.client.force_login(user=self.user)
+
+        data = {'name': 'thumbsup'}
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(1735),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    # ---- user already reacted with this emoji (409 Conflict)
+    def test_dont_react_twice_with_the_same_emoji(self):
+        """Can not react with the same emoji twice."""
+
+        # log in
+        self.client.force_login(user=self.user)
+        data = {'name': 'thumbsup'}
+
+        # first request is ok
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # second request fails
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    # ---- all good (201 Created)
+    def test_react_to_message_with_emoji(self):
+        """User who can participate in conversation can react to a message with emoji."""
+
+        # log in
+        self.client.force_login(user=self.user)
+        data = {'name': 'tada'}
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['name'], 'tada')
+        # @TODO test that the data was saved into database
+
+    # ---- emojis are normalized (201 Created)
+    def test_emojis_save_base_form_of_name(self):
+        """Emojis are saved in their base form (i.e. +1 -> thumbsup)"""
+
+        # log in
+        self.client.force_login(user=self.user)
+        data = {'name': '+1'}
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            data,
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['name'], 'thumbsup')
+
+        # and the base form can't be saved now
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            {'name': 'thumbsup'},
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_react_with_different_emoji(self):
+        """Can react multiple times with different emoji."""
+
+        # log in
+        self.client.force_login(user=self.user)
+
+        # first request is ok
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            {'name': 'thumbsup'},
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # second request with different emoji is ok
+        response = self.client.post(
+            '/api/messages/{}/reactions/'.format(self.message.id),
+            {'name': 'tada'},
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    # related: messages include reactions
+    def test_include_reactions_in_message(self):
+        """When reading conversations, include reactions in the response for every message"""
+
+        # add a few more reactions
+        self.reaction = self.message.reactions.create(user=self.user, name='thumbsup')
+        self.reaction = self.message.reactions.create(user=self.user2, name='thumbsup')
+
+        self.client.force_login(user=self.user)
+        response = self.client.get('/api/messages/?conversation={}'.format(self.conversation.id), format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data['results']), 1)
+        self.assertEqual(len(response.data['results'][0]['reactions']), 3)
+
+
+class TestConversationsMessageReactionsDeleteAPI(APITestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.user2 = UserFactory()
+        self.group = GroupFactory(members=[self.user])
+        self.conversation = Conversation.objects.get_or_create_for_target(self.group)
+        self.conversation.join(self.user)
+        self.participant = ConversationParticipant.objects.get(conversation=self.conversation, user=self.user)
+        self.message = self.conversation.messages.create(author=self.user, content='hello')
+        self.reaction = self.message.reactions.create(user=self.user, name='thumbsup')
+
+        self.group2 = GroupFactory(members=[self.user])
+        self.conversation2 = Conversation.objects.get_or_create_for_target(self.group2)
+        self.conversation2.join(self.user)
+        self.message2 = self.conversation2.messages.create(author=self.user, content='hello2')
+
+    # - not logged (403)
+    # - logged
+    # -- not in conversation (403)
+    # -- in conversation
+    # --- invalid data
+    # ---- invalid message id is like nonexistent message (404)
+    # ---- invalid emoji name (400)
+    # --- valid data
+    # ---- non-existent mesage (404)
+    # ---- non-existent reaction (404)
+    # ---- all good (204 No Content)
+
+    # - not logged (403)
+    def test_remove_reaction_not_authenticated(self):
+        """Unauthenticated user can't remove a reaction."""
+
+        # log in is missing
+
+        # first request is ok
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format(self.message.id, 'thumbsup'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    # - logged
+    # -- not in conversation (403)
+    def test_not_in_conversation_cant_remove_reaction(self):
+        """User can't remove a reaction of message from alien conversation, but fails with 403."""
+
+        # log in as alien user
+        self.client.force_login(user=self.user2)
+
+        # first request is ok
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format(self.message.id, 'thumbsup'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    # -- in conversation
+    # --- invalid data
+    # ---- invalid message id is like nonexistent message (404)
+    def test_remove_reaction_invalid_message_id(self):
+        """When message has invalid name, it should fail predictably. (404)"""
+
+        # log in
+        self.client.force_login(user=self.user)
+
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format('hello', 'thumbsup'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    # ---- invalid emoji name (400)
+    def test_remove_reaction_invalid_emoji_name(self):
+        """When emoji has invalid name, response should be 400."""
+
+        # log in
+        self.client.force_login(user=self.user)
+
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format(self.message.id, 'invalid_emoji'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    # --- valid data
+    # ---- non-existent mesage (404)
+    def test_remove_reaction_message_not_exist(self):
+        """When message with given id doesn't exist, respond with 404."""
+
+        # log in
+        self.client.force_login(user=self.user)
+
+        # first request is ok
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format(7321, 'thumbsup'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    # ---- non-existent reaction (404)
+    def test_remove_nonexisting_reaction(self):
+        """When we try to remove nonexisting reaction, response should be 404."""
+
+        # log in
+        self.client.force_login(user=self.user)
+
+        # first request is ok
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format(self.message.id, '-1'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    # ---- all good (204 No Content)
+    def test_remove_existing_reaction(self):
+        """User can remove her reaction."""
+
+        # log in
+        self.client.force_login(user=self.user)
+
+        # first request is ok
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format(self.message.id, 'thumbsup'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_remove_non_base_name(self):
+        """Can remove +1, -1, which removes thumbsup, thumbsdown, etc."""
+
+        # log in
+        self.client.force_login(user=self.user)
+
+        # first request is ok
+        response = self.client.delete(
+            '/api/messages/{}/reactions/{}/'.format(self.message.id, '+1'),
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

@@ -2,7 +2,7 @@ from django.db import IntegrityError
 from django.test import TestCase
 
 from foodsaving.conversations.factories import ConversationFactory
-from foodsaving.conversations.models import Conversation, ConversationMessage
+from foodsaving.conversations.models import Conversation, ConversationMessage, ConversationMessageReaction
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.users.factories import UserFactory
 
@@ -61,3 +61,27 @@ class ConversationModelTests(TestCase):
         conversation = Conversation.objects.get_or_create_for_target(target)
         self.assertIsNotNone(conversation)
         self.assertEqual(target.conversation, conversation)
+
+
+class ReactionModelTests(TestCase):
+
+    def test_reaction_create(self):
+        user = UserFactory()
+        conversation = ConversationFactory()
+        conversation.sync_users([user])
+        message = conversation.messages.create(author=user, content='hello')
+        message.reactions.create(message=message, user=user, name='tada')
+        self.assertEqual(ConversationMessageReaction.objects.filter(message=message, user=user).count(), 1)
+
+    def test_reaction_remove(self):
+        # setup
+        user = UserFactory()
+        conversation = ConversationFactory()
+        conversation.sync_users([user])
+        message = conversation.messages.create(author=user, content='hello')
+        # creating reaction
+        message.reactions.create(message=message, user=user, name='tada')
+        instance = ConversationMessageReaction.objects.get(message=message, user=user, name='tada')
+        # remove reaction
+        instance.delete()
+        self.assertEqual(ConversationMessageReaction.objects.filter(message=message, user=user).count(), 0)

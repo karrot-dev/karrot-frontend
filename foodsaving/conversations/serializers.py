@@ -3,7 +3,9 @@ from rest_framework import serializers
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.fields import DateTimeField
 
-from foodsaving.conversations.models import Conversation, ConversationMessage, ConversationParticipant
+from foodsaving.conversations.models import Conversation, ConversationMessage, \
+    ConversationParticipant, ConversationMessageReaction
+from foodsaving.conversations.helpers import normalize_emoji_name
 
 
 class ConversationSerializer(serializers.ModelSerializer):
@@ -76,6 +78,27 @@ class ConversationEmailNotificationsSerializer(serializers.ModelSerializer):
         fields = ('email_notifications',)
 
 
+class EmojiField(serializers.Field):
+    """Emoji field is normalized and validated here"""
+
+    def to_representation(self, obj):
+        return obj
+
+    def to_internal_value(self, data):
+        try:
+            return normalize_emoji_name(data)
+        except Exception:
+            raise serializers.ValidationError('not a valid emoji name')
+
+
+class ConversationMessageReactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ConversationMessageReaction
+        fields = ('user', 'name', 'message')
+
+    name = EmojiField()
+
+
 class ConversationMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConversationMessage
@@ -85,9 +108,12 @@ class ConversationMessageSerializer(serializers.ModelSerializer):
             'content',
             'conversation',
             'created_at',
+            'reactions',
             'received_via'
         ]
         read_only_fields = ('author', 'id', 'created_at', 'received_via')
+
+    reactions = ConversationMessageReactionSerializer(many=True, read_only=True)
 
     def validate_conversation(self, conversation):
         if self.context['request'].user not in conversation.participants.all():

@@ -57,7 +57,8 @@ class ConversationReceiverTests(ChannelTestCase):
                 'author': message.author.id,
                 'conversation': conversation.id,
                 'created_at': message.created_at,
-                'received_via': ''
+                'received_via': '',
+                'reactions': []
             }
         })
 
@@ -89,7 +90,8 @@ class ConversationReceiverTests(ChannelTestCase):
                 'author': message.author.id,
                 'conversation': conversation.id,
                 'created_at': message.created_at,
-                'received_via': ''
+                'received_via': '',
+                'reactions': []
             }
         })
 

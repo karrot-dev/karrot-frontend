@@ -95,3 +95,15 @@ class ConversationMixin(object):
     @property
     def conversation(self):
         return Conversation.objects.get_or_create_for_target(self)
+
+
+class ConversationMessageReaction(BaseModel):
+    """Emoji reactions to messages."""
+    # User who gave the reaction
+    user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    message = ForeignKey(ConversationMessage, related_name='reactions', on_delete=models.CASCADE)
+    # Name of the emoji
+    name = CharField(max_length=100)
+
+    class Meta:
+        unique_together = ['user', 'name', 'message']

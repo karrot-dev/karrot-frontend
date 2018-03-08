@@ -10,6 +10,7 @@ def subscribe_to_daily_pickup_notifications(apps, schema_editor):
     for membership in GroupMembership.objects.all():
         if GroupNotificationType.DAILY_PICKUP_NOTIFICATION not in membership.notification_types:
             membership.notification_types.append(GroupNotificationType.DAILY_PICKUP_NOTIFICATION)
+            membership.save()
 
 
 class Migration(migrations.Migration):

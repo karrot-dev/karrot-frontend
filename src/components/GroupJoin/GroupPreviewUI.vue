@@ -12,7 +12,8 @@
           slot="right">
           <q-btn
             @click="$emit('close')"
-            class="q-btn-flat"
+            class="preview-close-button"
+            flat
           >
             <q-icon name="fa-close" />
             <q-tooltip>

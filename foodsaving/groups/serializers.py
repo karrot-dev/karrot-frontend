@@ -274,7 +274,10 @@ class GroupMembershipRemoveRoleSerializer(serializers.Serializer):
 
 class GroupMembershipAddNotificationTypeSerializer(serializers.Serializer):
     notification_type = serializers.ChoiceField(
-        choices=(GroupNotificationType.WEEKLY_SUMMARY,),
+        choices=(
+            GroupNotificationType.WEEKLY_SUMMARY,
+            GroupNotificationType.DAILY_PICKUP_NOTIFICATION,
+        ),
         required=True,
         write_only=True
     )

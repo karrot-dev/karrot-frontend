@@ -36,9 +36,11 @@ class TestGroupSummaryEmails(APITestCase):
         emails = foodsaving.groups.emails.prepare_group_summary_emails(self.group, from_date, to_date)
         self.assertEqual(len(emails), 1)
 
-        expected_members = self.group \
-            .members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY) \
-            .exclude(groupmembership__user__in=get_user_model().objects.unverified_or_ignored())
+        expected_members = self.group.members.filter(
+            groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)
+        ).exclude(
+            groupmembership__user__in=get_user_model().objects.unverified_or_ignored()
+        )
 
         self.assertEqual(
             sorted(emails[0].to),
@@ -66,9 +68,11 @@ class TestGroupSummaryEmails(APITestCase):
         for email in emails:
             to.extend(email.to)
 
-        expected_members = self.group \
-            .members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY) \
-            .exclude(groupmembership__user__in=get_user_model().objects.unverified_or_ignored())
+        expected_members = self.group.members.filter(
+            groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)
+        ).exclude(
+            groupmembership__user__in=get_user_model().objects.unverified_or_ignored()
+        )
 
         self.assertEqual(
             sorted(to),

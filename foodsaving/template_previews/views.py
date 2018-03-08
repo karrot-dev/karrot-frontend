@@ -13,6 +13,8 @@ from config import settings
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group
 from foodsaving.invitations.models import Invitation
+from foodsaving.pickups.emails import prepare_pickup_notification_email
+from foodsaving.pickups.models import PickupDate
 from foodsaving.userauth.models import VerificationCode
 from foodsaving.users.models import User
 from foodsaving.utils import email_utils
@@ -85,6 +87,29 @@ class Handlers:
 
     def passwordreset_success(self):
         return email_utils.prepare_passwordreset_success_email(user=random_user())
+
+    def pickup_notification(self):
+        user = random_user()
+
+        pickup1 = PickupDate.objects.order_by('?').first()
+        pickup2 = PickupDate.objects.order_by('?').first()
+        pickup3 = PickupDate.objects.order_by('?').first()
+        pickup4 = PickupDate.objects.order_by('?').first()
+
+        localtime = timezone.localtime()
+
+        return prepare_pickup_notification_email(
+            user=user,
+            group=user.groups.first(),
+            tonight_date=localtime,
+            tomorrow_date=localtime + relativedelta(days=1),
+            tonight_user=[pickup1, pickup2],
+            tonight_empty=[pickup3, pickup4],
+            tonight_not_full=[pickup4],
+            tomorrow_user=[pickup2],
+            tomorrow_empty=[pickup3],
+            tomorrow_not_full=[pickup4],
+        )
 
     def send_new_verification_code(self):
         return prepare_send_new_verification_code_email(

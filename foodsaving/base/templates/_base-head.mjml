@@ -26,6 +26,13 @@
         padding: 0;
     }
 
+    h3 {
+        color: #888888;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+        padding: 0;
+    }
+
     ul {
       padding-left: 25px;
     }

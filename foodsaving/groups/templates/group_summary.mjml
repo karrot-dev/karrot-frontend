@@ -59,7 +59,7 @@
                     <mj-divider/>
                     <mj-text font-size="13px" line-height="18px" color="#777">
                         <p>
-                            {% trans %}You are receiving this because you are subscribed to <strong>Weekly summary</strong> notifications for this group.{% endtrans %}
+                            {% trans %}You are receiving this because you are subscribed to <strong>Weekly summary</strong> emails for this group.{% endtrans %}
                             {% trans %}<a href="{{ settings_url }}">Change your settings</a>.{% endtrans %}
                         </p>
                     </mj-text>

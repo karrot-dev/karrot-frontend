@@ -2,7 +2,7 @@ from email.utils import formataddr
 
 import html2text
 from anymail.message import AnymailMessage
-from babel.dates import format_date
+from babel.dates import format_date, format_time
 from django.contrib.contenttypes.models import ContentType
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string, get_template
@@ -13,6 +13,7 @@ from jinja2 import Environment
 
 from config import settings
 from foodsaving.groups.models import Group
+from foodsaving.utils import stats
 from foodsaving.webhooks.api import make_local_part
 
 
@@ -20,9 +21,23 @@ def date_filter(value):
     return format_date(value, format='full', locale=to_locale(get_language()))
 
 
+def time_filter(value):
+    return format_time(value, format='short', locale=to_locale(get_language()))
+
+
+def store_url(store):
+    return '{hostname}/#/group/{group_id}/store/{store_id}/pickups'.format(
+        hostname=settings.HOSTNAME,
+        group_id=store.group.id,
+        store_id=store.id,
+    )
+
+
 def jinja2_environment(**options):
     env = Environment(**options)
     env.filters['date'] = date_filter
+    env.filters['time'] = time_filter
+    env.globals['store_url'] = store_url
     return env
 
 
@@ -134,6 +149,17 @@ def generate_plaintext_from_html(html):
     return h.handle(html)
 
 
+class StatCollectingAnymailMessage(AnymailMessage):
+
+    def send(self, *args, **kwargs):
+        try:
+            super(StatCollectingAnymailMessage, self).send(*args, **kwargs)
+            stats.email_sent(recipient_count=len(self.to))
+        except Exception as exception:
+            stats.email_error(recipient_count=len(self.to))
+            raise exception
+
+
 def prepare_email(template, user=None, context=None, to=None, language=None, **kwargs):
     context = dict(context) if context else {}
 
@@ -173,7 +199,7 @@ def prepare_email(template, user=None, context=None, to=None, language=None, **k
         **kwargs,
     }
 
-    email = AnymailMessage(**message_kwargs)
+    email = StatCollectingAnymailMessage(**message_kwargs)
 
     if html_content:
         email.attach_alternative(html_content, 'text/html')

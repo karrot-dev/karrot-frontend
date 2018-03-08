@@ -9,7 +9,7 @@ from django.utils.timezone import get_current_timezone
 
 from config import settings
 from foodsaving.conversations.models import ConversationMessage
-from foodsaving.groups.models import Group, GroupNotificationType
+from foodsaving.groups.models import Group, GroupNotificationType, GroupMembership
 from foodsaving.pickups.models import PickupDate
 from foodsaving.utils.email_utils import prepare_email
 
@@ -63,15 +63,21 @@ def prepare_group_summary_emails(group, from_date, to_date):
     """Prepares one email per language"""
     context = prepare_group_summary_data(group, from_date, to_date)
 
-    members = group \
-        .members_with_notification_type(GroupNotificationType.WEEKLY_SUMMARY) \
-        .exclude(groupmembership__user__in=get_user_model().objects.unverified_or_ignored())
+    members = group.members.filter(
+        groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)
+    ).exclude(
+        groupmembership__user__in=get_user_model().objects.unverified_or_ignored()
+    )
 
     grouped_members = itertools.groupby(members.order_by('language'), key=lambda member: member.language)
-    return [prepare_email(template='group_summary',
-                          context=context,
-                          to=[member.email for member in members],
-                          language=language) for (language, members) in grouped_members]
+    return [
+        prepare_email(
+            template='group_summary',
+            context=context,
+            to=[member.email for member in members],
+            language=language
+        ) for (language, members) in grouped_members
+    ]
 
 
 def calculate_group_summary_dates(group):

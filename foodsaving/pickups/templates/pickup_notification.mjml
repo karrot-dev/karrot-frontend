@@ -1,0 +1,103 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans group_name=group.name %}{{ group_name }} upcoming pickups{% endtrans %}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section>
+                <mj-column>
+                    <mj-text>
+
+                        {% macro pickup_list(pickups, show_empty_collectors_count=false) -%}
+                            {% if pickups and pickups|length > 0 %}
+                                <ul>
+                                    {% for pickup in pickups %}
+                                        <li>
+                                            {{ pickup.date | time }} @
+                                            <a href="{{ store_url(pickup.store) }}">
+                                                {{ pickup.store.name }}
+                                            </a>
+                                            {% if show_empty_collectors_count %}
+                                                -
+                                                {% trans empty_collectors_count=pickup.empty_collectors_count(),
+                                                        max_collectors=pickup.max_collectors %}
+                                                    {{ empty_collectors_count }}/{{ max_collectors }} remaining
+                                                {% endtrans %}
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {%- endmacro %}
+
+                        <h1>{% trans group_name=group.name %}{{ group_name }} upcoming pickups{% endtrans %}</h1>
+
+                        {% if has_pickups_tonight %}
+                            <h2>
+                                {% trans %}Tonight{% endtrans %},
+                                {{ tonight_date | date }}
+                            </h2>
+
+                            <p>The day is not over, there are still pickups to be done!</p>
+
+                            {% if tonight_user and tonight_user|length > 0 %}
+                                {% trans %}You are signed up for{% endtrans %}:
+                                {{ pickup_list(tonight_user) }}
+                            {% endif %}
+
+                            {% if tonight_empty and tonight_empty|length > 0 %}
+                                {% trans %}No-one is yet signed up for{% endtrans %}:
+                                {{ pickup_list(tonight_empty) }}
+                            {% endif %}
+
+                            {% if tonight_not_full and tonight_not_full|length > 0 %}
+                                {% trans %}There is still space available for{% endtrans %}:
+                                {{ pickup_list(tonight_not_full, show_empty_collectors_count=true) }}
+                            {% endif %}
+
+                        {% endif %}
+
+                        {% if has_pickups_tomorrow %}
+                            {% if has_pickups_tonight %}
+                                <div class="divider"></div>
+                                <br>
+                            {% endif %}
+
+                            <h2>
+                                {% trans %}Tomorrow{% endtrans %},
+                                {{ tomorrow_date | date }}
+                            </h2>
+
+                            {% if tomorrow_user and tomorrow_user|length > 0 %}
+                                {% trans %}You are signed up for{% endtrans %}:
+                                {{ pickup_list(tomorrow_user) }}
+                            {% endif %}
+
+                            {% if tomorrow_empty and tomorrow_empty|length > 0 %}
+                                {% trans %}No-one is yet signed up for{% endtrans %}:
+                                {{ pickup_list(tomorrow_empty) }}
+                            {% endif %}
+
+                            {% if tomorrow_not_full and tomorrow_not_full|length > 0 %}
+                                {% trans %}There is still space available for{% endtrans %}:
+                                {{ pickup_list(tomorrow_not_full, show_empty_collectors_count=true) }}
+                            {% endif %}
+
+                        {% endif %}
+                    </mj-text>
+                    <mj-divider/>
+                    <mj-text font-size="13px" line-height="18px" color="#777">
+                        <p>
+                            {% trans %}You are receiving this because you are subscribed to
+                                <strong>Pickup notification</strong> emails for this group.{% endtrans %}
+                            {% trans %}<a href="{{ settings_url }}">Change your settings</a>.{% endtrans %}
+                        </p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

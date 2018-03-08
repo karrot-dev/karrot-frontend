@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
-from django.db.models import TextField, DateTimeField
+from django.db.models import TextField, DateTimeField, Manager
 from django.utils import timezone
 from timezone_field import TimeZoneField
 
@@ -60,9 +60,6 @@ class Group(BaseModel, LocationModel, ConversationMixin):
             'invited_via': 'e-mail'
         })
 
-    def members_with_notification_type(self, type):
-        return self.members.filter(groupmembership__notification_types__contains=[type])
-
 
 class Agreement(BaseModel):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
@@ -78,13 +75,25 @@ class UserAgreement(BaseModel):
 
 class GroupNotificationType(object):
     WEEKLY_SUMMARY = 'weekly_summary'
+    DAILY_PICKUP_NOTIFICATION = 'daily_pickup_notification'
 
 
 def get_default_notification_types():
-    return [GroupNotificationType.WEEKLY_SUMMARY]
+    return [
+        GroupNotificationType.WEEKLY_SUMMARY,
+        GroupNotificationType.DAILY_PICKUP_NOTIFICATION,
+    ]
+
+
+class GroupMembershipManager(Manager):
+
+    def with_notification_type(self, type):
+        return self.filter(notification_types__contains=[type])
 
 
 class GroupMembership(BaseModel):
+    objects = GroupMembershipManager()
+
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     roles = ArrayField(TextField(), default=list)

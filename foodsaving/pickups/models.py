@@ -215,6 +215,9 @@ class PickupDate(BaseModel):
     def is_recent(self):
         return self.date >= timezone.now() - relativedelta(days=settings.FEEDBACK_POSSIBLE_DAYS)
 
+    def empty_collectors_count(self):
+        return max(0, self.max_collectors - self.collectors.count())
+
 
 class Feedback(BaseModel):
     given_by = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='feedback')

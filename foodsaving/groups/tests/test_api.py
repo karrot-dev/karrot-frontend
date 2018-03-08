@@ -8,7 +8,7 @@ from rest_framework.test import APITestCase
 from foodsaving.groups import roles
 from foodsaving.groups.factories import GroupFactory
 from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement, UserAgreement, \
-    GroupNotificationType
+    GroupNotificationType, get_default_notification_types
 from foodsaving.pickups.factories import PickupDateFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory
@@ -343,7 +343,6 @@ class TestGroupNotificationTypes(APITestCase):
         self.membership.notification_types = []
         self.membership.save()
 
-        self.assertEqual(self.membership.notification_types, [])
         response = self.client.put(
             '/api/groups/{}/notification_types/{}/'.format(self.group.id, GroupNotificationType.WEEKLY_SUMMARY))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -352,7 +351,8 @@ class TestGroupNotificationTypes(APITestCase):
 
     def test_remove_notification_type(self):
         self.client.force_login(user=self.user)
-        self.assertEqual(self.membership.notification_types, [GroupNotificationType.WEEKLY_SUMMARY])
+        self.membership.notification_types = [GroupNotificationType.WEEKLY_SUMMARY]
+        self.membership.save()
         response = self.client.delete(
             '/api/groups/{}/notification_types/{}/'.format(self.group.id, GroupNotificationType.WEEKLY_SUMMARY))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -363,7 +363,7 @@ class TestGroupNotificationTypes(APITestCase):
         self.client.force_login(user=self.user)
         response = self.client.get(
             '/api/groups/{}/'.format(self.group.id))
-        self.assertEqual(response.data['notification_types'], [GroupNotificationType.WEEKLY_SUMMARY])
+        self.assertEqual(response.data['notification_types'], get_default_notification_types())
 
 
 class TestAgreementsAPI(APITestCase):

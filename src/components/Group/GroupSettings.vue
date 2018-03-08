@@ -8,7 +8,7 @@
       <div class="art-overlay"/>
     </RandomArt>
     <q-list link>
-      <q-list-header>{{ $t('GROUP.NOTIFICATIONS') }}</q-list-header>
+      <q-list-header>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</q-list-header>
       <q-item
         tag="label"
         v-for="type in availableNotificationTypes"
@@ -45,7 +45,7 @@ export default {
   },
   data () {
     return {
-      availableNotificationTypes: ['weekly_summary'],
+      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification'],
     }
   },
   methods: {

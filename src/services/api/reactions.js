@@ -19,6 +19,6 @@ export default {
    * @param {string} name - emoji name
    */
   async remove (messageId, name) {
-    return (await axios.delete(`/api/messages/${messageId}/reactions/${name}`)).data
+    return (await axios.delete(`/api/messages/${messageId}/reactions/${name}/`)).data
   },
 }

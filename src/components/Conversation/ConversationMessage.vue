@@ -39,7 +39,7 @@
         :message-id="message.id"
         :reactions="message.reactions"
         :user="user"
-        @edit="$emit('editReaction', arguments[0])"
+        @toggle="$emit('toggleReaction', arguments[0])"
       />
 
     </q-item-main>

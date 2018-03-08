@@ -27,14 +27,18 @@ export default {
     enrichMessage: (state, getters, rootState, rootGetters) => message => {
       if (!message) return
 
-      // resolve users who reacted
-      // clone the message, because original can't be mutated
-      message = JSON.parse(JSON.stringify(message))
-      message.reactions = message.reactions || []
-      message.reactions.forEach(reaction => { reaction.user = rootGetters['users/get'](reaction.user) })
+      // format reactions
+      const enrichReactions = reactions => {
+        if (!reactions) return []
+        return reactions.map(reaction => ({
+          ...reaction,
+          user: rootGetters['users/get'](reaction.user),
+        }))
+      }
 
       return {
         ...message,
+        reactions: enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
         isUnread: isUnread(message, getters.activeConversation),
       }
@@ -109,20 +113,20 @@ export default {
       /**
        * Add reaction to a message.
        */
-      async editReaction ({ state, commit }, { action, name, messageId, userId }) {
-        switch (action) {
-          case 'add': {
-            const addedReaction = await reactionsAPI.create(messageId, name)
-            commit('addReaction', { messageId, name: addedReaction.name, userId })
-            break
-          }
-          case 'remove': {
-            await reactionsAPI.remove(messageId, name)
-            commit('removeReaction', { messageId, name, userId })
-            break
-          }
-          default:
-            throw new Error('invalid action')
+      async toggleReaction ({ state, commit, rootGetters }, { name, messageId }) {
+        // current user's id
+        const userId = rootGetters['auth/userId']
+        // see if the reaction already exists or not
+        const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+        const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
+
+        if (reactionIndex === -1) {
+          const addedReaction = await reactionsAPI.create(messageId, name)
+          commit('addReaction', { messageId, name: addedReaction.name, userId })
+        }
+        else {
+          await reactionsAPI.remove(messageId, name)
+          commit('removeReaction', { messageId, name, userId })
         }
       },
     }),

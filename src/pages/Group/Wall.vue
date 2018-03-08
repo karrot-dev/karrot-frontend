@@ -16,7 +16,7 @@ export default connect({
     send: 'conversations/sendInActiveConversation',
     markAllRead: 'conversations/markAllReadInActiveConversation',
     toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
-    editReaction: 'conversations/editReaction',
+    toggleReaction: 'conversations/toggleReaction',
   },
   actionsToProps: {
     fetchMore: 'conversations/fetchMoreForActiveConversation',

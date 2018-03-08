@@ -60,12 +60,14 @@ export default {
   data: () => {
     return {
       reactionsWhitelist: [
-        '+1',
-        '-1',
+        'thumbsup',
+        'thumbsdown',
         'laughing',
         'tada',
         'confused',
         'heart',
+        'carrot',
+        'yum',
       ],
     }
   },
@@ -91,11 +93,14 @@ export default {
         reaction.reacted = Boolean(reaction.users.find(user => user.id === this.user.id))
 
         // which users reacted?
-        const names = reaction.users.map(user => (user.id === this.user.id) ? 'you' : user.displayName)
+        const names = reaction.users.map(user => (user.id === this.user.id) ? this.$t('CONVERSATION.REACTIONS.YOU') : user.displayName)
         // form the message which users reacted
         // i.e. "foo, bar and baz reacted with heart"
-        const namesString = names.slice(0, -2).join(', ') + (names.slice(0, -2).length ? ', ' : '') + names.slice(-2).join(' and ')
-        reaction.message = `${namesString} reacted with ${reaction.name}`
+        const namesString = names.slice(0, -2).join(', ') + (names.slice(0, -2).length ? ', ' : '') + names.slice(-2).join(` ${this.$t('CONVERSATION.REACTIONS.AND')} `)
+        reaction.message = this.$t('CONVERSATION.REACTIONS.REACTED_WITH', {
+          users: namesString,
+          reaction: reaction.name,
+        })
       })
 
       return reactions
@@ -107,11 +112,7 @@ export default {
      * Remove when it is already there.
      */
     toggleReaction (name) {
-      // What is the proper action? Are we adding or removing the reaction?
-      const isAlreadyReacted = Boolean(this.reactions.find(reaction => reaction.name === name && reaction.user.id === this.user.id))
-      const action = (isAlreadyReacted) ? 'remove' : 'add'
-      // emit the action
-      this.$emit('edit', { action, name, messageId: this.messageId, userId: this.user.id })
+      this.$emit('toggle', { name, messageId: this.messageId })
       // close the menu if open
       this.$refs.popover.close()
     },

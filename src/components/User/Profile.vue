@@ -55,7 +55,7 @@
         round
         class="inlinee on-right"
         color="secondary"
-        v-if="user.id==currentUserId"
+        v-if="user.isCurrentUser"
         @click="$router.push('/settings')"
       />
       <div class="info">
@@ -92,7 +92,6 @@
 
 <script>
 
-import { mapGetters } from 'vuex'
 import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
@@ -112,9 +111,6 @@ export default {
       }
       return 180
     },
-    ...mapGetters({
-      currentUserId: 'auth/userId',
-    }),
   },
 }
 </script>

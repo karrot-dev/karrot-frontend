@@ -189,6 +189,26 @@ class Command(BaseCommand):
             print('left pickup: ', pickup)
             return data
 
+        def make_feedback(pickup, given_by):
+            data = c.post('/api/feedback/', {
+                'comment': faker.text(),
+                'weight': 100.0,
+                'about': pickup,
+                'given_by': given_by,
+            }).data
+            print('created feedback: ', data)
+            return data
+
+        def create_done_pickup(store, user_id):
+            pickup = PickupDate.objects.create(
+                date=faker.date_time_between(start_date='-9d', end_date='-1d', tzinfo=pytz.utc),
+                store_id=store,
+                max_collectors=10,
+            )
+            pickup.collectors.add(User.objects.get(pk=user_id))
+            print('created pickup: ', pickup)
+            return pickup
+
         ######################
         # Sample data
         ######################
@@ -208,6 +228,9 @@ class Command(BaseCommand):
                 make_series(store['id'])
                 pickup = make_pickup(store['id'])
                 join_pickup(pickup['id'])
+                done_pickup = create_done_pickup(store['id'], user['id'])
+                join_pickup(done_pickup.id)
+                make_feedback(done_pickup.id, user['id'])
 
         # group members
         min_members = (10, 4, 1)[i]

@@ -32,60 +32,59 @@
         </p>
       </div>
     </div>
-    <q-card class="generic-padding">
+    <q-card>
+      <q-card-media v-if="$q.platform.is.mobile && user.latitude && user.longitude">
+        <UserMapPreview
+          :user="user"
+          style="height: 100px"
+        />
+      </q-card-media>
       <UserMapPreview
-        v-if="user.latitude && user.longitude"
+        v-if="!$q.platform.is.mobile && user.latitude && user.longitude"
         :user="user"
-        class="map"
+        class="map float-right"
       />
-      <div class="info">
-        <div
-          class="info-item inlinee"
-          style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
-        >
-          <strong>
-            <i class="fa fa-fw fa-envelope-o on-left" />
-          </strong>
-          <a :href='"mailto:" + user.email'>{{ user.email }}</a>
-        </div>
-      </div>
-      <q-btn
-        icon="fa-pencil"
-        small
-        round
-        class="inlinee on-right"
-        color="secondary"
-        v-if="user.isCurrentUser"
-        @click="$router.push('/settings')"
-      />
-      <div class="info">
-        <div
-          class="info-item inlinee"
-          v-if="user.mobileNumber"
-        >
-          <strong class="info-item">
-            <i class="fa fa-fw fa-phone on-left" />
-          </strong>
-          {{ user.mobileNumber }}
-        </div>
-      </div>
-      <div class="info">
-        <div
-          class="info-item"
-          v-if="user.address"
-        >
-          <strong class="info-item">
-            <i class="fa fa-fw fa-map-marker on-left" />
-          </strong>
-          {{ user.address }}
-        </div>
-      </div>
-      <q-card-separator v-if="user.description != ''"/><br>
-      <Markdown
-        v-if="user.description"
-        :source="user.description"
-      />
-      <div style="clear: both; margin-bottom: 8px"/>
+      <q-list :dense="$q.platform.is.mobile">
+        <q-item style="height: 40px">
+          <q-item-side icon="fa-fw fa-envelope-o" />
+          <q-item-main style="overflow: hidden; text-overflow: ellipsis">
+            <a :href='"mailto:" + user.email'>{{ user.email }}</a>
+          </q-item-main>
+          <q-item-side
+            v-if="user.isCurrentUser"
+            right
+          >
+            <q-btn
+              icon="fa-pencil"
+              small
+              round
+              color="secondary"
+              @click="$router.push({ name: 'settings' })"
+            />
+          </q-item-side>
+        </q-item>
+
+        <q-item v-if="user.mobileNumber">
+          <q-item-side icon="fa-fw fa-phone" />
+          <q-item-main>
+            {{ user.mobileNumber }}
+          </q-item-main>
+        </q-item>
+
+        <q-item v-if="user.address">
+          <q-item-side icon="fa-fw fa-map-marker" />
+          <q-item-main>
+            {{ user.address }}
+          </q-item-main>
+        </q-item>
+      </q-list>
+      <q-card-separator v-if="user.description != ''" />
+      <q-card-main>
+        <Markdown
+          v-if="user.description"
+          :source="user.description"
+        />
+      </q-card-main>
     </q-card>
   </div>
 </template>
@@ -96,10 +95,10 @@ import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 
-import { QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator } from 'quasar'
+import { QCard, QCardTitle, QTransition, QCardActions, QCardMain, QCardMedia, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide } from 'quasar'
 
 export default {
-  components: { Markdown, UserMapPreview, QCard, QCardTitle, QTransition, QCardActions, QBtn, QCardSeparator, ProfilePicture },
+  components: { Markdown, UserMapPreview, QCard, QCardMain, QCardTitle, QCardMedia, QTransition, QCardActions, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide, ProfilePicture },
   props: {
     user: { required: true, type: Object },
     groups: { required: true, type: Array },
@@ -134,20 +133,18 @@ p.subtitle
 .map
   height 200px
   width 200px
-  float right
   max-width: 40%
-.on-right
-  margin-right 10px
-  float right
-.inlinee
-  display inline
-body.mobile .map
-  height 150px
-  width 150px
-.info
-  margin-bottom 1em
-  .info-item
-    margin-bottom 8px
+  padding: 10px 10px 2px 2px
+.q-card-separator
+  margin 0px 16px
+body.mobile
+  .map
+    height 150px
+    width 150px
+  .q-item
+    padding 2px 6px
+  .q-card-separator
+    margin 0px 10px
 
 .turn-in-enter
   transform rotate(-15deg)

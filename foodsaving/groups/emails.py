@@ -96,3 +96,19 @@ def calculate_group_summary_dates(group):
         to_date = from_date + relativedelta(days=7)
 
         return from_date, to_date
+
+
+def prepare_user_inactive_in_group_email(user, group):
+    group_url = '{hostname}/#/group/{group_id}/'.format(
+        hostname=settings.HOSTNAME,
+        group_id=group.id
+    )
+    return prepare_email(
+        'user_inactive_in_group',
+        user=user,
+        context={
+            'group_name': group.name,
+            'group_url': group_url,
+            'num_days_inactive': settings.NUMBER_OF_DAYS_UNTIL_INACTIVE_IN_GROUP,
+        }
+    )

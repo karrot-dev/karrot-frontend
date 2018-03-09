@@ -11,6 +11,7 @@ from django.utils import timezone
 import foodsaving.groups.emails
 from config import settings
 from foodsaving.conversations.models import ConversationMessage
+from foodsaving.groups.emails import prepare_user_inactive_in_group_email
 from foodsaving.groups.models import Group
 from foodsaving.invitations.models import Invitation
 from foodsaving.pickups.emails import prepare_pickup_notification_email
@@ -115,6 +116,12 @@ class Handlers:
         return prepare_send_new_verification_code_email(
             user=random_user(),
             verification_code=VerificationCode.objects.first()
+        )
+
+    def user_inactive_in_group(self):
+        return prepare_user_inactive_in_group_email(
+            user=random_user(),
+            group=random_group()
         )
 
 

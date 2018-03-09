@@ -22,6 +22,7 @@ mjml/node_modules
 /.idea
 *.iml
 /.vscode
+**/*~
 
 # Python files
 *.pyc

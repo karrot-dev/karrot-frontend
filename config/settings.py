@@ -218,6 +218,8 @@ EMAIL_VERIFICATION_TIME_LIMIT_HOURS = 7 * 24
 PASSWORD_RESET_TIME_LIMIT_MINUTES = 180
 ACCOUNT_DELETE_TIME_LIMIT_MINUTES = 180
 
+# For marking users inactive
+NUMBER_OF_DAYS_UNTIL_INACTIVE_IN_GROUP = 30
 
 # Default dummy settings, please override in local_settings.py
 DEFAULT_FROM_EMAIL = "testing@example.com"
@@ -240,7 +242,6 @@ INFLUXDB_USE_THREADING = True
 HUEY = {
     'always_eager': True,
 }
-
 
 # NB: Keep this as the last line, and keep
 # local_settings.py out of version control

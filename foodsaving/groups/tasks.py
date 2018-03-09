@@ -1,12 +1,17 @@
 import traceback
+from datetime import timedelta
 
 from django.db.models import Count
+from django.utils import timezone
 from huey import crontab
 from huey.contrib.djhuey import db_periodic_task
 from influxdb_metrics.loader import write_points
 
+from config import settings
 from foodsaving.groups import stats, emails
+from foodsaving.groups.emails import prepare_user_inactive_in_group_email
 from foodsaving.groups.models import Group
+from foodsaving.groups.models import GroupMembership
 from foodsaving.utils import stats_utils
 
 
@@ -23,7 +28,26 @@ def record_group_stats():
     write_points(points)
 
 
-@db_periodic_task(crontab(day_of_week=0, hour=8, minute=0))  # every 8am on Sunday
+@db_periodic_task(crontab(hour=2, minute=0))  # 2am every day
+def process_inactive_users():
+    now = timezone.now()
+
+    count_users_flagged_inactive = 0
+
+    inactive_threshold_date = now - timedelta(days=settings.NUMBER_OF_DAYS_UNTIL_INACTIVE_IN_GROUP)
+    for membership in GroupMembership.objects.filter(lastseen_at__lte=inactive_threshold_date, inactive_at=None):
+        email = prepare_user_inactive_in_group_email(membership.user, membership.group)
+        email.send()
+        membership.inactive_at = now
+        membership.save()
+        count_users_flagged_inactive += 1
+
+    stats_utils.periodic_task('group__process_inactive_users', {
+        'count_users_flagged_inactive': count_users_flagged_inactive,
+    })
+
+
+@db_periodic_task(crontab(day_of_week=0, hour=8, minute=0))  # send 8am every Sunday
 def send_summary_emails():
     email_count = 0
     recipient_count = 0
@@ -58,3 +82,4 @@ def send_summary_emails():
         'recipient_count': recipient_count,
         'email_count': email_count,
     })
+

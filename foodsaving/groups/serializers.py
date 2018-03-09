@@ -25,7 +25,7 @@ class TimezoneField(serializers.Field):
 class GroupMembershipInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = GroupMembership
-        fields = ('created_at', 'roles',)
+        fields = ('created_at', 'roles', 'active',)
         extra_kwargs = {
             'created_at': {
                 'read_only': True
@@ -34,6 +34,11 @@ class GroupMembershipInfoSerializer(serializers.ModelSerializer):
                 'read_only': True
             },
         }
+
+    active = serializers.SerializerMethodField()
+
+    def get_active(self, membership):
+        return membership.inactive_at is None
 
 
 class GroupDetailSerializer(serializers.ModelSerializer):

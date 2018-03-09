@@ -62,7 +62,6 @@
             v-for="message in data.messages"
             :key="message.id"
             :message="message"
-            :user="user"
             @toggleReaction="$emit('toggleReaction', arguments[0])"
           />
         </q-list>

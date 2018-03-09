@@ -1,144 +1,66 @@
 <template>
-  <!-- emoji reactions to messages -->
-  <div class="message-reactions">
-    <!-- reactions -->
-    <q-btn
-      class="reaction-button emoji-button"
-      @click="toggleReaction(reaction.name)"
-      v-for="reaction in collectedReactions"
-      :key="reaction.name"
-      flat
-      small
-      :class="{ 'user-reacted': reaction.reacted }"
-    >
-      <Markdown
-        :source="':'+reaction.name+':'"
-      />
-      <span class="reacted-users-count">{{ reaction.users.length }}</span>
-
-      <!-- info whoever reacted -->
-      <q-tooltip class="message-who-reacted">{{ reaction.message }}</q-tooltip>
-    </q-btn>
-    <!-- add a reaction -->
-    <!-- to be replaced with nicer component -->
-    <q-btn class="emoji-button">
-      <i class="fa fa-smile-o" /> +
-      <q-popover
-        ref="popover"
+  <span class="conversation-reactions">
+    <span class="reactions">
+      <EmojiButton
+        v-for="reaction in reactions"
+        :key="reaction.name"
+        :name="reaction.name"
+        @click="$emit('toggle', reaction.name)"
+        class="reaction-box"
+        :class="{ 'user-reacted': reaction.reacted }"
       >
-        <q-btn
-          class="reaction-menu-button emoji-button"
-          @click="toggleReaction(reaction)"
-          v-for="reaction in reactionsWhitelist"
-          :key="reaction"
-          flat
-          small
+        <span class="reactions-number">{{ reaction.users.length }}</span>
+        <q-tooltip
+          :disable="$q.platform.is.mobile"
+          style="font-size: .8em"
         >
-          <Markdown
-            :source="':'+reaction+':'"
-          />
-        </q-btn>
-      </q-popover>
-    </q-btn>
-  </div>
+          {{ reaction.message }}
+        </q-tooltip>
+      </EmojiButton>
+    </span>
+    <ConversationAddReaction
+      v-if="!$q.platform.is.mobile"
+      class="add-button reaction-box"
+      :reacted="currentUserReactions"
+      @toggle="$emit('toggle', arguments[0])"
+    />
+  </span>
 </template>
 
 <script>
-import Markdown from '@/components/Markdown'
+import ConversationAddReaction from './ConversationAddReaction'
+import EmojiButton from './EmojiButton'
 import { QBtn, QPopover, QTooltip } from 'quasar'
 
 export default {
   name: 'ConversationReactions',
-  components: {
-    Markdown, QBtn, QPopover, QTooltip,
-  },
-  data: () => {
-    return {
-      reactionsWhitelist: [
-        'thumbsup',
-        'thumbsdown',
-        'laughing',
-        'tada',
-        'confused',
-        'heart',
-        'carrot',
-        'yum',
-      ],
-    }
-  },
-  computed: {
-    collectedReactions () {
-      // collect the reactions
-      const reactions = []
-
-      for (const rawReaction of this.reactions) {
-        const reaction = reactions.find(reac => reac.name === rawReaction.name)
-
-        if (reaction !== undefined) {
-          reaction.users.push(rawReaction.user)
-        }
-        else {
-          reactions.push({ name: rawReaction.name, users: [rawReaction.user] })
-        }
-      }
-
-      // mark reactions where user reacted
-      reactions.forEach(reaction => {
-        // has logged user reacted?
-        reaction.reacted = Boolean(reaction.users.find(user => user.id === this.user.id))
-
-        // which users reacted?
-        const names = reaction.users.map(user => (user.id === this.user.id) ? this.$t('CONVERSATION.REACTIONS.YOU') : user.displayName)
-        // form the message which users reacted
-        // i.e. "foo, bar and baz reacted with heart"
-        const namesString = names.slice(0, -2).join(', ') + (names.slice(0, -2).length ? ', ' : '') + names.slice(-2).join(` ${this.$t('CONVERSATION.REACTIONS.AND')} `)
-        reaction.message = this.$t('CONVERSATION.REACTIONS.REACTED_WITH', {
-          users: namesString,
-          reaction: reaction.name,
-        })
-      })
-
-      return reactions
-    },
-  },
-  methods: {
-    /**
-     * Emit an event to add or remove a reaction.
-     * Remove when it is already there.
-     */
-    toggleReaction (name) {
-      this.$emit('toggle', { name, messageId: this.messageId })
-      // close the menu if open
-      this.$refs.popover.close()
-    },
-  },
+  components: { QBtn, QPopover, QTooltip, ConversationAddReaction, EmojiButton },
   props: {
-    messageId: {
-      type: Number,
-      required: true,
-    },
     reactions: {
       type: Array,
-      default () { return [] },
+      default: () => [],
     },
-    user: {
-      type: Object,
-      required: true,
+    currentUserReactions: {
+      type: Array,
+      default: () => [],
     },
   },
 }
 </script>
 
 <style scoped lang="stylus">
-.message-reactions
-  float right
-  color grey
+@import '~variables'
+@import './reactionBox'
+.conversation-reactions
+  .add-button
+    visibility hidden
+  &:hover .add-button
+    visibility visible
 .user-reacted
-  background-color #ccf
-.message-who-reacted
-  font-size smaller
-.emoji-button
-  padding 0.2rem 0.5rem
-.emoji-button .parsed >>> *
-  display inline
+  background alpha($secondary, .2)
+  border-color $secondary !important
+.reactions-number
+  padding-left 3px
+  opacity .7
+  font-size .8em
 </style>

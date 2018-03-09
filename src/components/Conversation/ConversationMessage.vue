@@ -3,6 +3,7 @@
     multiline
     :class="{ isUnread: message.isUnread }"
     class="conversation-message"
+    highlight
   >
     <q-item-side>
       <ProfilePicture
@@ -11,7 +12,7 @@
       />
     </q-item-side>
     <q-item-main>
-      <q-item-tile>
+      <q-item-tile class="row no-wrap justify-between items-center">
         <div class="no-wrap">
           <router-link :to="{ name: 'user', params: { userId: message.author.id } }">
             <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
@@ -28,20 +29,23 @@
             <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
           </q-icon>
         </div>
+        <ConversationAddReaction
+          class="add-button reaction-box self-start"
+          :reacted="currentUserReactions(message.reactions)"
+          @toggle="toggleReaction"
+        />
       </q-item-tile>
       <Markdown
         :source="message.content"
         class="content"
       />
-
-      <!-- reactions to the conversation -->
       <ConversationReactions
-        :message-id="message.id"
+        v-if="hasReactions"
         :reactions="message.reactions"
-        :user="user"
-        @toggle="$emit('toggleReaction', arguments[0])"
+        :current-user-reactions="currentUserReactions(message.reactions)"
+        @toggle="toggleReaction"
+        style="margin-top: -3px"
       />
-
     </q-item-main>
   </q-item>
 </template>
@@ -52,26 +56,38 @@ import ConversationReactions from '@/components/Conversation/ConversationReactio
 import { QItem, QItemSide, QItemMain, QItemTile, QIcon, QTooltip } from 'quasar'
 import DateAsWords from '@/components/General/DateAsWords'
 import Markdown from '@/components/Markdown'
-
+import ConversationAddReaction from './ConversationAddReaction'
 export default {
   name: 'ConversationMessage',
   components: {
-    ConversationReactions, ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
+    ConversationReactions, ConversationAddReaction, ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
   },
   props: {
     message: {
       type: Object,
       required: true,
     },
-    user: {
-      type: Object,
-      required: true,
+  },
+  methods: {
+    toggleReaction (name) {
+      this.$emit('toggleReaction', { name, messageId: this.message.id })
+    },
+    currentUserReactions (reactions) {
+      return reactions && reactions.filter(e => e.reacted).map(e => e.name)
+    },
+  },
+  computed: {
+    hasReactions () {
+      return this.message && this.message.reactions && this.message.reactions.length > 0
     },
   },
 }
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+@import './reactionBox'
+
 // same as PickupItem colors
 $lightGreen = #E7FFE0
 $lighterGreen = #F0FFF0
@@ -91,6 +107,12 @@ $lighterGreen = #F0FFF0
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 .conversation-message
   padding-bottom 0
+  .add-button
+    visibility hidden
+  &:hover .add-button
+    visibility visible
+.q-item-highlight:hover
+  background-color alpha($secondary, .1)
 </style>
 
 <style lang="stylus">

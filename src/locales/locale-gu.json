@@ -21,6 +21,7 @@
   "BUTTON": {
     "CREATE": "બનાવો",
     "CANCEL": "રદ કરો",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "કાઢી નાંખો",
     "EDIT": "સંપાદિત કરોસંપાદિત કરો",
@@ -80,10 +81,15 @@
     "INVITATION_ACCEPT_ERROR": "અરે, આમંત્રણ સ્વીકારી શક્યા નથી!",
     "SETTINGS": "Settings",
     "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",
         "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Pickup notifications",
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
     }
   },

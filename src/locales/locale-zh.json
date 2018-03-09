@@ -21,6 +21,7 @@
   "BUTTON": {
     "CREATE": "創建",
     "CANCEL": "取消",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "刪除",
     "EDIT": "編輯",
@@ -80,10 +81,15 @@
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
     "SETTINGS": "Settings",
     "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",
         "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Pickup notifications",
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
     }
   },

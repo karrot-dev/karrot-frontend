@@ -21,6 +21,7 @@
   "BUTTON": {
     "CREATE": "Erstellen",
     "CANCEL": "Abbrechen",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "Löschen",
     "EDIT": "Bearbeiten",
@@ -80,10 +81,15 @@
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
     "SETTINGS": "Settings",
     "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",
         "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Pickup notifications",
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
     }
   },

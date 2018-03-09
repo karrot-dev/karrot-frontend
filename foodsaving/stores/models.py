@@ -1,15 +1,24 @@
+from enum import Enum
+
 from django.conf import settings
 from django.db import models
 
 from foodsaving.base.base_models import BaseModel, LocationModel
 
 
+class StoreStatus(Enum):
+    CREATED = 'created'
+    NEGOTIATING = 'negotiating'
+    ACTIVE = 'active'
+    DECLINED = 'declined'
+    ARCHIVED = 'archived'
+
+
 class Store(BaseModel, LocationModel):
     class Meta:
         unique_together = ('group', 'name')
 
-    DEFAULT_STATUS = 'created'
-    STATUSES = (DEFAULT_STATUS, 'negotiating', 'active', 'declined', 'archived')
+    DEFAULT_STATUS = StoreStatus.CREATED.value
 
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE, related_name='store')
     name = models.CharField(max_length=settings.NAME_MAX_LENGTH)

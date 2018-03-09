@@ -8,12 +8,14 @@ from foodsaving.groups.models import Group, GroupMembership, GroupNotificationTy
 from foodsaving.pickups import stats
 from foodsaving.pickups.emails import prepare_pickup_notification_email
 from foodsaving.pickups.models import PickupDate
+from foodsaving.stores.models import StoreStatus
 from foodsaving.users.models import User
 from foodsaving.utils import stats_utils
 
 
 def fetch_user_pickups(group, user, start_date, end_date):
     return PickupDate.objects.filter(
+        store__status=StoreStatus.ACTIVE.value,
         store__group=group,
         date__gte=start_date,
         date__lt=end_date,
@@ -54,6 +56,7 @@ def fetch_pickup_notification_data_for_group(group):
     pickups = PickupDate.objects.annotate(
         num_collectors=Count('collectors'),
     ).filter(
+        store__status=StoreStatus.ACTIVE.value,
         store__group=group,
     ).order_by('date')
 

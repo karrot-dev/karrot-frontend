@@ -12,6 +12,7 @@ from foodsaving.groups.models import GroupMembership
 from foodsaving.pickups.models import PickupDate
 from foodsaving.pickups.tasks import daily_pickup_notifications, fetch_pickup_notification_data_for_group
 from foodsaving.stores.factories import StoreFactory
+from foodsaving.stores.models import StoreStatus
 from foodsaving.users.factories import VerifiedUserFactory, UserFactory
 from foodsaving.utils.email_utils import store_url
 
@@ -34,21 +35,27 @@ class TestPickupNotificationTask(APITestCase):
         )
         self.store = StoreFactory(group=self.group)
 
+        self.declined_store = StoreFactory(group=self.group, status=StoreStatus.DECLINED.value)
+
         # unsubscribe other_user from notifications
         GroupMembership.objects.filter(group=self.group, user=self.other_user).update(notification_types=[])
 
         mail.outbox = []
 
-    def create_empty_pickup(self, delta):
+    def create_empty_pickup(self, delta, store=None):
+        if store is None:
+            store = self.store
         return PickupDate.objects.create(
-            store=self.store,
+            store=store,
             date=timezone.localtime() + delta,
             max_collectors=1,
         )
 
-    def create_not_full_pickup(self, delta):
+    def create_not_full_pickup(self, delta, store=None):
+        if store is None:
+            store = self.store
         pickup = PickupDate.objects.create(
-            store=self.store,
+            store=store,
             date=timezone.localtime() + delta,
             max_collectors=2,
         )
@@ -56,9 +63,11 @@ class TestPickupNotificationTask(APITestCase):
         pickup.save()
         return pickup
 
-    def create_user_pickup(self, delta, **kwargs):
+    def create_user_pickup(self, delta, store=None, **kwargs):
+        if store is None:
+            store = self.store
         pickup = PickupDate.objects.create(
-            store=self.store,
+            store=store,
             date=timezone.localtime() + delta,
             **kwargs,
         )
@@ -113,6 +122,12 @@ class TestPickupNotificationTask(APITestCase):
     def test_does_not_send_at_other_times(self):
         with group_timezone_at(self.group, hour=21):
             self.create_empty_pickup(delta=relativedelta(minutes=10))
+            daily_pickup_notifications()
+            self.assertEqual(len(mail.outbox), 0)
+
+    def test_ignores_not_active_stores(self):
+        with group_timezone_at(self.group, hour=20):
+            self.create_empty_pickup(delta=relativedelta(minutes=10), store=self.declined_store)
             daily_pickup_notifications()
             self.assertEqual(len(mail.outbox), 0)
 

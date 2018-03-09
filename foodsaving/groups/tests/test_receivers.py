@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from django.contrib.contenttypes.models import ContentType
 from django.test import TestCase
 from django.utils import timezone
@@ -44,3 +46,22 @@ class TestConversationReceiver(TestCase):
     def get_conversation_for_group(self, group):
         return Conversation.objects.filter(target_id=group.id,
                                            target_type=ContentType.objects.get_for_model(group)).first()
+
+
+class TestSendStatistics(TestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.member = UserFactory()
+        self.group = GroupFactory(members=[self.member])
+
+    @patch('foodsaving.groups.stats.write_points')
+    def test_send_group_join_stats(self, write_mock):
+        self.group.add_member(self.user)
+        self.assertTrue(write_mock.called)
+
+    @patch('foodsaving.groups.stats.write_points')
+    def test_non_send_group_join_stats_on_update(self, write_mock):
+        membership = GroupMembership.objects.get(group=self.group, user=self.member)
+        membership.inactive_at = None
+        membership.save()
+        self.assertFalse(write_mock.called)

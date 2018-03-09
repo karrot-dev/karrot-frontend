@@ -26,12 +26,12 @@ def group_deleted(**kwargs):
 
 @receiver(post_save, sender=GroupMembership)
 def group_member_added(sender, instance, **kwargs):
-    """When a user is removed from a conversation we will notify them."""
-    group = instance.group
-    user = instance.user
-    conversation = Conversation.objects.get_or_create_for_target(group)
-    conversation.join(user)
-    stats.group_joined(group)
+    if kwargs.get('created') is True:
+        group = instance.group
+        user = instance.user
+        conversation = Conversation.objects.get_or_create_for_target(group)
+        conversation.join(user)
+        stats.group_joined(group)
 
 
 @receiver(pre_delete, sender=GroupMembership)

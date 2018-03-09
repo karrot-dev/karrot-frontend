@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 14:41+0000\n"
+"POT-Creation-Date: 2018-03-09 16:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Russian (https://www.transifex.com/yunity-1/teams/68631/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -33,17 +33,17 @@ msgid ""
 "the %(site_name)s team"
 msgstr ""
 
-#: foodsaving/conversations/api.py:28
-#: foodsaving/conversations/serializers.py:94
+#: foodsaving/conversations/api.py:33 foodsaving/conversations/api.py:52
+#: foodsaving/conversations/serializers.py:120
 msgid "You are not in this conversation"
 msgstr ""
 
-#: foodsaving/conversations/templates/conversation_message_notification.html.jinja2:87
+#: foodsaving/conversations/templates/conversation_message_notification.html.jinja2:90
 msgid ""
 "You are receiving this because you are subscribed to this conversation."
 msgstr ""
 
-#: foodsaving/conversations/templates/conversation_message_notification.html.jinja2:88
+#: foodsaving/conversations/templates/conversation_message_notification.html.jinja2:91
 #, python-format
 msgid ""
 "Reply to this email directly, <a href=\"%(conversation_url)s\">view it on "
@@ -62,68 +62,120 @@ msgstr ""
 msgid "Unknown timezone"
 msgstr ""
 
-#: foodsaving/groups/serializers.py:83 foodsaving/groups/serializers.py:153
+#: foodsaving/groups/serializers.py:88 foodsaving/groups/serializers.py:158
 msgid "You cannot manage agreements"
 msgstr ""
 
-#: foodsaving/groups/serializers.py:85
+#: foodsaving/groups/serializers.py:90
 msgid "Agreement is not for this group"
 msgstr ""
 
-#: foodsaving/groups/serializers.py:151
+#: foodsaving/groups/serializers.py:156
 msgid "You are not in this group"
 msgstr ""
 
-#: foodsaving/groups/serializers.py:217
+#: foodsaving/groups/serializers.py:223
 msgid "Group password is wrong"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:4
-#: foodsaving/groups/templates/group_summary.html.jinja2:105
+#: foodsaving/groups/templates/group_summary.html.jinja2:108
 #, python-format
 msgid "%(group_name)s weekly summary"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:107
+#: foodsaving/groups/templates/group_summary.html.jinja2:110
 msgid ""
 "Hope you are having a good weekend! Here's a summary of what happened in "
 "your group last week"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:111
+#: foodsaving/groups/templates/group_summary.html.jinja2:114
 #, python-format
 msgid "%(pickups_done_count)s pickups were done"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:113
+#: foodsaving/groups/templates/group_summary.html.jinja2:116
 msgid "no pickups were done"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:117
+#: foodsaving/groups/templates/group_summary.html.jinja2:120
 #, python-format
 msgid "%(pickups_missed_count)s pickups were missed"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:120
+#: foodsaving/groups/templates/group_summary.html.jinja2:123
 msgid "no pickups were missed"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:126
+#: foodsaving/groups/templates/group_summary.html.jinja2:129
 #, python-format
 msgid "%(new_user_count)s people joined the group"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:134
+#: foodsaving/groups/templates/group_summary.html.jinja2:137
 #, python-format
 msgid "%(sent_messages_count)s messages were sent"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:136
+#: foodsaving/groups/templates/group_summary.html.jinja2:139
 msgid "no messages were sent"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:142
+#: foodsaving/groups/templates/group_summary.html.jinja2:145
 msgid "Here's what was said last week"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:153
+msgid ""
+"You are receiving this because you are subscribed to <strong>Weekly "
+"summary</strong> emails for this group."
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:154
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:186
+#, python-format
+msgid "<a href=\"%(settings_url)s\">Change your settings</a>."
+msgstr ""
+
+#: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:109
+msgid "Hey, we're missing you!"
+msgstr ""
+
+#: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:112
+#, python-format
+msgid ""
+"It looks like you've not visited the\n"
+"                                <a href=\"%(group_url)s\">%(group_name)s</a> group for over %(num_days_inactive)s\n"
+"                                days."
+msgstr ""
+
+#: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:117
+msgid ""
+"We've marked you as inactive, but you can reactivate by simply visiting the group\n"
+"                                again."
+msgstr ""
+
+#: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:119
+#, python-format
+msgid "Visit %(group_name)s"
+msgstr ""
+
+#: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:120
+#, python-format
+msgid ""
+"You are receiving this because you are a member of "
+"<strong>%(group_name)s</strong>."
+msgstr ""
+
+#: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:121
+#, python-format
+msgid "You can leave the group from the <a href=\"%(group_url)s\">group page</a>."
+msgstr ""
+
+#: foodsaving/groups/templates/user_inactive_in_group.subject.jinja2:1
+#, python-format
+msgid "%(group_name)s is missing you!"
 msgstr ""
 
 #: foodsaving/invitations/serializers.py:20
@@ -207,6 +259,42 @@ msgstr ""
 msgid "You aren't assigned to the pickup."
 msgstr ""
 
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:4
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:130
+#: foodsaving/pickups/templates/pickup_notification.subject.jinja2:1
+#, python-format
+msgid "%(group_name)s upcoming pickups"
+msgstr ""
+
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:134
+msgid "Tonight"
+msgstr ""
+
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:141
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:169
+msgid "You are signed up for"
+msgstr ""
+
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:146
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:174
+msgid "No-one is yet signed up for"
+msgstr ""
+
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:151
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:179
+msgid "There is still space available for"
+msgstr ""
+
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:164
+msgid "Tomorrow"
+msgstr ""
+
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:184
+msgid ""
+"You are receiving this because you are subscribed to\n"
+"                                <strong>Pickup notification</strong> emails for this group."
+msgstr ""
+
 #: foodsaving/stores/serializers.py:69
 msgid "Set at least one week in advance"
 msgstr ""
@@ -277,21 +365,21 @@ msgid ""
 msgstr ""
 
 #: foodsaving/users/templates/mailverification.html.jinja2:4
-#: foodsaving/users/templates/mailverification.html.jinja2:106
+#: foodsaving/users/templates/mailverification.html.jinja2:109
 msgid "Verify your email address"
 msgstr ""
 
-#: foodsaving/users/templates/mailverification.html.jinja2:105
+#: foodsaving/users/templates/mailverification.html.jinja2:108
 #, python-format
 msgid "Thank you for signing up to %(site_name)s!"
 msgstr ""
 
-#: foodsaving/users/templates/mailverification.html.jinja2:105
+#: foodsaving/users/templates/mailverification.html.jinja2:108
 #, python-format
 msgid "Welcome to %(site_name)s, %(user_display_name)s!"
 msgstr ""
 
-#: foodsaving/users/templates/mailverification.html.jinja2:106
+#: foodsaving/users/templates/mailverification.html.jinja2:109
 msgid ""
 "After we get started, please confirm your email address by clicking the link"
 " below:"

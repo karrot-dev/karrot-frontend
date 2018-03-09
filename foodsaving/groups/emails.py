@@ -10,7 +10,7 @@ from django.utils.timezone import get_current_timezone
 from config import settings
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group, GroupNotificationType, GroupMembership
-from foodsaving.pickups.models import PickupDate
+from foodsaving.pickups.models import PickupDate, Feedback
 from foodsaving.utils.email_utils import prepare_email
 
 
@@ -34,6 +34,12 @@ def prepare_group_summary_data(group, from_date, to_date):
                 date__lt=to_date,
                 num_collectors=0).count()
 
+    feedbacks = Feedback.objects.filter(
+        created_at__gte=from_date,
+        created_at__lt=to_date,
+        about__store__group=group,
+    )
+
     messages = ConversationMessage.objects.filter(
         conversation__target_type=ContentType.objects.get_for_model(Group),
         conversation__target_id=group.id,
@@ -54,6 +60,7 @@ def prepare_group_summary_data(group, from_date, to_date):
         'new_users': new_users,
         'pickups_done_count': pickups_done_count,
         'pickups_missed_count': pickups_missed_count,
+        'feedbacks': feedbacks,
         'messages': messages,
         'settings_url': settings_url,
     }

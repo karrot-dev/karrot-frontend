@@ -32,11 +32,13 @@ def store_url(store):
         store_id=store.id,
     )
 
+
 def user_url(user):
     return '{hostname}/#/user/{user_id}/'.format(
         hostname=settings.HOSTNAME,
         user_id=user.id,
     )
+
 
 def jinja2_environment(**options):
     env = Environment(**options)

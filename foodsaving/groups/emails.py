@@ -20,19 +20,23 @@ def prepare_group_summary_data(group, from_date, to_date):
         groupmembership__created_at__lt=to_date,
     ).all()
 
-    pickups_done_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors__gt=0).count()
+    pickups_done_count = PickupDate.objects.annotate(
+        num_collectors=Count('collectors')
+    ).filter(
+        store__group=group,
+        date__gte=from_date,
+        date__lt=to_date,
+        num_collectors__gt=0,
+    ).count()
 
-    pickups_missed_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors=0).count()
+    pickups_missed_count = PickupDate.objects.annotate(
+        num_collectors=Count('collectors')
+    ).filter(
+        store__group=group,
+        date__gte=from_date,
+        date__lt=to_date,
+        num_collectors=0,
+    ).count()
 
     feedbacks = Feedback.objects.filter(
         created_at__gte=from_date,

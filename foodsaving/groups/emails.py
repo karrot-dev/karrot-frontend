@@ -70,9 +70,8 @@ def prepare_group_summary_data(group, from_date, to_date):
     }
 
 
-def prepare_group_summary_emails(group, from_date, to_date):
+def prepare_group_summary_emails(group, context):
     """Prepares one email per language"""
-    context = prepare_group_summary_data(group, from_date, to_date)
 
     members = group.members.filter(
         groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)

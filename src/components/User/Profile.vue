@@ -55,6 +55,7 @@
         round
         class="inlinee on-right"
         color="secondary"
+        v-if="user.isCurrentUser"
         @click="$router.push('/settings')"
       />
       <div class="info">

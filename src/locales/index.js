@@ -72,6 +72,14 @@ const locales = {
     dateFnsLocale: () => import('date-fns/locale/it'),
   },
 
+  pl: {
+    name: 'Polski',
+    locale: 'pl',
+    messages: () => import('@/locales/locale-pl.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/pl'),
+    dateFnsLocale: () => import('date-fns/locale/pl'),
+  },
+
   ru: {
     name: 'Русский',
     locale: 'ru',
@@ -114,6 +122,7 @@ export function messages (locale) {
     case 'gu': return locales.gu.messages()
     case 'hi': return locales.hi.messages()
     case 'it': return locales.it.messages()
+    case 'pl': return locales.pl.messages()
     case 'ru': return locales.ru.messages()
     case 'sv': return locales.sv.messages()
     case 'zh': return locales.zh.messages()
@@ -131,6 +140,7 @@ export function intlLocale (locale) {
     case 'gu': return locales.gu.IntlData()
     case 'hi': return locales.hi.IntlData()
     case 'it': return locales.it.IntlData()
+    case 'pl': return locales.pl.IntlData()
     case 'ru': return locales.ru.IntlData()
     case 'sv': return locales.sv.IntlData()
     case 'zh': return locales.zh.IntlData()
@@ -148,6 +158,7 @@ export function dateFnsLocale (locale) {
     case 'gu': return locales.gu.dateFnsLocale()
     case 'hi': return locales.hi.dateFnsLocale()
     case 'it': return locales.it.dateFnsLocale()
+    case 'pl': return locales.pl.dateFnsLocale()
     case 'ru': return locales.ru.dateFnsLocale()
     case 'sv': return locales.sv.dateFnsLocale()
     case 'zh': return locales.zh.dateFnsLocale()

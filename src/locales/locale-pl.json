@@ -1,0 +1,349 @@
+{
+  "GLOBAL": {
+    "GITHUB_NOTE": "Development",
+    "FSWW_NOTE": "O nas",
+    "FACEBOOK_NOTE": "Dołącz do nas na Facebooku!",
+    "WARNING": "Uwaga",
+    "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
+    "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
+    "SERVER_ERROR": "Błąd serwera"
+  },
+  "USERDATA": {
+    "EMAIL": "E-mail",
+    "MOBILE_NUMBER": "Numer telefonu",
+    "PROFILE_TITLE": "Konto",
+    "PASSWORD": "Hasło",
+    "USERNAME": "Imię",
+    "WHERE_FROM": "Skąd jesteś (nie wymagane)",
+    "PHOTO": "Zdjęcie profilowe",
+    "SET_PHOTO": "Ustaw zdjęcie profilowe..."
+  },
+  "BUTTON": {
+    "CREATE": "Utwórz",
+    "CANCEL": "Anuluj",
+    "OPEN": "Otwórz",
+    "CLOSE": "Zamknij",
+    "DELETE": "Usuń",
+    "EDIT": "Edytuj",
+    "JOIN": "Dołącz",
+    "LEAVE": "Opuść",
+    "PREVIEW": "Podgląd",
+    "BACK": "Wstecz",
+    "MORE_OPTIONS": "Więcej opcji",
+    "SEARCH": "Szukaj",
+    "OF_COURSE": "Tak, oczywiście!",
+    "YES": "Tak",
+    "SAVE_CHANGES": "Zapisz zmiany",
+    "RESET": "Resetuj",
+    "CHANGE_PASSWORD": "Zmień hasło",
+    "CHANGE_EMAIL": "Zmień adres e-mail",
+    "AGREE": "Zgadzam się",
+    "REMOVE": "Usuń",
+    "ARCHIVE": "Archiwizuj"
+  },
+  "VALIDATION": {
+    "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
+    "MAXLENGTH": "Musisz użyć nie więcej niż {max} znaków.",
+    "UNIQUE": "Ten nick już istnieje, wybierz inny.",
+    "REQUIRED": "To pole jest wymagane.",
+    "VALID_EMAIL": "Wprowadź aktualny adres e-mail.",
+    "VALID_TIMEZONE": "Wprowadź aktualną strefę czasową."
+  },
+  "GROUP": {
+    "WALL": "Aktualności",
+    "GROUP": "Grupa",
+    "LEAVE": "Opuść grupę...",
+    "LEAVE_TEXT": "Czy na pewno chcesz opuścić tę grupę?",
+    "LEAVE_CONFIRMATION": "Opuściłaś/-eś {groupName}",
+    "NONMEMBER_REDIRECT": "Nie jesteś członkiem tej grupy.",
+    "EDIT": "Edytuj grupę",
+    "CREATE_TITLE": "Utwórz nową grupę",
+    "MANAGE_AGREEMENT": "Zarządzaj umową",
+    "TITLE": "Nazwa grupy",
+    "PRIVATE_DESCRIPTION_TITLE": "Opis grupy",
+    "DESCRIPTION_VERBOSE": "Opis grupy widoczny dla członków",
+    "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
+    "PASSWORD": "Wprowadź tu hasło, jeśli chcesz stworzyć grupę prywatną",
+    "PICKUPS": "Odbiory",
+    "MEMBERS": "Członkowie",
+    "STORES": "Punkty odbioru",
+    "HISTORY": "Historia",
+    "DESCRIPTION": "Opis",
+    "ADDRESS": "Adres",
+    "TIMEZONE": "Strefa czasowa",
+    "INVITE_EMAIL": "Wprowadź adres e-mail",
+    "INVITE_SEND": "Wyślij zaproszenie",
+    "INVITED_LIST": "Na te adresy e-mail już wcześniej wysłano zaproszenia:",
+    "ALREADY_INVITED": "Na ten adres e-mail już wcześniej wysłano zaproszenie",
+    "INVITATIONS": "Zaproszenia",
+    "INVITE_TITLE": "Zaproś użytkowników do Twojej grupy",
+    "INVITATION_ACCEPT_SUCCESS": "Witamy! Przyjęłaś/-łeś zaproszenie.",
+    "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
+    "SETTINGS": "Ustawienia",
+    "NOTIFICATIONS": "Powiadomienia",
+    "EMAIL_NOTIFICATIONS": "Powiadomienia e-mail",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Podsumowanie tygodnia",
+        "DESCRIPTION": "Bądź na bieżąco z wydarzeniami w grupie."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Powiadomienia o odbiorach",
+        "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca."
+      }
+    }
+  },
+  "GROUPMAP": {
+    "TITLE": "Mapa",
+    "SHOW_USERS": "Pokaż użytkowników",
+    "HIDE_USERS": "Ukryj użytkowników",
+    "SHOW_STORES": "Pokaż punkty odbioru",
+    "HIDE_STORES": "Ukryj punkty odbioru",
+    "SET_LOCATION": "Ustaw lokalizację",
+    "FULL_SCREEN": "Pełny ekran"
+  },
+  "STOREDETAIL": {
+    "EDIT": "Edytuj punkt odbioru",
+    "MANAGE": "Zarządzaj odbiorami",
+    "ARCHIVED": "Ten punkt odbioru został przeniesiony do archiwum",
+    "INACTIVE": "Ten punkt odbioru obecnie nie współpracuje.",
+    "CHANGE_STATUS": "Możesz zmienić status w zakładce Ustawienia.",
+    "NO_DESCRIPTION": "Ten punkt odbioru nie ma jeszcze opisu"
+  },
+  "STOREEDIT": {
+    "NAME": "Nazwa",
+    "STATUS":"Status",
+    "DESCRIPTION": "Opis",
+    "ADDRESS": "Adres",
+    "WEEKS_IN_ADVANCE": "Ile tygodni do przodu ma być widoczna tabelka odbiorów?",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "TITLE": "Przenieś punkt odbioru do archiwum",
+        "MESSAGE": "Jesteś pewna/-y?",
+        "CONFIRM": "Tak, przenieś punkt odbioru do archiwum"
+      }
+    },
+    "RESTORE": "Przywróć"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "Zarządzaj odbiorami",
+    "SERIES": "Powtarzające się odbiory",
+    "SINGLE": "Odbiory jednorazowe",
+    "UPCOMING_PICKUPS_IN_SERIES": "Nadchodzące odbiory"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "Usuń powtarzające się odbiory",
+    "DELETE_SERIES_TEXT": "Czy na pewno chcesz usunąć te powtarzające się odbiory? Ta czynność usunie również wszystkie odbiory jednorazowe, które należą do tych powtarzających się odbiorów (oprócz tych, na które już ktoś się zapisał)."
+  },
+  "USERDETAIL": {
+    "DISPLAY_NAME": "Nick",
+    "DESCRIPTION": "O Tobie",
+    "OLD_PASSWORD": "Stare hasło",
+    "PASSWORD": "Wprowadź nowe hasło"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(Użytkownik jest niedostępny lub konto usunięto)"
+  },
+  "JOINGROUP": {
+    "WHICHGROUP": "Do której grupy chcesz dołączyć?",
+    "NUM_MEMBERS": "Użytkownik | Użytkownicy",
+    "NO_PUBLIC_DESCRIPTION": "(Ta grupa nie ma jeszcze opisu...)",
+    "PASSWORD_LABEL": "Wprowadź hasło do grupy prywatnej",
+    "PASSWORD_REQUIRED": "Ta grupa wymaga podania hasła",
+    "ALL_GROUPS": "Wszystkie grupy",
+    "SIGNUP_OR_LOGIN": "Zaloguj się lub zarejestruj, aby dołączyć do tej grupy!",
+    "MY_GROUPS": "Moje grupy",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "Zostałeś wylogowana/-y. {login}",
+      "LOG_IN": "Zaloguj się, aby zobaczyć swoje grupy!"
+    },
+    "PROFILE_NOTE": "Jeśli dołączysz do tej grupy, twoje dane profilowe będą widoczne dla innych członków tej grupy."
+  },
+  "GROUPINFO": {
+    "TITLE": "Informacje o grupie",
+    "META": "Pokaż informacje o grupie",
+    "MEMBER_VIEW": "Należysz do tej grupy. Kliknij tutaj, aby przełączyć na pełny widok."
+  },
+  "TOPBAR": {
+    "LOGOUT": "Wyloguj się",
+    "USERPROFILE": "Zobacz swój profil",
+    "CHANGE_GROUP": "Zmień grupę"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "Jak zbudować grupę ratowników",
+    "BLOG_SUB": "Aktualności na temat systemu karrot",
+    "GIT_SUB": "Zobacz nasz kod!"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "SUBMIT": "Zaloguj się",
+    "SIGNUP": "Zarejestruj się",
+    "FORGOT_PASSWORD": "Zapomniałaś/-eś hasła?"
+  },
+  "SIGNUP": {
+    "TITLE": "Zarejestruj się",
+    "BACK": "Wróć do strony logowania",
+    "OK": "Dołącz"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "Potwierdzenie adresu e-mail",
+    "SUCCESS": "Twój adres e-mail został pomyślnie zweryfikowany!"
+  },
+  "CREATEPICKUP": {
+    "FREQUENCY": "Częstotliwość",
+    "WEEKLY": "Co tydzień",
+    "CUSTOM": "Inne",
+    "WEEKDAYS": "Dni tygodnia",
+    "WEEKDAYS_HELPER": "W jakie dni odbieramy jedzenie?",
+    "RRULE": "Reguła powtarzania",
+    "RRULE_HELPER": "Wprowadź regułę w formacie {ruleHelper}, na przykład {ruleExample} albo {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalendar",
+    "RRULE_EXAMPLE": "ostatni dzień roboczy każdego miesiąca (pn-pt)",
+    "RRULE_EXAMPLE2": "co drugi poniedziałek",
+    "STARTDATE": "Data początkowa",
+    "STARTDATE_HELPER": "Kiedy zaczną się odbiory?",
+    "TIME": "Godzina odbioru",
+    "TIME_HELPER": "O której godzinie odbieramy jedzenie?",
+    "DATE": "Data",
+    "DATE_HELPER": "Którego dnia odbieramy jedzenie?",
+    "MAX_COLLECTORS": "Maksymalna liczba ratowników",
+    "MAX_COLLECTORS_HELPER": "Ile osób może maksymalnie uczestniczyć w odbiorze?",
+    "COMMENT": "Dodatkowe informacje",
+    "COMMENT_HELPER": "Co powinni wiedzieć ratownicy, którzy zapisują się na ten odbiór?",
+    "DELETION_FORBIDDEN_HELPER": "Nie można usunąć tego odbioru, ponieważ ktoś już się na niego zapisał",
+    "UNLIMITED": "bez ograniczeń"
+  },
+  "CREATESTORE": {
+    "TITLE": "Dodaj nowy punkt odbioru"
+  },
+  "PICKUPLIST": {
+    "AVAILABLE": "Czeka Cię odbiór w najbliższych dniach! | W najbliższych dniach czekają Cię {count} odbiory!",
+    "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
+    "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
+    "ITEM": {
+      "LEAVE": "Zrezygnuj",
+      "JOIN": "Odbierz",
+      "JOIN_CONFIRMATION_HEADER": "Dołącz do odbioru",
+      "JOIN_CONFIRMATION_TEXT": "Czy na pewno odbierzesz jedzenie {date}?",
+      "LEAVE_CONFIRMATION_HEADER": "Zrezygnuj z odbioru",
+      "LEAVE_CONFIRMATION_TEXT": "Czy na pewno inni będą w stanie odebrać jedzenie, jeśli się nie pojawisz?"
+    },
+    "NONE": "Brak nadchodzących odbiorów",
+    "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu odbioru.",
+    "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami."
+  },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
+    "GIVE_FEEDBACK": "Dodaj komentarz",
+    "NONE": "Brak komentarzy",
+    "NONE_HINT": "Tutaj pojawią się komentarze"
+  },
+  "PICKUP_FEEDBACK": {
+    "TITLE": "Komentarz",
+    "HEADER": "Dzięki za odbiór!",
+    "EDIT": "Edytuj komentarz",
+    "SUBTITLE": "Tutaj możesz dodać komentarz na temat odbioru",
+    "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
+    "COMMENT": "Komentarz",
+    "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
+    "PREVIOUS": "Wcześniejsze komentarze dla {store}"
+  },
+  "PASSWORDRESET": {
+    "TITLE": "Resetuj hasło",
+    "INTRO": "Wprowadź adres e-mail i wkrótce wyślemy Ci nowe hasło (jeśli jesteś zarejestrowanym użytkownikiem).",
+    "EMAIL": "E-mail",
+    "SUBMIT": "Odbierz nowe hasło",
+    "LOGIN": "Wróć do strony logowania",
+    "SUCCESS": "Przyjęliśmy Twoją prośbę o zmianę hasła. Sprawdź swoją pocztę!"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Dodaj więcej języków!",
+    "SWITCH": "Zmień język"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "pogrubienie",
+    "ITALIC": "kursywa",
+    "STRIKE": "przekreślenie",
+    "QUOTE": "cytat",
+    "HELP": "Czym jest Markdown?"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "utworzył/-a grupę",
+    "GROUP_MODIFY": "zmienił/-a ustawienia grupy",
+    "GROUP_JOIN": "dołączył/-a do grupy",
+    "GROUP_LEAVE": "opuścił/-a grupę",
+    "STORE_CREATE": "utworzył/-a punkt odbioru {name}",
+    "STORE_MODIFY": "zmienił/-a ustawienia punktu odbioru {name}",
+    "STORE_DELETE": "usunięty punkt odbioru {name}",
+    "PICKUP_CREATE": "dodał/-a jednorazowy odbiór",
+    "PICKUP_MODIFY": "zmienił/-a ustawienia odbioru",
+    "PICKUP_DELETE": "usunął/-ęła odbiór",
+    "SERIES_CREATE": "dodał/-a powtarzający się odbiór",
+    "SERIES_MODIFY": "zmienił/-a ustawienia powtarzającego się odbioru",
+    "SERIES_DELETE": "usunął/-ęła powtarzający się odbiór",
+    "PICKUP_DONE": "odebrał/-a {storeName}",
+    "PICKUP_MISSED": "Przegapiono odbiór w {storeName}!",
+    "PICKUP_JOIN": "zapisał/-a się na odbiór w {storeName}",
+    "PICKUP_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
+    "NOTHING_HAPPENEND": "Jeszcze nic się nie wydarzyło...",
+    "DETAILS": "Więcej informacji"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Powiadomienia",
+    "NOT_VERIFIED": "nie zweryfikowano adresu {email}",
+    "CHECK_YOUR_MAILS": "Sprawdź pocztę lub {resend}",
+    "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
+    "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę."
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "Przepraszamy, nie możemy znaleźć tej strony.",
+    "HOME": "Strona główna"
+  },
+  "SETTINGS": {
+    "TITLE": "Ustawienia"
+  },
+  "AGREEMENT": {
+    "NEW": "Nowa umowa",
+    "AGREE": "Musisz zgodzić się na warunki umowy {title}",
+    "VIEW": "Zobacz umowę",
+    "TITLE": "Nazwa",
+    "TITLE_HELPER": "Nazwij umowę, na przykład: Zasady naszej grupy",
+    "CONTENT": "Treść",
+    "CONTENT_HELPER": "Treść umowy",
+    "MINOR_EDIT": "Drobne zmiany?",
+    "MINOR_EDIT_HELPER": "Literówki, itp... użytkownicy nie będą musieli ponownie akceptować umowy",
+    "BLURB1": "Jeszcze nie masz umowy!",
+    "BLURB2": "Jeśli dodasz umowę, użytkownicy będą musieli najpierw ją zaakceptować, aby móc zapisywać się na odbiory.",
+    "DIALOGS": {
+      "REPLACE": {
+        "TITLE": "Zmienić umowę?",
+        "MESSAGE": "Każdy z użytkowników będzie musiał ponownie zaakceptować umowę aby móc zapisywać się na odbiory",
+        "CONFIRM": "Tak, zmień umowę"
+      },
+      "REMOVE": {
+        "TITLE": "Usunąć umowę?",
+        "MESSAGE": "W takim przypadku każdy będzie mógł zapisać się na odbiór",
+        "CONFIRM": "Tak, usuń umowę"
+      }
+    }
+  },
+  "WALL": {
+    "WRITE_MESSAGE": "Napisz wiadomość...",
+    "WRITE_FIRST_MESSAGE": "Napisz pierwszą wiadomość...",
+    "DISABLE_NOTIFICATION_EMAILS": "Włączono powiadomienia e-mail, kliknij aby wyłączyć",
+    "ENABLE_NOTIFICATION_EMAILS": "Wyłączono powiadomienia e-mail, kliknij aby włączyć",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Zweryfikuj swój adres e-mail, aby móc odbierać powiadomienia",
+    "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
+  },
+  "CONVERSATION": {
+    "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
+    "MARK_READ": "Oznacz wszystkie jako przeczytane"
+  },
+  "STORESTATUS":{
+    "ACTIVE": "Współpracuje",
+    "CREATED": "Dopiero utworzono",
+    "NEGOTIATING": "W trakcie negocjacji",
+    "DECLINED": "Nie chce współpracować",
+    "ARCHIVED": "Przeniesiono do archiwum"
+  }
+}

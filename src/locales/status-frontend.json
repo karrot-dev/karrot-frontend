@@ -33,15 +33,15 @@
     "untranslated_words": 1128
   },
   "de": {
-    "completed": "92%",
-    "last_commiter": "tilmann",
-    "last_update": "2018-03-09 15:42:24",
+    "completed": "93%",
+    "last_commiter": "djahnie",
+    "last_update": "2018-03-10 10:03:10",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 236,
-    "translated_words": 1032,
-    "untranslated_entities": 21,
-    "untranslated_words": 104
+    "translated_entities": 238,
+    "translated_words": 1038,
+    "untranslated_entities": 19,
+    "untranslated_words": 98
   },
   "en": {
     "completed": "100%",
@@ -143,15 +143,15 @@
     "untranslated_words": 1136
   },
   "pl": {
-    "completed": "98%",
-    "last_commiter": "tilmann",
-    "last_update": "2018-03-09 15:42:24",
+    "completed": "100%",
+    "last_commiter": "Tomasz.P",
+    "last_update": "2018-03-10 12:34:13",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 253,
-    "translated_words": 1114,
-    "untranslated_entities": 4,
-    "untranslated_words": 22
+    "translated_entities": 257,
+    "translated_words": 1136,
+    "untranslated_entities": 0,
+    "untranslated_words": 0
   },
   "pt_BR": {
     "completed": "0%",

@@ -4,7 +4,7 @@
     <!-- reactions -->
     <q-btn
       class="reaction-button emoji-button"
-      @click.native="toggleReaction(reaction.name)"
+      @click="toggleReaction(reaction.name)"
       v-for="reaction in collectedReactions"
       :key="reaction.name"
       flat
@@ -30,7 +30,7 @@
       >
         <q-btn
           class="reaction-menu-button emoji-button"
-          @click.native="toggleReaction(reaction)"
+          @click="toggleReaction(reaction)"
           v-for="reaction in reactionsWhitelist"
           :key="reaction"
           flat

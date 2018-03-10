@@ -137,16 +137,18 @@ msgid ""
 "You are receiving this because you are subscribed to <strong>Weekly "
 "summary</strong> emails for this group."
 msgstr ""
+"Otrzymałaś/-eś tę wiadomość, ponieważ subskrybujesz <strong>podsumowanie "
+"tygodnia</strong> dla tej grupy."
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:154
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:186
 #, python-format
 msgid "<a href=\"%(settings_url)s\">Change your settings</a>."
-msgstr ""
+msgstr "<a href=\"%(settings_url)s\">Zmień ustawienia</a>."
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:109
 msgid "Hey, we're missing you!"
-msgstr ""
+msgstr "Hej, już dawno Cię nie widzieliśmy!"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:112
 #, python-format
@@ -155,17 +157,21 @@ msgid ""
 "                                <a href=\"%(group_url)s\">%(group_name)s</a> group for over %(num_days_inactive)s\n"
 "                                days."
 msgstr ""
+"Wygląda na to , że ostatni raz odwiedziłaś/-eś <a "
+"href=\"%(group_url)s\">%(group_name)s</a> %(num_days_inactive)s dni temu."
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:117
 msgid ""
 "We've marked you as inactive, but you can reactivate by simply visiting the group\n"
 "                                again."
 msgstr ""
+"Oznaczyliśmy Twoje konto jako nieaktywne, ale możesz je szybko reaktywować, "
+"odwiedzając grupę."
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:119
 #, python-format
 msgid "Visit %(group_name)s"
-msgstr ""
+msgstr "Odwiedź %(group_name)s"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:120
 #, python-format
@@ -173,16 +179,18 @@ msgid ""
 "You are receiving this because you are a member of "
 "<strong>%(group_name)s</strong>."
 msgstr ""
+"Otrzymałaś/-eś tę wiadomość, ponieważ jesteś członkiem "
+"<strong>%(group_name)s</strong>."
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:121
 #, python-format
 msgid "You can leave the group from the <a href=\"%(group_url)s\">group page</a>."
-msgstr ""
+msgstr "Możesz opuścić grupę poprzez <a href=\"%(group_url)s\">stronę grupy</a>."
 
 #: foodsaving/groups/templates/user_inactive_in_group.subject.jinja2:1
 #, python-format
 msgid "%(group_name)s is missing you!"
-msgstr ""
+msgstr "%(group_name)s tęskni za Twoimi odbiorami!"
 
 #: foodsaving/invitations/serializers.py:20
 msgid "An invitation has already been sent to this e-mail address"
@@ -275,36 +283,38 @@ msgstr "Nie jesteś zapisana/-y na ten odbiór."
 #: foodsaving/pickups/templates/pickup_notification.subject.jinja2:1
 #, python-format
 msgid "%(group_name)s upcoming pickups"
-msgstr ""
+msgstr "%(group_name)s nadchodzących odbiorów"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:134
 msgid "Tonight"
-msgstr ""
+msgstr "Dziś wieczorem"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:141
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:169
 msgid "You are signed up for"
-msgstr ""
+msgstr "Zapisałaś/-eś się na"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:146
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:174
 msgid "No-one is yet signed up for"
-msgstr ""
+msgstr "Jeszcze nikt nie zapisał się na"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:151
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:179
 msgid "There is still space available for"
-msgstr ""
+msgstr "Wciąż są wolne miejsca na odbiór"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:164
 msgid "Tomorrow"
-msgstr ""
+msgstr "Jutro"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:184
 msgid ""
 "You are receiving this because you are subscribed to\n"
 "                                <strong>Pickup notification</strong> emails for this group."
 msgstr ""
+"Otrzymałaś/-eś tę wiadomość, ponieważ subskrybujesz <strong>powiadomienia o "
+"odbiorach</strong> dla tej grupy."
 
 #: foodsaving/stores/serializers.py:69
 msgid "Set at least one week in advance"

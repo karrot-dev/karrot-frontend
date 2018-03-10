@@ -33,11 +33,19 @@ def store_url(store):
     )
 
 
+def user_url(user):
+    return '{hostname}/#/user/{user_id}/'.format(
+        hostname=settings.HOSTNAME,
+        user_id=user.id,
+    )
+
+
 def jinja2_environment(**options):
     env = Environment(**options)
     env.filters['date'] = date_filter
     env.filters['time'] = time_filter
     env.globals['store_url'] = store_url
+    env.globals['user_url'] = user_url
     return env
 
 

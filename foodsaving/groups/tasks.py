@@ -9,7 +9,7 @@ from influxdb_metrics.loader import write_points
 
 from config import settings
 from foodsaving.groups import stats, emails
-from foodsaving.groups.emails import prepare_user_inactive_in_group_email
+from foodsaving.groups.emails import prepare_user_inactive_in_group_email, prepare_group_summary_data
 from foodsaving.groups.models import Group
 from foodsaving.groups.models import GroupMembership
 from foodsaving.utils import stats_utils
@@ -62,9 +62,11 @@ def send_summary_emails():
 
             email_recipient_count = 0
 
-            for email in emails.prepare_group_summary_emails(group, from_date, to_date):
+            context = prepare_group_summary_data(group, from_date, to_date)
+            for email in emails.prepare_group_summary_emails(group, context):
                 try:
                     email.send()
+                    email_count += 1
                     email_recipient_count += len(email.to)
                 except Exception:
                     traceback.print_exc()
@@ -73,13 +75,19 @@ def send_summary_emails():
             group.sent_summary_up_to = to_date
             group.save()
 
-            stats.group_summary_email(group, email_recipient_count)
+            stats.group_summary_email(
+                group,
+                email_recipient_count=email_recipient_count,
+                feedback_count=context['feedbacks'].count(),
+                message_count=context['messages'].count(),
+                new_user_count=context['new_users'].count(),
+                pickups_done_count=context['pickups_done_count'],
+                pickups_missed_count=context['pickups_missed_count'],
+            )
 
             recipient_count += email_recipient_count
-            email_count += 1
 
     stats_utils.periodic_task('group__send_summary_emails', {
         'recipient_count': recipient_count,
         'email_count': email_count,
     })
-

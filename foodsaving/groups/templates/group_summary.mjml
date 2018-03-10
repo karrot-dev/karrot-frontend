@@ -37,6 +37,12 @@
                                 </li>
                             {% endif %}
 
+                            {% if feedbacks|length > 0 %}
+                                <li>{% trans feedbacks_count=feedbacks|length %}{{ feedbacks_count }} pickup feedbacks were given{% endtrans %}</li>
+                            {% else %}
+                                <li>{% trans %}no feedback was given{% endtrans %}</li>
+                            {% endif %}
+
                             {% if messages|length > 0 %}
                                 <li>{% trans sent_messages_count=messages|length %}{{ sent_messages_count }} messages were sent{% endtrans %}</li>
                             {% else %}
@@ -44,9 +50,30 @@
                             {% endif %}
                         </ul>
 
+                        {% if feedbacks|length > 0 %}
+                            <div class="divider"></div>
+                            <br>
+                            <h3>{% trans %}Pickup feedback{% endtrans %}</h3>
+                            {% for feedback in feedbacks %}
+                                <p class="feedback">
+                                    <em>{{ feedback.comment }}</em>
+                                    <br>
+                                    <span style="font-size: 14px;">
+                                        {% trans weight=feedback.weight, store_url=store_url(feedback.about.store), store_name=feedback.about.store.name %}
+                                            {{ weight }}kg
+                                            from
+                                            <a href="{{ store_url }}">
+                                                {{ store_name }}
+                                            </a>
+                                        {% endtrans %}
+                                    </span>
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+
                         {% if messages|length > 0 %}
                             <div class="divider"></div>
-                            <p>{% trans %}Here's what was said last week{% endtrans %}:</p>
+                            <h3>{% trans %}Here's what was said last week{% endtrans %}</h3>
                             {% for message in messages %}
                                 <div class="message">
                                     <span class="message-author">{{ message.author.display_name }}</span><br>

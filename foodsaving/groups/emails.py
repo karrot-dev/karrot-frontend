@@ -10,7 +10,7 @@ from django.utils.timezone import get_current_timezone
 from config import settings
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.models import Group, GroupNotificationType, GroupMembership
-from foodsaving.pickups.models import PickupDate
+from foodsaving.pickups.models import PickupDate, Feedback
 from foodsaving.utils.email_utils import prepare_email
 
 
@@ -20,19 +20,29 @@ def prepare_group_summary_data(group, from_date, to_date):
         groupmembership__created_at__lt=to_date,
     ).all()
 
-    pickups_done_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors__gt=0).count()
+    pickups_done_count = PickupDate.objects.annotate(
+        num_collectors=Count('collectors')
+    ).filter(
+        store__group=group,
+        date__gte=from_date,
+        date__lt=to_date,
+        num_collectors__gt=0,
+    ).count()
 
-    pickups_missed_count = PickupDate.objects \
-        .annotate(num_collectors=Count('collectors')) \
-        .filter(store__group=group,
-                date__gte=from_date,
-                date__lt=to_date,
-                num_collectors=0).count()
+    pickups_missed_count = PickupDate.objects.annotate(
+        num_collectors=Count('collectors')
+    ).filter(
+        store__group=group,
+        date__gte=from_date,
+        date__lt=to_date,
+        num_collectors=0,
+    ).count()
+
+    feedbacks = Feedback.objects.filter(
+        created_at__gte=from_date,
+        created_at__lt=to_date,
+        about__store__group=group,
+    )
 
     messages = ConversationMessage.objects.filter(
         conversation__target_type=ContentType.objects.get_for_model(Group),
@@ -54,14 +64,14 @@ def prepare_group_summary_data(group, from_date, to_date):
         'new_users': new_users,
         'pickups_done_count': pickups_done_count,
         'pickups_missed_count': pickups_missed_count,
+        'feedbacks': feedbacks,
         'messages': messages,
         'settings_url': settings_url,
     }
 
 
-def prepare_group_summary_emails(group, from_date, to_date):
+def prepare_group_summary_emails(group, context):
     """Prepares one email per language"""
-    context = prepare_group_summary_data(group, from_date, to_date)
 
     members = group.members.filter(
         groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)

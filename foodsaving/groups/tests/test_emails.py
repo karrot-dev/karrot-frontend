@@ -32,8 +32,9 @@ class TestGroupSummaryEmails(APITestCase):
         for i in list(range(n)):
             self.group.add_member(VerifiedUserFactory(language='en'))
 
-        from_date, to_date = foodsaving.groups.emails.calculate_group_summary_dates(self.group)
-        emails = foodsaving.groups.emails.prepare_group_summary_emails(self.group, from_date, to_date)
+        from_date, to_date = group_emails.calculate_group_summary_dates(self.group)
+        context = group_emails.prepare_group_summary_data(self.group, from_date, to_date)
+        emails = group_emails.prepare_group_summary_emails(self.group, context)
         self.assertEqual(len(emails), 1)
 
         expected_members = self.group.members.filter(
@@ -61,7 +62,8 @@ class TestGroupSummaryEmails(APITestCase):
             self.group.add_member(VerifiedUserFactory(language='fr'))
 
         from_date, to_date = group_emails.calculate_group_summary_dates(self.group)
-        emails = group_emails.prepare_group_summary_emails(self.group, from_date, to_date)
+        context = group_emails.prepare_group_summary_data(self.group, from_date, to_date)
+        emails = group_emails.prepare_group_summary_emails(self.group, context)
         self.assertEqual(len(emails), 3)
 
         to = []

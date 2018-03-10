@@ -8,10 +8,10 @@ from django.template.loader import render_to_string
 from django.template.utils import get_app_template_dirs
 from django.utils import timezone
 
-import foodsaving.groups.emails
 from config import settings
 from foodsaving.conversations.models import ConversationMessage
-from foodsaving.groups.emails import prepare_user_inactive_in_group_email
+from foodsaving.groups.emails import prepare_user_inactive_in_group_email, prepare_group_summary_emails, \
+    prepare_group_summary_data
 from foodsaving.groups.models import Group
 from foodsaving.invitations.models import Invitation
 from foodsaving.pickups.emails import prepare_pickup_notification_email
@@ -68,7 +68,8 @@ class Handlers:
         from_date = timezone.now() - relativedelta(days=7)
         to_date = from_date + relativedelta(days=7)
 
-        summary_emails = foodsaving.groups.emails.prepare_group_summary_emails(group, from_date, to_date)
+        context = prepare_group_summary_data(group, from_date, to_date)
+        summary_emails = prepare_group_summary_emails(group, context)
         if len(summary_emails) is 0:
             raise Exception(
                 'No emails were generated, you need at least one verified user in your db, and some activity data...')

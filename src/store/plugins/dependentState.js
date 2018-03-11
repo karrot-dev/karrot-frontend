@@ -5,7 +5,9 @@ export default store => {
   store.watch(memberIdsGetter, updateUserList)
 
   // If our groups change, then available stores may change, so refresh them
-  const updateStoreList = () => store.dispatch('stores/fetch', null, { root: true })
+  const updateStoreList = () => store.dispatch('stores/fetch', null, { root: true }).catch(error => {
+    if (!error.message.startsWith('ALREADY_PENDING')) return Promise.reject(error)
+  })
   const groupIdsGetter = () => store.getters['groups/mine'].map(group => group.id).sort().join(',')
   store.watch(groupIdsGetter, updateStoreList)
 }

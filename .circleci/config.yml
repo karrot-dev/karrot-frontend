@@ -130,7 +130,7 @@ jobs:
           paths:
             - env
             - ~/.cache/pip
-          key: python-cache-{{ checksum "requirements.txt" }}-{{ checksum "requirements-dev.txt" }}
+          key: python-cache-{{ checksum "karrot-backend/requirements.txt" }}-{{ checksum "karrot-backend/requirements-dev.txt" }}
 
   lint:
     <<: *defaults

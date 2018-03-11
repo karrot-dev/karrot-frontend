@@ -6,6 +6,7 @@
       :class="{ 'fixed-bottom': true, 'z-alert': true, 'generic-padding': true, }"
       :color="alert.color"
       :icon="alert.icon"
+      :position="alert.position"
       :dismissible="isDismissible(alert)"
       @dismiss="isDismissible(alert) && $emit('dismiss', alert.id)"
       :actions="alert.actions || []"

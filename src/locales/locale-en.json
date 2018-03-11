@@ -262,6 +262,9 @@
       "OK": "Save",
       "SUCCESS": "Your new password has been saved.",
       "CODE_ERROR": "Sorry, the link you've opened is invalid."
+    },
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
     }
   },
   "LANGUAGECHOOSER": {

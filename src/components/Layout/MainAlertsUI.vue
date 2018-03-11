@@ -3,7 +3,7 @@
     <k-alert
       v-for="alert in formattedAlerts"
       :key="alert.id"
-      :class="alertClasses"
+      :class="{ 'fixed-bottom': true, 'z-alert': true, 'generic-padding': true, }"
       :color="alert.color"
       :icon="alert.icon"
       :dismissible="isDismissible(alert)"
@@ -46,6 +46,14 @@ export default {
         color: 'positive',
         icon: 'fa-check-square',
         message: 'PASSWORD.RESET.SUCCESS',
+      }
+    },
+
+    changePasswordSuccess () {
+      return {
+        color: 'positive',
+        icon: 'fa-check-square',
+        message: 'PASSWORD.CHANGE.SUCCESS',
       }
     },
 
@@ -102,13 +110,6 @@ export default {
           ...e,
         }
       })
-    },
-    alertClasses () {
-      return this.$q.platform.is.mobile ? {
-        'fixed-top': true,
-        'z-alert': true,
-        'generic-padding': true,
-      } : {}
     },
   },
 }

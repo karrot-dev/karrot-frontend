@@ -93,6 +93,9 @@ export default {
 
       async changePassword ({ commit, state, dispatch }, data) {
         await auth.changePassword(data)
+        dispatch('alerts/create', {
+          type: 'changePasswordSuccess',
+        }, { root: true })
       },
 
       async changeEmail ({ commit, dispatch }, email) {

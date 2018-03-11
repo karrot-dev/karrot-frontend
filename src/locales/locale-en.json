@@ -66,6 +66,7 @@
     "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
+    "INACTIVE": "Inactive",
     "STORES": "Stores",
     "HISTORY": "History",
     "DESCRIPTION": "Description",

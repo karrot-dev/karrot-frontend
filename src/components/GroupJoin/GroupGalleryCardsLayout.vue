@@ -41,7 +41,7 @@
     </transition>
     <transition name="slide-toggle">
       <div
-        v-if="thereAreMyGroupsToShow || (filteredOtherGroups.length == 0 && filteredMyGroups.length == 1)"
+        v-if="hasMyGroupsToShow || (filteredOtherGroups.length == 0 && filteredMyGroups.length == 1)"
         class="join-groups">
         <h4 class="text-primary">
           {{ $t('JOINGROUP.MY_GROUPS') }}
@@ -54,12 +54,13 @@
           :is-member="true"
           @showPreview="showPreview"
           @hidePreview="hidePreview"
-          @visit="$emit('visit', arguments[0])" />
+          @visit="$emit('visit', arguments[0])"
+        />
       </div>
     </transition>
     <h4
       class="text-primary generic-padding"
-      v-if="thereAreOtherGroupsToShow || !showMyGroups"
+      v-if="hasOtherGroupsToShow || !showMyGroups"
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
@@ -73,25 +74,36 @@
       </q-card>
     </transition>
     <transition name="slide-toggle">
-      <div v-if="thereAreOtherGroupsToShow || (filteredOtherGroups.length == 1 && filteredMyGroups.length == 0)">
+      <div v-if="hasOtherGroupsToShow || (filteredOtherGroups.length == 1 && filteredMyGroups.length == 0)">
         <GroupGalleryCards
           :groups="filteredOtherGroups"
           :current-group-id="currentGroupId"
           :is-logged-in="isLoggedIn"
           :preview-opened="previewOpened"
           @showPreview="showPreview"
-          @hidePreview="hidePreview"/>
+          @hidePreview="hidePreview"
+        />
       </div>
     </transition>
+    <GroupGalleryCard
+      v-if="showPlaygroundGroupAtBottom"
+      style="margin-top: 40px"
+      :group="playgroundGroup"
+      :is-member="playgroundGroup.isMember"
+      @preview="showPreview"
+      @visit="$emit('visit', arguments[0])"
+    />
   </div>
 </template>
 
 <script>
-import GroupGalleryCards from './GroupGalleryCardsUI'
+import GroupGalleryCards from './GroupGalleryCards'
+import GroupGalleryCard from './GroupGalleryCard'
 import GroupPreview from './GroupPreview'
 import { QAlert, QSearch, QCard } from 'quasar'
 
 export default {
+  components: { GroupGalleryCards, GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview },
   data () {
     return {
       previewOpened: false,
@@ -140,11 +152,14 @@ export default {
       }
       return this.otherGroups
     },
-    thereAreMyGroupsToShow () {
+    hasMyGroupsToShow () {
       return this.expanded && this.filteredMyGroups.length > 0
     },
-    thereAreOtherGroupsToShow () {
+    hasOtherGroupsToShow () {
       return this.expanded && this.filteredOtherGroups.length > 0
+    },
+    showPlaygroundGroupAtBottom () {
+      return this.playgroundGroup && !this.playgroundGroup.isMember
     },
   },
   props: {
@@ -155,6 +170,10 @@ export default {
     otherGroups: {
       required: true,
       type: Array,
+    },
+    playgroundGroup: {
+      default: undefined,
+      type: Object,
     },
     isLoggedIn: {
       required: true,
@@ -173,7 +192,6 @@ export default {
       type: Boolean,
     },
   },
-  components: { GroupGalleryCards, QAlert, QSearch, QCard, GroupPreview },
 }
 </script>
 

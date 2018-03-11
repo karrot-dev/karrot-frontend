@@ -1,5 +1,5 @@
 import GroupGalleryCardsLayout from './GroupGalleryCardsLayout'
-import GroupGalleryCards from './GroupGalleryCardsUI'
+import GroupGalleryCards from './GroupGalleryCards'
 import GroupGalleryCard from './GroupGalleryCard'
 import GroupPreview from './GroupPreview'
 

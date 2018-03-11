@@ -7,6 +7,7 @@ export default connect({
   gettersToProps: {
     myGroups: 'groups/mine',
     otherGroups: 'groups/other',
+    playgroundGroup: 'groups/playground',
     isLoggedIn: 'auth/isLoggedIn',
     currentGroupId: 'currentGroup/id',
   },

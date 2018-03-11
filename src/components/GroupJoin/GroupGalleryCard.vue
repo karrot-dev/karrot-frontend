@@ -1,5 +1,8 @@
 <template>
-  <q-card class="groupPreviewCard">
+  <q-card
+    class="groupPreviewCard"
+    :color="cardColor"
+  >
     <q-card-title class="ellipsis">
       {{ group.name }}
       <span slot="subtitle">
@@ -23,7 +26,7 @@
     <q-card-separator />
     <q-card-actions>
       <q-btn
-        v-if="isMember"
+        v-if="group.isMember"
         @click="$emit('visit')"
         class="q-btn-flat"
       >
@@ -50,17 +53,18 @@ import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTool
 import Markdown from '@/components/Markdown'
 
 export default {
+  components: { Markdown, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon },
   props: {
     group: {
       type: Object,
       required: true,
     },
-    isMember: {
-      type: Boolean,
-      required: true,
+  },
+  computed: {
+    cardColor () {
+      return this.group.status === 'playground' ? 'secondary' : undefined
     },
   },
-  components: { Markdown, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon },
 }
 </script>
 

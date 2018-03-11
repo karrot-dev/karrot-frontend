@@ -53,6 +53,8 @@ export default {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
       return currentGroup && currentGroup.saveStatus
     },
+    playground: (state, getters) => getters.all.find(g => g.status === 'playground'),
+    hasPlayground: (state, getters) => Boolean(getters.playground),
     ...metaStatuses(['create']),
   },
   actions: {
@@ -95,6 +97,10 @@ export default {
 
     update ({ commit }, group) {
       commit('update', group)
+    },
+
+    joinPlayground ({ dispatch, getters }) {
+      dispatch('join', { id: getters.playground.id })
     },
 
     async selectPreview ({ commit, getters, dispatch }, { groupPreviewId }) {

@@ -1,16 +1,19 @@
 <template>
   <div
     class="column gallery-wrapper"
-    :class="{'expanded': expanded}">
+    :class="{'expanded': expanded}"
+  >
     <GroupGalleryMap
       class="map-fixed"
       :filtered-other-groups="otherGroupsForMap"
       :filtered-my-groups="myGroupsForMap"
-      :expanded="expanded" />
+      :expanded="expanded"
+    />
     <GroupGalleryCardsLayout
       class="gallery-cards"
       :my-groups="filteredMyGroups"
       :other-groups="filteredOtherGroups"
+      :playground-group="playgroundGroup"
       :show-my-groups="myGroups.length > 0"
       :is-logged-in="isLoggedIn"
       :current-group-id="currentGroupId"
@@ -18,7 +21,8 @@
       @search="filterGroups"
       @showPreview="showPreview"
       @preview="$emit('preview', arguments[0])"
-      @visit="$emit('visit', arguments[0])">
+      @visit="$emit('visit', arguments[0])"
+    >
       <q-btn
         @click="expanded = !expanded"
         flat
@@ -26,7 +30,8 @@
       >
         <i
           class="fa fa-2x"
-          :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"/>
+          :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"
+        />
         <q-tooltip>
           {{ $t(expanded ? 'BUTTON.CLOSE' : 'BUTTON.OPEN') }}
         </q-tooltip>
@@ -66,6 +71,10 @@ export default {
     otherGroups: {
       required: true,
       type: Array,
+    },
+    playgroundGroup: {
+      default: undefined,
+      type: Object,
     },
     isLoggedIn: {
       required: true,

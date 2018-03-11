@@ -14,22 +14,22 @@ const methods = {
 storiesOf('GroupGalleryCard', module)
   .add('isMember = true', () => defaults({
     components: { GroupGalleryCard },
-    template: '<GroupGalleryCard :group="group" :isMember="true" @visit="visit" @preview="preview" />',
-    data () { return { group: groupsMock[0] } },
+    template: '<GroupGalleryCard :group="group" @visit="visit" @preview="preview" />',
+    data () { return { group: { ...groupsMock[0], isMember: true } } },
     methods,
   }))
   .add('isMember = false', () => defaults({
     components: { GroupGalleryCard },
-    template: '<GroupGalleryCard :group="group" :isMember="false" @preview="preview" />',
-    data () { return { group: groupsMock[0] } },
+    template: '<GroupGalleryCard :group="group" @preview="preview" />',
+    data () { return { group: { ...groupsMock[0], isMember: false } } },
     methods,
   }))
   .add('without public description', () => defaults({
     components: { GroupGalleryCard },
-    template: '<GroupGalleryCard :group="group" :isMember="false" @preview="preview" />',
+    template: '<GroupGalleryCard :group="group" @preview="preview" />',
     data () {
       return {
-        group: { ...groupsMock[0], publicDescription: '' },
+        group: { ...groupsMock[0], publicDescription: '', isMember: false },
       }
     },
     methods,

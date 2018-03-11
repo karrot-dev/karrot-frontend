@@ -85,6 +85,14 @@ export default {
       }
     },
 
+    playgroundGroupInfo () {
+      return {
+        color: 'positive',
+        icon: 'fa-child',
+        message: 'GROUP.PLAYGROUND_INFO',
+      }
+    },
+
   },
   computed: {
     formattedAlerts () {

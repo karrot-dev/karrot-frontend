@@ -22,6 +22,7 @@ export default {
     user: state => state.user,
     userId: state => state.user && state.user.id,
     redirectTo: state => state.redirectTo,
+    hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
     ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),
   },
   actions: {

@@ -150,7 +150,7 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
     if (id && idPrefix) id = idPrefix + id
 
     if (getters[`${namespace}/status`](actionName, id).pending) {
-      throw new Error(`ALREADY_PENDING: action already pending for ${actionName}/${id}`)
+      throw new Error(`action already pending for ${actionName}/${id}`)
     }
 
     const runAction = () => action.apply(this, arguments)

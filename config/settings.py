@@ -141,7 +141,9 @@ SESSION_CACHE_ALIAS = "default"
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-EMAIL_BACKEND = "anymail.backends.sparkpost.EmailBackend"
+# don't send out email by default, override in local_settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 SPARKPOST_EMAIL_EVENTS = ["bounce", "spam_complaint", "out_of_band", "policy_rejection"]
 EMAIL_EVENTS_AVOID = ['bounce', 'out_of_band', 'policy_rejection']
 

@@ -6314,9 +6314,6 @@ exports[`Storyshots Stores StoreList 1`] = `
 
 exports[`Storyshots VerifyMail error 1`] = `
 <div>
-    <h5>
-        my@email.com
-    </h5>
     <!---->
     <!---->
     <p>
@@ -6333,9 +6330,6 @@ exports[`Storyshots VerifyMail error 1`] = `
 
 exports[`Storyshots VerifyMail pending 1`] = `
 <div>
-    <h5>
-        my@email.com
-    </h5>
     <q-spinner-undefined size="1rem"></q-spinner-undefined>
     <!---->
     <!---->
@@ -6349,9 +6343,6 @@ exports[`Storyshots VerifyMail pending 1`] = `
 
 exports[`Storyshots VerifyMail success 1`] = `
 <div>
-    <h5>
-        my@email.com
-    </h5>
     <!---->
     <p>
         Your e-mail address was successfully verified!

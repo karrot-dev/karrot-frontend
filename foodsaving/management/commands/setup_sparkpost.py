@@ -26,7 +26,10 @@ class Command(BaseCommand):
         response = s.get('https://api.sparkpost.com/api/v1/webhooks')
         self.log_response(response)
         if not status.is_success(response.status_code):
-            self.errors.append('Failed to get existing event webhooks')
+            self.errors.append(
+                'Failed to get existing event webhooks.' +
+                'Check if your subaccount API key has permission to Read/Write Event Webhooks.'
+            )
 
         webhooks = response.json()
         event_webhook_data = {
@@ -72,7 +75,10 @@ class Command(BaseCommand):
         response = s.get('https://api.sparkpost.com/api/v1/relay-webhooks')
         self.log_response(response)
         if not status.is_success(response.status_code):
-            self.errors.append('Failed to get existing relay webhooks')
+            self.errors.append(
+                'Failed to get existing relay webhooks.' +
+                'Check if your main account API key has permission to Read/Write Relay Webhooks.'
+            )
 
         relay_webhooks = response.json()
         existing_relay = None
@@ -97,8 +103,6 @@ class Command(BaseCommand):
             if not status.is_success(response.status_code):
                 self.errors.append('Failed to create new relay webhook')
         else:
-            # TODO fix updating, if fails quite often
-            return
             response = s.put(
                 'https://api.sparkpost.com/api/v1/relay-webhooks/' + existing_relay['id'],
                 json=relay_webhook_data

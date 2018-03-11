@@ -88,6 +88,7 @@ export const groupsMock = [
   joinStatus: statusMocks.default(),
   saveStatus: statusMocks.default(),
   leaveStatus: statusMocks.default(),
+  notificationTypes: [],
 }))
 
 export const historyMock = [

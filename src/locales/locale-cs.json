@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Vývoj",
+    "FSWW_NOTE": "Read our info page!",
     "FACEBOOK_NOTE": "Přidej se k naší skupině na Facebooku!",
     "WARNING": "Varování",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
@@ -9,6 +10,7 @@
   },
   "USERDATA": {
     "EMAIL": "E-mail",
+    "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Heslo",
     "USERNAME": "Jméno",
@@ -19,6 +21,7 @@
   "BUTTON": {
     "CREATE": "Vytvoř",
     "CANCEL": "Cancel",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "Delete",
     "EDIT": "Edit",
@@ -75,7 +78,20 @@
     "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Invite users to your group",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
+    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Pickup notifications",
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "Map",
@@ -152,6 +168,11 @@
     "LOGOUT": "Logout",
     "USERPROFILE": "Visit your profile",
     "CHANGE_GROUP": "Change group"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "How to build your foodsaving group",
+    "BLOG_SUB": "All news around the karrot software",
+    "GIT_SUB": "See our code!"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -311,6 +332,7 @@
     "WRITE_FIRST_MESSAGE": "Write the first message...",
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {

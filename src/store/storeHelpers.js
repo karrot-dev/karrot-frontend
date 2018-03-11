@@ -22,3 +22,13 @@ export function getter (getterName, ...args) {
     }
   }
 }
+
+export function refresh () {
+  store.dispatch('users/refresh')
+  store.dispatch('stores/refresh')
+  store.dispatch('pickups/refresh')
+  store.dispatch('pickupSeries/refresh')
+  store.dispatch('invitations/refresh')
+  store.dispatch('history/refresh')
+  store.dispatch('groups/refresh')
+}

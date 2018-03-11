@@ -99,6 +99,13 @@ export default {
       dispatch('meta/clear', ['resendVerification'])
       commit('resendVerificationSuccess', false)
     },
+    clearResetPassword ({ commit, dispatch }) {
+      dispatch('meta/clear', ['resetPassword'])
+      commit('resetPasswordSuccess', false)
+    },
+    refresh ({ dispatch }) {
+      dispatch('fetch')
+    },
   },
   mutations: {
     select (state, userId) {

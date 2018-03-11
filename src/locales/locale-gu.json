@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "વિકાસ",
+    "FSWW_NOTE": "Read our info page!",
     "FACEBOOK_NOTE": "અમારા ફેસબુક ગ્રુપ જોડાઓ!",
     "WARNING": "ચેતવણી",
     "BETA_WARNING": "આ વેબસાઇટ સક્રિય વિકાસ હેઠળ છે અને દરેક વસ્તુ ફેરફારને પાત્ર છે. તમે દાખલ કરો છો તે ડેટાની સુરક્ષા અને ગોપનીયતા માટે અમે બાંયધરી આપી શકતા નથી (પરંતુ અમે અમારા શ્રેષ્ઠ પ્રયાસ કરીએ છીએ).",
@@ -9,6 +10,7 @@
   },
   "USERDATA": {
     "EMAIL": "મેઇલ",
+    "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "પ્રોફાઇલ",
     "PASSWORD": "પાસવર્ડ",
     "USERNAME": "નામ",
@@ -19,6 +21,7 @@
   "BUTTON": {
     "CREATE": "બનાવો",
     "CANCEL": "રદ કરો",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "કાઢી નાંખો",
     "EDIT": "સંપાદિત કરોસંપાદિત કરો",
@@ -75,7 +78,20 @@
     "INVITATIONS": "આમંત્રણો",
     "INVITE_TITLE": "તમારા જૂથમાં વપરાશકર્તાઓને આમંત્રિત કરો",
     "INVITATION_ACCEPT_SUCCESS": "સ્વાગત છે! તમે સફળતાપૂર્વક આમંત્રણ સ્વીકાર્યું છે.",
-    "INVITATION_ACCEPT_ERROR": "અરે, આમંત્રણ સ્વીકારી શક્યા નથી!"
+    "INVITATION_ACCEPT_ERROR": "અરે, આમંત્રણ સ્વીકારી શક્યા નથી!",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Pickup notifications",
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "નકશો",
@@ -152,6 +168,11 @@
     "LOGOUT": "લૉગ આઉટ",
     "USERPROFILE": "તમારી પ્રોફાઇલની મુલાકાત લો",
     "CHANGE_GROUP": "જૂથ બદલો"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "How to build your foodsaving group",
+    "BLOG_SUB": "All news around the karrot software",
+    "GIT_SUB": "See our code!"
   },
   "LOGIN": {
     "TITLE": "લૉગિન",
@@ -311,6 +332,7 @@
     "WRITE_FIRST_MESSAGE": "પ્રથમ સંદેશ લખો ...",
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {

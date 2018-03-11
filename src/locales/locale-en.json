@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
+    "FSWW_NOTE": "Read our info page!",
     "FACEBOOK_NOTE": "Join our Facebook Group!",
     "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
@@ -9,7 +10,7 @@
   },
   "USERDATA": {
     "EMAIL": "Mail",
-    "MOBILE_NUMBER": "Mobile Number",
+    "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
     "USERNAME": "Name",
@@ -20,6 +21,7 @@
   "BUTTON": {
     "CREATE": "Create",
     "CANCEL": "Cancel",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "Delete",
     "EDIT": "Edit",
@@ -76,7 +78,20 @@
     "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Invite users to your group",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!"
+    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Pickup notifications",
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "Map",
@@ -153,6 +168,11 @@
     "LOGOUT": "Logout",
     "USERPROFILE": "Visit your profile",
     "CHANGE_GROUP": "Change group"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "How to build your foodsaving group",
+    "BLOG_SUB": "All news around the karrot software",
+    "GIT_SUB": "See our code!"
   },
   "LOGIN": {
     "TITLE": "Login",

@@ -1,6 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Entwicklung",
+    "FSWW_NOTE": "Lies unsere Info Page!",
     "FACEBOOK_NOTE": "Tritt unserer Facebook-Gruppe bei!",
     "WARNING": "Warnung",
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
@@ -9,6 +10,7 @@
   },
   "USERDATA": {
     "EMAIL": "E-Mail",
+    "MOBILE_NUMBER": "Telefonnummer",
     "PROFILE_TITLE": "Profil",
     "PASSWORD": "Passwort",
     "USERNAME": "Name",
@@ -19,6 +21,7 @@
   "BUTTON": {
     "CREATE": "Erstellen",
     "CANCEL": "Abbrechen",
+    "OPEN": "Open",
     "CLOSE": "Close",
     "DELETE": "Löschen",
     "EDIT": "Bearbeiten",
@@ -75,7 +78,20 @@
     "INVITATIONS": "Einladungen",
     "INVITE_TITLE": "Einladungen zur Gruppe",
     "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
-    "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!"
+    "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
+    "SETTINGS": "Settings",
+    "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "Weekly summary",
+        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+      },
+      "daily_pickup_notification": {
+        "NAME": "Pickup notifications",
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+      }
+    }
   },
   "GROUPMAP": {
     "TITLE": "Karte",
@@ -152,6 +168,11 @@
     "LOGOUT": "Abmelden",
     "USERPROFILE": "Dein Profil",
     "CHANGE_GROUP": "Gruppe wechseln"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "How to build your foodsaving group",
+    "BLOG_SUB": "All news around the karrot software",
+    "GIT_SUB": "See our code!"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -311,6 +332,7 @@
     "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht...",
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {

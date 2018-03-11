@@ -10,6 +10,14 @@
       <q-btn
         flat
         small
+        @click="$router.push({name: 'groupSettings'})"
+      >
+        <q-icon name="fa-cog fa-fw" />
+        <q-tooltip v-t="'GROUP.SETTINGS'" />
+      </q-btn>
+      <q-btn
+        flat
+        small
       >
         <q-icon name="fa-fw fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />

@@ -86,6 +86,10 @@ export default {
       commit('delete', id)
     },
 
+    refresh ({ dispatch }) {
+      dispatch('fetch')
+    },
+
   },
   mutations: {
     set (state, list) {

@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h5>
-      {{ user.unverifiedEmail }}
-    </h5>
     <q-spinner v-if="isPending" />
     <p v-if="success">
       {{ $t('VERIFYMAIL.SUCCESS') }}
@@ -31,7 +28,6 @@ export default {
   mixins: [statusMixin],
   props: {
     success: { required: true, type: Boolean },
-    user: { required: true, type: Object },
   },
 }
 </script>

@@ -6,7 +6,6 @@ export default connect({
   gettersToProps: {
     status: 'verifymail/verifyStatus',
     success: 'verifymail/success',
-    user: 'auth/user',
   },
   lifecycle: {
     // when page is loaded, use the `?code` route parameter to trigger verification

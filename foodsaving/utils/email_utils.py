@@ -7,6 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string, get_template
 from django.utils import translation
+from django.utils.timezone import get_current_timezone
 from django.utils.translation import to_locale, get_language
 from furl import furl
 from jinja2 import Environment
@@ -18,11 +19,20 @@ from foodsaving.webhooks.api import make_local_part
 
 
 def date_filter(value):
-    return format_date(value, format='full', locale=to_locale(get_language()))
+    return format_date(
+        value.astimezone(get_current_timezone()),
+        format='full',
+        locale=to_locale(get_language()),
+    )
 
 
 def time_filter(value):
-    return format_time(value, format='short', locale=to_locale(get_language()))
+    return format_time(
+        value,
+        format='short',
+        locale=to_locale(get_language()),
+        tzinfo=get_current_timezone(),
+    )
 
 
 def store_url(store):

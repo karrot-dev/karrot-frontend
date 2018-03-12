@@ -47,6 +47,8 @@
 import { QField, QInput, QBtn } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
 
+import { mapActions } from 'vuex'
+
 export default {
   components: { QField, QInput, QBtn },
   mixins: [statusMixin],
@@ -59,8 +61,16 @@ export default {
   methods: {
     save () {
       const { oldPassword, newPassword } = this
-      this.$emit('save', { oldPassword, newPassword })
+      this.saveUser({ oldPassword, newPassword }).then(success => {
+        if (success) {
+          this.oldPassword = ''
+          this.newPassword = ''
+        }
+      })
     },
+    ...mapActions({
+      saveUser: 'auth/changePassword',
+    }),
   },
 }
 </script>

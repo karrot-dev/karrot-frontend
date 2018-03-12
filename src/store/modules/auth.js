@@ -96,6 +96,7 @@ export default {
         dispatch('alerts/create', {
           type: 'changePasswordSuccess',
         }, { root: true })
+        return true
       },
 
       async changeEmail ({ commit, dispatch }, email) {

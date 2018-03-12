@@ -10,7 +10,7 @@
       name="group"
     >
       <template slot="icon">
-        <i class="fa fa-home q-tab-icon" />
+        <i class="fas fa-home q-tab-icon" />
       </template>
       <template>
         {{ $t('GROUP.GROUP') }}
@@ -23,7 +23,7 @@
       name="pickups"
     >
       <template slot="icon">
-        <i class="fa fa-shopping-basket q-tab-icon" />
+        <i class="fas fa-shopping-basket q-tab-icon" />
       </template>
       <template>
         {{ $t('GROUP.PICKUPS') }}
@@ -36,7 +36,7 @@
       name="stores"
     >
       <template slot="icon">
-        <i class="fa fa-shopping-cart q-tab-icon" />
+        <i class="fas fa-shopping-cart q-tab-icon" />
       </template>
       <template>
         {{ $t('GROUP.STORES') }}
@@ -49,7 +49,7 @@
       name="profile"
     >
       <template slot="icon">
-        <i class="fa fa-map q-tab-icon" />
+        <i class="fas fa-map q-tab-icon" />
       </template>
       <template class="q-tab-label">
         {{ $t('GROUPMAP.TITLE') }}

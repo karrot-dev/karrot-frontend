@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>
-      <i class="fa fa-envelope" />
+      <i class="fas fa-envelope" />
       {{ $t('VERIFYMAIL.TITLE') }}
     </h4>
   </div>

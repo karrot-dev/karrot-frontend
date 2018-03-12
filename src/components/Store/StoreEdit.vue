@@ -60,7 +60,7 @@
           </q-field>
 
           <q-field
-            icon="fa-calendar"
+            icon="fa-calendar-alt"
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
             :error-label="firstError('weeksInAdvance')"

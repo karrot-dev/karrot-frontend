@@ -22,7 +22,7 @@
       v-if="hasNonFieldError"
       class="text-negative"
     >
-      <i class="fa fa-exclamation-triangle"/>
+      <i class="fas fa-exclamation-triangle"/>
       {{ firstNonFieldError }}
     </div>
 

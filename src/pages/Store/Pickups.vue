@@ -8,7 +8,7 @@
               small
               round
               color="secondary"
-              icon="fa-pencil"
+              icon="fa-pencil-alt"
               class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.EDIT'" />
@@ -19,7 +19,7 @@
               small
               round
               color="secondary"
-              icon="fa-calendar"
+              icon="fa-calendar-alt"
               class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
@@ -43,7 +43,7 @@
     />
     <KNotice v-if="isInactive" >
       <template slot="icon">
-        <i class="fa fa-handshake-o"/>
+        <i class="far fa-handshake"/>
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
       <template slot="desc">
@@ -53,7 +53,7 @@
             small
             round
             flat
-            icon="fa-pencil"
+            icon="fa-pencil-alt"
           />
         </router-link>
       </template>
@@ -70,7 +70,7 @@
             small
             round
             flat
-            icon="fa-calendar"
+            icon="fa-calendar-alt"
           />
         </router-link>
       </template>

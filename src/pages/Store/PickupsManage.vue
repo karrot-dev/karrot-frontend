@@ -4,7 +4,7 @@
       <q-card-title>
         <h5>
           <i
-            class="icon fa fa-repeat on-left"
+            class="icon fas fa-repeat-alt on-left"
             aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SERIES') }}
@@ -48,7 +48,7 @@
           :key="series.id"
           :label="seriesLabel(series)"
           :sublabel="$d(series.startDate, 'timeShort')"
-          icon="fa-calendar"
+          icon="fa-calendar-alt"
           sparse
         >
 
@@ -98,7 +98,7 @@
       <q-card-title>
         <h5>
           <i
-            class="icon fa fa-shopping-basket on-left"
+            class="icon fas fa-shopping-basket on-left"
             aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SINGLE') }}
@@ -141,7 +141,7 @@
           :key="pickup.id"
           :label="$d(pickup.date, 'dateWithDayName')"
           :sublabel="$d(pickup.date, 'timeShort')"
-          icon="fa-calendar"
+          icon="fa-calendar-alt"
           sparse
         >
           <pickup-edit

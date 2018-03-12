@@ -30,7 +30,7 @@ const statusOptions = {
   archived: {
     label: 'STORESTATUS.ARCHIVED',
     color: 'grey',
-    icon: 'fa-trash',
+    icon: 'fa-trash-alt',
     selectable: false,
     sort: 5,
   },

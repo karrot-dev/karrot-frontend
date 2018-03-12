@@ -20,7 +20,7 @@
         small
         round
         color="secondary"
-        :icon="showPublicDescription ? 'fa-lock' : 'fa-info-circle'"
+        :icon="showPublicDescription ? 'fa-lock-alt' : 'fa-info-circle'"
         class="hoverScale"
         @click="showPublicDescription = !showPublicDescription"
       >
@@ -31,7 +31,7 @@
           small
           round
           color="secondary"
-          icon="fa-pencil"
+          icon="fa-pencil-alt"
           class="hoverScale"
         >
           <q-tooltip v-t="'GROUP.EDIT'" />

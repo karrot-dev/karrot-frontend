@@ -81,7 +81,7 @@ export default {
           icon: L.AwesomeMarkers.icon({
             icon: 'shopping-cart',
             markerColor: 'blue',
-            prefix: 'fa',
+            prefix: 'fas',
           }),
           draggable: true,
         }

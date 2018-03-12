@@ -5,7 +5,7 @@
         color="warning"
         class="generic-padding notice"
       >
-        <i class="fa fa-balance-scale on-left"/>
+        <i class="fas fa-balance-scale on-left"/>
         {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
       </q-card>
     </router-link>

@@ -34,7 +34,7 @@ export default {
         icon: L.AwesomeMarkers.icon({
           icon: 'user',
           markerColor: 'green',
-          prefix: 'fa',
+          prefix: 'fas',
         }),
         popupcontent: `<a href="/#/user/${this.user.id}">${this.user.displayName}</a>`,
       }]

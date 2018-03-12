@@ -34,7 +34,7 @@
           rel="nofollow noopener noreferrer"
         >
           <q-item-main>
-            <q-icon name="fa-external-link" />
+            <q-icon name="fa-external-link-alt" />
             <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
           </q-item-main>
         </q-item>

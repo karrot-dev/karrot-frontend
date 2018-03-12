@@ -124,7 +124,7 @@
               <q-icon
                 size="1em"
                 class="on-left"
-                name="fa-sign-out fa-fw"
+                name="fa-sign-out-alt fa-fw"
               />
               {{ $t('TOPBAR.LOGOUT') }}
             </q-item>

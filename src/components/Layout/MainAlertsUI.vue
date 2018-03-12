@@ -69,7 +69,7 @@ export default {
     groupLeaveSuccess () {
       return {
         color: 'positive',
-        icon: 'fa-sign-out fa-fw',
+        icon: 'fa-sign-out-alt fa-fw',
         message: 'GROUP.LEAVE_CONFIRMATION',
       }
     },

@@ -59,14 +59,13 @@ export default {
     }
   },
   methods: {
-    save () {
+    async save () {
       const { oldPassword, newPassword } = this
-      this.saveUser({ oldPassword, newPassword }).then(success => {
-        if (success) {
-          this.oldPassword = ''
-          this.newPassword = ''
-        }
-      })
+      const success = await this.saveUser({ oldPassword, newPassword })
+      if (success) {
+        this.oldPassword = ''
+        this.newPassword = ''
+      }
     },
     ...mapActions({
       saveUser: 'auth/changePassword',

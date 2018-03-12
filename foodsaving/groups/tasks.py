@@ -1,11 +1,12 @@
-import traceback
 from datetime import timedelta
 
+from anymail.exceptions import AnymailAPIError
 from django.db.models import Count
 from django.utils import timezone
 from huey import crontab
 from huey.contrib.djhuey import db_periodic_task
 from influxdb_metrics.loader import write_points
+from raven.contrib.django.raven_compat.models import client as sentry_client
 
 from config import settings
 from foodsaving.groups import stats, emails
@@ -68,8 +69,8 @@ def send_summary_emails():
                     email.send()
                     email_count += 1
                     email_recipient_count += len(email.to)
-                except Exception:
-                    traceback.print_exc()
+                except AnymailAPIError:
+                    sentry_client.captureException()
 
             # we save this even if some of the email sending, no retries right now basically...
             group.sent_summary_up_to = to_date

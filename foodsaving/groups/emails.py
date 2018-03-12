@@ -74,7 +74,9 @@ def prepare_group_summary_emails(group, context):
     """Prepares one email per language"""
 
     members = group.members.filter(
-        groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)
+        groupmembership__in=GroupMembership.objects.active().with_notification_type(
+            GroupNotificationType.WEEKLY_SUMMARY
+        )
     ).exclude(
         groupmembership__user__in=get_user_model().objects.unverified_or_ignored()
     )

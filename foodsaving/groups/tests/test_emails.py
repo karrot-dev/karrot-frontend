@@ -1,3 +1,5 @@
+from random import randint
+
 from dateutil.relativedelta import relativedelta
 from django.contrib.auth import get_user_model
 from django.utils import timezone
@@ -23,9 +25,18 @@ class TestGroupSummaryEmails(APITestCase):
         m.notification_types = []
         m.save()
 
-        unverified_users = [UserFactory(language='en') for i in list(range(3))]
+        # it should ignore unverified and inactive users so adding a random number
+        # of them here should not change anything
+
+        unverified_users = [UserFactory(language='en') for _ in list(range(randint(2, 5)))]
         for user in unverified_users:
             self.group.add_member(user)
+
+        inactive_users = [VerifiedUserFactory(language='en') for _ in list(range(randint(2, 5)))]
+        for user in inactive_users:
+            membership = self.group.add_member(user)
+            membership.inactive_at = timezone.now()
+            membership.save()
 
     def test_creates_one_email_for_one_language(self):
         n = 5
@@ -38,7 +49,9 @@ class TestGroupSummaryEmails(APITestCase):
         self.assertEqual(len(emails), 1)
 
         expected_members = self.group.members.filter(
-            groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)
+            groupmembership__in=GroupMembership.objects.active().with_notification_type(
+                GroupNotificationType.WEEKLY_SUMMARY
+            )
         ).exclude(
             groupmembership__user__in=get_user_model().objects.unverified_or_ignored()
         )
@@ -71,7 +84,9 @@ class TestGroupSummaryEmails(APITestCase):
             to.extend(email.to)
 
         expected_members = self.group.members.filter(
-            groupmembership__in=GroupMembership.objects.with_notification_type(GroupNotificationType.WEEKLY_SUMMARY)
+            groupmembership__in=GroupMembership.objects.active().with_notification_type(
+                GroupNotificationType.WEEKLY_SUMMARY
+            )
         ).exclude(
             groupmembership__user__in=get_user_model().objects.unverified_or_ignored()
         )

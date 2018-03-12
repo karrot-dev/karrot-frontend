@@ -167,8 +167,7 @@ class TestConversationsEmailNotificationsAPI(APITestCase):
     def setUp(self):
         self.user = VerifiedUserFactory()
         self.group = GroupFactory(members=[self.user])
-        self.conversation = Conversation.objects.get_or_create_for_target(self.group)
-        self.conversation.join(self.user)
+        self.conversation = self.group.conversation
         self.participant = ConversationParticipant.objects.get(conversation=self.conversation, user=self.user)
 
     def test_disable_email_notifications(self):
@@ -211,13 +210,14 @@ class TestConversationsEmailNotificationsAPI(APITestCase):
 
     def test_send_email_notifications(self):
         users = [VerifiedUserFactory() for _ in range(3)]
-        [self.conversation.join(u) for u in users]
+        [self.group.add_member(u) for u in users]
 
         mail.outbox = []
         ConversationMessage.objects.create(author=self.user, conversation=self.conversation, content='asdf')
 
         actual_recipients = set(m.to[0] for m in mail.outbox)
         expected_recipients = set(u.email for u in users)
+
         self.assertEqual(actual_recipients, expected_recipients)
 
         self.assertEqual(len(mail.outbox), 3)

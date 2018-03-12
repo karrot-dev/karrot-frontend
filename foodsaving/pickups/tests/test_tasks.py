@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+from random import randint
 from unittest.mock import patch
 
 from dateutil.relativedelta import relativedelta
@@ -20,8 +21,8 @@ from foodsaving.utils.email_utils import store_url
 @contextmanager
 def group_timezone_at(group, **kwargs):
     with timezone.override(group.timezone):
-        eight_pm = timezone.localtime(timezone=group.timezone).replace(**kwargs)
-        with freeze_time(eight_pm, tick=True):
+        datetime = timezone.localtime(timezone=group.timezone).replace(**kwargs)
+        with freeze_time(datetime, tick=True):
             yield
 
 
@@ -39,6 +40,13 @@ class TestPickupNotificationTask(APITestCase):
 
         # unsubscribe other_user from notifications
         GroupMembership.objects.filter(group=self.group, user=self.other_user).update(notification_types=[])
+
+        # add some random inactive users, to make sure we don't send to them
+        inactive_users = [VerifiedUserFactory(language='en') for _ in list(range(randint(2, 5)))]
+        for user in inactive_users:
+            membership = self.group.add_member(user)
+            membership.inactive_at = timezone.now()
+            membership.save()
 
         mail.outbox = []
 

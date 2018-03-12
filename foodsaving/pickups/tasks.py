@@ -69,8 +69,9 @@ def fetch_pickup_notification_data_for_group(group):
     base_tomorrow_not_full = pickups.filter(**tomorrow, **not_full)
 
     users = group.members.filter(
-        groupmembership__in=GroupMembership.objects.with_notification_type(
-            GroupNotificationType.DAILY_PICKUP_NOTIFICATION),
+        groupmembership__in=GroupMembership.objects.active().with_notification_type(
+            GroupNotificationType.DAILY_PICKUP_NOTIFICATION
+        ),
     ).exclude(
         groupmembership__user__in=User.objects.unverified_or_ignored(),
     )

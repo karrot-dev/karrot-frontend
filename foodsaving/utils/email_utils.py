@@ -3,7 +3,6 @@ from email.utils import formataddr
 import html2text
 from anymail.message import AnymailMessage
 from babel.dates import format_date, format_time
-from django.contrib.contenttypes.models import ContentType
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string, get_template
 from django.utils import translation
@@ -78,10 +77,10 @@ def prepare_changemail_success_email(user):
 
 
 def prepare_conversation_message_notification(user, message):
-    group = message.conversation.target
-    target_type = message.conversation.target_type
-    if group is None or target_type != ContentType.objects.get_for_model(Group):
+    if not isinstance(message.conversation.target, Group):
         raise Exception('Cannot send message notification if conversation does not belong to a group')
+
+    group = message.conversation.target
 
     reply_to_name = group.name
     conversation_url = '{hostname}/#/group/{group_id}/wall'.format(

@@ -40,7 +40,7 @@
           </q-field>
 
           <q-field
-            icon="fa-fw fa-vcard"
+            icon="fa-fw fa-address-card"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             :error="hasError('description')"
             :error-label="firstError('description')"

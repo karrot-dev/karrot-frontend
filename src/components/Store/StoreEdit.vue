@@ -20,7 +20,7 @@
             />
           </q-field>
           <q-field
-            icon="fa-handshake-o"
+            icon="fa-handshake"
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-label="firstError('status')"

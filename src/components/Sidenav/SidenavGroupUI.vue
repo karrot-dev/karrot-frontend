@@ -60,7 +60,7 @@
         </q-item>
         <q-item :to="{name: 'groupDescription'}">
           <q-item-side class="text-center">
-            <q-icon name="fa-vcard" />
+            <i class="far fa-address-card"/>
           </q-item-side>
           <q-item-main>
             {{ $t("GROUP.DESCRIPTION") }}
@@ -76,7 +76,7 @@
         </q-item>
         <q-item :to="{name: 'groupHistory'}">
           <q-item-side class="text-center">
-            <q-icon name="fa-clock-o" />
+            <i class="far fa-clock"/>
           </q-item-side>
           <q-item-main>
             {{ $t("GROUP.HISTORY") }}

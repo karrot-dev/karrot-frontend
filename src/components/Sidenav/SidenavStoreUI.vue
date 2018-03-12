@@ -43,7 +43,7 @@
       </q-item>
       <q-item :to="{name: 'storeHistory', params: { storeId }}">
         <q-item-side class="text-center">
-          <q-icon name="fa-clock-o" />
+          <i class="far fa-clock"/>
         </q-item-side>
         <q-item-main>
           {{ $t("GROUP.HISTORY") }}

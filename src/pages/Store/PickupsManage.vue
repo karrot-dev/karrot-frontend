@@ -4,7 +4,7 @@
       <q-card-title>
         <h5>
           <i
-            class="icon fas fa-repeat-alt on-left"
+            class="icon fas fa-redo on-left"
             aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SERIES') }}

@@ -31,11 +31,11 @@
           >
             <q-icon
               v-if="data.emailNotifications === true"
-              name="fa-bell-o"
+              name="fa-bell"
             />
             <q-icon
               v-else
-              name="fa-bell-slash-o"
+              name="fa-bell-slash"
             />
             <q-tooltip v-t="data.emailNotifications ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'" />
           </q-btn>

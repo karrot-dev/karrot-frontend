@@ -13,6 +13,7 @@
         @selected="selected"
       />
     </q-search>
+    <span v-if="!results.length" >No results.</span>
   </div>
 </template>
 

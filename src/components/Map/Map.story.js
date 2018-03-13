@@ -27,7 +27,7 @@ storiesOf('Map', module)
             icon: L.AwesomeMarkers.icon({
               icon: 'shopping-cart',
               markerColor: 'blue',
-              prefix: 'fas',
+              prefix: 'fa',
             }),
           },
         ],
@@ -45,7 +45,7 @@ storiesOf('Map', module)
             icon: L.AwesomeMarkers.icon({
               icon: 'shopping-cart',
               markerColor: 'blue',
-              prefix: 'fas',
+              prefix: 'fa',
             }),
           },
           {
@@ -54,7 +54,7 @@ storiesOf('Map', module)
             icon: L.AwesomeMarkers.icon({
               icon: 'shopping-cart',
               markerColor: 'blue',
-              prefix: 'fas',
+              prefix: 'fa',
             }),
           },
         ],

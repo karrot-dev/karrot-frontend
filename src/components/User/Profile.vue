@@ -72,7 +72,7 @@
         </q-item>
 
         <q-item v-if="user.address">
-          <q-item-side icon="fa-fw fa-map-marker" />
+          <q-item-side icon="fa-fw fa-map-marker-alt" />
           <q-item-main>
             {{ user.address }}
           </q-item-main>

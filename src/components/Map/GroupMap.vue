@@ -65,7 +65,7 @@ export default {
         icon: L.AwesomeMarkers.icon({
           icon: 'user',
           markerColor: 'green',
-          prefix: 'fas',
+          prefix: 'fa',
         }),
         popupcontent: `<a href="/#/user/${user.id}">${user.displayName}</a>`,
       }
@@ -77,7 +77,7 @@ export default {
         icon: L.AwesomeMarkers.icon({
           icon: 'shopping-cart',
           markerColor: store.ui.color,
-          prefix: 'fas',
+          prefix: 'fa',
         }),
         popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
       }

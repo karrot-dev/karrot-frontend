@@ -2,6 +2,7 @@ import Vue from 'vue'
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
+import i18n from '@/i18n'
 import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses, createRouteError } from '@/store/helpers'
 
 function initialState () {
@@ -24,9 +25,14 @@ export default {
       if (!group) return
       const userId = rootGetters['auth/userId']
       const isMember = userId && group.members ? group.members.includes(userId) : false
+      const isCurrentGroup = group.id === rootGetters['currentGroup/id']
+      const isPlayground = group.status === 'playground'
       return {
         ...group,
+        name: isPlayground ? i18n.t('GROUP.PLAYGROUND') : group.name,
         isMember,
+        isCurrentGroup,
+        isPlayground,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },
@@ -53,7 +59,7 @@ export default {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
       return currentGroup && currentGroup.saveStatus
     },
-    playground: (state, getters) => getters.all.find(g => g.status === 'playground'),
+    playground: (state, getters) => getters.all.find(g => g.isPlayground),
     hasPlayground: (state, getters) => Boolean(getters.playground),
     ...metaStatuses(['create']),
   },

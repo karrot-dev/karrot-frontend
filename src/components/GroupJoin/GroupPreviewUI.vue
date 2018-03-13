@@ -1,6 +1,9 @@
 <template>
   <div v-if="group">
-    <q-card class="shadow-6">
+    <q-card
+      class="shadow-6"
+      :color="cardColor"
+    >
       <q-card-title>
         {{ group.name }}
         <span slot="subtitle">
@@ -122,6 +125,9 @@ export default {
     },
     anyFirstError () {
       return this.joinStatus && this.joinStatus.firstValidationError
+    },
+    cardColor () {
+      return this.group.isPlayground ? 'secondary' : undefined
     },
   },
 }

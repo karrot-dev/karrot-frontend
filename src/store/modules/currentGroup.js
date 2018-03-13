@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import groups from '@/services/api/groups'
 import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteError } from '@/store/helpers'
 
@@ -18,11 +19,14 @@ export default {
       const userId = rootGetters['auth/userId']
       const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
       const membership = group.memberships ? group.memberships[userId] : {}
+      const isPlayground = group.status === 'playground'
       return {
         ...group,
+        name: isPlayground ? i18n.t('GROUP.PLAYGROUND') : group.name,
         membership,
         activeAgreement,
         awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
+        isPlayground,
       }
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],

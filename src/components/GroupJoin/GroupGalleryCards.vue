@@ -1,34 +1,29 @@
 <template>
-  <transition-group
-    name="list-complete"
-    class="row">
-    <div
-      v-for="group in groups"
-      :key="group.id"
-      class="list-complete-item inline-block col-xs-12 items-stretch"
-      :class="groups.length == 1 ? '' : $q.platform.is.desktop ? 'col-lg-6 col-xl-4' : 'col-sm-6 col-lg-4'">
+  <div>
+    <q-resize-observable
+      style="width: 100%"
+      @resize="onResize"
+    />
+    <transition-group
+      name="list-complete"
+      class="row"
+    >
       <GroupGalleryCard
-        v-if="groups.length != 1"
-        :class="{highlight: group.id === currentGroupId}"
+        v-for="group in groups"
+        :key="group.id"
+        class="list-complete-item"
+        :style="cardStyle"
         :group="group"
-        :is-member="isMember"
-        @preview="$emit('showPreview', group)"
+        @preview="$emit('preview', arguments[0])"
         @visit="$emit('visit', { groupId: group.id })"
       />
-      <GroupPreview
-        v-if="groups.length == 1"
-        :show-close="previewOpened"
-        @close="$emit('hidePreview')"
-        :group="group"
-        :is-logged-in="isLoggedIn"/>
-    </div>
-  </transition-group>
+    </transition-group>
+  </div>
 </template>
 
 <script>
 import GroupGalleryCard from './GroupGalleryCard'
-import GroupPreview from './GroupPreview'
-import { QAlert, QSearch, QCard } from 'quasar'
+import { QResizeObservable } from 'quasar'
 
 export default {
   props: {
@@ -36,35 +31,38 @@ export default {
       default: () => [],
       type: Array,
     },
-    currentGroupId: {
-      default: -1,
-      type: Number,
-    },
     isLoggedIn: {
       required: true,
       type: Boolean,
     },
-    isMember: {
-      default: false,
-      type: Boolean,
-    },
-    previewOpened: {
-      default: false,
-      type: Boolean,
+  },
+  components: { GroupGalleryCard, QResizeObservable },
+  data () {
+    return {
+      width: 230,
+    }
+  },
+  methods: {
+    onResize ({ width }) {
+      this.width = width
     },
   },
-  components: { GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview },
+  computed: {
+    cols () {
+      return Math.max(1, Math.floor(this.width / 230))
+    },
+    cardStyle () {
+      return {
+        width: (100 / this.cols) + '%',
+      }
+    },
+  },
 }
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-.highlight
-  border 2px solid $positive
-
 .list-complete-item
   transition: all .7s
-  display: inline-block
 
 .list-complete-enter, .list-complete-leave-to
   opacity: 0

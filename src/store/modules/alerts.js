@@ -29,7 +29,7 @@ export default {
           dismissible: true,
         })
       }
-      if (isGroupPage && currentGroup && currentGroup.status === 'playground') {
+      if (isGroupPage && currentGroup && currentGroup.isPlayground) {
         alerts.push({
           type: 'playgroundGroupInfo',
           dismissible: false,

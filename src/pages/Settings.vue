@@ -59,9 +59,15 @@ export default {
     }),
   },
   methods: {
+    async changePassword (oldPassword, newPassword, clearPasswordFields) {
+      const success = await this.changePassword_({ oldPassword, newPassword })
+      if (success) {
+        clearPasswordFields()
+      }
+    },
     ...mapActions({
       saveUser: 'auth/save',
-      changePassword: 'auth/changePassword',
+      changePassword_: 'auth/changePassword',
       changeEmail: 'auth/changeEmail',
     }),
   },

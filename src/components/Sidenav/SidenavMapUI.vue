@@ -26,10 +26,10 @@
         @click="$emit('toggleStores')"
       >
         <span class="fa-fw fa-stack">
-          <i class="fas fa-shopping-cart fa-stack-1x" />
+          <i class="fa fa-shopping-cart fa-stack-1x" />
           <i
             v-if="showStores"
-            class="fas fa-check fa-bot-right fa-stack-1x"
+            class="fa fa-check fa-bot-right fa-stack-1x"
           />
           <i
             v-else

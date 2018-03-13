@@ -178,7 +178,7 @@ export default {
       if (this.away) {
         return {
           color: 'grey',
-          icon: 'fa-circle-o',
+          icon: 'fa-circle',
         }
       }
       return {

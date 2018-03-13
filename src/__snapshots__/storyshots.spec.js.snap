@@ -3953,13 +3953,8 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                         </div>
                     </div>
                     <div class="q-item q-item-division relative-position q-item-link">
-<<<<<<< aef82a0d0a58ebc0bc9ed1d576864bb441b33b26
                         <div class="q-item-side q-item-section text-center q-item-side-left">
                             <i aria-hidden="true" class="q-icon fa fa-clock-o"> </i>
-=======
-                        <div class="q-item-side q-item-side-left q-item-section text-center">
-                            <i class="far fa-clock"></i>
->>>>>>> adding snapshot
                         </div>
                         <div class="q-item-main q-item-section">
                             History

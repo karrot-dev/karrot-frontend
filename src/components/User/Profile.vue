@@ -44,56 +44,9 @@
         :user="user"
         class="map float-right"
       />
-      <div class="info">
-        <div
-          class="info-item inlinee"
-          style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
-        >
-          <strong>
-            <i class="far fa-fw fa-envelope on-left" />
-          </strong>
-          <a :href='"mailto:" + user.email'>{{ user.email }}</a>
-        </div>
-      </div>
-      <q-btn
-        icon="fa-pencil-alt"
-        small
-        round
-        class="inlinee on-right"
-        color="secondary"
-        @click="$router.push('/settings')"
-      />
-      <div class="info">
-        <div
-          class="info-item inlinee"
-          v-if="user.mobileNumber"
-        >
-          <strong class="info-item">
-            <i class="fa fa-fw fa-phone on-left" />
-          </strong>
-          {{ user.mobileNumber }}
-        </div>
-      </div>
-      <div class="info">
-        <div
-          class="info-item"
-          v-if="user.address"
-        >
-          <strong class="info-item">
-            <i class="fa fa-fw fa-map-marker on-left" />
-          </strong>
-          {{ user.address }}
-        </div>
-      </div>
-      <q-card-separator v-if="user.description != ''"/><br>
-      <Markdown
-        v-if="user.description"
-        :source="user.description"
-      />
-      <div style="clear: both; margin-bottom: 8px"/>
       <q-list :dense="$q.platform.is.mobile">
         <q-item style="height: 40px">
-          <q-item-side icon="fa-fw fa-envelope-o" />
+          <q-item-side icon="fa-fw fa-envelope" />
           <q-item-main style="overflow: hidden; text-overflow: ellipsis">
             <a :href='"mailto:" + user.email'>{{ user.email }}</a>
           </q-item-main>
@@ -102,7 +55,7 @@
             right
           >
             <q-btn
-              icon="fa-pencil"
+              icon="fa-pencil-alt"
               small
               round
               color="secondary"

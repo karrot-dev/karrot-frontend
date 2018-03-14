@@ -696,24 +696,22 @@ exports[`Storyshots GroupEdit create 1`] = `
 
 exports[`Storyshots GroupGallery signup view 1`] = `
 <div class="column gallery-wrapper expanded">
-    <div class="map-fixed">
-        <div class="vue2leaflet-map group-gallery-map">
+    <div class="vue2leaflet-map group-gallery-map map-fixed">
+        <div></div>
+        <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
             <div></div>
-            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
+        </div>
+        <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
         </div>
     </div>
     <div class="all-groups gallery-cards expanded">
@@ -750,6 +748,14 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                         <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
                     </div>
                 </div>
+                <div tabindex="0" class="q-checkbox q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center" style="margin-left:16px;">
+                    <div class="q-option-inner relative-position">
+                        <input type="checkbox">
+                        <div class="q-focus-helper"></div>
+                        <i aria-hidden="true" class="q-checkbox-unchecked cursor-pointer q-icon material-icons" style="transition:opacity 1000ms cubic-bezier(0.23, 1, 0.32, 1) 200ms;opacity:1;">check_box_outline_blank</i>
+                        <i aria-hidden="true" class="q-checkbox-checked cursor-pointer absolute-full q-icon material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                        <div class="q-radial-ripple"></div>
+                    </div> <span class="q-option-label">Show inactive groups</span> </div>
             </div>
             <div style="width:100px;">
                 <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
@@ -979,30 +985,28 @@ exports[`Storyshots GroupGallery signup view 1`] = `
 
 exports[`Storyshots GroupGallery switch and explore 1`] = `
 <div class="column gallery-wrapper expanded">
-    <div class="map-fixed">
-        <div class="vue2leaflet-map group-gallery-map">
+    <div class="vue2leaflet-map group-gallery-map map-fixed">
+        <div></div>
+        <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
             <div></div>
-            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
+        </div>
+        <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
         </div>
     </div>
     <div class="all-groups gallery-cards expanded">
@@ -1037,6 +1041,14 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                         <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
                     </div>
                 </div>
+                <div tabindex="0" class="q-checkbox q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center" style="margin-left:16px;">
+                    <div class="q-option-inner relative-position">
+                        <input type="checkbox">
+                        <div class="q-focus-helper"></div>
+                        <i aria-hidden="true" class="q-checkbox-unchecked cursor-pointer q-icon material-icons" style="transition:opacity 1000ms cubic-bezier(0.23, 1, 0.32, 1) 200ms;opacity:1;">check_box_outline_blank</i>
+                        <i aria-hidden="true" class="q-checkbox-checked cursor-pointer absolute-full q-icon material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                        <div class="q-radial-ripple"></div>
+                    </div> <span class="q-option-label">Show inactive groups</span> </div>
             </div>
             <div style="width:100px;">
                 <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">

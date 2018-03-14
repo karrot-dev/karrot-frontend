@@ -27,12 +27,14 @@ export default {
       const isMember = userId && group.members ? group.members.includes(userId) : false
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
+      const isInactive = group.status === 'inactive'
       return {
         ...group,
         name: isPlayground ? i18n.t('GROUP.PLAYGROUND') : group.name,
         isMember,
         isCurrentGroup,
         isPlayground,
+        isInactive,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },

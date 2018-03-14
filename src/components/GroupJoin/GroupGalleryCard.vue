@@ -4,6 +4,7 @@
       class="groupPreviewCard"
       :color="cardColor"
       :class="{highlight: group.isCurrentGroup}"
+      :style="cardStyle"
     >
       <q-card-title class="ellipsis">
         {{ group.name }}
@@ -68,6 +69,12 @@ export default {
   computed: {
     cardColor () {
       return this.group.isPlayground ? 'secondary' : undefined
+    },
+    cardStyle () {
+      const reduceOpacity = this.group.isInactive && !this.group.isMember
+      if (reduceOpacity) {
+        return { opacity: 0.5 }
+      }
     },
   },
 }

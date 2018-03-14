@@ -1,7 +1,7 @@
 <template>
   <div
     class="column gallery-wrapper"
-    :class="{'expanded': expanded}"
+    :class="{expanded}"
   >
     <GroupGalleryMap
       class="map-fixed"
@@ -19,6 +19,8 @@
       :is-logged-in="isLoggedIn"
       :expanded="expanded"
       :search="search"
+      :show-inactive="showInactive"
+      @setShowInactive="setShowInactive"
       @search="filterGroups"
       @showPreview="showPreview"
       @preview="$emit('preview', arguments[0])"
@@ -72,6 +74,7 @@ export default {
       search: '',
       groupForPreview: null,
       expanded: true,
+      showInactive: false,
     }
   },
   methods: {
@@ -81,6 +84,9 @@ export default {
     showPreview (group) {
       window.scrollTo(0, 0)
       this.groupForPreview = group
+    },
+    setShowInactive (value) {
+      this.showInactive = value
     },
     searchInName (term, list) {
       if (!term || term === '') return list
@@ -100,7 +106,10 @@ export default {
       if (this.previewOpened) {
         return [this.groupForPreview].filter(g => !g.isMember)
       }
-      const filteredGroups = this.searchInName(this.search, this.otherGroups)
+      let filteredGroups = this.searchInName(this.search, this.otherGroups)
+      if (!this.showInactive) {
+        filteredGroups = filteredGroups.filter(g => !g.isInactive)
+      }
       const hasSearchTerm = this.search !== ''
       const hidePlaygroundByDefault = group => !hasSearchTerm ? !group.isPlayground : true
       return filteredGroups.filter(hidePlaygroundByDefault)
@@ -125,6 +134,7 @@ body.desktop
       max-width 42vw
   .expanded .gallery-cards
     margin-bottom -10em
+    padding-bottom 3em
 
 body.mobile
   .map-fixed
@@ -134,7 +144,7 @@ body.mobile
   .gallery-cards
     margin-top: 0
     min-height 10vh
-    padding-bottom 10em
+    padding-bottom 3em
     margin-bottom -5em
     transition all .7s
     z-index 0

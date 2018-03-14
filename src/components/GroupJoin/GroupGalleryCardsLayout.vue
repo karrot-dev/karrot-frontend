@@ -30,10 +30,17 @@
         <q-card style="width: 100%">
           <q-search
             :value="search"
-            @change="$emit('search', arguments[0])"
+            @input="$emit('search', arguments[0])"
             class="searchbar"
           />
         </q-card>
+
+        <q-checkbox
+          :value="showInactive"
+          @input="$emit('setShowInactive', arguments[0])"
+          :label="$t('GROUP.SHOW_INACTIVE')"
+          style="margin-left: 16px"
+        />
       </div>
       <div style="width: 100px">
         <slot />
@@ -108,10 +115,10 @@
 import GroupGalleryCards from './GroupGalleryCards'
 import GroupGalleryCard from './GroupGalleryCard'
 import GroupPreview from './GroupPreview'
-import { QAlert, QSearch, QCard } from 'quasar'
+import { QAlert, QSearch, QCard, QCheckbox } from 'quasar'
 
 export default {
-  components: { GroupGalleryCards, GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview },
+  components: { GroupGalleryCards, GroupGalleryCard, QAlert, QSearch, QCard, QCheckbox, GroupPreview },
   props: {
     filteredMyGroups: {
       default: () => [],
@@ -145,6 +152,10 @@ export default {
       default: '',
       type: String,
     },
+    showInactive: {
+      default: false,
+      type: Boolean,
+    },
   },
   methods: {
     showPreview (group) {
@@ -177,6 +188,7 @@ export default {
     showPlaygroupGroupAtTopOrBottom () {
       if (this.search) return false
       if (this.previewOpened) return false
+      if (!this.expanded) return false
       if (!this.playgroundGroup) return false
       if (this.playgroundGroup && this.playgroundGroup.isMember) return false
       return true

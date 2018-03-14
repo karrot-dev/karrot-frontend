@@ -59,15 +59,14 @@ export default {
     }),
   },
   methods: {
-    async changePassword (oldPassword, newPassword, clearPasswordFields) {
-      const success = await this.changePassword_({ oldPassword, newPassword })
-      if (success) {
-        clearPasswordFields()
+    async changePassword (oldPassword, newPassword, done) {
+      await this.$store.dispatch('auth/changePassword', { oldPassword, newPassword })
+      if (!this.changePasswordStatus.hasValidationErrors) {
+        done()
       }
     },
     ...mapActions({
       saveUser: 'auth/save',
-      changePassword_: 'auth/changePassword',
       changeEmail: 'auth/changeEmail',
     }),
   },

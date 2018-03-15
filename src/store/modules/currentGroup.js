@@ -1,4 +1,3 @@
-import i18n from '@/i18n'
 import groups from '@/services/api/groups'
 import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteError } from '@/store/helpers'
 
@@ -22,7 +21,6 @@ export default {
       const isPlayground = group.status === 'playground'
       return {
         ...group,
-        name: isPlayground ? i18n.t('GROUP.PLAYGROUND') : group.name,
         membership,
         activeAgreement,
         awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),

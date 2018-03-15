@@ -2,7 +2,6 @@ import Vue from 'vue'
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
 import router from '@/router'
-import i18n from '@/i18n'
 import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses, createRouteError } from '@/store/helpers'
 
 function initialState () {
@@ -30,7 +29,6 @@ export default {
       const isInactive = group.status === 'inactive'
       return {
         ...group,
-        name: isPlayground ? i18n.t('GROUP.PLAYGROUND') : group.name,
         isMember,
         isCurrentGroup,
         isPlayground,

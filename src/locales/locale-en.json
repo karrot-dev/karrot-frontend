@@ -95,8 +95,7 @@
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "PLAYGROUND": "Playground"
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Map",

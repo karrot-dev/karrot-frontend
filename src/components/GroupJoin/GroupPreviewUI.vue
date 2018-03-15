@@ -1,10 +1,13 @@
 <template>
   <div v-if="group">
-    <q-card
-      class="shadow-6"
-      :color="cardColor"
-    >
-      <q-card-title>
+    <q-card class="shadow-6">
+      <q-card-title :class="group.isPlayground ? 'text-secondary' : ''">
+        <q-icon
+          slot="right"
+          v-if="group.isPlayground"
+          name="fa-child"
+          color="secondary"
+        />
         {{ group.name }}
         <span slot="subtitle">
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
@@ -125,9 +128,6 @@ export default {
     },
     anyFirstError () {
       return this.joinStatus && this.joinStatus.firstValidationError
-    },
-    cardColor () {
-      return this.group.isPlayground ? 'secondary' : undefined
     },
   },
 }

@@ -59,15 +59,10 @@ export default {
     }),
   },
   methods: {
-    async changePassword (oldPassword, newPassword, done) {
-      await this.$store.dispatch('auth/changePassword', { oldPassword, newPassword })
-      if (!this.changePasswordStatus.hasValidationErrors) {
-        done()
-      }
-    },
     ...mapActions({
       saveUser: 'auth/save',
       changeEmail: 'auth/changeEmail',
+      changePassword: 'auth/changePassword',
     }),
   },
 }

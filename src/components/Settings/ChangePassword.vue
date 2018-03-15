@@ -57,14 +57,13 @@ export default {
     }
   },
   methods: {
+    clear () {
+      this.oldPassword = ''
+      this.newPassword = ''
+    },
     save () {
       const { oldPassword, newPassword } = this
-      this.$emit('save', oldPassword, newPassword,
-        () => {
-          this.oldPassword = ''
-          this.newPassword = ''
-        },
-      )
+      this.$emit('save', { oldPassword, newPassword, done: this.clear })
     },
   },
 }

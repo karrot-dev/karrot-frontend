@@ -91,8 +91,9 @@ export default {
         router.push({ name: 'groupsGallery' })
       },
 
-      async changePassword ({ commit, state, dispatch }, data) {
-        await auth.changePassword(data)
+      async changePassword ({ commit, state, dispatch }, { oldPassword, newPassword, done }) {
+        await auth.changePassword({ oldPassword, newPassword })
+        done()
         dispatch('alerts/create', {
           type: 'changePasswordSuccess',
         }, { root: true })

@@ -23,6 +23,7 @@
           </q-field>
 
           <q-field
+            v-if="!edit.isPlayground"
             icon="fa-fw fa-question"
             :label="$t('GROUP.PUBLIC_DESCRIPTION')"
             :error="hasError('publicDescription')"

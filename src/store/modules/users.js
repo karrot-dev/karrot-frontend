@@ -10,6 +10,7 @@ function initialState () {
     entries: {},
     idList: [],
     activeUserId: null,
+    resetPasswordSuccess: false,
     resendVerificationSuccess: false,
   }
 }
@@ -42,7 +43,7 @@ export default {
       return state.activeUserId && getters.get(state.activeUserId)
     },
     activeUserId: state => state.activeUserId,
-    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerification']),
+    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerification', 'requestDeleteAccount']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationSuccess: state => state.resendVerificationSuccess,
   },
@@ -69,6 +70,13 @@ export default {
       async resendVerification ({ commit, state }) {
         await auth.resendVerificationRequest()
         commit('resendVerificationSuccess', true)
+      },
+      async requestDeleteAccount ({ dispatch }) {
+        await users.requestDeleteAccount()
+        dispatch('alerts/create', {
+          type: 'requestDeleteAccountSuccess',
+        }, { root: true })
+        dispatch('auth/logout', {}, { root: true })
       },
     }),
 

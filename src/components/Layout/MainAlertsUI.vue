@@ -74,6 +74,14 @@ export default {
       }
     },
 
+    requestDeleteAccountSuccess () {
+      return {
+        color: 'positive',
+        icon: 'fa-check-square',
+        message: 'USERDATA.REQUEST_DELETE_ACCOUNT.SUCCESS',
+      }
+    },
+
     awaitingAgreement (agreement) {
       return {
         color: 'negative',

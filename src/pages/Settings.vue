@@ -17,45 +17,49 @@
       </q-card-main>
     </q-card>
     <q-card class="no-shadow grey-border">
-      <q-card-title id="change-email">{{ $t('USERDATA.EMAIL') }}</q-card-title>
+      <q-card-title>{{ $t('USERDATA.ACCOUNT') }}</q-card-title>
       <q-card-main>
         <ChangeEmail
           :user="user"
           :status="changeEmailStatus"
           @save="changeEmail"
         />
-      </q-card-main>
-    </q-card>
-    <q-card class="no-shadow grey-border">
-      <q-card-title>{{ $t('USERDATA.PASSWORD') }}</q-card-title>
-      <q-card-main>
+        <q-card-separator />
         <ChangePassword
           :status="changePasswordStatus"
           @save="changePassword"
         />
+        <q-card-actions>
+          <RequestDeleteAccount
+            :status="requestDeleteAccountStatus"
+            @requestDeleteAccount="requestDeleteAccount"
+          />
+        </q-card-actions>
       </q-card-main>
     </q-card>
   </div>
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions } from 'quasar'
+import { mapGetters, mapActions } from 'vuex'
+
 import ProfileEdit from '@/components/Settings/ProfileEdit'
 import ChangePassword from '@/components/Settings/ChangePassword'
 import ChangeEmail from '@/components/Settings/ChangeEmail'
 import ChangePhoto from '@/components/Settings/ChangePhoto'
-
-import { mapGetters, mapActions } from 'vuex'
+import RequestDeleteAccount from '@/components/Settings/RequestDeleteAccount'
 
 export default {
   name: 'Settings',
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, ProfileEdit, ChangePassword, ChangeEmail, ChangePhoto },
+  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, ProfileEdit, ChangePassword, ChangeEmail, ChangePhoto, RequestDeleteAccount },
   computed: {
     ...mapGetters({
       user: 'auth/user',
       profileEditStatus: 'auth/saveStatus',
       changePasswordStatus: 'auth/changePasswordStatus',
       changeEmailStatus: 'auth/changeEmailStatus',
+      requestDeleteAccountStatus: 'users/requestDeleteAccountStatus',
     }),
   },
   methods: {
@@ -63,6 +67,7 @@ export default {
       saveUser: 'auth/save',
       changeEmail: 'auth/changeEmail',
       changePassword: 'auth/changePassword',
+      requestDeleteAccount: 'users/requestDeleteAccount',
     }),
   },
 }

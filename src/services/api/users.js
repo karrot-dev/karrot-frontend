@@ -12,4 +12,8 @@ export default {
   async search (query) {
     return (await axios.get('/api/users/', { params: { search: query } })).data
   },
+
+  requestDeleteAccount () {
+    return axios.post('/api/auth/user/request_delete/')
+  },
 }

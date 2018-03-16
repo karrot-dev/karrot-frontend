@@ -11,10 +11,8 @@
       small
       :class="{ 'user-reacted': reaction.reacted }"
     >
-      <Emoji
-        :emoji="reaction.name"
-        :size="16"
-        set="twitter"
+      <Markdown
+        :source="':'+reaction.name+':'"
       />
       <span class="reacted-users-count">{{ reaction.users.length }}</span>
 
@@ -36,10 +34,8 @@
           flat
           small
         >
-          <Emoji
-            :emoji="reaction"
-            :size="20"
-            set="twitter"
+          <Markdown
+            :source="':'+reaction+':'"
           />
         </q-btn>
       </q-popover>
@@ -50,12 +46,11 @@
 <script>
 import Markdown from '@/components/Markdown'
 import { QBtn, QPopover, QTooltip } from 'quasar'
-import { Emoji } from 'emoji-mart-vue'
 
 export default {
   name: 'ConversationReactions',
   components: {
-    Emoji, Markdown, QBtn, QPopover, QTooltip,
+    Markdown, QBtn, QPopover, QTooltip,
   },
   data: () => {
     return {
@@ -144,4 +139,6 @@ export default {
   font-size smaller
 .emoji-button
   padding 0.2rem 0.5rem
+.emoji-button .parsed >>> *
+  display inline
 </style>

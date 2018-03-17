@@ -133,7 +133,7 @@ export function receiveMessage ({ topic, payload }) {
 }
 
 store.watch(getter('presence/toggle/away'), away => {
-  if (ws) {
+  if (ws && ws.readyState === WebSocket.OPEN) {
     ws.send(JSON.stringify({ type: away ? 'away' : 'back' }))
   }
 })

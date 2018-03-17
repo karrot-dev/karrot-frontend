@@ -3532,7 +3532,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                             <div class="q-field-label-inner row items-center"><span>Profile photo</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div class="croppa-container      ">
+                            <div class="croppa-container       pointer">
                                 <input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
                                 <div class="slots" style="width:0;height:0;visibility:hidden;">
                                     <img src="statics/ic_person_black_24px.svg">

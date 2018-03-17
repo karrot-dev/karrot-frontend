@@ -3973,7 +3973,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <i aria-hidden="true" class="q-icon fa fa-fw fa-map"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-arrows-alt fa-stack-1x"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Show full screen
@@ -3981,7 +3981,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
                 <!---->
                 </span>
             </button>
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide stores
@@ -3989,7 +3989,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
                 <!---->
                 </span>
             </button>
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-user fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide users

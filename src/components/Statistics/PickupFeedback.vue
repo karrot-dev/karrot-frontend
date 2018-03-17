@@ -34,7 +34,7 @@
       <div class="generic-padding">
         <FeedbackForm
           style="padding: 1.5em 0"
-          :value="feedback"
+          :value="feedbackDefault"
           :status="saveStatus"
           @save="$emit('save', arguments[0])"
         />
@@ -90,10 +90,10 @@ export default {
     },
   },
   computed: {
-    feedback () {
+    feedbackDefault () {
       if (this.editFeedback) return this.editFeedback
       return {
-        about: this.select.id,
+        about: this.select ? this.select.id : undefined,
         weight: 1,
         comment: '',
       }

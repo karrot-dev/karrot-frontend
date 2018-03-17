@@ -31,7 +31,7 @@
         </div>
         <ConversationAddReaction
           class="add-button reaction-box self-start"
-          :reacted="currentUserReactions(message.reactions)"
+          :reacted="currentUserReactions"
           @toggle="toggleReaction"
         />
       </q-item-tile>
@@ -42,7 +42,7 @@
       <ConversationReactions
         v-if="hasReactions"
         :reactions="message.reactions"
-        :current-user-reactions="currentUserReactions(message.reactions)"
+        :current-user-reactions="currentUserReactions"
         @toggle="toggleReaction"
         style="margin-top: -3px"
       />
@@ -72,11 +72,11 @@ export default {
     toggleReaction (name) {
       this.$emit('toggleReaction', { name, messageId: this.message.id })
     },
-    currentUserReactions (reactions) {
-      return reactions && reactions.filter(e => e.reacted).map(e => e.name)
-    },
   },
   computed: {
+    currentUserReactions () {
+      return this.message && this.message.reactions && this.message.reactions.filter(e => e.reacted).map(e => e.name)
+    },
     hasReactions () {
       return this.message && this.message.reactions && this.message.reactions.length > 0
     },

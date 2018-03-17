@@ -13,6 +13,9 @@ Vue.use(Quasar) // Install Quasar Framework
 Vue.use(Vuex) // Install Vuex
 
 Vue.component('router-link', MockRouterLink)
+Vue.config.errorHandler = (err, vm, info) => {
+  console.log(err, vm, info)
+}
 
 import 'quasar-extras/roboto-font'
 import 'quasar-extras/material-icons'

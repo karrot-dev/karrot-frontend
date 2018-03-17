@@ -8,9 +8,13 @@ import { createStore } from '>/helpers'
 describe('conversations', () => {
   let store
   beforeEach(() => {
+    jest.resetModules()
+    const i18n = require('@/i18n').default
+    i18n.locale = 'en'
+
     store = createStore({
       conversations: require('./conversations').default,
-      users: { getters: { get: a => a => a } },
+      users: { getters: { get: a => a => ({ id: a, displayName: `user ${a}` }) } },
     })
   })
   describe('conversation update', () => {
@@ -54,9 +58,72 @@ describe('conversations', () => {
     })
 
     it('receives new message', () => {
-      const message = { id: 1, conversation: 1, author: 1 }
+      const message = { id: 1, conversation: 1, author: 1, reactions: [] }
+      const enrichMessage = m => ({
+        ...message,
+        author: store.getters['users/get'](message.author),
+      })
       store.dispatch('conversations/receiveMessage', message)
-      expect(store.getters['conversations/activeMessages']).toEqual([{ ...message, isUnread: true }])
+      expect(store.getters['conversations/activeMessages']).toEqual([{ ...enrichMessage(message), isUnread: true }])
+    })
+  })
+
+  describe('message reactions', () => {
+    beforeEach(async () => {
+      mockList.mockReturnValueOnce([])
+      const message = {
+        id: 1,
+        conversation: 1,
+        author: 1,
+        reactions: [
+          { name: 'tada', user: 1 },
+          { name: 'tada', user: 2 },
+        ],
+      }
+      await store.dispatch('conversations/receiveMessage', message)
+      await store.commit('conversations/setActive', { conversationId: 1 })
+    })
+
+    it('groups reactions by name', () => {
+      expect(store.getters['conversations/activeMessages'][0].reactions).toEqual([{
+        'message': 'user 1 and user 2 reacted with :tada:',
+        'name': 'tada',
+        'reacted': false,
+        'users': [{'displayName': 'user 1', 'id': 1}, {'displayName': 'user 2', 'id': 2}],
+      }])
+    })
+
+    it('makes nice message about who reacted', () => {
+      const readableReactionMessage = require('./conversations').readableReactionMessage
+      expect(readableReactionMessage({
+        users: [{ displayName: '', isCurrentUser: true }],
+        name: 'thumbsup',
+      })).toEqual('you reacted with :thumbsup:')
+
+      expect(readableReactionMessage({
+        users: [{ displayName: '', isCurrentUser: true }, { displayName: 'Hans' }],
+        name: 'thumbsup',
+      })).toEqual('you and Hans reacted with :thumbsup:')
+
+      expect(readableReactionMessage({
+        users: [{ displayName: 'Fritz' }, { displayName: 'Hans' }],
+        name: 'thumbsup',
+      })).toEqual('Fritz and Hans reacted with :thumbsup:')
+
+      expect(readableReactionMessage({
+        users: [{ displayName: 'Fritz' }, { displayName: 'Hans' }, { displayName: 'Peter' }],
+        name: 'thumbsup',
+      })).toEqual('Fritz, Hans and Peter reacted with :thumbsup:')
+
+      expect(readableReactionMessage({
+        users: [{ displayName: 'Hans' }, { displayName: '', isCurrentUser: true }, { displayName: 'Peter' }],
+        name: 'thumbsup',
+      })).toEqual('you, Hans and Peter reacted with :thumbsup:')
+
+      expect(readableReactionMessage({
+        users: [],
+        name: 'thumbsup',
+      })).toEqual('')
     })
   })
 })

@@ -62,6 +62,7 @@ export const messagesMock = [
 ].map(e => {
   e.author = usersMock.find(u => u.id === e.author)
   e.createdAt = new Date(e.createdAt)
+  e.reactions = [{ name: 'thumbsup', users: [usersMock[0]], message: `${usersMock[0].displayName} reacted with :thumbsup:` }]
   return e
 })
 

@@ -59,9 +59,12 @@ export default {
       async fetch ({ commit }) {
         commit('set', await users.list())
       },
-      async signup ({ commit, dispatch }, userData) {
+      async signup ({ commit, dispatch }, { userData, joinPlayground }) {
         await authUser.create(userData)
-        dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
+        await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
+        if (joinPlayground) {
+          await dispatch('groups/joinPlayground', null, { root: true })
+        }
       },
       async resetPassword ({ commit }, email) {
         await auth.resetPassword(email)

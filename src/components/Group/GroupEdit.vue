@@ -7,6 +7,7 @@
       >
         <form @submit.prevent="maybeSave">
           <q-field
+            v-if="!edit.isPlayground"
             icon="fa-fw fa-star"
             :label="$t('GROUP.TITLE')"
             :error="hasNameError"
@@ -22,6 +23,7 @@
           </q-field>
 
           <q-field
+            v-if="!edit.isPlayground"
             icon="fa-fw fa-question"
             :label="$t('GROUP.PUBLIC_DESCRIPTION')"
             :error="hasError('publicDescription')"
@@ -66,6 +68,7 @@
           </q-field>
 
           <q-field
+            v-if="!edit.isPlayground"
             icon="fa-fw fa-question"
             :label="$t('GROUP.PASSWORD')"
             :error="hasError('password')"

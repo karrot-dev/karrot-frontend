@@ -21,11 +21,18 @@ export default {
       // Derived state alerts
 
       const currentGroup = rootGetters['currentGroup/value']
-      if (currentGroup && currentGroup.awaitingAgreement) {
+      const isGroupPage = rootGetters['route/isGroupPage']
+      if (isGroupPage && currentGroup && currentGroup.awaitingAgreement) {
         alerts.push({
           type: 'awaitingAgreement',
           context: currentGroup.activeAgreement,
           dismissible: true,
+        })
+      }
+      if (isGroupPage && currentGroup && currentGroup.isPlayground) {
+        alerts.push({
+          type: 'playgroundGroupInfo',
+          dismissible: false,
         })
       }
 

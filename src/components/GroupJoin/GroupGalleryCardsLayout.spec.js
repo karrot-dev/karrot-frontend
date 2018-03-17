@@ -1,78 +1,93 @@
 import GroupGalleryCardsLayout from './GroupGalleryCardsLayout'
-import GroupGalleryCards from './GroupGalleryCardsUI'
+import GroupGalleryCards from './GroupGalleryCards'
 import GroupGalleryCard from './GroupGalleryCard'
 import GroupPreview from './GroupPreview'
 
 import { createLocalVue } from 'vue-test-utils'
-
 import { groupsMock } from '>/mockdata'
+import {
+  mountWithDefaults,
+  mountWithDefaultsAndLocalVue,
+  polyfillRequestAnimationFrame,
+} from '>/helpers'
 
-import { mountWithDefaults, mountWithDefaultsAndLocalVue, polyfillRequestAnimationFrame } from '>/helpers'
-
-let loggedOutProps = {
-  myGroups: [],
-  otherGroups: groupsMock,
+const loggedOutProps = {
+  filteredMyGroups: [],
+  filteredOtherGroups: groupsMock,
+  playgroundGroup: undefined,
   isLoggedIn: false,
   currentGroupId: 0,
-  showMyGroups: false,
+  hasJoinedGroups: false,
   expanded: false,
+  groupForPreview: null,
+  search: '',
 }
 
-let loggedInProps = {
-  myGroups: groupsMock.slice(0, 3),
-  otherGroups: groupsMock.slice(3),
+const loggedInProps = {
+  filteredMyGroups: groupsMock.slice(0, 3),
+  filteredOtherGroups: groupsMock.slice(3),
+  playgroundGroup: undefined,
   isLoggedIn: false,
   currentGroupId: 0,
-  showMyGroups: true,
+  hasJoinedGroups: true,
   expanded: false,
+  groupForPreview: null,
+  search: '',
 }
 
-let loggedOutPropsExpanded = Object.assign({}, loggedOutProps)
-loggedOutPropsExpanded.expanded = true
+const loggedOutPropsExpanded = {
+  ...loggedOutProps,
+  expanded: true,
+}
 
-let loggedInPropsExpanded = Object.assign({}, loggedInProps)
-loggedInPropsExpanded.expanded = true
+const loggedInPropsExpanded = {
+  ...loggedInProps,
+  expanded: true,
+}
 
 polyfillRequestAnimationFrame()
 
 describe('GroupGalleryCardsLayout', () => {
-  it('Expanded & Logged Out, clicking Preview', () => {
+  it('Expanded & Logged Out, clicking Preview', async () => {
     const localVue = createLocalVue()
     let wrapper = mountWithDefaultsAndLocalVue(GroupGalleryCardsLayout, localVue, {
       propsData: loggedOutPropsExpanded,
-      methods: { replaceWindowHistory: (group) => {} },
+      methods: { replaceWindowHistory: () => {} },
     })
     let groupCards = wrapper.findAll(GroupGalleryCard)
 
     expect(wrapper.findAll(GroupGalleryCards).length).toBe(1)
     expect(wrapper.findAll(GroupPreview).length).toBe(0)
-    expect(groupCards.length).toBe(6)
+    expect(groupCards.length).toBe(groupsMock.length)
 
     // click preview button (only button on the cards currently)
     groupCards.at(0).findAll('button').trigger('click')
-    expect(groupCards.at(0).emitted().preview).toBeTruthy()
-    expect(wrapper.emitted().showPreview).toBeTruthy()
+    expect(wrapper.emitted().showPreview.length).toBe(1)
+    expect(wrapper.emitted().showPreview[0][0].name).toEqual('05_testgroup')
+    wrapper.vm.groupForPreview = groupsMock[0]
 
     // check if all cards are closed and preview is open
-    localVue.nextTick(() => {
-      expect(wrapper.findAll(GroupGalleryCards).length).toBe(1)
-      expect(wrapper.findAll(GroupPreview).length).toBe(1)
-      groupCards = wrapper.findAll(GroupGalleryCard)
-      expect(groupCards.length).toBe(0)
+    await localVue.nextTick()
+    expect(wrapper.findAll(GroupPreview).length).toBe(1)
+    expect(wrapper.findAll(GroupGalleryCards).length).toBe(0)
+    groupCards = wrapper.findAll(GroupGalleryCard)
+    expect(groupCards.length).toBe(0)
 
-      let closeButtons = wrapper.findAll(GroupPreview).at(0).findAll('.preview-close-button')
-      expect(closeButtons.length).toBe(1)
-      closeButtons.at(0).trigger('click')
+    let closeButtons = wrapper.findAll(GroupPreview).at(0).findAll('.preview-close-button')
+    expect(closeButtons.length).toBe(1)
+    closeButtons.at(0).trigger('click')
+    expect(wrapper.emitted().showPreview.length).toBe(2)
+    expect(wrapper.emitted().showPreview[1][0]).toEqual(null)
+    wrapper.vm.groupForPreview = null
 
-      // check if everything is shown again after preview is closed
-      localVue.nextTick(() => {
-        groupCards = wrapper.findAll(GroupGalleryCard)
-        expect(wrapper.findAll(GroupGalleryCards).length).toBe(1)
-        expect(wrapper.findAll(GroupPreview).length).toBe(0)
-        expect(groupCards.length).toBe(6)
-      })
-    })
+    // check if everything is shown again after preview is closed
+    await localVue.nextTick()
+    groupCards = wrapper.findAll(GroupGalleryCard)
+    expect(wrapper.findAll(GroupGalleryCards).length).toBe(1)
+    expect(wrapper.findAll(GroupPreview).length).toBe(0)
+    expect(groupCards.length).toBe(groupsMock.length)
   })
+
   it('Expanded & Logged In', () => {
     let wrapper = mountWithDefaults(GroupGalleryCardsLayout, {
       propsData: loggedInPropsExpanded,
@@ -80,6 +95,7 @@ describe('GroupGalleryCardsLayout', () => {
     expect(wrapper.findAll(GroupGalleryCards).length).toBe(2)
     expect(wrapper.findAll(GroupGalleryCard).length).toBe(6)
   })
+
   it('Not expanded & Logged Out', () => {
     let wrapper = mountWithDefaults(GroupGalleryCardsLayout, {
       propsData: loggedOutProps,
@@ -87,6 +103,7 @@ describe('GroupGalleryCardsLayout', () => {
     expect(wrapper.findAll(GroupGalleryCards).length).toBe(0)
     expect(wrapper.findAll(GroupGalleryCard).length).toBe(0)
   })
+
   it('Not expanded & Logged In', () => {
     let wrapper = mountWithDefaults(GroupGalleryCardsLayout, {
       propsData: loggedInProps,

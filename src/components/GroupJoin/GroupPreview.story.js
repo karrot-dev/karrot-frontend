@@ -1,4 +1,4 @@
-import { storybookDefaults as defaults } from '>/helpers'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -42,7 +42,11 @@ storiesOf('GroupPreviewUI', module)
   .add('pending', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: { ...groupsMock[4], isMember: false },
+        group: {
+          ...groupsMock[4],
+          isMember: false,
+          joinStatus: statusMocks.pending(),
+        },
         isLoggedIn: true,
       },
       on: { join: methods.join },
@@ -51,7 +55,11 @@ storiesOf('GroupPreviewUI', module)
   .add('error', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: { ...groupsMock[4], isMember: false },
+        group: {
+          ...groupsMock[4],
+          isMember: false,
+          joinStatus: statusMocks.validationError('password', 'wrong!'),
+        },
         isLoggedIn: true,
       },
       on: { join: methods.join },

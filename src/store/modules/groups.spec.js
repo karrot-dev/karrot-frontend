@@ -25,6 +25,9 @@ function enrich (group) {
   return {
     ...group,
     isMember: false,
+    isCurrentGroup: false,
+    isPlayground: false,
+    isInactive: false,
     ...defaultActionStatusesFor('save', 'join', 'leave'),
   }
 }

@@ -1,12 +1,11 @@
 <template>
-  <div>
-    <StandardMap
-      class="group-gallery-map"
-      :markers="markers"
-      :force-center="coords"
-      :force-zoom="zoom"
-      :show-attribution="false"/>
-  </div>
+  <StandardMap
+    class="group-gallery-map"
+    :markers="markers"
+    :force-center="coords"
+    :force-zoom="zoom"
+    :show-attribution="false"
+  />
 </template>
 
 <script>

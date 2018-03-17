@@ -1,24 +1,31 @@
 <template>
   <div
     class="column gallery-wrapper"
-    :class="{'expanded': expanded}">
+    :class="{expanded}"
+  >
     <GroupGalleryMap
       class="map-fixed"
-      :filtered-other-groups="otherGroupsForMap"
-      :filtered-my-groups="myGroupsForMap"
-      :expanded="expanded" />
+      :filtered-my-groups="filteredMyGroups"
+      :filtered-other-groups="filteredOtherGroups"
+      :expanded="expanded"
+    />
     <GroupGalleryCardsLayout
       class="gallery-cards"
-      :my-groups="filteredMyGroups"
-      :other-groups="filteredOtherGroups"
-      :show-my-groups="myGroups.length > 0"
+      :filtered-my-groups="filteredMyGroups"
+      :filtered-other-groups="filteredOtherGroups"
+      :playground-group="playgroundGroup"
+      :has-joined-groups="myGroups.length > 0"
+      :group-for-preview="groupForPreview"
       :is-logged-in="isLoggedIn"
-      :current-group-id="currentGroupId"
       :expanded="expanded"
+      :search="search"
+      :show-inactive="showInactive"
+      @setShowInactive="setShowInactive"
       @search="filterGroups"
       @showPreview="showPreview"
       @preview="$emit('preview', arguments[0])"
-      @visit="$emit('visit', arguments[0])">
+      @visit="$emit('visit', arguments[0])"
+    >
       <q-btn
         @click="expanded = !expanded"
         flat
@@ -26,7 +33,8 @@
       >
         <i
           class="fa fa-2x"
-          :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"/>
+          :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"
+        />
         <q-tooltip>
           {{ $t(expanded ? 'BUTTON.CLOSE' : 'BUTTON.OPEN') }}
         </q-tooltip>
@@ -42,11 +50,31 @@ import StandardMap from '@/components/Map/StandardMap'
 import { QBtn, QTooltip } from 'quasar'
 
 export default {
+  components: { GroupGalleryCardsLayout, GroupGalleryMap, QBtn, QTooltip, StandardMap },
+  props: {
+    myGroups: {
+      default: () => [],
+      type: Array,
+    },
+    otherGroups: {
+      default: () => [],
+      type: Array,
+    },
+    playgroundGroup: {
+      default: undefined,
+      type: Object,
+    },
+    isLoggedIn: {
+      default: false,
+      type: Boolean,
+    },
+  },
   data () {
     return {
       search: '',
-      openGroup: null,
+      groupForPreview: null,
       expanded: true,
+      showInactive: false,
     }
   },
   methods: {
@@ -55,58 +83,38 @@ export default {
     },
     showPreview (group) {
       window.scrollTo(0, 0)
-      this.openGroup = group
+      this.groupForPreview = group
     },
-  },
-  props: {
-    myGroups: {
-      default: () => [],
-      type: Array,
+    setShowInactive (value) {
+      this.showInactive = value
     },
-    otherGroups: {
-      required: true,
-      type: Array,
-    },
-    isLoggedIn: {
-      required: true,
-      type: Boolean,
-    },
-    currentGroupId: {
-      default: -1,
-      type: Number,
+    searchInName (term, list) {
+      if (!term || term === '') return list
+      return list.filter(group => {
+        return group.name.toLowerCase().includes(term.toLowerCase())
+      })
     },
   },
   computed: {
     filteredMyGroups () {
-      return this.myGroups.filter(group => {
-        return group.name.toLowerCase().includes(this.search.toLowerCase())
-      })
+      if (this.previewOpened) {
+        return [this.groupForPreview].filter(g => g.isMember)
+      }
+      return this.searchInName(this.search, this.myGroups)
     },
     filteredOtherGroups () {
-      return this.otherGroups.filter(group => {
-        return group.name.toLowerCase().includes(this.search.toLowerCase())
-      })
-    },
-    myGroupsForMap () {
-      if (this.openGroup !== null) {
-        if (this.openGroup.isMember) {
-          return [this.openGroup]
-        }
-        return []
+      if (this.previewOpened) {
+        return [this.groupForPreview].filter(g => !g.isMember)
       }
-      return this.filteredMyGroups
-    },
-    otherGroupsForMap () {
-      if (this.openGroup !== null) {
-        if (!this.openGroup.isMember) {
-          return [this.openGroup]
-        }
-        return []
+      let filteredGroups = this.searchInName(this.search, this.otherGroups)
+      if (!this.showInactive) {
+        filteredGroups = filteredGroups.filter(g => !g.isInactive)
       }
-      return this.filteredOtherGroups
+      const hasSearchTerm = this.search !== ''
+      const hidePlaygroundByDefault = group => !hasSearchTerm ? !group.isPlayground : true
+      return filteredGroups.filter(hidePlaygroundByDefault)
     },
   },
-  components: { GroupGalleryCardsLayout, GroupGalleryMap, QBtn, QTooltip, StandardMap },
 }
 </script>
 
@@ -126,6 +134,7 @@ body.desktop
       max-width 42vw
   .expanded .gallery-cards
     margin-bottom -10em
+    padding-bottom 3em
 
 body.mobile
   .map-fixed
@@ -135,7 +144,7 @@ body.mobile
   .gallery-cards
     margin-top: 0
     min-height 10vh
-    padding-bottom 10em
+    padding-bottom 3em
     margin-bottom -5em
     transition all .7s
     z-index 0

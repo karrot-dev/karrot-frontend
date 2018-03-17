@@ -9,6 +9,8 @@ const RequestPasswordResetSuccess = () => import('@/pages/Password/RequestResetS
 const Signup = () => import('@/pages/Signup')
 const SignupTitle = () => import('@/components/Login/SignupTitle')
 const VerifyMail = () => import('@/pages/VerifyMail')
+const DeleteAccount = () => import('@/pages/DeleteAccount')
+const DeleteAccountTitle = () => import('@/components/Settings/DeleteAccountTitle')
 
 export default [
   {
@@ -96,6 +98,21 @@ export default [
     components: {
       default: Signup,
       header: SignupTitle,
+    },
+  },
+  {
+    name: 'deleteAccount',
+    path: '/delete-user',
+    meta: {
+      requireLoggedOut: true,
+      breadcrumbs: [
+        { translation: 'DELETEACCOUNT.TITLE' },
+      ],
+      afterLeave: 'deleteAccount/clear',
+    },
+    components: {
+      default: DeleteAccount,
+      header: DeleteAccountTitle,
     },
   },
 ]

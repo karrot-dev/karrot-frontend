@@ -16,4 +16,8 @@ export default {
   requestDeleteAccount () {
     return axios.post('/api/auth/user/request_delete/')
   },
+
+  deleteAccount (code) {
+    return axios.delete('/api/auth/user/', { params: { code: code } })
+  },
 }

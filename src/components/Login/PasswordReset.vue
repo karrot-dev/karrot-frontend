@@ -26,7 +26,7 @@
           class="error"
         >
           <i class="fa fa-exclamation-triangle"/>
-          {{ $t('PASSWORD.RESET.CODE_ERROR') }}
+          {{ $t('GLOBAL.INVALID_LINK') }}
         </div>
         <div
           v-if="hasNonFieldError"

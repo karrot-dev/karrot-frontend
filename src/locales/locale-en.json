@@ -6,7 +6,8 @@
     "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
-    "SERVER_ERROR": "Server error"
+    "SERVER_ERROR": "Server error",
+    "INVALID_LINK": "Sorry, the link you've opened is invalid."
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -24,7 +25,7 @@
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
         "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Any messages you posted or sent will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
         "CONFIRM": "Confirm"
       }
     }
@@ -201,6 +202,10 @@
     "TITLE": "E-Mail verification",
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
+  "DELETEACCOUNT": {
+    "TITLE": "Account deletion",
+    "SUCCESS": "Your account was successfully deleted!"
+  },
   "CREATEPICKUP": {
     "FREQUENCY": "Frequency",
     "WEEKLY": "Weekly",
@@ -272,8 +277,7 @@
     "RESET": {
       "TITLE": "Reset password",
       "OK": "Save",
-      "SUCCESS": "Your new password has been saved.",
-      "CODE_ERROR": "Sorry, the link you've opened is invalid."
+      "SUCCESS": "Your new password has been saved."
     },
     "CHANGE": {
       "SUCCESS": "Your new password has been saved."

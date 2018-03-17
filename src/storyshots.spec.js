@@ -5,7 +5,6 @@
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
 */
 let mockStories = []
-const consoleErrorSpy = jest.spyOn(global.console, 'error')
 jest.mock('@storybook/vue', () => ({
   storiesOf: (kind) => {
     const api = { kind }
@@ -36,6 +35,12 @@ afterAll(() => {
   clock.uninstall()
 })
 
+// Mock RandomArt because it doesn't play nicely with JSDOM
+jest.mock('@/components/General/RandomArt', () => ({
+  functional: true,
+  render: (h, context) => h('div', context.data, context.children),
+}))
+
 const files = glob.sync('**/*.story.js', { absolute: true })
 for (const f of files) {
   require(f)
@@ -46,8 +51,6 @@ for (const group of mockStories) {
     describe(group.kind, () => {
       for (const story of group.stories) {
         it(story.name, async () => {
-          consoleErrorSpy.mockReset()
-
           // get the component from storybook
           const component = story.render()
 
@@ -59,7 +62,6 @@ for (const group of mockStories) {
           // use server side renderer to get renderered html string
           const renderer = createRenderer()
           expect(renderer.renderToString(wrapper.vm)).resolves.toMatchSnapshot()
-          expect(consoleErrorSpy).not.toHaveBeenCalled()
         })
       }
     })

@@ -1388,10 +1388,8 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 
 exports[`Storyshots GroupSettings show 1`] = `
 <div class="q-card no-mobile-margin no-shadow grey-border">
-    <div class="art-wrapper">
-        <div>
-            <div class="art-overlay"></div>
-        </div>
+    <div seed="1" type="circles">
+        <div class="art-overlay"></div>
     </div>
     <div class="q-list q-list-link">
         <div class="q-list-header ">Email notifications</div>
@@ -1445,9 +1443,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -1475,9 +1471,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                 <!---->
@@ -1505,9 +1499,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                                 <!---->
@@ -1535,9 +1527,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
                                 <!---->
@@ -1565,9 +1555,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Current User
     </span></div>
                                 <!---->
@@ -1614,9 +1602,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -1624,9 +1610,7 @@ exports[`Storyshots History List Default 1`] = `
                             </div>
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                 <!---->
@@ -1634,9 +1618,7 @@ exports[`Storyshots History List Default 1`] = `
                             </div>
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                                 <!---->
@@ -1644,9 +1626,7 @@ exports[`Storyshots History List Default 1`] = `
                             </div>
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
                                 <!---->
@@ -1674,9 +1654,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -1704,9 +1682,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                 <!---->
@@ -2480,9 +2456,7 @@ exports[`Storyshots PickupItem Full 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -2490,9 +2464,7 @@ exports[`Storyshots PickupItem Full 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -2500,9 +2472,7 @@ exports[`Storyshots PickupItem Full 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2537,9 +2507,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -2547,9 +2515,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -2557,9 +2523,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2573,9 +2537,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                             <div class="wrapper">
                                 <!---->
                                 <div>
-                                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                        <div></div>
-                                    </div>
+                                    <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                 </div>
                                 <!---->
                             </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -2610,9 +2572,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -2620,9 +2580,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -2639,9 +2597,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
                                 <div class="wrapper">
                                     <!---->
                                     <div>
-                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                            <div></div>
-                                        </div>
+                                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                     </div>
                                     <!---->
                                 </div>
@@ -2679,9 +2635,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -2689,9 +2643,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -2699,9 +2651,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2741,9 +2691,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -2751,9 +2699,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -2761,9 +2707,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                             <!---->
@@ -2777,9 +2721,7 @@ exports[`Storyshots PickupList Default 1`] = `
                                 <div class="wrapper">
                                     <!---->
                                     <div>
-                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                            <div></div>
-                                        </div>
+                                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                     </div>
                                     <!---->
                                 </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -2812,9 +2754,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -2822,9 +2762,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -2841,9 +2779,7 @@ exports[`Storyshots PickupList Default 1`] = `
                                     <div class="wrapper">
                                         <!---->
                                         <div>
-                                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                                <div></div>
-                                            </div>
+                                            <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                         </div>
                                         <!---->
                                     </div>
@@ -2879,9 +2815,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -2889,9 +2823,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -2899,9 +2831,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                             <!---->
@@ -2940,9 +2870,7 @@ exports[`Storyshots PickupList Default 1`] = `
                                 <div class="wrapper">
                                     <!---->
                                     <div>
-                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                            <div></div>
-                                        </div>
+                                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                     </div>
                                     <!---->
                                 </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -3390,9 +3318,7 @@ exports[`Storyshots PickupUsers empty 1`] = `
             <div class="wrapper">
                 <!---->
                 <div>
-                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                        <div></div>
-                    </div>
+                    <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
                 <!---->
             </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -3424,9 +3350,7 @@ exports[`Storyshots PickupUsers full 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
@@ -3434,9 +3358,7 @@ exports[`Storyshots PickupUsers full 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
@@ -3444,9 +3366,7 @@ exports[`Storyshots PickupUsers full 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
         <!---->
@@ -3470,9 +3390,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
@@ -3480,9 +3398,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
@@ -3490,9 +3406,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
         <!---->
@@ -3506,9 +3420,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
             <div class="wrapper">
                 <!---->
                 <div>
-                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                        <div></div>
-                    </div>
+                    <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
                 <!---->
             </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -3532,9 +3444,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
@@ -3542,9 +3452,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
@@ -3561,9 +3469,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
                 <div class="wrapper">
                     <!---->
                     <div>
-                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                            <div></div>
-                        </div>
+                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                     </div>
                     <!---->
                 </div>
@@ -3581,9 +3487,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
 exports[`Storyshots ProfilePicture Profile Pictures 1`] = `
 <div class="wrapper">
     <div to="[object Object]">
-        <div class="art-wrapper randomArt" style="width:100px;height:100px;">
-            <div></div>
-        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
     <!---->
@@ -4757,9 +4661,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
             <div class="people">
                 <div class="wrapper">
                     <div to="[object Object]">
-                        <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                            <div></div>
-                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                     <!---->
@@ -4802,9 +4704,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="people">
                         <div class="wrapper">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -4840,9 +4740,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                 <div class="people">
                     <div class="wrapper">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -4879,9 +4777,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <div class="people">
                 <div class="wrapper">
                     <div to="[object Object]">
-                        <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                            <div></div>
-                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                     <!---->
@@ -4919,63 +4815,61 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
 exports[`Storyshots Statistics PickupFeedback 1`] = `
 <div class="pickup-feedback-wrapper">
     <div class="q-card no-mobile-margin no-shadow grey-border">
-        <div class="art-wrapper" style="color:white;">
-            <div>
-                <div class="row no-wrap image-and-text">
-                    <div class="image-and-text-left gt-sm">
-                        <img src="test-file-stub" style="width:100%;">
-                    </div>
-                    <div class="image-and-text-right">
-                        <h4>Thank you for your pickup!</h4>
-                        <p>
-                            <div class="q-field row no-wrap items-start grey-font q-field-no-label q-field-dark">
+        <div type="circles" style="color:white;">
+            <div class="row no-wrap image-and-text">
+                <div class="image-and-text-left gt-sm">
+                    <img src="test-file-stub" style="width:100%;">
+                </div>
+                <div class="image-and-text-right">
+                    <h4>Thank you for your pickup!</h4>
+                    <p>
+                        <div class="q-field row no-wrap items-start grey-font q-field-no-label q-field-dark">
+                            <!---->
+                            <div class="row col">
                                 <!---->
-                                <div class="row col">
-                                    <!---->
-                                    <div class="q-field-content col-xs-12 col-sm">
-                                        <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
+                                <div class="q-field-content col-xs-12 col-sm">
+                                    <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
+                                        <!---->
+                                        <div class="q-if-inner col row no-wrap items-center relative-position">
                                             <!---->
-                                            <div class="q-if-inner col row no-wrap items-center relative-position">
-                                                <!---->
-                                                <!---->
-                                                <div class="col row items-center q-input-target justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                <!---->
-                                                <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
-                                                    <div></div>
-                                                    <div class="no-border scroll q-list q-list-link">
-                                                        <div class="q-item q-item-division relative-position active">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                            <!---->
+                                            <div class="col row items-center q-input-target justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                                            <!---->
+                                            <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
+                                                <div></div>
+                                                <div class="no-border scroll q-list q-list-link">
+                                                    <div class="q-item q-item-division relative-position active">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
-                                                        <div class="q-item q-item-division relative-position">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="q-item q-item-division relative-position">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
-                                                        <div class="q-item q-item-division relative-position">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="q-item q-item-division relative-position">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
-                                                        <div class="q-item q-item-division relative-position">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="q-item q-item-division relative-position">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!---->
                                             </div>
-                                            <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
                                             <!---->
                                         </div>
+                                        <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
                                         <!---->
                                     </div>
+                                    <!---->
                                 </div>
                             </div>
-                        </p>
-                    </div>
+                        </div>
+                    </p>
                 </div>
             </div>
         </div>
@@ -5214,9 +5108,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         </div>
     </div>
     <div class="q-card no-shadow grey-border store-feedback">
-        <div class="art-wrapper randomBanner">
-            <div></div>
-        </div>
+        <div seed="61" type="banner" class="randomBanner"></div>
         <h4 class="generic-padding"></h4>
         <div class="q-infinite-scroll">
             <div class="q-infinite-scroll-content">
@@ -5246,9 +5138,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="people">
                                 <div class="wrapper">
                                     <div to="[object Object]">
-                                        <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                            <div></div>
-                                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                     <!---->
@@ -5284,9 +5174,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <div class="people">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -5323,9 +5211,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     <div class="people">
                         <div class="wrapper">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->

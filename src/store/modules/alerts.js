@@ -33,6 +33,7 @@ export default {
         alerts.push({
           type: 'playgroundGroupInfo',
           dismissible: false,
+          desktopOnly: true,
         })
       }
 

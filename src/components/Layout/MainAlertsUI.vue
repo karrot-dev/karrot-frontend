@@ -101,6 +101,9 @@ export default {
           ...this[e.type](e.context),
           ...e,
         }
+      }).filter(e => {
+        if (e.desktopOnly && this.$q.platform.is.mobile) return false
+        return true
       })
     },
     alertClasses () {

@@ -220,7 +220,6 @@ class TestPlaygroundGroupAPI(APITestCase):
     def test_change_password_has_no_effect(self):
         self.client.force_login(user=self.member)
         url = reverse('group-detail', kwargs={'pk': self.group.id})
-        print(url)
         response = self.client.patch(url, data={'password': 'secret'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.group.refresh_from_db()

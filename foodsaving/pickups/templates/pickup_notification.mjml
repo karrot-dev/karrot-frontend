@@ -90,9 +90,9 @@
                     <mj-divider/>
                     <mj-text font-size="13px" line-height="18px" color="#777">
                         <p>
-                            {% trans %}You are receiving this because you are subscribed to
+                            {% trans -%}You are receiving this because you are subscribed to
                                 <strong>Pickup notification</strong> emails for this group.{% endtrans %}
-                            {% trans %}<a href="{{ settings_url }}">Change your settings</a>.{% endtrans %}
+                            <a href="{{ settings_url }}">{% trans %}Click here to unsubscribe{%  endtrans %}</a>.
                         </p>
                     </mj-text>
                 </mj-column>

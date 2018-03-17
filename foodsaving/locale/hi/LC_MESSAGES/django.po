@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 17:02+0000\n"
+"POT-Creation-Date: 2018-03-17 21:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yashvi Shah <yashvi4100@gmail.com>, 2018\n"
 "Language-Team: Hindi (https://www.transifex.com/yunity-1/teams/68631/hi/)\n"
@@ -35,7 +35,7 @@ msgid ""
 msgstr "आपका %(site_name)s टीम"
 
 #: foodsaving/conversations/api.py:33 foodsaving/conversations/api.py:52
-#: foodsaving/conversations/serializers.py:120
+#: foodsaving/conversations/serializers.py:123
 msgid "You are not in this conversation"
 msgstr "आप इस वार्तालाप में नहीं हैं |"
 
@@ -159,8 +159,7 @@ msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:176
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:186
-#, python-format
-msgid "<a href=\"%(settings_url)s\">Change your settings</a>."
+msgid "Click here to unsubscribe"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.subject.jinja2:1

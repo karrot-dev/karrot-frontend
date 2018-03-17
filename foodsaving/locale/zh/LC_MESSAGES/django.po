@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-09 16:09+0000\n"
+"POT-Creation-Date: 2018-03-17 17:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Tilmann Becker <tilmann.becker+github@gmail.com>, 2017\n"
 "Language-Team: Chinese (https://www.transifex.com/yunity-1/teams/68631/zh/)\n"
@@ -63,23 +63,27 @@ msgstr "你已經是成員了。"
 msgid "You do not have permission to update memberships."
 msgstr "你沒有修改成員名單的權限"
 
-#: foodsaving/groups/serializers.py:22
+#: foodsaving/groups/serializers.py:23
 msgid "Unknown timezone"
 msgstr "未知的時區"
 
-#: foodsaving/groups/serializers.py:88 foodsaving/groups/serializers.py:158
+#: foodsaving/groups/serializers.py:31
+msgid "Playground"
+msgstr ""
+
+#: foodsaving/groups/serializers.py:100 foodsaving/groups/serializers.py:175
 msgid "You cannot manage agreements"
 msgstr "你無法管理合約"
 
-#: foodsaving/groups/serializers.py:90
+#: foodsaving/groups/serializers.py:102
 msgid "Agreement is not for this group"
 msgstr "不是這個社團的合約"
 
-#: foodsaving/groups/serializers.py:156
+#: foodsaving/groups/serializers.py:173
 msgid "You are not in this group"
 msgstr "你並未在社團裡"
 
-#: foodsaving/groups/serializers.py:223
+#: foodsaving/groups/serializers.py:240
 msgid "Group password is wrong"
 msgstr "社團密碼錯誤"
 
@@ -120,27 +124,61 @@ msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:137
 #, python-format
-msgid "%(sent_messages_count)s messages were sent"
+msgid "%(feedbacks_count)s pickup feedbacks were given"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:139
-msgid "no messages were sent"
+msgid "no feedback was given"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:143
+#, python-format
+msgid "%(sent_messages_count)s messages were sent"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:145
+msgid "no messages were sent"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:152
+msgid "Pickup feedback"
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:158
+#, python-format
+msgid ""
+"%(weight)s kg from <a href=\"%(store_url)s\">%(store_name)s</a>\n"
+"                                    "
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.html.jinja2:167
 msgid "Here's what was said last week"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:153
+#: foodsaving/groups/templates/group_summary.html.jinja2:175
 msgid ""
 "You are receiving this because you are subscribed to <strong>Weekly "
 "summary</strong> emails for this group."
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:154
+#: foodsaving/groups/templates/group_summary.html.jinja2:176
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:186
 #, python-format
 msgid "<a href=\"%(settings_url)s\">Change your settings</a>."
+msgstr ""
+
+#: foodsaving/groups/templates/group_summary.subject.jinja2:1
+#, python-format
+msgid "%(group_name)s updates for the week of %(day)s"
+msgstr ""
+
+#: foodsaving/groups/templates/playground_public_description.nopreview.jinja2:1
+msgid ""
+"Welcome to **karrot**!\n"
+"\n"
+"Come in, click around and do whatever you feel like! :carrot: No need to worry, nothing can be broken here! :)\n"
+"\n"
+"All email notifications are disabled by default."
 msgstr ""
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:109

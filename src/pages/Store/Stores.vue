@@ -3,6 +3,7 @@
     <StoreList
       class="white-background"
       :stores="stores"
+      :archived="archived"
     />
   </q-card>
 </template>
@@ -19,6 +20,7 @@ export default {
   computed: {
     ...mapGetters({
       stores: 'stores/byCurrentGroup',
+      archived: 'stores/byCurrentGroupArchived',
     }),
   },
 }

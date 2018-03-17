@@ -128,7 +128,9 @@
         "CONFIRM": "Yes, archive store"
       }
     },
-    "RESTORE": "Restore"
+    "RESTORE": "Restore",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",

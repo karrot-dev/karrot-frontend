@@ -9,7 +9,32 @@
     <template slot="name">
       {{ $t('GROUP.STORES') }}
     </template>
-    <template slot="tools">
+    <template
+      slot="tools"
+      class="tools"
+    >
+      <q-btn
+        flat
+        small
+        @click="toggleArchived"
+      >
+        <span class="fa-fw fa-stack">
+          <i class="fa fa-trash-o fa-stack-1x" />
+          <i
+            v-if="showArchived"
+            class="fa fa-check fa-stack-1x text-positive"
+            style="top: 5px; left: 5px"
+          />
+          <i
+            v-else
+            class="fa fa-times fa-stack-1x text-negative"
+            style="top: 5px; left: 5px"
+          />
+        </span>
+        <q-tooltip>
+          {{ $t( showArchived ? 'STOREEDIT.HIDE_ARCHIVED' : 'STOREEDIT.SHOW_ARCHIVED') }}
+        </q-tooltip>
+      </q-btn>
       <q-btn
         v-if="hasStores"
         flat
@@ -21,7 +46,10 @@
       </q-btn>
     </template>
 
-    <StoreList :stores="stores"/>
+    <StoreList
+      :stores="stores"
+      :archived="showArchived ? archived : []"
+    />
   </SidenavBox>
 </template>
 
@@ -34,10 +62,21 @@ import StoreList from '@/components/Store/StoreList'
 export default {
   props: {
     stores: { required: true, type: Array },
+    archived: { default: () => [], type: Array },
     expanded: { default: true, type: Boolean },
   },
   components: {
     SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoreList, QItemTile,
+  },
+  data () {
+    return {
+      showArchived: false,
+    }
+  },
+  methods: {
+    toggleArchived () {
+      this.showArchived = !this.showArchived
+    },
   },
   computed: {
     hasStores () {

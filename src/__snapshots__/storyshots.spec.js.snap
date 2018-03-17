@@ -4054,6 +4054,15 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         </div>
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
+            <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-trash-o fa-stack-1x"></i> <i class="fa fa-times fa-stack-1x text-negative" style="top:5px;left:5px;"></i></span> <span class="q-tooltip animate-scale"
+                style="transform-origin:bottom center 0px;">
+        Show archived stores
+      </span>
+            <!---->
+            </span>
+        </button>
+        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
+            <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
             <!---->
             </span>
@@ -4115,6 +4124,8 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                         </div>
                     </div>
                 </div>
+                <!---->
+                <!---->
                 <!---->
             </div>
         </div>
@@ -5830,6 +5841,8 @@ exports[`Storyshots Stores StoreList 1`] = `
             </div>
         </div>
     </div>
+    <!---->
+    <!---->
     <!---->
 </div>
 `;

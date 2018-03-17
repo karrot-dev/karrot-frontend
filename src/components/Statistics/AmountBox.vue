@@ -19,10 +19,18 @@
       class="text-bottom"
       :style="{ bottom: bottomOffset }"
     >
-      <span :style="{ fontSize: fontSize }">
-        {{ amountNumber[0] }}
+      <template v-if="hasAmount">
+        <span :style="{ fontSize: fontSize }">
+          {{ amountNumber[0] }}
+        </span>
+        <span :style="{ fontSize: fontSizeSmall }">{{ amountNumber[1] }}</span>
+      </template>
+      <span
+        v-else
+        :style="{ fontSize: fontSize }"
+      >
+        ?
       </span>
-      <span :style="{ fontSize: fontSizeSmall }">{{ amountNumber[1] }}</span>
     </div>
   </div>
 </template>
@@ -53,13 +61,20 @@ export default {
     imgSize () {
       return this.size + 'px'
     },
+    hasAmount () {
+      return !(typeof this.amount === 'undefined' || this.amount === null)
+    },
+    amountValue () {
+      if (!this.hasAmount) return 0
+      return this.amount
+    },
     pointerSize () {
       return [Math.floor(this.size / 8) + 'px',
         Math.floor(this.size / 8) * 1.6 + 'px',
         Math.floor(this.size / 10) + 'px']
     },
     pointerRotation () {
-      const rotation = Math.floor(this.amount * 3) - 48
+      const rotation = Math.floor(this.amountValue * 3) - 48
       if (rotation > 48) return 'rotate(45deg)'
       return 'rotate(' + rotation + 'deg)'
     },
@@ -73,16 +88,16 @@ export default {
       return Math.floor(this.size / 7) + 'px'
     },
     amountNumber () {
-      if (this.amount >= 1000000) {
+      if (this.amountValue >= 1000000) {
         return ['999+', 't']
       }
-      if (this.amount >= 1000) {
-        return [Number(this.amount / 1000.0).toFixed(1), 't']
+      if (this.amountValue >= 1000) {
+        return [Number(this.amountValue / 1000.0).toFixed(1), 't']
       }
-      if (this.amount >= 1) {
-        return [Number(this.amount).toFixed(1), 'kg']
+      if (this.amountValue >= 1) {
+        return [Number(this.amountValue).toFixed(1), 'kg']
       }
-      return [Number(this.amount * 1000).toFixed(0), 'g']
+      return [Number(this.amountValue * 1000).toFixed(0), 'g']
     },
   },
 }

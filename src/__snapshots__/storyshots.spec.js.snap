@@ -4461,8 +4461,8 @@ exports[`Storyshots Statistics AmountBox 1`] = `
     <img width="100px" height="100px" src="test-file-stub">
     <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(12deg);top:10px;">
     <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
-      20.0
-    </span> <span style="font-size:14px;">kg</span></div>
+        20.0
+      </span> <span style="font-size:14px;">kg</span></div>
 </div>
 `;
 
@@ -4473,8 +4473,8 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
             <img width="100px" height="100px" src="test-file-stub">
             <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
             <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
-      1.0
-    </span> <span style="font-size:14px;">kg</span></div>
+        1.0
+      </span> <span style="font-size:14px;">kg</span></div>
         </div>
         <div style="margin-left:.6em;">
             <div style="padding-bottom:.3em;"></div>
@@ -4664,8 +4664,8 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      2.5
-    </span> <span style="font-size:11px;">kg</span></div>
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -4707,8 +4707,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                         <img width="80px" height="80px" src="test-file-stub">
                         <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                         <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      2.5
-    </span> <span style="font-size:11px;">kg</span></div>
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -4744,8 +4744,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <img width="80px" height="80px" src="test-file-stub">
                     <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
                     <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      11.0
-    </span> <span style="font-size:11px;">kg</span></div>
+        11.0
+      </span> <span style="font-size:11px;">kg</span></div>
                 </div>
                 <div class="content">
                     <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -4780,8 +4780,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      0
-    </span> <span style="font-size:11px;">g</span></div>
+        0
+      </span> <span style="font-size:11px;">g</span></div>
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -4902,8 +4902,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <img width="100px" height="100px" src="test-file-stub">
                             <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
                             <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
-      1.0
-    </span> <span style="font-size:14px;">kg</span></div>
+        1.0
+      </span> <span style="font-size:14px;">kg</span></div>
                         </div>
                         <div style="margin-left:.6em;">
                             <div style="padding-bottom:.3em;"></div>
@@ -5141,8 +5141,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                                 <img width="80px" height="80px" src="test-file-stub">
                                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      2.5
-    </span> <span style="font-size:11px;">kg</span></div>
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
                             </div>
                             <div class="content">
                                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -5178,8 +5178,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <img width="80px" height="80px" src="test-file-stub">
                             <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
                             <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      11.0
-    </span> <span style="font-size:11px;">kg</span></div>
+        11.0
+      </span> <span style="font-size:11px;">kg</span></div>
                         </div>
                         <div class="content">
                             <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -5214,8 +5214,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <img width="80px" height="80px" src="test-file-stub">
                         <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
                         <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      0
-    </span> <span style="font-size:11px;">g</span></div>
+        0
+      </span> <span style="font-size:11px;">g</span></div>
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>

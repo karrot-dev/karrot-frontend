@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:8.5
+    - image: circleci/node:8.10
 
 android-defaults: &android-defaults
   working_directory: ~/repo

@@ -2,6 +2,7 @@
   <q-btn
     v-back-to-top
     round
+    small
     class="fixed-bottom-right bg-primary btt-btn"
   >
     <q-icon

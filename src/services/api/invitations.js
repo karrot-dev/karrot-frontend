@@ -14,6 +14,9 @@ export default {
   },
 
   async listByGroupId (groupId) {
+    if (groupId === 'undefined' || groupId === null) {
+      throw new Error('groupId is undefined')
+    }
     return convert((await axios.get('/api/invitations/', { params: { group: groupId } })).data)
   },
 

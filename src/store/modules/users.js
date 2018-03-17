@@ -36,7 +36,15 @@ export default {
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       const currentGroup = rootGetters['currentGroup/value']
-      return (currentGroup && currentGroup.members) ? currentGroup.members.map(getters.get) : []
+      if (currentGroup && currentGroup.memberships) {
+        return Object.entries(currentGroup.memberships).map(([userId, membership]) => {
+          return {
+            ...getters.get(userId),
+            membershipInCurrentGroup: membership,
+          }
+        })
+      }
+      return []
     },
     activeUser: (state, getters, rootState, rootGetters) => {
       return state.activeUserId && getters.get(state.activeUserId)
@@ -95,6 +103,9 @@ export default {
     clearResetPassword ({ commit, dispatch }) {
       dispatch('meta/clear', ['resetPassword'])
       commit('resetPasswordSuccess', false)
+    },
+    refresh ({ dispatch }) {
+      dispatch('fetch')
     },
   },
   mutations: {

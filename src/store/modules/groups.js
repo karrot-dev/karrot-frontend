@@ -90,6 +90,7 @@ export default {
       async fetch ({ commit }) {
         commit('set', await groupsInfo.list())
       },
+
     }),
 
     update ({ commit }, group) {
@@ -110,6 +111,10 @@ export default {
     },
     clearGroupPreview ({ commit }) {
       commit('setActivePreview', null)
+    },
+
+    refresh ({ dispatch }) {
+      return dispatch('fetch')
     },
   },
   mutations: {

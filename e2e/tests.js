@@ -52,8 +52,9 @@ test('create group', async t => {
 })
 
 test('select a group, signs in and gets added to the group', async t => {
+  const searchbox = Selector('input').withAttribute('placeholder', 'Search')
   await t
-    .click(Selector('div').withText(`testgroup ${testTime}`).parent('.q-card').find('button'))
+    .typeText(searchbox, `testgroup ${testTime}`)
     .click(Selector('button').withText('LOG IN OR SIGN UP'))
   await t
     .expect(await t.eval(() => document.title)).eql('Sign Up! · Karrot')

@@ -21,6 +21,12 @@
           </a>
         </div>
         <div>
+          <a href="https://foodsaving.world">
+            <i class="fa fa-fw fa-globe on-left" />
+            {{ $t('GLOBAL.FSWW_NOTE') }}
+          </a>
+        </div>
+        <div>
           <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
             <i class="fa fa-fw fa-facebook on-left" />
             {{ $t('GLOBAL.FACEBOOK_NOTE') }}

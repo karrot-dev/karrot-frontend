@@ -1,111 +1,61 @@
 <template>
-  <div>
-    <q-alert
-      v-if="!isLoggedIn"
-      color="info"
-      icon="star"
-      class="alert"
-    >
-      <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
-        <router-link
-          place="login"
-          :to="{ name: 'login' }"
-          class="underline"
-        >
-          {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
-        </router-link>
-      </i18n>
-    </q-alert>
-    <h4
-      v-if="myGroups.length>0"
-      class="text-primary"
-    >
-      {{ $t('JOINGROUP.MY_GROUPS') }}
-    </h4>
-    <div
-      v-if="myGroups.length>0"
-      class="row"
-    >
-      <div
-        v-for="group in myGroups"
-        :key="group.id"
-        class="inline-block col-xs-12 col-sm-6 col-md-4 items-stretch">
-        <GroupGalleryCard
-          :class="{highlight: group.id === currentGroupId}"
-          :group="group"
-          :is-member="true"
-          @preview="$emit('preview', { groupId: group.id })"
-          @visit="$emit('visit', { groupId: group.id })"
-        />
-      </div>
-    </div>
-    <h4
-      class="text-primary generic-padding"
-      v-if="otherGroups.length>0"
-    >
-      {{ $t('JOINGROUP.WHICHGROUP') }}
-    </h4>
-    <q-card>
-      <transition name="slide-toggle">
-        <q-search
-          v-if="!previewOpened"
-          class="searchbar"
-          v-model="search"
-          style="min-height: 0"
-        />
-      </transition>
-    </q-card>
-    <transition-group
-      name="list-complete"
-      v-if="otherGroups.length>0"
-      class="row">
-      <div
-        v-for="group in filteredGroups"
-        :key="group.id"
-        class="list-complete-item inline-block col-xs-12 col-sm-6 col-md-4 items-stretch"
-        v-if="!previewOpened || group.id === openedGroupId || filteredGroups.length == 1"
-        :class="group.id === openedGroupId || filteredGroups.length == 1 ? 'col-xs-12 col-sm-12 col-md-12' : ''"
+  <div
+    class="column gallery-wrapper"
+    :class="{'expanded': expanded}">
+    <GroupGalleryMap
+      class="map-fixed"
+      :filtered-other-groups="otherGroupsForMap"
+      :filtered-my-groups="myGroupsForMap"
+      :expanded="expanded" />
+    <GroupGalleryCardsLayout
+      class="gallery-cards"
+      :my-groups="filteredMyGroups"
+      :other-groups="filteredOtherGroups"
+      :show-my-groups="myGroups.length > 0"
+      :is-logged-in="isLoggedIn"
+      :current-group-id="currentGroupId"
+      :expanded="expanded"
+      @search="filterGroups"
+      @showPreview="showPreview"
+      @preview="$emit('preview', arguments[0])"
+      @visit="$emit('visit', arguments[0])">
+      <q-btn
+        @click="expanded = !expanded"
+        flat
+        class="float-right overlay-toggle-button"
       >
-        <GroupGalleryCard
-          :group="group"
-          v-if="!previewOpened && filteredGroups.length != 1"
-          :is-member="false"
-          @preview="showPreview(group)"
-        />
-        <GroupPreview
-          v-if="previewOpened || filteredGroups.length == 1"
-          :show-close="filteredGroups.length != 1"
-          @close="hidePreview()"
-          :group="group"
-          :is-logged-in="isLoggedIn"/>
-      </div>
-    </transition-group>
+        <i
+          class="fa fa-2x"
+          :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"/>
+        <q-tooltip>
+          {{ $t(expanded ? 'BUTTON.CLOSE' : 'BUTTON.OPEN') }}
+        </q-tooltip>
+      </q-btn>
+    </GroupGalleryCardsLayout>
   </div>
 </template>
 
 <script>
-import GroupGalleryCard from './GroupGalleryCard'
-import GroupPreview from './GroupPreview'
-import { QAlert, QSearch, QCard } from 'quasar'
+import GroupGalleryMap from './GroupGalleryMap'
+import GroupGalleryCardsLayout from './GroupGalleryCardsLayout'
+import StandardMap from '@/components/Map/StandardMap'
+import { QBtn, QTooltip } from 'quasar'
 
 export default {
   data () {
     return {
       search: '',
-      previewOpened: false,
-      openedGroupId: -1,
+      openGroup: null,
+      expanded: true,
     }
   },
   methods: {
-    showPreview (group) {
-      this.previewOpened = true
-      this.openedGroupId = group.id
-      window.history.replaceState({}, null, this.$router.resolve({ name: 'groupPreview', params: { groupPreviewId: group.id } }).href)
+    filterGroups (term) {
+      this.search = term
     },
-    hidePreview () {
-      this.previewOpened = false
-      this.openedGroupId = -1
-      window.history.replaceState({}, null, `#${this.$route.path}`)
+    showPreview (group) {
+      window.scrollTo(0, 0)
+      this.openGroup = group
     },
   },
   props: {
@@ -127,54 +77,91 @@ export default {
     },
   },
   computed: {
-    filteredGroups () {
+    filteredMyGroups () {
+      return this.myGroups.filter(group => {
+        return group.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    },
+    filteredOtherGroups () {
       return this.otherGroups.filter(group => {
         return group.name.toLowerCase().includes(this.search.toLowerCase())
       })
     },
+    myGroupsForMap () {
+      if (this.openGroup !== null) {
+        if (this.openGroup.isMember) {
+          return [this.openGroup]
+        }
+        return []
+      }
+      return this.filteredMyGroups
+    },
+    otherGroupsForMap () {
+      if (this.openGroup !== null) {
+        if (!this.openGroup.isMember) {
+          return [this.openGroup]
+        }
+        return []
+      }
+      return this.filteredOtherGroups
+    },
   },
-  components: { GroupGalleryCard, QAlert, QSearch, QCard, GroupPreview },
+  components: { GroupGalleryCardsLayout, GroupGalleryMap, QBtn, QTooltip, StandardMap },
 }
 </script>
 
 <style scoped lang="stylus">
 @import '~variables'
-body.desktop .alert
-  margin 2em 8px 2.5em 8px
-.text-primary
-  margin-left .2em
-.highlight
-  border 2px solid $positive
-.searchbar
-  margin-top .2em
-  vertical-align middle
-  height 45px
-  padding 5px
-.underline
-  text-decoration underline
+body.desktop
+  .map-fixed
+    position: fixed
+    height: 100vh
+    right: 0
+    left: 0
+    z-index 0
+  .gallery-cards
+    width 100%
+    margin-bottom 50vh
+    @media screen and (min-width: $breakpoint-sm)
+      max-width 42vw
+  .expanded .gallery-cards
+    margin-bottom -10em
 
-.list-complete-item
-  transition: all .7s
-  display: inline-block
+body.mobile
+  .map-fixed
+    height: 60vh
+    width: 100%
+    z-index: 0
+  .gallery-cards
+    margin-top: 0
+    min-height 10vh
+    padding-bottom 10em
+    margin-bottom -5em
+    transition all .7s
+    z-index 0
+  .expanded .gallery-cards
+    margin-top: -60vh
+    min-height 60vh
 
-.list-complete-enter, .list-complete-leave-to
-  opacity: 0
-  transform: translateY(2000px)
+.overlay-toggle-button
+  margin: 20px
+  i
+    transition transform .5s
+.slightly-rotated
+  transform rotate(-180deg)
+</style>
 
-.list-complete-leave-active
-  position: absolute
+<style lang="stylus">
+@import '~variables'
 
-.slide-toggle-enter-active,
-.slide-toggle-leave-active
-  transition all .2s
-  min-height = 0
-  overflow hidden
-.slide-toggle-enter-to
-    max-height 400px
-.slide-toggle-enter,
-.slide-toggle-leave-active
-    max-height 0
-    opacity 0
-.slide-toggle-leave
-    max-height 400px
+body.mobile .gallery-wrapper.expanded .map-fixed .leaflet-control-container .leaflet-left
+  display none
+
+@media screen and (max-width: $breakpoint-sm)
+  body.desktop .gallery-wrapper .map-fixed .leaflet-control-container .leaflet-left
+    display none
+
+@media screen and (min-width: $breakpoint-sm)
+  body.desktop .gallery-wrapper .map-fixed .leaflet-control-container .leaflet-left
+    left 42vw
 </style>

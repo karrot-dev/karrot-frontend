@@ -21,6 +21,17 @@
         {{ $t('GROUP.MEMBERS') }}
       </q-item>
       <q-item
+        v-if="$q.platform.is.mobile"
+        :to="{name: 'groupSettings', params: {groupId: currentGroupId}}"
+        @click.native="$refs.popover.close()"
+      >
+        <q-icon
+          size="1em"
+          name="fa-cog fa-fw on-left"
+        />
+        {{ $t('GROUP.SETTINGS') }}
+      </q-item>
+      <q-item
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
         @click.native="$refs.popover.close()"
       >

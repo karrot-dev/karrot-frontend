@@ -31,7 +31,7 @@ describe('users', () => {
       history,
       currentGroup: {
         getters: {
-          value: () => ({ members: [1, 2] }),
+          value: () => ({ members: [1, 2], memberships: { 1: {}, 2: {} } }),
         },
       },
     })

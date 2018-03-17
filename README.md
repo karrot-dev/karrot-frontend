@@ -67,3 +67,13 @@ Be sure to join us in the #karrot-dev [chatroom on slack](https://slackin.yunity
 The most important information is written down in our [contribution guidelines](CONTRIBUTE.md).
 
 The [backend](https://github.com/yunity/karrot-backend) is developed to support this frontend. If you find a bug or miss something in the API, please file an issue in the backend repository.
+
+# Attribution
+
+_Karrot_ is built with open-source software. Here are some of them:
+
+- [Django](https://www.djangoproject.com/)
+- [Django REST framework](http://www.django-rest-framework.org/)
+- [VueJS](https://vuejs.org/) + vuex
+- [Quasar Framework](http://quasar-framework.org/)
+- [Twemoji](https://github.com/twitter/twemoji)

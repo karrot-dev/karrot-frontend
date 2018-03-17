@@ -66,6 +66,9 @@ class Group(BaseModel, LocationModel, ConversationMixin):
         return not user.is_anonymous and GroupMembership.objects.filter(group=self, user=user,
                                                                         roles__contains=[role_name]).exists()
 
+    def is_playground(self):
+        return self.status == GroupStatus.PLAYGROUND.value
+
     def accept_invite(self, user, invited_by, invited_at):
         self.add_member(user, history_payload={
             'invited_by': invited_by.id,

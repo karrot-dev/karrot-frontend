@@ -38,9 +38,9 @@ class Conversation(BaseModel, UpdatedAtMixin):
     target_id = models.PositiveIntegerField(null=True)
     target = GenericForeignKey('target_type', 'target_id')
 
-    def join(self, user):
+    def join(self, user, **kwargs):
         if not self.conversationparticipant_set.filter(user=user).exists():
-            ConversationParticipant.objects.create(user=user, conversation=self)
+            ConversationParticipant.objects.create(user=user, conversation=self, **kwargs)
 
     def leave(self, user):
         self.conversationparticipant_set.filter(user=user).delete()

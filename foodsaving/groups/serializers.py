@@ -1,5 +1,6 @@
 import pytz
 from django.conf import settings
+from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError, PermissionDenied
@@ -22,6 +23,17 @@ class TimezoneField(serializers.Field):
             raise ValidationError(_('Unknown timezone'))
 
 
+class GroupBaseSerializer(serializers.ModelSerializer):
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        if instance.is_playground():
+            if 'name' in ret:
+                ret['name'] = _('Playground')
+            if 'public_description' in ret:
+                ret['public_description'] = render_to_string('playground_public_description.nopreview.jinja2')
+        return ret
+
+
 class GroupMembershipInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = GroupMembership
@@ -41,8 +53,11 @@ class GroupMembershipInfoSerializer(serializers.ModelSerializer):
         return membership.inactive_at is None
 
 
-class GroupDetailSerializer(serializers.ModelSerializer):
+class GroupDetailSerializer(GroupBaseSerializer):
     "use this also for creating and updating a group"
+    memberships = serializers.SerializerMethodField()
+    notification_types = serializers.SerializerMethodField()
+    timezone = TimezoneField()
 
     class Meta:
         model = GroupModel
@@ -77,9 +92,6 @@ class GroupDetailSerializer(serializers.ModelSerializer):
         }
         read_only_fields = ['active', 'members', 'memberships', 'notification_types']
 
-    memberships = serializers.SerializerMethodField()
-    notification_types = serializers.SerializerMethodField()
-
     def validate_active_agreement(self, active_agreement):
         user = self.context['request'].user
         group = self.instance
@@ -100,9 +112,14 @@ class GroupDetailSerializer(serializers.ModelSerializer):
         membership = group.groupmembership_set.get(user=user)
         return membership.notification_types
 
-    timezone = TimezoneField()
-
     def update(self, group, validated_data):
+        if group.is_playground():
+            # Prevent editing of public fields
+            # Password shouldn't get changed and the others get overridden with a translation message
+            for field in ['name', 'password', 'public_description']:
+                if field in validated_data:
+                    del validated_data[field]
+
         changed_data = get_changed_data(group, validated_data)
         group = super().update(group, validated_data)
 
@@ -187,7 +204,7 @@ class AgreementAgreeSerializer(serializers.ModelSerializer):
         return instance
 
 
-class GroupPreviewSerializer(serializers.ModelSerializer):
+class GroupPreviewSerializer(GroupBaseSerializer):
     """
     Public information for all visitors
     should be readonly
@@ -213,7 +230,7 @@ class GroupPreviewSerializer(serializers.ModelSerializer):
         return group.password != ''
 
 
-class GroupJoinSerializer(serializers.ModelSerializer):
+class GroupJoinSerializer(GroupBaseSerializer):
     class Meta:
         model = GroupModel
         fields = ['password']
@@ -229,7 +246,7 @@ class GroupJoinSerializer(serializers.ModelSerializer):
         return instance
 
 
-class GroupLeaveSerializer(serializers.ModelSerializer):
+class GroupLeaveSerializer(GroupBaseSerializer):
     class Meta:
         model = GroupModel
         fields = []

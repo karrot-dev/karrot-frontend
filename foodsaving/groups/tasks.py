@@ -11,7 +11,7 @@ from raven.contrib.django.raven_compat.models import client as sentry_client
 from config import settings
 from foodsaving.groups import stats, emails
 from foodsaving.groups.emails import prepare_user_inactive_in_group_email, prepare_group_summary_data
-from foodsaving.groups.models import Group
+from foodsaving.groups.models import Group, GroupStatus
 from foodsaving.groups.models import GroupMembership
 from foodsaving.utils import stats_utils
 
@@ -36,9 +36,14 @@ def process_inactive_users():
     count_users_flagged_inactive = 0
 
     inactive_threshold_date = now - timedelta(days=settings.NUMBER_OF_DAYS_UNTIL_INACTIVE_IN_GROUP)
-    for membership in GroupMembership.objects.filter(lastseen_at__lte=inactive_threshold_date, inactive_at=None):
-        email = prepare_user_inactive_in_group_email(membership.user, membership.group)
-        email.send()
+    for membership in GroupMembership.objects.filter(
+        lastseen_at__lte=inactive_threshold_date,
+        inactive_at=None,
+    ):
+        # only send emails if group itself is marked as active
+        if membership.group.status == GroupStatus.ACTIVE.value:
+            email = prepare_user_inactive_in_group_email(membership.user, membership.group)
+            email.send()
         membership.inactive_at = now
         membership.save()
         count_users_flagged_inactive += 1

@@ -29,7 +29,7 @@ from foodsaving.template_previews import views as template_preview_views
 router = routers.DefaultRouter()
 
 router.register('groups', GroupViewSet)
-router.register('groups-info', GroupInfoViewSet)
+router.register('groups-info', GroupInfoViewSet, base_name='groupinfo')
 router.register('agreements', AgreementViewSet)
 
 # User endpoints
@@ -70,7 +70,7 @@ urlpatterns = [
     path('api/webhooks/incoming_email/', IncomingEmailView.as_view()),
     path('api/webhooks/email_event/', EmailEventView.as_view()),
     path('api/auth/', AuthView.as_view()),
-    path('api/', include(router.urls)),
+    path('api/', include((router.urls))),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/docs/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),

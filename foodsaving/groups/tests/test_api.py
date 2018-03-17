@@ -3,10 +3,11 @@ import json
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
 from foodsaving.groups import roles
-from foodsaving.groups.factories import GroupFactory
+from foodsaving.groups.factories import GroupFactory, PlaygroundGroupFactory
 from foodsaving.groups.models import Group as GroupModel, GroupMembership, Agreement, UserAgreement, \
     GroupNotificationType, get_default_notification_types
 from foodsaving.pickups.factories import PickupDateFactory
@@ -209,6 +210,21 @@ class TestGroupsAPI(APITestCase):
         url = self.url + str(self.group.id) + '/'
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+class TestPlaygroundGroupAPI(APITestCase):
+    def setUp(self):
+        self.member = UserFactory()
+        self.group = PlaygroundGroupFactory(members=[self.member], password='')
+
+    def test_change_password_has_no_effect(self):
+        self.client.force_login(user=self.member)
+        url = reverse('group-detail', kwargs={'pk': self.group.id})
+        print(url)
+        response = self.client.patch(url, data={'password': 'secret'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.group.refresh_from_db()
+        self.assertEqual(self.group.password, '')
 
 
 class TestGroupMembershipRolesAPI(APITestCase):

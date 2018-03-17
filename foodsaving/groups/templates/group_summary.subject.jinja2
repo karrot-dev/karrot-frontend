@@ -1,1 +1,1 @@
-[{{ site_name }}] {{ group.name }} updates for the week of {{ from_date | date }}
+[{{ site_name }}] {% trans group_name=group.name, day=from_date|date %}{{ group_name }} updates for the week of {{ day }}{% endtrans %}

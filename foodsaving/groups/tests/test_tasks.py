@@ -8,12 +8,20 @@ from django.utils import timezone
 from freezegun import freeze_time
 
 from config import settings
-from foodsaving.groups.factories import GroupFactory
+from foodsaving.groups.factories import GroupFactory, PlaygroundGroupFactory, InactiveGroupFactory
 from foodsaving.groups.models import GroupMembership
 from foodsaving.groups.tasks import process_inactive_users, send_summary_emails
 from foodsaving.pickups.factories import PickupDateFactory, FeedbackFactory
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.users.factories import UserFactory, VerifiedUserFactory
+
+
+def set_member_inactive(group, user):
+    inactive_email_date = timezone.now() - timedelta(days=settings.NUMBER_OF_DAYS_UNTIL_INACTIVE_IN_GROUP + 1)
+    inactive_membership = GroupMembership.objects.get(group=group, user=user)
+    inactive_membership.lastseen_at = inactive_email_date
+    inactive_membership.save()
+    return inactive_membership
 
 
 class TestProcessInactiveUsers(TestCase):
@@ -22,13 +30,8 @@ class TestProcessInactiveUsers(TestCase):
         self.inactive_user = UserFactory()
         self.group = GroupFactory(members=[self.active_user, self.inactive_user])
 
-        now = timezone.now()
-
-        inactive_email_date = now - timedelta(days=settings.NUMBER_OF_DAYS_UNTIL_INACTIVE_IN_GROUP + 1)
         self.active_membership = GroupMembership.objects.get(group=self.group, user=self.active_user)
-        self.inactive_membership = GroupMembership.objects.get(group=self.group, user=self.inactive_user)
-        self.inactive_membership.lastseen_at = inactive_email_date
-        self.inactive_membership.save()
+        self.inactive_membership = set_member_inactive(self.group, self.inactive_user)
 
         mail.outbox = []
 
@@ -46,6 +49,22 @@ class TestProcessInactiveUsers(TestCase):
         process_inactive_users()
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to, [self.inactive_user.email])
+
+
+class TestProcessInactiveUsersNonActiveGroup(TestCase):
+    def setUp(self):
+        inactive_user = UserFactory()
+        playground_group = PlaygroundGroupFactory(members=[inactive_user])
+        inactive_group = InactiveGroupFactory(members=[inactive_user])
+
+        set_member_inactive(playground_group, inactive_user)
+        set_member_inactive(inactive_group, inactive_user)
+
+        mail.outbox = []
+
+    def test_dont_send_email_in_playground_group(self):
+        process_inactive_users()
+        self.assertEqual(len(mail.outbox), 0)
 
 
 class TestSummaryEmailTask(TestCase):

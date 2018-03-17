@@ -130,7 +130,7 @@ class ConversationMessageViewSet(
 
         data = {
             'message': pk,
-            'name': request.data['name'],
+            'name': request.data.get('name'),
             'user': request.user.id,
         }
 

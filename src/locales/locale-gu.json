@@ -6,7 +6,8 @@
     "WARNING": "ચેતવણી",
     "BETA_WARNING": "આ વેબસાઇટ સક્રિય વિકાસ હેઠળ છે અને દરેક વસ્તુ ફેરફારને પાત્ર છે. તમે દાખલ કરો છો તે ડેટાની સુરક્ષા અને ગોપનીયતા માટે અમે બાંયધરી આપી શકતા નથી (પરંતુ અમે અમારા શ્રેષ્ઠ પ્રયાસ કરીએ છીએ).",
     "CONNECTION_INTERRUPTED": "ભૂલ: કનેક્શન વિક્ષેપ!",
-    "SERVER_ERROR": "સર્વર ભૂલ"
+    "SERVER_ERROR": "સર્વર ભૂલ",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "મેઇલ",
@@ -66,6 +67,8 @@
     "PASSWORD": "જો તમે જૂથ ખાનગી બનાવવા માંગો છો, તો પાસવર્ડ અહીં દાખલ કરો",
     "PICKUPS": "પિકઅપ્સ",
     "MEMBERS": "સભ્યો",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "સ્ટોર્સ",
     "HISTORY": "ઇતિહાસ",
     "DESCRIPTION": "વર્ણન",
@@ -91,7 +94,9 @@
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "નકશો",
@@ -337,7 +342,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "તમારી પાસે એક ન વાંચેલા સંદેશ છે | તમારી પાસે {ગણતરી} ન વાંચેલા સંદેશા છે",
-    "MARK_READ": "બધાને વાંચ્યા પ્રમાણે ચિહ્નિત કરો"
+    "MARK_READ": "બધાને વાંચ્યા પ્રમાણે ચિહ્નિત કરો",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "કો-ઓપરેટિંગ",

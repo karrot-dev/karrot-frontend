@@ -6,7 +6,8 @@
     "WARNING": "Uwaga",
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
-    "SERVER_ERROR": "Błąd serwera"
+    "SERVER_ERROR": "Błąd serwera",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -66,6 +67,8 @@
     "PASSWORD": "Wprowadź tu hasło, jeśli chcesz stworzyć grupę prywatną",
     "PICKUPS": "Odbiory",
     "MEMBERS": "Członkowie",
+    "INACTIVE": "Nieaktywni",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Punkty odbioru",
     "HISTORY": "Historia",
     "DESCRIPTION": "Opis",
@@ -91,7 +94,9 @@
         "NAME": "Powiadomienia o odbiorach",
         "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca."
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -136,7 +141,7 @@
     "DELETE_SERIES_TEXT": "Czy na pewno chcesz usunąć te powtarzające się odbiory? Ta czynność usunie również wszystkie odbiory jednorazowe, które należą do tych powtarzających się odbiorów (oprócz tych, na które już ktoś się zapisał)."
   },
   "USERDETAIL": {
-    "DISPLAY_NAME": "Nick",
+    "DISPLAY_NAME": "Imię",
     "DESCRIPTION": "O Tobie",
     "OLD_PASSWORD": "Stare hasło",
     "PASSWORD": "Wprowadź nowe hasło"
@@ -222,7 +227,7 @@
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
     "ITEM": {
       "LEAVE": "Zrezygnuj",
-      "JOIN": "Odbierz",
+      "JOIN": "Zapisz się",
       "JOIN_CONFIRMATION_HEADER": "Dołącz do odbioru",
       "JOIN_CONFIRMATION_TEXT": "Czy na pewno odbierzesz jedzenie {date}?",
       "LEAVE_CONFIRMATION_HEADER": "Zrezygnuj z odbioru",
@@ -281,7 +286,7 @@
     "SERIES_CREATE": "dodał/-a powtarzający się odbiór",
     "SERIES_MODIFY": "zmienił/-a ustawienia powtarzającego się odbioru",
     "SERIES_DELETE": "usunął/-ęła powtarzający się odbiór",
-    "PICKUP_DONE": "odebrał/-a {storeName}",
+    "PICKUP_DONE": "odebrał/-a w {storeName}",
     "PICKUP_MISSED": "Przegapiono odbiór w {storeName}!",
     "PICKUP_JOIN": "zapisał/-a się na odbiór w {storeName}",
     "PICKUP_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
@@ -337,7 +342,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
-    "MARK_READ": "Oznacz wszystkie jako przeczytane"
+    "MARK_READ": "Oznacz wszystkie jako przeczytane",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "Współpracuje",

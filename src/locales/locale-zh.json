@@ -6,7 +6,8 @@
     "WARNING": "警告",
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
-    "SERVER_ERROR": "伺服器錯誤"
+    "SERVER_ERROR": "伺服器錯誤",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "電子信箱",
@@ -66,6 +67,8 @@
     "PASSWORD": "如果想設定為私密社團，請在此輸入密碼",
     "PICKUPS": "開放領取食物",
     "MEMBERS": "成員",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "店面",
     "HISTORY": "歷史",
     "DESCRIPTION": "敘述",
@@ -91,7 +94,9 @@
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "地圖",
@@ -337,7 +342,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
-    "MARK_READ": "將全部訊息標示為已讀"
+    "MARK_READ": "將全部訊息標示為已讀",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "合作中",

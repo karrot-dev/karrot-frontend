@@ -6,7 +6,8 @@
     "WARNING": "Averto",
     "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)",
     "CONNECTION_INTERRUPTED": "Eraro: aliro interrompita!",
-    "SERVER_ERROR": "Eraro servila"
+    "SERVER_ERROR": "Eraro servila",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "Retadreso",
@@ -66,6 +67,8 @@
     "PASSWORD": "Entajpi pasvorton ĉi tien se vi volas privatigi la grupon",
     "PICKUPS": "Kolektoj",
     "MEMBERS": "Anoj",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Vendejoj",
     "HISTORY": "History",
     "DESCRIPTION": "Priskribo",
@@ -91,7 +94,9 @@
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Map",
@@ -337,7 +342,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "MARK_READ": "Mark all as read"
+    "MARK_READ": "Mark all as read",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "Co-operating",

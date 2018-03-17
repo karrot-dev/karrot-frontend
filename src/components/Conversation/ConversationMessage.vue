@@ -25,6 +25,7 @@
           <q-icon
             v-if="message.receivedVia === 'email'"
             name="fa-envelope-o"
+            class="email-icon"
           >
             <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
           </q-icon>
@@ -113,6 +114,10 @@ $lighterGreen = #F0FFF0
     visibility visible
 .q-item-highlight:hover
   background-color alpha($secondary, .1)
+.email-icon
+  position relative
+  top -1.5px
+  margin-left 2px
 </style>
 
 <style lang="stylus">

@@ -26,7 +26,7 @@
     </q-item>
 
     <q-item
-      v-if="!hasStores"
+      v-if="!hasStores || $q.platform.is.mobile"
       link
       :to="{name: 'storeCreate'}"
       class="bg-secondary"

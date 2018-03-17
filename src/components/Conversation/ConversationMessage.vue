@@ -123,6 +123,7 @@ $lighterGreen = #F0FFF0
 <style lang="stylus">
 // needs to be unscoped because it matches inside rendered markdown
 .conversation-message .parsed
+  overflow-wrap break-word
   p
     margin-bottom 0.5rem
   h1
@@ -141,11 +142,17 @@ $lighterGreen = #F0FFF0
     background-color #ededed
     margin-top 0.5rem
     margin-bottom 0.5rem
+    overflow-x scroll
+    overflow-wrap normal
+    display block
   p > code
     font-size 0.8em
     padding-left 3px
     padding-right 3px
     background-color #ededed
+    overflow-x auto
+    overflow-wrap normal
+    display block
   img:not(.emoji)
     max-height 150px
     max-width 300px

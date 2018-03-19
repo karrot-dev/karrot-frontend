@@ -57,8 +57,8 @@
       <q-item
         v-if="$q.platform.is.desktop"
         :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
-        @click.native="$refs.popover.close()
-      ">
+        @click.native="$refs.popover.close()"
+      >
         <q-icon
           size="1em"
           name="fa-info-circle fa-fw on-left"

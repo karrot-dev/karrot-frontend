@@ -1,4 +1,4 @@
-import { Events } from 'quasar'
+// import { Events } from 'quasar'
 
 export default store => {
   let timer = null
@@ -13,7 +13,7 @@ export default store => {
     .forEach(event => document.addEventListener(event, resetTimer))
 
   // listen on tab & window visibility, mostly works on desktop browser
-  Events.$on('app:visibility', state => {
+  /* Events.$on('app:visibility', state => {
     store.dispatch('presence/toggle/away', state === 'hidden')
-  })
+  }) */
 }

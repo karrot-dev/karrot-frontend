@@ -8,8 +8,7 @@ require(`./themes/app.${__THEME}.styl`)
 // ==============================
 
 // Uncomment the following lines if you need IE11/Edge support
-require(`quasar/dist/quasar.ie`)
-require(`quasar/dist/quasar.ie.${__THEME}.css`)
+require(`quasar-framework/dist/quasar.ie.polyfills`)
 
 import Vue from 'vue'
 import Quasar from 'quasar'
@@ -44,7 +43,7 @@ import 'quasar-extras/fontawesome'
 import 'quasar-extras/animate'
 import 'typeface-cabin-sketch'
 
-Quasar.start(async () => {
+(async () => {
   sync(store, router)
 
   const [App] = await Promise.all([
@@ -63,4 +62,4 @@ Quasar.start(async () => {
     i18n,
     render: h => h(app),
   })
-})
+})()

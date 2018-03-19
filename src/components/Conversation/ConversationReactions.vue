@@ -19,7 +19,6 @@
       </EmojiButton>
     </span>
     <ConversationAddReaction
-      v-if="!$q.platform.is.mobile"
       class="add-button reaction-box"
       :reacted="currentUserReactions"
       @toggle="$emit('toggle', arguments[0])"
@@ -51,7 +50,9 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 @import './reactionBox'
-.conversation-reactions
+.add-button
+  margin-left -4px
+.desktop .conversation-reactions
   .add-button
     visibility hidden
   &:hover .add-button

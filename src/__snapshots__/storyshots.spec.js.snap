@@ -1833,7 +1833,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
             English
             <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Polski
-            <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Deutsch
             <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             ગુજરાતી
@@ -4052,15 +4052,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         <div class="q-toolbar-title">
             Stores
         </div>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-trash-o fa-stack-1x"></i> <i class="fa fa-times fa-stack-1x text-negative" style="top:5px;left:5px;"></i></span> <span class="q-tooltip animate-scale"
-                style="transform-origin:bottom center 0px;">
-        Show archived stores
-      </span>
-            <!---->
-            </span>
-        </button>
+        <!---->
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>

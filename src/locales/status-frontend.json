@@ -143,15 +143,15 @@
     "untranslated_words": 1170
   },
   "pl": {
-    "completed": "97%",
-    "last_commiter": "tilmann",
-    "last_update": "2018-03-17 16:59:41",
+    "completed": "100%",
+    "last_commiter": "Tomasz.P",
+    "last_update": "2018-03-18 13:58:58",
     "reviewed": 0,
     "reviewed_percentage": "0%",
-    "translated_entities": 258,
-    "translated_words": 1137,
-    "untranslated_entities": 7,
-    "untranslated_words": 33
+    "translated_entities": 265,
+    "translated_words": 1170,
+    "untranslated_entities": 0,
+    "untranslated_words": 0
   },
   "pt_BR": {
     "completed": "0%",

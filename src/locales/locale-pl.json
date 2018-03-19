@@ -7,7 +7,7 @@
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
     "SERVER_ERROR": "Błąd serwera",
-    "SEARCH_NOT_FOUND": "Not Found"
+    "SEARCH_NOT_FOUND": "Nie znaleziono"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -68,7 +68,7 @@
     "PICKUPS": "Odbiory",
     "MEMBERS": "Członkowie",
     "INACTIVE": "Nieaktywni",
-    "SHOW_INACTIVE": "Show inactive groups",
+    "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "STORES": "Punkty odbioru",
     "HISTORY": "Historia",
     "DESCRIPTION": "Opis",
@@ -95,8 +95,8 @@
         "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca."
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "PLAYGROUND_INFO": "To specjalna grupa w trybie piaskownicy, gdzie nie musisz martwić się o to, że coś zepsujesz. Odkryj wszystkie funkcje, klikaj, gdzie tylko chcesz i baw się dobrze!",
+    "JOIN_PLAYGROUND": "Dołącz do piaskownicy, aby szybko poznać wszystkie funkcje karrot"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -344,9 +344,9 @@
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
     "MARK_READ": "Oznacz wszystkie jako przeczytane",
     "REACTIONS": {
-      "YOU": "you",
-      "AND": "and",
-      "REACTED_WITH":"{users} reacted with {reaction}"
+      "YOU": "ty",
+      "AND": "i",
+      "REACTED_WITH":"{users} zareagowali {reaction}"
     }
   },
   "STORESTATUS":{

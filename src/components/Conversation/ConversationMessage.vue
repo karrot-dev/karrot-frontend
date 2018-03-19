@@ -142,7 +142,7 @@ $lighterGreen = #F0FFF0
     background-color #ededed
     margin-top 0.5rem
     margin-bottom 0.5rem
-    overflow-x scroll
+    overflow-x auto
     overflow-wrap normal
     display block
   p > code

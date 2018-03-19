@@ -14,6 +14,7 @@
       class="tools"
     >
       <q-btn
+        v-if="hasArchivedStores"
         flat
         small
         @click="toggleArchived"
@@ -81,6 +82,9 @@ export default {
   computed: {
     hasStores () {
       return this.stores && this.stores.length > 0
+    },
+    hasArchivedStores () {
+      return this.archived.length > 0
     },
   },
 }

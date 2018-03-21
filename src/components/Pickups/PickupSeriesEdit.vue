@@ -188,7 +188,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup, QTabs, QTab, QTabPane } from 'quasar'
+import { QDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup, QTabs, QTab, QTabPane } from 'quasar'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
 
@@ -197,7 +197,7 @@ import { is24h, dayOptions } from '@/i18n'
 export default {
   mixins: [editMixin, statusMixin],
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, QOptionGroup, QTabs, QTab, QTabPane,
+    QDatetime, QField, QSlider, QInput, QBtn, QSelect, QOptionGroup, QTabs, QTab, QTabPane,
   },
   computed: {
     dayOptions,

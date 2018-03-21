@@ -25,7 +25,7 @@
         :view="layoutView"
         :right-breakpoint="1100"
       >
-        <div slot="header">
+        <q-layout-header>
           <KTopbar
             @toggleSidenav="$refs.layout.toggleLeft()"
             v-if="isLoggedIn"
@@ -39,35 +39,29 @@
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
-        </div>
-        <template
-          slot="left"
-          v-if="$q.platform.is.mobile && isLoggedIn"
-        >
+        </q-layout-header>
+        <q-layout-drawer v-if="$q.platform.is.mobile && isLoggedIn">
           <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
-        </template>
-        <MainAlerts />
-        <router-view name="fullPage"/>
-        <div class="mainContent row justify-between no-wrap">
-          <router-view
-            v-if="!$q.platform.is.mobile"
-            class="sidenav-desktop"
-            name="sidenav"
-          />
-          <div class="mainContent-page">
-            <router-view />
+        </q-layout-drawer>
+        <q-page-container>
+          <MainAlerts />
+          <router-view name="fullPage"/>
+          <div class="mainContent row justify-between no-wrap">
+            <router-view
+              v-if="!$q.platform.is.mobile"
+              class="sidenav-desktop"
+              name="sidenav"
+            />
+            <div class="mainContent-page">
+              <router-view />
+            </div>
           </div>
-        </div>
-        <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
-
-        <MobileNavigation
-          v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open"
-          slot="footer"
-        />
-        <KFooter
-          v-if="!$q.platform.is.mobile"
-          slot="footer"
-        />
+          <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
+        </q-page-container>
+        <q-layout-footer>
+          <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" />
+          <KFooter v-if="!$q.platform.is.mobile" />
+        </q-layout-footer>
       </q-layout>
     </div>
   </div>
@@ -82,11 +76,12 @@ import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
 import RouteError from '@/components/RouteError'
-import { QLayout, QBtn } from 'quasar'
+import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn, MainAlerts, RouteError },
+  components: {
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QBtn, MainAlerts, RouteError },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',

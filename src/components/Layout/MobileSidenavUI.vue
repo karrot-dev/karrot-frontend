@@ -4,35 +4,35 @@
     link
     inset-separator
   >
-    <q-side-link
+    <q-item
       item
-      :to="{name: 'user', params: {userId: currentUserId}}"
+      @click="$router.push({name: 'user', params: {userId: currentUserId}})"
     >
       <q-item-side>
         <i class="fa fa-user fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.USERPROFILE')" />
-    </q-side-link>
+    </q-item>
 
-    <q-side-link
+    <q-item
       item
-      :to="{name: 'groupsGallery'}"
+      @click="$router.push({name: 'groupsGallery'})"
     >
       <q-item-side>
         <i class="fa fa-home fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.CHANGE_GROUP')" />
-    </q-side-link>
+    </q-item>
 
-    <q-side-link
+    <q-item
       item
-      :to="{name: 'settings'}"
+      @click="$router.push({name: 'settings'})"
     >
       <q-item-side>
         <i class="fa fa-cog fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('SETTINGS.TITLE')" />
-    </q-side-link>
+    </q-item>
 
     <q-item
       @click="$emit('logout'), $emit('toggleSidenav')"
@@ -91,11 +91,11 @@
 </template>
 <script>
 
-import { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain } from 'quasar'
+import { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain } from 'quasar'
 import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
-  components: { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
+  components: { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
   props: {
     currentUserId: {
       type: Number,

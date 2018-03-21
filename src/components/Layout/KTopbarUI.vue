@@ -18,7 +18,7 @@
         <div/>
       </div>
     </q-toolbar-title>
-    <q-transition
+    <transition
       duration="310"
       name="search-slide-in"
       appear
@@ -37,7 +37,7 @@
         </q-btn>
         <Search style="margin-top: .2em; vertical-align: middle; width: 100%"/>
       </div>
-    </q-transition>
+    </transition>
     <q-btn
       v-if="!searchOpen"
       flat
@@ -138,7 +138,7 @@
 </template>
 
 <script>
-import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
+import { QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
@@ -146,7 +146,7 @@ import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
   components: {
-    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
+    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
   },
   props: {
     breadcrumbs: {

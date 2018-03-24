@@ -100,6 +100,7 @@ export default {
       async changeEmail ({ commit, dispatch }, email) {
         const savedUser = await authUser.save({ email })
         commit('setUser', { user: savedUser })
+        router.push({ name: 'user', params: { userId: savedUser.id } })
       },
     }),
 
@@ -108,6 +109,7 @@ export default {
         const savedUser = await authUser.save(data)
         commit('setUser', { user: savedUser })
         dispatch('users/update', savedUser, { root: true })
+        router.push({ name: 'user', params: { userId: savedUser.id } })
       },
     }, {
       // ignore ID to have simple saveStatus

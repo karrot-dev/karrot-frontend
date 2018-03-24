@@ -10,41 +10,41 @@ def pickup_tags(pickup):
 
 def pickup_joined(pickup):
     write_points([{
-        'measurement': 'karrot.pickup.joined',
+        'measurement': 'karrot.events',
         'tags': pickup_tags(pickup),
-        'fields': {'value': 1},
+        'fields': {'pickup_joined': 1},
     }])
 
 
 def pickup_left(pickup):
     write_points([{
-        'measurement': 'karrot.pickup.left',
+        'measurement': 'karrot.events',
         'tags': pickup_tags(pickup),
-        'fields': {'value': 1},
+        'fields': {'pickup_left': 1},
     }])
 
 
 def pickup_done(pickup):
     write_points([{
-        'measurement': 'karrot.pickup.done',
+        'measurement': 'karrot.events',
         'tags': pickup_tags(pickup),
-        'fields': {'value': 1},
+        'fields': {'pickup_done': 1},
     }])
 
 
 def pickup_missed(pickup):
     write_points([{
-        'measurement': 'karrot.pickup.missed',
+        'measurement': 'karrot.events',
         'tags': pickup_tags(pickup),
-        'fields': {'value': 1},
+        'fields': {'pickup_missed': 1},
     }])
 
 
 def feedback_given(feedback):
     write_points([{
-        'measurement': 'karrot.feedback',
+        'measurement': 'karrot.events',
         'tags': pickup_tags(feedback.about),
-        'fields': {'value': 1},
+        'fields': {'feedback': 1},
     }])
 
 

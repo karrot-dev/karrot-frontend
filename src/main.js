@@ -4,7 +4,7 @@ require(`./themes/app.${__THEME}.styl`)
 require(`quasar-framework/dist/quasar.ie.polyfills`)
 
 import Vue from 'vue'
-import Quasar from 'quasar'
+import Quasar, { Dialog, Notify, AppVisibility } from 'quasar'
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
@@ -20,7 +20,13 @@ if (CORDOVA && BACKEND) {
 }
 
 Vue.config.productionTip = false
-Vue.use(Quasar)
+Vue.use(Quasar, {
+  plugins: {
+    Dialog,
+    Notify,
+    AppVisibility,
+  },
+})
 Vue.use(DetectMobileKeyboardPlugin)
 
 if (process.env.NODE_ENV !== 'production') {
@@ -40,6 +46,7 @@ import 'typeface-cabin-sketch'
 
   const [App] = await Promise.all([
     import('./App'),
+    import('@/presenceReporter'),
     polyfill.init(),
     store.dispatch('auth/check'),
     store.dispatch('groups/fetch'),

@@ -4,7 +4,7 @@
       multiline
       class="clickable"
       :class="{'greyed': detailIsShown}"
-      @click="toggleDetail"
+      @click.native="toggleDetail"
     >
       <q-item-side>
         <ProfilePicture

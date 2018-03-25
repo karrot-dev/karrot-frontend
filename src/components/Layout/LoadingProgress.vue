@@ -4,8 +4,8 @@
     indeterminate
     animate
     color="warning"
-    class="fixed-top z-alert"
-    style="height: 2px"
+    class="fixed-top"
+    style="height: 2px; z-index: 2500"
   />
 </template>
 

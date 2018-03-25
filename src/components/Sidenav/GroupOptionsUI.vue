@@ -1,18 +1,17 @@
 <template>
   <q-popover
     fit
-    ref="popover"
     anchor="bottom right"
     self="top right"
   >
     <q-list
       item-separator
       link
+      v-close-overlay
     >
       <q-item
         v-if="$q.platform.is.mobile"
         :to="{name: 'groupMembers', params: {groupId: currentGroupId}}"
-        @click.native="$refs.popover.close()"
       >
         <q-icon
           size="1em"
@@ -23,7 +22,6 @@
       <q-item
         v-if="$q.platform.is.mobile"
         :to="{name: 'groupSettings', params: {groupId: currentGroupId}}"
-        @click.native="$refs.popover.close()"
       >
         <q-icon
           size="1em"
@@ -33,7 +31,6 @@
       </q-item>
       <q-item
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
-        @click.native="$refs.popover.close()"
       >
         <q-icon
           size="1em"
@@ -45,7 +42,6 @@
       <q-item
         v-if="isAgreementManager"
         :to="{name: 'groupManageAgreement', params: {groupId: currentGroupId}}"
-        @click.native="$refs.popover.close()"
       >
         <q-icon
           size="1em"
@@ -57,7 +53,6 @@
       <q-item
         v-if="$q.platform.is.desktop"
         :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
-        @click.native="$refs.popover.close()"
       >
         <q-icon
           size="1em"
@@ -69,7 +64,6 @@
       <q-item
         v-if="$q.platform.is.desktop"
         :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
-        @click.native="$refs.popover.close()"
       >
         <q-icon
           size="1em"
@@ -78,7 +72,7 @@
         {{ $t('GROUP.INVITE_TITLE') }}
       </q-item>
 
-      <q-item @click="leave">
+      <q-item @click.native="leave">
         <q-icon
           size="1em"
           name="fa-sign-out fa-fw on-left"
@@ -112,7 +106,6 @@ export default {
   },
   methods: {
     leave () {
-      this.$refs.popover.close()
       Dialog.create({
         title: this.$t('GROUP.LEAVE'),
         message: this.$t('GROUP.LEAVE_TEXT'),

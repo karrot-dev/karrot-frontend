@@ -4,7 +4,7 @@ require(`./themes/app.${__THEME}.styl`)
 require(`quasar-framework/dist/quasar.ie.polyfills`)
 
 import Vue from 'vue'
-import Quasar, { Dialog, Notify, AppVisibility } from 'quasar'
+import Quasar, { Dialog, Notify, AppVisibility, CloseOverlay } from 'quasar'
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
@@ -25,6 +25,9 @@ Vue.use(Quasar, {
     Dialog,
     Notify,
     AppVisibility,
+  },
+  directives: {
+    CloseOverlay,
   },
 })
 Vue.use(DetectMobileKeyboardPlugin)

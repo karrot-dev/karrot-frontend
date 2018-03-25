@@ -4,7 +4,6 @@
       <i class="fa fa-smile-o" /> +
     </span>
     <q-popover
-      ref="popover"
       anchor="top left"
       self="top left"
     >
@@ -16,9 +15,10 @@
           v-for="name in whitelist"
           :key="name"
           :name="name"
-          @click="toggle(name)"
+          @click.native="$emit('toggle', name)"
           class="big"
           tooltip
+          v-close-overlay
         />
       </div>
     </q-popover>
@@ -47,12 +47,6 @@ export default {
         'thumbsup',
         'thumbsdown',
       ].filter(e => !this.reacted.includes(e))
-    },
-  },
-  methods: {
-    toggle (name) {
-      this.$emit('toggle', name)
-      this.$refs.popover.close()
     },
   },
 }

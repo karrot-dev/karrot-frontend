@@ -90,17 +90,16 @@
         <q-popover
           :touch-position="false"
           fit
-          ref="popover"
           anchor="bottom right"
           self="top right"
         >
           <q-list
             item-separator
             link
+            v-close-overlay
           >
             <q-item
               :to="{name: 'groupsGallery'}"
-              @click.native="$refs.popover.close()"
             >
               <q-icon
                 size="1em"
@@ -111,7 +110,6 @@
             </q-item>
             <q-item
               :to="{name: 'settings'}"
-              @click.native="$refs.popover.close()"
             >
               <q-icon
                 size="1em"
@@ -121,7 +119,7 @@
               {{ $t('SETTINGS.TITLE') }}
             </q-item>
             <q-item
-              @click="$emit('logout'), $refs.popover.close()"
+              @click="$emit('logout')"
             >
               <q-icon
                 size="1em"

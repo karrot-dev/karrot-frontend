@@ -109,16 +109,11 @@ export default {
       Dialog.create({
         title: this.$t('GROUP.LEAVE'),
         message: this.$t('GROUP.LEAVE_TEXT'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('BUTTON.YES'),
-            handler: () => {
-              this.$emit('leave', this.currentGroupId)
-            },
-          },
-        ],
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('BUTTON.YES'),
       })
+        .then(() => this.$emit('leave', this.currentGroupId))
+        .catch(() => {})
     },
   },
 }

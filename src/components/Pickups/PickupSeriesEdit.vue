@@ -235,16 +235,11 @@ export default {
       Dialog.create({
         title: this.$t('PICKUPDELETE.DELETE_SERIES_TITLE'),
         message: this.$t('PICKUPDELETE.DELETE_SERIES_TEXT'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('BUTTON.YES'),
-            handler: () => {
-              this.$emit('destroy', this.value.id, event)
-            },
-          },
-        ],
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('BUTTON.YES'),
       })
+        .then(() => this.$emit('destroy', this.value.id, event))
+        .catch(() => {})
     },
   },
 }

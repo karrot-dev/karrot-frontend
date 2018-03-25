@@ -45,31 +45,21 @@ export default {
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
         message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', {date: this.$d(this.pickup.date, 'long')}),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('BUTTON.OF_COURSE'),
-            handler: () => {
-              this.$emit('join', this.pickup.id)
-            },
-          },
-        ],
+        ok: this.$t('BUTTON.OF_COURSE'),
+        cancel: this.$t('BUTTON.CANCEL'),
       })
+        .then(() => this.$emit('join', this.pickup.id))
+        .catch(() => {})
     },
     leave () {
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
         message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('BUTTON.YES'),
-            handler: () => {
-              this.$emit('leave', this.pickup.id)
-            },
-          },
-        ],
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
       })
+        .then(() => this.$emit('leave', this.pickup.id))
+        .catch(() => {})
     },
   },
   computed: {

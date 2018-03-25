@@ -206,16 +206,11 @@ export default {
       Dialog.create({
         title: this.$t('STOREEDIT.DIALOGS.ARCHIVE.TITLE'),
         message: this.$t('STOREEDIT.DIALOGS.ARCHIVE.MESSAGE'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
-            handler: () => {
-              this.$emit('save', { id: this.value.id, status: 'archived' }, event)
-            },
-          },
-        ],
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
       })
+        .then(() => this.$emit('save', { id: this.value.id, status: 'archived' }, event))
+        .catch(() => {})
     },
   },
   validations: {

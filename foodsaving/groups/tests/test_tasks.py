@@ -69,56 +69,88 @@ class TestProcessInactiveUsersNonActiveGroup(TestCase):
 
 class TestSummaryEmailTask(TestCase):
     def setUp(self):
-        self.group = GroupFactory()
+        self.message_count = 10
+        self.pickups_missed_count = 5
+        self.feedback_count = 4
+        self.new_user_count = 3
+        self.pickups_done_count = 8
 
-    @patch('foodsaving.groups.stats.write_points')
-    def test_collects_stats(self, write_points):
-        a_few_days_ago = timezone.now() - relativedelta(days=4)
-        store = StoreFactory(group=self.group)
-
-        message_count = 10
-        pickups_missed_count = 5
-        feedback_count = 4
-        new_user_count = 3
-        pickups_done_count = 8
-
-        new_users = [VerifiedUserFactory() for _ in range(new_user_count)]
+    def make_activity_in_group(self, group):
+        store = StoreFactory(group=group)
+        new_users = [VerifiedUserFactory() for _ in range(self.new_user_count)]
         user = new_users[0]
 
+        a_few_days_ago = timezone.now() - relativedelta(days=4)
         with freeze_time(a_few_days_ago, tick=True):
-            [self.group.add_member(u) for u in new_users]
+            [group.add_member(u) for u in new_users]
 
             # a couple of messages
-            [self.group.conversation.messages.create(author=user, content='hello') for _ in range(message_count)]
+            [group.conversation.messages.create(author=user, content='hello') for _ in range(self.message_count)]
 
             # missed pickups
-            [PickupDateFactory(store=store) for _ in range(pickups_missed_count)]
+            [PickupDateFactory(store=store) for _ in range(self.pickups_missed_count)]
 
             # fullfilled pickups
             pickups = [
                 PickupDateFactory(store=store, max_collectors=1, collectors=[user])
-                for _ in range(pickups_done_count)
+                for _ in range(self.pickups_done_count)
             ]
 
             # pickup feedback
-            [FeedbackFactory(about=pickup, given_by=user) for pickup in pickups[:feedback_count]]
+            [FeedbackFactory(about=pickup, given_by=user) for pickup in pickups[:self.feedback_count]]
+
+    @patch('foodsaving.groups.stats.write_points')
+    def test_collects_stats(self, write_points):
+        group = GroupFactory()
+        self.make_activity_in_group(group)
 
         write_points.reset_mock()
+        mail.outbox = []
 
         send_summary_emails()
 
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(len(mail.outbox[0].to), self.new_user_count)
         write_points.assert_called_with([{
             'measurement': 'karrot.email.group_summary',
             'tags': {
-                'group': str(self.group.id)
+                'group': str(group.id)
             },
             'fields': {
                 'value': 1,
-                'new_user_count': new_user_count,
-                'email_recipient_count': new_user_count,
-                'feedback_count': feedback_count,
-                'pickups_missed_count': pickups_missed_count,
-                'message_count': message_count,
-                'pickups_done_count': pickups_done_count,
+                'new_user_count': self.new_user_count,
+                'email_recipient_count': self.new_user_count,
+                'feedback_count': self.feedback_count,
+                'pickups_missed_count': self.pickups_missed_count,
+                'message_count': self.message_count,
+                'pickups_done_count': self.pickups_done_count,
+                'has_activity': True,
+            },
+        }])
+
+    @patch('foodsaving.groups.stats.write_points')
+    def test_no_summary_email_if_no_activity_in_group(self, write_points):
+        group = GroupFactory(members=[VerifiedUserFactory()])
+
+        write_points.reset_mock()
+        mail.outbox = []
+
+        send_summary_emails()
+
+        self.assertEqual(len(mail.outbox), 0)
+        write_points.assert_called_with([{
+            'measurement': 'karrot.email.group_summary',
+            'tags': {
+                'group': str(group.id)
+            },
+            'fields': {
+                'value': 1,
+                'new_user_count': 0,
+                'email_recipient_count': 0,
+                'feedback_count': 0,
+                'pickups_missed_count': 0,
+                'message_count': 0,
+                'pickups_done_count': 0,
+                'has_activity': False,
             },
         }])

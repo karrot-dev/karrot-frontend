@@ -67,16 +67,19 @@ class TestEmailUtils(TestCase):
 class TestJinjaFilters(TestCase):
 
     def test_time_filter_uses_timezone(self):
+        hour = 5
         datetime = timezone.now().replace(
             tzinfo=pytz.utc,
-            hour=5,
+            hour=hour,
             minute=0,
             second=0,
             microsecond=0,
         )
-        with timezone.override(pytz.timezone('Europe/Berlin')):
+        tz = pytz.timezone('Europe/Berlin')
+        offset_hours = int(tz.utcoffset(datetime.utcnow()).seconds / 3600)
+        with timezone.override(tz):
             val = time_filter(datetime)
-            self.assertEqual(val, '6:00 AM')
+            self.assertEqual(val, '{}:00 AM'.format(hour + offset_hours))
 
     def test_date_filter_uses_timezone(self):
         # 11pm on Sunday UTC

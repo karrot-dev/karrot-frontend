@@ -30,9 +30,9 @@
 
                             {% if new_users|length > 0 %}
                                 <li>
-                                    {% trans new_user_count=new_users|length %}{{ new_user_count }} people joined the group{% endtrans %}
+                                    {% trans new_user_count=new_users|length %}{{ new_user_count }} people joined the group{% endtrans %}:
                                     {% for user in new_users %}
-                                        <a href="{{ hostname }}/#/user/{{ user.id }}">{{ user.display_name }}</a>{% if not loop.last %}, {% else %}.{% endif %}
+                                        <a href="{{ hostname }}/#/user/{{ user.id }}">{{ user.display_name }}</a>{% if not loop.last %}, {% endif %}
                                     {% endfor %}
                                 </li>
                             {% endif %}
@@ -56,6 +56,7 @@
                             <h3>{% trans %}Pickup feedback{% endtrans %}</h3>
                             {% for feedback in feedbacks %}
                                 <p class="feedback">
+                                    <span class="message-author">{{ feedback.given_by.display_name }}</span>
                                     <em>{{ feedback.comment }}</em>
                                     <br>
                                     <span style="font-size: 14px;">

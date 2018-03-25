@@ -56,7 +56,7 @@ def prepare_group_summary_data(group, from_date, to_date):
         group_id=group.id,
     )
 
-    return {
+    data = {
         # minus one second so it's displayed as the full day
         'to_date': to_date - relativedelta(seconds=1),
         'from_date': from_date,
@@ -68,6 +68,11 @@ def prepare_group_summary_data(group, from_date, to_date):
         'messages': messages,
         'settings_url': settings_url,
     }
+
+    data['has_activity'] = any(data[field] > 0 for field in ['pickups_done_count', 'pickups_missed_count']) or \
+        any(len(data[field]) > 0 for field in ['feedbacks', 'messages', 'new_users'])
+
+    return data
 
 
 def prepare_group_summary_emails(group, context):

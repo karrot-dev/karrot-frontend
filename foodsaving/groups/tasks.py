@@ -69,15 +69,17 @@ def send_summary_emails():
             email_recipient_count = 0
 
             context = prepare_group_summary_data(group, from_date, to_date)
-            for email in emails.prepare_group_summary_emails(group, context):
-                try:
-                    email.send()
-                    email_count += 1
-                    email_recipient_count += len(email.to)
-                except AnymailAPIError:
-                    sentry_client.captureException()
+            if context['has_activity']:
+                for email in emails.prepare_group_summary_emails(group, context):
+                    try:
+                        email.send()
+                        email_count += 1
+                        email_recipient_count += len(email.to)
+                    except AnymailAPIError:
+                        sentry_client.captureException()
 
-            # we save this even if some of the email sending, no retries right now basically...
+            # we save this even if some of the email sending fails, no retries right now basically...
+            # we also save if no emails were sent due to missing activity, to not try again over and over.
             group.sent_summary_up_to = to_date
             group.save()
 
@@ -89,6 +91,7 @@ def send_summary_emails():
                 new_user_count=context['new_users'].count(),
                 pickups_done_count=context['pickups_done_count'],
                 pickups_missed_count=context['pickups_missed_count'],
+                has_activity=context['has_activity'],
             )
 
             recipient_count += email_recipient_count

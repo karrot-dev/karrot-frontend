@@ -376,9 +376,9 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                 </div>
             </div>
         </div>
-        <h4 class="text-primary generic-padding">
+        <p class="text-primary header">
             Which group do you want to join?
-        </h4>
+        </p>
         <div class="row no-wrap">
             <div style="width:100%;padding:0;">
                 <div class="q-card" style="width:100%;">
@@ -700,9 +700,9 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         <!---->
         <div name="slide-toggle">
             <div class="join-groups">
-                <h4 class="text-primary">
+                <p class="text-primary header">
                     My groups
-                </h4>
+                </p>
                 <div>
                     <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object> <span class="row"><div class="inline-block list-complete-item" style="width:100%;"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
       05_testgroup
@@ -799,9 +799,9 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
 </div>
 </div>
 </div>
-<h4 class="text-primary generic-padding">
+<p class="text-primary header">
     Which group do you want to join?
-</h4>
+</p>
 <div name="slide-toggle">
     <div>
         <div>
@@ -3773,9 +3773,9 @@ exports[`Storyshots Settings Page verification warning 1`] = `
     <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
         <div class="q-alert-content col self-center">
             <div>
-                <h6>
+                <p>
                     current@user.de not verified
-                </h6> <span>Please check your emails or <a place="resend" class="underline">
+                </p> <span>Please check your emails or <a place="resend" class="underline">
       resend verification email
     </a></span>
                 <!---->

@@ -52,6 +52,9 @@ export default {
       return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
     },
     feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
+    feedbackPossibleFiltered: (state, getters) => state.feedbackPossibleIds
+      .filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
+      .map(getters.get),
     ...metaStatuses(['create']),
   },
   actions: {

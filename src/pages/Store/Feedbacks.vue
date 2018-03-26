@@ -3,7 +3,10 @@
     <q-card class="no-shadow no-padding grey-border">
       <div class="generic-padding">
         <div class="actionButtons">
-          <router-link :to="{name: 'pickupFeedback'}">
+          <router-link
+            v-if="feedbackPossibleFiltered.length > 0"
+            :to="{name: 'pickupFeedback'}"
+          >
             <q-btn
               small
               round
@@ -15,7 +18,9 @@
             </q-btn>
           </router-link>
         </div>
-        <span v-if="feedback && feedback.length !== 0">{{ $tc('FEEDBACKLIST.SAVED_FOOD', totalAmount, { amount: totalAmount }) }}</span>
+        <span v-if="feedback && feedback.length !== 0">
+          {{ $tc('FEEDBACKLIST.SAVED_FOOD', totalAmount, { amount: totalAmount }) }}
+        </span>
       </div>
     </q-card>
     <FeedbackList
@@ -39,6 +44,7 @@ export default {
     ...mapGetters({
       feedback: 'feedback/filtered',
       fetchStatus: 'feedback/fetchStatus',
+      feedbackPossibleFiltered: 'pickups/feedbackPossibleFiltered',
     }),
     totalAmount () {
       let amount = 0

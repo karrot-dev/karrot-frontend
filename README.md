@@ -5,7 +5,7 @@
 
 # karrot frontend
 
-Welcome to _karrot_! _karrot_ is a software to support foodsaving groups worldwide. This is the frontend repository, i.e. the browser-side software that powers [karrot.world](https://karrot.world).
+Welcome to _karrot_! _karrot_ is software to support foodsaving groups worldwide. This is the frontend repository, i.e. the browser-side software that powers [karrot.world](https://karrot.world).
 
 
 ## foodsaving worldwide
@@ -16,7 +16,7 @@ The [foodsaving worldwide team](https://foodsaving.world/team) provides addition
 
 Our current development goals are prioritized and written down in our [elaborate roadmap](ROADMAP.md).
 
-We are keeping the features down to a minimum, in order to progressively build up a useful software.
+We are keeping the features down to a minimum, in order to progressively build up useful software.
 
 ## Releases
 
@@ -64,6 +64,16 @@ If you want to use an eslint plugin for your editor, please keep in mind that yo
 # Start contributing?
 
 Be sure to join us in the #karrot-dev [chatroom on slack](https://slackin.yunity.org/) and get in contact!
-The most important information are written down in our [contribution guidelines](CONTRIBUTE.md).
+The most important information is written down in our [contribution guidelines](CONTRIBUTE.md).
 
 The [backend](https://github.com/yunity/karrot-backend) is developed to support this frontend. If you find a bug or miss something in the API, please file an issue in the backend repository.
+
+# Attribution
+
+_Karrot_ is built with open-source software. Here are some of them:
+
+- [Django](https://www.djangoproject.com/)
+- [Django REST framework](http://www.django-rest-framework.org/)
+- [VueJS](https://vuejs.org/) + vuex
+- [Quasar Framework](http://quasar-framework.org/)
+- [Twemoji](https://github.com/twitter/twemoji)

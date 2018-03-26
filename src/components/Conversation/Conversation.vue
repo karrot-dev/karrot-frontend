@@ -62,6 +62,7 @@
             v-for="message in data.messages"
             :key="message.id"
             :message="message"
+            @toggleReaction="$emit('toggleReaction', arguments[0])"
           />
         </q-list>
         <div
@@ -108,7 +109,7 @@ export default {
     },
     user: {
       type: Object,
-      required: true,
+      default: () => ({}),
     },
   },
   methods: {

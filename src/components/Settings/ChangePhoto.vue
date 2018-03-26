@@ -17,6 +17,7 @@
         :show-loading="true"
         @file-choose="saveDisabled = false"
         @image-remove="saveDisabled = false"
+        :class="{pointer: !hasPhoto}"
       >
         <img
           v-if="hasPhoto"
@@ -114,4 +115,6 @@ export default {
   height 100% !important
   max-width 300px
   max-height 300px
+.croppa-container.pointer canvas
+  cursor pointer
 </style>

@@ -62,6 +62,14 @@
             />
           </q-field>
         </div>
+        <div v-if="!hasGroupToJoin && hasPlayground">
+          <q-checkbox
+            v-model="joinPlayground"
+            color="tertiary"
+            :label="$t('GROUP.JOIN_PLAYGROUND')"
+            class="playground-checkbox"
+          />
+        </div>
 
         <div
           v-if="hasNonFieldError"
@@ -95,17 +103,25 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner, QCheckbox } from 'quasar'
 import loginImage from 'assets/people/cherry.png'
 import statusMixin from '@/mixins/statusMixin'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },
+  components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner, QCheckbox },
   mixins: [statusMixin],
   props: {
     prefillEmail: {
       required: true,
       type: Function,
+    },
+    hasPlayground: {
+      default: false,
+      type: Boolean,
+    },
+    hasGroupToJoin: {
+      default: false,
+      type: Boolean,
     },
   },
   data () {
@@ -116,12 +132,16 @@ export default {
         email: this.prefillEmail(),
         password: null,
       },
+      joinPlayground: true,
     }
   },
   methods: {
     submit () {
       if (!this.isPending) {
-        this.$emit('submit', this.user)
+        this.$emit('submit', {
+          userData: this.user,
+          joinPlayground: this.joinPlayground,
+        })
       }
     },
   },
@@ -131,4 +151,9 @@ export default {
 <style scoped lang="stylus">
   .margin-bottom
     margin 0 0 24px 0
+  .playground-checkbox
+    margin-left 20px
+    margin-top 10px
+    >>> .q-option-label
+      margin-left 18px
 </style>

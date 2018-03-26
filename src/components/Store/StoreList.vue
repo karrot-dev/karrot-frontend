@@ -26,7 +26,7 @@
     </q-item>
 
     <q-item
-      v-if="!hasStores"
+      v-if="!hasStores || $q.platform.is.mobile"
       link
       :to="{name: 'storeCreate'}"
       class="bg-secondary"
@@ -40,16 +40,38 @@
         <q-tooltip v-t="'BUTTON.CREATE'" />
       </q-item-main>
     </q-item>
+
+    <q-item-separator v-if="archived.length > 0" />
+
+    <q-collapsible
+      v-if="archived.length > 0"
+      icon="fa-trash"
+      :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
+    >
+      <q-item
+        v-for="store in archived"
+        :key="store.id"
+        link
+        :to="{name: linkTo, params: { storeId: store.id }}"
+      >
+        <q-item-main>
+          <q-item-tile label>
+            {{ store.name }}
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+    </q-collapsible>
   </q-list>
 </template>
 
 <script>
-import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip } from 'quasar'
+import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip, QCollapsible, QItemSeparator } from 'quasar'
 
 export default {
-  components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip },
+  components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip, QCollapsible, QItemSeparator },
   props: {
     stores: { required: true, type: Array },
+    archived: { default: () => [], type: Array },
     linkTo: { default: 'store', type: String },
   },
   computed: {

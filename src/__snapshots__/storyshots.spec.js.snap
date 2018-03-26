@@ -46,349 +46,6 @@ exports[`Storyshots AddressPicker Without map 1`] = `
 </div>
 `;
 
-exports[`Storyshots Conversation Conversation 1`] = `
-<div>
-    <!---->
-    <div class="q-infinite-scroll">
-        <div class="q-infinite-scroll-content">
-            <div class="bg-white desktop-margin q-list">
-                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position actionButton hoverScale q-btn-round q-btn-small bg-negative text-white">
-                    <div class="desktop-only q-focus-helper"></div>
-                    <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-bell-slash-o"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
-                    <!---->
-                    </span>
-                </button>
-                <div class="q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section" style="margin-top:16px;">
-                        <div class="wrapper">
-                            <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Current User
-    </span></div>
-                            <!---->
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div class="q-field row no-wrap items-start q-field-no-label">
-                                <!---->
-                                <div class="row col">
-                                    <!---->
-                                    <div class="q-field-content col-xs-12 col-sm">
-                                        <div class="q-if row no-wrap items-center relative-position q-input text-primary">
-                                            <!---->
-                                            <div class="q-if-inner col row no-wrap items-center relative-position">
-                                                <!---->
-                                                <!---->
-                                                <div class="col row relative-position">
-                                                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
-                                                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
-                                                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
-                                                        </div>
-                                                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
-                                                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
-                                                        </div>
-                                                    </div>
-                                                    <textarea rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                                                    <textarea placeholder="Write a message..." rows="2" class="col q-input-target q-input-area"></textarea>
-                                                </div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                            </div>
-                                            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">arrow_forward</i>
-                                        </div>
-                                        <!---->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!---->
-                <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-                    <div class="q-item-side q-item-side-left q-item-section">
-                        <div class="wrapper">
-                            <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mira Bellenbaum
-    </span></div>
-                            <!---->
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="q-item-main q-item-section">
-                        <div class="q-item-">
-                            <div class="no-wrap">
-                                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mira Bellenbaum</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:43 PM</span></div>
-                            </small>
-                            </span>
-                            <!---->
-                        </div>
-                    </div>
-                    <div class="parsed">
-                        <p>first messsage</p>
-                    </div>
-                </div>
-            </div>
-            <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-                <div class="q-item-side q-item-side-left q-item-section">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Max Mustermann
-    </span></div>
-                        <!---->
-                        <!---->
-                    </div>
-                </div>
-                <div class="q-item-main q-item-section">
-                    <div class="q-item-">
-                        <div class="no-wrap">
-                            <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
-                        </small>
-                        </span>
-                        <!---->
-                    </div>
-                </div>
-                <div class="parsed">
-                    <p>second messsage</p>
-                </div>
-            </div>
-        </div>
-        <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-            <div class="q-item-side q-item-side-left q-item-section">
-                <div class="wrapper">
-                    <div to="[object Object]">
-                        <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                            <div></div>
-                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Max Mustermann
-    </span></div>
-                    <!---->
-                    <!---->
-                </div>
-            </div>
-            <div class="q-item-main q-item-section">
-                <div class="q-item-">
-                    <div class="no-wrap">
-                        <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:47 PM</span></div>
-                    </small>
-                    </span>
-                    <!---->
-                </div>
-            </div>
-            <div class="parsed">
-                <p>first messsage</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-        <div class="q-item-side q-item-side-left q-item-section">
-            <div class="wrapper">
-                <div to="[object Object]">
-                    <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                        <div></div>
-                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Max Mustermann
-    </span></div>
-                <!---->
-                <!---->
-            </div>
-        </div>
-        <div class="q-item-main q-item-section">
-            <div class="q-item-">
-                <div class="no-wrap">
-                    <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:49 PM</span></div>
-                </small>
-                </span>
-                <!---->
-            </div>
-        </div>
-        <div class="parsed">
-            <p>welcome to fs chat</p>
-        </div>
-    </div>
-</div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-    <div class="q-item-side q-item-side-left q-item-section">
-        <div class="wrapper">
-            <div to="[object Object]">
-                <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                    <div></div>
-                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Karl Karlson
-    </span></div>
-            <!---->
-            <!---->
-        </div>
-    </div>
-    <div class="q-item-main q-item-section">
-        <div class="q-item-">
-            <div class="no-wrap">
-                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Karl Karlson</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:51 PM</span></div>
-            </small>
-            </span>
-            <!---->
-        </div>
-    </div>
-    <div class="parsed">
-        <p>heyo!</p>
-    </div>
-</div>
-</div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-    <div class="q-item-side q-item-side-left q-item-section">
-        <div class="wrapper">
-            <div to="[object Object]">
-                <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                    <div></div>
-                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Max Mustermann
-    </span></div>
-            <!---->
-            <!---->
-        </div>
-    </div>
-    <div class="q-item-main q-item-section">
-        <div class="q-item-">
-            <div class="no-wrap">
-                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-            </small>
-            </span>
-            <!---->
-        </div>
-    </div>
-    <div class="parsed">
-        <p>you made it!</p>
-    </div>
-</div>
-</div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-    <div class="q-item-side q-item-side-left q-item-section">
-        <div class="wrapper">
-            <div to="[object Object]">
-                <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                    <div></div>
-                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mona Mohnblume
-    </span></div>
-            <!---->
-            <!---->
-        </div>
-    </div>
-    <div class="q-item-main q-item-section">
-        <div class="q-item-">
-            <div class="no-wrap">
-                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-            </small>
-            </span>
-            <!---->
-        </div>
-    </div>
-    <div class="parsed">
-        <p>amazing!</p>
-    </div>
-</div>
-</div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-    <div class="q-item-side q-item-side-left q-item-section">
-        <div class="wrapper">
-            <div to="[object Object]">
-                <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                    <div></div>
-                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Mona Mohnblume
-    </span></div>
-            <!---->
-            <!---->
-        </div>
-    </div>
-    <div class="q-item-main q-item-section">
-        <div class="q-item-">
-            <div class="no-wrap">
-                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-            </small>
-            </span>
-            <!---->
-        </div>
-    </div>
-    <div class="parsed">
-        <p>oh let me try something
-            <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/2/72x72/1f603.png" />
-        </p>
-    </div>
-</div>
-</div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline">
-    <div class="q-item-side q-item-side-left q-item-section">
-        <div class="wrapper">
-            <div to="[object Object]">
-                <div class="art-wrapper randomArt" style="width:40px;height:40px;">
-                    <div></div>
-                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-      Max Mustermann
-    </span></div>
-            <!---->
-            <!---->
-        </div>
-    </div>
-    <div class="q-item-main q-item-section">
-        <div class="q-item-">
-            <div class="no-wrap">
-                <div to="[object Object]"><span class="text-bold text-secondary uppercase">Max Mustermann</span></div> <span class="message-date"><small class="light-paragraph"><div>
-  4 months ago<span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">Aug 11, 2017, 3:52 PM</span></div>
-            </small>
-            </span>
-            <!---->
-        </div>
-    </div>
-    <div class="parsed">
-        <p>I dont think we need to implement another UI, this is fine right?</p>
-    </div>
-</div>
-</div>
-</div>
-</div>
-<div class="q-infinite-scroll-message" style="display:none;">
-    <div style="width:100%;text-align:center;">
-        <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-            <circle cx="15" cy="15" r="15">
-                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-            </circle>
-            <circle cx="60" cy="15" r="9" fill-opacity=".3">
-                <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-                <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-            </circle>
-            <circle cx="105" cy="15" r="15">
-                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-            </circle>
-        </svg>
-    </div>
-</div>
-</div>
-<!---->
-</div>
-`;
-
 exports[`Storyshots General Components KBreadcrumb 1`] = `
 <div class="wrapper">
     <div class="prevBread gt-xs">
@@ -696,109 +353,126 @@ exports[`Storyshots GroupEdit create 1`] = `
 
 exports[`Storyshots GroupGallery signup view 1`] = `
 <div class="column gallery-wrapper expanded">
-    <div class="map-fixed">
-        <div class="vue2leaflet-map group-gallery-map">
+    <div class="vue2leaflet-map group-gallery-map map-fixed">
+        <div></div>
+        <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
             <div></div>
-            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
+        </div>
+        <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
         </div>
     </div>
     <div class="all-groups gallery-cards expanded">
-        <div name="slide-toggle"></div>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Close
-      </span>
-            <!---->
-            </span>
-        </button>
-        <div name="slide-toggle">
-            <div class="q-alert-container alert">
-                <div class="q-alert row no-wrap shadow-2 bg-info">
-                    <div class="q-alert-icon row col-auto flex-center">
-                        <i aria-hidden="true" class="q-icon material-icons">star</i>
-                    </div>
-                    <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
-          Log in to see your groups!
-        </div></span>
-                        <!---->
-                    </div>
+        <div class="q-alert-container alert">
+            <div class="q-alert row no-wrap shadow-2 bg-info">
+                <div class="q-alert-icon row col-auto flex-center">
+                    <i aria-hidden="true" class="q-icon material-icons">star</i>
+                </div>
+                <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
+        Log in to see your groups!
+      </div></span>
                     <!---->
                 </div>
+                <!---->
             </div>
         </div>
-        <div name="slide-toggle"></div>
         <h4 class="text-primary generic-padding">
             Which group do you want to join?
         </h4>
-        <div name="slide-toggle">
-            <div class="q-card">
-                <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
-                    <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
-                    <div class="q-if-inner col row no-wrap items-center relative-position">
-                        <!---->
-                        <!---->
-                        <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
+        <div class="row no-wrap">
+            <div style="width:100%;padding:0;">
+                <div class="q-card" style="width:100%;">
+                    <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+                        <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+                        <div class="q-if-inner col row no-wrap items-center relative-position">
+                            <!---->
+                            <!---->
+                            <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                        </div>
+                        <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
                     </div>
-                    <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
+                </div>
+                <div tabindex="0" class="q-checkbox q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center" style="margin-left:16px;">
+                    <div class="q-option-inner relative-position">
+                        <input type="checkbox">
+                        <div class="q-focus-helper"></div>
+                        <i aria-hidden="true" class="q-checkbox-unchecked cursor-pointer q-icon material-icons" style="transition:opacity 1000ms cubic-bezier(0.23, 1, 0.32, 1) 200ms;opacity:1;">check_box_outline_blank</i>
+                        <i aria-hidden="true" class="q-checkbox-checked cursor-pointer absolute-full q-icon material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                        <div class="q-radial-ripple"></div>
+                    </div> <span class="q-option-label">Show inactive groups</span> </div>
+            </div>
+            <div style="width:100px;">
+                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
+                    <div class="desktop-only q-focus-helper"></div>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        Close
+      </span>
+                    <!---->
+                    </span>
+                </button>
+            </div>
+        </div>
+        <!---->
+        <div name="slide-toggle"></div>
+        <!---->
+        <div name="slide-toggle">
+            <div>
+                <div>
+                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
+                        </div>
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
+                        </div>
+                    </div> <span class="row"><div class="inline-block list-complete-item" style="width:100%;"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+      05_testgroup
+      </div><div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
+            </div>
+            <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
+        <div class="q-card-main q-card-container fixed-height">
+            <div class="smaller-text">
+                <div class="parsed">
+                    <p>This is the public description
+                        <br> It would make sense if it was markdown</p>
+                    <h1>then this would be a header</h1>
+                    <p>
+                        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+                    </p>
                 </div>
             </div>
         </div>
-        <div name="slide-toggle">
-            <div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
-    05_testgroup
-    </div><div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
-        </div>
-        <div class="col-auto self-center q-card-title-extra"></div>
-    </div>
-    <div class="q-card-main q-card-container fixed-height">
-        <div class="smaller-text">
-            <div class="parsed">
-                <p>This is the public description
-                    <br> It would make sense if it was markdown</p>
-                <h1>then this would be a header</h1>
-                <p>
-                    <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start">
-        <!---->
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+        <div class="q-card-separator"></div>
+        <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
-            </span>
-        </button>
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Show public group information
+        </span>
+                <!---->
+                </span>
+            </button>
+        </div>
     </div>
 </div>
-<!---->
-</div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -806,30 +480,29 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                     06_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      13 Members
-    </span></div>
+        13 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -837,30 +510,29 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                     02_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      33 Members
-    </span></div>
+        33 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -868,30 +540,29 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                     03_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      12 Members
-    </span></div>
+        12 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -899,8 +570,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                     01_testgroup_with_maps_and_password
                 </div>
                 <div class="q-card-subtitle"><span>
-      53 Members
-    </span></div>
+        53 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
@@ -917,16 +588,15 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -934,8 +604,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                     04_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
+        18 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
@@ -952,145 +622,151 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
 </span>
 </div>
 </div>
+</div>
+<!---->
+<!---->
 </div>
 </div>
 `;
 
 exports[`Storyshots GroupGallery switch and explore 1`] = `
 <div class="column gallery-wrapper expanded">
-    <div class="map-fixed">
-        <div class="vue2leaflet-map group-gallery-map">
+    <div class="vue2leaflet-map group-gallery-map map-fixed">
+        <div></div>
+        <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
             <div></div>
-            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
-            <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-                <div></div>
-            </div>
+        </div>
+        <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
+        </div>
+        <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
+            <div></div>
         </div>
     </div>
     <div class="all-groups gallery-cards expanded">
-        <div name="slide-toggle">
-            <div class="row no-wrap">
-                <div style="width:100%;padding:0;">
-                    <div class="q-card" style="margin-top:16px;">
-                        <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
-                            <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
-                            <div class="q-if-inner col row no-wrap items-center relative-position">
-                                <!---->
-                                <!---->
-                                <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
-                                <!---->
-                                <!---->
-                                <!---->
-                                <!---->
-                            </div>
-                            <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
+        <div class="q-alert-container alert">
+            <div class="q-alert row no-wrap shadow-2 bg-info">
+                <div class="q-alert-icon row col-auto flex-center">
+                    <i aria-hidden="true" class="q-icon material-icons">star</i>
+                </div>
+                <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
+        Log in to see your groups!
+      </div></span>
+                    <!---->
+                </div>
+                <!---->
+            </div>
+        </div>
+        <!---->
+        <div class="row no-wrap">
+            <div style="width:100%;padding:0;">
+                <div class="q-card" style="width:100%;">
+                    <div class="q-if row no-wrap items-center relative-position q-input q-search searchbar text-primary">
+                        <i aria-hidden="true" class="q-if-control q-if-control-before q-icon material-icons">search</i>
+                        <div class="q-if-inner col row no-wrap items-center relative-position">
+                            <!---->
+                            <!---->
+                            <input placeholder="Search" type="text" value="" class="col q-input-target text-left">
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
                         </div>
+                        <i aria-hidden="true" class="q-if-control q-icon material-icons hidden">cancel</i>
                     </div>
                 </div>
-                <div style="width:100px;">
-                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
-                        <div class="desktop-only q-focus-helper"></div>
-                        <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                <div tabindex="0" class="q-checkbox q-option cursor-pointer no-outline q-focusable row inline no-wrap items-center" style="margin-left:16px;">
+                    <div class="q-option-inner relative-position">
+                        <input type="checkbox">
+                        <div class="q-focus-helper"></div>
+                        <i aria-hidden="true" class="q-checkbox-unchecked cursor-pointer q-icon material-icons" style="transition:opacity 1000ms cubic-bezier(0.23, 1, 0.32, 1) 200ms;opacity:1;">check_box_outline_blank</i>
+                        <i aria-hidden="true" class="q-checkbox-checked cursor-pointer absolute-full q-icon material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                        <div class="q-radial-ripple"></div>
+                    </div> <span class="q-option-label">Show inactive groups</span> </div>
+            </div>
+            <div style="width:100px;">
+                <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right overlay-toggle-button q-btn-rectangle q-btn-standard q-btn-flat">
+                    <div class="desktop-only q-focus-helper"></div>
+                    <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Close
       </span>
-                        <!---->
-                        </span>
-                    </button>
-                </div>
+                    <!---->
+                    </span>
+                </button>
             </div>
         </div>
         <!---->
         <div name="slide-toggle">
-            <div class="q-alert-container alert">
-                <div class="q-alert row no-wrap shadow-2 bg-info">
-                    <div class="q-alert-icon row col-auto flex-center">
-                        <i aria-hidden="true" class="q-icon material-icons">star</i>
-                    </div>
-                    <div class="q-alert-content col self-center"><span>You are currently logged out. <div place="login" to="[object Object]" class="underline">
-          Log in to see your groups!
-        </div></span>
-                        <!---->
-                    </div>
-                    <!---->
-                </div>
-            </div>
-        </div>
-        <div name="slide-toggle">
             <div class="join-groups">
                 <h4 class="text-primary">
                     My groups
-                </h4> <span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
-    05_testgroup
-    </div><div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
+                </h4>
+                <div>
+                    <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
+                        </div>
+                        <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                            <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
+                        </div>
+                    </div> <span class="row"><div class="inline-block list-complete-item" style="width:100%;"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+      05_testgroup
+      </div><div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
+            </div>
+            <div class="col-auto self-center q-card-title-extra"></div>
         </div>
-        <div class="col-auto self-center q-card-title-extra"></div>
-    </div>
-    <div class="q-card-main q-card-container fixed-height">
-        <div class="smaller-text">
-            <div class="parsed">
-                <p>This is the public description
-                    <br> It would make sense if it was markdown</p>
-                <h1>then this would be a header</h1>
-                <p>
-                    <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
-                </p>
+        <div class="q-card-main q-card-container fixed-height">
+            <div class="smaller-text">
+                <div class="parsed">
+                    <p>This is the public description
+                        <br> It would make sense if it was markdown</p>
+                    <h1>then this would be a header</h1>
+                    <p>
+                        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start">
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        You are member of this group. Click here to switch to full view.
-      </span>
+        <div class="q-card-separator"></div>
+        <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
-            </span>
-        </button>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
-            <!---->
-            </span>
-        </button>
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Show public group information
+        </span>
+                <!---->
+                </span>
+            </button>
+        </div>
     </div>
 </div>
-<!---->
-</div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1098,37 +774,29 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     06_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      13 Members
-    </span></div>
+        13 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                <div class="desktop-only q-focus-helper"></div>
-                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        You are member of this group. Click here to switch to full view.
-      </span>
-                <!---->
-                </span>
-            </button>
+            <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1136,51 +804,52 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     02_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      33 Members
-    </span></div>
+        33 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-                <div class="desktop-only q-focus-helper"></div>
-                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        You are member of this group. Click here to switch to full view.
-      </span>
-                <!---->
-                </span>
-            </button>
+            <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
 </span>
+</div>
 </div>
 </div>
 <h4 class="text-primary generic-padding">
     Which group do you want to join?
 </h4>
-<div name="slide-toggle"></div>
 <div name="slide-toggle">
-    <div><span class="row"><div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
-    05_testgroup
-    </div><div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
-</div>
-<div class="col-auto self-center q-card-title-extra"></div>
+    <div>
+        <div>
+            <div style="z-index:-1;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;width:100%;">
+                <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                    <div style="width:100000px;height:100000px;position:absolute;top:0;left:0;transition:0s;"></div>
+                </div>
+                <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;visibility:hidden;">
+                    <div style="width:200%;height:200%;position:absolute;top:0;left:0;transition:0s;"></div>
+                </div>
+            </div> <span class="row"><div class="inline-block list-complete-item" style="width:100%;"><div class="q-card groupPreviewCard"><div class="q-card-primary q-card-container row no-wrap ellipsis"><div class="col column"><div class="q-card-title">
+      05_testgroup
+      </div><div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
+    </div>
+    <div class="col-auto self-center q-card-title-extra"></div>
 </div>
 <div class="q-card-main q-card-container fixed-height">
     <div class="smaller-text">
@@ -1200,16 +869,15 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
         <div class="desktop-only q-focus-helper"></div>
         <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
         <!---->
         </span>
     </button>
 </div>
 </div>
-<!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1217,30 +885,29 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     06_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      13 Members
-    </span></div>
+        13 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1248,30 +915,29 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     02_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      33 Members
-    </span></div>
+        33 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1279,30 +945,29 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     03_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      12 Members
-    </span></div>
+        12 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
         <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
+        (This group has no public description... yet)
+      </span></div>
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1310,8 +975,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     01_testgroup_with_maps_and_password
                 </div>
                 <div class="q-card-subtitle"><span>
-      53 Members
-    </span></div>
+        53 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
@@ -1328,16 +993,15 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
-<div class="list-complete-item inline-block col-xs-12 items-stretch col-lg-6 col-xl-4">
+<div class="inline-block list-complete-item" style="width:100%;">
     <div class="q-card groupPreviewCard">
         <div class="q-card-primary q-card-container row no-wrap ellipsis">
             <div class="col column">
@@ -1345,8 +1009,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     04_testgroup
                 </div>
                 <div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
+        18 Members
+      </span></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
         </div>
@@ -1363,136 +1027,144 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+          Show public group information
+        </span>
                 <!---->
                 </span>
             </button>
         </div>
     </div>
-    <!---->
 </div>
 </span>
 </div>
 </div>
 </div>
+<!---->
+<!---->
+</div>
 </div>
 `;
 
 exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
-<div class="q-card groupPreviewCard">
-    <div class="q-card-primary q-card-container row no-wrap ellipsis">
-        <div class="col column">
-            <div class="q-card-title">
-                05_testgroup
+<div class="inline-block">
+    <div class="q-card groupPreviewCard">
+        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+            <div class="col column">
+                <div class="q-card-title">
+                    05_testgroup
+                </div>
+                <div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
             </div>
-            <div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
+            <div class="col-auto self-center q-card-title-extra"></div>
         </div>
-        <div class="col-auto self-center q-card-title-extra"></div>
-    </div>
-    <div class="q-card-main q-card-container fixed-height">
-        <div class="smaller-text">
-            <div class="parsed">
-                <p>This is the public description
-                    <br> It would make sense if it was markdown</p>
-                <h1>then this would be a header</h1>
-                <p>
-                    <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
-                </p>
+        <div class="q-card-main q-card-container fixed-height">
+            <div class="smaller-text">
+                <div class="parsed">
+                    <p>This is the public description
+                        <br> It would make sense if it was markdown</p>
+                    <h1>then this would be a header</h1>
+                    <p>
+                        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start">
-        <!---->
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+        <div class="q-card-separator"></div>
+        <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
-            </span>
-        </button>
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Show public group information
+        </span>
+                <!---->
+                </span>
+            </button>
+        </div>
     </div>
 </div>
 `;
 
 exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
-<div class="q-card groupPreviewCard">
-    <div class="q-card-primary q-card-container row no-wrap ellipsis">
-        <div class="col column">
-            <div class="q-card-title">
-                05_testgroup
+<div class="inline-block">
+    <div class="q-card groupPreviewCard">
+        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+            <div class="col column">
+                <div class="q-card-title">
+                    05_testgroup
+                </div>
+                <div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
             </div>
-            <div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
+            <div class="col-auto self-center q-card-title-extra"></div>
         </div>
-        <div class="col-auto self-center q-card-title-extra"></div>
-    </div>
-    <div class="q-card-main q-card-container fixed-height">
-        <div class="smaller-text">
-            <div class="parsed">
-                <p>This is the public description
-                    <br> It would make sense if it was markdown</p>
-                <h1>then this would be a header</h1>
-                <p>
-                    <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
-                </p>
+        <div class="q-card-main q-card-container fixed-height">
+            <div class="smaller-text">
+                <div class="parsed">
+                    <p>This is the public description
+                        <br> It would make sense if it was markdown</p>
+                    <h1>then this would be a header</h1>
+                    <p>
+                        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start">
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        You are member of this group. Click here to switch to full view.
-      </span>
-            <!---->
-            </span>
-        </button>
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
-            <!---->
-            </span>
-        </button>
+        <div class="q-card-separator"></div>
+        <div class="q-card-actions q-card-actions-horiz row justify-start">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          You are member of this group. Click here to switch to full view.
+        </span>
+                <!---->
+                </span>
+            </button>
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Show public group information
+        </span>
+                <!---->
+                </span>
+            </button>
+        </div>
     </div>
 </div>
 `;
 
 exports[`Storyshots GroupGalleryCard without public description 1`] = `
-<div class="q-card groupPreviewCard">
-    <div class="q-card-primary q-card-container row no-wrap ellipsis">
-        <div class="col column">
-            <div class="q-card-title">
-                05_testgroup
+<div class="inline-block">
+    <div class="q-card groupPreviewCard">
+        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+            <div class="col column">
+                <div class="q-card-title">
+                    05_testgroup
+                </div>
+                <div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
             </div>
-            <div class="q-card-subtitle"><span>
-      18 Members
-    </span></div>
+            <div class="col-auto self-center q-card-title-extra"></div>
         </div>
-        <div class="col-auto self-center q-card-title-extra"></div>
-    </div>
-    <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
-      (This group has no public description... yet)
-    </span></div>
-    <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start">
-        <!---->
-        <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
-            <div class="desktop-only q-focus-helper"></div>
-            <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
-        Show public group information
-      </span>
+        <div class="q-card-main q-card-container fixed-height"><span class="text-italic">
+        (This group has no public description... yet)
+      </span></div>
+        <div class="q-card-separator"></div>
+        <div class="q-card-actions q-card-actions-horiz row justify-start">
             <!---->
-            </span>
-        </button>
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-flat q-btn-rectangle q-btn-standard">
+                <div class="desktop-only q-focus-helper"></div>
+                <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+          Show public group information
+        </span>
+                <!---->
+                </span>
+            </button>
+        </div>
     </div>
 </div>
 `;
@@ -1503,6 +1175,7 @@ exports[`Storyshots GroupPreviewUI error 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
+                    <!---->
                     01_testgroup_with_maps_and_password
                     <!---->
                 </div>
@@ -1520,10 +1193,10 @@ exports[`Storyshots GroupPreviewUI error 1`] = `
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div class="q-alert-container"><div class="q-alert row no-wrap shadow-2 bg-tertiary"><div class="q-alert-icon row col-auto flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div> <div class="q-alert-content col self-center">
             By joining this group, your profile data will become visible to other group members.
-           <!----></div> <!----></div></div> <div class="q-field row no-wrap items-start"><i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-lock"> </i> <div class="row col"><div class="q-field-label col-xs-12 q-field-margin col-sm-5"><div class="q-field-label-inner row items-center"><span>This group requires a password</span>            </div>
+           <!----></div> <!----></div></div> <div class="q-field row no-wrap items-start q-field-with-error"><i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-lock"> </i> <div class="row col"><div class="q-field-label col-xs-12 q-field-margin col-sm-5"><div class="q-field-label-inner row items-center"><span>This group requires a password</span>            </div>
     </div>
     <div class="q-field-content col-xs-12 col-sm">
-        <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+        <div class="q-if row no-wrap items-center relative-position q-input q-if-error text-negative">
             <!---->
             <div class="q-if-inner col row no-wrap items-center relative-position">
                 <!---->
@@ -1537,7 +1210,7 @@ exports[`Storyshots GroupPreviewUI error 1`] = `
             <!---->
         </div>
         <div class="q-field-bottom row no-wrap q-field-no-input">
-            <div class="q-field-helper col">Enter password for private group</div>
+            <div class="q-field-error col">wrong!</div>
             <!---->
         </div>
     </div>
@@ -1562,6 +1235,7 @@ exports[`Storyshots GroupPreviewUI is member 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
+                    <!---->
                     05_testgroup
                     <!---->
                 </div>
@@ -1603,6 +1277,7 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
+                    <!---->
                     05_testgroup
                     <!---->
                 </div>
@@ -1642,6 +1317,7 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
+                    <!---->
                     01_testgroup_with_maps_and_password
                     <!---->
                 </div>
@@ -1682,11 +1358,9 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
     </div>
 </div>
 </div>
-<button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right generic-margin q-btn-rectangle q-btn-standard bg-secondary text-white">
+<button type="submit" class="q-btn row inline flex-center q-focusable q-hoverable relative-position float-right generic-margin q-btn-rectangle q-btn-standard disabled bg-secondary text-white">
     <div class="desktop-only q-focus-helper"></div>
-    <!----><span class="q-btn-inner row col flex-center"><!----> 
-            Join
-           <!----></span></button>
+    <!----><span class="q-btn-inner row col flex-center"><q-spinner-undefined size="1rem"></q-spinner-undefined></span></button>
 </form>
 </span>
 <!---->
@@ -1701,6 +1375,7 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
+                    <!---->
                     05_testgroup
                     <!---->
                 </div>
@@ -1731,10 +1406,8 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 
 exports[`Storyshots GroupSettings show 1`] = `
 <div class="q-card no-mobile-margin no-shadow grey-border">
-    <div class="art-wrapper">
-        <div>
-            <div class="art-overlay"></div>
-        </div>
+    <div seed="1" type="circles">
+        <div class="art-overlay"></div>
     </div>
     <div class="q-list q-list-link">
         <div class="q-list-header ">Email notifications</div>
@@ -1788,9 +1461,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -1818,9 +1489,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                 <!---->
@@ -1848,9 +1517,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                                 <!---->
@@ -1878,9 +1545,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
                                 <!---->
@@ -1908,9 +1573,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Current User
     </span></div>
                                 <!---->
@@ -1957,9 +1620,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -1967,9 +1628,7 @@ exports[`Storyshots History List Default 1`] = `
                             </div>
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                 <!---->
@@ -1977,9 +1636,7 @@ exports[`Storyshots History List Default 1`] = `
                             </div>
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                                 <!---->
@@ -1987,9 +1644,7 @@ exports[`Storyshots History List Default 1`] = `
                             </div>
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mona Mohnblume
     </span></div>
                                 <!---->
@@ -2017,9 +1672,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -2047,9 +1700,7 @@ exports[`Storyshots History List Default 1`] = `
                         <div class="q-item-side q-item-side-left q-item-section">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:25px;height:25px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                                 <!---->
@@ -2184,25 +1835,25 @@ exports[`Storyshots Layout KTopbar 1`] = `
             Polski
             <small>(100%)</small></div> <div class="q-item-sublabel"><!----></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Deutsch
-            <small>(93%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:93%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(97%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:97%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             ગુજરાતી
-            <small>(92%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:92%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(89%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:89%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Español
-            <small>(92%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:92%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(89%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:89%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             हिन्दी
-            <small>(92%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:92%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(89%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:89%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             中文
-            <small>(92%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:92%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(89%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:89%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Français
-            <small>(37%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:37%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(36%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:36%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Svenska
-            <small>(33%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:33%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(32%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:32%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Esperanto
             <small>(28%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:28%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Italiano
-            <small>(19%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:19%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(18%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:18%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Русский
-            <small>(19%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:19%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
+            <small>(18%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:18%;"> </div></div></div></div></div><div class="q-item q-item-division relative-position q-item-highlight"><div class="q-item-main q-item-section"><div class="q-item-label">
             Čeština
             <small>(5%)</small></div> <div class="q-item-sublabel"><div class="q-progress"><!----> <div class="q-progress-track" style="width:100%;"> </div> <div class="q-progress-model" style="width:5%;"> </div></div></div></div></div> <div class="q-item-separator-component"></div> <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position"><div class="q-item-main q-item-section"><i aria-hidden="true" class="q-icon fa fa-external-link"> </i> <small>Add more languages!</small></div></a></div></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
         <!---->
@@ -2865,9 +2516,7 @@ exports[`Storyshots PickupItem Full 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -2875,9 +2524,7 @@ exports[`Storyshots PickupItem Full 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -2885,9 +2532,7 @@ exports[`Storyshots PickupItem Full 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2922,9 +2567,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -2932,9 +2575,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -2942,9 +2583,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -2958,9 +2597,7 @@ exports[`Storyshots PickupItem Join 1`] = `
                             <div class="wrapper">
                                 <!---->
                                 <div>
-                                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                        <div></div>
-                                    </div>
+                                    <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                 </div>
                                 <!---->
                             </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -2995,9 +2632,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -3005,9 +2640,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -3024,9 +2657,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
                                 <div class="wrapper">
                                     <!---->
                                     <div>
-                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                            <div></div>
-                                        </div>
+                                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                     </div>
                                     <!---->
                                 </div>
@@ -3064,9 +2695,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -3074,9 +2703,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                         <!---->
@@ -3084,9 +2711,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                         <!---->
@@ -3126,9 +2751,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -3136,9 +2759,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -3146,9 +2767,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                             <!---->
@@ -3162,9 +2781,7 @@ exports[`Storyshots PickupList Default 1`] = `
                                 <div class="wrapper">
                                     <!---->
                                     <div>
-                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                            <div></div>
-                                        </div>
+                                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                     </div>
                                     <!---->
                                 </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -3197,9 +2814,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -3207,9 +2822,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -3226,9 +2839,7 @@ exports[`Storyshots PickupList Default 1`] = `
                                     <div class="wrapper">
                                         <!---->
                                         <div>
-                                            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                                <div></div>
-                                            </div>
+                                            <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                         </div>
                                         <!---->
                                     </div>
@@ -3264,9 +2875,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -3274,9 +2883,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -3284,9 +2891,7 @@ exports[`Storyshots PickupList Default 1`] = `
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
                             <!---->
@@ -3325,9 +2930,7 @@ exports[`Storyshots PickupList Default 1`] = `
                                 <div class="wrapper">
                                     <!---->
                                     <div>
-                                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                                            <div></div>
-                                        </div>
+                                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                     </div>
                                     <!---->
                                 </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -3775,9 +3378,7 @@ exports[`Storyshots PickupUsers empty 1`] = `
             <div class="wrapper">
                 <!---->
                 <div>
-                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                        <div></div>
-                    </div>
+                    <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
                 <!---->
             </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -3809,9 +3410,7 @@ exports[`Storyshots PickupUsers full 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
@@ -3819,9 +3418,7 @@ exports[`Storyshots PickupUsers full 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
@@ -3829,9 +3426,7 @@ exports[`Storyshots PickupUsers full 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
         <!---->
@@ -3855,9 +3450,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
@@ -3865,9 +3458,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
@@ -3875,9 +3466,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Karl Karlson
     </span></div>
         <!---->
@@ -3891,9 +3480,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
             <div class="wrapper">
                 <!---->
                 <div>
-                    <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                        <div></div>
-                    </div>
+                    <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
                 <!---->
             </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"><span>
@@ -3917,9 +3504,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
         <!---->
@@ -3927,9 +3512,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
-            <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                <div></div>
-            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+            <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
         <!---->
@@ -3946,9 +3529,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
                 <div class="wrapper">
                     <!---->
                     <div>
-                        <div class="art-wrapper randomArt" style="width:36px;height:36px;">
-                            <div></div>
-                        </div>
+                        <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                     </div>
                     <!---->
                 </div>
@@ -3966,9 +3547,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
 exports[`Storyshots ProfilePicture Profile Pictures 1`] = `
 <div class="wrapper">
     <div to="[object Object]">
-        <div class="art-wrapper randomArt" style="width:100px;height:100px;">
-            <div></div>
-        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
     <!---->
@@ -3995,7 +3574,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                             <div class="q-field-label-inner row items-center"><span>Profile photo</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
-                            <div class="croppa-container      ">
+                            <div class="croppa-container       pointer">
                                 <input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
                                 <div class="slots" style="width:0;height:0;visibility:hidden;">
                                     <img src="statics/ic_person_black_24px.svg">
@@ -4436,7 +4015,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <i aria-hidden="true" class="q-icon fa fa-fw fa-map"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <i class="fa fa-arrows-alt fa-stack-1x"></i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Show full screen
@@ -4444,7 +4023,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
                 <!---->
                 </span>
             </button>
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide stores
@@ -4452,7 +4031,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
                 <!---->
                 </span>
             </button>
-            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat" style="padding:0 5px;">
+            <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
                 <div class="desktop-only q-focus-helper"></div>
                 <!----><span class="q-btn-inner row col flex-center"><!----> <span class="fa-fw fa-stack"><i class="fa fa-user fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
         Hide users
@@ -4515,6 +4094,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         <div class="q-toolbar-title">
             Stores
         </div>
+        <!---->
         <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-small q-btn-flat">
             <div class="desktop-only q-focus-helper"></div>
             <!----><span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;"></span>
@@ -4578,6 +4158,8 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                         </div>
                     </div>
                 </div>
+                <!---->
+                <!---->
                 <!---->
             </div>
         </div>
@@ -4676,6 +4258,7 @@ exports[`Storyshots Signup empty 1`] = `
                     </div>
                 </div>
             </div>
+            <!---->
             <!---->
             <div class="actions">
                 <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
@@ -4790,6 +4373,7 @@ exports[`Storyshots Signup error 1`] = `
                 </div>
             </div>
             <!---->
+            <!---->
             <div class="actions">
                 <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
                     <div class="desktop-only q-focus-helper"></div>
@@ -4900,6 +4484,7 @@ exports[`Storyshots Signup pending 1`] = `
                 </div>
             </div>
             <!---->
+            <!---->
             <div class="actions">
                 <button type="button" class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat">
                     <div class="desktop-only q-focus-helper"></div>
@@ -4921,8 +4506,8 @@ exports[`Storyshots Statistics AmountBox 1`] = `
     <img width="100px" height="100px" src="test-file-stub">
     <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(12deg);top:10px;">
     <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
-      20.0
-    </span> <span style="font-size:14px;">kg</span></div>
+        20.0
+      </span> <span style="font-size:14px;">kg</span></div>
 </div>
 `;
 
@@ -4933,8 +4518,8 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
             <img width="100px" height="100px" src="test-file-stub">
             <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
             <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
-      1.0
-    </span> <span style="font-size:14px;">kg</span></div>
+        1.0
+      </span> <span style="font-size:14px;">kg</span></div>
         </div>
         <div style="margin-left:.6em;">
             <div style="padding-bottom:.3em;"></div>
@@ -5124,8 +4709,8 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      2.5
-    </span> <span style="font-size:11px;">kg</span></div>
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -5142,9 +4727,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
             <div class="people">
                 <div class="wrapper">
                     <div to="[object Object]">
-                        <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                            <div></div>
-                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                     <!---->
@@ -5169,8 +4752,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                         <img width="80px" height="80px" src="test-file-stub">
                         <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                         <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      2.5
-    </span> <span style="font-size:11px;">kg</span></div>
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -5187,9 +4770,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <div class="people">
                         <div class="wrapper">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                             <!---->
@@ -5208,8 +4789,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                     <img width="80px" height="80px" src="test-file-stub">
                     <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
                     <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      11.0
-    </span> <span style="font-size:11px;">kg</span></div>
+        11.0
+      </span> <span style="font-size:11px;">kg</span></div>
                 </div>
                 <div class="content">
                     <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -5225,9 +4806,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                 <div class="people">
                     <div class="wrapper">
                         <div to="[object Object]">
-                            <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                <div></div>
-                            </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                         <!---->
@@ -5246,8 +4825,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      0
-    </span> <span style="font-size:11px;">g</span></div>
+        0
+      </span> <span style="font-size:11px;">g</span></div>
             </div>
             <div class="content">
                 <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -5264,9 +4843,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <div class="people">
                 <div class="wrapper">
                     <div to="[object Object]">
-                        <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                            <div></div>
-                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                        <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                     <!---->
@@ -5304,63 +4881,61 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
 exports[`Storyshots Statistics PickupFeedback 1`] = `
 <div class="pickup-feedback-wrapper">
     <div class="q-card no-mobile-margin no-shadow grey-border">
-        <div class="art-wrapper" style="color:white;">
-            <div>
-                <div class="row no-wrap image-and-text">
-                    <div class="image-and-text-left gt-sm">
-                        <img src="test-file-stub" style="width:100%;">
-                    </div>
-                    <div class="image-and-text-right">
-                        <h4>Thank you for your pickup!</h4>
-                        <p>
-                            <div class="q-field row no-wrap items-start grey-font q-field-no-label q-field-dark">
+        <div type="circles" style="color:white;">
+            <div class="row no-wrap image-and-text">
+                <div class="image-and-text-left gt-sm">
+                    <img src="test-file-stub" style="width:100%;">
+                </div>
+                <div class="image-and-text-right">
+                    <h4>Thank you for your pickup!</h4>
+                    <p>
+                        <div class="q-field row no-wrap items-start grey-font q-field-no-label q-field-dark">
+                            <!---->
+                            <div class="row col">
                                 <!---->
-                                <div class="row col">
-                                    <!---->
-                                    <div class="q-field-content col-xs-12 col-sm">
-                                        <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
+                                <div class="q-field-content col-xs-12 col-sm">
+                                    <div tabindex="0" class="q-if row no-wrap items-center relative-position q-select q-if-focusable text-primary">
+                                        <!---->
+                                        <div class="q-if-inner col row no-wrap items-center relative-position">
                                             <!---->
-                                            <div class="q-if-inner col row no-wrap items-center relative-position">
-                                                <!---->
-                                                <!---->
-                                                <div class="col row items-center q-input-target justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                <!---->
-                                                <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
-                                                    <div></div>
-                                                    <div class="no-border scroll q-list q-list-link">
-                                                        <div class="q-item q-item-division relative-position active">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                            <!---->
+                                            <div class="col row items-center q-input-target justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                                            <!---->
+                                            <div class="q-popover animate-scale column no-wrap" style="transform-origin:top left 0px;">
+                                                <div></div>
+                                                <div class="no-border scroll q-list q-list-link">
+                                                    <div class="q-item q-item-division relative-position active">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
-                                                        <div class="q-item q-item-division relative-position">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="q-item q-item-division relative-position">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
-                                                        <div class="q-item q-item-division relative-position">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="q-item q-item-division relative-position">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
-                                                        <div class="q-item q-item-division relative-position">
-                                                            <div class="q-item-main q-item-section">
-                                                                <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="q-item q-item-division relative-position">
+                                                        <div class="q-item-main q-item-section">
+                                                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!---->
                                             </div>
-                                            <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
                                             <!---->
                                         </div>
+                                        <i aria-hidden="true" class="q-if-control q-icon material-icons">arrow_drop_down</i>
                                         <!---->
                                     </div>
+                                    <!---->
                                 </div>
                             </div>
-                        </p>
-                    </div>
+                        </div>
+                    </p>
                 </div>
             </div>
         </div>
@@ -5372,8 +4947,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <img width="100px" height="100px" src="test-file-stub">
                             <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
                             <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
-      1.0
-    </span> <span style="font-size:14px;">kg</span></div>
+        1.0
+      </span> <span style="font-size:14px;">kg</span></div>
                         </div>
                         <div style="margin-left:.6em;">
                             <div style="padding-bottom:.3em;"></div>
@@ -5599,9 +5174,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         </div>
     </div>
     <div class="q-card no-shadow grey-border store-feedback">
-        <div class="art-wrapper randomBanner">
-            <div></div>
-        </div>
+        <div seed="61" type="banner" class="randomBanner"></div>
         <h4 class="generic-padding"></h4>
         <div class="q-infinite-scroll">
             <div class="q-infinite-scroll-content">
@@ -5613,8 +5186,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                                 <img width="80px" height="80px" src="test-file-stub">
                                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      2.5
-    </span> <span style="font-size:11px;">kg</span></div>
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
                             </div>
                             <div class="content">
                                 <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
@@ -5631,9 +5204,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <div class="people">
                                 <div class="wrapper">
                                     <div to="[object Object]">
-                                        <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                            <div></div>
-                                        </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                     <!---->
@@ -5652,8 +5223,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                             <img width="80px" height="80px" src="test-file-stub">
                             <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
                             <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      11.0
-    </span> <span style="font-size:11px;">kg</span></div>
+        11.0
+      </span> <span style="font-size:11px;">kg</span></div>
                         </div>
                         <div class="content">
                             <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -5669,9 +5240,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <div class="people">
                             <div class="wrapper">
                                 <div to="[object Object]">
-                                    <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                        <div></div>
-                                    </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Mira Bellenbaum
     </span></div>
                                 <!---->
@@ -5690,8 +5259,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         <img width="80px" height="80px" src="test-file-stub">
                         <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
                         <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-      0
-    </span> <span style="font-size:11px;">g</span></div>
+        0
+      </span> <span style="font-size:11px;">g</span></div>
                     </div>
                     <div class="content">
                         <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
@@ -5708,9 +5277,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     <div class="people">
                         <div class="wrapper">
                             <div to="[object Object]">
-                                <div class="art-wrapper randomArt" style="width:22px;height:22px;">
-                                    <div></div>
-                                </div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-scale" style="transform-origin:bottom center 0px;">
       Max Mustermann
     </span></div>
                             <!---->
@@ -6308,6 +5875,8 @@ exports[`Storyshots Stores StoreList 1`] = `
             </div>
         </div>
     </div>
+    <!---->
+    <!---->
     <!---->
 </div>
 `;

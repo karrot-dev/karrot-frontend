@@ -37,7 +37,15 @@ export default {
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       const currentGroup = rootGetters['currentGroup/value']
-      return (currentGroup && currentGroup.members) ? currentGroup.members.map(getters.get) : []
+      if (currentGroup && currentGroup.memberships) {
+        return Object.entries(currentGroup.memberships).map(([userId, membership]) => {
+          return {
+            ...getters.get(userId),
+            membershipInCurrentGroup: membership,
+          }
+        })
+      }
+      return []
     },
     activeUser: (state, getters, rootState, rootGetters) => {
       return state.activeUserId && getters.get(state.activeUserId)
@@ -52,9 +60,12 @@ export default {
       async fetch ({ commit }) {
         commit('set', await users.list())
       },
-      async signup ({ commit, dispatch }, userData) {
+      async signup ({ commit, dispatch }, { userData, joinPlayground }) {
         await authUser.create(userData)
-        dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
+        await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
+        if (joinPlayground) {
+          await dispatch('groups/joinPlayground', null, { root: true })
+        }
       },
       async requestResetPassword ({ commit }, email) {
         await auth.requestResetPassword(email)

@@ -1,114 +1,168 @@
 <template>
   <div
     :class="{'expanded': expanded}"
-    class="all-groups">
-    <transition name="slide-toggle">
-      <div
-        v-if="showMyGroups && !previewOpened"
-        class="row no-wrap">
-        <div style="width: 100%; padding: 0">
-          <q-card style="margin-top: 16px">
-            <q-search
-              @change="$emit('search', arguments[0])"
-              class="searchbar"
-              v-model="search"
-            />
-          </q-card>
-        </div>
-        <div style="width: 100px">
-          <slot />
-        </div>
-      </div>
-    </transition>
-    <slot v-if="!showMyGroups"/>
-    <transition name="slide-toggle">
-      <q-alert
-        v-if="!isLoggedIn && expanded"
-        color="info"
-        icon="star"
-        class="alert"
-      >
-        <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
-          <router-link
-            place="login"
-            :to="{ name: 'login' }"
-            class="underline"
-          >
-            {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
-          </router-link>
-        </i18n>
-      </q-alert>
-    </transition>
-    <transition name="slide-toggle">
-      <div
-        v-if="thereAreMyGroupsToShow || (filteredOtherGroups.length == 0 && filteredMyGroups.length == 1)"
-        class="join-groups">
-        <h4 class="text-primary">
-          {{ $t('JOINGROUP.MY_GROUPS') }}
-        </h4>
-        <GroupGalleryCards
-          :groups="filteredMyGroups"
-          :current-group-id="currentGroupId"
-          :is-logged-in="isLoggedIn"
-          :preview-opened="previewOpened"
-          :is-member="true"
-          @showPreview="showPreview"
-          @hidePreview="hidePreview"
-          @visit="$emit('visit', arguments[0])" />
-      </div>
-    </transition>
+    class="all-groups"
+  >
+    <q-alert
+      v-if="!isLoggedIn"
+      color="info"
+      icon="star"
+      class="alert"
+    >
+      <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
+        <router-link
+          place="login"
+          :to="{ name: 'login' }"
+          class="underline"
+        >
+          {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
+        </router-link>
+      </i18n>
+    </q-alert>
     <h4
       class="text-primary generic-padding"
-      v-if="thereAreOtherGroupsToShow || !showMyGroups"
+      v-if="!hasJoinedGroups"
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </h4>
-    <transition name="slide-toggle">
-      <q-card v-if="!previewOpened && !showMyGroups">
-        <q-search
-          @change="$emit('search', arguments[0])"
-          class="searchbar"
-          v-model="search"
+    <div class="row no-wrap">
+      <div style="width: 100%; padding: 0">
+        <q-card style="width: 100%">
+          <q-search
+            :value="search"
+            @input="$emit('search', arguments[0])"
+            class="searchbar"
+          />
+        </q-card>
+
+        <q-checkbox
+          :value="showInactive"
+          @input="$emit('setShowInactive', arguments[0])"
+          :label="$t('GROUP.SHOW_INACTIVE')"
+          style="margin-left: 16px"
         />
-      </q-card>
-    </transition>
-    <transition name="slide-toggle">
-      <div v-if="thereAreOtherGroupsToShow || (filteredOtherGroups.length == 1 && filteredMyGroups.length == 0)">
-        <GroupGalleryCards
-          :groups="filteredOtherGroups"
-          :current-group-id="currentGroupId"
-          :is-logged-in="isLoggedIn"
-          :preview-opened="previewOpened"
-          @showPreview="showPreview"
-          @hidePreview="hidePreview"/>
       </div>
-    </transition>
+      <div style="width: 100px">
+        <slot />
+      </div>
+    </div>
+    <GroupGalleryCard
+      v-if="showPlaygroundGroupAtTop"
+      style="width: 100%"
+      :group="playgroundGroup"
+      @preview="showPreview"
+      @visit="$emit('visit', arguments[0])"
+    />
+    <template v-if="previewOpened">
+      <transition name="slide-toggle">
+        <GroupPreview
+          show-close
+          @close="hidePreview"
+          :group="groupForPreview"
+          :is-logged-in="isLoggedIn"
+          style="width: 100%"
+        />
+      </transition>
+    </template>
+    <template v-else>
+      <transition name="slide-toggle">
+        <div
+          v-if="hasMyGroupsToShow"
+          class="join-groups"
+        >
+          <h4 class="text-primary">
+            {{ $t('JOINGROUP.MY_GROUPS') }}
+          </h4>
+          <GroupGalleryCards
+            :groups="filteredMyGroups"
+            :is-logged-in="isLoggedIn"
+            @preview="showPreview"
+            @visit="$emit('visit', arguments[0])"
+          />
+        </div>
+      </transition>
+      <h4
+        class="text-primary generic-padding"
+        v-if="hasJoinedGroups && hasOtherGroupsToShow"
+      >
+        {{ $t('JOINGROUP.WHICHGROUP') }}
+      </h4>
+      <transition name="slide-toggle">
+        <div v-if="hasOtherGroupsToShow">
+          <GroupGalleryCards
+            :groups="filteredOtherGroups"
+            :is-logged-in="isLoggedIn"
+            :preview-opened="previewOpened"
+            @preview="showPreview"
+          />
+        </div>
+      </transition>
+      <hr
+        v-if="showPlaygroundGroupAtBottom"
+        style="margin: 20px 10px; border-color: #eee"
+      >
+      <GroupGalleryCard
+        v-if="showPlaygroundGroupAtBottom"
+        style="width: 100%"
+        :group="playgroundGroup"
+        @preview="showPreview"
+      />
+    </template>
   </div>
 </template>
 
 <script>
-import GroupGalleryCards from './GroupGalleryCardsUI'
+import GroupGalleryCards from './GroupGalleryCards'
+import GroupGalleryCard from './GroupGalleryCard'
 import GroupPreview from './GroupPreview'
-import { QAlert, QSearch, QCard } from 'quasar'
+import { QAlert, QSearch, QCard, QCheckbox } from 'quasar'
 
 export default {
-  data () {
-    return {
-      previewOpened: false,
-      openedGroup: null,
-      search: '',
-    }
+  components: { GroupGalleryCards, GroupGalleryCard, QAlert, QSearch, QCard, QCheckbox, GroupPreview },
+  props: {
+    filteredMyGroups: {
+      default: () => [],
+      type: Array,
+    },
+    filteredOtherGroups: {
+      default: () => [],
+      type: Array,
+    },
+    playgroundGroup: {
+      default: undefined,
+      type: Object,
+    },
+    isLoggedIn: {
+      default: false,
+      type: Boolean,
+    },
+    hasJoinedGroups: {
+      default: true,
+      type: Boolean,
+    },
+    expanded: {
+      default: true,
+      type: Boolean,
+    },
+    groupForPreview: {
+      default: null,
+      type: Object,
+    },
+    search: {
+      default: '',
+      type: String,
+    },
+    showInactive: {
+      default: false,
+      type: Boolean,
+    },
   },
   methods: {
     showPreview (group) {
-      this.previewOpened = true
-      this.openedGroup = group
       this.$emit('showPreview', group)
       this.replaceWindowHistory(group)
     },
     hidePreview () {
-      this.previewOpened = false
-      this.openedGroupId = -1
       this.$emit('showPreview', null)
       this.replaceWindowHistory(null)
     },
@@ -122,58 +176,35 @@ export default {
     },
   },
   computed: {
-    filteredMyGroups () {
-      if (this.previewOpened) {
-        if (this.openedGroup.isMember) {
-          return [this.openedGroup]
-        }
-        return []
-      }
-      return this.myGroups
+    previewOpened () {
+      return Boolean(this.groupForPreview)
     },
-    filteredOtherGroups () {
-      if (this.previewOpened) {
-        if (!this.openedGroup.isMember) {
-          return [this.openedGroup]
-        }
-        return []
-      }
-      return this.otherGroups
-    },
-    thereAreMyGroupsToShow () {
+    hasMyGroupsToShow () {
       return this.expanded && this.filteredMyGroups.length > 0
     },
-    thereAreOtherGroupsToShow () {
+    hasOtherGroupsToShow () {
       return this.expanded && this.filteredOtherGroups.length > 0
     },
-  },
-  props: {
-    myGroups: {
-      default: () => [],
-      type: Array,
+    showPlaygroupGroupAtTopOrBottom () {
+      if (this.search) return false
+      if (this.previewOpened) return false
+      if (!this.expanded) return false
+      if (!this.playgroundGroup) return false
+      if (this.playgroundGroup && this.playgroundGroup.isMember) return false
+      return true
     },
-    otherGroups: {
-      required: true,
-      type: Array,
+    showPlaygroundGroupAtTop () {
+      if (this.showPlaygroupGroupAtTopOrBottom) {
+        if (this.isLoggedIn && !this.hasJoinedGroups) return true
+        if (!this.isLoggedIn) return true
+        return false
+      }
+      return false
     },
-    isLoggedIn: {
-      required: true,
-      type: Boolean,
-    },
-    currentGroupId: {
-      default: -1,
-      type: Number,
-    },
-    showMyGroups: {
-      default: true,
-      type: Boolean,
-    },
-    expanded: {
-      default: true,
-      type: Boolean,
+    showPlaygroundGroupAtBottom () {
+      return this.showPlaygroupGroupAtTopOrBottom && !this.showPlaygroundGroupAtTop
     },
   },
-  components: { GroupGalleryCards, QAlert, QSearch, QCard, GroupPreview },
 }
 </script>
 
@@ -193,7 +224,7 @@ export default {
     min-height 100vh
 
 body.desktop .alert
-  margin 10px 8px 2.5em 8px
+  margin 10px 8px 10px 8px
 .text-primary
   margin-left .2em
 .searchbar
@@ -208,7 +239,6 @@ body.desktop .alert
 .slide-toggle-enter-active,
 .slide-toggle-leave-active
   transition all .2s
-  min-height = 0
   overflow hidden
 .slide-toggle-enter-to
     max-height 400px

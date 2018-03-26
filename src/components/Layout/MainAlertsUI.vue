@@ -110,6 +110,14 @@ export default {
       }
     },
 
+    playgroundGroupInfo () {
+      return {
+        color: 'positive',
+        icon: 'fa-child',
+        message: 'GROUP.PLAYGROUND_INFO',
+      }
+    },
+
   },
   computed: {
     formattedAlerts () {
@@ -118,6 +126,9 @@ export default {
           ...this[e.type](e.context),
           ...e,
         }
+      }).filter(e => {
+        if (e.desktopOnly && this.$q.platform.is.mobile) return false
+        return true
       })
     },
   },

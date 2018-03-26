@@ -6,7 +6,8 @@
     "WARNING": "Внимание!",
     "BETA_WARNING": "Сайт находится в стадии активной разработки и мы не можем гарантировать безопасность и конфиденциальность вводимых вами данных (но приложим к этому все усилия).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
-    "SERVER_ERROR": "Server error"
+    "SERVER_ERROR": "Server error",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "Электронная почта",
@@ -66,6 +67,8 @@
     "PASSWORD": "Введите пароль, чтобы сделать группу частной",
     "PICKUPS": "Pickups",
     "MEMBERS": "Участники",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Точки",
     "HISTORY": "History",
     "DESCRIPTION": "Описание",
@@ -91,7 +94,9 @@
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Map",
@@ -337,7 +342,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "MARK_READ": "Mark all as read"
+    "MARK_READ": "Mark all as read",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "Co-operating",

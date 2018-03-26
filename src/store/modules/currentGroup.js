@@ -18,11 +18,13 @@ export default {
       const userId = rootGetters['auth/userId']
       const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
       const membership = group.memberships ? group.memberships[userId] : {}
+      const isPlayground = group.status === 'playground'
       return {
         ...group,
         membership,
         activeAgreement,
         awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
+        isPlayground,
       }
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],

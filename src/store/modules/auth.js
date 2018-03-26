@@ -22,6 +22,7 @@ export default {
     user: state => state.user,
     userId: state => state.user && state.user.id,
     redirectTo: state => state.redirectTo,
+    hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
     ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),
   },
   actions: {
@@ -102,6 +103,7 @@ export default {
       async changeEmail ({ commit, dispatch }, email) {
         const savedUser = await authUser.save({ email })
         commit('setUser', { user: savedUser })
+        router.push({ name: 'user', params: { userId: savedUser.id } })
       },
     }),
 
@@ -110,6 +112,7 @@ export default {
         const savedUser = await authUser.save(data)
         commit('setUser', { user: savedUser })
         dispatch('users/update', savedUser, { root: true })
+        router.push({ name: 'user', params: { userId: savedUser.id } })
       },
     }, {
       // ignore ID to have simple saveStatus

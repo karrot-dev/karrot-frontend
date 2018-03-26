@@ -36,12 +36,21 @@ export default {
     search (terms, done) {
       if (!terms) done([])
       this.setTerms(terms)
-      setTimeout(() => done(this.results), 50)
+      setTimeout(() => {
+        if (!this.results.length) {
+          done([{label: this.$t('GLOBAL.SEARCH_NOT_FOUND')}])
+        }
+        else {
+          done(this.results)
+        }
+      }, 50)
     },
     selected (item) {
-      this.terms = item.label
-      this.hide()
-      this.$router.push(item.value)
+      if (this.results.length !== 0) {
+        this.terms = item.label
+        this.hide()
+        this.$router.push(item.value)
+      }
     },
   },
   computed: {

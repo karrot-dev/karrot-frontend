@@ -31,7 +31,7 @@ describe('users', () => {
       history,
       currentGroup: {
         getters: {
-          value: () => ({ members: [1, 2] }),
+          value: () => ({ members: [1, 2], memberships: { 1: {}, 2: {} } }),
         },
       },
     })
@@ -50,7 +50,7 @@ describe('users', () => {
   it('can signup', async () => {
     let signupData = { email: 'foo@foo.com', password: 'foo' }
     mockCreate.mockImplementation(user => user)
-    await store.dispatch('users/signup', signupData)
+    await store.dispatch('users/signup', { userData: signupData })
     expect(mockCreate).toBeCalledWith(signupData)
     expect(auth.actions.login.mock.calls[0][1]).toEqual(signupData)
   })

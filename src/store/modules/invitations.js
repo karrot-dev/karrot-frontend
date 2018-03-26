@@ -34,8 +34,7 @@ export default {
       /**
        * Fetch sent invitations for current group
        */
-      async fetch ({ commit, dispatch, rootGetters }) {
-        const groupId = rootGetters['group/currentGroupId']
+      async fetch ({ commit, dispatch, rootGetters }, { groupId }) {
         commit('set', await invitations.listByGroupId(groupId))
       },
 

@@ -7,7 +7,8 @@
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
     "SERVER_ERROR": "Server error",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid."
+    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -79,6 +80,8 @@
     "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
     "MEMBERS": "Members",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Stores",
     "HISTORY": "History",
     "DESCRIPTION": "Description",
@@ -104,7 +107,9 @@
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Map",
@@ -136,7 +141,9 @@
         "CONFIRM": "Yes, archive store"
       }
     },
-    "RESTORE": "Restore"
+    "RESTORE": "Restore",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
@@ -364,7 +371,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "MARK_READ": "Mark all as read"
+    "MARK_READ": "Mark all as read",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "Co-operating",

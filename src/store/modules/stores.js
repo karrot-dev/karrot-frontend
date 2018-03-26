@@ -19,7 +19,9 @@ export default {
   getters: {
     all: (state, getters) => state.idList.map(getters.get).sort(sortByName).sort(sortByStatus),
     active: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
+    archived: (state, getters) => getters.all.filter(s => s.status === 'archived'),
     byCurrentGroup: (state, getters, rootState, rootGetters) => getters.active.filter(e => e.group === rootGetters['currentGroup/id']),
+    byCurrentGroupArchived: (state, getters, rootState, rootGetters) => getters.archived.filter(e => e.group === rootGetters['currentGroup/id']),
     get: (state, getters) => id => getters.enrich(state.entries[id]),
     enrich: (state, getters) => store => {
       return store && {

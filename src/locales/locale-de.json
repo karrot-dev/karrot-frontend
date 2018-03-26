@@ -6,7 +6,8 @@
     "WARNING": "Warnung",
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
     "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
-    "SERVER_ERROR": "Der Server gibt einen Fehler zurück."
+    "SERVER_ERROR": "Der Server gibt einen Fehler zurück.",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "E-Mail",
@@ -21,8 +22,8 @@
   "BUTTON": {
     "CREATE": "Erstellen",
     "CANCEL": "Abbrechen",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "Öffnen",
+    "CLOSE": "Schließen",
     "DELETE": "Löschen",
     "EDIT": "Bearbeiten",
     "JOIN": "Beitreten",
@@ -66,6 +67,8 @@
     "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
     "PICKUPS": "Abholungen",
     "MEMBERS": "Mitglieder",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Betriebe",
     "HISTORY": "History",
     "DESCRIPTION": "Beschreibung",
@@ -79,19 +82,21 @@
     "INVITE_TITLE": "Einladungen zur Gruppe",
     "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
-    "SETTINGS": "Settings",
-    "NOTIFICATIONS": "Notifications",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "SETTINGS": "Einstellungen",
+    "NOTIFICATIONS": "Benachrichtigungen",
+    "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "Wöchentliche Zusammenfassung",
+        "DESCRIPTION": "Bleib auf dem Laufenden über das, was in der Gruppe passiert."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+        "NAME": "Abholungs-Benachrichtigungen",
+        "DESCRIPTION": "Erinnert dich an deine Abholungen und wenn es noch komplett oder teilweise unbesetzte Abholungen am nächsten Tag gibt."
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Karte",
@@ -100,14 +105,14 @@
     "SHOW_STORES": "Betriebe anzeigen",
     "HIDE_STORES": "Betriebe verstecken",
     "SET_LOCATION": "Ort festlegen",
-    "FULL_SCREEN": "Show full screen"
+    "FULL_SCREEN": "Zeige auf ganzem Bildschirm"
   },
   "STOREDETAIL": {
     "EDIT": "Betrieb bearbeiten",
     "MANAGE": "Abholzeiten prüfen und ändern",
     "ARCHIVED": "Dieser Betrieb wurde archiviert",
-    "INACTIVE": "This store is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
+    "INACTIVE": "Dieser Betrieb kooperiert bisher nicht.",
+    "CHANGE_STATUS": "Du kannst den Status in den Einstellungen ändern.",
     "NO_DESCRIPTION": "Dieser Betrieb hat noch keine Beschreibung."
   },
   "STOREEDIT": {
@@ -170,9 +175,9 @@
     "CHANGE_GROUP": "Gruppe wechseln"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "BLOG_SUB": "All news around the karrot software",
-    "GIT_SUB": "See our code!"
+    "INFO_SUB": "Wie man eine Foodsaving-Gruppe aufbaut",
+    "BLOG_SUB": "Alle Neuigkeiten über Karrot",
+    "GIT_SUB": "Betrachte unseren Code!"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -330,14 +335,19 @@
   "WALL": {
     "WRITE_MESSAGE": "Schreibe eine Nachricht...",
     "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht...",
-    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
-    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
+    "DISABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen aktiv, klick um zu deaktivieren",
+    "ENABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen inaktiv, klick um zu aktivieren",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Bitte verifiziere deine Email-Adresse, um Email-Benachrichtigungen zu erhalten.",
+    "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per Mail geschickt."
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
-    "MARK_READ": "Als gelesen markieren"
+    "MARK_READ": "Als gelesen markieren",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "Kooperiert",

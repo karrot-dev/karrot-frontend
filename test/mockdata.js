@@ -62,6 +62,7 @@ export const messagesMock = [
 ].map(e => {
   e.author = usersMock.find(u => u.id === e.author)
   e.createdAt = new Date(e.createdAt)
+  e.reactions = [{ name: 'thumbsup', users: [usersMock[0]], message: `${usersMock[0].displayName} reacted with :thumbsup:` }]
   return e
 })
 
@@ -85,6 +86,8 @@ export const groupsMock = [
   {'id': 13, 'name': '04_testgroup', 'publicDescription': 'Hi there! This it the public description!', 'address': 'Algeciras, Cádiz, Andalusia, Spain', 'latitude': 36.1445288570277, 'longitude': -5.45059204101562, 'members': [184, 151, 148, 159, 10, 34, 28, 67, 120, 17, 7, 29, 4, 45, 187, 1, 22, 8], 'protected': false},
 ].map(e => ({
   ...e,
+  isCurrentGroup: false,
+  isPlayground: false,
   joinStatus: statusMocks.default(),
   saveStatus: statusMocks.default(),
   leaveStatus: statusMocks.default(),

@@ -117,7 +117,8 @@ export default {
     }),
 
     async maybeFetch ({ getters, dispatch }, pickupId) {
-      if (!getters.get(pickupId)) {
+      const isPending = getters['meta/status']('fetch', pickupId).pending
+      if (!getters.get(pickupId) && !isPending) {
         await dispatch('fetch', pickupId)
       }
     },

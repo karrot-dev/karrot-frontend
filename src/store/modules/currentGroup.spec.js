@@ -13,6 +13,7 @@ function enrich (group) {
     membership: {},
     activeAgreement: undefined,
     awaitingAgreement: false,
+    isPlayground: false,
   }
 }
 

@@ -6,7 +6,8 @@
     "WARNING": "चेतावनी",
     "BETA_WARNING": "यह वेबसाइट सक्रिय विकास के अधीन है और सब कुछ परिवर्तन के अधीन है। हम आपके द्वारा दर्ज किए गए डेटा की सुरक्षा और गोपनीयता की गारंटी नहीं दे सकते (लेकिन हम अपनी पूरी कोशिश करें)।",
     "CONNECTION_INTERRUPTED": "त्रुटि: कनेक्शन बाधित!",
-    "SERVER_ERROR": "सर्वर त्रुटि"
+    "SERVER_ERROR": "सर्वर त्रुटि",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "मेल",
@@ -66,6 +67,8 @@
     "PASSWORD": "अगर आप समूह निजी बनाना चाहते हैं तो यहां एक पासवर्ड दर्ज करें",
     "PICKUPS": "पिकप",
     "MEMBERS": "सदस्य ",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "भंडार",
     "HISTORY": "इतिहास",
     "DESCRIPTION": "विवरण",
@@ -91,7 +94,9 @@
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "नक्शा",
@@ -337,7 +342,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "आपके पास एक अपठित संदेश है | आपके पास {गिनती} अपठित संदेश हैं",
-    "MARK_READ": "सभी को पढ़ा हुआ  चिन्हित करें"
+    "MARK_READ": "सभी को पढ़ा हुआ  चिन्हित करें",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "सहयोग",

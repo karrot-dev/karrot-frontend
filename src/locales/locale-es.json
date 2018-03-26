@@ -6,7 +6,8 @@
     "WARNING": "Advertencia",
     "BETA_WARNING": "Este sitio está en construcción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
     "CONNECTION_INTERRUPTED": "Error: conexión interrumpida",
-    "SERVER_ERROR": "Error del servidor"
+    "SERVER_ERROR": "Error del servidor",
+    "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
     "EMAIL": "Correo",
@@ -66,6 +67,8 @@
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
     "PICKUPS": "Recogidas",
     "MEMBERS": "Miembros",
+    "INACTIVE": "Inactive",
+    "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Tiendas",
     "HISTORY": "Historia",
     "DESCRIPTION": "Descripción",
@@ -91,7 +94,9 @@
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
-    }
+    },
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -337,7 +342,12 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",
-    "MARK_READ": "marcar todo como leido"
+    "MARK_READ": "marcar todo como leido",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH":"{users} reacted with {reaction}"
+    }
   },
   "STORESTATUS":{
     "ACTIVE": "En cooperación",

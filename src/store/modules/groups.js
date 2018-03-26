@@ -24,9 +24,15 @@ export default {
       if (!group) return
       const userId = rootGetters['auth/userId']
       const isMember = userId && group.members ? group.members.includes(userId) : false
+      const isCurrentGroup = group.id === rootGetters['currentGroup/id']
+      const isPlayground = group.status === 'playground'
+      const isInactive = group.status === 'inactive'
       return {
         ...group,
         isMember,
+        isCurrentGroup,
+        isPlayground,
+        isInactive,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },
@@ -53,6 +59,8 @@ export default {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
       return currentGroup && currentGroup.saveStatus
     },
+    playground: (state, getters) => getters.all.find(g => g.isPlayground),
+    hasPlayground: (state, getters) => Boolean(getters.playground),
     ...metaStatuses(['create']),
   },
   actions: {
@@ -95,6 +103,10 @@ export default {
 
     update ({ commit }, group) {
       commit('update', group)
+    },
+
+    joinPlayground ({ dispatch, getters }) {
+      dispatch('join', { id: getters.playground.id })
     },
 
     async selectPreview ({ commit, getters, dispatch }, { groupPreviewId }) {

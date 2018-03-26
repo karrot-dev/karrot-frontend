@@ -5,6 +5,7 @@ import SidenavStoresUI from './SidenavStoresUI'
 export default connect({
   gettersToProps: {
     stores: 'stores/byCurrentGroup',
+    archived: 'stores/byCurrentGroupArchived',
     expanded: 'sidenavBoxes/toggle/stores',
   },
   actionsToEvents: {

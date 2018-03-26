@@ -35,6 +35,12 @@ afterAll(() => {
   clock.uninstall()
 })
 
+// Mock RandomArt because it doesn't play nicely with JSDOM
+jest.mock('@/components/General/RandomArt', () => ({
+  functional: true,
+  render: (h, context) => h('div', context.data, context.children),
+}))
+
 const files = glob.sync('**/*.story.js', { absolute: true })
 for (const f of files) {
   require(f)

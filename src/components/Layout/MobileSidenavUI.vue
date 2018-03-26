@@ -53,7 +53,7 @@
         <i class="fa fa-users"/>
       </q-item-side>
       <q-item-main
-        :label="Info"
+        label="Info"
         :sublabel="$t('SIDENAV.INFO_SUB')"
       />
     </a>
@@ -67,7 +67,7 @@
         <i class="fa fa-newspaper-o"/>
       </q-item-side>
       <q-item-main
-        :label="Blog"
+        label="Blog"
         :sublabel="$t('SIDENAV.BLOG_SUB')"
       />
     </a>
@@ -81,7 +81,7 @@
         <i class="fa fa-git"/>
       </q-item-side>
       <q-item-main
-        :label="Git"
+        label="Git"
         :sublabel="$t('SIDENAV.GIT_SUB')"
       />
     </a>

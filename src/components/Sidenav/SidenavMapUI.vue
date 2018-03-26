@@ -13,7 +13,6 @@
       <q-btn
         flat
         small
-        style="padding: 0 5px"
         @click="$router.push({name: 'map', params: {groupId: currentGroup.id}})"
       >
         <i class="fa fa-arrows-alt fa-stack-1x" />
@@ -25,7 +24,6 @@
         flat
         small
         @click="$emit('toggleStores')"
-        style="padding: 0 5px"
       >
         <span class="fa-fw fa-stack">
           <i class="fa fa-shopping-cart fa-stack-1x" />
@@ -47,7 +45,6 @@
         flat
         small
         @click="$emit('toggleUsers')"
-        style="padding: 0 5px"
       >
         <span class="fa-fw fa-stack">
           <i class="fa fa-user fa-stack-1x" />
@@ -130,6 +127,9 @@ export default {
     color $positive
   .fa.fa-times
     color $negative
+  .q-btn
+    width 25px
+    padding 0 1px
 .map
   height: 260px
 </style>

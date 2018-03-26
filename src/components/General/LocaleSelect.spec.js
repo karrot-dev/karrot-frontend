@@ -12,6 +12,7 @@ import store from '@/store'
 polyfillRequestAnimationFrame()
 
 describe('LocaleSelect', () => {
+  beforeEach(() => jest.resetModules())
   it('renders all the available locales', () => {
     const wrapper = mountWithDefaults(LocaleSelect, { store })
     expect(wrapper.findAll('.q-item-label').length).toBe(Object.keys(locales).length)

@@ -14,6 +14,8 @@ import { withMeta, createMetaModule, defaultFindId, toggles } from '@/store/help
 Vue.use(Vuex)
 
 describe('helpers', () => {
+  beforeEach(() => jest.resetModules())
+
   describe('createMetaModule', () => {
     const id = 'foo'
     let run

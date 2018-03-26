@@ -1,5 +1,6 @@
 import { dom } from 'quasar'
 import Vue from 'vue'
+import { configureQuasar } from '>/helpers'
 
 const { height } = dom
 
@@ -22,7 +23,6 @@ describe('detectMobileKeyboard', () => {
 
   function loadWithUserAgent (userAgent) {
     window.navigator.userAgent = userAgent
-    const configureQuasar = require('@/configureQuasar').default
     configureQuasar(Vue)
     detectMobileKeyboard = require('./detectMobileKeyboard').default
   }

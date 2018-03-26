@@ -7,6 +7,7 @@ import { mountWithDefaults, createStore, polyfillRequestAnimationFrame } from '>
 polyfillRequestAnimationFrame()
 
 describe('PickupUsers', () => {
+  beforeEach(() => jest.resetModules())
   let wrapper, pickup, store
 
   beforeEach(() => {

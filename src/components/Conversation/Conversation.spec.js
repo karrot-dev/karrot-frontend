@@ -23,6 +23,7 @@ const defaultProps = {
 polyfillRequestAnimationFrame()
 
 describe('Conversation', () => {
+  beforeEach(() => jest.resetModules())
   it('renders messages', () => {
     let wrapper = mountWithDefaults(Conversation, {
       propsData: defaultProps,

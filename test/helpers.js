@@ -6,7 +6,6 @@ import deepmerge from 'deepmerge'
 
 import MockRouterLink from '>/MockRouterLink'
 import i18n from '@/i18n'
-import configureQuasar from '@/configureQuasar'
 
 Vue.use(Vuex)
 
@@ -60,6 +59,11 @@ export function makeFindAllIterable (wrapper) {
 
 export function polyfillRequestAnimationFrame () {
   raf.polyfill()
+}
+
+export function configureQuasar (Vue) {
+  const configure = require('@/configureQuasar').default
+  configure(Vue)
 }
 
 export function mountWithDefaults (Component, options = {}) {

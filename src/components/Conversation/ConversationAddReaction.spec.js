@@ -3,6 +3,7 @@ import { mountWithDefaults } from '>/helpers'
 import EmojiButton from './EmojiButton'
 
 describe('Conversation message reactions', () => {
+  beforeEach(() => jest.resetModules())
   let wrapper
 
   beforeEach(() => {

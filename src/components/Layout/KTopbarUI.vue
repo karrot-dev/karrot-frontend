@@ -119,7 +119,7 @@
               {{ $t('SETTINGS.TITLE') }}
             </q-item>
             <q-item
-              @click="$emit('logout')"
+              @click.native="$emit('logout')"
             >
               <q-icon
                 size="1em"

@@ -6,7 +6,7 @@
   >
     <q-item
       item
-      @click="$router.push({name: 'user', params: {userId: currentUserId}})"
+      :to="{name: 'user', params: {userId: currentUserId}}"
     >
       <q-item-side>
         <i class="fa fa-user fa-fw"/>
@@ -16,7 +16,7 @@
 
     <q-item
       item
-      @click="$router.push({name: 'groupsGallery'})"
+      :to="{name: 'groupsGallery'}"
     >
       <q-item-side>
         <i class="fa fa-home fa-fw"/>
@@ -26,7 +26,7 @@
 
     <q-item
       item
-      @click="$router.push({name: 'settings'})"
+      :to="{name: 'settings'}"
     >
       <q-item-side>
         <i class="fa fa-cog fa-fw"/>
@@ -35,7 +35,7 @@
     </q-item>
 
     <q-item
-      @click="$emit('logout'), $emit('toggleSidenav')"
+      @click.native="$emit('logout'), $emit('toggleSidenav')"
     >
       <q-item-side>
         <i class="fa fa-sign-out fa-fw"/>
@@ -46,7 +46,8 @@
     <q-list-header>Info</q-list-header>
     <a
       class="q-item"
-      target="_blanc"
+      target="_blank"
+      rel="noopener"
       href="https://foodsaving.world"
     >
       <q-item-side>
@@ -60,7 +61,8 @@
 
     <a
       class="q-item"
-      target="_blanc"
+      target="_blank"
+      rel="noopener"
       href="https://blog.karrot.world"
     >
       <q-item-side>
@@ -74,7 +76,8 @@
 
     <a
       class="q-item"
-      target="_blanc"
+      target="_blank"
+      rel="noopener"
       href="https://github.com/yunity/karrot-frontend"
     >
       <q-item-side>

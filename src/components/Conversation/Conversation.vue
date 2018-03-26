@@ -8,7 +8,6 @@
         :handler="loadMore"
       >
         <q-list
-          :highlight="false"
           class="bg-white desktop-margin"
         >
           <q-btn

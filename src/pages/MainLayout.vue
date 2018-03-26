@@ -18,20 +18,15 @@
       v-else
       class="background mainLayoutDesktop"
     >
-      <q-layout
-        :reveal="$q.platform.is.mobile"
-        ref="layout"
-        :view="layoutView"
-        :right-breakpoint="1100"
-      >
+      <q-layout :view="layoutView">
         <q-layout-header>
           <KTopbar
-            @toggleSidenav="$refs.layout.toggleLeft()"
             v-if="isLoggedIn"
+            @toggleSidenav="toggleSidenav"
           >
             <q-btn
               flat
-              @click="$refs.layout.toggleLeft()"
+              @click="toggleSidenav"
               class="mobile-only"
             >
               <i class="fa fa-bars" />
@@ -39,8 +34,11 @@
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
-        <q-layout-drawer v-if="$q.platform.is.mobile && isLoggedIn">
-          <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
+        <q-layout-drawer
+          v-if="$q.platform.is.mobile && isLoggedIn"
+          v-model="showSidenav"
+        >
+          <MobileSidenav @toggleSidenav="toggleSidenav" />
         </q-layout-drawer>
         <q-page-container>
           <MainAlerts />
@@ -80,7 +78,18 @@ import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QBtn, MainAlerts, RouteError },
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QBtn, MainAlerts, RouteError,
+  },
+  data () {
+    return {
+      showSidenav: false,
+    }
+  },
+  methods: {
+    toggleSidenav () {
+      this.showSidenav = !this.showSidenav
+    },
+  },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',

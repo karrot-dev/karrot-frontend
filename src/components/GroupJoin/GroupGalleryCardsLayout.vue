@@ -19,12 +19,12 @@
         </router-link>
       </i18n>
     </q-alert>
-    <h4
-      class="text-primary generic-padding"
+    <p
+      class="text-primary header"
       v-if="!hasJoinedGroups"
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
-    </h4>
+    </p>
     <div class="row no-wrap">
       <div style="width: 100%; padding: 0">
         <q-card style="width: 100%">
@@ -70,9 +70,9 @@
           v-if="hasMyGroupsToShow"
           class="join-groups"
         >
-          <h4 class="text-primary">
+          <p class="text-primary header">
             {{ $t('JOINGROUP.MY_GROUPS') }}
-          </h4>
+          </p>
           <GroupGalleryCards
             :groups="filteredMyGroups"
             :is-logged-in="isLoggedIn"
@@ -81,12 +81,12 @@
           />
         </div>
       </transition>
-      <h4
-        class="text-primary generic-padding"
+      <p
+        class="text-primary header"
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
-      </h4>
+      </p>
       <transition name="slide-toggle">
         <div v-if="hasOtherGroupsToShow">
           <GroupGalleryCards
@@ -248,4 +248,9 @@ body.desktop .alert
     opacity 0
 .slide-toggle-leave
     max-height 400px
+
+.header
+  font-size 1.4em
+  padding-top 14px
+  margin-left 10px
 </style>

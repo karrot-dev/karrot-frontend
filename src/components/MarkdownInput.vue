@@ -79,4 +79,6 @@ export default {
   min-height 20px !important
   padding 6px 10px !important
   font-size .87em !important
+.q-tabs-inverted
+  background inherit
 </style>

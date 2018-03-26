@@ -1,7 +1,7 @@
 <template>
   <q-card :class="{ full: pickup.isFull }">
     <q-card-main
-      class="row inline no-padding justify-between content"
+      class="row no-padding justify-between content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }"
     >
       <div class="column padding full-width">
@@ -16,9 +16,14 @@
         </div>
         <div class="people full-width">
           <PickupUsers
+            v-if="pickup.isUserMember"
             :pickup="pickup"
-            @join="button.click()"
-            @leave="button.click()"
+            @leave="leave"
+          />
+          <PickupUsers
+            v-else
+            :pickup="pickup"
+            @join="join"
           />
         </div>
       </div>
@@ -62,31 +67,6 @@ export default {
         .catch(() => {})
     },
   },
-  computed: {
-    button () {
-      if (this.pickup.isUserMember) {
-        return {
-          className: 'q-btn-flat leave full-height',
-          translation: 'PICKUPLIST.ITEM.LEAVE',
-          click: this.leave,
-        }
-      }
-      else if (this.pickup.isFull) {
-        return {
-          className: 'join full-height',
-          translation: 'PICKUPLIST.ITEM.JOIN',
-          click: () => console.log('what??'),
-        }
-      }
-      else {
-        return {
-          className: 'join full-height',
-          translation: 'PICKUPLIST.ITEM.JOIN',
-          click: this.join,
-        }
-      }
-    },
-  },
 }
 </script>
 
@@ -121,11 +101,4 @@ $lighterGreen = #F0FFF0
   )
 .content.isUserMember
   background linear-gradient(to right, $lightGreen, $lighterGreen)
-.full-height
-  height 100% !important
-.join
-  background-color $positive
-  color white
-.leave
-  color $negative
 </style>

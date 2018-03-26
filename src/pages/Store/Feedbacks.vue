@@ -15,7 +15,7 @@
             </q-btn>
           </router-link>
         </div>
-        <span v-if="feedback && feedback.length != 0">{{ $tc('FEEDBACKLIST.SAVED_FOOD', totalAmount, { amount: totalAmount }) }}</span>
+        <span v-if="feedback && feedback.length !== 0">{{ $tc('FEEDBACKLIST.SAVED_FOOD', totalAmount, { amount: totalAmount }) }}</span>
       </div>
     </q-card>
     <FeedbackList

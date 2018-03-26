@@ -20,7 +20,6 @@
     >
       <q-layout
         :reveal="$q.platform.is.mobile"
-        class="wrapper"
         ref="layout"
         :view="layoutView"
         :right-breakpoint="1100"
@@ -120,6 +119,8 @@ body.desktop .mainContent
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px
   background-attachment:fixed
+.q-layout-footer
+  box-shadow none
 </style>
 
 <style lang="stylus">

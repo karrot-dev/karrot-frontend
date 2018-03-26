@@ -1,106 +1,118 @@
 <template>
-  <q-card class="no-margin">
-    <table
-      class="q-table full-width"
+  <q-card
+    v-if="entry"
+    class="no-margin"
+  >
+    <q-list
+      class="full-width"
       v-if="entry"
     >
-      <colgroup>
-        <col
-          span="1"
-          style="width: 1%;"
-        >
-        <col span="1">
-      </colgroup>
-      <tbody>
-        <tr class="bg-tertiary text-white">
-          <td colspan="2">
-            <q-icon name="fa-info"/>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <q-icon name="fa-fw fa-clock-o"/>
-          </td>
-          <td>
+      <q-item
+        class="bg-tertiary"
+      >
+        <q-item-side
+          color="white"
+          icon="fa-fw fa-info"
+        />
+      </q-item>
+
+      <q-item dense>
+        <q-item-side icon="fa-fw fa-clock-o" />
+        <q-item-main>
+          <q-item-tile label>
             {{ $d(new Date(entry.date), 'long') }},
-            <DateAsWords :date="entry.date"/>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <q-icon name="fa-fw fa-user"/>
-          </td>
-          <td>
+            <DateAsWords
+              :date="entry.date"
+              style="display: inline"
+            />
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+
+      <q-item dense>
+        <q-item-side icon="fa-fw fa-user" />
+        <q-item-main>
+          <q-item-tile>
             <ProfilePicture
               v-for="user in entry.users"
               :key="user.id"
               :user="user"
             />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <q-icon name="fa-fw fa-commenting-o"/>
-          </td>
-          <td>
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+
+      <q-item dense>
+        <q-item-side icon="fa-fw fa-commenting-o" />
+        <q-item-main>
+          <q-item-tile label>
             {{ entry.message }}
-          </td>
-        </tr>
-        <tr v-if="entry.group && entry.group.name">
-          <td>
-            <q-icon name="fa-fw fa-home"/>
-          </td>
-          <td>
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+
+      <q-item
+        v-if="entry.group && entry.group.name"
+        dense
+      >
+        <q-item-side icon="fa-fw fa-home" />
+        <q-item-main>
+          <q-item-tile label>
             <router-link :to="{name: 'group', params: { groupId: entry.group.id }}">
               {{ entry.group.name }}
             </router-link>
-          </td>
-        </tr>
-        <tr v-if="entry.store && entry.store.name">
-          <td>
-            <q-icon name="fa-fw fa-shopping-cart"/>
-          </td>
-          <td>
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+
+      <q-item
+        v-if="entry.store && entry.store.name"
+        dense
+      >
+        <q-item-side icon="fa-fw fa-shopping-cart" />
+        <q-item-main>
+          <q-item-tile label>
             <router-link :to="{name: 'store', params: { groupId: entry.store.group, storeId: entry.store.id }}">
               {{ entry.store.name }}
             </router-link>
-          </td>
-        </tr>
-        <template v-if="entry.payload">
-          <tr class="bg-tertiary text-white">
-            <td colspan="2">
-              <q-icon name="fa-fw fa-file-text-o"/>
-            </td>
-          </tr>
-          <HistoryPayloadDetail
-            v-for="(value, key) in entry.payload"
-            :key="key"
-            :label="key"
-            :value="value"
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+
+      <template v-if="entry.payload">
+        <q-item
+          class="bg-tertiary"
+        >
+          <q-item-side
+            color="white"
+            icon="fa-fw fa-file-text-o"
           />
-        </template>
-        <tr class="bg-neutral text-white">
-          <td colspan="2">
-            <q-btn
-              @click="toggleRaw()"
-              color="secondary">Raw data
-            </q-btn>
-          </td>
-        </tr>
-        <tr v-if="raw">
-          <td colspan="2">
-            <pre style="white-space: pre-wrap">
-              {{ entry }}
-            </pre>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        </q-item>
+        <HistoryPayloadDetail
+          v-for="(value, key) in entry.payload"
+          :key="key"
+          :label="key"
+          :value="value"
+        />
+      </template>
+
+      <q-item class="bg-neutral text-white">
+        <q-btn
+          @click="toggleRaw()"
+          color="secondary">Raw data
+        </q-btn>
+      </q-item>
+      <q-item v-if="raw">
+        <pre style="white-space: pre-wrap">
+          {{ entry }}
+        </pre>
+      </q-item>
+    </q-list>
   </q-card>
 </template>
 
 <script>
-import { QIcon, QBtn, QCard, QCardTitle } from 'quasar'
+import { QIcon, QBtn, QCard, QCardTitle, QList, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
 import HistoryPayloadDetail from '@/components/History/HistoryPayloadDetail'
@@ -112,7 +124,7 @@ export default {
       default: null,
     },
   },
-  components: { QIcon, QBtn, QCard, QCardTitle, ProfilePicture, DateAsWords, HistoryPayloadDetail },
+  components: { QIcon, QBtn, QCard, QCardTitle, QList, QItem, QItemMain, QItemTile, QItemSide, ProfilePicture, DateAsWords, HistoryPayloadDetail },
   methods: {
     toggleRaw () {
       this.raw = !this.raw

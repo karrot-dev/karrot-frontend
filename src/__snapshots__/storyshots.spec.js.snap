@@ -1350,278 +1350,273 @@ exports[`Storyshots GroupSettings show 1`] = `
 exports[`Storyshots History List Default 1`] = `
 <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
-        <table class="q-table full-width highlight striped-odd">
-            <tbody>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mona Mohnblume
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Current User
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left"></div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left"></div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 8:00 AM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 8:00 AM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 8:00 AM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 8:00 AM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                        <!---->
+                        <!---->
+                    </div>
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                        <!---->
+                        <!---->
+                    </div>
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                        <!---->
+                        <!---->
+                    </div>
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mona Mohnblume
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-                <div>
-                    <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                            <div class="wrapper">
-                                <div to="[object Object]">
-                                    <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
+        <div>
+            <div class="clickable q-item q-item-division relative-position q-item-multiline">
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div class="wrapper">
+                        <div to="[object Object]">
+                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                                <!---->
-                                <!---->
-                            </div>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                            <div><span class="content">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
+                <div class="q-item-main q-item-section">
+                    <div><span class="content">
           did something
         </span></div>
-                            <div class="mobile-only light-paragraph q-item-stamp">
-                                <div>
-                                    3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:27 PM</div></span></div>
-                            </div>
-                        </div>
-                        <div class="q-item-side q-item-section desktop-only q-item-side-right">
-                            <div>
-                                3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:27 PM</div></span></div>
-                        </div>
+                    <div class="mobile-only light-paragraph q-item-stamp">
+                        <div>
+                            3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:27 PM</div></span></div>
                     </div>
-                    <div name="slide-toggle"></div>
                 </div>
-            </tbody>
-        </table>
-        <!---->
+                <div class="q-item-side q-item-section desktop-only q-item-side-right">
+                    <div>
+                        3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:27 PM</div></span></div>
+                </div>
+            </div>
+            <div name="slide-toggle"></div>
+        </div>
         <!---->
     </div>
     <div class="q-infinite-scroll-message" style="display:none;">
@@ -2517,7 +2512,7 @@ exports[`Storyshots Password Reset success 1`] = `
 
 exports[`Storyshots PickupItem Full 1`] = `
 <div class="q-card full">
-    <div class="q-card-main q-card-container row inline no-padding justify-between content">
+    <div class="q-card-main q-card-container row no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">this pickup is already full!
@@ -2561,7 +2556,7 @@ exports[`Storyshots PickupItem Full 1`] = `
 
 exports[`Storyshots PickupItem Join 1`] = `
 <div class="q-card">
-    <div class="q-card-main q-card-container row inline no-padding justify-between content">
+    <div class="q-card-main q-card-container row no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">you can join this pickup
@@ -2620,7 +2615,7 @@ exports[`Storyshots PickupItem Join 1`] = `
 
 exports[`Storyshots PickupItem Leave 1`] = `
 <div class="q-card">
-    <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
+    <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">you are collector and can leave this pickup
@@ -2677,7 +2672,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
 
 exports[`Storyshots PickupItem pending 1`] = `
 <div class="q-card">
-    <div class="q-card-main q-card-container row inline no-padding justify-between content">
+    <div class="q-card-main q-card-container row no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Date or Store Slot</div>
             <div class="description multiline">you can join this pickup
@@ -2710,7 +2705,7 @@ exports[`Storyshots PickupItem pending 1`] = `
                         <!---->
                     </div>
                     <div class="emptySlots profilePic" style="border-color:black;width:36px;height:36px;">
-                        <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <svg width="32" height="32" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
                             <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle>
                         </svg>
                     </div>
@@ -2727,7 +2722,7 @@ exports[`Storyshots PickupItem pending 1`] = `
 exports[`Storyshots PickupList Default 1`] = `
 <div>
     <div class="q-card">
-        <div class="q-card-main q-card-container row inline no-padding justify-between content">
+        <div class="q-card-main q-card-container row no-padding justify-between content">
             <div class="column padding full-width">
                 <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
                 </div>
@@ -2784,7 +2779,7 @@ exports[`Storyshots PickupList Default 1`] = `
     </div>
 </div>
 <div class="q-card">
-    <div class="q-card-main q-card-container row inline no-padding justify-between content isUserMember">
+    <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
             </div>
@@ -2839,7 +2834,7 @@ exports[`Storyshots PickupList Default 1`] = `
 </div>
 </div>
 <div class="q-card full">
-    <div class="q-card-main q-card-container row inline no-padding justify-between content">
+    <div class="q-card-main q-card-container row no-padding justify-between content">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
             </div>
@@ -2881,7 +2876,7 @@ exports[`Storyshots PickupList Default 1`] = `
     </div>
 </div>
 <div class="q-card">
-    <div class="q-card-main q-card-container row inline no-padding justify-between content isEmpty">
+    <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
         <div class="column padding full-width">
             <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
             </div>
@@ -3795,40 +3790,42 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
     <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
         <i aria-hidden="true" class="q-icon fa fa-fw fa-home"> </i>
         <div class="q-toolbar-title"></div>
-        <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center">
-                <i aria-hidden="true" class="q-icon fa fa-cog fa-fw"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
-        </button>
-        <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center">
-                <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
-                <div class="q-popover scroll">
-                    <div item-separator="" class="q-list q-list-link">
-                        <!---->
-                        <!---->
-                        <div class="q-item q-item-division relative-position q-item-link">
-                            <i aria-hidden="true" class="q-icon fa fa-pencil fa-fw on-left" style="font-size:1em;"> </i>
-                            Edit group
-                        </div>
-                        <!---->
-                        <div class="q-item q-item-division relative-position q-item-link">
-                            <i aria-hidden="true" class="q-icon fa fa-info-circle fa-fw on-left" style="font-size:1em;"> </i>
-                            Show public group information
-                        </div>
-                        <div class="q-item q-item-division relative-position q-item-link">
-                            <i aria-hidden="true" class="q-icon fa fa-user-plus fa-fw on-left" style="font-size:1em;"> </i>
-                            Invite users to your group
-                        </div>
-                        <div class="q-item q-item-division relative-position">
-                            <i aria-hidden="true" class="q-icon fa fa-sign-out fa-fw on-left" style="font-size:1em;"> </i>
-                            Leave group...
+        <div class="tools">
+            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                    <i aria-hidden="true" class="q-icon fa fa-cog fa-fw"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
+            </button>
+            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                    <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
+                    <div class="q-popover scroll">
+                        <div item-separator="" class="q-list q-list-link">
+                            <!---->
+                            <!---->
+                            <div class="q-item q-item-division relative-position q-item-link">
+                                <i aria-hidden="true" class="q-icon fa fa-pencil fa-fw on-left" style="font-size:1em;"> </i>
+                                Edit group
+                            </div>
+                            <!---->
+                            <div class="q-item q-item-division relative-position q-item-link">
+                                <i aria-hidden="true" class="q-icon fa fa-info-circle fa-fw on-left" style="font-size:1em;"> </i>
+                                Show public group information
+                            </div>
+                            <div class="q-item q-item-division relative-position q-item-link">
+                                <i aria-hidden="true" class="q-icon fa fa-user-plus fa-fw on-left" style="font-size:1em;"> </i>
+                                Invite users to your group
+                            </div>
+                            <div class="q-item q-item-division relative-position">
+                                <i aria-hidden="true" class="q-icon fa fa-sign-out fa-fw on-left" style="font-size:1em;"> </i>
+                                Leave group...
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </button>
+            </button>
+        </div>
         <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
@@ -3978,12 +3975,14 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         <div class="q-toolbar-title">
             Stores
         </div>
-        <!---->
-        <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center">
-                <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
-        </button>
+        <div class="tools">
+            <!---->
+            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                    <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
+            </button>
+        </div>
         <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">

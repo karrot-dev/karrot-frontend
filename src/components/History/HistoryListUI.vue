@@ -1,23 +1,14 @@
 <template>
   <q-infinite-scroll :handler="loadMore">
-    <table class="q-table full-width highlight striped-odd">
-      <tbody>
-        <HistoryEntry
-          v-for="entry in history"
-          :entry="entry"
-          :key="entry.id"
-        />
-      </tbody>
-    </table>
+    <HistoryEntry
+      v-for="entry in history"
+      :entry="entry"
+      :key="entry.id"
+    />
     <div v-if="empty">
       <q-icon name="fa-bug" />
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
-    <q-spinner-dots
-      :size="40"
-      v-if="this.status.pending"
-      style="margin-left: 50%"
-    />
     <div
       slot="message"
       style="width: 100%; text-align: center"
@@ -28,7 +19,7 @@
 </template>
 
 <script>
-import { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain, QCard, QCardTitle } from 'quasar'
+import { QIcon, QInfiniteScroll, QSpinnerDots, QList } from 'quasar'
 import HistoryEntry from '@/components/History/HistoryEntry'
 
 export default {
@@ -38,7 +29,7 @@ export default {
     canLoadMore: { required: true, type: Boolean },
     fetchMore: { required: true, type: Function },
   },
-  components: { QIcon, QInfiniteScroll, QSpinnerDots, QCardMain, QCard, QCardTitle, HistoryEntry },
+  components: { QIcon, QInfiniteScroll, QSpinnerDots, QList, HistoryEntry },
   computed: {
     empty () {
       return !this.history.length && !this.status.pending && !this.status.hasValidationErrors

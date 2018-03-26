@@ -9,7 +9,7 @@
     <template slot="name">
       {{ $t('GROUP.STORES') }}
     </template>
-    <template
+    <div
       slot="tools"
       class="tools"
     >
@@ -23,13 +23,11 @@
           <i class="fa fa-trash-o fa-stack-1x" />
           <i
             v-if="showArchived"
-            class="fa fa-check fa-stack-1x text-positive"
-            style="top: 5px; left: 5px"
+            class="fa fa-check bottom-right fa-stack-1x text-positive"
           />
           <i
             v-else
-            class="fa fa-times fa-stack-1x text-negative"
-            style="top: 5px; left: 5px"
+            class="fa fa-times bottom-right fa-stack-1x text-negative"
           />
         </span>
         <q-tooltip>
@@ -45,7 +43,7 @@
         <q-icon name="fa-fw fa-plus-circle" />
         <q-tooltip v-t="'BUTTON.CREATE'" />
       </q-btn>
-    </template>
+    </div>
 
     <StoreList
       :stores="stores"
@@ -91,4 +89,11 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.tools
+  .fa.bottom-right
+    left 5px
+    top 5px
+  .q-btn
+    width 30px
+    padding 0 1px
 </style>

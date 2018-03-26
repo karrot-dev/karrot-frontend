@@ -19,7 +19,7 @@
       class="background mainLayoutDesktop"
     >
       <q-layout :view="layoutView">
-        <q-layout-header>
+        <q-layout-header reveal>
           <KTopbar
             v-if="isLoggedIn"
             @toggleSidenav="toggleSidenav"
@@ -36,7 +36,9 @@
         </q-layout-header>
         <q-layout-drawer
           v-if="$q.platform.is.mobile && isLoggedIn"
+          side="left"
           v-model="showSidenav"
+          :breakpoint="defaultShowSidenavWidth"
         >
           <MobileSidenav @toggleSidenav="toggleSidenav" />
         </q-layout-drawer>
@@ -59,6 +61,7 @@
           <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" />
           <KFooter v-if="!$q.platform.is.mobile" />
         </q-layout-footer>
+        <q-window-resize-observable @resize="onResize" />
       </q-layout>
     </div>
   </div>
@@ -73,12 +76,12 @@ import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
 import RouteError from '@/components/RouteError'
-import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QBtn } from 'quasar'
+import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QBtn, MainAlerts, RouteError,
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError,
   },
   data () {
     return {
@@ -89,6 +92,11 @@ export default {
     toggleSidenav () {
       this.showSidenav = !this.showSidenav
     },
+    onResize ({ width }) {
+      if (width >= this.defaultShowSidenavWidth) {
+        this.showSidenav = true
+      }
+    },
   },
   computed: {
     ...mapGetters({
@@ -97,9 +105,12 @@ export default {
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
-        return 'hHh lpr fFf'
+        return 'hHh LpR fFf'
       }
-      return 'hHh lpr fff'
+      return 'hHh LpR fff'
+    },
+    defaultShowSidenavWidth () {
+      return 992
     },
   },
 }

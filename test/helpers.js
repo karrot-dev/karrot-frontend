@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Quasar from 'quasar'
 import raf from 'raf'
 import { createLocalVue, mount } from 'vue-test-utils'
 import deepmerge from 'deepmerge'
 
 import MockRouterLink from '>/MockRouterLink'
 import i18n from '@/i18n'
+import configureQuasar from '@/configureQuasar'
 
 Vue.use(Vuex)
 
@@ -69,7 +69,7 @@ export function mountWithDefaults (Component, options = {}) {
 
 export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
   localVue.component('router-link', MockRouterLink)
-  localVue.use(Quasar)
+  configureQuasar(localVue)
   localVue.component('transition', {
     render (createElement) {
       return createElement(

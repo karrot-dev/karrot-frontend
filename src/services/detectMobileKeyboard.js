@@ -1,7 +1,6 @@
 import Vue from 'vue'
-import { throttle, dom } from 'quasar'
+import { Platform, throttle, dom } from 'quasar'
 const { ready, height, width } = dom
-const Platform = { is: { mobile: true } } // TODO: fix the problem
 
 const getSize = () => height(window) + width(window)
 

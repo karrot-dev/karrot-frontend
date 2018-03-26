@@ -52,7 +52,7 @@ for (const group of mockStories) {
       for (const story of group.stories) {
         it(story.name, async () => {
           jest.resetModules()
-          
+
           // get the component from storybook
           const component = story.render()
 

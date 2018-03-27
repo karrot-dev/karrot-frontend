@@ -22,7 +22,7 @@ describe('LocaleSelect', () => {
   })
 
   it('can select a locale', () => {
-    mockActionOnce(store, 'auth/save')
+    mockActionOnce(store, 'auth/backgroundSave')
     const wrapper = mountWithDefaults(LocaleSelect, { store })
     const idx = Math.floor(Math.random() * localeOptions.length) // pick a random locale
     wrapper.findAll('.q-item-label').at(idx).trigger('click')

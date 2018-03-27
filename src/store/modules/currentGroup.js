@@ -113,12 +113,12 @@ export default {
 
       dispatch('feedback/fetchForGroup', { groupId }, { root: true })
 
-      dispatch('auth/save', { currentGroup: groupId }, { root: true })
+      dispatch('auth/backgroundSave', { currentGroup: groupId }, { root: true })
     },
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('auth/save', { currentGroup: null }, { root: true })
+      dispatch('auth/backgroundSave', { currentGroup: null }, { root: true })
       dispatch('agreements/clear', null, { root: true })
       dispatch('pickups/clear', {}, { root: true })
       dispatch('conversations/clearActive', null, { root: true })

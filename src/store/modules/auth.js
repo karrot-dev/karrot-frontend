@@ -100,19 +100,26 @@ export default {
       async changeEmail ({ commit, dispatch }, email) {
         const savedUser = await authUser.save({ email })
         commit('setUser', { user: savedUser })
+        router.push({ name: 'user', params: { userId: savedUser.id } })
       },
     }),
 
     ...withMeta({
-      async save ({ commit, state, dispatch }, data) {
-        const savedUser = await authUser.save(data)
-        commit('setUser', { user: savedUser })
-        dispatch('users/update', savedUser, { root: true })
+      async save ({ dispatch }, data) {
+        const savedUser = await dispatch('backgroundSave', data)
+        router.push({ name: 'user', params: { userId: savedUser.id } })
       },
     }, {
       // ignore ID to have simple saveStatus
       findId: () => undefined,
     }),
+
+    async backgroundSave ({ commit, state, dispatch }, data) {
+      const savedUser = await authUser.save(data)
+      commit('setUser', { user: savedUser })
+      dispatch('users/update', savedUser, { root: true })
+      return savedUser
+    },
 
     setRedirectTo ({ commit }, redirectTo) {
       commit('setRedirectTo', { redirectTo })

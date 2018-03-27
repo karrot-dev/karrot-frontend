@@ -48,7 +48,7 @@ describe('currentGroup', () => {
       userId: () => userId,
     },
     actions: {
-      save: jest.fn(),
+      backgroundSave: jest.fn(),
     },
   }
 
@@ -115,6 +115,7 @@ describe('currentGroup', () => {
       expect(conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
       expect(feedback.actions.fetchForGroup.mock.calls[0][1]).toEqual({ groupId: group3.id })
+      expect(auth.actions.backgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
     })
 
     it('can update a group', async () => {

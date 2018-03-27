@@ -7,17 +7,30 @@
     "BETA_WARNING": "Este sitio está en construcción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
     "CONNECTION_INTERRUPTED": "Error: conexión interrumpida",
     "SERVER_ERROR": "Error del servidor",
+    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
-    "EMAIL": "Correo",
+    "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Perfil",
     "PASSWORD": "Contraseña",
+    "CONFIRM_PASSWORD": "Confirm your password",
     "USERNAME": "Nombre",
     "WHERE_FROM": "De donde vienes (no obligado)",
     "PHOTO": "Foto de perfil",
-    "SET_PHOTO": "Configura tu foto de perfil ..."
+    "SET_PHOTO": "Configura tu foto de perfil ...",
+    "ACCOUNT": "Account",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+    },
+    "DIALOGS": {
+      "REQUEST_DELETE_ACCOUNT": {
+        "TITLE": "Account deletion",
+        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "CONFIRM": "Confirm"
+      }
+    }
   },
   "BUTTON": {
     "CREATE": "Crear",
@@ -40,7 +53,8 @@
     "CHANGE_EMAIL": "Cambiar correo electrónico",
     "AGREE": "Estoy de acuerdo ",
     "REMOVE": "Quitar",
-    "ARCHIVE": "Archivo"
+    "ARCHIVE": "Archivo",
+    "DELETE_ACCOUNT": "Delete account"
   },
   "VALIDATION": {
     "MINLENGTH": "Por favor introduce más que {min} caracteres.",
@@ -145,8 +159,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Nombre",
     "DESCRIPTION": "Sobre usted",
-    "OLD_PASSWORD": "Contraseña anterior",
-    "PASSWORD": "Introducir contraseña nueva"
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "New password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Usuario inaccesible o eliminado)"
@@ -195,6 +209,10 @@
   "VERIFYMAIL": {
     "TITLE": "Verificacion de email",
     "SUCCESS": "¡Su dirección de correo electrónico fue verificada con éxito!"
+  },
+  "DELETEACCOUNT": {
+    "TITLE": "Account deletion",
+    "SUCCESS": "Your account was successfully deleted!"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "Frecuencia",
@@ -259,11 +277,21 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Resetear contraseña",
-    "INTRO": "Introduzca su correo electrónico y le enviaremos una nueva contraseña (si su cuenta está registrada).",
-    "EMAIL": "Dirección de correo electrónico",
+    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "E-mail address",
     "SUBMIT": "Conseguir nueva contraseña",
     "LOGIN": "Volver a la página de inicio",
-    "SUCCESS": "Se ha enviado la solicitud correctamente. Compruebe su correo electrónico."
+    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+  },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "Reset password",
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved."
+    },
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
+    }
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "¡Añadir más idiomas!",

@@ -7,17 +7,30 @@
     "BETA_WARNING": "આ વેબસાઇટ સક્રિય વિકાસ હેઠળ છે અને દરેક વસ્તુ ફેરફારને પાત્ર છે. તમે દાખલ કરો છો તે ડેટાની સુરક્ષા અને ગોપનીયતા માટે અમે બાંયધરી આપી શકતા નથી (પરંતુ અમે અમારા શ્રેષ્ઠ પ્રયાસ કરીએ છીએ).",
     "CONNECTION_INTERRUPTED": "ભૂલ: કનેક્શન વિક્ષેપ!",
     "SERVER_ERROR": "સર્વર ભૂલ",
+    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
-    "EMAIL": "મેઇલ",
+    "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "પ્રોફાઇલ",
     "PASSWORD": "પાસવર્ડ",
+    "CONFIRM_PASSWORD": "Confirm your password",
     "USERNAME": "નામ",
     "WHERE_FROM": "જ્યાંથી તમે છો (જરૂરી નથી)",
     "PHOTO": "પ્રોફાઇલ ફોટો",
-    "SET_PHOTO": "તમારો પ્રોફાઇલ ફોટો સેટ કરો ..."
+    "SET_PHOTO": "તમારો પ્રોફાઇલ ફોટો સેટ કરો ...",
+    "ACCOUNT": "Account",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+    },
+    "DIALOGS": {
+      "REQUEST_DELETE_ACCOUNT": {
+        "TITLE": "Account deletion",
+        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "CONFIRM": "Confirm"
+      }
+    }
   },
   "BUTTON": {
     "CREATE": "બનાવો",
@@ -40,7 +53,8 @@
     "CHANGE_EMAIL": "ઇમેલ એડ્રેસ બદલો",
     "AGREE": "હું સહમત છુ",
     "REMOVE": "દૂર કરો",
-    "ARCHIVE": "આર્કાઇવ"
+    "ARCHIVE": "આર્કાઇવ",
+    "DELETE_ACCOUNT": "Delete account"
   },
   "VALIDATION": {
     "MINLENGTH": "કૃપા કરીને {min} અક્ષરો કરતા વધુ દાખલ કરો",
@@ -145,8 +159,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "નામ",
     "DESCRIPTION": "તમારા વિશે",
-    "OLD_PASSWORD": "તમારા વિશે",
-    "PASSWORD": "તમારો નવો પાસવર્ડ દાખલ કરો"
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "New password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(વપરાશકર્તા અયોગ્ય અથવા કાઢી નાખેલ)"
@@ -195,6 +209,10 @@
   "VERIFYMAIL": {
     "TITLE": "ઇ-મેઇલ ચકાસણી",
     "SUCCESS": "તમારું ઈ-મેલ સરનામું સફળતાપૂર્વક ચકાસવામાં આવ્યું હતું!"
+  },
+  "DELETEACCOUNT": {
+    "TITLE": "Account deletion",
+    "SUCCESS": "Your account was successfully deleted!"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "આવર્તન",
@@ -259,11 +277,21 @@
   },
   "PASSWORDRESET": {
     "TITLE": "પાસવૉર્ડ રીસેટ",
-    "INTRO": "તમારું મેઇલ સરનામું દાખલ કરો અને અમે તમને એક નવો પાસવર્ડ મોકલીશું (જો તમારી પાસે એકાઉન્ટ નોંધાયેલું છે).",
-    "EMAIL": "મેઇલ સરનામું",
+    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "E-mail address",
     "SUBMIT": "નવો પાસવર્ડ મેળવો",
     "LOGIN": "લૉગિન પૃષ્ઠ પર પાછા જાઓ",
-    "SUCCESS": "વિનંતી સફળતાપૂર્વક મોકલવામાં આવી હતી. તમારા મેલ્સ પર એક નજર જુઓ!"
+    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+  },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "Reset password",
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved."
+    },
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
+    }
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "વધુ ભાષાઓ ઉમેરો!",

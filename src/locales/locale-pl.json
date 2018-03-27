@@ -128,7 +128,9 @@
         "CONFIRM": "Tak, przenieś punkt odbioru do archiwum"
       }
     },
-    "RESTORE": "Przywróć"
+    "RESTORE": "Przywróć",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
@@ -241,7 +243,9 @@
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
-    "NONE_HINT": "Tutaj pojawią się komentarze"
+    "NONE_HINT": "Tutaj pojawią się komentarze",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Komentarz",

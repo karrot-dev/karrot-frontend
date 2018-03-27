@@ -128,7 +128,9 @@
         "CONFIRM": "हां, संग्रह स्टोर"
       }
     },
-    "RESTORE": "बहाल"
+    "RESTORE": "बहाल",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "पिकअप को प्रबंधित करें",
@@ -241,7 +243,9 @@
     "SAVED_FOOD": "कम से कम 1 किलोग्राम यहां बचाया गया था। धन्यवाद! | लोगों ने पहले से ही बचाया भोजन के {मात्रा} किग्रा के लिए प्रतिक्रिया दी! अच्छा काम करते रहो!",
     "GIVE_FEEDBACK": "प्रतिक्रिया दें",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
-    "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा"
+    "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "प्रतिक्रिया",

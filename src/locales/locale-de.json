@@ -128,7 +128,9 @@
         "CONFIRM": "Ja, Betrieb archivieren"
       }
     },
-    "RESTORE": "Wiederherstellen"
+    "RESTORE": "Wiederherstellen",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Abholzeiten-Editor",
@@ -241,7 +243,9 @@
     "SAVED_FOOD": "Mindestens 1 kg Essen wurde hier gerettet. Dankeschön! Es haben bereits Leute für {amount} kg gerettetes Essen Feedback gegeben! Weiter so!",
     "GIVE_FEEDBACK": "Gib Feedback",
     "NONE": "Bisher kein Fedback",
-    "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde"
+    "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",

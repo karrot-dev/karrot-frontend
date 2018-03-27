@@ -128,7 +128,9 @@
         "CONFIRM": "હા, આર્કાઇવ સ્ટોર"
       }
     },
-    "RESTORE": "પુનઃસ્થાપિત"
+    "RESTORE": "પુનઃસ્થાપિત",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "પસંદ અપ્સ મેનેજ કરો",
@@ -241,7 +243,9 @@
     "SAVED_FOOD": "ઓછામાં ઓછા 1kg અહીં સાચવવામાં આવી હતી. આભાર! | લોકોએ {જથ્થો} કિલોગ્રામ સાચવેલ ખોરાક માટે પ્રતિક્રિયા આપી છે! મહાન કામ રાખો!",
     "GIVE_FEEDBACK": "અભીપ્રાય આપો",
     "NONE": "હજુ સુધી કોઈ પ્રત્યુત્તર નથી",
-    "NONE_HINT": "એકવાર વધુ પ્રતિસાદ ઉપલબ્ધ થાય પછી આ પૃષ્ઠ ભરવામાં આવશે"
+    "NONE_HINT": "એકવાર વધુ પ્રતિસાદ ઉપલબ્ધ થાય પછી આ પૃષ્ઠ ભરવામાં આવશે",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "પ્રતિસાદ",

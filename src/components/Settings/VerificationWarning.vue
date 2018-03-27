@@ -39,8 +39,8 @@ export default {
   computed: {
     ...mapGetters({
       user: 'auth/user',
-      status: 'users/resendVerificationStatus',
-      success: 'users/resendVerificationSuccess',
+      status: 'users/resendVerificationCodeStatus',
+      success: 'users/resendVerificationCodeSuccess',
     }),
     hasAnyError () {
       return this.status.hasValidationErrors
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      resend: 'users/resendVerification',
+      resend: 'users/resendVerificationCode',
     }),
   },
 }

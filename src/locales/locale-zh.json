@@ -1,17 +1,17 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
-    "FSWW_NOTE": "Read our info page!",
+    "FSWW_NOTE": "查看我們的資訊頁面 !",
     "FACEBOOK_NOTE": "加入我們的臉書社團！",
     "WARNING": "警告",
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
     "SERVER_ERROR": "伺服器錯誤",
-    "SEARCH_NOT_FOUND": "Not Found"
+    "SEARCH_NOT_FOUND": "無符合的搜尋結果"
   },
   "USERDATA": {
     "EMAIL": "電子信箱",
-    "MOBILE_NUMBER": "Phone number",
+    "MOBILE_NUMBER": "電話號碼",
     "PROFILE_TITLE": "個人資料",
     "PASSWORD": "密碼",
     "USERNAME": "名稱",
@@ -22,8 +22,8 @@
   "BUTTON": {
     "CREATE": "創建",
     "CANCEL": "取消",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "開放",
+    "CLOSE": "關閉",
     "DELETE": "刪除",
     "EDIT": "編輯",
     "JOIN": "加入",
@@ -67,8 +67,8 @@
     "PASSWORD": "如果想設定為私密社團，請在此輸入密碼",
     "PICKUPS": "開放領取食物",
     "MEMBERS": "成員",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
+    "INACTIVE": "非活躍",
+    "SHOW_INACTIVE": "顯示不活躍的社團",
     "STORES": "店面",
     "HISTORY": "歷史",
     "DESCRIPTION": "敘述",
@@ -82,21 +82,21 @@
     "INVITE_TITLE": "邀請用戶到你的社團",
     "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
-    "SETTINGS": "Settings",
-    "NOTIFICATIONS": "Notifications",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "SETTINGS": "設定",
+    "NOTIFICATIONS": "通知",
+    "EMAIL_NOTIFICATIONS": "電子郵件通知",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "每週摘要",
+        "DESCRIPTION": "隨時關注此社團最新消息"
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+        "NAME": "領取通知",
+        "DESCRIPTION": "提醒你已加入的領取任務，並告訴你隔天的領取任務缺額數"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "PLAYGROUND_INFO": "這裡是遊樂區社團，不用擔心會破壞掉任何東西。自由的點擊、愉快的探索吧 !",
+    "JOIN_PLAYGROUND": "加入遊樂區社團來探索karrot吧!"
   },
   "GROUPMAP": {
     "TITLE": "地圖",
@@ -105,14 +105,14 @@
     "SHOW_STORES": "顯示店家",
     "HIDE_STORES": "隱藏店家",
     "SET_LOCATION": "設定地點",
-    "FULL_SCREEN": "Show full screen"
+    "FULL_SCREEN": "全螢幕顯示"
   },
   "STOREDETAIL": {
     "EDIT": "編輯店家",
     "MANAGE": "檢查與管理外帶品",
     "ARCHIVED": "此店家已被封存",
-    "INACTIVE": "This store is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
+    "INACTIVE": "此商家目前並未參與合作",
+    "CHANGE_STATUS": "你可以在設定頁面更改狀態",
     "NO_DESCRIPTION": "尚無關於此店家的敘述"
   },
   "STOREEDIT": {
@@ -128,7 +128,9 @@
         "CONFIRM": "是的，封存店家"
       }
     },
-    "RESTORE": "恢復"
+    "RESTORE": "恢復",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "管理食物領取",
@@ -175,9 +177,9 @@
     "CHANGE_GROUP": "變更社團"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "BLOG_SUB": "All news around the karrot software",
-    "GIT_SUB": "See our code!"
+    "INFO_SUB": "如何建立你的惜食社團",
+    "BLOG_SUB": "所有關於karrot軟體的消息",
+    "GIT_SUB": "查看我們的程式碼"
   },
   "LOGIN": {
     "TITLE": "登入",
@@ -241,7 +243,9 @@
     "SAVED_FOOD": "至少有1公斤的食物不會被浪費了，謝謝你! 大家已經給{amount}公斤被珍惜的食物回饋了! 繼續加油!",
     "GIVE_FEEDBACK": "給予回饋",
     "NONE": "尚未有回饋",
-    "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面"
+    "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "回饋",
@@ -335,18 +339,18 @@
   "WALL": {
     "WRITE_MESSAGE": "留個言吧...",
     "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧...",
-    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
-    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
+    "DISABLE_NOTIFICATION_EMAILS": "電子郵件通知已開啟，點擊以關閉",
+    "ENABLE_NOTIFICATION_EMAILS": "電子郵件通知已關閉，點擊以開啟",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "請驗證你的電子郵件地址以收取通知信件",
+    "RECEIVED_VIA_EMAIL": "此訊息透過電子郵件傳送"
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
     "MARK_READ": "將全部訊息標示為已讀",
     "REACTIONS": {
-      "YOU": "you",
-      "AND": "and",
-      "REACTED_WITH":"{users} reacted with {reaction}"
+      "YOU": "你",
+      "AND": "以及",
+      "REACTED_WITH":"{使用者}反應了{反應}"
     }
   },
   "STORESTATUS":{

@@ -1,6 +1,17 @@
 <template>
   <div class="edit-box">
     <q-field
+      icon="fa-lock"
+      :label="$t('USERDETAIL.PASSWORD')"
+      :error="hasError('newPassword')"
+      :error-label="firstError('newPassword')"
+    >
+      <q-input
+        type="password"
+        v-model="newPassword"
+      />
+    </q-field>
+    <q-field
       icon="fa-unlock"
       :label="$t('USERDETAIL.OLD_PASSWORD')"
       :error="hasError('oldPassword')"
@@ -9,17 +20,6 @@
       <q-input
         type="password"
         v-model="oldPassword"
-      />
-    </q-field>
-    <q-field
-      icon="fa-star"
-      :label="$t('USERDETAIL.PASSWORD')"
-      :error="hasError('newPassword')"
-      :error-label="firstError('newPassword')"
-    >
-      <q-input
-        type="password"
-        v-model="newPassword"
       />
     </q-field>
 
@@ -57,9 +57,13 @@ export default {
     }
   },
   methods: {
+    reset () {
+      this.oldPassword = ''
+      this.newPassword = ''
+    },
     save () {
       const { oldPassword, newPassword } = this
-      this.$emit('save', { oldPassword, newPassword })
+      this.$emit('save', { oldPassword, newPassword, done: this.reset })
     },
   },
 }

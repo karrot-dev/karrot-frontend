@@ -83,19 +83,27 @@ export default {
     }
   },
 
-  resetPassword (email) {
-    return axios.post('/api/auth/reset_password/', { email })
+  requestResetPassword (email) {
+    return axios.post('/api/auth/password/request_reset/', { email })
+  },
+
+  resetPassword (data) {
+    return axios.post('/api/auth/password/reset/', data)
   },
 
   changePassword (data) {
-    return axios.post('/api/auth/change_password/', data)
+    return axios.put('/api/auth/password/', data)
   },
 
-  verifyMail (key) {
-    return axios.post('/api/auth/verify_mail/', { key })
+  changeEmail (data) {
+    return axios.put('/api/auth/email/', data)
   },
 
-  resendVerificationRequest () {
-    return axios.post('/api/auth/resend_verification/')
+  verifyMail (code) {
+    return axios.post('/api/auth/email/verify/', { code })
+  },
+
+  resendVerificationCode () {
+    return axios.post('/api/auth/email/resend_verification_code/')
   },
 }

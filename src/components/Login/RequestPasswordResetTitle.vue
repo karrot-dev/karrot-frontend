@@ -2,7 +2,7 @@
   <div>
     <h4>
       <i class="fa fa-question-circle" />
-      {{ $t('PASSWORD.RESET.TITLE') }}
+      {{ $t('PASSWORDRESET.TITLE') }}
     </h4>
   </div>
 </template>

@@ -128,7 +128,9 @@
         "CONFIRM": "Si, archivar tienda"
       }
     },
-    "RESTORE": "Restaurar"
+    "RESTORE": "Restaurar",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manejar recogidas",
@@ -241,7 +243,9 @@
     "SAVED_FOOD": "Al menos 1 kg se guardó aquí. ¡Gracias! | ¡Las personas ya han enviado comentarios sobre {cantidad} kg de alimentos guardados! ¡Mantener el buen trabajo!",
     "GIVE_FEEDBACK": "Dar opinion",
     "NONE": "Aún no hay comentarios",
-    "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles"
+    "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Realimentación",

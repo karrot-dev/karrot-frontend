@@ -5,7 +5,7 @@ import PasswordReset from '@/components/Login/PasswordReset'
 export default connect({
   gettersToProps: {
     status: 'users/resetPasswordStatus',
-    success: 'users/resetPasswordSuccess',
+    code: 'route/code',
   },
   actionsToEvents: {
     submit: 'users/resetPassword',

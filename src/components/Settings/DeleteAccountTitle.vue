@@ -1,8 +1,8 @@
 <template>
   <div>
     <h4>
-      <i class="fa fa-question-circle" />
-      {{ $t('PASSWORD.RESET.TITLE') }}
+      <i class="fa fa-trash" />
+      {{ $t('DELETEACCOUNT.TITLE') }}
     </h4>
   </div>
 </template>

@@ -29,8 +29,6 @@ describe('Signup', () => {
       joinPlayground: true,
       userData,
     })
-    // checkboxes.at(0).trigger('click')
-    // expect(wrapper.vm.joinPlayground).toEqual(false)
   })
 
   it('submits without playground', () => {

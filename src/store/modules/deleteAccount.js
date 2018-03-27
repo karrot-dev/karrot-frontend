@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import auth from '@/services/api/auth'
+import users from '@/services/api/users'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 
 function initialState () {
@@ -14,17 +14,17 @@ export default {
   state: initialState(),
   getters: {
     success: state => state.success,
-    ...metaStatuses(['verify']),
+    ...metaStatuses(['deleteAccount']),
   },
   actions: {
     ...withMeta({
-      async verify ({ commit }, code) {
-        await auth.verifyMail(code)
+      async deleteAccount ({ commit }, code) {
+        await users.deleteAccount(code)
         commit('setSuccess', true)
       },
     }),
     clear ({ commit, dispatch }) {
-      dispatch('meta/clear', ['verify'])
+      dispatch('meta/clear', ['deleteAccount'])
       commit('setSuccess', false)
     },
   },

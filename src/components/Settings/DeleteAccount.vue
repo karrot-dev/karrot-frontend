@@ -2,12 +2,22 @@
   <div>
     <q-spinner v-if="isPending" />
     <p v-if="success">
-      {{ $t('VERIFYMAIL.SUCCESS') }}
+      {{ $t('DELETEACCOUNT.SUCCESS') }}
     </p>
-    <p v-if="hasAnyError">
+    <div
+      v-if="hasError('code')"
+      class="error"
+    >
       <i class="fa fa-exclamation-triangle"/>
-      {{ anyFirstError }}
-    </p>
+      {{ $t('GLOBAL.INVALID_LINK') }}
+    </div>
+    <div
+      v-if="hasNonFieldError"
+      class="error"
+    >
+      <i class="fa fa-exclamation-triangle"/>
+      {{ firstNonFieldError }}
+    </div>
     <router-link to="/">
       <q-btn
         v-t="'NOT_FOUND.HOME'"

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import PasswordReset from './PasswordReset'
+import PasswordReset from './RequestPasswordReset'
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const methods = {

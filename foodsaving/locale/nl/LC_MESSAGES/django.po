@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 21:47+0000\n"
+"POT-Creation-Date: 2018-03-27 18:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Dutch (https://www.transifex.com/yunity-1/teams/68631/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -139,24 +139,24 @@ msgstr ""
 msgid "Pickup feedback"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:158
+#: foodsaving/groups/templates/group_summary.html.jinja2:159
 #, python-format
 msgid ""
 "%(weight)s kg from <a href=\"%(store_url)s\">%(store_name)s</a>\n"
 "                                    "
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:167
+#: foodsaving/groups/templates/group_summary.html.jinja2:168
 msgid "Here's what was said last week"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:175
+#: foodsaving/groups/templates/group_summary.html.jinja2:176
 msgid ""
 "You are receiving this because you are subscribed to <strong>Weekly "
 "summary</strong> emails for this group."
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:176
+#: foodsaving/groups/templates/group_summary.html.jinja2:177
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:186
 msgid "Click here to unsubscribe"
 msgstr ""
@@ -228,17 +228,30 @@ msgstr ""
 msgid "User is already member of group"
 msgstr ""
 
+#: foodsaving/invitations/templates/emailinvitation.html.jinja2:4
 #: foodsaving/invitations/templates/emailinvitation.subject.jinja2:1
 #, python-format
 msgid "Invitation to join %(group_name)s"
 msgstr ""
 
-#: foodsaving/invitations/templates/emailinvitation.text.jinja2:4
+#: foodsaving/invitations/templates/emailinvitation.html.jinja2:108
+#, python-format
+msgid "You're invited to join %(group_name)s!"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation.html.jinja2:108
 #, python-format
 msgid ""
-"%(invited_by_name)s invited you (%(email)s) to join the \"%(group_name)s\" community on %(site_name)s.\n"
-"\n"
-"If you'd like to join, please go to %(url)s"
+"%(invited_by_name)s invited you to join the \"%(group_name)s\" community on "
+"%(site_name)s!"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation.html.jinja2:109
+msgid "If you'd like to join, please click the link below:"
+msgstr ""
+
+#: foodsaving/invitations/templates/emailinvitation.html.jinja2:109
+msgid "Follow the invitation"
 msgstr ""
 
 #: foodsaving/pickups/permissions.py:7
@@ -336,74 +349,140 @@ msgstr ""
 msgid "Set at least one week in advance"
 msgstr ""
 
+#: foodsaving/userauth/api.py:91 foodsaving/userauth/serializers.py:79
+#: foodsaving/userauth/serializers.py:124
+#: foodsaving/userauth/serializers.py:145
+#: foodsaving/userauth/serializers.py:174
+#: foodsaving/userauth/serializers.py:195
+msgid "We could not send you an e-mail."
+msgstr ""
+
 #: foodsaving/userauth/permissions.py:6
 msgid "Mail is already verified."
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:68
+#: foodsaving/userauth/serializers.py:66
+#: foodsaving/userauth/serializers.py:161
 msgid "Similar e-mail exists: "
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:81 foodsaving/userauth/serializers.py:93
-msgid "We could not send you an e-mail."
-msgstr ""
-
-#: foodsaving/userauth/serializers.py:112
+#: foodsaving/userauth/serializers.py:102
 msgid "Verification code is invalid"
 msgstr ""
 
-#: foodsaving/userauth/serializers.py:115
+#: foodsaving/userauth/serializers.py:105
 msgid "Verification code has expired"
 msgstr ""
 
+#: foodsaving/userauth/serializers.py:138
+#: foodsaving/userauth/serializers.py:155
+msgid "Wrong password"
+msgstr ""
+
+#: foodsaving/userauth/serializers.py:187
+msgid "Unknown e-mail address"
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_request.html.jinja2:4
 #: foodsaving/users/templates/accountdelete_request.subject.jinja2:1
 msgid "Request to delete your account"
 msgstr ""
 
-#: foodsaving/users/templates/accountdelete_request.text.jinja2:3
+#: foodsaving/users/templates/accountdelete_request.html.jinja2:108
 #, python-format
-msgid "Request to delete your account on %(site_name)s."
+msgid "You requested to delete your account on %(site_name)s!"
 msgstr ""
 
+#: foodsaving/users/templates/accountdelete_request.html.jinja2:108
+msgid ""
+"We're sad to hear that you want to delete your account, could we have done "
+"anything better?"
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_request.html.jinja2:109
+msgid "Anyhow, you can finish the deletion by clicking the link below:"
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_request.html.jinja2:109
+msgid "Delete your account"
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_request.html.jinja2:109
+msgid "If you changed your mind, you can simply ignore this e-mail."
+msgstr ""
+
+#: foodsaving/users/templates/accountdelete_success.html.jinja2:4
 #: foodsaving/users/templates/accountdelete_success.subject.jinja2:1
-msgid "Your account was deleted"
+msgid "Account successfully deleted"
 msgstr ""
 
-#: foodsaving/users/templates/accountdelete_success.text.jinja2:4
+#: foodsaving/users/templates/accountdelete_success.html.jinja2:108
 #, python-format
-msgid "Your account on %(site_name)s was successfully deleted."
+msgid "Your account on %(site_name)s was successfully deleted!"
 msgstr ""
 
-#: foodsaving/users/templates/changemail_notice.subject.jinja2:1
-msgid "Your email address changed!"
+#: foodsaving/users/templates/accountdelete_success.html.jinja2:108
+msgid ""
+"We're still sad that you saw it necessary to delete your account, but we're "
+"happy to tell you that your request was met without any problems."
 msgstr ""
 
-#: foodsaving/users/templates/changemail_notice.text.jinja2:4
+#: foodsaving/users/templates/accountdelete_success.html.jinja2:109
+msgid "Goodbye!"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_request.html.jinja2:4
+#: foodsaving/users/templates/signup.html.jinja2:4
+msgid "Please verify your email"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_request.html.jinja2:109
 #, python-format
 msgid ""
-"Your email address got changed on %(site_name)s.\n"
-"The new email address is %(new_mail)s."
+"You requested to change your email address from %(old_email)s to %(new_email)s\n"
+"                        "
+msgstr ""
+
+#: foodsaving/users/templates/changemail_request.html.jinja2:111
+#: foodsaving/users/templates/signup.html.jinja2:108
+msgid "Please click the following link to confirm your email:"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_request.html.jinja2:111
+#: foodsaving/users/templates/mailverification.html.jinja2:4
+#: foodsaving/users/templates/mailverification.html.jinja2:109
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:109
+#: foodsaving/users/templates/signup.html.jinja2:108
+msgid "Verify your email address"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_request.html.jinja2:111
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:109
+msgid ""
+"If you did not request this change, you can safely ignore this message."
+msgstr ""
+
+#: foodsaving/users/templates/changemail_request.subject.jinja2:1
+#: foodsaving/users/templates/signup.subject.jinja2:1
+msgid "Please verify your email address"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_success.html.jinja2:4
+msgid "Your email address changed"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_success.html.jinja2:108
+#, python-format
+msgid "Your email address on %(site_name)s changed!"
+msgstr ""
+
+#: foodsaving/users/templates/changemail_success.html.jinja2:108
+#, python-format
+msgid "Your new email address is %(new_email)s."
 msgstr ""
 
 #: foodsaving/users/templates/changemail_success.subject.jinja2:1
-msgid "Please verify your new email address"
-msgstr ""
-
-#: foodsaving/users/templates/changemail_success.text.jinja2:4
-#, python-format
-msgid ""
-"Your email address got changed on %(site_name)s.\n"
-"The old email address was %(old_mail)s.\n"
-"To verify this email address as your new one, please click the following link:\n"
-"\n"
-"%(url)s\n"
-"\n"
-"You can safely ignore this message if you don't know what all this is about."
-msgstr ""
-
-#: foodsaving/users/templates/mailverification.html.jinja2:4
-#: foodsaving/users/templates/mailverification.html.jinja2:109
-msgid "Verify your email address"
+msgid "Your email address changed!"
 msgstr ""
 
 #: foodsaving/users/templates/mailverification.html.jinja2:108
@@ -422,51 +501,45 @@ msgid ""
 " below:"
 msgstr ""
 
-#: foodsaving/users/templates/mailverification.subject.jinja2:1
-#: foodsaving/users/templates/send_new_verification_code.subject.jinja2:1
-msgid "Please verify your email"
-msgstr ""
-
-#: foodsaving/users/templates/mailverification.text.jinja2:4
-#, python-format
-msgid ""
-"Thank you for signing up to %(site_name)s!\n"
-"Please click the following link to confirm your email:\n"
-"\n"
-"%(url)s\n"
-"\n"
-"You can safely ignore this message if it wasn't you who signed up at our service using this email address."
-msgstr ""
-
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:4
 #: foodsaving/users/templates/passwordreset_request.subject.jinja2:1
-msgid "Forgot your password?"
+msgid "Request to reset your password"
 msgstr ""
 
-#: foodsaving/users/templates/passwordreset_request.text.jinja2:4
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:108
 #, python-format
-msgid ""
-"Did you forget your password? No problem!\n"
-"Click this link to change it:\n"
-"\n"
-"%(url)s\n"
-"\n"
-"You can ignore this message if you did not request it."
+msgid "You requested to reset your password for %(site_name)s"
 msgstr ""
 
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:108
+msgid "Did you forget your password? No problem!"
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:109
+msgid "Click this link to change it:"
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_success.html.jinja2:4
 #: foodsaving/users/templates/passwordreset_success.subject.jinja2:1
 msgid "New password set!"
 msgstr ""
 
-#: foodsaving/users/templates/passwordreset_success.text.jinja2:4
+#: foodsaving/users/templates/passwordreset_success.html.jinja2:108
+#, python-format
+msgid "You set a new password for %(site_name)s"
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_success.html.jinja2:108
 msgid "Your password has been successfully changed!"
 msgstr ""
 
-#: foodsaving/users/templates/send_new_verification_code.text.jinja2:1
+#: foodsaving/users/templates/signup.html.jinja2:108
 #, python-format
+msgid "Thank you for signing up to %(site_name)s"
+msgstr ""
+
+#: foodsaving/users/templates/signup.html.jinja2:108
 msgid ""
-"Here you have the link again to confirm your email:\n"
-"\n"
-"%(url)s\n"
-"\n"
-"You can ignore this message if you did not request it."
+"You can safely ignore this message if it wasn't you who signed up at our "
+"service using this email address."
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 21:47+0000\n"
+"POT-Creation-Date: 2018-03-27 18:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +83,6 @@ msgid "Group password is wrong"
 msgstr ""
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:4
-
 #: foodsaving/groups/templates/group_summary.html.jinja2:108
 #, python-format
 msgid "%(group_name)s weekly summary"
@@ -140,25 +139,24 @@ msgstr ""
 msgid "Pickup feedback"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:158
+#: foodsaving/groups/templates/group_summary.html.jinja2:159
 #, python-format
 msgid ""
 "%(weight)s kg from <a href=\"%(store_url)s\">%(store_name)s</a>\n"
 "                                    "
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:167
+#: foodsaving/groups/templates/group_summary.html.jinja2:168
 msgid "Here's what was said last week"
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:175
+#: foodsaving/groups/templates/group_summary.html.jinja2:176
 msgid ""
 "You are receiving this because you are subscribed to <strong>Weekly summary</"
 "strong> emails for this group."
 msgstr ""
 
-#: foodsaving/groups/templates/group_summary.html.jinja2:176
-
+#: foodsaving/groups/templates/group_summary.html.jinja2:177
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:186
 msgid "Click here to unsubscribe"
 msgstr ""
@@ -411,6 +409,10 @@ msgstr ""
 msgid "Delete your account"
 msgstr ""
 
+#: foodsaving/users/templates/accountdelete_request.html.jinja2:109
+msgid "If you changed your mind, you can simply ignore this e-mail."
+msgstr ""
+
 #: foodsaving/users/templates/accountdelete_success.html.jinja2:4
 #: foodsaving/users/templates/accountdelete_success.subject.jinja2:1
 msgid "Account successfully deleted"
@@ -450,6 +452,8 @@ msgid "Please click the following link to confirm your email:"
 msgstr ""
 
 #: foodsaving/users/templates/changemail_request.html.jinja2:111
+#: foodsaving/users/templates/mailverification.html.jinja2:4
+#: foodsaving/users/templates/mailverification.html.jinja2:109
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:109
 #: foodsaving/users/templates/signup.html.jinja2:108
 msgid "Verify your email address"
@@ -481,6 +485,22 @@ msgstr ""
 
 #: foodsaving/users/templates/changemail_success.subject.jinja2:1
 msgid "Your email address changed!"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification.html.jinja2:108
+#, python-format
+msgid "Thank you for signing up to %(site_name)s!"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification.html.jinja2:108
+#, python-format
+msgid "Welcome to %(site_name)s, %(user_display_name)s!"
+msgstr ""
+
+#: foodsaving/users/templates/mailverification.html.jinja2:109
+msgid ""
+"After we get started, please confirm your email address by clicking the link "
+"below:"
 msgstr ""
 
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:4

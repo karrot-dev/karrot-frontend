@@ -62,7 +62,7 @@
             />
           </q-field>
         </div>
-        <div v-if="!hasGroupToJoin && hasPlayground">
+        <div v-if="canJoinPlayground">
           <q-checkbox
             v-model="joinPlayground"
             color="tertiary"
@@ -132,8 +132,13 @@ export default {
         email: this.prefillEmail(),
         password: null,
       },
-      joinPlayground: true,
+      joinPlayground: this.hasPlayground && !this.hasGroupToJoin,
     }
+  },
+  watch: {
+    canJoinPlayground (val) {
+      this.joinPlayground = val
+    },
   },
   methods: {
     submit () {
@@ -143,6 +148,11 @@ export default {
           joinPlayground: this.joinPlayground,
         })
       }
+    },
+  },
+  computed: {
+    canJoinPlayground () {
+      return this.hasPlayground && !this.hasGroupToJoin
     },
   },
 }

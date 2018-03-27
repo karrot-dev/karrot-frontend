@@ -92,7 +92,7 @@ export default {
         router.push({ name: 'groupsGallery' })
       },
 
-      async changePassword ({ commit, state, dispatch }, { oldPassword, newPassword, done }) {
+      async changePassword ({ dispatch }, { oldPassword, newPassword, done }) {
         await auth.changePassword({ oldPassword, newPassword })
         done()
         dispatch('alerts/create', {
@@ -100,10 +100,10 @@ export default {
         }, { root: true })
       },
 
-      async changeEmail ({ commit, dispatch }, email) {
-        const savedUser = await authUser.save({ email })
-        commit('setUser', { user: savedUser })
-        router.push({ name: 'user', params: { userId: savedUser.id } })
+      async changeEmail ({ dispatch }, { newEmail, password, done }) {
+        await auth.changeEmail({ newEmail, password })
+        done()
+        // The user object will be updated by the web-socket.
       },
     }),
 
@@ -148,7 +148,7 @@ export default {
       dispatch('meta/clear', ['changeEmail'])
       dispatch('meta/clear', ['changePassword'])
       dispatch('meta/clear', ['save'])
-      dispatch('users/clearResendVerification', null, { root: true })
+      dispatch('users/clearResendVerificationCode', null, { root: true })
     },
   },
   mutations: {

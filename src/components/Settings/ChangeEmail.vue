@@ -3,16 +3,33 @@
     <VerificationWarning v-if="user && !user.mailVerified" />
 
     <q-field
-      icon="fa-star"
+      icon="fa-envelope"
       :label="$t('USERDATA.EMAIL')"
-      :error="hasAnyError"
-      :error-label="anyFirstError"
+      :error="hasError('newEmail')"
+      :error-label="firstError('newEmail')"
     >
       <q-input
         type="email"
         v-model="newEmail"
       />
     </q-field>
+    <q-field
+      icon="fa-unlock"
+      :label="$t('USERDATA.CONFIRM_PASSWORD')"
+      :error="hasError('password')"
+      :error-label="firstError('password')"
+    >
+      <q-input
+        type="password"
+        v-model="password"
+      />
+    </q-field>
+    <div
+      v-if="hasNonFieldError"
+      class="text-negative"
+    >
+      {{ firstNonFieldError }}
+    </div>
     <div class="actionButtons">
       <q-btn
         color="primary"
@@ -40,15 +57,21 @@ export default {
   data () {
     return {
       newEmail: '',
+      password: '',
     }
   },
   methods: {
+    reset () {
+      this.setEmail()
+      this.password = ''
+    },
     save () {
-      this.$emit('save', this.newEmail)
+      const { newEmail, password } = this
+      this.$emit('save', { newEmail, password, done: this.reset })
     },
     setEmail () {
       if (this.user) {
-        this.newEmail = this.user.email ? this.user.email : this.user.unverifiedEmail
+        this.newEmail = this.user.email || this.user.unverifiedEmail
       }
     },
   },

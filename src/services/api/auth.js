@@ -95,11 +95,15 @@ export default {
     return axios.put('/api/auth/password/', data)
   },
 
+  changeEmail (data) {
+    return axios.put('/api/auth/email/', data)
+  },
+
   verifyMail (code) {
     return axios.post('/api/auth/email/verify/', { code })
   },
 
-  resendVerificationRequest () {
-    return axios.post('/api/auth/resend_verification/')
+  resendVerificationCode () {
+    return axios.post('/api/auth/email/resend_verification_code/')
   },
 }

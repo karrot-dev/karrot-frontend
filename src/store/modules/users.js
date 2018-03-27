@@ -11,7 +11,7 @@ function initialState () {
     idList: [],
     activeUserId: null,
     resetPasswordSuccess: false,
-    resendVerificationSuccess: false,
+    resendVerificationCodeSuccess: false,
   }
 }
 
@@ -51,9 +51,9 @@ export default {
       return state.activeUserId && getters.get(state.activeUserId)
     },
     activeUserId: state => state.activeUserId,
-    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerification', 'requestDeleteAccount']),
+    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
-    resendVerificationSuccess: state => state.resendVerificationSuccess,
+    resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
   },
   actions: {
     ...withMeta({
@@ -78,9 +78,9 @@ export default {
           type: 'resetPasswordSuccess',
         }, { root: true })
       },
-      async resendVerification ({ commit, state }) {
-        await auth.resendVerificationRequest()
-        commit('resendVerificationSuccess', true)
+      async resendVerificationCode ({ commit, state }) {
+        await auth.resendVerificationCode()
+        commit('resendVerificationCodeSuccess', true)
       },
       async requestDeleteAccount ({ dispatch }) {
         await users.requestDeleteAccount()
@@ -114,9 +114,9 @@ export default {
     clearSignup ({ commit, dispatch }) {
       dispatch('meta/clear', ['signup'])
     },
-    clearResendVerification ({ commit, dispatch }) {
-      dispatch('meta/clear', ['resendVerification'])
-      commit('resendVerificationSuccess', false)
+    clearResendVerificationCode ({ commit, dispatch }) {
+      dispatch('meta/clear', ['resendVerificationCode'])
+      commit('resendVerificationCodeSuccess', false)
     },
     clearResetPassword ({ commit, dispatch }) {
       dispatch('meta/clear', ['resetPassword'])
@@ -140,8 +140,8 @@ export default {
         state.idList.push(user.id)
       }
     },
-    resendVerificationSuccess (state, status) {
-      Vue.set(state, 'resendVerificationSuccess', status)
+    resendVerificationCodeSuccess (state, status) {
+      Vue.set(state, 'resendVerificationCodeSuccess', status)
     },
 
   },

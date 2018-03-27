@@ -15,6 +15,7 @@
     "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm your password",
     "USERNAME": "Name",
     "WHERE_FROM": "Where you are from (not required)",
     "PHOTO": "Profile photo",
@@ -158,8 +159,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
     "DESCRIPTION": "About you",
-    "OLD_PASSWORD": "Old password",
-    "PASSWORD": "Enter your new password"
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "New password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"

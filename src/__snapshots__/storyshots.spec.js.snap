@@ -3780,7 +3780,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="edit-box">
                 <!---->
                 <div class="q-field row no-wrap items-start">
-                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
+                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
                             <div class="q-field-label-inner row items-center"><span>E-mail</span> </div>
@@ -3803,6 +3803,31 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                 </div>
+                <div class="q-field row no-wrap items-start">
+                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-unlock"> </i>
+                    <div class="row col">
+                        <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
+                            <div class="q-field-label-inner row items-center"><span>Confirm your password</span> </div>
+                        </div>
+                        <div class="q-field-content col-xs-12 col-sm">
+                            <div class="q-if row no-wrap items-center relative-position q-input text-primary">
+                                <!---->
+                                <div class="q-if-inner col row no-wrap items-center relative-position">
+                                    <!---->
+                                    <!---->
+                                    <input type="password" value="" class="col q-input-target text-left">
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                </div>
+                                <!---->
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+                <!---->
                 <div class="actionButtons">
                     <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-primary text-white">
                         <div class="desktop-only q-focus-helper"></div>
@@ -3814,10 +3839,10 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="q-card-separator"></div>
             <div class="edit-box">
                 <div class="q-field row no-wrap items-start">
-                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-unlock"> </i>
+                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-lock"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                            <div class="q-field-label-inner row items-center"><span>Old password</span> </div>
+                            <div class="q-field-label-inner row items-center"><span>New password</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
                             <div class="q-if row no-wrap items-center relative-position q-input text-primary">
@@ -3838,10 +3863,10 @@ exports[`Storyshots Settings Page Default 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start">
-                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
+                    <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-unlock"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                            <div class="q-field-label-inner row items-center"><span>Enter your new password</span> </div>
+                            <div class="q-field-label-inner row items-center"><span>Confirm your old password</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
                             <div class="q-if row no-wrap items-center relative-position q-input text-primary">

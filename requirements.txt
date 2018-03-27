@@ -54,7 +54,7 @@ incremental==17.5.0       # via twisted
 influxdb==5.0.0           # via django-influxdb-metrics
 itypes==1.1.0             # via coreapi
 jinja2==2.10              # via coreschema, django-jinja
-lxml==4.2.0               # via talon
+lxml==4.2.1               # via talon
 markdown==2.6.11
 markupsafe==1.0           # via jinja2
 mccabe==0.6.1             # via flake8
@@ -69,8 +69,8 @@ pycodestyle==2.3.1        # via flake8
 pycparser==2.18           # via cffi
 pyfcm==1.4.5
 pyflakes==1.6.0           # via flake8
-pymdown-extensions==4.9
-python-dateutil==2.7.0    # via faker, influxdb
+pymdown-extensions==4.9.2
+python-dateutil==2.7.2    # via faker, influxdb
 python-server-metrics==0.2.1  # via django-influxdb-metrics
 pytz==2018.3
 raven==6.6.0
@@ -79,10 +79,10 @@ regex==2018.2.21          # via talon
 requests-toolbelt==0.8.0  # via pyfcm
 requests==2.18.4          # via coreapi, django-anymail, influxdb, pyfcm, requests-toolbelt, sparkpost
 scikit-learn==0.19.1      # via talon
-scipy==1.0.0              # via talon
+scipy==1.0.1              # via talon
 simplejson==3.13.2        # via django-rest-swagger
 six==1.11.0               # via argon2-cffi, asgi-redis, asgiref, autobahn, automat, bleach, django-anymail, django-extensions, faker, furl, html5lib, influxdb, orderedmultidict, python-dateutil, talon, tld, txaio
-sparkpost==1.3.5
+sparkpost==1.3.6
 talon==1.4.4
 text-unidecode==1.2       # via faker
 tld==0.7.9                # via django-influxdb-metrics

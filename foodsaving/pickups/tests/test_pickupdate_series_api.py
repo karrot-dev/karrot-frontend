@@ -236,7 +236,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase, ExtractPaginationMixin):
         self.client.force_login(user=self.member)
         # change rule
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        rule = rrulestr(self.series.rule) \
+        rule = rrulestr(self.series.rule, dtstart=self.now) \
             .replace(until=self.now + relativedelta(days=8))
         response = self.client.patch(url, {'rule': str(rule)})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
@@ -253,7 +253,7 @@ class TestPickupDateSeriesChangeAPI(APITestCase, ExtractPaginationMixin):
         self.series.pickup_dates.last().collectors.add(self.member)
         # change rule
         url = '/api/pickup-date-series/{}/'.format(self.series.id)
-        rule = rrulestr(self.series.rule) \
+        rule = rrulestr(self.series.rule, dtstart=self.now) \
             .replace(until=self.now)
         response = self.client.patch(url, {'rule': str(rule)})
         self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)

@@ -53,12 +53,12 @@ class PickupDateSeries(BaseModel):
         period_start = start_date.astimezone(tz).replace(tzinfo=None)
         start_date = self.start_date.astimezone(tz).replace(tzinfo=None)
         dates = dateutil.rrule.rrulestr(
-            self.rule
+            self.rule,
         ).replace(
-            dtstart=start_date
+            dtstart=start_date,
         ).between(
             period_start,
-            period_start + relativedelta(weeks=self.store.weeks_in_advance)
+            period_start + relativedelta(weeks=self.store.weeks_in_advance),
         )
         return [tz.localize(d) for d in dates]
 

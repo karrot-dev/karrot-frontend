@@ -21,6 +21,7 @@ ipython-genutils==0.2.0   # via traitlets
 ipython==6.2.1
 jedi==0.11.1              # via ipython
 logging-tree==1.7
+more-itertools==4.1.0     # via pytest
 parso==0.1.1              # via jedi
 pexpect==4.4.0            # via ipython
 pickleshare==0.7.4        # via ipython
@@ -28,7 +29,7 @@ pip-tools==1.11.0
 pluggy==0.6.0             # via pytest
 prompt-toolkit==1.0.15    # via ipython
 ptyprocess==0.5.2         # via pexpect
-py==1.5.2                 # via pytest
+py==1.5.3                 # via pytest
 pycodestyle==2.3.1        # via autopep8
 pyflakes==1.6.0           # via autoflake
 pygments==2.2.0           # via ipython
@@ -36,12 +37,12 @@ pytest-cov==2.5.1
 pytest-django==3.1.2
 pytest-forked==0.2        # via pytest-xdist
 pytest-xdist==1.22.2
-pytest==3.4.2             # via pytest-cov, pytest-django, pytest-forked, pytest-xdist
-python-dateutil==2.7.0    # via freezegun
+pytest==3.5.0             # via pytest-cov, pytest-django, pytest-forked, pytest-xdist
+python-dateutil==2.7.2    # via freezegun
 requests-mock==1.4.0
 requests==2.18.4          # via requests-mock
 simplegeneric==0.8.1      # via ipython
-six==1.11.0               # via freezegun, pip-tools, prompt-toolkit, pytest, python-dateutil, requests-mock, traitlets
+six==1.11.0               # via freezegun, more-itertools, pip-tools, prompt-toolkit, pytest, python-dateutil, requests-mock, traitlets
 tblib==1.3.2
 traitlets==4.3.2          # via ipython
 urllib3==1.22             # via requests

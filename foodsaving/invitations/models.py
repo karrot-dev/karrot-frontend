@@ -6,8 +6,8 @@ from django.db import models
 from django.db.models import Q
 from django.utils import timezone
 
+import foodsaving.invitations.emails
 from foodsaving.base.base_models import BaseModel
-from foodsaving.utils import email_utils
 
 
 class InvitationManager(models.Manager):
@@ -48,7 +48,7 @@ class Invitation(BaseModel):
     objects = InvitationManager()
 
     def send_mail(self):
-        email_utils.prepare_emailinvitation_email(self).send()
+        foodsaving.invitations.emails.prepare_emailinvitation_email(self).send()
 
     def accept(self, user):
         # add user to group

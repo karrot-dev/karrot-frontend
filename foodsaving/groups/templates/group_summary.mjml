@@ -32,7 +32,7 @@
                                 <li>
                                     {% trans new_user_count=new_users|length %}{{ new_user_count }} people joined the group{% endtrans %}:
                                     {% for user in new_users %}
-                                        <a href="{{ hostname }}/#/user/{{ user.id }}">{{ user.display_name }}</a>{% if not loop.last %}, {% endif %}
+                                        <a href="{{ user_url(user) }}">{{ user.display_name }}</a>{% if not loop.last %}, {% else %}.{% endif %}
                                     {% endfor %}
                                 </li>
                             {% endif %}
@@ -73,7 +73,7 @@
                             <h3>{% trans %}Here's what was said last week{% endtrans %}</h3>
                             {% for message in messages %}
                                 <div class="message">
-                                    <span class="message-author">{{ message.author.display_name }}</span><br>
+                                    <a class="message-author" href="{{ user_url(message.author) }}">{{ message.author.display_name }}</a><br>
                                     <span class="message-content">{{ message.content_rendered(truncate_words=40) | safe }}</span>
                                 </div>
                             {% endfor %}

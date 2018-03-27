@@ -1,0 +1,22 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans %}Your email address changed{% endtrans %}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section>
+                <mj-column>
+                    <mj-text>
+                        <h1>{% trans %}Your email address on {{ site_name }} changed!{% endtrans %}</h1>
+                    </mj-text>
+                    <mj-text>
+                        <p>{% trans new_email=user.unverified_email %}Your new email address is {{ new_email }}.{% endtrans %}</p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

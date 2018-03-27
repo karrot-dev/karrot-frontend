@@ -1,0 +1,29 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans %}Request to delete your account{% endtrans %}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section>
+                <mj-column>
+                    <mj-text>
+                        <h1>{% trans %}You requested to delete your account on {{ site_name }}!{% endtrans %}</h1>
+                    </mj-text>
+                    <mj-text>
+                        <p>{% trans %}We're sad to hear that you want to delete your account, could we have done anything better?{% endtrans %}</p>
+                        <p>{% trans %}Anyhow, you can finish the deletion by clicking the link below:{% endtrans %}</p>
+                    </mj-text>
+                    <mj-button background-color="ef1f1f" href="{{ url }}">
+                        {% trans %}Delete your account{% endtrans %}
+                    </mj-button>
+                    <mj-text>
+                        <p>{% trans %}If you changed your mind, you can simply ignore this e-mail.{% endtrans %}</p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

@@ -1,4 +1,5 @@
 import random
+import time
 
 import pytz
 from dateutil.relativedelta import relativedelta
@@ -22,6 +23,8 @@ class Command(BaseCommand):
         parser.add_argument('--quick', action='store_true', dest='less_data')
 
     def handle(self, *args, **options):
+        faker.seed(int(time.time()))
+
         def print(*args):
             self.stdout.write(' '.join([str(_) for _ in args]))
 
@@ -90,6 +93,8 @@ class Command(BaseCommand):
                 'latitude': faker.latitude(),
                 'longitude': faker.longitude()
             }).data
+            conversation = c.get('/api/groups/{}/conversation/'.format(data['id']))
+            data['conversation'] = conversation
             print('created group: ', data['id'], data['name'])
             return data
 
@@ -108,6 +113,13 @@ class Command(BaseCommand):
         def leave_group(group):
             print('left group {}'.format(group))
             return c.post('/api/groups/{}/leave/'.format(group)).data
+
+        def make_message(conversation_id):
+            data = c.post('/api/messages/', {
+                'content': faker.text(),
+                'conversation': conversation_id,
+            }).data
+            return data
 
         def make_store(group):
             data = c.post('/api/stores/', {
@@ -228,6 +240,7 @@ class Command(BaseCommand):
                 make_series(store['id'])
                 pickup = make_pickup(store['id'])
                 join_pickup(pickup['id'])
+                make_message(group['id'])
                 done_pickup = create_done_pickup(store['id'], user['id'])
                 join_pickup(done_pickup.id)
                 make_feedback(done_pickup.id, user['id'])

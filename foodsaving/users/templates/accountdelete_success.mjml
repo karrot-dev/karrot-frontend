@@ -1,0 +1,23 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans %}Account successfully deleted{% endtrans %}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section>
+                <mj-column>
+                    <mj-text>
+                        <h1>{% trans %}Your account on {{ site_name }} was successfully deleted!{% endtrans %}</h1>
+                    </mj-text>
+                    <mj-text>
+                        <p>{% trans %}We're still sad that you saw it necessary to delete your account, but we're happy to tell you that your request was met without any problems.{% endtrans %}</p>
+                        <p>{% trans %}Goodbye!{% endtrans %}</p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

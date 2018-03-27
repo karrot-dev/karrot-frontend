@@ -2,10 +2,10 @@ from anymail.exceptions import AnymailAPIError
 from huey.contrib.djhuey import db_task
 from raven.contrib.django.raven_compat.models import client as sentry_client
 
+import foodsaving.conversations.emails
 from foodsaving.conversations.models import ConversationParticipant
 from foodsaving.groups.models import Group, GroupMembership
 from foodsaving.users.models import User
-from foodsaving.utils import email_utils
 
 
 @db_task()
@@ -28,6 +28,7 @@ def notify_participants(message):
 
     for participant in participants_to_notify:
         try:
-            email_utils.prepare_conversation_message_notification(user=participant.user, message=message).send()
+            foodsaving.conversations.emails.prepare_conversation_message_notification(user=participant.user,
+                                                                                      message=message).send()
         except AnymailAPIError:
             sentry_client.captureException()

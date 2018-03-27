@@ -2,11 +2,16 @@ from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import transaction, models
 from django.db.models import EmailField, BooleanField, TextField, CharField, DateTimeField, ForeignKey, Q
+from django.utils import timezone
 from versatileimagefield.fields import VersatileImageField
 
 from foodsaving.base.base_models import BaseModel, LocationModel
+from foodsaving.groups.models import Group, GroupMembership
 from foodsaving.userauth.models import VerificationCode
-from foodsaving.utils.email_utils import prepare_mailverification_email, prepare_email
+from foodsaving.users.emails import prepare_accountdelete_request_email, prepare_accountdelete_success_email, \
+    prepare_changemail_success_email, prepare_changemail_request_email, prepare_signup_email, \
+    prepare_passwordreset_success_email, \
+    prepare_passwordreset_request_email
 from foodsaving.webhooks.models import EmailEvent
 
 MAX_DISPLAY_NAME_LENGTH = 80
@@ -67,7 +72,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, BaseModel, LocationModel):
-    email = EmailField(unique=True, null=True)
+    email = EmailField(unique=True, blank=True, null=True)
     is_active = BooleanField(default=True)
     is_staff = BooleanField(default=False)
     is_superuser = BooleanField(default=False)
@@ -91,6 +96,7 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+    EMAIL_FIELD = 'email'
 
     def get_full_name(self):
         return self.display_name
@@ -122,37 +128,87 @@ class User(AbstractBaseUser, BaseModel, LocationModel):
     def update_email(self, unverified_email):
         self.unverified_email = unverified_email
         self._send_mail_change_notification()
-        self.send_new_verification_code()
+        self.send_mail_verification_code()
+
+    @transaction.atomic
+    def restore_email(self):
+        VerificationCode.objects.filter(user=self, type=VerificationCode.EMAIL_VERIFICATION).delete()
+        self.unverified_email = self.email
+        self.mail_verified = True
+        self.save()
 
     def update_language(self, language):
         self.language = language
 
     def _send_mail_change_notification(self):
-        prepare_email('changemail_notice', self, {}).send()
+        prepare_changemail_success_email(self).send()
 
+    @transaction.atomic
     def _send_welcome_mail(self):
         self._unverify_mail()
-        prepare_mailverification_email(
-            user=self,
-            verification_code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION)
-        ).send()
+        verification_code = VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION)
+        prepare_signup_email(user=self, verification_code=verification_code).send()
 
     @transaction.atomic
-    def send_new_verification_code(self):
+    def send_mail_verification_code(self):
         self._unverify_mail()
-        prepare_email('send_new_verification_code', self, {
-            'url': '{hostname}/#/verify-mail?key={code}'.format(
-                hostname=settings.HOSTNAME,
-                code=VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION).code
-            )
-        }, to=self.unverified_email).send()
+        verification_code = VerificationCode.objects.get(user=self, type=VerificationCode.EMAIL_VERIFICATION)
+        prepare_changemail_request_email(self, verification_code).send()
 
     @transaction.atomic
-    def reset_password(self):
-        new_password = User.objects.make_random_password(length=20)
+    def send_account_deletion_verification_code(self):
+        VerificationCode.objects.filter(user=self, type=VerificationCode.ACCOUNT_DELETE).delete()
+        verification_code = VerificationCode.objects.create(user=self, type=VerificationCode.ACCOUNT_DELETE)
+        prepare_accountdelete_request_email(self, verification_code).send()
+
+    @transaction.atomic
+    def send_password_reset_verification_code(self):
+        VerificationCode.objects.filter(user=self, type=VerificationCode.PASSWORD_RESET).delete()
+        verification_code = VerificationCode.objects.create(user=self, type=VerificationCode.PASSWORD_RESET)
+        prepare_passwordreset_request_email(self, verification_code).send()
+
+    @transaction.atomic
+    def change_password(self, new_password):
         self.set_password(new_password)
         self.save()
-        prepare_email('newpassword', self, {'password': new_password}).send()
+        VerificationCode.objects.filter(user=self, type=VerificationCode.PASSWORD_RESET).delete()
+        prepare_passwordreset_success_email(self).send()
+
+    @transaction.atomic
+    def erase(self):
+        """
+        Delete the user.
+
+        To keep historic pickup infos, keep the user account but clear personal data.
+        """
+        # Emits pre_delete and post_delete signals, they are used to remove the user from pick-ups
+        for _ in Group.objects.filter(members__in=[self, ]):
+            GroupMembership.objects.filter(group=_, user=self).delete()
+
+        success_email = prepare_accountdelete_success_email(self)
+
+        self.description = ''
+        self.email = None
+        self.is_active = False
+        self.is_staff = False
+        self.mail_verified = False
+        self.unverified_email = None
+        self.display_name = ''
+        self.address = None
+        self.latitude = None
+        self.longitude = None
+        self.mobile_number = ''
+
+        self.deleted_at = timezone.now()
+        self.deleted = True
+
+        self.delete_photo()
+        self.set_unusable_password()
+
+        self.save()
+
+        VerificationCode.objects.filter(user=self, type=VerificationCode.ACCOUNT_DELETE).delete()
+        success_email.send()
 
     def has_perm(self, perm, obj=None):
         # temporarily only allow access for admins

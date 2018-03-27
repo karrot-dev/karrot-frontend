@@ -1,13 +1,16 @@
-from django.contrib.auth import logout, get_user_model
+from anymail.exceptions import AnymailAPIError
+from django.contrib.auth import logout, update_session_auth_hash
+from django.utils.translation import ugettext as _
 from django.middleware.csrf import get_token as generate_csrf_token_for_frontend
-from django.utils import timezone
 from rest_framework import status, generics, views
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
-from foodsaving.userauth.permissions import IsNotVerified
-from foodsaving.userauth.serializers import AuthLoginSerializer, AuthUserSerializer, VerifyMailSerializer, \
-    ChangePasswordSerializer
+from foodsaving.userauth.models import VerificationCode
+from foodsaving.userauth.permissions import MailIsNotVerified
+from foodsaving.userauth.serializers import AuthLoginSerializer, AuthUserSerializer, \
+    ChangePasswordSerializer, RequestResetPasswordSerializer, ChangeMailSerializer, \
+    VerificationCodeSerializer, ResetPasswordSerializer
 
 
 class LogoutView(views.APIView):
@@ -30,14 +33,19 @@ class AuthView(generics.GenericAPIView):
 
 
 class AuthUserView(generics.GenericAPIView):
-    permission_classes = (IsAuthenticated,)
     serializer_class = AuthUserSerializer
+    permission_classes = (IsAuthenticated,)
 
     def get_permissions(self):
-        # Allow creating user when not logged in
-        if self.request.method.lower() == 'post':
+        # Allow creating and deleting user when not logged in
+        if self.request.method.lower() == 'post' or self.request.method.lower() == 'delete':
             return ()
         return super().get_permissions()
+
+    def get_serializer_class(self):
+        if self.request.method.lower() == 'delete':
+            return VerificationCodeSerializer
+        return self.serializer_class
 
     def post(self, request):
         """Create a new user"""
@@ -48,8 +56,7 @@ class AuthUserView(generics.GenericAPIView):
 
     def patch(self, request):
         """Update user profile"""
-        instance = request.user
-        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer = self.get_serializer(request.user, request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -62,94 +69,116 @@ class AuthUserView(generics.GenericAPIView):
 
     def delete(self, request):
         """
-        Deletes the user from the database
-
-        To keep historic pickup infos, don't delete this user, but remove its details from the database.
+        Delete the user account using a previously requested verification token.
         """
-        user = request.user
-        from foodsaving.groups.models import Group
-        from foodsaving.groups.models import GroupMembership
-
-        # Emits pre_delete and post_delete signals, they are used to remove the user from pick-ups
-        for _ in Group.objects.filter(members__in=[user, ]):
-            GroupMembership.objects.filter(group=_, user=user).delete()
-
-        user.description = ''
-        user.set_unusable_password()
-        user.mail = None
-        user.is_active = False
-        user.is_staff = False
-        user.mail_verified = False
-        user.unverified_email = None
-        user.deleted_at = timezone.now()
-        user.deleted = True
-        user.delete_photo()
-
-        user.save()
-
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class VerifyMailView(generics.GenericAPIView):
-    permission_classes = (IsAuthenticated, IsNotVerified)
-    serializer_class = VerifyMailSerializer
-
-    def post(self, request):
-        """
-        Send token to verify e-mail
-
-        requires "key" parameter
-        """
-        self.check_object_permissions(request, request.user)
-        serializer = self.get_serializer(request.user, request.data)
+        serializer = self.get_serializer(data=request.query_params)
+        serializer.context['type'] = VerificationCode.ACCOUNT_DELETE
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(status=status.HTTP_204_NO_CONTENT, data={})
 
 
-class ResendVerificationView(views.APIView):
-    permission_classes = (IsAuthenticated, IsNotVerified)
+class RequestDeleteUserView(views.APIView):
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        """Resend verification e-mail"""
-        self.check_object_permissions(request, request.user)
-        request.user.send_new_verification_code()
+        """
+        Request the deletion of the user account.
+        """
+        try:
+            request.user.send_account_deletion_verification_code()
+        except AnymailAPIError:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={_('We could not send you an e-mail.')})
         return Response(status=status.HTTP_204_NO_CONTENT, data={})
 
 
-class ResetPasswordView(views.APIView):
+class VerifyMailView(generics.GenericAPIView):
+    # No need to add the MailIsNotVerified permission because
+    # verification codes only exist for unverified users anyway.
     permission_classes = (AllowAny,)
+    serializer_class = VerificationCodeSerializer
 
     def post(self, request):
         """
-        Request new password
-
-        send a request with 'email' to this endpoint to get a new password mailed
+        Verify an e-mail address.
         """
-        request_email = request.data.get('email')
-        if not request_email:
-            return Response(status=status.HTTP_400_BAD_REQUEST,
-                            data={'email': ['this field is required']})
-        try:
-            user = get_user_model().objects.active().get(email__iexact=request_email)
-        except get_user_model().DoesNotExist:
-            return Response(status=status.HTTP_400_BAD_REQUEST,
-                            data={'email': ['e-mail address is not registered']})
+        serializer = self.get_serializer(data=request.data)
+        serializer.context['type'] = VerificationCode.EMAIL_VERIFICATION
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
 
-        user.reset_password()
+
+class ResendMailVerificationCodeView(views.APIView):
+    permission_classes = (IsAuthenticated, MailIsNotVerified)
+
+    def post(self, request):
+        """
+        Resend a verification code (via e-mail).
+        """
+        self.check_object_permissions(request, request.user)
+        request.user.send_mail_verification_code()
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
+
+
+class RequestResetPasswordView(generics.GenericAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = RequestResetPasswordSerializer
+
+    def post(self, request):
+        """
+        Request a reset of the password.
+        """
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
+
+
+class ResetPasswordView(generics.GenericAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = ResetPasswordSerializer
+
+    def post(self, request):
+        """
+        Reset the password using a previously requested verification token.
+        """
+        serializer = self.get_serializer(data=request.data)
+        serializer.context['type'] = VerificationCode.PASSWORD_RESET
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
         return Response(status=status.HTTP_204_NO_CONTENT, data={})
 
 
 class ChangePasswordView(generics.GenericAPIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
     serializer_class = ChangePasswordSerializer
 
-    def post(self, request):
+    def put(self, request):
         """
-        Change your password
+        Change the password.
+        """
+        self.check_object_permissions(request, request.user)
+        serializer = self.get_serializer(request.user, request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+
+        # Keep the user logged in
+        update_session_auth_hash(request, user)
+
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})
+
+
+class ChangeMailView(generics.GenericAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ChangeMailSerializer
+
+    def put(self, request):
+        """
+        Change the e-mail address.
         """
         self.check_object_permissions(request, request.user)
         serializer = self.get_serializer(request.user, request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response(status=status.HTTP_200_OK, data=AuthUserSerializer(instance=request.user).data)
+        return Response(status=status.HTTP_204_NO_CONTENT, data={})

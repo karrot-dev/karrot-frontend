@@ -8,13 +8,11 @@ from django.template.loader import render_to_string, get_template
 from django.utils import translation
 from django.utils.timezone import get_current_timezone
 from django.utils.translation import to_locale, get_language
-from furl import furl
 from jinja2 import Environment
 
 from config import settings
-from foodsaving.groups.models import Group
 from foodsaving.utils import stats
-from foodsaving.webhooks.api import make_local_part
+from foodsaving.utils.frontend_urls import store_url, user_url
 
 
 def date_filter(value):
@@ -34,21 +32,6 @@ def time_filter(value):
     )
 
 
-def store_url(store):
-    return '{hostname}/#/group/{group_id}/store/{store_id}/pickups'.format(
-        hostname=settings.HOSTNAME,
-        group_id=store.group.id,
-        store_id=store.id,
-    )
-
-
-def user_url(user):
-    return '{hostname}/#/user/{user_id}/'.format(
-        hostname=settings.HOSTNAME,
-        user_id=user.id,
-    )
-
-
 def jinja2_environment(**options):
     env = Environment(**options)
     env.filters['date'] = date_filter
@@ -56,104 +39,6 @@ def jinja2_environment(**options):
     env.globals['store_url'] = store_url
     env.globals['user_url'] = user_url
     return env
-
-
-def prepare_accountdelete_request_email(user):
-    return prepare_email('accountdelete_request', user)
-
-
-def prepare_accountdelete_success_email(user):
-    return prepare_email('accountdelete_success', user)
-
-
-def prepare_changemail_notice_email(user):
-    return prepare_email('changemail_notice', user)
-
-
-def prepare_changemail_success_email(user):
-    return prepare_email('changemail_success', user, {
-        'url': 'ERROR_URL_HAS_NOT_BEEN_DEFINED'
-    })
-
-
-def prepare_conversation_message_notification(user, message):
-    if not isinstance(message.conversation.target, Group):
-        raise Exception('Cannot send message notification if conversation does not belong to a group')
-
-    group = message.conversation.target
-
-    reply_to_name = group.name
-    conversation_url = '{hostname}/#/group/{group_id}/wall'.format(
-        hostname=settings.HOSTNAME,
-        group_id=group.id
-    )
-    mute_url = '{}?mute_conversation={}'.format(conversation_url, message.conversation.id)
-    conversation_name = group.name
-
-    local_part = make_local_part(message.conversation, user)
-    reply_to = formataddr((reply_to_name, '{}@{}'.format(local_part, settings.SPARKPOST_RELAY_DOMAIN)))
-    from_email = formataddr((message.author.display_name, settings.DEFAULT_FROM_EMAIL))
-
-    with translation.override(user.language):
-        return prepare_email(
-            'conversation_message_notification',
-            from_email=from_email,
-            user=user,
-            reply_to=[reply_to],
-            context={
-                'conversation_name': conversation_name,
-                'author_name': message.author.display_name,
-                'message_content': message.content_rendered(),
-                'conversation_url': conversation_url,
-                'mute_url': mute_url
-            }
-        )
-
-
-def prepare_emailinvitation_email(invitation):
-    invite_url = furl('{hostname}/#/signup'.format(hostname=settings.HOSTNAME))
-    invite_url.fragment.args = {
-        'invite': invitation.token,
-        'email': invitation.email
-    }
-    return prepare_email('emailinvitation', None, {
-        'group_name': invitation.group.name,
-        'invite_url': invite_url,
-        'email': invitation.email,
-        'invited_by_name': invitation.invited_by.display_name,
-    }, to=invitation.email)
-
-
-def prepare_mailverification_email(user, verification_code):
-    return prepare_email('mailverification', user, {
-        'url': '{hostname}/#/verify-mail?key={code}'.format(
-            hostname=settings.HOSTNAME,
-            code=verification_code.code
-        )
-    }, to=user.unverified_email)
-
-
-def prepare_newpassword_email(user, new_password):
-    return prepare_email('newpassword', user, {'password': new_password})
-
-
-def prepare_passwordreset_request_email(user):
-    return prepare_email('passwordreset_request', user, {
-        'url': 'ERROR_URL_HAS_NOT_BEEN_DEFINED'
-    })
-
-
-def prepare_passwordreset_success_email(user):
-    return prepare_email('passwordreset_success', user, {})
-
-
-def prepare_send_new_verification_code_email(user, verification_code):
-    return prepare_email('send_new_verification_code', user, {
-        'url': '{hostname}/#/verify-mail?key={code}'.format(
-            hostname=settings.HOSTNAME,
-            code=verification_code.code
-        )
-    }, to=user.unverified_email)
 
 
 def generate_plaintext_from_html(html):

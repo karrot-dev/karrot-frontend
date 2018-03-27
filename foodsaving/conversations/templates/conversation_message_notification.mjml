@@ -9,7 +9,7 @@
                 <mj-column>
                     <mj-text>
                         <div class="message">
-                            <span class="message-author">{{ author_name }}</span><br>
+                            <a class="message-author" href="{{ user_url(author) }}">{{ author.display_name }}</a><br>
                             <div class="message-content">{{ message_content | safe }}</div>
                         </div>
                     </mj-text>

@@ -1,6 +1,7 @@
 import html
 import os
 import re
+from collections import namedtuple
 
 from dateutil.relativedelta import relativedelta
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseBadRequest
@@ -8,6 +9,9 @@ from django.template.loader import render_to_string
 from django.template.utils import get_app_template_dirs
 from django.utils import timezone
 
+import foodsaving.conversations.emails
+import foodsaving.invitations.emails
+import foodsaving.users.emails
 from config import settings
 from foodsaving.conversations.models import ConversationMessage
 from foodsaving.groups.emails import prepare_user_inactive_in_group_email, prepare_group_summary_emails, \
@@ -16,12 +20,11 @@ from foodsaving.groups.models import Group
 from foodsaving.invitations.models import Invitation
 from foodsaving.pickups.emails import prepare_pickup_notification_email
 from foodsaving.pickups.models import PickupDate
-from foodsaving.userauth.models import VerificationCode
 from foodsaving.users.models import User
-from foodsaving.utils import email_utils
-from foodsaving.utils.email_utils import prepare_send_new_verification_code_email
 
 foodsaving_basedir = os.path.abspath(os.path.join(settings.BASE_DIR, 'foodsaving'))
+
+MockVerificationCode = namedtuple('VerificationCode', ['code'])
 
 
 def random_user():
@@ -40,22 +43,24 @@ def random_message():
     return ConversationMessage.objects.order_by('?').first()
 
 
-class Handlers:
+def pseudo_verification_code():
+    return MockVerificationCode(code='0123456789012345678901234567890123456789')
 
+
+class Handlers:
     def accountdelete_request(self):
-        return email_utils.prepare_accountdelete_request_email(user=random_user())
+        return foodsaving.users.emails.prepare_accountdelete_request_email(user=random_user(),
+                                                                           verification_code=pseudo_verification_code())
 
     def accountdelete_success(self):
-        return email_utils.prepare_accountdelete_success_email(user=random_user())
-
-    def changemail_notice(self):
-        return email_utils.prepare_changemail_notice_email(user=random_user())
+        return foodsaving.users.emails.prepare_accountdelete_success_email(user=random_user())
 
     def changemail_success(self):
-        return email_utils.prepare_changemail_success_email(user=random_user())
+        return foodsaving.users.emails.prepare_changemail_success_email(user=random_user())
 
     def conversation_message_notification(self):
-        return email_utils.prepare_conversation_message_notification(user=random_user(), message=random_message())
+        return foodsaving.conversations.emails.prepare_conversation_message_notification(user=random_user(),
+                                                                                         message=random_message())
 
     def emailinvitation(self):
         invitation = Invitation.objects.first()
@@ -64,7 +69,7 @@ class Handlers:
             group = Group.objects.first()
             invitation = Invitation.objects.create(group=group, invited_by=invited_by,
                                                    email='exampleinvitation@foo.com')
-        return email_utils.prepare_emailinvitation_email(invitation)
+        return foodsaving.invitations.emails.prepare_emailinvitation_email(invitation)
 
     def group_summary(self):
         from_date = timezone.now() - relativedelta(days=7)
@@ -81,20 +86,24 @@ class Handlers:
         raise Exception(
             'No emails were generated, you need at least one verified user in your db, and some activity data...')
 
-    def mailverification(self):
-        return email_utils.prepare_mailverification_email(
+    def changemail_request(self):
+        return foodsaving.users.emails.prepare_changemail_request_email(
             user=random_user(),
-            verification_code=VerificationCode.objects.first()
+            verification_code=pseudo_verification_code()
         )
 
-    def newpassword(self):
-        return email_utils.prepare_newpassword_email(user=random_user(), new_password='ANICENEWRANDOMPASSWORD')
+    def signup(self):
+        return foodsaving.users.emails.prepare_signup_email(
+            user=random_user(),
+            verification_code=pseudo_verification_code()
+        )
 
     def passwordreset_request(self):
-        return email_utils.prepare_passwordreset_request_email(user=random_user())
+        return foodsaving.users.emails.prepare_passwordreset_request_email(user=random_user(),
+                                                                           verification_code=pseudo_verification_code())
 
     def passwordreset_success(self):
-        return email_utils.prepare_passwordreset_success_email(user=random_user())
+        return foodsaving.users.emails.prepare_passwordreset_success_email(user=random_user())
 
     def pickup_notification(self):
         user = random_user()
@@ -117,12 +126,6 @@ class Handlers:
             tomorrow_user=[pickup2],
             tomorrow_empty=[pickup3],
             tomorrow_not_full=[pickup4],
-        )
-
-    def send_new_verification_code(self):
-        return prepare_send_new_verification_code_email(
-            user=random_user(),
-            verification_code=VerificationCode.objects.first()
         )
 
     def user_inactive_in_group(self):

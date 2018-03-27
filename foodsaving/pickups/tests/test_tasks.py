@@ -15,7 +15,7 @@ from foodsaving.pickups.tasks import daily_pickup_notifications, fetch_pickup_no
 from foodsaving.stores.factories import StoreFactory
 from foodsaving.stores.models import StoreStatus
 from foodsaving.users.factories import VerifiedUserFactory, UserFactory
-from foodsaving.utils.email_utils import store_url
+from foodsaving.utils.frontend_urls import store_url
 
 
 @contextmanager

@@ -1,0 +1,28 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans %}Please verify your email{% endtrans %}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section>
+                <mj-column>
+                    <mj-text>
+                        <h1>{% trans %}Thank you for signing up to {{ site_name }}{% endtrans %}</h1>
+                    </mj-text>
+                    <mj-text>
+                        <p>{% trans %}Please click the following link to confirm your email:{% endtrans %}</p>
+                    </mj-text>
+                    <mj-button href="{{ url }}">
+                        {% trans %}Verify your email address{% endtrans %}
+                    </mj-button>
+                    <mj-text>
+                        <p>{% trans %}You can safely ignore this message if it wasn't you who signed up at our service using this email address.{% endtrans %}</p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

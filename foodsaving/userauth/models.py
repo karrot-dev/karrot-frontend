@@ -7,14 +7,12 @@ from django.utils import crypto, timezone
 
 from foodsaving.base.base_models import BaseModel
 
-# TODO: Ensure each user can have at most one verification code of a certain type at a time.
-#       (Consider adding 'unique_together' constraint)
-
 
 class VerificationCodeManager(Manager):
     def create(self, *args, **kwargs):
         if 'code' not in kwargs or not kwargs['code']:
-            kwargs['code'] = crypto.get_random_string(length=VerificationCode.LENGTH)
+            url_safe_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+            kwargs['code'] = crypto.get_random_string(length=VerificationCode.LENGTH, allowed_chars=url_safe_chars)
         return super(VerificationCodeManager, self).create(*args, **kwargs)
 
 
@@ -29,13 +27,16 @@ class VerificationCode(BaseModel):
     ACCOUNT_DELETE = 'ACCOUNT_DELETE'
     TYPES = [EMAIL_VERIFICATION, PASSWORD_RESET, ACCOUNT_DELETE]
 
-    LENGTH = 40  # TODO: Change to 25 (will require frontend changes)
+    LENGTH = 40
 
     objects = VerificationCodeManager()
 
     user = ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     code = CharField('actual verification code', unique=True, max_length=50)
     type = CharField(max_length=50)
+
+    class Meta:
+        unique_together = ('user', 'type')
 
     def _get_validity_time_limit(self):
         """
@@ -53,6 +54,6 @@ class VerificationCode(BaseModel):
 
     def has_expired(self):
         """
-        True if the expiration date lies in the past or if the code has been invalidated.
+        True if the expiration date lies in the past.
         """
         return self.created_at + timedelta(seconds=self._get_validity_time_limit()) < timezone.now()

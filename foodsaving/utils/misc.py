@@ -8,6 +8,7 @@ def json_stringify(data):
     :type data: object
     :rtype: str
     """
+    # TODO remove this unused function
     return dump_json(data, sort_keys=True, separators=(',', ':')).encode("utf-8") if data else None
 
 

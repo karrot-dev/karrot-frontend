@@ -1,5 +1,5 @@
-from config import settings
 from foodsaving.utils.email_utils import prepare_email
+from foodsaving.utils.frontend_urls import group_settings_url
 
 
 def prepare_pickup_notification_email(
@@ -29,16 +29,11 @@ def prepare_pickup_notification_email(
         ]
     ])
 
-    settings_url = '{hostname}/#/group/{group_id}/settings'.format(
-        hostname=settings.HOSTNAME,
-        group_id=group.id,
-    )
-
     return prepare_email(
         template='pickup_notification',
         user=user,
         context={
-            'settings_url': settings_url,
+            'settings_url': group_settings_url(group),
             'group': group,
             'tonight_date': tonight_date,
             'tomorrow_date': tomorrow_date,

@@ -69,7 +69,7 @@ msgstr "未知的時區"
 
 #: foodsaving/groups/serializers.py:31
 msgid "Playground"
-msgstr ""
+msgstr "遊樂區"
 
 #: foodsaving/groups/serializers.py:100 foodsaving/groups/serializers.py:175
 msgid "You cannot manage agreements"
@@ -97,79 +97,79 @@ msgstr "%(group_name)s每周總結"
 msgid ""
 "Hope you are having a good weekend! Here's a summary of what happened in "
 "your group last week"
-msgstr ""
+msgstr "祝您有個美好的周末 !  這是你的社團過去一周的概況 。"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:114
 #, python-format
 msgid "%(pickups_done_count)s pickups were done"
-msgstr ""
+msgstr "%(pickups_done_count)s項領取已完成"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:116
 msgid "no pickups were done"
-msgstr ""
+msgstr "沒有完成任何領取任務"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:120
 #, python-format
 msgid "%(pickups_missed_count)s pickups were missed"
-msgstr ""
+msgstr "%(pickups_missed_count)s項領取任務被放鴿子了"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:123
 msgid "no pickups were missed"
-msgstr ""
+msgstr "沒有領取任務被放鴿子"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:129
 #, python-format
 msgid "%(new_user_count)s people joined the group"
-msgstr ""
+msgstr "%(new_user_count)s人加入社團"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:137
 #, python-format
 msgid "%(feedbacks_count)s pickup feedbacks were given"
-msgstr ""
+msgstr "有%(feedbacks_count)s項領取意見回饋"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:139
 msgid "no feedback was given"
-msgstr ""
+msgstr "沒有回饋"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:143
 #, python-format
 msgid "%(sent_messages_count)s messages were sent"
-msgstr ""
+msgstr "發出%(sent_messages_count)s則訊息"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:145
 msgid "no messages were sent"
-msgstr ""
+msgstr "沒有寄出任何訊息"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:152
 msgid "Pickup feedback"
-msgstr ""
+msgstr "領取任務回饋"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:158
 #, python-format
 msgid ""
 "%(weight)s kg from <a href=\"%(store_url)s\">%(store_name)s</a>\n"
 "                                    "
-msgstr ""
+msgstr "<a href=\"%(store_url)s\">%(store_name)s</a>有%(weight)s公斤剩食"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:167
 msgid "Here's what was said last week"
-msgstr ""
+msgstr "上星期的發言"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:175
 msgid ""
 "You are receiving this because you are subscribed to <strong>Weekly "
 "summary</strong> emails for this group."
-msgstr ""
+msgstr "這是您訂閱的社團<strong>一週簡報</strong>"
 
 #: foodsaving/groups/templates/group_summary.html.jinja2:176
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:186
 msgid "Click here to unsubscribe"
-msgstr ""
+msgstr "點擊以取消訂閱"
 
 #: foodsaving/groups/templates/group_summary.subject.jinja2:1
 #, python-format
 msgid "%(group_name)s updates for the week of %(day)s"
-msgstr ""
+msgstr "在%(day)s這周%(group_name)s社團的更新"
 
 #: foodsaving/groups/templates/playground_public_description.nopreview.jinja2:1
 msgid ""
@@ -179,10 +179,15 @@ msgid ""
 "\n"
 "All email notifications are disabled by default."
 msgstr ""
+"歡迎來到**karrot**!\n"
+"\n"
+"來吧, 隨心所欲的點擊 、探索吧 ! :carrot: 別擔心，不會破壞任何東西的 :)\n"
+"\n"
+"原則上不會發送電郵通知"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:109
 msgid "Hey, we're missing you!"
-msgstr ""
+msgstr "Hey, 我們很想念你"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:112
 #, python-format
@@ -191,34 +196,36 @@ msgid ""
 "                                <a href=\"%(group_url)s\">%(group_name)s</a> group for over %(num_days_inactive)s\n"
 "                                days."
 msgstr ""
+"你似乎已超過%(num_days_inactive)s天未造訪<a "
+"href=\"%(group_url)s\">%(group_name)s</a>社團了"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:117
 msgid ""
 "We've marked you as inactive, but you can reactivate by simply visiting the group\n"
 "                                again."
-msgstr ""
+msgstr "你目前被標記為不活躍，但只要你再度造訪社團，就可以回復活躍狀態"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:119
 #, python-format
 msgid "Visit %(group_name)s"
-msgstr ""
+msgstr "造訪%(group_name)s"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:120
 #, python-format
 msgid ""
 "You are receiving this because you are a member of "
 "<strong>%(group_name)s</strong>."
-msgstr ""
+msgstr "收到此信代表你已成功加入<strong>%(group_name)s</strong>"
 
 #: foodsaving/groups/templates/user_inactive_in_group.html.jinja2:121
 #, python-format
 msgid "You can leave the group from the <a href=\"%(group_url)s\">group page</a>."
-msgstr ""
+msgstr "你可以從<a href=\"%(group_url)s\">社團頁面</a>離開社團"
 
 #: foodsaving/groups/templates/user_inactive_in_group.subject.jinja2:1
 #, python-format
 msgid "%(group_name)s is missing you!"
-msgstr ""
+msgstr "%(group_name)s 想念你 !"
 
 #: foodsaving/invitations/serializers.py:20
 msgid "An invitation has already been sent to this e-mail address"
@@ -309,36 +316,36 @@ msgstr "你並未被分配到此領取任務"
 #: foodsaving/pickups/templates/pickup_notification.subject.jinja2:1
 #, python-format
 msgid "%(group_name)s upcoming pickups"
-msgstr ""
+msgstr "%(group_name)s的新領取任務 ! "
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:134
 msgid "Tonight"
-msgstr ""
+msgstr "今晚"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:141
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:169
 msgid "You are signed up for"
-msgstr ""
+msgstr "你加入了"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:146
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:174
 msgid "No-one is yet signed up for"
-msgstr ""
+msgstr "還沒有人加入"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:151
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:179
 msgid "There is still space available for"
-msgstr ""
+msgstr "還有名額"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:164
 msgid "Tomorrow"
-msgstr ""
+msgstr "明天"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:184
 msgid ""
 "You are receiving this because you are subscribed to\n"
 "                                <strong>Pickup notification</strong> emails for this group."
-msgstr ""
+msgstr "此信件為你成功訂閱此社團<strong>領取任務提醒</strong>郵件的通知"
 
 #: foodsaving/stores/serializers.py:69
 msgid "Set at least one week in advance"
@@ -384,7 +391,7 @@ msgstr "你在%(site_name)s的帳戶已成功刪除"
 
 #: foodsaving/users/templates/changemail_notice.subject.jinja2:1
 msgid "Your email address changed!"
-msgstr ""
+msgstr "你的電郵地址已更改"
 
 #: foodsaving/users/templates/changemail_notice.text.jinja2:4
 #, python-format
@@ -463,7 +470,7 @@ msgstr ""
 
 #: foodsaving/users/templates/passwordreset_request.subject.jinja2:1
 msgid "Forgot your password?"
-msgstr ""
+msgstr "忘記密碼?"
 
 #: foodsaving/users/templates/passwordreset_request.text.jinja2:4
 #, python-format

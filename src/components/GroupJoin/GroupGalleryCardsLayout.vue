@@ -25,13 +25,14 @@
     >
       {{ $t('JOINGROUP.WHICHGROUP') }}
     </p>
-    <div class="row no-wrap">
-      <div style="width: 100%; padding: 0">
-        <q-card style="width: 100%">
+    <div class="row items-start no-wrap">
+      <div class="col">
+        <q-card>
           <q-search
             :value="search"
             @input="$emit('search', arguments[0])"
             class="searchbar"
+            hide-underline
           />
         </q-card>
 
@@ -42,7 +43,7 @@
           style="margin-left: 16px"
         />
       </div>
-      <div style="width: 100px">
+      <div style="margin-top: 4px">
         <slot />
       </div>
     </div>
@@ -229,10 +230,7 @@ body.desktop .alert
   margin-left .2em
 .searchbar
   margin-top .2em
-  vertical-align middle
-  height 45px
   padding 5px
-  width 98%
 .underline
   text-decoration underline
 

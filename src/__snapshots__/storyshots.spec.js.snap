@@ -379,10 +379,10 @@ exports[`Storyshots GroupGallery signup view 1`] = `
         <p class="text-primary header">
             Which group do you want to join?
         </p>
-        <div class="row no-wrap">
-            <div style="width:100%;padding:0;">
-                <div class="q-card" style="width:100%;">
-                    <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search searchbar text-primary">
+        <div class="row items-start no-wrap">
+            <div class="col">
+                <div class="q-card">
+                    <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search searchbar q-if-hide-underline text-primary">
                         <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
                         <div class="q-if-inner col row no-wrap relative-position">
                             <!---->
@@ -407,8 +407,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                         <div class="q-radial-ripple"></div>
                     </div><span class="q-option-label">Show inactive groups</span></div>
             </div>
-            <div style="width:100px;">
-                <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div style="margin-top:4px;">
+                <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-popup"><div>
@@ -659,10 +659,10 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             </div>
         </div>
         <!---->
-        <div class="row no-wrap">
-            <div style="width:100%;padding:0;">
-                <div class="q-card" style="width:100%;">
-                    <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search searchbar text-primary">
+        <div class="row items-start no-wrap">
+            <div class="col">
+                <div class="q-card">
+                    <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search searchbar q-if-hide-underline text-primary">
                         <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
                         <div class="q-if-inner col row no-wrap relative-position">
                             <!---->
@@ -687,8 +687,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                         <div class="q-radial-ripple"></div>
                     </div><span class="q-option-label">Show inactive groups</span></div>
             </div>
-            <div style="width:100px;">
-                <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div style="margin-top:4px;">
+                <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-popup"><div>
@@ -1126,9 +1126,9 @@ exports[`Storyshots GroupPreviewUI error 1`] = `
     <div class="q-card shadow-6">
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
-                <div class="q-card-title">
-                    <!---->
-                    01_testgroup_with_maps_and_password
+                <div class="q-card-title"><span class="row group items-start">
+        01_testgroup_with_maps_and_password
+        <!----></span>
                     <!---->
                 </div>
                 <div class="q-card-subtitle"><span>
@@ -1159,9 +1159,9 @@ exports[`Storyshots GroupPreviewUI is member 1`] = `
     <div class="q-card shadow-6">
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
-                <div class="q-card-title">
-                    <!---->
-                    05_testgroup
+                <div class="q-card-title"><span class="row group items-start">
+        05_testgroup
+        <!----></span>
                     <!---->
                 </div>
                 <div class="q-card-subtitle"><span>
@@ -1200,9 +1200,9 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
     <div class="q-card shadow-6">
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
-                <div class="q-card-title">
-                    <!---->
-                    05_testgroup
+                <div class="q-card-title"><span class="row group items-start">
+        05_testgroup
+        <!----></span>
                     <!---->
                 </div>
                 <div class="q-card-subtitle"><span>
@@ -1238,9 +1238,9 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
     <div class="q-card shadow-6">
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
-                <div class="q-card-title">
-                    <!---->
-                    01_testgroup_with_maps_and_password
+                <div class="q-card-title"><span class="row group items-start">
+        01_testgroup_with_maps_and_password
+        <!----></span>
                     <!---->
                 </div>
                 <div class="q-card-subtitle"><span>
@@ -1271,9 +1271,9 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
     <div class="q-card shadow-6">
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
-                <div class="q-card-title">
-                    <!---->
-                    05_testgroup
+                <div class="q-card-title"><span class="row group items-start">
+        05_testgroup
+        <!----></span>
                     <!---->
                 </div>
                 <div class="q-card-subtitle"><span>

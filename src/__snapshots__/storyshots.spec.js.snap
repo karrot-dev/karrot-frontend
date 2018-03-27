@@ -1907,7 +1907,7 @@ exports[`Storyshots Login empty 1`] = `
                         <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
                             <!---->
                             <div class="q-if-inner col row no-wrap items-center relative-position">
-                                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Mail</div>
+                                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
                                 <!---->
                                 <input type="email" value="foo@foo.com" class="col q-input-target text-left">
                                 <!---->
@@ -1981,7 +1981,7 @@ exports[`Storyshots Login error 1`] = `
                         <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label q-if-error text-negative">
                             <!---->
                             <div class="q-if-inner col row no-wrap items-center relative-position">
-                                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Mail</div>
+                                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
                                 <!---->
                                 <input type="email" value="foo@foo.com" class="col q-input-target text-left">
                                 <!---->
@@ -2058,7 +2058,7 @@ exports[`Storyshots Login pending 1`] = `
                         <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
                             <!---->
                             <div class="q-if-inner col row no-wrap items-center relative-position">
-                                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Mail</div>
+                                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
                                 <!---->
                                 <input type="email" value="foo@foo.com" class="col q-input-target text-left">
                                 <!---->
@@ -2301,7 +2301,7 @@ exports[`Storyshots Password Reset empty 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your mail address and we will send you a new password (if you have an account registered).
+                Enter your e-mail address and we will send you a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-no-label">
@@ -2312,7 +2312,7 @@ exports[`Storyshots Password Reset empty 1`] = `
                             <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">Mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
                                     <!---->
                                     <input type="email" value="" class="col q-input-target text-left">
                                     <!---->
@@ -2351,7 +2351,7 @@ exports[`Storyshots Password Reset error 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your mail address and we will send you a new password (if you have an account registered).
+                Enter your e-mail address and we will send you a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-no-label">
@@ -2362,7 +2362,7 @@ exports[`Storyshots Password Reset error 1`] = `
                             <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label q-if-error text-negative">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">Mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
                                     <!---->
                                     <input type="email" value="" class="col q-input-target text-left">
                                     <!---->
@@ -2404,7 +2404,7 @@ exports[`Storyshots Password Reset pending 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your mail address and we will send you a new password (if you have an account registered).
+                Enter your e-mail address and we will send you a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-no-label">
@@ -2415,7 +2415,7 @@ exports[`Storyshots Password Reset pending 1`] = `
                             <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">Mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
                                     <!---->
                                     <input type="email" value="" class="col q-input-target text-left">
                                     <!---->
@@ -2452,7 +2452,7 @@ exports[`Storyshots Password Reset success 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your mail address and we will send you a new password (if you have an account registered).
+                Enter your e-mail address and we will send you a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-no-label">
@@ -2463,7 +2463,7 @@ exports[`Storyshots Password Reset success 1`] = `
                             <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">Mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
                                     <!---->
                                     <input type="email" value="" class="col q-input-target text-left">
                                     <!---->
@@ -3769,9 +3769,9 @@ exports[`Storyshots Settings Page Default 1`] = `
         </div>
     </div>
     <div class="q-card no-shadow grey-border">
-        <div id="change-email" class="q-card-primary q-card-container row no-wrap">
+        <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
-                <div class="q-card-title">Mail</div>
+                <div class="q-card-title">Account</div>
                 <div class="q-card-subtitle"></div>
             </div>
             <div class="col-auto self-center q-card-title-extra"></div>
@@ -3783,7 +3783,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-star"> </i>
                     <div class="row col">
                         <div class="q-field-label col-xs-12 q-field-margin col-sm-5">
-                            <div class="q-field-label-inner row items-center"><span>Mail</span> </div>
+                            <div class="q-field-label-inner row items-center"><span>E-mail</span> </div>
                         </div>
                         <div class="q-field-content col-xs-12 col-sm">
                             <div class="q-if row no-wrap items-center relative-position q-input text-primary">
@@ -3811,17 +3811,7 @@ exports[`Storyshots Settings Page Default 1`] = `
      <!----></span></button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="q-card no-shadow grey-border">
-        <div class="q-card-primary q-card-container row no-wrap">
-            <div class="col column">
-                <div class="q-card-title">Password</div>
-                <div class="q-card-subtitle"></div>
-            </div>
-            <div class="col-auto self-center q-card-title-extra"></div>
-        </div>
-        <div class="q-card-main q-card-container">
+            <div class="q-card-separator"></div>
             <div class="edit-box">
                 <div class="q-field row no-wrap items-start">
                     <i aria-hidden="true" class="q-field-icon q-field-margin q-icon fa fa-unlock"> </i>
@@ -3878,6 +3868,16 @@ exports[`Storyshots Settings Page Default 1`] = `
                         <!----><span class="q-btn-inner row col flex-center"><!----> 
       Change password
      <!----></span></button>
+                </div>
+            </div>
+            <div class="q-card-actions q-card-actions-horiz row justify-start">
+                <div>
+                    <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard q-btn-flat text-negative">
+                        <div class="desktop-only q-focus-helper"></div>
+                        <!----><span class="q-btn-inner row col flex-center"><i aria-hidden="true" class="q-icon fa fa-trash on-left"> </i> 
+    Delete account
+   <!----></span></button>
+                    <!---->
                 </div>
             </div>
         </div>
@@ -4219,7 +4219,7 @@ exports[`Storyshots Signup empty 1`] = `
                             <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Mail</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
                                     <!---->
                                     <input type="email" value="default@example.com" class="col q-input-target text-left">
                                     <!---->
@@ -4330,7 +4330,7 @@ exports[`Storyshots Signup error 1`] = `
                             <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label q-if-error text-negative">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Mail</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
                                     <!---->
                                     <input type="email" value="default@example.com" class="col q-input-target text-left">
                                     <!---->
@@ -4444,7 +4444,7 @@ exports[`Storyshots Signup pending 1`] = `
                             <div autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-center relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap items-center relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Mail</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
                                     <!---->
                                     <input type="email" value="default@example.com" class="col q-input-target text-left">
                                     <!---->

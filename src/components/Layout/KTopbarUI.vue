@@ -18,7 +18,7 @@
         <div/>
       </div>
     </q-toolbar-title>
-    <q-transition
+    <transition
       duration="310"
       name="search-slide-in"
       appear
@@ -37,7 +37,7 @@
         </q-btn>
         <Search style="margin-top: .2em; vertical-align: middle; width: 100%"/>
       </div>
-    </q-transition>
+    </transition>
     <q-btn
       v-if="!searchOpen"
       flat
@@ -90,17 +90,16 @@
         <q-popover
           :touch-position="false"
           fit
-          ref="popover"
           anchor="bottom right"
           self="top right"
         >
           <q-list
             item-separator
             link
+            v-close-overlay
           >
             <q-item
               :to="{name: 'groupsGallery'}"
-              @click.native="$refs.popover.close()"
             >
               <q-icon
                 size="1em"
@@ -111,7 +110,6 @@
             </q-item>
             <q-item
               :to="{name: 'settings'}"
-              @click.native="$refs.popover.close()"
             >
               <q-icon
                 size="1em"
@@ -121,7 +119,7 @@
               {{ $t('SETTINGS.TITLE') }}
             </q-item>
             <q-item
-              @click="$emit('logout'), $refs.popover.close()"
+              @click.native="$emit('logout')"
             >
               <q-icon
                 size="1em"
@@ -138,7 +136,7 @@
 </template>
 
 <script>
-import { QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
+import { QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
@@ -146,7 +144,7 @@ import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
   components: {
-    QTransition, QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
+    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
   },
   props: {
     breadcrumbs: {

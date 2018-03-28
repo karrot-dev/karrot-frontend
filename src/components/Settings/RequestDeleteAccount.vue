@@ -20,9 +20,8 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import { QField, QInput, QBtn, Dialog } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
-import { Dialog } from 'quasar-framework'
 
 export default {
   components: { QField, QInput, QBtn },

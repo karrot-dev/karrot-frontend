@@ -2,7 +2,7 @@
   <div>
     <div class="row margin-sides no-wrap">
       <div class="">
-        <q-transition
+        <transition
           duration="510"
           name="turn-in"
           appear
@@ -13,7 +13,7 @@
               :size="profilePictureSize"
             />
           </div>
-        </q-transition>
+        </transition>
       </div>
       <div style="overflow: hidden">
         <h1 class="accent-font">
@@ -95,10 +95,10 @@ import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 
-import { QCard, QCardTitle, QTransition, QCardActions, QCardMain, QCardMedia, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide } from 'quasar'
+import { QCard, QCardTitle, QCardActions, QCardMain, QCardMedia, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide } from 'quasar'
 
 export default {
-  components: { Markdown, UserMapPreview, QCard, QCardMain, QCardTitle, QCardMedia, QTransition, QCardActions, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide, ProfilePicture },
+  components: { Markdown, UserMapPreview, QCard, QCardMain, QCardTitle, QCardMedia, QCardActions, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide, ProfilePicture },
   props: {
     user: { required: true, type: Object },
     groups: { required: true, type: Array },

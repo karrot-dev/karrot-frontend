@@ -9,6 +9,7 @@ const userData = {
 }
 
 describe('Signup', () => {
+  beforeEach(() => jest.resetModules())
   it('submits', () => {
     let wrapper = mountWithDefaults(Signup, {
       propsData: {

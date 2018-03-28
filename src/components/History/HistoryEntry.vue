@@ -4,7 +4,7 @@
       multiline
       class="clickable"
       :class="{'greyed': detailIsShown}"
-      @click="toggleDetail"
+      @click.native="toggleDetail"
     >
       <q-item-side>
         <ProfilePicture
@@ -40,10 +40,12 @@
         @click.self="toggleDetail"
         class="detail-wrapper greyed"
         style="cursor: pointer"
-        v-if="detailIsShown">
+        v-if="detailIsShown"
+      >
         <HistoryDetail
           style="cursor: initial"
-          :entry="entry"/>
+          :entry="entry"
+        />
       </div>
     </transition>
   </div>

@@ -94,16 +94,11 @@ export default {
               Dialog.create({
                 title: agreement.title,
                 message: agreement.content,
-                buttons: [
-                  this.$t('BUTTON.CANCEL'),
-                  {
-                    label: this.$t('BUTTON.AGREE'),
-                    handler: () => {
-                      this.$emit('agree', agreement.id)
-                    },
-                  },
-                ],
+                cancel: this.$t('BUTTON.CANCEL'),
+                ok: this.$t('BUTTON.AGREE'),
               })
+                .then(() => this.$emit('agree', agreement.id))
+                .catch(() => {})
             },
           },
         ],

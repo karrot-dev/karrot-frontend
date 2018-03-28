@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
+import { QDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
 import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
 import editMixin from '@/mixins/editMixin'
@@ -89,7 +89,7 @@ import statusMixin from '@/mixins/statusMixin'
 
 export default {
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, AddressPicker, MarkdownInput,
+    QDatetime, QField, QSlider, QInput, QBtn, QSelect, AddressPicker, MarkdownInput,
   },
   mixins: [statusMixin, editMixin],
   computed: {

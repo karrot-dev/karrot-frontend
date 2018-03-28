@@ -29,6 +29,8 @@
       <q-btn
         @click="expanded = !expanded"
         flat
+        round
+        small
         class="float-right overlay-toggle-button"
       >
         <i
@@ -170,7 +172,6 @@ body.mobile
     min-height 60vh
 
 .overlay-toggle-button
-  margin: 20px
   i
     transition transform .5s
 .slightly-rotated

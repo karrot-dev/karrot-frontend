@@ -4,7 +4,7 @@
     link
     inset-separator
   >
-    <q-side-link
+    <q-item
       item
       :to="{name: 'user', params: {userId: currentUserId}}"
     >
@@ -12,9 +12,9 @@
         <i class="fa fa-user fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.USERPROFILE')" />
-    </q-side-link>
+    </q-item>
 
-    <q-side-link
+    <q-item
       item
       :to="{name: 'groupsGallery'}"
     >
@@ -22,9 +22,9 @@
         <i class="fa fa-home fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.CHANGE_GROUP')" />
-    </q-side-link>
+    </q-item>
 
-    <q-side-link
+    <q-item
       item
       :to="{name: 'settings'}"
     >
@@ -32,10 +32,10 @@
         <i class="fa fa-cog fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('SETTINGS.TITLE')" />
-    </q-side-link>
+    </q-item>
 
     <q-item
-      @click="$emit('logout'), $emit('toggleSidenav')"
+      @click.native="$emit('logout'), $emit('toggleSidenav')"
     >
       <q-item-side>
         <i class="fa fa-sign-out fa-fw"/>
@@ -46,7 +46,8 @@
     <q-list-header>Info</q-list-header>
     <a
       class="q-item"
-      target="_blanc"
+      target="_blank"
+      rel="noopener"
       href="https://foodsaving.world"
     >
       <q-item-side>
@@ -60,7 +61,8 @@
 
     <a
       class="q-item"
-      target="_blanc"
+      target="_blank"
+      rel="noopener"
       href="https://blog.karrot.world"
     >
       <q-item-side>
@@ -74,7 +76,8 @@
 
     <a
       class="q-item"
-      target="_blanc"
+      target="_blank"
+      rel="noopener"
       href="https://github.com/yunity/karrot-frontend"
     >
       <q-item-side>
@@ -91,11 +94,11 @@
 </template>
 <script>
 
-import { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain } from 'quasar'
+import { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain } from 'quasar'
 import LocaleSelect from '@/components/General/LocaleSelect'
 
 export default {
-  components: { QList, QListHeader, QSideLink, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
+  components: { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
   props: {
     currentUserId: {
       type: Number,

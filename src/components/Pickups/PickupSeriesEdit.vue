@@ -188,7 +188,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup, QTabs, QTab, QTabPane } from 'quasar'
+import { QDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup, QTabs, QTab, QTabPane } from 'quasar'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
 
@@ -197,7 +197,7 @@ import { is24h, dayOptions } from '@/i18n'
 export default {
   mixins: [editMixin, statusMixin],
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QInput, QBtn, QSelect, QOptionGroup, QTabs, QTab, QTabPane,
+    QDatetime, QField, QSlider, QInput, QBtn, QSelect, QOptionGroup, QTabs, QTab, QTabPane,
   },
   computed: {
     dayOptions,
@@ -235,16 +235,11 @@ export default {
       Dialog.create({
         title: this.$t('PICKUPDELETE.DELETE_SERIES_TITLE'),
         message: this.$t('PICKUPDELETE.DELETE_SERIES_TEXT'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('BUTTON.YES'),
-            handler: () => {
-              this.$emit('destroy', this.value.id, event)
-            },
-          },
-        ],
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('BUTTON.YES'),
       })
+        .then(() => this.$emit('destroy', this.value.id, event))
+        .catch(() => {})
     },
   },
 }

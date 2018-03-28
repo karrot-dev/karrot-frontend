@@ -32,6 +32,7 @@ const users = {
 }
 
 describe('feedback module', () => {
+  beforeEach(() => jest.resetModules())
   let store
   const feedback1 = feedbackMock[0]
   const feedback2 = feedbackMock[1]

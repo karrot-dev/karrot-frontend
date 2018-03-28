@@ -1,7 +1,7 @@
 <template>
   <q-card :class="{ full: pickup.isFull }">
     <q-card-main
-      class="row inline no-padding justify-between content"
+      class="row no-padding justify-between content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }"
     >
       <div class="column padding full-width">
@@ -16,9 +16,14 @@
         </div>
         <div class="people full-width">
           <PickupUsers
+            v-if="pickup.isUserMember"
             :pickup="pickup"
-            @join="button.click()"
-            @leave="button.click()"
+            @leave="leave"
+          />
+          <PickupUsers
+            v-else
+            :pickup="pickup"
+            @join="join"
           />
         </div>
       </div>
@@ -45,56 +50,21 @@ export default {
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
         message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', {date: this.$d(this.pickup.date, 'long')}),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('BUTTON.OF_COURSE'),
-            handler: () => {
-              this.$emit('join', this.pickup.id)
-            },
-          },
-        ],
+        ok: this.$t('BUTTON.OF_COURSE'),
+        cancel: this.$t('BUTTON.CANCEL'),
       })
+        .then(() => this.$emit('join', this.pickup.id))
+        .catch(() => {})
     },
     leave () {
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
         message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('BUTTON.YES'),
-            handler: () => {
-              this.$emit('leave', this.pickup.id)
-            },
-          },
-        ],
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
       })
-    },
-  },
-  computed: {
-    button () {
-      if (this.pickup.isUserMember) {
-        return {
-          className: 'q-btn-flat leave full-height',
-          translation: 'PICKUPLIST.ITEM.LEAVE',
-          click: this.leave,
-        }
-      }
-      else if (this.pickup.isFull) {
-        return {
-          className: 'join full-height',
-          translation: 'PICKUPLIST.ITEM.JOIN',
-          click: () => console.log('what??'),
-        }
-      }
-      else {
-        return {
-          className: 'join full-height',
-          translation: 'PICKUPLIST.ITEM.JOIN',
-          click: this.join,
-        }
-      }
+        .then(() => this.$emit('leave', this.pickup.id))
+        .catch(() => {})
     },
   },
 }
@@ -131,11 +101,4 @@ $lighterGreen = #F0FFF0
   )
 .content.isUserMember
   background linear-gradient(to right, $lightGreen, $lighterGreen)
-.full-height
-  height 100% !important
-.join
-  background-color $positive
-  color white
-.leave
-  color $negative
 </style>

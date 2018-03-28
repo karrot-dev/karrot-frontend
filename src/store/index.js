@@ -7,7 +7,6 @@ import i18nPlugin from './plugins/i18n'
 import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
-import presenceReporter from './plugins/presenceReporter'
 
 // Alphabetical
 import about from './modules/about'
@@ -79,7 +78,6 @@ export default new Vuex.Store({
     loadingProgressReporter,
     dependentState,
     fcmPlugin,
-    presenceReporter,
   ],
   strict: debug,
 })

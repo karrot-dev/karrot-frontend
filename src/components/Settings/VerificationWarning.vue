@@ -1,8 +1,8 @@
 <template>
   <q-alert color="warning">
-    <h6>
+    <p>
       {{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}
-    </h6>
+    </p>
     <i18n
       v-if="!success"
       path="NOTIFICATIONS.CHECK_YOUR_MAILS"
@@ -60,4 +60,5 @@ export default {
 <style scoped lang="stylus">
 .underline
   text-decoration underline
+  cursor pointer
 </style>

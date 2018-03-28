@@ -4,12 +4,12 @@
 import '../src/themes/app.mat.styl'
 
 import Vue from 'vue'
-import Quasar from 'quasar'
 import Vuex from 'vuex'
+import configureQuasar from '@/configureQuasar'
 import MockRouterLink from '>/MockRouterLink'
 
 Vue.config.productionTip = false
-Vue.use(Quasar) // Install Quasar Framework
+configureQuasar(Vue)
 Vue.use(Vuex) // Install Vuex
 
 Vue.component('router-link', MockRouterLink)

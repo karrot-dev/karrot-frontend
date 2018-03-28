@@ -44,7 +44,7 @@
       >
         <q-collapsible
           v-for="series in pickupSeries"
-          @open="makeVisible('series', series.id)"
+          @show="makeVisible('series', series.id)"
           :key="series.id"
           :label="seriesLabel(series)"
           :sublabel="$d(series.startDate, 'timeShort')"
@@ -70,7 +70,7 @@
 
             <q-collapsible
               v-for="pickup in series.pickups"
-              @open="makeVisible('pickup', pickup.id)"
+              @show="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
               :label="seriesPickupLabel(series, pickup)"
               icon="fa-shopping-basket"
@@ -137,7 +137,7 @@
       >
         <q-collapsible
           v-for="pickup in oneTimePickups"
-          @open="makeVisible('pickup', pickup.id)"
+          @show="makeVisible('pickup', pickup.id)"
           :key="pickup.id"
           :label="$d(pickup.date, 'dateWithDayName')"
           :sublabel="$d(pickup.date, 'timeShort')"

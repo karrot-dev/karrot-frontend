@@ -2,6 +2,7 @@ import { createStore } from '>/helpers'
 import { pickupSeriesMock } from '>/mockdata'
 
 describe('pickupSeries module', () => {
+  beforeEach(() => jest.resetModules())
   let store
   let series1 = pickupSeriesMock[0]
 

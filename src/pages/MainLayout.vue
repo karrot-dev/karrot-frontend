@@ -18,56 +18,50 @@
       v-else
       class="background mainLayoutDesktop"
     >
-      <q-layout
-        :reveal="$q.platform.is.mobile"
-        class="wrapper"
-        ref="layout"
-        :view="layoutView"
-        :right-breakpoint="1100"
-      >
-        <div slot="header">
+      <q-layout :view="layoutView">
+        <q-layout-header reveal>
           <KTopbar
-            @toggleSidenav="$refs.layout.toggleLeft()"
             v-if="isLoggedIn"
+            @toggleSidenav="toggleSidenav"
           >
             <q-btn
               flat
-              @click="$refs.layout.toggleLeft()"
+              @click="toggleSidenav"
               class="mobile-only"
             >
               <i class="fa fa-bars" />
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
-        </div>
-        <template
-          slot="left"
+        </q-layout-header>
+        <q-layout-drawer
           v-if="$q.platform.is.mobile && isLoggedIn"
+          side="left"
+          v-model="showSidenav"
+          :breakpoint="defaultShowSidenavWidth"
         >
-          <MobileSidenav @toggleSidenav="$refs.layout.toggleLeft()" />
-        </template>
-        <MainAlerts />
-        <router-view name="fullPage"/>
-        <div class="mainContent row justify-between no-wrap">
-          <router-view
-            v-if="!$q.platform.is.mobile"
-            class="sidenav-desktop"
-            name="sidenav"
-          />
-          <div class="mainContent-page">
-            <router-view />
+          <MobileSidenav @toggleSidenav="toggleSidenav" />
+        </q-layout-drawer>
+        <q-page-container>
+          <MainAlerts />
+          <router-view name="fullPage"/>
+          <div class="mainContent row justify-between no-wrap">
+            <router-view
+              v-if="!$q.platform.is.mobile"
+              class="sidenav-desktop"
+              name="sidenav"
+            />
+            <div class="mainContent-page">
+              <router-view />
+            </div>
           </div>
-        </div>
-        <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
-
-        <MobileNavigation
-          v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open"
-          slot="footer"
-        />
-        <KFooter
-          v-if="!$q.platform.is.mobile"
-          slot="footer"
-        />
+          <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
+        </q-page-container>
+        <q-layout-footer>
+          <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" />
+          <KFooter v-if="!$q.platform.is.mobile" />
+        </q-layout-footer>
+        <q-window-resize-observable @resize="onResize" />
       </q-layout>
     </div>
   </div>
@@ -82,11 +76,28 @@ import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
 import RouteError from '@/components/RouteError'
-import { QLayout, QBtn } from 'quasar'
+import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QBtn, MainAlerts, RouteError },
+  components: {
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError,
+  },
+  data () {
+    return {
+      showSidenav: false,
+    }
+  },
+  methods: {
+    toggleSidenav () {
+      this.showSidenav = !this.showSidenav
+    },
+    onResize ({ width }) {
+      if (width >= this.defaultShowSidenavWidth) {
+        this.showSidenav = true
+      }
+    },
+  },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
@@ -94,9 +105,12 @@ export default {
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
-        return 'hHh lpr fFf'
+        return 'hHh LpR fFf'
       }
-      return 'hHh lpr fff'
+      return 'hHh LpR fff'
+    },
+    defaultShowSidenavWidth () {
+      return 992
     },
   },
 }
@@ -125,6 +139,8 @@ body.desktop .mainContent
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px
   background-attachment:fixed
+.q-layout-footer
+  box-shadow none
 </style>
 
 <style lang="stylus">

@@ -6,7 +6,10 @@
     <template slot="icon">
       <q-icon name="fa-fw fa-shopping-cart" />
     </template>
-    <template slot="tools">
+    <dev
+      slot="tools"
+      class="tools"
+    >
       <q-btn
         flat
         small
@@ -15,7 +18,7 @@
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
-    </template>
+    </dev>
 
     <q-list
       highlight
@@ -68,4 +71,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.tools
+  .q-btn
+    width 30px
+    padding 0 1px
 </style>

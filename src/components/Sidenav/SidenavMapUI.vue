@@ -128,7 +128,7 @@ export default {
   .fa.fa-times
     color $negative
   .q-btn
-    width 25px
+    width 30px
     padding 0 1px
 .map
   height: 260px

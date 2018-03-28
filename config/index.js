@@ -25,7 +25,7 @@ const backendProxy = {
 module.exports = {
   // Webpack aliases
   aliases: {
-    quasar: path.resolve(__dirname, '../node_modules/quasar-framework/'),
+    quasar: path.resolve(__dirname, '../node_modules/quasar-framework/dist/quasar.mat.esm.js'),
     '@': path.resolve(__dirname, '../src'),
     '>': path.resolve(__dirname, '../test'),
     variables: path.resolve(__dirname, '../src/themes/quasar.variables.styl'),

@@ -5,12 +5,12 @@
       name="fa-globe"
     />
     {{ current }}
-    <q-popover ref="popover">
-      <q-list>
+    <q-popover>
+      <q-list v-close-overlay>
         <q-item
           v-for="locale in localeOptions"
           :key="locale.value"
-          @click="setLocale(locale.value), $refs.popover.close()"
+          @click.native="setLocale(locale.value)"
           highlight
         >
           <q-item-main>
@@ -29,7 +29,6 @@
         <q-item-separator />
         <q-item
           tag="a"
-          @click="$refs.popover.close()"
           href="https://www.transifex.com/yunity-1/karrot/dashboard/"
           target="_blank"
           rel="nofollow noopener noreferrer"

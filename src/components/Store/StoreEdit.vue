@@ -122,7 +122,7 @@
 </template>
 
 <script>
-import { QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, Dialog } from 'quasar'
+import { QCard, QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, Dialog } from 'quasar'
 import StandardMap from '@/components/Map/StandardMap'
 import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
@@ -152,7 +152,7 @@ export default {
     allStores: { required: true, type: Array },
   },
   components: {
-    QCard, QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
+    QCard, QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
   },
   computed: {
     canSave () {
@@ -206,16 +206,11 @@ export default {
       Dialog.create({
         title: this.$t('STOREEDIT.DIALOGS.ARCHIVE.TITLE'),
         message: this.$t('STOREEDIT.DIALOGS.ARCHIVE.MESSAGE'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
-            handler: () => {
-              this.$emit('save', { id: this.value.id, status: 'archived' }, event)
-            },
-          },
-        ],
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
       })
+        .then(() => this.$emit('save', { id: this.value.id, status: 'archived' }, event))
+        .catch(() => {})
     },
   },
   validations: {

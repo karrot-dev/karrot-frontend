@@ -48,6 +48,8 @@ const loggedInPropsExpanded = {
 polyfillRequestAnimationFrame()
 
 describe('GroupGalleryCardsLayout', () => {
+  beforeEach(() => jest.resetModules())
+
   it('Expanded & Logged Out, clicking Preview', async () => {
     const localVue = createLocalVue()
     let wrapper = mountWithDefaultsAndLocalVue(GroupGalleryCardsLayout, localVue, {

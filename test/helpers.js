@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Quasar from 'quasar'
 import raf from 'raf'
 import { createLocalVue, mount } from 'vue-test-utils'
 import deepmerge from 'deepmerge'
@@ -62,6 +61,11 @@ export function polyfillRequestAnimationFrame () {
   raf.polyfill()
 }
 
+export function configureQuasar (Vue) {
+  const configure = require('@/configureQuasar').default
+  configure(Vue)
+}
+
 export function mountWithDefaults (Component, options = {}) {
   const localVue = createLocalVue()
   return mountWithDefaultsAndLocalVue(Component, localVue, options)
@@ -69,7 +73,7 @@ export function mountWithDefaults (Component, options = {}) {
 
 export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
   localVue.component('router-link', MockRouterLink)
-  localVue.use(Quasar)
+  configureQuasar(localVue)
   localVue.component('transition', {
     render (createElement) {
       return createElement(

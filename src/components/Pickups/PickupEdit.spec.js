@@ -9,6 +9,7 @@ import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>
 polyfillRequestAnimationFrame()
 
 describe('PickupEdit', () => {
+  beforeEach(() => jest.resetModules())
   let wrapper, pickup, unenriched
 
   beforeEach(() => {

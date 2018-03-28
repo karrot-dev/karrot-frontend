@@ -6,11 +6,10 @@ Only major features and improvements will be listed here.
 
 We are working on this either right now or pretty soon in the future. Should be implemented in the next few months.
 
-- Feedback for historic pickup dates (e.g. amount of saved food) https://github.com/yunity/karrot-frontend/issues/159 / https://github.com/yunity/karrot-backend/issues/253
-- Group roles and agreements @nicksellen
-  - Accepting a legal agreement https://github.com/yunity/karrot-frontend/issues/324
-  - Group admins https://github.com/yunity/karrot-frontend/issues/356
-- (Hybrid) App for Android and iOS @nicksellen https://github.com/yunity/karrot-frontend/issues/674
+- [Release Android App in Play Store](https://github.com/yunity/karrot-frontend/issues/984)
+- [Join frontend and backend repositories together](https://github.com/yunity/karrot-frontend/issues/613)
+- [Add Telegram notifications](https://github.com/yunity/karrot-frontend/issues/982)
+- [Make user profile more informative](https://github.com/yunity/karrot-frontend/issues/552)
 
 [View issues](https://github.com/yunity/karrot-frontend/milestone/13)
 
@@ -19,20 +18,17 @@ We are working on this either right now or pretty soon in the future. Should be 
 Issue is understood well enough for development to start, but not currently assigned to a developer.
 
 - Statistics similar to foodsharing.de: total amount of  saved food per person, per group, per store https://github.com/yunity/karrot-frontend/issues/355
-- User profile pictures https://github.com/yunity/karrot-frontend/issues/673
 - Login via other identity providers https://github.com/yunity/karrot-frontend/issues/154
-- Add HTML mail templates https://github.com/yunity/karrot-frontend/issues/256
 - Self hosted customization options https://github.com/yunity/karrot-frontend/issues/676
-- Make user profile more informative https://github.com/yunity/karrot-frontend/issues/552
 - Add conversations to individual pickups https://github.com/yunity/karrot-frontend/issues/677
+- Add conversations to stores https://github.com/yunity/karrot-frontend/issues/985
+- Store subsciptions https://github.com/yunity/karrot-frontend/issues/986
 
 [View issues](https://github.com/yunity/karrot-frontend/milestone/12)
 
 ## Current discussion (higher priority)
 
 We want to work on this in mid-term future. We need to think about it more before we can implement it, so active discussion is highly welcome. Feel free to join in!
-
-- Notifications https://github.com/yunity/karrot-frontend/issues/257
 
 [View issues](https://github.com/yunity/karrot-frontend/milestone/9)
 

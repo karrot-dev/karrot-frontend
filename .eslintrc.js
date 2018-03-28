@@ -11,10 +11,12 @@ module.exports = {
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [
     'standard',
-    'plugin:vue/strongly-recommended'
+    'plugin:vue/strongly-recommended',
+    'plugin:testcafe/recommended',
   ],
   plugins: [
-    'import'
+    'import',
+    'testcafe',
   ],
   globals: {
     'DEV': true,

@@ -5,7 +5,7 @@
       flat
       color="negative"
       @click="requestDeleteAccount"
-      loader
+      :loading="isPending"
       :value="isPending || dialogShown"
     >
       {{ $t('BUTTON.DELETE_ACCOUNT') }}

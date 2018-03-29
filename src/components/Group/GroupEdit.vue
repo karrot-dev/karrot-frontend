@@ -116,7 +116,7 @@
               type="submit"
               color="primary"
               :disable="!canSave"
-              loader
+              :loading="isPending"
               :value="isPending"
             >
               {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}

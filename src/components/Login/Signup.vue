@@ -90,7 +90,7 @@
           <q-btn
             type="submit"
             class="submit shadow-4"
-            loader
+            :loading="isPending"
             :value="isPending"
           >
             {{ $t('SIGNUP.OK') }}

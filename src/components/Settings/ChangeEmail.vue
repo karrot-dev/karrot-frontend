@@ -34,7 +34,7 @@
       <q-btn
         color="primary"
         @click="save"
-        loader
+        :loading="isPending"
         :value="isPending"
       >
         {{ $t('BUTTON.CHANGE_EMAIL') }}

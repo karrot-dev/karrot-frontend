@@ -21,7 +21,7 @@
 
       <q-btn
         type="submit"
-        loader
+        :loading="isPending"
         :value="isPending"
         :disable="!canSave"
         class="bg-secondary float-right"

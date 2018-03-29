@@ -56,6 +56,7 @@ def fetch_pickup_notification_data_for_group(group):
     pickups = PickupDate.objects.annotate(
         num_collectors=Count('collectors'),
     ).filter(
+        deleted=False,
         store__status=StoreStatus.ACTIVE.value,
         store__group=group,
     ).order_by('date')

@@ -98,6 +98,22 @@ class TestGroupSummaryEmails(APITestCase):
 
         self.assertNotIn(self.user_without_notifications.email, to)
 
+    def test_ignores_deleted_pickups(self):
+        a_few_days_ago = timezone.now() - relativedelta(days=4)
+
+        store = StoreFactory(group=self.group)
+        user = VerifiedUserFactory(mail_verified=True)
+        self.group.add_member(user)
+
+        with freeze_time(a_few_days_ago, tick=True):
+            # fulfilled, but deleted
+            PickupDateFactory(store=store, max_collectors=1, collectors=[user], deleted=True)
+
+        from_date, to_date = foodsaving.groups.emails.calculate_group_summary_dates(self.group)
+        data = foodsaving.groups.emails.prepare_group_summary_data(self.group, from_date, to_date)
+
+        self.assertEqual(data['pickups_done_count'], 0)
+
     def test_group_summary_data(self):
 
         a_couple_of_weeks_ago = timezone.now() - relativedelta(weeks=3)

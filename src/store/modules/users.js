@@ -94,7 +94,7 @@ export default {
     async selectUser ({ commit, getters, dispatch }, { userId }) {
       if (!getters.get(userId).id) {
         try {
-          await dispatch('refresh', userId)
+          await dispatch('refresh', { userId })
         }
         catch (error) {
           const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }

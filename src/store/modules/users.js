@@ -94,8 +94,7 @@ export default {
     async selectUser ({ commit, getters, dispatch }, { userId }) {
       if (!getters.get(userId).id) {
         try {
-          const user = await users.get(userId)
-          commit('update', user)
+          await dispatch('refresh', { userId })
         }
         catch (error) {
           const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
@@ -122,8 +121,14 @@ export default {
       dispatch('meta/clear', ['resetPassword'])
       commit('resetPasswordSuccess', false)
     },
-    refresh ({ dispatch }) {
-      dispatch('fetch')
+    async refresh ({ dispatch, commit }, { userId }) {
+      if (userId) {
+        const user = await users.get(userId)
+        commit('update', user)
+      }
+      else {
+        dispatch('fetch')
+      }
     },
   },
   mutations: {

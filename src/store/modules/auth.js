@@ -32,7 +32,7 @@ export default {
 
       async check ({ commit, dispatch }) {
         try {
-          commit('setUser', { user: await authUser.get() })
+          await dispatch('refresh')
           dispatch('afterLoggedIn')
         }
         catch (error) {
@@ -100,10 +100,11 @@ export default {
         }, { root: true })
       },
 
-      async changeEmail ({ dispatch }, { newEmail, password, done }) {
+      async changeEmail ({ dispatch, getters }, { newEmail, password, done }) {
         await auth.changeEmail({ newEmail, password })
         done()
-        // The user object will be updated by the web-socket.
+        dispatch('users/refresh', { userId: getters.userId }, { root: true })
+        dispatch('refresh')
       },
     }),
 
@@ -147,6 +148,10 @@ export default {
 
     update ({ commit }, user) {
       commit('setUser', { user })
+    },
+
+    async refresh ({ commit }) {
+      commit('setUser', { user: await authUser.get() })
     },
 
     clearSettingsStatus ({ commit, dispatch }) {

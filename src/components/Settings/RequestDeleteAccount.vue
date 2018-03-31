@@ -37,22 +37,16 @@ export default {
       Dialog.create({
         title: this.$t('USERDATA.DIALOGS.REQUEST_DELETE_ACCOUNT.TITLE'),
         message: this.$t('USERDATA.DIALOGS.REQUEST_DELETE_ACCOUNT.MESSAGE'),
-        buttons: [
-          {
-            label: this.$t('BUTTON.CANCEL'),
-            handler: () => {
-              this.dialogShown = false
-            },
-          },
-          {
-            label: this.$t('USERDATA.DIALOGS.REQUEST_DELETE_ACCOUNT.CONFIRM'),
-            handler: () => {
-              this.$emit('requestDeleteAccount')
-              this.dialogShown = false
-            },
-          },
-        ],
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('USERDATA.DIALOGS.REQUEST_DELETE_ACCOUNT.CONFIRM'),
       })
+        .then(() => {
+          this.$emit('requestDeleteAccount')
+          this.dialogShown = false
+        })
+        .catch(() => {
+          this.dialogShown = false
+        })
     },
   },
 }

@@ -53,10 +53,10 @@ export default {
   mixins: [statusMixin],
   computed: {
     hasNewPassword () {
-      return this.newPassword
+      return !!this.newPassword
     },
     hasOldPassword () {
-      return this.oldPassword
+      return !!this.oldPassword
     },
   },
   data () {

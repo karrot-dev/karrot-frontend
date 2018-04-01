@@ -34,7 +34,7 @@
       <q-btn
         color="primary"
         @click="save"
-        :disable="!hasEmailChanged"
+        :disable="!hasEmailChanged || !hasPassword"
         :loading="isPending"
         :value="isPending"
       >
@@ -58,7 +58,7 @@ export default {
       return this.newEmail && (previousEmail !== this.newEmail)
     },
     hasPassword () {
-      return this.password
+      return !!this.password
     },
   },
   props: {

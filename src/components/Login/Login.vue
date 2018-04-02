@@ -63,7 +63,6 @@
           type="submit"
           class="submit shadow-4"
           :loading="isPending"
-          :value="isPending"
         >
           {{ $t('LOGIN.SUBMIT') }}
         </q-btn>

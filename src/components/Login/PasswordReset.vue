@@ -41,7 +41,6 @@
             type="submit"
             class="submit shadow-4"
             :loading="isPending"
-            :value="isPending"
           >
             {{ $t('PASSWORD.RESET.OK') }}
           </q-btn>

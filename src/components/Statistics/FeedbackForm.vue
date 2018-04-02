@@ -40,7 +40,6 @@
         color="secondary"
         :loading="isPending"
         :disable="!canSave"
-        :value="isPending"
         v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'"
       />
     </div>

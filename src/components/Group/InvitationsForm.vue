@@ -22,7 +22,6 @@
       <q-btn
         type="submit"
         :loading="isPending"
-        :value="isPending"
         :disable="!canSave"
         class="bg-secondary float-right"
         style="min-width: 5.5em"

@@ -63,7 +63,6 @@
           color="primary"
           :disable="!hasChanged"
           :loading="isPending"
-          :value="isPending"
         >
           {{ $t('BUTTON.SAVE_CHANGES') }}
         </q-btn>

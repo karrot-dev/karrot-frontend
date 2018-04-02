@@ -35,7 +35,6 @@
         color="primary"
         @click="save"
         :loading="isPending"
-        :value="isPending"
       >
         {{ $t('BUTTON.CHANGE_PASSWORD') }}
       </q-btn>

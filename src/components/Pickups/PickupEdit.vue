@@ -83,7 +83,6 @@
           color="primary"
           :disable="!canSave"
           :loading="isPending"
-          :value="isPending"
         >
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </q-btn>

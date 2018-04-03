@@ -2159,7 +2159,7 @@ exports[`Storyshots Login pending 1`] = `
                     Sign up!
                 </div>
             </button>
-            <button tabindex="-1" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
+            <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                     <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
@@ -2496,7 +2496,7 @@ exports[`Storyshots Password Reset pending 1`] = `
                         Back to login page
                     </div>
                 </button>
-                <button tabindex="-1" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
+                <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
@@ -4451,7 +4451,7 @@ exports[`Storyshots Signup pending 1`] = `
                         Back to Login
                     </div>
                 </button>
-                <button tabindex="-1" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
+                <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">

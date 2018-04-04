@@ -3762,7 +3762,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
                 <!---->
                 <div class="actionButtons">
-                    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+                    <button tabindex="-1" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center">
                             Change e-mail address
@@ -3822,7 +3822,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
                 <!---->
                 <div class="actionButtons">
-                    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+                    <button tabindex="-1" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center">
                             Change password

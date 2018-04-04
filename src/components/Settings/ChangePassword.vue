@@ -34,7 +34,8 @@
       <q-btn
         color="primary"
         @click="save"
-        loader
+        :disable="!hasNewPassword || !hasOldPassword"
+        :loading="isPending"
         :value="isPending"
       >
         {{ $t('BUTTON.CHANGE_PASSWORD') }}
@@ -50,6 +51,14 @@ import statusMixin from '@/mixins/statusMixin'
 export default {
   components: { QField, QInput, QBtn },
   mixins: [statusMixin],
+  computed: {
+    hasNewPassword () {
+      return !!this.newPassword
+    },
+    hasOldPassword () {
+      return !!this.oldPassword
+    },
+  },
   data () {
     return {
       oldPassword: '',

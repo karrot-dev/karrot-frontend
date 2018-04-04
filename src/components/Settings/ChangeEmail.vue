@@ -34,7 +34,8 @@
       <q-btn
         color="primary"
         @click="save"
-        loader
+        :disable="!hasEmailChanged || !hasPassword"
+        :loading="isPending"
         :value="isPending"
       >
         {{ $t('BUTTON.CHANGE_EMAIL') }}
@@ -51,6 +52,15 @@ import VerificationWarning from '@/components/Settings/VerificationWarning'
 export default {
   components: { QField, QInput, QBtn, VerificationWarning },
   mixins: [statusMixin],
+  computed: {
+    hasEmailChanged () {
+      const previousEmail = this.user.email
+      return this.newEmail && (previousEmail !== this.newEmail)
+    },
+    hasPassword () {
+      return !!this.password
+    },
+  },
   props: {
     user: { required: true, type: Object },
   },

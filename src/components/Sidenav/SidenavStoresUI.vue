@@ -20,7 +20,7 @@
         @click="toggleArchived"
       >
         <span class="fa-fw fa-stack">
-          <i class="fa fa-trash-o fa-stack-1x" />
+          <i class="fas fa-trash-alt fa-stack-1x" />
           <i
             v-if="showArchived"
             class="fa fa-check bottom-right fa-stack-1x text-positive"

@@ -183,7 +183,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-vcard"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-address-card"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Group description, visible for members</div>
@@ -1902,7 +1902,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item-separator-component"></div>
                     <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
-                            <i aria-hidden="true" class="q-icon fa fa-external-link"> </i>
+                            <i aria-hidden="true" class="q-icon fa fa-external-link-alt"> </i>
                             <small>Add more languages!</small>
                         </div>
                     </a>
@@ -1933,7 +1933,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                         Settings
                     </div>
                     <div class="q-item q-item-division relative-position">
-                        <i aria-hidden="true" class="q-icon on-left fa fa-sign-out fa-fw" style="font-size:1em;"> </i>
+                        <i aria-hidden="true" class="q-icon on-left fa fa-sign-out-alt fa-fw" style="font-size:1em;"> </i>
                         Logout
                     </div>
                 </div>
@@ -2433,7 +2433,7 @@ exports[`Storyshots Password Reset error 1`] = `
                 </div>
             </div>
             <div class="error">
-                <i class="fas fa-exclamation-triangle"></i>
+                <i class="fa fa-exclamation-triangle"></i>
                 some error
             </div>
             <div class="actions">
@@ -2692,7 +2692,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
                     <div appear="" duration="[object Object]" name="bounce">
                         <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
                             <div class="hoverShow">
-                                <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
+                                <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
                             </div> <span class="q-tooltip animate-popup"><div><span>Leave</span></div>
                     </span>
                     <div class="hoverHide">
@@ -2857,7 +2857,7 @@ exports[`Storyshots PickupList Default 1`] = `
                     <div appear="" duration="[object Object]" name="bounce">
                         <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
                             <div class="hoverShow">
-                                <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
+                                <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
                             </div> <span class="q-tooltip animate-popup"><div><span>Leave</span></div>
                     </span>
                     <div class="hoverHide">
@@ -2971,7 +2971,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
 <div class="edit-box">
     <form>
         <div class="q-field row no-wrap items-start q-field-responsive">
-            <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-repeat"> </i>
+            <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-redo"> </i>
             <div class="row col">
                 <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                     <div class="q-field-label-inner row items-center">Frequency</div>
@@ -3454,7 +3454,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
     <div appear="" duration="[object Object]" name="bounce">
         <a class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
             <div class="hoverShow">
-                <i class="fa fa-fw fa-times" style="font-size:27px;"></i>
+                <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
             </div> <span class="q-tooltip animate-popup"><div><span>Leave</span></div>
     </span>
     <div class="hoverHide">
@@ -3880,7 +3880,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                             <!---->
                             <!---->
                             <div class="q-item q-item-division relative-position q-item-link">
-                                <i aria-hidden="true" class="q-icon fa fa-pencil fa-fw on-left" style="font-size:1em;"> </i>
+                                <i aria-hidden="true" class="q-icon fa fa-pencil-alt fa-fw on-left" style="font-size:1em;"> </i>
                                 Edit group
                             </div>
                             <!---->
@@ -3893,7 +3893,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                                 Invite users to your group
                             </div>
                             <div class="q-item q-item-division relative-position">
-                                <i aria-hidden="true" class="q-icon fa fa-sign-out fa-fw on-left" style="font-size:1em;"> </i>
+                                <i aria-hidden="true" class="q-icon fa fa-sign-out-alt fa-fw on-left" style="font-size:1em;"> </i>
                                 Leave group...
                             </div>
                         </div>
@@ -3904,7 +3904,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
         <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-                <i class="fa fa-angle-down arrow upsideDown"></i>
+                <i class="fas fa-angle-down arrow upsideDown"></i>
             </div>
         </button>
     </div>
@@ -3938,7 +3938,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                     </div>
                     <div class="q-item q-item-division relative-position q-item-link">
                         <div class="q-item-side q-item-section text-center q-item-side-left">
-                            <i aria-hidden="true" class="q-icon fa fa-vcard"> </i>
+                            <i class="far fa-address-card"></i>
                         </div>
                         <div class="q-item-main q-item-section">
                             Description
@@ -3954,7 +3954,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                     </div>
                     <div class="q-item q-item-division relative-position q-item-link">
                         <div class="q-item-side q-item-section text-center q-item-side-left">
-                            <i aria-hidden="true" class="q-icon fa fa-clock-o"> </i>
+                            <i class="far fa-clock"></i>
                         </div>
                         <div class="q-item-main q-item-section">
                             History
@@ -3996,7 +3996,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-                <i class="fa fa-angle-down arrow upsideDown"></i>
+                <i class="fas fa-angle-down arrow upsideDown"></i>
             </div>
         </button>
     </div>
@@ -4061,7 +4061,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-                <i class="fa fa-angle-down arrow upsideDown"></i>
+                <i class="fas fa-angle-down arrow upsideDown"></i>
             </div>
         </button>
     </div>
@@ -4070,7 +4070,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
             <div class="q-list no-padding no-border q-list-highlight">
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4080,7 +4080,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4090,7 +4090,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4100,7 +4100,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4110,7 +4110,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -5011,7 +5011,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-handshake-o"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-handshake"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Status</div>
@@ -5029,7 +5029,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                         <div class="q-list no-border scroll">
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer q-select-highlight">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle-o q-item-icon text-grey"> </i>
+                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-grey"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
@@ -5168,7 +5168,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-calendar"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-calendar-alt"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
@@ -5247,7 +5247,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-handshake-o"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-handshake"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Status</div>
@@ -5265,7 +5265,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                         <div class="q-list no-border scroll">
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer q-select-highlight">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle-o q-item-icon text-grey"> </i>
+                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-grey"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
@@ -5404,7 +5404,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-calendar"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-calendar-alt"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
@@ -5457,7 +5457,7 @@ exports[`Storyshots Stores StoreList 1`] = `
 <div class="q-list no-padding no-border q-list-highlight">
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5467,7 +5467,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5477,7 +5477,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5487,7 +5487,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5497,7 +5497,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle-o text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">

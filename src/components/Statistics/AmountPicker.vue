@@ -44,7 +44,7 @@ import AmountViewer from './AmountViewer'
 import AmountBox from './AmountBox'
 
 export default {
-  props: { value: { default: 0, type: Number } },
+  props: { value: { default: null, type: Number } },
   components: { QInput, QSlider, AmountViewer, AmountBox },
   computed: {
     limitedValue: {
@@ -61,7 +61,7 @@ export default {
       },
       set (v) {
         let value = parseFloat(v, 10)
-        value = isNaN(value) ? 0 : Math.max(0, value)
+        value = isNaN(value) ? null : Math.max(0, value)
         this.$emit('input', value)
       },
     },

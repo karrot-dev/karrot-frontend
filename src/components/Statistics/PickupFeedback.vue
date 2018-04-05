@@ -109,7 +109,7 @@ export default {
       if (this.editFeedback) return this.editFeedback
       return {
         about: this.select ? this.select.id : undefined,
-        weight: 1,
+        weight: null,
         comment: '',
       }
     },

@@ -63,6 +63,7 @@
             :key="message.id"
             :message="message"
             @toggleReaction="$emit('toggleReaction', arguments[0])"
+            @updateMessage="$emit('updateMessage', arguments[0])"
           />
         </q-list>
         <div

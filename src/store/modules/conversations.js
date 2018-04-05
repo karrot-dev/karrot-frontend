@@ -104,7 +104,16 @@ export default {
   actions: {
     ...withMeta({
       async send ({ commit, state, dispatch }, { id, messageData }) {
+        console.log('send')
         const message = await messageAPI.create({
+          content: messageData,
+          conversation: id,
+        })
+        dispatch('receiveMessage', message)
+      },
+      async updateMessage ({ commit, state, dispatch }, { id, messageData }) {
+        console.log('update/updateMessage')
+        const message = await messageAPI.update({
           content: messageData,
           conversation: id,
         })

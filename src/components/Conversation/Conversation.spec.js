@@ -1,6 +1,7 @@
 import Conversation from './Conversation'
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
+import ConversationEdit from './ConversationEdit'
 
 import { messagesMock, currentUserMock } from '>/mockdata'
 

@@ -35,6 +35,10 @@
           :reacted="currentUserReactions"
           @toggle="toggleReaction"
         />
+        <ConversationEdit
+          class="edit-button reaction-box"
+          @click="updateMessage"
+        />
       </q-item-tile>
       <Markdown
         :source="message.content"
@@ -58,10 +62,11 @@ import { QItem, QItemSide, QItemMain, QItemTile, QIcon, QTooltip } from 'quasar'
 import DateAsWords from '@/components/General/DateAsWords'
 import Markdown from '@/components/Markdown'
 import ConversationAddReaction from './ConversationAddReaction'
+import ConversationEdit from './ConversationEdit'
 export default {
   name: 'ConversationMessage',
   components: {
-    ConversationReactions, ConversationAddReaction, ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
+    ConversationEdit, ConversationReactions, ConversationAddReaction, ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
   },
   props: {
     message: {
@@ -72,6 +77,10 @@ export default {
   methods: {
     toggleReaction (name) {
       this.$emit('toggleReaction', { name, messageId: this.message.id })
+    },
+    updateMessage () {
+      console.log('updateMessage - in conversationMessage')
+      this.$emit('updateMessage', this.message)
     },
   },
   computed: {

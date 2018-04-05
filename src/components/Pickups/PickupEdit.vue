@@ -124,7 +124,7 @@
 </template>
 
 <script>
-import { QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip } from 'quasar'
+import { QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip } from 'quasar'
 
 import { is24h } from '@/i18n'
 import editMixin from '@/mixins/editMixin'
@@ -135,7 +135,7 @@ export default {
   name: 'PickupEdit',
   mixins: [editMixin, statusMixin],
   components: {
-    QDatetime, QInlineDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip,
+    QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip,
   },
   computed: {
     is24h,

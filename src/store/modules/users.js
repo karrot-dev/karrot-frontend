@@ -3,6 +3,7 @@ import users from '@/services/api/users'
 import authUser from '@/services/api/authUser'
 import auth from '@/services/api/auth'
 import { indexById, createRouteError, createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
+import router from '@/router'
 
 function initialState () {
   return {
@@ -10,7 +11,7 @@ function initialState () {
     idList: [],
     activeUserId: null,
     resetPasswordSuccess: false,
-    resendVerificationSuccess: false,
+    resendVerificationCodeSuccess: false,
   }
 }
 
@@ -50,9 +51,9 @@ export default {
       return state.activeUserId && getters.get(state.activeUserId)
     },
     activeUserId: state => state.activeUserId,
-    ...metaStatuses(['signup', 'resetPassword', 'resendVerification']),
+    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
-    resendVerificationSuccess: state => state.resendVerificationSuccess,
+    resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
   },
   actions: {
     ...withMeta({
@@ -66,21 +67,34 @@ export default {
           await dispatch('groups/joinPlayground', null, { root: true })
         }
       },
-      async resetPassword ({ commit }, email) {
-        await auth.resetPassword(email)
-        commit('resetPasswordSuccess', true)
+      async requestResetPassword ({ commit }, email) {
+        await auth.requestResetPassword(email)
+        router.push({ name: 'requestPasswordResetSuccess' })
       },
-      async resendVerification ({ commit, state }) {
-        await auth.resendVerificationRequest()
-        commit('resendVerificationSuccess', true)
+      async resetPassword ({ commit, dispatch, getters }, data) {
+        await auth.resetPassword(data)
+        router.push({ name: 'login' })
+        dispatch('alerts/create', {
+          type: 'resetPasswordSuccess',
+        }, { root: true })
+      },
+      async resendVerificationCode ({ commit, state }) {
+        await auth.resendVerificationCode()
+        commit('resendVerificationCodeSuccess', true)
+      },
+      async requestDeleteAccount ({ dispatch }) {
+        await users.requestDeleteAccount()
+        dispatch('alerts/create', {
+          type: 'requestDeleteAccountSuccess',
+        }, { root: true })
+        dispatch('auth/logout', {}, { root: true })
       },
     }),
 
     async selectUser ({ commit, getters, dispatch }, { userId }) {
       if (!getters.get(userId).id) {
         try {
-          const user = await users.get(userId)
-          commit('update', user)
+          await dispatch('refresh', { userId })
         }
         catch (error) {
           const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
@@ -99,16 +113,22 @@ export default {
     clearSignup ({ commit, dispatch }) {
       dispatch('meta/clear', ['signup'])
     },
-    clearResendVerification ({ commit, dispatch }) {
-      dispatch('meta/clear', ['resendVerification'])
-      commit('resendVerificationSuccess', false)
+    clearResendVerificationCode ({ commit, dispatch }) {
+      dispatch('meta/clear', ['resendVerificationCode'])
+      commit('resendVerificationCodeSuccess', false)
     },
     clearResetPassword ({ commit, dispatch }) {
       dispatch('meta/clear', ['resetPassword'])
       commit('resetPasswordSuccess', false)
     },
-    refresh ({ dispatch }) {
-      dispatch('fetch')
+    async refresh ({ dispatch, commit }, { userId }) {
+      if (userId) {
+        const user = await users.get(userId)
+        commit('update', user)
+      }
+      else {
+        dispatch('fetch')
+      }
     },
   },
   mutations: {
@@ -125,11 +145,8 @@ export default {
         state.idList.push(user.id)
       }
     },
-    resetPasswordSuccess (state, status) {
-      Vue.set(state, 'resetPasswordSuccess', status)
-    },
-    resendVerificationSuccess (state, status) {
-      Vue.set(state, 'resendVerificationSuccess', status)
+    resendVerificationCodeSuccess (state, status) {
+      Vue.set(state, 'resendVerificationCodeSuccess', status)
     },
 
   },

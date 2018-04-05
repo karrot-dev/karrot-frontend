@@ -118,16 +118,11 @@ export default {
           Dialog.create({
             title: this.$t('AGREEMENT.DIALOGS.REPLACE.TITLE'),
             message: this.$t('AGREEMENT.DIALOGS.REPLACE.MESSAGE'),
-            buttons: [
-              this.$t('BUTTON.CANCEL'),
-              {
-                label: this.$t('AGREEMENT.DIALOGS.REPLACE.CONFIRM'),
-                handler: () => {
-                  this.$emit('replace', this.edit)
-                },
-              },
-            ],
+            cancel: this.$t('BUTTON.CANCEL'),
+            ok: this.$t('AGREEMENT.DIALOGS.REPLACE.CONFIRM'),
           })
+            .then(() => this.$emit('replace', this.edit))
+            .catch(() => {})
         }
       }
     },
@@ -135,16 +130,11 @@ export default {
       Dialog.create({
         title: this.$t('AGREEMENT.DIALOGS.REMOVE.TITLE'),
         message: this.$t('AGREEMENT.DIALOGS.REMOVE.MESSAGE'),
-        buttons: [
-          this.$t('BUTTON.CANCEL'),
-          {
-            label: this.$t('AGREEMENT.DIALOGS.REMOVE.CONFIRM'),
-            handler: () => {
-              this.destroy(event)
-            },
-          },
-        ],
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('AGREEMENT.DIALOGS.REMOVE.CONFIRM'),
       })
+        .then(() => this.destroy(event))
+        .catch(() => {})
     },
   },
   validations: {

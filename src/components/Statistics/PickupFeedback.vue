@@ -1,10 +1,14 @@
 <template>
   <div class="pickup-feedback-wrapper">
-    <q-card class="no-mobile-margin no-shadow grey-border">
+    <q-card
+      v-if="pickups.length > 0 || editFeedback"
+      class="no-mobile-margin no-shadow grey-border"
+    >
       <RandomArt
         :seed="seedId"
         style="color: white"
-        type="circles">
+        type="circles"
+      >
         <div class="row no-wrap image-and-text">
           <div class="image-and-text-left gt-sm">
             <img
@@ -40,9 +44,19 @@
         />
       </div>
     </q-card>
+    <KNotice v-else>
+      <template slot="icon">
+        <i class="fa fa-bed"/>
+      </template>
+      {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS') }}
+      <template slot="desc">
+        {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS_HINT') }}
+      </template>
+    </KNotice>
     <q-card
       class="no-shadow grey-border store-feedback"
-      v-if="select && feedbackForStore.length !== 0">
+      v-if="select && feedbackForStore.length !== 0"
+    >
       <RandomArt
         class="randomBanner"
         :seed="select.store.id"
@@ -60,15 +74,16 @@
 </template>
 
 <script>
-import { QCard, QField, QInput, QBtn, QSelect } from 'quasar'
+import { QCard, QCardMain, QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
 import FeedbackList from './FeedbackList'
 import cartImg from 'assets/people/cart.png'
 import RandomArt from '@/components/General/RandomArt'
 import FeedbackForm from './FeedbackForm'
+import KNotice from '@/components/General/KNotice'
 
 export default {
-  components: { RandomArt, QCard, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList },
+  components: { RandomArt, QCard, QCardMain, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList, KNotice },
   props: {
     pickups: { required: true, type: Array },
     editFeedback: { default: null, type: Object },

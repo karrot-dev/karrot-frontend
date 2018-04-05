@@ -1,6 +1,5 @@
 <template>
   <v-map
-    ref="map"
     :bounds="bounds"
     :center="center"
     :zoom="zoom"

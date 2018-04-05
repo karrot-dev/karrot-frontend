@@ -1,11 +1,11 @@
-import { createLocalVue, mount } from 'vue-test-utils'
-
 import KBreadcrumb from './KBreadcrumb'
 import MockRouterLink from '>/MockRouterLink'
+import { mountWithDefaults } from '>/helpers'
 
 describe('KBreadcrumb', () => {
+  beforeEach(() => jest.resetModules())
   it('renders', () => {
-    let wrapper = mount(KBreadcrumb, {
+    let wrapper = mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [],
       },
@@ -14,10 +14,7 @@ describe('KBreadcrumb', () => {
   })
 
   it('renders links if provided with a route', () => {
-    let localVue = createLocalVue()
-    localVue.component('router-link', MockRouterLink)
-    let wrapper = mount(KBreadcrumb, {
-      localVue,
+    let wrapper = mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [{ name: 'Some Name', route: { name: 'foo', params: { yay: 1 } } }, { name: 'Last Name' }],
       },
@@ -28,7 +25,7 @@ describe('KBreadcrumb', () => {
   })
 
   it('does not render a link for the last item', () => {
-    let wrapper = mount(KBreadcrumb, {
+    let wrapper = mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [{ name: 'Some Name', route: { name: 'foo', params: { yay: 1 } } }],
       },

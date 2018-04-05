@@ -1,8 +1,8 @@
 <template>
   <q-alert color="warning">
-    <h6>
+    <p>
       {{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}
-    </h6>
+    </p>
     <i18n
       v-if="!success"
       path="NOTIFICATIONS.CHECK_YOUR_MAILS"
@@ -39,8 +39,8 @@ export default {
   computed: {
     ...mapGetters({
       user: 'auth/user',
-      status: 'users/resendVerificationStatus',
-      success: 'users/resendVerificationSuccess',
+      status: 'users/resendVerificationCodeStatus',
+      success: 'users/resendVerificationCodeSuccess',
     }),
     hasAnyError () {
       return this.status.hasValidationErrors
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      resend: 'users/resendVerification',
+      resend: 'users/resendVerificationCode',
     }),
   },
 }
@@ -60,4 +60,5 @@ export default {
 <style scoped lang="stylus">
 .underline
   text-decoration underline
+  cursor pointer
 </style>

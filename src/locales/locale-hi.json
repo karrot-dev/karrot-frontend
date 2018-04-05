@@ -7,17 +7,30 @@
     "BETA_WARNING": "यह वेबसाइट सक्रिय विकास के अधीन है और सब कुछ परिवर्तन के अधीन है। हम आपके द्वारा दर्ज किए गए डेटा की सुरक्षा और गोपनीयता की गारंटी नहीं दे सकते (लेकिन हम अपनी पूरी कोशिश करें)।",
     "CONNECTION_INTERRUPTED": "त्रुटि: कनेक्शन बाधित!",
     "SERVER_ERROR": "सर्वर त्रुटि",
+    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
-    "EMAIL": "मेल",
+    "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": " पार्श्व चित्र \\ वर्णन",
     "PASSWORD": "पारण शब्द",
+    "CONFIRM_PASSWORD": "Confirm your password",
     "USERNAME": "नाम",
     "WHERE_FROM": "आप कहां से हैं (आवश्यक नहीं)",
     "PHOTO": "पार्श्व चित्र \\\\ वर्णन",
-    "SET_PHOTO": "अपनी प्रोफाइल पिक्चर सेट करो"
+    "SET_PHOTO": "अपनी प्रोफाइल पिक्चर सेट करो",
+    "ACCOUNT": "Account",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+    },
+    "DIALOGS": {
+      "REQUEST_DELETE_ACCOUNT": {
+        "TITLE": "Account deletion",
+        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "CONFIRM": "Confirm"
+      }
+    }
   },
   "BUTTON": {
     "CREATE": "सर्जन करना",
@@ -40,7 +53,8 @@
     "CHANGE_EMAIL": "ईमेल परिवर्तन",
     "AGREE": "मैं सहमत हूँ",
     "REMOVE": "हटाना \\  निकालना ",
-    "ARCHIVE": "पुरालेख"
+    "ARCHIVE": "पुरालेख",
+    "DELETE_ACCOUNT": "Delete account"
   },
   "VALIDATION": {
     "MINLENGTH": "कृपया {न्यूनतम} वर्णों से अधिक दर्ज करें।",
@@ -128,7 +142,9 @@
         "CONFIRM": "हां, संग्रह स्टोर"
       }
     },
-    "RESTORE": "बहाल"
+    "RESTORE": "बहाल",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "पिकअप को प्रबंधित करें",
@@ -143,8 +159,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "नाम",
     "DESCRIPTION": "आपके बारे में",
-    "OLD_PASSWORD": "पुराना पासवर्ड",
-    "PASSWORD": "अपना नया पासवर्ड दर्ज करें"
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "New password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(उपयोगकर्ता अनुपलब्ध या हटाया गया)"
@@ -194,6 +210,10 @@
     "TITLE": "ई - मेल सत्यापन",
     "SUCCESS": "आपका ई-मेल पता सफलतापूर्वक सत्यापित किया गया!"
   },
+  "DELETEACCOUNT": {
+    "TITLE": "Account deletion",
+    "SUCCESS": "Your account was successfully deleted!"
+  },
   "CREATEPICKUP": {
     "FREQUENCY": "आवृत्ति",
     "WEEKLY": "साप्ताहिक",
@@ -241,7 +261,9 @@
     "SAVED_FOOD": "कम से कम 1 किलोग्राम यहां बचाया गया था। धन्यवाद! | लोगों ने पहले से ही बचाया भोजन के {मात्रा} किग्रा के लिए प्रतिक्रिया दी! अच्छा काम करते रहो!",
     "GIVE_FEEDBACK": "प्रतिक्रिया दें",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
-    "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा"
+    "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "प्रतिक्रिया",
@@ -255,11 +277,21 @@
   },
   "PASSWORDRESET": {
     "TITLE": "पासवर्ड रीसेट",
-    "INTRO": "अपना मेल पता दर्ज करें और हम आपको एक नया पासवर्ड भेज देंगे (यदि आपका कोई खाता पंजीकृत है)",
-    "EMAIL": "मेल के पते",
+    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "E-mail address",
     "SUBMIT": "नया पासवर्ड प्राप्त करें",
     "LOGIN": "लॉगिन पृष्ठ पर वापस जाएं",
-    "SUCCESS": "अनुरोध सफलतापूर्वक भेज दिया गया था अपने मेल को देखो!"
+    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+  },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "Reset password",
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved."
+    },
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
+    }
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "अधिक भाषाओं को जोड़ें!",

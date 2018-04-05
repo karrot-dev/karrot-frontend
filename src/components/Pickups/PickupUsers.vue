@@ -22,7 +22,7 @@
       style="border-color: black"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
-      <q-spinner />
+      <q-spinner :size="size - 4" />
     </div>
 
     <transition

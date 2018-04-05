@@ -32,7 +32,7 @@ export default {
 
       async check ({ commit, dispatch }) {
         try {
-          commit('setUser', { user: await authUser.get() })
+          await dispatch('refresh')
           dispatch('afterLoggedIn')
         }
         catch (error) {
@@ -92,29 +92,38 @@ export default {
         router.push({ name: 'groupsGallery' })
       },
 
-      async changePassword ({ commit, state, dispatch }, data) {
-        await auth.changePassword(data)
-        dispatch('logout')
+      async changePassword ({ dispatch }, { oldPassword, newPassword, done }) {
+        await auth.changePassword({ oldPassword, newPassword })
+        done()
+        dispatch('alerts/create', {
+          type: 'changePasswordSuccess',
+        }, { root: true })
       },
 
-      async changeEmail ({ commit, dispatch }, email) {
-        const savedUser = await authUser.save({ email })
-        commit('setUser', { user: savedUser })
-        router.push({ name: 'user', params: { userId: savedUser.id } })
+      async changeEmail ({ dispatch, getters }, { newEmail, password, done }) {
+        await auth.changeEmail({ newEmail, password })
+        done()
+        dispatch('users/refresh', { userId: getters.userId }, { root: true })
+        dispatch('refresh')
       },
     }),
 
     ...withMeta({
-      async save ({ commit, state, dispatch }, data) {
-        const savedUser = await authUser.save(data)
-        commit('setUser', { user: savedUser })
-        dispatch('users/update', savedUser, { root: true })
+      async save ({ dispatch }, data) {
+        const savedUser = await dispatch('backgroundSave', data)
         router.push({ name: 'user', params: { userId: savedUser.id } })
       },
     }, {
       // ignore ID to have simple saveStatus
       findId: () => undefined,
     }),
+
+    async backgroundSave ({ commit, state, dispatch }, data) {
+      const savedUser = await authUser.save(data)
+      commit('setUser', { user: savedUser })
+      dispatch('users/update', savedUser, { root: true })
+      return savedUser
+    },
 
     setRedirectTo ({ commit }, redirectTo) {
       commit('setRedirectTo', { redirectTo })
@@ -141,11 +150,15 @@ export default {
       commit('setUser', { user })
     },
 
+    async refresh ({ commit }) {
+      commit('setUser', { user: await authUser.get() })
+    },
+
     clearSettingsStatus ({ commit, dispatch }) {
       dispatch('meta/clear', ['changeEmail'])
       dispatch('meta/clear', ['changePassword'])
       dispatch('meta/clear', ['save'])
-      dispatch('users/clearResendVerification', null, { root: true })
+      dispatch('users/clearResendVerificationCode', null, { root: true })
     },
   },
   mutations: {

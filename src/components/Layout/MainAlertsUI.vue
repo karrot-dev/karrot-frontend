@@ -3,9 +3,10 @@
     <k-alert
       v-for="alert in formattedAlerts"
       :key="alert.id"
-      :class="alertClasses"
+      :class="{ 'fixed-bottom': true, 'z-alert': true, 'generic-padding': true, }"
       :color="alert.color"
       :icon="alert.icon"
+      :position="alert.position"
       :dismissible="isDismissible(alert)"
       @dismiss="isDismissible(alert) && $emit('dismiss', alert.id)"
       :actions="alert.actions || []"
@@ -41,6 +42,22 @@ export default {
       }
     },
 
+    resetPasswordSuccess () {
+      return {
+        color: 'positive',
+        icon: 'fa-check-square',
+        message: 'PASSWORD.RESET.SUCCESS',
+      }
+    },
+
+    changePasswordSuccess () {
+      return {
+        color: 'positive',
+        icon: 'fa-check-square',
+        message: 'PASSWORD.CHANGE.SUCCESS',
+      }
+    },
+
     inviteAcceptError () {
       return {
         color: 'negative',
@@ -57,6 +74,14 @@ export default {
       }
     },
 
+    requestDeleteAccountSuccess () {
+      return {
+        color: 'positive',
+        icon: 'fa-check-square',
+        message: 'USERDATA.REQUEST_DELETE_ACCOUNT.SUCCESS',
+      }
+    },
+
     awaitingAgreement (agreement) {
       return {
         color: 'negative',
@@ -69,16 +94,11 @@ export default {
               Dialog.create({
                 title: agreement.title,
                 message: agreement.content,
-                buttons: [
-                  this.$t('BUTTON.CANCEL'),
-                  {
-                    label: this.$t('BUTTON.AGREE'),
-                    handler: () => {
-                      this.$emit('agree', agreement.id)
-                    },
-                  },
-                ],
+                cancel: this.$t('BUTTON.CANCEL'),
+                ok: this.$t('BUTTON.AGREE'),
               })
+                .then(() => this.$emit('agree', agreement.id))
+                .catch(() => {})
             },
           },
         ],
@@ -105,13 +125,6 @@ export default {
         if (e.desktopOnly && this.$q.platform.is.mobile) return false
         return true
       })
-    },
-    alertClasses () {
-      return this.$q.platform.is.mobile ? {
-        'fixed-top': true,
-        'z-alert': true,
-        'generic-padding': true,
-      } : {}
     },
   },
 }

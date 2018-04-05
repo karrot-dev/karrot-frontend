@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-card
-      @click="showPickups = !showPickups"
+      @click.native="showPickups = !showPickups"
       color="warning"
       class="generic-padding notice no-margin-bottom"
     >

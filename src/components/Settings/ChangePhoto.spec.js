@@ -9,6 +9,7 @@ import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>
 polyfillRequestAnimationFrame()
 
 describe('ChangePhoto', () => {
+  beforeEach(() => jest.resetModules())
   let wrapper
   let user
 

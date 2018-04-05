@@ -3,6 +3,7 @@ import axios from '@/services/axios'
 import groups from '@/services/api/groups'
 
 describe('services/api/groups', () => {
+  beforeEach(() => jest.resetModules())
   let mock
   beforeEach(() => {
     mock = new MockAdapter(axios)

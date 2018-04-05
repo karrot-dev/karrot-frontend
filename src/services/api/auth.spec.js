@@ -1,9 +1,8 @@
 import MockAdapter from 'axios-mock-adapter'
-import axios from '@/services/axios'
 
 describe('services/api/auth', () => {
   describe('in cordova', () => {
-    let mock, auth, lastRequest
+    let mock, auth, lastRequest, axios
 
     const token = 'sometoken'
     const email = 'foo@foo.com'
@@ -14,8 +13,11 @@ describe('services/api/auth', () => {
       return config
     }
 
-    beforeEach(() => axios.interceptors.request.use(requestInterceptor))
-    afterEach(() => axios.interceptors.request.eject(requestInterceptor))
+    beforeEach(() => {
+      jest.resetModules()
+      axios = require('@/services/axios').default
+      axios.interceptors.request.use(requestInterceptor)
+    })
 
     beforeEach(() => {
       lastRequest = null

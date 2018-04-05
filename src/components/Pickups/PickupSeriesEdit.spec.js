@@ -9,6 +9,7 @@ import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 polyfillRequestAnimationFrame()
 
 describe('PickupSeriesEdit', () => {
+  beforeEach(() => jest.resetModules())
   let wrapper
   let series
 

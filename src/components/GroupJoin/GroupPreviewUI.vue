@@ -1,32 +1,34 @@
 <template>
   <div v-if="group">
     <q-card class="shadow-6">
-      <q-card-title :class="group.isPlayground ? 'text-secondary' : ''">
-        <q-icon
-          slot="right"
-          v-if="group.isPlayground"
-          name="fa-child"
-          color="secondary"
-        />
-        {{ group.name }}
+      <q-card-title
+        :class="group.isPlayground ? 'text-secondary' : ''"
+      >
+        <span class="row group items-start">
+          {{ group.name }}
+          <q-icon
+            v-if="group.isPlayground"
+            name="fa-child"
+            color="secondary"
+          />
+        </span>
         <span slot="subtitle">
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
         </span>
-        <div
+        <q-btn
           v-if="showClose"
-          style="padding: .6em"
-          slot="right">
-          <q-btn
-            @click="$emit('close')"
-            class="preview-close-button"
-            flat
-          >
-            <q-icon name="fa-close" />
-            <q-tooltip>
-              {{ $t('BUTTON.CLOSE') }}
-            </q-tooltip>
-          </q-btn>
-        </div>
+          slot="right"
+          round
+          small
+          @click="$emit('close')"
+          color="primary"
+          class="preview-close-button"
+        >
+          <q-icon name="fa-close" />
+          <q-tooltip>
+            {{ $t('BUTTON.CLOSE') }}
+          </q-tooltip>
+        </q-btn>
       </q-card-title>
       <q-card-main>
         <Markdown

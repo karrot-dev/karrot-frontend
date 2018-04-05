@@ -1,6 +1,7 @@
 import { createStore } from '>/helpers'
 
 describe('history module', () => {
+  beforeEach(() => jest.resetModules())
   let store
 
   beforeEach(() => {

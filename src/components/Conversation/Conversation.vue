@@ -6,9 +6,8 @@
     <template v-if="hasLoaded">
       <q-infinite-scroll
         :handler="loadMore"
-        ref="infiniteScroll">
+      >
         <q-list
-          :highlight="false"
           class="bg-white desktop-margin"
         >
           <q-btn

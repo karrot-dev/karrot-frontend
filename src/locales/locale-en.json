@@ -7,17 +7,30 @@
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
     "SERVER_ERROR": "Server error",
+    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
-    "EMAIL": "Mail",
+    "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Profile",
     "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm your password",
     "USERNAME": "Name",
     "WHERE_FROM": "Where you are from (not required)",
     "PHOTO": "Profile photo",
-    "SET_PHOTO": "Set your profile photo..."
+    "SET_PHOTO": "Set your profile photo...",
+    "ACCOUNT": "Account",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+    },
+    "DIALOGS": {
+      "REQUEST_DELETE_ACCOUNT": {
+        "TITLE": "Account deletion",
+        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "CONFIRM": "Confirm"
+      }
+    }
   },
   "BUTTON": {
     "CREATE": "Create",
@@ -40,7 +53,8 @@
     "CHANGE_EMAIL": "Change e-mail address",
     "AGREE": "I agree",
     "REMOVE": "Remove",
-    "ARCHIVE": "Archive"
+    "ARCHIVE": "Archive",
+    "DELETE_ACCOUNT": "Delete account"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",
@@ -145,8 +159,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
     "DESCRIPTION": "About you",
-    "OLD_PASSWORD": "Old password",
-    "PASSWORD": "Enter your new password"
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "New password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
@@ -196,6 +210,10 @@
     "TITLE": "E-Mail verification",
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
+  "DELETEACCOUNT": {
+    "TITLE": "Account deletion",
+    "SUCCESS": "Your account was successfully deleted!"
+  },
   "CREATEPICKUP": {
     "FREQUENCY": "Frequency",
     "WEEKLY": "Weekly",
@@ -243,7 +261,9 @@
     "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "Give feedback",
     "NONE": "No feedback yet",
-    "NONE_HINT": "This page will be filled once more feedback is available"
+    "NONE_HINT": "This page will be filled once more feedback is available",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
@@ -257,11 +277,21 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",
-    "INTRO": "Enter your mail address and we will send you a new password (if you have an account registered).",
-    "EMAIL": "Mail address",
+    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "E-mail address",
     "SUBMIT": "Get new password",
     "LOGIN": "Back to login page",
-    "SUCCESS": "The request was successfully sent. Have a look at your mails!"
+    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+  },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "Reset password",
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved."
+    },
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
+    }
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Add more languages!",

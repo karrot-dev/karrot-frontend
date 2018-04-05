@@ -5,14 +5,14 @@
   >
     <GroupGalleryMap
       class="map-fixed"
-      :filtered-my-groups="filteredMyGroups"
-      :filtered-other-groups="filteredOtherGroups"
+      :filtered-my-groups="filteredMyGroupsOrPreview"
+      :filtered-other-groups="filteredOtherGroupsOrPreview"
       :expanded="expanded"
     />
     <GroupGalleryCardsLayout
       class="gallery-cards"
-      :filtered-my-groups="filteredMyGroups"
-      :filtered-other-groups="filteredOtherGroups"
+      :filtered-my-groups="filteredMyGroupsOrPreview"
+      :filtered-other-groups="filteredOtherGroupsOrPreview"
       :playground-group="playgroundGroup"
       :has-joined-groups="myGroups.length > 0"
       :group-for-preview="groupForPreview"
@@ -29,6 +29,8 @@
       <q-btn
         @click="expanded = !expanded"
         flat
+        round
+        small
         class="float-right overlay-toggle-button"
       >
         <i
@@ -97,15 +99,15 @@ export default {
   },
   computed: {
     filteredMyGroups () {
+      return this.searchInName(this.search, this.myGroups)
+    },
+    filteredMyGroupsOrPreview () {
       if (this.previewOpened) {
         return [this.groupForPreview].filter(g => g.isMember)
       }
-      return this.searchInName(this.search, this.myGroups)
+      return this.filteredMyGroups
     },
     filteredOtherGroups () {
-      if (this.previewOpened) {
-        return [this.groupForPreview].filter(g => !g.isMember)
-      }
       let filteredGroups = this.searchInName(this.search, this.otherGroups)
       if (!this.showInactive) {
         filteredGroups = filteredGroups.filter(g => !g.isInactive)
@@ -113,6 +115,23 @@ export default {
       const hasSearchTerm = this.search !== ''
       const hidePlaygroundByDefault = group => !hasSearchTerm ? !group.isPlayground : true
       return filteredGroups.filter(hidePlaygroundByDefault)
+    },
+    filteredOtherGroupsOrPreview () {
+      if (this.previewOpened) {
+        return [this.groupForPreview].filter(g => !g.isMember)
+      }
+      return this.filteredOtherGroups
+    },
+    oneFilterResult () {
+      if ((this.filteredMyGroups.length + this.filteredOtherGroups.length) === 1) {
+        return this.filteredMyGroups.length > 0 ? this.filteredMyGroups[0] : this.filteredOtherGroups[0]
+      }
+      return null
+    },
+  },
+  watch: {
+    search () {
+      this.showPreview(this.oneFilterResult)
     },
   },
 }
@@ -153,7 +172,6 @@ body.mobile
     min-height 60vh
 
 .overlay-toggle-button
-  margin: 20px
   i
     transition transform .5s
 .slightly-rotated

@@ -1,11 +1,11 @@
 <template>
   <q-popover
     fit
-    ref="popover"
   >
     <q-list
       item-separator
       link
+      v-close-overlay
     >
       <q-item :to="{name: 'storeEdit', params: { storeId }}">
         <q-icon

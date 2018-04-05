@@ -20,6 +20,7 @@ const defaultProps = {
 }
 
 describe('GroupMap', () => {
+  beforeEach(() => jest.resetModules())
   it('renders users and stores', () => {
     let wrapper = mountWithDefaults(GroupMap, {
       propsData: defaultProps,

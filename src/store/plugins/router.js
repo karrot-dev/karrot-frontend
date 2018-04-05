@@ -59,7 +59,7 @@ export default store => {
   })
 
   router.afterEach((to) => {
-    store.dispatch('currentGroup/markUserActive')
+    store.dispatch('currentGroup/markUserActive').catch(() => {})
   })
 
   store.watch(getBreadcrumbNames, breadcrumbs => {

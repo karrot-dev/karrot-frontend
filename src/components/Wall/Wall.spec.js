@@ -21,6 +21,7 @@ const defaultProps = {
 polyfillRequestAnimationFrame()
 
 describe('Wall', () => {
+  beforeEach(() => jest.resetModules())
   it('renders', () => {
     let wrapper = mountWithDefaults(Wall, {
       propsData: defaultProps,

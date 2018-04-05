@@ -23,8 +23,9 @@ const store = createStore({
   },
   users: {
     getters: {
-      resendVerificationStatus: () => statusMocks.default(),
-      resendVerificationSuccess: () => false,
+      resendVerificationCodeStatus: () => statusMocks.default(),
+      requestDeleteAccountStatus: () => statusMocks.default(),
+      resendVerificationCodeSuccess: () => false,
     },
     actions: {
       resendVerification: action('resend'),

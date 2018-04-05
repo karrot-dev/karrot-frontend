@@ -7,6 +7,7 @@
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
     "SERVER_ERROR": "Błąd serwera",
+    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "SEARCH_NOT_FOUND": "Nie znaleziono"
   },
   "USERDATA": {
@@ -14,10 +15,22 @@
     "MOBILE_NUMBER": "Numer telefonu",
     "PROFILE_TITLE": "Konto",
     "PASSWORD": "Hasło",
+    "CONFIRM_PASSWORD": "Confirm your password",
     "USERNAME": "Imię",
     "WHERE_FROM": "Skąd jesteś (nie wymagane)",
     "PHOTO": "Zdjęcie profilowe",
-    "SET_PHOTO": "Ustaw zdjęcie profilowe..."
+    "SET_PHOTO": "Ustaw zdjęcie profilowe...",
+    "ACCOUNT": "Account",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+    },
+    "DIALOGS": {
+      "REQUEST_DELETE_ACCOUNT": {
+        "TITLE": "Account deletion",
+        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "CONFIRM": "Confirm"
+      }
+    }
   },
   "BUTTON": {
     "CREATE": "Utwórz",
@@ -40,7 +53,8 @@
     "CHANGE_EMAIL": "Zmień adres e-mail",
     "AGREE": "Zgadzam się",
     "REMOVE": "Usuń",
-    "ARCHIVE": "Archiwizuj"
+    "ARCHIVE": "Archiwizuj",
+    "DELETE_ACCOUNT": "Delete account"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -128,7 +142,9 @@
         "CONFIRM": "Tak, przenieś punkt odbioru do archiwum"
       }
     },
-    "RESTORE": "Przywróć"
+    "RESTORE": "Przywróć",
+    "SHOW_ARCHIVED": "Show archived stores",
+    "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
@@ -143,8 +159,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Imię",
     "DESCRIPTION": "O Tobie",
-    "OLD_PASSWORD": "Stare hasło",
-    "PASSWORD": "Wprowadź nowe hasło"
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "New password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Użytkownik jest niedostępny lub konto usunięto)"
@@ -194,6 +210,10 @@
     "TITLE": "Potwierdzenie adresu e-mail",
     "SUCCESS": "Twój adres e-mail został pomyślnie zweryfikowany!"
   },
+  "DELETEACCOUNT": {
+    "TITLE": "Account deletion",
+    "SUCCESS": "Your account was successfully deleted!"
+  },
   "CREATEPICKUP": {
     "FREQUENCY": "Częstotliwość",
     "WEEKLY": "Co tydzień",
@@ -241,7 +261,9 @@
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
-    "NONE_HINT": "Tutaj pojawią się komentarze"
+    "NONE_HINT": "Tutaj pojawią się komentarze",
+    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Komentarz",
@@ -255,11 +277,21 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Resetuj hasło",
-    "INTRO": "Wprowadź adres e-mail i wkrótce wyślemy Ci nowe hasło (jeśli jesteś zarejestrowanym użytkownikiem).",
-    "EMAIL": "E-mail",
+    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
+    "EMAIL": "E-mail address",
     "SUBMIT": "Odbierz nowe hasło",
     "LOGIN": "Wróć do strony logowania",
-    "SUCCESS": "Przyjęliśmy Twoją prośbę o zmianę hasła. Sprawdź swoją pocztę!"
+    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+  },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "Reset password",
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved."
+    },
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
+    }
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Dodaj więcej języków!",

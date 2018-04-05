@@ -7,6 +7,7 @@ describe('Conversation message reactions', () => {
   let wrapper
 
   beforeEach(() => {
+    jest.resetModules()
     wrapper = mountWithDefaults(MessageReactions, {
       propsData: {
         messageId: 5,

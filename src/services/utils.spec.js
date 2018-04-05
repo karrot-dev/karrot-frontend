@@ -1,6 +1,7 @@
 import { underscorize, objectDiff } from './utils'
 
 describe('utils', () => {
+  beforeEach(() => jest.resetModules())
   it('underscorizes', () => {
     expect(underscorize('displayName')).toEqual('display_name')
   })

@@ -7,7 +7,6 @@ import i18nPlugin from './plugins/i18n'
 import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
-import presenceReporter from './plugins/presenceReporter'
 
 // Alphabetical
 import about from './modules/about'
@@ -17,6 +16,7 @@ import auth from './modules/auth'
 import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
+import deleteAccount from './modules/deleteAccount'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 import feedback from './modules/feedback'
 import groups from './modules/groups'
@@ -50,6 +50,7 @@ export default new Vuex.Store({
     breadcrumbs,
     conversations,
     currentGroup,
+    deleteAccount,
     fcm,
     feedback,
     groups,
@@ -77,7 +78,6 @@ export default new Vuex.Store({
     loadingProgressReporter,
     dependentState,
     fcmPlugin,
-    presenceReporter,
   ],
   strict: debug,
 })

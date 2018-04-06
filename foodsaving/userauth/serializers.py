@@ -93,7 +93,7 @@ class AuthUserSerializer(serializers.ModelSerializer):
 
 
 class VerificationCodeSerializer(serializers.Serializer):
-    code = serializers.CharField(max_length=50, min_length=20)
+    code = serializers.CharField()
 
     def validate_code(self, code):
         try:

@@ -69,7 +69,7 @@ class AuthUserView(generics.GenericAPIView):
 
     def delete(self, request):
         """
-        Delete the user account using a previously requested verification token.
+        Delete the user account using a previously requested verification code.
         """
         serializer = self.get_serializer(data=request.query_params)
         serializer.context['type'] = VerificationCode.ACCOUNT_DELETE
@@ -93,7 +93,7 @@ class RequestDeleteUserView(views.APIView):
 
 
 class VerifyMailView(generics.GenericAPIView):
-    # No need to add the MailIsNotVerified permission because
+    # No need to add the MailIsNotVerified permission because e-mail
     # verification codes only exist for unverified users anyway.
     permission_classes = (AllowAny,)
     serializer_class = VerificationCodeSerializer

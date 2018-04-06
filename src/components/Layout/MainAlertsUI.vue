@@ -3,7 +3,7 @@
     <k-alert
       v-for="alert in formattedAlerts"
       :key="alert.id"
-      :class="{ 'fixed-bottom': true, 'z-alert': true, 'generic-padding': true, }"
+      :class="alertClasses"
       :color="alert.color"
       :icon="alert.icon"
       :position="alert.position"
@@ -113,6 +113,13 @@ export default {
       }
     },
 
+    alertClasses () {
+      return this.$q.platform.is.mobile ? {
+        'fixed-top': true,
+        'z-alert': true,
+        'generic-padding': true,
+      } : {}
+    },
   },
   computed: {
     formattedAlerts () {

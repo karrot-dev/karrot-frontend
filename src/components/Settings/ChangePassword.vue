@@ -34,7 +34,7 @@
       <q-btn
         color="primary"
         @click="save"
-        :disable="!hasNewPassword || !hasOldPassword"
+        :disable="!hasNewPassword || !hasOldPassword || !hasPasswordChanged"
         :loading="isPending"
         :value="isPending"
       >
@@ -57,6 +57,9 @@ export default {
     },
     hasOldPassword () {
       return !!this.oldPassword
+    },
+    hasPasswordChanged () {
+      return !(this.oldPassword === this.newPassword)
     },
   },
   data () {

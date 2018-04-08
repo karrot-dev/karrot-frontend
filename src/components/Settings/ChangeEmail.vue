@@ -34,7 +34,7 @@
       <q-btn
         color="primary"
         @click="save"
-        :disable="!hasEmailChanged || !hasPassword"
+        :disable="!hasEmailChanged || !hasPassword "
         :loading="isPending"
         :value="isPending"
       >

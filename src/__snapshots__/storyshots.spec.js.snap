@@ -412,7 +412,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-popup"><div>
-        Close
+        Hide
       </div></span></div>
                 </button>
             </div>
@@ -692,7 +692,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         <i class="fa fa-2x fa-angle-up"></i> <span class="q-tooltip animate-popup"><div>
-        Close
+        Hide
       </div></span></div>
                 </button>
             </div>

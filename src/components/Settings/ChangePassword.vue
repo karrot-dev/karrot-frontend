@@ -59,7 +59,7 @@ export default {
       return !!this.oldPassword
     },
     hasPasswordChanged () {
-      return !(this.oldPassword === this.newPassword)
+      return this.oldPassword !== this.newPassword
     },
   },
   data () {

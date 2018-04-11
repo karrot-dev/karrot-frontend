@@ -16,7 +16,6 @@
       <div class="column col-md-4">
         <div>
           <a href="https://github.com/yunity/karrot-frontend">
-            <!-- <i class="fa fa-fw fa-github on-left" /> -->
             <i class="fab fa-fw fa-github on-left" />
             {{ $t('GLOBAL.GITHUB_NOTE') }}
           </a>

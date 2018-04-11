@@ -5516,7 +5516,7 @@ exports[`Storyshots VerifyMail error 1`] = `
     <!---->
     <!---->
     <p>
-        <i class="fas fa-exclamation-triangle" style="height:25px;width:25px;"></i>
+        <i class="fas fa-exclamation-triangle"></i>
         this error is returned by the server
     </p>
     <div to="/">

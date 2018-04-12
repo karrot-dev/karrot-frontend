@@ -60,7 +60,7 @@
     <q-card>
       <k-alert
         color="warning"
-        icon="fa-trash"
+        icon="fa-trash-alt"
         :actions="[{ label: $t('STOREEDIT.RESTORE'), handler: restore }]"
       >
         {{ $t('STOREDETAIL.ARCHIVED') }}

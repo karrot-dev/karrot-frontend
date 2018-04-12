@@ -5,7 +5,7 @@
   >
     <form @submit.prevent="maybeSave">
       <q-field
-        icon="fa-repeat"
+        icon="fa-redo"
         :label="$t('CREATEPICKUP.FREQUENCY')"
       >
         <q-option-group

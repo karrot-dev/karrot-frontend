@@ -75,7 +75,7 @@
           v-if="hasNonFieldError"
           class="error"
         >
-          <i class="fa fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle"/>
           {{ firstNonFieldError }}
         </div>
 

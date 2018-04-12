@@ -34,7 +34,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-pencil fa-fw on-left"
+          name="fa-pencil-alt fa-fw on-left"
         />
         {{ $t('GROUP.EDIT') }}
       </q-item>
@@ -45,7 +45,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-file-text-o fa-fw on-left"
+          name="fa-file-text-alt fa-fw on-left"
         />
         {{ $t('GROUP.MANAGE_AGREEMENT') }}
       </q-item>
@@ -75,7 +75,7 @@
       <q-item @click.native="leave">
         <q-icon
           size="1em"
-          name="fa-sign-out fa-fw on-left"
+          name="fa-sign-out-alt fa-fw on-left"
         />
         {{ $t('GROUP.LEAVE') }}
       </q-item>

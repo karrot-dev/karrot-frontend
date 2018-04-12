@@ -5,13 +5,13 @@
       color="warning"
       class="generic-padding notice no-margin-bottom"
     >
-      <i class="fa fa-exclamation-triangle on-left"/>
+      <i class="fas fa-exclamation-triangle on-left"/>
       {{ $tc('PICKUPLIST.AVAILABLE', pickups.length, { count: pickups.length }) }}
       <div
         class="card-arrow"
         :class="{ upsideDown: showPickups }"
       >
-        <i class="fa fa-angle-down"/>
+        <i class="fas fa-angle-down"/>
       </div>
     </q-card>
     <transition name="slide-toggle">

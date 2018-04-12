@@ -16,7 +16,7 @@
 
     <KNotice v-if="empty" >
       <template slot="icon">
-        <i class="fa fa-balance-scale"/>
+        <i class="fas fa-balance-scale"/>
       </template>
       {{ $t('FEEDBACKLIST.NONE') }}
       <template slot="desc">

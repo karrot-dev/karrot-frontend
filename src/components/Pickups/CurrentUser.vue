@@ -7,7 +7,7 @@
     <div class="hoverShow">
       <i
         :style="{fontSize: (size - 9) + 'px'}"
-        class="fa fa-fw fa-times"
+        class="fas fa-fw fa-times"
       />
     </div>
     <q-tooltip>

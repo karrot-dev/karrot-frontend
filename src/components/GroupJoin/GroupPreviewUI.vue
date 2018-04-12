@@ -24,7 +24,7 @@
           color="primary"
           class="preview-close-button"
         >
-          <q-icon name="fa-close" />
+          <q-icon name="fa-times" />
           <q-tooltip>
             {{ $t('BUTTON.CLOSE') }}
           </q-tooltip>

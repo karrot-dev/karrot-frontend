@@ -2,7 +2,7 @@ const statusOptions = {
   created: {
     label: 'STORESTATUS.CREATED',
     color: 'grey',
-    icon: 'fa-circle-o',
+    icon: 'fa-circle',
     selectable: true,
     sort: 3,
   },
@@ -30,7 +30,7 @@ const statusOptions = {
   archived: {
     label: 'STORESTATUS.ARCHIVED',
     color: 'grey',
-    icon: 'fa-trash',
+    icon: 'fa-trash-alt',
     selectable: false,
     sort: 5,
   },

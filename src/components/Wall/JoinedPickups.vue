@@ -5,13 +5,13 @@
       color="secondary"
       class="generic-padding notice no-margin-bottom"
     >
-      <i class="fa fa-shopping-basket on-left"/>
+      <i class="fas fa-shopping-basket on-left"/>
       {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length }) }}
       <div
         class="card-arrow"
         :class="{ upsideDown: showPickups }"
       >
-        <i class="fa fa-angle-down"/>
+        <i class="fas fa-angle-down"/>
       </div>
     </q-card>
     <transition name="slide-toggle">

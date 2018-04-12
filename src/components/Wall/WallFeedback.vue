@@ -3,7 +3,7 @@
   <div>
     <template slot="icon">
       <div class="icon">
-        <i class="fa fa-shopping-cart"/>
+        <i class="fas fa-shopping-cart"/>
       </div>
     </template>
     <template slot="header">

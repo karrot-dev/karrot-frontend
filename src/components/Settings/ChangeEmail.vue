@@ -36,7 +36,6 @@
         @click="save"
         :disable="!hasEmailChanged || !hasPassword"
         :loading="isPending"
-        :value="isPending"
       >
         {{ $t('BUTTON.CHANGE_EMAIL') }}
       </q-btn>

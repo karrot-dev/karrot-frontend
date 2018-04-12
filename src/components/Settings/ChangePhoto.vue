@@ -42,8 +42,7 @@
       <q-btn
         color="primary"
         @click="save"
-        loader
-        :value="isPending"
+        :loading="isPending"
         :disabled = "saveDisabled"
         v-t="'BUTTON.SAVE_CHANGES'"
       />

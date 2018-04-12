@@ -86,8 +86,7 @@
               type="submit"
               color="primary"
               :disable="!canSave"
-              loader
-              :value="isPending"
+              :loading="isPending"
             >
               {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
             </q-btn>

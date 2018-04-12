@@ -330,7 +330,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                 <!---->
                 <div class="actionButtons">
                     <!---->
-                    <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+                    <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center">
                             Create
@@ -1145,7 +1145,7 @@ exports[`Storyshots GroupPreviewUI error 1`] = `
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
-          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-if-error text-negative"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-error col">wrong!</div></div></div></div></div> <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
+          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-if-error text-negative"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-error col">wrong!</div></div></div></div></div> <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
             Join
           </div></button></form></span>
             <!---->
@@ -1224,7 +1224,7 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
-          </div></div></div></div> <!----> <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
+          </div></div></div></div> <!----> <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
             Join
           </div></button></form></span>
             <!---->
@@ -1257,7 +1257,7 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
-          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="0" type="submit" loader="" value="true" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
+          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="0" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
             Join
           </div></button></form></span>
             <!---->
@@ -2006,7 +2006,7 @@ exports[`Storyshots Login empty 1`] = `
                     Sign up!
                 </div>
             </button>
-            <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+            <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                     Login
@@ -2084,7 +2084,7 @@ exports[`Storyshots Login error 1`] = `
                     Sign up!
                 </div>
             </button>
-            <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+            <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                     Login
@@ -2159,10 +2159,12 @@ exports[`Storyshots Login pending 1`] = `
                     Sign up!
                 </div>
             </button>
-            <button tabindex="0" type="submit" loader="" value="true" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+            <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    Login
+                    <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle>
+                    </svg>
                 </div>
             </button>
         </div>
@@ -2389,7 +2391,7 @@ exports[`Storyshots Password Reset empty 1`] = `
                         Back to login page
                     </div>
                 </button>
-                <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+                <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Get new password
@@ -2443,7 +2445,7 @@ exports[`Storyshots Password Reset error 1`] = `
                         Back to login page
                     </div>
                 </button>
-                <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+                <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Get new password
@@ -2494,10 +2496,12 @@ exports[`Storyshots Password Reset pending 1`] = `
                         Back to login page
                     </div>
                 </button>
-                <button tabindex="0" type="submit" loader="" value="true" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+                <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
-                        Get new password
+                        <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle>
+                        </svg>
                     </div>
                 </button>
             </div>
@@ -2545,7 +2549,7 @@ exports[`Storyshots Password Reset success 1`] = `
                         Back to login page
                     </div>
                 </button>
-                <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+                <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Get new password
@@ -3293,7 +3297,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
         </div>
         <!---->
         <div class="actionButtons">
-            <button tabindex="-1" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+            <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                     Save changes
@@ -3523,7 +3527,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
                 <!---->
                 <div class="actionButtons">
-                    <button tabindex="0" loader="" disabled="disabled" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+                    <button tabindex="0" disabled="disabled" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center"></div>
                     </button>
@@ -3680,7 +3684,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     </div>
                     <!---->
                     <div class="actionButtons">
-                        <button tabindex="-1" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+                        <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
                             <div class="q-focus-helper"></div>
                             <div class="q-btn-inner row col items-center justify-center">
                                 Save changes
@@ -3828,7 +3832,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             </div>
             <div class="q-card-actions q-card-actions-horiz row justify-start">
                 <div>
-                    <button tabindex="0" loader="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable text-negative">
+                    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable text-negative">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center">
                             <i aria-hidden="true" class="q-icon fa fa-trash"> </i>
@@ -4224,7 +4228,7 @@ exports[`Storyshots Signup empty 1`] = `
                         Back to Login
                     </div>
                 </button>
-                <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+                <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Join
@@ -4337,7 +4341,7 @@ exports[`Storyshots Signup error 1`] = `
                         Back to Login
                     </div>
                 </button>
-                <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+                <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Join
@@ -4447,10 +4451,12 @@ exports[`Storyshots Signup pending 1`] = `
                         Back to Login
                     </div>
                 </button>
-                <button tabindex="0" type="submit" loader="" value="true" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle q-focusable q-hoverable">
+                <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable submit shadow-4 q-btn-rectangle disabled">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
-                        Join
+                        <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle>
+                        </svg>
                     </div>
                 </button>
             </div>
@@ -4829,7 +4835,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <!---->
                 <div class="row justify-end generic-margin group">
                     <!---->
-                    <button tabindex="0" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+                    <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center"></div>
                     </button>
@@ -5191,7 +5197,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                 </div>
                 <!---->
                 <div class="actionButtons">
-                    <button tabindex="-1" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+                    <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center">
                             Save changes
@@ -5427,7 +5433,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                 </div>
                 <!---->
                 <div class="actionButtons">
-                    <button tabindex="-1" type="submit" loader="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+                    <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center">
                             Save changes

@@ -47,10 +47,11 @@
 <script>
 import { QField, QInput, QBtn } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
+import notifyMixin from '@/mixins/notifyMixin'
 
 export default {
   components: { QField, QInput, QBtn },
-  mixins: [statusMixin],
+  mixins: [statusMixin, notifyMixin],
   computed: {
     hasNewPassword () {
       return !!this.newPassword
@@ -66,13 +67,17 @@ export default {
     }
   },
   methods: {
+    onSuccess () {
+      this.reset()
+      this.notify('PASSWORD.CHANGE.SUCCESS')
+    },
     reset () {
       this.oldPassword = ''
       this.newPassword = ''
     },
     save () {
       const { oldPassword, newPassword } = this
-      this.$emit('save', { oldPassword, newPassword, done: this.reset })
+      this.$emit('save', { oldPassword, newPassword, done: this.onSuccess })
     },
   },
 }

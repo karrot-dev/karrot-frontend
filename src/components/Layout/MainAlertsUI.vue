@@ -34,6 +34,7 @@ export default {
       return id && !dismissible
     },
 
+    // TODO: Remove (replace by notifyMixin)
     inviteAcceptSuccess () {
       return {
         color: 'positive',
@@ -42,6 +43,7 @@ export default {
       }
     },
 
+    // TODO: Remove (replace by notifyMixin)
     resetPasswordSuccess () {
       return {
         color: 'positive',
@@ -50,6 +52,7 @@ export default {
       }
     },
 
+    // TODO: Remove (replace by notifyMixin)
     changePasswordSuccess () {
       return {
         color: 'positive',
@@ -58,6 +61,7 @@ export default {
       }
     },
 
+    // TODO: Remove (replace by notifyMixin)
     inviteAcceptError () {
       return {
         color: 'negative',
@@ -66,6 +70,7 @@ export default {
       }
     },
 
+    // TODO: Remove (replace by notifyMixin)
     groupLeaveSuccess () {
       return {
         color: 'positive',
@@ -74,6 +79,7 @@ export default {
       }
     },
 
+    // TODO: Remove (replace by notifyMixin)
     requestDeleteAccountSuccess () {
       return {
         color: 'positive',
@@ -116,7 +122,7 @@ export default {
     alertClasses () {
       return this.$q.platform.is.mobile ? {
         'fixed-top': true,
-        'z-alert': true,
+        'z-alert': true, // TODO: z-alert doesn't exist anymore
         'generic-padding': true,
       } : {}
     },

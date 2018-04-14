@@ -6,10 +6,6 @@ export default {
     return convert((await axios.post('/api/messages/', data)).data)
   },
 
-  async update (data) {
-    return convert((await axios.post('/api/messages/', data)).data)
-  },
-
   async list (conversationId) {
     const response = (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data
     return {

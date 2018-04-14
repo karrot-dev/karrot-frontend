@@ -14,35 +14,35 @@ export default {
   state: initialState(),
   getters: {
     all: (state, getters, rootState, rootGetters) => {
-      // Transient alerts created via actions
+      // Transient banners created via actions
 
-      const alerts = state.idList.map(i => state.entries[i])
+      const banners = state.idList.map(i => state.entries[i])
 
-      // Derived state alerts
+      // Derived state banners
 
       const currentGroup = rootGetters['currentGroup/value']
       const isGroupPage = rootGetters['route/isGroupPage']
       if (isGroupPage && currentGroup && currentGroup.awaitingAgreement) {
-        alerts.push({
+        banners.push({
           type: 'awaitingAgreement',
           context: currentGroup.activeAgreement,
           dismissible: true,
         })
       }
       if (isGroupPage && currentGroup && currentGroup.isPlayground) {
-        alerts.push({
+        banners.push({
           type: 'playgroundGroupInfo',
           dismissible: false,
           desktopOnly: true,
         })
       }
 
-      return alerts
+      return banners
     },
   },
   actions: {
-    create ({ commit }, alert) {
-      return commit('create', alert)
+    create ({ commit }, banner) {
+      return commit('create', banner)
     },
     dismiss ({ commit }, id) {
       commit('dismiss', id)
@@ -52,11 +52,11 @@ export default {
     },
   },
   mutations: {
-    create (state, alert) {
-      alert.id = counter++
-      Vue.set(state.entries, alert.id, alert)
-      state.idList.push(alert.id)
-      return alert.id
+    create (state, banner) {
+      banner.id = counter++
+      Vue.set(state.entries, banner.id, banner)
+      state.idList.push(banner.id)
+      return banner.id
     },
 
     dismiss (state, id) {

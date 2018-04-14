@@ -57,11 +57,11 @@ export default {
           await invitations.accept(token)
           // Current group has changed, refresh user data
           await dispatch('auth/check', { root: true })
-          dispatch('alerts/create', { type: 'inviteAcceptSuccess' }, { root: true })
+          dispatch('banners/create', { type: 'inviteAcceptSuccess' }, { root: true })
           router.push('/')
         }
         catch (error) {
-          dispatch('alerts/create', { type: 'inviteAcceptError' }, { root: true })
+          dispatch('banners/create', { type: 'inviteAcceptError' }, { root: true })
           router.push({ name: 'groupsGallery' })
           throw error
         }

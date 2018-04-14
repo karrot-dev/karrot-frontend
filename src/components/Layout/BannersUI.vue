@@ -1,29 +1,29 @@
 <template>
   <div>
-    <k-alert
-      v-for="alert in formattedAlerts"
-      :key="alert.id"
-      :class="alertClasses"
-      :color="alert.color"
-      :icon="alert.icon"
-      :position="alert.position"
-      :dismissible="isDismissible(alert)"
-      @dismiss="isDismissible(alert) && $emit('dismiss', alert.id)"
-      :actions="alert.actions || []"
+    <k-banner
+      v-for="banner in formattedBanners"
+      :key="banner.id"
+      :class="bannerClasses"
+      :color="banner.color"
+      :icon="banner.icon"
+      :position="banner.position"
+      :dismissible="isDismissible(banner)"
+      @dismiss="isDismissible(banner) && $emit('dismiss', banner.id)"
+      :actions="banner.actions || []"
     >
-      {{ $t(alert.message, alert.context) }}
-    </k-alert>
+      {{ $t(banner.message, banner.context) }}
+    </k-banner>
   </div>
 </template>
 
 <script>
 import { Dialog } from 'quasar'
-import KAlert from '@/components/Layout/KAlert'
+import KBanner from '@/components/Layout/KBanner'
 
 export default {
-  components: { KAlert },
+  components: { KBanner },
   props: {
-    alerts: {
+    banners: {
       type: Array,
       required: true,
     },
@@ -119,7 +119,7 @@ export default {
       }
     },
 
-    alertClasses () {
+    bannerClasses () {
       return this.$q.platform.is.mobile ? {
         'fixed-top': true,
         'z-alert': true, // TODO: z-alert doesn't exist anymore
@@ -128,15 +128,14 @@ export default {
     },
   },
   computed: {
-    formattedAlerts () {
-      return this.alerts.map(e => {
+    formattedBanners () {
+      return this.banners.map(e => {
         return {
           ...this[e.type](e.context),
           ...e,
         }
       }).filter(e => {
-        if (e.desktopOnly && this.$q.platform.is.mobile) return false
-        return true
+        return !e.desktopOnly || !this.$q.platform.is.mobile
       })
     },
   },

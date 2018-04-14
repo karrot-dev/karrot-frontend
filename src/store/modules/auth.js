@@ -95,7 +95,7 @@ export default {
       async changePassword ({ dispatch }, { oldPassword, newPassword, done }) {
         await auth.changePassword({ oldPassword, newPassword })
         done()
-        dispatch('alerts/create', {
+        dispatch('banners/create', {
           type: 'changePasswordSuccess',
         }, { root: true })
       },

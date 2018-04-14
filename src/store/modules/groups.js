@@ -81,7 +81,7 @@ export default {
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
         await groups.leave(groupId)
         commit('leave', { groupId, userId: rootGetters['auth/userId'] })
-        dispatch('alerts/create', {
+        dispatch('banners/create', {
           type: 'groupLeaveSuccess',
           context: { groupName: getters.get(groupId).name },
         }, { root: true })

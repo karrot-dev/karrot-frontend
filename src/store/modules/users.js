@@ -74,7 +74,7 @@ export default {
       async resetPassword ({ commit, dispatch, getters }, data) {
         await auth.resetPassword(data)
         router.push({ name: 'login' })
-        dispatch('alerts/create', {
+        dispatch('banners/create', {
           type: 'resetPasswordSuccess',
         }, { root: true })
       },
@@ -84,7 +84,7 @@ export default {
       },
       async requestDeleteAccount ({ dispatch }) {
         await users.requestDeleteAccount()
-        dispatch('alerts/create', {
+        dispatch('banners/create', {
           type: 'requestDeleteAccountSuccess',
         }, { root: true })
         dispatch('auth/logout', {}, { root: true })

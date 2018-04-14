@@ -41,7 +41,6 @@
     "axios": "^0.18.0",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-runtime": "^6.25.0",
-    "browser-detect": "^0.2.26",
     "clone-deep": "^3.0.1",
     "date-fns": "^1.29.0",
     "deep-equal": "^1.0.1",
@@ -54,8 +53,6 @@
     "markdown-it": "^8.4.0",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^2.0.0",
-    "os": "^0.1.1",
-    "process": "^0.11.10",
     "quasar-extras": "0.0.8",
     "quasar-framework": "^0.15.8",
     "raven-js": "^3.20.1",
@@ -63,7 +60,6 @@
     "twemoji": "^2.5.0",
     "typeface-cabin-sketch": "^0.0.54",
     "vue": "~2.5.13",
-    "vue-browserupdate": "^1.2.0",
     "vue-croppa": "^1.2.0",
     "vue-i18n": "^7.4.1",
     "vue-router": "^3.0.1",
@@ -74,7 +70,6 @@
     "vuex-persistedstate": "^2.0.0",
     "vuex-router-sync": "^5.0.0",
     "webpack-bundle-analyzer": "^2.9.2",
-    "x-browser-update": "^1.0.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.11",

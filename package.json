@@ -69,7 +69,7 @@
     "vuex-connect": "^2.0.1",
     "vuex-persistedstate": "^2.0.0",
     "vuex-router-sync": "^5.0.0",
-    "webpack-bundle-analyzer": "^2.9.2",
+    "webpack-bundle-analyzer": "^2.9.2"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.11",

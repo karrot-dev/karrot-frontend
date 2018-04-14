@@ -5,7 +5,6 @@
     <LoadingProgress />
     <router-view />
     <BackToTopBtn />
-    <VueBrowserUpdate />
   </div>
 </template>
 
@@ -15,12 +14,10 @@
  */
 import LoadingProgress from '@/components/Layout/LoadingProgress'
 import BackToTopBtn from '@/components/BackToTopBtn'
-import VueBrowserUpdate from 'vue-browserupdate'
 export default {
   components: {
     LoadingProgress,
     BackToTopBtn,
-    VueBrowserUpdate,
   },
 }
 </script>

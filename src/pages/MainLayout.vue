@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div v-if="detectBrowser"/>
     <template v-if="routeError.hasError">
       <RouteError>
         <p
@@ -76,12 +77,13 @@ import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
 import RouteError from '@/components/RouteError'
-import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
+import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QModal, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
+import browser from 'browser-detect'
 
 export default {
   components: {
-    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError,
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QModal, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError,
   },
   data () {
     return {
@@ -111,6 +113,11 @@ export default {
     },
     defaultShowSidenavWidth () {
       return 992
+    },
+    detectBrowser () {
+      const result = browser()
+      console.log(result)
+      return true
     },
   },
 }

@@ -1,5 +1,10 @@
 <template>
-  <div>
+  <div v-if="browserDetect">
+    <p>You are using an unsupported browser. Please <a
+      href="https://browser-update.org/update.html"
+      class="outdated">update or switch your browser</a> to enjoy all features of karrot.</p>
+  </div>
+  <div v-else>
     <template v-if="routeError.hasError">
       <RouteError>
         <p
@@ -64,7 +69,6 @@
         <q-window-resize-observable @resize="onResize" />
       </q-layout>
     </div>
-    <div v-if="detectBrowser"/>
   </div>
 </template>
 
@@ -114,13 +118,13 @@ export default {
     defaultShowSidenavWidth () {
       return 992
     },
-    detectBrowser () {
+    browserDetect () {
       const result = browser()
       if (result.name === 'safari' && result.versionNumber < 9.1) {
-        alert('You\'re using a version of Safari that Karrot doesn\'t support. Please upgrade to Safari 9.1 or later to continue.')
+        return true
       }
       else if (result.name === 'ie' && result.versionNumber < 11) {
-        alert('You\'re using a version of Internet Explorer that Karrot doesn\'t support. Please upgrade to Internet Explorer 11 or later to continue.')
+        return true
       }
       return false
     },
@@ -147,6 +151,9 @@ body.desktop .mainContent
     margin-bottom 4.5em
     margin-left auto
     margin-right auto
+.outdated
+  color #0000EE
+  text-decoration underline
 .background
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px

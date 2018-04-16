@@ -1,14 +1,13 @@
 <script>
 import { connect } from 'vuex-connect'
-import MainAlertsUI from './MainAlertsUI'
+import BannersUI from './BannersUI'
 
 export default connect({
   actionsToEvents: {
-    dismiss: 'alerts/dismiss',
     agree: 'agreements/agree',
   },
   gettersToProps: {
-    alerts: 'alerts/all',
+    banners: 'banners/all',
   },
-})('MainAlerts', MainAlertsUI)
+})('Banners', BannersUI)
 </script>

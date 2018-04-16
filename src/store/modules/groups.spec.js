@@ -69,7 +69,7 @@ describe('groups', () => {
     },
   }
 
-  const alerts = {
+  const banners = {
     actions: {
       create: jest.fn(),
     },
@@ -117,7 +117,7 @@ describe('groups', () => {
         groups: require('./groups').default,
         auth,
         agreements,
-        alerts,
+        banners,
         currentGroup,
       })
     })

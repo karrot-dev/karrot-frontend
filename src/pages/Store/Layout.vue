@@ -58,13 +58,13 @@
   </div>
   <div v-else>
     <q-card>
-      <k-alert
+      <k-banner
         color="warning"
         icon="fa-trash-alt"
         :actions="[{ label: $t('STOREEDIT.RESTORE'), handler: restore }]"
       >
         {{ $t('STOREDETAIL.ARCHIVED') }}
-      </k-alert>
+      </k-banner>
     </q-card>
   </div>
 </template>
@@ -76,11 +76,11 @@ import Markdown from '@/components/Markdown'
 import StoreOptions from '@/components/Sidenav/StoreOptions'
 
 import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon, QTooltip } from 'quasar'
-import KAlert from '@/components/Layout/KAlert'
+import KBanner from '@/components/Layout/KBanner'
 import RandomArt from '@/components/General/RandomArt'
 
 export default {
-  components: { RandomArt, QCard, QTabs, QRouteTab, QScrollArea, KAlert, QBtn, QIcon, QTooltip, StoreOptions, Markdown },
+  components: { RandomArt, QCard, QTabs, QRouteTab, QScrollArea, KBanner, QBtn, QIcon, QTooltip, StoreOptions, Markdown },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

@@ -1,6 +1,6 @@
 # Notifications
 
-*This page is about notifications displayed within the app. If you are intereseted in push notifications, you may want to read [this](https://docs.karrot.world/mobile.html) instead.*
+*This page is about notifications displayed within the app. If you are interested in push notifications, you may want to read [this](https://docs.karrot.world/mobile.html) instead.*
 
 We distinguish between banners and toasts.
 
@@ -16,12 +16,12 @@ newBanner (context) {
   return {
     color: 'some_color',
     icon: 'some_icon',
-    message: 'YOUR.MESSAGE',
+    message: 'SOME.MESSAGE',
     actions: [
       {
          label: this.$t('SOME.ACTION'),
          handler: () => {
-           ...
+           doSomething()
          },
       },
     ],

@@ -2,13 +2,11 @@
   <div>
     <k-banner
       v-for="banner in formattedBanners"
-      :key="banner.id"
+      :key="banner.type"
       :class="bannerClasses"
       :color="banner.color"
       :icon="banner.icon"
       :position="banner.position"
-      :dismissible="isDismissible(banner)"
-      @dismiss="isDismissible(banner) && $emit('dismiss', banner.id)"
       :actions="banner.actions || []"
     >
       {{ $t(banner.message, banner.context) }}
@@ -29,11 +27,6 @@ export default {
     },
   },
   methods: {
-
-    isDismissible ({ id, dismissible }) {
-      return id && !dismissible
-    },
-
     awaitingAgreement (agreement) {
       return {
         color: 'negative',
@@ -75,13 +68,13 @@ export default {
   },
   computed: {
     formattedBanners () {
-      return this.banners.map(e => {
+      return this.banners.map(banner => {
         return {
-          ...this[e.type](e.context),
-          ...e,
+          ...this[banner.type](banner.context),
+          ...banner,
         }
-      }).filter(e => {
-        return !e.desktopOnly || !this.$q.platform.is.mobile
+      }).filter(banner => {
+        return !banner.desktopOnly || !this.$q.platform.is.mobile
       })
     },
   },

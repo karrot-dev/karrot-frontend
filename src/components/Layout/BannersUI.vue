@@ -3,7 +3,6 @@
     <k-banner
       v-for="banner in formattedBanners"
       :key="banner.type"
-      :class="bannerClasses"
       :color="banner.color"
       :icon="banner.icon"
       :position="banner.position"
@@ -56,14 +55,6 @@ export default {
         icon: 'fa-child',
         message: 'GROUP.PLAYGROUND_INFO',
       }
-    },
-
-    bannerClasses () {
-      return this.$q.platform.is.mobile ? {
-        'fixed-top': true,
-        'z-alert': true, // TODO: z-alert doesn't exist anymore
-        'generic-padding': true,
-      } : {}
     },
   },
   computed: {

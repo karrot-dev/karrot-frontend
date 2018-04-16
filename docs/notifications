@@ -41,16 +41,21 @@ if (newBannerShouldBeShown) {
 ```
 
 Note that `type` has to equal the name of the method created in the first step, and `someContext` will be passed to it as a parameter.
+The flag `newBannerShouldBeShown` controls when the banner should be displayed.
 
 ## Toasts
-These are notifications that are shown only for a very short period of time or that require immediate interaction. This applies to all other notifications we have implemented so far, which are basically just sucess or error notifications, e.g., inviteAcceptError and groupLeaveSuccess.
+Toasts are notifications that are shown only for a very short period of time or that require immediate interaction. Typical examples are simple sucess or error notifications.
 
-Implementation proposal:
+A toast is displayed at the bottom of the screen. If it is not closed manually (by clicking the default close button), it disappears automatically after a couple of seconds.
 
-Banners
-There is no need to change the implementation for them, we just keep showing them fixed at the top of the screen, right below the navigation bar. See 288fc32
+To show a toast, simply trigger the `toasts/show` action:
 
-Toasts
-Quasar has a nice plugin for toasts, they call it Notify. Basically, it wraps the QAlert component, adds some smooth animations to it, takes care of queuing and provides a very simple interface. I implemented a notifyMixin and a demo usage in 79caee9.
-In contrast to a banner a toast dismisses itself automatically, either after a configurable timeout or after clicking a button on it. This is very convienient because it thus doesn't need a vuex store. At the same time, it's the only drawback in my opinion. This is because the toast has to be triggered using a callback (done()) instead of dismissing an action. It seems to me that there is no other reasonable way to use quasar's notify plugin. But in my opinion it would be okay. Remember we had already used a done() callback anyway to clear the password fields after password change.
-Please let me know what you think about it.
+```
+dispatch('toasts/show', {
+  message: 'SOME.MESSAGE',
+  messageParams: { param: value },
+  config: { type: 'someType' },
+}, { root: true })
+```
+
+Both `messageParams`and `config` are optional.

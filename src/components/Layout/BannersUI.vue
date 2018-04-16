@@ -34,51 +34,6 @@ export default {
       return id && !dismissible
     },
 
-    // TODO: Remove (replace by notifyMixin)
-    inviteAcceptSuccess () {
-      return {
-        color: 'positive',
-        icon: 'fa-user-plus',
-        message: 'GROUP.INVITATION_ACCEPT_SUCCESS',
-      }
-    },
-
-    // TODO: Remove (replace by notifyMixin)
-    resetPasswordSuccess () {
-      return {
-        color: 'positive',
-        icon: 'fa-check-square',
-        message: 'PASSWORD.RESET.SUCCESS',
-      }
-    },
-
-    // TODO: Remove (replace by notifyMixin)
-    inviteAcceptError () {
-      return {
-        color: 'negative',
-        icon: 'fa-user-plus',
-        message: 'GROUP.INVITATION_ACCEPT_ERROR',
-      }
-    },
-
-    // TODO: Remove (replace by notifyMixin)
-    groupLeaveSuccess () {
-      return {
-        color: 'positive',
-        icon: 'fa-sign-out-alt fa-fw',
-        message: 'GROUP.LEAVE_CONFIRMATION',
-      }
-    },
-
-    // TODO: Remove (replace by notifyMixin)
-    requestDeleteAccountSuccess () {
-      return {
-        color: 'positive',
-        icon: 'fa-check-square',
-        message: 'USERDATA.REQUEST_DELETE_ACCOUNT.SUCCESS',
-      }
-    },
-
     awaitingAgreement (agreement) {
       return {
         color: 'negative',

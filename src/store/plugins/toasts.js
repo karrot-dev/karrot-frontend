@@ -4,7 +4,7 @@ import i18n from '@/i18n'
 export default store => {
   store.subscribeAction(({ type, payload }, state) => {
     if (type === 'toasts/show') {
-      const { message, config } = payload
+      const { message, messageParams, config } = payload
       const defaultConfig = {
         type: 'positive',
         actions: [
@@ -18,7 +18,7 @@ export default store => {
       Notify.create({
         ...defaultConfig,
         ...config,
-        message: i18n.t(message),
+        message: i18n.t(message, messageParams),
       })
     }
   })

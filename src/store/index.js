@@ -7,6 +7,7 @@ import i18nPlugin from './plugins/i18n'
 import router from './plugins/router'
 import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
+import toastsPlugin from './plugins/toasts'
 
 // Alphabetical
 import about from './modules/about'
@@ -33,6 +34,7 @@ import search from './modules/search'
 import sidenavBoxes from './modules/sidenavBoxes'
 import stores from './modules/stores'
 import timezones from './modules/timezones'
+import toasts from './modules/toasts'
 import users from './modules/users'
 import verifymail from './modules/verifymail'
 
@@ -67,6 +69,7 @@ export default new Vuex.Store({
     sidenavBoxes,
     stores,
     timezones,
+    toasts,
     users,
     verifymail,
   },
@@ -78,6 +81,7 @@ export default new Vuex.Store({
     loadingProgressReporter,
     dependentState,
     fcmPlugin,
+    toastsPlugin,
   ],
   strict: debug,
 })

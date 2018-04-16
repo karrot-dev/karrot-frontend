@@ -53,15 +53,6 @@ export default {
     },
 
     // TODO: Remove (replace by notifyMixin)
-    changePasswordSuccess () {
-      return {
-        color: 'positive',
-        icon: 'fa-check-square',
-        message: 'PASSWORD.CHANGE.SUCCESS',
-      }
-    },
-
-    // TODO: Remove (replace by notifyMixin)
     inviteAcceptError () {
       return {
         color: 'negative',

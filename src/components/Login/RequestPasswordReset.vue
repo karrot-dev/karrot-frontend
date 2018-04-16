@@ -27,7 +27,7 @@
           v-if="hasAnyError"
           class="error"
         >
-          <i class="fa fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle"/>
           {{ anyFirstError }}
         </div>
 

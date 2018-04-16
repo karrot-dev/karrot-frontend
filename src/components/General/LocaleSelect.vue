@@ -2,7 +2,7 @@
   <q-btn flat>
     <q-icon
       class="globe"
-      name="fa-globe"
+      name="fas fa-globe"
     />
     {{ current }}
     <q-popover>
@@ -34,7 +34,7 @@
           rel="nofollow noopener noreferrer"
         >
           <q-item-main>
-            <q-icon name="fa-external-link-alt" />
+            <q-icon name="fas fa-external-link-alt" />
             <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
           </q-item-main>
         </q-item>

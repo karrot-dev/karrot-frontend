@@ -6,7 +6,7 @@
       :key="entry.id"
     />
     <div v-if="empty">
-      <q-icon name="fa-bug" />
+      <q-icon name="fas fa-bug" />
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
     <div

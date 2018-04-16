@@ -38,7 +38,7 @@
       @click.native="$emit('logout'), $emit('toggleSidenav')"
     >
       <q-item-side>
-        <i class="fa fa-sign-out-alt fa-fw"/>
+        <i class="fas fa-sign-out-alt fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.LOGOUT')" />
     </q-item>

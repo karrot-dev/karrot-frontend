@@ -60,7 +60,7 @@
     </KNotice>
     <KNotice v-else-if="hasNoPickups" >
       <template slot="icon">
-        <i class="fa fa-bed"/>
+        <i class="fas fa-bed"/>
       </template>
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">

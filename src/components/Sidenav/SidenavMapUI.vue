@@ -4,7 +4,7 @@
     :expanded="expanded"
   >
     <template slot="icon">
-      <q-icon name="fa-fw fa-map" />
+      <q-icon name="fas fa-fw fa-map" />
     </template>
     <div
       slot="tools"
@@ -15,7 +15,7 @@
         small
         @click="$router.push({name: 'map', params: {groupId: currentGroup.id}})"
       >
-        <i class="fa fa-arrows-alt fa-stack-1x" />
+        <i class="fas fa-arrows-alt fa-stack-1x" />
         <q-tooltip>
           {{ $t('GROUPMAP.FULL_SCREEN') }}
         </q-tooltip>
@@ -26,14 +26,14 @@
         @click="$emit('toggleStores')"
       >
         <span class="fa-fw fa-stack">
-          <i class="fa fa-shopping-cart fa-stack-1x" />
+          <i class="fas fa-shopping-cart fa-stack-1x" />
           <i
             v-if="showStores"
-            class="fa fa-check fa-bot-right fa-stack-1x"
+            class="fas fa-check fa-bot-right fa-stack-1x"
           />
           <i
             v-else
-            class="fa fa-times fa-bot-right fa-stack-1x"
+            class="fas fa-times fa-bot-right fa-stack-1x"
           />
         </span>
         <q-tooltip>
@@ -47,14 +47,14 @@
         @click="$emit('toggleUsers')"
       >
         <span class="fa-fw fa-stack">
-          <i class="fa fa-user fa-stack-1x" />
+          <i class="fas fa-user fa-stack-1x" />
           <i
             v-if="showUsers"
-            class="fa fa-check fa-bot-right fa-stack-1x"
+            class="fas fa-check fa-bot-right fa-stack-1x"
           />
           <i
             v-else
-            class="fa fa-times fa-bot-right fa-stack-1x"
+            class="fas fa-times fa-bot-right fa-stack-1x"
           />
         </span>
         <q-tooltip>

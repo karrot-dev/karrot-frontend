@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>
-      <i class="fa fa-trash" />
+      <i class="fas fa-trash-alt" />
       {{ $t('DELETEACCOUNT.TITLE') }}
     </h4>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <q-btn flat>
     <span style="opacity: .5">
-      <i class="fa fa-smile-o" /> +
+      <i class="far fa-smile" /> +
     </span>
     <q-popover
       anchor="top left"

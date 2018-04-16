@@ -20,7 +20,7 @@
               class="edit-button"
               :to="{ name: 'pickupFeedback', params: { feedbackId: feedback.id }}"
             >
-              <q-icon name="fa-pencil">
+              <q-icon name="fas fa-pencil">
                 <q-tooltip v-t="'BUTTON.EDIT'" />
               </q-icon>
             </router-link>

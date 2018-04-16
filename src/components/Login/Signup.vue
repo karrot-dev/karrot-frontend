@@ -2,7 +2,7 @@
   <div>
     <q-card class="bg-tertiary margin-bottom">
       <q-card-title>
-        <q-icon name="fa-exclamation-triangle" />
+        <q-icon name="fas fa-exclamation-triangle" />
         {{ $t('GLOBAL.WARNING') }}
       </q-card-title>
       <q-card-main>

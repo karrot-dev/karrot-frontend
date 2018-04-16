@@ -8,7 +8,7 @@
           {{ group.name }}
           <q-icon
             v-if="group.isPlayground"
-            name="fa-child"
+            name="fas fa-child"
             color="secondary"
           />
         </span>
@@ -24,7 +24,7 @@
           color="primary"
           class="preview-close-button"
         >
-          <q-icon name="fa-times" />
+          <q-icon name="fas fa-times" />
           <q-tooltip>
             {{ $t('BUTTON.CLOSE') }}
           </q-tooltip>
@@ -88,7 +88,7 @@
           @click="$emit('visit', { groupId: group.id })"
           class="q-btn-flat"
         >
-          <q-icon name="fa-home" />
+          <q-icon name="fas fa-home" />
           <q-tooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
           </q-tooltip>

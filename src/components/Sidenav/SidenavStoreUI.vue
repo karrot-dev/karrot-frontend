@@ -4,9 +4,9 @@
     :expanded="expanded"
   >
     <template slot="icon">
-      <q-icon name="fa-fw fa-shopping-cart" />
+      <q-icon name="fas fa-fw fa-shopping-cart" />
     </template>
-    <dev
+    <div
       slot="tools"
       class="tools"
     >
@@ -14,11 +14,11 @@
         flat
         small
       >
-        <q-icon name="fa-fw fa-ellipsis-v" />
+        <q-icon name="fas fa-fw fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
-    </dev>
+    </div>
 
     <q-list
       highlight
@@ -27,7 +27,7 @@
     >
       <q-item :to="{name: 'storePickups', params: { storeId }}">
         <q-item-side class="text-center">
-          <q-icon name="fa-shopping-basket" />
+          <q-icon name="fas fa-shopping-basket" />
         </q-item-side>
         <q-item-main>
           {{ $t("GROUP.PICKUPS") }}
@@ -35,7 +35,7 @@
       </q-item>
       <q-item :to="{name: 'storeFeedback', params: { storeId }}">
         <q-item-side class="text-center">
-          <q-icon name="fa-balance-scale" />
+          <q-icon name="fas fa-balance-scale" />
         </q-item-side>
         <q-item-main>
           {{ $t("PICKUP_FEEDBACK.TITLE") }}

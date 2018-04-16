@@ -22,7 +22,7 @@
       v-if="hasNonFieldError"
       class="text-negative"
     >
-      <i class="fa fa-exclamation-triangle"/>
+      <i class="fas fa-exclamation-triangle"/>
       {{ firstNonFieldError }}
     </div>
 
@@ -38,9 +38,8 @@
       <q-btn
         type="submit"
         color="secondary"
-        loader
+        :loading="isPending"
         :disable="!canSave"
-        :value="isPending"
         v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'"
       />
     </div>

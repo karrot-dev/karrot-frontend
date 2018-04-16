@@ -17,7 +17,7 @@
       </q-field>
 
       <q-field
-        icon="fa-file-text-o"
+        icon="fa-file-text-alt"
         :label="$t('AGREEMENT.CONTENT')"
         :helper="$t('AGREEMENT.CONTENT_HELPER')">
         <q-input

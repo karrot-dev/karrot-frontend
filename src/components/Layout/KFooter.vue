@@ -16,25 +16,25 @@
       <div class="column col-md-4">
         <div>
           <a href="https://github.com/yunity/karrot-frontend">
-            <i class="fa fa-fw fa-github on-left" />
+            <i class="fab fa-fw fa-github on-left" />
             {{ $t('GLOBAL.GITHUB_NOTE') }}
           </a>
         </div>
         <div>
           <a href="https://foodsaving.world">
-            <i class="fa fa-fw fa-globe on-left" />
+            <i class="fas fa-fw fa-globe on-left" />
             {{ $t('GLOBAL.FSWW_NOTE') }}
           </a>
         </div>
         <div>
           <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-            <i class="fa fa-fw fa-facebook on-left" />
+            <i class="fab fa-fw fa-facebook on-left" />
             {{ $t('GLOBAL.FACEBOOK_NOTE') }}
           </a>
         </div>
         <div>
           <a href="mail:karrot@foodsaving.world">
-            <i class="fa fa-fw fa-envelope on-left"/>
+            <i class="fas fa-fw fa-envelope on-left"/>
             karrot@foodsaving.world
           </a>
         </div>
@@ -54,7 +54,7 @@
         </div>
         <div>
           made with
-          <i class="fa fa-heart" />
+          <i class="fas fa-heart" />
           by
           <a href="https://foodsaving.world">
             foodsaving worldwide

@@ -15,7 +15,7 @@
         @click="$emit('toggle')"
       >
         <i
-          class="fa fa-angle-down arrow"
+          class="fas fa-angle-down arrow"
           :class="{ upsideDown: expanded }"
         />
       </q-btn>

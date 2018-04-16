@@ -24,7 +24,7 @@
           color="primary"
           class="preview-close-button"
         >
-          <q-icon name="fa-close" />
+          <q-icon name="fa-times" />
           <q-tooltip>
             {{ $t('BUTTON.CLOSE') }}
           </q-tooltip>
@@ -76,7 +76,7 @@
               type="submit"
               color="secondary"
               class="float-right generic-margin"
-              loader
+              :loading="isPending"
               :value="group.joinStatus.pending"
             >
               {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}

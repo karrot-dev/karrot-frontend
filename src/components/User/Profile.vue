@@ -46,7 +46,7 @@
       />
       <q-list :dense="$q.platform.is.mobile">
         <q-item style="height: 40px">
-          <q-item-side icon="fa-fw fa-envelope-o" />
+          <q-item-side icon="fa-fw fa-envelope" />
           <q-item-main style="overflow: hidden; text-overflow: ellipsis">
             <a :href='"mailto:" + user.email'>{{ user.email }}</a>
           </q-item-main>
@@ -55,7 +55,7 @@
             right
           >
             <q-btn
-              icon="fa-pencil"
+              icon="fa-pencil-alt"
               small
               round
               color="secondary"
@@ -72,7 +72,7 @@
         </q-item>
 
         <q-item v-if="user.address">
-          <q-item-side icon="fa-fw fa-map-marker" />
+          <q-item-side icon="fa-fw fa-map-marker-alt" />
           <q-item-main>
             {{ user.address }}
           </q-item-main>

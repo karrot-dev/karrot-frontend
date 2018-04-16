@@ -62,8 +62,7 @@
           type="submit"
           color="primary"
           :disable="!hasChanged"
-          loader
-          :value="isPending"
+          :loading="isPending"
         >
           {{ $t('BUTTON.SAVE_CHANGES') }}
         </q-btn>

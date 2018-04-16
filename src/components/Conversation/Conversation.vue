@@ -18,7 +18,10 @@
             color="negative"
             @click="$router.push({ name: 'settings', hash: '#change-email' })"
           >
-            <q-icon name="fa-exclamation-triangle" />
+            <q-icon
+              name="fa-exclamation-triangle"
+              style="font-size:22px; height:25px; width:25px;"
+            />
             <q-tooltip v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'" />
           </q-btn>
           <q-btn
@@ -31,11 +34,11 @@
           >
             <q-icon
               v-if="data.emailNotifications === true"
-              name="fa-bell-o"
+              name="fa-bell"
             />
             <q-icon
               v-else
-              name="fa-bell-slash-o"
+              name="fa-bell-slash"
             />
             <q-tooltip v-t="data.emailNotifications ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'" />
           </q-btn>

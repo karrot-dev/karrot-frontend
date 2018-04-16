@@ -75,7 +75,7 @@
           v-if="hasNonFieldError"
           class="error"
         >
-          <i class="fa fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle"/>
           {{ firstNonFieldError }}
         </div>
 
@@ -90,8 +90,7 @@
           <q-btn
             type="submit"
             class="submit shadow-4"
-            loader
-            :value="isPending"
+            :loading="isPending"
           >
             {{ $t('SIGNUP.OK') }}
           </q-btn>

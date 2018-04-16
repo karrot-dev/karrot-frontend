@@ -20,7 +20,7 @@
             />
           </q-field>
           <q-field
-            icon="fa-handshake-o"
+            icon="fa-handshake"
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-label="firstError('status')"
@@ -60,7 +60,7 @@
           </q-field>
 
           <q-field
-            icon="fa-calendar"
+            icon="fa-calendar-alt"
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
             :error-label="firstError('weeksInAdvance')"
@@ -86,8 +86,7 @@
               type="submit"
               color="primary"
               :disable="!canSave"
-              loader
-              :value="isPending"
+              :loading="isPending"
             >
               {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
             </q-btn>

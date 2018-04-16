@@ -2,7 +2,9 @@
   <div v-if="browserDetect">
     <p>You are using an unsupported browser. Please <a
       href="https://browser-update.org/update.html"
-      class="outdated">update or switch your browser</a> to enjoy all features of karrot.</p>
+      class="outdated"
+      target="_blank"
+      rel="noopener">update or switch your browser</a> to enjoy all features of karrot.</p>
   </div>
   <div v-else>
     <template v-if="routeError.hasError">

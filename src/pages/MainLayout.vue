@@ -1,10 +1,11 @@
 <template>
   <div v-if="browserDetect">
-    <p>You are using an unsupported browser. Please <a
+    <p> {{ $t('OUTDATED.FIRST_MESSAGE') }} <a
       href="https://browser-update.org/update.html"
       class="outdated"
+      rel="noopener"
       target="_blank"
-      rel="noopener">update or switch your browser</a> to enjoy all features of karrot.</p>
+      translate="yes">{{ $t('OUTDATED.LINK') }}</a> {{ $t('OUTDATED.SECOND_MESSAGE') }}</p>
   </div>
   <div v-else>
     <template v-if="routeError.hasError">

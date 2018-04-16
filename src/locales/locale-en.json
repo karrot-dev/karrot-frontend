@@ -332,6 +332,11 @@
     "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
+  "OUTDATED": {
+    "FIRST_MESSAGE": "You are using an unsupported browser.",
+    "LINK": "Please update or switch your browser",
+    "SECOND_MESSAGE": "to enjoy all features of karrot."
+  },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"

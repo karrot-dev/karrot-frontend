@@ -308,9 +308,6 @@ class FeedbackTest(APITestCase, ExtractPaginationMixin):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST, response.data)
 
     def test_patch_feedback_fails_if_pickup_too_old(self):
-        """
-        A collector is not allowed to change feedback if he didn't created it
-        """
         self.client.force_login(user=self.collector3)
         response = self.client.patch(self.old_feedback_url, {'weight': 499}, format='json')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN, response.data)

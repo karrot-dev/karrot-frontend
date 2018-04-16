@@ -1,0 +1,56 @@
+# Notifications
+
+*This page is about notifications displayed within the app. If you are intereseted in push notifications, you may want to read [this](https://docs.karrot.world/mobile.html) instead.*
+
+We distinguish between banners and toasts.
+
+## Banners
+Banners are notifications that are potentially shown for a long period of time. For instance, a banner could remind the user to sign an agreement which does not have a deadline. 
+
+Banners are shown at the top of the screen, right below the navigation bar. 
+
+To create a new banner, first add a new method to the `BannerUI` Vue component:
+
+```
+newBanner (context) {
+  return {
+    color: 'some_color',
+    icon: 'some_icon',
+    message: 'YOUR.MESSAGE',
+    actions: [
+      {
+         label: this.$t('SOME.ACTION'),
+         handler: () => {
+           ...
+         },
+      },
+    ],
+  }
+}
+```
+
+Then add it to the list of banners in the `banners` vuex store:
+
+```
+if (newBannerShouldBeShown) {
+  banners.push({
+    type: 'newBanner',
+    context: someContext
+  })
+}
+```
+
+Note that `type` has to equal the name of the method created in the first step, and `someContext` will be passed to it as a parameter.
+
+## Toasts
+These are notifications that are shown only for a very short period of time or that require immediate interaction. This applies to all other notifications we have implemented so far, which are basically just sucess or error notifications, e.g., inviteAcceptError and groupLeaveSuccess.
+
+Implementation proposal:
+
+Banners
+There is no need to change the implementation for them, we just keep showing them fixed at the top of the screen, right below the navigation bar. See 288fc32
+
+Toasts
+Quasar has a nice plugin for toasts, they call it Notify. Basically, it wraps the QAlert component, adds some smooth animations to it, takes care of queuing and provides a very simple interface. I implemented a notifyMixin and a demo usage in 79caee9.
+In contrast to a banner a toast dismisses itself automatically, either after a configurable timeout or after clicking a button on it. This is very convienient because it thus doesn't need a vuex store. At the same time, it's the only drawback in my opinion. This is because the toast has to be triggered using a callback (done()) instead of dismissing an action. It seems to me that there is no other reasonable way to use quasar's notify plugin. But in my opinion it would be okay. Remember we had already used a done() callback anyway to clear the password fields after password change.
+Please let me know what you think about it.

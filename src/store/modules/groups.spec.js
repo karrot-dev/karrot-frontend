@@ -75,6 +75,12 @@ describe('groups', () => {
     },
   }
 
+  const toasts = {
+    actions: {
+      show: jest.fn(),
+    },
+  }
+
   const users = {
     getters: {
       get () {
@@ -119,6 +125,7 @@ describe('groups', () => {
         agreements,
         banners,
         currentGroup,
+        toasts,
       })
     })
 
@@ -144,6 +151,7 @@ describe('groups', () => {
       await store.dispatch('groups/leave', group2.id)
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group3.id])
       expect(currentGroup.actions.clear).toBeCalled()
+      expect(toasts.actions.show).toBeCalled()
     })
 
     it('can save a group', async () => {

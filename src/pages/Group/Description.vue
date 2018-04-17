@@ -31,7 +31,7 @@
           small
           round
           color="secondary"
-          icon="fa-pencil-alt "
+          icon="fas fa-pencil-alt "
           class="hoverScale"
         >
           <q-tooltip v-t="'GROUP.EDIT'" />

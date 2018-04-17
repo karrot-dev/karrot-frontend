@@ -7,7 +7,7 @@
       <div class="content">
         <div class="white-box">
           <q-field
-            icon="fa-lock"
+            icon="fas fa-lock"
             :error="hasError('newPassword')"
             :error-label="firstError('newPassword')"
           >

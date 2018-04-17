@@ -9,7 +9,7 @@
           {{ $t('PASSWORDRESET.INTRO') }}
         </p>
         <div class="white-box">
-          <q-field icon="fa-envelope">
+          <q-field icon="fas fa-envelope">
             <q-input
               :autofocus="true"
               :float-label="$t('PASSWORDRESET.EMAIL')"

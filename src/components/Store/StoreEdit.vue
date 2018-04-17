@@ -7,7 +7,7 @@
       >
         <form @submit.prevent="maybeSave">
           <q-field
-            icon="fa-star"
+            icon="fas fa-star"
             :label="$t('STOREEDIT.NAME')"
             :error="hasNameError"
             :error-label="nameError"
@@ -20,7 +20,7 @@
             />
           </q-field>
           <q-field
-            icon="fa-handshake"
+            icon="fas fa-handshake"
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-label="firstError('status')"
@@ -32,7 +32,7 @@
           </q-field>
 
           <q-field
-            icon="fa-question"
+            icon="fas fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-label="firstError('description')"
@@ -48,7 +48,7 @@
           </q-field>
 
           <q-field
-            icon="fa-map"
+            icon="fas fa-map-marker"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-label="addressError"
@@ -60,7 +60,7 @@
           </q-field>
 
           <q-field
-            icon="fa-calendar-alt"
+            icon="fas fa-calendar-alt"
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
             :error-label="firstError('weeksInAdvance')"

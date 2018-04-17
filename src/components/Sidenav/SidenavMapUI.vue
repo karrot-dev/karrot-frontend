@@ -15,7 +15,7 @@
         small
         @click="$router.push({name: 'map', params: {groupId: currentGroup.id}})"
       >
-        <i class="fas fa-arrows-alt fa-stack-1x" />
+        <i class="fas fa-expand-arrows-alt fa-stack-1x" />
         <q-tooltip>
           {{ $t('GROUPMAP.FULL_SCREEN') }}
         </q-tooltip>

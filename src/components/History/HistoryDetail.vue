@@ -12,12 +12,12 @@
       >
         <q-item-side
           color="white"
-          icon="fa-fw fa-info"
+          icon="fas fa-fw fa-info"
         />
       </q-item>
 
       <q-item dense>
-        <q-item-side icon="fa-fw fa-clock-o" />
+        <q-item-side icon="far fa-fw fa-clock" />
         <q-item-main>
           <q-item-tile label>
             {{ $d(new Date(entry.date), 'long') }},
@@ -30,7 +30,7 @@
       </q-item>
 
       <q-item dense>
-        <q-item-side icon="fa-fw fa-user" />
+        <q-item-side icon="fas fa-fw fa-user" />
         <q-item-main>
           <q-item-tile>
             <ProfilePicture
@@ -43,7 +43,7 @@
       </q-item>
 
       <q-item dense>
-        <q-item-side icon="fa-fw fa-commenting-o" />
+        <q-item-side icon="far fa-fw fa-comment" />
         <q-item-main>
           <q-item-tile label>
             {{ entry.message }}
@@ -55,7 +55,7 @@
         v-if="entry.group && entry.group.name"
         dense
       >
-        <q-item-side icon="fa-fw fa-home" />
+        <q-item-side icon="fas fa-fw fa-home" />
         <q-item-main>
           <q-item-tile label>
             <router-link :to="{name: 'group', params: { groupId: entry.group.id }}">
@@ -69,7 +69,7 @@
         v-if="entry.store && entry.store.name"
         dense
       >
-        <q-item-side icon="fa-fw fa-shopping-cart" />
+        <q-item-side icon="fas fa-fw fa-shopping-cart" />
         <q-item-main>
           <q-item-tile label>
             <router-link :to="{name: 'store', params: { groupId: entry.store.group, storeId: entry.store.id }}">
@@ -85,7 +85,7 @@
         >
           <q-item-side
             color="white"
-            icon="fa-fw fa-file-text-o"
+            icon="far fa-fw fa-file-alt"
           />
         </q-item>
         <HistoryPayloadDetail

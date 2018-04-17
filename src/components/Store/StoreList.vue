@@ -45,7 +45,7 @@
 
     <q-collapsible
       v-if="archived.length > 0"
-      icon="fa-trash"
+      icon="fas fa-trash-alt"
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
     >
       <q-item

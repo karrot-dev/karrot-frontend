@@ -61,7 +61,7 @@
             </q-alert>
             <q-field
               v-if="group.protected"
-              icon="fa-lock"
+              icon="fas fa-lock"
               :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
               :helper="$t('JOINGROUP.PASSWORD_LABEL')"
               :error="hasAnyError"

@@ -45,7 +45,7 @@
       >
         <q-icon
           size="1em"
-          name="fas fa-file-text-alt fa-fw on-left"
+          name="fas fa-file-alt fa-fw on-left"
         />
         {{ $t('GROUP.MANAGE_AGREEMENT') }}
       </q-item>

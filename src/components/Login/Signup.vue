@@ -16,7 +16,7 @@
       <div class="content">
         <div class="white-box">
           <q-field
-            icon="fa-user"
+            icon="fas fa-user"
             :error="hasError('displayName')"
             :error-label="firstError('displayName')"
           >
@@ -32,7 +32,7 @@
         </div>
         <div class="white-box">
           <q-field
-            icon="fa-envelope"
+            icon="fas fa-envelope"
             :error="hasError('email')"
             :error-label="firstError('email')"
           >
@@ -48,7 +48,7 @@
         </div>
         <div class="white-box">
           <q-field
-            icon="fa-lock"
+            icon="fas fa-lock"
             :error="hasError('password')"
             :error-label="firstError('password')"
           >

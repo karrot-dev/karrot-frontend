@@ -37,7 +37,7 @@ export default {
     inviteAcceptSuccess () {
       return {
         color: 'positive',
-        icon: 'fa-user-plus',
+        icon: 'fas fa-user-plus',
         message: 'GROUP.INVITATION_ACCEPT_SUCCESS',
       }
     },
@@ -53,7 +53,7 @@ export default {
     changePasswordSuccess () {
       return {
         color: 'positive',
-        icon: 'fa-check-square',
+        icon: 'fas fa-check-square',
         message: 'PASSWORD.CHANGE.SUCCESS',
       }
     },
@@ -61,7 +61,7 @@ export default {
     inviteAcceptError () {
       return {
         color: 'negative',
-        icon: 'fa-user-plus',
+        icon: 'fas fa-user-plus',
         message: 'GROUP.INVITATION_ACCEPT_ERROR',
       }
     },
@@ -69,7 +69,7 @@ export default {
     groupLeaveSuccess () {
       return {
         color: 'positive',
-        icon: 'fa-sign-out-alt fa-fw',
+        icon: 'fas fa-sign-out-alt fa-fw',
         message: 'GROUP.LEAVE_CONFIRMATION',
       }
     },
@@ -77,7 +77,7 @@ export default {
     requestDeleteAccountSuccess () {
       return {
         color: 'positive',
-        icon: 'fa-check-square',
+        icon: 'fas fa-check-square',
         message: 'USERDATA.REQUEST_DELETE_ACCOUNT.SUCCESS',
       }
     },
@@ -108,7 +108,7 @@ export default {
     playgroundGroupInfo () {
       return {
         color: 'positive',
-        icon: 'fa-child',
+        icon: 'fas fa-child',
         message: 'GROUP.PLAYGROUND_INFO',
       }
     },

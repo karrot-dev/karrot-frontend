@@ -3,7 +3,7 @@
     <AmountPicker v-model="edit.weight"/>
     <q-field
       style="margin-top: 2em; padding: 0 .5em"
-      icon="fa-star"
+      icon="fas fa-star"
       :label="$t('PICKUP_FEEDBACK.COMMENT')"
       :error="hasError('comment')"
       :error-label="firstError('comment')"

@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-btn
-      icon="fas fa-trash"
+      icon="fas fa-trash-alt"
       :label="$t('BUTTON.DELETE_ACCOUNT')"
       flat
       color="negative"

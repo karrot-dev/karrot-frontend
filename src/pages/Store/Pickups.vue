@@ -8,7 +8,7 @@
               small
               round
               color="secondary"
-              icon="fa-pencil-alt"
+              icon="fas fa-pencil-alt"
               class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.EDIT'" />
@@ -19,7 +19,7 @@
               small
               round
               color="secondary"
-              icon="fa-calendar-alt"
+              icon="fas fa-calendar-alt"
               class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
@@ -53,7 +53,7 @@
             small
             round
             flat
-            icon="fa-pencil-alt"
+            icon="fas fa-pencil-alt"
           />
         </router-link>
       </template>
@@ -70,7 +70,7 @@
             small
             round
             flat
-            icon="fa-calendar-alt"
+            icon="fas fa-calendar-alt"
           />
         </router-link>
       </template>

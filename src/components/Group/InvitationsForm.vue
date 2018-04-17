@@ -2,7 +2,7 @@
   <div>
     <form @submit.prevent="maybeSave">
       <q-field
-        icon="fa-envelope"
+        icon="fas fa-envelope"
         :helper="helperMessage"
         dark
         class="white-font"

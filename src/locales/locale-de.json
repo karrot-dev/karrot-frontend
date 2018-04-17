@@ -7,28 +7,28 @@
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
     "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
     "SERVER_ERROR": "Der Server gibt einen Fehler zurück.",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "SEARCH_NOT_FOUND": "Not Found"
+    "INVALID_LINK": "Ups, der Link ist ungültig.",
+    "SEARCH_NOT_FOUND": "Nicht gefunden"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
+    "EMAIL": "E-Mail",
     "MOBILE_NUMBER": "Telefonnummer",
     "PROFILE_TITLE": "Profil",
     "PASSWORD": "Passwort",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "Bestätige dein Passwort",
     "USERNAME": "Name",
     "WHERE_FROM": "Wo kommst du her? (Angabe nicht erforderlich)",
     "PHOTO": "Profilbild",
     "SET_PHOTO": "Lade ein Profilbild hoch...",
     "ACCOUNT": "Account",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Wir haben dir eine E-Mail gesendet, mit dem du die Account-Löschung bestätigen kannst."
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "Account-Löschung",
+        "MESSAGE": "Bist du dir sicher? Dein Account und alle persönlichen Daten werden permanent gelöscht. Alles, was du auf dieser Seite getan hast, wird anonymisiert. Wenn du bestätigst, senden wir dir eine E-Mail, in der sich ein Link befindet mit dem du die Account-Löschung bestätigen kannst.",
+        "CONFIRM": "Ich stimme zu"
       }
     }
   },
@@ -54,9 +54,9 @@
     "AGREE": "Ich stimme zu",
     "REMOVE": "Entfernen",
     "ARCHIVE": "Archivieren",
-    "DELETE_ACCOUNT": "Delete account",
-    "SHOW": "Show",
-    "HIDE": "Hide"
+    "DELETE_ACCOUNT": "Account löschen",
+    "SHOW": "Zeigen",
+    "HIDE": "Verstecken"
   },
   "VALIDATION": {
     "MINLENGTH": "Bitte mehr als {min} Zeichen eingeben.",
@@ -83,8 +83,8 @@
     "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
     "PICKUPS": "Abholungen",
     "MEMBERS": "Mitglieder",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
+    "INACTIVE": "Inaktiv",
+    "SHOW_INACTIVE": "Zeige inaktive Gruppen",
     "STORES": "Betriebe",
     "HISTORY": "History",
     "DESCRIPTION": "Beschreibung",
@@ -111,8 +111,8 @@
         "DESCRIPTION": "Erinnert dich an deine Abholungen und wenn es noch komplett oder teilweise unbesetzte Abholungen am nächsten Tag gibt."
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "PLAYGROUND_INFO": "Dies ist eine Spielplatz-Gruppe, du kannst nichts kaputtmachen. Probiere gerne alles aus!",
+    "JOIN_PLAYGROUND": "Besuche die Spielplatz-Gruppe, um karrot kennenzulernen"
   },
   "GROUPMAP": {
     "TITLE": "Karte",
@@ -145,8 +145,8 @@
       }
     },
     "RESTORE": "Wiederherstellen",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "SHOW_ARCHIVED": "Zeige archivierte Betriebe",
+    "HIDE_ARCHIVED": "Verstecke archivierte Betriebe"
   },
   "PICKUPMANAGE": {
     "TITLE": "Abholzeiten-Editor",
@@ -161,8 +161,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Name",
     "DESCRIPTION": "Über dich",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "OLD_PASSWORD": "Bestätige dein altes Passwort",
+    "PASSWORD": "Neues Passwort"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Benutzer nicht verfügbar oder gelöscht)"
@@ -213,8 +213,8 @@
     "SUCCESS": "Deine E-Mail-Adresse wurde verifiziert!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Account-Löschung",
+    "SUCCESS": "Dein Account wurde erfolgreich gelöscht!"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "Häufigkeit",
@@ -264,8 +264,8 @@
     "GIVE_FEEDBACK": "Gib Feedback",
     "NONE": "Bisher kein Fedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "NO_DONE_PICKUPS": "Alles erledigt!",
+    "NO_DONE_PICKUPS_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
@@ -279,20 +279,20 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Passwort zurücksetzen",
-    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
-    "EMAIL": "E-mail address",
+    "INTRO": "Gib deine E-Mail-Adresse ein und wir senden wir einen Link, mit dem du ein neues Password einstellen kannst (falls du einen Account mit dieser E-Mail-Adresse registriert hast).",
+    "EMAIL": "E-Mail-Adresse",
     "SUBMIT": "Neues Passwort anfordern",
     "LOGIN": "Zurück zum Login",
-    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+    "SUCCESS": "Anforderung erfolgreich. Wirf einen Blick in deine E-Mails!"
   },
   "PASSWORD": {
     "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+      "TITLE": "Password neu setzen",
+      "OK": "Speichern",
+      "SUCCESS": "Dein neues Passwort wurde gespeichert."
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "Dein neues Passwort wurde gespeichert."
     }
   },
   "LANGUAGECHOOSER": {
@@ -378,8 +378,8 @@
     "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
     "MARK_READ": "Als gelesen markieren",
     "REACTIONS": {
-      "YOU": "you",
-      "AND": "and",
+      "YOU": "du",
+      "AND": "und",
       "REACTED_WITH":"{users} reacted with {reaction}"
     }
   },

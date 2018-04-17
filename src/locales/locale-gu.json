@@ -279,11 +279,11 @@
   },
   "PASSWORDRESET": {
     "TITLE": "પાસવૉર્ડ રીસેટ",
-    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
-    "EMAIL": "E-mail address",
+    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
+    "EMAIL": "Email address",
     "SUBMIT": "નવો પાસવર્ડ મેળવો",
     "LOGIN": "લૉગિન પૃષ્ઠ પર પાછા જાઓ",
-    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
   },
   "PASSWORD": {
     "RESET": {

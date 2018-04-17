@@ -279,11 +279,11 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Återställ lösenordet",
-    "INTRO": "Ange din mejladress och vi skickar dig ett nytt lösenord (om du redan har en registrerat konto).",
-    "EMAIL": "Mejladress",
+    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
+    "EMAIL": "Email address",
     "SUBMIT": "Skicka",
     "LOGIN": "Tillbacks till logga in sidan",
-    "SUCCESS": "Begäran har skickats. Kolla din mejl!"
+    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
   },
   "PASSWORD": {
     "RESET": {

@@ -1733,13 +1733,22 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
+                                Deutsch
+                                <small>(100%)</small>
+                            </div>
+                            <div class="q-item-sublabel"></div>
+                        </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position">
+                        <div class="q-item-main q-item-section">
+                            <div class="q-item-label">
                                 Polski
-                                <small>(99%)</small>
+                                <small>(98%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:99%;"></div>
+                                    <div class="q-progress-model" style="width:98%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1761,20 +1770,6 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                Deutsch
-                                <small>(88%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:88%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
                                 Español
                                 <small>(83%)</small>
                             </div>
@@ -1789,7 +1784,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                Svenska
+                                हिन्दी
                                 <small>(81%)</small>
                             </div>
                             <div class="q-item-sublabel">
@@ -1817,13 +1812,13 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                हिन्दी
-                                <small>(81%)</small>
+                                Svenska
+                                <small>(80%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:81%;"></div>
+                                    <div class="q-progress-model" style="width:80%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -2357,7 +2352,7 @@ exports[`Storyshots Password Reset empty 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your e-mail address and we will send you a new password (if you have an account registered).
+                Enter your Email address and we will send you a link to set a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
@@ -2367,7 +2362,7 @@ exports[`Storyshots Password Reset empty 1`] = `
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
                                     <!---->
                                     <input step="any" type="email" autocorrect="off" autocapitalize="off" spellcheck="false" value="" class="col q-input-target q-no-input-spinner">
                                     <!---->
@@ -2408,7 +2403,7 @@ exports[`Storyshots Password Reset error 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your e-mail address and we will send you a new password (if you have an account registered).
+                Enter your Email address and we will send you a link to set a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
@@ -2418,7 +2413,7 @@ exports[`Storyshots Password Reset error 1`] = `
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label q-if-error text-negative">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
                                     <!---->
                                     <input step="any" type="email" autocorrect="off" autocapitalize="off" spellcheck="false" value="" class="col q-input-target q-no-input-spinner">
                                     <!---->
@@ -2462,7 +2457,7 @@ exports[`Storyshots Password Reset pending 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your e-mail address and we will send you a new password (if you have an account registered).
+                Enter your Email address and we will send you a link to set a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
@@ -2472,7 +2467,7 @@ exports[`Storyshots Password Reset pending 1`] = `
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
                                     <!---->
                                     <input step="any" type="email" autocorrect="off" autocapitalize="off" spellcheck="false" value="" class="col q-input-target q-no-input-spinner">
                                     <!---->
@@ -2515,7 +2510,7 @@ exports[`Storyshots Password Reset success 1`] = `
     <form name="requestPasswordReset">
         <div>
             <p>
-                Enter your e-mail address and we will send you a new password (if you have an account registered).
+                Enter your Email address and we will send you a link to set a new password (if you have an account registered).
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
@@ -2525,7 +2520,7 @@ exports[`Storyshots Password Reset success 1`] = `
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
                                 <!---->
                                 <div class="q-if-inner col row no-wrap relative-position">
-                                    <div class="q-if-label ellipsis full-width absolute self-start">E-mail address</div>
+                                    <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
                                     <!---->
                                     <input step="any" type="email" autocorrect="off" autocapitalize="off" spellcheck="false" value="" class="col q-input-target q-no-input-spinner">
                                     <!---->

@@ -8,7 +8,7 @@
         <form @submit.prevent="maybeSave">
           <q-field
             v-if="!edit.isPlayground"
-            icon="fa-fw fa-star"
+            icon="fas fa-fw fa-star"
             :label="$t('GROUP.TITLE')"
             :error="hasNameError"
             :error-label="nameError"
@@ -24,7 +24,7 @@
 
           <q-field
             v-if="!edit.isPlayground"
-            icon="fa-fw fa-question"
+            icon="fas fa-fw fa-question"
             :label="$t('GROUP.PUBLIC_DESCRIPTION')"
             :error="hasError('publicDescription')"
             :error-label="firstError('publicDescription')"
@@ -40,7 +40,7 @@
           </q-field>
 
           <q-field
-            icon="fa-fw fa-address-card"
+            icon="fas fa-fw fa-address-card"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             :error="hasError('description')"
             :error-label="firstError('description')"
@@ -56,7 +56,7 @@
           </q-field>
 
           <q-field
-            icon="fa-fw fa-map"
+            icon="fas fa-fw fa-map-marker"
             :label="$t('GROUP.ADDRESS')"
             :error="hasAddressError"
             :error-label="addressError"
@@ -69,7 +69,7 @@
 
           <q-field
             v-if="!edit.isPlayground"
-            icon="fa-fw fa-question"
+            icon="fas fa-fw fa-question"
             :label="$t('GROUP.PASSWORD')"
             :error="hasError('password')"
             :error-label="firstError('password')"
@@ -78,7 +78,7 @@
           </q-field>
 
           <q-field
-            icon="fa-fw fa-globe"
+            icon="fas fa-fw fa-globe"
             :label="$t('GROUP.TIMEZONE')"
             :error="hasTimezoneError"
             :error-label="timezoneError"

@@ -97,7 +97,7 @@ exports[`Storyshots GroupEdit create 1`] = `
         <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-star"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-star"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Title of this group</div>
@@ -121,7 +121,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-question"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-question"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Text you see before joining the group</div>
@@ -171,7 +171,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                                                 <b>**bold**</b>
                                                 <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                                                 <a href="https://guides.github.com/features/mastering-markdown/">
-                                                    <i aria-hidden="true" class="q-icon fa fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                                                    <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
                                             </small>
                                             <div style="clear:both;"></div>
                                         </div>
@@ -183,7 +183,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-address-card"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-address-card"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Group description, visible for members</div>
@@ -233,7 +233,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                                                 <b>**bold**</b>
                                                 <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                                                 <a href="https://guides.github.com/features/mastering-markdown/">
-                                                    <i aria-hidden="true" class="q-icon fa fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                                                    <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
                                             </small>
                                             <div style="clear:both;"></div>
                                         </div>
@@ -245,7 +245,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-map"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-map-marker"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Address</div>
@@ -277,7 +277,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-question"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-question"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Enter a password here if you want to make the group private</div>
@@ -301,7 +301,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-fw fa-globe"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-globe"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Time zone of group</div>
@@ -449,7 +449,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -478,7 +478,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -507,7 +507,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -536,7 +536,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -569,7 +569,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -602,7 +602,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -730,7 +730,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -759,7 +759,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -788,7 +788,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -831,7 +831,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
-            <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+            <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
     </button>
@@ -860,7 +860,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -889,7 +889,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -918,7 +918,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -951,7 +951,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -984,7 +984,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -1033,7 +1033,7 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -1073,14 +1073,14 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-home"> </i> <span class="q-tooltip animate-popup"><div>
           You are member of this group. Click here to switch to full view.
         </div></span></div>
             </button>
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -1112,7 +1112,7 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i> <span class="q-tooltip animate-popup"><div>
           Show public group information
         </div></span></div>
             </button>
@@ -1145,7 +1145,7 @@ exports[`Storyshots GroupPreviewUI error 1`] = `
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
-          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-if-error text-negative"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-error col">wrong!</div></div></div></div></div> <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
+          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-if-error text-negative"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-error col">wrong!</div></div></div></div></div> <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
             Join
           </div></button></form></span>
             <!---->
@@ -1186,7 +1186,7 @@ exports[`Storyshots GroupPreviewUI is member 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-home"> </i> <span class="q-tooltip animate-popup"><div>
           You are member of this group. Click here to switch to full view.
         </div></span></div>
             </button>
@@ -1257,7 +1257,7 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
         <div class="q-card-separator"></div>
         <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
-          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="0" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
+          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="0" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
             Join
           </div></button></form></span>
             <!---->
@@ -1291,7 +1291,7 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
             <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-home"> </i> <span class="q-tooltip animate-popup"><div>
+                    <i aria-hidden="true" class="q-icon fas fa-home"> </i> <span class="q-tooltip animate-popup"><div>
           You are member of this group. Click here to switch to full view.
         </div></span></div>
             </button>
@@ -1710,19 +1710,18 @@ exports[`Storyshots Layout KTopbar 1`] = `
         </div>
     </div>
     <div duration="310" name="search-slide-in" appear=""></div>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
-            <i aria-hidden="true" class="q-icon fa fa-fw fa-search"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
+            <i aria-hidden="true" class="q-icon fas fa-fw fa-search"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
     </button>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
-            <i aria-hidden="true" class="q-icon globe fa fa-globe"> </i>
-            en
+            <i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
             <div class="q-popover scroll">
-                <div class="q-list">
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                <div class="q-list q-list-highlight">
+                    <div class="q-item q-item-division relative-position active">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 English
@@ -1731,7 +1730,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             <div class="q-item-sublabel"></div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 中文
@@ -1745,7 +1744,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Polski
@@ -1759,7 +1758,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Deutsch
@@ -1773,7 +1772,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Español
@@ -1787,7 +1786,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 हिन्दी
@@ -1801,7 +1800,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 ગુજરાતી
@@ -1815,7 +1814,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Français
@@ -1829,7 +1828,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Svenska
@@ -1843,7 +1842,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Esperanto
@@ -1857,7 +1856,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Italiano
@@ -1871,7 +1870,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Русский
@@ -1885,7 +1884,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                             </div>
                         </div>
                     </div>
-                    <div class="q-item q-item-division relative-position q-item-highlight">
+                    <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Čeština
@@ -1902,38 +1901,38 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item-separator-component"></div>
                     <a href="https://www.transifex.com/yunity-1/karrot/dashboard/" target="_blank" rel="nofollow noopener noreferrer" class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
-                            <i aria-hidden="true" class="q-icon fa fa-external-link-alt"> </i>
+                            <i aria-hidden="true" class="q-icon fas fa-external-link-alt"> </i>
                             <small>Add more languages!</small>
                         </div>
                     </a>
                 </div>
             </div> <span class="q-tooltip animate-popup"><div></div></span></div>
     </button>
-    <div to="[object Object]" class="defaulthover">
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <div to="[object Object]">
+        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-                <i aria-hidden="true" class="q-icon presence-indicator fa fa-circle text-green"> </i>
+                <i aria-hidden="true" class="q-icon presence-indicator fas fa-circle text-green"> </i>
                 Current User
-                <i aria-hidden="true" class="q-icon fa fa-fw fa-user"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
+                <i aria-hidden="true" class="q-icon fas fa-fw fa-user"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
         </button>
     </div>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
-            <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
+            <i aria-hidden="true" class="q-icon fas fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
             <div class="q-popover scroll">
                 <div item-separator="" class="q-list q-list-link">
                     <div class="q-item q-item-division relative-position q-item-link">
-                        <i aria-hidden="true" class="q-icon on-left fa fa-home fa-fw" style="font-size:1em;"> </i>
+                        <i aria-hidden="true" class="q-icon on-left fas fa-home fa-fw" style="font-size:1em;"> </i>
                         Change group
                     </div>
                     <div class="q-item q-item-division relative-position q-item-link">
-                        <i aria-hidden="true" class="q-icon on-left fa fa-cog fa-fw" style="font-size:1em;"> </i>
+                        <i aria-hidden="true" class="q-icon on-left fas fa-cog fa-fw" style="font-size:1em;"> </i>
                         Settings
                     </div>
                     <div class="q-item q-item-division relative-position">
-                        <i aria-hidden="true" class="q-icon on-left fa fa-sign-out-alt fa-fw" style="font-size:1em;"> </i>
+                        <i aria-hidden="true" class="q-icon on-left fas fa-sign-out-alt fa-fw" style="font-size:1em;"> </i>
                         Logout
                     </div>
                 </div>
@@ -1948,7 +1947,7 @@ exports[`Storyshots Login empty 1`] = `
     <form name="login">
         <div class="white-box">
             <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                 <div class="row col">
                     <div class="q-field-content col-xs-12 col-sm">
                         <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -1971,7 +1970,7 @@ exports[`Storyshots Login empty 1`] = `
         </div>
         <div class="white-box">
             <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i>
+                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
                 <div class="row col">
                     <div class="q-field-content col-xs-12 col-sm">
                         <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -2023,7 +2022,7 @@ exports[`Storyshots Login error 1`] = `
     <form name="login">
         <div class="white-box shake">
             <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                 <div class="row col">
                     <div class="q-field-content col-xs-12 col-sm">
                         <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label q-if-error text-negative">
@@ -2046,7 +2045,7 @@ exports[`Storyshots Login error 1`] = `
         </div>
         <div class="white-box shake">
             <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i>
+                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
                 <div class="row col">
                     <div class="q-field-content col-xs-12 col-sm">
                         <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -2101,7 +2100,7 @@ exports[`Storyshots Login pending 1`] = `
     <form name="login">
         <div class="white-box">
             <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                 <div class="row col">
                     <div class="q-field-content col-xs-12 col-sm">
                         <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -2124,7 +2123,7 @@ exports[`Storyshots Login pending 1`] = `
         </div>
         <div class="white-box">
             <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i>
+                <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
                 <div class="row col">
                     <div class="q-field-content col-xs-12 col-sm">
                         <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -2362,7 +2361,7 @@ exports[`Storyshots Password Reset empty 1`] = `
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -2413,7 +2412,7 @@ exports[`Storyshots Password Reset error 1`] = `
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label q-if-error text-negative">
@@ -2435,7 +2434,7 @@ exports[`Storyshots Password Reset error 1`] = `
                 </div>
             </div>
             <div class="error">
-                <i class="fa fa-exclamation-triangle"></i>
+                <i class="fas fa-exclamation-triangle"></i>
                 some error
             </div>
             <div class="actions">
@@ -2467,7 +2466,7 @@ exports[`Storyshots Password Reset pending 1`] = `
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -2520,7 +2519,7 @@ exports[`Storyshots Password Reset success 1`] = `
             </p>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -2975,7 +2974,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
 <div class="edit-box">
     <form>
         <div class="q-field row no-wrap items-start q-field-responsive">
-            <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-redo"> </i>
+            <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-redo"> </i>
             <div class="row col">
                 <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                     <div class="q-field-label-inner row items-center">Frequency</div>
@@ -3504,7 +3503,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         <div class="q-card-main q-card-container">
             <div class="edit-box">
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-camera"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-camera"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Profile photo</div>
@@ -3537,7 +3536,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="edit-box">
                 <form>
                     <div class="q-field row no-wrap items-start q-field-responsive">
-                        <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-star"> </i>
+                        <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
                         <div class="row col">
                             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                                 <div class="q-field-label-inner row items-center">Name</div>
@@ -3614,7 +3613,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                                                     <b>**bold**</b>
                                                     <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                                                     <a href="https://guides.github.com/features/mastering-markdown/">
-                                                        <i aria-hidden="true" class="q-icon fa fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                                                        <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
                                                 </small>
                                                 <div style="clear:both;"></div>
                                             </div>
@@ -3626,7 +3625,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                     <div class="q-field row no-wrap items-start q-field-responsive">
-                        <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-phone"> </i>
+                        <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-phone"> </i>
                         <div class="row col">
                             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                                 <div class="q-field-label-inner row items-center">Phone number</div>
@@ -3637,7 +3636,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                                     <div class="q-if-inner col row no-wrap relative-position">
                                         <!---->
                                         <!---->
-                                        <input step="any" type="text" class="col q-input-target q-no-input-spinner">
+                                        <input step="any" type="tel" class="col q-input-target q-no-input-spinner">
                                         <!---->
                                         <!---->
                                         <!---->
@@ -3650,7 +3649,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                         </div>
                     </div>
                     <div class="q-field row no-wrap items-start q-field-responsive">
-                        <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-map"> </i>
+                        <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
                         <div class="row col">
                             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                                 <div class="q-field-label-inner row items-center">Where you are from (not required)</div>
@@ -3713,7 +3712,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="edit-box">
                 <!---->
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">E-mail</div>
@@ -3737,7 +3736,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-unlock"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-unlock"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Confirm your password</div>
@@ -3773,7 +3772,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="q-card-separator"></div>
             <div class="edit-box">
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">New password</div>
@@ -3797,7 +3796,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-unlock"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-unlock"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Confirm your old password</div>
@@ -3835,8 +3834,8 @@ exports[`Storyshots Settings Page Default 1`] = `
                     <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable text-negative">
                         <div class="q-focus-helper"></div>
                         <div class="q-btn-inner row col items-center justify-center">
-                            <i aria-hidden="true" class="q-icon fa fa-trash"> </i>
-                            Delete account
+                            <i aria-hidden="true" class="q-icon fas fa-trash-alt on-left"> </i>
+                            <div>Delete account</div>
                         </div>
                     </button>
                     <!---->
@@ -3850,6 +3849,9 @@ exports[`Storyshots Settings Page Default 1`] = `
 exports[`Storyshots Settings Page verification warning 1`] = `
 <div>
     <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+        <div class="q-alert-side col-auto row flex-center">
+            <i aria-hidden="true" class="q-icon fas fa-exclamation-triangle"> </i>
+        </div>
         <div class="q-alert-content col self-center">
             <div>
                 <p>
@@ -3867,37 +3869,37 @@ exports[`Storyshots Settings Page verification warning 1`] = `
 exports[`Storyshots Sidenav Boxes Group 1`] = `
 <div class="q-card no-shadow grey-border">
     <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
-        <i aria-hidden="true" class="q-icon fa fa-fw fa-home"> </i>
+        <i aria-hidden="true" class="q-icon fas fa-fw fa-home"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-cog fa-fw"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
+                    <i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
             </button>
-            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
+                    <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
                     <div class="q-popover scroll">
                         <div item-separator="" class="q-list q-list-link">
                             <!---->
                             <!---->
                             <div class="q-item q-item-division relative-position q-item-link">
-                                <i aria-hidden="true" class="q-icon fa fa-pencil-alt fa-fw on-left" style="font-size:1em;"> </i>
+                                <i aria-hidden="true" class="q-icon fas fa-pencil-alt fa-fw on-left" style="font-size:1em;"> </i>
                                 Edit group
                             </div>
                             <!---->
                             <div class="q-item q-item-division relative-position q-item-link">
-                                <i aria-hidden="true" class="q-icon fa fa-info-circle fa-fw on-left" style="font-size:1em;"> </i>
+                                <i aria-hidden="true" class="q-icon fas fa-info-circle fa-fw on-left" style="font-size:1em;"> </i>
                                 Show public group information
                             </div>
                             <div class="q-item q-item-division relative-position q-item-link">
-                                <i aria-hidden="true" class="q-icon fa fa-user-plus fa-fw on-left" style="font-size:1em;"> </i>
+                                <i aria-hidden="true" class="q-icon fas fa-user-plus fa-fw on-left" style="font-size:1em;"> </i>
                                 Invite users to your group
                             </div>
                             <div class="q-item q-item-division relative-position">
-                                <i aria-hidden="true" class="q-icon fa fa-sign-out-alt fa-fw on-left" style="font-size:1em;"> </i>
+                                <i aria-hidden="true" class="q-icon fas fa-sign-out-alt fa-fw on-left" style="font-size:1em;"> </i>
                                 Leave group...
                             </div>
                         </div>
@@ -3905,10 +3907,10 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                 </div>
             </button>
         </div>
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-                <i class="fas fa-angle-down arrow upsideDown"></i>
+                <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
             </div>
         </button>
     </div>
@@ -3918,7 +3920,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                 <div class="q-list no-padding no-border q-list-highlight">
                     <div class="q-item q-item-division relative-position q-item-link">
                         <div class="q-item-side q-item-section text-center q-item-side-left">
-                            <i aria-hidden="true" class="q-icon fa fa-bullhorn"> </i>
+                            <i aria-hidden="true" class="q-icon fas fa-bullhorn"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                             Wall
@@ -3926,7 +3928,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                     </div>
                     <div class="q-item q-item-division relative-position q-item-link">
                         <div class="q-item-side q-item-section text-center q-item-side-left">
-                            <i aria-hidden="true" class="q-icon fa fa-shopping-basket"> </i>
+                            <i aria-hidden="true" class="q-icon fas fa-shopping-basket"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                             Pickups
@@ -3934,7 +3936,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                     </div>
                     <div class="q-item q-item-division relative-position q-item-link">
                         <div class="q-item-side q-item-section text-center q-item-side-left">
-                            <i aria-hidden="true" class="q-icon fa fa-balance-scale"> </i>
+                            <i aria-hidden="true" class="q-icon fas fa-balance-scale"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                             Feedback
@@ -3950,7 +3952,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
                     </div>
                     <div class="q-item q-item-division relative-position q-item-link">
                         <div class="q-item-side q-item-section text-center q-item-side-left">
-                            <i aria-hidden="true" class="q-icon fa fa-users"> </i>
+                            <i aria-hidden="true" class="q-icon fas fa-users"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                             Members
@@ -3974,33 +3976,33 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
 exports[`Storyshots Sidenav Boxes Map 1`] = `
 <div class="q-card no-shadow grey-border">
     <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
-        <i aria-hidden="true" class="q-icon fa fa-fw fa-map"> </i>
+        <i aria-hidden="true" class="q-icon fas fa-fw fa-map"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i class="fa fa-arrows-alt fa-stack-1x"></i> <span class="q-tooltip animate-popup"><div>
+                    <i class="fas fa-expand-arrows-alt fa-stack-1x"></i> <span class="q-tooltip animate-popup"><div>
         Show full screen
       </div></span></div>
             </button>
-            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
-                <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fa fa-shopping-cart fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
+                <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-shopping-cart fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
         Hide stores
       </div></span></div>
             </button>
-            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
-                <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fa fa-user fa-stack-1x"></i> <i class="fa fa-check fa-bot-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
+                <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-user fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
         Hide users
       </div></span></div>
             </button>
         </div>
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-                <i class="fas fa-angle-down arrow upsideDown"></i>
+                <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
             </div>
         </button>
     </div>
@@ -4050,22 +4052,22 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
 exports[`Storyshots Sidenav Boxes Stores 1`] = `
 <div class="q-card no-shadow grey-border">
     <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
-        <i aria-hidden="true" class="q-icon fa fa-fw fa-shopping-cart"> </i>
+        <i aria-hidden="true" class="q-icon fas fa-fw fa-shopping-cart"> </i>
         <div class="q-toolbar-title">
             Stores
         </div>
         <div class="tools">
             <!---->
-            <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
-                    <i aria-hidden="true" class="q-icon fa fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
+                    <i aria-hidden="true" class="q-icon fas fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
             </button>
         </div>
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-                <i class="fas fa-angle-down arrow upsideDown"></i>
+                <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
             </div>
         </button>
     </div>
@@ -4074,7 +4076,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
             <div class="q-list no-padding no-border q-list-highlight">
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4084,7 +4086,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4094,7 +4096,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4104,7 +4106,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4114,7 +4116,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
                 </div>
                 <div class="q-item q-item-division relative-position q-item-link">
                     <div class="q-item-side q-item-section text-center q-item-side-left">
-                        <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+                        <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
                     </div>
                     <div class="q-item-main q-item-section">
                         <div class="q-item-label">
@@ -4137,7 +4139,7 @@ exports[`Storyshots Signup empty 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
-                    <i aria-hidden="true" class="q-icon fa fa-exclamation-triangle"> </i>
+                    <i aria-hidden="true" class="q-icon fas fa-exclamation-triangle"> </i>
                     Warning
                 </div>
                 <div class="q-card-subtitle"></div>
@@ -4152,7 +4154,7 @@ exports[`Storyshots Signup empty 1`] = `
         <div class="content">
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-user"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-user"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4175,7 +4177,7 @@ exports[`Storyshots Signup empty 1`] = `
             </div>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4198,7 +4200,7 @@ exports[`Storyshots Signup empty 1`] = `
             </div>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4247,7 +4249,7 @@ exports[`Storyshots Signup error 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
-                    <i aria-hidden="true" class="q-icon fa fa-exclamation-triangle"> </i>
+                    <i aria-hidden="true" class="q-icon fas fa-exclamation-triangle"> </i>
                     Warning
                 </div>
                 <div class="q-card-subtitle"></div>
@@ -4262,7 +4264,7 @@ exports[`Storyshots Signup error 1`] = `
         <div class="content">
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-user"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-user"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4285,7 +4287,7 @@ exports[`Storyshots Signup error 1`] = `
             </div>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-with-error">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label q-if-error text-negative">
@@ -4311,7 +4313,7 @@ exports[`Storyshots Signup error 1`] = `
             </div>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4360,7 +4362,7 @@ exports[`Storyshots Signup pending 1`] = `
         <div class="q-card-primary q-card-container row no-wrap">
             <div class="col column">
                 <div class="q-card-title">
-                    <i aria-hidden="true" class="q-icon fa fa-exclamation-triangle"> </i>
+                    <i aria-hidden="true" class="q-icon fas fa-exclamation-triangle"> </i>
                     Warning
                 </div>
                 <div class="q-card-subtitle"></div>
@@ -4375,7 +4377,7 @@ exports[`Storyshots Signup pending 1`] = `
         <div class="content">
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-user"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-user"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4398,7 +4400,7 @@ exports[`Storyshots Signup pending 1`] = `
             </div>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-envelope"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4421,7 +4423,7 @@ exports[`Storyshots Signup pending 1`] = `
             </div>
             <div class="white-box">
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-lock"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
                     <div class="row col">
                         <div class="q-field-content col-xs-12 col-sm">
                             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
@@ -4805,7 +4807,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                         </div> <span style="padding:3px;">kg</span></div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive" style="margin-top:2em;padding:0 .5em;">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-star"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Comment</div>
@@ -4990,7 +4992,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
         <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-star"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Name</div>
@@ -5017,7 +5019,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-handshake"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Status</div>
@@ -5035,7 +5037,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                         <div class="q-list no-border scroll">
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer q-select-highlight">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-grey"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
@@ -5043,7 +5045,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                             </div>
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-blue"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
@@ -5051,7 +5053,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                             </div>
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-green"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-green"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
@@ -5059,7 +5061,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                             </div>
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-red"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-red"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
@@ -5076,7 +5078,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-question"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Description</div>
@@ -5129,7 +5131,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                                                 <b>**bold**</b>
                                                 <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                                                 <a href="https://guides.github.com/features/mastering-markdown/">
-                                                    <i aria-hidden="true" class="q-icon fa fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                                                    <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
                                             </small>
                                             <div style="clear:both;"></div>
                                         </div>
@@ -5141,7 +5143,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-map"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Address</div>
@@ -5174,7 +5176,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-calendar-alt"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
@@ -5229,7 +5231,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
         <div class="edit-box">
             <form>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-star"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Name</div>
@@ -5253,7 +5255,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-handshake"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Status</div>
@@ -5271,7 +5273,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                         <div class="q-list no-border scroll">
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer q-select-highlight">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-grey"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
@@ -5279,7 +5281,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                             </div>
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-blue"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
@@ -5287,7 +5289,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                             </div>
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-green"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-green"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
@@ -5295,7 +5297,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                             </div>
                                             <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                                                 <div class="q-item-side q-item-section q-item-side-left">
-                                                    <i aria-hidden="true" class="q-icon fa fa-circle q-item-icon text-red"> </i>
+                                                    <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-red"> </i>
                                                 </div>
                                                 <div class="q-item-main q-item-section">
                                                     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
@@ -5312,7 +5314,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-question"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Description</div>
@@ -5365,7 +5367,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                                                 <b>**bold**</b>
                                                 <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                                                 <a href="https://guides.github.com/features/mastering-markdown/">
-                                                    <i aria-hidden="true" class="q-icon fa fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                                                    <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
                                             </small>
                                             <div style="clear:both;"></div>
                                         </div>
@@ -5377,7 +5379,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-map"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">Address</div>
@@ -5410,7 +5412,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     </div>
                 </div>
                 <div class="q-field row no-wrap items-start q-field-responsive">
-                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fa fa-calendar-alt"> </i>
+                    <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
                     <div class="row col">
                         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                             <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
@@ -5463,7 +5465,7 @@ exports[`Storyshots Stores StoreList 1`] = `
 <div class="q-list no-padding no-border q-list-highlight">
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5473,7 +5475,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5483,7 +5485,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5493,7 +5495,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">
@@ -5503,7 +5505,7 @@ exports[`Storyshots Stores StoreList 1`] = `
     </div>
     <div class="q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fa fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
+            <i aria-hidden="true" class="q-icon fas fa-circle text-grey"> <span class="q-tooltip animate-popup"><div></div></span></i>
         </div>
         <div class="q-item-main q-item-section">
             <div class="q-item-label">

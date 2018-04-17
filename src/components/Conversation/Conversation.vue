@@ -14,13 +14,11 @@
             v-if="!user.mailVerified"
             class="actionButton hoverScale"
             round
-            small
             color="negative"
             @click="$router.push({ name: 'settings', hash: '#change-email' })"
           >
             <q-icon
-              name="fa-exclamation-triangle"
-              style="font-size:22px; height:25px; width:25px;"
+              name="fas fa-exclamation-triangle"
             />
             <q-tooltip v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'" />
           </q-btn>
@@ -28,17 +26,16 @@
             v-else
             class="actionButton hoverScale"
             round
-            small
             :color="data.emailNotifications ? 'secondary' : 'negative'"
             @click="toggleNotifications"
           >
             <q-icon
               v-if="data.emailNotifications === true"
-              name="fa-bell"
+              name="fas fa-bell"
             />
             <q-icon
               v-else
-              name="fa-bell-slash"
+              name="fas fa-bell-slash"
             />
             <q-tooltip v-t="data.emailNotifications ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'" />
           </q-btn>

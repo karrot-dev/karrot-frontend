@@ -24,7 +24,7 @@
           </span>
           <q-icon
             v-if="message.receivedVia === 'email'"
-            name="fa-envelope-o"
+            name="far fa-envelope"
             class="email-icon"
           >
             <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />

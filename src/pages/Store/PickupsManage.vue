@@ -20,7 +20,7 @@
             round
             class="bannerButton hoverScale"
             color="secondary"
-            icon="fa-plus">
+            icon="fas fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
@@ -48,7 +48,7 @@
           :key="series.id"
           :label="seriesLabel(series)"
           :sublabel="$d(series.startDate, 'timeShort')"
-          icon="fa-calendar-alt"
+          icon="fas fa-calendar-alt"
           sparse
         >
 
@@ -73,7 +73,7 @@
               @show="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
               :label="seriesPickupLabel(series, pickup)"
-              icon="fa-shopping-basket"
+              icon="fas fa-shopping-basket"
             >
               <pickup-edit
                 v-if="visible.pickup[pickup.id]"
@@ -114,7 +114,7 @@
             round
             class="bannerButton hoverScale"
             color="secondary"
-            icon="fa-plus">
+            icon="fas fa-plus">
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
@@ -141,7 +141,7 @@
           :key="pickup.id"
           :label="$d(pickup.date, 'dateWithDayName')"
           :sublabel="$d(pickup.date, 'timeShort')"
-          icon="fa-calendar-alt"
+          icon="fas fa-calendar-alt"
           sparse
         >
           <pickup-edit

@@ -11,11 +11,14 @@
       <slot name="tools" />
       <q-btn
         flat
+        round
+        dense
+        size="sm"
         class="card-arrow"
         @click="$emit('toggle')"
       >
-        <i
-          class="fas fa-angle-down arrow"
+        <q-icon
+          name="fas fa-angle-down arrow"
           :class="{ upsideDown: expanded }"
         />
       </q-btn>
@@ -29,9 +32,9 @@
 </template>
 
 <script>
-import { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn } from 'quasar'
+import { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn, QIcon } from 'quasar'
 export default {
-  components: { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn },
+  components: { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn, QIcon },
   props: {
     expanded: { default: true, type: Boolean },
   },
@@ -46,9 +49,6 @@ export default {
   min-height 40px
   height 40px
 .card-arrow
-  margin-left 1em
-  cursor pointer
-  min-width 30px
   .arrow
     transition: all .3s ease;
 .upsideDown

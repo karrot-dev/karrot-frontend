@@ -4,7 +4,7 @@
     :expanded="expanded"
   >
     <template slot="icon">
-      <q-icon name="fa-fw fa-shopping-cart" />
+      <q-icon name="fas fa-fw fa-shopping-cart" />
     </template>
     <template slot="name">
       {{ $t('GROUP.STORES') }}
@@ -16,18 +16,19 @@
       <q-btn
         v-if="hasArchivedStores"
         flat
-        small
+        dense
+        round
         @click="toggleArchived"
       >
         <span class="fa-fw fa-stack">
           <i class="fas fa-trash-alt fa-stack-1x" />
           <i
             v-if="showArchived"
-            class="fa fa-check bottom-right fa-stack-1x text-positive"
+            class="fas fa-check bottom-right fa-stack-1x text-positive"
           />
           <i
             v-else
-            class="fa fa-times bottom-right fa-stack-1x text-negative"
+            class="fas fa-times bottom-right fa-stack-1x text-negative"
           />
         </span>
         <q-tooltip>
@@ -37,10 +38,11 @@
       <q-btn
         v-if="hasStores"
         flat
-        small
+        dense
+        round
         @click="$router.push({name: 'storeCreate'})"
       >
-        <q-icon name="fa-fw fa-plus-circle" />
+        <q-icon name="fas fa-fw fa-plus-circle" />
         <q-tooltip v-t="'BUTTON.CREATE'" />
       </q-btn>
     </div>
@@ -90,10 +92,7 @@ export default {
 
 <style scoped lang="stylus">
 .tools
-  .fa.bottom-right
+  .bottom-right
     left 5px
     top 5px
-  .q-btn
-    width 30px
-    padding 0 1px
 </style>

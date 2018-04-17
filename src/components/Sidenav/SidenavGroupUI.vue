@@ -4,7 +4,7 @@
     :expanded="expanded"
   >
     <template slot="icon">
-      <q-icon name="fa-fw fa-home" />
+      <q-icon name="fas fa-fw fa-home" />
     </template>
     <div
       slot="tools"
@@ -12,17 +12,19 @@
     >
       <q-btn
         flat
-        small
+        dense
+        round
         @click="$router.push({name: 'groupSettings'})"
       >
-        <q-icon name="fa-cog fa-fw" />
+        <q-icon name="fas fa-cog fa-fw" />
         <q-tooltip v-t="'GROUP.SETTINGS'" />
       </q-btn>
       <q-btn
         flat
-        small
+        dense
+        round
       >
-        <q-icon name="fa-fw fa-ellipsis-v" />
+        <q-icon name="fas fa-fw fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <GroupOptions/>
       </q-btn>
@@ -36,7 +38,7 @@
       >
         <q-item :to="{name: 'group'}">
           <q-item-side class="text-center">
-            <q-icon name="fa-bullhorn" />
+            <q-icon name="fas fa-bullhorn" />
           </q-item-side>
           <q-item-main>
             {{ $t("GROUP.WALL") }}
@@ -44,7 +46,7 @@
         </q-item>
         <q-item :to="{name: 'groupPickups'}">
           <q-item-side class="text-center">
-            <q-icon name="fa-shopping-basket" />
+            <q-icon name="fas fa-shopping-basket" />
           </q-item-side>
           <q-item-main>
             {{ $t("GROUP.PICKUPS") }}
@@ -52,7 +54,7 @@
         </q-item>
         <q-item :to="{name: 'groupFeedback'}">
           <q-item-side class="text-center">
-            <q-icon name="fa-balance-scale" />
+            <q-icon name="fas fa-balance-scale" />
           </q-item-side>
           <q-item-main>
             {{ $t("PICKUP_FEEDBACK.TITLE") }}
@@ -68,7 +70,7 @@
         </q-item>
         <q-item :to="{name: 'groupMembers'}">
           <q-item-side class="text-center">
-            <q-icon name="fa-users" />
+            <q-icon name="fas fa-users" />
           </q-item-side>
           <q-item-main>
             {{ $t("GROUP.MEMBERS") }}
@@ -103,8 +105,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.tools
-  .q-btn
-    width 30px
-    padding 0 1px
 </style>

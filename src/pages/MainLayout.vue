@@ -29,7 +29,7 @@
               @click="toggleSidenav"
               class="mobile-only"
             >
-              <i class="fa fa-bars" />
+              <i class="fas fa-bars" />
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />

@@ -1,15 +1,14 @@
 <template>
   <div>
     <q-btn
-      icon="fa-trash"
+      icon="fas fa-trash-alt"
+      :label="$t('BUTTON.DELETE_ACCOUNT')"
       flat
       color="negative"
       @click="requestDeleteAccount"
       :loading="isPending"
       :value="isPending || dialogShown"
-    >
-      {{ $t('BUTTON.DELETE_ACCOUNT') }}
-    </q-btn>
+    />
     <div
       v-if="hasNonFieldError"
       class="text-negative"

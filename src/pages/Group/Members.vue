@@ -13,7 +13,7 @@
           small
           round
           color="secondary"
-          icon="fa-user-plus"
+          icon="fas fa-user-plus"
           class="hoverScale"
         >
           <q-tooltip v-t="'GROUP.INVITE_TITLE'" />

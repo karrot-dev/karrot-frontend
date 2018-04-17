@@ -5,7 +5,7 @@
   >
     <form @submit.prevent="save">
       <q-field
-        icon="fa-star"
+        icon="fas fa-star"
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasError('displayName')"
         :error-label="firstError('displayName')"
@@ -30,16 +30,19 @@
       </q-field>
 
       <q-field
-        icon="fa-phone"
+        icon="fas fa-phone"
         :label="$t('USERDATA.MOBILE_NUMBER')"
         :error="hasError('mobileNumber')"
         :error-label="firstError('mobileNumber')"
       >
-        <q-input v-model="edit.mobileNumber"/>
+        <q-input
+          type="tel"
+          v-model="edit.mobileNumber"
+        />
       </q-field>
 
       <q-field
-        icon="fa-map"
+        icon="fas fa-map-marker"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
         :error-label="addressError"

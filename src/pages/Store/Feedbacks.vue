@@ -11,7 +11,7 @@
               small
               round
               color="secondary"
-              icon="fa-plus"
+              icon="fas fa-plus"
               class="hoverScale"
             >
               <q-tooltip v-t="'FEEDBACKLIST.GIVE_FEEDBACK'" />

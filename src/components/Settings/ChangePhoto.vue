@@ -1,7 +1,7 @@
 <template>
   <div class="edit-box">
     <q-field
-      icon="fa-camera"
+      icon="fas fa-camera"
       :label="$t('USERDATA.PHOTO')"
       :error="hasError('photo')"
       :error-label="firstError('photo')"

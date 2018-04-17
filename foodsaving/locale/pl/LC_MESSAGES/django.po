@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 18:36+0000\n"
+"POT-Creation-Date: 2018-04-17 15:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Tomasz Ploch <tomasz.ploch@foodsharing.pl>, 2018\n"
 "Language-Team: Polish (https://www.transifex.com/yunity-1/teams/68631/pl/)\n"
@@ -343,6 +343,10 @@ msgstr "Nadchodzące odbiory w %(group_name)s"
 msgid "Tonight"
 msgstr "Dziś wieczorem"
 
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:138
+msgid "The day is not over, there are still pickups to be done!"
+msgstr ""
+
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:141
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:169
 msgid "You are signed up for"
@@ -482,7 +486,6 @@ msgstr "Kliknij poniższy link, aby potwierdzić swój adres e-mail"
 #: foodsaving/users/templates/changemail_request.html.jinja2:111
 #: foodsaving/users/templates/mailverification.html.jinja2:4
 #: foodsaving/users/templates/mailverification.html.jinja2:109
-#: foodsaving/users/templates/passwordreset_request.html.jinja2:109
 #: foodsaving/users/templates/signup.html.jinja2:108
 msgid "Verify your email address"
 msgstr "Zweryfikuj adres e-mail"
@@ -552,6 +555,10 @@ msgstr "Zapomniałaś/-eś hasła? Nie ma problemu!"
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:109
 msgid "Click this link to change it:"
 msgstr "Kliknij ten link, aby je zmienić:"
+
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:109
+msgid "Change password"
+msgstr ""
 
 #: foodsaving/users/templates/passwordreset_success.html.jinja2:4
 #: foodsaving/users/templates/passwordreset_success.subject.jinja2:1

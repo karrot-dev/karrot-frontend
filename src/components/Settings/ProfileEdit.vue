@@ -35,7 +35,10 @@
         :error="hasError('mobileNumber')"
         :error-label="firstError('mobileNumber')"
       >
-        <q-input v-model="edit.mobileNumber"/>
+        <q-input
+          type="tel"
+          v-model="edit.mobileNumber"
+        />
       </q-field>
 
       <q-field

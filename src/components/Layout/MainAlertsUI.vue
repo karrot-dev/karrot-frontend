@@ -45,7 +45,7 @@ export default {
     resetPasswordSuccess () {
       return {
         color: 'positive',
-        icon: 'fa-check-square',
+        icon: 'fas fa-check-square',
         message: 'PASSWORD.RESET.SUCCESS',
       }
     },

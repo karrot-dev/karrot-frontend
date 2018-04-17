@@ -12,7 +12,8 @@
     >
       <q-btn
         flat
-        small
+        dense
+        round
         @click="$router.push({name: 'groupSettings'})"
       >
         <q-icon name="fas fa-cog fa-fw" />
@@ -20,7 +21,8 @@
       </q-btn>
       <q-btn
         flat
-        small
+        dense
+        round
       >
         <q-icon name="fas fa-fw fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
@@ -103,8 +105,4 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.tools
-  .q-btn
-    width 30px
-    padding 0 1px
 </style>

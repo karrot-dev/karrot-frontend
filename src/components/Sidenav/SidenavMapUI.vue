@@ -12,7 +12,8 @@
     >
       <q-btn
         flat
-        small
+        dense
+        round
         @click="$router.push({name: 'map', params: {groupId: currentGroup.id}})"
       >
         <i class="fas fa-expand-arrows-alt fa-stack-1x" />
@@ -22,18 +23,19 @@
       </q-btn>
       <q-btn
         flat
-        small
+        dense
+        round
         @click="$emit('toggleStores')"
       >
         <span class="fa-fw fa-stack">
           <i class="fas fa-shopping-cart fa-stack-1x" />
           <i
             v-if="showStores"
-            class="fas fa-check fa-bot-right fa-stack-1x"
+            class="fas fa-check bottom-right fa-stack-1x"
           />
           <i
             v-else
-            class="fas fa-times fa-bot-right fa-stack-1x"
+            class="fas fa-times bottom-right fa-stack-1x"
           />
         </span>
         <q-tooltip>
@@ -43,18 +45,19 @@
 
       <q-btn
         flat
-        small
+        dense
+        round
         @click="$emit('toggleUsers')"
       >
         <span class="fa-fw fa-stack">
           <i class="fas fa-user fa-stack-1x" />
           <i
             v-if="showUsers"
-            class="fas fa-check fa-bot-right fa-stack-1x"
+            class="fas fa-check bottom-right fa-stack-1x"
           />
           <i
             v-else
-            class="fas fa-times fa-bot-right fa-stack-1x"
+            class="fas fa-times bottom-right fa-stack-1x"
           />
         </span>
         <q-tooltip>
@@ -120,16 +123,13 @@ export default {
 @import '~variables'
 
 .tools
-  .fa.fa-bot-right
+  .bottom-right
     left 5px
     top 5px
-  .fa.fa-check
+  .fa-check
     color $positive
-  .fa.fa-times
+  .fa-times
     color $negative
-  .q-btn
-    width 30px
-    padding 0 1px
 .map
   height: 260px
 </style>

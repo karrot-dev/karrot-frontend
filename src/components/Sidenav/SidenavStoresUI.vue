@@ -16,7 +16,8 @@
       <q-btn
         v-if="hasArchivedStores"
         flat
-        small
+        dense
+        round
         @click="toggleArchived"
       >
         <span class="fa-fw fa-stack">
@@ -37,7 +38,8 @@
       <q-btn
         v-if="hasStores"
         flat
-        small
+        dense
+        round
         @click="$router.push({name: 'storeCreate'})"
       >
         <q-icon name="fas fa-fw fa-plus-circle" />
@@ -90,10 +92,7 @@ export default {
 
 <style scoped lang="stylus">
 .tools
-  .fa.bottom-right
+  .bottom-right
     left 5px
     top 5px
-  .q-btn
-    width 30px
-    padding 0 1px
 </style>

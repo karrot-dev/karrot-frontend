@@ -78,24 +78,27 @@
           </q-item-tile>
         </q-item-main>
       </q-item>
-
-      <template v-if="entry.payload">
-        <q-item
-          class="bg-tertiary"
-        >
-          <q-item-side
-            color="white"
-            icon="far fa-fw fa-file-alt"
-          />
-        </q-item>
-        <HistoryPayloadDetail
-          v-for="(value, key) in entry.payload"
-          :key="key"
-          :label="key"
-          :value="value"
+    </q-list>
+    <q-list
+      v-if="entry.payload"
+      striped
+    >
+      <q-item
+        class="bg-tertiary"
+      >
+        <q-item-side
+          color="white"
+          icon="far fa-fw fa-file-alt"
         />
-      </template>
-
+      </q-item>
+      <HistoryPayloadDetail
+        v-for="(value, key) in entry.payload"
+        :key="key"
+        :label="key"
+        :value="value"
+      />
+    </q-list>
+    <q-list>
       <q-item class="bg-neutral text-white">
         <q-btn
           @click="toggleRaw()"

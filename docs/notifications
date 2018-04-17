@@ -11,7 +11,7 @@ Banners are shown at the top of the screen, right below the navigation bar.
 
 To create a new banner, first add a new method to the `BannerUI` Vue component:
 
-```
+```js
 newBanner (context) {
   return {
     color: 'some_color',
@@ -31,7 +31,7 @@ newBanner (context) {
 
 Then add it to the list of banners in the `banners` vuex store:
 
-```
+```js
 if (newBannerShouldBeShown) {
   banners.push({
     type: 'newBanner',
@@ -50,7 +50,7 @@ A toast is displayed at the bottom of the screen. If it is not closed manually (
 
 To show a toast, simply trigger the `toasts/show` action:
 
-```
+```js
 dispatch('toasts/show', {
   message: 'SOME.MESSAGE',
   messageParams: { param: value },

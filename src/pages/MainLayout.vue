@@ -43,7 +43,7 @@
           <MobileSidenav @toggleSidenav="toggleSidenav" />
         </q-layout-drawer>
         <q-page-container>
-          <MainAlerts />
+          <Banners />
           <router-view name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
             <router-view
@@ -74,14 +74,14 @@ import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
 import KFooter from '@/components/Layout/KFooter'
 import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
-import MainAlerts from '@/components/Layout/MainAlerts'
+import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError,
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError,
   },
   data () {
     return {

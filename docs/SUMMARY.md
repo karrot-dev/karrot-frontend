@@ -2,5 +2,6 @@
 - [Backend introduction](backend-introduction.md)
 - [Forms](forms.md)
 - [Pages and Routes](pages.md)
+- [Notifications](notifications.md)
 - [Mobile](mobile.md)
   - [Android SDK](android-sdk.md)

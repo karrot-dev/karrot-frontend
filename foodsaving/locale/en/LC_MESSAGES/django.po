@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 18:36+0000\n"
+"POT-Creation-Date: 2018-04-17 15:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,6 +322,10 @@ msgstr ""
 msgid "Tonight"
 msgstr ""
 
+#: foodsaving/pickups/templates/pickup_notification.html.jinja2:138
+msgid "The day is not over, there are still pickups to be done!"
+msgstr ""
+
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:141
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:169
 msgid "You are signed up for"
@@ -454,7 +458,6 @@ msgstr ""
 #: foodsaving/users/templates/changemail_request.html.jinja2:111
 #: foodsaving/users/templates/mailverification.html.jinja2:4
 #: foodsaving/users/templates/mailverification.html.jinja2:109
-#: foodsaving/users/templates/passwordreset_request.html.jinja2:109
 #: foodsaving/users/templates/signup.html.jinja2:108
 msgid "Verify your email address"
 msgstr ""
@@ -519,6 +522,10 @@ msgstr ""
 
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:109
 msgid "Click this link to change it:"
+msgstr ""
+
+#: foodsaving/users/templates/passwordreset_request.html.jinja2:109
+msgid "Change password"
 msgstr ""
 
 #: foodsaving/users/templates/passwordreset_success.html.jinja2:4

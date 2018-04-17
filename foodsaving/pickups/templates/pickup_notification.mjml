@@ -40,7 +40,7 @@
                                 {{ tonight_date | date }}
                             </h2>
 
-                            <p>The day is not over, there are still pickups to be done!</p>
+                            <p>{% trans %}The day is not over, there are still pickups to be done!{% endtrans %}</p>
 
                             {% if tonight_user and tonight_user|length > 0 %}
                                 {% trans %}You are signed up for{% endtrans %}:

@@ -249,22 +249,22 @@ msgstr "加入 %(group_name)s 的 邀請 "
 #: foodsaving/invitations/templates/emailinvitation.html.jinja2:108
 #, python-format
 msgid "You're invited to join %(group_name)s!"
-msgstr ""
+msgstr "你被邀請加入%(group_name)s!"
 
 #: foodsaving/invitations/templates/emailinvitation.html.jinja2:108
 #, python-format
 msgid ""
 "%(invited_by_name)s invited you to join the \"%(group_name)s\" community on "
 "%(site_name)s!"
-msgstr ""
+msgstr "%(invited_by_name)s邀請你加入%(site_name)s的%(group_name)s社團"
 
 #: foodsaving/invitations/templates/emailinvitation.html.jinja2:109
 msgid "If you'd like to join, please click the link below:"
-msgstr ""
+msgstr "如果你想加入，請點擊以下連結"
 
 #: foodsaving/invitations/templates/emailinvitation.html.jinja2:109
 msgid "Follow the invitation"
-msgstr ""
+msgstr "接受邀請"
 
 #: foodsaving/pickups/permissions.py:7
 msgid "The pickup date is in the past."
@@ -389,11 +389,11 @@ msgstr "驗證碼已過期"
 #: foodsaving/userauth/serializers.py:138
 #: foodsaving/userauth/serializers.py:155
 msgid "Wrong password"
-msgstr ""
+msgstr "密碼錯誤"
 
 #: foodsaving/userauth/serializers.py:187
 msgid "Unknown e-mail address"
-msgstr ""
+msgstr "未知的電子郵件地址"
 
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:4
 #: foodsaving/users/templates/accountdelete_request.subject.jinja2:1
@@ -403,45 +403,45 @@ msgstr "請求刪除帳戶"
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:108
 #, python-format
 msgid "You requested to delete your account on %(site_name)s!"
-msgstr ""
+msgstr "你已要求刪除你在%(site_name)s的帳號"
 
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:108
 msgid ""
 "We're sad to hear that you want to delete your account, could we have done "
 "anything better?"
-msgstr ""
+msgstr "我們很難過得知你想要刪除帳戶，有甚麼我們可以改進的嗎?"
 
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:109
 msgid "Anyhow, you can finish the deletion by clicking the link below:"
-msgstr ""
+msgstr "無論如何，你可以點擊以下連結刪除帳戶 : "
 
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:109
 msgid "Delete your account"
-msgstr ""
+msgstr "刪除你的帳戶"
 
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:109
 msgid "If you changed your mind, you can simply ignore this e-mail."
-msgstr ""
+msgstr "如果你改變心意，請忽略此封郵件"
 
 #: foodsaving/users/templates/accountdelete_success.html.jinja2:4
 #: foodsaving/users/templates/accountdelete_success.subject.jinja2:1
 msgid "Account successfully deleted"
-msgstr ""
+msgstr "成功刪除帳戶"
 
 #: foodsaving/users/templates/accountdelete_success.html.jinja2:108
 #, python-format
 msgid "Your account on %(site_name)s was successfully deleted!"
-msgstr ""
+msgstr "你在%(site_name)s的帳戶已成功刪除"
 
 #: foodsaving/users/templates/accountdelete_success.html.jinja2:108
 msgid ""
 "We're still sad that you saw it necessary to delete your account, but we're "
 "happy to tell you that your request was met without any problems."
-msgstr ""
+msgstr "我們仍對於你認為需要刪除帳號感到難過，但我們很高興告訴你你的要求已順利完成。"
 
 #: foodsaving/users/templates/accountdelete_success.html.jinja2:109
 msgid "Goodbye!"
-msgstr ""
+msgstr "再見!"
 
 #: foodsaving/users/templates/changemail_request.html.jinja2:4
 #: foodsaving/users/templates/signup.html.jinja2:4
@@ -453,12 +453,12 @@ msgstr "請驗證你的電子信箱"
 msgid ""
 "You requested to change your email address from %(old_email)s to %(new_email)s\n"
 "                        "
-msgstr ""
+msgstr "你已要求將你的電子郵件地址從%(old_email)s變更為%(new_email)s"
 
 #: foodsaving/users/templates/changemail_request.html.jinja2:111
 #: foodsaving/users/templates/signup.html.jinja2:108
 msgid "Please click the following link to confirm your email:"
-msgstr ""
+msgstr "請底擊以下連結驗證你的電子郵件"
 
 #: foodsaving/users/templates/changemail_request.html.jinja2:111
 #: foodsaving/users/templates/mailverification.html.jinja2:4
@@ -472,26 +472,26 @@ msgstr "驗證你的電郵地址"
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:109
 msgid ""
 "If you did not request this change, you can safely ignore this message."
-msgstr ""
+msgstr "如果你並未要求做出此變更，你可以忽略此封郵件"
 
 #: foodsaving/users/templates/changemail_request.subject.jinja2:1
 #: foodsaving/users/templates/signup.subject.jinja2:1
 msgid "Please verify your email address"
-msgstr ""
+msgstr "請驗證你的電子郵件地址"
 
 #: foodsaving/users/templates/changemail_success.html.jinja2:4
 msgid "Your email address changed"
-msgstr ""
+msgstr "你的電子郵件地址已變更"
 
 #: foodsaving/users/templates/changemail_success.html.jinja2:108
 #, python-format
 msgid "Your email address on %(site_name)s changed!"
-msgstr ""
+msgstr "你在%(site_name)s的電子郵件地址已變更"
 
 #: foodsaving/users/templates/changemail_success.html.jinja2:108
 #, python-format
 msgid "Your new email address is %(new_email)s."
-msgstr ""
+msgstr "你的新電子郵件地址是%(new_email)s"
 
 #: foodsaving/users/templates/changemail_success.subject.jinja2:1
 msgid "Your email address changed!"
@@ -516,20 +516,20 @@ msgstr "在開通後，請點擊以下連結驗證你的電郵地址:"
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:4
 #: foodsaving/users/templates/passwordreset_request.subject.jinja2:1
 msgid "Request to reset your password"
-msgstr ""
+msgstr "要求重設密碼"
 
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:108
 #, python-format
 msgid "You requested to reset your password for %(site_name)s"
-msgstr ""
+msgstr "你已要求重設你在%(site_name)s的密碼"
 
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:108
 msgid "Did you forget your password? No problem!"
-msgstr ""
+msgstr "你忘記密碼了? 沒關係"
 
 #: foodsaving/users/templates/passwordreset_request.html.jinja2:109
 msgid "Click this link to change it:"
-msgstr ""
+msgstr "點擊此連結以更改密碼"
 
 #: foodsaving/users/templates/passwordreset_success.html.jinja2:4
 #: foodsaving/users/templates/passwordreset_success.subject.jinja2:1
@@ -539,7 +539,7 @@ msgstr "新密碼已設定！"
 #: foodsaving/users/templates/passwordreset_success.html.jinja2:108
 #, python-format
 msgid "You set a new password for %(site_name)s"
-msgstr ""
+msgstr "你設了一個新的%(site_name)s密碼"
 
 #: foodsaving/users/templates/passwordreset_success.html.jinja2:108
 msgid "Your password has been successfully changed!"
@@ -548,10 +548,10 @@ msgstr "你的密碼已經成功變更！"
 #: foodsaving/users/templates/signup.html.jinja2:108
 #, python-format
 msgid "Thank you for signing up to %(site_name)s"
-msgstr ""
+msgstr "感謝你註冊%(site_name)s"
 
 #: foodsaving/users/templates/signup.html.jinja2:108
 msgid ""
 "You can safely ignore this message if it wasn't you who signed up at our "
 "service using this email address."
-msgstr ""
+msgstr "如果你並未使用此電子郵件地址註冊我們的服務，你可以忽略這封信"

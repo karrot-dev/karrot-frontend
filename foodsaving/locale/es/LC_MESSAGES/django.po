@@ -342,7 +342,7 @@ msgstr ""
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:164
 msgid "Tomorrow"
-msgstr ""
+msgstr "Mañana"
 
 #: foodsaving/pickups/templates/pickup_notification.html.jinja2:184
 msgid ""
@@ -410,7 +410,7 @@ msgstr ""
 
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:109
 msgid "Delete your account"
-msgstr ""
+msgstr "Eliminar cuenta"
 
 #: foodsaving/users/templates/accountdelete_request.html.jinja2:109
 msgid "If you changed your mind, you can simply ignore this e-mail."

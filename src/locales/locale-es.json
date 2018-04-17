@@ -20,7 +20,7 @@
     "WHERE_FROM": "De donde vienes (no obligado)",
     "PHOTO": "Foto de perfil",
     "SET_PHOTO": "Configura tu foto de perfil ...",
-    "ACCOUNT": "Account",
+    "ACCOUNT": "Cuenta",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },
@@ -28,15 +28,15 @@
       "REQUEST_DELETE_ACCOUNT": {
         "TITLE": "Account deletion",
         "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "CONFIRM": "Confirmar"
       }
     }
   },
   "BUTTON": {
     "CREATE": "Crear",
     "CANCEL": "Cancelar",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "Abrir",
+    "CLOSE": "Cerrar",
     "DELETE": "Eliminar",
     "EDIT": "Editar",
     "JOIN": "Unirse",
@@ -54,7 +54,9 @@
     "AGREE": "Estoy de acuerdo ",
     "REMOVE": "Quitar",
     "ARCHIVE": "Archivo",
-    "DELETE_ACCOUNT": "Delete account"
+    "DELETE_ACCOUNT": "Eliminar cuenta",
+    "SHOW": "Show",
+    "HIDE": "Hide"
   },
   "VALIDATION": {
     "MINLENGTH": "Por favor introduce más que {min} caracteres.",
@@ -370,14 +372,14 @@
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
+    "RECEIVED_VIA_EMAIL": "Este mensaje se envió por correo electrónico."
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",
     "MARK_READ": "marcar todo como leido",
     "REACTIONS": {
       "YOU": "you",
-      "AND": "and",
+      "AND": "y",
       "REACTED_WITH":"{users} reacted with {reaction}"
     }
   },

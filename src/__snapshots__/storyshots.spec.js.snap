@@ -1733,13 +1733,13 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                中文
-                                <small>(92%)</small>
+                                Polski
+                                <small>(99%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:92%;"></div>
+                                    <div class="q-progress-model" style="width:99%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1747,13 +1747,13 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                Polski
-                                <small>(92%)</small>
+                                中文
+                                <small>(97%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:92%;"></div>
+                                    <div class="q-progress-model" style="width:97%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1762,12 +1762,12 @@ exports[`Storyshots Layout KTopbar 1`] = `
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Deutsch
-                                <small>(89%)</small>
+                                <small>(88%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:89%;"></div>
+                                    <div class="q-progress-model" style="width:88%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1776,12 +1776,12 @@ exports[`Storyshots Layout KTopbar 1`] = `
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Español
-                                <small>(81%)</small>
+                                <small>(83%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:81%;"></div>
+                                    <div class="q-progress-model" style="width:83%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1789,7 +1789,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                हिन्दी
+                                Svenska
                                 <small>(81%)</small>
                             </div>
                             <div class="q-item-sublabel">
@@ -1817,13 +1817,13 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                Français
-                                <small>(32%)</small>
+                                हिन्दी
+                                <small>(81%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:32%;"></div>
+                                    <div class="q-progress-model" style="width:81%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1831,13 +1831,13 @@ exports[`Storyshots Layout KTopbar 1`] = `
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
-                                Svenska
-                                <small>(28%)</small>
+                                Français
+                                <small>(32%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:28%;"></div>
+                                    <div class="q-progress-model" style="width:32%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1860,12 +1860,12 @@ exports[`Storyshots Layout KTopbar 1`] = `
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Italiano
-                                <small>(16%)</small>
+                                <small>(15%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:16%;"></div>
+                                    <div class="q-progress-model" style="width:15%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1874,12 +1874,12 @@ exports[`Storyshots Layout KTopbar 1`] = `
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Русский
-                                <small>(16%)</small>
+                                <small>(15%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:16%;"></div>
+                                    <div class="q-progress-model" style="width:15%;"></div>
                                 </div>
                             </div>
                         </div>

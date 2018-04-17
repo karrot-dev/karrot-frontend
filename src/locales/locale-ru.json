@@ -54,7 +54,9 @@
     "AGREE": "I agree",
     "REMOVE": "Remove",
     "ARCHIVE": "Archive",
-    "DELETE_ACCOUNT": "Delete account"
+    "DELETE_ACCOUNT": "Delete account",
+    "SHOW": "Show",
+    "HIDE": "Hide"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",

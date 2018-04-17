@@ -12,122 +12,124 @@
   },
   "USERDATA": {
     "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Phone number",
-    "PROFILE_TITLE": "Profile",
+    "MOBILE_NUMBER": "Mobilnr.",
+    "PROFILE_TITLE": "Profil",
     "PASSWORD": "Lösenord",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "Bekräfta ditt lösenord",
     "USERNAME": "Namn",
     "WHERE_FROM": "Where you are from (not required)",
-    "PHOTO": "Profile photo",
+    "PHOTO": "Profilbild",
     "SET_PHOTO": "Set your profile photo...",
-    "ACCOUNT": "Account",
+    "ACCOUNT": "Konto",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Vi skickade ett mejl med en länk för att utföra radering"
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
+        "TITLE": "Radera konto",
         "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "CONFIRM": "Bekräfta"
       }
     }
   },
   "BUTTON": {
     "CREATE": "Skapa",
     "CANCEL": "Avbryt",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "Öppna",
+    "CLOSE": "Stäng",
     "DELETE": "Radera",
     "EDIT": "Ändra",
     "JOIN": "Gå med",
     "LEAVE": "Lämna",
     "PREVIEW": "Förhandsvisning",
-    "BACK": "Tillbacks",
-    "MORE_OPTIONS": "More options",
-    "SEARCH": "Search",
-    "OF_COURSE": "Yes, of course!",
-    "YES": "Yes",
-    "SAVE_CHANGES": "Save changes",
-    "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "AGREE": "I agree",
-    "REMOVE": "Remove",
+    "BACK": "Tillbaks",
+    "MORE_OPTIONS": "Se flera",
+    "SEARCH": "Söka",
+    "OF_COURSE": "Javisst!",
+    "YES": "Ja",
+    "SAVE_CHANGES": "Spara ändringar",
+    "RESET": "Nollställa",
+    "CHANGE_PASSWORD": "Byta lösenord",
+    "CHANGE_EMAIL": "Ändra mejladress",
+    "AGREE": "Jag håller med",
+    "REMOVE": "Ta bort",
     "ARCHIVE": "Archive",
-    "DELETE_ACCOUNT": "Delete account"
+    "DELETE_ACCOUNT": "Radera konto",
+    "SHOW": "Show",
+    "HIDE": "Hide"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Name already exists, please choose another.",
+    "MINLENGTH": "Ange mer än {min} tecken",
+    "MAXLENGTH": "För långt. Ange mindre än  {max} tecken",
+    "UNIQUE": "Namn finns redan. Välj ett annat",
     "REQUIRED": "This field is required.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
+    "VALID_EMAIL": "Ange giltig mejladress.",
     "VALID_TIMEZONE": "Enter a valid timezone."
   },
   "GROUP": {
-    "WALL": "Wall",
-    "GROUP": "Group",
+    "WALL": "Anslagstavla",
+    "GROUP": "Grupp",
     "LEAVE": "Lämna gruppen...",
     "LEAVE_TEXT": "Är du säker på att du vill lämna denna gruppen?",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "LEAVE_CONFIRMATION": "Du lämnade {groupName}",
+    "NONMEMBER_REDIRECT": "Du är inte en medlem i denna grupp",
     "EDIT": "Redigera gruppen",
     "CREATE_TITLE": "Skapa ny grupp",
     "MANAGE_AGREEMENT": "Manage agreement",
     "TITLE": "Gruppens namn",
-    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
+    "PRIVATE_DESCRIPTION_TITLE": "Privat gruppbeskrivning",
     "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
     "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
     "PASSWORD": "Ange ett lösenord för att göra gruppen privat",
     "PICKUPS": "Upphämtningar",
     "MEMBERS": "Medlemmar",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
+    "INACTIVE": "Inaktive",
+    "SHOW_INACTIVE": "Visa inaktiva grupper",
     "STORES": "Butiker",
     "HISTORY": "Historik",
     "DESCRIPTION": "Beskrivning",
-    "ADDRESS": "Address",
+    "ADDRESS": "Adress",
     "TIMEZONE": "Gruppens tidszon",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
-    "INVITATIONS": "Invitations",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
-    "SETTINGS": "Settings",
-    "NOTIFICATIONS": "Notifications",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "INVITE_EMAIL": "Ange mejladress",
+    "INVITE_SEND": "Skicka inbjudan",
+    "INVITED_LIST": "Inbjudningar har redan skickats till följande mejladresser:",
+    "ALREADY_INVITED": "En inbjudan har redan skickats till mejldressen",
+    "INVITATIONS": "Inbjudningar",
+    "INVITE_TITLE": "Bjud in folk till din grupp",
+    "INVITATION_ACCEPT_SUCCESS": "Välkommen! Du har accepterat inbjudan.",
+    "INVITATION_ACCEPT_ERROR": "Oj, kunde inte acceptera inbjudan!",
+    "SETTINGS": "Inställningar",
+    "NOTIFICATIONS": "Notifikationer",
+    "EMAIL_NOTIFICATIONS": "Mejlnotifikationer",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "Veckans sammanfattning",
+        "DESCRIPTION": "Håll dig uppdaterat om vad som händer i gruppen."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+        "NAME": "Notifikationer om upphämtningar",
+        "DESCRIPTION": "Påminner dig om dina upphämtningar och om lediga upphämtningar i kommande dagen."
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
     "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
-    "SHOW_STORES": "Show stores",
-    "HIDE_STORES": "Hide stores",
+    "TITLE": "Karta",
+    "SHOW_USERS": "Visa användare",
+    "HIDE_USERS": "Göm användare",
+    "SHOW_STORES": "Visa butiker",
+    "HIDE_STORES": "Göm butiker",
     "SET_LOCATION": "Set location",
-    "FULL_SCREEN": "Show full screen"
+    "FULL_SCREEN": "Visa fullskärm"
   },
   "STOREDETAIL": {
     "EDIT": "Redigera butik",
     "MANAGE": "Hantera upphämtningarna",
     "ARCHIVED": "This store has been archived",
-    "INACTIVE": "This store is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This store does not have a description yet"
+    "INACTIVE": "Denna butik samarbetar inte i dagsläget",
+    "CHANGE_STATUS": "Du kan ändra statusen på inställningssidan.",
+    "NO_DESCRIPTION": "Denna butik har fortfarande ingen beskrivning."
   },
   "STOREEDIT": {
     "NAME": "Namn",
@@ -138,57 +140,57 @@
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive store",
-        "MESSAGE": "Are you sure?",
+        "MESSAGE": "Är du säker?",
         "CONFIRM": "Yes, archive store"
       }
     },
-    "RESTORE": "Restore",
+    "RESTORE": "Återställa",
     "SHOW_ARCHIVED": "Show archived stores",
     "HIDE_ARCHIVED": "Hide archived stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Hantera upphämtningar",
-    "SERIES": "Recurring pickups",
+    "SERIES": "Regelbundna upphämtningar",
     "SINGLE": "Engångs upphämtning",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
+    "UPCOMING_PICKUPS_IN_SERIES": "Kommande upphämtningar i denna serie"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TITLE": "Radera regelbundet upphämtningsdatum",
+    "DELETE_SERIES_TEXT": "Vill du verkligen radera denna regelbunden upphämtning? Det kommer också att radera engångsupphämtningar som tillhör denna upphämtningsserie (förutom där folk redan gått med på)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Namn",
     "DESCRIPTION": "Beskriv dig själv",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "OLD_PASSWORD": "Bekräfta ditt gamla lösenord",
+    "PASSWORD": "Nytt lösenord"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Användaren är oåtkomlig eller borttagen)"
   },
   "JOINGROUP": {
     "WHICHGROUP": "Vilken grupp vill du gå med i?",
-    "NUM_MEMBERS": "Member | Members",
+    "NUM_MEMBERS": "Medlem | Medlemmar",
     "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
     "PASSWORD_LABEL": "Ange lösenordet för den privata gruppen",
     "PASSWORD_REQUIRED": "Denna grupp kräver ett lösenord",
-    "ALL_GROUPS": "All groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "MY_GROUPS": "My groups",
+    "ALL_GROUPS": "Alla grupper",
+    "SIGNUP_OR_LOGIN": "Logga in eller registrera dig för att gå med i gruppen!",
+    "MY_GROUPS": "Mina grupper",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOGGED_OUT": "Du är utloggade nu. {login}",
+      "LOG_IN": "Logga in för att se dina grupper!"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
+    "PROFILE_NOTE": "När du går med i gruppen blir din profildata synlig för andra medlemmar i gruppen."
   },
   "GROUPINFO": {
-    "TITLE": "Public group information",
-    "META": "Show public group information",
+    "TITLE": "Offentlig information om gruppen",
+    "META": "Visa offentlig information om gruppen",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "TOPBAR": {
     "LOGOUT": "Logga ut",
     "USERPROFILE": "Gå till din profil",
-    "CHANGE_GROUP": "Change group"
+    "CHANGE_GROUP": "Ändra grupp"
   },
   "SIDENAV": {
     "INFO_SUB": "How to build your foodsaving group",
@@ -211,55 +213,55 @@
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Radera konto",
+    "SUCCESS": "Du lyckades radera ditt konto!"
   },
   "CREATEPICKUP": {
-    "FREQUENCY": "Frequency",
-    "WEEKLY": "Weekly",
+    "FREQUENCY": "Hur ofta",
+    "WEEKLY": "Varje vecka",
     "CUSTOM": "Custom",
     "WEEKDAYS": "Helg",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
+    "WEEKDAYS_HELPER": "Vilka dagar ska man hämta upp?",
     "RRULE": "Recurrence rule",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender rule",
-    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
-    "STARTDATE": "Start date",
-    "STARTDATE_HELPER": "When should the series start?",
+    "RRULE_EXAMPLE": "Sista arbetsdag (Mån-Fre) varje månad",
+    "RRULE_EXAMPLE2": "varannan måndag",
+    "STARTDATE": "Startdatum",
+    "STARTDATE_HELPER": "När ska serien börja?",
     "TIME": "Tid",
-    "TIME_HELPER": "When should the pick-up take place?",
-    "DATE": "Date",
-    "DATE_HELPER": "When should the pick-up take place?",
+    "TIME_HELPER": "När ska upphämtningen ske?",
+    "DATE": "Datum",
+    "DATE_HELPER": "När ska upphämtningen ske?",
     "MAX_COLLECTORS": "Max Slots",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
-    "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it",
-    "UNLIMITED": "unlimited"
+    "MAX_COLLECTORS_HELPER": "Hur många bör delta i upphämtningen?",
+    "COMMENT": "Mer information",
+    "COMMENT_HELPER": "Vad bör folk veta när de ska gå med upphämtningen?",
+    "DELETION_FORBIDDEN_HELPER": "Denna upphämtningen kunde inte raderas eftersom folk redan skrev upp sig till att gå med.",
+    "UNLIMITED": "obegränsat"
   },
   "CREATESTORE": {
     "TITLE": "Skapa ny butik"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
+    "AVAILABLE": "Det finns en ledig upphämtning i kommande dagar! | Det finns {count} lediga upphämtningar i kommande dagar!",
+    "AVAILABLE_FEEDBACK": "Du kan ge feedback till en upphämtning | {count} upphämtningar väntar på din feedback",
+    "JOINEDNOTICE": "Du har en kommande upphämtning | Du har {count} kommande upphämtningar",
     "ITEM": {
       "LEAVE": "Lämna",
       "JOIN": "Gå med",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+      "JOIN_CONFIRMATION_HEADER": "Gå med Upphämtning",
+      "JOIN_CONFIRMATION_TEXT": "Är du säker du har tid att hämta upp den {date}?",
+      "LEAVE_CONFIRMATION_HEADER": "Lämna Upphämtning",
+      "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra upphämtningen utan dig?"
     },
     "NONE": "Inga bokade upphämtningar",
     "NONE_HINT": "Du kan boka en ny upphämtning på butik sidan.",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+    "STORE_NONE_HINT": "Du kan skapa en ny upphämtning i sidan för att hantera upphämtningar"
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
-    "GIVE_FEEDBACK": "Give feedback",
+    "SAVED_FOOD": "Minst 1kg var räddad här. Tack! | Folk gav feedback för {amount}kg räddad mat redan! Bra jobbat!",
+    "GIVE_FEEDBACK": "Ge feedback",
     "NONE": "No feedback yet",
     "NONE_HINT": "This page will be filled once more feedback is available",
     "NO_DONE_PICKUPS": "All done!",
@@ -277,25 +279,25 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Återställ lösenordet",
-    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
-    "EMAIL": "E-mail address",
+    "INTRO": "Ange din mejladress och vi skickar dig ett nytt lösenord (om du redan har en registrerat konto).",
+    "EMAIL": "Mejladress",
     "SUBMIT": "Skicka",
     "LOGIN": "Tillbacks till logga in sidan",
-    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+    "SUCCESS": "Begäran har skickats. Kolla din mejl!"
   },
   "PASSWORD": {
     "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+      "TITLE": "Återställa lösenord",
+      "OK": "Spara",
+      "SUCCESS": "Ditt nya lösenord sparades"
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "Ditt nya lösenord sparades."
     }
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Lägg till mer språk!",
-    "SWITCH": "Switch language"
+    "SWITCH": "Ändra språk"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "bold",
@@ -309,47 +311,47 @@
     "GROUP_MODIFY": "ändrade inställningar för gruppen",
     "GROUP_JOIN": "gick med i gruppen",
     "GROUP_LEAVE": "Lämnade gruppen",
-    "STORE_CREATE": "created store {name}",
-    "STORE_MODIFY": "changed the settings of store {name}",
-    "STORE_DELETE": "deleted store {name}",
+    "STORE_CREATE": "skapade butik {name}",
+    "STORE_MODIFY": "ändrade inställningar för butik {name}",
+    "STORE_DELETE": "raderade butik {name}",
     "PICKUP_CREATE": "skapade en upphämtning",
     "PICKUP_MODIFY": "ändrade inställningarna för en upphämtninng",
     "PICKUP_DELETE": "tog bort en upphämtning",
     "SERIES_CREATE": "skapade en återkommande upphämtning",
     "SERIES_MODIFY": "ändrade inställningarna för en återkommande upphämtning",
     "SERIES_DELETE": "tog bort en återkommande upphämtning",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "DETAILS": "More information"
+    "PICKUP_DONE": "gjorde en upphämtning på {storeName}",
+    "PICKUP_MISSED": "Ingen hämtade upp på {storeName}!",
+    "PICKUP_JOIN": "skrev upp sig för att hämta upp på {storeName}",
+    "PICKUP_LEAVE": "gav upp om att hämta upp på {storeName}",
+    "NOTHING_HAPPENEND": "Inget händer än så länge...",
+    "DETAILS": "Mer information"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifications",
-    "NOT_VERIFIED": "{email} not verified",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resend verification email",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+    "TITLE": "Notifikationer",
+    "NOT_VERIFIED": "{email} inte verifierad",
+    "CHECK_YOUR_MAILS": "Varsågod och kolla dina mejl eller {resend}",
+    "RESEND_VERIFICATION": "Skicka igen mejlverifiering",
+    "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg."
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
-    "HOME": "Take me home"
+    "EXPLANATION": "Jag är ledsen, men vi kunde inte hitta sidan nånstans.",
+    "HOME": "Ta mig hem"
   },
   "SETTINGS": {
-    "TITLE": "Settings"
+    "TITLE": "Inställningar"
   },
   "AGREEMENT": {
-    "NEW": "New agreement",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
-    "TITLE": "Title",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
-    "MINOR_EDIT": "Minor edit?",
+    "NEW": "Ny överenskommelse",
+    "AGREE": "Du måste vara införstådd med {title}",
+    "VIEW": "Visa överenskommelse",
+    "TITLE": "Titel",
+    "TITLE_HELPER": "Ge din överenskommelse en titel, t ex Riktlinjer för Maträddare",
+    "CONTENT": "Innehåll",
+    "CONTENT_HELPER": "Texten i överenskommelse",
+    "MINOR_EDIT": "Mindre redigering?",
     "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
+    "BLURB1": "Du har fortfarande ingen överenskommelse!",
     "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
     "DIALOGS": {
       "REPLACE": {
@@ -365,27 +367,27 @@
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
-    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
-    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
+    "WRITE_MESSAGE": "Skriva ett meddelande",
+    "WRITE_FIRST_MESSAGE": "Skriv första meddelande...",
+    "DISABLE_NOTIFICATION_EMAILS": "Mejlnotifikationer är på, klicka för att stänga av dem.",
+    "ENABLE_NOTIFICATION_EMAILS": "Mejlnotifikationer är av, klicka för att aktivera dem",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Snälla verifiera din mejladress för att få mejlnotifikationer",
+    "RECEIVED_VIA_EMAIL": "Det här meddelande skickades via mejl"
   },
   "CONVERSATION": {
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "MARK_READ": "Mark all as read",
+    "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
+    "MARK_READ": "Markera alla som lästa",
     "REACTIONS": {
-      "YOU": "you",
-      "AND": "and",
-      "REACTED_WITH":"{users} reacted with {reaction}"
+      "YOU": "du",
+      "AND": "och",
+      "REACTED_WITH":"{users} reagerade med {reaction}"
     }
   },
   "STORESTATUS":{
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
+    "ACTIVE": "Samarbetar",
+    "CREATED": "Nyligen skapad",
+    "NEGOTIATING": "Förhandlar",
+    "DECLINED": "Vill inte samarbeta",
     "ARCHIVED": "Archived"
   }
 }

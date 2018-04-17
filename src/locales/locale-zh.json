@@ -7,28 +7,28 @@
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
     "SERVER_ERROR": "伺服器錯誤",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
+    "INVALID_LINK": "抱歉，你開啟的連結無效",
     "SEARCH_NOT_FOUND": "無符合的搜尋結果"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
+    "EMAIL": "電子郵件",
     "MOBILE_NUMBER": "電話號碼",
     "PROFILE_TITLE": "個人資料",
     "PASSWORD": "密碼",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "認證你的密碼",
     "USERNAME": "名稱",
     "WHERE_FROM": "請問你來自哪裡(選填)",
     "PHOTO": "大頭貼照",
     "SET_PHOTO": "設定你的大頭貼照",
-    "ACCOUNT": "Account",
+    "ACCOUNT": "帳戶",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "我們寄給你了一封電子郵件，內含完成刪除程序的連結"
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "刪除帳戶",
+        "MESSAGE": "你確定嗎? 你的帳戶和個人資料將被永久清除。你在這平台上所做過的一切都會變成匿名的。如果你確定要刪除帳戶，我們會寄給你完成刪除程序的連結。",
+        "CONFIRM": "確認"
       }
     }
   },
@@ -54,7 +54,9 @@
     "AGREE": "我同意",
     "REMOVE": "移除",
     "ARCHIVE": "歸檔",
-    "DELETE_ACCOUNT": "Delete account"
+    "DELETE_ACCOUNT": "刪除帳戶",
+    "SHOW": "Show",
+    "HIDE": "Hide"
   },
   "VALIDATION": {
     "MINLENGTH": "請輸入至少 {最少} 個字。",
@@ -124,7 +126,7 @@
   "STOREDETAIL": {
     "EDIT": "編輯店家",
     "MANAGE": "檢查與管理外帶品",
-    "ARCHIVED": "此店家已被封存",
+    "ARCHIVED": "此店家已被歸檔",
     "INACTIVE": "此商家目前並未參與合作",
     "CHANGE_STATUS": "你可以在設定頁面更改狀態",
     "NO_DESCRIPTION": "尚無關於此店家的敘述"
@@ -137,14 +139,14 @@
     "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "封存店家",
+        "TITLE": "將店家歸檔",
         "MESSAGE": "你確定嗎？",
-        "CONFIRM": "是的，封存店家"
+        "CONFIRM": "是的，將店家歸檔"
       }
     },
     "RESTORE": "恢復",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "SHOW_ARCHIVED": "顯示已歸檔的店家",
+    "HIDE_ARCHIVED": "隱藏已歸檔的店家"
   },
   "PICKUPMANAGE": {
     "TITLE": "管理食物領取",
@@ -159,8 +161,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "名稱",
     "DESCRIPTION": "關於你",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "OLD_PASSWORD": "確認你的舊密碼",
+    "PASSWORD": "新密碼"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(用戶無法登入或已被刪除)"
@@ -211,8 +213,8 @@
     "SUCCESS": "你的電郵地址已成功驗證!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "帳戶刪除",
+    "SUCCESS": "你的帳戶已成功刪除"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "頻率",
@@ -262,8 +264,8 @@
     "GIVE_FEEDBACK": "給予回饋",
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "NO_DONE_PICKUPS": "都完成了",
+    "NO_DONE_PICKUPS_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "回饋",

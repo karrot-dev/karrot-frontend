@@ -7,7 +7,7 @@
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
     "SERVER_ERROR": "Błąd serwera",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
+    "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
     "SEARCH_NOT_FOUND": "Nie znaleziono"
   },
   "USERDATA": {
@@ -15,20 +15,20 @@
     "MOBILE_NUMBER": "Numer telefonu",
     "PROFILE_TITLE": "Konto",
     "PASSWORD": "Hasło",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "Potwierdź hasło",
     "USERNAME": "Imię",
     "WHERE_FROM": "Skąd jesteś (nie wymagane)",
     "PHOTO": "Zdjęcie profilowe",
     "SET_PHOTO": "Ustaw zdjęcie profilowe...",
-    "ACCOUNT": "Account",
+    "ACCOUNT": "Konto",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Wysłaliśmy Ci wiadomość e-mail z linkiem do usunięcia konta."
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "Usunięcie konta",
+        "MESSAGE": "Jesteś pewna/-y? Twoje konto i dane osobiste zostaną trwale usunięte. Wszystko, co robiłeś na tej platformie zostanie oznaczone jako anonimowe. Jeśli potwierdzasz, wyślemy Ci wiadomość e-mail z linkiem do usunięcia konta.",
+        "CONFIRM": "Potwierdzam"
       }
     }
   },
@@ -54,7 +54,9 @@
     "AGREE": "Zgadzam się",
     "REMOVE": "Usuń",
     "ARCHIVE": "Archiwizuj",
-    "DELETE_ACCOUNT": "Delete account"
+    "DELETE_ACCOUNT": "Usuń konto",
+    "SHOW": "Show",
+    "HIDE": "Hide"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -143,8 +145,8 @@
       }
     },
     "RESTORE": "Przywróć",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "SHOW_ARCHIVED": "Pokaż zarchiwizowane punkty odbioru",
+    "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty odbioru"
   },
   "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
@@ -159,8 +161,8 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "Imię",
     "DESCRIPTION": "O Tobie",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "OLD_PASSWORD": "Potwierdź stare hasło",
+    "PASSWORD": "Nowe hasło"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Użytkownik jest niedostępny lub konto usunięto)"
@@ -211,8 +213,8 @@
     "SUCCESS": "Twój adres e-mail został pomyślnie zweryfikowany!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Usunięcie konta",
+    "SUCCESS": "Twoje konto zostało usunięte!"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "Częstotliwość",
@@ -262,8 +264,8 @@
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "NO_DONE_PICKUPS": "Wszystko odebrane!",
+    "NO_DONE_PICKUPS_HINT": "Jeszcze nie masz odbiorów, które możesz skomentować. Może chcesz zapisać się na odbiór?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Komentarz",
@@ -277,20 +279,20 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Resetuj hasło",
-    "INTRO": "Enter your e-mail address and we will send you a new password (if you have an account registered).",
-    "EMAIL": "E-mail address",
+    "INTRO": "Wprowadź adres e-mail i wkrótce wyślemy Ci nowe hasło (jeśli jesteś zarejestrowanym użytkownikiem).",
+    "EMAIL": "Adres e-mail",
     "SUBMIT": "Odbierz nowe hasło",
     "LOGIN": "Wróć do strony logowania",
-    "SUCCESS": "The request was successfully sent. Have a look at your e-mails!"
+    "SUCCESS": "Przyjęliśmy Twoją prośbę o zmianę hasła. Sprawdź swoją pocztę!"
   },
   "PASSWORD": {
     "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+      "TITLE": "Resetuj hasło",
+      "OK": "Zapisz",
+      "SUCCESS": "Twoje nowe hasło zostało zapisane."
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "Twoje nowe hasło zostało zapisane."
     }
   },
   "LANGUAGECHOOSER": {

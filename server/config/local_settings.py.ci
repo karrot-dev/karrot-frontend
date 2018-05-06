@@ -1,0 +1,15 @@
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fstool_e2etest',
+        'TEST': {
+            'NAME': 'will_be_created'
+        },
+        'USER': 'ubuntu',
+    }
+}
+
+FCM_SERVER_KEY = 'cifcmserverkey'
+
+SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
+DEBUG = True

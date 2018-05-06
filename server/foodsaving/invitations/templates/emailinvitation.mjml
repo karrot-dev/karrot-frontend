@@ -1,0 +1,26 @@
+<mjml>
+    <mj-head>
+        <mj-include path="../../base/templates/_base-head.mjml"/>
+        <mj-title>{% trans %}Invitation to join {{ group_name }}{% endtrans %}</mj-title>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            <mj-include path="../../base/templates/_header.mjml"/>
+            <mj-section>
+                <mj-column>
+                    <mj-text>
+                        <h1>{% trans %}You're invited to join {{ group_name }}!{% endtrans %}</h1>
+                    </mj-text>
+                    <mj-text>
+                        <p>{% trans %}{{ invited_by_name }} invited you to join the "{{ group_name }}" community on {{ site_name }}!{% endtrans %}</p>
+                        <p>{% trans %}If you'd like to join, please click the link below:{% endtrans %}</p>
+                    </mj-text>
+                    <mj-button href="{{ invite_url }}">
+                        {% trans %}Follow the invitation{% endtrans %}
+                    </mj-button>
+                </mj-column>
+            </mj-section>
+            <mj-include path="../../base/templates/_footer.mjml"/>
+        </mj-container>
+    </mj-body>
+</mjml>

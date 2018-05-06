@@ -1,0 +1,7 @@
+[run]
+source = foodsaving
+branch = true
+omit = foodsaving/resources/*, foodsaving/tests/*
+
+[report]
+precision = 2

@@ -1,0 +1,154 @@
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fstool-db',
+        'USER': 'fstool-user',
+        'PASSWORD': 'fstool-pw',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+SECRET_KEY = 'c*#4=n$s4!*gdgq3nora#a$*xznctg-6=4_edeg9^dsxk&=p=$'
+DEBUG = True
+
+# needed for deployment
+# STATIC_ROOT = './static/'
+# ALLOWED_HOSTS = ['*']
+
+# Uploaded files location, e.g. user photos
+MEDIA_ROOT = './uploads/'
+MEDIA_URL = '/media/'
+
+######
+# Mail configuration
+# Uses the console backend for local development
+# Set the sparkpost key on deploy
+######
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+ANYMAIL = {
+    # Should be a subaccount to receive webhooks scoped to this account
+    # https://app.sparkpost.com/account/subaccounts
+    # Transmissions: Read/Write
+    # Event Webhooks: Read/Write
+    "SPARKPOST_API_KEY": "your subaccount key"
+}
+# to set up a relay webhook for incoming emails
+# https://developers.sparkpost.com/api/relay-webhooks.html
+SPARKPOST_ACCOUNT_KEY = 'your account key'
+SPARKPOST_RELAY_DOMAIN = 'replies.your-karrot-deployment'
+
+# shared secrets, will be used by setup_sparkpost management command
+SPARKPOST_RELAY_SECRET = 'generate a random string'
+SPARKPOST_WEBHOOK_SECRET = 'generate another random string'
+
+DEFAULT_FROM_EMAIL = "your mail domain"  # can be anything if using the console backend
+HOSTNAME = 'https://localhost:8000'  # for constructing the frontend URL
+SITE_NAME = 'karrot.world' # used as human readable site name, for example in e-mail templates
+
+
+######
+# InfluxDB config for statistics reporting
+# Disabled by default
+######
+
+INFLUXDB_DISABLED = True
+INFLUXDB_HOST = '127.0.0.1'
+INFLUXDB_PORT = '8086'
+INFLUXDB_USER = ''
+INFLUXDB_PASSWORD = ''
+INFLUXDB_DATABASE = 'fstool'
+INFLUXDB_TAGS_HOST = 'yuca'
+INFLUXDB_TIMEOUT = 2
+INFLUXDB_USE_CELERY = False
+INFLUXDB_USE_THREADING = True
+
+######
+# Firebase Cloud Messaging config
+# For sending push messages
+# Get one from https://console.firebase.google.com
+######
+
+FCM_SERVER_KEY = 'your server key'
+
+#######
+# Sentry.io config for error reporting
+# Only needs to be enabled on deploy
+########
+
+# import os
+# import raven
+
+# RAVEN_CONFIG = {
+#    'dsn': 'https://f4b3de91ad384e4ca0d371c591cf3904:60760787f4464c5293afa6fe877d3d9d@sentry.io/147126',
+#    # If you are using git, you can also automatically configure the
+#    # release based on the git info.
+#    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+#}
+
+######
+# Logger configuration proposal:
+# Disables most console logging as well as django admin email logging
+# and sends all errors to sentry.
+######
+
+#LOGGING = {
+#    'version': 1,
+#    'disable_existing_loggers': False,
+#    'formatters': {
+#        'verbose': {
+#            'format': '%(levelname)s %(asctime)s %(module)s '
+#                      '%(process)d %(thread)d %(message)s'
+#        },
+#    },
+#    'handlers': {
+#        'sentry': {
+#            'level': 'WARNING',
+#            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+#        },
+#        'console': {
+#            'level': 'WARNING',
+#            'class': 'logging.StreamHandler',
+#            'formatter': 'verbose'
+#        }
+#
+#    },
+#    'loggers': {
+#        'raven': {
+#            'level': 'WARNING',
+#            'handlers': ['console'],
+#            'propagate': False,
+#        },
+#        'sentry.errors': {
+#            'level': 'WARNING',
+#            'handlers': ['console'],
+#            'propagate': False,
+#        },
+#        'django': { # Disable django admin email logging by overriding
+#            'level': 'ERROR',
+#            'handlers': ['sentry'],
+#        }
+#    },
+#    'root': {
+#        'level': 'ERROR',
+#        'handlers': ['sentry'],
+#     },
+#}
+
+#HUEY = {
+#    'always_eager': False,
+#    'connection': {
+#        'host': REDIS_HOST,
+#    },
+#    'consumer': {
+#        'workers': 8,
+#        'worker_type' : 'greenlet',
+#    },
+#}

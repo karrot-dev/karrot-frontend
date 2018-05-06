@@ -1,0 +1,9 @@
+app_identifier "world.karrot.dev" # The bundle identifier of your app
+#apple_id "" # Your Apple email address
+
+team_id "67Y6DS58YP" # Developer Portal Team ID
+
+itc_team_id "95946392"
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://docs.fastlane.tools/advanced/#appfile

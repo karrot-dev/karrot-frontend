@@ -1,0 +1,63 @@
+# Customize this file, documentation can be found here:
+# https://docs.fastlane.tools/actions/
+# All available actions: https://docs.fastlane.tools/actions
+
+fastlane_version "2.68.2"
+
+default_platform :ios
+
+platform :ios do
+
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+  end
+
+  lane :ci_build do
+    cordova(platform: 'ios')
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    cert
+    sigh
+    update_project_provisioning(
+      xcodeproj: "Karrot Dev.xcodeproj",
+      build_configuration: "Release",
+    )
+    build_app
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    # sync_code_signing(type: "appstore")
+    # capture_screenshots
+    build_app # Build your app - more options available
+    upload_to_app_store(force: true)
+    # frame_screenshots
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+# Local Variables:
+# mode: ruby
+# End:

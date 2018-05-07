@@ -34,7 +34,9 @@ I'm not sure if we need to also configure the bounce domain bit.
 
 You also need to setup the inbound email domain for "reply to this email" functionality. By convention we use the main application domain prepended with "replies." e.g. `karrot.world` -> `replies.karrot.world`.
 
-For this domain you need to give it some MX records so they will arrive at Sparkpost [TODO: provide link or details].
+For this domain you need to give it some MX records so they will arrive at Sparkpost. See the [Sparkpost docs](https://www.sparkpost.com/docs/tech-resources/inbound-email-relay-webhook/#add-mx-records) for which records to add.
+
+Note: when we did this using NameCheap it seemed to exclude the subdomain from the wildcard A record we had, requiring a seperate A record for the subdomain, so check your settings!
 
 ## Ansible configuration
 

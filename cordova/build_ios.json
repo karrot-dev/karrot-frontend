@@ -1,0 +1,9 @@
+{
+  "ios": {
+    "release": {
+      "codeSignIdentity": "world.karrot.dev",
+      "developmentTeam": "M27JM2B4PK",
+      "packageType": "app-store"
+    }
+  }
+}

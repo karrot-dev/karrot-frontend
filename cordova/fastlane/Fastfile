@@ -1,7 +1,3 @@
-# Customize this file, documentation can be found here:
-# https://docs.fastlane.tools/actions/
-# All available actions: https://docs.fastlane.tools/actions
-
 fastlane_version "2.68.2"
 
 default_platform :ios
@@ -13,27 +9,37 @@ platform :ios do
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
   lane :beta do
-    cert
-    sigh
-    update_project_provisioning(
-      xcodeproj: "Karrot Dev.xcodeproj",
-      build_configuration: "Release",
+    match(
+      username: ENV['IOS_APPLE_ID'],
+      git_url: ENV['MATCH_GIT_REPO'],
+      type: "appstore",
+      readonly: true
     )
-    cordova(platform: 'ios')
+
+    cordova(
+      platform: 'ios',
+      type: "appstore"
+    )
+
     upload_to_testflight(
+      username: ENV['IOS_APPLE_ID'],
+      ipa: ENV['CORDOVA_IOS_RELEASE_BUILD_PATH'],
       skip_waiting_for_build_processing: true
     )
   end
 
   desc "Deploy a new version to the App Store"
   lane :release do
-    # sync_code_signing(type: "appstore")
-    # capture_screenshots
-    build_app # Build your app - more options available
-    upload_to_app_store(force: true)
-    # frame_screenshots
+    match(
+      type: "appstore",
+      readonly: true
+    )
+    cordova(platform: 'ios')
+    upload_to_app_store(
+      ipa: ENV['CORDOVA_IOS_RELEASE_BUILD_PATH'],
+      skip_waiting_for_build_processing: true
+    )
   end
 
   # You can define as many lanes as you want

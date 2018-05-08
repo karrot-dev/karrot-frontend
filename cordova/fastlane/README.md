@@ -16,18 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios ci_build
-```
-fastlane ios ci_build
-```
-
 ### ios beta
 ```
 fastlane ios beta
 ```
 Submit a new Beta Build to Apple TestFlight
-
-This will also make sure the profile is up to date
 ### ios release
 ```
 fastlane ios release

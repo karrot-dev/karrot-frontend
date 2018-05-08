@@ -10,7 +10,7 @@
 
 # sdk "iphoneos9.0"
 
-workspace "platforms/ios/Karrot Dev.xcworkspace"
+# workspace ""
 
 export_options "./exportOptions.plist"
 

@@ -320,19 +320,18 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: yarn global add cordova
+      - run:
+          name: Install cordova
+          command: yarn global add cordova
       - run:
           <<: *prepare-build-ios
           environment:
             CORDOVA_ENV: dev
       - run:
+          name: Build iOS app
           command: |
-            set -x
-            export LC_ALL=C.UTF-8
-            export LANG=C.UTF-8
             cd ~/repo/cordova/
-            bundle install
-            bundle exec fastlane ci_build
+            cordova build ios
 
   deploy-dev:
     <<: *defaults
@@ -388,7 +387,6 @@ workflows:
       - build-ios-dev:
           requires:
             - build-cordova-dev
-            - install-fastlane-dependencies
       - deploy-android-dev:
           filters:
             branches:

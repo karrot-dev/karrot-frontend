@@ -12,10 +12,6 @@ platform :ios do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
   end
 
-  lane :ci_build do
-    cordova(platform: 'ios')
-  end
-
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
@@ -25,7 +21,7 @@ platform :ios do
       xcodeproj: "Karrot Dev.xcodeproj",
       build_configuration: "Release",
     )
-    build_app
+    cordova(platform: 'ios')
     upload_to_testflight(
       skip_waiting_for_build_processing: true
     )

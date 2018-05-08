@@ -14,7 +14,7 @@
 
 export_options "./exportOptions.plist"
 
-output_directory "./build/"
+output_directory "./build_ios/"
 
 # export_options(
 #   method: "app-store",

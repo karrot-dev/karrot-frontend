@@ -10,21 +10,40 @@ platform :ios do
 
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
+    # Update version from package.json
+    package = load_json(json_path: "../package.json")
+    infoPlist = "platforms/ios/Karrot Dev/Karrot Dev-Info.plist"
+    set_info_plist_value(
+      path: infoPlist,
+      key: "CFBundleShortVersionString",
+      value: package["version"]
+    )
+    # Update build version from file
+    build = load_json(json_path: "build_version.json")
+    set_info_plist_value(
+      path: infoPlist,
+      key: "CFBundleVersion",
+      value: build["ios"]
+    )
+
     match(
       username: ENV['IOS_APPLE_ID'],
       git_url: ENV['MATCH_GIT_REPO'],
       type: "appstore",
       readonly: true
     )
+    pem(
+      username: ENV['IOS_APPLE_ID'],
+      save_private_key: true,
+    )
 
-    cordova(
-      platform: 'ios',
-      type: "appstore"
+    build_app(
+      workspace: ENV['IOS_WORKSPACE'],
+      export_xcargs: "-allowProvisioningUpdates"
     )
 
     upload_to_testflight(
       username: ENV['IOS_APPLE_ID'],
-      ipa: ENV['CORDOVA_IOS_RELEASE_BUILD_PATH'],
       skip_waiting_for_build_processing: true
     )
   end

@@ -4,7 +4,8 @@
   "displayName": "Karrot",
   "cordova": {
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-whitelist": {},
@@ -14,9 +15,10 @@
   },
   "dependencies": {
     "cordova-android": "^6.4.0",
+    "cordova-ios": "^4.5.4",
     "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-whitelist": "^1.3.3",
-    "cordova-universal-links-plugin": "^1.2.1",
+    "cordova-universal-links-plugin": "git+https://github.com/aramando/cordova-universal-links-plugin.git#35b3ed7e9a0310b12f1ac92a5159b21ce50eee57",
     "fcm": "^1.0.3"
   }
 }

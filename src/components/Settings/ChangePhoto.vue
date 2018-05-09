@@ -1,7 +1,7 @@
 <template>
   <div class="edit-box">
     <q-field
-      icon="fa-camera"
+      icon="fas fa-camera"
       :label="$t('USERDATA.PHOTO')"
       :error="hasError('photo')"
       :error-label="firstError('photo')"
@@ -42,8 +42,7 @@
       <q-btn
         color="primary"
         @click="save"
-        loader
-        :value="isPending"
+        :loading="isPending"
         :disabled = "saveDisabled"
         v-t="'BUTTON.SAVE_CHANGES'"
       />

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3><i class="fa fa-edit" /> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>
+    <h3><i class="fas fa-pencil-alt" /> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>
     <q-card v-if="showForm">
       <agreement-form
         :value="agreement"

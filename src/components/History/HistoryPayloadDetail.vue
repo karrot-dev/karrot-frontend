@@ -48,7 +48,7 @@
       <q-item-tile
         v-else
         color="grey"
-        icon="fa-question-circle"
+        icon="fas fa-question-circle"
         label
       />
       <q-item-tile sublabel>

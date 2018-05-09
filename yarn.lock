@@ -7867,9 +7867,9 @@ qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
-quasar-extras@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/quasar-extras/-/quasar-extras-0.0.8.tgz#0defa7f982cbba185e3142b7eee9d3829928212a"
+quasar-extras@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/quasar-extras/-/quasar-extras-1.0.2.tgz#cb5760c7cce4af21144d48d49776e6bf8790cc6e"
 
 quasar-framework@^0.15.8:
   version "0.15.8"

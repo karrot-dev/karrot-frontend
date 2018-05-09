@@ -32,7 +32,7 @@
           <span>~~{{ $t('MARKDOWN_INPUT.STRIKE') }}~~</span>
           <span>&gt;{{ $t('MARKDOWN_INPUT.QUOTE') }}</span>
           <a href="https://guides.github.com/features/mastering-markdown/">
-            <q-icon name="fa-question-circle" />
+            <q-icon name="fas fa-question-circle" />
             <q-tooltip>{{ $t('MARKDOWN_INPUT.HELP') }}</q-tooltip>
           </a>
         </small>

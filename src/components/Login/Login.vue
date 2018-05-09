@@ -8,7 +8,7 @@
         class="white-box"
         :class="{ shake: hasAnyError }"
       >
-        <q-field icon="fa-envelope">
+        <q-field icon="fas fa-envelope">
           <q-input
             :autofocus="true"
             :error="hasError('email')"
@@ -25,7 +25,7 @@
         class="white-box"
         :class="{ shake: hasAnyError }"
       >
-        <q-field icon="fa-lock">
+        <q-field icon="fas fa-lock">
           <q-input
             :error="hasError('password')"
             v-model="password"
@@ -41,7 +41,7 @@
         v-if="hasAnyError"
         class="error"
       >
-        <i class="fa fa-exclamation-triangle"/>
+        <i class="fas fa-exclamation-triangle" />
         {{ anyFirstError }}
       </div>
       <div class="actions">
@@ -62,8 +62,7 @@
         <q-btn
           type="submit"
           class="submit shadow-4"
-          loader
-          :value="isPending"
+          :loading="isPending"
         >
           {{ $t('LOGIN.SUBMIT') }}
         </q-btn>

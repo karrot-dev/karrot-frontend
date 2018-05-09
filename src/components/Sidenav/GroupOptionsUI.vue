@@ -15,7 +15,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-users fa-fw on-left"
+          name="fas fa-users fa-fw on-left"
         />
         {{ $t('GROUP.MEMBERS') }}
       </q-item>
@@ -25,7 +25,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-cog fa-fw on-left"
+          name="fas fa-cog fa-fw on-left"
         />
         {{ $t('GROUP.SETTINGS') }}
       </q-item>
@@ -34,7 +34,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-pencil fa-fw on-left"
+          name="fas fa-pencil-alt fa-fw on-left"
         />
         {{ $t('GROUP.EDIT') }}
       </q-item>
@@ -45,7 +45,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-file-text-o fa-fw on-left"
+          name="fas fa-file-alt fa-fw on-left"
         />
         {{ $t('GROUP.MANAGE_AGREEMENT') }}
       </q-item>
@@ -56,7 +56,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-info-circle fa-fw on-left"
+          name="fas fa-info-circle fa-fw on-left"
         />
         {{ $t('GROUPINFO.META') }}
       </q-item>
@@ -67,7 +67,7 @@
       >
         <q-icon
           size="1em"
-          name="fa-user-plus fa-fw on-left"
+          name="fas fa-user-plus fa-fw on-left"
         />
         {{ $t('GROUP.INVITE_TITLE') }}
       </q-item>
@@ -75,7 +75,7 @@
       <q-item @click.native="leave">
         <q-icon
           size="1em"
-          name="fa-sign-out fa-fw on-left"
+          name="fas fa-sign-out-alt fa-fw on-left"
         />
         {{ $t('GROUP.LEAVE') }}
       </q-item>

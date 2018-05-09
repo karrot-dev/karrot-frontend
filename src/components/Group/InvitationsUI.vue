@@ -8,7 +8,7 @@
       <div class="art-overlay">
         <div class="header">
           <span>
-            <i class="fa fa-user-plus" />
+            <i class="fas fa-user-plus" />
             {{ $t('GROUP.INVITE_TITLE') }}
           </span>
         </div>

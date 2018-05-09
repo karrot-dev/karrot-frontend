@@ -1,7 +1,7 @@
 <template>
   <div class="edit-box">
     <q-field
-      icon="fa-lock"
+      icon="fas fa-lock"
       :label="$t('USERDETAIL.PASSWORD')"
       :error="hasError('newPassword')"
       :error-label="firstError('newPassword')"
@@ -12,7 +12,7 @@
       />
     </q-field>
     <q-field
-      icon="fa-unlock"
+      icon="fas fa-unlock"
       :label="$t('USERDETAIL.OLD_PASSWORD')"
       :error="hasError('oldPassword')"
       :error-label="firstError('oldPassword')"
@@ -36,7 +36,6 @@
         @click="save"
         :disable="!hasNewPassword || !hasOldPassword"
         :loading="isPending"
-        :value="isPending"
       >
         {{ $t('BUTTON.CHANGE_PASSWORD') }}
       </q-btn>

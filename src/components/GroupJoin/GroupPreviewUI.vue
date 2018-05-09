@@ -8,7 +8,7 @@
           {{ group.name }}
           <q-icon
             v-if="group.isPlayground"
-            name="fa-child"
+            name="fas fa-child"
             color="secondary"
           />
         </span>
@@ -24,7 +24,7 @@
           color="primary"
           class="preview-close-button"
         >
-          <q-icon name="fa-close" />
+          <q-icon name="fas fa-times" />
           <q-tooltip>
             {{ $t('BUTTON.CLOSE') }}
           </q-tooltip>
@@ -61,7 +61,7 @@
             </q-alert>
             <q-field
               v-if="group.protected"
-              icon="fa-lock"
+              icon="fas fa-lock"
               :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
               :helper="$t('JOINGROUP.PASSWORD_LABEL')"
               :error="hasAnyError"
@@ -76,7 +76,7 @@
               type="submit"
               color="secondary"
               class="float-right generic-margin"
-              loader
+              :loading="isPending"
               :value="group.joinStatus.pending"
             >
               {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
@@ -88,7 +88,7 @@
           @click="$emit('visit', { groupId: group.id })"
           class="q-btn-flat"
         >
-          <q-icon name="fa-home" />
+          <q-icon name="fas fa-home" />
           <q-tooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
           </q-tooltip>

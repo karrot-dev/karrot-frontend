@@ -9,7 +9,7 @@
       :to="{name: 'user', params: {userId: currentUserId}}"
     >
       <q-item-side>
-        <i class="fa fa-user fa-fw"/>
+        <i class="fas fa-user fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.USERPROFILE')" />
     </q-item>
@@ -19,7 +19,7 @@
       :to="{name: 'groupsGallery'}"
     >
       <q-item-side>
-        <i class="fa fa-home fa-fw"/>
+        <i class="fas fa-home fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.CHANGE_GROUP')" />
     </q-item>
@@ -29,7 +29,7 @@
       :to="{name: 'settings'}"
     >
       <q-item-side>
-        <i class="fa fa-cog fa-fw"/>
+        <i class="fas fa-cog fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('SETTINGS.TITLE')" />
     </q-item>
@@ -38,7 +38,7 @@
       @click.native="$emit('logout'), $emit('toggleSidenav')"
     >
       <q-item-side>
-        <i class="fa fa-sign-out fa-fw"/>
+        <i class="fas fa-sign-out-alt fa-fw"/>
       </q-item-side>
       <q-item-main :label="$t('TOPBAR.LOGOUT')" />
     </q-item>
@@ -51,7 +51,7 @@
       href="https://foodsaving.world"
     >
       <q-item-side>
-        <i class="fa fa-users"/>
+        <i class="fas fa-users"/>
       </q-item-side>
       <q-item-main
         label="Info"
@@ -66,7 +66,7 @@
       href="https://blog.karrot.world"
     >
       <q-item-side>
-        <i class="fa fa-newspaper-o"/>
+        <i class="far fa-newspaper"/>
       </q-item-side>
       <q-item-main
         label="Blog"
@@ -81,7 +81,7 @@
       href="https://github.com/yunity/karrot-frontend"
     >
       <q-item-side>
-        <i class="fa fa-git"/>
+        <i class="fab fa-git"/>
       </q-item-side>
       <q-item-main
         label="Git"

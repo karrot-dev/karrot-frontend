@@ -1,5 +1,8 @@
 <template>
-  <q-alert color="warning">
+  <q-alert
+    icon="fas fa-exclamation-triangle"
+    color="warning"
+  >
     <p>
       {{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}
     </p>

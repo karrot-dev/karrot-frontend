@@ -3,7 +3,7 @@
     <VerificationWarning v-if="user && !user.mailVerified" />
 
     <q-field
-      icon="fa-envelope"
+      icon="fas fa-envelope"
       :label="$t('USERDATA.EMAIL')"
       :error="hasError('newEmail')"
       :error-label="firstError('newEmail')"
@@ -14,7 +14,7 @@
       />
     </q-field>
     <q-field
-      icon="fa-unlock"
+      icon="fas fa-unlock"
       :label="$t('USERDATA.CONFIRM_PASSWORD')"
       :error="hasError('password')"
       :error-label="firstError('password')"
@@ -36,7 +36,6 @@
         @click="save"
         :disable="!hasEmailChanged || !hasPassword"
         :loading="isPending"
-        :value="isPending"
       >
         {{ $t('BUTTON.CHANGE_EMAIL') }}
       </q-btn>

@@ -38,7 +38,7 @@
           :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"
         />
         <q-tooltip>
-          {{ $t(expanded ? 'BUTTON.CLOSE' : 'BUTTON.OPEN') }}
+          {{ $t(expanded ? 'BUTTON.HIDE' : 'BUTTON.SHOW') }}
         </q-tooltip>
       </q-btn>
     </GroupGalleryCardsLayout>

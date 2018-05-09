@@ -27,7 +27,7 @@
       <q-item-separator />
       <q-collapsible
         v-if="inactiveUsers.length > 0"
-        icon="fa-bed"
+        icon="fas fa-bed"
         :label="$t('GROUP.INACTIVE')"
         :sublabel="inactiveSublabel"
       >

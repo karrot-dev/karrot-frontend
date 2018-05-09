@@ -5,7 +5,7 @@
   >
     <form @submit.prevent="maybeSave">
       <q-field
-        icon="fa-star"
+        icon="fas fa-star"
         :label="$t('AGREEMENT.TITLE')"
         :helper="$t('AGREEMENT.TITLE_HELPER')">
         <q-input
@@ -17,7 +17,7 @@
       </q-field>
 
       <q-field
-        icon="fa-file-text-o"
+        icon="fas fa-file-alt"
         :label="$t('AGREEMENT.CONTENT')"
         :helper="$t('AGREEMENT.CONTENT_HELPER')">
         <q-input

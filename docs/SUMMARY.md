@@ -3,5 +3,6 @@
 - [Forms](forms.md)
 - [Pages and Routes](pages.md)
 - [Notifications](notifications.md)
+- [Sparkpost](sparkpost.md)
 - [Mobile](mobile.md)
   - [Android SDK](android-sdk.md)

@@ -33,7 +33,7 @@
           @click="$emit('visit')"
           class="q-btn-flat"
         >
-          <q-icon name="fa-home" />
+          <q-icon name="fas fa-home" />
           <q-tooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
           </q-tooltip>
@@ -42,7 +42,7 @@
           @click="$emit('preview', group)"
           class="q-btn-flat"
         >
-          <q-icon name="fa-info-circle" />
+          <q-icon name="fas fa-info-circle" />
           <q-tooltip>
             {{ $t('GROUPINFO.META') }}
           </q-tooltip>

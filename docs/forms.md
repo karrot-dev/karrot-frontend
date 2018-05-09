@@ -167,6 +167,6 @@ e.g. the status about a `save` action would be available as `saveStatus` or the 
     - uses `hasAnyError` and `anyFirstError` to show any server-side validation error?
     - uses `hasError(field)` & `firstError(field)` methods to check for field-specific server-side validation errors?
     - uses `hasNonFieldError` & `firstNonFieldError` to show errors unrelated to fields?
-    - sets `:loader="isPending"` on submit button?
+    - sets `::loading="isPending"` on submit button?
     - uses pending status for non-submit actions? (e.g. destroy)
 - Does the form use [vuelidate](https://monterail.github.io/vuelidate/) (`$v`) to check for validation errors client-side?

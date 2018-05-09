@@ -7,7 +7,7 @@
       <div class="content">
         <div class="white-box">
           <q-field
-            icon="fa-lock"
+            icon="fas fa-lock"
             :error="hasError('newPassword')"
             :error-label="firstError('newPassword')"
           >
@@ -25,14 +25,14 @@
           v-if="hasError('code')"
           class="error"
         >
-          <i class="fa fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle"/>
           {{ $t('GLOBAL.INVALID_LINK') }}
         </div>
         <div
           v-if="hasNonFieldError"
           class="error"
         >
-          <i class="fa fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle"/>
           {{ firstNonFieldError }}
         </div>
 
@@ -40,8 +40,7 @@
           <q-btn
             type="submit"
             class="submit shadow-4"
-            loader
-            :value="isPending"
+            :loading="isPending"
           >
             {{ $t('PASSWORD.RESET.OK') }}
           </q-btn>

@@ -1,5 +1,10 @@
 <template>
   <div>
+    <UnsupportedBrowserWarning
+      class="fixed-bottom"
+      style="z-index: 9999"
+    />
+
     <template v-if="routeError.hasError">
       <RouteError>
         <p
@@ -29,7 +34,7 @@
               @click="toggleSidenav"
               class="mobile-only"
             >
-              <i class="fa fa-bars" />
+              <i class="fas fa-bars" />
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
@@ -43,7 +48,7 @@
           <MobileSidenav @toggleSidenav="toggleSidenav" />
         </q-layout-drawer>
         <q-page-container>
-          <MainAlerts />
+          <Banners />
           <router-view name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
             <router-view
@@ -58,7 +63,10 @@
           <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
         </q-page-container>
         <q-layout-footer>
-          <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" />
+          <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
+            <MobileNavigation v-if="isLoggedIn" />
+            <UnsupportedBrowserWarning />
+          </template>
           <KFooter v-if="!$q.platform.is.mobile" />
         </q-layout-footer>
         <q-window-resize-observable @resize="onResize" />
@@ -68,20 +76,20 @@
 </template>
 
 <script>
-
 import KTopbar from '@/components/Layout/KTopbar'
 import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
 import KFooter from '@/components/Layout/KFooter'
 import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
-import MainAlerts from '@/components/Layout/MainAlerts'
+import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
+import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError,
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError, UnsupportedBrowserWarning,
   },
   data () {
     return {

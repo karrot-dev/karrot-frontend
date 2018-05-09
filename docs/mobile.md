@@ -38,8 +38,10 @@ yarn global add cordova
 
 Build the main project:
 ```
-yarn build:cordova
+yarn build:cordova:<config>
 ```
+  
+where `<config>` is `dev` or `prod`, depending on whether you want to build the dev or the production version.
 
 (You can customize the backend by setting the `BACKEND` env variable, e.g. in `.env`)
 

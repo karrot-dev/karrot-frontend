@@ -8,14 +8,14 @@
       v-if="hasError('code')"
       class="error"
     >
-      <i class="fa fa-exclamation-triangle"/>
+      <i class="fas fa-exclamation-triangle"/>
       {{ $t('GLOBAL.INVALID_LINK') }}
     </div>
     <div
       v-if="hasNonFieldError"
       class="error"
     >
-      <i class="fa fa-exclamation-triangle"/>
+      <i class="fas fa-exclamation-triangle"/>
       {{ firstNonFieldError }}
     </div>
     <router-link to="/">

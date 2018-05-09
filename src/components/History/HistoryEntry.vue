@@ -7,11 +7,8 @@
       @click.native="toggleDetail"
     >
       <q-item-side>
-        <ProfilePicture
-          v-for="user in entry.users"
-          :key="user.id"
-          :user="user"
-          :size="25"
+        <HistoryProfilePictures
+          :users="entry.users"
         />
       </q-item-side>
       <q-item-main>
@@ -52,7 +49,7 @@
 </template>
 
 <script>
-import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import HistoryProfilePictures from '@/components/History/HistoryProfilePictures'
 import DateAsWords from '@/components/General/DateAsWords'
 import HistoryDetail from '@/components/History/HistoryDetail'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
@@ -80,7 +77,7 @@ export default {
       this.detailIsShown = !this.detailIsShown
     },
   },
-  components: { HistoryDetail, ProfilePicture, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
+  components: { HistoryProfilePictures, HistoryDetail, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
 }
 </script>
 <style scoped lang="stylus">

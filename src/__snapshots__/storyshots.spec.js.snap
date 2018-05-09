@@ -1353,13 +1353,15 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
+                            <!---->
+                            <!---->
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">
@@ -1381,13 +1383,15 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
+                            <!---->
+                            <!---->
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">
@@ -1409,13 +1413,15 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]">
+                                <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                        <!---->
-                        <!---->
+                            <!---->
+                            <!---->
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">
@@ -1437,13 +1443,15 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]">
+                                <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mona Mohnblume
     </div></span></div>
-                        <!---->
-                        <!---->
+                            <!---->
+                            <!---->
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">
@@ -1465,13 +1473,15 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]">
+                                <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Current User
     </div></span></div>
-                        <!---->
-                        <!---->
+                            <!---->
+                            <!---->
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">
@@ -1492,7 +1502,11 @@ exports[`Storyshots History List Default 1`] = `
         </div>
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
-                <div class="q-item-side q-item-section q-item-side-left"></div>
+                <div class="q-item-side q-item-section q-item-side-left">
+                    <div>
+                        <!---->
+                    </div>
+                </div>
                 <div class="q-item-main q-item-section">
                     <div><span class="content">
           did something
@@ -1512,37 +1526,10 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></div>
-                        <!---->
-                        <!---->
-                    </div>
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></div>
-                        <!---->
-                        <!---->
-                    </div>
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></div>
-                        <!---->
-                        <!---->
-                    </div>
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mona Mohnblume
-    </div></span></div>
-                        <!---->
-                        <!---->
+                    <div>
+                        <div class="usersCount" style="width:25px;height:25px;line-height:25px;">
+                            4
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">
@@ -1564,13 +1551,15 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]">
+                                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
+                            <!---->
+                            <!---->
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">
@@ -1592,13 +1581,15 @@ exports[`Storyshots History List Default 1`] = `
         <div>
             <div class="clickable q-item q-item-division relative-position q-item-multiline">
                 <div class="q-item-side q-item-section q-item-side-left">
-                    <div class="wrapper">
-                        <div to="[object Object]">
-                            <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
+                    <div>
+                        <div class="wrapper">
+                            <div to="[object Object]">
+                                <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
+                            <!---->
+                            <!---->
+                        </div>
                     </div>
                 </div>
                 <div class="q-item-main q-item-section">

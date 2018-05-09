@@ -89,7 +89,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError, UnsupportedBrowserWarning
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError, UnsupportedBrowserWarning,
   },
   data () {
     return {

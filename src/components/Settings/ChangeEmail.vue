@@ -53,7 +53,7 @@ export default {
   mixins: [statusMixin],
   computed: {
     hasEmailChanged () {
-      const previousEmail = this.user.email
+      const previousEmail = this.user.unverifiedEmail || this.user.email
       return this.newEmail && (previousEmail !== this.newEmail)
     },
     hasPassword () {

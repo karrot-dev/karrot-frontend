@@ -1,13 +1,10 @@
 <template>
-  <div v-if="browserDetect">
-    <p> {{ $t('OUTDATED.FIRST_MESSAGE') }} <a
-      href="https://browser-update.org/update.html"
-      class="outdated"
-      rel="noopener"
-      target="_blank"
-      translate="yes">{{ $t('OUTDATED.LINK') }}</a> {{ $t('OUTDATED.SECOND_MESSAGE') }}</p>
-  </div>
-  <div v-else>
+  <div>
+    <UnsupportedBrowserWarning
+      class="fixed-bottom"
+      style="z-index: 9999"
+    />
+
     <template v-if="routeError.hasError">
       <RouteError>
         <p
@@ -66,7 +63,10 @@
           <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
         </q-page-container>
         <q-layout-footer>
-          <MobileNavigation v-if="$q.platform.is.mobile && isLoggedIn && !$keyboard.is.open" />
+          <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
+            <MobileNavigation v-if="isLoggedIn" />
+            <UnsupportedBrowserWarning />
+          </template>
           <KFooter v-if="!$q.platform.is.mobile" />
         </q-layout-footer>
         <q-window-resize-observable @resize="onResize" />
@@ -76,7 +76,6 @@
 </template>
 
 <script>
-
 import KTopbar from '@/components/Layout/KTopbar'
 import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
 import KFooter from '@/components/Layout/KFooter'
@@ -84,13 +83,13 @@ import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import MainAlerts from '@/components/Layout/MainAlerts'
 import RouteError from '@/components/RouteError'
+import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters } from 'vuex'
-import browser from 'browser-detect'
 
 export default {
   components: {
-    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError,
+    KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, MainAlerts, RouteError, UnsupportedBrowserWarning
   },
   data () {
     return {
@@ -121,16 +120,6 @@ export default {
     defaultShowSidenavWidth () {
       return 992
     },
-    browserDetect () {
-      const result = browser()
-      if (result.name === 'safari' && result.versionNumber < 9.1) {
-        return true
-      }
-      else if (result.name === 'ie' && result.versionNumber < 11) {
-        return true
-      }
-      return false
-    },
   },
 }
 </script>
@@ -154,9 +143,6 @@ body.desktop .mainContent
     margin-bottom 4.5em
     margin-left auto
     margin-right auto
-.outdated
-  color #0000EE
-  text-decoration underline
 .background
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px

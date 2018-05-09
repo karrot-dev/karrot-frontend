@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>
-      <i class="fa fa-question-circle" />
+      <i class="fas fa-question-circle" />
       {{ $t('PASSWORD.RESET.TITLE') }}
     </h4>
   </div>

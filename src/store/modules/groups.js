@@ -81,9 +81,9 @@ export default {
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
         await groups.leave(groupId)
         commit('leave', { groupId, userId: rootGetters['auth/userId'] })
-        dispatch('alerts/create', {
-          type: 'groupLeaveSuccess',
-          context: { groupName: getters.get(groupId).name },
+        dispatch('toasts/show', {
+          message: 'GROUP.LEAVE_CONFIRMATION',
+          messageParams: { groupName: getters.get(groupId).name },
         }, { root: true })
         dispatch('currentGroup/clear', null, { root: true })
         router.replace({ name: 'groupsGallery' })

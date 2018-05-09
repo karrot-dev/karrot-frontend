@@ -10,14 +10,14 @@
       <q-item :to="{name: 'storeEdit', params: { storeId }}">
         <q-icon
           size="1em"
-          name="fa-fw fa-pencil on-left"
+          name="fas fa-fw fa-pencil-alt on-left"
         />
         {{ $t('STOREDETAIL.EDIT') }}
       </q-item>
       <q-item :to="{name: 'storePickupsManage', params: { storeId }}">
         <q-icon
           size="1em"
-          name="fa-fw fa-calendar on-left"
+          name="fas fa-fw fa-calendar-alt on-left"
         />
         {{ $t('STOREDETAIL.MANAGE') }}
       </q-item>

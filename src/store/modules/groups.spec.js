@@ -69,9 +69,15 @@ describe('groups', () => {
     },
   }
 
-  const alerts = {
+  const banners = {
     actions: {
       create: jest.fn(),
+    },
+  }
+
+  const toasts = {
+    actions: {
+      show: jest.fn(),
     },
   }
 
@@ -117,8 +123,9 @@ describe('groups', () => {
         groups: require('./groups').default,
         auth,
         agreements,
-        alerts,
+        banners,
         currentGroup,
+        toasts,
       })
     })
 
@@ -144,6 +151,7 @@ describe('groups', () => {
       await store.dispatch('groups/leave', group2.id)
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group3.id])
       expect(currentGroup.actions.clear).toBeCalled()
+      expect(toasts.actions.show).toBeCalled()
     })
 
     it('can save a group', async () => {

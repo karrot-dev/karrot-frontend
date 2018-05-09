@@ -29,11 +29,11 @@
       >
         <q-btn
           flat
-          small
+          dense
           color="primary"
           @click="$emit('hideSearch')"
         >
-          <q-icon name="fa-fw fa-arrow-right"/>
+          <q-icon name="fas fa-fw fa-times"/>
         </q-btn>
         <Search style="margin-top: .2em; vertical-align: middle; width: 100%"/>
       </div>
@@ -41,20 +41,22 @@
     <q-btn
       v-if="!searchOpen"
       flat
+      dense
+      round
       @click="$emit('showSearch')"
     >
-      <q-icon name="fa-fw fa-search" />
+      <q-icon name="fas fa-fw fa-search" />
       <q-tooltip v-t="'BUTTON.SEARCH'" />
     </q-btn>
     <template v-if="!$q.platform.is.mobile">
       <LocaleSelect />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
-        class="defaulthover"
       >
         <q-btn
           v-if="hasPhoto"
           flat
+          dense
         >
           <div class="row items-center no-wrap">
             <q-icon
@@ -73,6 +75,7 @@
         <q-btn
           v-else
           flat
+          dense
         >
           <q-icon
             :name="presence.icon"
@@ -80,12 +83,16 @@
             class="presence-indicator"
           />
           {{ user.displayName }}
-          <q-icon name="fa-fw fa-user" />
+          <q-icon name="fas fa-fw fa-user" />
           <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
         </q-btn>
       </router-link>
-      <q-btn flat>
-        <q-icon name="fa-fw fa-ellipsis-v" />
+      <q-btn
+        flat
+        dense
+        round
+      >
+        <q-icon name="fas fa-ellipsis-v" />
         <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <q-popover
           :touch-position="false"
@@ -104,7 +111,7 @@
               <q-icon
                 size="1em"
                 class="on-left"
-                name="fa-home fa-fw"
+                name="fas fa-home fa-fw"
               />
               {{ $t('TOPBAR.CHANGE_GROUP') }}
             </q-item>
@@ -114,7 +121,7 @@
               <q-icon
                 size="1em"
                 class="on-left"
-                name="fa-cog fa-fw"
+                name="fas fa-cog fa-fw"
               />
               {{ $t('SETTINGS.TITLE') }}
             </q-item>
@@ -124,7 +131,7 @@
               <q-icon
                 size="1em"
                 class="on-left"
-                name="fa-sign-out fa-fw"
+                name="fas fa-sign-out-alt fa-fw"
               />
               {{ $t('TOPBAR.LOGOUT') }}
             </q-item>
@@ -178,12 +185,12 @@ export default {
       if (this.away) {
         return {
           color: 'grey',
-          icon: 'fa-circle-o',
+          icon: 'fas fa-circle',
         }
       }
       return {
         color: 'green',
-        icon: 'fa-circle',
+        icon: 'fas fa-circle',
       }
     },
   },
@@ -222,8 +229,4 @@ export default {
 .search-slide-in-enter, .search-slide-in-leave-to
   width: 0em
   opacity 0
-
-a.defaulthover:hover {
-  color: inherit
-}
 </style>

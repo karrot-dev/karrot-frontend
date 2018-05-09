@@ -11,7 +11,7 @@ import dependentState from './plugins/dependentState'
 // Alphabetical
 import about from './modules/about'
 import agreements from './modules/agreements'
-import alerts from './modules/alerts'
+import banners from './modules/banners'
 import auth from './modules/auth'
 import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
@@ -33,6 +33,7 @@ import search from './modules/search'
 import sidenavBoxes from './modules/sidenavBoxes'
 import stores from './modules/stores'
 import timezones from './modules/timezones'
+import toasts from './modules/toasts'
 import users from './modules/users'
 import verifymail from './modules/verifymail'
 
@@ -45,7 +46,7 @@ export default new Vuex.Store({
     // Alphabetical, too
     about,
     agreements,
-    alerts,
+    banners,
     auth,
     breadcrumbs,
     conversations,
@@ -67,6 +68,7 @@ export default new Vuex.Store({
     sidenavBoxes,
     stores,
     timezones,
+    toasts,
     users,
     verifymail,
   },

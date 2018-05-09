@@ -5,7 +5,7 @@
   >
     <form @submit.prevent="maybeSave">
       <q-field
-        icon="fa-repeat"
+        icon="fas fa-redo"
         :label="$t('CREATEPICKUP.FREQUENCY')"
       >
         <q-option-group
@@ -155,8 +155,7 @@
           type="submit"
           color="primary"
           :disable="!canSave"
-          loader
-          :value="isPending"
+          :loading="isPending"
         >
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </q-btn>

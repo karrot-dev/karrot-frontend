@@ -1,17 +1,22 @@
 <template>
-  <q-btn flat>
+  <q-btn
+    flat
+    dense
+    round
+  >
     <q-icon
-      class="globe"
-      name="fa-globe"
+      name="fas fa-globe fa-fw"
     />
-    {{ current }}
     <q-popover>
-      <q-list v-close-overlay>
+      <q-list
+        v-close-overlay
+        highlight
+      >
         <q-item
           v-for="locale in localeOptions"
           :key="locale.value"
           @click.native="setLocale(locale.value)"
-          highlight
+          :class="{ active: locale.value === current }"
         >
           <q-item-main>
             <q-item-tile label>
@@ -34,7 +39,7 @@
           rel="nofollow noopener noreferrer"
         >
           <q-item-main>
-            <q-icon name="fa-external-link" />
+            <q-icon name="fas fa-external-link-alt" />
             <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
           </q-item-main>
         </q-item>
@@ -72,6 +77,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.globe
-  margin-right: 5px
+  .q-item
+    cursor pointer
+    &.active
+      cursor default
 </style>

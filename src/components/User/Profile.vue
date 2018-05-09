@@ -32,7 +32,7 @@
         </p>
       </div>
     </div>
-    <q-card>
+    <q-card class="profile-info">
       <q-card-media v-if="$q.platform.is.mobile && user.latitude && user.longitude">
         <UserMapPreview
           :user="user"
@@ -46,7 +46,7 @@
       />
       <q-list :dense="$q.platform.is.mobile">
         <q-item style="height: 40px">
-          <q-item-side icon="fa-fw fa-envelope-o" />
+          <q-item-side icon="fas fa-fw fa-envelope" />
           <q-item-main style="overflow: hidden; text-overflow: ellipsis">
             <a :href='"mailto:" + user.email'>{{ user.email }}</a>
           </q-item-main>
@@ -55,7 +55,7 @@
             right
           >
             <q-btn
-              icon="fa-pencil"
+              icon="fas fa-pencil-alt"
               small
               round
               color="secondary"
@@ -65,20 +65,20 @@
         </q-item>
 
         <q-item v-if="user.mobileNumber">
-          <q-item-side icon="fa-fw fa-phone" />
+          <q-item-side icon="fas fa-fw fa-phone" />
           <q-item-main>
             {{ user.mobileNumber }}
           </q-item-main>
         </q-item>
 
         <q-item v-if="user.address">
-          <q-item-side icon="fa-fw fa-map-marker" />
+          <q-item-side icon="fas fa-fw fa-map-marker-alt" />
           <q-item-main>
             {{ user.address }}
           </q-item-main>
         </q-item>
       </q-list>
-      <q-card-separator v-if="user.description != ''" />
+      <q-card-separator v-if="user.description !== ''" />
       <q-card-main>
         <Markdown
           v-if="user.description"
@@ -134,7 +134,9 @@ p.subtitle
   height 200px
   width 200px
   max-width: 40%
-  padding: 10px 10px 2px 2px
+  margin 10px 10px 2px 2px
+body.desktop .profile-info
+  min-height 220px
 .q-card-separator
   margin 0px 16px
 body.mobile

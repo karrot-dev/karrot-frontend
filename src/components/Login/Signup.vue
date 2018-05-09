@@ -2,7 +2,7 @@
   <div>
     <q-card class="bg-tertiary margin-bottom">
       <q-card-title>
-        <q-icon name="fa-exclamation-triangle" />
+        <q-icon name="fas fa-exclamation-triangle" />
         {{ $t('GLOBAL.WARNING') }}
       </q-card-title>
       <q-card-main>
@@ -16,7 +16,7 @@
       <div class="content">
         <div class="white-box">
           <q-field
-            icon="fa-user"
+            icon="fas fa-user"
             :error="hasError('displayName')"
             :error-label="firstError('displayName')"
           >
@@ -32,7 +32,7 @@
         </div>
         <div class="white-box">
           <q-field
-            icon="fa-envelope"
+            icon="fas fa-envelope"
             :error="hasError('email')"
             :error-label="firstError('email')"
           >
@@ -48,7 +48,7 @@
         </div>
         <div class="white-box">
           <q-field
-            icon="fa-lock"
+            icon="fas fa-lock"
             :error="hasError('password')"
             :error-label="firstError('password')"
           >
@@ -75,7 +75,7 @@
           v-if="hasNonFieldError"
           class="error"
         >
-          <i class="fa fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle"/>
           {{ firstNonFieldError }}
         </div>
 
@@ -90,8 +90,7 @@
           <q-btn
             type="submit"
             class="submit shadow-4"
-            loader
-            :value="isPending"
+            :loading="isPending"
           >
             {{ $t('SIGNUP.OK') }}
           </q-btn>

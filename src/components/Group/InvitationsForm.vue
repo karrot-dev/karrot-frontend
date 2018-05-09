@@ -2,7 +2,7 @@
   <div>
     <form @submit.prevent="maybeSave">
       <q-field
-        icon="fa-envelope"
+        icon="fas fa-envelope"
         :helper="helperMessage"
         dark
         class="white-font"
@@ -21,13 +21,12 @@
 
       <q-btn
         type="submit"
-        loader
-        :value="isPending"
+        :loading="isPending"
         :disable="!canSave"
         class="bg-secondary float-right"
         style="min-width: 5.5em"
       >
-        <q-icon name="fa-paper-plane" />
+        <q-icon name="fas fa-paper-plane" />
         <q-tooltip>
           {{ $t('GROUP.INVITE_SEND') }}
         </q-tooltip>

@@ -8,7 +8,7 @@
               small
               round
               color="secondary"
-              icon="fa-pencil"
+              icon="fas fa-pencil-alt"
               class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.EDIT'" />
@@ -19,7 +19,7 @@
               small
               round
               color="secondary"
-              icon="fa-calendar"
+              icon="fas fa-calendar-alt"
               class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
@@ -43,7 +43,7 @@
     />
     <KNotice v-if="isInactive" >
       <template slot="icon">
-        <i class="fa fa-handshake-o"/>
+        <i class="far fa-handshake"/>
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
       <template slot="desc">
@@ -53,14 +53,14 @@
             small
             round
             flat
-            icon="fa-pencil"
+            icon="fas fa-pencil-alt"
           />
         </router-link>
       </template>
     </KNotice>
     <KNotice v-else-if="hasNoPickups" >
       <template slot="icon">
-        <i class="fa fa-bed"/>
+        <i class="fas fa-bed"/>
       </template>
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">
@@ -70,7 +70,7 @@
             small
             round
             flat
-            icon="fa-calendar"
+            icon="fas fa-calendar-alt"
           />
         </router-link>
       </template>

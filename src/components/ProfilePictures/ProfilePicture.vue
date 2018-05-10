@@ -20,7 +20,7 @@
         {{ user.displayName }}
       </q-tooltip>
     </router-link>
-    <div v-if="!isLink && user && user.id">
+    <div v-else-if="!isLink && user && user.id">
       <img
         v-if="hasPhoto"
         :src="photo"
@@ -34,7 +34,7 @@
         :style="pictureStyle"
       />
     </div>
-    <span v-if="(user && !user.id) || !user">
+    <span v-else>
       <span>?</span>
       <q-tooltip>
         <span>

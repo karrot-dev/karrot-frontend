@@ -1359,8 +1359,6 @@ exports[`Storyshots History List Default 1`] = `
                                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                     </div>
                 </div>
@@ -1389,8 +1387,6 @@ exports[`Storyshots History List Default 1`] = `
                                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                     </div>
                 </div>
@@ -1419,8 +1415,6 @@ exports[`Storyshots History List Default 1`] = `
                                 <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                     </div>
                 </div>
@@ -1449,8 +1443,6 @@ exports[`Storyshots History List Default 1`] = `
                                 <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mona Mohnblume
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                     </div>
                 </div>
@@ -1479,8 +1471,6 @@ exports[`Storyshots History List Default 1`] = `
                                 <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Current User
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                     </div>
                 </div>
@@ -1557,8 +1547,6 @@ exports[`Storyshots History List Default 1`] = `
                                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                     </div>
                 </div>
@@ -1587,8 +1575,6 @@ exports[`Storyshots History List Default 1`] = `
                                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                     </div>
                 </div>
@@ -2562,24 +2548,18 @@ exports[`Storyshots PickupItem Full 1`] = `
                             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <!---->
                     <div appear="" duration="[object Object]" name="bounce"></div>
@@ -2606,24 +2586,18 @@ exports[`Storyshots PickupItem Join 1`] = `
                             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <!---->
                     <div appear="" duration="[object Object]" name="bounce"></div>
@@ -2631,11 +2605,9 @@ exports[`Storyshots PickupItem Join 1`] = `
                         <div class="hoverHide"></div>
                         <div class="hoverShow">
                             <div class="wrapper">
-                                <!---->
                                 <div>
                                     <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                 </div>
-                                <!---->
                             </div> <span class="q-tooltip animate-popup"><div><span>
         Join
       </span></div>
@@ -2665,16 +2637,12 @@ exports[`Storyshots PickupItem Leave 1`] = `
                             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <!---->
                     <!---->
@@ -2686,11 +2654,9 @@ exports[`Storyshots PickupItem Leave 1`] = `
                     </span>
                     <div class="hoverHide">
                         <div class="wrapper">
-                            <!---->
                             <div>
                                 <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                             </div>
-                            <!---->
                         </div>
                     </div>
                     </a>
@@ -2722,24 +2688,18 @@ exports[`Storyshots PickupItem pending 1`] = `
                             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="emptySlots profilePic" style="border-color:black;width:36px;height:36px;">
                         <svg width="32" height="32" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
@@ -2773,24 +2733,18 @@ exports[`Storyshots PickupList Default 1`] = `
                                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
                                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                         <div class="wrapper profilePic clickable">
                             <div to="[object Object]">
                                 <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                         <!---->
                         <div appear="" duration="[object Object]" name="bounce"></div>
@@ -2798,11 +2752,9 @@ exports[`Storyshots PickupList Default 1`] = `
                             <div class="hoverHide"></div>
                             <div class="hoverShow">
                                 <div class="wrapper">
-                                    <!---->
                                     <div>
                                         <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                     </div>
-                                    <!---->
                                 </div> <span class="q-tooltip animate-popup"><div><span>
         Join
       </span></div>
@@ -2830,16 +2782,12 @@ exports[`Storyshots PickupList Default 1`] = `
                             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <!---->
                     <!---->
@@ -2851,11 +2799,9 @@ exports[`Storyshots PickupList Default 1`] = `
                     </span>
                     <div class="hoverHide">
                         <div class="wrapper">
-                            <!---->
                             <div>
                                 <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                             </div>
-                            <!---->
                         </div>
                     </div>
                     </a>
@@ -2885,24 +2831,18 @@ exports[`Storyshots PickupList Default 1`] = `
                             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <div class="wrapper profilePic clickable">
                         <div to="[object Object]">
                             <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <!---->
                     <div appear="" duration="[object Object]" name="bounce"></div>
@@ -2928,11 +2868,9 @@ exports[`Storyshots PickupList Default 1`] = `
                         <div class="hoverHide"></div>
                         <div class="hoverShow">
                             <div class="wrapper">
-                                <!---->
                                 <div>
                                     <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                                 </div>
-                                <!---->
                             </div> <span class="q-tooltip animate-popup"><div><span>
         Join
       </span></div>
@@ -3315,11 +3253,9 @@ exports[`Storyshots PickupUsers empty 1`] = `
         <div class="hoverHide"></div>
         <div class="hoverShow">
             <div class="wrapper">
-                <!---->
                 <div>
                     <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
-                <!---->
             </div> <span class="q-tooltip animate-popup"><div><span>
         Join
       </span></div>
@@ -3346,24 +3282,18 @@ exports[`Storyshots PickupUsers full 1`] = `
             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
             <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <!---->
     <div appear="" duration="[object Object]" name="bounce"></div>
@@ -3379,24 +3309,18 @@ exports[`Storyshots PickupUsers joinable 1`] = `
             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
             <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Karl Karlson
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <!---->
     <div appear="" duration="[object Object]" name="bounce"></div>
@@ -3404,11 +3328,9 @@ exports[`Storyshots PickupUsers joinable 1`] = `
         <div class="hoverHide"></div>
         <div class="hoverShow">
             <div class="wrapper">
-                <!---->
                 <div>
                     <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
-                <!---->
             </div> <span class="q-tooltip animate-popup"><div><span>
         Join
       </span></div>
@@ -3427,16 +3349,12 @@ exports[`Storyshots PickupUsers leavable 1`] = `
             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <div class="wrapper profilePic clickable">
         <div to="[object Object]">
             <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-        <!---->
-        <!---->
     </div>
     <!---->
     <!---->
@@ -3448,11 +3366,9 @@ exports[`Storyshots PickupUsers leavable 1`] = `
     </span>
     <div class="hoverHide">
         <div class="wrapper">
-            <!---->
             <div>
                 <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
             </div>
-            <!---->
         </div>
     </div>
     </a>
@@ -3471,15 +3387,11 @@ exports[`Storyshots ProfilePicture with user 1`] = `
         <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-    <!---->
-    <!---->
 </div>
 `;
 
 exports[`Storyshots ProfilePicture without user 1`] = `
-<div class="wrapper">
-    <!---->
-    <!----><span><span>?</span> <span class="q-tooltip animate-popup"><div><span>
+<div class="wrapper"><span><span>?</span> <span class="q-tooltip animate-popup"><div><span>
         (User inaccessible or deleted)
       </span></div>
 </span>
@@ -4551,8 +4463,6 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
                         <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                    <!---->
-                    <!---->
                 </div>
                 <!---->
             </div>
@@ -4594,8 +4504,6 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                         <!---->
                     </div>
@@ -4630,8 +4538,6 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                        <!---->
-                        <!---->
                     </div>
                     <!---->
                 </div>
@@ -4667,8 +4573,6 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
                         <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                    <!---->
-                    <!---->
                 </div>
                 <!---->
             </div>
@@ -4876,8 +4780,6 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                                         <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                                    <!---->
-                                    <!---->
                                 </div>
                                 <!---->
                             </div>
@@ -4912,8 +4814,6 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                                     <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
       Mira Bellenbaum
     </div></span></div>
-                                <!---->
-                                <!---->
                             </div>
                             <!---->
                         </div>
@@ -4949,8 +4849,6 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
       Max Mustermann
     </div></span></div>
-                            <!---->
-                            <!---->
                         </div>
                         <!---->
                     </div>

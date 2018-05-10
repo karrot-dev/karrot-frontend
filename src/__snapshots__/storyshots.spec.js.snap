@@ -3465,7 +3465,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
 </div>
 `;
 
-exports[`Storyshots ProfilePicture Profile Pictures 1`] = `
+exports[`Storyshots ProfilePicture with user 1`] = `
 <div class="wrapper">
     <div to="[object Object]">
         <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div> <span class="q-tooltip animate-popup"><div>
@@ -3473,6 +3473,17 @@ exports[`Storyshots ProfilePicture Profile Pictures 1`] = `
     </div></span></div>
     <!---->
     <!---->
+</div>
+`;
+
+exports[`Storyshots ProfilePicture without user 1`] = `
+<div class="wrapper">
+    <!---->
+    <!----><span><span>?</span> <span class="q-tooltip animate-popup"><div><span>
+        (User inaccessible or deleted)
+      </span></div>
+</span>
+</span>
 </div>
 `;
 

@@ -9,6 +9,7 @@ storiesOf('ProfilePicture', module)
     render: h => h(ProfilePicture, {
       props: {
         user: usersMock[0],
+        isLink: false,
         size: 100,
       },
     }),

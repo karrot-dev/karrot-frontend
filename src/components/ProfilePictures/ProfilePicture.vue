@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <router-link
-      v-if="isLink && user"
+      v-if="isLink && user && user.id"
       :to="{name:'user', params: {userId: user.id}}"
     >
       <img
@@ -20,7 +20,7 @@
         {{ user.displayName }}
       </q-tooltip>
     </router-link>
-    <div v-if="!isLink && user">
+    <div v-if="!isLink && user && user.id">
       <img
         v-if="hasPhoto"
         :src="photo"
@@ -34,7 +34,7 @@
         :style="pictureStyle"
       />
     </div>
-    <span v-if="!user">
+    <span v-if="(user && !user.id) || !user">
       <span>?</span>
       <q-tooltip>
         <span>

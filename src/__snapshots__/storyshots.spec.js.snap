@@ -3383,19 +3383,19 @@ exports[`Storyshots PickupUsers leavable 1`] = `
 
 exports[`Storyshots ProfilePicture with user 1`] = `
 <div class="wrapper">
-    <div to="[object Object]">
-        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></div>
+    <div>
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div>
+    </div>
 </div>
 `;
 
 exports[`Storyshots ProfilePicture without user 1`] = `
-<div class="wrapper"><span><span>?</span> <span class="q-tooltip animate-popup"><div><span>
-        (User inaccessible or deleted)
-      </span></div>
-</span>
-</span>
+<div class="wrapper">
+    <div class="deletedUser" style="width:100px;height:100px;font-size:80px;">
+        ?
+        <span class="q-tooltip animate-popup"><div>
+      (User inaccessible or deleted)
+    </div></span></div>
 </div>
 `;
 

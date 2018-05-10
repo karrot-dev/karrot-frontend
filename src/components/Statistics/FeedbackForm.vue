@@ -1,8 +1,6 @@
 <template>
   <form @submit.prevent="maybeSave">
-    <AmountPicker v-model="edit.weight"/>
     <q-field
-      style="margin-top: 2em; padding: 0 .5em"
       icon="fas fa-star"
       :label="$t('PICKUP_FEEDBACK.COMMENT')"
       :error="hasError('comment')"
@@ -13,10 +11,15 @@
         type="textarea"
         :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
         autocomplete="off"
-        :min-rows="2"
+        :min-rows="1"
         @keyup.ctrl.enter="maybeSave"
       />
     </q-field>
+
+    <AmountPicker
+      v-model="edit.weight"
+      style="margin-top: 2em"
+    />
 
     <div
       v-if="hasNonFieldError"

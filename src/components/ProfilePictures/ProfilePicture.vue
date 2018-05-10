@@ -34,14 +34,16 @@
         :style="pictureStyle"
       />
     </div>
-    <span v-else>
-      <span>?</span>
+    <div
+      v-else
+      class="deletedUser"
+      :style="deletedUserStyle"
+    >
+      ?
       <q-tooltip>
-        <span>
-          {{ $t('PROFILE.INACCESSIBLE_OR_DELETED') }}
-        </span>
+        {{ $t('PROFILE.INACCESSIBLE_OR_DELETED') }}
       </q-tooltip>
-    </span>
+    </div>
   </div>
 </template>
 
@@ -61,6 +63,9 @@ export default {
   computed: {
     pictureStyle () {
       return { width: this.size + 'px', height: this.size + 'px' }
+    },
+    deletedUserStyle () {
+      return { width: this.size + 'px', height: this.size + 'px', 'font-size': this.size * 0.8 + 'px' }
     },
     bigPhoto () {
       return this.size > 120
@@ -84,4 +89,8 @@ export default {
 .randomArt
   display block
   overflow hidden
+.deletedUser
+  display flex
+  justify-content center
+  align-items:center
 </style>

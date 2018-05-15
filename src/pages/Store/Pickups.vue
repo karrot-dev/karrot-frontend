@@ -112,6 +112,38 @@ export default {
       leave: 'pickups/leave',
     }),
   },
+  data: function () {
+    return {
+      routeUrl: 'https://www.openstreetmap.org/directions?engine=graphhopper_bicycle',
+    }
+  },
+  mounted: function () {
+    if (this.store.address) {
+      var storeLocation = encodeURI(this.store.address)
+
+      var noGeolocationAvailable = positionError => {
+        if (this.currentUser.address) {
+          var userAddress = encodeURI(this.currentUser.address)
+          this.routeUrl = `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${userAddress}&to=${storeLocation}`
+        }
+        else {
+          this.routeUrl = `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
+        }
+      }
+
+      var geolocationAvailable = position => {
+        var geolocation = encodeURI(`${position.coords.latitude},${position.coords.longitude}`)
+        this.routeUrl = `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${geolocation}&to=${storeLocation}`
+      }
+
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(geolocationAvailable, noGeolocationAvailable)
+      }
+      else {
+        noGeolocationAvailable()
+      }
+    }
+  },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

@@ -124,6 +124,7 @@
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
+    "ROUTE": "Show route to store",
     "EDIT": "Внести изменения",
     "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "This store has been archived",

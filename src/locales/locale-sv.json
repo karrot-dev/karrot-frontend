@@ -124,6 +124,7 @@
     "FULL_SCREEN": "Visa fullskärm"
   },
   "STOREDETAIL": {
+    "ROUTE": "Show route to store",
     "EDIT": "Redigera butik",
     "MANAGE": "Hantera upphämtningarna",
     "ARCHIVED": "This store has been archived",

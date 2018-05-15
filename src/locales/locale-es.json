@@ -124,6 +124,7 @@
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
+    "ROUTE": "Show route to store",
     "EDIT": "Editar tienda",
     "MANAGE": "Controla y administra las pastillas",
     "ARCHIVED": "Esta tienda se archivó.",

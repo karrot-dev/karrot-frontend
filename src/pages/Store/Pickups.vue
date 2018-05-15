@@ -26,7 +26,7 @@
             </q-btn>
           </router-link>
           <a
-            v-if="store.address"
+            v-if="store.latitude"
             target="_blank"
             :href="routeUrl">
             <q-btn
@@ -118,8 +118,8 @@ export default {
     }
   },
   mounted: function () {
-    if (this.store.address) {
-      var storeLocation = encodeURI(this.store.address)
+    if (this.store.latitude) {
+      var storeLocation = encodeURI(`${this.store.latitude},${this.store.longitude}`)
 
       var noGeolocationAvailable = positionError => {
         if (this.currentUser.address) {

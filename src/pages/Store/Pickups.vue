@@ -25,6 +25,20 @@
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
           </router-link>
+          <a
+            v-if="store.address"
+            target="_blank"
+            :href="routeUrl">
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="fas fa-bicycle"
+              class="hoverScale"
+            >
+              <q-tooltip v-t="'STOREDETAIL.ROUTE'" />
+            </q-btn>
+          </a>
         </div>
         <Markdown
           v-if="store.description"

@@ -119,21 +119,28 @@ export default {
   },
   mounted: function () {
     if (this.store.latitude) {
-      var storeLocation = encodeURI(`${this.store.latitude},${this.store.longitude}`)
+      var createRouteUrl = (from) => {
+        var storeLocation = encodeURI(`${this.store.latitude},${this.store.longitude}`)
+        if (from) {
+          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${encodeURI(from)}&to=${storeLocation}`
+        }
+        else {
+          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
+        }
+      }
 
       var noGeolocationAvailable = positionError => {
         if (this.currentUser.address) {
-          var userAddress = encodeURI(this.currentUser.address)
-          this.routeUrl = `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${userAddress}&to=${storeLocation}`
+          this.routeUrl = createRouteUrl(this.currentUser.address)
         }
         else {
-          this.routeUrl = `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
+          this.routeUrl = createRouteUrl()
         }
       }
 
       var geolocationAvailable = position => {
-        var geolocation = encodeURI(`${position.coords.latitude},${position.coords.longitude}`)
-        this.routeUrl = `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${geolocation}&to=${storeLocation}`
+        var geolocation = `${position.coords.latitude},${position.coords.longitude}`
+        this.routeUrl = createRouteUrl(geolocation)
       }
 
       if ('geolocation' in navigator) {

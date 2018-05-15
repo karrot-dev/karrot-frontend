@@ -96,6 +96,7 @@
 import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
 import Markdown from '@/components/Markdown'
+import browser from 'browser-detect'
 
 import {
   mapGetters,
@@ -121,11 +122,30 @@ export default {
     if (this.store.latitude) {
       var createRouteUrl = (from) => {
         var storeLocation = encodeURI(`${this.store.latitude},${this.store.longitude}`)
-        if (from) {
-          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${encodeURI(from)}&to=${storeLocation}`
+        var detected = browser()
+        if (detected && detected.mobile && detected.os.includes('OS X')) {
+          if (from) {
+            return `http://maps.apple.com/?saddr=${encodeURI(from)}&daddr=${storeLocation}`
+          }
+          else {
+            return `http://maps.apple.com/?daddr=${storeLocation}`
+          }
+        }
+        else if (detected && detected.mobile && detected.os.includes('Android')) {
+          if (from) {
+            return `https://maps.google.com?saddr=${encodeURI(from)}&daddr=${storeLocation}`
+          }
+          else {
+            return `https://maps.google.com?daddr=${storeLocation}`
+          }
         }
         else {
-          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
+          if (from) {
+            return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${encodeURI(from)}&to=${storeLocation}`
+          }
+          else {
+            return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
+          }
         }
       }
 

@@ -120,54 +120,45 @@ export default {
   },
   mounted: function () {
     if (this.store.latitude) {
-      var createRouteUrl = (from) => {
-        var storeLocation = encodeURI(`${this.store.latitude},${this.store.longitude}`)
-        var detected = browser()
-        if (detected && detected.mobile && detected.os.includes('OS X')) {
-          if (from) {
-            return `http://maps.apple.com/?saddr=${encodeURI(from)}&daddr=${storeLocation}`
-          }
-          else {
-            return `http://maps.apple.com/?daddr=${storeLocation}`
-          }
-        }
-        else if (detected && detected.mobile && detected.os.includes('Android')) {
-          if (from) {
-            return `https://maps.google.com?saddr=${encodeURI(from)}&daddr=${storeLocation}`
-          }
-          else {
-            return `https://maps.google.com?daddr=${storeLocation}`
-          }
+      var storeLocation = encodeURI(`${this.store.latitude},${this.store.longitude}`)
+
+      var createOSMUrl = (from) => {
+        if (from) {
+          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${encodeURI(from)}&to=${storeLocation}`
         }
         else {
-          if (from) {
-            return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${encodeURI(from)}&to=${storeLocation}`
-          }
-          else {
-            return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
-          }
+          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
         }
       }
 
       var noGeolocationAvailable = positionError => {
         if (this.currentUser.address) {
-          this.routeUrl = createRouteUrl(this.currentUser.address)
+          this.routeUrl = createOSMUrl(this.currentUser.address)
         }
         else {
-          this.routeUrl = createRouteUrl()
+          this.routeUrl = createOSMUrl()
         }
       }
 
       var geolocationAvailable = position => {
         var geolocation = `${position.coords.latitude},${position.coords.longitude}`
-        this.routeUrl = createRouteUrl(geolocation)
+        this.routeUrl = createOSMUrl(geolocation)
       }
 
-      if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition(geolocationAvailable, noGeolocationAvailable)
+      var detected = browser()
+      if (detected && detected.mobile && detected.os.includes('OS X')) {
+        this.routeUrl = `http://maps.apple.com/?saddr=Current%20Location&daddr=${storeLocation}`
+      }
+      else if (detected && detected.mobile && detected.os.includes('Android')) {
+        this.routeUrl = `https://maps.google.com?saddr=Current%20Location&daddr=${storeLocation}`
       }
       else {
-        noGeolocationAvailable()
+        if ('geolocation' in navigator) {
+          navigator.geolocation.getCurrentPosition(geolocationAvailable, noGeolocationAvailable)
+        }
+        else {
+          noGeolocationAvailable()
+        }
       }
     }
   },

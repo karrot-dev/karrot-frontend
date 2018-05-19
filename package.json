@@ -57,6 +57,7 @@
     "quasar-framework": "^0.15.8",
     "raven-js": "^3.20.1",
     "reconnecting-websocket": "^3.2.1",
+    "rrule": "2.2.9",
     "twemoji": "^2.5.0",
     "typeface-cabin-sketch": "^0.0.54",
     "vue": "~2.5.13",

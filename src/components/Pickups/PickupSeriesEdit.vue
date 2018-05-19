@@ -190,6 +190,7 @@
 import { QDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup, QTabs, QTab, QTabPane } from 'quasar'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
+import RRule from 'rrule'
 
 import { is24h, dayOptions } from '@/i18n'
 
@@ -228,6 +229,9 @@ export default {
   methods: {
     maybeSave () {
       if (!this.canSave) return
+      if (this.edit.rule.custom) {
+        this.edit.rule.custom = RRule.fromText(this.edit.rule.custom).toString()
+      }
       this.save()
     },
     destroy (event) {

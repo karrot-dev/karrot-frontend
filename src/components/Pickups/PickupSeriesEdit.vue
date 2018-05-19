@@ -71,7 +71,7 @@
           :error-label="firstError('rule')"
         >
           <q-input
-            v-model="edit.rule.custom"
+            v-model="naturalLanguageRule"
             type="textarea"
             @keyup.ctrl.enter="maybeSave"
           />
@@ -199,6 +199,11 @@ export default {
   components: {
     QDatetime, QField, QSlider, QInput, QBtn, QSelect, QOptionGroup, QTabs, QTab, QTabPane,
   },
+  beforeMount: function () {
+    if (this.edit.rule.custom) {
+      this.naturalLanguageRule = RRule.fromString(this.edit.rule.custom).toText()
+    }
+  },
   computed: {
     dayOptions,
     is24h,
@@ -229,8 +234,8 @@ export default {
   methods: {
     maybeSave () {
       if (!this.canSave) return
-      if (this.edit.rule.custom) {
-        this.edit.rule.custom = RRule.fromText(this.edit.rule.custom).toString()
+      if (this.naturalLanguageRule) {
+        this.edit.rule.custom = RRule.fromText(this.naturalLanguageRule).toString()
       }
       this.save()
     },

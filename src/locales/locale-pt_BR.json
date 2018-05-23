@@ -318,7 +318,7 @@
     "PICKUP_MODIFY": "modificou as configurações de uma coleta",
     "PICKUP_DELETE": "deletou uma coleta",
     "SERIES_CREATE": "crirou uma nova coleta recorrente",
-    "SERIES_MODIFY": "modificou as configurações para uma coleta recorrente",,
+    "SERIES_MODIFY": "modificou as configurações para uma coleta recorrente",
     "SERIES_DELETE": "deletou uma coleta recorrente",
     "PICKUP_DONE": "fez uma coleta na loja {storeName}",
     "PICKUP_MISSED": "A coleta na {storeName} não foi feita!",

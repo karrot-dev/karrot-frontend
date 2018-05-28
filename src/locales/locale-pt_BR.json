@@ -1,11 +1,11 @@
-
+{
   "GLOBAL": {
     "GITHUB_NOTE": "Desenvolvimento",
     "FSWW_NOTE": "Leia nossa página de informações!",
     "FACEBOOK_NOTE": "Participe do nosso grupo no Facebook!",
     "WARNING": "Aviso",
-    "BETA_WARNING": "Esta página esta em um momento de desenvolvimento ativo e tudo pode mudar. Nós não podemos garantir a segurança e privacidade dos seus dados (mas fazemos o nosso melhor)",
-    "CONNECTION_INTERRUPTED": "Erro: Conexão interrompida!",
+    "BETA_WARNING": "Esta página esta em um momento de desenvolvimento e tudo pode mudar. Nós não podemos garantir a segurança e privacidade dos seus dados (mas estamos fazendo o nosso melhor)",
+    "CONNECTION_INTERRUPTED": "Erro: A conexão foi interrompida!",
     "SERVER_ERROR": "Erro no servidor",
     "INVALID_LINK": "Desculpe, o link que você abriu é inválido.",
     "SEARCH_NOT_FOUND": "Não encontrado"
@@ -22,12 +22,12 @@
     "SET_PHOTO": "Defina sua foto do perfil...",
     "ACCOUNT": "Conta",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "Nós lhe enviamos um email com um link para completar o processo de remoção."
+      "SUCCESS": "Nós lhe enviamos um email com um link para completar o processo de remoção de sua conta."
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
         "TITLE": "Deletar a conta",
-        "MESSAGE": "Você tem certeza? Sua conta e seus dados pessoais serão permanentemente deletados. Tudo que você tiver feito nesta plataforma será transformado em anonimo. Se você confirmar, nós lhe enviamos um e-mail com um link para finalizar este processo de remoção",
+        "MESSAGE": "Você tem certeza? Sua conta e seus dados pessoais serão permanentemente deletados. Tudo que você tiver feito nesta plataforma será transformado em anonimo. Se você confirmar, nós lhe enviamos um e-mail com um link para finalizar o processo de remoção",
         "CONFIRM": "Confirmar"
       }
     }
@@ -59,8 +59,8 @@
     "HIDE": "Esconder"
   },
   "VALIDATION": {
-    "MINLENGTH": "Por favor entre mais que {min} caracteres.",
-    "MAXLENGTH": "Muito longo, por favor use menos que {max} caracteres.",
+    "MINLENGTH": "Por favor entre com mais de {min} caracteres.",
+    "MAXLENGTH": "Muito longo, por favor use menos de {max} caracteres.",
     "UNIQUE": "Nome já utilizado, por favor escolha outro.",
     "REQUIRED": "Esta campo é obrigatório.",
     "VALID_EMAIL": "Entre com um e-mail válido.",
@@ -69,23 +69,23 @@
   "GROUP": {
     "WALL": "Mural",
     "GROUP": "Grupo",
-    "LEAVE": "Deixar grupo...",
-    "LEAVE_TEXT": "Você tem certeza que deseja deixar esse grupo?",
-    "LEAVE_CONFIRMATION": "Você deixou {groupName}",
+    "LEAVE": "Said do grupo...",
+    "LEAVE_TEXT": "Você tem certeza que deseja sair deste grupo?",
+    "LEAVE_CONFIRMATION": "Você saiu de {groupName}",
     "NONMEMBER_REDIRECT": "Você não é um membro deste grupo.",
     "EDIT": "Editar grupo",
     "CREATE_TITLE": "Criar um novo grupo",
     "MANAGE_AGREEMENT": "Gerenciar contrato",
     "TITLE": "Título deste grupo",
     "PRIVATE_DESCRIPTION_TITLE": "Descrição privada do grupo",
-    "DESCRIPTION_VERBOSE": "Descrição do grupo, visível para os membros",
+    "DESCRIPTION_VERBOSE": "Descrição do grupo. Visível para os membros",
     "PUBLIC_DESCRIPTION": "Texto que você ve antes de entrar no grupo",
     "PASSWORD": "Entre uma senha se quer fazer deste um grupo privado",
     "PICKUPS": "Coletas",
     "MEMBERS": "Membros",
     "INACTIVE": "Inativos",
     "SHOW_INACTIVE": "Exibir grupos inativos",
-    "STORES": "Lojass",
+    "STORES": "Lojas",
     "HISTORY": "Histórico",
     "DESCRIPTION": "Descrição",
     "ADDRESS": "Endereço",
@@ -96,7 +96,7 @@
     "ALREADY_INVITED": "Um convite já foi enviado para este e-mail",
     "INVITATIONS": "Convites",
     "INVITE_TITLE": "Convide usuários para o seu grupo",
-    "INVITATION_ACCEPT_SUCCESS": "Bom Vindo! Você aceitou um convite com sucesso!",
+    "INVITATION_ACCEPT_SUCCESS": "Bem Vindo! Você aceitou um convite com sucesso!",
     "INVITATION_ACCEPT_ERROR": "Ooops, não foi possível aceitar este convite!",
     "SETTINGS": "Configurações",
     "NOTIFICATIONS": "Notificações",
@@ -111,13 +111,13 @@
         "DESCRIPTION": "Lembra você de suas coletas e lhe diz sobre as coletas do próximo dia"
       }
     },
-    "PLAYGROUND_INFO": "Este é um grupo de testes. Você não pode quebrar nada. Expore, clique em tudo e divira-se",
+    "PLAYGROUND_INFO": "Este é um grupo de testes. Você não pode quebrar nada aqui. Expore, clique em tudo e divira-se",
     "JOIN_PLAYGROUND": "Participe do grupo de testes e explore karrot"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
     "SHOW_USERS": "Exibir usuários",
-    "HIDE_USERS": "Esconder usárioss",
+    "HIDE_USERS": "Esconder usários",
     "SHOW_STORES": "Exibir lojas",
     "HIDE_STORES": "Esconder lojas",
     "SET_LOCATION": "Definir localização",
@@ -136,7 +136,7 @@
     "STATUS":"Estado",
     "DESCRIPTION": "Descricão",
     "ADDRESS": "Endereço",
-    "WEEKS_IN_ADVANCE": "Com quantas semanas com antecedência coletas recorrentes devem ser mostradas??",
+    "WEEKS_IN_ADVANCE": "Com quantas semanas de antecedência as coletas recorrentes devem ser mostradas??",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Arquive loja",
@@ -145,7 +145,7 @@
       }
     },
     "RESTORE": "Recuperar",
-    "SHOW_ARCHIVED": "Exibir lojas arquivadass",
+    "SHOW_ARCHIVED": "Exibir lojas arquivadas",
     "HIDE_ARCHIVED": "Esconder lojas arquivadas"
   },
   "PICKUPMANAGE": {
@@ -155,7 +155,7 @@
     "UPCOMING_PICKUPS_IN_SERIES": "Próximas coletas nesta série"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
+    "DELETE_SERIES_TITLE": "Deletar coletas recorrentes",
     "DELETE_SERIES_TEXT": "Você gostaria mesmo de deletar esta coleta recorrente? Esta ação vai também deletar todas as entregar pontuais que pertencerem a esta entrega recorrente (com excessão daquelas que pessoas já estão participando)"
   },
   "USERDETAIL": {
@@ -178,7 +178,7 @@
     "MY_GROUPS": "Meus grupos",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Você esta deslogado. {login}",
-      "LOG_IN": "Faça logi para ver seus grupos!"
+      "LOG_IN": "Faça login para ver seus grupos!"
     },
     "PROFILE_NOTE": "Ao participar deste grupo, seu perfil se torna visível para todos os membros deste grupo"
   },
@@ -193,7 +193,7 @@
     "CHANGE_GROUP": "Modificar grupo"
   },
   "SIDENAV": {
-    "INFO_SUB": "Como construír seu foodsaving grupo",
+    "INFO_SUB": "Como construír seu grupo no foodsaving",
     "BLOG_SUB": "Todas as novidades do karrot",
     "GIT_SUB": "Veja nosso código!"
   },
@@ -217,27 +217,27 @@
     "SUCCESS": "Sua conta foi deletada com sucesso!"
   },
   "CREATEPICKUP": {
-    "FREQUENCY": "Frequencia",
+    "FREQUENCY": "Frequência",
     "WEEKLY": "Semanalmente",
     "CUSTOM": "Personalizado",
     "WEEKDAYS": "Dias da semana",
     "WEEKDAYS_HELPER": "Em quais dias a coleta deve acontecer?",
-    "RRULE": "Recorrencia",
-    "RRULE_HELPER": "Entre com uma {ruleHelper} válida, e.g. {ruleExample} ou {ruleExample2}",
+    "RRULE": "Recorrência",
+    "RRULE_HELPER": "Entre com uma {ruleHelper} válida, ex. {ruleExample} ou {ruleExample2}",
     "RRULE_HELPER_URL": "Regra iCalendar",
     "RRULE_EXAMPLE": "último dia de trabalho (Mo-Fr) todo mês",
-    "RRULE_EXAMPLE2": "toda segunda segunda-feira",
+    "RRULE_EXAMPLE2": "toda segunda-feira",
     "STARTDATE": "Dia de início",
     "STARTDATE_HELPER": "Quando a série deve começar?",
     "TIME": "Hora",
     "TIME_HELPER": "Quando a coleta deve acontecer?",
     "DATE": "Dia",
     "DATE_HELPER": "Quando a coleta deve acontecer?",
-    "MAX_COLLECTORS": "Max Slots",
+    "MAX_COLLECTORS": "Número máximo de slots",
     "MAX_COLLECTORS_HELPER": "Quantas pessoas podem participar dessa coleta?",
     "COMMENT": "Informações adicionais",
-    "COMMENT_HELPER": "O que as pessoas devem saber antes de se candidatar para essa coleta?",
-    "DELETION_FORBIDDEN_HELPER": "Este coleta não pode ser removida pois já existem pessoas que se candidataram a recolher",
+    "COMMENT_HELPER": "O que as pessoas devem saber antes de se candidatar para esta coleta?",
+    "DELETION_FORBIDDEN_HELPER": "Esta coleta não pode ser removida pois já existem pessoas que se candidataram a recolher",
     "UNLIMITED": "sem limite"
   },
   "CREATESTORE": {
@@ -255,7 +255,7 @@
       "LEAVE_CONFIRMATION_HEADER": "Deixar a coleta",
       "LEAVE_CONFIRMATION_TEXT": "Você tem certeza que outra pessoa pode fazer a coleta sem você?"
     },
-    "NONE": "Sem coletas futuras",
+    "NONE": "Você não possuí coletas futuras",
     "NONE_HINT": "Você pode criar uma nova coleta na página da loja.",
     "STORE_NONE_HINT": "Você pode criar uma nova coleta na página de gerenciamento de coletas."
   },
@@ -265,7 +265,7 @@
     "NONE": "Sem comentários, ainda",
     "NONE_HINT": "Esta página sera preenchida assim que mais comentários apareçam",
     "NO_DONE_PICKUPS": "Tudo pronto!",
-    "NO_DONE_PICKUPS_HINT": "Você, atualmente, não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?"
+    "NO_DONE_PICKUPS_HINT": "Você, atualmente não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Comentários",
@@ -274,15 +274,15 @@
     "SUBTITLE": "Você pode deixar um comentário sobre a sua coleta aqui!",
     "AMOUNT": "Total de comida que você conseguiu salvar (em kg)",
     "COMMENT": "Comentário",
-    "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Seu comentário aqui...",
-    "PREVIOUS": "Comentáris anteriores para {store}"
+    "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Deixe seu comentário aqui...",
+    "PREVIOUS": "Comentários anteriores para {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Redefinir senha",
-    "INTRO": "Entre com seu endereço de mail e nós vamos lhe enviar um atalho para que você entre com a sua nova senha (se você tiver uma conta registrada)",
+    "INTRO": "Entre com seu endereço de mail e nós vamos lhe enviar um atalho para que você entre com a sua nova senha (caso você já tenha uma conta registrada)",
     "EMAIL": "Endereço de e-mail",
-    "SUBMIT": "Consiga uma nova senha",
-    "LOGIN": "Voltar para a pagina de Login",
+    "SUBMIT": "Obtenha uma nova senha",
+    "LOGIN": "Voltar para a pagina de login",
     "SUCCESS": "A requisição foi enviada com sucesso. Verifique seu e-mail!"
   },
   "PASSWORD": {
@@ -310,7 +310,7 @@
     "GROUP_CREATE": "criou este grupo",
     "GROUP_MODIFY": "modificou as configurações deste grupo",
     "GROUP_JOIN": "entrou no grupo",
-    "GROUP_LEAVE": "deixou o grupo",
+    "GROUP_LEAVE": "saiu do grupo",
     "STORE_CREATE": "crirou a loja {name}",
     "STORE_MODIFY": "modificou as configurações da loja {name}",
     "STORE_DELETE": "deletou a loja {name}",
@@ -330,13 +330,13 @@
   "NOTIFICATIONS": {
     "TITLE": "Notificações",
     "NOT_VERIFIED": "{email} não verificado",
-    "CHECK_YOUR_MAILS": "Por favor verifique seu email mais uma vez ou {resend}",
+    "CHECK_YOUR_MAILS": "Por favor verifique seu email ou {resend}",
     "RESEND_VERIFICATION": "envie a verificação mais uma vez",
     "VERIFICATION_EMAIL_SENT": "Nós enviamos outra verificação para seu e-mail. Por favor, verifique a sua caixa de entrada."
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Você esta utilizando um navegador sem suporte a nossa plataforma. {upgradeBrowser} e aproveite.",
-    "LINK": "Por favor, troque ou atulize seu navegador"
+    "LINK": "Por favor, troque ou atualize seu navegador"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Desculpa, não conseguimos encontrar essa página em lugar nenhum.",
@@ -371,8 +371,8 @@
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Escreva uma mensagemi...",
-    "WRITE_FIRST_MESSAGE": "Escreve a primeira mensagem...",
+    "WRITE_MESSAGE": "Escreva uma mensagem...",
+    "WRITE_FIRST_MESSAGE": "Escreva a primeira mensagem...",
     "DISABLE_NOTIFICATION_EMAILS": "Notificação por e-mail ativada, clique para desativar",
     "ENABLE_NOTIFICATION_EMAILS": "Notificação por e-mail desativada, clique para ativar",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Por favor verique seu e-mail no sistema para poder receber notificações por e-mail",

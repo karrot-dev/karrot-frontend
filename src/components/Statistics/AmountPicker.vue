@@ -34,6 +34,7 @@
         <q-btn
           v-if="!showOverlay"
           round
+          flat
           @click="valueToNumber = null"
           color="red"
           class="self-start"

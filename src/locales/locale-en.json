@@ -273,7 +273,7 @@
     "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
     "SET_AMOUNT": "Set amount",
-    "DELTE_AMOUNT": "Delete amount info",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",

@@ -2,6 +2,7 @@ import auth from '@/services/api/auth'
 import authUser from '@/services/api/authUser'
 import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
+import { Notify } from 'quasar'
 
 function initialState () {
   return {
@@ -110,7 +111,23 @@ export default {
 
     ...withMeta({
       async save ({ dispatch }, data) {
-        dispatch('backgroundSave', data)
+        try {
+          await dispatch('backgroundSave', data)
+          Notify.create({
+            message: 'Your changes have been saved!',
+            timeout: 2000,
+            type: 'positive',
+            icon: 'thumb_up',
+          })
+        }
+        catch (error) {
+          Notify.create({
+            message: 'An error occured. Try again later',
+            timeout: 2000,
+            type: 'negative',
+            icon: 'warning',
+          })
+        }
       },
     }, {
       // ignore ID to have simple saveStatus

@@ -110,8 +110,7 @@ export default {
 
     ...withMeta({
       async save ({ dispatch }, data) {
-        const savedUser = await dispatch('backgroundSave', data)
-        router.push({ name: 'user', params: { userId: savedUser.id } })
+        dispatch('backgroundSave', data)
       },
     }, {
       // ignore ID to have simple saveStatus

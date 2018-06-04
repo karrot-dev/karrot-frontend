@@ -332,7 +332,9 @@
     "NOT_VERIFIED": "{email} nicht verifiziert",
     "CHECK_YOUR_MAILS": "Bitte guck in deine E-Mails oder {resend}",
     "RESEND_VERIFICATION": "sende eine neue Verifizierungs-E-Mail",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
+    "CHANGES_SAVED": "Ihre Änderungen wurden gespeichert.",
+    "CHANGES_ERROR": "Ein Fehler ist aufgetreten. Versuchen Sie es später noch einmal."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Entschuldigung, die Seite konnte nirgendwo gefunden werden.",

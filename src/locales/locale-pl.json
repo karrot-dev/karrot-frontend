@@ -332,7 +332,9 @@
     "NOT_VERIFIED": "nie zweryfikowano adresu {email}",
     "CHECK_YOUR_MAILS": "Sprawdź pocztę lub {resend}",
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
-    "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę."
+    "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
+    "CHANGES_SAVED": "Twoje zmiany zostały zapisane.",
+    "CHANGES_ERROR": "Wystąpił błąd. Spróbuj ponownie później."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Przepraszamy, nie możemy znaleźć tej strony.",

@@ -332,7 +332,9 @@
     "NOT_VERIFIED": "{email} 尚未驗證",
     "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
     "RESEND_VERIFICATION": "重新寄送驗證信",
-    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。"
+    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。",
+    "CHANGES_SAVED": "你的修改已被保存.",
+    "CHANGES_ERROR": "發生錯誤。 稍後再試."
   },
   "NOT_FOUND": {
     "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",

@@ -336,6 +336,10 @@
     "CHANGES_SAVED": "Se han guardado los cambios.",
     "CHANGES_ERROR": "Ocurrió un error. Inténtalo más tarde."
   },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
   "NOT_FOUND": {
     "EXPLANATION": "¡Perdona! No podíamos encontrar esta página. ",
     "HOME": "Volver al inicio"

@@ -336,6 +336,10 @@
     "CHANGES_SAVED": "Dina ändringar har sparats.",
     "CHANGES_ERROR": "Ett fel uppstod. Försök igen senare."
   },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
   "NOT_FOUND": {
     "EXPLANATION": "Jag är ledsen, men vi kunde inte hitta sidan nånstans.",
     "HOME": "Ta mig hem"

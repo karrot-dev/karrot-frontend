@@ -336,6 +336,10 @@
     "CHANGES_SAVED": "તમારા ફેરફારો સાચવવામાં આવ્યા છે.",
     "CHANGES_ERROR": "એક ભૂલ આવી. પછી ફરીથી પ્રયાસ કરો."
   },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
   "NOT_FOUND": {
     "EXPLANATION": "માફ કરશો, અમે આ પૃષ્ઠને ક્યાંય શોધી શક્યા નથી",
     "HOME": "મને ઘરે લઈ જાવ"

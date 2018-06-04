@@ -55,8 +55,8 @@
     "REMOVE": "Usuń",
     "ARCHIVE": "Archiwizuj",
     "DELETE_ACCOUNT": "Usuń konto",
-    "SHOW": "Show",
-    "HIDE": "Hide"
+    "SHOW": "Pokaż",
+    "HIDE": "Ukryj"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -244,7 +244,7 @@
     "TITLE": "Dodaj nowy punkt odbioru"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "Czeka Cię odbiór w najbliższych dniach! | W najbliższych dniach czekają Cię {count} odbiory!",
+    "AVAILABLE": "Czeka Cię odbiór w najbliższych dniach! | W najbliższych dniach czeka Cię {count} odbiorów!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
     "ITEM": {
@@ -279,11 +279,11 @@
   },
   "PASSWORDRESET": {
     "TITLE": "Resetuj hasło",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
+    "INTRO": "Wprowadź adres e-mail i wkrótce wyślemy Ci link do zresetowania hasła (jeśli jesteś zarejestrowanym użytkownikiem).",
+    "EMAIL": "Adres e-mail",
     "SUBMIT": "Odbierz nowe hasło",
     "LOGIN": "Wróć do strony logowania",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+    "SUCCESS": "Przyjęliśmy Twoją prośbę. Sprawdź swoją pocztę!"
   },
   "PASSWORD": {
     "RESET": {
@@ -332,7 +332,13 @@
     "NOT_VERIFIED": "nie zweryfikowano adresu {email}",
     "CHECK_YOUR_MAILS": "Sprawdź pocztę lub {resend}",
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
-    "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę."
+    "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
+    "CHANGES_SAVED": "Twoje zmiany zostały zapisane.",
+    "CHANGES_ERROR": "Wystąpił błąd. Spróbuj ponownie później."
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Przepraszamy, nie możemy znaleźć tej strony.",

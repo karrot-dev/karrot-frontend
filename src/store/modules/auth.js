@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import auth from '@/services/api/auth'
 import authUser from '@/services/api/authUser'
 import router from '@/router'
@@ -110,8 +111,21 @@ export default {
 
     ...withMeta({
       async save ({ dispatch }, data) {
-        const savedUser = await dispatch('backgroundSave', data)
-        router.push({ name: 'user', params: { userId: savedUser.id } })
+        try {
+          await dispatch('backgroundSave', data)
+          dispatch('toasts/show', {
+            message: i18n.t('NOTIFICATIONS.CHANGES_SAVED'),
+            timeout: 2000,
+            icon: 'thumb_up',
+          }, { root: true })
+        }
+        catch (error) {
+          dispatch('toasts/show', {
+            message: i18n.t('NOTIFICATIONS.CHANGES_ERROR'),
+            timeout: 2000,
+            icon: 'warning',
+          }, { root: true })
+        }
       },
     }, {
       // ignore ID to have simple saveStatus

@@ -332,7 +332,13 @@
     "NOT_VERIFIED": "{email} nicht verifiziert",
     "CHECK_YOUR_MAILS": "Bitte guck in deine E-Mails oder {resend}",
     "RESEND_VERIFICATION": "sende eine neue Verifizierungs-E-Mail",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
+    "CHANGES_SAVED": "Änderungen wurden gespeichert.",
+    "CHANGES_ERROR": "Ein Fehler ist aufgetreten. Versuche es später noch einmal."
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "Du benutzt einen nicht unterstützten Browser. {upgradeBrowser} um alle Funktionen verwenden zu können.",
+    "LINK": "Bitte aktualisiere oder wechsle deinen Browser"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Entschuldigung, die Seite konnte nirgendwo gefunden werden.",

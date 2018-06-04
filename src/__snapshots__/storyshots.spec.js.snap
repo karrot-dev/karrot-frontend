@@ -1702,170 +1702,26 @@ exports[`Storyshots Layout KTopbar 1`] = `
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 English
-                                <small>(100%)</small>
+                                <small>(42%)</small>
                             </div>
-                            <div class="q-item-sublabel"></div>
+                            <div class="q-item-sublabel">
+                                <div class="q-progress text-primary" style="height:4px;">
+                                    <div class="q-progress-track" style="width:100%;"></div>
+                                    <div class="q-progress-model" style="width:42%;"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="q-item q-item-division relative-position">
                         <div class="q-item-main q-item-section">
                             <div class="q-item-label">
                                 Deutsch
-                                <small>(100%)</small>
-                            </div>
-                            <div class="q-item-sublabel"></div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                中文
-                                <small>(99%)</small>
+                                <small>(13%)</small>
                             </div>
                             <div class="q-item-sublabel">
                                 <div class="q-progress text-primary" style="height:4px;">
                                     <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:99%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Polski
-                                <small>(99%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:99%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Español
-                                <small>(83%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:83%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                हिन्दी
-                                <small>(80%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:80%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                ગુજરાતી
-                                <small>(80%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:80%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Svenska
-                                <small>(79%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:79%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Français
-                                <small>(63%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:63%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Esperanto
-                                <small>(24%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:24%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Italiano
-                                <small>(15%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:15%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Русский
-                                <small>(15%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:15%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position">
-                        <div class="q-item-main q-item-section">
-                            <div class="q-item-label">
-                                Čeština
-                                <small>(4%)</small>
-                            </div>
-                            <div class="q-item-sublabel">
-                                <div class="q-progress text-primary" style="height:4px;">
-                                    <div class="q-progress-track" style="width:100%;"></div>
-                                    <div class="q-progress-model" style="width:4%;"></div>
+                                    <div class="q-progress-model" style="width:13%;"></div>
                                 </div>
                             </div>
                         </div>

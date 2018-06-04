@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import auth from '@/services/api/auth'
 import authUser from '@/services/api/authUser'
 import router from '@/router'
@@ -113,14 +114,14 @@ export default {
         try {
           await dispatch('backgroundSave', data)
           dispatch('toasts/show', {
-            message: 'Your changes have been saved!',
+            message: i18n.t('NOTIFICATIONS.CHANGES_SAVED'),
             timeout: 2000,
             icon: 'thumb_up',
           }, { root: true })
         }
         catch (error) {
           dispatch('toasts/show', {
-            message: 'An error occured. Try again later',
+            message: i18n.t('NOTIFICATIONS.CHANGES_ERROR'),
             timeout: 2000,
             icon: 'warning',
           }, { root: true })

@@ -54,6 +54,10 @@ const i18n = new VueI18n({
 })
 export default i18n
 
+export function setGlobalLanguageTag (locale) {
+  document.documentElement.setAttribute('lang', locale)
+}
+
 const TEN_PM = new Date()
 TEN_PM.setHours(22, 0)
 

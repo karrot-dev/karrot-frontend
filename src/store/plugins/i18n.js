@@ -1,4 +1,4 @@
-import i18n from '@/i18n'
+import i18n, { setGlobalLanguageTag } from '@/i18n'
 import axios from 'axios'
 import dateFnsHelper from '@/services/dateFnsHelper'
 import polyfill from '@/polyfill'
@@ -15,5 +15,6 @@ export default store => {
     dateFnsHelper.locale = locale
     polyfill.locale = locale
     axios.defaults.headers.common['Accept-Language'] = locale
+    setGlobalLanguageTag(locale)
   }, { immediate: true })
 }

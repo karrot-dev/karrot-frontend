@@ -15,7 +15,7 @@
             class="actionButton hoverScale"
             round
             color="negative"
-            @click="$router.push({ name: 'settings', hash: '#change-email' })"
+            :to="{ name: 'settings', hash: '#change-email' }"
           >
             <q-icon
               name="fas fa-exclamation-triangle"

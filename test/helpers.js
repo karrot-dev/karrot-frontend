@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import raf from 'raf'
-import { createLocalVue, mount } from 'vue-test-utils'
+import { createLocalVue, mount } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 
 import MockRouterLink from '>/MockRouterLink'
@@ -82,14 +82,6 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
       )
     },
   })
-  window.getComputedStyle = () => {
-    return {
-      transitionDelay: '',
-      animationDelay: '',
-      transitionDuration: '',
-      animationDuration: '',
-    }
-  }
   i18n.locale = 'en'
   const wrapper = mount(Component, { localVue, i18n, ...options })
   makeFindAllIterable(wrapper)

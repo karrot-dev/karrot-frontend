@@ -59,7 +59,7 @@
               small
               round
               color="secondary"
-              @click="$router.push({ name: 'settings' })"
+              :to="{ name: 'settings' }"
             />
           </q-item-side>
         </q-item>

@@ -3,7 +3,7 @@ import GroupGalleryCards from './GroupGalleryCards'
 import GroupGalleryCard from './GroupGalleryCard'
 import GroupPreview from './GroupPreview'
 
-import { createLocalVue } from 'vue-test-utils'
+import { createLocalVue } from '@vue/test-utils'
 import { groupsMock } from '>/mockdata'
 import {
   mountWithDefaults,

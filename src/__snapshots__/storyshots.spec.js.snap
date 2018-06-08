@@ -2212,7 +2212,7 @@ exports[`Storyshots Password Reset empty 1`] = `
             </div>
             <!---->
             <div class="actions">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <button tabindex="0" type="button" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Back to login page
@@ -2266,7 +2266,7 @@ exports[`Storyshots Password Reset error 1`] = `
                 some error
             </div>
             <div class="actions">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <button tabindex="0" type="button" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Back to login page
@@ -2317,7 +2317,7 @@ exports[`Storyshots Password Reset pending 1`] = `
             </div>
             <!---->
             <div class="actions">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <button tabindex="0" type="button" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Back to login page
@@ -2370,7 +2370,7 @@ exports[`Storyshots Password Reset success 1`] = `
             </div>
             <!---->
             <div class="actions">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <button tabindex="0" type="button" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Back to login page
@@ -3637,7 +3637,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
         <i aria-hidden="true" class="q-icon fas fa-fw fa-home"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <button tabindex="0" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                     <i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
@@ -3744,7 +3744,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         <i aria-hidden="true" class="q-icon fas fa-fw fa-map"> </i>
         <div class="q-toolbar-title"></div>
         <div class="tools">
-            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <button tabindex="0" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                     <i class="fas fa-expand-arrows-alt fa-stack-1x"></i> <span class="q-tooltip animate-popup"><div>
@@ -3823,7 +3823,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         </div>
         <div class="tools">
             <!---->
-            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <button tabindex="0" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                     <i aria-hidden="true" class="q-icon fas fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
@@ -3989,7 +3989,7 @@ exports[`Storyshots Signup empty 1`] = `
             <!---->
             <!---->
             <div class="actions">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <button tabindex="0" type="button" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Back to Login
@@ -4102,7 +4102,7 @@ exports[`Storyshots Signup error 1`] = `
             <!---->
             <!---->
             <div class="actions">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <button tabindex="0" type="button" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Back to Login
@@ -4212,7 +4212,7 @@ exports[`Storyshots Signup pending 1`] = `
             <!---->
             <!---->
             <div class="actions">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <button tabindex="0" type="button" to="[object Object]" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center">
                         Back to Login

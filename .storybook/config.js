@@ -6,13 +6,13 @@ import '../src/themes/app.mat.styl'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import configureQuasar from '@/configureQuasar'
-import MockRouterLink from '>/MockRouterLink'
+import { RouterLinkStub } from '@vue/test-utils'
 
 Vue.config.productionTip = false
 configureQuasar(Vue)
 Vue.use(Vuex) // Install Vuex
 
-Vue.component('router-link', MockRouterLink)
+Vue.component('router-link', RouterLinkStub)
 Vue.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }

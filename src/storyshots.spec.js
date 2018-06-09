@@ -86,7 +86,7 @@ for (const group of mockStories) {
           // hack: translations don't work if i18n is in component, so delete it
           delete component.i18n
 
-          const wrapper = mountWithDefaults(component, { clone: false }) // cloning throws errors
+          const wrapper = mountWithDefaults(component)
 
           // use server side renderer to get renderered html string
           const renderer = createRenderer()

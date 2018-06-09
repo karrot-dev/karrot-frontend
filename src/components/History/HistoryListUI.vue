@@ -1,5 +1,8 @@
 <template>
-  <q-infinite-scroll :handler="loadMore">
+  <q-infinite-scroll
+    ref="infiniteScroll"
+    :handler="loadMore"
+  >
     <HistoryEntry
       v-for="entry in history"
       :entry="entry"
@@ -36,12 +39,14 @@ export default {
     },
   },
   methods: {
-    loadMore (index, done) {
+    async loadMore (index, done) {
       if (!this.canLoadMore) {
+        await this.$nextTick()
         done()
         return
       }
-      this.fetchMore().then(done)
+      await this.fetchMore()
+      done()
     },
   },
 }

@@ -112,12 +112,14 @@ export default {
     },
   },
   methods: {
-    loadMore (index, done) {
+    async loadMore (index, done) {
       if (!this.data.canLoadMore) {
+        await this.$nextTick()
         done()
         return
       }
-      this.fetchMore().then(done)
+      await this.fetchMore()
+      done()
     },
     toggleNotifications () {
       this.$emit('toggleEmailNotifications', {

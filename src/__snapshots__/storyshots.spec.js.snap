@@ -20,7 +20,7 @@ exports[`Storyshots AddressPicker Default 1`] = `
     <!---->
   </div>
   <div class="vue2leaflet-map map">
-    <div></div>
+    <!---->
   </div>
 </div>
 `;
@@ -270,7 +270,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   <!---->
                 </div>
                 <div class="vue2leaflet-map map">
-                  <div></div>
+                  <!---->
                 </div>
               </div>
             </div>
@@ -346,22 +346,7 @@ exports[`Storyshots GroupEdit create 1`] = `
 exports[`Storyshots GroupGallery signup view 1`] = `
 <div class="column gallery-wrapper expanded">
   <div class="vue2leaflet-map group-gallery-map map-fixed">
-    <div></div>
-    <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
+    <!---->
   </div>
   <div class="all-groups gallery-cards expanded">
     <div class="alert">
@@ -620,28 +605,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
 exports[`Storyshots GroupGallery switch and explore 1`] = `
 <div class="column gallery-wrapper expanded">
   <div class="vue2leaflet-map group-gallery-map map-fixed">
-    <div></div>
-    <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_4" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/4/&quot;&gt;03_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_6" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/6/&quot;&gt;01_testgroup_with_maps_and_password&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_13" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/13/&quot;&gt;04_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_1" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/1/&quot;&gt;05_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="group_2" popupcontent="&lt;h4&gt;&lt;a href=&quot;/#/group/2/&quot;&gt;06_testgroup&lt;/a&gt;&lt;h4&gt;" style="display:none;">
-      <div></div>
-    </div>
+    <!---->
   </div>
   <div class="all-groups gallery-cards expanded">
     <div class="alert">
@@ -1997,7 +1961,7 @@ exports[`Storyshots Login pending 1`] = `
 exports[`Storyshots Map GroupMap (group has no location) 1`] = `
 <div class="container" style="height:200px;">
   <div class="vue2leaflet-map" style="opacity:0.5;">
-    <div></div>
+    <!---->
   </div>
   <div class="overlay row justify-center content-center">
     <a>
@@ -2015,7 +1979,7 @@ exports[`Storyshots Map GroupMap (group has no location) 1`] = `
 exports[`Storyshots Map GroupMap (only group location) 1`] = `
 <div class="container" style="height:200px;">
   <div class="vue2leaflet-map" style="opacity:1;">
-    <div></div>
+    <!---->
   </div>
   <!---->
 </div>
@@ -2024,37 +1988,7 @@ exports[`Storyshots Map GroupMap (only group location) 1`] = `
 exports[`Storyshots Map GroupMap (selected store) 1`] = `
 <div class="container" style="height:200px;">
   <div class="vue2leaflet-map" style="opacity:1;">
-    <div></div>
-    <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
+    <!---->
   </div>
   <!---->
 </div>
@@ -2063,37 +1997,7 @@ exports[`Storyshots Map GroupMap (selected store) 1`] = `
 exports[`Storyshots Map GroupMap (store has no location) 1`] = `
 <div class="container" style="height:200px;">
   <div class="vue2leaflet-map" style="opacity:0.5;">
-    <div></div>
-    <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
+    <!---->
   </div>
   <div class="overlay row justify-center content-center">
     <a>
@@ -2111,37 +2015,7 @@ exports[`Storyshots Map GroupMap (store has no location) 1`] = `
 exports[`Storyshots Map GroupMap 1`] = `
 <div class="container" style="height:200px;">
   <div class="vue2leaflet-map" style="opacity:1;">
-    <div></div>
-    <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
-    <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
+    <!---->
   </div>
   <!---->
 </div>
@@ -2149,26 +2023,20 @@ exports[`Storyshots Map GroupMap 1`] = `
 
 exports[`Storyshots Map StandardMap (selected marker) 1`] = `
 <div class="vue2leaflet-map" style="height:600px;">
-  <div></div>
-  <div id="marker1" style="display:none;"></div>
-  <div id="marker2" style="display:none;"></div>
+  <!---->
 </div>
 `;
 
 exports[`Storyshots Map StandardMap 1`] = `
 <div class="vue2leaflet-map" style="height:600px;">
-  <div></div>
-  <div style="display:none;"></div>
+  <!---->
 </div>
 `;
 
 exports[`Storyshots Map UserMapPreview 1`] = `
 <div class="userMapPreview" style="position:relative;height:600px;">
   <div class="vue2leaflet-map">
-    <div></div>
-    <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
-      <div></div>
-    </div>
+    <!---->
   </div>
   <a class="overlay"></a>
 </div>
@@ -3427,8 +3295,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     <!---->
                   </div>
                   <div class="vue2leaflet-map map">
-                    <div></div>
-                    <div style="display:none;"></div>
+                    <!---->
                   </div>
                 </div>
               </div>
@@ -3760,37 +3627,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
   <div name="slide-toggle">
     <div class="container map">
       <div class="vue2leaflet-map" style="opacity:1;">
-        <div></div>
-        <div id="store_1" popupcontent="&lt;a href=&quot;/#/group/1/store/1&quot;&gt;Teststore1&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="store_60" popupcontent="&lt;a href=&quot;/#/group/1/store/60&quot;&gt;New Tienda&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="store_56" popupcontent="&lt;a href=&quot;/#/group/1/store/56&quot;&gt;Supermarkt Arheilgen&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="store_2" popupcontent="&lt;a href=&quot;/#/group/1/store/2&quot;&gt;asd&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="store_61" popupcontent="&lt;a href=&quot;/#/group/1/store/61&quot;&gt;Griesheimer Markt&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="user_1" popupcontent="&lt;a href=&quot;/#/user/1&quot;&gt;Mira Bellenbaum&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="user_2" popupcontent="&lt;a href=&quot;/#/user/2&quot;&gt;Max Mustermann&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="user_3" popupcontent="&lt;a href=&quot;/#/user/3&quot;&gt;Karl Karlson&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="user_4" popupcontent="&lt;a href=&quot;/#/user/4&quot;&gt;Mona Mohnblume&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
-        <div id="user_5" popupcontent="&lt;a href=&quot;/#/user/5&quot;&gt;Current User&lt;/a&gt;" style="display:none;">
-          <div></div>
-        </div>
+        <!---->
       </div>
       <!---->
     </div>
@@ -4901,8 +4738,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                   <!---->
                 </div>
                 <div class="vue2leaflet-map map">
-                  <div></div>
-                  <div style="display:none;"></div>
+                  <!---->
                 </div>
               </div>
             </div>
@@ -5137,8 +4973,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                   <!---->
                 </div>
                 <div class="vue2leaflet-map map">
-                  <div></div>
-                  <div style="display:none;"></div>
+                  <!---->
                 </div>
               </div>
             </div>

@@ -81,12 +81,19 @@ export default {
         isUnread: isUnread(message, getters.activeConversation),
       }
     },
+    enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
+      if (!conversation) return
+      return {
+        ...conversation,
+        participants: conversation.participants.map(rootGetters['users/get']),
+      }
+    },
     activeMessages: (state, getters) => {
       return (state.messages[state.activeConversationId] || []).map(getters.enrichMessage)
     },
-    activeConversation: state => {
+    activeConversation: (state, getters) => {
       if (!state.activeConversationId) return
-      return state.entries[state.activeConversationId]
+      return getters.enrichConversation(state.entries[state.activeConversationId])
     },
     active: (state, getters) => {
       const id = state.activeConversationId

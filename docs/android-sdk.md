@@ -4,11 +4,11 @@ Android dev stuff is a bit annoying, you need to get an android sdk from somewhe
 
 Then you need to install sdk platforms/images/apis and one or more emulators. You can do it via the Android Studio GUI, or command line.
 
-### archlinux
+### Arch Linux
 
-If using archlinux there is a [nice page about it](https://wiki.archlinux.org/index.php/android).
+If using Arch Linux there is a [nice page about it](https://wiki.archlinux.org/index.php/android).
 
-In summary, install these aur packages:
+In summary, install these AUR packages:
 
 ```
 android-platform android-platform-25 android-sdk android-sdk-build-tools android-sdk-platform-tools
@@ -36,10 +36,12 @@ sdkmanager "system-images;android-25;google_apis;x86"
 
 See https://developer.android.com/studio/releases/platforms.html for some more info.
 
+### Emulator
+
 Create an emulator, e.g.:
 
 ```
-avdmanager create avd --device "Nexus 6P" --name FOO --package "system-images;android-25;google_apis;x86" 
+avdmanager create avd --device "Nexus 6P" --name FOO --package "system-images;android-25;google_apis;x86"
 ```
 
 Start the emulator:

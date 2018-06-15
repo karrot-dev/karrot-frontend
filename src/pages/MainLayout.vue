@@ -64,6 +64,7 @@
         </q-page-container>
         <q-layout-drawer
           side="right"
+          :overlay="false"
           :breakpoint="0"
           v-model="showSidenavRight"
         >
@@ -127,7 +128,7 @@ export default {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
       }
-      return 'hHh LpR fff'
+      return 'hHh LpR ffr'
     },
     defaultShowSidenavWidth () {
       return 992

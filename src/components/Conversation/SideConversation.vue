@@ -66,7 +66,20 @@ import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
 import RandomArt from '@/components/General/RandomArt'
-import { scroll, QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem, QIcon, QTooltip, QScrollArea, QToolbar, QToolbarTitle } from 'quasar'
+import {
+  scroll,
+  QBtn,
+  QInfiniteScroll,
+  QSpinnerDots,
+  QList,
+  QAlert,
+  QItem,
+  QIcon,
+  QTooltip,
+  QScrollArea,
+  QToolbar,
+  QToolbarTitle,
+} from 'quasar'
 const { setScrollPosition } = scroll
 import { mapGetters, mapActions } from 'vuex'
 
@@ -91,13 +104,8 @@ export default {
   data () {
     return {}
   },
-  updated (a, b) {
-    this.$nextTick(() => {
-      if (this.$refs.scroll) {
-        // TODO: only if there is a new message?
-        setScrollPosition(this.$refs.scroll, this.$refs.scroll.scrollHeight)
-      }
-    })
+  updated () {
+    this.scrollToBottom()
   },
   computed: {
     ...mapGetters({
@@ -106,6 +114,7 @@ export default {
       allPickups: 'pickups/all',
     }),
     hasLoaded () {
+      if (!this.pickup) return false
       const s = this.conversation.fetchStatus
       return !s.pending && !s.hasValidationErrors
     },
@@ -152,6 +161,18 @@ export default {
       this.$emit('toggleEmailNotifications', {
         conversationId: this.data.id,
         value: !this.data.emailNotifications,
+      })
+    },
+    onResize () {
+      console.log('resized!', new Date())
+      this.scrollToBottom()
+    },
+    scrollToBottom () {
+      this.$nextTick(() => {
+        if (this.$refs.scroll) {
+          // TODO: only if there is a new message?
+          setScrollPosition(this.$refs.scroll, this.$refs.scroll.scrollHeight)
+        }
       })
     },
   },

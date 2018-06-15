@@ -84,6 +84,9 @@ export function receiveMessage ({ topic, payload }) {
   else if (topic === 'conversations:conversation') {
     store.dispatch('conversations/updateConversation', convertConversation(camelizeKeys(payload)))
   }
+  else if (topic === 'conversations:leave') {
+    store.dispatch('conversations/clearConversation', payload.id)
+  }
   else if (topic === 'groups:group_detail') {
     store.dispatch('currentGroup/update', camelizeKeys(payload))
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="SideConversation absolute-full column">
-    <q-alert v-if="conversation.fetchStatus.hasValidationErrors">
+    <q-alert v-if="conversation && conversation.fetchStatus.hasValidationErrors">
       {{ conversation.fetchStatus.validationErrors }}
     </q-alert>
     <div
@@ -130,7 +130,7 @@ export default {
       conversation: 'detail/conversation',
     }),
     hasLoaded () {
-      if (!this.pickup) return false
+      if (!this.pickup || !this.conversation) return false
       const s = this.conversation.fetchStatus
       return !s.pending && !s.hasValidationErrors
     },
@@ -146,11 +146,15 @@ export default {
       return this.conversation
     },
     reversedMessages () {
+      if (!this.conversation) return []
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       return [...this.conversation.messages].reverse()
     },
   },
   watch: {
+    'pickup.isUserMember' (isUserMember) {
+      if (!isUserMember) this.$emit('close')
+    },
     'conversation.messages' (messages) {
       if (messages.length === 0) return
       const newNewestMessageId = messages[0].id

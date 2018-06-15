@@ -222,6 +222,10 @@ export default {
       await dispatch('fetch', conversation.id)
     },
 
+    clearConversation ({ commit }, conversationId) {
+      commit('clearConversation', { conversationId })
+    },
+
     clearActive ({ commit }) {
       commit('clearActive')
     },
@@ -246,6 +250,10 @@ export default {
     },
     clearActive (state) {
       state.activeConversationId = null
+    },
+    clearConversation (state, { conversationId }) {
+      Vue.delete(state.entries, conversationId)
+      Vue.delete(state.messages, conversationId)
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.messages[conversationId]) {

@@ -55,9 +55,11 @@
               :user="user"
             />
           </q-list>
+          <q-scroll-observable @scroll="onScroll" />
         </div>
       </div>
     </template>
+    <q-resize-observable @resize="onResize" />
   </div>
 </template>
 
@@ -79,6 +81,8 @@ import {
   QScrollArea,
   QToolbar,
   QToolbarTitle,
+  QResizeObservable,
+  QScrollObservable,
 } from 'quasar'
 const { setScrollPosition } = scroll
 import { mapGetters, mapActions } from 'vuex'
@@ -100,12 +104,14 @@ export default {
     QScrollArea,
     QToolbar,
     QToolbarTitle,
+    QResizeObservable,
+    QScrollObservable,
   },
   data () {
-    return {}
-  },
-  updated () {
-    this.scrollToBottom()
+    return {
+      mostRecentMessageId: -1,
+      scrollPositionFromBottom: 0,
+    }
   },
   computed: {
     ...mapGetters({
@@ -137,6 +143,16 @@ export default {
       return this.allPickups[0]
     },
   },
+  watch: {
+    'conversation.messages' (messages) {
+      if (messages.length === 0) return
+      const newMostRecentMessageId = messages[0].id
+      if (this.mostRecentMessageId !== newMostRecentMessageId) {
+        this.scrollToBottom()
+        this.mostRecentMessageId = newMostRecentMessageId
+      }
+    },
+  },
   methods: {
     ...mapActions({
       join: 'pickups/join',
@@ -164,13 +180,24 @@ export default {
       })
     },
     onResize () {
-      console.log('resized!', new Date())
-      this.scrollToBottom()
+      if (!this.$refs.scroll) return
+      const { height } = this.$refs.scroll.getBoundingClientRect()
+      const { scrollHeight } = this.$refs.scroll
+      const scrollTop = scrollHeight - height - this.scrollPositionFromBottom
+      setScrollPosition(this.$refs.scroll, scrollTop)
+    },
+    onScroll () {
+      if (!this.$refs.scroll) return
+      const { height } = this.$refs.scroll.getBoundingClientRect()
+      const { scrollHeight, scrollTop } = this.$refs.scroll
+      const newScrollPositionFromBottom = scrollHeight - scrollTop - height
+      if (this.scrollPositionFromBottom !== newScrollPositionFromBottom) {
+        this.scrollPositionFromBottom = newScrollPositionFromBottom
+      }
     },
     scrollToBottom () {
       this.$nextTick(() => {
         if (this.$refs.scroll) {
-          // TODO: only if there is a new message?
           setScrollPosition(this.$refs.scroll, this.$refs.scroll.scrollHeight)
         }
       })

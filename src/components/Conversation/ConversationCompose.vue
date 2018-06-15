@@ -15,6 +15,7 @@
           <q-input
             type="textarea"
             rows="1"
+            autofocus
             v-model="message"
             :placeholder="placeholder"
             :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"

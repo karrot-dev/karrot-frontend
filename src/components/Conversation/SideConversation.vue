@@ -34,12 +34,14 @@
             @click="$emit('close')"
           />
         </q-toolbar>
-        <ProfilePicture
-          v-for="participant in conversation.participants"
-          :key="participant.id"
-          :user="participant"
-          :size="40"
-        />
+        <div class="k-participants">
+          <ProfilePicture
+            v-for="participant in conversation.participants"
+            :key="participant.id"
+            :user="participant"
+            :size="40"
+          />
+        </div>
       </div>
       <div class="col bar relative-position">
         <div
@@ -152,16 +154,28 @@ export default {
     },
   },
   watch: {
+    hasLoaded (hasLoaded) {
+      if (hasLoaded) this.scrollToBottom()
+    },
     'pickup.isUserMember' (isUserMember) {
       if (!isUserMember) this.$emit('close')
     },
+    'conversation.id' (id) {
+      Object.assign(this, {
+        newestMessageId: -1,
+        oldestMessageId: -1,
+        scrollPositionFromBottom: 0,
+      })
+    },
     'conversation.messages' (messages) {
-      if (messages.length === 0) return
+      if (!messages || messages.length === 0) return
+      // Jump to bottom when new messages added
       const newNewestMessageId = messages[0].id
       if (this.newestMessageId !== newNewestMessageId) {
         this.scrollToBottom()
         this.newestMessageId = newNewestMessageId
       }
+      // Retain position when old message added
       const newOldestMessageId = messages[messages.length - 1].id
       if (this.oldestMessageId !== newOldestMessageId) {
         this.oldestMessageId = newOldestMessageId
@@ -209,6 +223,7 @@ export default {
     scrollToBottom () {
       this.$nextTick(() => {
         if (this.$refs.scroll) {
+          console.log('scrolling to bottom!')
           setScrollPosition(this.$refs.scroll, getScrollHeight(this.$refs.scroll))
         }
       })
@@ -218,8 +233,11 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .actionButton
-    float right
-    margin-top -25px
-    margin-right 5px
+@import '~variables'
+.actionButton
+  float right
+  margin-top -25px
+  margin-right 5px
+.k-participants
+  background-color #f5f5f5
 </style>

@@ -13,7 +13,7 @@
             href="#"
             @click="$emit('detail', pickup.id)"
           >
-            <strong>open detail</strong>
+            <strong>Open Chat <q-icon name="chat" /></strong>
           </a>
         </div>
         <div
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { Dialog, QCard, QCardMain, QBtn } from 'quasar'
+import { Dialog, QCard, QCardMain, QBtn, QIcon } from 'quasar'
 import PickupUsers from './PickupUsers'
 
 export default {
@@ -50,7 +50,7 @@ export default {
     },
   },
   components: {
-    QCard, QCardMain, QBtn, PickupUsers,
+    QCard, QCardMain, QBtn, QIcon, PickupUsers,
   },
   methods: {
     join () {

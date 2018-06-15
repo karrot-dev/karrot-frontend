@@ -52,6 +52,12 @@
           class="absolute-full scroll"
           ref="scroll"
         >
+          <div
+            v-if="fetchingMore"
+            class="full-width text-center generic-padding"
+          >
+            <q-spinner-dots :size="40" />
+          </div>
           <q-list
             no-border
             class="bg-white"
@@ -70,7 +76,7 @@
               :user="user"
             />
           </q-list>
-          <q-scroll-observable @scroll="saveScrollPosition" />
+          <q-scroll-observable @scroll="onScroll" />
         </div>
       </div>
     </template>
@@ -127,6 +133,7 @@ export default {
       newestMessageId: -1,
       oldestMessageId: -1,
       scrollPositionFromBottom: 0,
+      fetchingMore: false,
     }
   },
   computed: {
@@ -200,6 +207,7 @@ export default {
       mark: 'conversations/mark',
       toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
       toggleReaction: 'conversations/toggleReaction',
+      fetchMore: 'conversations/fetchMore',
     }),
     markRead (messageId) {
       this.mark({
@@ -242,6 +250,16 @@ export default {
           setScrollPosition(this.$refs.scroll, getScrollHeight(this.$refs.scroll))
         }
       })
+    },
+    async onScroll ({ position }) {
+      if (position < 50) {
+        if (!this.fetchingMore && this.conversation.canLoadMore) {
+          this.fetchingMore = true
+          await this.fetchMore(this.conversation.id)
+          this.fetchingMore = false
+        }
+      }
+      this.saveScrollPosition()
     },
   },
 }

@@ -34,5 +34,5 @@
         </host>
     </universal-links>
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
-    <engine name="android" spec="^7.1.0" />
+    <engine name="android" spec="^6.4.0" />
 </widget>

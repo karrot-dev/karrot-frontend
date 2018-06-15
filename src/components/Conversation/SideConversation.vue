@@ -55,11 +55,11 @@
               :user="user"
             />
           </q-list>
-          <q-scroll-observable @scroll="onScroll" />
+          <q-scroll-observable @scroll="saveScrollPosition" />
         </div>
       </div>
     </template>
-    <q-resize-observable @resize="onResize" />
+    <q-resize-observable @resize="restoreScrollPosition" />
   </div>
 </template>
 
@@ -84,7 +84,7 @@ import {
   QResizeObservable,
   QScrollObservable,
 } from 'quasar'
-const { setScrollPosition } = scroll
+const { getScrollHeight, getScrollPosition, setScrollPosition } = scroll
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -109,7 +109,8 @@ export default {
   },
   data () {
     return {
-      mostRecentMessageId: -1,
+      newestMessageId: -1,
+      oldestMessageId: -1,
       scrollPositionFromBottom: 0,
     }
   },
@@ -146,10 +147,17 @@ export default {
   watch: {
     'conversation.messages' (messages) {
       if (messages.length === 0) return
-      const newMostRecentMessageId = messages[0].id
-      if (this.mostRecentMessageId !== newMostRecentMessageId) {
+      const newNewestMessageId = messages[0].id
+      if (this.newestMessageId !== newNewestMessageId) {
         this.scrollToBottom()
-        this.mostRecentMessageId = newMostRecentMessageId
+        this.newestMessageId = newNewestMessageId
+      }
+      const newOldestMessageId = messages[messages.length - 1].id
+      if (this.oldestMessageId !== newOldestMessageId) {
+        this.oldestMessageId = newOldestMessageId
+        this.$nextTick(() => {
+          this.restoreScrollPosition()
+        })
       }
     },
   },
@@ -179,26 +187,27 @@ export default {
         value: !this.data.emailNotifications,
       })
     },
-    onResize () {
+    saveScrollPosition () {
       if (!this.$refs.scroll) return
       const { height } = this.$refs.scroll.getBoundingClientRect()
-      const { scrollHeight } = this.$refs.scroll
-      const scrollTop = scrollHeight - height - this.scrollPositionFromBottom
-      setScrollPosition(this.$refs.scroll, scrollTop)
-    },
-    onScroll () {
-      if (!this.$refs.scroll) return
-      const { height } = this.$refs.scroll.getBoundingClientRect()
-      const { scrollHeight, scrollTop } = this.$refs.scroll
-      const newScrollPositionFromBottom = scrollHeight - scrollTop - height
+      const scrollHeight = getScrollHeight(this.$refs.scroll)
+      const scrollPosition = getScrollPosition(this.$refs.scroll)
+      const newScrollPositionFromBottom = scrollHeight - scrollPosition - height
       if (this.scrollPositionFromBottom !== newScrollPositionFromBottom) {
         this.scrollPositionFromBottom = newScrollPositionFromBottom
       }
     },
+    restoreScrollPosition () {
+      if (!this.$refs.scroll) return
+      const { height } = this.$refs.scroll.getBoundingClientRect()
+      const scrollHeight = getScrollHeight(this.$refs.scroll)
+      const scrollPosition = scrollHeight - height - this.scrollPositionFromBottom
+      setScrollPosition(this.$refs.scroll, scrollPosition)
+    },
     scrollToBottom () {
       this.$nextTick(() => {
         if (this.$refs.scroll) {
-          setScrollPosition(this.$refs.scroll, this.$refs.scroll.scrollHeight)
+          setScrollPosition(this.$refs.scroll, getScrollHeight(this.$refs.scroll))
         }
       })
     },

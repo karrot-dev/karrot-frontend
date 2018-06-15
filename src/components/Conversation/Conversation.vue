@@ -15,7 +15,7 @@
             class="actionButton hoverScale"
             round
             color="negative"
-            @click="$router.push({ name: 'settings', hash: '#change-email' })"
+            :to="{ name: 'settings', hash: '#change-email' }"
           >
             <q-icon
               name="fas fa-exclamation-triangle"
@@ -112,12 +112,14 @@ export default {
     },
   },
   methods: {
-    loadMore (index, done) {
+    async loadMore (index, done) {
       if (!this.data.canLoadMore) {
+        await this.$nextTick()
         done()
         return
       }
-      this.fetchMore().then(done)
+      await this.fetchMore()
+      done()
     },
     toggleNotifications () {
       this.$emit('toggleEmailNotifications', {

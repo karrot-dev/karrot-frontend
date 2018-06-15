@@ -1,35 +1,35 @@
 <template>
-  <v-map
+  <l-map
     :bounds="bounds"
     :center="center"
     :zoom="zoom"
-    @l-click="$emit('mapClick', arguments[0].latlng)"
-    @l-moveend="$emit('mapMoveEnd', arguments[0].target)"
+    @click="$emit('mapClick', arguments[0].latlng)"
+    @moveend="$emit('mapMoveEnd', arguments[0].target)"
   >
-    <v-tile-layer
+    <l-tile-layer
       :url="url"
       :attribution="attribution"
     />
-    <v-marker
+    <ExtendedMarker
       v-for="marker in markers"
       :key="marker.id"
       v-bind="marker"
-      @l-dragend="$emit('markerMoved', $event.target._latlng, marker)"
+      @dragend="$emit('markerMoved', $event.target._latlng, marker)"
       :opacity="opacityFor(marker)"
     >
-      <v-popup
+      <l-popup
         v-if="marker.popupcontent"
         :content="marker.popupcontent"
       />
-    </v-marker>
-  </v-map>
+    </ExtendedMarker>
+  </l-map>
 </template>
 
 <script>
 import {
-  Map as VMap,
-  TileLayer as VTileLayer,
-  Popup as VPopup,
+  LMap,
+  LTileLayer,
+  LPopup,
 } from 'vue2-leaflet'
 
 import ExtendedMarker from './ExtendedMarker'
@@ -51,7 +51,7 @@ const UNSELECTED_OPACITY = 0.5
 
 export default {
   components: {
-    VMap, VTileLayer, VMarker: ExtendedMarker, VPopup,
+    LMap, LTileLayer, ExtendedMarker, LPopup,
   },
   props: {
     markers: {

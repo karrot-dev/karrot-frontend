@@ -1,7 +1,8 @@
 <script>
-import { Marker } from 'vue2-leaflet'
+import { LMarker } from 'vue2-leaflet'
 export default {
-  extends: Marker,
+  name: 'ExtendedMarker',
+  extends: LMarker,
   props: {
     opacity: {
       type: Number,

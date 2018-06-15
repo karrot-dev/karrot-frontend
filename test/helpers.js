@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import raf from 'raf'
-import { createLocalVue, mount } from 'vue-test-utils'
+import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
-
-import MockRouterLink from '>/MockRouterLink'
 import i18n from '@/i18n'
 
 Vue.use(Vuex)
@@ -72,26 +70,16 @@ export function mountWithDefaults (Component, options = {}) {
 }
 
 export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
-  localVue.component('router-link', MockRouterLink)
   configureQuasar(localVue)
-  localVue.component('transition', {
-    render (createElement) {
-      return createElement(
-        'div',
-        this.$slots.default,
-      )
-    },
-  })
-  window.getComputedStyle = () => {
-    return {
-      transitionDelay: '',
-      animationDelay: '',
-      transitionDuration: '',
-      animationDuration: '',
-    }
-  }
   i18n.locale = 'en'
-  const wrapper = mount(Component, { localVue, i18n, ...options })
+  localVue.component('router-link', RouterLinkStub)
+  localVue.component('transition', TransitionStub)
+  localVue.component('transition-group', TransitionGroupStub)
+  const wrapper = mount(Component, {
+    localVue,
+    i18n,
+    ...options,
+  })
   makeFindAllIterable(wrapper)
   return wrapper
 }

@@ -227,7 +227,6 @@ export default {
     scrollToBottom () {
       this.$nextTick(() => {
         if (this.$refs.scroll) {
-          console.log('scrolling to bottom!')
           setScrollPosition(this.$refs.scroll, getScrollHeight(this.$refs.scroll))
         }
       })

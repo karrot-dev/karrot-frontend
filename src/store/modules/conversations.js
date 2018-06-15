@@ -170,7 +170,6 @@ export default {
        * Add reaction to a message.
        */
       async toggleReaction ({ state, commit, rootGetters }, { conversationId, messageId, name }) {
-        console.log('toggling reaction', { conversationId, messageId, name })
         if (!conversationId) conversationId = state.activeConversationId
         // current user's id
         const userId = rootGetters['auth/userId']

@@ -134,6 +134,7 @@ export default {
       user: 'auth/user',
       pickup: 'detail/pickup',
       conversation: 'detail/conversation',
+      away: 'presence/toggle/away',
     }),
     hasLoaded () {
       if (!this.pickup || !this.conversation) return false
@@ -158,6 +159,9 @@ export default {
     },
   },
   watch: {
+    away (away) {
+      if (!this.away) this.markRead(this.newestMessageId)
+    },
     hasLoaded (hasLoaded) {
       if (hasLoaded) this.scrollToBottom()
     },
@@ -178,6 +182,7 @@ export default {
       if (this.newestMessageId !== newNewestMessageId) {
         this.scrollToBottom()
         this.newestMessageId = newNewestMessageId
+        if (!this.away) this.markRead(this.newestMessageId)
       }
       // Retain position when old message added
       const newOldestMessageId = messages[messages.length - 1].id
@@ -192,9 +197,16 @@ export default {
   methods: {
     ...mapActions({
       send: 'conversations/send',
+      mark: 'conversations/mark',
       toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
       toggleReaction: 'conversations/toggleReaction',
     }),
+    markRead (messageId) {
+      this.mark({
+        id: this.conversation.id,
+        seenUpTo: messageId,
+      })
+    },
     sendMessage (data) {
       this.send({
         id: this.conversation.id,

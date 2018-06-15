@@ -89,7 +89,7 @@ export default {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
-        isUnread: isUnread(message, getters.activeConversation),
+        isUnread: isUnread(message, state.entries[message.conversation]),
       }
     },
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {

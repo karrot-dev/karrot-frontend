@@ -15,7 +15,7 @@
           color="secondary"
         >
           <q-toolbar-title>
-            Pickup conversation
+            Pickup Chat
             <span slot="subtitle">
               {{ $d(pickup.date, 'timeShort') }}
               <strong v-if="pickup.store">
@@ -34,13 +34,17 @@
             @click="$emit('close')"
           />
         </q-toolbar>
-        <div class="k-participants">
-          <ProfilePicture
+        <div class="k-participant-list">
+          <div
             v-for="participant in conversation.participants"
             :key="participant.id"
-            :user="participant"
-            :size="40"
-          />
+            class="k-participant"
+          >
+            <ProfilePicture
+              :user="participant"
+              :size="40"
+            />
+          </div>
         </div>
       </div>
       <div class="col bar relative-position">
@@ -238,6 +242,12 @@ export default {
   float right
   margin-top -25px
   margin-right 5px
-.k-participants
+.k-participant-list
   background-color #f5f5f5
+  padding 0.3em
+  padding-bottom 0
+.k-participant
+  display inline-block
+  margin-right 0.3em
+  margin-bottom 0.3em
 </style>

@@ -228,7 +228,8 @@ jobs:
           at: .
       - restore_cache:
           keys:
-          - gradle-cache
+            - v0-gradle-{{ .Branch }}
+            - v0-gradle
       - run:
           <<: *build-android
           name: build android apk
@@ -238,7 +239,8 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: gradle-cache
+            - ~/.android
+          key: v0-gradle-{{ .Branch }}-{{ epoch }}
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -274,7 +276,8 @@ jobs:
           at: .
       - restore_cache:
           keys:
-          - gradle-cache
+            - v0-gradle-{{ .Branch }}
+            - v0-gradle
       - run:
           <<: *build-android
           name: build android apk
@@ -284,7 +287,8 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: gradle-cache
+            - ~/.android
+          key: v0-gradle-{{ .Branch }}-{{ epoch }}
       - persist_to_workspace:
           root: ~/repo
           paths:

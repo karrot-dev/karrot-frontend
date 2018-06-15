@@ -68,7 +68,7 @@
           :breakpoint="0"
           v-model="showSidenavRight"
         >
-          <SideConversation @close="closeSidenavRight"/>
+          <SideConversation @close="clearDetail"/>
         </q-layout-drawer>
         <q-layout-footer>
           <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
@@ -94,7 +94,7 @@ import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import SideConversation from '@/components/Conversation/SideConversation'
 import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -103,10 +103,12 @@ export default {
   data () {
     return {
       showSidenav: false,
-      showSidenavRight: true,
     }
   },
   methods: {
+    ...mapActions({
+      clearDetail: 'detail/clear',
+    }),
     toggleSidenav () {
       this.showSidenav = !this.showSidenav
     },
@@ -115,14 +117,12 @@ export default {
         this.showSidenav = true
       }
     },
-    closeSidenavRight () {
-      this.showSidenavRight = false
-    },
   },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
+      showSidenavRight: 'detail/isActive',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

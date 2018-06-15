@@ -8,6 +8,13 @@
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
           <slot>Date or Store Slot</slot>
+          <a
+            v-if="pickup.isUserMember"
+            href="#"
+            @click="$emit('detail', pickup.id)"
+          >
+            <strong>open detail</strong>
+          </a>
         </div>
         <div
           class="description multiline"

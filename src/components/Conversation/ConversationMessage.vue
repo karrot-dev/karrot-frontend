@@ -71,7 +71,11 @@ export default {
   },
   methods: {
     toggleReaction (name) {
-      this.$emit('toggleReaction', { name, messageId: this.message.id })
+      this.$emit('toggleReaction', {
+        conversationId: this.message.conversation,
+        messageId: this.message.id,
+        name,
+      })
     },
   },
   computed: {

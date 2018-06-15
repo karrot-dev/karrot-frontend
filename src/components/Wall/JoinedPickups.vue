@@ -26,6 +26,7 @@
           :pickup="pickup"
           @join="$emit('join', arguments[0])"
           @leave="$emit('leave', arguments[0])"
+          @detail="$emit('detail', arguments[0])"
         >
           <strong v-if="pickup.store">
             <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">

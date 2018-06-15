@@ -13,6 +13,7 @@ export default connect({
   actionsToEvents: {
     join: 'pickups/join',
     leave: 'pickups/leave',
+    detail: 'detail/selectPickup',
     send: 'conversations/sendInActiveConversation',
     markAllRead: 'conversations/markAllReadInActiveConversation',
     toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',

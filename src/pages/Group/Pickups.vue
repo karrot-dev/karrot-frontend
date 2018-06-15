@@ -6,6 +6,7 @@
       :pickup="pickup"
       @join="join"
       @leave="leave"
+      @detail="detail"
     >
       <strong v-if="pickup.store">
         <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
@@ -51,6 +52,7 @@ export default {
     ...mapActions({
       join: 'pickups/join',
       leave: 'pickups/leave',
+      detail: 'detail/selectPickup',
     }),
   },
   computed: {

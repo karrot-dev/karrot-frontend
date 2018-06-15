@@ -1,5 +1,14 @@
 <template>
   <div class="SideConversation absolute-full column">
+    <q-alert v-if="conversation.fetchStatus.hasValidationErrors">
+      {{ conversation.fetchStatus.validationErrors }}
+    </q-alert>
+    <div
+      v-if="!hasLoaded"
+      class="full-width text-center generic-padding"
+    >
+      <q-spinner-dots :size="40" />
+    </div>
     <template v-if="hasLoaded">
       <div class="col-auto">
         <q-toolbar
@@ -117,8 +126,8 @@ export default {
   computed: {
     ...mapGetters({
       user: 'auth/user',
-      conversation: 'conversations/active',
-      allPickups: 'pickups/all',
+      pickup: 'detail/pickup',
+      conversation: 'detail/conversation',
     }),
     hasLoaded () {
       if (!this.pickup) return false
@@ -140,9 +149,6 @@ export default {
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       return [...this.conversation.messages].reverse()
     },
-    pickup () {
-      return this.allPickups[0]
-    },
   },
   watch: {
     'conversation.messages' (messages) {
@@ -163,23 +169,15 @@ export default {
   },
   methods: {
     ...mapActions({
-      join: 'pickups/join',
-      leave: 'pickups/leave',
-      send: 'conversations/sendInActiveConversation',
-      markAllRead: 'conversations/markAllReadInActiveConversation',
+      send: 'conversations/send',
       toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
       toggleReaction: 'conversations/toggleReaction',
-      fetchMore: 'conversations/fetchMoreForActiveConversation',
     }),
     sendMessage (data) {
-      this.send(data)
-    },
-    loadMore (index, done) {
-      if (!this.data.canLoadMore) {
-        done()
-        return
-      }
-      this.fetchMore().then(done)
+      this.send({
+        id: this.conversation.id,
+        messageData: data,
+      })
     },
     toggleNotifications () {
       this.$emit('toggleEmailNotifications', {

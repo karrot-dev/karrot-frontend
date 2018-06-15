@@ -6,6 +6,7 @@
           :pickups="joinedPickups"
           @join="$emit('join', arguments[0])"
           @leave="$emit('leave', arguments[0])"
+          @detail="$emit('detail', arguments[0])"
         />
       </div>
       <div v-if="availablePickups.length > 0">

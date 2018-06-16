@@ -12,7 +12,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
 .MobileDetail
   margin-top 50px
   margin-bottom 70px

@@ -24,7 +24,7 @@ export default {
     },
   },
   actions: {
-    async selectPickup ({ commit, dispatch }, pickupId) {
+    async selectPickup ({ commit, dispatch }, { pickupId }) {
       const conversation = await pickupsAPI.conversation(pickupId)
       commit('setPickupId', pickupId)
       commit('setConversationId', conversation.id)

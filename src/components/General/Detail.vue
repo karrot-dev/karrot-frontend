@@ -1,5 +1,5 @@
 <template>
-  <div class="SideConversation absolute-full column">
+  <div class="Detail absolute-full column">
     <q-alert v-if="conversation && conversation.fetchStatus.hasValidationErrors">
       {{ conversation.fetchStatus.validationErrors }}
     </q-alert>
@@ -15,7 +15,7 @@
           color="secondary"
         >
           <q-toolbar-title>
-            Pickup Chat
+            <span v-if="!$q.platform.is.mobile">Pickup Chat</span>
             <span slot="subtitle">
               {{ $d(pickup.date, 'timeShort') }}
               <strong v-if="pickup.store">
@@ -27,6 +27,7 @@
             </span>
           </q-toolbar-title>
           <q-btn
+            v-if="!$q.platform.is.mobile"
             flat
             round
             dense
@@ -86,8 +87,8 @@
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
-import ConversationMessage from './ConversationMessage'
-import ConversationCompose from './ConversationCompose'
+import ConversationMessage from '@/components/Conversation/ConversationMessage'
+import ConversationCompose from '@/components/Conversation/ConversationCompose'
 import RandomArt from '@/components/General/RandomArt'
 import {
   scroll,
@@ -267,6 +268,8 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+.Detail
+  background-color white
 .actionButton
   float right
   margin-top -25px

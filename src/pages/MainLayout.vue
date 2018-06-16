@@ -63,12 +63,13 @@
           <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
         </q-page-container>
         <q-layout-drawer
+          v-if="!$q.platform.is.mobile"
           side="right"
           :overlay="false"
           :breakpoint="0"
           v-model="showSidenavRight"
         >
-          <SideConversation @close="clearDetail"/>
+          <Detail @close="clearDetail"/>
         </q-layout-drawer>
         <q-layout-footer>
           <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
@@ -92,13 +93,13 @@ import MobileSidenav from '@/components/Layout/MobileSidenav'
 import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
-import SideConversation from '@/components/Conversation/SideConversation'
+import Detail from '@/components/General/Detail'
 import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
-    SideConversation, KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError, UnsupportedBrowserWarning,
+    Detail, KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError, UnsupportedBrowserWarning,
   },
   data () {
     return {

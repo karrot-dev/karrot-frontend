@@ -28,6 +28,7 @@ const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
 const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
+const MobileDetail = () => import('@/pages/MobileDetail')
 
 export default [
   {
@@ -393,6 +394,21 @@ export default [
     },
     components: {
       default: User,
+    },
+  },
+  {
+    name: 'pickupDetail',
+    path: '/pickups/:pickupId/detail',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'Pickup Chat' },
+      ],
+      beforeEnter: 'detail/selectPickup',
+      afterLeave: 'detail/clear',
+    },
+    components: {
+      default: MobileDetail,
     },
   },
 ]

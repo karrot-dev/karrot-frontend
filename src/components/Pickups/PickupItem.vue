@@ -8,13 +8,21 @@
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
           <slot>Date or Store Slot</slot>
-          <a
-            v-if="pickup.isUserMember"
-            href="#"
-            @click="$emit('detail', pickup.id)"
-          >
-            <strong>Open Chat <q-icon name="chat" /></strong>
-          </a>
+          <template v-if="pickup.isUserMember">
+            <router-link
+              v-if="$q.platform.is.mobile"
+              :to="{ name: 'pickupDetail', params: { pickupId: pickup.id }}"
+            >
+              <strong>Open Chat <q-icon name="chat" /></strong>
+            </router-link>
+            <a
+              v-else
+              href="#"
+              @click="$emit('detail', { pickupId: pickup.id })"
+            >
+              <strong>Open Chat <q-icon name="chat" /></strong>
+            </a>
+          </template>
         </div>
         <div
           class="description multiline"

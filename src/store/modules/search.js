@@ -20,7 +20,8 @@ export default {
 
       const storeRes = stores.filter((store) => matches(store.name))
       const groupRes = groups.filter((group) => matches(group.name))
-      const userRes = users.filter((user) => matches(user.displayName))
+      const userResNoImg = users.filter((user) => matches(user.displayName) && !user.photoUrls.thumbnail)
+      const userResHasImg = users.filter((user) => matches(user.displayName) && user.photoUrls.thumbnail)
 
       return [
         ...storeRes.map(e => ({
@@ -33,14 +34,18 @@ export default {
           label: e.name,
           icon: 'fa-home',
         })),
-        ...userRes.map(e => ({
+        ...userResNoImg.map(e => ({
           value: {name: 'user', params: {userId: e.id}},
           label: e.displayName,
           icon: 'fa-user',
         })),
+        ...userResHasImg.map(e => ({
+          value: {name: 'user', params: {userId: e.id}},
+          label: e.displayName,
+          avatar: e.photoUrls.thumbnail,
+        })),
       ]
     },
-
   },
   actions: {
     show ({ commit }) {

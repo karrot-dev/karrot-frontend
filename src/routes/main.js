@@ -404,8 +404,8 @@ export default [
       breadcrumbs: [
         { translation: 'Pickup Chat' },
       ],
-      beforeEnter: 'detail/selectPickup',
-      afterLeave: 'detail/clear',
+      beforeEnter: 'detail/routeEnter',
+      afterLeave: 'detail/routeLeave',
     },
     components: {
       default: MobileDetail,

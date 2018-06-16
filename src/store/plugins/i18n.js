@@ -15,5 +15,6 @@ export default store => {
     dateFnsHelper.locale = locale
     polyfill.locale = locale
     axios.defaults.headers.common['Accept-Language'] = locale
+    document.documentElement.setAttribute('lang', locale)
   }, { immediate: true })
 }

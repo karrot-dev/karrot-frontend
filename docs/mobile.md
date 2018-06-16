@@ -40,22 +40,25 @@ Build the main project:
 ```
 yarn build:cordova:<config>
 ```
-  
+
 where `<config>` is `dev` or `prod`, depending on whether you want to build the dev or the production version.
 
 (You can customize the backend by setting the `BACKEND` env variable, e.g. in `.env`)
 
 Enter the cordova directory from the project root:
+
 ```
 cd cordova
 ```
 
 Add android platform:
+
 ```
 cordova platform add android
 ```
 
 Run!
+
 ```
 cordova run android
 ```
@@ -82,14 +85,18 @@ The aim is that the dev version would connect to dev.karrot.world and the produc
 
 ### Debug build
 
+Use our wrapper script
+
 ```
-cordova build android -- --password=<password> --storePassword=<password>
+./build android dev release <password>
 ```
+
+... where `<password>` is a common yunity password. Ask in yunity Slack if you'd like to know it.
 
 If you connect your phone to your computer, you can use the chrome debugging tools with this.
 
 ### Release build
 
 ```
-cordova build android --release -- --password=<password> --storePassword=<password>
+./build android prod release <release-password>
 ```

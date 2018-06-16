@@ -332,7 +332,13 @@
     "NOT_VERIFIED": "{email} inte verifierad",
     "CHECK_YOUR_MAILS": "Varsågod och kolla dina mejl eller {resend}",
     "RESEND_VERIFICATION": "Skicka igen mejlverifiering",
-    "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg."
+    "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg.",
+    "CHANGES_SAVED": "Dina ändringar har sparats.",
+    "CHANGES_ERROR": "Ett fel uppstod. Försök igen senare."
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Jag är ledsen, men vi kunde inte hitta sidan nånstans.",

@@ -5,10 +5,19 @@ import ProfilePicture from './ProfilePicture'
 import { usersMock } from '>/mockdata'
 
 storiesOf('ProfilePicture', module)
-  .add('Profile Pictures', () => defaults({
+  .add('with user', () => defaults({
     render: h => h(ProfilePicture, {
       props: {
         user: usersMock[0],
+        isLink: false,
+        size: 100,
+      },
+    }),
+  }))
+  .add('without user', () => defaults({
+    render: h => h(ProfilePicture, {
+      props: {
+        user: {},
         size: 100,
       },
     }),

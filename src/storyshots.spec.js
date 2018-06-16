@@ -41,6 +41,33 @@ jest.mock('@/components/General/RandomArt', () => ({
   render: (h, context) => h('div', context.data, context.children),
 }))
 
+// Mock locales
+jest.mock('@/locales', () => ({
+  de: {
+    name: 'Deutsch',
+    locale: 'de',
+    messages: () => import('@/locales/locale-de.json'),
+    dateFnsLocale: () => import('date-fns/locale/de'),
+  },
+
+  en: {
+    name: 'English',
+    locale: 'en',
+    messages: () => import('@/locales/locale-en.json'),
+    dateFnsLocale: () => import('date-fns/locale/en'),
+  },
+}))
+
+// Mock translation status
+jest.mock('@/locales/status-frontend.json', () => ({
+  'de': {
+    'completed': '13%',
+  },
+  'en': {
+    'completed': '42%',
+  },
+}))
+
 const files = glob.sync('**/*.story.js', { absolute: true })
 for (const f of files) {
   require(f)
@@ -59,7 +86,7 @@ for (const group of mockStories) {
           // hack: translations don't work if i18n is in component, so delete it
           delete component.i18n
 
-          const wrapper = mountWithDefaults(component, { clone: false }) // cloning throws errors
+          const wrapper = mountWithDefaults(component)
 
           // use server side renderer to get renderered html string
           const renderer = createRenderer()

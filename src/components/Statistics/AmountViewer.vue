@@ -26,13 +26,13 @@ export default {
   },
   props: {
     amount: {
-      required: true,
+      default: null,
       type: Number,
     },
   },
   computed: {
     photosArray () {
-      let amount = this.amount
+      let amount = this.amount || 0
       let amountImages = []
       while (amount >= 0.15 && amountImages.length < 7) {
         if (amount >= 50.0) {

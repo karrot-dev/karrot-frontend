@@ -211,6 +211,7 @@ export default {
       fetchMore: 'conversations/fetchMore',
     }),
     markRead (messageId) {
+      if (!this.conversation) return
       this.mark({
         id: this.conversation.id,
         seenUpTo: messageId,

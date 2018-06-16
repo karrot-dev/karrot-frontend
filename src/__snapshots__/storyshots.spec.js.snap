@@ -4064,48 +4064,56 @@ exports[`Storyshots Statistics AmountBox 1`] = `
 
 exports[`Storyshots Statistics AmountPicker 1`] = `
 <div class="wrapper">
-  <div class="row no-wrap">
-    <div class="container amount" style="width:100px;height:100px;">
-      <img width="100px" height="100px" src="test-file-stub">
-      <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
-      <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
+  <!---->
+  <div class="content">
+    <div class="row no-wrap">
+      <div class="container amount" style="width:100px;height:100px;">
+        <img width="100px" height="100px" src="test-file-stub">
+        <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
+        <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
         1.0
       </span> <span style="font-size:14px;">kg</span></div>
-    </div>
-    <div style="margin-left:.6em;">
-      <div style="padding-bottom:.3em;"></div>
-      <div class="wrapper row">
-        <img src="test-file-stub">
       </div>
-    </div>
-  </div>
-  <div class="row no-wrap">
-    <div class="q-slider non-selectable">
-      <div class="q-slider-handle-container">
-        <div class="q-slider-track"></div>
-        <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
-        <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
-          <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white">
-            <div class="q-chip-main">1</div>
-          </div>
-          <div class="q-slider-ring"></div>
+      <div class="col" style="margin-left:.6em;">
+        <div style="padding-bottom:.3em;"></div>
+        <div class="wrapper row">
+          <img src="test-file-stub">
         </div>
       </div>
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable self-start q-btn-round q-btn-flat q-focusable q-hoverable text-red">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center">
+          <i aria-hidden="true" class="q-icon fas fa-times"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
+      </button>
     </div>
-    <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
-      <!---->
-      <div class="q-if-inner col row no-wrap relative-position">
-        <!---->
-        <!---->
-        <input step="any" type="text" value="1" class="col q-input-target q-no-input-spinner text-right">
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
+    <div class="row no-wrap">
+      <div class="q-slider non-selectable">
+        <div class="q-slider-handle-container">
+          <div class="q-slider-track"></div>
+          <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
+          <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
+            <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white">
+              <div class="q-chip-main">1</div>
+            </div>
+            <div class="q-slider-ring"></div>
+          </div>
+        </div>
       </div>
-      <!---->
-    </div> <span style="padding:3px;">kg</span></div>
+      <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
+        <!---->
+        <div class="q-if-inner col row no-wrap relative-position">
+          <!---->
+          <!---->
+          <input step="any" type="text" value="1" class="col q-input-target q-no-input-spinner text-right">
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div> <span style="padding:3px;">kg</span></div>
+  </div>
 </div>
 `;
 
@@ -4338,66 +4346,22 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
     </div>
     <div class="generic-padding">
       <form style="padding:1.5em 0;">
-        <div class="wrapper">
-          <div class="row no-wrap">
-            <div class="container amount" style="width:100px;height:100px;">
-              <img width="100px" height="100px" src="test-file-stub">
-              <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:10px;">
-              <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
-        1.0
-      </span> <span style="font-size:14px;">kg</span></div>
-            </div>
-            <div style="margin-left:.6em;">
-              <div style="padding-bottom:.3em;"></div>
-              <div class="wrapper row">
-                <img src="test-file-stub">
-              </div>
-            </div>
-          </div>
-          <div class="row no-wrap">
-            <div class="q-slider non-selectable">
-              <div class="q-slider-handle-container">
-                <div class="q-slider-track"></div>
-                <div class="q-slider-track active-track" style="width:1.4285714285714286%;"></div>
-                <div class="q-slider-handle" style="left:1.4285714285714286%;border-radius:50%;">
-                  <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white">
-                    <div class="q-chip-main">1</div>
-                  </div>
-                  <div class="q-slider-ring"></div>
-                </div>
-              </div>
-            </div>
-            <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
-              <!---->
-              <div class="q-if-inner col row no-wrap relative-position">
-                <!---->
-                <!---->
-                <input step="any" type="text" value="1" class="col q-input-target q-no-input-spinner text-right">
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-              </div>
-              <!---->
-            </div> <span style="padding:3px;">kg</span></div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive" style="margin-top:2em;padding:0 .5em;">
+        <div class="q-field row no-wrap items-start q-field-responsive">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Comment</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocomplete="off" min-rows="2" class="q-if row no-wrap items-end relative-position q-input text-primary">
+              <div tabindex="-1" autocomplete="off" min-rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
                 <!---->
                 <div class="q-if-inner col row no-wrap relative-position">
                   <!---->
                   <!---->
                   <div class="col row relative-position">
                     <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                    <textarea autocomplete="off" min-rows="2" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                    <textarea placeholder="Was everything fine? Did everyone show up? Your comment here..." autocomplete="off" min-rows="2" class="col q-input-target q-input-area"></textarea>
+                    <textarea autocomplete="off" min-rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                    <textarea placeholder="Was everything fine? Did everyone show up? Your comment here..." autocomplete="off" min-rows="1" class="col q-input-target q-input-area"></textarea>
                   </div>
                   <!---->
                   <!---->
@@ -4408,6 +4372,57 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <!---->
               </div>
             </div>
+          </div>
+        </div>
+        <div class="wrapper showOverlay" style="margin-top:2em;">
+          <div class="overlay row justify-center content-center">
+            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+              <div class="q-focus-helper"></div>
+              <div class="q-btn-inner row col items-center justify-center"></div>
+            </button>
+          </div>
+          <div class="content">
+            <div class="row no-wrap">
+              <div class="container amount" style="width:100px;height:100px;">
+                <img width="100px" height="100px" src="test-file-stub">
+                <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                <div class="text-bottom" style="bottom:12px;"><span style="font-size:23px;">
+      ?
+    </span></div>
+              </div>
+              <div class="col" style="margin-left:.6em;">
+                <div style="padding-bottom:.3em;"></div>
+                <div class="wrapper row"></div>
+              </div>
+              <!---->
+            </div>
+            <div class="row no-wrap">
+              <div class="q-slider non-selectable">
+                <div class="q-slider-handle-container">
+                  <div class="q-slider-track"></div>
+                  <div class="q-slider-track active-track handle-at-minimum" style="width:0%;"></div>
+                  <div class="q-slider-handle handle-at-minimum" style="left:0%;border-radius:50%;">
+                    <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white">
+                      <div class="q-chip-main">0</div>
+                    </div>
+                    <div class="q-slider-ring"></div>
+                  </div>
+                </div>
+              </div>
+              <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
+                <!---->
+                <div class="q-if-inner col row no-wrap relative-position">
+                  <!---->
+                  <!---->
+                  <input step="any" type="text" class="col q-input-target q-no-input-spinner text-right">
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div> <span style="padding:3px;">kg</span></div>
           </div>
         </div>
         <!---->

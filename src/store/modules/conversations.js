@@ -3,7 +3,7 @@ import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
 import reactionsAPI from '@/services/api/reactions'
 import i18n from '@/i18n'
-import { createMetaModule, withMeta, metaStatusesWithId } from '@/store/helpers'
+import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/store/helpers'
 
 export function isUnread (message, conversation) {
   if (!message || !conversation) return
@@ -79,6 +79,7 @@ export default {
         reactions: getters.enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
         isUnread: isUnread(message, getters.activeConversation),
+        saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
       }
     },
     activeMessages: (state, getters) => {
@@ -103,7 +104,7 @@ export default {
   },
   actions: {
     ...withMeta({
-      async send ({ commit, state, dispatch }, { id, messageData }) {
+      async send ({ dispatch }, { id, messageData }) {
         const message = await messageAPI.create({
           content: messageData,
           conversation: id,
@@ -143,30 +144,20 @@ export default {
         await conversationsAPI.mark(id, { seenUpTo })
       },
 
-      async toggleEmailNotifications ({ commit, state, getters }, { conversationId, value }) {
+      async toggleEmailNotifications ({ commit }, { conversationId, value }) {
         await conversationsAPI.toggleEmailNotifications(conversationId, value)
         commit('updateEmailNotifications', { conversationId, value })
       },
+    }),
 
-      /**
-       * Add reaction to a message.
-       */
-      async toggleReaction ({ state, commit, rootGetters }, { name, messageId }) {
-        // current user's id
-        const userId = rootGetters['auth/userId']
-        // see if the reaction already exists or not
-        const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
-        const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
-
-        if (reactionIndex === -1) {
-          const addedReaction = await reactionsAPI.create(messageId, name)
-          commit('addReaction', { messageId, name: addedReaction.name, userId })
-        }
-        else {
-          await reactionsAPI.remove(messageId, name)
-          commit('removeReaction', { messageId, name, userId })
-        }
+    ...withPrefixedIdMeta('message/', {
+      async saveMessage ({ dispatch }, { message, done }) {
+        const updatedMessage = await messageAPI.save(message)
+        done()
+        dispatch('receiveMessage', updatedMessage)
       },
+    }, {
+      findId: data => data.message.id,
     }),
 
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
@@ -176,6 +167,23 @@ export default {
         if (changed && !pending) {
           await dispatch('toggleEmailNotifications', { conversationId, value })
         }
+      }
+    },
+
+    async toggleReaction ({ state, commit, rootGetters }, { name, messageId }) {
+      // current user's id
+      const userId = rootGetters['auth/userId']
+      // see if the reaction already exists or not
+      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+      const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
+
+      if (reactionIndex === -1) {
+        const addedReaction = await reactionsAPI.create(messageId, name)
+        commit('addReaction', { messageId, name: addedReaction.name, userId })
+      }
+      else {
+        await reactionsAPI.remove(messageId, name)
+        commit('removeReaction', { messageId, name, userId })
       }
     },
 
@@ -206,7 +214,7 @@ export default {
       commit('clearActive')
     },
 
-    receiveMessage ({ commit, state, getters }, message) {
+    receiveMessage ({ commit }, message) {
       commit('updateMessages', {
         messages: [message],
         conversationId: message.conversation,
@@ -238,7 +246,15 @@ export default {
       for (let message of messages) {
         const stateMessages = state.messages[conversationId]
         while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
-        if (i >= stateMessages.length || stateMessages[i].id !== message.id) {
+
+        // decide if we should append, update or insert a message
+        if (i >= stateMessages.length) {
+          stateMessages.push(message)
+        }
+        else if (stateMessages[i].id === message.id) {
+          stateMessages[i] = message
+        }
+        else {
           stateMessages.splice(i, 0, message)
         }
       }

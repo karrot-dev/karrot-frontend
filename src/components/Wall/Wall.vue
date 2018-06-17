@@ -25,6 +25,7 @@
       :user="user"
       :fetch-more="fetchMore"
       @send="$emit('send', arguments[0])"
+      @saveMessage="$emit('saveMessage', arguments[0])"
       @markAllRead="$emit('markAllRead')"
       @toggleEmailNotifications="$emit('toggleEmailNotifications', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"

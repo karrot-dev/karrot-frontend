@@ -3,7 +3,7 @@ jest.mock('@/services/api/messages', () => ({
   list: mockList,
 }))
 
-import { createStore } from '>/helpers'
+import { createStore, statusMocks } from '>/helpers'
 
 describe('conversations', () => {
   let store
@@ -59,12 +59,13 @@ describe('conversations', () => {
 
     it('receives new message', () => {
       const message = { id: 1, conversation: 1, author: 1, reactions: [] }
-      const enrichMessage = m => ({
+      store.dispatch('conversations/receiveMessage', message)
+      expect(store.getters['conversations/activeMessages']).toEqual([{
         ...message,
         author: store.getters['users/get'](message.author),
-      })
-      store.dispatch('conversations/receiveMessage', message)
-      expect(store.getters['conversations/activeMessages']).toEqual([{ ...enrichMessage(message), isUnread: true }])
+        isUnread: true,
+        saveStatus: statusMocks.default(),
+      }])
     })
   })
 

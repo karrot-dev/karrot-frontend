@@ -1,5 +1,6 @@
 <template>
   <q-item
+    v-if="!editMode"
     multiline
     :class="{ isUnread: message.isUnread }"
     class="conversation-message"
@@ -30,11 +31,23 @@
             <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
           </q-icon>
         </div>
-        <ConversationAddReaction
-          class="add-button reaction-box self-start"
-          :reacted="currentUserReactions"
-          @toggle="toggleReaction"
-        />
+        <div>
+          <q-btn
+            v-if="message.isEditable"
+            flat
+            class="hover-button reaction-box self-start"
+            style="opacity: .5; width: 41px; margin-right: 0px"
+            @click="toggleEdit"
+          >
+            <i class="fas fa-pencil-alt" />
+            <q-tooltip v-t="'BUTTON.EDIT'" />
+          </q-btn>
+          <ConversationAddReaction
+            class="hover-button reaction-box self-start"
+            :reacted="currentUserReactions"
+            @toggle="toggleReaction"
+          />
+        </div>
       </q-item-tile>
       <Markdown
         :source="message.content"
@@ -49,19 +62,28 @@
       />
     </q-item-main>
   </q-item>
+  <ConversationCompose
+    v-else
+    :status="message.saveStatus"
+    @submit="save"
+    @leaveEdit="toggleEdit"
+    :user="message.author"
+    :value="message.content"
+  />
 </template>
 
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import ConversationReactions from '@/components/Conversation/ConversationReactions'
-import { QItem, QItemSide, QItemMain, QItemTile, QIcon, QTooltip } from 'quasar'
+import ConversationCompose from '@/components/Conversation/ConversationCompose'
+import { QBtn, QItem, QItemSide, QItemMain, QItemTile, QIcon, QTooltip } from 'quasar'
 import DateAsWords from '@/components/General/DateAsWords'
 import Markdown from '@/components/Markdown'
 import ConversationAddReaction from './ConversationAddReaction'
 export default {
   name: 'ConversationMessage',
   components: {
-    ConversationReactions, ConversationAddReaction, ProfilePicture, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
+    ConversationReactions, ConversationAddReaction, ConversationCompose, ProfilePicture, QBtn, QItem, QItemSide, QItemMain, QItemTile, DateAsWords, QIcon, QTooltip, Markdown,
   },
   props: {
     message: {
@@ -69,9 +91,26 @@ export default {
       required: true,
     },
   },
+  data () {
+    return {
+      editMode: false,
+    }
+  },
   methods: {
     toggleReaction (name) {
       this.$emit('toggleReaction', { name, messageId: this.message.id })
+    },
+    toggleEdit () {
+      this.editMode = !this.editMode
+    },
+    save (content) {
+      this.$emit('save', {
+        message: {
+          id: this.message.id,
+          content,
+        },
+        done: this.toggleEdit,
+      })
     },
   },
   computed: {
@@ -108,9 +147,9 @@ $lighterGreen = #F0FFF0
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 .conversation-message
   padding-bottom 0
-  .add-button
+  .hover-button
     visibility hidden
-  &:hover .add-button
+  &:hover .hover-button
     visibility visible
 .q-item-highlight:hover
   background-color alpha($secondary, .1)

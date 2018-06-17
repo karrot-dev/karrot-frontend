@@ -27,15 +27,11 @@ export default {
     },
   },
   actions: {
-    async routeEnter ({ dispatch, rootGetters }, { pickupId }) {
-      await dispatch('selectPickup', { pickupId })
-      const pickup = rootGetters['pickups/get'](pickupId)
-      const groupId = pickup.store.group
-      if (Platform.is.mobile) {
-        dispatch('currentGroup/select', { groupId }, { root: true })
-      }
-      else {
-        router.push({ name: 'group', params: { groupId } })
+    async routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId }) {
+      dispatch('selectPickup', { pickupId })
+      if (!Platform.is.mobile) {
+        // On desktop we don't have a pickup detail page, we go to the store page, and have a sidebar open
+        router.push({ name: 'store', params: { groupId, storeId } })
       }
     },
     routeLeave ({ dispatch }) {

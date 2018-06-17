@@ -15,15 +15,14 @@
           color="secondary"
         >
           <q-toolbar-title>
-            <span v-if="!$q.platform.is.mobile">Pickup Chat</span>
+            <span v-if="!$q.platform.is.mobile">Pickup </span><strong>{{ $d(pickup.date, 'dayAndTime') }}</strong>
             <span slot="subtitle">
-              {{ $d(pickup.date, 'timeShort') }}
               <strong v-if="pickup.store">
                 <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
                   {{ pickup.store.name }}
                 </router-link>
               </strong>
-              {{ $d(pickup.date, 'dateWithDayName') }}
+              {{ $d(pickup.date, 'dateShort') }}
             </span>
           </q-toolbar-title>
           <q-btn

@@ -67,7 +67,7 @@
           side="right"
           :overlay="false"
           :breakpoint="0"
-          v-model="showSidenavRight"
+          :value="showSidenavRight"
         >
           <Detail @close="clearDetail"/>
         </q-layout-drawer>

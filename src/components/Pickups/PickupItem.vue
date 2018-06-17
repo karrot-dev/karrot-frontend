@@ -1,5 +1,8 @@
 <template>
-  <q-card :class="{ full: pickup.isFull }">
+  <q-card
+    :class="{ full: pickup.isFull }"
+    @click.native.stop="detailIfMember"
+  >
     <q-card-main
       class="row no-padding justify-between content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }"
@@ -11,14 +14,14 @@
           <template v-if="pickup.isUserMember">
             <router-link
               v-if="$q.platform.is.mobile"
-              :to="{ name: 'pickupDetail', params: { pickupId: pickup.id }}"
+              :to="{ name: 'pickupDetail', params: { storeId: pickup.store.id, pickupId: pickup.id }}"
             >
               <strong>Open Chat <q-icon name="chat" /></strong>
             </router-link>
             <a
               v-else
               href="#"
-              @click="$emit('detail', { pickupId: pickup.id })"
+              @click.stop="$emit('detail', { pickupId: pickup.id })"
             >
               <strong>Open Chat <q-icon name="chat" /></strong>
             </a>
@@ -48,6 +51,7 @@
 
 <script>
 import { Dialog, QCard, QCardMain, QBtn, QIcon } from 'quasar'
+import router from '@/router'
 import PickupUsers from './PickupUsers'
 
 export default {
@@ -80,6 +84,16 @@ export default {
       })
         .then(() => this.$emit('leave', this.pickup.id))
         .catch(() => {})
+    },
+    detailIfMember (event) {
+      if (!this.pickup.isUserMember) return
+      if (event.target.nodeName === 'A') return // ignore actual links
+      if (this.$q.platform.is.mobile) {
+        router.push({name: 'pickupDetail', params: { storeId: this.pickup.store.id, pickupId: this.pickup.id }})
+      }
+      else {
+        this.$emit('detail', { pickupId: this.pickup.id })
+      }
     },
   },
 }
@@ -116,4 +130,5 @@ $lighterGreen = #F0FFF0
   )
 .content.isUserMember
   background linear-gradient(to right, $lightGreen, $lighterGreen)
+  cursor pointer
 </style>

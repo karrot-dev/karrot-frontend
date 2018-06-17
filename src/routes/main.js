@@ -287,6 +287,22 @@ export default [
             component: StorePickups,
           },
           {
+            name: 'pickupDetail',
+            path: 'pickups/:pickupId/detail',
+            meta: {
+              requiredLoggedIn: true,
+              breadcrumbs: [
+                { translation: 'Pickup' },
+              ],
+              beforeEnter: 'detail/routeEnter',
+              afterLeave: 'detail/routeLeave',
+            },
+            components: {
+              // On desktop will get redirected inside "detail/routeEnter" action
+              default: MobileDetail,
+            },
+          },
+          {
             name: 'storePickupsManage',
             path: 'pickups/manage',
             component: StorePickupsManage,
@@ -394,21 +410,6 @@ export default [
     },
     components: {
       default: User,
-    },
-  },
-  {
-    name: 'pickupDetail',
-    path: '/pickups/:pickupId/detail',
-    meta: {
-      requiredLoggedIn: true,
-      breadcrumbs: [
-        { translation: 'Pickup Chat' },
-      ],
-      beforeEnter: 'detail/routeEnter',
-      afterLeave: 'detail/routeLeave',
-    },
-    components: {
-      default: MobileDetail,
     },
   },
 ]

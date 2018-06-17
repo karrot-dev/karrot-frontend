@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import differenceInSeconds from 'date-fns/difference_in_seconds'
 import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
 import reactionsAPI from '@/services/api/reactions'
@@ -80,6 +81,7 @@ export default {
         author: rootGetters['users/get'](message.author),
         isUnread: isUnread(message, getters.activeConversation),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
+        isEdited: differenceInSeconds(message.updatedAt, message.createdAt) > 10,
       }
     },
     activeMessages: (state, getters) => {

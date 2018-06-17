@@ -64,6 +64,7 @@ describe('conversations', () => {
         ...message,
         author: store.getters['users/get'](message.author),
         isUnread: true,
+        isEdited: false,
         saveStatus: statusMocks.default(),
       }])
     })

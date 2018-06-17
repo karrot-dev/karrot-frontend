@@ -36,6 +36,7 @@ export function convert (val) {
   }
   else {
     const createdAt = new Date(val.createdAt)
-    return { ...val, createdAt }
+    const updatedAt = new Date(val.updatedAt)
+    return { ...val, createdAt, updatedAt }
   }
 }

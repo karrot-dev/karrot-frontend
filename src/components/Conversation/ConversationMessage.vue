@@ -53,12 +53,24 @@
         :source="message.content"
         class="content"
       />
+      <div
+        v-if="message.isEdited"
+        style="margin-top: -5px; opacity: .5"
+      >
+        <small class="text-italic">
+          ({{ $t('CONVERSATION.EDITED') }}
+          <DateAsWords
+            :date="message.updatedAt"
+            style="display: inline"
+          />)
+        </small>
+      </div>
       <ConversationReactions
         v-if="hasReactions"
         :reactions="message.reactions"
         :current-user-reactions="currentUserReactions"
         @toggle="toggleReaction"
-        style="margin-top: -3px"
+        style="margin-top: 8px; display: block"
       />
     </q-item-main>
   </q-item>

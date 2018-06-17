@@ -17,9 +17,11 @@
             rows="1"
             v-model="message"
             :placeholder="placeholder"
-            :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
+            :after="afterInput"
             :loading="isPending"
-            @keyup.ctrl.enter="send"
+            :disable="isPending"
+            @keyup.ctrl.enter="submit"
+            @keyup.esc="leaveEdit"
           />
         </q-field>
       </q-item-tile>
@@ -39,22 +41,45 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: 'placeholder',
+      default: '',
     },
     user: {
       type: Object,
       required: true,
     },
+    value: {
+      type: String,
+      default: null,
+    },
   },
   data () {
     return {
-      message: '',
+      message: (this.value) || '',
     }
   },
+  watch: {
+    value (val) {
+      if (val) this.message = val.content
+    },
+    isPending (val) {
+      if (!val && !this.hasAnyError) this.message = ''
+    },
+  },
   methods: {
-    send () {
-      this.$emit('send', this.message)
-      this.message = ''
+    submit () {
+      this.$emit('submit', this.message)
+    },
+    leaveEdit () {
+      this.$emit('leaveEdit')
+    },
+  },
+  computed: {
+    afterInput () {
+      let actions = [{ icon: 'fas fa-arrow-right', content: true, handler: this.submit }]
+      if (this.value) {
+        actions.push({ icon: 'fas fa-times', handler: this.leaveEdit })
+      }
+      return actions
     },
   },
 }

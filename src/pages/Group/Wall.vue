@@ -14,6 +14,7 @@ export default connect({
     join: 'pickups/join',
     leave: 'pickups/leave',
     send: 'conversations/sendInActiveConversation',
+    saveMessage: 'conversations/saveMessage',
     markAllRead: 'conversations/markAllReadInActiveConversation',
     toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
     toggleReaction: 'conversations/toggleReaction',

@@ -123,7 +123,7 @@ export function createMetaModule () {
 export function withMeta (actions, { namespace = 'meta', idPrefix = '', findId = defaultFindId } = {}) {
   const wrappedActions = {}
   for (const [actionName, action] of Object.entries(actions)) {
-    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, findId })
+    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, idPrefix, findId })
   }
   return wrappedActions
 }

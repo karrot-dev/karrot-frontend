@@ -6,6 +6,10 @@ export default {
     return convert((await axios.post('/api/messages/', data)).data)
   },
 
+  async save (data) {
+    return convert((await axios.patch(`/api/messages/${data.id}/`, data)).data)
+  },
+
   async list (conversationId) {
     const response = (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data
     return {
@@ -32,6 +36,7 @@ export function convert (val) {
   }
   else {
     const createdAt = new Date(val.createdAt)
-    return { ...val, createdAt }
+    const updatedAt = new Date(val.updatedAt)
+    return { ...val, createdAt, updatedAt }
   }
 }

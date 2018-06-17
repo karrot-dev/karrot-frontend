@@ -87,7 +87,7 @@ export default {
     },
     detailIfMember (event) {
       if (!this.pickup.isUserMember) return
-      if (event.target.nodeName === 'A') return // ignore actual links
+      if (event.target.closest('a')) return // ignore actual links
       if (this.$q.platform.is.mobile) {
         router.push({name: 'pickupDetail', params: { storeId: this.pickup.store.id, pickupId: this.pickup.id }})
       }

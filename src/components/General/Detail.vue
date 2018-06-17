@@ -15,7 +15,11 @@
           color="secondary"
         >
           <q-toolbar-title>
-            <span v-if="!$q.platform.is.mobile">Pickup </span><strong>{{ $d(pickup.date, 'dayAndTime') }}</strong>
+            <span
+              v-if="!$q.platform.is.mobile"
+              v-t="'GROUP.PICKUP'"
+            >&nbsp;</span>
+            <strong>{{ $d(pickup.date, 'dayAndTime') }}</strong>
             <span slot="subtitle">
               <strong v-if="pickup.store">
                 <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">

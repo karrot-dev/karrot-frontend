@@ -292,7 +292,7 @@ export default [
             meta: {
               requiredLoggedIn: true,
               breadcrumbs: [
-                { translation: 'Pickup' },
+                { translation: 'GROUP.PICKUP' },
               ],
               beforeEnter: 'detail/routeEnter',
               afterLeave: 'detail/routeLeave',

@@ -82,6 +82,7 @@
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
     "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
+    "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",

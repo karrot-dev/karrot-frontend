@@ -384,6 +384,7 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
     "MARK_READ": "Mark all as read",
     "REACTIONS": {

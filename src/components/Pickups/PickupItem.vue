@@ -16,14 +16,14 @@
               v-if="$q.platform.is.mobile"
               :to="{ name: 'pickupDetail', params: { storeId: pickup.store.id, pickupId: pickup.id }}"
             >
-              <strong>Open Chat <q-icon name="chat" /></strong>
+              <strong>{{ $t('CONVERSATION.OPEN') }} <q-icon name="chat" /></strong>
             </router-link>
             <a
               v-else
               href="#"
               @click.stop="$emit('detail', { pickupId: pickup.id })"
             >
-              <strong>Open Chat <q-icon name="chat" /></strong>
+              <strong>{{ $t('CONVERSATION.OPEN') }} <q-icon name="chat" /></strong>
             </a>
           </template>
         </div>

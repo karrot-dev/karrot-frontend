@@ -14,7 +14,7 @@
         flat
         dense
         round
-        :to="{name: 'map', params: {groupId: currentGroup.id}}"
+        :to="{name: 'map', params: {groupId: currentGroup && currentGroup.id}}"
       >
         <i class="fas fa-expand-arrows-alt fa-stack-1x" />
         <q-tooltip>

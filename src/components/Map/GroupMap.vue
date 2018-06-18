@@ -23,7 +23,7 @@
       </router-link>
       <router-link
         v-else
-        :to="{ name: 'groupEdit', params: { groupId: this.currentGroup.id, storeId: this.selectedStoreId } }"
+        :to="{ name: 'groupEdit', params: { groupId: currentGroup && currentGroup.id, storeId: this.selectedStoreId } }"
       >
         <q-btn color="primary">
           {{ $t('GROUPMAP.SET_LOCATION') }}

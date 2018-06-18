@@ -16,7 +16,7 @@ export default {
         groups = rootGetters['groups/all'],
         users = rootGetters['users/all']
 
-      const matches = (name) => name.toLowerCase().includes(getters.terms.toLowerCase())
+      const matches = (name) => name && name.toLowerCase().includes(getters.terms.toLowerCase())
 
       const storeRes = stores.filter((store) => matches(store.name))
       const groupRes = groups.filter((group) => matches(group.name))

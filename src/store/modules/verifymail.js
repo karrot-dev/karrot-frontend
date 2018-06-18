@@ -21,8 +21,10 @@ export default {
       async verify ({ commit, dispatch, rootGetters }, code) {
         await auth.verifyMail(code)
         commit('setSuccess', true)
-        dispatch('users/refresh', { userId: rootGetters['auth/userId'] }, { root: true })
-        dispatch('auth/refresh', null, { root: true })
+        if (rootGetters['auth/isLoggedIn']) {
+          dispatch('users/refresh', { userId: rootGetters['auth/userId'] }, { root: true })
+          dispatch('auth/refresh', null, { root: true })
+        }
       },
     }),
     clear ({ commit, dispatch }) {

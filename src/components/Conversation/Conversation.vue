@@ -11,7 +11,7 @@
           class="bg-white desktop-margin"
         >
           <q-btn
-            v-if="!user.mailVerified"
+            v-if="user && !user.mailVerified"
             class="actionButton hoverScale"
             round
             color="negative"
@@ -109,7 +109,7 @@ export default {
     },
     user: {
       type: Object,
-      default: () => ({}),
+      default: null,
     },
   },
   methods: {

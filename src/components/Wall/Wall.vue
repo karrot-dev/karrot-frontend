@@ -52,7 +52,7 @@ export default {
     feedbackPossible: { required: true, type: Array },
     conversation: { required: true, type: Object },
     fetchMore: { required: true, type: Function },
-    user: { required: true, type: Object },
+    user: { default: null, type: Object },
   },
 }
 </script>

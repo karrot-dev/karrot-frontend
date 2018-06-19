@@ -281,7 +281,7 @@ export default {
           stateMessages.push(message)
         }
         else if (stateMessages[i].id === message.id) {
-          stateMessages[i] = message
+          Vue.set(stateMessages, i, message)
         }
         else {
           stateMessages.splice(i, 0, message)
@@ -300,13 +300,11 @@ export default {
     addReaction (state, { userId, name, messageId, conversationId }) {
       const message = state.messages[conversationId].find(message => message.id === messageId)
       message.reactions.push({ user: userId, name })
-      Vue.set(state.entries[conversationId], '_touch', {})
     },
     removeReaction (state, { userId, name, messageId, conversationId }) {
       const message = state.messages[conversationId].find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
       message.reactions.splice(reactionIndex, 1)
-      Vue.set(state.entries[conversationId], '_touch', {})
     },
   },
 }

@@ -190,7 +190,7 @@ export default {
       }
     },
 
-    async toggleReaction ({ state, commit, rootGetters }, { conversationId, messageId, name }) {
+    async toggleReaction ({ state, commit, rootGetters }, { conversationId, messageId, name }) {  
       if (!conversationId) conversationId = state.activeConversationId
       // current user's id
       const userId = rootGetters['auth/userId']
@@ -200,11 +200,11 @@ export default {
 
       if (reactionIndex === -1) {
         const addedReaction = await reactionsAPI.create(messageId, name)
-        commit('addReaction', { messageId, name: addedReaction.name, userId })
+        commit('addReaction', { conversationId, messageId, name: addedReaction.name, userId })
       }
       else {
         await reactionsAPI.remove(messageId, name)
-        commit('removeReaction', { messageId, name, userId })
+        commit('removeReaction', { conversationId, messageId, name, userId })
       }
     },
 
@@ -300,11 +300,13 @@ export default {
     addReaction (state, { userId, name, messageId, conversationId }) {
       const message = state.messages[conversationId].find(message => message.id === messageId)
       message.reactions.push({ user: userId, name })
+      Vue.set(state.entries[conversationId], '_touch', {})
     },
     removeReaction (state, { userId, name, messageId, conversationId }) {
       const message = state.messages[conversationId].find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
       message.reactions.splice(reactionIndex, 1)
+      Vue.set(state.entries[conversationId], '_touch', {})
     },
   },
 }

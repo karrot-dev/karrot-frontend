@@ -76,8 +76,7 @@
               type="submit"
               color="secondary"
               class="float-right generic-margin"
-              :loading="isPending"
-              :value="group.joinStatus.pending"
+              :loading="group.joinStatus.pending"
             >
               {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
             </q-btn>

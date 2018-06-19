@@ -1,15 +1,21 @@
 <template>
   <div>
-    <PickupItem
-      v-for="pickup in pickups"
-      :key="pickup.id"
-      :pickup="pickup"
-      @join="$emit('join', arguments[0])"
-      @leave="$emit('leave', arguments[0])"
-      @detail="$emit('detail', arguments[0])"
-    >
-      {{ $d(pickup.date, 'dateLongWithDayName') }}
-    </PickupItem>
+    <transition name="slide-toggle">
+      <transition-group
+        name="list"
+        tag="div"
+      >
+        <PickupItem
+          v-for="pickup in pickups"
+          :key="pickup.id"
+          :pickup="pickup"
+          :store-link="storeLink"
+          @join="$emit('join', arguments[0])"
+          @leave="$emit('leave', arguments[0])"
+          @detail="$emit('detail', arguments[0])"
+        />
+      </transition-group>
+    </transition>
   </div>
 </template>
 
@@ -22,6 +28,10 @@ export default {
       type: Array,
       required: true,
     },
+    storeLink: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     PickupItem,
@@ -30,4 +40,10 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~slidetoggle'
+.list-leave-active
+  transition: all .5s
+.list-leave-to
+  opacity: 0
+  transform: translateX(-50px)
 </style>

@@ -90,8 +90,11 @@ export default {
       commit('delete', id)
     },
 
-    refresh ({ dispatch }) {
-      dispatch('fetch')
+    refresh ({ dispatch, rootGetters }) {
+      const groupId = rootGetters['currentGroup/id']
+      if (groupId) {
+        dispatch('fetch', { groupId })
+      }
     },
 
   },

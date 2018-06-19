@@ -11,7 +11,7 @@
           class="bg-white desktop-margin"
         >
           <q-btn
-            v-if="!user.mailVerified"
+            v-if="user && !user.mailVerified"
             class="actionButton hoverScale"
             round
             color="negative"
@@ -41,7 +41,7 @@
           </q-btn>
           <ConversationCompose
             :status="data.sendStatus"
-            @send="$emit('send', arguments[0])"
+            @submit="$emit('send', arguments[0])"
             :placeholder="messagePrompt"
             :user="user"
           />
@@ -62,6 +62,7 @@
             :key="message.id"
             :message="message"
             @toggleReaction="$emit('toggleReaction', arguments[0])"
+            @save="$emit('saveMessage', arguments[0])"
           />
         </q-list>
         <div
@@ -108,7 +109,7 @@ export default {
     },
     user: {
       type: Object,
-      default: () => ({}),
+      default: null,
     },
   },
   methods: {

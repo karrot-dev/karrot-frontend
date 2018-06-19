@@ -64,8 +64,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Current User" seed="5" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Current User
-    </div></span></a>
+        Current User
+      </div></span></a>
             </div>
           </div>
           <div class="q-item-main q-item-section">
@@ -89,7 +89,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
                         <!---->
                         <!---->
                       </div>
-                      <i aria-hidden="true" class="q-icon q-if-control material-icons hidden">arrow_forward</i>
+                      <i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
                     </div>
                   </div>
                 </div>
@@ -103,8 +103,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
             </div>
           </div>
           <div class="q-item-main q-item-section">
@@ -116,65 +116,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
               </span>
               <!---->
             </div>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+            <div>
+              <!---->
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-                <div class="q-popover scroll">
-                  <div class="row" style="margin:2px 4px;">
-                    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                      <div class="q-focus-helper"></div>
-                      <div class="q-btn-inner row col items-center justify-center">
-                        <div class="emoji">
-                          <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                        </div> <span class="q-tooltip animate-popup"><div>
+                  <div class="q-popover scroll">
+                    <div class="row" style="margin:2px 4px;">
+                      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                        <div class="q-focus-helper"></div>
+                        <div class="q-btn-inner row col items-center justify-center">
+                          <div class="emoji">
+                            <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                          </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-                    </button>
-                    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                      <div class="q-focus-helper"></div>
-                      <div class="q-btn-inner row col items-center justify-center">
-                        <div class="emoji">
-                          <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                        </div> <span class="q-tooltip animate-popup"><div>
+                      </button>
+                      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                        <div class="q-focus-helper"></div>
+                        <div class="q-btn-inner row col items-center justify-center">
+                          <div class="emoji">
+                            <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                          </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-                    </button>
-                    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                      <div class="q-focus-helper"></div>
-                      <div class="q-btn-inner row col items-center justify-center">
-                        <div class="emoji">
-                          <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                        </div> <span class="q-tooltip animate-popup"><div>
+                      </button>
+                      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                        <div class="q-focus-helper"></div>
+                        <div class="q-btn-inner row col items-center justify-center">
+                          <div class="emoji">
+                            <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                          </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-                    </button>
-                    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                      <div class="q-focus-helper"></div>
-                      <div class="q-btn-inner row col items-center justify-center">
-                        <div class="emoji">
-                          <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                        </div> <span class="q-tooltip animate-popup"><div>
+                      </button>
+                      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                        <div class="q-focus-helper"></div>
+                        <div class="q-btn-inner row col items-center justify-center">
+                          <div class="emoji">
+                            <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                          </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-                    </button>
-                    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                      <div class="q-focus-helper"></div>
-                      <div class="q-btn-inner row col items-center justify-center">
-                        <div class="emoji">
-                          <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                        </div> <span class="q-tooltip animate-popup"><div>
+                      </button>
+                      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                        <div class="q-focus-helper"></div>
+                        <div class="q-btn-inner row col items-center justify-center">
+                          <div class="emoji">
+                            <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                          </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </button>
+              </button>
+            </div>
           </div>
           <div class="parsed">
             <p>first messsage</p>
-          </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>          <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+          </div>
+          <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>          <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -244,8 +248,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <div class="wrapper">
           <a>
             <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
         </div>
       </div>
       <div class="q-item-main q-item-section">
@@ -257,65 +261,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
           </span>
           <!---->
         </div>
-        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+        <div>
+          <!---->
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-            <div class="q-popover scroll">
-              <div class="row" style="margin:2px 4px;">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center">
-                    <div class="emoji">
-                      <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                    </div> <span class="q-tooltip animate-popup"><div>
+              <div class="q-popover scroll">
+                <div class="row" style="margin:2px 4px;">
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center">
+                      <div class="emoji">
+                        <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                      </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-                </button>
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center">
-                    <div class="emoji">
-                      <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                    </div> <span class="q-tooltip animate-popup"><div>
+                  </button>
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center">
+                      <div class="emoji">
+                        <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                      </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-                </button>
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center">
-                    <div class="emoji">
-                      <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                    </div> <span class="q-tooltip animate-popup"><div>
+                  </button>
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center">
+                      <div class="emoji">
+                        <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                      </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-                </button>
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center">
-                    <div class="emoji">
-                      <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                    </div> <span class="q-tooltip animate-popup"><div>
+                  </button>
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center">
+                      <div class="emoji">
+                        <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                      </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-                </button>
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center">
-                    <div class="emoji">
-                      <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                    </div> <span class="q-tooltip animate-popup"><div>
+                  </button>
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center">
+                      <div class="emoji">
+                        <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                      </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-                </button>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </button>
+          </button>
+        </div>
       </div>
       <div class="parsed">
         <p>second messsage</p>
-      </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>      <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+      </div>
+      <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>      <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -385,8 +393,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="wrapper">
       <a>
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
@@ -398,65 +406,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <!---->
     </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div>
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-        <div class="q-popover scroll">
-          <div class="row" style="margin:2px 4px;">
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+          <div class="q-popover scroll">
+            <div class="row" style="margin:2px 4px;">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
   <div class="parsed">
     <p>first messsage</p>
-  </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+  </div>
+  <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -526,8 +538,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="wrapper">
       <a>
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
@@ -539,65 +551,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <!---->
     </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div>
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-        <div class="q-popover scroll">
-          <div class="row" style="margin:2px 4px;">
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+          <div class="q-popover scroll">
+            <div class="row" style="margin:2px 4px;">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
   <div class="parsed">
     <p>welcome to fs chat</p>
-  </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+  </div>
+  <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -667,8 +683,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="wrapper">
       <a>
         <div text="Karl Karlson" seed="3" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
@@ -680,65 +696,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <!---->
     </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div>
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-        <div class="q-popover scroll">
-          <div class="row" style="margin:2px 4px;">
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+          <div class="q-popover scroll">
+            <div class="row" style="margin:2px 4px;">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
   <div class="parsed">
     <p>heyo!</p>
-  </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+  </div>
+  <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -808,8 +828,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="wrapper">
       <a>
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
@@ -821,65 +841,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <!---->
     </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div>
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-        <div class="q-popover scroll">
-          <div class="row" style="margin:2px 4px;">
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+          <div class="q-popover scroll">
+            <div class="row" style="margin:2px 4px;">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
   <div class="parsed">
     <p>you made it!</p>
-  </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+  </div>
+  <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -949,8 +973,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="wrapper">
       <a>
         <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mona Mohnblume
-    </div></span></a>
+        Mona Mohnblume
+      </div></span></a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
@@ -962,65 +986,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <!---->
     </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div>
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-        <div class="q-popover scroll">
-          <div class="row" style="margin:2px 4px;">
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+          <div class="q-popover scroll">
+            <div class="row" style="margin:2px 4px;">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
   <div class="parsed">
     <p>amazing!</p>
-  </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+  </div>
+  <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -1090,8 +1118,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="wrapper">
       <a>
         <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mona Mohnblume
-    </div></span></a>
+        Mona Mohnblume
+      </div></span></a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
@@ -1103,67 +1131,71 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <!---->
     </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div>
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-        <div class="q-popover scroll">
-          <div class="row" style="margin:2px 4px;">
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+          <div class="q-popover scroll">
+            <div class="row" style="margin:2px 4px;">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
   <div class="parsed">
     <p>oh let me try something
       <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/2/72x72/1f603.png" />
     </p>
-  </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+  </div>
+  <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -1233,8 +1265,8 @@ exports[`Storyshots Conversation Conversation 1`] = `
     <div class="wrapper">
       <a>
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
@@ -1246,65 +1278,69 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <!---->
     </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div>
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
   </span>
-        <div class="q-popover scroll">
-          <div class="row" style="margin:2px 4px;">
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+          <div class="q-popover scroll">
+            <div class="row" style="margin:2px 4px;">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="🥕" src="https://twemoji.maxcdn.com/2/72x72/1f955.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :carrot:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :laughing:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :ok_hand:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
   </div></span></div>
-            </button>
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center">
-                <div class="emoji">
-                  <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
-                </div> <span class="q-tooltip animate-popup"><div>
+              </button>
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center big q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center justify-center">
+                  <div class="emoji">
+                    <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/2/72x72/1f44e.png" />
+                  </div> <span class="q-tooltip animate-popup"><div>
     :thumbsdown:
   </div></span></div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
   <div class="parsed">
     <p>I dont think we need to implement another UI, this is fine right?</p>
-  </div> <span class="conversation-reactions" style="margin-top:-3px;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
+  </div>
+  <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"><img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png"/></div> <span class="reactions-number">1</span>  <span class="q-tooltip animate-popup" style="font-size:.8em;"><div>
         Mira Bellenbaum reacted with :thumbsup:
       </div></span> <span class="q-tooltip animate-popup"><div>
     :thumbsup:
@@ -2661,8 +2697,8 @@ exports[`Storyshots History List Default 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
             </div>
           </div>
         </div>
@@ -2689,8 +2725,8 @@ exports[`Storyshots History List Default 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
             </div>
           </div>
         </div>
@@ -2717,8 +2753,8 @@ exports[`Storyshots History List Default 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
             </div>
           </div>
         </div>
@@ -2745,8 +2781,8 @@ exports[`Storyshots History List Default 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mona Mohnblume
-    </div></span></a>
+        Mona Mohnblume
+      </div></span></a>
             </div>
           </div>
         </div>
@@ -2773,8 +2809,8 @@ exports[`Storyshots History List Default 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Current User
-    </div></span></a>
+        Current User
+      </div></span></a>
             </div>
           </div>
         </div>
@@ -2849,8 +2885,8 @@ exports[`Storyshots History List Default 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
             </div>
           </div>
         </div>
@@ -2877,8 +2913,8 @@ exports[`Storyshots History List Default 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
             </div>
           </div>
         </div>
@@ -3601,7 +3637,7 @@ exports[`Storyshots PickupItem Full 1`] = `
 <div class="q-card full">
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
-      <div><span class="featured-text">8:00 AM</span> Date or Store Slot
+      <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
         <!---->
       </div>
       <div class="description multiline">this pickup is already full!
@@ -3612,20 +3648,20 @@ exports[`Storyshots PickupItem Full 1`] = `
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
           </div>
           <!---->
           <!---->
@@ -3641,7 +3677,7 @@ exports[`Storyshots PickupItem Join 1`] = `
 <div class="q-card">
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
-      <div><span class="featured-text">8:00 AM</span> Date or Store Slot
+      <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
         <!---->
       </div>
       <div class="description multiline">you can join this pickup
@@ -3652,20 +3688,20 @@ exports[`Storyshots PickupItem Join 1`] = `
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
           </div>
           <!---->
           <!---->
@@ -3694,7 +3730,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
 <div class="q-card">
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column padding full-width">
-      <div><span class="featured-text">8:00 AM</span> Date or Store Slot
+      <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
         <a href="#"><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></a>
       </div>
       <div class="description multiline">you are collector and can leave this pickup
@@ -3705,14 +3741,14 @@ exports[`Storyshots PickupItem Leave 1`] = `
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
           </div>
           <!---->
           <!---->
@@ -3745,7 +3781,7 @@ exports[`Storyshots PickupItem pending 1`] = `
 <div class="q-card">
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
-      <div><span class="featured-text">8:00 AM</span> Date or Store Slot
+      <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
         <!---->
       </div>
       <div class="description multiline">you can join this pickup
@@ -3756,20 +3792,20 @@ exports[`Storyshots PickupItem pending 1`] = `
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
           </div>
           <div class="emptySlots profilePic" style="border-color:black;width:36px;height:36px;">
             <svg width="32" height="32" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
@@ -3787,56 +3823,52 @@ exports[`Storyshots PickupItem pending 1`] = `
 `;
 
 exports[`Storyshots PickupList Default 1`] = `
-<div>
-  <div class="q-card">
-    <div class="q-card-main q-card-container row no-padding justify-between content">
-      <div class="column padding full-width">
-        <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
-          <!---->
-        </div>
-        <div class="description multiline">you can join this pickup
-        </div>
-        <div class="people full-width">
-          <div class="row justify-start">
-            <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-            <div class="wrapper profilePic clickable">
-              <a>
-                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
-            </div>
-            <div class="wrapper profilePic clickable">
-              <a>
-                <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
-            </div>
-            <div class="wrapper profilePic clickable">
-              <a>
-                <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
-            </div>
-            <!---->
-            <!---->
-            <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
-              <div class="hoverHide"></div>
-              <div class="hoverShow">
-                <div class="wrapper">
-                  <div>
-                    <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-                  </div>
-                </div> <span class="q-tooltip animate-popup"><div><span>
+<div><span name="slide-toggle" tag="div"><div class="q-card"><div class="q-card-main q-card-container row no-padding justify-between content"><div class="column padding full-width"><div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+  <!---->
+</div>
+<div class="description multiline">you can join this pickup
+</div>
+<div class="people full-width">
+  <div class="row justify-start">
+    <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+    <div class="wrapper profilePic clickable">
+      <a>
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
+        Mira Bellenbaum
+      </div></span></a>
+    </div>
+    <div class="wrapper profilePic clickable">
+      <a>
+        <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
+        Max Mustermann
+      </div></span></a>
+    </div>
+    <div class="wrapper profilePic clickable">
+      <a>
+        <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
+        Karl Karlson
+      </div></span></a>
+    </div>
+    <!---->
+    <!---->
+    <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
+      <div class="hoverHide"></div>
+      <div class="hoverShow">
+        <div class="wrapper">
+          <div>
+            <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
+          </div>
+        </div> <span class="q-tooltip animate-popup"><div><span>
         Join
       </span></div>
-              </span>
-            </div>
-          </div>
-          <!---->
-        </div>
-      </div>
+      </span>
     </div>
   </div>
+  <!---->
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="q-card">
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
@@ -3852,14 +3884,14 @@ exports[`Storyshots PickupList Default 1`] = `
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
           </div>
           <!---->
           <!---->
@@ -3900,20 +3932,20 @@ exports[`Storyshots PickupList Default 1`] = `
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
           </div>
           <div class="wrapper profilePic clickable">
             <a>
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
           </div>
           <!---->
           <!---->
@@ -3963,6 +3995,7 @@ exports[`Storyshots PickupList Default 1`] = `
   </div>
 </div>
 </div>
+</span>
 </div>
 `;
 
@@ -4352,20 +4385,20 @@ exports[`Storyshots PickupUsers full 1`] = `
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
   </div>
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
   </div>
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
   </div>
   <!---->
   <!---->
@@ -4379,20 +4412,20 @@ exports[`Storyshots PickupUsers joinable 1`] = `
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
   </div>
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
   </div>
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Karl Karlson
-    </div></span></a>
+        Karl Karlson
+      </div></span></a>
   </div>
   <!---->
   <!---->
@@ -4419,14 +4452,14 @@ exports[`Storyshots PickupUsers leavable 1`] = `
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
   </div>
   <div class="wrapper profilePic clickable">
     <a>
       <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
   </div>
   <!---->
   <!---->
@@ -5502,8 +5535,8 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
         <div class="wrapper">
           <a>
             <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
         </div>
         <!---->
       </div>
@@ -5543,8 +5576,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
             </div>
             <!---->
           </div>
@@ -5577,8 +5610,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <div class="wrapper">
             <a>
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
           </div>
           <!---->
         </div>
@@ -5612,8 +5645,8 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
         <div class="wrapper">
           <a>
             <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
         </div>
         <!---->
       </div>
@@ -5826,8 +5859,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <div class="wrapper">
                   <a>
                     <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
                 </div>
                 <!---->
               </div>
@@ -5860,8 +5893,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="wrapper">
                 <a>
                   <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
-      Mira Bellenbaum
-    </div></span></a>
+        Mira Bellenbaum
+      </div></span></a>
               </div>
               <!---->
             </div>
@@ -5895,8 +5928,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
             <div class="wrapper">
               <a>
                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div> <span class="q-tooltip animate-popup"><div>
-      Max Mustermann
-    </div></span></a>
+        Max Mustermann
+      </div></span></a>
             </div>
             <!---->
           </div>

@@ -26,6 +26,7 @@
       :user="user"
       :fetch-more="fetchMore"
       @send="$emit('send', arguments[0])"
+      @saveMessage="$emit('saveMessage', arguments[0])"
       @markAllRead="$emit('markAllRead')"
       @toggleEmailNotifications="$emit('toggleEmailNotifications', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"
@@ -52,7 +53,7 @@ export default {
     feedbackPossible: { required: true, type: Array },
     conversation: { required: true, type: Object },
     fetchMore: { required: true, type: Function },
-    user: { required: true, type: Object },
+    user: { default: null, type: Object },
   },
 }
 </script>

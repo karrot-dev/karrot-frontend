@@ -15,6 +15,7 @@ export default connect({
     leave: 'pickups/leave',
     detail: 'detail/selectPickup',
     send: 'conversations/sendInActiveConversation',
+    saveMessage: 'conversations/saveMessage',
     markAllRead: 'conversations/markAllReadInActiveConversation',
     toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
     toggleReaction: 'conversations/toggleReaction',

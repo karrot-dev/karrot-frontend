@@ -1,39 +1,41 @@
 <template>
   <div class="wrapper">
-    <router-link
-      v-if="isLink && user && user.id"
-      :to="{name:'user', params: {userId: user.id}}"
-    >
-      <img
-        v-if="hasPhoto"
-        :src="photo"
-        :style="pictureStyle"
+    <template v-if="user && user.id">
+      <router-link
+        v-if="isLink"
+        :to="{name:'user', params: {userId: user.id}}"
       >
-      <RandomArt
-        v-else
-        :text="user.displayName"
-        :seed="user.id"
-        class="randomArt"
-        :style="pictureStyle"
-      />
-      <q-tooltip>
-        {{ user.displayName }}
-      </q-tooltip>
-    </router-link>
-    <div v-else-if="!isLink && user && user.id">
-      <img
-        v-if="hasPhoto"
-        :src="photo"
-        :style="pictureStyle"
-      >
-      <RandomArt
-        v-else
-        :text="user.displayName"
-        :seed="user.id"
-        class="randomArt"
-        :style="pictureStyle"
-      />
-    </div>
+        <img
+          v-if="hasPhoto"
+          :src="photo"
+          :style="pictureStyle"
+        >
+        <RandomArt
+          v-else
+          :text="user.displayName"
+          :seed="user.id"
+          class="randomArt"
+          :style="pictureStyle"
+        />
+        <q-tooltip>
+          {{ user.displayName }}
+        </q-tooltip>
+      </router-link>
+      <div v-else>
+        <img
+          v-if="hasPhoto"
+          :src="photo"
+          :style="pictureStyle"
+        >
+        <RandomArt
+          v-else
+          :text="user.displayName"
+          :seed="user.id"
+          class="randomArt"
+          :style="pictureStyle"
+        />
+      </div>
+    </template>
     <div
       v-else
       class="deletedUser"
@@ -53,7 +55,7 @@ import RandomArt from '@/components/General/RandomArt'
 
 export default {
   props: {
-    user: { required: true, type: Object },
+    user: { default: null, type: Object },
     size: { default: 20, type: Number },
     isLink: { default: true, type: Boolean },
   },

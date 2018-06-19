@@ -211,8 +211,9 @@ describe('groups', () => {
     })
 
     it('throws routeError if group does not exist', async () => {
-      await expect(store.dispatch('groups/selectPreview', { groupPreviewId: 9999 }))
-        .rejects.toHaveProperty('type', 'RouteError')
+      const select = store.dispatch('groups/selectPreview', { groupPreviewId: 9999 })
+      await expect(select).rejects.toHaveProperty('type', 'RouteError')
+      await expect(select).rejects.toHaveProperty(['data', 'translation'], 'NOT_FOUND.EXPLANATION')
       expect(store.getters['groups/activePreview']).toBeUndefined()
     })
   })

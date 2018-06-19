@@ -25,7 +25,6 @@
         round
       >
         <q-icon name="fas fa-fw fa-ellipsis-v" />
-        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <GroupOptions/>
       </q-btn>
     </div>

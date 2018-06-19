@@ -93,7 +93,6 @@
         round
       >
         <q-icon name="fas fa-ellipsis-v" />
-        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <q-popover
           :touch-position="false"
           fit

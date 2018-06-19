@@ -27,15 +27,10 @@
         class="searchbar row no-wrap"
         v-if="searchOpen"
       >
-        <q-btn
-          flat
-          dense
-          color="primary"
-          @click="$emit('hideSearch')"
-        >
-          <q-icon name="fas fa-fw fa-times"/>
-        </q-btn>
-        <Search style="margin-top: .2em; vertical-align: middle; width: 100%"/>
+        <Search
+          style="margin-top: 6px; margin-left: 6px; vertical-align: middle; width: 100%"
+          @clear="$emit('hideSearch')"
+        />
       </div>
     </transition>
     <q-btn

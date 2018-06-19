@@ -79,7 +79,7 @@ export default {
           markerColor: store.ui.color,
           prefix: 'fa',
         }),
-        popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
+        popupcontent: `<a href="/#/group/${store.group.id}/store/${store.id}">${store.name}</a>`,
       }
     },
     mapMoveEnd (target) {

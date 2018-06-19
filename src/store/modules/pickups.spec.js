@@ -20,6 +20,7 @@ describe('pickups', () => {
   let pickup1
   let pickup2
   let pickup3
+  const group = { id: 666 }
 
   beforeEach(() => {
     pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [] }
@@ -39,7 +40,7 @@ describe('pickups', () => {
         stores: {
           getters: {
             get () {
-              return id => ({ id })
+              return id => ({ id, group })
             },
           },
         },
@@ -59,13 +60,13 @@ describe('pickups', () => {
     })
 
     beforeEach(() => {
-      vstore.commit('pickups/set', { pickups: [pickup1, pickup2, pickup3] })
+      vstore.commit('pickups/set', { pickups: [pickup1, pickup2, pickup3], groupId: group.id })
     })
 
     it('can enrich', async () => {
       expect(vstore.getters['pickups/enrich'](pickup2)).toEqual({
         ...pickup2,
-        store: { id: pickup2.store },
+        store: { id: pickup2.store, group },
         isUserMember: true,
         isEmpty: false,
         isFull: true,
@@ -109,6 +110,7 @@ describe('pickups', () => {
         ...defaultActionStatusesFor('save', 'join', 'leave'),
         store: {
           id: storeId,
+          group,
         },
       })
     })

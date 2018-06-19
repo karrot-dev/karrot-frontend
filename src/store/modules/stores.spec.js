@@ -9,6 +9,12 @@ const pickups = {
   },
 }
 
+const groups = {
+  getters: {
+    get: () => id => ({ id }),
+  },
+}
+
 describe('stores module', () => {
   beforeEach(() => jest.resetModules())
 
@@ -19,6 +25,7 @@ describe('stores module', () => {
     store = createStore({
       stores: require('./stores').default,
       pickups,
+      groups,
     })
   })
 

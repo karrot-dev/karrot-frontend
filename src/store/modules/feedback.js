@@ -82,7 +82,7 @@ export default {
         const currentUserId = rootGetters['auth/userId']
 
         // make sure that feedback belongs into this group
-        if (pickup.store && pickup.store.group === currentGroupId) {
+        if (pickup.store && pickup.store.group && pickup.store.group.id === currentGroupId) {
           commit('update', [feedback])
           if (feedback.givenBy === currentUserId) {
             dispatch('pickups/removeFeedbackPossible', feedback.about, { root: true })

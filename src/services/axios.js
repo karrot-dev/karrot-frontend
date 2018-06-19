@@ -1,6 +1,6 @@
 import Axios from 'axios'
 import i18n from '@/i18n'
-import { Notify, debounce } from 'quasar'
+import { Notify, throttle } from 'quasar'
 
 import { camelizeKeys, underscorizeKeys } from '@/services/utils'
 import { isValidationError } from '@/store/helpers'
@@ -14,14 +14,18 @@ const axios = Axios.create({
   xsrfHeaderName: 'X-CSRFTOKEN',
 })
 
-const showDebouncedWarning = debounce((message) => {
-  Notify.create({
-    type: 'warning',
-    position: 'bottom-left',
-    timeout: 5000,
-    message,
-  })
-}, 5000, true)
+const makeThrottledWarner = (message) =>
+  throttle(() =>
+    Notify.create({
+      type: 'warning',
+      position: 'bottom-left',
+      timeout: 5000,
+      message: i18n.t(message),
+    }),
+  5000)
+
+const showConnectionInterruptedWarning = makeThrottledWarner('GLOBAL.CONNECTION_INTERRUPTED')
+const showServerError = makeThrottledWarner('GLOBAL.SERVER_ERROR')
 
 axios.interceptors.request.use(request => {
   if (request.data instanceof FormData) {
@@ -30,7 +34,7 @@ axios.interceptors.request.use(request => {
   request.data = underscorizeKeys(request.data)
   return request
 }, error => {
-  showDebouncedWarning(i18n.t('GLOBAL.CONNECTION_INTERRUPTED'))
+  showConnectionInterruptedWarning()
   return Promise.reject(error)
 })
 
@@ -42,7 +46,7 @@ axios.interceptors.response.use(response => {
     error.response.data = camelizeKeys(error.response.data)
   }
   if (!isValidationError(error)) {
-    showDebouncedWarning(i18n.t('GLOBAL.SERVER_ERROR'))
+    showServerError()
   }
   throw error
 })

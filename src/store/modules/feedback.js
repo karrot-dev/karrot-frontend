@@ -7,6 +7,7 @@ function initialState () {
   return {
     entries: {},
     idList: [],
+    idListScope: { type: null, id: null }, // what kind of data currently is loaded in idList
     storeFilter: null,
     selectedFeedbackId: null,
   }
@@ -43,27 +44,26 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetch ({ dispatch, commit }, filters) {
-        dispatch('clear')
+      async fetch ({ state, dispatch, commit }, { filters, scope }) {
+        // only clear if scope changed
+        const {type, id} = state.idListScope
+        if (scope.type !== type || scope.id !== id) {
+          dispatch('clear')
+          commit('setScope', scope)
+        }
         const data = await dispatch('pagination/extractCursor', feedbackAPI.list(filters))
         commit('update', data)
 
-        // Fetch related pickups
-        for (const f of data) {
-          dispatch('pickups/maybeFetch', f.about, { root: true })
-        }
+        dispatch('fetchRelatedPickups', data)
       },
       async fetchMore ({ dispatch, commit }) {
         const data = await dispatch('pagination/fetchMore', feedbackAPI.listMore)
         commit('update', data)
 
-        // Fetch related pickups
-        for (const f of data) {
-          dispatch('pickups/maybeFetch', f.about, { root: true })
-        }
+        dispatch('fetchRelatedPickups', data)
       },
 
-      async save ({ commit, dispatch }, feedback) {
+      async save ({ dispatch }, feedback) {
         let entry
         if (feedback.id) {
           entry = await feedbackAPI.save(feedback)
@@ -94,14 +94,23 @@ export default {
       findId: () => undefined,
     }),
 
-    async fetchForGroup ({ commit, dispatch, rootGetters }, { groupId }) {
-      dispatch('fetch', { group: groupId })
+    async fetchForGroup ({ dispatch }, { groupId }) {
+      dispatch('fetch', {
+        filters: { group: groupId },
+        scope: { type: 'group', id: groupId },
+      })
     },
     async setStoreFilter ({ commit }, { storeId }) {
       commit('setStoreFilter', storeId)
     },
     async clearStoreFilter ({ commit }) {
       commit('setStoreFilter', null)
+    },
+
+    async fetchRelatedPickups ({ dispatch }, feedbackList) {
+      for (const f of feedbackList) {
+        dispatch('pickups/maybeFetch', f.about, { root: true })
+      }
     },
 
     select ({ commit }, { feedbackId }) {
@@ -114,15 +123,23 @@ export default {
       commit('select', null)
     },
 
-    /**
-     * Reset all state
-     */
+    refresh ({ state, dispatch }) {
+      const {type, id} = state.idListScope
+      switch (type) {
+        case 'group': return dispatch('fetchForGroup', { groupId: id })
+      }
+    },
+
     clear ({ commit }) {
       commit('clear')
     },
 
   },
   mutations: {
+    setScope (state, { type, id }) {
+      state.idListScope.type = type
+      state.idListScope.id = id
+    },
     update (state, entries) {
       state.entries = {
         ...state.entries,

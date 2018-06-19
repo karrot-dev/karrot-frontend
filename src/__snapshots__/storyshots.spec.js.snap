@@ -1215,9 +1215,7 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
     <div class="q-card-separator"></div>
     <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
-          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="0" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
-            Join
-          </div></button></form></span>
+          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle disabled bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat"><circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle></svg></div></button></form></span>
       <!---->
     </div>
   </div>
@@ -1706,7 +1704,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
-      <i aria-hidden="true" class="q-icon fas fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
+      <i aria-hidden="true" class="q-icon fas fa-ellipsis-v"> </i>
       <div class="q-popover scroll">
         <div item-separator="" class="q-list q-list-link">
           <div class="q-item q-item-division relative-position q-item-link">
@@ -3501,7 +3499,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
       <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
+          <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i>
           <div class="q-popover scroll">
             <div item-separator="" class="q-list q-list-link">
               <!---->

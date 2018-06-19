@@ -74,8 +74,8 @@
             />
             <ConversationCompose
               ref="compose"
-              :status="data.sendStatus"
-              @send="sendMessage"
+              :status="conversation.sendStatus"
+              @submit="sendMessage"
               :placeholder="messagePrompt"
               :user="user"
             />

@@ -31,4 +31,8 @@ export function refresh () {
   store.dispatch('invitations/refresh')
   store.dispatch('history/refresh')
   store.dispatch('groups/refresh')
+  store.dispatch('conversations/refresh')
+  store.dispatch('feedback/refresh')
+  store.dispatch('currentGroup/refresh')
+  store.dispatch('auth/refresh')
 }

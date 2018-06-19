@@ -138,6 +138,12 @@ export default {
         commit('set', group)
       }
     },
+
+    refresh ({ state, dispatch }) {
+      if (state.current) {
+        dispatch('fetch', state.current.id)
+      }
+    },
   },
   mutations: {
     set (state, group) {

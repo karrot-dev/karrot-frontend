@@ -25,9 +25,9 @@
             :key="group.id"
           >
             <router-link :to="{name: 'group', params: { groupId: group.id }}">
-              {{ group.name }}
-            </router-link>
-            <span v-if="groups.length !== indx + 1">,</span>
+              {{ group.name }}<!--
+            --></router-link><!--
+            --><span v-if="groups.length !== indx + 1">,</span>
           </span>
         </p>
       </div>

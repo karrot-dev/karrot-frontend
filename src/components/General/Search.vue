@@ -6,7 +6,11 @@
       class="lightgrey"
       v-model="terms"
       :placeholder="$t('BUTTON.SEARCH')"
-      @blur="hideIfEmpty"
+      :debounce="50"
+      clearable
+      @blur="clear"
+      @clear="clear"
+      @keyup.esc="clear"
     >
       <q-autocomplete
         @search="search"
@@ -31,19 +35,16 @@ export default {
     ...mapActions({
       setTerms: 'search/setTerms',
       hide: 'search/hide',
-      hideIfEmpty: 'search/hideIfEmpty',
     }),
     search (terms, done) {
       if (!terms) done([])
       this.setTerms(terms)
-      setTimeout(() => {
-        if (!this.results.length) {
-          done([{label: this.$t('GLOBAL.SEARCH_NOT_FOUND')}])
-        }
-        else {
-          done(this.results)
-        }
-      }, 50)
+      if (!this.results.length) {
+        done([{label: this.$t('GLOBAL.SEARCH_NOT_FOUND')}])
+      }
+      else {
+        done(this.results)
+      }
     },
     selected (item) {
       if (this.results.length !== 0) {
@@ -51,6 +52,10 @@ export default {
         this.hide()
         this.$router.push(item.value)
       }
+    },
+    clear () {
+      this.setTerms(null)
+      this.$emit('clear')
     },
   },
   computed: {

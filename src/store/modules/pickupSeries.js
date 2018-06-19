@@ -37,7 +37,9 @@ export default {
 
       async fetchListForActiveStore ({ commit, rootGetters }) {
         let storeId = rootGetters['stores/activeStoreId']
-        commit('set', { list: await pickupSeries.listByStoreId(storeId), storeId })
+        if (storeId) {
+          commit('set', { list: await pickupSeries.listByStoreId(storeId), storeId })
+        }
       },
 
       async create ({ commit, dispatch }, series) {

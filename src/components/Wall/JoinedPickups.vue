@@ -14,38 +14,23 @@
         <i class="fas fa-angle-down"/>
       </div>
     </q-card>
-    <transition name="slide-toggle">
-      <transition-group
-        name="list"
-        tag="div"
-        v-if="showPickups"
-      >
-        <PickupItem
-          v-for="pickup in pickups"
-          :key="pickup.id"
-          :pickup="pickup"
-          @join="$emit('join', arguments[0])"
-          @leave="$emit('leave', arguments[0])"
-        >
-          <strong v-if="pickup.store">
-            <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
-              {{ pickup.store.name }}
-            </router-link>
-          </strong>
-          {{ $d(pickup.date, 'dateWithDayName') }}
-        </PickupItem>
-      </transition-group>
-    </transition>
+    <PickupList
+      v-if="showPickups"
+      :pickups="pickups"
+      store-link
+      @join="$emit('join', arguments[0])"
+      @leave="$emit('leave', arguments[0])"
+    />
     <hr v-if="showPickups">
   </div>
 </template>
 
 <script>
-import PickupItem from '@/components/Pickups/PickupItem'
+import PickupList from '@/components/Pickups/PickupList'
 import { QCard } from 'quasar'
 
 export default {
-  components: { PickupItem, QCard },
+  components: { PickupList, QCard },
   props: {
     pickups: { required: true, type: Array },
   },
@@ -58,12 +43,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~slidetoggle'
-.list-leave-active
-  transition: all .5s
-.list-leave-to
-  opacity: 0
-  transform: translateX(-50px)
 .q-card.notice
   cursor pointer
   transition: all .2s ease;

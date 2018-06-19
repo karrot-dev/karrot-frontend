@@ -45,7 +45,7 @@ export default {
     },
     user: {
       type: Object,
-      required: true,
+      default: null,
     },
     value: {
       type: String,

@@ -121,7 +121,7 @@ export default {
       dispatch('meta/clear', ['resetPassword'])
       commit('resetPasswordSuccess', false)
     },
-    async refresh ({ dispatch, commit }, { userId }) {
+    async refresh ({ dispatch, commit }, { userId } = {}) {
       if (userId) {
         const user = await users.get(userId)
         commit('update', user)

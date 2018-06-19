@@ -7,7 +7,16 @@
       <div class="column padding full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
-          <slot>Date or Store Slot</slot>
+          <template v-if="!storeLink">
+            {{ $d(pickup.date, 'dateLongWithDayName') }}
+          </template>
+          <template v-else>
+            <strong v-if="pickup.store">
+              <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
+                {{ pickup.store.name }}
+              </router-link>
+            </strong> {{ $d(pickup.date, 'dateWithDayName') }}
+          </template>
         </div>
         <div
           class="description multiline"
@@ -40,6 +49,10 @@ export default {
     pickup: {
       type: Object,
       required: true,
+    },
+    storeLink: {
+      type: Boolean,
+      default: false,
     },
   },
   components: {

@@ -93,7 +93,7 @@ export default {
     searchInName (term, list) {
       if (!term || term === '') return list
       return list.filter(group => {
-        return group.name.toLowerCase().includes(term.toLowerCase())
+        return group.name && group.name.toLowerCase().includes(term.toLowerCase())
       })
     },
   },

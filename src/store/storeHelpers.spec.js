@@ -1,3 +1,5 @@
+jest.mock('@/store/plugins/i18n')
+
 const mockUsersList = jest.fn()
 const mockStoresList = jest.fn()
 const mockPickupsList = jest.fn()

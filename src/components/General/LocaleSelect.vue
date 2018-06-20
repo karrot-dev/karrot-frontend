@@ -64,7 +64,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'auth/user',
       current: 'i18n/locale',
     }),
   },

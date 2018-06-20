@@ -1263,6 +1263,7 @@ exports[`Storyshots GroupSettings show 1`] = `
   </div>
   <div class="q-list q-list-link">
     <div class="q-list-header">Email notifications</div>
+    <VerificationWarning class="generic-margin"></VerificationWarning>
     <label class="q-item q-item-division relative-position">
       <div class="q-item-side q-item-section q-item-side-left">
         <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
@@ -3465,25 +3466,7 @@ exports[`Storyshots Settings Page Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Settings Page verification warning 1`] = `
-<div>
-  <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
-    <div class="q-alert-side col-auto row flex-center">
-      <i aria-hidden="true" class="q-icon fas fa-exclamation-triangle"> </i>
-    </div>
-    <div class="q-alert-content col self-center">
-      <div>
-        <p>
-          current@user.de not verified
-        </p> <span>Please check your emails or <a place="resend" class="underline">
-      resend verification email
-    </a></span>
-        <!---->
-      </div>
-    </div>
-  </div>
-</div>
-`;
+exports[`Storyshots Settings Page verification warning 1`] = `<!---->`;
 
 exports[`Storyshots Sidenav Boxes Group 1`] = `
 <div class="q-card no-shadow grey-border">

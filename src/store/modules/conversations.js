@@ -216,6 +216,10 @@ export default {
       commit('clearActive')
     },
 
+    compactActive ({ state, commit }) {
+      commit('compact', { conversationId: state.activeConversationId })
+    },
+
     receiveMessage ({ commit }, message) {
       commit('updateMessages', {
         messages: [message],
@@ -236,6 +240,12 @@ export default {
     },
     clearActive (state) {
       state.activeConversationId = null
+    },
+    compact (state, { conversationId }) {
+      const messages = state.messages[conversationId]
+      if (!messages) return
+      const keep = 10
+      if (messages.length > keep) messages.splice(keep, messages.length - keep)
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.messages[conversationId]) {

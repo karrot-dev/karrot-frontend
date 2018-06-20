@@ -1,5 +1,5 @@
 <template>
-  <div class="footer bg-neutral font-primary">
+  <div class="footer bg-grey-3 font-primary">
     <div
       style="margin-top: 5em"
       class="footer-max-width row generic-padding"

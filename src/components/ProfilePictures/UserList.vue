@@ -30,28 +30,32 @@
         icon="fas fa-bed"
         :label="$t('GROUP.INACTIVE')"
         :sublabel="inactiveSublabel"
+        @show="showInactive = true"
+        @hide="showInactive = false"
       >
-        <q-item
-          v-for="user in inactiveUsers"
-          :key="user.id"
-          link
-          :to="{name: 'user', params: { userId: user.id }}"
-          class="inactive"
-        >
-          <q-item-side right>
-            <ProfilePicture
-              :key="user.id"
-              :user="user"
-              :size="30"
-              class="profilePic"
-            />
-          </q-item-side>
-          <q-item-main>
-            <q-item-tile label>
-              {{ user.displayName }}
-            </q-item-tile>
-          </q-item-main>
-        </q-item>
+        <template v-if="showInactive">
+          <q-item
+            v-for="user in inactiveUsers"
+            :key="user.id"
+            link
+            :to="{name: 'user', params: { userId: user.id }}"
+            class="inactive"
+          >
+            <q-item-side right>
+              <ProfilePicture
+                :key="user.id"
+                :user="user"
+                :size="30"
+                class="profilePic"
+              />
+            </q-item-side>
+            <q-item-main>
+              <q-item-tile label>
+                {{ user.displayName }}
+              </q-item-tile>
+            </q-item-main>
+          </q-item>
+        </template>
       </q-collapsible>
     </q-list>
   </div>
@@ -69,6 +73,11 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  data () {
+    return {
+      showInactive: false,
+    }
   },
   computed: {
     inactiveSublabel () {

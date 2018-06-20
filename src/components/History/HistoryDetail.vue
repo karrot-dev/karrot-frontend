@@ -99,7 +99,7 @@
       />
     </q-list>
     <q-list>
-      <q-item class="bg-neutral text-white">
+      <q-item class="text-white">
         <q-btn
           @click="toggleRaw()"
           color="secondary">Raw data

@@ -35,5 +35,5 @@ export default {
 @import '~variables'
 .usersCount
   text-align center
-  background-color $neutral
+  user-select none
 </style>

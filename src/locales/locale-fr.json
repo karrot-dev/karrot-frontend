@@ -1,171 +1,170 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Dévéloppement",
-    "FSWW_NOTE": "Read our info page!",
+    "FSWW_NOTE": "Lire notre page info!",
     "FACEBOOK_NOTE": "Joins notre groupe sur Facebook!",
     "WARNING": "Attention",
     "BETA_WARNING": "Cette page est dévéloppée continuement et les informations sont régulièrement actualisées. Nous ne pouvons pas garantir la sécurité des données, mais nous faisons tout pour optimiser le niveau de protection !",
     "CONNECTION_INTERRUPTED": "Erreur: connexion interrompu!",
     "SERVER_ERROR": "Erreur de serveur",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "SEARCH_NOT_FOUND": "Not Found"
+    "INVALID_LINK": "Désolé, le lien que vous avez ouvert n'est pas valide.",
+    "SEARCH_NOT_FOUND": "Pas trouvé"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Phone number",
-    "PROFILE_TITLE": "Profile",
+    "EMAIL": "email",
+    "MOBILE_NUMBER": "Numéro de téléphone",
+    "PROFILE_TITLE": "Profil",
     "PASSWORD": "Mot de passe",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "Confirmez votre mot de passe",
     "USERNAME": "Nom",
-    "WHERE_FROM": "Where you are from (not required)",
-    "PHOTO": "Profile photo",
-    "SET_PHOTO": "Set your profile photo...",
-    "ACCOUNT": "Account",
+    "WHERE_FROM": "D'où vous provenez (non obligatoire)",
+    "PHOTO": "Photo de profil",
+    "SET_PHOTO": "Choisissez votre photo de profil",
+    "ACCOUNT": "Compte",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Nous vous envoyons un e-mail avec un lien pour confirmer la suppression"
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "Suppression de compte",
+        "MESSAGE": "Êtes vous sûr ? Votre compte et vos données personnelles vont être supprimées définitivement. Tout ce que vous avez fait sur cette plate-forme sera rendu anonyme. Si vous confirmez, nous vous envoyons un e-mail avec un lien pour terminer la suppression.",
+        "CONFIRM": "Confirmer"
       }
     }
   },
   "BUTTON": {
     "CREATE": "Créer",
     "CANCEL": "Annuler",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "Ouvrir",
+    "CLOSE": "Fermer",
     "DELETE": "Effacer",
     "EDIT": "Traiter",
     "JOIN": "Rejoindre",
     "LEAVE": "Quitter",
     "PREVIEW": "Aperçu",
     "BACK": "Rétour",
-    "MORE_OPTIONS": "Autres options",
     "SEARCH": "Recherche",
     "OF_COURSE": "Oui, bien sûr!",
     "YES": "Oui",
-    "SAVE_CHANGES": "Save changes",
-    "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "AGREE": "I agree",
-    "REMOVE": "Remove",
-    "ARCHIVE": "Archive",
-    "DELETE_ACCOUNT": "Delete account",
-    "SHOW": "Show",
-    "HIDE": "Hide"
+    "SAVE_CHANGES": "Sauvegarder les changements",
+    "RESET": "Initialisation",
+    "CHANGE_PASSWORD": "Changer le mot de passe",
+    "CHANGE_EMAIL": "Changer l'adresse e-mail",
+    "AGREE": "J'accepte",
+    "REMOVE": "Supprimer",
+    "ARCHIVE": "Archiver",
+    "DELETE_ACCOUNT": "Supprimer le compte",
+    "SHOW": "Montrer",
+    "HIDE": "Cacher"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Name already exists, please choose another.",
-    "REQUIRED": "This field is required.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "MINLENGTH": "Veillez entrez plus de {min} caractères",
+    "MAXLENGTH": "Trop long, veillez utiliser moins de {max} caractères",
+    "UNIQUE": "Ce nom existe déjà, veillez en choisir un autre.",
+    "REQUIRED": "Ce champ est requis.",
+    "VALID_EMAIL": "Entrez un e-mail valide.",
+    "VALID_TIMEZONE": "Entrez un fuseau horaire valide."
   },
   "GROUP": {
-    "WALL": "Wall",
-    "GROUP": "Group",
+    "WALL": "Mur",
+    "GROUP": "Groupe",
     "LEAVE": "Quitter le groupe...",
     "LEAVE_TEXT": "Es-tu sûr que tu veux quitter ce groupe?",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
+    "LEAVE_CONFIRMATION": "Vous avez quitté {groupName}",
     "NONMEMBER_REDIRECT": "Tu n'est pas membre de ce groupe.",
     "EDIT": "Traite groupe",
     "CREATE_TITLE": "Créer un nouvel groupe",
-    "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_AGREEMENT": "Gérer l'accord",
     "TITLE": "Titre du group",
-    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
+    "PRIVATE_DESCRIPTION_TITLE": "Description privée du groupe",
     "DESCRIPTION_VERBOSE": "Déscription du groupe, accessible pour membres",
     "PUBLIC_DESCRIPTION": "Texte publiquement accessible (avant de rejoindre le groupe)",
     "PASSWORD": "Tape ici un mot de passe si tu veux créer un groupe privé.",
     "PICKUPS": "Récoltes",
     "MEMBERS": "Membres",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
+    "INACTIVE": "Inactif",
+    "SHOW_INACTIVE": "Montrer les groupes inactifs",
     "STORES": "Magasins",
     "HISTORY": "Histoire",
     "DESCRIPTION": "Déscription",
     "ADDRESS": "Addresse",
     "TIMEZONE": "Fuseau horaire du groupe",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITE_EMAIL": "Entrez une adresse e-mail",
+    "INVITE_SEND": "Envoyer une invitation",
+    "INVITED_LIST": "Les invitations ont déjà été envoyées à cette adresse e-mail :",
+    "ALREADY_INVITED": "Une invitation a déjà été envoyée à cette adresse mail",
     "INVITATIONS": "Invitations",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
-    "SETTINGS": "Settings",
+    "INVITE_TITLE": "Inviter des utilisateurs à votre groupe",
+    "INVITATION_ACCEPT_SUCCESS": "Bienvenue ! Vous avez bien accepté l'invitation.",
+    "INVITATION_ACCEPT_ERROR": "Oups, l'invitation ne peut pas être acceptée",
+    "SETTINGS": "Paramètres",
     "NOTIFICATIONS": "Notifications",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Notifications par e-mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "DESCRIPTION": "Rester au courant avec ce qui se passe dans le groupe."
       },
       "daily_pickup_notification": {
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "PLAYGROUND_INFO": "Ceci est un groupe bac à sable, vous ne risquez pas d'abîmer quoique que ce soit. Explorez, cliquez partout et amusez vous !",
+    "JOIN_PLAYGROUND": "Rejoindre le groupe bac à sable pour explorer karrot"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
+    "TITLE": "Carte",
+    "SHOW_USERS": "Montrer les utilisateurs",
+    "HIDE_USERS": "Cacher les utilisateurs",
     "SHOW_STORES": "Show stores",
     "HIDE_STORES": "Hide stores",
-    "SET_LOCATION": "Set location",
-    "FULL_SCREEN": "Show full screen"
+    "SET_LOCATION": "Ajouter la location",
+    "FULL_SCREEN": "Montrer en plein écran"
   },
   "STOREDETAIL": {
     "EDIT": "Traiter magasin",
     "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "This store has been archived",
-    "INACTIVE": "This store is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This store does not have a description yet"
+    "ARCHIVED": "Cette boutique a été archivée",
+    "INACTIVE": "Cette boutique aujourd'hui ne coopère pas",
+    "CHANGE_STATUS": "Vous pouvez changer le statut sur la page des paramètres",
+    "NO_DESCRIPTION": "Cette boutique n'a pas encore de description"
   },
   "STOREEDIT": {
     "NAME": "Nom",
-    "STATUS":"Status",
+    "STATUS":"Statut",
     "DESCRIPTION": "Déscription",
     "ADDRESS": "Addresse",
     "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive store",
-        "MESSAGE": "Are you sure?",
-        "CONFIRM": "Yes, archive store"
+        "TITLE": "Archiver la boutique",
+        "MESSAGE": "Êtes-vous sûr ?",
+        "CONFIRM": "Oui, archiver la boutique"
       }
     },
-    "RESTORE": "Restore",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "RESTORE": "Restaurer",
+    "SHOW_ARCHIVED": "Montrer les boutiques archivées",
+    "HIDE_ARCHIVED": "Cacher les boutiques archivées"
   },
   "PICKUPMANAGE": {
     "TITLE": "Administrer les récoltes",
-    "SERIES": "Recurring pickups",
+    "SERIES": "Récup' récurrente",
     "SINGLE": "Récoltes individuelles",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
+    "UPCOMING_PICKUPS_IN_SERIES": "Récups à venir dans cette série"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Effacer récolte récurrent",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TEXT": "Voulez vous réellement supprimer cette date de récup' récurrente ? Cela supprimera aussi toutes les dates de récup' qui dépendent de cette date récurrente de récup' (sauf celles que des personnes ont déjà rejoint)"
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Nom",
     "DESCRIPTION": "Plus d'informations sur toi",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "OLD_PASSWORD": "Confirmez votre ancien mot de passe",
+    "PASSWORD": "Nouveau mot de passe"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+    "INACCESSIBLE_OR_DELETED": "(Utilisateur inaccessible ou supprimé)"
   },
   "JOINGROUP": {
     "WHICHGROUP": "Quel groupe veux-tu rejoindre ?",
@@ -177,13 +176,13 @@
     "SIGNUP_OR_LOGIN": "Il faut s'enregistrer pour joindre ce groupe!",
     "MY_GROUPS": "Mes groupes",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOGGED_OUT": "Vous êtes en ce moment déconnecté. {login}",
+      "LOG_IN": "Connectez vous pour voir vos groupes !"
     },
     "PROFILE_NOTE": "Quand tu joins ce groupe tes détails seront visible pour les autres membres."
   },
   "GROUPINFO": {
-    "TITLE": "Public group information",
+    "TITLE": "Informations publiques du groupe",
     "META": "Information publique du groupe",
     "MEMBER_VIEW": "Tu es membre de ce groupe. Clique ici pour l'affichage complet."
   },
@@ -193,9 +192,9 @@
     "CHANGE_GROUP": "Change groupe"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "BLOG_SUB": "All news around the karrot software",
-    "GIT_SUB": "See our code!"
+    "INFO_SUB": "Comment construire votre groupe de récupération de nourriture",
+    "BLOG_SUB": "Toutes les nouvelles autour du logiciel karrot",
+    "GIT_SUB": "Regardez notre code !"
   },
   "LOGIN": {
     "TITLE": "Connexion",
@@ -209,21 +208,21 @@
     "OK": "Rejoindre"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
-    "SUCCESS": "Your e-mail address was successfully verified!"
+    "TITLE": "Vérification d'email",
+    "SUCCESS": "Votre adresse e-mail a été correctement vérifiée !"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Suppression de compte",
+    "SUCCESS": "Votre compte a été correctement supprimé !"
   },
   "CREATEPICKUP": {
-    "FREQUENCY": "Frequency",
-    "WEEKLY": "Weekly",
-    "CUSTOM": "Custom",
+    "FREQUENCY": "Fréquence",
+    "WEEKLY": "Hebdomadaire",
+    "CUSTOM": "Personalisé",
     "WEEKDAYS": "Jour du semaine",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
-    "RRULE": "Recurrence rule",
-    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
+    "WEEKDAYS_HELPER": "À quels jours doit se faire la récup' ?",
+    "RRULE": "Règle de récurrence",
+    "RRULE_HELPER": "Écrire une règle valide {ruleHelper}, par exemple {ruleExample} ou {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender rule",
     "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
     "RRULE_EXAMPLE2": "every second Monday",
@@ -272,6 +271,8 @@
     "HEADER": "Thank you for your pickup!",
     "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
@@ -336,6 +337,10 @@
     "CHANGES_SAVED": "Your changes have been saved.",
     "CHANGES_ERROR": "An error occured. Try again later."
   },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"
@@ -378,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
+    "EDITED": "edited",
     "MARK_READ": "Mark all as read",
     "REACTIONS": {
       "YOU": "you",

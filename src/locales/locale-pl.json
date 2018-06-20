@@ -43,7 +43,6 @@
     "LEAVE": "Opuść",
     "PREVIEW": "Podgląd",
     "BACK": "Wstecz",
-    "MORE_OPTIONS": "Więcej opcji",
     "SEARCH": "Szukaj",
     "OF_COURSE": "Tak, oczywiście!",
     "YES": "Tak",
@@ -272,6 +271,8 @@
     "HEADER": "Dzięki za odbiór!",
     "EDIT": "Edytuj komentarz",
     "SUBTITLE": "Tutaj możesz dodać komentarz na temat odbioru",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
     "COMMENT": "Komentarz",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
@@ -382,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
+    "EDITED": "edited",
     "MARK_READ": "Oznacz wszystkie jako przeczytane",
     "REACTIONS": {
       "YOU": "ty",

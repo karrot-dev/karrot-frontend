@@ -1,7 +1,7 @@
 {
   "GLOBAL": {
     "GITHUB_NOTE": "Entwicklung",
-    "FSWW_NOTE": "Lies unsere Info Page!",
+    "FSWW_NOTE": "Lies unsere Infoseite!",
     "FACEBOOK_NOTE": "Tritt unserer Facebook-Gruppe bei!",
     "WARNING": "Warnung",
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
@@ -43,7 +43,6 @@
     "LEAVE": "Verlassen",
     "PREVIEW": "Vorschau",
     "BACK": "Zurück",
-    "MORE_OPTIONS": "Mehr Optionen",
     "SEARCH": "Suche",
     "OF_COURSE": "Ja, natürlich!",
     "YES": "Ja",
@@ -262,7 +261,7 @@
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Mindestens 1 kg Essen wurde hier gerettet. Dankeschön! Es haben bereits Leute für {amount} kg gerettetes Essen Feedback gegeben! Weiter so!",
     "GIVE_FEEDBACK": "Gib Feedback",
-    "NONE": "Bisher kein Fedback",
+    "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
     "NO_DONE_PICKUPS": "Alles erledigt!",
     "NO_DONE_PICKUPS_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?"
@@ -272,6 +271,8 @@
     "HEADER": "Danke für deine Abholung!",
     "EDIT": "Rückmeldung bearbeiten",
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
     "COMMENT": "Kommentar",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
@@ -382,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
+    "EDITED": "edited",
     "MARK_READ": "Als gelesen markieren",
     "REACTIONS": {
       "YOU": "du",

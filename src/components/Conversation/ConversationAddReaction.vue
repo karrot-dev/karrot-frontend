@@ -17,7 +17,7 @@
           :name="name"
           @click.native="$emit('toggle', name)"
           class="big"
-          tooltip
+          :title="':' + name + ':'"
           v-close-overlay
         />
       </div>

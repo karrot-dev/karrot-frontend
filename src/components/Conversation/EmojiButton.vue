@@ -3,18 +3,13 @@
     @click="$emit('click')"
     class="row no-wrap items-center"
     flat
+    :title="tooltip"
   >
     <div
       class="emoji"
-      v-html="picture(name)"
+      ref="emoji"
     />
     <slot />
-    <q-tooltip
-      :disable="!tooltip || $q.platform.is.mobile"
-      :delay="500"
-    >
-      :{{ name }}:
-    </q-tooltip>
   </q-btn>
 </template>
 
@@ -22,6 +17,17 @@
 import { QBtn, QTooltip } from 'quasar'
 import emojiList from 'markdown-it-emoji/lib/data/full.json'
 import twemoji from 'twemoji'
+
+const EMOJI_CACHE = {}
+function getEmojiElement (name) {
+  const cached = EMOJI_CACHE[name]
+  if (cached) return EMOJI_CACHE[name].cloneNode(true)
+  const container = document.createElement('div')
+  container.innerHTML = twemoji.parse(emojiList[name])
+  const el = container.firstChild
+  EMOJI_CACHE[name] = el
+  return el
+}
 
 export default {
   components: { QBtn, QTooltip },
@@ -31,13 +37,21 @@ export default {
       required: true,
     },
     tooltip: {
-      type: Boolean,
-      default: false,
+      type: String,
+      default: null,
     },
   },
-  methods: {
-    picture (name) {
-      return twemoji.parse(emojiList[name])
+  mounted () {
+    this.$refs.emoji.appendChild(this.emojiElement)
+  },
+  watch: {
+    emojiElement (emojiElement, prevEmojiElement) {
+      this.$refs.emoji.replaceChild(emojiElement, prevEmojiElement)
+    },
+  },
+  computed: {
+    emojiElement () {
+      return getEmojiElement(this.name)
     },
   },
 }

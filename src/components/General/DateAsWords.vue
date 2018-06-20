@@ -1,12 +1,10 @@
 <template>
-  <div>
-    {{ dateInWords }}<q-tooltip>{{ tooltipContent }}</q-tooltip>
+  <div :title="tooltipContent">
+    {{ dateInWords }}
   </div>
 </template>
 
 <script>
-import { QTooltip } from 'quasar'
-
 import dateFnsHelper from '@/services/dateFnsHelper'
 
 export default {
@@ -16,7 +14,6 @@ export default {
       required: true,
     },
   },
-  components: { QTooltip },
   computed: {
     tooltipContent () {
       return this.$d(new Date(this.date), 'long')

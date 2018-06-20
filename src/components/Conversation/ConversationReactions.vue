@@ -8,14 +8,9 @@
         @click="$emit('toggle', reaction.name)"
         class="reaction-box"
         :class="{ 'user-reacted': reaction.reacted }"
+        :title="reaction.message"
       >
         <span class="reactions-number">{{ reaction.users.length }}</span>
-        <q-tooltip
-          :disable="$q.platform.is.mobile"
-          style="font-size: .8em"
-        >
-          {{ reaction.message }}
-        </q-tooltip>
       </EmojiButton>
     </span>
     <ConversationAddReaction

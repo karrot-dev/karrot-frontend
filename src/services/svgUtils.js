@@ -48,10 +48,16 @@ export function createBox ({ seed, type, above, text, initials }) {
   const opacity = 0.2
 
   if (type === 'lines') {
-    box.setAttribute('style', 'background-color:' + 'rgba(' +
-      getRandomRange(140, 200, 1) + ',' +
-      getRandomRange(140, 180, 2) + ',' +
-      getRandomRange(140, 180, 3) + ',.6)')
+    const background = document.createElementNS(SVGNS, 'rect')
+    const rgb = [
+      getRandomRange(140, 200, 1),
+      getRandomRange(140, 180, 2),
+      getRandomRange(140, 180, 3),
+    ].join(',')
+    background.setAttribute('fill', 'rgb(' + rgb + ')')
+    background.setAttribute('fill-opacity', 0.6)
+    background.setAttribute('height', '100%')
+    background.setAttribute('width', '100%')
     for (let i = 0; i < 20; i++) {
       let randomMultipl = i * 6
       let line = document.createElementNS(SVGNS, 'line')
@@ -70,10 +76,17 @@ export function createBox ({ seed, type, above, text, initials }) {
     }
   }
   if (type === 'circles') {
-    box.setAttribute('style', 'background-color:' + 'rgba(' +
-      getRandomRange(120, 160, 1) + ',' +
-      getRandomRange(130, 170, 3) + ',' +
-      getRandomRange(120, 170, 5) + ',1)')
+    const background = document.createElementNS(SVGNS, 'rect')
+    const rgb = [
+      getRandomRange(120, 160, 1),
+      getRandomRange(130, 170, 3),
+      getRandomRange(120, 170, 5),
+    ].join(',')
+    background.setAttribute('fill', 'rgb(' + rgb + ')')
+    background.setAttribute('fill-opacity', 1)
+    background.setAttribute('height', '100%')
+    background.setAttribute('width', '100%')
+    box.appendChild(background)
     for (let i = 0; i < 80; i++) {
       let randomMultipl = i * 6
       let circle = document.createElementNS(SVGNS, 'circle')

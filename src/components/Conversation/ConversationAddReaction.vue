@@ -6,53 +6,35 @@
     <q-popover
       anchor="top left"
       self="top left"
+      @show="open = true"
+      @hide="open = false"
     >
-      <div
-        class="row"
-        style="margin: 2px 4px"
-      >
-        <EmojiButton
-          v-for="name in whitelist"
-          :key="name"
-          :name="name"
-          @click.native="$emit('toggle', name)"
-          class="big"
-          :title="':' + name + ':'"
-          v-close-overlay
-        />
-      </div>
+      <ConversationAddReactionInner
+        v-if="open"
+        :reacted="reacted"
+        @toggle="$emit('toggle', arguments[0])"
+      />
     </q-popover>
   </q-btn>
 </template>
 
 <script>
-import EmojiButton from './EmojiButton'
 import { QBtn, QPopover } from 'quasar'
 
+const ConversationAddReactionInner = () => import('./ConversationAddReactionInner')
+
 export default {
-  components: { QBtn, QPopover, EmojiButton },
+  components: { QBtn, QPopover, ConversationAddReactionInner },
   props: {
     reacted: {
       type: Array,
       default: () => [],
     },
   },
-  computed: {
-    whitelist () {
-      // sorted alphabetically
-      return [
-        'carrot',
-        'laughing',
-        'ok_hand',
-        'thumbsup',
-        'thumbsdown',
-      ].filter(e => !this.reacted.includes(e))
-    },
+  data () {
+    return {
+      open: false,
+    }
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.big
-  font-size 1.6em
-</style>

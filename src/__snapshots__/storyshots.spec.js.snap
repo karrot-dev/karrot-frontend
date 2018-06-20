@@ -1575,7 +1575,7 @@ exports[`Storyshots History List Default 1`] = `
 `;
 
 exports[`Storyshots Layout KFooter 1`] = `
-<div class="footer bg-neutral font-primary">
+<div class="footer bg-grey-3 font-primary">
   <div class="footer-max-width row generic-padding" style="margin-top:5em;">
     <div class="generic-padding col-md-4" style="margin-top:-5em;text-align:center;">
       <img src="~@/assets/carrot-logo.svg" class="shadow">

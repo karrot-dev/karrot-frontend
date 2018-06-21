@@ -20,14 +20,15 @@ export default {
     all: (state, getters) => state.idList.map(getters.get).sort(sortByName).sort(sortByStatus),
     active: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
     archived: (state, getters) => getters.all.filter(s => s.status === 'archived'),
-    byCurrentGroup: (state, getters, rootState, rootGetters) => getters.active.filter(e => e.group === rootGetters['currentGroup/id']),
-    byCurrentGroupArchived: (state, getters, rootState, rootGetters) => getters.archived.filter(e => e.group === rootGetters['currentGroup/id']),
+    byCurrentGroup: (state, getters, rootState, rootGetters) => getters.active.filter(e => e.group.id === rootGetters['currentGroup/id']),
+    byCurrentGroupArchived: (state, getters, rootState, rootGetters) => getters.archived.filter(e => e.group.id === rootGetters['currentGroup/id']),
     get: (state, getters) => id => getters.enrich(state.entries[id]),
-    enrich: (state, getters) => store => {
+    enrich: (state, getters, rootState, rootGetters) => store => {
       return store && {
         ...store,
         ...metaStatusesWithId(getters, ['save'], store.id),
         ui: optionsFor(store),
+        group: rootGetters['groups/get'](store.group),
       }
     },
     activeStore: (state, getters) => getters.get(state.activeStoreId) || {},

@@ -43,7 +43,6 @@
     "LEAVE": "離開",
     "PREVIEW": "預覽",
     "BACK": "退回",
-    "MORE_OPTIONS": "更多選項",
     "SEARCH": "搜尋",
     "OF_COURSE": "是的，當然！",
     "YES": "是",
@@ -272,6 +271,8 @@
     "HEADER": "謝謝你領取食物！",
     "EDIT": "編輯回饋",
     "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "你能領取的食物量(以公斤計算)",
     "COMMENT": "留言",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
@@ -382,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
+    "EDITED": "edited",
     "MARK_READ": "將全部訊息標示為已讀",
     "REACTIONS": {
       "YOU": "你",

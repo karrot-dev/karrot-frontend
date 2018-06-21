@@ -1,3 +1,5 @@
+jest.mock('@/components/Settings/VerificationWarning', () => {})
+
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'

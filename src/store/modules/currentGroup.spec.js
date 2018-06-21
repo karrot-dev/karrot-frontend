@@ -33,7 +33,7 @@ describe('currentGroup', () => {
 
   const groups = {
     getters: {
-      get: () => () => group3,
+      get: () => id => id === 3 ? group3 : undefined,
     },
   }
 
@@ -142,8 +142,9 @@ describe('currentGroup', () => {
 
     it('throws routeError if not group does not exist or user is not member of the group', async () => {
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-      await expect(store.dispatch('currentGroup/select', { groupId: 9999 }))
-        .rejects.toHaveProperty('type', 'RouteError')
+      const select = store.dispatch('currentGroup/select', { groupId: 9999 })
+      await expect(select).rejects.toHaveProperty('type', 'RouteError')
+      await expect(select).rejects.toHaveProperty(['data', 'redirect'], { name: 'groupPreview', params: {groupPreviewId: 9999} })
     })
   })
 })

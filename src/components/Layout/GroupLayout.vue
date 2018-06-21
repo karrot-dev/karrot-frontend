@@ -4,7 +4,9 @@
       :seed="group.id"
       type="circles"
       :above="true"
-      v-if="($q.platform.is.mobile && showGroupNavbar) || showPickupsNavbar">
+      v-if="($q.platform.is.mobile && showGroupNavbar) || showPickupsNavbar"
+      style="z-index: 10"
+    >
       <div class="navbar-wrapper">
         <GroupNavbar v-if="showGroupNavbar"/>
         <GroupPickupsNavbar v-if="showPickupsNavbar" />

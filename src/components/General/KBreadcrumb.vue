@@ -8,7 +8,6 @@
       <router-link
         v-if="breadcrumb.route"
         :to="breadcrumb.route"
-        class="no-hover"
       >
         <q-btn
           class="text-white"
@@ -34,7 +33,6 @@
       <router-link
         v-if="secondlastElement.route"
         :to="secondlastElement.route"
-        class="no-hover"
       >
         <div style="min-width: 20px; text-align: right; padding: 4px">
           <i class="fas fa-fw fa-angle-left"/>

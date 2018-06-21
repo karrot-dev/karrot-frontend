@@ -16,7 +16,6 @@
         round
       >
         <q-icon name="fas fa-fw fa-ellipsis-v" />
-        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <StoreOptions/>
       </q-btn>
     </div>
@@ -56,7 +55,7 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSide, QIcon, QItemMain, QTooltip } from 'quasar'
+import { QBtn, QList, QItem, QItemSide, QIcon, QItemMain } from 'quasar'
 import SidenavBox from './SidenavBox'
 import StoreOptions from './StoreOptions'
 
@@ -66,7 +65,7 @@ export default {
     expanded: { default: true, type: Boolean },
   },
   components: {
-    SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain, QTooltip,
+    SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain,
   },
 }
 </script>

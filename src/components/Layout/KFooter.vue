@@ -1,5 +1,5 @@
 <template>
-  <div class="footer bg-neutral font-primary">
+  <div class="footer bg-grey-3 font-primary">
     <div class="k-footer-inner footer-max-width row generic-padding">
       <div class="k-logo-container generic-padding col-md-4">
         <img

@@ -41,14 +41,14 @@ export default {
   actions: {
     ...withMeta({
       async fetchFiltered ({ state, dispatch, commit }, { filters, scope }) {
-        // only clear and refetch if scope changed
+        // only clear if scope changed
         const {type, id} = state.idListScope
         if (scope.type !== type || scope.id !== id) {
           dispatch('clear')
           commit('setScope', scope)
-          const data = await historyAPI.list(filters)
-          commit('update', { entries: data.results, cursor: data.next })
         }
+        const data = await historyAPI.list(filters)
+        commit('update', { entries: data.results, cursor: data.next })
       },
       async fetchById ({ commit, state }, id) {
         // add entry by ID, not add to list

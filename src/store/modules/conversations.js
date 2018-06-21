@@ -156,10 +156,6 @@ export default {
         })
       },
 
-      async fetchConversation ({ commit }, conversationId) {
-        commit('setConversation', { conversation: await conversationsAPI.get(conversationId) })
-      },
-
       async mark ({ dispatch }, { id, seenUpTo }) {
         await conversationsAPI.mark(id, { seenUpTo })
       },
@@ -251,6 +247,13 @@ export default {
       if (existing && existing.updatedAt <= conversation.updatedAt) {
         commit('setConversation', { conversation })
       }
+    },
+
+    refresh ({ state, dispatch }) {
+      Object.values(state.entries).forEach(async conversation => {
+        await dispatch('updateConversation', await conversationsAPI.get(conversation.id))
+        dispatch('fetch', conversation.id)
+      })
     },
   },
   mutations: {

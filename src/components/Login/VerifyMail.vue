@@ -11,7 +11,7 @@
     <router-link to="/">
       <q-btn
         v-t="'NOT_FOUND.HOME'"
-        icon-right="fa-home"
+        icon-right="fas fa-home"
         color="secondary"
         push
       />

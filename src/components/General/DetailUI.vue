@@ -215,10 +215,12 @@ export default {
   methods: {
     markRead (messageId) {
       if (!this.conversation) return
-      this.$emit('mark', {
-        id: this.conversation.id,
-        seenUpTo: messageId,
-      })
+      if (this.conversation.unreadMessageCount > 0) {
+        this.$emit('mark', {
+          id: this.conversation.id,
+          seenUpTo: messageId,
+        })
+      }
     },
     sendMessage (data) {
       this.$emit('send', {

@@ -22,6 +22,7 @@ const defaultProps = () => ({
     fetchStatus: { pending: false, hasValidationErrors: false },
     fetchMoreStatus: { pending: false, hasValidationErrors: false },
     canLoadMore: false,
+    unreadMessageCount: 1,
   },
   away: false,
 })

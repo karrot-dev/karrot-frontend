@@ -1,31 +1,11 @@
 import { dom } from 'quasar'
 import Vue from 'vue'
-import { configureQuasar } from '>/helpers'
+import { configureQuasar, useDesktopUserAgent, useMobileUserAgent } from '>/helpers'
 
 const { height } = dom
 
-Object.defineProperty(window.navigator, 'userAgent', (userAgent => {
-  return {
-    get () {
-      return userAgent
-    },
-    set (newVal) {
-      userAgent = newVal
-    },
-  }
-})(window.navigator.userAgent))
-
-const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
-const mobileUserAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A356 Safari/604.1'
-
 describe('detectMobileKeyboard', () => {
   let originalWindowAddEventListener, detectMobileKeyboard
-
-  function loadWithUserAgent (userAgent) {
-    window.navigator.userAgent = userAgent
-    configureQuasar(Vue)
-    detectMobileKeyboard = require('./detectMobileKeyboard').default
-  }
 
   beforeEach(() => {
     jest.resetModules()
@@ -33,6 +13,8 @@ describe('detectMobileKeyboard', () => {
     window.addEventListener = jest.fn().mockImplementation(function () {
       originalWindowAddEventListener.apply(window, arguments)
     })
+    configureQuasar(Vue)
+    detectMobileKeyboard = require('./detectMobileKeyboard').default
   })
 
   afterEach(() => {
@@ -40,7 +22,7 @@ describe('detectMobileKeyboard', () => {
   })
 
   describe('desktop', () => {
-    beforeEach(() => loadWithUserAgent(desktopUserAgent))
+    beforeEach(() => useDesktopUserAgent())
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })
@@ -56,7 +38,7 @@ describe('detectMobileKeyboard', () => {
   })
 
   describe('mobile', () => {
-    beforeEach(() => loadWithUserAgent(mobileUserAgent))
+    beforeEach(() => useMobileUserAgent())
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })

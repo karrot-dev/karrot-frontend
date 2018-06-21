@@ -167,7 +167,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">
@@ -229,7 +229,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">
@@ -1323,7 +1323,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
           </div>
@@ -1351,7 +1351,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
           </div>
@@ -1379,7 +1379,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
           </div>
@@ -1407,7 +1407,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
           </div>
@@ -1435,7 +1435,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
           </div>
@@ -1458,7 +1458,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 8:00 AM</div></span></div>
           </div>
@@ -1483,7 +1483,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
           </div>
@@ -1511,7 +1511,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
           </div>
@@ -1539,7 +1539,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:27 PM</div></span></div>
           </div>
@@ -1576,8 +1576,8 @@ exports[`Storyshots History List Default 1`] = `
 
 exports[`Storyshots Layout KFooter 1`] = `
 <div class="footer bg-grey-3 font-primary">
-  <div class="footer-max-width row generic-padding" style="margin-top:5em;">
-    <div class="generic-padding col-md-4" style="margin-top:-5em;text-align:center;">
+  <div class="k-footer-inner footer-max-width row generic-padding">
+    <div class="k-logo-container generic-padding col-md-4">
       <img src="~@/assets/carrot-logo.svg" class="shadow">
     </div>
     <div class="column col-md-4">
@@ -2255,6 +2255,7 @@ exports[`Storyshots PickupItem Full 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
+        <!---->
       </div>
       <div class="description multiline">this pickup is already full!
       </div>
@@ -2294,6 +2295,7 @@ exports[`Storyshots PickupItem Join 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+        <!---->
       </div>
       <div class="description multiline">you can join this pickup
       </div>
@@ -2346,6 +2348,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
+        <a href="#"><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></a>
       </div>
       <div class="description multiline">you are collector and can leave this pickup
       </div>
@@ -2396,6 +2399,7 @@ exports[`Storyshots PickupItem pending 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+        <!---->
       </div>
       <div class="description multiline">you can join this pickup
       </div>
@@ -2437,6 +2441,7 @@ exports[`Storyshots PickupItem pending 1`] = `
 
 exports[`Storyshots PickupList Default 1`] = `
 <div><span name="slide-toggle" tag="div"><div class="q-card"><div class="q-card-main q-card-container row no-padding justify-between content"><div class="column padding full-width"><div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+  <!---->
 </div>
 <div class="description multiline">you can join this pickup
 </div>
@@ -2486,6 +2491,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
+        <a href="#"><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></a>
       </div>
       <div class="description multiline">you are collector and can leave this pickup
       </div>
@@ -2533,6 +2539,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
+        <!---->
       </div>
       <div class="description multiline">this pickup is already full!
       </div>
@@ -2569,6 +2576,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
+        <!---->
       </div>
       <div class="description multiline">this pickup is fresh and empty
       </div>
@@ -3230,7 +3238,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                           </div>
                           <!---->
                         </div>
-                        <small class="row group pull-right light-paragraph">
+                        <small class="row group pull-right text-weight-light">
                           <b>**bold**</b>
                           <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                           <a href="https://guides.github.com/features/mastering-markdown/">
@@ -4115,7 +4123,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
           <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
           <!---->
         </div>
-        <small class="light-paragraph">
+        <small class="text-weight-light">
           <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   4 months ago<span class="q-tooltip animate-popup"><div>Aug 11, 2017, 3:43 PM</div></span></div>
       </span>
@@ -4156,7 +4164,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
               <!---->
             </div>
-            <small class="light-paragraph">
+            <small class="text-weight-light">
               <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   4 months ago<span class="q-tooltip animate-popup"><div>Aug 11, 2017, 3:43 PM</div></span></div>
           </span>
@@ -4191,7 +4199,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
             <!---->
           </div>
-          <small class="light-paragraph">
+          <small class="text-weight-light">
             <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 11, 2017, 3:40 PM</div></span></div>
         </span>
@@ -4225,7 +4233,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
           <!---->
         </div>
-        <small class="light-paragraph">
+        <small class="text-weight-light">
           <a place="user"><span>Max Mustermann</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 18, 2017, 12:12 PM</div></span></div>
       </span>
@@ -4439,7 +4447,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
                   <!---->
                 </div>
-                <small class="light-paragraph">
+                <small class="text-weight-light">
                   <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   4 months ago<span class="q-tooltip animate-popup"><div>Aug 11, 2017, 3:43 PM</div></span></div>
               </span>
@@ -4474,7 +4482,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
                 <!---->
               </div>
-              <small class="light-paragraph">
+              <small class="text-weight-light">
                 <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 11, 2017, 3:40 PM</div></span></div>
             </span>
@@ -4508,7 +4516,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
               <!---->
             </div>
-            <small class="light-paragraph">
+            <small class="text-weight-light">
               <a place="user"><span>Max Mustermann</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 18, 2017, 12:12 PM</div></span></div>
           </span>
@@ -4694,7 +4702,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">
@@ -4929,7 +4937,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">

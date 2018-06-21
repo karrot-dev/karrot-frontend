@@ -28,6 +28,7 @@ const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
 const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
+const MobileDetail = () => import('@/pages/MobileDetail')
 
 export default [
   {
@@ -284,6 +285,22 @@ export default [
             name: 'storePickups',
             path: 'pickups',
             component: StorePickups,
+          },
+          {
+            name: 'pickupDetail',
+            path: 'pickups/:pickupId/detail',
+            meta: {
+              requiredLoggedIn: true,
+              breadcrumbs: [
+                { translation: 'GROUP.PICKUP' },
+              ],
+              beforeEnter: 'detail/routeEnter',
+              afterLeave: 'detail/routeLeave',
+            },
+            components: {
+              // On desktop will get redirected inside "detail/routeEnter" action
+              default: MobileDetail,
+            },
           },
           {
             name: 'storePickupsManage',

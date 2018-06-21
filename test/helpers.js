@@ -7,6 +7,28 @@ import i18n from '@/i18n'
 
 Vue.use(Vuex)
 
+Object.defineProperty(window.navigator, 'userAgent', (userAgent => {
+  return {
+    get () {
+      return userAgent
+    },
+    set (newVal) {
+      userAgent = newVal
+    },
+  }
+})(window.navigator.userAgent))
+
+const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
+const mobileUserAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A356 Safari/604.1'
+
+export function useDesktopUserAgent () {
+  window.navigator.userAgent = desktopUserAgent
+}
+
+export function useMobileUserAgent () {
+  window.navigator.userAgent = mobileUserAgent
+}
+
 export function createStore (mods, { debug = false } = {}) {
   let modules = {}
   for (let key of Object.keys(mods)) {

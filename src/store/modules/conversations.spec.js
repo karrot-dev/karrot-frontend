@@ -23,13 +23,13 @@ describe('conversations', () => {
       oneHourAgo = new Date()
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
-      initialConversation = { id: 1, updatedAt: oneHourAgo }
+      initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
       await store.dispatch('conversations/setActive', initialConversation)
     })
 
     it('updates the conversation', () => {
       const now = new Date()
-      const newConversation = { id: 1, updatedAt: now }
+      const newConversation = { id: 1, updatedAt: now, participants: [] }
       store.dispatch('conversations/updateConversation', newConversation)
       expect(store.getters['conversations/activeConversation']).toEqual(newConversation)
     })
@@ -37,12 +37,12 @@ describe('conversations', () => {
     it('does not update the conversation if data is old', () => {
       const old = new Date(oneHourAgo.valueOf())
       old.setHours(old.getHours() - 1)
-      store.dispatch('conversations/updateConversation', { id: 1, updatedAt: old })
+      store.dispatch('conversations/updateConversation', { id: 1, updatedAt: old, participants: [] })
       expect(store.getters['conversations/activeConversation']).toEqual(initialConversation)
     })
 
     it('ignores unknown conversation updates', () => {
-      store.dispatch('conversations/updateConversation', { id: 2, updatedAt: oneHourAgo })
+      store.dispatch('conversations/updateConversation', { id: 2, updatedAt: oneHourAgo, participants: [] })
       expect(store.getters['conversations/activeConversation']).toEqual(initialConversation)
     })
   })
@@ -53,7 +53,7 @@ describe('conversations', () => {
       oneHourAgo = new Date()
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
-      initialConversation = { id: 1, updatedAt: oneHourAgo }
+      initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
       await store.dispatch('conversations/setActive', initialConversation)
     })
 

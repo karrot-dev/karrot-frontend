@@ -32,7 +32,7 @@ describe('ProfileEdit', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
     wrapper.vm.edit.displayName = 'a new name'
     expect(wrapper.vm.hasChanged).toBe(true)
-    return Vue.nextTick(() => {
+    return Vue.nextTick().then(() => {
       expect(wrapper.classes()).toContain('changed')
     })
   })

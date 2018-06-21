@@ -25,7 +25,7 @@
         <slot />
         <small
           v-if="!$q.platform.is.mobile && tab === 'edit'"
-          class="row group pull-right light-paragraph"
+          class="row group pull-right text-weight-light"
         >
           <b>**{{ $t('MARKDOWN_INPUT.BOLD') }}**</b>
           <i>_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</i>

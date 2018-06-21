@@ -48,6 +48,17 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
+    get: (state, getters, rootState, rootGetters) => conversationId => {
+      const canLoadMore = typeof state.cursors[conversationId] === 'string'
+      const conversation = getters.enrichConversation(state.entries[conversationId])
+      const messages = (state.messages[conversationId] || []).map(getters.enrichMessage)
+      return {
+        ...conversation,
+        messages,
+        canLoadMore,
+        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchMore'], conversationId),
+      }
+    },
     enrichReactions: (state, getters, rootState, rootGetters) => reactions => {
       if (!reactions || !reactions.length) return []
       const groupedReactions = reactions.reduce((acc, reaction) => {
@@ -79,17 +90,24 @@ export default {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
-        isUnread: isUnread(message, getters.activeConversation),
+        isUnread: isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.updatedAt, message.createdAt) > 10,
+      }
+    },
+    enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
+      if (!conversation) return
+      return {
+        ...conversation,
+        participants: conversation.participants.map(rootGetters['users/get']),
       }
     },
     activeMessages: (state, getters) => {
       return (state.messages[state.activeConversationId] || []).map(getters.enrichMessage)
     },
-    activeConversation: state => {
+    activeConversation: (state, getters) => {
       if (!state.activeConversationId) return
-      return state.entries[state.activeConversationId]
+      return getters.enrichConversation(state.entries[state.activeConversationId])
     },
     active: (state, getters) => {
       const id = state.activeConversationId
@@ -138,8 +156,14 @@ export default {
         })
       },
 
+      async fetchConversation ({ commit }, conversationId) {
+        commit('setConversation', { conversation: await conversationsAPI.get(conversationId) })
+      },
+
       async mark ({ dispatch }, { id, seenUpTo }) {
-        await conversationsAPI.mark(id, { seenUpTo })
+        if (id) {
+          await conversationsAPI.mark(id, { seenUpTo })
+        }
       },
 
       async toggleEmailNotifications ({ commit }, { conversationId, value }) {
@@ -168,20 +192,21 @@ export default {
       }
     },
 
-    async toggleReaction ({ state, commit, rootGetters }, { name, messageId }) {
+    async toggleReaction ({ state, commit, rootGetters }, { conversationId, messageId, name }) {
+      if (!conversationId) conversationId = state.activeConversationId
       // current user's id
       const userId = rootGetters['auth/userId']
       // see if the reaction already exists or not
-      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+      const message = state.messages[conversationId].find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
 
       if (reactionIndex === -1) {
         const addedReaction = await reactionsAPI.create(messageId, name)
-        commit('addReaction', { messageId, name: addedReaction.name, userId })
+        commit('addReaction', { conversationId, messageId, name: addedReaction.name, userId })
       }
       else {
         await reactionsAPI.remove(messageId, name)
-        commit('removeReaction', { messageId, name, userId })
+        commit('removeReaction', { conversationId, messageId, name, userId })
       }
     },
 
@@ -206,6 +231,10 @@ export default {
       commit('setActive', { conversationId: conversation.id })
       commit('setConversation', { conversation })
       await dispatch('fetch', conversation.id)
+    },
+
+    clearConversation ({ commit }, conversationId) {
+      commit('clearConversation', { conversationId })
     },
 
     clearActive ({ commit }) {
@@ -240,6 +269,10 @@ export default {
     clearActive (state) {
       state.activeConversationId = null
     },
+    clearConversation (state, { conversationId }) {
+      Vue.delete(state.entries, conversationId)
+      Vue.delete(state.messages, conversationId)
+    },
     updateMessages (state, { conversationId, messages }) {
       if (!state.messages[conversationId]) {
         Vue.set(state.messages, conversationId, messages)
@@ -257,7 +290,7 @@ export default {
           stateMessages.push(message)
         }
         else if (stateMessages[i].id === message.id) {
-          stateMessages[i] = message
+          Vue.set(stateMessages, i, message)
         }
         else {
           stateMessages.splice(i, 0, message)
@@ -273,12 +306,12 @@ export default {
     updateEmailNotifications (state, { conversationId, value }) {
       state.entries[conversationId].emailNotifications = value
     },
-    addReaction (state, { userId, name, messageId }) {
-      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+    addReaction (state, { userId, name, messageId, conversationId }) {
+      const message = state.messages[conversationId].find(message => message.id === messageId)
       message.reactions.push({ user: userId, name })
     },
-    removeReaction (state, { userId, name, messageId }) {
-      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+    removeReaction (state, { userId, name, messageId, conversationId }) {
+      const message = state.messages[conversationId].find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
       message.reactions.splice(reactionIndex, 1)
     },

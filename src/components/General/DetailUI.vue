@@ -38,17 +38,21 @@
             @click="$emit('close')"
           />
         </q-toolbar>
-        <div class="k-participant-list">
-          <div
-            v-for="participant in conversation.participants"
-            :key="participant.id"
-            class="k-participant"
-          >
+        <div class="k-participant-list row">
+          <div class="col">
             <ProfilePicture
+              v-for="participant in conversation.participants"
+              :key="participant.id"
+              class="k-participant"
               :user="participant"
               :size="40"
             />
           </div>
+          <NotificationToggle
+            :value="conversation.emailNotifications"
+            :user="user"
+            @click="toggleNotifications"
+          />
         </div>
       </div>
       <div class="col bar relative-position">
@@ -96,6 +100,7 @@ import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import ConversationMessage from '@/components/Conversation/ConversationMessage'
 import ConversationCompose from '@/components/Conversation/ConversationCompose'
 import RandomArt from '@/components/General/RandomArt'
+import NotificationToggle from '@/components/Conversation/NotificationToggle'
 import {
   scroll,
   QBtn,
@@ -119,6 +124,7 @@ export default {
     ConversationMessage,
     ConversationCompose,
     ProfilePicture,
+    NotificationToggle,
     RandomArt,
     QBtn,
     QInfiniteScroll,
@@ -226,8 +232,8 @@ export default {
     },
     toggleNotifications () {
       this.$emit('toggleEmailNotifications', {
-        conversationId: this.data.id,
-        value: !this.data.emailNotifications,
+        conversationId: this.conversation.id,
+        value: !this.conversation.emailNotifications,
       })
     },
     saveScrollPosition () {

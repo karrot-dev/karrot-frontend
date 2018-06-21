@@ -10,35 +10,12 @@
         <q-list
           class="bg-white desktop-margin"
         >
-          <q-btn
-            v-if="user && !user.mailVerified"
+          <NotificationToggle
+            :value="data.emailNotifications"
+            :user="user"
             class="actionButton hoverScale"
-            round
-            color="negative"
-            :to="{ name: 'settings', hash: '#change-email' }"
-          >
-            <q-icon
-              name="fas fa-exclamation-triangle"
-            />
-            <q-tooltip v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'" />
-          </q-btn>
-          <q-btn
-            v-else
-            class="actionButton hoverScale"
-            round
-            :color="data.emailNotifications ? 'secondary' : 'negative'"
             @click="toggleNotifications"
-          >
-            <q-icon
-              v-if="data.emailNotifications === true"
-              name="fas fa-bell"
-            />
-            <q-icon
-              v-else
-              name="fas fa-bell-slash"
-            />
-            <q-tooltip v-t="data.emailNotifications ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'" />
-          </q-btn>
+          />
           <ConversationCompose
             :status="data.sendStatus"
             @submit="$emit('send', arguments[0])"
@@ -82,21 +59,21 @@
 <script>
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
-import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem, QIcon, QTooltip } from 'quasar'
+import NotificationToggle from './NotificationToggle'
+import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem } from 'quasar'
 
 export default {
   name: 'Conversation',
   components: {
     ConversationMessage,
     ConversationCompose,
+    NotificationToggle,
     QBtn,
     QInfiniteScroll,
     QSpinnerDots,
     QList,
     QAlert,
     QItem,
-    QIcon,
-    QTooltip,
   },
   props: {
     data: {

@@ -167,13 +167,9 @@ export default {
         return this.$t('WALL.WRITE_FIRST_MESSAGE')
       }
     },
-    data () {
-      return this.conversation
-    },
     reversedMessages () {
       if (!this.conversation) return []
-      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      return [...this.conversation.messages].reverse()
+      return this.conversation.messages.slice(0).reverse()
     },
     fetchingMore () {
       return this.conversation.fetchMoreStatus.pending
@@ -181,7 +177,7 @@ export default {
   },
   watch: {
     away (away) {
-      if (!this.away) this.markRead(this.newestMessageId)
+      if (!away) this.markRead(this.newestMessageId)
     },
     hasLoaded (hasLoaded) {
       if (hasLoaded) this.scrollToBottom()

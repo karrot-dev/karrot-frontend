@@ -71,6 +71,7 @@
               :key="message.id"
               :message="message"
               @toggleReaction="$emit('toggleReaction', arguments[0])"
+              @save="$emit('saveMessage', arguments[0])"
             />
             <ConversationCompose
               ref="compose"

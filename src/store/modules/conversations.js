@@ -156,8 +156,14 @@ export default {
         })
       },
 
+      async fetchConversation ({ commit }, conversationId) {
+        commit('setConversation', { conversation: await conversationsAPI.get(conversationId) })
+      },
+
       async mark ({ dispatch }, { id, seenUpTo }) {
-        await conversationsAPI.mark(id, { seenUpTo })
+        if (id) {
+          await conversationsAPI.mark(id, { seenUpTo })
+        }
       },
 
       async toggleEmailNotifications ({ commit }, { conversationId, value }) {

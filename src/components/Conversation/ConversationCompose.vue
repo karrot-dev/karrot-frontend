@@ -1,6 +1,6 @@
 <template>
   <q-item multiline>
-    <q-item-side>
+    <q-item-side v-if="!slim">
       <ProfilePicture
         :user="user"
         :size="40"
@@ -51,6 +51,10 @@ export default {
     value: {
       type: String,
       default: null,
+    },
+    slim: {
+      type: Boolean,
+      default: false,
     },
   },
   data () {

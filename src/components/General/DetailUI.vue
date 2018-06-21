@@ -70,12 +70,14 @@
               v-for="message in reversedMessages"
               :key="message.id"
               :message="message"
+              slim
               @toggleReaction="$emit('toggleReaction', arguments[0])"
               @save="$emit('saveMessage', arguments[0])"
             />
             <ConversationCompose
               ref="compose"
               :status="conversation.sendStatus"
+              slim
               @submit="sendMessage"
               :placeholder="messagePrompt"
               :user="user"

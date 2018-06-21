@@ -25,7 +25,7 @@
               </q-icon>
             </router-link>
           </div>
-          <small class="light-paragraph">
+          <small class="text-weight-light">
             <router-link
               place="user"
               :to="{ name: 'user', params: { userId } }">

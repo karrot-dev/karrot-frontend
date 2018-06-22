@@ -185,7 +185,6 @@ function getRootDefs () {
     }
     rootDefs = rootSVG.querySelector('defs')
     if (!rootDefs) {
-      console.log('creating rootDefs...')
       rootDefs = document.createElementNS(SVGNS, 'defs')
       rootSVG.appendChild(rootDefs)
     }

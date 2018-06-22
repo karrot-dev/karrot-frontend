@@ -21,6 +21,6 @@ describe('DateAsWords', () => {
     // text
     expect(wrapper.text()).toContain('less than a minute ago')
     // tooltip
-    expect(wrapper.text()).toContain('Aug 11, 2017')
+    expect(wrapper.element.title).toBe('Aug 11, 2017, 12:00 PM')
   })
 })

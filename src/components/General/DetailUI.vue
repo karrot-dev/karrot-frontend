@@ -169,7 +169,7 @@ export default {
     },
     reversedMessages () {
       if (!this.conversation) return []
-      return this.conversation.messages.slice(0).reverse()
+      return this.conversation.messages.slice().reverse()
     },
     fetchingMore () {
       return this.conversation.fetchMoreStatus.pending

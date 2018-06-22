@@ -1,5 +1,6 @@
 <template>
   <SidenavBox
+    v-if="storeId"
     @toggle="$emit('toggleBox')"
     :expanded="expanded"
   >
@@ -61,7 +62,7 @@ import StoreOptions from './StoreOptions'
 
 export default {
   props: {
-    storeId: { required: true, type: Number },
+    storeId: { default: null, type: Number },
     expanded: { default: true, type: Boolean },
   },
   components: {

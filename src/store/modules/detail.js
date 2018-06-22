@@ -28,7 +28,7 @@ export default {
   },
   actions: {
     async routeEnter ({ dispatch }, { groupId, storeId, pickupId, routeTo }) {
-      dispatch('selectPickup', { pickupId })
+      await dispatch('selectPickup', { pickupId })
       if (!Platform.is.mobile) {
         // On desktop we don't have a pickup detail page, we go to the store page, and have a sidebar open
         throw createRouteRedirect({ name: 'store', params: { groupId, storeId }, query: routeTo.query })
@@ -40,10 +40,12 @@ export default {
     async selectPickup ({ commit, dispatch }, { pickupId }) {
       const [conversation] = await Promise.all([
         pickupsAPI.conversation(pickupId),
-        dispatch('pickups/fetch', pickupId, { root: true }),
+        dispatch('pickups/maybeFetch', pickupId, { root: true }),
       ])
-      dispatch('conversations/fetchConversation', conversation.id, { root: true })
-      dispatch('conversations/fetch', conversation.id, { root: true }) // gets the messages
+      await Promise.all([
+        dispatch('conversations/fetchConversation', conversation.id, { root: true }),
+        dispatch('conversations/fetch', conversation.id, { root: true }), // gets the messages
+      ])
       commit('setPickupId', pickupId)
       commit('setConversationId', conversation.id)
     },

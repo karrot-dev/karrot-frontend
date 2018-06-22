@@ -1,3 +1,5 @@
+jest.mock('@/store/plugins/i18n')
+
 import Wall from './Wall'
 import { currentUserMock } from '>/mockdata'
 
@@ -26,6 +28,6 @@ describe('Wall', () => {
     let wrapper = mountWithDefaults(Wall, {
       propsData: defaultProps,
     })
-    expect(wrapper.element.className).toBe('wrapper')
+    expect(wrapper.element.children[0].className).toBe('wrapper')
   })
 })

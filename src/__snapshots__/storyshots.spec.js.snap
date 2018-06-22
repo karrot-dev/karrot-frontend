@@ -86,7 +86,7 @@ exports[`Storyshots General Components Search 1`] = `
       </div>
       <!---->
     </div>
-    <!---->
+    <i aria-hidden="true" class="q-icon q-if-control material-icons hidden">cancel</i>
   </div>
 </div>
 `;
@@ -167,7 +167,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">
@@ -229,7 +229,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">
@@ -1215,9 +1215,7 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
     <div class="q-card-separator"></div>
     <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
-          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="0" type="submit" value="true" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
-            Join
-          </div></button></form></span>
+          </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle disabled bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat"><circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle></svg></div></button></form></span>
       <!---->
     </div>
   </div>
@@ -1265,6 +1263,7 @@ exports[`Storyshots GroupSettings show 1`] = `
   </div>
   <div class="q-list q-list-link">
     <div class="q-list-header">Email notifications</div>
+    <VerificationWarning class="generic-margin"></VerificationWarning>
     <label class="q-item q-item-division relative-position">
       <div class="q-item-side q-item-section q-item-side-left">
         <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
@@ -1324,7 +1323,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
           </div>
@@ -1352,7 +1351,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
           </div>
@@ -1380,7 +1379,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:15 AM</div></span></div>
           </div>
@@ -1408,7 +1407,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
           </div>
@@ -1436,7 +1435,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 9:12 AM</div></span></div>
           </div>
@@ -1459,7 +1458,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 2, 2017, 8:00 AM</div></span></div>
           </div>
@@ -1484,7 +1483,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
           </div>
@@ -1512,7 +1511,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:28 PM</div></span></div>
           </div>
@@ -1540,7 +1539,7 @@ exports[`Storyshots History List Default 1`] = `
           <div><span class="content">
           did something
         </span></div>
-          <div class="mobile-only light-paragraph q-item-stamp">
+          <div class="mobile-only text-weight-light q-item-stamp">
             <div>
               3 months ago<span class="q-tooltip animate-popup"><div>Oct 1, 2017, 4:27 PM</div></span></div>
           </div>
@@ -1576,9 +1575,9 @@ exports[`Storyshots History List Default 1`] = `
 `;
 
 exports[`Storyshots Layout KFooter 1`] = `
-<div class="footer bg-neutral font-primary">
-  <div class="footer-max-width row generic-padding" style="margin-top:5em;">
-    <div class="generic-padding col-md-4" style="margin-top:-5em;text-align:center;">
+<div class="footer bg-grey-3 font-primary">
+  <div class="k-footer-inner footer-max-width row generic-padding">
+    <div class="k-logo-container generic-padding col-md-4">
       <img src="~@/assets/carrot-logo.svg" class="shadow">
     </div>
     <div class="column col-md-4">
@@ -1706,7 +1705,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
-      <i aria-hidden="true" class="q-icon fas fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
+      <i aria-hidden="true" class="q-icon fas fa-ellipsis-v"> </i>
       <div class="q-popover scroll">
         <div item-separator="" class="q-list q-list-link">
           <div class="q-item q-item-division relative-position q-item-link">
@@ -2256,6 +2255,7 @@ exports[`Storyshots PickupItem Full 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
+        <!---->
       </div>
       <div class="description multiline">this pickup is already full!
       </div>
@@ -2295,6 +2295,7 @@ exports[`Storyshots PickupItem Join 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+        <!---->
       </div>
       <div class="description multiline">you can join this pickup
       </div>
@@ -2347,6 +2348,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
+        <a href="#"><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></a>
       </div>
       <div class="description multiline">you are collector and can leave this pickup
       </div>
@@ -2397,6 +2399,7 @@ exports[`Storyshots PickupItem pending 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+        <!---->
       </div>
       <div class="description multiline">you can join this pickup
       </div>
@@ -2438,6 +2441,7 @@ exports[`Storyshots PickupItem pending 1`] = `
 
 exports[`Storyshots PickupList Default 1`] = `
 <div><span name="slide-toggle" tag="div"><div class="q-card"><div class="q-card-main q-card-container row no-padding justify-between content"><div class="column padding full-width"><div><span class="featured-text">8:00 AM</span> Saturday, August 12, 2017
+  <!---->
 </div>
 <div class="description multiline">you can join this pickup
 </div>
@@ -2487,6 +2491,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
+        <a href="#"><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></a>
       </div>
       <div class="description multiline">you are collector and can leave this pickup
       </div>
@@ -2534,6 +2539,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Monday, August 14, 2017
+        <!---->
       </div>
       <div class="description multiline">this pickup is already full!
       </div>
@@ -2570,6 +2576,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Tuesday, August 15, 2017
+        <!---->
       </div>
       <div class="description multiline">this pickup is fresh and empty
       </div>
@@ -3231,7 +3238,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                           </div>
                           <!---->
                         </div>
-                        <small class="row group pull-right light-paragraph">
+                        <small class="row group pull-right text-weight-light">
                           <b>**bold**</b>
                           <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                           <a href="https://guides.github.com/features/mastering-markdown/">
@@ -3467,25 +3474,7 @@ exports[`Storyshots Settings Page Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Settings Page verification warning 1`] = `
-<div>
-  <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
-    <div class="q-alert-side col-auto row flex-center">
-      <i aria-hidden="true" class="q-icon fas fa-exclamation-triangle"> </i>
-    </div>
-    <div class="q-alert-content col self-center">
-      <div>
-        <p>
-          current@user.de not verified
-        </p> <span>Please check your emails or <a place="resend" class="underline">
-      resend verification email
-    </a></span>
-        <!---->
-      </div>
-    </div>
-  </div>
-</div>
-`;
+exports[`Storyshots Settings Page verification warning 1`] = `<!---->`;
 
 exports[`Storyshots Sidenav Boxes Group 1`] = `
 <div class="q-card no-shadow grey-border">
@@ -3501,7 +3490,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
       <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i> <span class="q-tooltip animate-popup"><div></div></span>
+          <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i>
           <div class="q-popover scroll">
             <div item-separator="" class="q-list q-list-link">
               <!---->
@@ -4134,7 +4123,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
           <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
           <!---->
         </div>
-        <small class="light-paragraph">
+        <small class="text-weight-light">
           <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   4 months ago<span class="q-tooltip animate-popup"><div>Aug 11, 2017, 3:43 PM</div></span></div>
       </span>
@@ -4175,7 +4164,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
               <!---->
             </div>
-            <small class="light-paragraph">
+            <small class="text-weight-light">
               <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   4 months ago<span class="q-tooltip animate-popup"><div>Aug 11, 2017, 3:43 PM</div></span></div>
           </span>
@@ -4210,7 +4199,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
             <!---->
           </div>
-          <small class="light-paragraph">
+          <small class="text-weight-light">
             <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 11, 2017, 3:40 PM</div></span></div>
         </span>
@@ -4244,7 +4233,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
           <!---->
         </div>
-        <small class="light-paragraph">
+        <small class="text-weight-light">
           <a place="user"><span>Max Mustermann</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 18, 2017, 12:12 PM</div></span></div>
       </span>
@@ -4458,7 +4447,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
                   <!---->
                 </div>
-                <small class="light-paragraph">
+                <small class="text-weight-light">
                   <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   4 months ago<span class="q-tooltip animate-popup"><div>Aug 11, 2017, 3:43 PM</div></span></div>
               </span>
@@ -4493,7 +4482,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
                 <!---->
               </div>
-              <small class="light-paragraph">
+              <small class="text-weight-light">
                 <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 11, 2017, 3:40 PM</div></span></div>
             </span>
@@ -4527,7 +4516,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
               <!---->
             </div>
-            <small class="light-paragraph">
+            <small class="text-weight-light">
               <a place="user"><span>Max Mustermann</span></a> <span place="date" class="message-date"><div>
   3 months ago<span class="q-tooltip animate-popup"><div>Sep 18, 2017, 12:12 PM</div></span></div>
           </span>
@@ -4713,7 +4702,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">
@@ -4948,7 +4937,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right light-paragraph">
+                      <small class="row group pull-right text-weight-light">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
                         <a href="https://guides.github.com/features/mastering-markdown/">
@@ -5115,7 +5104,7 @@ exports[`Storyshots VerifyMail error 1`] = `
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon on-right material-icons">fa-home</i>
+        <i aria-hidden="true" class="q-icon on-right fas fa-home"> </i>
       </div>
     </button>
   </a>
@@ -5133,7 +5122,7 @@ exports[`Storyshots VerifyMail pending 1`] = `
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon on-right material-icons">fa-home</i>
+        <i aria-hidden="true" class="q-icon on-right fas fa-home"> </i>
       </div>
     </button>
   </a>
@@ -5151,7 +5140,7 @@ exports[`Storyshots VerifyMail success 1`] = `
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon on-right material-icons">fa-home</i>
+        <i aria-hidden="true" class="q-icon on-right fas fa-home"> </i>
       </div>
     </button>
   </a>

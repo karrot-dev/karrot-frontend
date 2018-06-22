@@ -1,6 +1,6 @@
 <template>
   <q-item multiline>
-    <q-item-side>
+    <q-item-side v-if="!slim">
       <ProfilePicture
         :user="user"
         :size="40"
@@ -15,6 +15,7 @@
           <q-input
             type="textarea"
             rows="1"
+            autofocus
             v-model="message"
             :placeholder="placeholder"
             :after="afterInput"
@@ -50,6 +51,10 @@ export default {
     value: {
       type: String,
       default: null,
+    },
+    slim: {
+      type: Boolean,
+      default: false,
     },
   },
   data () {

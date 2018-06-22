@@ -1,5 +1,8 @@
 <template>
-  <q-card :class="{ full: pickup.isFull }">
+  <q-card
+    :class="{ full: pickup.isFull }"
+    @click.native.stop="detailIfMember"
+  >
     <q-card-main
       class="row no-padding justify-between content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }"
@@ -7,15 +10,30 @@
       <div class="column padding full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
-          <template v-if="!storeLink">
-            {{ $d(pickup.date, 'dateLongWithDayName') }}
-          </template>
-          <template v-else>
+          <template v-if="storeLink">
             <strong v-if="pickup.store">
               <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
                 {{ pickup.store.name }}
               </router-link>
             </strong> {{ $d(pickup.date, 'dateWithDayName') }}
+          </template>
+          <template v-else>
+            {{ $d(pickup.date, 'dateLongWithDayName') }}
+          </template>
+          <template v-if="pickup.isUserMember">
+            <router-link
+              v-if="$q.platform.is.mobile"
+              :to="{ name: 'pickupDetail', params: { storeId: pickup.store.id, pickupId: pickup.id }}"
+            >
+              <strong>{{ $t('CONVERSATION.OPEN') }} <q-icon name="chat" /></strong>
+            </router-link>
+            <a
+              v-else
+              href="#"
+              @click.stop="$emit('detail', { pickupId: pickup.id })"
+            >
+              <strong>{{ $t('CONVERSATION.OPEN') }} <q-icon name="chat" /></strong>
+            </a>
           </template>
         </div>
         <div
@@ -41,7 +59,8 @@
 </template>
 
 <script>
-import { Dialog, QCard, QCardMain, QBtn } from 'quasar'
+import { Dialog, QCard, QCardMain, QBtn, QIcon } from 'quasar'
+import router from '@/router'
 import PickupUsers from './PickupUsers'
 
 export default {
@@ -56,7 +75,7 @@ export default {
     },
   },
   components: {
-    QCard, QCardMain, QBtn, PickupUsers,
+    QCard, QCardMain, QBtn, QIcon, PickupUsers,
   },
   methods: {
     join () {
@@ -78,6 +97,16 @@ export default {
       })
         .then(() => this.$emit('leave', this.pickup.id))
         .catch(() => {})
+    },
+    detailIfMember (event) {
+      if (!this.pickup.isUserMember) return
+      if (event.target.closest('a')) return // ignore actual links
+      if (this.$q.platform.is.mobile) {
+        router.push({name: 'pickupDetail', params: { storeId: this.pickup.store.id, pickupId: this.pickup.id }})
+      }
+      else {
+        this.$emit('detail', { pickupId: this.pickup.id })
+      }
     },
   },
 }
@@ -114,4 +143,5 @@ $lighterGreen = #F0FFF0
   )
 .content.isUserMember
   background linear-gradient(to right, $lightGreen, $lighterGreen)
+  cursor pointer
 </style>

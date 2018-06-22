@@ -17,6 +17,7 @@ import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
 import deleteAccount from './modules/deleteAccount'
+import detail from './modules/detail'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 import feedback from './modules/feedback'
 import groups from './modules/groups'
@@ -52,6 +53,7 @@ export default new Vuex.Store({
     conversations,
     currentGroup,
     deleteAccount,
+    detail,
     fcm,
     feedback,
     groups,

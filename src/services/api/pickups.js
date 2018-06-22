@@ -1,4 +1,5 @@
 import axios, { parseCursor } from '@/services/axios'
+import { convert as convertConversation } from '@/services/api/conversations'
 
 export default {
 
@@ -50,6 +51,10 @@ export default {
 
   async leave (pickupId) {
     return convert((await axios.post(`/api/pickup-dates/${pickupId}/remove/`, {})).data)
+  },
+
+  async conversation (pickupId) {
+    return convertConversation((await axios.get(`/api/pickup-dates/${pickupId}/conversation/`)).data)
   },
 
 }

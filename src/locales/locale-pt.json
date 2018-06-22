@@ -43,7 +43,6 @@
     "LEAVE": "Sair",
     "PREVIEW": "Visualizar",
     "BACK": "Voltar",
-    "MORE_OPTIONS": "Mais opções",
     "SEARCH": "Buscar",
     "OF_COURSE": "Sim, com certeza!",
     "YES": "Sim",
@@ -272,6 +271,8 @@
     "HEADER": "Agradecemos sua coleta!",
     "EDIT": "Editar seu comentário",
     "SUBTITLE": "Você pode deixar um comentário sobre a sua coleta aqui!",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Total de comida que você conseguiu salvar (em kg)",
     "COMMENT": "Comentário",
     "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Deixe seu comentário aqui...",
@@ -333,8 +334,8 @@
     "CHECK_YOUR_MAILS": "Por favor verifique seu email ou {resend}",
     "RESEND_VERIFICATION": "envie a verificação mais uma vez",
     "VERIFICATION_EMAIL_SENT": "Nós enviamos outra verificação para seu e-mail. Por favor, verifique a sua caixa de entrada.",
-    "CHANGES_SAVED": "Your changes have been saved.",
-    "CHANGES_ERROR": "An error occured. Try again later."
+    "CHANGES_SAVED": "Suas modificações foram salvas.",
+    "CHANGES_ERROR": "Erro. Tente outra vez mais tarde."
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Você esta utilizando um navegador sem suporte a nossa plataforma. {upgradeBrowser} e aproveite.",
@@ -382,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Você tem uma mensagem não lida. | Você tem {count} mensagens não lidas.",
+    "EDITED": "edited",
     "MARK_READ": "Marcar todas como lidas",
     "REACTIONS": {
       "YOU": "você",

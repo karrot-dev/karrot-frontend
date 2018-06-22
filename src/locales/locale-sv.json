@@ -43,7 +43,6 @@
     "LEAVE": "Lämna",
     "PREVIEW": "Förhandsvisning",
     "BACK": "Tillbaks",
-    "MORE_OPTIONS": "Se flera",
     "SEARCH": "Söka",
     "OF_COURSE": "Javisst!",
     "YES": "Ja",
@@ -272,6 +271,8 @@
     "HEADER": "Thank you for your pickup!",
     "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
@@ -382,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
+    "EDITED": "edited",
     "MARK_READ": "Markera alla som lästa",
     "REACTIONS": {
       "YOU": "du",

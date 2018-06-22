@@ -89,15 +89,22 @@ export default {
 
     }),
 
-    async select ({ commit, state, dispatch, getters, rootState, rootGetters }, { groupId }) {
+    async select ({ dispatch, getters, rootGetters }, { groupId }) {
       if (getters.id === groupId) return
 
       await dispatch('fetch', groupId)
       const hasError = getters['meta/status']('fetch', groupId).hasValidationErrors
       if (hasError) {
-        const groupExists = !!rootGetters['groups/get'](groupId)
-        const data = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
-        throw createRouteError(data)
+        const groupExists = Boolean(rootGetters['groups/get'](groupId))
+        if (groupExists) {
+          dispatch('toasts/show', {
+            message: 'GROUP.NONMEMBER_REDIRECT',
+            config: {
+              type: 'negative',
+            },
+          }, { root: true })
+        }
+        throw createRouteError({ redirect: { name: 'groupPreview', params: {groupPreviewId: groupId} } })
       }
 
       dispatch('pickups/clear', {}, { root: true })
@@ -129,6 +136,12 @@ export default {
       // update group values, do not replace group
       if (group.id === state.current.id) {
         commit('set', group)
+      }
+    },
+
+    refresh ({ state, dispatch }) {
+      if (state.current) {
+        dispatch('fetch', state.current.id)
       }
     },
   },

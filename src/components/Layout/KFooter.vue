@@ -1,13 +1,7 @@
 <template>
-  <div class="footer bg-neutral font-primary">
-    <div
-      style="margin-top: 5em"
-      class="footer-max-width row generic-padding"
-    >
-      <div
-        class="generic-padding col-md-4"
-        style="margin-top: -5em; text-align: center;"
-      >
+  <div class="footer bg-grey-3 font-primary">
+    <div class="k-footer-inner footer-max-width row generic-padding">
+      <div class="k-logo-container generic-padding col-md-4">
         <img
           class="shadow"
           src="~@/assets/carrot-logo.svg"
@@ -120,21 +114,25 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-  .footer
-    width: 100%
+.footer
+  width: 100%
+  margin: 0 auto
+  min-height 10em
+  img
+    height 10em
+    margin 0 1em 0em 0
+  .column div
+    margin .5em
+  .footer-max-width
+    max-width 60em
     margin: 0 auto
-    min-height 10em
-    img
-      height 10em
-      margin 0 1em 0em 0
-    .column div
-      margin .5em
-    .footer-max-width
-      max-width 60em
-      margin: 0 auto
-    .shadow
-      filter: drop-shadow(0px 1px 1px rgba(0,0,0,.7) )
-    @media (max-width: $breakpoint-sm)
-      text-align center
-
+  .shadow
+    filter: drop-shadow(0px 1px 1px rgba(0,0,0,.7) )
+  @media (max-width: $breakpoint-sm)
+    text-align center
+.k-footer-inner
+  margin-top 5em
+.k-logo-container
+  margin-top -5em
+  text-align center
 </style>

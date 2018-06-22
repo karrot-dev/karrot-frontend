@@ -43,7 +43,6 @@
     "LEAVE": "Leave",
     "PREVIEW": "Preview",
     "BACK": "Back",
-    "MORE_OPTIONS": "More options",
     "SEARCH": "Search",
     "OF_COURSE": "Yes, of course!",
     "YES": "Yes",
@@ -272,6 +271,8 @@
     "HEADER": "Thank you for your pickup!",
     "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
@@ -336,6 +337,10 @@
     "CHANGES_SAVED": "Your changes have been saved.",
     "CHANGES_ERROR": "An error occured. Try again later."
   },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"
@@ -378,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
+    "EDITED": "edited",
     "MARK_READ": "Mark all as read",
     "REACTIONS": {
       "YOU": "you",

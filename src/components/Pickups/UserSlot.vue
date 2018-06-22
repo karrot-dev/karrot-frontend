@@ -11,7 +11,7 @@
       :title="$t('PICKUPLIST.ITEM.JOIN')"
     >
       <ProfilePicture
-        @click.native="$emit('join')"
+        @click.native.stop="$emit('join')"
         :user="hoverUser"
         :size="size"
         :is-link="false"

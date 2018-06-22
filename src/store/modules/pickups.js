@@ -129,7 +129,7 @@ export default {
     update ({ state, commit, getters }, pickup) {
       // does it belong to the current group?
       const { store } = getters.enrich(pickup)
-      if (store && store.group === state.idListGroupId) {
+      if (store && store.group && store.group.id === state.idListGroupId) {
         commit('update', pickup)
       }
     },
@@ -153,7 +153,7 @@ export default {
     addFeedbackPossible ({ state, commit, getters }, pickup) {
       // does it belong to the current group?
       const store = getters.enrich(pickup).store
-      if (store.group === state.idListGroupId) {
+      if (store && store.group && store.group.id === state.idListGroupId) {
         commit('setFeedbackPossible', [pickup])
       }
     },

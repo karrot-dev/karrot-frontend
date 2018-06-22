@@ -19,7 +19,7 @@
         </q-item-tile>
         <q-item-tile
           stamp
-          class="mobile-only light-paragraph"
+          class="mobile-only text-weight-light"
         >
           <DateAsWords :date="entry.date" />
         </q-item-tile>

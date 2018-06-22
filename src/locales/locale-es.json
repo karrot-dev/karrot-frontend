@@ -43,7 +43,6 @@
     "LEAVE": "Salir",
     "PREVIEW": "Vista previa",
     "BACK": "Atrás",
-    "MORE_OPTIONS": "Más opciones",
     "SEARCH": "Buscar",
     "OF_COURSE": "Si, claro!",
     "YES": "Si",
@@ -272,6 +271,8 @@
     "HEADER": "Gracias por tu recogida!",
     "EDIT": "Editar comentarios",
     "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "La cantidad de comida que todos pudieron ahorrar (en kg)",
     "COMMENT": "Comentario",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
@@ -382,6 +383,7 @@
   },
   "CONVERSATION": {
     "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",
+    "EDITED": "edited",
     "MARK_READ": "marcar todo como leido",
     "REACTIONS": {
       "YOU": "you",

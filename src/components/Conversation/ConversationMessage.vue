@@ -6,7 +6,7 @@
     class="conversation-message"
     highlight
   >
-    <q-item-side>
+    <q-item-side v-if="!slim">
       <ProfilePicture
         :user="message.author"
         :size="40"
@@ -19,7 +19,7 @@
             <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
           </router-link>
           <span class="message-date">
-            <small class="light-paragraph">
+            <small class="text-weight-light">
               <DateAsWords :date="message.createdAt" />
             </small>
           </span>
@@ -102,6 +102,10 @@ export default {
       type: Object,
       required: true,
     },
+    slim: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
@@ -110,7 +114,11 @@ export default {
   },
   methods: {
     toggleReaction (name) {
-      this.$emit('toggleReaction', { name, messageId: this.message.id })
+      this.$emit('toggleReaction', {
+        conversationId: this.message.conversation,
+        messageId: this.message.id,
+        name,
+      })
     },
     toggleEdit () {
       this.editMode = !this.editMode

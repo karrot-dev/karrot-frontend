@@ -24,7 +24,7 @@
           color="secondary"
           push
           @click="$router.replace('/')"
-          icon-right="fa-home"
+          icon-right="fas fa-home"
         >
           {{ $t('NOT_FOUND.HOME') }}
         </q-btn>

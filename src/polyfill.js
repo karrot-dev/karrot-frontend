@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import locales, { intlLocale } from '@/locales'
 
+// Allows us to use someElement.closest(selector)
+import 'element-closest'
+
 export default new Vue({
   data () {
     return {

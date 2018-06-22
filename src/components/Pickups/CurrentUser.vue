@@ -1,6 +1,6 @@
 <template>
   <a
-    @click="$emit('leave')"
+    @click.stop="$emit('leave')"
     class="user-slot-wrapper"
     :style="{ width: size + 'px', height: size + 'px' }"
     :title="$t('PICKUPLIST.ITEM.LEAVE')"

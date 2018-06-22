@@ -6,19 +6,20 @@ export default store => {
   let getGroup = (id) => store.getters['groups/get'](id)
   let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
 
-  router.beforeEach((to, from, next) => {
+  router.beforeEach(async (to, from, nextFn) => {
     store.dispatch('routeError/clear')
+    let next = {}
 
     // handle invite parameter
     const inviteToken = to.query.invite
     if (inviteToken) {
       if (isLoggedIn()) {
         store.dispatch('invitations/accept', inviteToken)
-        next('/')
+        next = { path: '/' }
       }
       else {
         store.dispatch('auth/setAcceptInviteAfterLogin', inviteToken)
-        next({ name: 'signup' })
+        next = { name: 'signup' }
       }
     }
 
@@ -26,10 +27,10 @@ export default store => {
     else if (to.path === '/') {
       const groupId = getUserGroupId()
       if (groupId && getGroup(groupId) && getGroup(groupId).isMember) {
-        next({ name: 'group', params: { groupId: getUserGroupId() } })
+        next = { name: 'group', params: { groupId: getUserGroupId() } }
       }
       else {
-        next({ name: 'groupsGallery' })
+        next = { name: 'groupsGallery' }
       }
     }
 
@@ -37,32 +38,30 @@ export default store => {
     else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
       let { name, params, query } = to
       store.dispatch('auth/setRedirectTo', { name, params, query })
-      next({ name: 'login' })
+      next = { name: 'login' }
     }
 
     // check meta.requireLoggedOut
     else if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
-      next('/')
+      next = { path: '/' }
     }
 
+    const { redirect } = await maybeDispatchActions(store, to, from)
+    if (redirect) {
+      next = redirect
+    }
     else {
-      next()
+      store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
     }
-  })
 
-  router.beforeEach(async (to, from, next) => {
-    await maybeDispatchActions(store, to, from)
-
-    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
-
-    next()
+    nextFn({ replace: true, ...next })
   })
 
   router.afterEach((to) => {
     store.dispatch('currentGroup/markUserActive').catch(() => {})
   })
 
-  store.watch(getBreadcrumbNames, breadcrumbs => {
+  store.watch(getBreadcrumbNames, () => {
     let names = getBreadcrumbNames().slice().reverse()
     names.push('Karrot')
     document.title = names.join(' · ')
@@ -92,9 +91,12 @@ export async function maybeDispatchActions (store, to, from) {
       }
       catch (error) {
         if (error.type === 'RouteError') {
+          if (error.data && error.data.redirect) {
+            return { redirect: error.data.redirect }
+          }
           await store.dispatch('routeError/set', error.data)
           // no further loading should be done
-          return
+          return {}
         }
         else {
           // can't be handled here
@@ -103,6 +105,7 @@ export async function maybeDispatchActions (store, to, from) {
       }
     }
   }
+  return {}
 }
 
 export function parseAsIntegers (obj) {

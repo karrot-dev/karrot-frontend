@@ -116,7 +116,7 @@ export default {
           commit('update', group)
         }
         catch (error) {
-          throw createRouteError()
+          throw createRouteError({ translation: 'NOT_FOUND.EXPLANATION' })
         }
       }
       commit('setActivePreview', groupPreviewId)

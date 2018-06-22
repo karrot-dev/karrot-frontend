@@ -9,6 +9,10 @@
     </RandomArt>
     <q-list link>
       <q-list-header>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</q-list-header>
+      <VerificationWarning
+        v-if="!emailVerified"
+        class="generic-margin"
+      />
       <q-item
         tag="label"
         v-for="type in availableNotificationTypes"
@@ -31,16 +35,20 @@
 
 <script>
 import { QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
-
+import VerificationWarning from '@/components/Settings/VerificationWarning'
 import RandomArt from '@/components/General/RandomArt'
 
 export default {
   name: 'GroupSettings',
-  components: { RandomArt, QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile },
+  components: { RandomArt, VerificationWarning, QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile },
   props: {
     group: {
       type: Object,
       required: true,
+    },
+    user: {
+      type: Object,
+      default: null,
     },
   },
   data () {
@@ -54,6 +62,11 @@ export default {
     },
     notificationIsEnabled (type) {
       return this.group.notificationTypes.indexOf(type) !== -1
+    },
+  },
+  computed: {
+    emailVerified () {
+      return this.user && this.user.mailVerified
     },
   },
 }

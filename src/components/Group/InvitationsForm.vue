@@ -13,7 +13,7 @@
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
-          class="bg-neutral"
+          class="bg-grey-2"
           style="padding: 4px;"
           @blur="$v.form.email.$touch"
         />

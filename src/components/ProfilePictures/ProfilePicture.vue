@@ -87,5 +87,6 @@ export default {
 .deletedUser
   display flex
   justify-content center
-  align-items:center
+  align-items center
+  user-select none
 </style>

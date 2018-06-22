@@ -5,6 +5,7 @@
       store-link
       @join="join"
       @leave="leave"
+      @detail="detail"
     />
     <KNotice v-if="!hasPickups" >
       <template slot="icon">
@@ -44,6 +45,7 @@ export default {
     ...mapActions({
       join: 'pickups/join',
       leave: 'pickups/leave',
+      detail: 'detail/selectPickup',
     }),
   },
   computed: {

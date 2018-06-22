@@ -43,7 +43,6 @@
     "LEAVE": "Leave",
     "PREVIEW": "Preview",
     "BACK": "Back",
-    "MORE_OPTIONS": "More options",
     "SEARCH": "Search",
     "OF_COURSE": "Yes, of course!",
     "YES": "Yes",
@@ -82,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
     "PASSWORD": "Enter a password here if you want to make the group private",
     "PICKUPS": "Pickups",
+    "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
@@ -383,6 +383,7 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
     "EDITED": "edited",
     "MARK_READ": "Mark all as read",

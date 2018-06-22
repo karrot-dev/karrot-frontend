@@ -23,12 +23,18 @@ export function getter (getterName, ...args) {
   }
 }
 
-export function refresh () {
-  store.dispatch('users/refresh')
-  store.dispatch('stores/refresh')
-  store.dispatch('pickups/refresh')
-  store.dispatch('pickupSeries/refresh')
-  store.dispatch('invitations/refresh')
-  store.dispatch('history/refresh')
-  store.dispatch('groups/refresh')
+export async function refresh () {
+  await Promise.all([
+    store.dispatch('users/refresh'),
+    store.dispatch('stores/refresh'),
+    store.dispatch('pickups/refresh'),
+    store.dispatch('pickupSeries/refresh'),
+    store.dispatch('invitations/refresh'),
+    store.dispatch('history/refresh'),
+    store.dispatch('groups/refresh'),
+    store.dispatch('conversations/refresh'),
+    store.dispatch('feedback/refresh'),
+    store.dispatch('currentGroup/refresh'),
+    store.dispatch('auth/refresh'),
+  ])
 }

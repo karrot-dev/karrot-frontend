@@ -27,11 +27,11 @@ export default {
     },
   },
   actions: {
-    async routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId }) {
+    async routeEnter ({ dispatch }, { groupId, storeId, pickupId, routeTo }) {
       dispatch('selectPickup', { pickupId })
       if (!Platform.is.mobile) {
         // On desktop we don't have a pickup detail page, we go to the store page, and have a sidebar open
-        throw createRouteRedirect({ name: 'store', params: { groupId, storeId } })
+        throw createRouteRedirect({ name: 'store', params: { groupId, storeId }, query: routeTo.query })
       }
     },
     routeLeave ({ dispatch }) {

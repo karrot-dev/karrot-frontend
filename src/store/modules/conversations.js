@@ -166,9 +166,11 @@ export default {
         }
       },
 
-      async toggleEmailNotifications ({ commit }, { conversationId, value }) {
-        await conversationsAPI.toggleEmailNotifications(conversationId, value)
-        commit('updateEmailNotifications', { conversationId, value })
+      async toggleEmailNotifications ({ state, commit }, { id, value }) {
+        await conversationsAPI.toggleEmailNotifications(id, value)
+        if (state.entries[id]) {
+          commit('updateEmailNotifications', { conversationId: id, value })
+        }
       },
     }),
 
@@ -183,12 +185,10 @@ export default {
     }),
 
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
-      if (state.entries[conversationId]) {
-        const changed = state.entries[conversationId].emailNotifications !== value
-        const pending = getters['meta/status']('toggleEmailNotifications').pending
-        if (changed && !pending) {
-          await dispatch('toggleEmailNotifications', { conversationId, value })
-        }
+      const pending = getters['meta/status']('toggleEmailNotifications', conversationId).pending
+      const prevent = state.entries[conversationId] && state.entries[conversationId].emailNotifications === value
+      if (!pending && !prevent) {
+        await dispatch('toggleEmailNotifications', { id: conversationId, value })
       }
     },
 

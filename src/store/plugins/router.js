@@ -87,7 +87,11 @@ export async function maybeDispatchActions (store, to, from) {
   for (let m of to.matched) {
     if (m.meta.beforeEnter) {
       try {
-        await store.dispatch(m.meta.beforeEnter, parseAsIntegers(to.params))
+        await store.dispatch(m.meta.beforeEnter, {
+          ...parseAsIntegers(to.params),
+          routeFrom: from,
+          routeTo: to,
+        })
       }
       catch (error) {
         if (error.type === 'RouteRedirect') {

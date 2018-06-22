@@ -1,7 +1,5 @@
 export default store => {
-  store.watch(state => state.route.query, query => {
-    if (!query) return
-    const muteConversation = query.mute_conversation
+  store.watch(state => state.route.query && state.route.query.mute_conversation, muteConversation => {
     if (muteConversation) {
       const isLoggedIn = store.getters['auth/isLoggedIn']
       if (isLoggedIn) {

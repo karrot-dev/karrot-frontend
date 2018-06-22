@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { Platform, throttle, dom } from 'quasar'
-const { ready, height, width } = dom
+const { height, width } = dom
+import { ready } from '@/services/utils'
 
 const getSize = () => height(window) + width(window)
 

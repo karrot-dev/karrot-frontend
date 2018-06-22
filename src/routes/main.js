@@ -76,9 +76,6 @@ export default [
   {
     name: 'historyDetail',
     path: '/history/:historyId',
-    components: {
-      default: HistoryDetail,
-    },
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
@@ -86,6 +83,9 @@ export default [
       ],
       beforeEnter: 'history/setActive',
       afterLeave: 'history/clearActive',
+    },
+    components: {
+      default: HistoryDetail,
     },
   },
   {
@@ -267,9 +267,6 @@ export default [
           beforeEnter: 'stores/selectStore',
           afterLeave: 'stores/clearSelectedStore',
         },
-        props: {
-          sidenav: true,
-        },
         components: {
           default: StoreLayout,
           sidenav: GroupGroupSidenav,
@@ -297,15 +294,12 @@ export default [
               beforeEnter: 'detail/routeEnter',
               afterLeave: 'detail/routeLeave',
             },
-            components: {
-              // On desktop will get redirected inside "detail/routeEnter" action
-              default: MobileDetail,
-            },
+            // On desktop will get redirected inside "detail/routeEnter" action
+            component: MobileDetail,
           },
           {
             name: 'storePickupsManage',
             path: 'pickups/manage',
-            component: StorePickupsManage,
             meta: {
               breadcrumbs: [
                 { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
@@ -313,6 +307,7 @@ export default [
               beforeEnter: 'pickupSeries/fetchListForActiveStore',
               afterLeave: 'pickupSeries/clearList',
             },
+            component: StorePickupsManage,
           },
           {
             name: 'storeFeedback',
@@ -324,20 +319,18 @@ export default [
               beforeEnter: 'feedback/setStoreFilter',
               afterLeave: 'feedback/clearStoreFilter',
             },
-            components: {
-              default: StoreFeedback,
-            },
+            component: StoreFeedback,
           },
           {
             name: 'storeHistory',
             path: 'history',
-            component: StoreHistory,
             meta: {
               breadcrumbs: [
                 { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
               ],
               beforeEnter: 'history/fetchForStore',
             },
+            component: StoreHistory,
           },
           {
             name: 'storeEdit',

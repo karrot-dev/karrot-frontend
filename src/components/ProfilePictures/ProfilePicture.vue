@@ -4,6 +4,7 @@
       <router-link
         v-if="isLink"
         :to="{name:'user', params: {userId: user.id}}"
+        :title="user.displayName"
       >
         <img
           v-if="hasPhoto"
@@ -17,9 +18,6 @@
           class="randomArt"
           :style="pictureStyle"
         />
-        <q-tooltip>
-          {{ user.displayName }}
-        </q-tooltip>
       </router-link>
       <div v-else>
         <img
@@ -40,17 +38,12 @@
       v-else
       class="deletedUser"
       :style="deletedUserStyle"
-    >
-      ?
-      <q-tooltip>
-        {{ $t('PROFILE.INACCESSIBLE_OR_DELETED') }}
-      </q-tooltip>
-    </div>
+      :title="$t('PROFILE.INACCESSIBLE_OR_DELETED')"
+    >?</div>
   </div>
 </template>
 
 <script>
-import { QTooltip } from 'quasar'
 import RandomArt from '@/components/General/RandomArt'
 
 export default {
@@ -60,7 +53,7 @@ export default {
     isLink: { default: true, type: Boolean },
   },
   components: {
-    QTooltip, RandomArt,
+    RandomArt,
   },
   computed: {
     pictureStyle () {

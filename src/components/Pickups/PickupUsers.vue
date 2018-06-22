@@ -40,15 +40,21 @@
     </transition>
 
     <UserSlot
+      :size="size"
+      :hover-user="currentUser"
+      :show-join="!pickup.isUserMember"
+      v-if="!(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
+      class="profilePic"
+      :class="{clickable: !pickup.isUserMember}"
+      @join="$emit('join')"
+    />
+
+    <EmptySlot
       v-for="n in emptySlots"
       :key="n"
       :size="size"
-      :hover-user="currentUser"
-      :show-join="!pickup.isUserMember && n == 1"
-      v-if="n > 1 || !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
+      v-if="n > 1"
       class="profilePic"
-      :class="{clickable: !pickup.isUserMember && n == 1}"
-      @join="$emit('join')"
     />
 
     <div
@@ -67,6 +73,7 @@
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserSlot from './UserSlot'
+import EmptySlot from './EmptySlot'
 import CurrentUser from './CurrentUser'
 import { mapGetters } from 'vuex'
 import { QSpinner, QResizeObservable } from 'quasar'
@@ -92,7 +99,7 @@ export default {
     }
   },
   components: {
-    ProfilePicture, UserSlot, CurrentUser, QSpinner, QResizeObservable,
+    ProfilePicture, UserSlot, EmptySlot, CurrentUser, QSpinner, QResizeObservable,
   },
   methods: {
     isJoiningOrLeaving (pickup) {

@@ -8,6 +8,7 @@
     <div
       v-if="hoverUser && showJoin"
       :class="{ hoverShow: showJoin }"
+      :title="$t('PICKUPLIST.ITEM.JOIN')"
     >
       <ProfilePicture
         @click.native.stop="$emit('join')"
@@ -15,17 +16,11 @@
         :size="size"
         :is-link="false"
       />
-      <q-tooltip>
-        <span>
-          {{ $t('PICKUPLIST.ITEM.JOIN') }}
-        </span>
-      </q-tooltip>
     </div>
   </div>
 </template>
 
 <script>
-import { QTooltip } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
@@ -44,7 +39,7 @@ export default {
     },
   },
   components: {
-    QTooltip, ProfilePicture,
+    ProfilePicture,
   },
 
 }

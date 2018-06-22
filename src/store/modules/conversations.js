@@ -140,6 +140,7 @@ export default {
         commit('setCursor', {
           conversationId,
           cursor: data.next,
+          first: true,
         })
       },
 
@@ -241,6 +242,10 @@ export default {
       commit('clearActive')
     },
 
+    compactActive ({ state, commit }) {
+      commit('compact', { conversationId: state.activeConversationId })
+    },
+
     receiveMessage ({ commit }, message) {
       commit('updateMessages', {
         messages: [message],
@@ -273,6 +278,14 @@ export default {
       Vue.delete(state.entries, conversationId)
       Vue.delete(state.messages, conversationId)
     },
+    compact (state, { conversationId }) {
+      const conversation = state.entries[conversationId]
+      const messages = state.messages[conversationId]
+      if (!messages) return
+      const keep = 10
+      if (messages.length > keep) messages.splice(keep, messages.length - keep)
+      if (conversation.firstCursor) Vue.set(state.cursors, conversationId, conversation.firstCursor)
+    },
     updateMessages (state, { conversationId, messages }) {
       if (!state.messages[conversationId]) {
         Vue.set(state.messages, conversationId, messages)
@@ -297,8 +310,9 @@ export default {
         }
       }
     },
-    setCursor (state, { conversationId, cursor }) {
+    setCursor (state, { conversationId, cursor, first = false }) {
       Vue.set(state.cursors, conversationId, cursor)
+      if (first) Vue.set(state.entries[conversationId], 'firstCursor', cursor)
     },
     setConversation (state, { conversation }) {
       Vue.set(state.entries, conversation.id, conversation)

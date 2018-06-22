@@ -106,6 +106,9 @@ export default [
       {
         name: 'group',
         path: 'wall',
+        meta: {
+          afterLeave: 'conversations/compactActive',
+        },
         components: {
           default: GroupWall,
           sidenav: GroupGroupSidenav,

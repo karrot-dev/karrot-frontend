@@ -90,10 +90,10 @@ export async function maybeDispatchActions (store, to, from) {
         await store.dispatch(m.meta.beforeEnter, parseAsIntegers(to.params))
       }
       catch (error) {
-        if (error.type === 'RouteError') {
-          if (error.data && error.data.redirect) {
-            return { redirect: error.data.redirect }
-          }
+        if (error.type === 'RouteRedirect') {
+          return { redirect: error.data }
+        }
+        else if (error.type === 'RouteError') {
           await store.dispatch('routeError/set', error.data)
           // no further loading should be done
           return {}

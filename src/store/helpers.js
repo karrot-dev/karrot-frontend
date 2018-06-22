@@ -201,6 +201,13 @@ export function createRouteError (data) {
   })
 }
 
+export function createRouteRedirect (data) {
+  return Object.assign(new Error(), {
+    type: 'RouteRedirect',
+    data,
+  })
+}
+
 export function createPaginationModule () {
   return {
     namespaced: true,

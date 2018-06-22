@@ -140,11 +140,11 @@ describe('currentGroup', () => {
       })
     })
 
-    it('throws routeError if not group does not exist or user is not member of the group', async () => {
+    it('throws routeRedirect if not group does not exist or user is not member of the group', async () => {
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
       const select = store.dispatch('currentGroup/select', { groupId: 9999 })
-      await expect(select).rejects.toHaveProperty('type', 'RouteError')
-      await expect(select).rejects.toHaveProperty(['data', 'redirect'], { name: 'groupPreview', params: {groupPreviewId: 9999} })
+      await expect(select).rejects.toHaveProperty('type', 'RouteRedirect')
+      await expect(select).rejects.toHaveProperty('data', { name: 'groupPreview', params: {groupPreviewId: 9999} })
     })
   })
 })

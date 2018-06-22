@@ -1,5 +1,5 @@
 import groups from '@/services/api/groups'
-import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteError } from '@/store/helpers'
+import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteRedirect } from '@/store/helpers'
 
 function initialState () {
   return {
@@ -104,7 +104,7 @@ export default {
             },
           }, { root: true })
         }
-        throw createRouteError({ redirect: { name: 'groupPreview', params: {groupPreviewId: groupId} } })
+        throw createRouteRedirect({ name: 'groupPreview', params: {groupPreviewId: groupId} })
       }
 
       dispatch('pickups/clear', {}, { root: true })

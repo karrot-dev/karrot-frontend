@@ -1,6 +1,6 @@
 import { Platform } from 'quasar'
 
-import router from '@/router'
+import { createRouteRedirect } from '@/store/helpers'
 import pickupsAPI from '@/services/api/pickups'
 
 function initialState () {
@@ -31,7 +31,7 @@ export default {
       dispatch('selectPickup', { pickupId })
       if (!Platform.is.mobile) {
         // On desktop we don't have a pickup detail page, we go to the store page, and have a sidebar open
-        router.push({ name: 'store', params: { groupId, storeId } })
+        throw createRouteRedirect({ name: 'store', params: { groupId, storeId } })
       }
     },
     routeLeave ({ dispatch }) {

@@ -81,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
     "PASSWORD": "Wprowadź tu hasło, jeśli chcesz stworzyć grupę prywatną",
     "PICKUPS": "Odbiory",
+    "PICKUP": "Pickup",
     "MEMBERS": "Członkowie",
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
@@ -259,7 +260,7 @@
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
@@ -382,6 +383,7 @@
     "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
     "EDITED": "edited",
     "MARK_READ": "Oznacz wszystkie jako przeczytane",

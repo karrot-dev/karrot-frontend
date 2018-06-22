@@ -81,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
     "PASSWORD": "अगर आप समूह निजी बनाना चाहते हैं तो यहां एक पासवर्ड दर्ज करें",
     "PICKUPS": "पिकप",
+    "PICKUP": "Pickup",
     "MEMBERS": "सदस्य ",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
@@ -259,7 +260,7 @@
     "STORE_NONE_HINT": "आप पिकअप प्रबंधन पृष्ठ पर एक नया पिकअप बना सकते हैं।"
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "कम से कम 1 किलोग्राम यहां बचाया गया था। धन्यवाद! | लोगों ने पहले से ही बचाया भोजन के {मात्रा} किग्रा के लिए प्रतिक्रिया दी! अच्छा काम करते रहो!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "प्रतिक्रिया दें",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
     "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा",
@@ -382,6 +383,7 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "आपके पास एक अपठित संदेश है | आपके पास {गिनती} अपठित संदेश हैं",
     "EDITED": "edited",
     "MARK_READ": "सभी को पढ़ा हुआ  चिन्हित करें",

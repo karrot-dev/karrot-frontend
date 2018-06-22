@@ -81,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "જૂથમાં જોડાતા પહેલાં તમે જુઓ છો તે ટેક્સ્ટ",
     "PASSWORD": "જો તમે જૂથ ખાનગી બનાવવા માંગો છો, તો પાસવર્ડ અહીં દાખલ કરો",
     "PICKUPS": "પિકઅપ્સ",
+    "PICKUP": "Pickup",
     "MEMBERS": "સભ્યો",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
@@ -259,7 +260,7 @@
     "STORE_NONE_HINT": "તમે પૃષ્ઠને સંચાલિત કરો પર એક નવો બનાવ્યો બનાવી શકો છો"
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "ઓછામાં ઓછા 1kg અહીં સાચવવામાં આવી હતી. આભાર! | લોકોએ {જથ્થો} કિલોગ્રામ સાચવેલ ખોરાક માટે પ્રતિક્રિયા આપી છે! મહાન કામ રાખો!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "અભીપ્રાય આપો",
     "NONE": "હજુ સુધી કોઈ પ્રત્યુત્તર નથી",
     "NONE_HINT": "એકવાર વધુ પ્રતિસાદ ઉપલબ્ધ થાય પછી આ પૃષ્ઠ ભરવામાં આવશે",
@@ -382,6 +383,7 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "તમારી પાસે એક ન વાંચેલા સંદેશ છે | તમારી પાસે {ગણતરી} ન વાંચેલા સંદેશા છે",
     "EDITED": "edited",
     "MARK_READ": "બધાને વાંચ્યા પ્રમાણે ચિહ્નિત કરો",

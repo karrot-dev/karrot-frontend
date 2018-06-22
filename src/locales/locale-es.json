@@ -81,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
     "PICKUPS": "Recogidas",
+    "PICKUP": "Pickup",
     "MEMBERS": "Miembros",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
@@ -259,7 +260,7 @@
     "STORE_NONE_HINT": "Puede crear una nueva recolección en la página de administración de recolección."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "Al menos 1 kg se guardó aquí. ¡Gracias! | ¡Las personas ya han enviado comentarios sobre {cantidad} kg de alimentos guardados! ¡Mantener el buen trabajo!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "Dar opinion",
     "NONE": "Aún no hay comentarios",
     "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles",
@@ -382,6 +383,7 @@
     "RECEIVED_VIA_EMAIL": "Este mensaje se envió por correo electrónico."
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",
     "EDITED": "edited",
     "MARK_READ": "marcar todo como leido",

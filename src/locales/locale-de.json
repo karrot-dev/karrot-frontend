@@ -81,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
     "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
     "PICKUPS": "Abholungen",
+    "PICKUP": "Pickup",
     "MEMBERS": "Mitglieder",
     "INACTIVE": "Inaktiv",
     "SHOW_INACTIVE": "Zeige inaktive Gruppen",
@@ -259,7 +260,7 @@
     "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "Mindestens 1 kg Essen wurde hier gerettet. Dankeschön! Es haben bereits Leute für {amount} kg gerettetes Essen Feedback gegeben! Weiter so!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "Gib Feedback",
     "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
@@ -271,8 +272,8 @@
     "HEADER": "Danke für deine Abholung!",
     "EDIT": "Rückmeldung bearbeiten",
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
+    "SET_AMOUNT": "Gewicht eingeben",
+    "DELETE_AMOUNT": "Gewicht löschen",
     "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
     "COMMENT": "Kommentar",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
@@ -382,13 +383,14 @@
     "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per Mail geschickt."
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
-    "EDITED": "edited",
+    "EDITED": "bearbeitet",
     "MARK_READ": "Als gelesen markieren",
     "REACTIONS": {
       "YOU": "du",
       "AND": "und",
-      "REACTED_WITH":"{users} reacted with {reaction}"
+      "REACTED_WITH":"{users} - {reaction}"
     }
   },
   "STORESTATUS":{

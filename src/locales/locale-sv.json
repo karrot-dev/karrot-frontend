@@ -81,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
     "PASSWORD": "Ange ett lösenord för att göra gruppen privat",
     "PICKUPS": "Upphämtningar",
+    "PICKUP": "Pickup",
     "MEMBERS": "Medlemmar",
     "INACTIVE": "Inaktive",
     "SHOW_INACTIVE": "Visa inaktiva grupper",
@@ -259,7 +260,7 @@
     "STORE_NONE_HINT": "Du kan skapa en ny upphämtning i sidan för att hantera upphämtningar"
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "Minst 1kg var räddad här. Tack! | Folk gav feedback för {amount}kg räddad mat redan! Bra jobbat!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "Ge feedback",
     "NONE": "No feedback yet",
     "NONE_HINT": "This page will be filled once more feedback is available",
@@ -382,6 +383,7 @@
     "RECEIVED_VIA_EMAIL": "Det här meddelande skickades via mejl"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
     "EDITED": "edited",
     "MARK_READ": "Markera alla som lästa",

@@ -81,6 +81,7 @@
     "PUBLIC_DESCRIPTION": "Texto que você ve antes de entrar no grupo",
     "PASSWORD": "Entre uma senha se quer fazer deste um grupo privado",
     "PICKUPS": "Coletas",
+    "PICKUP": "Pickup",
     "MEMBERS": "Membros",
     "INACTIVE": "Inativos",
     "SHOW_INACTIVE": "Exibir grupos inativos",
@@ -259,7 +260,7 @@
     "STORE_NONE_HINT": "Você pode criar uma nova coleta na página de gerenciamento de coletas."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "Pelo menos 1kg já foi salvo aqui. Agradecemos! | Pessoas deram seu parecer para {amount}kg de comida salva! Continuem com o bom trabalho!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "GIVE_FEEDBACK": "De seu parecer",
     "NONE": "Sem comentários, ainda",
     "NONE_HINT": "Esta página sera preenchida assim que mais comentários apareçam",
@@ -382,6 +383,7 @@
     "RECEIVED_VIA_EMAIL": "Esta mensagem foi mandada por e-mail"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "Você tem uma mensagem não lida. | Você tem {count} mensagens não lidas.",
     "EDITED": "edited",
     "MARK_READ": "Marcar todas como lidas",

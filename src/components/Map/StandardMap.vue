@@ -4,6 +4,7 @@
     :bounds="bounds"
     :center="center"
     :zoom="zoom"
+    :min-zoom="2"
     @click="$emit('mapClick', arguments[0].latlng)"
     @moveend="$emit('mapMoveEnd', arguments[0].target)"
     @update:zoom="updateZoom"

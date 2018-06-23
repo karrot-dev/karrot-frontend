@@ -1,5 +1,6 @@
 <template>
   <l-map
+    class="k-map"
     :bounds="bounds"
     :center="center"
     :zoom="zoom"
@@ -11,7 +12,7 @@
       :attribution="attribution"
     />
     <ExtendedMarker
-      v-for="marker in markers"
+      v-for="marker in leafletMarkers"
       :key="marker.id"
       v-bind="marker"
       @dragend="$emit('markerMoved', $event.target._latlng, marker)"
@@ -35,7 +36,6 @@ import {
 import ExtendedMarker from './ExtendedMarker'
 
 import L from 'leaflet'
-import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.js'
 
 // fix default marker icon. Should hopefully get fixed in Leaflet 1.3
 // https://github.com/Leaflet/Leaflet/issues/4968
@@ -97,8 +97,55 @@ export default {
     getMarker (id) {
       return this.markers.find(marker => marker.id === id)
     },
+    createLeafletMarker (markerOptions) {
+      function markerHtml (color) {
+        return `
+          <svg viewBox="0 0 33 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path
+              d="M 16.798304,1 C 8.0719527,1 1,8.7146969 1,16.923182 1,25.134394 16.798304,51 16.798304,51 c 0,0 15.798303,-25.865606 15.798303,-34.076818 C 32.596607,8.7146969 25.520547,1 16.798304,1 Z"
+              class="text-${color}"
+            ></path>
+          </svg>
+        `
+      }
+
+      function createIcon (oldIcon) {
+        const div = (oldIcon && oldIcon.tagName === 'DIV' ? oldIcon : document.createElement('div'))
+        div.innerHTML = markerHtml(markerOptions.color || 'grey')
+        div.className = 'vector-marker'
+
+        if (markerOptions.fontIcon) {
+          const i = document.createElement('i')
+          i.className = markerOptions.fontIcon + ' fa-fw'
+          div.appendChild(i)
+        }
+
+        return div
+      }
+
+      function createShadow (oldIcon) {
+        const div = (oldIcon && oldIcon.tagName === 'DIV' ? oldIcon : document.createElement('div'))
+        const innerDiv = document.createElement('div')
+        innerDiv.className = 'vector-marker-shadow'
+        innerDiv.innerHTML = markerHtml('black')
+        div.appendChild(innerDiv)
+        return div
+      }
+
+      const options = {
+        popupAnchor: [2, -40],
+        tooltipAnchor: [2, -40],
+      }
+      return {
+        ...markerOptions,
+        icon: { createIcon, createShadow, options },
+      }
+    },
   },
   computed: {
+    leafletMarkers () {
+      return this.markers.map(this.createLeafletMarker)
+    },
     hasSelectedMarkers () {
       return this.selectedMarkers && this.selectedMarkers.length > 0
     },
@@ -165,5 +212,40 @@ function existsFilter (val) {
 
 <style>
 @import "~leaflet/dist/leaflet.css";
-@import "~leaflet.awesome-markers/dist/leaflet.awesome-markers.css";
+</style>
+
+<style lang="stylus">
+.k-map
+  .vector-marker
+    width 30px
+    position absolute
+    bottom 0
+    left -15px
+    text-align center
+    svg
+      vertical-align bottom
+      path
+        stroke black
+        stroke-opacity .1
+        stroke-width 1
+        fill currentColor
+    i
+      width 30px
+      position absolute
+      top 9px
+      left 0
+      color white
+      font-size 14px
+
+  .vector-marker-shadow
+    width 16px
+    position absolute
+    bottom 0px
+    left -8px
+    opacity .3
+    transform rotate(20deg) skew(-30deg)
+    transform-origin 50% bottom
+    filter blur(2px)
+    svg
+      vertical-align bottom
 </style>

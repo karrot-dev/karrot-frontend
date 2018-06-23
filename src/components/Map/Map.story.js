@@ -24,11 +24,8 @@ storiesOf('Map', module)
         markers: [
           {
             latLng: latLng(storesMock[0]),
-            icon: L.AwesomeMarkers.icon({
-              icon: 'shopping-cart',
-              markerColor: 'blue',
-              prefix: 'fa',
-            }),
+            fontIcon: 'fas fa-shopping-cart',
+            color: 'blue',
           },
         ],
       },
@@ -42,20 +39,14 @@ storiesOf('Map', module)
           {
             latLng: latLng(storesMock[1]),
             id: 'marker1',
-            icon: L.AwesomeMarkers.icon({
-              icon: 'shopping-cart',
-              markerColor: 'blue',
-              prefix: 'fa',
-            }),
+            fontIcon: 'fas fa-shopping-cart',
+            color: 'blue',
           },
           {
             latLng: latLng(storesMock[3]),
             id: 'marker2',
-            icon: L.AwesomeMarkers.icon({
-              icon: 'shopping-cart',
-              markerColor: 'blue',
-              prefix: 'fa',
-            }),
+            fontIcon: 'fas fa-shopping-cart',
+            color: 'blue',
           },
         ],
         selectedMarkerIds: ['marker1'],

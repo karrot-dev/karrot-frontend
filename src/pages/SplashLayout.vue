@@ -61,12 +61,14 @@ export default {
       margin-right .5em
   .actions
     float right
-    color $tertiary
+    color $secondary
+    > :hover:not(.submit)
+      color hover-color($secondary)
     .submit
       color white
       background-color $secondary
     .submit:hover
-      background-color $positive
+      background-color hover-color($secondary)
 body.mobile .splashlayout-header
   display none
 body.mobile .splashlayout

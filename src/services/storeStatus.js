@@ -15,14 +15,14 @@ const statusOptions = {
   },
   active: {
     label: 'STORESTATUS.ACTIVE',
-    color: 'green',
+    color: 'positive',
     icon: 'fas fa-circle',
     selectable: true,
     sort: 1,
   },
   declined: {
     label: 'STORESTATUS.DECLINED',
-    color: 'red',
+    color: 'negative',
     icon: 'fas fa-circle',
     selectable: true,
     sort: 4,

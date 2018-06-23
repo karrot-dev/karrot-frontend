@@ -148,11 +148,9 @@ body.desktop
     z-index 0
   .gallery-cards
     width 100%
-    margin-bottom 50vh
     @media screen and (min-width: $breakpoint-sm)
       max-width 42vw
   .expanded .gallery-cards
-    margin-bottom -10em
     padding-bottom 3em
 
 body.mobile
@@ -164,7 +162,7 @@ body.mobile
     margin-top: 0
     min-height 10vh
     padding-bottom 3em
-    margin-bottom -5em
+    margin-bottom 40px
     transition all .7s
     z-index 0
   .expanded .gallery-cards

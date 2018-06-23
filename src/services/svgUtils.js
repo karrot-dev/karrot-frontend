@@ -184,6 +184,8 @@ function getRootDefs () {
     if (!rootSVG) {
       rootSVG = document.createElementNS(SVGNS, 'svg')
       rootSVG.setAttribute('id', 'RandomArtRootSVG')
+      rootSVG.style.position = 'absolute'
+      rootSVG.style.bottom = 0
       document.body.appendChild(rootSVG)
     }
     rootDefs = rootSVG.querySelector('defs')

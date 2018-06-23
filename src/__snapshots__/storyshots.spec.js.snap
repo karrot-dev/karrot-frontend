@@ -19,7 +19,7 @@ exports[`Storyshots AddressPicker Default 1`] = `
     </div>
     <!---->
   </div>
-  <div class="vue2leaflet-map map">
+  <div class="vue2leaflet-map k-map map">
     <!---->
   </div>
 </div>
@@ -732,7 +732,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   </div>
                   <!---->
                 </div>
-                <div class="vue2leaflet-map map">
+                <div class="vue2leaflet-map k-map map">
                   <!---->
                 </div>
               </div>
@@ -808,7 +808,7 @@ exports[`Storyshots GroupEdit create 1`] = `
 
 exports[`Storyshots GroupGallery signup view 1`] = `
 <div class="column gallery-wrapper expanded">
-  <div class="vue2leaflet-map group-gallery-map map-fixed">
+  <div class="vue2leaflet-map k-map group-gallery-map map-fixed">
     <!---->
   </div>
   <div class="all-groups gallery-cards expanded">
@@ -1067,7 +1067,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
 
 exports[`Storyshots GroupGallery switch and explore 1`] = `
 <div class="column gallery-wrapper expanded">
-  <div class="vue2leaflet-map group-gallery-map map-fixed">
+  <div class="vue2leaflet-map k-map group-gallery-map map-fixed">
     <!---->
   </div>
   <div class="all-groups gallery-cards expanded">
@@ -1564,7 +1564,7 @@ exports[`Storyshots GroupPreviewUI error 1`] = `
       </div>
     </div>
     <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-warning text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
           </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-if-error text-negative"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-error col">wrong!</div></div></div></div></div> <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
             Join
@@ -1643,7 +1643,7 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
       </div>
     </div>
     <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-warning text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
           </div></div></div></div> <!----> <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
             Join
@@ -1676,7 +1676,7 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
       </div>
     </div>
     <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-tertiary text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><form name="joingroup"><div><div class="q-alert row no-wrap shadow-2 bg-warning text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
             By joining this group, your profile data will become visible to other group members.
           </div></div></div></div> <div class="q-field row no-wrap items-start q-field-responsive"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i><div class="row col"><div class="q-field-label q-field-margin col-xs-12 col-sm-5"><div class="q-field-label-inner row items-center">This group requires a password</div></div><div class="q-field-content col-xs-12 col-sm"><div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary"><!----> <div class="q-if-inner col row no-wrap relative-position"><!----> <!---->  <input step="any" type="password" value="" class="col q-input-target q-no-input-spinner"> <!----> <!----> <!----> <!---->   <!----></div> <!----> </div><div class="q-field-bottom row no-wrap q-field-no-input"><div class="q-field-helper col">Enter password for private group</div></div></div></div></div> <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle disabled bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat"><circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle></svg></div></button></form></span>
       <!---->
@@ -2049,53 +2049,43 @@ exports[`Storyshots History List Default 1`] = `
 `;
 
 exports[`Storyshots Layout KFooter 1`] = `
-<div class="footer bg-grey-3 font-primary">
-  <div class="k-footer-inner footer-max-width row generic-padding">
-    <div class="k-logo-container generic-padding col-md-4">
-      <img src="~@/assets/carrot-logo.svg" class="shadow">
-    </div>
-    <div class="column col-md-4">
-      <div>
-        <a href="https://github.com/yunity/karrot-frontend">
-          <i class="fab fa-fw fa-github on-left"></i>
-          Development
-        </a>
-      </div>
-      <div>
-        <a href="https://foodsaving.world">
-          <i class="fas fa-fw fa-globe on-left"></i>
-          Read our info page!
-        </a>
-      </div>
-      <div>
-        <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-          <i class="fab fa-fw fa-facebook on-left"></i>
-          Join our Facebook Group!
-        </a>
-      </div>
-      <div>
-        <a href="mail:karrot@foodsaving.world">
-          <i class="fas fa-fw fa-envelope on-left"></i>
-          karrot@foodsaving.world
-        </a>
-      </div>
-    </div>
-    <div class="column col-md-4">
-      <hr class="lt-md" style="width:3em;">
-      <div>
-        karrot
-        <!---->
-      </div>
-      <div>
-        made with
-        <i class="fas fa-heart"></i>
-        by
-        <a href="https://foodsaving.world">
-          foodsaving worldwide
-        </a>
-      </div>
+<div class="footer row">
+  <div class="k-logo-container col-xl-1 col-xs-4">
+    <div>
+      <a>
+        <div>
+          <img src="test-file-stub">
+        </div>
+      </a>
     </div>
   </div>
+  <small class="row group col-xl-4 col-xs-8"><span>
+      karrot
+      <!---->
+      — made with
+      <i class="fas fa-heart"></i>
+      by
+      <a href="https://foodsaving.world">
+        foodsaving worldwide
+      </a></span></small>
+  <small class="row justify-center group col-xl-7 col-xs-12">
+    <a href="https://github.com/yunity/karrot-frontend">
+      <i class="fab fa-fw fa-github"></i>
+      Development
+    </a>
+    <a href="https://foodsaving.world">
+      <i class="fas fa-fw fa-globe"></i>
+      Read our info page!
+    </a>
+    <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
+      <i class="fab fa-fw fa-facebook"></i>
+      Join our Facebook Group!
+    </a>
+    <a href="mail:karrot@foodsaving.world">
+      <i class="fas fa-fw fa-envelope"></i>
+      karrot@foodsaving.world
+    </a>
+  </small>
 </div>
 `;
 
@@ -2133,7 +2123,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon presence-indicator fas fa-circle text-green"> </i>
+        <i aria-hidden="true" class="q-icon presence-indicator fas fa-circle text-secondary"> </i>
         Current User
         <i aria-hidden="true" class="q-icon fas fa-fw fa-user"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
     </button>
@@ -2395,7 +2385,7 @@ exports[`Storyshots Login pending 1`] = `
 
 exports[`Storyshots Map GroupMap (group has no location) 1`] = `
 <div class="container" style="height:200px;">
-  <div class="vue2leaflet-map" style="opacity:0.5;">
+  <div class="vue2leaflet-map k-map" style="opacity:0.5;">
     <!---->
   </div>
   <div class="overlay row justify-center content-center">
@@ -2413,7 +2403,7 @@ exports[`Storyshots Map GroupMap (group has no location) 1`] = `
 
 exports[`Storyshots Map GroupMap (only group location) 1`] = `
 <div class="container" style="height:200px;">
-  <div class="vue2leaflet-map" style="opacity:1;">
+  <div class="vue2leaflet-map k-map" style="opacity:1;">
     <!---->
   </div>
   <!---->
@@ -2422,7 +2412,7 @@ exports[`Storyshots Map GroupMap (only group location) 1`] = `
 
 exports[`Storyshots Map GroupMap (selected store) 1`] = `
 <div class="container" style="height:200px;">
-  <div class="vue2leaflet-map" style="opacity:1;">
+  <div class="vue2leaflet-map k-map" style="opacity:1;">
     <!---->
   </div>
   <!---->
@@ -2431,7 +2421,7 @@ exports[`Storyshots Map GroupMap (selected store) 1`] = `
 
 exports[`Storyshots Map GroupMap (store has no location) 1`] = `
 <div class="container" style="height:200px;">
-  <div class="vue2leaflet-map" style="opacity:0.5;">
+  <div class="vue2leaflet-map k-map" style="opacity:0.5;">
     <!---->
   </div>
   <div class="overlay row justify-center content-center">
@@ -2449,7 +2439,7 @@ exports[`Storyshots Map GroupMap (store has no location) 1`] = `
 
 exports[`Storyshots Map GroupMap 1`] = `
 <div class="container" style="height:200px;">
-  <div class="vue2leaflet-map" style="opacity:1;">
+  <div class="vue2leaflet-map k-map" style="opacity:1;">
     <!---->
   </div>
   <!---->
@@ -2457,20 +2447,20 @@ exports[`Storyshots Map GroupMap 1`] = `
 `;
 
 exports[`Storyshots Map StandardMap (selected marker) 1`] = `
-<div class="vue2leaflet-map" style="height:600px;">
+<div class="vue2leaflet-map k-map" style="height:600px;">
   <!---->
 </div>
 `;
 
 exports[`Storyshots Map StandardMap 1`] = `
-<div class="vue2leaflet-map" style="height:600px;">
+<div class="vue2leaflet-map k-map" style="height:600px;">
   <!---->
 </div>
 `;
 
 exports[`Storyshots Map UserMapPreview 1`] = `
 <div class="userMapPreview" style="position:relative;height:600px;">
-  <div class="vue2leaflet-map">
+  <div class="vue2leaflet-map k-map">
     <!---->
   </div>
   <a class="overlay"></a>
@@ -3716,7 +3706,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     </div>
                     <!---->
                   </div>
-                  <div class="vue2leaflet-map map">
+                  <div class="vue2leaflet-map k-map map">
                     <!---->
                   </div>
                 </div>
@@ -4030,7 +4020,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
   </div>
   <div name="slide-toggle">
     <div class="container map">
-      <div class="vue2leaflet-map" style="opacity:1;">
+      <div class="vue2leaflet-map k-map" style="opacity:1;">
         <!---->
       </div>
       <!---->
@@ -4123,7 +4113,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
 
 exports[`Storyshots Signup empty 1`] = `
 <div>
-  <div class="q-card bg-tertiary margin-bottom">
+  <div class="q-card bg-warning margin-bottom">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
         <div class="q-card-title">
@@ -4233,7 +4223,7 @@ exports[`Storyshots Signup empty 1`] = `
 
 exports[`Storyshots Signup error 1`] = `
 <div>
-  <div class="q-card bg-tertiary margin-bottom">
+  <div class="q-card bg-warning margin-bottom">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
         <div class="q-card-title">
@@ -4346,7 +4336,7 @@ exports[`Storyshots Signup error 1`] = `
 
 exports[`Storyshots Signup pending 1`] = `
 <div>
-  <div class="q-card bg-tertiary margin-bottom">
+  <div class="q-card bg-warning margin-bottom">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
         <div class="q-card-title">
@@ -5028,7 +5018,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                       </div>
                       <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                         <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-green"> </i>
+                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                           <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
@@ -5036,7 +5026,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                       </div>
                       <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                         <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-red"> </i>
+                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                           <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
@@ -5142,7 +5132,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                   </div>
                   <!---->
                 </div>
-                <div class="vue2leaflet-map map">
+                <div class="vue2leaflet-map k-map map">
                   <!---->
                 </div>
               </div>
@@ -5263,7 +5253,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                       </div>
                       <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                         <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-green"> </i>
+                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                           <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
@@ -5271,7 +5261,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                       </div>
                       <div class="q-item q-item-division relative-position q-item-link cursor-pointer">
                         <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-red"> </i>
+                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i>
                         </div>
                         <div class="q-item-main q-item-section">
                           <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
@@ -5377,7 +5367,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                   </div>
                   <!---->
                 </div>
-                <div class="vue2leaflet-map map">
+                <div class="vue2leaflet-map k-map map">
                   <!---->
                 </div>
               </div>

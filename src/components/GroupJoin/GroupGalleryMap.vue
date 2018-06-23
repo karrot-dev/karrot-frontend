@@ -32,21 +32,18 @@ export default {
       return `group_${id}`
     },
     createJoinedGroupMarker (group) {
-      return this.createGroupMarker(group, 'blue')
+      return this.createGroupMarker(group, 'positive')
     },
     createOpenGroupMarker (group) {
-      return this.createGroupMarker(group, 'green')
+      return this.createGroupMarker(group, 'blue')
     },
     createGroupMarker (group, color) {
       return {
         latLng: L.latLng(group.latitude, group.longitude),
         id: this.groupMarkerId(group.id),
-        icon: L.AwesomeMarkers.icon({
-          icon: 'home',
-          markerColor: color,
-          prefix: 'fa',
-        }),
-        popupcontent: `<h4><a href="/#/group/${group.id}/">${group.name}</a><h4>`,
+        fontIcon: 'fas fa-home',
+        color,
+        popupcontent: `<big><a href="/#/group/${group.id}/">${group.name}</a></big>`,
       }
     },
   },

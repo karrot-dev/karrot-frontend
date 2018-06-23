@@ -51,7 +51,7 @@ export default {
 
     playgroundGroupInfo () {
       return {
-        color: 'positive',
+        color: 'secondary',
         icon: 'fas fa-child',
         message: 'GROUP.PLAYGROUND_INFO',
       }

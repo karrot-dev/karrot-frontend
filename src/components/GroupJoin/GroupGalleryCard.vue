@@ -83,7 +83,7 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .highlight
-  border 2px solid $positive
+  border 2px solid $secondary
 .q-card *
   overflow: hidden
 .fixed-height

@@ -53,9 +53,11 @@
             :error="hasAddressError"
             :error-label="addressError"
           >
-            <address-picker
+            <AddressPicker
               v-model="edit"
               :map="true"
+              :color="markerColor"
+              font-icon="fas fa-shopping-cart"
             />
           </q-field>
 
@@ -129,7 +131,7 @@ import { validationMixin } from 'vuelidate'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-import { statusList } from '@/services/storeStatus'
+import { statusList, optionsFor } from '@/services/storeStatus'
 
 export default {
   name: 'StoreEdit',
@@ -193,6 +195,9 @@ export default {
           leftColor: s.color,
           icon: s.icon,
         }))
+    },
+    markerColor () {
+      if (this.edit) return optionsFor(this.edit).color
     },
   },
   methods: {

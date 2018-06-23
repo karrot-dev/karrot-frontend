@@ -31,11 +31,8 @@ export default {
       return [{
         latLng: L.latLng(this.user.latitude, this.user.longitude),
         id: 'user_' + this.user.id,
-        icon: L.AwesomeMarkers.icon({
-          icon: 'user',
-          markerColor: 'green',
-          prefix: 'fa',
-        }),
+        fontIcon: 'fas fa-user',
+        color: 'green',
         popupcontent: `<a href="/#/user/${this.user.id}">${this.user.displayName}</a>`,
       }]
     },

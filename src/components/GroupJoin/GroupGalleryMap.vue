@@ -41,12 +41,9 @@ export default {
       return {
         latLng: L.latLng(group.latitude, group.longitude),
         id: this.groupMarkerId(group.id),
-        icon: L.AwesomeMarkers.icon({
-          icon: 'home',
-          markerColor: color,
-          prefix: 'fa',
-        }),
-        popupcontent: `<h4><a href="/#/group/${group.id}/">${group.name}</a><h4>`,
+        fontIcon: 'fas fa-home',
+        color,
+        popupcontent: `<big><a href="/#/group/${group.id}/">${group.name}</a></big>`,
       }
     },
   },

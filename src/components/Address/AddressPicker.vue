@@ -78,11 +78,8 @@ export default {
       if (latitude && longitude) {
         return {
           latLng: L.latLng(latitude, longitude),
-          icon: L.AwesomeMarkers.icon({
-            icon: 'shopping-cart',
-            markerColor: 'blue',
-            prefix: 'fa',
-          }),
+          fontIcon: 'fas fa-shopping-cart',
+          color: 'blue',
           draggable: true,
         }
       }

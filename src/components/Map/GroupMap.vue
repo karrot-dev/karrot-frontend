@@ -61,24 +61,18 @@ export default {
     createUserMarker (user) {
       return {
         latLng: L.latLng(user.latitude, user.longitude),
+        fontIcon: 'fas fa-user',
+        color: 'green',
         id: this.userMarkerId(user.id),
-        icon: L.AwesomeMarkers.icon({
-          icon: 'user',
-          markerColor: 'green',
-          prefix: 'fa',
-        }),
         popupcontent: `<a href="/#/user/${user.id}">${user.displayName}</a>`,
       }
     },
     createStoreMarker (store) {
       return {
         latLng: L.latLng(store.latitude, store.longitude),
+        fontIcon: 'fas fa-shopping-cart',
+        color: store.ui.color,
         id: this.storeMarkerId(store.id),
-        icon: L.AwesomeMarkers.icon({
-          icon: 'shopping-cart',
-          markerColor: store.ui.color,
-          prefix: 'fa',
-        }),
         popupcontent: `<a href="/#/group/${store.group.id}/store/${store.id}">${store.name}</a>`,
       }
     },

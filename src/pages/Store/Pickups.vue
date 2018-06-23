@@ -111,11 +111,8 @@ export default {
     markers () {
       return [{
         latLng: L.latLng(this.store.latitude, this.store.longitude),
-        icon: L.AwesomeMarkers.icon({
-          icon: 'shopping-cart',
-          markerColor: 'green',
-          prefix: 'fa',
-        }),
+        fontIcon: 'fas fa-shopping-cart',
+        color: 'green',
       }]
     },
     ...mapGetters({

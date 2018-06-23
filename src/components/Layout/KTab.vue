@@ -4,6 +4,7 @@
     :to="to"
     slot="title"
     name="messages"
+    exact
   >
     <slot name="icon"/>
     <div class="label">
@@ -13,10 +14,10 @@
 </template>
 
 <script>
-import { QRouteTab, QChip } from 'quasar'
+import { QRouteTab } from 'quasar'
 
 export default {
-  components: { QRouteTab, QChip },
+  components: { QRouteTab },
   props: {
     to: {
       default: '',
@@ -30,4 +31,9 @@ export default {
   .label
     font-size .8em
     padding-top 1em
+    opacity 0.7
+  .ktab
+    transition:  color  .3s ease-out
+  .active
+    opacity .7
 </style>

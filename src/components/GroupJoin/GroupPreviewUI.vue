@@ -54,7 +54,7 @@
           >
             <q-alert
               v-if="!group.isMember"
-              color="tertiary"
+              color="warning"
               icon="info"
             >
               {{ $t('JOINGROUP.PROFILE_NOTE' ) }}

@@ -40,6 +40,18 @@
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
         <q-layout-drawer
+          v-if="!$q.platform.is.mobile"
+          side="left"
+          :breakpoint="0"
+          :value="true"
+          :overlay="false"
+        >
+          <router-view
+            class="sidenav-desktop"
+            name="sidenav"
+          />
+        </q-layout-drawer>
+        <q-layout-drawer
           v-if="$q.platform.is.mobile && isLoggedIn"
           side="left"
           v-model="showSidenav"
@@ -51,11 +63,6 @@
           <Banners />
           <router-view name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
-            <router-view
-              v-if="!$q.platform.is.mobile"
-              class="sidenav-desktop"
-              name="sidenav"
-            />
             <div class="mainContent-page">
               <router-view />
             </div>
@@ -129,7 +136,7 @@ export default {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
       }
-      return 'hHh LpR ffr'
+      return 'hHh LpR lfr'
     },
     defaultShowSidenavWidth () {
       return 992
@@ -153,10 +160,12 @@ body.desktop .mainContent
   margin auto
   .mainContent-page
     min-width 350px
-    max-width: 57em
+    max-width: 65em
     margin-bottom 4.5em
-    margin-left auto
-    margin-right auto
+    margin-left 1em
+    margin-top 1em
+    /*margin-left auto*/
+    /*margin-right auto*/
 .background
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px

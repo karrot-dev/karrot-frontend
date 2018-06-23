@@ -21,6 +21,7 @@
       </q-btn>
     </div>
 
+    <!--
     <q-list
       highlight
       no-border
@@ -51,6 +52,7 @@
         </q-item-main>
       </q-item>
     </q-list>
+    -->
 
   </SidenavBox>
 </template>

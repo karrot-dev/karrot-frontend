@@ -4,25 +4,64 @@
     no-border
     class="no-padding"
   >
-    <q-item
+    <div
       v-for="store in stores"
       :key="store.id"
-      link
-      :to="{name: linkTo, params: { storeId: store.id }}"
     >
-      <q-item-side class="text-center">
-        <q-icon
-          :name="store.ui.icon"
-          :color="store.ui.color"
-          :title="$t(store.ui.label)"
-        />
-      </q-item-side>
-      <q-item-main>
-        <q-item-tile label>
-          {{ store.name }}
-        </q-item-tile>
-      </q-item-main>
-    </q-item>
+      <q-item
+        link
+        :to="{name: linkTo, params: { storeId: store.id }}"
+      >
+        <q-item-side class="text-center">
+          <q-icon
+            :name="store.ui.icon"
+            :color="store.ui.color"
+            :title="$t(store.ui.label)"
+          />
+        </q-item-side>
+        <q-item-main>
+          <q-item-tile label>
+            {{ store.name }}
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+
+      <template v-if="store.isActiveStore">
+        <q-item :to="{name: 'storePickups', params: { storeId: store.id }}">
+          <q-item-side
+            class="text-center"
+            style="margin-left: 15px;"
+          >
+            <q-icon name="fas fa-shopping-basket" />
+          </q-item-side>
+          <q-item-main>
+            {{ $t("GROUP.PICKUPS") }}
+          </q-item-main>
+        </q-item>
+        <q-item :to="{name: 'storeFeedback', params: { storeId: store.id }}">
+          <q-item-side
+            class="text-center"
+            style="margin-left: 15px;"
+          >
+            <q-icon name="fas fa-balance-scale" />
+          </q-item-side>
+          <q-item-main>
+            {{ $t("PICKUP_FEEDBACK.TITLE") }}
+          </q-item-main>
+        </q-item>
+        <q-item :to="{name: 'storeHistory', params: { storeId: store.id }}">
+          <q-item-side
+            class="text-center"
+            style="margin-left: 15px;"
+          >
+            <i class="far fa-clock"/>
+          </q-item-side>
+          <q-item-main>
+            {{ $t("GROUP.HISTORY") }}
+          </q-item-main>
+        </q-item>
+      </template>
+    </div>
 
     <q-item
       v-if="!hasStores || $q.platform.is.mobile"

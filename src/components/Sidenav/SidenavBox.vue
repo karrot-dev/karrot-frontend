@@ -1,5 +1,6 @@
 <template>
-  <q-card class="no-shadow grey-border">
+  <div>
+    <!--
     <q-toolbar
       class="toolbar"
       @click.self="$emit('toggle')"
@@ -23,12 +24,13 @@
         />
       </q-btn>
     </q-toolbar>
+    -->
     <transition name="slide-toggle">
       <div v-show="expanded">
         <slot />
       </div>
     </transition>
-  </q-card>
+  </div>
 </template>
 
 <script>

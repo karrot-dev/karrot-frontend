@@ -16,6 +16,7 @@ const mockRouterPush = jest.fn()
 const mockRouterReplace = jest.fn()
 jest.mock('@/router', () => ({
   push: mockRouterPush,
+  go: () => {},
   replace: mockRouterReplace,
 }))
 

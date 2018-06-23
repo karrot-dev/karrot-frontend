@@ -69,7 +69,7 @@ export default {
         const data = await groups.save(group)
         commit('update', data)
         dispatch('currentGroup/update', data, { root: true })
-        router.push({ name: 'group', params: { groupId: group.id } })
+        router.go(-1)
       },
 
       async join ({ commit, dispatch, rootGetters }, { id: groupId, password }) {

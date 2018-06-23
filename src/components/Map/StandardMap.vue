@@ -6,6 +6,7 @@
     :zoom="zoom"
     @click="$emit('mapClick', arguments[0].latlng)"
     @moveend="$emit('mapMoveEnd', arguments[0].target)"
+    @update:zoom="updateZoom"
   >
     <l-tile-layer
       :url="url"
@@ -87,9 +88,13 @@ export default {
   data () {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      lastZoom: 15,
     }
   },
   methods: {
+    updateZoom (val) {
+      if (Number.isInteger(val)) this.lastZoom = val
+    },
     opacityFor (marker) {
       if (!this.hasSelectedMarkers) return SELECTED_OPACITY
       return this.selectedMarkerIds.includes(marker.id) ? SELECTED_OPACITY : UNSELECTED_OPACITY
@@ -192,7 +197,7 @@ export default {
       }
     },
     zoom () {
-      if (this.forceZoom) {
+      if (Number.isInteger(this.forceZoom)) {
         return this.forceZoom
       }
       if (!this.preventZoom && !this.bounds) {
@@ -201,6 +206,14 @@ export default {
         }
         return 15
       }
+      if (!this.bounds) {
+        return this.lastZoom
+      }
+    },
+  },
+  watch: {
+    zoom (val) {
+      if (Number.isInteger(val)) this.lastZoom = val
     },
   },
 }

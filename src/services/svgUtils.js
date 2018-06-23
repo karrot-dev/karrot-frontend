@@ -86,6 +86,9 @@ export function createBox ({ seed, type, above, text, initials }) {
     background.setAttribute('fill-opacity', 1)
     background.setAttribute('height', '100%')
     background.setAttribute('width', '100%')
+    if (above) {
+      background.setAttribute('y', -40)
+    }
     box.appendChild(background)
     for (let i = 0; i < 80; i++) {
       let randomMultipl = i * 6

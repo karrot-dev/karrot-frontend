@@ -3,7 +3,6 @@
     @click="$emit('click')"
     class="row no-wrap items-center"
     flat
-    :title="tooltip"
   >
     <div
       class="emoji"
@@ -14,7 +13,7 @@
 </template>
 
 <script>
-import { QBtn, QTooltip } from 'quasar'
+import { QBtn } from 'quasar'
 import emojiList from 'markdown-it-emoji/lib/data/full.json'
 import twemoji from 'twemoji'
 
@@ -30,15 +29,11 @@ function getEmojiElement (name) {
 }
 
 export default {
-  components: { QBtn, QTooltip },
+  components: { QBtn },
   props: {
     name: {
       type: String,
       required: true,
-    },
-    tooltip: {
-      type: String,
-      default: null,
     },
   },
   mounted () {

@@ -116,7 +116,7 @@ export default {
 
         if (markerOptions.fontIcon) {
           const i = document.createElement('i')
-          i.className = markerOptions.fontIcon
+          i.className = markerOptions.fontIcon + ' fa-fw'
           div.appendChild(i)
         }
 

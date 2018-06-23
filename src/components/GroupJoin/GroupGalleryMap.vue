@@ -32,10 +32,10 @@ export default {
       return `group_${id}`
     },
     createJoinedGroupMarker (group) {
-      return this.createGroupMarker(group, 'blue')
+      return this.createGroupMarker(group, 'positive')
     },
     createOpenGroupMarker (group) {
-      return this.createGroupMarker(group, 'green')
+      return this.createGroupMarker(group, 'blue')
     },
     createGroupMarker (group, color) {
       return {

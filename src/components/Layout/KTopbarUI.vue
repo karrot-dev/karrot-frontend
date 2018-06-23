@@ -183,7 +183,7 @@ export default {
         }
       }
       return {
-        color: 'green',
+        color: 'secondary',
         icon: 'fas fa-circle',
       }
     },

@@ -37,6 +37,14 @@ export default {
       default: true,
       type: Boolean,
     },
+    color: {
+      default: 'blue',
+      type: String,
+    },
+    fontIcon: {
+      default: null,
+      type: String,
+    },
   },
   data () {
     return {
@@ -78,8 +86,8 @@ export default {
       if (latitude && longitude) {
         return {
           latLng: L.latLng(latitude, longitude),
-          fontIcon: 'fas fa-shopping-cart',
-          color: 'blue',
+          fontIcon: this.fontIcon,
+          color: this.color,
           draggable: true,
         }
       }

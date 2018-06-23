@@ -62,7 +62,7 @@ export default {
       return {
         latLng: L.latLng(user.latitude, user.longitude),
         fontIcon: 'fas fa-user',
-        color: 'green',
+        color: 'positive',
         id: this.userMarkerId(user.id),
         popupcontent: `<a href="/#/user/${user.id}">${user.displayName}</a>`,
       }

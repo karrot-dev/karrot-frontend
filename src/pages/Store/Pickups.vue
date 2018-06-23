@@ -112,7 +112,7 @@ export default {
       return [{
         latLng: L.latLng(this.store.latitude, this.store.longitude),
         fontIcon: 'fas fa-shopping-cart',
-        color: 'green',
+        color: 'secondary',
       }]
     },
     ...mapGetters({

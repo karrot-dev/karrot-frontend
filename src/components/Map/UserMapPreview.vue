@@ -32,7 +32,7 @@ export default {
         latLng: L.latLng(this.user.latitude, this.user.longitude),
         id: 'user_' + this.user.id,
         fontIcon: 'fas fa-user',
-        color: 'green',
+        color: 'positive',
         popupcontent: `<a href="/#/user/${this.user.id}">${this.user.displayName}</a>`,
       }]
     },

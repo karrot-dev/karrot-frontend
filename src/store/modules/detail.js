@@ -1,7 +1,6 @@
 import { Platform } from 'quasar'
 
 import { createRouteRedirect } from '@/store/helpers'
-import pickupsAPI from '@/services/api/pickups'
 
 function initialState () {
   return {
@@ -38,14 +37,8 @@ export default {
       if (Platform.is.mobile) dispatch('clear')
     },
     async selectPickup ({ commit, dispatch }, { pickupId }) {
-      const [conversation] = await Promise.all([
-        pickupsAPI.conversation(pickupId),
-        dispatch('pickups/maybeFetch', pickupId, { root: true }),
-      ])
-      await Promise.all([
-        dispatch('conversations/fetchConversation', conversation.id, { root: true }),
-        dispatch('conversations/fetch', conversation.id, { root: true }), // gets the messages
-      ])
+      const conversation = await dispatch('conversations/fetchPickupConversation', pickupId, { root: true })
+      await dispatch('conversations/fetch', conversation.id, { root: true })
       commit('setPickupId', pickupId)
       commit('setConversationId', conversation.id)
     },

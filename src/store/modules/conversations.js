@@ -3,6 +3,7 @@ import differenceInSeconds from 'date-fns/difference_in_seconds'
 import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
 import reactionsAPI from '@/services/api/reactions'
+import pickupsAPI from '@/services/api/pickups'
 import i18n from '@/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/store/helpers'
 
@@ -159,6 +160,12 @@ export default {
 
       async fetchConversation ({ commit }, conversationId) {
         commit('setConversation', { conversation: await conversationsAPI.get(conversationId) })
+      },
+
+      async fetchPickupConversation ({ commit }, pickupId) {
+        const conversation = await pickupsAPI.conversation(pickupId)
+        commit('setConversation', { conversation })
+        return conversation
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {

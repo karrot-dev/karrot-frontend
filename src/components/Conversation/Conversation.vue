@@ -3,51 +3,52 @@
     <q-alert v-if="data.fetchStatus.hasValidationErrors">
       {{ data.fetchStatus.validationErrors }}
     </q-alert>
-    <template v-if="hasLoaded">
+    <template>
       <q-infinite-scroll
         :handler="loadMore"
       >
         <q-list
           class="bg-white desktop-margin"
         >
-          <NotificationToggle
-            :value="data.emailNotifications"
-            :user="user"
-            class="actionButton hoverScale"
-            @click="toggleNotifications"
-          />
-          <ConversationCompose
-            :status="data.sendStatus"
-            @submit="$emit('send', arguments[0])"
-            :placeholder="messagePrompt"
-            :user="user"
-          />
-          <q-alert
-            v-if="data.unreadMessageCount > 0"
-            color="secondary"
-            icon="star"
-          >
-            {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}
-            <q-btn
-              no-caps
-              @click="$emit('markAllRead')"
-              v-t="'CONVERSATION.MARK_READ'"
+          <template v-if="hasLoaded">
+            <NotificationToggle
+              :value="data.emailNotifications"
+              :user="user"
+              class="actionButton hoverScale"
+              @click="toggleNotifications"
             />
-          </q-alert>
-          <ConversationMessage
-            v-for="message in data.messages"
-            :key="message.id"
-            :message="message"
-            @toggleReaction="$emit('toggleReaction', arguments[0])"
-            @save="$emit('saveMessage', arguments[0])"
-          />
+            <ConversationCompose
+              :status="data.sendStatus"
+              @submit="$emit('send', { id: data.id, content: arguments[0] })"
+              :placeholder="messagePrompt"
+              :user="user"
+            />
+            <q-alert
+              v-if="data.unreadMessageCount > 0"
+              color="secondary"
+              icon="star"
+            >
+              {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}
+              <q-btn
+                no-caps
+                @click="$emit('markAllRead', data.id)"
+                v-t="'CONVERSATION.MARK_READ'"
+              />
+            </q-alert>
+            <ConversationMessage
+              v-for="message in data.messages"
+              :key="message.id"
+              :message="message"
+              @toggleReaction="$emit('toggleReaction', arguments[0])"
+              @save="$emit('saveMessage', arguments[0])"
+            />
+          </template>
+          <div
+            v-if="data.fetchStatus.pending || data.fetchMoreStatus.pending"
+            style="width: 100%; text-align: center">
+            <q-spinner-dots :size="40"/>
+          </div>
         </q-list>
-        <div
-          slot="message"
-          style="width: 100%; text-align: center"
-        >
-          <q-spinner-dots :size="40"/>
-        </div>
       </q-infinite-scroll>
       <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">
         {{ data.fetchMoreStatus.validationErrors }}
@@ -96,7 +97,7 @@ export default {
         done()
         return
       }
-      await this.fetchMore()
+      await this.fetchMore(this.data.id)
       done()
     },
     toggleNotifications () {

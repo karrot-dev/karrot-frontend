@@ -107,7 +107,8 @@ export default [
         name: 'group',
         path: 'wall',
         meta: {
-          afterLeave: 'conversations/compactActive',
+          beforeEnter: 'conversations/fetchForGroup',
+          afterLeave: 'conversations/clearForGroup',
         },
         components: {
           default: GroupWall,

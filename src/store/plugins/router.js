@@ -81,7 +81,11 @@ export function findBreadcrumbs (matched) {
 export async function maybeDispatchActions (store, to, from) {
   for (let m of from.matched.slice().reverse()) {
     if (m.meta.afterLeave) {
-      await store.dispatch(m.meta.afterLeave)
+      await store.dispatch(m.meta.afterLeave, {
+        ...parseAsIntegers(from.params),
+        routeFrom: from,
+        routeTo: to,
+      })
     }
   }
   for (let m of to.matched) {

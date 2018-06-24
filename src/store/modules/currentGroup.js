@@ -29,6 +29,10 @@ export default {
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],
     agreement: (state, getters) => getters.value && getters.value.activeAgreement,
+    conversation: (state, getters, rootState, rootGetters) => {
+      if (!state.current) return
+      return rootGetters['conversations/getForGroup'](state.current.id)
+    },
     id: (state) => state.current && state.current.id,
   },
   actions: {
@@ -89,10 +93,8 @@ export default {
 
     }),
 
-    async select ({ dispatch, getters, rootGetters }, { groupId }) {
-      if (!groupId) {
-        throw createRouteRedirect({ name: 'groupsGallery' })
-      }
+    async select ({ dispatch, commit, getters, rootGetters }, { groupId }) {
+      if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
       if (getters.id === groupId) return
 
       await dispatch('fetch', groupId)
@@ -114,12 +116,6 @@ export default {
 
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
-      try {
-        dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
-      }
-      catch (error) {
-        dispatch('conversations/clearActive', {}, { root: true })
-      }
 
       dispatch('feedback/fetchForGroup', { groupId }, { root: true })
 

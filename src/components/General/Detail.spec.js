@@ -78,7 +78,7 @@ describe('Detail', () => {
     wrapper.find('.q-if-control').trigger('click')
 
     const { id } = propsData.conversation
-    expect(wrapper.emitted().send).toEqual([[{ id, messageData: message }]])
+    expect(wrapper.emitted().send).toEqual([[{ conversationId: id, content: message }]])
     expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 1 }]])
   })
 

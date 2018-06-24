@@ -135,6 +135,8 @@ export default [
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
           ],
+          beforeEnter: 'feedback/fetchForGroup',
+          afterLeave: 'feedback/clear',
         },
         components: {
           default: GroupFeedback,
@@ -320,8 +322,8 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
               ],
-              beforeEnter: 'feedback/setStoreFilter',
-              afterLeave: 'feedback/clearStoreFilter',
+              beforeEnter: 'feedback/fetchForStore',
+              afterLeave: 'feedback/clear',
             },
             component: StoreFeedback,
           },
@@ -356,7 +358,7 @@ export default [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
           ],
           beforeEnter: 'feedback/select',
-          afterLeave: 'feedback/clearForm',
+          afterLeave: 'feedback/clear',
         },
         components: {
           default: PickupFeedback,

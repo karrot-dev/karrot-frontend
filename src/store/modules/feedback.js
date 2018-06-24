@@ -8,7 +8,6 @@ function initialState () {
     entries: {},
     idList: [],
     idListScope: { type: null, id: null }, // what kind of data currently is loaded in idList
-    storeFilter: null,
     selectedFeedbackId: null,
   }
 }
@@ -33,13 +32,6 @@ export default {
     },
     all: (state, getters) => state.idList.map(getters.get),
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
-    filtered: (state, getters, rootState, rootGetters) => {
-      let stores = rootGetters['stores/all']
-      if (state.storeFilter) {
-        stores = [state.storeFilter]
-      }
-      return getters.all.filter(e => e.about && stores.includes(e.about.store.id))
-    },
     ...metaStatuses(['save', 'fetch']),
   },
   actions: {
@@ -94,17 +86,17 @@ export default {
       findId: () => undefined,
     }),
 
-    async fetchForGroup ({ dispatch }, { groupId }) {
+    fetchForGroup ({ dispatch }, { groupId }) {
       dispatch('fetch', {
         filters: { group: groupId },
         scope: { type: 'group', id: groupId },
       })
     },
-    async setStoreFilter ({ commit }, { storeId }) {
-      commit('setStoreFilter', storeId)
-    },
-    async clearStoreFilter ({ commit }) {
-      commit('setStoreFilter', null)
+    fetchForStore ({ dispatch, commit }, { groupId, storeId }) {
+      dispatch('fetch', {
+        filters: { store: storeId },
+        scope: { type: 'store', id: storeId },
+      })
     },
 
     async fetchRelatedPickups ({ dispatch }, feedbackList) {
@@ -113,20 +105,19 @@ export default {
       }
     },
 
-    select ({ commit }, { feedbackId }) {
+    async select ({ dispatch, commit }, { groupId, feedbackId }) {
       if (feedbackId) {
+        dispatch('fetchForGroup', { groupId }) // ideally we would have the storeId here too, but it's not in the route
+        commit('update', [await feedbackAPI.get(feedbackId)])
         commit('select', feedbackId)
       }
-    },
-    clearForm ({ commit, dispatch }) {
-      dispatch('meta/clear', ['save'])
-      commit('select', null)
     },
 
     refresh ({ state, dispatch }) {
       const {type, id} = state.idListScope
       switch (type) {
         case 'group': return dispatch('fetchForGroup', { groupId: id })
+        case 'store': return dispatch('fetchForStore', { storeId: id })
       }
     },
 
@@ -154,9 +145,6 @@ export default {
         while (i < state.idList.length && state.entries[state.idList[i]].createdAt > createdAt) i++
         state.idList.splice(i, 0, id)
       }
-    },
-    setStoreFilter (state, storeId) {
-      state.storeFilter = storeId
     },
     select (state, feedbackId) {
       state.selectedFeedbackId = feedbackId

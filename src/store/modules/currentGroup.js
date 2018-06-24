@@ -117,8 +117,6 @@ export default {
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
 
-      dispatch('feedback/fetchForGroup', { groupId }, { root: true })
-
       dispatch('auth/backgroundSave', { currentGroup: groupId }, { root: true })
     },
 

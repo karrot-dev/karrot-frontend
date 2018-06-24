@@ -120,8 +120,8 @@ export default {
     ...withMeta({
       async send ({ dispatch }, { id, content }) {
         const message = await messageAPI.create({
-          content: content,
           conversation: id,
+          content,
         })
         dispatch('receiveMessage', message)
       },
@@ -256,7 +256,7 @@ export default {
 
     refresh ({ state, dispatch, commit }) {
       Object.keys(state.entries).forEach(async conversationId => {
-        await dispatch('updateConversation', await conversationsAPI.get(conversationId))
+        dispatch('updateConversation', await conversationsAPI.get(conversationId))
       })
       Object.keys(state.messages).forEach(async conversationId => {
         commit('clearMessages', { conversationId })

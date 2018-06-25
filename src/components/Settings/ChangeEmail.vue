@@ -1,6 +1,9 @@
 <template>
-  <div class="edit-box">
-    <VerificationWarning v-if="user && !user.mailVerified" />
+  <div
+    class="edit-box"
+    id="change-email"
+  >
+    <VerificationWarning />
 
     <q-field
       icon="fas fa-envelope"

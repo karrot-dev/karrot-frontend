@@ -3741,8 +3741,8 @@ exports[`Storyshots Settings Page Default 1`] = `
       <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="edit-box">
-        <!---->
+      <div id="change-email" class="edit-box">
+        <VerificationWarning></VerificationWarning>
         <div class="q-field row no-wrap items-start q-field-responsive">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">

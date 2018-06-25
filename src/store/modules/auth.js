@@ -10,6 +10,7 @@ function initialState () {
     joinGroupAfterLogin: null,
     acceptInviteAfterLogin: null,
     muteConversationAfterLogin: [],
+    failedEmailDeliveries: [],
   }
 }
 
@@ -21,6 +22,7 @@ export default {
     isLoggedIn: state => !!state.user,
     user: state => state.user,
     userId: state => state.user && state.user.id,
+    failedEmailDeliveries: state => state.failedEmailDeliveries,
     redirectTo: state => state.redirectTo,
     hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
     ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),
@@ -107,6 +109,10 @@ export default {
         dispatch('refresh')
       },
     }),
+
+    async getFailedEmailDeliveries ({ commit }) {
+      commit('setFailedEmailDeliveries', await authUser.getFailedEmailDeliveries())
+    },
 
     ...withMeta({
       async save ({ dispatch }, data) {
@@ -212,6 +218,10 @@ export default {
     },
     clearMuteConversationAfterLogin (state) {
       state.muteConversationAfterLogin = []
+    },
+
+    setFailedEmailDeliveries (state, events) {
+      state.failedEmailDeliveries = events
     },
   },
 }

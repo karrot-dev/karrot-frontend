@@ -9,7 +9,10 @@
     </RandomArt>
     <q-list link>
       <q-list-header>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</q-list-header>
-      <VerificationWarning class="generic-margin" />
+      <VerificationWarning
+        v-if="!emailVerified"
+        class="generic-margin"
+      />
       <q-item
         tag="label"
         v-for="type in availableNotificationTypes"
@@ -43,6 +46,10 @@ export default {
       type: Object,
       required: true,
     },
+    user: {
+      type: Object,
+      default: null,
+    },
   },
   data () {
     return {
@@ -55,6 +62,11 @@ export default {
     },
     notificationIsEnabled (type) {
       return this.group.notificationTypes.indexOf(type) !== -1
+    },
+  },
+  computed: {
+    emailVerified () {
+      return this.user && this.user.mailVerified
     },
   },
 }

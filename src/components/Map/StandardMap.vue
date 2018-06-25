@@ -110,6 +110,7 @@ export default {
             <path
               d="M 16.798304,1 C 8.0719527,1 1,8.7146969 1,16.923182 1,25.134394 16.798304,51 16.798304,51 c 0,0 15.798303,-25.865606 15.798303,-34.076818 C 32.596607,8.7146969 25.520547,1 16.798304,1 Z"
               class="text-${color}"
+              style="fill: currentColor"
             ></path>
           </svg>
         `
@@ -242,7 +243,6 @@ function existsFilter (val) {
         stroke black
         stroke-opacity .1
         stroke-width 1
-        fill currentColor
     i
       width 30px
       position absolute
@@ -252,10 +252,10 @@ function existsFilter (val) {
       font-size 14px
 
   .vector-marker-shadow
-    width 16px
+    width 12px
     position absolute
     bottom 0px
-    left -8px
+    left -7px
     opacity .3
     transform rotate(20deg) skew(-30deg)
     transform-origin 50% bottom

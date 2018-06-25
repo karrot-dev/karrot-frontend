@@ -215,6 +215,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.SETTINGS', route: { name: 'groupSettings' } },
           ],
+          beforeEnter: 'auth/getFailedEmailDeliveries',
         },
         components: {
           default: GroupSettings,
@@ -387,6 +388,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
+      beforeEnter: 'auth/getFailedEmailDeliveries',
       afterLeave: 'auth/clearSettingsStatus',
     },
     components: {

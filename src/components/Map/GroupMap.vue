@@ -10,6 +10,13 @@
       @mapMoveEnd="mapMoveEnd"
       @mapClick="openClickDialog"
     />
+    <GroupMapControls
+      v-if="enableControls"
+      :show-users="showUsers"
+      :show-stores="showStores"
+      @toggleUsers="$emit('toggleUsers')"
+      @toggleStores="$emit('toggleStores')"
+    />
     <div
       v-if="showOverlay"
       class="overlay row justify-center content-center"
@@ -37,11 +44,12 @@
 <script>
 
 import StandardMap from '@/components/Map/StandardMap'
+import GroupMapControls from '@/components/Map/GroupMapControls'
 import L from 'leaflet'
 import { Dialog, QBtn } from 'quasar'
 
 export default {
-  components: { StandardMap, QBtn },
+  components: { StandardMap, QBtn, GroupMapControls },
   props: {
     users: { required: true, type: Array },
     stores: { required: true, type: Array },
@@ -51,6 +59,7 @@ export default {
     currentGroup: { type: Object, default: () => ({}) },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
+    enableControls: { type: Boolean, default: false },
   },
   methods: {
     userMarkerId (userId) {

@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<!-- NOT SCOPED! -->
+<!-- NOT SCOPED! Bad style, definitions should be moved into the respective components -->
 <style lang="stylus">
 @import '~variables'
 .splashlayout-header
@@ -61,9 +61,7 @@ export default {
       margin-right .5em
   .actions
     float right
-    color $secondary
-    > :hover:not(.submit)
-      color hover-color($secondary)
+    color white
     .submit
       color white
       background-color $secondary

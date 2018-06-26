@@ -91,7 +91,8 @@ export default {
       return this.showStoreLocationPrompt || this.showGroupLocationPrompt
     },
     center () {
-      if (this.currentGroup.latitude && this.currentGroup.longitude) return this.currentGroup
+      const { latitude: lat, longitude: lng } = this.currentGroup
+      if (lat && lng) return { lat, lng }
     },
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }

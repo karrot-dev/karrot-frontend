@@ -186,14 +186,13 @@ export default {
       }
     },
     center () {
-      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return [this.forceCenter.lat, this.forceCenter.lng]
+      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return this.forceCenter
       if (!this.bounds) {
         if (this.hasOneMarker) {
-          const { lat, lng } = this.markersForBound[0].latLng
-          return [lat, lng]
+          return this.markersForBound[0].latLng
         }
         if (this.defaultCenter) {
-          return [this.defaultCenter.latitude, this.defaultCenter.longitude]
+          return this.defaultCenter
         }
         return ['49.8990022441358', '8.66415739059448']
       }

@@ -41,7 +41,7 @@ export default {
       return {
         latLng: L.latLng(group.latitude, group.longitude),
         id: this.groupMarkerId(group.id),
-        fontIcon: 'fas fa-home',
+        fontIcon: group.isMember ? 'fas fa-home' : 'fas fa-info-circle',
         color,
         popupcontent: `<big><a href="/#/group/${group.id}/">${group.name}</a></big>`,
       }

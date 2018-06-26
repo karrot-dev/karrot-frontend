@@ -113,7 +113,8 @@ export default {
       }
 
       function createIcon (oldIcon) {
-        const div = (oldIcon && oldIcon.tagName === 'DIV' ? oldIcon : document.createElement('div'))
+        if (oldIcon) oldIcon.remove()
+        const div = document.createElement('div')
         div.innerHTML = markerHtml(markerOptions.color || 'grey')
         div.className = 'vector-marker'
 
@@ -127,7 +128,8 @@ export default {
       }
 
       function createShadow (oldIcon) {
-        const div = (oldIcon && oldIcon.tagName === 'DIV' ? oldIcon : document.createElement('div'))
+        if (oldIcon) oldIcon.remove()
+        const div = document.createElement('div')
         const innerDiv = document.createElement('div')
         innerDiv.className = 'vector-marker-shadow'
         innerDiv.innerHTML = markerHtml('black')

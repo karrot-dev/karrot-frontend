@@ -90,6 +90,9 @@ export default {
     }),
 
     async select ({ dispatch, getters, rootGetters }, { groupId }) {
+      if (!groupId) {
+        throw createRouteRedirect({ name: 'groupsGallery' })
+      }
       if (getters.id === groupId) return
 
       await dispatch('fetch', groupId)

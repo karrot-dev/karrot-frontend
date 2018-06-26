@@ -2,7 +2,7 @@
   <q-toolbar color="primary">
     <slot />
     <router-link
-      :to="{name: 'group'}"
+      :to="'/'"
       v-if="!$q.platform.is.mobile"
       class="logo"
     >

@@ -39,6 +39,26 @@
         {{ $t( showUsers ? 'GROUPMAP.HIDE_USERS' : 'GROUPMAP.SHOW_USERS') }}
       </q-tooltip>
     </q-btn>
+
+    <q-btn
+      color="primary"
+      @click="$emit('toggleGroups')"
+    >
+      <span class="fa-fw fa-stack">
+        <i class="fas fa-home fa-stack-1x" />
+        <i
+          v-if="showGroups"
+          class="fas fa-check bottom-right fa-stack-1x"
+        />
+        <i
+          v-else
+          class="fas fa-times bottom-right fa-stack-1x"
+        />
+      </span>
+      <q-tooltip>
+        {{ $t( showGroups ? 'GROUPMAP.HIDE_GROUPS' : 'GROUPMAP.SHOW_GROUPS') }}
+      </q-tooltip>
+    </q-btn>
   </q-btn-group>
 </template>
 
@@ -65,10 +85,10 @@ export default {
       default: true,
       type: Boolean,
     },
-  },
-  methods: {
-  },
-  computed: {
+    showGroups: {
+      default: true,
+      type: Boolean,
+    },
   },
 }
 </script>

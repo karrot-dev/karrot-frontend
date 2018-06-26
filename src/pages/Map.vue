@@ -4,15 +4,18 @@
       class="map"
       :users="users"
       :stores="stores"
+      :groups="groups"
       :current-group="currentGroup"
       :force-center="center"
       :force-zoom="zoom"
       :show-users="showUsers"
       :show-stores="showStores"
+      :show-groups="showGroups"
       enable-controls
       @mapMoveEnd="mapMoveEnd"
       @toggleUsers="toggleUsers"
       @toggleStores="toggleStores"
+      @toggleGroups="toggleGroups"
     />
   </div>
 </template>
@@ -29,9 +32,11 @@ export default {
     ...mapGetters({
       stores: 'stores/byCurrentGroup',
       users: 'users/byCurrentGroup',
+      groups: 'groups/all',
       currentGroup: 'currentGroup/value',
       showStores: 'sidenavBoxes/toggle/storesOnMap',
       showUsers: 'sidenavBoxes/toggle/usersOnMap',
+      showGroups: 'sidenavBoxes/toggle/groupsOnMap',
     }),
     center () {
       return {lat: Number(this.$route.query.lat), lng: Number(this.$route.query.lng)}
@@ -44,6 +49,7 @@ export default {
     ...mapActions({
       toggleStores: 'sidenavBoxes/toggle/storesOnMap',
       toggleUsers: 'sidenavBoxes/toggle/usersOnMap',
+      toggleGroups: 'sidenavBoxes/toggle/groupsOnMap',
     }),
     mapMoveEnd (target) {
       this.$router.replace({query: {lat: target.getCenter().lat, lng: target.getCenter().lng, zoom: target.getZoom()}})

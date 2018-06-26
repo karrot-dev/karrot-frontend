@@ -14,8 +14,10 @@
       v-if="enableControls"
       :show-users="showUsers"
       :show-stores="showStores"
+      :show-groups="showGroups"
       @toggleUsers="$emit('toggleUsers')"
       @toggleStores="$emit('toggleStores')"
+      @toggleGroups="$emit('toggleGroups')"
     />
     <div
       v-if="showOverlay"
@@ -47,16 +49,18 @@ import StandardMap from '@/components/Map/StandardMap'
 import GroupMapControls from '@/components/Map/GroupMapControls'
 import { Dialog, QBtn } from 'quasar'
 
-import { storeMarker, userMarker } from '@/components/Map/markers'
+import { groupMarker, storeMarker, userMarker } from '@/components/Map/markers'
 
 export default {
   components: { StandardMap, QBtn, GroupMapControls },
   props: {
     users: { required: true, type: Array },
     stores: { required: true, type: Array },
+    groups: { default: null, type: Array },
     selectedStore: { default: null, type: Object },
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
+    showGroups: { default: false, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
@@ -99,6 +103,9 @@ export default {
     usersWithLocation () {
       return this.users.filter(hasLocation)
     },
+    groupsWithLocation () {
+      return (this.groups && this.groups.filter(hasLocation)) || []
+    },
     selectedMarkers () {
       if (this.selectedStore) {
         const markers = []
@@ -107,6 +114,9 @@ export default {
         }
         if (this.showUsers) {
           markers.push(...this.usersWithLocation.map(userMarker))
+        }
+        if (this.showGroups) {
+          markers.push(...this.groupsWithLocation.map(groupMarker))
         }
         return markers
       }
@@ -118,6 +128,9 @@ export default {
       }
       if (this.showUsers) {
         items.push(...this.usersWithLocation.map(userMarker))
+      }
+      if (this.showGroups) {
+        items.push(...this.groupsWithLocation.map(groupMarker))
       }
       return items
     },

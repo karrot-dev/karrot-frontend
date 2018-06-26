@@ -10,6 +10,7 @@ export default {
       group: true,
       storesOnMap: true,
       usersOnMap: false,
+      groupsOnMap: false,
     }),
   },
 }

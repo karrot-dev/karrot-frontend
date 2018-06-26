@@ -8,6 +8,7 @@
       :force-center="forceCenter"
       :force-zoom="forceZoom"
       @mapMoveEnd="mapMoveEnd"
+      @mapClick="openClickDialog"
     />
     <div
       v-if="showOverlay"
@@ -37,7 +38,7 @@
 
 import StandardMap from '@/components/Map/StandardMap'
 import L from 'leaflet'
-import { QBtn } from 'quasar'
+import { Dialog, QBtn } from 'quasar'
 
 export default {
   components: { StandardMap, QBtn },
@@ -75,6 +76,15 @@ export default {
         id: this.storeMarkerId(store.id),
         popupcontent: `<a href="/#/group/${store.group.id}/store/${store.id}">${store.name}</a>`,
       }
+    },
+    openClickDialog (latLng) {
+      Dialog.create({
+        title: 'Create new store',
+        message: 'Create a new store at this location?',
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .then(() => this.$router.push({ name: 'storeCreate', query: latLng }))
+        .catch(() => {})
     },
     mapMoveEnd (target) {
       this.$emit('mapMoveEnd', target)

@@ -55,7 +55,6 @@
           >
             <AddressPicker
               v-model="edit"
-              :map="true"
               :color="markerColor"
               font-icon="fas fa-shopping-cart"
             />

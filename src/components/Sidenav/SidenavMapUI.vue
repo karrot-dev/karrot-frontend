@@ -73,7 +73,7 @@
       :users="users"
       :show-users="showUsers"
       :show-stores="showStores"
-      :selected-store-id="selectedStoreId"
+      :selected-store="selectedStore"
       :current-group="currentGroup"
     />
   </SidenavBox>
@@ -95,9 +95,9 @@ export default {
       default: () => [],
       type: Array,
     },
-    selectedStoreId: {
+    selectedStore: {
       default: null,
-      type: Number,
+      type: Object,
     },
     showStores: {
       default: true,

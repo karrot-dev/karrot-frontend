@@ -63,7 +63,6 @@
           >
             <AddressPicker
               v-model="edit"
-              :map="true"
               :color="isNew ? 'blue' : 'positive'"
               font-icon="fas fa-home"
             />

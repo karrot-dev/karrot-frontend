@@ -31,7 +31,7 @@ export default {
         group: rootGetters['groups/get'](store.group),
       }
     },
-    activeStore: (state, getters) => getters.get(state.activeStoreId) || {},
+    activeStore: (state, getters) => getters.get(state.activeStoreId),
     activeStoreId: state => state.activeStoreId,
     ...metaStatuses(['create']),
   },

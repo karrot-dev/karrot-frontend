@@ -10,7 +10,8 @@
 
 <script>
 import StandardMap from '@/components/Map/StandardMap'
-import L from 'leaflet'
+
+import { groupMarker } from '@/components/Map/markers'
 
 export default {
   props: {
@@ -27,38 +28,18 @@ export default {
       type: Boolean,
     },
   },
-  methods: {
-    groupMarkerId (id) {
-      return `group_${id}`
-    },
-    createJoinedGroupMarker (group) {
-      return this.createGroupMarker(group, 'positive')
-    },
-    createOpenGroupMarker (group) {
-      return this.createGroupMarker(group, 'blue')
-    },
-    createGroupMarker (group, color) {
-      return {
-        latLng: L.latLng(group.latitude, group.longitude),
-        id: this.groupMarkerId(group.id),
-        fontIcon: group.isMember ? 'fas fa-home' : 'fas fa-info-circle',
-        color,
-        popupcontent: `<big><a href="/#/group/${group.id}/">${group.name}</a></big>`,
-      }
-    },
-  },
   computed: {
     markers () {
       let items = []
       let openGroupsWithCoords = this.filteredOtherGroups.filter(group => {
         return group.latitude != null && group.longitude != null
       })
-      items.push(...openGroupsWithCoords.map(this.createOpenGroupMarker))
+      items.push(...openGroupsWithCoords.map(groupMarker))
 
       let joinedGroupsWithCoords = this.filteredMyGroups.filter(group => {
         return group.latitude != null && group.longitude != null
       })
-      items.push(...joinedGroupsWithCoords.map(this.createJoinedGroupMarker))
+      items.push(...joinedGroupsWithCoords.map(groupMarker))
       return items
     },
     singleGroup () {

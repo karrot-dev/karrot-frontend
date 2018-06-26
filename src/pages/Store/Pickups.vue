@@ -89,7 +89,8 @@ import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
 import Markdown from '@/components/Markdown'
 import StandardMap from '@/components/Map/StandardMap'
-import L from 'leaflet'
+
+import { storeMarker } from '@/components/Map/markers'
 
 import {
   mapGetters,
@@ -109,11 +110,7 @@ export default {
   },
   computed: {
     markers () {
-      return [{
-        latLng: L.latLng(this.store.latitude, this.store.longitude),
-        fontIcon: 'fas fa-shopping-cart',
-        color: 'positive',
-      }]
+      return [storeMarker(this.store)]
     },
     ...mapGetters({
       store: 'stores/activeStore',

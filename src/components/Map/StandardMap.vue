@@ -60,9 +60,8 @@ export default {
       required: true,
       type: Array,
     },
-    selectedMarkerIds: {
+    selectedMarkers: {
       type: Array,
-      required: false,
       default: () => [],
     },
     showAttribution: {
@@ -98,10 +97,7 @@ export default {
     },
     opacityFor (marker) {
       if (!this.hasSelectedMarkers) return SELECTED_OPACITY
-      return this.selectedMarkerIds.includes(marker.id) ? SELECTED_OPACITY : UNSELECTED_OPACITY
-    },
-    getMarker (id) {
-      return this.markers.find(marker => marker.id === id)
+      return this.selectedMarkers.find(m => m.id === marker.id) ? SELECTED_OPACITY : UNSELECTED_OPACITY
     },
     createLeafletMarker (markerOptions) {
       function markerHtml (color) {
@@ -155,11 +151,6 @@ export default {
     },
     hasSelectedMarkers () {
       return this.selectedMarkers && this.selectedMarkers.length > 0
-    },
-    selectedMarkers () {
-      if (this.selectedMarkerIds.length > 0) {
-        return this.selectedMarkerIds.map(this.getMarker).filter(existsFilter)
-      }
     },
     hasMarkers () {
       return this.markers && this.markers.length > 0
@@ -217,10 +208,6 @@ export default {
       if (Number.isInteger(val)) this.lastZoom = val
     },
   },
-}
-
-function existsFilter (val) {
-  return !!val
 }
 </script>
 

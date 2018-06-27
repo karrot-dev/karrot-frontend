@@ -125,7 +125,6 @@ export default {
       dispatch('auth/backgroundSave', { currentGroup: null }, { root: true })
       dispatch('agreements/clear', null, { root: true })
       dispatch('pickups/clear', {}, { root: true })
-      dispatch('conversations/clearActive', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 

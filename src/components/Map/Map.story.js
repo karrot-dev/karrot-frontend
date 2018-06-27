@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/vue'
 import GroupMap from './GroupMap'
 import UserMapPreview from './UserMapPreview'
 import StandardMap from './StandardMap'
-import { usersMock, storesMock } from '>/mockdata'
+import { usersMock, storesMock, storeWithoutLocation } from '>/mockdata'
 import L from 'leaflet'
 
 const style = {
@@ -80,7 +80,7 @@ storiesOf('Map', module)
         stores: storesMock,
         showStores: true,
         showUsers: true,
-        selectedStore: storesMock[0],
+        selectedStore: storesMock[1],
         currentGroup,
       },
       style,
@@ -90,10 +90,10 @@ storiesOf('Map', module)
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
-        stores: storesMock,
+        stores: [...storesMock, storeWithoutLocation],
         showStores: true,
         showUsers: true,
-        selectedStore: { ...storesMock[0], latitude: undefined, longitude: undefined },
+        selectedStore: storeWithoutLocation,
         currentGroup,
       },
       style,

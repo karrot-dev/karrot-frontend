@@ -68,6 +68,9 @@ jest.mock('@/locales/status-frontend.json', () => ({
   },
 }))
 
+// Mock annoying components (e.g. too much vuex dependency)
+jest.mock('@/components/Settings/VerificationWarning', () => {})
+
 const files = glob.sync('**/*.story.js', { absolute: true })
 for (const f of files) {
   require(f)

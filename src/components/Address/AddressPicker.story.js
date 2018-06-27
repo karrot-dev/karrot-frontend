@@ -17,16 +17,3 @@ storiesOf('AddressPicker', module)
       }
     },
   }))
-  .add('Without map', () => defaults({
-    components: { AddressPicker },
-    template: '<AddressPicker v-model="item" :map="false" />',
-    data () {
-      return {
-        item: {
-          address: '',
-          latitude: '',
-          longitude: '',
-        },
-      }
-    },
-  }))

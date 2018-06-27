@@ -29,18 +29,24 @@ export const usersMockWithoutCurrent = [
 
 export const usersMock = [ ...usersMockWithoutCurrent, currentUserMock ]
 
+function convertStore (store) {
+  return {
+    ...store,
+    saveStatus: statusMocks.default(),
+    ui: optionsFor(store),
+    group: groupsMock.find(g => g.id === store.group),
+  }
+}
+
 export const storesMock = [
   { 'id': 1, 'name': 'Teststore1', 'description': 'all the good stuff', 'group': 1, 'address': 'Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany', 'latitude': 49.8965397, 'longitude': 8.6847644, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 60, 'name': 'New Tienda', 'description': 'bla bla', 'group': 1, 'address': null, 'latitude': 49.8701892656281, 'longitude': 8.65070343017578, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 56, 'name': 'Supermarkt Arheilgen', 'description': 'blabla', 'group': 1, 'address': 'Frankfurter Landstraße 147 Arheilgen', 'latitude': 49.9105778076202, 'longitude': 8.65834236145019, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 2, 'name': 'asd', 'description': 'asd', 'group': 1, 'address': 'Luisenplatz, Darmstadt, Regierungsbezirk Darmstadt, Hessen, 64283, Deutschland', 'latitude': 49.8728175, 'longitude': 8.65062690796964, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 61, 'name': 'Griesheimer Markt', 'description': 'Frisches Essen dies das', 'group': 1, 'address': 'Griesheim Marktplatz', 'latitude': 49.8615586173026, 'longitude': 8.57465744018555, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
-].map(e => ({
-  ...e,
-  saveStatus: statusMocks.default(),
-  ui: optionsFor(e),
-  group: groupsMock.find(g => g.id === e.group),
-}))
+].map(convertStore)
+
+export const storeWithoutLocation = convertStore({ 'id': 62, 'name': 'Griesheimer Markt 2', 'description': 'Frisches Essen dies das', 'group': 1, 'address': 'Griesheim Marktplatz 1', 'latitude': undefined, 'longitude': undefined, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 })
 
 function enrichPickup (e) {
   e.date = new Date(e.date)

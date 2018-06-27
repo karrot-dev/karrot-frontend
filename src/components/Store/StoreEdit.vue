@@ -155,7 +155,7 @@ export default {
     QCard, QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
   },
   mounted () {
-    if (this.$route.query) this.setLocation(this.$route.query)
+    if (this.$route && this.$route.query) this.setLocation(this.$route.query)
   },
   watch: {
     '$route.query' (val) {

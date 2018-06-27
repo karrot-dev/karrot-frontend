@@ -3,6 +3,8 @@ import differenceInSeconds from 'date-fns/difference_in_seconds'
 import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
 import reactionsAPI from '@/services/api/reactions'
+import pickupsAPI from '@/services/api/pickups'
+import groupsAPI from '@/services/api/groups'
 import i18n from '@/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/store/helpers'
 
@@ -39,7 +41,8 @@ function initialState () {
     entries: {},
     messages: {}, // { <conversation-id> : [<message>,...] }
     cursors: {}, // { <conversation-id> : [<cursor>, ...]}
-    activeConversationId: null,
+    groupConversationIds: {}, // { <group-id> : <conversation-id> }
+    pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
   }
 }
 
@@ -58,6 +61,16 @@ export default {
         canLoadMore,
         ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchMore'], conversationId),
       }
+    },
+    getForGroup: (state, getters) => groupId => {
+      const conversationId = state.groupConversationIds[groupId]
+      if (!conversationId) return
+      return getters.get(conversationId)
+    },
+    getForPickup: (state, getters) => pickupId => {
+      const conversationId = state.pickupConversationIds[pickupId]
+      if (!conversationId) return
+      return getters.get(conversationId)
     },
     enrichReactions: (state, getters, rootState, rootGetters) => reactions => {
       if (!reactions || !reactions.length) return []
@@ -102,45 +115,25 @@ export default {
         participants: conversation.participants.map(rootGetters['users/get']),
       }
     },
-    activeMessages: (state, getters) => {
-      return (state.messages[state.activeConversationId] || []).map(getters.enrichMessage)
-    },
-    activeConversation: (state, getters) => {
-      if (!state.activeConversationId) return
-      return getters.enrichConversation(state.entries[state.activeConversationId])
-    },
-    active: (state, getters) => {
-      const id = state.activeConversationId
-      if (!id) return
-
-      const canLoadMore = typeof state.cursors[state.activeConversationId] === 'string'
-      return {
-        ...getters.activeConversation,
-        messages: getters.activeMessages,
-        canLoadMore,
-        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchMore'], id),
-      }
-    },
   },
   actions: {
     ...withMeta({
-      async send ({ dispatch }, { id, messageData }) {
+      async send ({ dispatch }, { id, content }) {
         const message = await messageAPI.create({
-          content: messageData,
           conversation: id,
+          content,
         })
         dispatch('receiveMessage', message)
       },
       async fetch ({ commit }, conversationId) {
         const data = await messageAPI.list(conversationId)
         commit('updateMessages', {
-          messages: data.results,
           conversationId,
+          messages: data.results,
         })
         commit('setCursor', {
           conversationId,
           cursor: data.next,
-          first: true,
         })
       },
 
@@ -148,17 +141,13 @@ export default {
         const currentCursor = state.cursors[conversationId]
         const data = await messageAPI.listMore(currentCursor)
         commit('updateMessages', {
-          messages: data.results,
           conversationId,
+          messages: data.results,
         })
         commit('setCursor', {
           conversationId,
           cursor: data.next,
         })
-      },
-
-      async fetchConversation ({ commit }, conversationId) {
-        commit('setConversation', { conversation: await conversationsAPI.get(conversationId) })
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
@@ -185,6 +174,38 @@ export default {
       findId: data => data.message.id,
     }),
 
+    async fetchForGroup ({ state, dispatch, commit }, { groupId }) {
+      let conversation
+      const conversationId = state.groupConversationIds[groupId]
+      if (conversationId) conversation = state.entries[conversationId]
+      if (!conversation) {
+        conversation = await groupsAPI.conversation(groupId)
+        commit('setConversation', { conversation, groupId })
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForGroup ({ state, commit }, { groupId }) {
+      const conversationId = state.groupConversationIds[groupId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
+    async fetchForPickup ({ state, dispatch, commit }, { pickupId }) {
+      let conversation
+      const conversationId = state.pickupConversationIds[pickupId]
+      if (conversationId) conversation = state.entries[conversationId]
+      if (!conversation) {
+        conversation = await pickupsAPI.conversation(pickupId)
+        commit('setConversation', { conversation, pickupId })
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForPickup ({ state, commit }, { pickupId }) {
+      const conversationId = state.pickupConversationIds[pickupId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
       const pending = getters['meta/status']('toggleEmailNotifications', conversationId).pending
       const prevent = state.entries[conversationId] && state.entries[conversationId].emailNotifications === value
@@ -194,7 +215,6 @@ export default {
     },
 
     async toggleReaction ({ state, commit, rootGetters }, { conversationId, messageId, name }) {
-      if (!conversationId) conversationId = state.activeConversationId
       // current user's id
       const userId = rootGetters['auth/userId']
       // see if the reaction already exists or not
@@ -211,39 +231,13 @@ export default {
       }
     },
 
-    async sendInActiveConversation ({ state, dispatch }, messageData) {
-      dispatch('send', { id: state.activeConversationId, messageData })
-    },
-    async markAllReadInActiveConversation ({ state, dispatch, getters }) {
-      const newestMessage = getters.activeMessages[0]
-      dispatch('mark', { id: state.activeConversationId, seenUpTo: newestMessage.id })
-    },
-
-    async fetchMoreForActiveConversation ({ state, dispatch }) {
-      const conversationId = state.activeConversationId
-      const currentCursor = state.cursors[conversationId]
-      if (!currentCursor) {
-        return
-      }
-      await dispatch('fetchMore', conversationId)
-    },
-
-    async setActive ({ commit, dispatch }, conversation) {
-      commit('setActive', { conversationId: conversation.id })
-      commit('setConversation', { conversation })
-      await dispatch('fetch', conversation.id)
+    async markAllRead ({ state, dispatch, getters }, conversationId) {
+      const newestMessage = state.messages[conversationId][0]
+      dispatch('mark', { id: conversationId, seenUpTo: newestMessage.id })
     },
 
     clearConversation ({ commit }, conversationId) {
       commit('clearConversation', { conversationId })
-    },
-
-    clearActive ({ commit }) {
-      commit('clearActive')
-    },
-
-    compactActive ({ state, commit }) {
-      commit('compact', { conversationId: state.activeConversationId })
     },
 
     receiveMessage ({ commit }, message) {
@@ -260,33 +254,29 @@ export default {
       }
     },
 
-    refresh ({ state, dispatch }) {
-      Object.values(state.entries).forEach(async conversation => {
-        await dispatch('updateConversation', await conversationsAPI.get(conversation.id))
-        dispatch('fetch', conversation.id)
+    refresh ({ state, dispatch, commit }) {
+      Object.keys(state.entries).forEach(async conversationId => {
+        dispatch('updateConversation', await conversationsAPI.get(conversationId))
+      })
+      Object.keys(state.messages).forEach(async conversationId => {
+        commit('clearMessages', { conversationId })
+        dispatch('fetch', conversationId)
       })
     },
   },
   mutations: {
-    setActive (state, { conversationId }) {
-      state.activeConversationId = conversationId
-    },
-    clearActive (state) {
-      state.activeConversationId = null
+    clearMessages (state, { conversationId }) {
+      Vue.delete(state.messages, conversationId)
+      Vue.delete(state.cursors, conversationId)
     },
     clearConversation (state, { conversationId }) {
       Vue.delete(state.entries, conversationId)
       Vue.delete(state.messages, conversationId)
-    },
-    compact (state, { conversationId }) {
-      const conversation = state.entries[conversationId]
-      const messages = state.messages[conversationId]
-      if (!messages) return
-      const keep = 10
-      if (messages.length > keep) messages.splice(keep, messages.length - keep)
-      if (conversation.firstCursor) Vue.set(state.cursors, conversationId, conversation.firstCursor)
+      Vue.delete(state.cursors, conversationId)
     },
     updateMessages (state, { conversationId, messages }) {
+      if (!state.entries[conversationId]) return
+
       if (!state.messages[conversationId]) {
         Vue.set(state.messages, conversationId, messages)
         return
@@ -310,12 +300,17 @@ export default {
         }
       }
     },
-    setCursor (state, { conversationId, cursor, first = false }) {
+    setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
-      if (first) Vue.set(state.entries[conversationId], 'firstCursor', cursor)
     },
-    setConversation (state, { conversation }) {
+    setConversation (state, { conversation, groupId, pickupId }) {
       Vue.set(state.entries, conversation.id, conversation)
+      if (groupId) {
+        Vue.set(state.groupConversationIds, groupId, conversation.id)
+      }
+      if (pickupId) {
+        Vue.set(state.pickupConversationIds, pickupId, conversation.id)
+      }
     },
     updateEmailNotifications (state, { conversationId, value }) {
       state.entries[conversationId].emailNotifications = value

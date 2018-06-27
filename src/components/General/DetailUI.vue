@@ -222,10 +222,10 @@ export default {
         })
       }
     },
-    sendMessage (data) {
+    sendMessage (content) {
       this.$emit('send', {
         id: this.conversation.id,
-        messageData: data,
+        content,
       })
     },
     toggleNotifications () {

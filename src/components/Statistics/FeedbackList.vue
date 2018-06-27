@@ -23,9 +23,8 @@
         {{ $t('FEEDBACKLIST.NONE_HINT') }}
       </template>
     </KNotice>
-
     <div
-      slot="message"
+      v-if="status.pending"
       style="width: 100%; text-align: center"
     >
       <q-spinner-dots :size="40"/>

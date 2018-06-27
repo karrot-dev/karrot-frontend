@@ -29,6 +29,10 @@ export default {
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],
     agreement: (state, getters) => getters.value && getters.value.activeAgreement,
+    conversation: (state, getters, rootState, rootGetters) => {
+      if (!state.current) return
+      return rootGetters['conversations/getForGroup'](state.current.id)
+    },
     id: (state) => state.current && state.current.id,
   },
   actions: {
@@ -90,9 +94,7 @@ export default {
     }),
 
     async select ({ dispatch, getters, rootGetters }, { groupId }) {
-      if (!groupId) {
-        throw createRouteRedirect({ name: 'groupsGallery' })
-      }
+      if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
       if (getters.id === groupId) return
 
       await dispatch('fetch', groupId)
@@ -114,24 +116,15 @@ export default {
 
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
-      try {
-        dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
-      }
-      catch (error) {
-        dispatch('conversations/clearActive', {}, { root: true })
-      }
 
-      dispatch('feedback/fetchForGroup', { groupId }, { root: true })
-
-      dispatch('auth/backgroundSave', { currentGroup: groupId }, { root: true })
+      dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
     },
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('auth/backgroundSave', { currentGroup: null }, { root: true })
+      dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })
       dispatch('agreements/clear', null, { root: true })
       dispatch('pickups/clear', {}, { root: true })
-      dispatch('conversations/clearActive', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 

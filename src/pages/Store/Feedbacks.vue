@@ -42,7 +42,7 @@ export default {
   components: { FeedbackList, QCard, QTooltip, QBtn },
   computed: {
     ...mapGetters({
-      feedback: 'feedback/filtered',
+      feedback: 'feedback/all',
       fetchStatus: 'feedback/fetchStatus',
       feedbackPossibleFiltered: 'pickups/feedbackPossibleFiltered',
     }),

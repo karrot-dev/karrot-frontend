@@ -3,13 +3,13 @@
     <q-alert v-if="data.fetchStatus.hasValidationErrors">
       {{ data.fetchStatus.validationErrors }}
     </q-alert>
-    <template v-if="hasLoaded">
-      <q-infinite-scroll
-        :handler="loadMore"
+    <q-infinite-scroll
+      :handler="loadMore"
+    >
+      <q-list
+        class="bg-white desktop-margin"
       >
-        <q-list
-          class="bg-white desktop-margin"
-        >
+        <template v-if="hasLoaded">
           <NotificationToggle
             :value="data.emailNotifications"
             :user="user"
@@ -18,7 +18,7 @@
           />
           <ConversationCompose
             :status="data.sendStatus"
-            @submit="$emit('send', arguments[0])"
+            @submit="$emit('send', { id: data.id, content: arguments[0] })"
             :placeholder="messagePrompt"
             :user="user"
           />
@@ -30,7 +30,7 @@
             {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}
             <q-btn
               no-caps
-              @click="$emit('markAllRead')"
+              @click="$emit('markAllRead', data.id)"
               v-t="'CONVERSATION.MARK_READ'"
             />
           </q-alert>
@@ -41,18 +41,17 @@
             @toggleReaction="$emit('toggleReaction', arguments[0])"
             @save="$emit('saveMessage', arguments[0])"
           />
-        </q-list>
+        </template>
         <div
-          slot="message"
-          style="width: 100%; text-align: center"
-        >
+          v-if="data.fetchStatus.pending || data.fetchMoreStatus.pending"
+          style="width: 100%; text-align: center">
           <q-spinner-dots :size="40"/>
         </div>
-      </q-infinite-scroll>
-      <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">
-        {{ data.fetchMoreStatus.validationErrors }}
-      </q-alert>
-    </template>
+      </q-list>
+    </q-infinite-scroll>
+    <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">
+      {{ data.fetchMoreStatus.validationErrors }}
+    </q-alert>
   </div>
 </template>
 
@@ -96,7 +95,7 @@ export default {
         done()
         return
       }
-      await this.fetchMore()
+      await this.fetchMore(this.data.id)
       done()
     },
     toggleNotifications () {

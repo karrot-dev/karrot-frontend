@@ -43,7 +43,7 @@ export default {
   actions: {
     async setLocale ({ commit, dispatch, rootGetters }, locale) {
       if (rootGetters['auth/isLoggedIn']) {
-        dispatch('auth/backgroundSave', { language: locale }, { root: true })
+        dispatch('auth/maybeBackgroundSave', { language: locale }, { root: true })
       }
       commit('set', locale)
     },

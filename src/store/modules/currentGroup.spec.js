@@ -24,9 +24,11 @@ describe('currentGroup', () => {
 
   let userId = 5
   let group3
+  let getForGroup
 
   beforeEach(() => {
     group3 = { id: 3, name: 'group 3', members: [userId] }
+    getForGroup = jest.fn()
   })
 
   // Reusable store mocks
@@ -48,7 +50,7 @@ describe('currentGroup', () => {
       userId: () => userId,
     },
     actions: {
-      backgroundSave: jest.fn(),
+      maybeBackgroundSave: jest.fn(),
     },
   }
 
@@ -60,15 +62,9 @@ describe('currentGroup', () => {
     },
   }
 
-  const feedback = {
-    actions: {
-      fetchForGroup: jest.fn(),
-    },
-  }
-
   const conversations = {
-    actions: {
-      setActive: jest.fn(),
+    getters: {
+      getForGroup: () => getForGroup,
     },
   }
 
@@ -78,6 +74,7 @@ describe('currentGroup', () => {
         currentGroup: require('./currentGroup').default,
         agreements,
         auth,
+        conversations,
       })
     })
 
@@ -92,6 +89,14 @@ describe('currentGroup', () => {
     it('can get currentGroup', () => {
       expect(store.getters['currentGroup/value']).toEqual(enrich(group3))
     })
+
+    it('can get the conversation for the current group', () => {
+      const conversation = { id: 10 }
+      getForGroup.mockReturnValueOnce(conversation)
+      expect(store.getters['currentGroup/conversation']).toEqual(conversation)
+      expect(getForGroup).toBeCalled()
+      expect(getForGroup.mock.calls[0][0]).toEqual(group3.id)
+    })
   })
 
   describe('actions', () => {
@@ -101,8 +106,6 @@ describe('currentGroup', () => {
         agreements,
         auth,
         pickups,
-        feedback,
-        conversations,
       })
     })
 
@@ -112,10 +115,8 @@ describe('currentGroup', () => {
       await store.dispatch('currentGroup/select', { groupId: group3.id })
       expect(pickups.actions.clear).toBeCalled()
       expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group3.id)
-      expect(conversations.actions.setActive.mock.calls[0][1]).toEqual({ id: 66 })
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
-      expect(feedback.actions.fetchForGroup.mock.calls[0][1]).toEqual({ groupId: group3.id })
-      expect(auth.actions.backgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
+      expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
     })
 
     it('can update a group', async () => {
@@ -136,7 +137,6 @@ describe('currentGroup', () => {
         agreements,
         auth,
         pickups,
-        conversations,
       })
     })
 

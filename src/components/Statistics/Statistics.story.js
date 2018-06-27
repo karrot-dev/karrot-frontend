@@ -28,7 +28,8 @@ storiesOf('Statistics', module)
       props: {
         pickups: pickupsMock,
         existingFeedback: feedbackMock,
-        status: statusMocks.default(),
+        saveStatus: statusMocks.default(),
+        fetchStatus: statusMocks.default(),
       },
     }),
   }))
@@ -44,6 +45,7 @@ storiesOf('Statistics', module)
       props: {
         feedback: feedbackMock,
         store: storesMock[0],
+        status: statusMocks.default(),
       },
     }),
   }))

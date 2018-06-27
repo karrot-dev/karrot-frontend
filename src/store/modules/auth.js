@@ -2,6 +2,7 @@ import auth from '@/services/api/auth'
 import authUser from '@/services/api/authUser'
 import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
+import { objectDiff } from '@/services/utils'
 
 function initialState () {
   return {
@@ -130,6 +131,12 @@ export default {
       // ignore ID to have simple saveStatus
       findId: () => undefined,
     }),
+
+    maybeBackgroundSave ({ dispatch, state }, data) {
+      const diff = objectDiff(state.user, { ...state.user, ...data })
+      if (Object.keys(diff).length === 0) return
+      return dispatch('backgroundSave', diff)
+    },
 
     async backgroundSave ({ commit, state, dispatch }, data) {
       const savedUser = await authUser.save(data)

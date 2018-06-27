@@ -20,7 +20,7 @@
         small
         round
         color="secondary"
-        :icon="showPublicDescription ? 'fas fa-lock-alt' : 'fas fa-info-circle'"
+        :icon="showPublicDescription ? 'fas fa-lock' : 'fas fa-info-circle'"
         class="hoverScale "
         @click="showPublicDescription = !showPublicDescription"
       >

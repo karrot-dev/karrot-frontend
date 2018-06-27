@@ -122,7 +122,7 @@ export default {
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('auth/backgroundSave', { currentGroup: null }, { root: true })
+      dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })
       dispatch('agreements/clear', null, { root: true })
       dispatch('pickups/clear', {}, { root: true })
       dispatch('feedback/clear', null, { root: true })

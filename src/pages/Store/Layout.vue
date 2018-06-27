@@ -1,5 +1,5 @@
 <template>
-  <div v-if="store.status != 'archived'">
+  <div v-if="store && store.status != 'archived'">
     <div slot="navigation">
       <RandomArt
         :seed="store.id"

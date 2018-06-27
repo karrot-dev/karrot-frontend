@@ -8,7 +8,7 @@ export default connect({
     users: 'users/byCurrentGroup',
     showStores: 'sidenavBoxes/toggle/storesOnMap',
     showUsers: 'sidenavBoxes/toggle/usersOnMap',
-    selectedStoreId: 'stores/activeStoreId',
+    selectedStore: 'stores/activeStore',
     currentGroup: 'currentGroup/value',
     expanded: 'sidenavBoxes/toggle/map',
   },

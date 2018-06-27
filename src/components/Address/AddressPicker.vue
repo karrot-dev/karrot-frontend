@@ -10,7 +10,6 @@
       />
     </q-search>
     <standard-map
-      v-if="map"
       class="map"
       :markers="marker ? [marker] : []"
       :prevent-zoom="preventZoom"
@@ -32,10 +31,6 @@ export default {
     value: {
       type: Object,
       required: true,
-    },
-    map: {
-      default: true,
-      type: Boolean,
     },
     color: {
       default: 'blue',

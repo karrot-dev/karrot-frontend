@@ -49,7 +49,6 @@
       >
         <AddressPicker
           v-model="edit"
-          :map="true"
           color="positive"
           font-icon="fas fa-user"
         />

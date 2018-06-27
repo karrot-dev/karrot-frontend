@@ -55,7 +55,6 @@
           >
             <AddressPicker
               v-model="edit"
-              :map="true"
               :color="markerColor"
               font-icon="fas fa-shopping-cart"
             />
@@ -155,6 +154,14 @@ export default {
   components: {
     QCard, QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
   },
+  mounted () {
+    if (this.$route && this.$route.query) this.setLocation(this.$route.query)
+  },
+  watch: {
+    '$route.query' (val) {
+      if (val) this.setLocation(val)
+    },
+  },
   computed: {
     canSave () {
       if (this.$v.edit.$error) {
@@ -201,6 +208,18 @@ export default {
     },
   },
   methods: {
+    setLocation ({ lat, lng }) {
+      if (this.isNew) {
+        if (!isNaN(lat) && !isNaN(lng)) {
+          this.edit.latitude = lat
+          this.edit.longitude = lng
+        }
+        else {
+          this.edit.latitude = undefined
+          this.edit.longitude = undefined
+        }
+      }
+    },
     maybeSave () {
       this.$v.edit.$touch()
       if (!this.canSave) return

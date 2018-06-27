@@ -120,5 +120,5 @@ export default {
 }
 
 export function sortByCreatedAt (a, b) {
-  return a.createdAt < b.createdAt
+  return b.createdAt - a.createdAt
 }

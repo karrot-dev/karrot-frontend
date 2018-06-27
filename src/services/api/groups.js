@@ -3,32 +3,16 @@ import { convert as convertConversation } from '@/services/api/conversations'
 
 export default {
   async create (data) {
-    return (await axios.post('/api/groups/', data)).data
+    return convert((await axios.post('/api/groups/', data)).data)
   },
 
   async get (groupId) {
-    return (await axios.get(`/api/groups/${groupId}/`)).data
-  },
-
-  async list () {
-    return (await axios.get('/api/groups/')).data
-  },
-
-  async listByMemberId (userId) {
-    return (await axios.get('/api/groups/', { params: { members: userId } })).data
-  },
-
-  async listByGroupName (name) {
-    return (await axios.get('/api/groups/', { params: { name: name } })).data
-  },
-
-  async search (query) {
-    return (await axios.get('/api/groups/', { params: { search: query } })).data
+    return convert((await axios.get(`/api/groups/${groupId}/`)).data)
   },
 
   async save (group) {
     let groupId = group.id
-    return (await axios.patch(`/api/groups/${groupId}/`, group)).data
+    return convert((await axios.patch(`/api/groups/${groupId}/`, group)).data)
   },
 
   async join (groupId, data) {
@@ -58,4 +42,20 @@ export default {
   removeNotificationType (groupId, notificationType) {
     return axios.delete(`/api/groups/${groupId}/notification_types/${notificationType}/`)
   },
+}
+
+export function convert (val) {
+  if (Array.isArray(val)) {
+    return val.map(convert)
+  }
+  else {
+    Object.values(val.memberships).forEach(convertMembership)
+    return {
+      ...val,
+    }
+  }
+}
+
+export function convertMembership (val) {
+  val.createdAt = new Date(val.createdAt)
 }

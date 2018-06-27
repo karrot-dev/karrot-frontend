@@ -8,8 +8,25 @@
       :force-center="forceCenter"
       :force-zoom="forceZoom"
       @mapMoveEnd="mapMoveEnd"
-      @mapClick="openClickDialog"
-    />
+    >
+      <q-list
+        slot="contextmenu"
+        slot-scope="{ latLng }"
+        highlight
+        dense
+      >
+        <q-item
+          :to="{name: 'storeCreate', query: latLng}"
+        >
+          <q-item-side
+            icon="add circle"
+          />
+          <q-item-main
+            :label="'Create new store'"
+          />
+        </q-item>
+      </q-list>
+    </StandardMap>
     <GroupMapControls
       v-if="enableControls"
       :show-users="showUsers"
@@ -47,12 +64,28 @@
 
 import StandardMap from '@/components/Map/StandardMap'
 import GroupMapControls from '@/components/Map/GroupMapControls'
-import { Dialog, QBtn } from 'quasar'
+import {
+  QBtn,
+  QPopover,
+  QList,
+  QItem,
+  QItemMain,
+  QItemSide,
+} from 'quasar'
 
 import { groupMarker, storeMarker, userMarker } from '@/components/Map/markers'
 
 export default {
-  components: { StandardMap, QBtn, GroupMapControls },
+  components: {
+    StandardMap,
+    QBtn,
+    QPopover,
+    QList,
+    QItem,
+    QItemMain,
+    QItemSide,
+    GroupMapControls,
+  },
   props: {
     users: { required: true, type: Array },
     stores: { required: true, type: Array },
@@ -61,21 +94,13 @@ export default {
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
     showGroups: { default: false, type: Boolean },
+    createStore: { default: false, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
     enableControls: { type: Boolean, default: false },
   },
   methods: {
-    openClickDialog (latLng) {
-      Dialog.create({
-        title: 'Create new store',
-        message: 'Create a new store at this location?',
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .then(() => this.$router.push({ name: 'storeCreate', query: latLng }))
-        .catch(() => {})
-    },
     mapMoveEnd (target) {
       this.$emit('mapMoveEnd', target)
     },

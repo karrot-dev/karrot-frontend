@@ -5,9 +5,10 @@
     :center="center"
     :zoom="zoom"
     :min-zoom="2"
-    @click="$emit('mapClick', arguments[0].latlng)"
+    @click="mapClick"
     @moveend="$emit('mapMoveEnd', arguments[0].target)"
     @update:zoom="updateZoom"
+    @contextmenu="openContextMenu"
   >
     <l-tile-layer
       :url="url"
@@ -25,6 +26,17 @@
         :content="marker.popupcontent"
       />
     </ExtendedMarker>
+    <q-popover
+      ref="popover"
+      anchor="top left"
+      :anchor-click="false"
+      :offset="popoverOffset"
+    >
+      <slot
+        name="contextmenu"
+        :latLng="popoverLatLng"
+      />
+    </q-popover>
   </l-map>
 </template>
 
@@ -38,6 +50,10 @@ import {
 import ExtendedMarker from './ExtendedMarker'
 
 import L from 'leaflet'
+
+import {
+  QPopover,
+} from 'quasar'
 
 // fix default marker icon. Should hopefully get fixed in Leaflet 1.3
 // https://github.com/Leaflet/Leaflet/issues/4968
@@ -53,7 +69,11 @@ const UNSELECTED_OPACITY = 0.5
 
 export default {
   components: {
-    LMap, LTileLayer, ExtendedMarker, LPopup,
+    LMap,
+    LTileLayer,
+    ExtendedMarker,
+    LPopup,
+    QPopover,
   },
   props: {
     markers: {
@@ -89,9 +109,25 @@ export default {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       lastZoom: 15,
+      popoverOffset: [0, 0],
+      popoverLatLng: null,
     }
   },
   methods: {
+    mapClick ({ latlng }) {
+      this.$emit('mapClick', latlng)
+      this.closeContextMenu()
+    },
+    openContextMenu (event) {
+      this.closeContextMenu()
+      const {x, y} = event.containerPoint
+      this.popoverOffset = [-x, -y]
+      this.popoverLatLng = event.latlng
+      this.$refs.popover.show()
+    },
+    closeContextMenu () {
+      this.$refs.popover.hide()
+    },
     updateZoom (val) {
       if (Number.isInteger(val)) this.lastZoom = val
     },

@@ -1,6 +1,17 @@
 <template>
   <q-btn-group class="k-groupmapcontrols">
     <q-btn
+      v-if="!$q.platform.is.mobile"
+      color="primary"
+      @click="$router.push({ name: 'group' })"
+    >
+      <i class="fas fa-fw fa-chevron-left" />
+      <q-tooltip>
+        {{ $t('BUTTON.BACK') }}
+      </q-tooltip>
+    </q-btn>
+
+    <q-btn
       color="primary"
       @click="$emit('toggleStores')"
     >
@@ -99,7 +110,7 @@ export default {
   position absolute
   top 5px
   right 10px
-  z-index 10000
+  z-index 1000
   .bottom-right
     left 5px
     top 5px

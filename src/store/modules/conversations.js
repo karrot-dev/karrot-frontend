@@ -286,7 +286,7 @@ export default {
       let i = 0
       for (let message of messages) {
         const stateMessages = state.messages[conversationId]
-        while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
+        while (i < stateMessages.length && stateMessages[i].id > message.id) i++
 
         // decide if we should append, update or insert a message
         if (i >= stateMessages.length) {

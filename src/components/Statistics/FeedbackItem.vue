@@ -3,6 +3,7 @@
     <q-card-main class="generic-padding">
       <div class="row no-wrap">
         <AmountBox
+          v-if="weight"
           class="amount-box"
           :size="80"
           :amount="weight"

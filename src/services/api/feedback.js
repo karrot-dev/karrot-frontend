@@ -39,10 +39,9 @@ export function convert (val) {
   }
   else {
     let weight
-    try {
+    if (val.weight) {
       weight = parseFloat(val.weight)
     }
-    catch (error) {}
     return {
       ...val,
       createdAt: new Date(val.createdAt),

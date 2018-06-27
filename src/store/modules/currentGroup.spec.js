@@ -24,9 +24,11 @@ describe('currentGroup', () => {
 
   let userId = 5
   let group3
+  let getForGroup
 
   beforeEach(() => {
     group3 = { id: 3, name: 'group 3', members: [userId] }
+    getForGroup = jest.fn()
   })
 
   // Reusable store mocks
@@ -60,12 +62,19 @@ describe('currentGroup', () => {
     },
   }
 
+  const conversations = {
+    getters: {
+      getForGroup: () => getForGroup,
+    },
+  }
+
   describe('getters', () => {
     beforeEach(() => {
       store = createStore({
         currentGroup: require('./currentGroup').default,
         agreements,
         auth,
+        conversations,
       })
     })
 
@@ -79,6 +88,14 @@ describe('currentGroup', () => {
 
     it('can get currentGroup', () => {
       expect(store.getters['currentGroup/value']).toEqual(enrich(group3))
+    })
+
+    it('can get the conversation for the current group', () => {
+      const conversation = { id: 10 }
+      getForGroup.mockReturnValueOnce(conversation)
+      expect(store.getters['currentGroup/conversation']).toEqual(conversation)
+      expect(getForGroup).toBeCalled()
+      expect(getForGroup.mock.calls[0][0]).toEqual(group3.id)
     })
   })
 

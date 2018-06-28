@@ -338,7 +338,8 @@
     "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
     "CHANGES_SAVED": "Your changes have been saved.",
-    "CHANGES_ERROR": "An error occured. Try again later."
+    "CHANGES_ERROR": "An error occured. Try again later.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",

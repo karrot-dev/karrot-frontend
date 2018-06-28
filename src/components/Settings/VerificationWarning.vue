@@ -1,7 +1,8 @@
 <template>
   <q-alert
+    v-if="!hasEmailVerified"
     icon="fas fa-exclamation-triangle"
-    color="warning"
+    type="warning"
   >
     <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
     <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
@@ -28,19 +29,51 @@
       {{ anyFirstError }}
     </p>
   </q-alert>
+  <q-collapsible
+    v-else-if="hasFailedEmailDeliveries"
+    header-class="bg-warning text-white"
+  >
+    <template
+      slot="header"
+    >
+      <q-item-side
+        color="white"
+        icon="fas fa-exclamation-triangle"
+      />
+      <q-item-main
+        :label="failedEmailDeliveryMessage"
+      />
+    </template>
+    <q-list>
+      <q-item
+        v-for="(event, idx) in failedEmailDeliveries"
+        :key="idx"
+      >
+        <q-item-main
+          :label="event.subject"
+          :sublabel="`${event.event}: ${event.reason}`"
+        />
+        <q-item-side
+          right
+          :stamp="$d(event.createdAt, 'long')"
+        />
+      </q-item>
+    </q-list>
+  </q-collapsible>
 </template>
 
 <script>
-import { QAlert } from 'quasar'
+import { QAlert, QList, QItem, QItemMain, QItemSide, QCollapsible } from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
-    QAlert,
+    QAlert, QList, QItem, QItemMain, QItemSide, QCollapsible,
   },
   computed: {
     ...mapGetters({
       user: 'auth/user',
+      failedEmailDeliveries: 'auth/failedEmailDeliveries',
       status: 'users/resendVerificationCodeStatus',
       success: 'users/resendVerificationCodeSuccess',
     }),
@@ -49,6 +82,19 @@ export default {
     },
     anyFirstError () {
       return this.status.firstValidationError
+    },
+    hasEmailVerified () {
+      return this.user && this.user.mailVerified
+    },
+    hasFailedEmailDeliveries () {
+      return this.failedEmailDeliveries.length > 0
+    },
+    failedEmailDeliveryMessage () {
+      const count = this.failedEmailDeliveries.length
+      if (count > 0) {
+        const countString = count >= 10 ? (count + '+') : count
+        return this.$tc('NOTIFICATIONS.EMAIL_NOT_DELIVERED', count, { count: countString })
+      }
     },
   },
   methods: {

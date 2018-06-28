@@ -8,6 +8,16 @@
       <div class="art-overlay"/>
     </RandomArt>
     <div class="generic-padding actionButtons">
+      <q-btn
+        small
+        round
+        color="secondary"
+        :icon="sorting === 'joinDate' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-numeric-down'"
+        class="hoverScale"
+        @click="toggleSorting"
+      >
+        <q-tooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
+      </q-btn>
       <router-link :to="{name: 'groupInvitations', params: { groupId }}">
         <q-btn
           small
@@ -22,7 +32,9 @@
     </div>
     <UserList
       class="padding-top"
-      :users="users" />
+      :users="users"
+      :sorting="sorting"
+    />
   </q-card>
 </template>
 
@@ -37,6 +49,21 @@ import {
 
 export default {
   components: { RandomArt, UserList, QCard, QBtn, QTooltip },
+  data () {
+    return {
+      sorting: 'joinDate',
+    }
+  },
+  methods: {
+    toggleSorting () {
+      if (this.sorting === 'joinDate') {
+        this.sorting = 'name'
+      }
+      else {
+        this.sorting = 'joinDate'
+      }
+    },
+  },
   computed: {
     ...mapGetters({
       users: 'users/byCurrentGroup',

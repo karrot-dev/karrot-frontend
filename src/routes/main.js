@@ -411,4 +411,18 @@ export default [
       default: User,
     },
   },
+  {
+    name: 'userDetail',
+    path: '/user/:userId/detail',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { type: 'activeUser' },
+      ],
+      beforeEnter: 'detail/routeEnter',
+      afterLeave: 'detail/routeLeave',
+    },
+    // On desktop will get redirected inside "detail/routeEnter" action
+    component: MobileDetail,
+  },
 ]

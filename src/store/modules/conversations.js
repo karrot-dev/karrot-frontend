@@ -263,6 +263,10 @@ export default {
       commit('clearConversation', { conversationId })
     },
 
+    clear ({ commit }) {
+      commit('clear')
+    },
+
     receiveMessage ({ commit }, message) {
       commit('updateMessages', {
         messages: [message],
@@ -288,6 +292,9 @@ export default {
     },
   },
   mutations: {
+    clear (state) {
+      Object.assign(state, initialState())
+    },
     clearMessages (state, { conversationId }) {
       Vue.delete(state.messages, conversationId)
       Vue.delete(state.cursors, conversationId)

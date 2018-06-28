@@ -88,8 +88,9 @@ export default {
         commit('clearRedirectTo')
       },
 
-      async logout ({ commit }) {
+      async logout ({ commit, dispatch }) {
         commit('clearUser', { user: await auth.logout() })
+        dispatch('conversations/clear', null, { root: true })
         router.push({ name: 'groupsGallery' })
       },
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row margin-sides no-wrap">
-      <div class="">
+      <div>
         <transition
           duration="510"
           name="turn-in"
@@ -60,6 +60,19 @@
               round
               color="secondary"
               :to="{ name: 'settings' }"
+            />
+          </q-item-side>
+          <q-item-side
+            v-else
+            right
+          >
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="fas fa-comments"
+              class="hoverScale"
+              @click="$emit('detail', { userId: user.id })"
             />
           </q-item-side>
         </q-item>

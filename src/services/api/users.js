@@ -1,4 +1,5 @@
 import axios from '@/services/axios'
+import { convert as convertConversation } from '@/services/api/conversations'
 
 export default {
   async get (id) {
@@ -14,10 +15,16 @@ export default {
   },
 
   requestDeleteAccount () {
+    // TODO: move to authuser API file
     return axios.post('/api/auth/user/request_delete/')
   },
 
   deleteAccount (code) {
+    // TODO: move to authuser API file
     return axios.delete('/api/auth/user/', { params: { code: code } })
+  },
+
+  async conversation (userId) {
+    return convertConversation((await axios.get(`/api/users/${userId}/conversation/`)).data)
   },
 }

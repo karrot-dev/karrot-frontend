@@ -14,7 +14,9 @@
         <q-toolbar
           color="secondary"
         >
-          <q-toolbar-title>
+          <q-toolbar-title
+            v-if="pickup"
+          >
             <span
               v-if="!$q.platform.is.mobile"
               v-t="'GROUP.PICKUP'"
@@ -28,6 +30,11 @@
               </strong>
               {{ $d(pickup.date, 'dateShort') }}
             </span>
+          </q-toolbar-title>
+          <q-toolbar-title
+            v-if="user"
+          >
+            {{ user.displayName }}
           </q-toolbar-title>
           <q-btn
             v-if="!$q.platform.is.mobile"
@@ -50,7 +57,7 @@
           </div>
           <NotificationToggle
             :value="conversation.emailNotifications"
-            :user="user"
+            :user="currentUser"
             @click="toggleNotifications"
           />
         </div>
@@ -145,6 +152,7 @@ export default {
     pickup: { type: Object, default: null },
     conversation: { type: Object, default: null },
     away: { type: Boolean, required: true },
+    currentUser: { type: Object, default: null },
   },
   data () {
     return {
@@ -155,7 +163,7 @@ export default {
   },
   computed: {
     hasLoaded () {
-      if (!this.pickup || !this.conversation) return false
+      if ((!this.pickup && !this.user) || !this.conversation) return false
       const s = this.conversation.fetchStatus
       return !s.pending && !s.hasValidationErrors
     },

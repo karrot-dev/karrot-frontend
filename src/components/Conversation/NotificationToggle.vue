@@ -2,7 +2,9 @@
   <q-btn
     v-if="user && !user.mailVerified"
     round
-    color="negative"
+    :dense="inToolbar"
+    :flat="inToolbar"
+    :color="inToolbar ? 'white' : 'negative'"
     :to="{ name: 'settings', hash: '#change-email' }"
   >
     <q-icon
@@ -16,7 +18,9 @@
   <q-btn
     v-else
     round
-    :color="isEnabled ? 'secondary' : 'negative'"
+    :dense="inToolbar"
+    :flat="inToolbar"
+    :color="inToolbar ? 'white' : (isEnabled ? 'secondary' : 'negative')"
     @click="$emit('click')"
   >
     <q-icon
@@ -48,6 +52,10 @@ export default {
     user: {
       type: Object,
       default: null,
+    },
+    inToolbar: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

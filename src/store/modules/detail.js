@@ -46,9 +46,12 @@ export default {
         // conversation with yourself is not implemented
         if (rootGetters['auth/userId'] !== userId) {
           dispatch('selectUser', { userId })
+          if (!Platform.is.mobile) {
+            // On desktop we don't have a user detail page, we go to the user page, and have a sidebar open
+            throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
+          }
         }
-        if (!Platform.is.mobile) {
-          // On desktop we don't have a user detail page, we go to the user page, and have a sidebar open
+        else {
           throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
         }
       }
@@ -56,13 +59,13 @@ export default {
     routeLeave ({ dispatch }) {
       dispatch('clear')
     },
-    selectPickup ({ getters, commit, dispatch }, { pickupId }) {
-      if (getters.user) commit('setUserId', null)
+    selectPickup ({ state, commit, dispatch }, { pickupId }) {
+      if (state.userId) commit('setUserId', null)
       commit('setPickupId', pickupId)
       dispatch('conversations/fetchForPickup', { pickupId }, { root: true })
     },
-    selectUser ({ getters, commit, dispatch }, { userId }) {
-      if (getters.pickup) commit('setPickupId', null)
+    selectUser ({ state, commit, dispatch }, { userId }) {
+      if (state.pickupId) commit('setPickupId', null)
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })
     },

@@ -223,6 +223,7 @@ export default {
     maybeSave () {
       this.$v.edit.$touch()
       if (!this.canSave) return
+      this.$v.edit.$reset()
       this.save()
     },
     archive (event) {
@@ -244,9 +245,9 @@ export default {
         maxLength: maxLength(80),
         isUnique (value) {
           if (value === '') return true
-          return this.allStores
+          return !this.allStores
             .filter(e => e.id !== this.edit.id)
-            .findIndex(e => e.name === value) < 0
+            .find(e => e.name === value)
         },
       },
     },

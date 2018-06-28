@@ -330,18 +330,38 @@ workflows:
           requires:
             - install-dependencies
       - build-dev:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-storybook:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-docs:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-cordova-dev:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-android-dev:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - build-cordova-dev
       - deploy-android-dev:

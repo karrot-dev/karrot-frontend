@@ -254,13 +254,17 @@ export default {
       }
     },
 
-    async markAllRead ({ state, dispatch, getters }, conversationId) {
+    async markAllRead ({ state, dispatch }, conversationId) {
       const newestMessage = state.messages[conversationId][0]
       dispatch('mark', { id: conversationId, seenUpTo: newestMessage.id })
     },
 
     clearConversation ({ commit }, conversationId) {
       commit('clearConversation', { conversationId })
+    },
+
+    clear ({ commit }) {
+      commit('clear')
     },
 
     receiveMessage ({ commit }, message) {
@@ -288,6 +292,9 @@ export default {
     },
   },
   mutations: {
+    clear (state) {
+      Object.assign(state, initialState())
+    },
     clearMessages (state, { conversationId }) {
       Vue.delete(state.messages, conversationId)
       Vue.delete(state.cursors, conversationId)
@@ -296,11 +303,13 @@ export default {
       Vue.delete(state.entries, conversationId)
       Vue.delete(state.messages, conversationId)
       Vue.delete(state.cursors, conversationId)
+      // TODO: clear entry from state.pickupConversationIds etc
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.entries[conversationId]) return
 
-      if (!state.messages[conversationId]) {
+      const stateMessages = state.messages[conversationId]
+      if (!stateMessages) {
         Vue.set(state.messages, conversationId, messages)
         return
       }
@@ -308,7 +317,6 @@ export default {
       // assumes that existing messages are sorted AND incoming messages are sorted
       let i = 0
       for (let message of messages) {
-        const stateMessages = state.messages[conversationId]
         while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
 
         // decide if we should append, update or insert a message

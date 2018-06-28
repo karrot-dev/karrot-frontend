@@ -216,6 +216,7 @@ export default {
     maybeSave (event) {
       this.$v.edit.$touch()
       if (!this.canSave) return
+      this.$v.edit.$reset()
       this.save()
     },
     timezoneFilter (terms, { field, list }) {

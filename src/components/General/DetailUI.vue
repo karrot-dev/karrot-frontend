@@ -31,11 +31,21 @@
               {{ $d(pickup.date, 'dateShort') }}
             </span>
           </q-toolbar-title>
-          <q-toolbar-title
-            v-if="user"
-          >
-            {{ user.displayName }}
-          </q-toolbar-title>
+          <template v-if="user">
+            <ProfilePicture
+              :user="conversationPartner(conversation)"
+              :size="40"
+            />
+            <q-toolbar-title>
+              {{ user.displayName }}
+            </q-toolbar-title>
+          </template>
+          <NotificationToggle
+            :value="conversation.emailNotifications"
+            :user="currentUser"
+            in-toolbar
+            @click="toggleNotifications"
+          />
           <q-btn
             v-if="!$q.platform.is.mobile"
             flat
@@ -45,7 +55,10 @@
             @click="$emit('close')"
           />
         </q-toolbar>
-        <div class="k-participant-list row">
+        <div
+          v-if="!user"
+          class="k-participant-list row"
+        >
           <div class="col">
             <ProfilePicture
               v-for="participant in conversation.participants"
@@ -55,11 +68,6 @@
               :size="40"
             />
           </div>
-          <NotificationToggle
-            :value="conversation.emailNotifications"
-            :user="currentUser"
-            @click="toggleNotifications"
-          />
         </div>
       </div>
       <div class="col bar relative-position">
@@ -106,7 +114,6 @@
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import ConversationMessage from '@/components/Conversation/ConversationMessage'
 import ConversationCompose from '@/components/Conversation/ConversationCompose'
-import RandomArt from '@/components/General/RandomArt'
 import NotificationToggle from '@/components/Conversation/NotificationToggle'
 import {
   scroll,
@@ -132,7 +139,6 @@ export default {
     ConversationCompose,
     ProfilePicture,
     NotificationToggle,
-    RandomArt,
     QBtn,
     QInfiniteScroll,
     QSpinnerDots,
@@ -190,9 +196,6 @@ export default {
     hasLoaded (hasLoaded) {
       if (hasLoaded) this.scrollToBottom()
     },
-    'pickup.isUserMember' (isUserMember) {
-      if (!isUserMember) this.$emit('close')
-    },
     'conversation.id' (id) {
       Object.assign(this, {
         newestMessageId: -1,
@@ -221,6 +224,9 @@ export default {
     },
   },
   methods: {
+    conversationPartner (conversation) {
+      return this.conversation && this.conversation.participants && this.conversation.participants.find(e => !e.isCurrentUser)
+    },
     markRead (messageId) {
       if (!this.conversation) return
       if (this.conversation.unreadMessageCount > 0) {

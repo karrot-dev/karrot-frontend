@@ -5,7 +5,7 @@ import cloneDeep from 'clone-deep'
 import ConversationMessage from '@/components/Conversation/ConversationMessage'
 import ConversationCompose from '@/components/Conversation/ConversationCompose'
 import DetailUI from './DetailUI'
-import { mountWithDefaults, polyfillRequestAnimationFrame, useMobileUserAgent } from '>/helpers'
+import { mountWithDefaults, polyfillRequestAnimationFrame, useMobileUserAgent, statusMocks } from '>/helpers'
 
 import { currentUserMock, messagesMock, leavablePickup } from '>/mockdata'
 import { QInput } from 'quasar-framework/dist/quasar.mat.esm'
@@ -18,9 +18,9 @@ const defaultProps = () => ({
   conversation: {
     id: 50,
     messages: cloneDeep(messagesMock),
-    sendStatus: { pending: false },
-    fetchStatus: { pending: false, hasValidationErrors: false },
-    fetchMoreStatus: { pending: false, hasValidationErrors: false },
+    sendStatus: statusMocks.default(),
+    fetchStatus: statusMocks.default(),
+    fetchMoreStatus: statusMocks.default(),
     canLoadMore: false,
     unreadMessageCount: 1,
   },
@@ -45,16 +45,6 @@ describe('Detail', () => {
     })
     const closeButton = [...wrapper.findAll(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     expect(closeButton).toBeUndefined()
-  })
-
-  it('closes if user is not longer a collector', () => {
-    const propsData = defaultProps()
-    const wrapper = mountWithDefaults(DetailUI, { propsData })
-    const { pickup } = propsData
-    pickup.isUserMember = false
-    return Vue.nextTick().then(() => {
-      expect(wrapper.emitted().close).toEqual([[]])
-    })
   })
 
   it('shows messages in reverse order', () => {
@@ -82,35 +72,32 @@ describe('Detail', () => {
     expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 1 }]])
   })
 
-  it('marks new messages as read', () => {
+  it('marks new messages as read', async () => {
     const propsData = defaultProps()
     const wrapper = mountWithDefaults(DetailUI, { propsData })
     const { id, messages } = propsData.conversation
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
-    return Vue.nextTick().then(() => {
-      expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
-    })
+    await Vue.nextTick()
+    expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
   })
 
-  it('does not mark new messages as read when away', () => {
+  it('does not mark new messages as read when away', async () => {
     const propsData = { ...defaultProps(), away: true }
     const wrapper = mountWithDefaults(DetailUI, { propsData })
     const { id, messages } = propsData.conversation
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
-    return Vue.nextTick().then(() => {
-      expect(wrapper.emitted().mark).toBeUndefined()
-    })
+    await Vue.nextTick()
+    expect(wrapper.emitted().mark).toBeUndefined()
   })
 
-  it('marks messages as read when returning from away', () => {
+  it('marks messages as read when returning from away', async () => {
     const propsData = { ...defaultProps(), away: true }
     const wrapper = mountWithDefaults(DetailUI, { propsData })
     const { id, messages } = propsData.conversation
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
-    return Vue.nextTick().then(() => {
-      expect(wrapper.emitted().mark).toBeUndefined()
-      wrapper.setProps({ away: false })
-      expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
-    })
+    await Vue.nextTick()
+    expect(wrapper.emitted().mark).toBeUndefined()
+    wrapper.setProps({ away: false })
+    expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
   })
 })

@@ -3,15 +3,14 @@
     class="wrapper"
     :class="{showOverlay}"
   >
-    <template v-if="showOverlay">
-      <div class="overlay row justify-center content-center">
-        <q-btn
-          color="primary"
-          @click="valueToNumber = 0"
-          v-t="'PICKUP_FEEDBACK.SET_AMOUNT'"
-        />
-      </div>
-    </template>
+    <q-btn
+      v-if="showOverlay"
+      class="absolute-center"
+      style="z-index: 1"
+      color="primary"
+      @click="valueToNumber = 0"
+      v-t="'PICKUP_FEEDBACK.SET_AMOUNT'"
+    />
     <div class="content">
       <div class="row no-wrap">
         <AmountBox
@@ -103,13 +102,6 @@ export default {
 <style scoped lang="stylus">
 .wrapper
   position relative
-.overlay
-  z-index 1
-  top -10px
-  left -10px
-  right -10px
-  bottom -10px
-  position absolute
 .showOverlay .content
   opacity 0.3
 </style>

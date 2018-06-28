@@ -4,6 +4,7 @@ import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
 import reactionsAPI from '@/services/api/reactions'
 import pickupsAPI from '@/services/api/pickups'
+import usersAPI from '@/services/api/users'
 import groupsAPI from '@/services/api/groups'
 import i18n from '@/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/store/helpers'
@@ -43,6 +44,7 @@ function initialState () {
     cursors: {}, // { <conversation-id> : [<cursor>, ...]}
     groupConversationIds: {}, // { <group-id> : <conversation-id> }
     pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
+    userConversationIds: {}, // { <user-id> : <conversation-id> }
   }
 }
 
@@ -69,6 +71,11 @@ export default {
     },
     getForPickup: (state, getters) => pickupId => {
       const conversationId = state.pickupConversationIds[pickupId]
+      if (!conversationId) return
+      return getters.get(conversationId)
+    },
+    getForUser: (state, getters) => userId => {
+      const conversationId = state.userConversationIds[userId]
       if (!conversationId) return
       return getters.get(conversationId)
     },
@@ -206,6 +213,22 @@ export default {
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
+    async fetchForUser ({ state, dispatch, commit }, { userId }) {
+      let conversation
+      const conversationId = state.userConversationIds[userId]
+      if (conversationId) conversation = state.entries[conversationId]
+      if (!conversation) {
+        conversation = await usersAPI.conversation(userId)
+        commit('setConversation', { conversation, userId })
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForUser ({ state, commit }, { userId }) {
+      const conversationId = state.userConversationIds[userId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
       const pending = getters['meta/status']('toggleEmailNotifications', conversationId).pending
       const prevent = state.entries[conversationId] && state.entries[conversationId].emailNotifications === value
@@ -303,13 +326,16 @@ export default {
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
     },
-    setConversation (state, { conversation, groupId, pickupId }) {
+    setConversation (state, { conversation, groupId, pickupId, userId }) {
       Vue.set(state.entries, conversation.id, conversation)
       if (groupId) {
         Vue.set(state.groupConversationIds, groupId, conversation.id)
       }
       if (pickupId) {
         Vue.set(state.pickupConversationIds, pickupId, conversation.id)
+      }
+      if (userId) {
+        Vue.set(state.userConversationIds, userId, conversation.id)
       }
     },
     updateEmailNotifications (state, { conversationId, value }) {

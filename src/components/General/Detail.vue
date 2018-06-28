@@ -4,10 +4,11 @@ import DetailUI from './DetailUI'
 
 export default connect({
   gettersToProps: {
-    user: 'auth/user',
+    user: 'detail/user',
     pickup: 'detail/pickup',
     conversation: 'detail/conversation',
     away: 'presence/toggle/away',
+    currentUser: 'auth/user',
   },
   actionsToEvents: {
     send: 'conversations/send',

@@ -107,6 +107,7 @@ export default {
   },
   computed: {
     hasLoaded () {
+      if (!this.data) return false
       const s = this.data.fetchStatus
       return !s.pending && !s.hasValidationErrors
     },

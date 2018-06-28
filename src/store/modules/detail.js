@@ -13,7 +13,7 @@ export default {
   state: initialState(),
   getters: {
     isActive: (state, getters) => {
-      const conversation = getters.conversation
+      const { conversation } = getters
       if (!conversation) return false
       return conversation.fetchStatus.isPending || Boolean(conversation.id)
     },

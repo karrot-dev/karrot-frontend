@@ -1,4 +1,4 @@
-import { createStore } from '>/helpers'
+import { createStore, statusMocks } from '>/helpers'
 
 describe('detail', () => {
   let store
@@ -37,6 +37,7 @@ describe('detail', () => {
 
     it('is active if it has a pickupId', () => {
       store.commit('detail/setPickupId', 10)
+      mockConversationsGetForPickup.mockReturnValueOnce({ id: 55, fetchStatus: statusMocks.default() })
       expect(store.getters['detail/isActive']).toBe(true)
     })
 

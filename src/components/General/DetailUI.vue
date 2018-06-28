@@ -33,7 +33,7 @@
           </q-toolbar-title>
           <template v-if="user">
             <ProfilePicture
-              :user="conversation.participants.find(e => !e.isCurrentUser)"
+              :user="conversationPartner(conversation)"
               :size="40"
             />
             <q-toolbar-title>
@@ -224,6 +224,9 @@ export default {
     },
   },
   methods: {
+    conversationPartner (conversation) {
+      return this.conversation && this.conversation.participants && this.conversation.participants.find(e => !e.isCurrentUser)
+    },
     markRead (messageId) {
       if (!this.conversation) return
       if (this.conversation.unreadMessageCount > 0) {

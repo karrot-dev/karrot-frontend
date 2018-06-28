@@ -190,9 +190,6 @@ export default {
     hasLoaded (hasLoaded) {
       if (hasLoaded) this.scrollToBottom()
     },
-    'pickup.isUserMember' (isUserMember) {
-      if (!isUserMember) this.$emit('close')
-    },
     'conversation.id' (id) {
       Object.assign(this, {
         newestMessageId: -1,

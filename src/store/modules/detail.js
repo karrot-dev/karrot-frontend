@@ -4,8 +4,7 @@ import { createRouteRedirect } from '@/store/helpers'
 
 function initialState () {
   return {
-    pickupId: null,
-    userId: null,
+    scope: { type: null, id: null },
   }
 }
 
@@ -13,23 +12,28 @@ export default {
   namespaced: true,
   state: initialState(),
   getters: {
-    isActive: state => {
-      return Boolean(state.pickupId || state.userId)
+    isActive: (state, getters) => {
+      const conversation = getters.conversation
+      if (!conversation) return false
+      return conversation.fetchStatus.isPending || Boolean(conversation.id)
     },
     pickup: (state, getters, rootState, rootGetters) => {
-      if (!state.pickupId) return
-      return rootGetters['pickups/get'](state.pickupId)
+      const { type, id } = state.scope
+      if (type !== 'pickup') return
+      return rootGetters['pickups/get'](id)
     },
     user: (state, getters, rootState, rootGetters) => {
-      if (!state.userId) return
-      return rootGetters['users/get'](state.userId)
+      const { type, id } = state.scope
+      if (type !== 'user') return
+      return rootGetters['users/get'](id)
     },
     conversation: (state, getters, rootState, rootGetters) => {
-      if (state.pickupId) {
-        return rootGetters['conversations/getForPickup'](state.pickupId)
+      const { type, id } = state.scope
+      if (type === 'pickup') {
+        return rootGetters['conversations/getForPickup'](id)
       }
-      else if (state.userId) {
-        return rootGetters['conversations/getForUser'](state.userId)
+      else if (type === 'user') {
+        return rootGetters['conversations/getForUser'](id)
       }
     },
   },
@@ -59,33 +63,33 @@ export default {
     routeLeave ({ dispatch }) {
       dispatch('clear')
     },
-    selectPickup ({ state, commit, dispatch }, { pickupId }) {
-      if (state.userId) commit('setUserId', null)
+    async selectPickup ({ commit, dispatch }, { pickupId }) {
+      dispatch('clear')
       commit('setPickupId', pickupId)
       dispatch('conversations/fetchForPickup', { pickupId }, { root: true })
     },
-    selectUser ({ state, commit, dispatch }, { userId }) {
-      if (state.pickupId) commit('setPickupId', null)
+    async selectUser ({ commit, dispatch }, { userId }) {
+      dispatch('clear')
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })
     },
     clear ({ dispatch, state, commit }) {
-      const { pickupId, userId } = state
-      if (pickupId) {
-        dispatch('conversations/clearForPickup', { pickupId }, { root: true })
+      const { type, id } = state.scope
+      if (type === 'pickup') {
+        dispatch('conversations/clearForPickup', { pickupId: id }, { root: true })
       }
-      if (userId) {
-        dispatch('conversations/clearForUser', { userId }, { root: true })
+      else if (type === 'user') {
+        dispatch('conversations/clearForUser', { userId: id }, { root: true })
       }
       commit('clear')
     },
   },
   mutations: {
     setPickupId (state, pickupId) {
-      state.pickupId = pickupId
+      state.scope = { type: 'pickup', id: pickupId }
     },
     setUserId (state, userId) {
-      state.userId = userId
+      state.scope = { type: 'user', id: userId }
     },
     clear (state) {
       Object.assign(state, initialState())

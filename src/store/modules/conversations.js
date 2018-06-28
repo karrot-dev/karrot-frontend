@@ -296,6 +296,7 @@ export default {
       Vue.delete(state.entries, conversationId)
       Vue.delete(state.messages, conversationId)
       Vue.delete(state.cursors, conversationId)
+      // TODO: clear entry from state.pickupConversationIds etc
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.entries[conversationId]) return

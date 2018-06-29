@@ -15,7 +15,7 @@ async function getServiceWorkers () {
 }
 
 async function getOrCreateWorker () {
-  const worker = getServiceWorker()
+  const worker = await getServiceWorker()
   if (worker) return worker
   return window.navigator.serviceWorker.register(SERVICE_WORKER_PATH, { scope: SERVICE_WORKER_SCOPE })
 }
@@ -32,42 +32,8 @@ export async function initializeMessaging () {
     })
     initializedApp = true
   }
-
-  console.log('initializing messaging')
   messaging = await initializeMessaging()
-  console.log('use worker!')
   messaging.useServiceWorker(await getOrCreateWorker())
-
-  const worker = await getOrCreateWorker()
-
-  console.log('worker!', worker)
-
-  window.w = worker
-
-  messaging.onTokenRefresh(token => {
-    console.log('token refresh!', token)
-  })
-
-  messaging.onMessage(payload => {
-    console.log('received message!', payload)
-    /*
-    Notify.create({
-      message: payload.notification.title + ' // ' + payload.notification.body,
-      type: 'positive',
-      position: 'top',
-      actions: [
-        {
-          label: 'View',
-          noDismiss: true, // optional, v0.15.11+
-          handler: () => {
-            router.push(payload.notification.click_action.replace(/^.*\/#/, ''))
-          },
-        },
-      ],
-    })
-    */
-  })
-
   return messaging
 }
 

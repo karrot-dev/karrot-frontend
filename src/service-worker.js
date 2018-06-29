@@ -1,7 +1,7 @@
 /*
  *  IMPORTANT!!
  *
- *  This file has it's own webpack build.
+ *  This file has its own webpack build.
  *
  *  For production it will be built correctly when you do `yarn build`.
  *

@@ -83,6 +83,9 @@
     "PICKUPS": "Abholungen",
     "PICKUP": "Pickup",
     "MEMBERS": "Mitglieder",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Inaktiv",
     "SHOW_INACTIVE": "Zeige inaktive Gruppen",
     "STORES": "Betriebe",
@@ -120,6 +123,8 @@
     "HIDE_USERS": "Mitglieder verstecken",
     "SHOW_STORES": "Betriebe anzeigen",
     "HIDE_STORES": "Betriebe verstecken",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "Ort festlegen",
     "FULL_SCREEN": "Zeige auf ganzem Bildschirm"
   },
@@ -336,7 +341,8 @@
     "RESEND_VERIFICATION": "sende eine neue Verifizierungs-E-Mail",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
     "CHANGES_SAVED": "Änderungen wurden gespeichert.",
-    "CHANGES_ERROR": "Ein Fehler ist aufgetreten. Versuche es später noch einmal."
+    "CHANGES_ERROR": "Ein Fehler ist aufgetreten. Versuche es später noch einmal.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Du benutzt einen nicht unterstützten Browser. {upgradeBrowser} um alle Funktionen verwenden zu können.",

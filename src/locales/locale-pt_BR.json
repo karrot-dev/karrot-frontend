@@ -83,6 +83,9 @@
     "PICKUPS": "Coletas",
     "PICKUP": "Pickup",
     "MEMBERS": "Membros",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Inativos",
     "SHOW_INACTIVE": "Exibir grupos inativos",
     "STORES": "Lojas",
@@ -120,6 +123,8 @@
     "HIDE_USERS": "Esconder usários",
     "SHOW_STORES": "Exibir lojas",
     "HIDE_STORES": "Esconder lojas",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "Definir localização",
     "FULL_SCREEN": "Mostrar tela cheia"
   },
@@ -336,7 +341,8 @@
     "RESEND_VERIFICATION": "envie a verificação mais uma vez",
     "VERIFICATION_EMAIL_SENT": "Nós enviamos outra verificação para seu e-mail. Por favor, verifique a sua caixa de entrada.",
     "CHANGES_SAVED": "Your changes have been saved.",
-    "CHANGES_ERROR": "An error occured. Try again later."
+    "CHANGES_ERROR": "An error occured. Try again later.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Você esta utilizando um navegador sem suporte a nossa plataforma. {upgradeBrowser} e aproveite.",

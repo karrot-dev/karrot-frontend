@@ -83,6 +83,9 @@
     "PICKUPS": "પિકઅપ્સ",
     "PICKUP": "Pickup",
     "MEMBERS": "સભ્યો",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "સ્ટોર્સ",
@@ -120,6 +123,8 @@
     "HIDE_USERS": "વપરાશકર્તાઓ છુપાવો",
     "SHOW_STORES": "સ્ટોર્સ બતાવો",
     "HIDE_STORES": "સ્ટોર્સ છુપાવો",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "સ્થાન સેટ કરો",
     "FULL_SCREEN": "Show full screen"
   },
@@ -336,7 +341,8 @@
     "RESEND_VERIFICATION": "ચકાસણી ઇમેઇલ ફરીથી મોકલો",
     "VERIFICATION_EMAIL_SENT": "અમે તમને બીજી ચકાસણી મેઇલ મોકલ્યો છે. કૃપા કરીને તમારા ઇનબૉક્સને તપાસો.",
     "CHANGES_SAVED": "તમારા ફેરફારો સાચવવામાં આવ્યા છે.",
-    "CHANGES_ERROR": "એક ભૂલ આવી. પછી ફરીથી પ્રયાસ કરો."
+    "CHANGES_ERROR": "એક ભૂલ આવી. પછી ફરીથી પ્રયાસ કરો.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",

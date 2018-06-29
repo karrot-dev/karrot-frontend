@@ -83,6 +83,9 @@
     "PICKUPS": "Upphämtningar",
     "PICKUP": "Pickup",
     "MEMBERS": "Medlemmar",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Inaktive",
     "SHOW_INACTIVE": "Visa inaktiva grupper",
     "STORES": "Butiker",
@@ -120,6 +123,8 @@
     "HIDE_USERS": "Göm användare",
     "SHOW_STORES": "Visa butiker",
     "HIDE_STORES": "Göm butiker",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "Set location",
     "FULL_SCREEN": "Visa fullskärm"
   },
@@ -336,7 +341,8 @@
     "RESEND_VERIFICATION": "Skicka igen mejlverifiering",
     "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg.",
     "CHANGES_SAVED": "Dina ändringar har sparats.",
-    "CHANGES_ERROR": "Ett fel uppstod. Försök igen senare."
+    "CHANGES_ERROR": "Ett fel uppstod. Försök igen senare.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",

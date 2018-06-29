@@ -83,6 +83,9 @@
     "PICKUPS": "Odbiory",
     "PICKUP": "Pickup",
     "MEMBERS": "Członkowie",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "STORES": "Punkty odbioru",
@@ -120,6 +123,8 @@
     "HIDE_USERS": "Ukryj użytkowników",
     "SHOW_STORES": "Pokaż punkty odbioru",
     "HIDE_STORES": "Ukryj punkty odbioru",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "Ustaw lokalizację",
     "FULL_SCREEN": "Pełny ekran"
   },
@@ -336,7 +341,8 @@
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
     "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
     "CHANGES_SAVED": "Twoje zmiany zostały zapisane.",
-    "CHANGES_ERROR": "Wystąpił błąd. Spróbuj ponownie później."
+    "CHANGES_ERROR": "Wystąpił błąd. Spróbuj ponownie później.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",

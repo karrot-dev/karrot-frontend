@@ -83,6 +83,9 @@
     "PICKUPS": "開放領取食物",
     "PICKUP": "Pickup",
     "MEMBERS": "成員",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "非活躍",
     "SHOW_INACTIVE": "顯示不活躍的社團",
     "STORES": "店面",
@@ -120,6 +123,8 @@
     "HIDE_USERS": "隱藏用戶",
     "SHOW_STORES": "顯示店家",
     "HIDE_STORES": "隱藏店家",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "設定地點",
     "FULL_SCREEN": "全螢幕顯示"
   },
@@ -336,7 +341,8 @@
     "RESEND_VERIFICATION": "重新寄送驗證信",
     "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。",
     "CHANGES_SAVED": "你的修改已被保存.",
-    "CHANGES_ERROR": "發生錯誤。 稍後再試。"
+    "CHANGES_ERROR": "發生錯誤。 稍後再試。",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",

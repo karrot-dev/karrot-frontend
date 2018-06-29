@@ -14,6 +14,7 @@ var
   opn = require('opn'),
   proxyMiddleware = require('http-proxy-middleware'),
   webpackConfig = require('./webpack.dev.conf'),
+  serviceWorkerWebpackConfig = require('./webpack.serviceworker.conf'),
   app = express(),
   port = process.env.PORT || config.dev.port,
   uri = 'http://localhost:' + port
@@ -70,6 +71,21 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticsPath = path.posix.join(webpackConfig.output.publicPath, 'statics/')
 app.use(staticsPath, express.static('./src/statics'))
+
+let builtServiceWorker = false
+function buildServiceWorker (callback) {
+  if (builtServiceWorker) return callback()
+  webpack(serviceWorkerWebpackConfig, function (err, stats) {
+    if (err) return callback(err)
+    builtServiceWorker = true
+    callback()
+  })
+}
+
+app.get('/service-worker.js', [
+  (req, res, next) => buildServiceWorker(next),
+  (req, res) => res.sendFile(path.join(__dirname, '..', 'dist/service-worker.js'))
+])
 
 // try to serve Cordova statics for Play App
 app.use(express.static(env.platform.cordovaAssets))

@@ -17,7 +17,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -82,6 +82,16 @@ module.exports = {
           limit: 10000,
           name: 'fonts/[name].[hash:7].[ext]'
         }
+      },
+      {
+        test: resolve('src/service-worker.js'),
+        loader: 'worker-loader',
+        /*
+        options: {
+          name: 'service-worker.js',
+          publicPath: config[env.prod ? 'build' : 'dev'].publicPath,
+        },
+        */
       }
     ]
   },
@@ -93,6 +103,7 @@ module.exports = {
       'CORDOVA': env.cordova,
       'BACKEND': '"' + config.backend + '"',
       'KARROT_THEME': '"' + env.karrotTheme + '"',
+      'FCM_SENDER_ID': '"' + env.fcmSenderId + '"',
       '__THEME': '"' + env.platform.theme + '"'
     }),
     new webpack.LoaderOptionsPlugin({

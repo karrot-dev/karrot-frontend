@@ -20,6 +20,15 @@ const store = createStore({
       changePassword: action('changePassword'),
       changeEmail: action('changeEmail'),
     },
+    modules: {
+      push: {
+        namespaced: true,
+        getters: {
+          enabled: () => false,
+          pending: () => false,
+        },
+      },
+    },
   },
   users: {
     getters: {

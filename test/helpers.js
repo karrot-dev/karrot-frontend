@@ -29,14 +29,20 @@ export function useMobileUserAgent () {
   window.navigator.userAgent = mobileUserAgent
 }
 
-export function createStore (mods, { debug = false } = {}) {
+export async function nextTicks (n) {
+  while (n--) {
+    await Vue.nextTick()
+  }
+}
+
+export function createStore (mods, { debug = false, plugins = [] } = {}) {
   let modules = {}
   for (let key of Object.keys(mods)) {
     modules[key] = {...mods[key], namespaced: true}
   }
 
   const store = new Vuex.Store({
-    modules, strict: false,
+    modules, plugins, strict: false,
   })
 
   if (debug) {

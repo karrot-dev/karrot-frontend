@@ -3,6 +3,7 @@ import authUser from '@/services/api/authUser'
 import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 import { objectDiff } from '@/services/utils'
+import push from '@/store/modules/auth/push'
 
 function initialState () {
   return {
@@ -17,7 +18,7 @@ function initialState () {
 
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: { meta: createMetaModule(), push },
   state: initialState(),
   getters: {
     isLoggedIn: state => !!state.user,
@@ -91,6 +92,7 @@ export default {
       },
 
       async logout ({ commit, dispatch }) {
+        await dispatch('push/disable')
         commit('clearUser', { user: await auth.logout() })
         dispatch('conversations/clear', null, { root: true })
         router.push({ name: 'groupsGallery' })

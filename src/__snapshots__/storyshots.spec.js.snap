@@ -3841,6 +3841,39 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
   </div>
+  <div class="q-card no-shadow grey-border">
+    <div class="q-card-primary q-card-container row no-wrap">
+      <div class="col column">
+        <div class="q-card-title">Push notifications</div>
+        <div class="q-card-subtitle"></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-card-main q-card-container">
+      <div class="edit-box">
+        <div class="q-field row no-wrap items-start q-field-responsive">
+          <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-bell"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Current browser</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle q-focusable">
+                <div class="q-option-inner relative-position text-faded">
+                  <input type="checkbox">
+                  <div class="q-focus-helper"></div>
+                  <div class="q-toggle-base"></div>
+                  <div class="q-toggle-handle row flex-center">
+                    <div class="q-radial-ripple"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

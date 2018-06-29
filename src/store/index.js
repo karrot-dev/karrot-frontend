@@ -13,6 +13,7 @@ import about from './modules/about'
 import agreements from './modules/agreements'
 import banners from './modules/banners'
 import auth from './modules/auth'
+import { plugin as authPushPlugin } from './modules/auth/push'
 import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
@@ -82,6 +83,7 @@ export default new Vuex.Store({
     loadingProgressReporter,
     dependentState,
     fcmPlugin,
+    authPushPlugin,
   ],
   strict: debug,
 })

@@ -21,6 +21,8 @@
     "PHOTO": "Profile photo",
     "SET_PHOTO": "Set your profile photo...",
     "ACCOUNT": "Account",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },

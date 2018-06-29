@@ -12,7 +12,7 @@ export function isSupported () {
     'Notification' in window &&
     'fetch' in window &&
     ServiceWorkerRegistration.prototype.hasOwnProperty('showNotification') &&
-    PushSubscription.prototype.hasOwnProperty('getKey'));
+    PushSubscription.prototype.hasOwnProperty('getKey'))
 }
 
 function saveIntention (enabled) {

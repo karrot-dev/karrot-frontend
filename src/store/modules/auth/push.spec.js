@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 const mockGetToken = jest.fn()
 const mockOnTokenRefresh = jest.fn()
 const mockRequestPermission = jest.fn()

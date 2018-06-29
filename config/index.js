@@ -1,7 +1,6 @@
 var path = require('path')
 
 const backend = (process.env.BACKEND || 'https://dev.karrot.world').replace(/\/$/, '') // no trailing slash
-const fcmSenderId = process.env.FCM_SENDER_ID
 
 const backendProxy = {
   target: backend,
@@ -43,9 +42,6 @@ module.exports = {
 
   // Backend to make API requests to
   backend,
-
-  // Firebase messaging sender id
-  fcmSenderId,
 
   build: {
     env: require('./prod.env'),

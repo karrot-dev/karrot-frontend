@@ -83,16 +83,6 @@ module.exports = {
           name: 'fonts/[name].[hash:7].[ext]'
         }
       },
-      {
-        test: resolve('src/service-worker.js'),
-        loader: 'worker-loader',
-        /*
-        options: {
-          name: 'service-worker.js',
-          publicPath: config[env.prod ? 'build' : 'dev'].publicPath,
-        },
-        */
-      }
     ]
   },
   plugins: [

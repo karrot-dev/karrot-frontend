@@ -20,18 +20,12 @@ async function getOrCreateWorker () {
   return window.navigator.serviceWorker.register(SERVICE_WORKER_PATH, { scope: SERVICE_WORKER_SCOPE })
 }
 
-let initializedApp = false
 let messaging
 export async function initializeMessaging () {
   const { initializeApp, messaging: initializeMessaging } = await import('./firebase.lib')
   if (messaging) return messaging
 
-  if (!initializedApp) {
-    initializeApp({
-      messagingSenderId: FCM_SENDER_ID,
-    })
-    initializedApp = true
-  }
+  initializeApp({ messagingSenderId: FCM_SENDER_ID })
   messaging = await initializeMessaging()
   messaging.useServiceWorker(await getOrCreateWorker())
   return messaging
@@ -44,9 +38,9 @@ export async function initializeMessaging () {
  * only do it when the page actually closes.
  */
 
-let shouldRemoveServiceWorkers = false
+let shouldRemoveServiceWorkersOnUnload = false
 export async function removeServiceWorkersOnUnload (value) {
-  shouldRemoveServiceWorkers = value
+  shouldRemoveServiceWorkersOnUnload = value
 }
 
 async function removeServiceWorkers () {
@@ -57,5 +51,5 @@ async function removeServiceWorkers () {
 
 window.onbeforeunload = () => {
   // Do not return anything from this function or it triggers a browser dialog
-  if (shouldRemoveServiceWorkers) removeServiceWorkers()
+  if (shouldRemoveServiceWorkersOnUnload) removeServiceWorkers()
 }

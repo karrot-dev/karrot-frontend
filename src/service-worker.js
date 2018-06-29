@@ -17,9 +17,7 @@
 import 'firebase/messaging'
 import { initializeApp, messaging as initializeMessaging } from 'firebase/app'
 
-initializeApp({
-  'messagingSenderId': FCM_SENDER_ID,
-})
+initializeApp({ messagingSenderId: FCM_SENDER_ID })
 
 const messaging = initializeMessaging()
 

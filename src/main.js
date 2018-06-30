@@ -31,28 +31,28 @@ import 'quasar-extras/material-icons'
 import 'quasar-extras/fontawesome'
 import 'quasar-extras/animate'
 import 'typeface-cabin-sketch'
+import App from '@/App'
+import '@/presenceReporter'
 
 (async () => {
   sync(store, router)
 
-  const detectMobileKeyboard = await import('@/services/detectMobileKeyboard')
-  Vue.use(detectMobileKeyboard.DetectMobileKeyboardPlugin)
+  // This uses quasar which will not be initialized if we load via import
+  const { DetectMobileKeyboardPlugin } = require('@/services/detectMobileKeyboard')
+  Vue.use(DetectMobileKeyboardPlugin)
 
-  const [App] = await Promise.all([
-    import('./App'),
-    import('@/presenceReporter'),
+  await Promise.all([
     polyfill.init(),
     store.dispatch('auth/check'),
     store.dispatch('groups/fetch'),
   ])
 
-  const app = App.default
   /* eslint-disable no-new */
   new Vue({
     el: '#q-app',
     router,
     store,
     i18n,
-    render: h => h(app),
+    render: h => h(App),
   })
 })()

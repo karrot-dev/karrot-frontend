@@ -18,7 +18,6 @@ if (CORDOVA && BACKEND) {
 }
 
 Vue.config.productionTip = false
-Vue.config.performance = true
 configureQuasar(Vue)
 
 if (process.env.NODE_ENV !== 'production') {

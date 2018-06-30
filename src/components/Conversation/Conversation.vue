@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="data">
     <q-alert v-if="data.fetchStatus.hasValidationErrors">
       {{ data.fetchStatus.validationErrors }}
     </q-alert>
@@ -77,11 +77,11 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true,
+      default: null,
     },
     fetchMore: {
       type: Function,
-      required: true,
+      default: null,
     },
     user: {
       type: Object,
@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     async loadMore (index, done) {
-      if (!this.data.canLoadMore) {
+      if (!this.data || !this.fetchMore || !this.data.canLoadMore) {
         await this.$nextTick()
         done()
         return
@@ -112,6 +112,7 @@ export default {
       return !s.pending && !s.hasValidationErrors
     },
     messagePrompt () {
+      if (!this.data) return ''
       if (this.data.messages.length > 0) {
         return this.$t('WALL.WRITE_MESSAGE')
       }

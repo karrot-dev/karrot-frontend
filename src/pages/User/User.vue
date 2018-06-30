@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      detail: 'detail/selectUser',
+      detail: 'detail/openForUser',
     }),
   },
 }

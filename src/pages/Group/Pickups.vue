@@ -45,7 +45,7 @@ export default {
     ...mapActions({
       join: 'pickups/join',
       leave: 'pickups/leave',
-      detail: 'detail/selectPickup',
+      detail: 'detail/openForPickup',
     }),
   },
   computed: {

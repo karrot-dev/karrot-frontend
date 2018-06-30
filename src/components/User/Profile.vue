@@ -72,7 +72,7 @@
               color="secondary"
               icon="fas fa-comments"
               class="hoverScale"
-              @click="$emit('detail', { userId: user.id })"
+              @click="$emit('detail', user)"
             />
           </q-item-side>
         </q-item>

@@ -2742,8 +2742,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
-        <a href="#"><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></a>
-      </div>
+        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <div class="description multiline">you are collector and can leave this pickup
       </div>
       <div class="people full-width">
@@ -2876,8 +2875,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column padding full-width">
       <div><span class="featured-text">8:00 AM</span> Sunday, August 13, 2017
-        <a href="#"><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></a>
-      </div>
+        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <div class="description multiline">you are collector and can leave this pickup
       </div>
       <div class="people full-width">

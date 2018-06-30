@@ -21,19 +21,9 @@
             {{ $d(pickup.date, 'dateLongWithDayName') }}
           </template>
           <template v-if="pickup.isUserMember">
-            <router-link
-              v-if="$q.platform.is.mobile"
-              :to="{ name: 'pickupDetail', params: { storeId: pickup.store.id, pickupId: pickup.id }}"
-            >
+            <span>
               <strong>{{ $t('CONVERSATION.OPEN') }} <q-icon name="chat" /></strong>
-            </router-link>
-            <a
-              v-else
-              href="#"
-              @click.stop="$emit('detail', { pickupId: pickup.id })"
-            >
-              <strong>{{ $t('CONVERSATION.OPEN') }} <q-icon name="chat" /></strong>
-            </a>
+            </span>
           </template>
         </div>
         <div
@@ -99,13 +89,14 @@ export default {
         .catch(() => {})
     },
     detailIfMember (event) {
+      console.log('detailIfmember')
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
       if (this.$q.platform.is.mobile) {
         router.push({name: 'pickupDetail', params: { storeId: this.pickup.store.id, pickupId: this.pickup.id }})
       }
       else {
-        this.$emit('detail', { pickupId: this.pickup.id })
+        this.$emit('detail', this.pickup)
       }
     },
   },

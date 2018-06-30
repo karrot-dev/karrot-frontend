@@ -1,6 +1,7 @@
 import { Platform } from 'quasar'
 
 import { createRouteRedirect } from '@/store/helpers'
+import router from '@/router'
 
 function initialState () {
   return {
@@ -40,7 +41,7 @@ export default {
   actions: {
     routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId, userId, routeTo }) {
       if (pickupId) {
-        dispatch('selectPickup', { pickupId })
+        dispatch('selectPickup', pickupId)
         if (!Platform.is.mobile) {
           // On desktop we don't have a pickup detail page, we go to the store page, and have a sidebar open
           throw createRouteRedirect({ name: 'store', params: { groupId, storeId }, query: routeTo.query })
@@ -49,7 +50,7 @@ export default {
       else if (userId) {
         // conversation with yourself is not implemented
         if (rootGetters['auth/userId'] !== userId) {
-          dispatch('selectUser', { userId })
+          dispatch('selectUser', userId)
           if (!Platform.is.mobile) {
             // On desktop we don't have a user detail page, we go to the user page, and have a sidebar open
             throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
@@ -63,12 +64,28 @@ export default {
     routeLeave ({ dispatch }) {
       dispatch('clear')
     },
-    async selectPickup ({ commit, dispatch }, { pickupId }) {
+    openForPickup ({ dispatch }, pickup) {
+      if (Platform.is.mobile) {
+        router.push({ name: 'pickupDetail', params: { storeId: pickup.store.id, pickupId: pickup.id } })
+      }
+      else {
+        dispatch('selectPickup', pickup.id)
+      }
+    },
+    openForUser ({ dispatch }, user) {
+      if (Platform.is.mobile) {
+        router.push({ name: 'userDetail', params: { userId: user.id } })
+      }
+      else {
+        dispatch('selectUser', user.id)
+      }
+    },
+    async selectPickup ({ commit, dispatch }, pickupId) {
       dispatch('clear')
       commit('setPickupId', pickupId)
       dispatch('conversations/fetchForPickup', { pickupId }, { root: true })
     },
-    async selectUser ({ commit, dispatch }, { userId }) {
+    async selectUser ({ commit, dispatch }, userId) {
       dispatch('clear')
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })

@@ -8,7 +8,7 @@ export default store => {
 
   router.beforeEach(async (to, from, nextFn) => {
     store.dispatch('routeError/clear')
-    let next = {}
+    let next
 
     // handle invite parameter
     const inviteToken = to.query.invite
@@ -54,7 +54,12 @@ export default store => {
       store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
     }
 
-    nextFn({ replace: true, ...next })
+    if (next) {
+      nextFn({ replace: true, ...next })
+    }
+    else {
+      nextFn()
+    }
   })
 
   router.afterEach((to) => {

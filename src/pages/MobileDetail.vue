@@ -1,20 +1,14 @@
 <template>
   <div class="MobileDetail absolute-full">
-    <Detail @close="onClose"/>
+    <Detail />
   </div>
 </template>
 
 <script>
 import Detail from '@/components/General/Detail'
-import router from '@/router'
 
 export default {
   components: { Detail },
-  methods: {
-    onClose () {
-      router.push('/')
-    },
-  },
 }
 </script>
 

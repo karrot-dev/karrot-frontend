@@ -47,6 +47,7 @@ export function createStore (mods, { debug = false, plugins = [] } = {}) {
 
   if (debug) {
     store.subscribe(({type, payload}) => console.log('mutation', type, payload))
+    store.subscribeAction(({ type, payload }) => console.log('action', type, payload))
   }
 
   return store

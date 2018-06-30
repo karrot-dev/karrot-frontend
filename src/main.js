@@ -34,11 +34,12 @@ import 'typeface-cabin-sketch'
 import App from '@/App'
 import '@/presenceReporter'
 
-const { DetectMobileKeyboardPlugin } = require('@/services/detectMobileKeyboard')
-Vue.use(DetectMobileKeyboardPlugin)
-
-;(async () => {
+(async () => {
   sync(store, router)
+
+  // This uses quasar which will not be initialized if we load via import
+  const { DetectMobileKeyboardPlugin } = require('@/services/detectMobileKeyboard')
+  Vue.use(DetectMobileKeyboardPlugin)
 
   await Promise.all([
     polyfill.init(),

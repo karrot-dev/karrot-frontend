@@ -37,6 +37,17 @@
         </q-card-actions>
       </q-card-main>
     </q-card>
+    <q-card class="no-shadow grey-border">
+      <q-card-title>{{ $t('USERDATA.PUSH') }}</q-card-title>
+      <q-card-main>
+        <Push
+          :value="pushEnabled"
+          :pending="pushPending"
+          @enable="enablePush"
+          @disable="disablePush"
+        />
+      </q-card-main>
+    </q-card>
   </div>
 </template>
 
@@ -49,10 +60,23 @@ import ChangePassword from '@/components/Settings/ChangePassword'
 import ChangeEmail from '@/components/Settings/ChangeEmail'
 import ChangePhoto from '@/components/Settings/ChangePhoto'
 import RequestDeleteAccount from '@/components/Settings/RequestDeleteAccount'
+import Push from '@/components/Settings/Push'
 
 export default {
   name: 'Settings',
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, ProfileEdit, ChangePassword, ChangeEmail, ChangePhoto, RequestDeleteAccount },
+  components: {
+    QCard,
+    QCardTitle,
+    QCardMain,
+    QCardSeparator,
+    QCardActions,
+    ProfileEdit,
+    ChangePassword,
+    ChangeEmail,
+    ChangePhoto,
+    RequestDeleteAccount,
+    Push,
+  },
   computed: {
     ...mapGetters({
       user: 'auth/user',
@@ -60,6 +84,8 @@ export default {
       changePasswordStatus: 'auth/changePasswordStatus',
       changeEmailStatus: 'auth/changeEmailStatus',
       requestDeleteAccountStatus: 'users/requestDeleteAccountStatus',
+      pushEnabled: 'auth/push/enabled',
+      pushPending: 'auth/push/pending',
     }),
   },
   methods: {
@@ -68,6 +94,8 @@ export default {
       changeEmail: 'auth/changeEmail',
       changePassword: 'auth/changePassword',
       requestDeleteAccount: 'users/requestDeleteAccount',
+      enablePush: 'auth/push/enable',
+      disablePush: 'auth/push/disable',
     }),
   },
 }

@@ -66,7 +66,7 @@
     "VALID_TIMEZONE": "Enter a valid timezone."
   },
   "GROUP": {
-    "WALL": "Wall",
+    "WALL": "Bacheca",
     "GROUP": "Gruppo",
     "LEAVE": "Lascia il gruppo...",
     "LEAVE_TEXT": "Sicuro/a di voler abbandonare questo gruppo?",
@@ -80,7 +80,7 @@
     "DESCRIPTION_VERBOSE": "Descrizione del gruppo visibile ai membri",
     "PUBLIC_DESCRIPTION": "Scrivici prima di unirti al gruppo",
     "PASSWORD": "Metti qui una password se vuoi fare un gruppo privato",
-    "PICKUPS": "Raccogliere",
+    "PICKUPS": "Recupera",
     "PICKUP": "Pickup",
     "MEMBERS": "Membri",
     "JOINED": "joined {relativeDate}",
@@ -273,7 +273,7 @@
     "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
-    "TITLE": "Feedback",
+    "TITLE": "Commenti",
     "HEADER": "Thank you for your pickup!",
     "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",

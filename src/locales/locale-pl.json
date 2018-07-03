@@ -81,11 +81,11 @@
     "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
     "PASSWORD": "Wprowadź tu hasło, jeśli chcesz stworzyć grupę prywatną",
     "PICKUPS": "Odbiory",
-    "PICKUP": "Pickup",
+    "PICKUP": "Odbiór",
     "MEMBERS": "Członkowie",
-    "JOINED": "joined {relativeDate}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
+    "JOINED": "dołączył/-a {relativeDate}",
+    "SORT_JOINDATE": "Sortuj po dacie dołączenia",
+    "SORT_NAME": "Sortuj po nazwie użytkownika",
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "STORES": "Punkty odbioru",
@@ -123,8 +123,8 @@
     "HIDE_USERS": "Ukryj użytkowników",
     "SHOW_STORES": "Pokaż punkty odbioru",
     "HIDE_STORES": "Ukryj punkty odbioru",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
+    "SHOW_GROUPS": "Pokaż grupy",
+    "HIDE_GROUPS": "Ukryj grupy",
     "SET_LOCATION": "Ustaw lokalizację",
     "FULL_SCREEN": "Pełny ekran"
   },
@@ -265,7 +265,7 @@
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
@@ -277,8 +277,8 @@
     "HEADER": "Dzięki za odbiór!",
     "EDIT": "Edytuj komentarz",
     "SUBTITLE": "Tutaj możesz dodać komentarz na temat odbioru",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
+    "SET_AMOUNT": "Wprowadź ilość",
+    "DELETE_AMOUNT": "Usuń ilość",
     "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
     "COMMENT": "Komentarz",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
@@ -342,11 +342,11 @@
     "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
     "CHANGES_SAVED": "Twoje zmiany zostały zapisane.",
     "CHANGES_ERROR": "Wystąpił błąd. Spróbuj ponownie później.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+    "EMAIL_NOT_DELIVERED": "Wiadomość e-mail nie mogła być do Ciebie dostarczona | {count} wiadomości e-mail nie mogło być do Ciebie dostarczonych"
   },
   "OUTDATED_BROWSER": {
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
-    "LINK": "Please update or switch your browser"
+    "MESSAGE": "Twoja przeglądarka nie jest wspierana. {upgradeBrowser}, aby cieszyć się wszystkimi funkcjami.",
+    "LINK": "Zaktualizuj lub zmień swoją przeglądarkę"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Przepraszamy, nie możemy znaleźć tej strony.",
@@ -389,9 +389,9 @@
     "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
   },
   "CONVERSATION": {
-    "OPEN": "Open Chat",
+    "OPEN": "Otwórz czat",
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
-    "EDITED": "edited",
+    "EDITED": "edytowany",
     "MARK_READ": "Oznacz wszystkie jako przeczytane",
     "REACTIONS": {
       "YOU": "ty",

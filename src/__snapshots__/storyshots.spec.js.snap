@@ -2671,16 +2671,7 @@ exports[`Storyshots PickupItem Full 1`] = `
           </div>
           <!---->
           <!---->
-          <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
-            <div class="hoverHide"></div>
-            <div title="Join" class="hoverShow">
-              <div class="wrapper">
-                <div>
-                  <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!---->
           <!---->
         </div>
       </div>
@@ -2944,16 +2935,7 @@ exports[`Storyshots PickupList Default 1`] = `
           </div>
           <!---->
           <!---->
-          <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
-            <div class="hoverHide"></div>
-            <div title="Join" class="hoverShow">
-              <div class="wrapper">
-                <div>
-                  <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!---->
           <!---->
         </div>
       </div>
@@ -3388,16 +3370,7 @@ exports[`Storyshots PickupUsers full 1`] = `
   </div>
   <!---->
   <!---->
-  <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
-    <div class="hoverHide"></div>
-    <div title="Join" class="hoverShow">
-      <div class="wrapper">
-        <div>
-          <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!---->
   <!---->
 </div>
 `;

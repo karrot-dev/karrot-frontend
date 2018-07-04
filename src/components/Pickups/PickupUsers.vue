@@ -43,7 +43,7 @@
       :size="size"
       :hover-user="currentUser"
       :show-join="!pickup.isUserMember"
-      v-if="!(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
+      v-if="!pickup.isFull && !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
       class="profilePic"
       :class="{clickable: !pickup.isUserMember}"
       @join="$emit('join')"

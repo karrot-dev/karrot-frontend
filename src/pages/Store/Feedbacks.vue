@@ -26,6 +26,8 @@
     <FeedbackList
       :feedback="feedback"
       :status="fetchStatus"
+      :has-more="hasMore"
+      :fetch-more="fetchMore"
     />
   </div>
 </template>
@@ -36,6 +38,7 @@ import { QCard, QTooltip, QBtn } from 'quasar'
 
 import {
   mapGetters,
+  mapActions,
 } from 'vuex'
 
 export default {
@@ -44,6 +47,7 @@ export default {
     ...mapGetters({
       feedback: 'feedback/all',
       fetchStatus: 'feedback/fetchStatus',
+      hasMore: 'feedback/pagination/hasMore',
       feedbackPossibleFiltered: 'pickups/feedbackPossibleFiltered',
     }),
     totalAmount () {
@@ -53,6 +57,11 @@ export default {
       }
       return amount
     },
+  },
+  methods: {
+    ...mapActions({
+      fetchMore: 'feedback/fetchMore',
+    }),
   },
 }
 </script>

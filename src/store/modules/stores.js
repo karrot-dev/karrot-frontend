@@ -61,7 +61,6 @@ export default {
     },
 
     async selectStore ({ commit, dispatch, getters, rootState }, { storeId }) {
-      const getStatistics = stores.statistics(storeId)
       if (!getters.get(storeId)) {
         try {
           const store = await stores.get(storeId)
@@ -71,6 +70,7 @@ export default {
           throw createRouteError()
         }
       }
+      const getStatistics = stores.statistics(storeId)
       dispatch('pickups/setStoreFilter', storeId, { root: true })
       dispatch('sidenavBoxes/toggle/group', false, { root: true })
       commit('select', storeId)

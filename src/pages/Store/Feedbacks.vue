@@ -25,6 +25,7 @@
           <q-chip
             icon="fas fa-shopping-basket"
             color="secondary"
+            square
             :title="$t('FEEDBACKLIST.NUMBER_PICKUPS', { count: statistics.pickupsDone })"
           >
             <strong>{{ statistics.pickupsDone }}</strong>

@@ -21,7 +21,7 @@ export default {
     return (await axios.patch(`/api/stores/${obj.id}/`, obj)).data
   },
 
-  delete (id) {
-    return axios.delete(`/api/stores/${id}/`)
+  async statistics (id) {
+    return (await axios.get(`/api/stores/${id}/statistics/`)).data
   },
 }

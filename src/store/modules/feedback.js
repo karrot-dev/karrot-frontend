@@ -44,12 +44,17 @@ export default {
           commit('setScope', scope)
         }
         const data = await dispatch('pagination/extractCursor', feedbackAPI.list(filters))
+        // check for race condition when switching pages
+        if (type !== state.idListScope.type || id !== state.idListScope.id) return
         commit('update', data)
 
         dispatch('fetchRelatedPickups', data)
       },
-      async fetchMore ({ dispatch, commit }) {
+      async fetchMore ({ state, dispatch, commit }) {
+        const { type, id } = state.idListScope
         const data = await dispatch('pagination/fetchMore', feedbackAPI.listMore)
+        // check for race condition when switching pages
+        if (type !== state.idListScope.type || id !== state.idListScope.id) return
         commit('update', data)
 
         dispatch('fetchRelatedPickups', data)
@@ -67,14 +72,16 @@ export default {
         router.push({ name: 'groupFeedback' })
       },
 
-      async update ({ commit, rootGetters, dispatch }, feedback) {
+      async update ({ state, commit, rootGetters, dispatch }, feedback) {
         await dispatch('pickups/maybeFetch', feedback.about, { root: true })
         const pickup = rootGetters['pickups/get'](feedback.about)
-        const currentGroupId = rootGetters['currentGroup/id']
         const currentUserId = rootGetters['auth/userId']
 
-        // make sure that feedback belongs into this group
-        if (pickup.store && pickup.store.group && pickup.store.group.id === currentGroupId) {
+        // make sure that feedback belongs to scope
+        const {type, id} = state.idListScope
+        const fitsStoreScope = () => type === 'store' && pickup.store && pickup.store.id === id
+        const fitsGroupScope = () => type === 'group' && pickup.store && pickup.store.group && pickup.store.group.id === id
+        if (fitsStoreScope() || fitsGroupScope()) {
           commit('update', [feedback])
           if (feedback.givenBy === currentUserId) {
             dispatch('pickups/removeFeedbackPossible', feedback.about, { root: true })

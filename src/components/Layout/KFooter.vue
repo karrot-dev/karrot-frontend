@@ -47,7 +47,7 @@
 <script>
 import KarrotLogo from './KarrotLogo'
 import { QBtn, QIcon, QList, QItem } from 'quasar'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -55,7 +55,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      about: 'about/get',
+      deployed: 'about/deployed',
+      sha: 'about/ourSHA',
     }),
     release () {
       if (process.env.NODE_ENV === 'development') {
@@ -64,17 +65,16 @@ export default {
           name: 'local dev version',
         }
       }
-      if (this.about) {
-        if (this.about.env === 'production') {
+      if (this.deployed) {
+        if (this.deployed.env === 'production') {
           return {
             link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
             name: 'Release 4',
           }
         }
-        if (this.about.env === 'development') {
-          const sha = this.about.commitSHA
+        if (this.deployed.env === 'development') {
           return {
-            link: `https://github.com/yunity/karrot-frontend/tree/${sha}`,
+            link: `https://github.com/yunity/karrot-frontend/tree/${this.sha}`,
             name: 'beta version',
           }
         }
@@ -86,14 +86,6 @@ export default {
         }
       }
     },
-  },
-  methods: {
-    ...mapActions({
-      fetchAbout: 'about/fetch',
-    }),
-  },
-  mounted () {
-    this.fetchAbout()
   },
 }
 </script>

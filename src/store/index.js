@@ -9,7 +9,7 @@ import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
 // Alphabetical
-import about from './modules/about'
+import about, { plugin as aboutPlugin } from './modules/about'
 import agreements from './modules/agreements'
 import banners from './modules/banners'
 import auth from './modules/auth'
@@ -84,6 +84,7 @@ export default new Vuex.Store({
     dependentState,
     fcmPlugin,
     authPushPlugin,
+    aboutPlugin,
   ],
   strict: debug,
 })

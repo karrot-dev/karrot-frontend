@@ -124,15 +124,19 @@ export default {
           await dispatch('backgroundSave', data)
           dispatch('toasts/show', {
             message: 'NOTIFICATIONS.CHANGES_SAVED',
-            timeout: 2000,
-            icon: 'thumb_up',
+            config: {
+              timeout: 2000,
+              icon: 'thumb_up',
+            },
           }, { root: true })
         }
         catch (error) {
           dispatch('toasts/show', {
             message: 'NOTIFICATIONS.CHANGES_ERROR',
-            timeout: 2000,
-            icon: 'warning',
+            config: {
+              timeout: 2000,
+              icon: 'warning',
+            },
           }, { root: true })
         }
       },

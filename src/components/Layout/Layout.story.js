@@ -6,7 +6,7 @@ import { createStore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, storesMock, usersMock, currentUserMock } from '>/mockdata'
 
 const store = createStore({
-  about: { getters: { get: () => ({}) }, actions: { fetch () {} } },
+  about: { getters: { deployed: () => ({}) }, actions: { fetch () {} } },
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },
   users: { getters: { all: () => usersMock } },

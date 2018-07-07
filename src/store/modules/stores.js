@@ -7,6 +7,7 @@ import router from '@/router'
 function initialState () {
   return {
     entries: {},
+    statistics: {},
     idList: [],
     activeStoreId: null,
   }
@@ -29,6 +30,7 @@ export default {
         ...metaStatusesWithId(getters, ['save'], store.id),
         ui: optionsFor(store),
         group: rootGetters['groups/get'](store.group),
+        statistics: state.statistics[store.id],
       }
     },
     activeStore: (state, getters) => getters.get(state.activeStoreId),
@@ -68,9 +70,11 @@ export default {
           throw createRouteError()
         }
       }
+      const getStatistics = stores.statistics(storeId)
       dispatch('pickups/setStoreFilter', storeId, { root: true })
       dispatch('sidenavBoxes/toggle/group', false, { root: true })
       commit('select', storeId)
+      commit('setStatistics', { data: await getStatistics, id: storeId })
     },
 
     async clearSelectedStore ({ commit, dispatch }) {
@@ -117,6 +121,9 @@ export default {
       if (!state.idList.includes(store.id)) {
         state.idList.push(store.id)
       }
+    },
+    setStatistics (state, { id, data }) {
+      Vue.set(state.statistics, id, data)
     },
   },
 }

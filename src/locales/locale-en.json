@@ -268,6 +268,9 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "Give feedback",
     "NONE": "No feedback yet",
     "NONE_HINT": "This page will be filled once more feedback is available",

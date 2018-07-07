@@ -48,6 +48,8 @@ export default {
           commit('setScope', scope)
         }
         const data = await historyAPI.list(filters)
+        // check for race condition when switching pages
+        if (type !== state.idListScope.type || id !== state.idListScope.id) return
         commit('update', { entries: data.results, cursor: data.next })
       },
       async fetchById ({ commit, state }, id) {
@@ -57,7 +59,10 @@ export default {
       },
       async fetchMore ({ state, commit }) {
         if (!state.cursor) return
+        const {type, id} = state.idListScope
         const data = await historyAPI.listMore(state.cursor)
+        // check for race condition when switching pages
+        if (type !== state.idListScope.type || id !== state.idListScope.id) return
         commit('update', { entries: data.results, cursor: data.next })
       },
 

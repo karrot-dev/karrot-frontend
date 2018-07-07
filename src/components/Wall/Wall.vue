@@ -46,7 +46,6 @@ import FeedbackNotice from './FeedbackNotice'
 import JoinedPickups from './JoinedPickups'
 import Conversation from '@/components/Conversation/Conversation'
 import { QPullToRefresh } from 'quasar'
-import { refresh } from '@/store/storeHelpers'
 
 export default {
   components: {
@@ -56,12 +55,6 @@ export default {
     FeedbackNotice,
     QPullToRefresh,
   },
-  methods: {
-    async refresh (done) {
-      await refresh()
-      done()
-    },
-  },
   props: {
     joinedPickups: { required: true, type: Array },
     availablePickups: { required: true, type: Array },
@@ -69,6 +62,7 @@ export default {
     conversation: { required: true, type: Object },
     fetchMore: { required: true, type: Function },
     user: { default: null, type: Object },
+    refresh: { required: true, type: Function },
   },
 }
 </script>

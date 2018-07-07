@@ -29,6 +29,7 @@ import loadingprogress from './modules/loadingprogress'
 import pickups from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
 import presence from './modules/presence'
+import refresh from './modules/refresh'
 import route from './modules/route'
 import routeError from './modules/routeError'
 import search from './modules/search'
@@ -65,6 +66,7 @@ export default new Vuex.Store({
     pickups,
     pickupSeries,
     presence,
+    refresh,
     route,
     routeError,
     search,

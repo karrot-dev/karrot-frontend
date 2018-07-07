@@ -11,17 +11,23 @@ jest.mock('@/services/api/pickups', () => ({ list: mockPickupsList }))
 jest.mock('@/services/api/groupsInfo', () => ({ list: mockGroupsInfoList }))
 jest.mock('@/services/api/authUser', () => ({ get: mockAuthUserGet }))
 
+import Vue from 'vue'
+import { configureQuasar } from '>/helpers'
+
 describe('storeHelpers', () => {
   beforeEach(() => jest.resetModules())
 
   it('refreshes some data', () => {
+    configureQuasar(Vue)
+    const store = require('@/store').default
+
     mockUsersList.mockReturnValueOnce([])
     mockStoresList.mockReturnValueOnce([])
     mockPickupsList.mockReturnValueOnce({ results: [] })
     mockGroupsInfoList.mockReturnValueOnce([])
     mockAuthUserGet.mockReturnValue({})
 
-    require('@/store/storeHelpers').refresh()
+    store.dispatch('refresh/refresh')
 
     expect(mockUsersList).toHaveBeenCalled()
     expect(mockStoresList).toHaveBeenCalled()

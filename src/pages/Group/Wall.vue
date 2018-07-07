@@ -22,6 +22,7 @@ export default connect({
   },
   actionsToProps: {
     fetchMore: 'conversations/fetchMore',
+    refresh: 'refresh/refresh',
   },
 })('GroupWall', Wall)
 </script>

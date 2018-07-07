@@ -1,10 +1,15 @@
 import router from '@/router'
+import { throttle } from 'quasar'
 
 export default store => {
-  let isLoggedIn = () => store.getters['auth/isLoggedIn']
-  let getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
-  let getGroup = (id) => store.getters['groups/get'](id)
-  let getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
+  const isLoggedIn = () => store.getters['auth/isLoggedIn']
+  const getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
+  const getGroup = (id) => store.getters['groups/get'](id)
+  const getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
+  const throttledMarkUserActive = throttle(
+    () => store.dispatch('currentGroup/markUserActive').catch(() => {}),
+    1000 * 60 * 10, // 10 minutes
+  )
 
   router.beforeEach(async (to, from, nextFn) => {
     store.dispatch('routeError/clear')
@@ -62,8 +67,8 @@ export default store => {
     }
   })
 
-  router.afterEach((to) => {
-    store.dispatch('currentGroup/markUserActive').catch(() => {})
+  router.afterEach(() => {
+    throttledMarkUserActive()
   })
 
   store.watch(getBreadcrumbNames, () => {

@@ -4,11 +4,11 @@
     "FSWW_NOTE": "Leggi la nostra pagina descrittiva!",
     "FACEBOOK_NOTE": "Unisciti al nostro gruppo Facebook!",
     "WARNING": "Attenzione",
-    "BETA_WARNING": "Questo sito internet é sotto uno sviluppo attivo e tutto é soggetto a cambiamenti continui . Noi non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)",
+    "BETA_WARNING": "Questo sito internet è sotto sviluppo attivo e tutto è soggetto a cambiamenti continui. Non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)",
     "CONNECTION_INTERRUPTED": "Errore: connessione interrotta!",
     "SERVER_ERROR": "Errore del server",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "SEARCH_NOT_FOUND": "Not Found"
+    "INVALID_LINK": "Ci dispiace, il link che hai aperto non è valido.",
+    "SEARCH_NOT_FOUND": "Non Trovato"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -17,17 +17,19 @@
     "PASSWORD": "Password",
     "CONFIRM_PASSWORD": "Conferma la tua password",
     "USERNAME": "Nome",
-    "WHERE_FROM": "Where you are from (not required)",
+    "WHERE_FROM": "Dove vivi (opzionale)",
     "PHOTO": "Foto del profilo",
-    "SET_PHOTO": "Set your profile photo...",
+    "SET_PHOTO": "Carica la tua foto del profilo...",
     "ACCOUNT": "Account",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Ti abbiamo inviato una e-mail con il link per completare il processo di eliminazione."
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "TITLE": "Eliminazione dell'account",
+        "MESSAGE": "Sei sicuro/a? Il tuo account e le tue informazioni personali saranno eliminate permanentemente. Tutto ciò che hai fatto su questa piattaforma risulterà anonimo. Se confermi ti manderemo una e-mail con il link per completare il processo di eliminazione.",
         "CONFIRM": "Conferma"
       }
     }
@@ -35,178 +37,179 @@
   "BUTTON": {
     "CREATE": "Crea",
     "CANCEL": "Cancella",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "Apri",
+    "CLOSE": "Chiudi",
     "DELETE": "Elimina",
-    "EDIT": "Edit",
+    "EDIT": "Modifica",
     "JOIN": "Unisciti",
-    "LEAVE": "Leave",
-    "PREVIEW": "Preview",
-    "BACK": "Back",
+    "LEAVE": "Abbandona",
+    "PREVIEW": "Anteprima",
+    "BACK": "Indietro",
     "SEARCH": "Cerca",
     "OF_COURSE": "Si, certo!",
     "YES": "Si",
     "SAVE_CHANGES": "Salva le modifiche",
-    "RESET": "Reset",
+    "RESET": "Reimposta",
     "CHANGE_PASSWORD": "Cambia la password",
-    "CHANGE_EMAIL": "Cambia l'indirizzo e-mail",
-    "AGREE": "I agree",
+    "CHANGE_EMAIL": "Cambia indirizzo e-mail",
+    "AGREE": "Acconsento",
     "REMOVE": "Rimuovi",
     "ARCHIVE": "Archivia",
-    "DELETE_ACCOUNT": "Elimina l'account",
+    "DELETE_ACCOUNT": "Elimina account",
     "SHOW": "Mostra",
     "HIDE": "Nascondi"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Questo nome è già in uso, per favore scegline un altro.",
+    "MINLENGTH": "Per favore, inserisci più di {min} caratteri.",
+    "MAXLENGTH": "Troppo lungo, per favore usa massimo {max} caratteri.",
+    "UNIQUE": "Questo nome esiste già, per favore scegline un altro.",
     "REQUIRED": "Questo campo è obbligatorio.",
     "VALID_EMAIL": "Inserisci un indirizzo e-mail valido.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "VALID_TIMEZONE": "Inserisci un fuso orario valido."
   },
   "GROUP": {
     "WALL": "Bacheca",
     "GROUP": "Gruppo",
     "LEAVE": "Lascia il gruppo...",
     "LEAVE_TEXT": "Sicuro/a di voler abbandonare questo gruppo?",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
+    "LEAVE_CONFIRMATION": "Hai abbandonato {groupName}",
     "NONMEMBER_REDIRECT": "Non sei un membro di questo gruppo.",
     "EDIT": "Modifica gruppo",
     "CREATE_TITLE": "Crea un nuovo gruppo",
     "MANAGE_AGREEMENT": "Manage agreement",
-    "TITLE": "Titolo di questo gruppo",
-    "PRIVATE_DESCRIPTION_TITLE": "Descrizione del gruppo privato",
+    "TITLE": "Nome di questo gruppo",
+    "PRIVATE_DESCRIPTION_TITLE": "Descrizione privata del gruppo",
     "DESCRIPTION_VERBOSE": "Descrizione del gruppo visibile ai membri",
-    "PUBLIC_DESCRIPTION": "Scrivici prima di unirti al gruppo",
-    "PASSWORD": "Metti qui una password se vuoi fare un gruppo privato",
+    "PUBLIC_DESCRIPTION": "Testo visibile a chi non fa parte del gruppo",
+    "PASSWORD": "Inserisci una password se vuoi che il gruppo sia privato",
     "PICKUPS": "Recupera",
-    "PICKUP": "Pickup",
+    "PICKUP": "Recupera",
     "MEMBERS": "Membri",
-    "JOINED": "joined {relativeDate}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
-    "INACTIVE": "Inactive",
+    "JOINED": "si è unito/a {relativeDate}",
+    "SORT_JOINDATE": "Ordina per data di adesione",
+    "SORT_NAME": "Ordina per nome",
+    "INACTIVE": "Inattivo",
     "SHOW_INACTIVE": "Mostra gruppi inattivi",
     "STORES": "Negozi",
     "HISTORY": "Storia",
     "DESCRIPTION": "Descrizione",
     "ADDRESS": "Indirizzo",
-    "TIMEZONE": "Time zone of group",
+    "TIMEZONE": "Fuso orario del gruppo",
     "INVITE_EMAIL": "Inserisci un indirizzo e-mail",
-    "INVITE_SEND": "Manda invito",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address",
+    "INVITE_SEND": "Manda l'invito",
+    "INVITED_LIST": "Un invito è già stato inviato a questi indirizzi e-mail:",
+    "ALREADY_INVITED": "Un invito è già stato inviato a questo indirizzo e-mail",
     "INVITATIONS": "Inviti",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Benvenuto/a! Hai accettato con successo l'invito.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
+    "INVITE_TITLE": "Invita qualcuno in questo gruppo",
+    "INVITATION_ACCEPT_SUCCESS": "Benvenuto/a! Hai accettato l'invito con successo.",
+    "INVITATION_ACCEPT_ERROR": "Ooops, non è stato possibile accettare l'invito!",
     "SETTINGS": "Impostazioni",
     "NOTIFICATIONS": "Notifiche",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Notifiche via email",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "Sommario settimanale",
+        "DESCRIPTION": "Resta aggiornato su quello che succede nel tuo gruppo."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+        "NAME": "Notifiche di recupera",
+        "DESCRIPTION": "Ti ricorda delle tue recupere e ti avvisa quando ci sono ancora posti vuoti per le recupere del giorno dopo."
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "PLAYGROUND_INFO": "Questo è un gruppo di prova, non puoi rovinare nulla. Esplora e divertiti!",
+    "JOIN_PLAYGROUND": "Unisciti al gruppo di prova per esplorare karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
-    "SHOW_STORES": "Show stores",
-    "HIDE_STORES": "Hide stores",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
+    "TITLE": "Mappa",
+    "SHOW_USERS": "Mostra utenti",
+    "HIDE_USERS": "Nascondi utenti",
+    "SHOW_STORES": "Mostra negozi",
+    "HIDE_STORES": "Nascondi negozi",
+    "SHOW_GROUPS": "Mostra gruppi",
+    "HIDE_GROUPS": "Nascondi gruppi",
     "SET_LOCATION": "Set location",
-    "FULL_SCREEN": "Show full screen"
+    "FULL_SCREEN": "Espandi"
   },
   "STOREDETAIL": {
     "EDIT": "Modifica negozi",
-    "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "This store has been archived",
-    "INACTIVE": "This store is currently not cooperating.",
+    "MANAGE": "Controlla e gestisci le recupere",
+    "ARCHIVED": "Questo negozio è stato archiviato",
+    "INACTIVE": "Al momento questo negozio non sta collaborando.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This store does not have a description yet"
+    "NO_DESCRIPTION": "Questo negozio ancora non ha una descrizione"
   },
   "STOREEDIT": {
     "NAME": "Nome",
-    "STATUS":"Status",
-    "DESCRIPTION": "Description",
+    "STATUS":"Stato",
+    "DESCRIPTION": "Descrizione",
     "ADDRESS": "Indirizzo",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
+    "WEEKS_IN_ADVANCE": "Quante settimane in anticipo verranno mostrate le date delle recupere ricorrenti?",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive store",
+        "TITLE": "Archivia negozio",
         "MESSAGE": "Sei sicuro/a?",
-        "CONFIRM": "Yes, archive store"
+        "CONFIRM": "Si, archivia il negozio"
       }
     },
-    "RESTORE": "Restore",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "RESTORE": "Ripristina",
+    "SHOW_ARCHIVED": "Mostra i negozi archiviati",
+    "HIDE_ARCHIVED": "Nascondi i negozi archiviati"
   },
   "PICKUPMANAGE": {
-    "TITLE": "Manage pickups",
-    "SERIES": "Recurring pickups",
-    "SINGLE": "One-time pickups",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
+    "TITLE": "Gestisci le recupere",
+    "SERIES": "Recupere ricorrenti",
+    "SINGLE": "Recupere singole",
+    "UPCOMING_PICKUPS_IN_SERIES": "Recupere imminenti di questa serie"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TITLE": "Cancella data della recupera ricorrente",
+    "DELETE_SERIES_TEXT": "Sei sicuro/a di voler eliminare questa data di recupera ricorrente? Questo comporterà anche l'eliminazione di tutte le singole date di recupera esistenti che appartengono a questa data di recupera ricorrente (a parte quelle a cui qualcuno si è già unito)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Nome",
     "DESCRIPTION": "Su di te",
-    "OLD_PASSWORD": "Confirm your old password",
+    "OLD_PASSWORD": "Conferma la tua vecchia password",
     "PASSWORD": "Nuova password"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
-    "WHICHGROUP": "A che gruppo ti vuoi unire?",
-    "NUM_MEMBERS": "Member | Members",
-    "NO_PUBLIC_DESCRIPTION": "(Questo grupp non ha una pubblica descrizione... per ora)",
-    "PASSWORD_LABEL": "Immetti la password per un gruppo privato",
+    "WHICHGROUP": "A quale gruppo ti vuoi unire?",
+    "NUM_MEMBERS": "Membro | Membri",
+    "NO_PUBLIC_DESCRIPTION": "(Questo gruppo non ha una descrizione pubblica... per ora!)",
+    "PASSWORD_LABEL": "Scrivi la password del gruppo privato",
     "PASSWORD_REQUIRED": "Questo gruppo necessita una password",
     "ALL_GROUPS": "Tutti i gruppi",
     "SIGNUP_OR_LOGIN": "Accedi o registrati per unirti a questo gruppo!",
     "MY_GROUPS": "I miei gruppi",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
+      "LOGGED_OUT": "Al momento sei disconnesso. {accedi}",
       "LOG_IN": "Accedi per vedere i tuoi gruppi!"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members."
+    "PROFILE_NOTE": "Unendoti a questo gruppo le informazioni del tuo profilo saranno visibili agli altri membri del gruppo."
   },
   "GROUPINFO": {
-    "TITLE": "Public group information",
-    "META": "Show public group information",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+    "TITLE": "Informazioni pubbliche del gruppo",
+    "META": "Vedi le informazioni pubbliche del gruppo",
+    "MEMBER_VIEW": "Sei un membro di questo gruppo. Clicca qui per vederne i contenuti."
   },
   "TOPBAR": {
-    "LOGOUT": "Disconnetti",
+    "LOGOUT": "Disconnettiti",
     "USERPROFILE": "Visita il tuo profilo",
-    "CHANGE_GROUP": "Cambia gruppo"
+    "CHANGE_GROUP": "Passa a un altro gruppo"
   },
   "SIDENAV": {
-    "INFO_SUB": "Come creare il tuo gruppo foodsaving",
+    "INFO_SUB": "Come dare vita a un gruppo foodsaving",
     "BLOG_SUB": "Tutte le novità sul software karrot",
-    "GIT_SUB": "See our code!"
+    "GIT_SUB": "Guarda il nostro codice!"
   },
   "LOGIN": {
-    "TITLE": "Accesso",
-    "SUBMIT": "Accesso",
+    "TITLE": "Accedi",
+    "SUBMIT": "Accedi",
     "SIGNUP": "Iscriviti!",
-    "FORGOT_PASSWORD": "Dimenticato la password?"
+    "FORGOT_PASSWORD": "Hai dimenticato la password?"
   },
   "SIGNUP": {
     "TITLE": "Iscriviti!",
@@ -214,7 +217,7 @@
     "OK": "Unisciti"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
+    "TITLE": "Verifica dell'e-mail",
     "SUCCESS": "Il tuo indirizzo e-mail è stato verificato con successo!"
   },
   "DELETEACCOUNT": {
@@ -224,8 +227,8 @@
   "CREATEPICKUP": {
     "FREQUENCY": "Frequenza",
     "WEEKLY": "Settimanale",
-    "CUSTOM": "Custom",
-    "WEEKDAYS": "Weekdays",
+    "CUSTOM": "Personalizza",
+    "WEEKDAYS": "Giorni della settimana",
     "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
     "RRULE": "Recurrence rule",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
@@ -234,7 +237,7 @@
     "RRULE_EXAMPLE2": "every second Monday",
     "STARTDATE": "Start date",
     "STARTDATE_HELPER": "When should the series start?",
-    "TIME": "Tempo",
+    "TIME": "Ora",
     "TIME_HELPER": "When should the pick-up take place?",
     "DATE": "Date",
     "DATE_HELPER": "When should the pick-up take place?",
@@ -260,23 +263,26 @@
       "LEAVE_CONFIRMATION_HEADER": "Abbandona la recupera",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
-    "NONE": "Nessun raccolta in vista",
-    "NONE_HINT": "Puoi creare una nuova raccolta sulla pagina del negozio.",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+    "NONE": "Nessuna recupera in vista",
+    "NONE_HINT": "Puoi creare una nuova recupera sulla pagina del negozio.",
+    "STORE_NONE_HINT": "Puoi creare una nuova recupera sulla pagina della gestione delle recupere."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "GIVE_FEEDBACK": "Give feedback",
-    "NONE": "No feedback yet",
-    "NONE_HINT": "This page will be filled once more feedback is available",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
+    "GIVE_FEEDBACK": "Lascia un commento",
+    "NONE": "Ancora nessun commento",
+    "NONE_HINT": "Questa pagina mostrerà i commenti del gruppo",
     "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "NO_DONE_PICKUPS_HINT": "Al momento non hai recupere da commentare. Perché non ti unisci a un'altra recupera?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Commenti",
-    "HEADER": "Thank you for your pickup!",
-    "EDIT": "Edit feedback",
-    "SUBTITLE": "You can provide feedback for your pickup here",
+    "HEADER": "Grazie per la tua recupera!",
+    "EDIT": "Modifica il commento",
+    "SUBTITLE": "Puoi lasciare un commento alla tua recupera qui",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
@@ -285,7 +291,7 @@
     "PREVIOUS": "Previous feedback for {store}"
   },
   "PASSWORDRESET": {
-    "TITLE": "Password resettata",
+    "TITLE": "Modifica la password",
     "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
     "EMAIL": "Indirizzo e-mail",
     "SUBMIT": "Ottieni una nuova password",
@@ -307,35 +313,35 @@
     "SWITCH": "Cambia lingua"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "ITALIC": "italic",
-    "STRIKE": "strike",
-    "QUOTE": "quote",
-    "HELP": "What is Markdown?"
+    "BOLD": "grassetto",
+    "ITALIC": "corsivo",
+    "STRIKE": "barra",
+    "QUOTE": "cita",
+    "HELP": "Cosa è Markdown?"
   },
   "HISTORY": {
-    "GROUP_CREATE": "created this group",
-    "GROUP_MODIFY": "changed the settings of this group",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
+    "GROUP_CREATE": "ha creato un gruppo",
+    "GROUP_MODIFY": "ha cambiato le impostazioni del gruppo",
+    "GROUP_JOIN": "si è unito/a al gruppo",
+    "GROUP_LEAVE": "ha abbandonato il gruppo",
     "STORE_CREATE": "created store {name}",
     "STORE_MODIFY": "changed the settings of store {name}",
     "STORE_DELETE": "deleted store {name}",
-    "PICKUP_CREATE": "created a new one-time pick-up",
-    "PICKUP_MODIFY": "changed the settings of a pick-up",
-    "PICKUP_DELETE": "deleted a pick-up",
-    "SERIES_CREATE": "created a new recurring pick-up",
-    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
-    "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
+    "PICKUP_CREATE": "ha creato una nuova recupera singola",
+    "PICKUP_MODIFY": "ha cambiato le impostazioni di una recupera singola",
+    "PICKUP_DELETE": "ha eliminato una recupera singola",
+    "SERIES_CREATE": "ha creato una nuova recupera ricorrente",
+    "SERIES_MODIFY": "ha cambiato le impostazioni di una recupera ricorrente",
+    "SERIES_DELETE": "ha eliminato una recupera ricorrente",
+    "PICKUP_DONE": "ha recuperato a {storeName}",
+    "PICKUP_MISSED": "Una recupera a {storeName} ha fallito!",
+    "PICKUP_JOIN": "si è iscritto/a alla recupera a {storeName}",
+    "PICKUP_LEAVE": "si è ritirato/a dalla recupera a {storeName}",
     "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "DETAILS": "Più informazioni"
+    "DETAILS": "Altre informazioni"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifications",
+    "TITLE": "Notifiche",
     "NOT_VERIFIED": "{email} not verified",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "RESEND_VERIFICATION": "resend verification email",
@@ -381,8 +387,8 @@
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
+    "WRITE_MESSAGE": "Scrivi un messaggio...",
+    "WRITE_FIRST_MESSAGE": "Scrivi il primo messaggio...",
     "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
     "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
@@ -390,8 +396,8 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "EDITED": "edited",
+    "UNREAD_MESSAGES": "Hai un messaggio non letto. | Hai {count} messaggi non letti.",
+    "EDITED": "modificato",
     "MARK_READ": "Mark all as read",
     "REACTIONS": {
       "YOU": "you",
@@ -400,10 +406,10 @@
     }
   },
   "STORESTATUS":{
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
+    "ACTIVE": "Collaborazione in corso",
+    "CREATED": "Appena creato",
+    "NEGOTIATING": "Negoziamento in corso",
+    "DECLINED": "Non vuole collaborare",
     "ARCHIVED": "Archived"
   }
 }

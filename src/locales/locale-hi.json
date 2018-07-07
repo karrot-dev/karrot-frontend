@@ -21,6 +21,8 @@
     "PHOTO": "पार्श्व चित्र \\\\ वर्णन",
     "SET_PHOTO": "अपनी प्रोफाइल पिक्चर सेट करो",
     "ACCOUNT": "Account",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },
@@ -115,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "नक्शा",
@@ -266,6 +269,9 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "प्रतिक्रिया दें",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
     "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा",

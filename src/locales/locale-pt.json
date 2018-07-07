@@ -21,6 +21,8 @@
     "PHOTO": "Foto do perfil",
     "SET_PHOTO": "Defina sua foto do perfil...",
     "ACCOUNT": "Conta",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Nós lhe enviamos um email com um link para completar o processo de remoção de sua conta."
     },
@@ -115,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "Este é um grupo de testes. Você não pode quebrar nada aqui. Expore, clique em tudo e divira-se",
-    "JOIN_PLAYGROUND": "Participe do grupo de testes e explore karrot"
+    "JOIN_PLAYGROUND": "Participe do grupo de testes e explore karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -266,6 +269,9 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "De seu parecer",
     "NONE": "Sem comentários, ainda",
     "NONE_HINT": "Esta página sera preenchida assim que mais comentários apareçam",

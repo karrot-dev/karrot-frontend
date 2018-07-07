@@ -21,6 +21,8 @@
     "PHOTO": "Zdjęcie profilowe",
     "SET_PHOTO": "Ustaw zdjęcie profilowe...",
     "ACCOUNT": "Konto",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Wysłaliśmy Ci wiadomość e-mail z linkiem do usunięcia konta."
     },
@@ -115,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "To specjalna grupa w trybie piaskownicy, gdzie nie musisz martwić się o to, że coś zepsujesz. Odkryj wszystkie funkcje, klikaj, gdzie tylko chcesz i baw się dobrze!",
-    "JOIN_PLAYGROUND": "Dołącz do piaskownicy, aby szybko poznać wszystkie funkcje karrot"
+    "JOIN_PLAYGROUND": "Dołącz do piaskownicy, aby szybko poznać wszystkie funkcje karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -266,6 +269,9 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",

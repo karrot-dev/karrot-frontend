@@ -6,6 +6,7 @@ if (process.env.RAVEN_CONFIG) {
   Raven
     .config(process.env.RAVEN_CONFIG, {
       ignoreErrors: ['ResizeObserver loop limit exceeded'],
+      release: process.env.GIT_SHA1,
     })
     .addPlugin(RavenVue, Vue)
     .install()

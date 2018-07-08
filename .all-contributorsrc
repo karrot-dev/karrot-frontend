@@ -1,0 +1,133 @@
+{
+  "projectName": "karrot-frontend",
+  "projectOwner": "yunity",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "contributorsPerLine": 4,
+  "contributors": [
+    {
+      "login": "tiltec",
+      "name": "Tilmann Becker",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4410802?v=4",
+      "profile": "https://github.com/tiltec",
+      "contributions": [
+        "code",
+        "ideas",
+        "infra",
+        "review",
+        "test",
+        "question"
+      ]
+    },
+    {
+      "login": "nicksellen",
+      "name": "Nick Sellen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/31616?v=4",
+      "profile": "http://nicksellen.co.uk",
+      "contributions": [
+        "code",
+        "doc",
+        "infra",
+        "review",
+        "test"
+      ]
+    },
+    {
+      "login": "djahnie",
+      "name": "Janina Abels",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17573771?v=4",
+      "profile": "https://github.com/djahnie",
+      "contributions": [
+        "ideas",
+        "bug",
+        "question",
+        "ideas",
+        "eventOrganizing"
+      ]
+    },
+    {
+      "login": "D0nPiano",
+      "name": "D0nPiano",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/16825880?v=4",
+      "profile": "https://github.com/D0nPiano",
+      "contributions": [
+        "design",
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "mr-kojo",
+      "name": "Lukas Gebhard",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/16634824?v=4",
+      "profile": "https://github.com/mr-kojo",
+      "contributions": [
+        "code",
+        "ideas",
+        "review",
+        "doc"
+      ]
+    },
+    {
+      "login": "mrkvon",
+      "name": "mrkvon",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7449720?v=4",
+      "profile": "https://mrkvon.org",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "id-gue",
+      "name": "Ines Dorian Gütt",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25362020?v=4",
+      "profile": "http://danke.fish",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "mddemarie",
+      "name": "Marie Dedikova",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/18111928?v=4",
+      "profile": "https://github.com/mddemarie",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "alangecker",
+      "name": "Andreas Langecker",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10246027?v=4",
+      "profile": "https://gitlab.com/alangecker",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "djembejohn",
+      "name": "djembejohn",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19744774?v=4",
+      "profile": "https://github.com/djembejohn",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "NerdyProjects",
+      "name": "Matthias Larisch",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/861660?v=4",
+      "profile": "https://github.com/NerdyProjects",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
+}

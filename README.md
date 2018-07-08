@@ -49,7 +49,7 @@ Look into our [change log file](CHANGELOG.md) for a quick overview of past versi
 
 We are using [Transifex](https://www.transifex.com/) to provide _karrot_ in many languages. To help us with translation, please [create an account](http://transifex.com/signup) and [apply for the _karrot_ group](https://www.transifex.com/yunity-1/karrot/frontend/).
 
-After selecting your destination language and choosing the resource file, go ahead to start translating!
+After selecting your target language and choosing the resource file, go ahead to start translating!
 
 ## Setup
 

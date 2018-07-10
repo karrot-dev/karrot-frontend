@@ -49,7 +49,7 @@ export default {
         }
         const data = await historyAPI.list(filters)
         // check for race condition when switching pages
-        if (type !== state.idListScope.type || id !== state.idListScope.id) return
+        if (scope.type !== state.idListScope.type || scope.id !== state.idListScope.id) return
         commit('update', { entries: data.results, cursor: data.next })
       },
       async fetchById ({ commit, state }, id) {

@@ -1,6 +1,18 @@
 <template>
   <q-btn-group class="k-groupmapcontrols">
     <q-btn
+      v-if="showFullScreenButton && !$q.platform.is.mobile"
+      :size="buttonSize"
+      color="primary"
+      @click="$router.push({ name: 'map' })"
+    >
+      <i class="fas fa-expand-arrows-alt fa-stack-1x" />
+      <q-tooltip>
+        {{ $t('GROUPMAP.FULL_SCREEN') }}
+      </q-tooltip>
+    </q-btn>
+
+    <q-btn
       v-if="showBack && !$q.platform.is.mobile"
       :size="buttonSize"
       color="primary"
@@ -106,11 +118,10 @@ export default {
       type: Boolean,
     },
     type: {
-      default: 'none',
+      default: 'full',
       type: String,
       validator (value) {
         return [
-          'none',
           'mini',
           'full',
         ].includes(value)
@@ -126,6 +137,9 @@ export default {
     },
     showGroupsButton () {
       return this.type !== 'mini'
+    },
+    showFullScreenButton () {
+      return this.type === 'mini'
     },
   },
 }

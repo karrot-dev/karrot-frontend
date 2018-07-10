@@ -3851,53 +3851,7 @@ exports[`Storyshots Settings Page Default 1`] = `
 exports[`Storyshots Settings Page verification warning 1`] = `<!---->`;
 
 exports[`Storyshots Sidenav Boxes Group 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
-    <i aria-hidden="true" class="q-icon fas fa-fw fa-home"> </i>
-    <div class="q-toolbar-title"></div>
-    <div class="tools">
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
-      </button>
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i>
-          <div class="q-popover scroll">
-            <div item-separator="" class="q-list q-list-link">
-              <!---->
-              <!---->
-              <div class="q-item q-item-division relative-position q-item-link">
-                <i aria-hidden="true" class="q-icon fas fa-pencil-alt fa-fw on-left" style="font-size:1em;"> </i>
-                Edit group
-              </div>
-              <!---->
-              <div class="q-item q-item-division relative-position q-item-link">
-                <i aria-hidden="true" class="q-icon fas fa-info-circle fa-fw on-left" style="font-size:1em;"> </i>
-                Show public group information
-              </div>
-              <div class="q-item q-item-division relative-position q-item-link">
-                <i aria-hidden="true" class="q-icon fas fa-user-plus fa-fw on-left" style="font-size:1em;"> </i>
-                Invite users to your group
-              </div>
-              <div class="q-item q-item-division relative-position">
-                <i aria-hidden="true" class="q-icon fas fa-sign-out-alt fa-fw on-left" style="font-size:1em;"> </i>
-                Leave group...
-              </div>
-            </div>
-          </div>
-        </div>
-      </button>
-    </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
-      </div>
-    </button>
-  </div>
+<div>
   <div name="slide-toggle">
     <div>
       <div class="q-list no-padding no-border q-list-highlight">
@@ -3956,44 +3910,28 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
 `;
 
 exports[`Storyshots Sidenav Boxes Map 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
-    <i aria-hidden="true" class="q-icon fas fa-fw fa-map"> </i>
-    <div class="q-toolbar-title"></div>
-    <div class="tools">
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i class="fas fa-expand-arrows-alt fa-stack-1x"></i> <span class="q-tooltip animate-popup"><div>
-        Show full screen
-      </div></span></div>
-      </button>
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-shopping-cart fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
-        Hide stores
-      </div></span></div>
-      </button>
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-user fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
-        Hide users
-      </div></span></div>
-      </button>
-    </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
-      </div>
-    </button>
-  </div>
+<div>
   <div name="slide-toggle">
     <div class="container map">
       <div class="vue2leaflet-map k-map" style="opacity:1;">
         <!---->
       </div>
-      <!---->
+      <div class="q-btn-group row no-wrap inline k-groupmapcontrols">
+        <!---->
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-shopping-cart fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
+      Hide stores
+    </div></span></div>
+        </button>
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-user fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span> <span class="q-tooltip animate-popup"><div>
+      Hide users
+    </div></span></div>
+        </button>
+        <!---->
+      </div>
       <!---->
     </div>
   </div>
@@ -4001,78 +3939,73 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
 `;
 
 exports[`Storyshots Sidenav Boxes Stores 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
-    <i aria-hidden="true" class="q-icon fas fa-fw fa-shopping-cart"> </i>
-    <div class="q-toolbar-title">
-      Stores
-    </div>
-    <div class="tools">
-      <!---->
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-fw fa-plus-circle"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
-      </button>
-    </div>
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
-      </div>
-    </button>
-  </div>
+<div>
   <div name="slide-toggle">
     <div class="q-list no-padding no-border q-list-highlight">
-      <div class="q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left">
-          <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-        </div>
-        <div class="q-item-main q-item-section">
-          <div class="q-item-label">
-            Teststore1
+      <div>
+        <div class="q-item q-item-division relative-position q-item-link">
+          <div class="q-item-side q-item-section text-center q-item-side-left">
+            <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              Teststore1
+            </div>
           </div>
         </div>
+        <!---->
       </div>
-      <div class="q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left">
-          <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-        </div>
-        <div class="q-item-main q-item-section">
-          <div class="q-item-label">
-            New Tienda
+      <div>
+        <div class="q-item q-item-division relative-position q-item-link">
+          <div class="q-item-side q-item-section text-center q-item-side-left">
+            <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              New Tienda
+            </div>
           </div>
         </div>
+        <!---->
       </div>
-      <div class="q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left">
-          <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-        </div>
-        <div class="q-item-main q-item-section">
-          <div class="q-item-label">
-            Supermarkt Arheilgen
+      <div>
+        <div class="q-item q-item-division relative-position q-item-link">
+          <div class="q-item-side q-item-section text-center q-item-side-left">
+            <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              Supermarkt Arheilgen
+            </div>
           </div>
         </div>
+        <!---->
       </div>
-      <div class="q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left">
-          <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-        </div>
-        <div class="q-item-main q-item-section">
-          <div class="q-item-label">
-            asd
+      <div>
+        <div class="q-item q-item-division relative-position q-item-link">
+          <div class="q-item-side q-item-section text-center q-item-side-left">
+            <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              asd
+            </div>
           </div>
         </div>
+        <!---->
       </div>
-      <div class="q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left">
-          <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-        </div>
-        <div class="q-item-main q-item-section">
-          <div class="q-item-label">
-            Griesheimer Markt
+      <div>
+        <div class="q-item q-item-division relative-position q-item-link">
+          <div class="q-item-side q-item-section text-center q-item-side-left">
+            <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              Griesheimer Markt
+            </div>
           </div>
         </div>
+        <!---->
       </div>
       <!---->
       <!---->
@@ -5351,55 +5284,70 @@ exports[`Storyshots Stores StoreEdit 1`] = `
 
 exports[`Storyshots Stores StoreList 1`] = `
 <div class="q-list no-padding no-border q-list-highlight">
-  <div class="q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left">
-      <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-    </div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        Teststore1
+  <div>
+    <div class="q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left">
+        <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+      </div>
+      <div class="q-item-main q-item-section">
+        <div class="q-item-label">
+          Teststore1
+        </div>
       </div>
     </div>
+    <!---->
   </div>
-  <div class="q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left">
-      <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-    </div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        New Tienda
+  <div>
+    <div class="q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left">
+        <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+      </div>
+      <div class="q-item-main q-item-section">
+        <div class="q-item-label">
+          New Tienda
+        </div>
       </div>
     </div>
+    <!---->
   </div>
-  <div class="q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left">
-      <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-    </div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        Supermarkt Arheilgen
+  <div>
+    <div class="q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left">
+        <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+      </div>
+      <div class="q-item-main q-item-section">
+        <div class="q-item-label">
+          Supermarkt Arheilgen
+        </div>
       </div>
     </div>
+    <!---->
   </div>
-  <div class="q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left">
-      <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-    </div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        asd
+  <div>
+    <div class="q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left">
+        <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+      </div>
+      <div class="q-item-main q-item-section">
+        <div class="q-item-label">
+          asd
+        </div>
       </div>
     </div>
+    <!---->
   </div>
-  <div class="q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left">
-      <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
-    </div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        Griesheimer Markt
+  <div>
+    <div class="q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left">
+        <i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i>
+      </div>
+      <div class="q-item-main q-item-section">
+        <div class="q-item-label">
+          Griesheimer Markt
+        </div>
       </div>
     </div>
+    <!---->
   </div>
   <!---->
   <!---->

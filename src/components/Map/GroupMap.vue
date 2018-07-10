@@ -28,10 +28,12 @@
       </q-list>
     </StandardMap>
     <GroupMapControls
-      v-if="enableControls"
+      v-if="controls !== 'none'"
+      :type="controls"
       :show-users="showUsers"
       :show-stores="showStores"
       :show-groups="showGroups"
+      :show-back="false"
       @toggleUsers="$emit('toggleUsers')"
       @toggleStores="$emit('toggleStores')"
       @toggleGroups="$emit('toggleGroups')"
@@ -98,7 +100,7 @@ export default {
     currentGroup: { type: Object, default: () => ({}) },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
-    enableControls: { type: Boolean, default: false },
+    controls: { type: String, default: 'none' },
   },
   methods: {
     mapMoveEnd (target) {

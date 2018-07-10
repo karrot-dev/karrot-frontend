@@ -11,7 +11,7 @@
       :show-users="showUsers"
       :show-stores="showStores"
       :show-groups="showGroups"
-      enable-controls
+      controls="full"
       @mapMoveEnd="mapMoveEnd"
       @toggleUsers="toggleUsers"
       @toggleStores="toggleStores"

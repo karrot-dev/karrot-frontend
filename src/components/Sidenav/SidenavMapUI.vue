@@ -69,12 +69,15 @@
     <GroupMap
       v-if="currentGroup"
       class="map"
+      controls="mini"
       :stores="stores"
       :users="users"
       :show-users="showUsers"
       :show-stores="showStores"
       :selected-store="selectedStore"
       :current-group="currentGroup"
+      @toggleUsers="$emit('toggleUsers')"
+      @toggleStores="$emit('toggleStores')"
     />
   </SidenavBox>
 </template>

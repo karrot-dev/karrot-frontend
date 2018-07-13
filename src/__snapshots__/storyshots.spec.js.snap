@@ -532,7 +532,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                 <div class="q-if-inner col row no-wrap relative-position">
                   <!---->
                   <!---->
-                  <input step="any" type="text" id="group-title" autocomplete="off" class="col q-input-target q-no-input-spinner">
+                  <input step="any" type="text" id="group-title" autocomplete="off" value="05_testgroup" class="col q-input-target q-no-input-spinner">
                   <!---->
                   <!---->
                   <!---->
@@ -559,6 +559,10 @@ exports[`Storyshots GroupEdit create 1`] = `
                         <div class="q-tab-label">Edit</div>
                         <div class="q-tabs-bar"></div>
                       </div>
+                      <div class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label text-primary">
+                        <div class="q-tab-label">Preview</div>
+                        <div class="q-tabs-bar" style="display:none;"></div>
+                      </div>
                       <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
                         <div class="q-tabs-bar q-tabs-global-bar"></div>
                       </div>
@@ -571,7 +575,6 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                   </div>
                   <div class="q-tabs-panes">
-                    <!---->
                     <div class="q-tab-pane">
                       <div tabindex="-1" min-rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
                         <!---->
@@ -580,8 +583,8 @@ exports[`Storyshots GroupEdit create 1`] = `
                           <!---->
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea min-rows="3" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
-                            <textarea min-rows="3" class="col q-input-target q-input-area">undefined</textarea>
+                            <textarea min-rows="3" class="col q-input-target q-input-shadow absolute-top">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
+                            <textarea min-rows="3" class="col q-input-target q-input-area">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
                           </div>
                           <!---->
                           <!---->
@@ -681,7 +684,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   <div class="q-if-inner col row no-wrap relative-position">
                     <!---->
                     <!---->
-                    <input placeholder="Search" step="any" type="text" class="col q-input-target q-no-input-spinner text-left">
+                    <input placeholder="Search" step="any" type="text" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="col q-input-target q-no-input-spinner text-left">
                     <!---->
                     <!---->
                     <!---->
@@ -695,6 +698,68 @@ exports[`Storyshots GroupEdit create 1`] = `
                 </div>
                 <div class="vue2leaflet-map k-map map">
                   <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive">
+          <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-question"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Questions for people who want to join this group</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div>
+                <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                  <div class="q-tabs-head row q-tabs-align-right text-primary">
+                    <div class="q-tabs-scroller row no-wrap">
+                      <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label text-primary">
+                        <div class="q-tab-label">Edit</div>
+                        <div class="q-tabs-bar"></div>
+                      </div>
+                      <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
+                        <div class="q-tabs-bar q-tabs-global-bar"></div>
+                      </div>
+                    </div>
+                    <div class="row flex-center q-tabs-left-scroll">
+                      <i aria-hidden="true" class="q-icon material-icons">chevron_left</i>
+                    </div>
+                    <div class="row flex-center q-tabs-right-scroll">
+                      <i aria-hidden="true" class="q-icon material-icons">chevron_right</i>
+                    </div>
+                  </div>
+                  <div class="q-tabs-panes">
+                    <!---->
+                    <div class="q-tab-pane">
+                      <div tabindex="-1" min-rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
+                        <!---->
+                        <div class="q-if-inner col row no-wrap relative-position">
+                          <!---->
+                          <!---->
+                          <div class="col row relative-position">
+                            <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                            <textarea min-rows="3" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
+                            <textarea min-rows="3" class="col q-input-target q-input-area">undefined</textarea>
+                          </div>
+                          <!---->
+                          <!---->
+                          <!---->
+                          <!---->
+                          <!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <small class="row group pull-right text-weight-light">
+                        <b>**bold**</b>
+                        <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
+                        <a href="https://guides.github.com/features/mastering-markdown/">
+                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                      </small>
+                      <div style="clear:both;"></div>
+                    </div>
+                    <!---->
+                  </div>
                 </div>
               </div>
             </div>
@@ -736,7 +801,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                 <div class="q-if-inner col row no-wrap relative-position">
                   <!---->
                   <!---->
-                  <input step="any" type="text" value="UTC" class="col q-input-target q-no-input-spinner">
+                  <input step="any" type="text" class="col q-input-target q-no-input-spinner">
                   <!---->
                   <!---->
                   <!---->
@@ -753,11 +818,16 @@ exports[`Storyshots GroupEdit create 1`] = `
         </div>
         <!---->
         <div class="actionButtons">
-          <!---->
-          <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+          <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
-              Create
+              Reset
+            </div>
+          </button>
+          <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              Save changes
             </div>
           </button>
         </div>

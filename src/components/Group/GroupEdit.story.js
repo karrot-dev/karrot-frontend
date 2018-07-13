@@ -19,7 +19,7 @@ storiesOf('GroupEdit', module)
   .add('create', () => defaults({
     render: h => h(GroupEdit, {
       props: {
-        group: groupsMock[0],
+        value: groupsMock[0],
         status: statusMocks.default(),
         timezones,
         allGroups: groupsMock,

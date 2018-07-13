@@ -71,6 +71,23 @@
           <q-field
             v-if="!edit.isPlayground"
             icon="fas fa-fw fa-question"
+            :label="$t('GROUP.APPLICATION_QUESTIONS')"
+            :error="hasError('applicationQuestions')"
+            :error-label="firstError('applicationQuestions')"
+          >
+            <MarkdownInput :value="edit.applicationQuestions">
+              <q-input
+                v-model="edit.applicationQuestions"
+                type="textarea"
+                :min-rows="3"
+                @keyup.ctrl.enter="maybeSave"
+              />
+            </MarkdownInput>
+          </q-field>
+
+          <q-field
+            v-if="!edit.isPlayground"
+            icon="fas fa-fw fa-question"
             :label="$t('GROUP.PASSWORD')"
             :error="hasError('password')"
             :error-label="firstError('password')"
@@ -155,6 +172,7 @@ export default {
         latitude: undefined,
         longitude: undefined,
         address: undefined,
+        applicationQuestions: undefined,
       }),
     },
     timezones: {

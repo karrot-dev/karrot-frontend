@@ -31,7 +31,7 @@ import 'quasar-extras/material-icons'
 import 'quasar-extras/fontawesome'
 import 'quasar-extras/animate'
 import 'typeface-cabin-sketch'
-import App from '@/App'
+import Root from '@/Root'
 import '@/presenceReporter'
 
 export default async function initApp () {
@@ -51,6 +51,6 @@ export default async function initApp () {
     router,
     store,
     i18n,
-    render: h => h(App),
+    render: h => h(Root),
   })
 }

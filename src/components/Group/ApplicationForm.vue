@@ -5,9 +5,9 @@
         <form>
           <q-field
             icon="fas fa-fw fa-question"
-            label="fuck this shit"
+            :label="value.applicationQuestionsText"
           >
-            <MarkdownInput :value="edit.applicationAnwsers">
+            <MarkdownInput :value="edit.applicationAnswers">
               <q-input
                 id="group-title"
                 v-model="edit.applicationAnswers"

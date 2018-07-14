@@ -7,8 +7,8 @@ storiesOf('ApplicationForm', module)
   .add('create', () => defaults({
     render: h => h(ApplicationForm, {
       props: {
+        value: groupsMock[0],
         allGroups: groupsMock,
       },
     }),
   }))
-  

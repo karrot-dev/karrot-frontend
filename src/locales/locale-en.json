@@ -57,7 +57,8 @@
     "ARCHIVE": "Archive",
     "DELETE_ACCOUNT": "Delete account",
     "SHOW": "Show",
-    "HIDE": "Hide"
+    "HIDE": "Hide",
+    "SUBMIT": "Submit"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",

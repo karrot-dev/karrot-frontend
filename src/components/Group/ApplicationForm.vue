@@ -5,12 +5,12 @@
         <form>
           <q-field
             icon="fas fa-fw fa-question"
-            :label="$t('GROUP.APPLICATION_QUESTIONS')"
-            :value="applicationQuestions"
+            label="fuck this shit"
           >
-            <MarkdownInput>
+            <MarkdownInput :value="edit.applicationAnwsers">
               <q-input
-                v-model="applicationAnswers"
+                id="group-title"
+                v-model="edit.applicationAnswers"
                 type="textarea"
                 :min-rows="3"
                 @keyup.ctrl.enter="maybeSave"
@@ -46,6 +46,7 @@ import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
 export default {
   name: 'ApplicationForm',
@@ -55,7 +56,7 @@ export default {
       type: Object,
       required: false,
       default: () => ({
-        applicationQuestions: "I've got some questions...",
+        applicationQuestionsText: "I've got some questions...",
         applicationAnswers: "I'd love to save food!",
       }),
     },
@@ -66,6 +67,27 @@ export default {
   methods: {
     submitApplication (event) {
       this.save()
+    },
+    maybeSave (event) {
+      this.$v.edit.$touch()
+      if (!this.canSave) return
+      this.$v.edit.$reset()
+      this.save()
+    },
+  },
+  validations: {
+    edit: {
+      name: {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(350),
+        isUnique (value) {
+          if (value === '' || !this.value) return true
+          return this.allGroups
+            .filter(e => e.id !== this.value.id)
+            .findIndex(e => e.name === value) < 0
+        },
+      },
     },
   },
 }

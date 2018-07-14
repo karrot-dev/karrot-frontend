@@ -1,5 +1,6 @@
 <template>
   <q-card
+    :flat="flat"
     :class="{ full: pickup.isFull }"
     @click.native.stop="detailIfMember"
   >
@@ -60,6 +61,10 @@ export default {
       required: true,
     },
     storeLink: {
+      type: Boolean,
+      default: false,
+    },
+    flat: {
       type: Boolean,
       default: false,
     },

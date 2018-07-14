@@ -1,7 +1,7 @@
 <template>
   <q-btn-group class="k-groupmapcontrols">
     <q-btn
-      v-if="showFullScreenButton && !$q.platform.is.mobile"
+      v-if="showFullScreenButton"
       :size="buttonSize"
       color="primary"
       @click="$router.push({ name: 'map' })"

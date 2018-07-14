@@ -2,6 +2,7 @@
   <div>
     <router-link :to="{name: 'pickupFeedback'}">
       <q-card
+        :flat="flat"
         color="warning"
         class="generic-padding notice"
       >
@@ -19,6 +20,7 @@ export default {
   components: { QCard },
   props: {
     feedbackPossible: { required: true, type: Array },
+    flat: { type: Boolean, default: false },
   },
 }
 </script>

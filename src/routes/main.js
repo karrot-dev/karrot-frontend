@@ -22,7 +22,9 @@ const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
 const GroupHistory = () => import('@/pages/Group/History')
-const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores')
+// const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores')
+// const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/ShinyNewSidenav')
+const ShinyNewSidenav = () => import('@/components/Sidenav/ShinyNewSidenav')
 const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup')
 const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
 const Settings = () => import('@/pages/Settings')
@@ -41,6 +43,7 @@ export default [
     },
     components: {
       fullPage: GroupGallery,
+      sidenav: ShinyNewSidenav,
     },
   },
   {
@@ -56,6 +59,7 @@ export default [
     },
     components: {
       default: GroupPreview,
+      sidenav: ShinyNewSidenav,
     },
   },
   {
@@ -71,6 +75,7 @@ export default [
     },
     components: {
       default: GroupCreate,
+      sidenav: ShinyNewSidenav,
     },
   },
   {
@@ -86,6 +91,7 @@ export default [
     },
     components: {
       default: HistoryDetail,
+      sidenav: ShinyNewSidenav,
     },
   },
   {
@@ -100,7 +106,7 @@ export default [
     },
     components: {
       default: GroupLayout,
-      sidenav: GroupMapAndStoresSidenav,
+      sidenav: ShinyNewSidenav,
     },
     children: [
       {
@@ -378,9 +384,11 @@ export default [
         { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
       ],
       beforeEnter: 'currentGroup/select',
+      fullScreen: true,
     },
     components: {
       default: GroupMap,
+      sidenav: ShinyNewSidenav,
     },
   },
   {
@@ -396,6 +404,7 @@ export default [
     },
     components: {
       default: Settings,
+      sidenav: ShinyNewSidenav,
     },
   },
   {
@@ -411,6 +420,7 @@ export default [
     },
     components: {
       default: User,
+      sidenav: ShinyNewSidenav,
     },
   },
   {

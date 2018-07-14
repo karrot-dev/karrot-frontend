@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div
+    class="container"
+    :style="containerStyle"
+  >
     <StandardMap
       :markers="markers"
       :selected-markers="selectedMarkers"
@@ -101,6 +104,7 @@ export default {
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
     controls: { type: String, default: 'none' },
+    height: { type: Number, default: null },
   },
   methods: {
     mapMoveEnd (target) {
@@ -120,6 +124,12 @@ export default {
     center () {
       const { latitude: lat, longitude: lng } = this.currentGroup
       if (lat && lng) return { lat, lng }
+    },
+    containerStyle () {
+      if (this.height) {
+        return { height: `${this.height}px` }
+      }
+      return {}
     },
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card flat>
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"

@@ -5,6 +5,7 @@
     style="max-height: none"
   >
     <div class="wrapper">
+      <!--
       <div class="notices">
         <div v-if="joinedPickups.length > 0">
           <JoinedPickups
@@ -26,6 +27,7 @@
           :feedback-possible="feedbackPossible"
         />
       </div>
+      -->
       <Conversation
         :data="conversation"
         :user="user"

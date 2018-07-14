@@ -40,24 +40,14 @@
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
         <q-layout-drawer
-          v-if="!$q.platform.is.mobile"
+          v-if="isLoggedIn"
           side="left"
-          :breakpoint="0"
-          :value="true"
+          :breakpoint="$q.platform.is.mobile ? 9999 : 0"
+          :value="!fullScreen && (!$q.platform.is.mobile || showSidenav)"
           :overlay="false"
+          @click.native="toggleSidenav"
         >
-          <router-view
-            class="sidenav-desktop"
-            name="sidenav"
-          />
-        </q-layout-drawer>
-        <q-layout-drawer
-          v-if="$q.platform.is.mobile && isLoggedIn"
-          side="left"
-          v-model="showSidenav"
-          :breakpoint="defaultShowSidenavWidth"
-        >
-          <MobileSidenav @toggleSidenav="toggleSidenav" />
+          <router-view name="sidenav" />
         </q-layout-drawer>
         <q-page-container>
           <Banners />
@@ -79,10 +69,12 @@
           <Detail @close="clearDetail"/>
         </q-layout-drawer>
         <q-layout-footer>
+          <!--
           <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
             <MobileNavigation v-if="isLoggedIn" />
             <UnsupportedBrowserWarning />
           </template>
+          -->
           <KFooter v-if="!$q.platform.is.mobile" />
         </q-layout-footer>
         <q-window-resize-observable @resize="onResize" />
@@ -102,7 +94,7 @@ import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import Detail from '@/components/General/Detail'
 import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
   components: {
@@ -132,6 +124,9 @@ export default {
       routeError: 'routeError/status',
       showSidenavRight: 'detail/isActive',
     }),
+    ...mapState({
+      fullScreen: state => state.route.meta.fullScreen,
+    }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
@@ -149,12 +144,6 @@ export default {
 @import '~variables'
 .mainContent-page
   width 100%
-.sidenav-desktop
-  width 30%
-  min-width 250px
-  max-width 30em
-  margin-left auto
-  margin-right .4em
 body.desktop .mainContent
   max-width 1500px
   margin auto
@@ -164,8 +153,8 @@ body.desktop .mainContent
     margin-bottom 4.5em
     margin-left 1em
     margin-top 1em
-    /*margin-left auto*/
-    /*margin-right auto*/
+    margin-left auto
+    margin-right auto
 .background
   background-image url('../assets/repeating_grey.jpg')
   background-size: 600px

@@ -1,7 +1,18 @@
 <template>
   <div>
-    <q-card>
+    <q-card class="shadow-6">
       <div>
+        <div v-if="value">
+          <q-card-title
+            class="q-ma-md"
+            :class="value.isPlayground ? 'text-secondary' : ''"
+          >
+            <span class="row group items-start">
+              {{ "Become a member of " + value.name }}
+            </span>
+          </q-card-title>
+        </div>
+
         <form>
           <q-field
             icon="fas fa-fw fa-question"
@@ -17,7 +28,6 @@
               />
             </MarkdownInput>
           </q-field>
-
           <div class="actionButtons">
             <q-btn
               type="button"

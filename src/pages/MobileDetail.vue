@@ -15,5 +15,4 @@ export default {
 <style scoped lang="stylus">
 .MobileDetail
   margin-top 50px
-  margin-bottom 70px
 </style>

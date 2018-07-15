@@ -4647,7 +4647,13 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
     <div class="q-card no-shadow grey-border">
       <div class="q-card-main q-card-container generic-padding">
         <div class="row no-wrap">
-          <!---->
+          <div class="container amount-box" style="width:80px;height:80px;">
+            <img width="80px" height="80px" src="test-file-stub">
+            <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
+          </div>
           <div class="content">
             <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
               <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
@@ -4927,7 +4933,13 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         <div class="q-card no-shadow grey-border">
           <div class="q-card-main q-card-container generic-padding">
             <div class="row no-wrap">
-              <!---->
+              <div class="container amount-box" style="width:80px;height:80px;">
+                <img width="80px" height="80px" src="test-file-stub">
+                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
+              </div>
               <div class="content">
                 <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
                   <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>

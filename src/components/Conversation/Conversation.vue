@@ -7,7 +7,7 @@
       :handler="loadMore"
     >
       <q-list
-        class="bg-white desktop-margin"
+        class="bg-white desktop-margin relative-position"
       >
         <template v-if="hasLoaded">
           <NotificationToggle
@@ -21,6 +21,7 @@
             @submit="$emit('send', { id: data.id, content: arguments[0] })"
             :placeholder="messagePrompt"
             :user="user"
+            :slim="$q.platform.is.mobile"
           />
           <q-alert
             v-if="data.unreadMessageCount > 0"
@@ -126,7 +127,8 @@ export default {
 
 <style scoped lang="stylus">
 .actionButton
-  float right
-  margin-top -25px
-  margin-right 5px
+  z-index 1
+  position absolute
+  top -24px
+  right 6px
 </style>

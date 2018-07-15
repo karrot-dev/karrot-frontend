@@ -10,11 +10,15 @@
       <ProfilePicture
         :user="message.author"
         :size="40"
+        style="margin-top: 6px"
       />
     </q-item-side>
     <q-item-main>
-      <q-item-tile class="row no-wrap justify-between items-center">
-        <div class="no-wrap">
+      <q-item-tile class="row no-wrap justify-between">
+        <div
+          class="no-wrap"
+          style="margin-top: 4px"
+        >
           <router-link :to="{ name: 'user', params: { userId: message.author.id } }">
             <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
           </router-link>
@@ -176,42 +180,4 @@ $lighterGreen = #F0FFF0
   position relative
   top -1.5px
   margin-left 2px
-</style>
-
-<style lang="stylus">
-// needs to be unscoped because it matches inside rendered markdown
-.conversation-message .parsed
-  overflow-wrap break-word
-  p
-    margin-bottom 0.5rem
-  h1
-    font-size 1.6em
-  h2
-    font-size 1.3em
-  h3
-    font-size 1.2em
-  h4
-    font-size 1.1em
-  h5, h6
-    font-size 1em
-  pre
-    font-size 0.8em
-    padding 3px
-    background-color #ededed
-    margin-top 0.5rem
-    margin-bottom 0.5rem
-    overflow-x auto
-    overflow-wrap normal
-    display block
-  p > code
-    font-size 0.8em
-    padding-left 3px
-    padding-right 3px
-    background-color #ededed
-    overflow-x auto
-    overflow-wrap normal
-    display block
-  img:not(.emoji)
-    max-height 150px
-    max-width 300px
 </style>

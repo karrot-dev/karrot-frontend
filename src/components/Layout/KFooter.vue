@@ -32,9 +32,9 @@
         <i class="fas fa-fw fa-globe" />
         {{ $t('GLOBAL.FSWW_NOTE') }}
       </a>
-      <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-        <i class="fab fa-fw fa-facebook" />
-        {{ $t('GLOBAL.FACEBOOK_NOTE') }}
+      <a href="https://community.foodsaving.world/">
+        <i class="fab fa-fw fa-discourse" />
+        {{ $t('GLOBAL.COMMUNITY_NOTE') }}
       </a>
       <a href="mail:karrot@foodsaving.world">
         <i class="fas fa-fw fa-envelope"/>

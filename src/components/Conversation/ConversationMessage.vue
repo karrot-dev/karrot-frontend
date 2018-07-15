@@ -49,10 +49,9 @@
           />
         </div>
       </q-item-tile>
-      <Markdown
-        :source="message.content"
-        class="content"
-      />
+      <div class="content">
+        <Markdown :source="message.content" />
+      </div>
       <div
         v-if="message.isEdited"
         style="margin-top: -5px; opacity: .5"

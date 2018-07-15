@@ -9,22 +9,29 @@ export default {
       type: String,
     },
   },
-  render (h, { props: { inline, source } }) {
+  render (h, { props, data }) {
+    if (data.style || data.class || data.staticClass) {
+      throw new Error('Markdown component does not support style or class attributes')
+    }
     return h('div', {
-      class: { parsed: true },
-      domProps: { innerHTML: markdown.render(source) },
+      class: {
+        markdown: true,
+      },
+      domProps: {
+        innerHTML: markdown.render(props.source),
+      },
     })
   },
 }
 </script>
 
-<style lang="stylus">
-// TODO if you can make this work with scoped CSS, you get a (saved) cookie!
-.parsed img.emoji
-   height: 1em
-   width: 1em
-   margin: 0 .05em 0 .1em
-   vertical-align: -0.1em
-.parsed a
-  text-decoration underline
+<style scoped lang="stylus">
+.markdown
+  >>> img.emoji
+    height: 1em
+    width: 1em
+    margin: 0 .05em 0 .1em
+    vertical-align: -0.1em
+  >>> a
+    text-decoration underline
 </style>

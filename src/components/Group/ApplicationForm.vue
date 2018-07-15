@@ -17,17 +17,19 @@
           <q-field
             icon="fas fa-fw fa-question"
             :label="value.applicationQuestionsText"
+          />
+          <MarkdownInput
+            :value="edit.applicationAnswers"
+            class="q-ma-md"
           >
-            <MarkdownInput :value="edit.applicationAnswers">
-              <q-input
-                id="group-title"
-                v-model="edit.applicationAnswers"
-                type="textarea"
-                :min-rows="3"
-                @keyup.ctrl.enter="maybeSave"
-              />
-            </MarkdownInput>
-          </q-field>
+            <q-input
+              id="group-title"
+              v-model="edit.applicationAnswers"
+              type="textarea"
+              :min-rows="3"
+              @keyup.ctrl.enter="maybeSave"
+            />
+          </MarkdownInput>
           <div class="actionButtons">
             <q-btn
               type="button"
